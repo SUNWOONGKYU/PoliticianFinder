@@ -2,8 +2,8 @@
 
 **프로젝트명**: 13DGC-AODM (13-Dimensional Grid-Controlled AI-Only Development Management)
 **목적**: AI-Only 방법론으로 정치인 역량 평가 시스템 개발
-**버전**: v2.0 (Supabase 기반)
-**최종 업데이트**: 2025-10-16
+**버전**: v2.1 (재실행 상태 시스템 추가)
+**최종 업데이트**: 2025-10-19 03:23
 
 **협력 AI 전략**: 60% Claude / 20% Gemini / 20% ChatGPT
 
@@ -24,12 +24,13 @@
 ## 📊 프로젝트 그리드 (Project Grid) 사용법
 
 ### CSV 파일 (메인 에이전트용)
-- **파일**: `project_grid_v2.0_supabase.csv`
+- **파일**: `project_grid_v2.1_supabase.csv`
 - **용도**: 메인 에이전트 (Claude Code)가 직접 읽기/쓰기
 - **형식**: CSV (UTF-8)
+- **현재 버전**: v2.1 (2025-10-19 03:23)
 
 ### Excel 파일 (사용자 확인용)
-- **파일**: `project_grid_v2.0_supabase.xlsx`
+- **파일**: `project_grid_v2.1_supabase.xlsx`
 - **용도**: 사용자가 보기 편하게 색상/서식 적용된 파일
 - **색상 규칙**:
   - 🟨 **작업ID, 업무** 행: 노란색 배경
@@ -54,6 +55,34 @@ run_sync.bat
 - **13개 차원**: 1 (X-axis: 8 Phases) + 1 (Y-axis: 영역) + 11 (속성)
 - **영역**: Frontend, Backend, Database, RLS Policies, Authentication, Test & QA, DevOps & Infra, Security
 - **11개 속성**: 작업ID, 업무, 작업지시서, 담당AI, 진도, 상태, 테스트/검토, 자동화방식, 의존작업, 블로커, 비고
+
+### 작업 상태 표시 규칙
+
+#### 일반 상태
+- **대기**: 작업 시작 전
+- **완료 (날짜)**: 작업 완료 (예: "완료 (2025-10-16 14:30)")
+- **블록됨**: 의존작업 미완료로 대기
+
+#### 재실행 상태 (그리드 보완 시)
+기획 문서와 그리드 간 불일치 발견 시, 누락된 작업을 원래 Phase에 추가하고 관련 작업들을 재실행 상태로 변경합니다.
+
+**재실행 표시 방법**:
+```csv
+진도: 100% → 0%
+상태: 완료 (날짜) → 재실행
+테스트/검토: 통과 → 미통과
+```
+
+**재실행이 필요한 이유**:
+- 누락된 기능이 Phase에 추가되면, 해당 Phase의 기존 작업들도 새 기능과 통합되어야 함
+- 예: Phase 2에 게시판 기능 추가 → Phase 2의 모든 완료 작업을 재실행하여 게시판과 통합
+
+**재실행 워크플로우**:
+1. 기획 문서와 그리드 정합성 검증
+2. 누락된 작업 발견 → 원래 Phase에 추가
+3. 해당 Phase의 모든 완료 작업을 "재실행" 상태로 변경
+4. 의존성 체인 확인 (다른 Phase 영향 여부)
+5. 재실행 작업부터 순차 실행
 
 ---
 
@@ -215,13 +244,14 @@ run_sync.bat
 
 **프로젝트**: PoliticianFinder
 **위치**: `G:\내 드라이브\Developement\PoliticianFinder\13DGC-AODM_Grid\`
-**상태**: Phase 1 완료 (2025-10-16), Phase 2 진행 예정
+**상태**: Phase 1 완료 (2025-10-16), Phase 2 재실행 중 (2025-10-19)
 
 ### 핵심 문서
 - **`13DGC-AODM 방법론.md`**: 전체 방법론 설명서
-- **`project_grid_v2.0_supabase.csv`**: 프로젝트 그리드 (CSV)
-- **`project_grid_v2.0_supabase.xlsx`**: 프로젝트 그리드 (Excel, 확인용)
-- **`GRID_FORMAT_RESTORATION.md`**: 그리드 복원 기록
+- **`project_grid_v2.1_supabase.csv`**: 프로젝트 그리드 (CSV, 현재 버전)
+- **`project_grid_v2.1_supabase.xlsx`**: 프로젝트 그리드 (Excel, 확인용)
+- **`VERSION_HISTORY_v2.1.md`**: 버전 히스토리 (v2.1 변경사항)
+- **`GRID_FORMAT_RESTORATION.md`**: 그리드 복원 기록 (v2.0)
 
 ### 자동화 스크립트
 - **`csv_to_excel.py`**: CSV → Excel 변환
@@ -230,7 +260,8 @@ run_sync.bat
 
 ---
 
-**작성일**: 2025-10-16
+**작성일**: 2025-10-19 03:23
+**버전**: v2.1 (재실행 상태 시스템 추가)
 **방법론**: 13DGC-AODM v1.1
 **협력 AI**: Claude 60% / Gemini 20% / ChatGPT 20%
 **라이선스**: Private (비공개)
