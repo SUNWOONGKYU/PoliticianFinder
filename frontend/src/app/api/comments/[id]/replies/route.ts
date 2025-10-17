@@ -8,7 +8,6 @@
 
 import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase/server'
-import { createNotification } from '../../notifications/route'
 import type {
   CreateReplyRequest,
   Comment,
@@ -156,21 +155,6 @@ export async function POST(
       .single()
 
     // 부모 댓글 작성자에게 알림 발송 (본인 제외)
-    if (parentComment.user_id !== user.id) {
-      await createNotification(supabase, {
-        user_id: parentComment.user_id,
-        type: 'reply' as NotificationType,
-        title: '새로운 답글',
-        message: `${username}님이 ${politician?.name || '정치인'} 페이지에서 회원님의 댓글에 답글을 남겼습니다.`,
-        link: `/politicians/${politician_id}#comment-${newReply.id}`,
-        metadata: {
-          reply_id: newReply.id,
-          parent_comment_id: parentId,
-          politician_id
-        },
-        sender_id: user.id
-      })
-    }
 
     return NextResponse.json(
       {
