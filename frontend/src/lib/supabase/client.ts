@@ -25,5 +25,8 @@ export const supabase = createClient<Database>(supabaseUrl, supabaseAnonKey, {
   }
 })
 
+// Export createClient for components that need to create their own instance
+export { createClient }
+
 // Export types for convenience
 export type { Database }
