@@ -26,11 +26,10 @@ export default function Home() {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12" role="main">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
-            대한민국 정치인 정보를
-            <span className="text-blue-600"> 한 곳에서</span>
+            훌륭한 정치인을 찾아드립니다
           </h1>
           <p className="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
-            정치인 정보를 쉽고 빠르게 검색하고, 비교하고, 평가하세요.
+            AI 기반의 정치인 평가 플랫폼
           </p>
         </div>
 
@@ -197,7 +196,7 @@ export default function Home() {
       <footer className="bg-white border-t mt-12">
         <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
           <p className="text-center text-sm text-gray-500">
-            © 2024 정치인 찾기. All rights reserved.
+            © 2025 정치인 찾기. All rights reserved.
           </p>
         </div>
       </footer>

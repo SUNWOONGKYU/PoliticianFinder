@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { useAuthStore } from '@/store/authStore';
+import { supabase } from '@/lib/supabase';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -18,7 +18,8 @@ import {
 
 export default function SignupPage() {
   const router = useRouter();
-  const { signup, isLoading, error, clearError } = useAuthStore();
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const [formData, setFormData] = useState({
     email: '',
@@ -71,25 +72,46 @@ export default function SignupPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    clearError();
+    setError(null);
 
     if (!validateForm()) {
       return;
     }
 
+    setIsLoading(true);
+
     try {
-      await signup({
+      // Sign up with Supabase Auth
+      const { data, error: signUpError } = await supabase.auth.signUp({
         email: formData.email,
-        username: formData.username,
         password: formData.password,
-        full_name: formData.full_name || undefined,
+        options: {
+          data: {
+            username: formData.username,
+            full_name: formData.full_name || null,
+          },
+        },
       });
 
-      // On successful signup, redirect to home
-      router.push('/');
-    } catch (err) {
-      // Error is handled by the store
+      if (signUpError) {
+        throw signUpError;
+      }
+
+      // Check if email confirmation is required
+      if (data.user && !data.session) {
+        setError('회원가입이 완료되었습니다. 이메일을 확인하여 계정을 활성화해주세요.');
+        setTimeout(() => {
+          router.push('/login');
+        }, 3000);
+      } else {
+        // Auto-login successful
+        router.push('/');
+      }
+    } catch (err: any) {
       console.error('Signup failed:', err);
+      setError(err.message || '회원가입에 실패했습니다. 다시 시도해주세요.');
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -104,6 +126,11 @@ export default function SignupPage() {
         delete newErrors[name];
         return newErrors;
       });
+    }
+
+    // Clear general error
+    if (error) {
+      setError(null);
     }
   };
 
