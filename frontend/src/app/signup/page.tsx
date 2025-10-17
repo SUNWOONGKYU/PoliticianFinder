@@ -51,11 +51,11 @@ export default function SignupPage() {
 
     // Password validation
     if (!formData.password) {
-      errors.password = 'Password is required';
+      errors.password = '비밀번호를 입력하세요';
     } else if (formData.password.length < 8) {
-      errors.password = 'Password must be at least 8 characters';
-    } else if (!/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=\[\]{}|;:,.<>?])/.test(formData.password)) {
-      errors.password = 'Password must include uppercase, lowercase, number, and special character';
+      errors.password = '비밀번호는 최소 8자 이상이어야 합니다';
+    } else if (!/(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=\[\]{}|;:,.<>?])/.test(formData.password)) {
+      errors.password = '비밀번호는 영문, 숫자, 특수문자를 포함해야 합니다';
     }
 
     // Confirm password validation
@@ -187,7 +187,7 @@ export default function SignupPage() {
                 <p className="text-sm text-red-600">{validationErrors.password}</p>
               )}
               <p className="text-xs text-gray-500">
-                최소 8자, 대소문자, 숫자, 특수문자 포함
+                최소 8자, 영문, 숫자, 특수문자 포함
               </p>
             </div>
 
