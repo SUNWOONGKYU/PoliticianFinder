@@ -5,7 +5,7 @@
  * in Next.js API routes and server components.
  */
 
-import { createClient } from '@supabase/supabase-js'
+import { createClient as createSupabaseClient } from '@supabase/supabase-js'
 import type { Database } from '@/types/supabase.types'
 
 // Environment variables validation
@@ -17,7 +17,7 @@ if (!supabaseUrl || !supabaseAnonKey) {
 }
 
 // Create a single Supabase client for server-side operations
-export const supabase = createClient<Database>(supabaseUrl, supabaseAnonKey, {
+export const supabase = createSupabaseClient<Database>(supabaseUrl, supabaseAnonKey, {
   auth: {
     autoRefreshToken: false,
     persistSession: false,
@@ -25,8 +25,16 @@ export const supabase = createClient<Database>(supabaseUrl, supabaseAnonKey, {
   }
 })
 
-// Export createClient for components that need to create their own instance
-export { createClient }
+// Export createClient function for API routes that need to create their own instance
+export function createClient() {
+  return createSupabaseClient<Database>(supabaseUrl, supabaseAnonKey, {
+    auth: {
+      autoRefreshToken: false,
+      persistSession: false,
+      detectSessionInUrl: false
+    }
+  })
+}
 
 // Export types for convenience
 export type { Database }
