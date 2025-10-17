@@ -30,18 +30,10 @@ const nextConfig: NextConfig = {
   // Compress output
   compress: true,
 
-  // Enable SWC minification for better performance
-  swcMinify: true,
-
-  // Optimize fonts
-  optimizeFonts: true,
-
   // Experimental features for performance
   experimental: {
     // Enable optimized package imports
     optimizePackageImports: ['lucide-react', '@radix-ui/react-icons'],
-    // Enable PPR for better performance
-    ppr: 'incremental',
   },
 
   // Generate static params for better performance
