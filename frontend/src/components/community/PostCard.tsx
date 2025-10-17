@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { formatDistanceToNow } from 'date-fns';
-import { ko } from 'date-fns/locale';
+import { ko } from 'date-fns/locale/ko';
 import { Eye, Heart, MessageCircle, Flame, Pin, User } from 'lucide-react';
 import type { Post } from '@/types/post';
 
