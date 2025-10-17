@@ -1,0 +1,206 @@
+'use client'
+
+import { Header } from '@/components/Header'
+import Link from 'next/link'
+import { useAuth } from '@/contexts/AuthContext'
+import { useState } from 'react'
+import { useRouter } from 'next/navigation'
+
+export default function Home() {
+  const { isAuthenticated, user } = useAuth()
+  const [searchQuery, setSearchQuery] = useState('')
+  const router = useRouter()
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (searchQuery.trim()) {
+      router.push(`/search?q=${encodeURIComponent(searchQuery)}`)
+    }
+  }
+
+  return (
+    <div className="min-h-screen bg-gray-50">
+      <Header />
+
+      {/* Hero Section */}
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12" role="main">
+        <div className="text-center mb-12">
+          <h1 className="text-4xl font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
+            대한민국 정치인 정보를
+            <span className="text-blue-600"> 한 곳에서</span>
+          </h1>
+          <p className="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
+            정치인 정보를 쉽고 빠르게 검색하고, 비교하고, 평가하세요.
+          </p>
+        </div>
+
+        {/* Search Bar */}
+        <div className="max-w-3xl mx-auto mb-12">
+          <form onSubmit={handleSearch} className="relative" role="search" aria-label="정치인 검색">
+            <label htmlFor="search-input" className="sr-only">정치인 검색</label>
+            <input
+              id="search-input"
+              type="search"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="정치인 이름, 정당, 지역으로 검색하세요..."
+              className="w-full px-4 py-4 pr-12 text-gray-900 placeholder-gray-500 bg-white border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              aria-label="정치인 검색 입력"
+            />
+            <button
+              type="submit"
+              className="absolute right-2 top-2 bottom-2 px-4 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+              aria-label="검색하기"
+            >
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                />
+              </svg>
+            </button>
+          </form>
+        </div>
+
+        {/* Feature Cards */}
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-3 mb-12">
+          <div className="bg-white rounded-lg shadow-md p-6">
+            <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+              <svg
+                className="w-6 h-6 text-blue-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                />
+              </svg>
+            </div>
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">빠른 검색</h3>
+            <p className="text-gray-600">
+              이름, 정당, 지역 등 다양한 조건으로 정치인을 쉽게 찾아보세요.
+            </p>
+          </div>
+
+          <div className="bg-white rounded-lg shadow-md p-6">
+            <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+              <svg
+                className="w-6 h-6 text-green-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                />
+              </svg>
+            </div>
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">상세 정보</h3>
+            <p className="text-gray-600">
+              경력, 학력, 공약, 의정 활동 등 상세한 정보를 확인하세요.
+            </p>
+          </div>
+
+          <div className="bg-white rounded-lg shadow-md p-6">
+            <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+              <svg
+                className="w-6 h-6 text-purple-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
+                />
+              </svg>
+            </div>
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">평가 및 리뷰</h3>
+            <p className="text-gray-600">
+              {isAuthenticated
+                ? '다른 사용자들의 평가를 보고 직접 평가를 남겨보세요.'
+                : '로그인하면 정치인 평가를 남길 수 있습니다.'}
+            </p>
+          </div>
+        </div>
+
+        {/* CTA Section */}
+        {!isAuthenticated && (
+          <div className="bg-blue-600 rounded-lg shadow-xl p-8 text-center">
+            <h2 className="text-2xl font-bold text-white mb-4">
+              더 많은 기능을 이용하세요!
+            </h2>
+            <p className="text-blue-100 mb-6">
+              로그인하면 정치인 평가, 관심 정치인 저장 등 더 많은 기능을 사용할 수 있습니다.
+            </p>
+            <div className="flex justify-center space-x-4">
+              <Link
+                href="/login"
+                className="px-6 py-3 bg-white text-blue-600 font-medium rounded-md hover:bg-gray-100 transition-colors"
+              >
+                로그인
+              </Link>
+              <Link
+                href="/signup"
+                className="px-6 py-3 bg-blue-500 text-white font-medium rounded-md hover:bg-blue-400 transition-colors"
+              >
+                회원가입
+              </Link>
+            </div>
+          </div>
+        )}
+
+        {/* User Welcome */}
+        {isAuthenticated && user && (
+          <div className="bg-white rounded-lg shadow-md p-6 text-center">
+            <h2 className="text-xl font-semibold text-gray-900 mb-2">
+              환영합니다, {user.user_metadata?.name || user.email?.split('@')[0]}님!
+            </h2>
+            <p className="text-gray-600 mb-4">
+              이제 모든 기능을 이용하실 수 있습니다.
+            </p>
+            <div className="flex justify-center space-x-4">
+              <Link
+                href="/politicians"
+                className="px-4 py-2 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 transition-colors"
+              >
+                정치인 목록 보기
+              </Link>
+              <Link
+                href="/profile"
+                className="px-4 py-2 bg-gray-200 text-gray-700 font-medium rounded-md hover:bg-gray-300 transition-colors"
+              >
+                내 프로필
+              </Link>
+            </div>
+          </div>
+        )}
+      </main>
+
+      {/* Footer */}
+      <footer className="bg-white border-t mt-12">
+        <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+          <p className="text-center text-sm text-gray-500">
+            © 2024 정치인 찾기. All rights reserved.
+          </p>
+        </div>
+      </footer>
+    </div>
+  );
+}

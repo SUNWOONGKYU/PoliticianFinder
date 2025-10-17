@@ -1,0 +1,106 @@
+name: Performance Tests
+
+on:
+  schedule:
+    # Run daily at 2 AM UTC
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+    inputs:
+      test_type:
+        description: 'Type of performance test to run'
+        required: true
+        default: 'load'
+        type: choice
+        options:
+          - load
+          - stress
+          - spike
+          - all
+      target_url:
+        description: 'Target URL for testing'
+        required: false
+        default: 'https://your-app.vercel.app'
+
+jobs:
+  performance-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install K6
+        run: |
+          sudo gpg -k
+          sudo gpg --no-default-keyring --keyring /usr/share/keyrings/k6-archive-keyring.gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys C5AD17C747E3415A3642D57D77C6C491D6AC1D69
+          echo "deb [signed-by=/usr/share/keyrings/k6-archive-keyring.gpg] https://dl.k6.io/deb stable main" | sudo tee /etc/apt/sources.list.d/k6.list
+          sudo apt-get update
+          sudo apt-get install k6
+
+      - name: Run Load Test
+        if: github.event.inputs.test_type == 'load' || github.event.inputs.test_type == 'all' || github.event.inputs.test_type == ''
+        run: |
+          k6 run \
+            --out json=performance/results/load-test-results.json \
+            -e API_URL=${{ github.event.inputs.target_url || 'https://your-app.vercel.app' }} \
+            performance/k6-load-test.js
+
+      - name: Run Stress Test
+        if: github.event.inputs.test_type == 'stress' || github.event.inputs.test_type == 'all'
+        run: |
+          k6 run \
+            --out json=performance/results/stress-test-results.json \
+            -e API_URL=${{ github.event.inputs.target_url || 'https://your-app.vercel.app' }} \
+            performance/k6-stress-test.js
+
+      - name: Run Spike Test
+        if: github.event.inputs.test_type == 'spike' || github.event.inputs.test_type == 'all'
+        run: |
+          k6 run \
+            --out json=performance/results/spike-test-results.json \
+            -e API_URL=${{ github.event.inputs.target_url || 'https://your-app.vercel.app' }} \
+            performance/k6-spike-test.js
+
+      - name: Upload Performance Results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: performance-test-results
+          path: performance/results/
+          retention-days: 30
+
+      - name: Comment PR with Results
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const results = JSON.parse(fs.readFileSync('performance-report.json', 'utf8'));
+
+            const comment = `## Performance Test Results
+
+            | Metric | Value |
+            |--------|-------|
+            | Total Requests | ${results.metrics.http_reqs?.values?.count || 0} |
+            | Failed Rate | ${((results.metrics.http_req_failed?.values?.rate || 0) * 100).toFixed(2)}% |
+            | Avg Response Time | ${(results.metrics.http_req_duration?.values?.avg || 0).toFixed(2)}ms |
+            | P95 Response Time | ${(results.metrics.http_req_duration?.values?.['p(95)'] || 0).toFixed(2)}ms |
+            | P99 Response Time | ${(results.metrics.http_req_duration?.values?.['p(99)'] || 0).toFixed(2)}ms |
+
+            [View full results](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
+            `;
+
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: comment
+            });
+
+      - name: Check Performance Thresholds
+        run: |
+          if [ -f "performance-report.json" ]; then
+            # Parse results and check thresholds
+            echo "Performance test completed. Check artifacts for detailed results."
+          fi

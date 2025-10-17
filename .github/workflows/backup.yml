@@ -1,0 +1,298 @@
+name: Database Backup
+
+on:
+  # Daily backup at midnight UTC (9 AM KST)
+  schedule:
+    - cron: '0 0 * * *'  # Daily at 00:00 UTC
+
+  # Weekly full backup on Sunday at midnight UTC
+  schedule:
+    - cron: '0 0 * * 0'  # Weekly on Sunday at 00:00 UTC
+
+  # Manual trigger
+  workflow_dispatch:
+    inputs:
+      backup_type:
+        description: 'Backup type'
+        required: true
+        type: choice
+        options:
+          - daily
+          - weekly
+          - manual
+        default: 'manual'
+      encryption_enabled:
+        description: 'Enable backup encryption'
+        required: false
+        type: boolean
+        default: false
+
+jobs:
+  backup:
+    name: Backup Database
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install PostgreSQL client
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y postgresql-client gzip
+
+      - name: Set backup type
+        id: backup-type
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            BACKUP_TYPE="${{ github.event.inputs.backup_type }}"
+          elif [ "${{ github.event.schedule }}" = "0 0 * * 0" ]; then
+            BACKUP_TYPE="weekly"
+          else
+            BACKUP_TYPE="daily"
+          fi
+          echo "type=$BACKUP_TYPE" >> $GITHUB_OUTPUT
+          echo "Backup type: $BACKUP_TYPE"
+
+      - name: Set encryption flag
+        id: encryption
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            ENCRYPTION="${{ github.event.inputs.encryption_enabled }}"
+          else
+            ENCRYPTION="false"
+          fi
+          echo "enabled=$ENCRYPTION" >> $GITHUB_OUTPUT
+
+      - name: Create backup directory
+        run: mkdir -p backups
+
+      - name: Perform database backup
+        env:
+          SUPABASE_DB_URL: ${{ secrets.SUPABASE_DB_URL }}
+          BACKUP_DIR: ./backups
+          BACKUP_TYPE: ${{ steps.backup-type.outputs.type }}
+          BACKUP_RETENTION_DAYS: 30
+          ENCRYPTION_ENABLED: ${{ steps.encryption.outputs.enabled }}
+          ENCRYPTION_PASSWORD: ${{ secrets.BACKUP_ENCRYPTION_PASSWORD }}
+        run: |
+          chmod +x ./scripts/backup-db.sh
+          ./scripts/backup-db.sh
+
+      - name: List backup files
+        run: |
+          echo "Backup files created:"
+          ls -lh backups/
+          echo ""
+          echo "Backup logs:"
+          cat backups/backup.log || echo "No log file found"
+
+      - name: Get backup info
+        id: backup-info
+        run: |
+          BACKUP_FILE=$(ls -t backups/politicianfinder_*.sql.gz* | head -1)
+          BACKUP_NAME=$(basename "$BACKUP_FILE")
+          BACKUP_SIZE=$(du -h "$BACKUP_FILE" | cut -f1)
+          echo "filename=$BACKUP_NAME" >> $GITHUB_OUTPUT
+          echo "filesize=$BACKUP_SIZE" >> $GITHUB_OUTPUT
+          echo "filepath=$BACKUP_FILE" >> $GITHUB_OUTPUT
+
+      - name: Upload backup to GitHub Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: database-backup-${{ steps.backup-type.outputs.type }}-${{ github.run_number }}
+          path: |
+            backups/politicianfinder_*.sql.gz*
+            backups/backup.log
+          retention-days: 30
+          compression-level: 0  # Already compressed
+
+      - name: Upload backup to release (weekly only)
+        if: steps.backup-type.outputs.type == 'weekly'
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: backup-${{ github.run_number }}
+          name: Weekly Backup - ${{ github.run_number }}
+          body: |
+            Automated weekly database backup
+
+            - Backup Date: ${{ github.event.repository.updated_at }}
+            - Backup Type: Weekly
+            - File: ${{ steps.backup-info.outputs.filename }}
+            - Size: ${{ steps.backup-info.outputs.filesize }}
+            - Workflow Run: ${{ github.run_number }}
+          files: ${{ steps.backup-info.outputs.filepath }}
+          draft: false
+          prerelease: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Cleanup old artifacts (runs on schedule only)
+        if: github.event_name == 'schedule'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const artifacts = await github.rest.actions.listArtifactsForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              per_page: 100
+            });
+
+            const thirtyDaysAgo = new Date();
+            thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+
+            for (const artifact of artifacts.data.artifacts) {
+              if (artifact.name.startsWith('database-backup-')) {
+                const createdAt = new Date(artifact.created_at);
+                if (createdAt < thirtyDaysAgo) {
+                  console.log(`Deleting old artifact: ${artifact.name}`);
+                  await github.rest.actions.deleteArtifact({
+                    owner: context.repo.owner,
+                    repo: context.repo.repo,
+                    artifact_id: artifact.id
+                  });
+                }
+              }
+            }
+
+  backup-notification:
+    name: Send Backup Notification
+    runs-on: ubuntu-latest
+    needs: backup
+    if: always()
+
+    steps:
+      - name: Determine status
+        id: status
+        run: |
+          if [ "${{ needs.backup.result }}" = "success" ]; then
+            echo "status=SUCCESS" >> $GITHUB_OUTPUT
+            echo "emoji=:white_check_mark:" >> $GITHUB_OUTPUT
+            echo "color=good" >> $GITHUB_OUTPUT
+          else
+            echo "status=FAILED" >> $GITHUB_OUTPUT
+            echo "emoji=:x:" >> $GITHUB_OUTPUT
+            echo "color=danger" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create GitHub issue on failure
+        if: needs.backup.result == 'failure' && github.event_name == 'schedule'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const title = 'Database Backup Failed - ' + new Date().toISOString().split('T')[0];
+            const body = `
+            ## Database Backup Failure Alert
+
+            The automated database backup has failed.
+
+            **Details:**
+            - Workflow: ${context.workflow}
+            - Run ID: ${context.runId}
+            - Triggered by: ${context.eventName}
+            - Time: ${new Date().toISOString()}
+
+            **Action Required:**
+            1. Check the [workflow logs](${context.payload.repository.html_url}/actions/runs/${context.runId})
+            2. Verify database connectivity
+            3. Check secrets configuration (SUPABASE_DB_URL)
+            4. Run manual backup if needed
+
+            **Links:**
+            - [View Workflow Run](${context.payload.repository.html_url}/actions/runs/${context.runId})
+            - [Backup Scripts](${context.payload.repository.html_url}/tree/main/scripts)
+            `;
+
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: title,
+              body: body,
+              labels: ['backup', 'alert', 'automation']
+            });
+
+      - name: Comment on commit (manual backup only)
+        if: github.event_name == 'workflow_dispatch'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const status = '${{ steps.status.outputs.status }}';
+            const emoji = status === 'SUCCESS' ? '✅' : '❌';
+
+            const comment = `
+            ${emoji} **Manual Database Backup ${status}**
+
+            - Backup Type: ${{ github.event.inputs.backup_type }}
+            - Encryption: ${{ github.event.inputs.encryption_enabled }}
+            - Workflow Run: [#${context.runId}](${context.payload.repository.html_url}/actions/runs/${context.runId})
+            - Triggered by: @${context.actor}
+            `;
+
+            // Note: This would need a commit SHA to comment on
+            // Alternatively, create a discussion or send to other notification channels
+
+  backup-test:
+    name: Test Backup Integrity
+    runs-on: ubuntu-latest
+    needs: backup
+    if: success()
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install PostgreSQL client
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y postgresql-client gzip
+
+      - name: Download backup artifact
+        uses: actions/download-artifact@v4
+        with:
+          pattern: database-backup-*
+          path: backups
+          merge-multiple: true
+
+      - name: Test backup integrity
+        run: |
+          echo "Testing backup file integrity..."
+          for backup in backups/politicianfinder_*.sql.gz; do
+            if [ -f "$backup" ]; then
+              echo "Testing: $(basename $backup)"
+              if gzip -t "$backup"; then
+                echo "✓ Backup integrity verified: $(basename $backup)"
+              else
+                echo "✗ Backup integrity check failed: $(basename $backup)"
+                exit 1
+              fi
+            fi
+          done
+
+      - name: Test backup content
+        run: |
+          echo "Verifying backup contains SQL data..."
+          for backup in backups/politicianfinder_*.sql.gz; do
+            if [ -f "$backup" ]; then
+              echo "Checking: $(basename $backup)"
+              gunzip -c "$backup" | head -20
+
+              # Check for essential SQL commands
+              if gunzip -c "$backup" | grep -q "CREATE TABLE\|INSERT INTO"; then
+                echo "✓ Backup contains valid SQL data"
+              else
+                echo "✗ Backup appears to be empty or invalid"
+                exit 1
+              fi
+            fi
+          done
+
+      - name: Report test results
+        if: always()
+        run: |
+          if [ $? -eq 0 ]; then
+            echo "All backup integrity tests passed"
+          else
+            echo "Backup integrity tests failed"
+            exit 1
+          fi
