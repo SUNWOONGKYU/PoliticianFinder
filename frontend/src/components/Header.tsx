@@ -65,7 +65,7 @@ export function Header() {
                       loading="lazy"
                     />
                   ) : (
-                    <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white">
+                    <div className="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center text-white">
                       {user.email?.[0]?.toUpperCase() || 'U'}
                     </div>
                   )}

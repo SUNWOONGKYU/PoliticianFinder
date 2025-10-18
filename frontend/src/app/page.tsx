@@ -28,7 +28,7 @@ export default function Home() {
           <h1 className="text-4xl font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
             훌륭한 정치인을 찾아드립니다
           </h1>
-          <p className="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
+          <p className="mt-5 max-w-4xl mx-auto text-xl sm:text-2xl md:mt-8 md:text-3xl font-bold bg-gradient-to-r from-purple-600 via-violet-600 to-fuchsia-600 bg-clip-text text-transparent drop-shadow-sm">
             AI 기반의 정치인 평가 플랫폼
           </p>
         </div>
@@ -43,12 +43,12 @@ export default function Home() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="정치인 이름, 정당, 지역으로 검색하세요..."
-              className="w-full px-4 py-4 pr-12 text-gray-900 placeholder-gray-500 bg-white border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-4 py-4 pr-12 text-gray-900 placeholder-gray-500 bg-white border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
               aria-label="정치인 검색 입력"
             />
             <button
               type="submit"
-              className="absolute right-2 top-2 bottom-2 px-4 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+              className="absolute right-2 top-2 bottom-2 px-4 bg-purple-600 text-white rounded-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
               aria-label="검색하기"
             >
               <svg
@@ -68,12 +68,89 @@ export default function Home() {
           </form>
         </div>
 
+        {/* Hot Posts Section */}
+        <div className="mb-12">
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-2xl font-bold text-gray-900 flex items-center gap-2">
+              🔥 실시간 인기글
+            </h2>
+            <Link href="/community" className="text-purple-600 hover:text-purple-700 font-medium">
+              전체보기 →
+            </Link>
+          </div>
+          <div className="bg-white rounded-lg shadow-md overflow-hidden">
+            <div className="divide-y">
+              {[1, 2, 3, 4, 5].map((i) => (
+                <div key={i} className="p-4 hover:bg-gray-50 transition-colors cursor-pointer">
+                  <div className="flex items-start justify-between">
+                    <div className="flex-1">
+                      <div className="flex items-center gap-2 mb-1">
+                        <span className="text-purple-600 font-bold">#{i}</span>
+                        <span className="px-2 py-0.5 bg-red-100 text-red-700 text-xs rounded">HOT</span>
+                      </div>
+                      <h3 className="font-semibold text-gray-900 hover:text-purple-600 mb-1">
+                        인기 게시글 제목이 여기에 표시됩니다
+                      </h3>
+                      <div className="flex items-center gap-3 text-sm text-gray-500">
+                        <span>작성자</span>
+                        <span>•</span>
+                        <span>👁️ 1.2k</span>
+                        <span>💬 42</span>
+                        <span>⬆️ 156</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Politician Posts Section */}
+        <div className="mb-12">
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-2xl font-bold text-gray-900 flex items-center gap-2">
+              🏛️ 정치인이 직접 쓴 글
+            </h2>
+            <Link href="/community?category=politician_post" className="text-purple-600 hover:text-purple-700 font-medium">
+              전체보기 →
+            </Link>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {[1, 2, 3, 4].map((i) => (
+              <div key={i} className="bg-gradient-to-r from-purple-50 to-indigo-50 rounded-lg p-5 hover:shadow-md transition-shadow cursor-pointer border border-purple-100">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold">
+                    홍
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <span className="font-semibold text-gray-900">홍길동</span>
+                      <span className="px-2 py-0.5 bg-purple-600 text-white text-xs rounded">🏛️ 본인</span>
+                    </div>
+                    <span className="text-sm text-gray-600">서울 강남구 국회의원</span>
+                  </div>
+                </div>
+                <h3 className="font-semibold text-gray-900 mb-2">
+                  지역 현안에 대한 정치인의 입장문
+                </h3>
+                <div className="flex items-center gap-3 text-sm text-gray-500">
+                  <span>2시간 전</span>
+                  <span>•</span>
+                  <span>👁️ 856</span>
+                  <span>💬 23</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Feature Cards */}
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3 mb-12">
           <div className="bg-white rounded-lg shadow-md p-6">
-            <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+            <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
               <svg
-                className="w-6 h-6 text-blue-600"
+                className="w-6 h-6 text-purple-600"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -141,23 +218,23 @@ export default function Home() {
 
         {/* CTA Section */}
         {!isAuthenticated && (
-          <div className="bg-blue-600 rounded-lg shadow-xl p-8 text-center">
+          <div className="bg-purple-600 rounded-lg shadow-xl p-8 text-center">
             <h2 className="text-2xl font-bold text-white mb-4">
               더 많은 기능을 이용하세요!
             </h2>
-            <p className="text-blue-100 mb-6">
+            <p className="text-purple-100 mb-6">
               로그인하면 정치인 평가, 관심 정치인 저장 등 더 많은 기능을 사용할 수 있습니다.
             </p>
             <div className="flex justify-center space-x-4">
               <Link
                 href="/login"
-                className="px-6 py-3 bg-white text-blue-600 font-medium rounded-md hover:bg-gray-100 transition-colors"
+                className="px-6 py-3 bg-white text-purple-600 font-medium rounded-md hover:bg-gray-100 transition-colors"
               >
                 로그인
               </Link>
               <Link
                 href="/signup"
-                className="px-6 py-3 bg-blue-500 text-white font-medium rounded-md hover:bg-blue-400 transition-colors"
+                className="px-6 py-3 bg-purple-500 text-white font-medium rounded-md hover:bg-purple-400 transition-colors"
               >
                 회원가입
               </Link>
@@ -177,7 +254,7 @@ export default function Home() {
             <div className="flex justify-center space-x-4">
               <Link
                 href="/politicians"
-                className="px-4 py-2 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 transition-colors"
+                className="px-4 py-2 bg-purple-600 text-white font-medium rounded-md hover:bg-purple-700 transition-colors"
               >
                 정치인 목록 보기
               </Link>
