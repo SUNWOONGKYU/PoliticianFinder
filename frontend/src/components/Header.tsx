@@ -38,6 +38,9 @@ export function Header() {
             <Link href="/politicians" className="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium">
               정치인 목록
             </Link>
+            <Link href="/community" className="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium">
+              커뮤니티
+            </Link>
             <Link href="/search" className="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium">
               검색
             </Link>
