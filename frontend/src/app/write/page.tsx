@@ -1,6 +1,6 @@
 import React from 'react';
 import { redirect } from 'next/navigation';
-import { createServerClient } from '@/lib/supabase/server';
+import { createClient } from '@/lib/supabase/server';
 import PostForm from '@/components/community/PostForm';
 
 export const metadata = {
@@ -10,7 +10,7 @@ export const metadata = {
 
 export default async function WritePage() {
   // 서버 컴포넌트에서 인증 확인
-  const supabase = await createServerClient();
+  const supabase = createClient();
   const { data: { user } } = await supabase.auth.getUser();
 
   if (!user) {

@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createServerClient } from '@/lib/supabase/server';
+import { createClient } from '@/lib/supabase/server';
 import { z } from 'zod';
 import type { Post, UpdatePostDto } from '@/types/post';
 
@@ -38,7 +38,7 @@ export async function GET(
       );
     }
 
-    const supabase = await createServerClient();
+    const supabase = await createClient();
 
     // 게시글 조회
     const { data, error } = await supabase
@@ -123,7 +123,7 @@ export async function PUT(
       );
     }
 
-    const supabase = await createServerClient();
+    const supabase = await createClient();
 
     // 인증 확인
     const { data: { user }, error: authError } = await supabase.auth.getUser();
@@ -251,7 +251,7 @@ export async function DELETE(
       );
     }
 
-    const supabase = await createServerClient();
+    const supabase = await createClient();
 
     // 인증 확인
     const { data: { user }, error: authError } = await supabase.auth.getUser();

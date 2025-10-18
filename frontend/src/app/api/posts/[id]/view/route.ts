@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createServerClient } from '@/lib/supabase/server';
+import { createClient } from '@/lib/supabase/server';
 
 interface RouteParams {
   params: Promise<{ id: string }>;
@@ -26,7 +26,7 @@ export async function POST(
       );
     }
 
-    const supabase = await createServerClient();
+    const supabase = await createClient();
 
     // 게시글 존재 여부 확인
     const { data: post, error: postError } = await supabase

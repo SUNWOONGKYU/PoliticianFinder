@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createServerClient } from '@/lib/supabase/server';
+import { createClient } from '@/lib/supabase/server';
 import { z } from 'zod';
 import type { Post, CreatePostDto, PostsResponse } from '@/types/post';
 
@@ -21,7 +21,7 @@ const createPostSchema = z.object({
  */
 export async function GET(request: NextRequest) {
   try {
-    const supabase = await createServerClient();
+    const supabase = await createClient();
     const searchParams = request.nextUrl.searchParams;
 
     // 쿼리 파라미터 파싱
@@ -139,7 +139,7 @@ export async function GET(request: NextRequest) {
  */
 export async function POST(request: NextRequest) {
   try {
-    const supabase = await createServerClient();
+    const supabase = await createClient();
 
     // 인증 확인
     const { data: { user }, error: authError } = await supabase.auth.getUser();

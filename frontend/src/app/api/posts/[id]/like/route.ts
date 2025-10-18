@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createServerClient } from '@/lib/supabase/server';
+import { createClient } from '@/lib/supabase/server';
 import type { PostLikeResponse } from '@/types/post';
 
 interface RouteParams {
@@ -27,7 +27,7 @@ export async function POST(
       );
     }
 
-    const supabase = await createServerClient();
+    const supabase = await createClient();
 
     // 인증 확인
     const { data: { user }, error: authError } = await supabase.auth.getUser();
@@ -103,7 +103,7 @@ export async function GET(
       );
     }
 
-    const supabase = await createServerClient();
+    const supabase = await createClient();
 
     // 인증 확인
     const { data: { user }, error: authError } = await supabase.auth.getUser();

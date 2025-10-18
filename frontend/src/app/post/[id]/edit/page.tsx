@@ -1,6 +1,6 @@
 import React from 'react';
 import { redirect, notFound } from 'next/navigation';
-import { createServerClient } from '@/lib/supabase/server';
+import { createClient } from '@/lib/supabase/server';
 import PostForm from '@/components/community/PostForm';
 import type { Post } from '@/types/post';
 
