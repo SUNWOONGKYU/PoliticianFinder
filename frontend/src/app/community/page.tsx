@@ -12,21 +12,24 @@ export const metadata = {
 // 서버 컴포넌트에서 초기 데이터 로드
 async function getInitialPosts(): Promise<PostsResponse | null> {
   try {
-    // 서버 사이드에서 직접 데이터 페칭
-    if (process.env.NEXT_PUBLIC_API_URL) {
-      const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/posts?limit=20&sort=latest`,
-        {
-          cache: 'no-store', // 항상 최신 데이터
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        }
-      );
+    // Vercel 환경에서 절대 URL 구성
+    const baseUrl = process.env.NEXT_PUBLIC_API_URL ||
+                   (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000');
 
-      if (response.ok) {
-        return await response.json();
+    const response = await fetch(
+      `${baseUrl}/api/posts?limit=20&sort=latest`,
+      {
+        cache: 'no-store', // 항상 최신 데이터
+        headers: {
+          'Content-Type': 'application/json',
+        },
       }
+    );
+
+    if (response.ok) {
+      return await response.json();
+    } else {
+      console.error('Failed to fetch posts:', response.status, response.statusText);
     }
   } catch (error) {
     console.error('Failed to fetch initial posts:', error);

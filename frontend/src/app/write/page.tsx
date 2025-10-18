@@ -10,7 +10,7 @@ export const metadata = {
 
 export default async function WritePage() {
   // 서버 컴포넌트에서 인증 확인
-  const supabase = createClient();
+  const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
 
   if (!user) {

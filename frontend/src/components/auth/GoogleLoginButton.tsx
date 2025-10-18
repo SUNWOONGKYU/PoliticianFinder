@@ -1,13 +1,12 @@
 'use client'
 
 import { useState } from 'react'
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
+import { supabase } from '@/lib/supabase'
 import { Button } from '@/components/ui/button'
 import { Chrome } from 'lucide-react'
 
 export function GoogleLoginButton() {
   const [loading, setLoading] = useState(false)
-  const supabase = createClientComponentClient()
 
   const handleGoogleLogin = async () => {
     try {
