@@ -196,7 +196,7 @@ export default function Home() {
       <footer className="bg-white border-t mt-12">
         <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
           <p className="text-center text-sm text-gray-500">
-            © 2025 정치인 찾기. All rights reserved.
+            © 2025 PoliticianFinder. All rights reserved.
           </p>
         </div>
       </footer>
