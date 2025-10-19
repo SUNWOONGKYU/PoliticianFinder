@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PoliticianFinder - Design D-4 (극한 압축 모드)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        purple: {
+                            50: '#F3E8FF',
+                            100: '#E9D5FF',
+                            600: '#9333EA',
+                            700: '#7E22CE',
+                            800: '#6B21A8',
+                        },
+                        emerald: {
+                            500: '#10B981',
+                            600: '#059669',
+                        },
+                        amber: {
+                            400: '#FBBF24',
+                            500: '#F59E0B',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * { box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif; }
+        .score-badge {
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+        }
+        .rank-badge {
+            background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+        }
+        /* 초압축 스타일 */
+        .compact-row:hover {
+            background-color: #F3E8FF;
+        }
+        .hot-badge {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: .7; }
+        }
+    </style>
+</head>
+<body class="bg-white">
+
+    <!-- A안 스타일 Header (압축) -->
+    <nav class="sticky top-0 bg-white border-b border-gray-200 z-50 shadow-sm">
+        <div class="max-w-full mx-auto px-3">
+            <div class="flex justify-between items-center h-12">
+                <div class="flex items-center gap-2">
+                    <span class="text-xl font-bold text-purple-600">PoliticianFinder</span>
+                    <span class="hidden md:inline text-xs text-gray-500 border-l pl-2 ml-2">Why PoliticianFinder?</span>
+                </div>
+                <div class="hidden md:flex items-center gap-4 text-sm">
+                    <a href="#" class="text-gray-700 hover:text-purple-600">Home</a>
+                    <a href="#" class="text-gray-700 hover:text-purple-600">정치인 목록</a>
+                    <a href="#" class="text-gray-700 hover:text-purple-600">커뮤니티</a>
+                    <a href="#" class="text-gray-700 hover:text-purple-600">검색</a>
+                    <a href="#" class="text-gray-600 hover:text-purple-600 text-xs">로그인</a>
+                    <a href="#" class="bg-purple-600 hover:bg-purple-700 text-white px-3 py-1.5 rounded text-xs font-medium">회원가입</a>
+                    <button class="relative p-1 text-gray-700 hover:text-purple-600">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+                        </svg>
+                        <span class="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section (압축) -->
+    <section class="bg-gradient-to-b from-purple-50 to-white py-8">
+        <div class="max-w-6xl mx-auto px-3 text-center">
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+                훌륭한 정치인 찾기
+            </h1>
+            <p class="text-lg md:text-xl font-bold bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent mb-4">
+                AI 기반 정치인 평가 플랫폼
+            </p>
+
+            <!-- Search Bar (압축) -->
+            <div class="max-w-2xl mx-auto bg-white rounded-full shadow border border-gray-200 focus-within:border-purple-600">
+                <div class="flex items-center px-4 py-2">
+                    <svg class="w-4 h-4 text-gray-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                    <input
+                        type="text"
+                        placeholder="정치인 이름, 지역, 정당으로 검색..."
+                        class="flex-1 outline-none text-gray-900 text-sm"
+                    >
+                    <button class="bg-purple-600 hover:bg-purple-700 text-white rounded-full px-4 py-1.5 ml-2 text-xs font-medium">
+                        검색
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ⭐ AI 평가 랭킹 섹션 (극한 압축) -->
+    <section class="py-4 bg-white border-y-2 border-purple-600">
+        <div class="max-w-full mx-auto px-3">
+            <div class="flex justify-between items-center mb-3">
+                <div>
+                    <h2 class="text-xl md:text-2xl font-bold text-gray-900">🤖 AI 평가 랭킹</h2>
+                    <p class="text-xs text-gray-600">AI가 객관적으로 평가한 정치인 순위 (TOP 10)</p>
+                </div>
+                <div class="flex gap-1 text-xs">
+                    <button class="px-2 py-1 bg-purple-600 text-white rounded font-medium">전체</button>
+                    <button class="px-2 py-1 bg-gray-100 text-gray-700 rounded hover:bg-gray-200">지역</button>
+                    <button class="px-2 py-1 bg-gray-100 text-gray-700 rounded hover:bg-gray-200">당</button>
+                    <button class="px-2 py-1 bg-gray-100 text-gray-700 rounded hover:bg-gray-200">직종</button>
+                </div>
+            </div>
+
+            <!-- 테이블 + 사이드바 그리드 레이아웃 -->
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-3">
+
+                <!-- 좌측: AI 랭킹 테이블 (75%) -->
+                <div class="lg:col-span-3">
+                    <!-- 극한 압축 테이블 -->
+            <div class="overflow-x-auto bg-white rounded-lg shadow border border-gray-200">
+                <table class="w-full text-xs">
+                    <thead class="bg-purple-50 border-b border-purple-600">
+                        <tr>
+                            <th class="px-2 py-1.5 text-left font-bold text-gray-900">순위</th>
+                            <th class="px-2 py-1.5 text-left font-bold text-gray-900">이름</th>
+                            <th class="px-2 py-1.5 text-center font-bold text-gray-900">신분</th>
+                            <th class="px-2 py-1.5 text-left font-bold text-gray-900">당</th>
+                            <th class="px-2 py-1.5 text-left font-bold text-gray-900">지역</th>
+                            <th class="px-2 py-1.5 text-center font-bold text-gray-900">Claude<br>평점</th>
+                            <th class="px-2 py-1.5 text-center font-bold text-gray-500 text-xs">
+                                <div>GPT<br>평점</div>
+                                <div class="text-[9px] font-normal mt-0.5">추후 표시<br>예정</div>
+                            </th>
+                            <th class="px-2 py-1.5 text-center font-bold text-gray-500 text-xs">
+                                <div>Gemini<br>평점</div>
+                                <div class="text-[9px] font-normal mt-0.5">추후 표시<br>예정</div>
+                            </th>
+                            <th class="px-2 py-1.5 text-center font-bold text-gray-500 text-xs">
+                                <div>Grok<br>평점</div>
+                                <div class="text-[9px] font-normal mt-0.5">추후 표시<br>예정</div>
+                            </th>
+                            <th class="px-2 py-1.5 text-center font-bold text-gray-500 text-xs">
+                                <div>Perp<br>평점</div>
+                                <div class="text-[9px] font-normal mt-0.5">추후 표시<br>예정</div>
+                            </th>
+                            <th class="px-2 py-1.5 text-center font-bold text-gray-900">AI종합<br>평점</th>
+                            <th class="px-2 py-1.5 text-center font-bold text-gray-900">회원<br>평점</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-100">
+                        <!-- 1위 -->
+                        <tr class="compact-row">
+                            <td class="px-2 py-1">
+                                <span class="rank-badge text-white font-bold px-2 py-0.5 rounded-full text-[10px]">1</span>
+                            </td>
+                            <td class="px-2 py-1">
+                                <div class="flex items-center gap-1.5">
+                                    <div class="w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 font-bold text-xs">김</div>
+                                    <div>
+                                        <div class="font-bold text-gray-900">김철수</div>
+                                        <div class="text-[10px] text-gray-500">국회의원</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-2 py-1 text-center">
+                                <span class="bg-emerald-100 text-emerald-700 px-1.5 py-0.5 rounded-full text-[10px] font-medium">현직</span>
+                            </td>
+                            <td class="px-2 py-1 text-gray-700">민주당</td>
+                            <td class="px-2 py-1 text-gray-700">서울 강남</td>
+                            <td class="px-2 py-1 text-center">
+                                <span class="score-badge text-white font-bold px-2 py-0.5 rounded text-xs">92</span>
+                            </td>
+                            <td class="px-2 py-1 text-center text-gray-300 text-[10px]">-</td>
+                            <td class="px-2 py-1 text-center text-gray-300 text-[10px]">-</td>
+                            <td class="px-2 py-1 text-center text-gray-300 text-[10px]">-</td>
+                            <td class="px-2 py-1 text-center text-gray-300 text-[10px]">-</td>
+                            <td class="px-2 py-1 text-center">
+                                <span class="text-sm font-bold text-purple-600">92.0</span>
+                            </td>
+                            <td class="px-2 py-1 text-center">
+                                <div class="flex flex-col items-center gap-0.5">
+                                    <div class="flex items-center gap-0.5">
+                                        <span class="text-amber-400 text-xs">⭐⭐⭐⭐⭐</span>
+                                        <span class="text-[10px] text-gray-600">(4.8)</span>
+                                    </div>
+                                    <a href="#rate" class="text-[9px] text-purple-600 hover:text-purple-700">평가하기</a>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <!-- 2-30위 (압축 모드) -->
+                        <tr class="compact-row">
+                            <td class="px-2 py-1"><span class="bg-gray-200 text-gray-700 font-bold px-2 py-0.5 rounded-full text-[10px]">2</span></td>
+                            <td class="px-2 py-1">
+                                <div class="flex items-center gap-1.5">
+                                    <div class="w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 font-bold text-xs">이</div>
+                                    <div>
+                                        <div class="font-bold text-gray-900">이영희</div>
+                                        <div class="text-[10px] text-gray-500">국회의원</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-2 py-1 text-center">
+                                <span class="bg-cyan-100 text-cyan-700 px-1.5 py-0.5 rounded-full text-[10px] font-medium">후보자</span>
+                            </td>
+                            <td class="px-2 py-1 text-gray-700">국민의힘</td>
+                            <td class="px-2 py-1 text-gray-700">부산 해운대</td>
+                            <td class="px-2 py-1 text-center"><span class="score-badge text-white font-bold px-2 py-0.5 rounded text-xs">89</span></td>
+                            <td class="px-2 py-1 text-center text-gray-300 text-[10px]">-</td>
+                            <td class="px-2 py-1 text-center text-gray-300 text-[10px]">-</td>
+                            <td class="px-2 py-1 text-center text-gray-300 text-[10px]">-</td>
+                            <td class="px-2 py-1 text-center text-gray-300 text-[10px]">-</td>
+                            <td class="px-2 py-1 text-center"><span class="text-sm font-bold text-purple-600">89.0</span></td>
+                            <td class="px-2 py-1 text-center">
+                                <div class="flex flex-col items-center gap-0.5">
+                                    <div class="flex items-center gap-0.5">
+                                        <span class="text-amber-400 text-xs">⭐⭐⭐⭐</span>
+                                        <span class="text-[10px] text-gray-600">(4.5)</span>
+                                    </div>
+                                    <a href="#rate" class="text-[9px] text-purple-600 hover:text-purple-700">평가하기</a>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr class="compact-row">
+                            <td class="px-2 py-1"><span class="bg-gray-200 text-gray-700 font-bold px-2 py-0.5 rounded-full text-[10px]">3</span></td>
+                            <td class="px-2 py-1">
+                                <div class="flex items-center gap-1.5">
+                                    <div class="w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 font-bold text-xs">박</div>
+                                    <div><div class="font-bold text-gray-900">박민수</div><div class="text-[10px] text-gray-500">서울시장</div></div>
+                                </div>
+                            </td>
+                            <td class="px-2 py-1 text-center">
+                                <span class="bg-emerald-100 text-emerald-700 px-1.5 py-0.5 rounded-full text-[10px] font-medium">현직</span>
+                            </td>
+                            <td class="px-2 py-1 text-gray-700">무소속</td>
+                            <td class="px-2 py-1 text-gray-700">서울특별시</td>
+                            <td class="px-2 py-1 text-center"><span class="score-badge text-white font-bold px-2 py-0.5 rounded text-xs">87</span></td>
+                            <td class="px-2 py-1 text-center text-gray-300 text-[10px]">-</td>
+                            <td class="px-2 py-1 text-center text-gray-300 text-[10px]">-</td>
+                            <td class="px-2 py-1 text-center text-gray-300 text-[10px]">-</td>
+                            <td class="px-2 py-1 text-center text-gray-300 text-[10px]">-</td>
+                            <td class="px-2 py-1 text-center"><span class="text-sm font-bold text-purple-600">87.0</span></td>
+                            <td class="px-2 py-1 text-center">
+                                <div class="flex flex-col items-center gap-0.5">
+                                    <div class="flex items-center gap-0.5">
+                                        <span class="text-amber-400 text-xs">⭐⭐⭐⭐</span>
+                                        <span class="text-[10px] text-gray-600">(4.3)</span>
+                                    </div>
+                                    <a href="#rate" class="text-[9px] text-purple-600 hover:text-purple-700">평가하기</a>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <!-- 4-10위 -->
+                        <tr class="compact-row">
+                            <td class="px-2 py-1"><span class="bg-gray-100 text-gray-600 font-bold px-2 py-0.5 rounded-full text-[10px]">4</span></td>
+                            <td class="px-2 py-1">
+                                <div class="flex items-center gap-1.5">
+                                    <div class="w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 font-bold text-xs">정</div>
+                                    <div><div class="font-bold text-gray-900">정수진</div><div class="text-[10px] text-gray-500">국회의원</div></div>
+                                </div>
+                            </td>
+                            <td class="px-2 py-1 text-center">
+                                <span class="bg-amber-100 text-amber-700 px-1.5 py-0.5 rounded-full text-[10px] font-medium">예비후보자</span>
+                            </td>
+                            <td class="px-2 py-1 text-gray-700">민주당</td>
+                            <td class="px-2 py-1 text-gray-700">경기 성남</td>
+                            <td class="px-2 py-1 text-center"><span class="score-badge text-white font-bold px-2 py-0.5 rounded text-xs">85</span></td>
+                            <td class="px-2 py-1 text-center text-gray-300 text-[10px]">-</td>
+                            <td class="px-2 py-1 text-center text-gray-300 text-[10px]">-</td>
+                            <td class="px-2 py-1 text-center text-gray-300 text-[10px]">-</td>
+                            <td class="px-2 py-1 text-center text-gray-300 text-[10px]">-</td>
+                            <td class="px-2 py-1 text-center"><span class="text-sm font-bold text-purple-600">85.0</span></td>
+                            <td class="px-2 py-1 text-center">
+                                <div class="flex flex-col items-center gap-0.5">
+                                    <div class="flex items-center gap-0.5">
+                                        <span class="text-amber-400 text-xs">⭐⭐⭐⭐</span>
+                                        <span class="text-[10px] text-gray-600">(4.1)</span>
+                                    </div>
+                                    <a href="#rate" class="text-[9px] text-purple-600 hover:text-purple-700">평가하기</a>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr class="compact-row">
+                            <td class="px-2 py-1"><span class="bg-gray-100 text-gray-600 font-bold px-2 py-0.5 rounded-full text-[10px]">5</span></td>
+                            <td class="px-2 py-1">
+                                <div class="flex items-center gap-1.5">
+                                    <div class="w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 font-bold text-xs">최</div>
+                                    <div><div class="font-bold text-gray-900">최동욱</div><div class="text-[10px] text-gray-500">국회의원</div></div>
+                                </div>
+                            </td>
+                            <td class="px-2 py-1 text-center">
+                                <span class="bg-emerald-100 text-emerald-700 px-1.5 py-0.5 rounded-full text-[10px] font-medium">현직</span>
+                            </td>
+                            <td class="px-2 py-1 text-gray-700">국민의힘</td>
+                            <td class="px-2 py-1 text-gray-700">대구 수성</td>
+                            <td class="px-2 py-1 text-center"><span class="score-badge text-white font-bold px-2 py-0.5 rounded text-xs">83</span></td>
+                            <td class="px-2 py-1 text-center text-gray-300 text-[10px]">-</td>
+                            <td class="px-2 py-1 text-center text-gray-300 text-[10px]">-</td>
+                            <td class="px-2 py-1 text-center text-gray-300 text-[10px]">-</td>
+                            <td class="px-2 py-1 text-center text-gray-300 text-[10px]">-</td>
+                            <td class="px-2 py-1 text-center"><span class="text-sm font-bold text-purple-600">83.0</span></td>
+                            <td class="px-2 py-1 text-center">
+                                <div class="flex flex-col items-center gap-0.5">
+                                    <div class="flex items-center gap-0.5">
+                                        <span class="text-amber-400 text-xs">⭐⭐⭐⭐</span>
+                                        <span class="text-[10px] text-gray-600">(4.0)</span>
+                                    </div>
+                                    <a href="#rate" class="text-[9px] text-purple-600 hover:text-purple-700">평가하기</a>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr class="compact-row">
+                            <td class="px-2 py-1"><span class="bg-gray-100 text-gray-600 font-bold px-2 py-0.5 rounded-full text-[10px]">6</span></td>
+                            <td class="px-2 py-1"><div class="flex items-center gap-1.5"><div class="w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 font-bold text-xs">강</div><div><div class="font-bold text-gray-900">강민지</div><div class="text-[10px] text-gray-500">국회의원</div></div></div></td>
+                            <td class="px-2 py-1 text-center">
+                                <span class="bg-purple-100 text-purple-700 px-1.5 py-0.5 rounded-full text-[10px] font-medium">출마자</span>
+                            </td>
+                            <td class="px-2 py-1 text-gray-700">민주당</td>
+                            <td class="px-2 py-1 text-gray-700">인천 남동</td>
+                            <td class="px-2 py-1 text-center"><span class="score-badge text-white font-bold px-2 py-0.5 rounded text-xs">82</span></td>
+                            <td class="px-2 py-1 text-center text-gray-300 text-[10px]">-</td><td class="px-2 py-1 text-center text-gray-300 text-[10px]">-</td><td class="px-2 py-1 text-center text-gray-300 text-[10px]">-</td><td class="px-2 py-1 text-center text-gray-300 text-[10px]">-</td>
+                            <td class="px-2 py-1 text-center"><span class="text-sm font-bold text-purple-600">82.0</span></td>
+                            <td class="px-2 py-1 text-center">
+                                <div class="flex flex-col items-center gap-0.5">
+                                    <div class="flex items-center gap-0.5">
+                                        <span class="text-amber-400 text-xs">⭐⭐⭐⭐</span>
+                                        <span class="text-[10px] text-gray-600">(3.9)</span>
+                                    </div>
+                                    <a href="#rate" class="text-[9px] text-purple-600 hover:text-purple-700">평가하기</a>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr class="compact-row">
+                            <td class="px-2 py-1"><span class="bg-gray-100 text-gray-600 font-bold px-2 py-0.5 rounded-full text-[10px]">7</span></td>
+                            <td class="px-2 py-1"><div class="flex items-center gap-1.5"><div class="w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 font-bold text-xs">윤</div><div><div class="font-bold text-gray-900">윤서현</div><div class="text-[10px] text-gray-500">국회의원</div></div></div></td>
+                            <td class="px-2 py-1 text-center">
+                                <span class="bg-cyan-100 text-cyan-700 px-1.5 py-0.5 rounded-full text-[10px] font-medium">후보자</span>
+                            </td>
+                            <td class="px-2 py-1 text-gray-700">국민의힘</td>
+                            <td class="px-2 py-1 text-gray-700">광주 서구</td>
+                            <td class="px-2 py-1 text-center"><span class="score-badge text-white font-bold px-2 py-0.5 rounded text-xs">81</span></td>
+                            <td class="px-2 py-1 text-center text-gray-300 text-[10px]">-</td><td class="px-2 py-1 text-center text-gray-300 text-[10px]">-</td><td class="px-2 py-1 text-center text-gray-300 text-[10px]">-</td><td class="px-2 py-1 text-center text-gray-300 text-[10px]">-</td>
+                            <td class="px-2 py-1 text-center"><span class="text-sm font-bold text-purple-600">81.0</span></td>
+                            <td class="px-2 py-1 text-center">
+                                <div class="flex flex-col items-center gap-0.5">
+                                    <div class="flex items-center gap-0.5">
+                                        <span class="text-amber-400 text-xs">⭐⭐⭐⭐</span>
+                                        <span class="text-[10px] text-gray-600">(3.8)</span>
+                                    </div>
+                                    <a href="#rate" class="text-[9px] text-purple-600 hover:text-purple-700">평가하기</a>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr class="compact-row">
+                            <td class="px-2 py-1"><span class="bg-gray-100 text-gray-600 font-bold px-2 py-0.5 rounded-full text-[10px]">8</span></td>
+                            <td class="px-2 py-1"><div class="flex items-center gap-1.5"><div class="w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 font-bold text-xs">조</div><div><div class="font-bold text-gray-900">조현우</div><div class="text-[10px] text-gray-500">시장</div></div></div></td>
+                            <td class="px-2 py-1 text-center">
+                                <span class="bg-emerald-100 text-emerald-700 px-1.5 py-0.5 rounded-full text-[10px] font-medium">현직</span>
+                            </td>
+                            <td class="px-2 py-1 text-gray-700">무소속</td>
+                            <td class="px-2 py-1 text-gray-700">대전광역시</td>
+                            <td class="px-2 py-1 text-center"><span class="score-badge text-white font-bold px-2 py-0.5 rounded text-xs">80</span></td>
+                            <td class="px-2 py-1 text-center text-gray-300 text-[10px]">-</td><td class="px-2 py-1 text-center text-gray-300 text-[10px]">-</td><td class="px-2 py-1 text-center text-gray-300 text-[10px]">-</td><td class="px-2 py-1 text-center text-gray-300 text-[10px]">-</td>
+                            <td class="px-2 py-1 text-center"><span class="text-sm font-bold text-purple-600">80.0</span></td>
+                            <td class="px-2 py-1 text-center">
+                                <div class="flex flex-col items-center gap-0.5">
+                                    <div class="flex items-center gap-0.5">
+                                        <span class="text-amber-400 text-xs">⭐⭐⭐⭐</span>
+                                        <span class="text-[10px] text-gray-600">(3.7)</span>
+                                    </div>
+                                    <a href="#rate" class="text-[9px] text-purple-600 hover:text-purple-700">평가하기</a>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr class="compact-row">
+                            <td class="px-2 py-1"><span class="bg-gray-100 text-gray-600 font-bold px-2 py-0.5 rounded-full text-[10px]">9</span></td>
+                            <td class="px-2 py-1"><div class="flex items-center gap-1.5"><div class="w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 font-bold text-xs">한</div><div><div class="font-bold text-gray-900">한지민</div><div class="text-[10px] text-gray-500">국회의원</div></div></div></td>
+                            <td class="px-2 py-1 text-center">
+                                <span class="bg-amber-100 text-amber-700 px-1.5 py-0.5 rounded-full text-[10px] font-medium">예비후보자</span>
+                            </td>
+                            <td class="px-2 py-1 text-gray-700">민주당</td>
+                            <td class="px-2 py-1 text-gray-700">경기 수원</td>
+                            <td class="px-2 py-1 text-center"><span class="score-badge text-white font-bold px-2 py-0.5 rounded text-xs">79</span></td>
+                            <td class="px-2 py-1 text-center text-gray-300 text-[10px]">-</td><td class="px-2 py-1 text-center text-gray-300 text-[10px]">-</td><td class="px-2 py-1 text-center text-gray-300 text-[10px]">-</td><td class="px-2 py-1 text-center text-gray-300 text-[10px]">-</td>
+                            <td class="px-2 py-1 text-center"><span class="text-sm font-bold text-purple-600">79.0</span></td>
+                            <td class="px-2 py-1 text-center">
+                                <div class="flex flex-col items-center gap-0.5">
+                                    <div class="flex items-center gap-0.5">
+                                        <span class="text-amber-400 text-xs">⭐⭐⭐</span>
+                                        <span class="text-[10px] text-gray-600">(3.6)</span>
+                                    </div>
+                                    <a href="#rate" class="text-[9px] text-purple-600 hover:text-purple-700">평가하기</a>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr class="compact-row">
+                            <td class="px-2 py-1"><span class="bg-gray-100 text-gray-600 font-bold px-2 py-0.5 rounded-full text-[10px]">10</span></td>
+                            <td class="px-2 py-1"><div class="flex items-center gap-1.5"><div class="w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 font-bold text-xs">오</div><div><div class="font-bold text-gray-900">오세훈</div><div class="text-[10px] text-gray-500">국회의원</div></div></div></td>
+                            <td class="px-2 py-1 text-center">
+                                <span class="bg-purple-100 text-purple-700 px-1.5 py-0.5 rounded-full text-[10px] font-medium">출마자</span>
+                            </td>
+                            <td class="px-2 py-1 text-gray-700">국민의힘</td>
+                            <td class="px-2 py-1 text-gray-700">서울 종로</td>
+                            <td class="px-2 py-1 text-center"><span class="score-badge text-white font-bold px-2 py-0.5 rounded text-xs">78</span></td>
+                            <td class="px-2 py-1 text-center text-gray-300 text-[10px]">-</td><td class="px-2 py-1 text-center text-gray-300 text-[10px]">-</td><td class="px-2 py-1 text-center text-gray-300 text-[10px]">-</td><td class="px-2 py-1 text-center text-gray-300 text-[10px]">-</td>
+                            <td class="px-2 py-1 text-center"><span class="text-sm font-bold text-purple-600">78.0</span></td>
+                            <td class="px-2 py-1 text-center">
+                                <div class="flex flex-col items-center gap-0.5">
+                                    <div class="flex items-center gap-0.5">
+                                        <span class="text-amber-400 text-xs">⭐⭐⭐</span>
+                                        <span class="text-[10px] text-gray-600">(3.5)</span>
+                                    </div>
+                                    <a href="#rate" class="text-[9px] text-purple-600 hover:text-purple-700">평가하기</a>
+                                </div>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="mt-3 text-center">
+                <button class="text-purple-600 hover:text-purple-700 font-medium flex items-center gap-1 mx-auto text-sm">
+                    <span>전체 랭킹 보기 (100위까지)</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </button>
+            </div>
+
+                </div>
+                <!-- 테이블 끝 -->
+
+                <!-- 우측: 실시간 통계 + 주목받는 정치인 사이드바 (25%) -->
+                <div class="space-y-3">
+
+                    <!-- ⚡ 실시간 통계 -->
+                    <div class="bg-white rounded-lg shadow p-2 border-t-2 border-emerald-500">
+                        <h3 class="font-bold text-gray-900 mb-2 flex items-center gap-1 text-xs">
+                            <span class="text-sm">⚡</span>
+                            실시간 통계
+                        </h3>
+                        <div class="space-y-1.5 text-[10px]">
+                            <div class="flex justify-between items-center p-1.5 bg-purple-50 rounded">
+                                <span class="text-gray-600">등록 정치인</span>
+                                <span class="font-bold text-purple-600">2,847명</span>
+                            </div>
+                            <div class="flex justify-between items-center p-1.5 bg-purple-50 rounded">
+                                <span class="text-gray-600">전체 게시글</span>
+                                <span class="font-bold text-purple-600">15,392개</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 📈 평점 급상승 정치인 -->
+                    <div class="bg-white rounded-lg shadow p-2">
+                        <h3 class="font-bold text-gray-900 mb-2 flex items-center gap-1 text-xs">
+                            <span class="text-sm">📈</span>
+                            평점 급상승 정치인
+                        </h3>
+                        <div class="space-y-1 text-[10px]">
+                            <div class="p-1 hover:bg-purple-50 rounded">
+                                <a href="#profile" class="flex items-center gap-1.5">
+                                    <div class="w-7 h-7 bg-gradient-to-br from-amber-400 to-amber-600 rounded flex items-center justify-center text-white font-bold text-xs flex-shrink-0 shadow">🏅</div>
+                                    <div class="flex-1 min-w-0">
+                                        <div class="font-medium text-gray-900 truncate hover:text-purple-600">박민수</div>
+                                        <div class="text-[9px] text-gray-500">서울시장 · 87점</div>
+                                    </div>
+                                </a>
+                                <a href="#evaluation" class="text-[9px] text-purple-600 hover:text-purple-700 ml-9 block mt-0.5">📊 평가내역 보기</a>
+                            </div>
+
+                            <div class="p-1 hover:bg-purple-50 rounded">
+                                <a href="#profile" class="flex items-center gap-1.5">
+                                    <div class="w-7 h-7 bg-gradient-to-br from-amber-400 to-amber-600 rounded flex items-center justify-center text-white font-bold text-xs flex-shrink-0 shadow">🏅</div>
+                                    <div class="flex-1 min-w-0">
+                                        <div class="font-medium text-gray-900 truncate hover:text-purple-600">정수진</div>
+                                        <div class="text-[9px] text-gray-500">국회의원 · 85점</div>
+                                    </div>
+                                </a>
+                                <a href="#evaluation" class="text-[9px] text-purple-600 hover:text-purple-700 ml-9 block mt-0.5">📊 평가내역 보기</a>
+                            </div>
+
+                            <div class="p-1 hover:bg-purple-50 rounded">
+                                <a href="#profile" class="flex items-center gap-1.5">
+                                    <div class="w-7 h-7 bg-gradient-to-br from-amber-400 to-amber-600 rounded flex items-center justify-center text-white font-bold text-xs flex-shrink-0 shadow">🏅</div>
+                                    <div class="flex-1 min-w-0">
+                                        <div class="font-medium text-gray-900 truncate hover:text-purple-600">최동욱</div>
+                                        <div class="text-[9px] text-gray-500">국회의원 · 83점</div>
+                                    </div>
+                                </a>
+                                <a href="#evaluation" class="text-[9px] text-purple-600 hover:text-purple-700 ml-9 block mt-0.5">📊 평가내역 보기</a>
+                            </div>
+
+                            <div class="p-1 hover:bg-purple-50 rounded">
+                                <a href="#profile" class="flex items-center gap-1.5">
+                                    <div class="w-7 h-7 bg-gradient-to-br from-amber-400 to-amber-600 rounded flex items-center justify-center text-white font-bold text-xs flex-shrink-0 shadow">🏅</div>
+                                    <div class="flex-1 min-w-0">
+                                        <div class="font-medium text-gray-900 truncate hover:text-purple-600">강민지</div>
+                                        <div class="text-[9px] text-gray-500">국회의원 · 82점</div>
+                                    </div>
+                                </a>
+                                <a href="#evaluation" class="text-[9px] text-purple-600 hover:text-purple-700 ml-9 block mt-0.5">📊 평가내역 보기</a>
+                            </div>
+
+                            <div class="p-1 hover:bg-purple-50 rounded">
+                                <a href="#profile" class="flex items-center gap-1.5">
+                                    <div class="w-7 h-7 bg-gradient-to-br from-amber-400 to-amber-600 rounded flex items-center justify-center text-white font-bold text-xs flex-shrink-0 shadow">🏅</div>
+                                    <div class="flex-1 min-w-0">
+                                        <div class="font-medium text-gray-900 truncate hover:text-purple-600">윤서현</div>
+                                        <div class="text-[9px] text-gray-500">국회의원 · 81점</div>
+                                    </div>
+                                </a>
+                                <a href="#evaluation" class="text-[9px] text-purple-600 hover:text-purple-700 ml-9 block mt-0.5">📊 평가내역 보기</a>
+                            </div>
+
+                            <div class="p-1 hover:bg-purple-50 rounded">
+                                <a href="#profile" class="flex items-center gap-1.5">
+                                    <div class="w-7 h-7 bg-gradient-to-br from-amber-400 to-amber-600 rounded flex items-center justify-center text-white font-bold text-xs flex-shrink-0 shadow">🏅</div>
+                                    <div class="flex-1 min-w-0">
+                                        <div class="font-medium text-gray-900 truncate hover:text-purple-600">조현우</div>
+                                        <div class="text-[9px] text-gray-500">시장 · 80점</div>
+                                    </div>
+                                </a>
+                                <a href="#evaluation" class="text-[9px] text-purple-600 hover:text-purple-700 ml-9 block mt-0.5">📊 평가내역 보기</a>
+                            </div>
+
+                            <div class="p-1 hover:bg-purple-50 rounded">
+                                <a href="#profile" class="flex items-center gap-1.5">
+                                    <div class="w-7 h-7 bg-gradient-to-br from-amber-400 to-amber-600 rounded flex items-center justify-center text-white font-bold text-xs flex-shrink-0 shadow">🏅</div>
+                                    <div class="flex-1 min-w-0">
+                                        <div class="font-medium text-gray-900 truncate hover:text-purple-600">한지민</div>
+                                        <div class="text-[9px] text-gray-500">국회의원 · 79점</div>
+                                    </div>
+                                </a>
+                                <a href="#evaluation" class="text-[9px] text-purple-600 hover:text-purple-700 ml-9 block mt-0.5">📊 평가내역 보기</a>
+                            </div>
+
+                            <div class="p-1 hover:bg-purple-50 rounded">
+                                <a href="#profile" class="flex items-center gap-1.5">
+                                    <div class="w-7 h-7 bg-gradient-to-br from-amber-400 to-amber-600 rounded flex items-center justify-center text-white font-bold text-xs flex-shrink-0 shadow">🏅</div>
+                                    <div class="flex-1 min-w-0">
+                                        <div class="font-medium text-gray-900 truncate hover:text-purple-600">오세훈</div>
+                                        <div class="text-[9px] text-gray-500">국회의원 · 78점</div>
+                                    </div>
+                                </a>
+                                <a href="#evaluation" class="text-[9px] text-purple-600 hover:text-purple-700 ml-9 block mt-0.5">📊 평가내역 보기</a>
+                            </div>
+
+                            <div class="p-1 hover:bg-purple-50 rounded">
+                                <a href="#profile" class="flex items-center gap-1.5">
+                                    <div class="w-7 h-7 bg-gradient-to-br from-amber-400 to-amber-600 rounded flex items-center justify-center text-white font-bold text-xs flex-shrink-0 shadow">🏅</div>
+                                    <div class="flex-1 min-w-0">
+                                        <div class="font-medium text-gray-900 truncate hover:text-purple-600">신동민</div>
+                                        <div class="text-[9px] text-gray-500">국회의원 · 77점</div>
+                                    </div>
+                                </a>
+                                <a href="#evaluation" class="text-[9px] text-purple-600 hover:text-purple-700 ml-9 block mt-0.5">📊 평가내역 보기</a>
+                            </div>
+
+                            <div class="p-1 hover:bg-purple-50 rounded">
+                                <a href="#profile" class="flex items-center gap-1.5">
+                                    <div class="w-7 h-7 bg-gradient-to-br from-amber-400 to-amber-600 rounded flex items-center justify-center text-white font-bold text-xs flex-shrink-0 shadow">🏅</div>
+                                    <div class="flex-1 min-w-0">
+                                        <div class="font-medium text-gray-900 truncate hover:text-purple-600">배수현</div>
+                                        <div class="text-[9px] text-gray-500">국회의원 · 76점</div>
+                                    </div>
+                                </a>
+                                <a href="#evaluation" class="text-[9px] text-purple-600 hover:text-purple-700 ml-9 block mt-0.5">📊 평가내역 보기</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- 사이드바 끝 -->
+
+            </div>
+            <!-- 그리드 레이아웃 끝 -->
+        </div>
+    </section>
+
+    <!-- B안 스타일 컨텐츠 (극한 압축) -->
+    <section class="py-4 bg-gray-50">
+        <div class="max-w-full mx-auto px-3">
+            <!-- 메인 그리드: 좌측 2/3 + 우측 1/3 -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-3">
+                <!-- 좌측: 커뮤니티 섹션 (2/3) -->
+                <div class="lg:col-span-2 space-y-3">
+
+                    <!-- 🔥 실시간 인기글 (2열 배치) -->
+                    <div class="bg-white rounded-lg shadow p-3 border-t-2 border-amber-500">
+                        <div class="flex justify-between items-center mb-2">
+                            <h2 class="text-lg font-bold text-gray-900 flex items-center gap-1">
+                                <span class="text-xl">🔥</span>
+                                실시간 인기글
+                            </h2>
+                            <div class="flex gap-1 text-[10px]">
+                                <button class="px-2 py-0.5 bg-purple-600 text-white rounded font-medium">1시간</button>
+                                <button class="px-2 py-0.5 bg-gray-100 text-gray-600 rounded">6시간</button>
+                                <button class="px-2 py-0.5 bg-gray-100 text-gray-600 rounded">24시간</button>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-2 text-xs">
+                            <!-- 1열 -->
+                            <div class="space-y-1">
+                                <div class="flex items-center gap-2 p-1.5 hover:bg-gray-50 rounded cursor-pointer">
+                                    <span class="rank-badge text-white font-bold w-5 h-5 rounded-full flex items-center justify-center text-[10px] flex-shrink-0 hot-badge">1</span>
+                                    <div class="flex-1 min-w-0">
+                                        <h3 class="font-medium text-gray-900 hover:text-purple-600 truncate">김철수 의원의 최근 발언에 대한 분석</h3>
+                                        <div class="flex gap-2 text-[10px] text-gray-500">
+                                            <span>👁️ 1.2K</span>
+                                            <span>💬 45</span>
+                                            <span>⬆️ 89</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center gap-2 p-1.5 hover:bg-gray-50 rounded cursor-pointer">
+                                    <span class="bg-gray-200 text-gray-700 font-bold w-5 h-5 rounded-full flex items-center justify-center text-[10px] flex-shrink-0">2</span>
+                                    <div class="flex-1 min-w-0">
+                                        <h3 class="font-medium text-gray-900 hover:text-purple-600 truncate">AI 평가 시스템은 어떻게 작동하나요?</h3>
+                                        <div class="flex gap-2 text-[10px] text-gray-500">
+                                            <span>👁️ 987</span>
+                                            <span>💬 32</span>
+                                            <span>⬆️ 67</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center gap-2 p-1.5 hover:bg-gray-50 rounded cursor-pointer">
+                                    <span class="bg-gray-200 text-gray-700 font-bold w-5 h-5 rounded-full flex items-center justify-center text-[10px] flex-shrink-0">3</span>
+                                    <div class="flex-1 min-w-0">
+                                        <h3 class="font-medium text-gray-900 hover:text-purple-600 truncate">지역구 국회의원 공약 이행률 비교</h3>
+                                        <div class="flex gap-2 text-[10px] text-gray-500">
+                                            <span>👁️ 856</span>
+                                            <span>💬 28</span>
+                                            <span>⬆️ 54</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center gap-2 p-1.5 hover:bg-gray-50 rounded cursor-pointer">
+                                    <span class="bg-gray-100 text-gray-600 font-bold w-5 h-5 rounded-full flex items-center justify-center text-[10px] flex-shrink-0">4</span>
+                                    <div class="flex-1 min-w-0">
+                                        <h3 class="font-medium text-gray-900 hover:text-purple-600 truncate">정치인 평가 기준에 대한 의견</h3>
+                                        <div class="flex gap-2 text-[10px] text-gray-500">
+                                            <span>👁️ 723</span>
+                                            <span>💬 19</span>
+                                            <span>⬆️ 42</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center gap-2 p-1.5 hover:bg-gray-50 rounded cursor-pointer">
+                                    <span class="bg-gray-100 text-gray-600 font-bold w-5 h-5 rounded-full flex items-center justify-center text-[10px] flex-shrink-0">5</span>
+                                    <div class="flex-1 min-w-0">
+                                        <h3 class="font-medium text-gray-900 hover:text-purple-600 truncate">우리 지역구 후보 비교 분석</h3>
+                                        <div class="flex gap-2 text-[10px] text-gray-500">
+                                            <span>👁️ 654</span>
+                                            <span>💬 15</span>
+                                            <span>⬆️ 38</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 2열 -->
+                            <div class="space-y-1">
+                                <div class="flex items-center gap-2 p-1.5 hover:bg-gray-50 rounded cursor-pointer">
+                                    <span class="bg-gray-100 text-gray-600 font-bold w-5 h-5 rounded-full flex items-center justify-center text-[10px] flex-shrink-0">4</span>
+                                    <div class="flex-1 min-w-0">
+                                        <h3 class="font-medium text-gray-900 hover:text-purple-600 truncate">지방선거 주요 공약 총정리</h3>
+                                        <div class="flex gap-2 text-[10px] text-gray-500">
+                                            <span>👁️ 543</span>
+                                            <span>💬 12</span>
+                                            <span>⬆️ 31</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center gap-2 p-1.5 hover:bg-gray-50 rounded cursor-pointer">
+                                    <span class="bg-gray-100 text-gray-600 font-bold w-5 h-5 rounded-full flex items-center justify-center text-[10px] flex-shrink-0">5</span>
+                                    <div class="flex-1 min-w-0">
+                                        <h3 class="font-medium text-gray-900 hover:text-purple-600 truncate">국회 법안 통과 현황 분석</h3>
+                                        <div class="flex gap-2 text-[10px] text-gray-500">
+                                            <span>👁️ 489</span>
+                                            <span>💬 9</span>
+                                            <span>⬆️ 27</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center gap-2 p-1.5 hover:bg-gray-50 rounded cursor-pointer">
+                                    <span class="bg-gray-100 text-gray-600 font-bold w-5 h-5 rounded-full flex items-center justify-center text-[10px] flex-shrink-0">6</span>
+                                    <div class="flex-1 min-w-0">
+                                        <h3 class="font-medium text-gray-900 hover:text-purple-600 truncate">예산안 심의 주요 쟁점</h3>
+                                        <div class="flex gap-2 text-[10px] text-gray-500">
+                                            <span>👁️ 421</span>
+                                            <span>💬 7</span>
+                                            <span>⬆️ 23</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 3열 -->
+                            <div class="space-y-1">
+                                <div class="flex items-center gap-2 p-1.5 hover:bg-gray-50 rounded cursor-pointer">
+                                    <span class="bg-gray-100 text-gray-600 font-bold w-5 h-5 rounded-full flex items-center justify-center text-[10px] flex-shrink-0">7</span>
+                                    <div class="flex-1 min-w-0">
+                                        <h3 class="font-medium text-gray-900 hover:text-purple-600 truncate">청년 정책 비교 분석</h3>
+                                        <div class="flex gap-2 text-[10px] text-gray-500">
+                                            <span>👁️ 378</span>
+                                            <span>💬 6</span>
+                                            <span>⬆️ 19</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center gap-2 p-1.5 hover:bg-gray-50 rounded cursor-pointer">
+                                    <span class="bg-gray-100 text-gray-600 font-bold w-5 h-5 rounded-full flex items-center justify-center text-[10px] flex-shrink-0">8</span>
+                                    <div class="flex-1 min-w-0">
+                                        <h3 class="font-medium text-gray-900 hover:text-purple-600 truncate">환경 정책 실행 현황</h3>
+                                        <div class="flex gap-2 text-[10px] text-gray-500">
+                                            <span>👁️ 312</span>
+                                            <span>💬 5</span>
+                                            <span>⬆️ 17</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center gap-2 p-1.5 hover:bg-gray-50 rounded cursor-pointer">
+                                    <span class="bg-gray-100 text-gray-600 font-bold w-5 h-5 rounded-full flex items-center justify-center text-[10px] flex-shrink-0">9</span>
+                                    <div class="flex-1 min-w-0">
+                                        <h3 class="font-medium text-gray-900 hover:text-purple-600 truncate">부동산 정책 분석</h3>
+                                        <div class="flex gap-2 text-[10px] text-gray-500">
+                                            <span>👁️ 289</span>
+                                            <span>💬 4</span>
+                                            <span>⬆️ 15</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 📝 정치인 최근 글 (압축) -->
+                    <div class="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-lg shadow p-3 border border-purple-100">
+                        <div class="flex justify-between items-center mb-2">
+                            <h2 class="text-lg font-bold text-gray-900 flex items-center gap-1">
+                                <span class="text-xl">📝</span>
+                                정치인 최근 글
+                            </h2>
+                            <a href="#" class="text-purple-600 hover:text-purple-700 font-medium text-xs">전체보기 →</a>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs">
+                            <div class="bg-white rounded-lg p-2 shadow-sm hover:shadow transition-shadow cursor-pointer border border-purple-100">
+                                <div class="flex items-center gap-2 mb-2">
+                                    <div class="w-7 h-7 bg-gradient-to-br from-amber-400 to-amber-600 rounded flex items-center justify-center text-white font-bold text-xs shadow">🏅</div>
+                                    <div class="flex-1 min-w-0">
+                                        <div class="flex items-center gap-1">
+                                            <span class="font-bold text-gray-900 truncate text-xs">김철수</span>
+                                            <span class="bg-emerald-100 text-emerald-700 px-1.5 py-0.5 rounded-full text-[9px] font-medium">현직</span>
+                                        </div>
+                                        <div class="text-[9px] text-gray-500">2시간 전</div>
+                                    </div>
+                                </div>
+                                <p class="text-gray-700 leading-relaxed text-[11px] mb-2">민생 법안 통과를 위해 노력하고 있습니다. 여러분의 목소리를 듣고 있습니다...</p>
+                                <div class="flex gap-2 text-[10px] text-gray-500">
+                                    <span>💬 23</span>
+                                    <span>⬆️ 156</span>
+                                </div>
+                            </div>
+
+                            <div class="bg-white rounded-lg p-2 shadow-sm hover:shadow transition-shadow cursor-pointer border border-purple-100">
+                                <div class="flex items-center gap-2 mb-2">
+                                    <div class="w-7 h-7 bg-gradient-to-br from-amber-400 to-amber-600 rounded flex items-center justify-center text-white font-bold text-xs shadow">🏅</div>
+                                    <div class="flex-1 min-w-0">
+                                        <div class="flex items-center gap-1">
+                                            <span class="font-bold text-gray-900 truncate text-xs">이영희</span>
+                                            <span class="bg-cyan-100 text-cyan-700 px-1.5 py-0.5 rounded-full text-[9px] font-medium">후보자</span>
+                                        </div>
+                                        <div class="text-[9px] text-gray-500">5시간 전</div>
+                                    </div>
+                                </div>
+                                <p class="text-gray-700 leading-relaxed text-[11px] mb-2">지역 개발 사업 진행 상황을 보고드립니다. 투명하게 공개하겠습니다...</p>
+                                <div class="flex gap-2 text-[10px] text-gray-500">
+                                    <span>💬 18</span>
+                                    <span>⬆️ 142</span>
+                                </div>
+                            </div>
+
+                            <div class="bg-white rounded-lg p-2 shadow-sm hover:shadow transition-shadow cursor-pointer border border-purple-100">
+                                <div class="flex items-center gap-2 mb-2">
+                                    <div class="w-7 h-7 bg-gradient-to-br from-amber-400 to-amber-600 rounded flex items-center justify-center text-white font-bold text-xs shadow">🏅</div>
+                                    <div class="flex-1 min-w-0">
+                                        <div class="flex items-center gap-1">
+                                            <span class="font-bold text-gray-900 truncate text-xs">박민수</span>
+                                            <span class="bg-cyan-100 text-cyan-700 px-1.5 py-0.5 rounded-full text-[9px] font-medium">후보자</span>
+                                        </div>
+                                        <div class="text-[9px] text-gray-500">8시간 전</div>
+                                    </div>
+                                </div>
+                                <p class="text-gray-700 leading-relaxed text-[11px] mb-2">서울시 교통 정책 개선안을 발표했습니다. 시민 여러분의 의견을 반영했습니다...</p>
+                                <div class="flex gap-2 text-[10px] text-gray-500">
+                                    <span>💬 31</span>
+                                    <span>⬆️ 203</span>
+                                </div>
+                            </div>
+
+                            <div class="bg-white rounded-lg p-2 shadow-sm hover:shadow transition-shadow cursor-pointer border border-purple-100">
+                                <div class="flex items-center gap-2 mb-2">
+                                    <div class="w-7 h-7 bg-gradient-to-br from-amber-400 to-amber-600 rounded flex items-center justify-center text-white font-bold text-xs shadow">🏅</div>
+                                    <div class="flex-1 min-w-0">
+                                        <div class="flex items-center gap-1">
+                                            <span class="font-bold text-gray-900 truncate text-xs">정수진</span>
+                                            <span class="bg-cyan-100 text-cyan-700 px-1.5 py-0.5 rounded-full text-[9px] font-medium">후보자</span>
+                                        </div>
+                                        <div class="text-[9px] text-gray-500">1일 전</div>
+                                    </div>
+                                </div>
+                                <p class="text-gray-700 leading-relaxed text-[11px] mb-2">청년 일자리 창출 정책을 적극 추진하겠습니다. 청년들의 목소리를 최우선으로...</p>
+                                <div class="flex gap-2 text-[10px] text-gray-500">
+                                    <span>💬 45</span>
+                                    <span>⬆️ 289</span>
+                                </div>
+                            </div>
+
+                            <div class="bg-white rounded-lg p-2 shadow-sm hover:shadow transition-shadow cursor-pointer border border-purple-100">
+                                <div class="flex items-center gap-2 mb-2">
+                                    <div class="w-7 h-7 bg-gradient-to-br from-amber-400 to-amber-600 rounded flex items-center justify-center text-white font-bold text-xs shadow">🏅</div>
+                                    <div class="flex-1 min-w-0">
+                                        <div class="flex items-center gap-1">
+                                            <span class="font-bold text-gray-900 truncate text-xs">최동욱</span>
+                                            <span class="bg-cyan-100 text-cyan-700 px-1.5 py-0.5 rounded-full text-[9px] font-medium">후보자</span>
+                                        </div>
+                                        <div class="text-[9px] text-gray-500">1일 전</div>
+                                    </div>
+                                </div>
+                                <p class="text-gray-700 leading-relaxed text-[11px] mb-2">교육 예산 확대를 위한 법안을 준비 중입니다. 우리 아이들의 미래를 위해...</p>
+                                <div class="flex gap-2 text-[10px] text-gray-500">
+                                    <span>💬 38</span>
+                                    <span>⬆️ 234</span>
+                                </div>
+                            </div>
+
+                            <div class="bg-white rounded-lg p-2 shadow-sm hover:shadow transition-shadow cursor-pointer border border-purple-100">
+                                <div class="flex items-center gap-2 mb-2">
+                                    <div class="w-7 h-7 bg-gradient-to-br from-amber-400 to-amber-600 rounded flex items-center justify-center text-white font-bold text-xs shadow">🏅</div>
+                                    <div class="flex-1 min-w-0">
+                                        <div class="flex items-center gap-1">
+                                            <span class="font-bold text-gray-900 truncate text-xs">강민지</span>
+                                            <span class="bg-cyan-100 text-cyan-700 px-1.5 py-0.5 rounded-full text-[9px] font-medium">후보자</span>
+                                        </div>
+                                        <div class="text-[9px] text-gray-500">2일 전</div>
+                                    </div>
+                                </div>
+                                <p class="text-gray-700 leading-relaxed text-[11px] mb-2">환경 보호 정책 강화에 힘쓰고 있습니다. 지속 가능한 미래를 만들어가겠습니다...</p>
+                                <div class="flex gap-2 text-[10px] text-gray-500">
+                                    <span>💬 29</span>
+                                    <span>⬆️ 198</span>
+                                </div>
+                            </div>
+
+                            <div class="bg-white rounded-lg p-2 shadow-sm hover:shadow transition-shadow cursor-pointer border border-purple-100">
+                                <div class="flex items-center gap-2 mb-2">
+                                    <div class="w-7 h-7 bg-gradient-to-br from-amber-400 to-amber-600 rounded flex items-center justify-center text-white font-bold text-xs shadow">🏅</div>
+                                    <div class="flex-1 min-w-0">
+                                        <div class="flex items-center gap-1">
+                                            <span class="font-bold text-gray-900 truncate text-xs">윤서현</span>
+                                            <span class="bg-cyan-100 text-cyan-700 px-1.5 py-0.5 rounded-full text-[9px] font-medium">후보자</span>
+                                        </div>
+                                        <div class="text-[9px] text-gray-500">2일 전</div>
+                                    </div>
+                                </div>
+                                <p class="text-gray-700 leading-relaxed text-[11px] mb-2">중소기업 지원 확대 방안을 마련했습니다. 경제 활성화를 위해 최선을 다하겠습니다...</p>
+                                <div class="flex gap-2 text-[10px] text-gray-500">
+                                    <span>💬 33</span>
+                                    <span>⬆️ 176</span>
+                                </div>
+                            </div>
+
+                            <div class="bg-white rounded-lg p-2 shadow-sm hover:shadow transition-shadow cursor-pointer border border-purple-100">
+                                <div class="flex items-center gap-2 mb-2">
+                                    <div class="w-7 h-7 bg-gradient-to-br from-amber-400 to-amber-600 rounded flex items-center justify-center text-white font-bold text-xs shadow">🏅</div>
+                                    <div class="flex-1 min-w-0">
+                                        <div class="flex items-center gap-1">
+                                            <span class="font-bold text-gray-900 truncate text-xs">조현우</span>
+                                            <span class="bg-cyan-100 text-cyan-700 px-1.5 py-0.5 rounded-full text-[9px] font-medium">후보자</span>
+                                        </div>
+                                        <div class="text-[9px] text-gray-500">3일 전</div>
+                                    </div>
+                                </div>
+                                <p class="text-gray-700 leading-relaxed text-[11px] mb-2">복지 사각지대 해소를 위한 조례를 준비하고 있습니다. 모두가 행복한 지역사회...</p>
+                                <div class="flex gap-2 text-[10px] text-gray-500">
+                                    <span>💬 27</span>
+                                    <span>⬆️ 165</span>
+                                </div>
+                            </div>
+
+                            <div class="bg-white rounded-lg p-2 shadow-sm hover:shadow transition-shadow cursor-pointer border border-purple-100">
+                                <div class="flex items-center gap-2 mb-2">
+                                    <div class="w-7 h-7 bg-gradient-to-br from-amber-400 to-amber-600 rounded flex items-center justify-center text-white font-bold text-xs shadow">🏅</div>
+                                    <div class="flex-1 min-w-0">
+                                        <div class="flex items-center gap-1">
+                                            <span class="font-bold text-gray-900 truncate text-xs">한지민</span>
+                                            <span class="bg-cyan-100 text-cyan-700 px-1.5 py-0.5 rounded-full text-[9px] font-medium">후보자</span>
+                                        </div>
+                                        <div class="text-[9px] text-gray-500">3일 전</div>
+                                    </div>
+                                </div>
+                                <p class="text-gray-700 leading-relaxed text-[11px] mb-2">문화 예술 진흥을 위한 예산 증액을 추진합니다. 시민들의 문화 향유권을 보장하겠습니다...</p>
+                                <div class="flex gap-2 text-[10px] text-gray-500">
+                                    <span>💬 22</span>
+                                    <span>⬆️ 143</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div><!-- 좌측 커뮤니티 섹션 끝 (lg:col-span-2) -->
+
+            <!-- 우측 사이드바 섹션 (1/3) -->
+            <div class="space-y-3">
+                <!-- 📊 트렌딩 토픽 -->
+                <div class="bg-white rounded-lg shadow p-2">
+                    <h3 class="font-bold text-gray-900 mb-2 flex items-center gap-1 text-xs">
+                        <span class="text-sm">📊</span>
+                        트렌딩 토픽
+                    </h3>
+                    <div class="space-y-0.5 text-[10px]">
+                        <a href="#" class="flex items-center justify-between p-1 hover:bg-purple-50 rounded">
+                            <span class="text-gray-700">#의정활동</span>
+                            <span class="text-[9px] text-gray-500 bg-gray-100 px-1.5 py-0.5 rounded-full">234</span>
+                        </a>
+                        <a href="#" class="flex items-center justify-between p-1 hover:bg-purple-50 rounded">
+                            <span class="text-gray-700">#공약이행</span>
+                            <span class="text-[9px] text-gray-500 bg-gray-100 px-1.5 py-0.5 rounded-full">189</span>
+                        </a>
+                        <a href="#" class="flex items-center justify-between p-1 hover:bg-purple-50 rounded">
+                            <span class="text-gray-700">#지역개발</span>
+                            <span class="text-[9px] text-gray-500 bg-gray-100 px-1.5 py-0.5 rounded-full">156</span>
+                        </a>
+                        <a href="#" class="flex items-center justify-between p-1 hover:bg-purple-50 rounded">
+                            <span class="text-gray-700">#투명성</span>
+                            <span class="text-[9px] text-gray-500 bg-gray-100 px-1.5 py-0.5 rounded-full">142</span>
+                        </a>
+                        <a href="#" class="flex items-center justify-between p-1 hover:bg-purple-50 rounded">
+                            <span class="text-gray-700">#청년정책</span>
+                            <span class="text-[9px] text-gray-500 bg-gray-100 px-1.5 py-0.5 rounded-full">128</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 🔥 주간 핫이슈 -->
+                <div class="bg-white rounded-lg shadow p-2">
+                    <h3 class="font-bold text-gray-900 mb-2 flex items-center gap-1 text-xs">
+                        <span class="text-sm">🔥</span>
+                        주간 핫이슈
+                    </h3>
+                    <div class="space-y-1 text-[10px]">
+                        <div class="p-1 hover:bg-amber-50 rounded cursor-pointer">
+                            <div class="flex items-center gap-1 mb-0.5">
+                                <span class="text-amber-500 font-bold text-[9px]">1위</span>
+                                <span class="font-medium text-gray-900 truncate">김철수 의원 민생법안 발의</span>
+                            </div>
+                            <div class="text-[9px] text-gray-500">조회 12.3K • 댓글 234</div>
+                        </div>
+                        <div class="p-1 hover:bg-amber-50 rounded cursor-pointer">
+                            <div class="flex items-center gap-1 mb-0.5">
+                                <span class="text-amber-500 font-bold text-[9px]">2위</span>
+                                <span class="font-medium text-gray-900 truncate">이영희 시장 지역개발 공약</span>
+                            </div>
+                            <div class="text-[9px] text-gray-500">조회 9.8K • 댓글 189</div>
+                        </div>
+                        <div class="p-1 hover:bg-amber-50 rounded cursor-pointer">
+                            <div class="flex items-center gap-1 mb-0.5">
+                                <span class="text-amber-500 font-bold text-[9px]">3위</span>
+                                <span class="font-medium text-gray-900 truncate">박민수 의원 예산안 심의</span>
+                            </div>
+                            <div class="text-[9px] text-gray-500">조회 7.5K • 댓글 156</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 📢 공지사항/이벤트 -->
+                <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg shadow p-2 border border-blue-200">
+                    <h3 class="font-bold text-gray-900 mb-2 flex items-center gap-1 text-xs">
+                        <span class="text-sm">📢</span>
+                        공지사항
+                    </h3>
+                    <div class="space-y-1 text-[10px]">
+                        <a href="#" class="block p-1 hover:bg-white/50 rounded">
+                            <div class="flex items-center gap-1 mb-0.5">
+                                <span class="bg-red-500 text-white text-[8px] px-1 py-0.5 rounded font-medium">NEW</span>
+                                <span class="font-medium text-gray-900 truncate">2025 정기국회 일정 안내</span>
+                            </div>
+                            <div class="text-[9px] text-gray-500">2일 전</div>
+                        </a>
+                        <a href="#" class="block p-1 hover:bg-white/50 rounded">
+                            <div class="flex items-center gap-1 mb-0.5">
+                                <span class="bg-blue-500 text-white text-[8px] px-1 py-0.5 rounded font-medium">이벤트</span>
+                                <span class="font-medium text-gray-900 truncate">AI 평가 이벤트 진행중</span>
+                            </div>
+                            <div class="text-[9px] text-gray-500">5일 전</div>
+                        </a>
+                        <a href="#" class="block p-1 hover:bg-white/50 rounded">
+                            <div class="font-medium text-gray-900 truncate">서비스 업데이트 안내</div>
+                            <div class="text-[9px] text-gray-500">1주일 전</div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- ⭐ 내 활동 요약 -->
+                <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg shadow p-2 border border-purple-200">
+                    <h3 class="font-bold text-gray-900 mb-2 flex items-center gap-1 text-xs">
+                        <span class="text-sm">⭐</span>
+                        내 활동 요약
+                    </h3>
+                    <div class="space-y-1.5 text-[10px]">
+                        <!-- 현재 레벨 -->
+                        <div class="flex items-center gap-1.5 p-1 bg-white/70 rounded">
+                            <div class="w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center text-white text-[9px] font-bold flex-shrink-0">3</div>
+                            <div class="flex-1">
+                                <div class="flex justify-between items-center">
+                                    <span class="font-bold text-gray-900">LV.3 참여자</span>
+                                    <span class="text-[9px] text-gray-500">230/500 XP</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-1.5 mt-0.5">
+                                    <div class="bg-gradient-to-r from-purple-500 to-pink-500 h-1.5 rounded-full" style="width: 46%"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 다음 레벨 안내 -->
+                        <div class="text-[9px] text-gray-600 px-1 py-0.5 bg-white/50 rounded flex items-center gap-1">
+                            <span>다음 레벨:</span>
+                            <div class="flex items-center gap-0.5">
+                                <div class="w-3 h-3 bg-blue-400 rounded-full flex items-center justify-center text-white text-[7px] font-bold">4</div>
+                                <span class="font-medium">기여자</span>
+                                <span class="text-gray-400">(270 XP 남음)</span>
+                            </div>
+                        </div>
+
+                        <!-- 활동 통계 -->
+                        <div class="flex justify-between items-center p-1 bg-white/50 rounded">
+                            <span class="text-gray-600">평가한 정치인</span>
+                            <span class="font-bold text-gray-900">12명</span>
+                        </div>
+                        <div class="flex justify-between items-center p-1 bg-white/50 rounded">
+                            <span class="text-gray-600">작성한 글</span>
+                            <span class="font-bold text-gray-900">23개</span>
+                        </div>
+                        <div class="flex justify-between items-center p-1 bg-white/50 rounded">
+                            <span class="text-gray-600">받은 추천</span>
+                            <span class="font-bold text-orange-500">⬆️ 156</span>
+                        </div>
+
+                        <!-- 7단계 레벨 시스템 간략 표시 -->
+                        <div class="pt-1 border-t border-purple-200">
+                            <div class="text-[9px] text-gray-600 mb-1 font-medium">레벨 시스템</div>
+                            <div class="grid grid-cols-7 gap-0.5">
+                                <div class="text-center">
+                                    <div class="w-4 h-4 bg-gray-200 rounded-full flex items-center justify-center text-[7px] font-bold mx-auto mb-0.5">1</div>
+                                    <div class="text-[7px] text-gray-500">시민</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="w-4 h-4 bg-gray-300 rounded-full flex items-center justify-center text-[7px] font-bold mx-auto mb-0.5">2</div>
+                                    <div class="text-[7px] text-gray-500">활동</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="w-4 h-4 bg-purple-500 rounded-full flex items-center justify-center text-white text-[7px] font-bold mx-auto mb-0.5">3</div>
+                                    <div class="text-[7px] text-purple-600 font-medium">참여</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="w-4 h-4 bg-blue-400 rounded-full flex items-center justify-center text-white text-[7px] font-bold mx-auto mb-0.5">4</div>
+                                    <div class="text-[7px] text-gray-500">기여</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="w-4 h-4 bg-green-500 rounded-full flex items-center justify-center text-white text-[7px] font-bold mx-auto mb-0.5">5</div>
+                                    <div class="text-[7px] text-gray-500">전문</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="w-4 h-4 bg-orange-500 rounded-full flex items-center justify-center text-white text-[7px] font-bold mx-auto mb-0.5">6</div>
+                                    <div class="text-[7px] text-gray-500">리더</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="w-4 h-4 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center text-white text-[7px] font-bold mx-auto mb-0.5">7</div>
+                                    <div class="text-[7px] text-gray-500">마스터</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 🔗 연결 서비스 (추후 도입 예정) -->
+                <div class="bg-gradient-to-br from-green-50 to-teal-50 rounded-lg shadow p-2 border border-green-200">
+                    <h3 class="font-bold text-gray-900 mb-2 flex items-center gap-1 text-xs">
+                        <span class="text-sm">🔗</span>
+                        연결 서비스
+                        <span class="bg-green-500 text-white text-[8px] px-1.5 py-0.5 rounded-full font-medium ml-auto">COMING SOON</span>
+                    </h3>
+                    <div class="space-y-1 text-[10px]">
+                        <div class="p-1 bg-white/50 rounded">
+                            <div class="flex items-center gap-1 mb-0.5">
+                                <span class="text-gray-700">⚖️</span>
+                                <span class="font-medium text-gray-900">법률 컨설팅</span>
+                            </div>
+                            <div class="text-[9px] text-gray-500">정치인을 위한 법률 자문 서비스</div>
+                        </div>
+                        <div class="p-1 bg-white/50 rounded">
+                            <div class="flex items-center gap-1 mb-0.5">
+                                <span class="text-gray-700">📢</span>
+                                <span class="font-medium text-gray-900">홍보 마케팅</span>
+                            </div>
+                            <div class="text-[9px] text-gray-500">SNS 관리, 브랜딩 전문 업체</div>
+                        </div>
+                        <div class="p-1 bg-white/50 rounded">
+                            <div class="flex items-center gap-1 mb-0.5">
+                                <span class="text-gray-700">💼</span>
+                                <span class="font-medium text-gray-900">정치 컨설팅</span>
+                            </div>
+                            <div class="text-[9px] text-gray-500">전략 수립, 선거 컨설팅</div>
+                        </div>
+                        <div class="p-1 bg-white/50 rounded">
+                            <div class="flex items-center gap-1 mb-0.5">
+                                <span class="text-gray-700">📊</span>
+                                <span class="font-medium text-gray-900">여론 조사</span>
+                            </div>
+                            <div class="text-[9px] text-gray-500">전문 리서치, 데이터 분석</div>
+                        </div>
+                        <a href="#" class="block text-center mt-1 p-1 bg-green-500 hover:bg-green-600 text-white rounded text-[9px] font-medium transition-colors">
+                            서비스 업체 등록 문의 →
+                        </a>
+                    </div>
+                </div>
+            </div><!-- 우측 사이드바 끝 -->
+
+        </div><!-- 메인 그리드 끝 (lg:grid-cols-3) -->
+    </div>
+    </section>
+
+    <!-- A안 스타일 Footer (압축) -->
+    <footer class="bg-gray-900 text-gray-300 py-6 text-xs">
+        <div class="max-w-full mx-auto px-3">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
+                <div>
+                    <h3 class="text-white font-bold text-sm mb-2">PoliticianFinder</h3>
+                    <p class="text-[10px] text-gray-400">AI 기반 정치인 평가 플랫폼</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-2">서비스</h4>
+                    <ul class="space-y-1">
+                        <li><a href="#" class="hover:text-purple-400">정치인 검색</a></li>
+                        <li><a href="#" class="hover:text-purple-400">AI 평가</a></li>
+                        <li><a href="#" class="hover:text-purple-400">커뮤니티</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-2">정보</h4>
+                    <ul class="space-y-1">
+                        <li><a href="#" class="hover:text-purple-400">소개</a></li>
+                        <li><a href="#" class="hover:text-purple-400">이용약관</a></li>
+                        <li><a href="#" class="hover:text-purple-400">개인정보처리방침</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-2">문의</h4>
+                    <ul class="space-y-1">
+                        <li><a href="#" class="hover:text-purple-400">고객센터</a></li>
+                        <li><a href="#" class="hover:text-purple-400">제휴문의</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-4 text-center text-[10px] text-gray-500">
+                © 2025 PoliticianFinder. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
