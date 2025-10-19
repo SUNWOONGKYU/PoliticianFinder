@@ -83,12 +83,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Main Content Grid: 2/3 content + 1/3 sidebar */}
+      {/* Main Content Grid: 3/4 content + 1/4 sidebar */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
 
-          {/* Left Main Content (2/3) */}
-          <div className="lg:col-span-2 space-y-4">
+          {/* Left Main Content (3/4) */}
+          <div className="lg:col-span-3 space-y-4">
 
             {/* AI Ranking Section */}
             <section className="py-4 bg-white border-2 border-purple-600 rounded-lg">
