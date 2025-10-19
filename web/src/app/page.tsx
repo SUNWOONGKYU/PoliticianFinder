@@ -72,7 +72,7 @@ export default function Home() {
               </svg>
               <input
                 type="text"
-                placeholder="정치인 이름, 지역, 정당으로 검색..."
+                placeholder="정치인 이름, 신분, 직종, 지역, 정당으로 검색..."
                 className="flex-1 outline-none text-gray-900 text-sm"
               />
               <button className="bg-purple-600 hover:bg-purple-700 text-white rounded-full px-4 py-1.5 ml-2 text-xs font-medium">
@@ -95,13 +95,13 @@ export default function Home() {
               <div className="px-3">
                 <div className="flex justify-between items-center mb-3">
                   <div>
-                    <h2 className="text-xl md:text-2xl font-bold text-gray-900">🤖 AI 평가 랭킹</h2>
-                    <p className="text-xs text-gray-600">AI가 객관적으로 평가한 정치인 순위 (TOP 10)</p>
+                    <h2 className="text-xl md:text-2xl font-bold text-gray-900">🤖 AI 평점 랭킹</h2>
+                    <p className="text-xs text-gray-600">AI가 공개된 데이터를 활용하여 객관적으로 평가한 정치인 순위 (TOP 10)</p>
                   </div>
                   <div className="flex gap-1 text-xs">
                     <button className="px-2 py-1 bg-purple-600 text-white rounded font-medium">전체</button>
                     <button className="px-2 py-1 bg-gray-100 text-gray-700 rounded hover:bg-gray-200">지역</button>
-                    <button className="px-2 py-1 bg-gray-100 text-gray-700 rounded hover:bg-gray-200">당</button>
+                    <button className="px-2 py-1 bg-gray-100 text-gray-700 rounded hover:bg-gray-200">정당</button>
                     <button className="px-2 py-1 bg-gray-100 text-gray-700 rounded hover:bg-gray-200">직종</button>
                   </div>
                 </div>
@@ -114,7 +114,7 @@ export default function Home() {
                         <th className="px-2 py-1.5 text-left font-bold text-gray-900">순위</th>
                         <th className="px-2 py-1.5 text-left font-bold text-gray-900">이름</th>
                         <th className="px-2 py-1.5 text-center font-bold text-gray-900">신분</th>
-                        <th className="px-2 py-1.5 text-left font-bold text-gray-900">당</th>
+                        <th className="px-2 py-1.5 text-left font-bold text-gray-900">정당</th>
                         <th className="px-2 py-1.5 text-left font-bold text-gray-900">지역</th>
                         <th className="px-2 py-1.5 text-center font-bold text-gray-900">Claude<br />평점</th>
                         <th className="px-2 py-1.5 text-center font-bold text-gray-500 text-xs">
@@ -383,7 +383,7 @@ export default function Home() {
             <div className="bg-gradient-to-br from-rose-50 to-pink-50 rounded-lg shadow p-2 border border-rose-200">
               <h3 className="font-bold text-gray-900 mb-2 flex items-center gap-1 text-xs">
                 <span className="text-sm">📈</span>
-                평점 급상승 중인 정치인
+                평점 급상승 정치인
               </h3>
               <div className="space-y-1.5 text-[10px]">
                 <div className="flex items-center gap-2 p-1 bg-white/70 rounded hover:bg-white transition-colors cursor-pointer">
@@ -577,23 +577,23 @@ export default function Home() {
                 <div className="p-1 bg-white/50 rounded">
                   <div className="flex items-center gap-1 mb-0.5">
                     <span className="text-gray-700">⚖️</span>
-                    <span className="font-medium text-gray-900">법률 자문</span>
+                    <span className="font-medium text-gray-900">법률자문</span>
                   </div>
-                  <div className="text-[9px] text-gray-500">정치인을 위한 법률 자문 서비스</div>
+                  <div className="text-[9px] text-gray-500">정치인을 위한 법률자문 서비스</div>
                 </div>
                 <div className="p-1 bg-white/50 rounded">
                   <div className="flex items-center gap-1 mb-0.5">
                     <span className="text-gray-700">📢</span>
                     <span className="font-medium text-gray-900">홍보</span>
                   </div>
-                  <div className="text-[9px] text-gray-500">SNS 관리, 브랜딩 전문 업체</div>
+                  <div className="text-[9px] text-gray-500">정치인의 홍보활동 지원</div>
                 </div>
                 <div className="p-1 bg-white/50 rounded">
                   <div className="flex items-center gap-1 mb-0.5">
                     <span className="text-gray-700">💼</span>
                     <span className="font-medium text-gray-900">컨설팅</span>
                   </div>
-                  <div className="text-[9px] text-gray-500">전략 수립, 선거 컨설팅</div>
+                  <div className="text-[9px] text-gray-500">선거전략 수립, 컨설팅</div>
                 </div>
                 <a href="#" className="block text-center mt-1 p-1 bg-green-500 hover:bg-green-600 text-white rounded text-[9px] font-medium transition-colors">
                   서비스 업체 등록 문의 →
