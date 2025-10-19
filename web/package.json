@@ -21,7 +21,9 @@
     "@hookform/resolvers": "3.3.3",
     "recharts": "2.10.3",
     "date-fns": "3.0.0",
-    "lucide-react": "0.294.0"
+    "lucide-react": "0.294.0",
+    "clsx": "2.0.0",
+    "tailwind-merge": "2.2.0"
   },
   "devDependencies": {
     "@types/node": "20.10.5",
