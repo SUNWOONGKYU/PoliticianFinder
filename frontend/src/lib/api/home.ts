@@ -66,34 +66,44 @@ export interface HomeData {
  */
 export async function getHomeData(): Promise<HomeData> {
   try {
-    // AI 평점 랭킹 TOP 10
+    // AI 평점 랭킹 TOP 10 (뷰가 없으면 빈 배열)
     const { data: aiRanking, error: rankingError } = await supabase
       .from('v_ai_ranking_top10')
       .select('*');
 
-    if (rankingError) throw rankingError;
+    // 뷰가 없어도 계속 진행
+    if (rankingError) {
+      console.warn('v_ai_ranking_top10 view not found:', rankingError);
+    }
 
     // 실시간 인기글 TOP 15
     const { data: hotPosts, error: hotPostsError } = await supabase
       .from('v_hot_posts_top15')
       .select('*');
 
-    if (hotPostsError) throw hotPostsError;
+    if (hotPostsError) {
+      console.warn('v_hot_posts_top15 view not found:', hotPostsError);
+    }
 
     // 정치인 최근 글 9개
     const { data: politicianPosts, error: politicianPostsError } = await supabase
       .from('v_politician_posts_recent9')
       .select('*');
 
-    if (politicianPostsError) throw politicianPostsError;
+    if (politicianPostsError) {
+      console.warn('v_politician_posts_recent9 view not found:', politicianPostsError);
+    }
 
     // 사이드바 데이터
     const { data: { user } } = await supabase.auth.getUser();
     const { data: sidebarData, error: sidebarError } = await supabase
       .rpc('get_sidebar_data', { p_user_id: user?.id || null });
 
-    if (sidebarError) throw sidebarError;
+    if (sidebarError) {
+      console.warn('get_sidebar_data RPC not found:', sidebarError);
+    }
 
+    // 모든 데이터가 비어있어도 빈 배열로 반환
     return {
       aiRanking: aiRanking || [],
       hotPosts: hotPosts || [],
@@ -102,7 +112,13 @@ export async function getHomeData(): Promise<HomeData> {
     };
   } catch (error) {
     console.error('Failed to fetch home data:', error);
-    throw error;
+    // 에러가 발생해도 빈 데이터 반환 (완전 실패 방지)
+    return {
+      aiRanking: [],
+      hotPosts: [],
+      politicianPosts: [],
+      sidebar: {}
+    };
   }
 }
 
