@@ -45,8 +45,7 @@ export function Header() {
               검색
             </Link>
 
-          {/* Auth Section */}
-          <div className="flex items-center space-x-4">
+            {/* Auth Section */}
             {isAuthenticated && user ? (
               <>
                 <div className="relative">
@@ -118,6 +117,7 @@ export function Header() {
                 </Link>
               </>
             )}
+
             <button className="relative p-1 text-gray-700 hover:text-purple-600">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path
