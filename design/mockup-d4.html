@@ -56,12 +56,8 @@
 
     <!-- A안 스타일 Header (압축) -->
     <nav class="sticky top-0 bg-white border-b border-gray-200 z-50 shadow-sm">
-        <div class="max-w-full mx-auto px-3">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-12">
-                <div class="flex items-center gap-2">
-                    <span class="text-xl font-bold text-purple-600">PoliticianFinder</span>
-                    <span class="hidden md:inline text-xs text-gray-500 border-l pl-2 ml-2">Why PoliticianFinder?</span>
-                </div>
                 <div class="hidden md:flex items-center gap-4 text-sm">
                     <a href="#" class="text-gray-700 hover:text-purple-600">Home</a>
                     <a href="#" class="text-gray-700 hover:text-purple-600">정치인 목록</a>
@@ -69,6 +65,9 @@
                     <a href="#" class="text-gray-700 hover:text-purple-600">검색</a>
                     <a href="#" class="text-gray-600 hover:text-purple-600 text-xs">로그인</a>
                     <a href="#" class="bg-purple-600 hover:bg-purple-700 text-white px-3 py-1.5 rounded text-xs font-medium">회원가입</a>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="text-xl font-bold text-purple-600">PoliticianFinder</span>
                     <button class="relative p-1 text-gray-700 hover:text-purple-600">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
@@ -457,24 +456,6 @@
                 <!-- 우측: 실시간 통계 + 주목받는 정치인 사이드바 (25%) -->
                 <div class="space-y-3">
 
-                    <!-- ⚡ 실시간 통계 -->
-                    <div class="bg-white rounded-lg shadow p-2 border-t-2 border-emerald-500">
-                        <h3 class="font-bold text-gray-900 mb-2 flex items-center gap-1 text-xs">
-                            <span class="text-sm">⚡</span>
-                            실시간 통계
-                        </h3>
-                        <div class="space-y-1.5 text-[10px]">
-                            <div class="flex justify-between items-center p-1.5 bg-purple-50 rounded">
-                                <span class="text-gray-600">등록 정치인</span>
-                                <span class="font-bold text-purple-600">2,847명</span>
-                            </div>
-                            <div class="flex justify-between items-center p-1.5 bg-purple-50 rounded">
-                                <span class="text-gray-600">전체 게시글</span>
-                                <span class="font-bold text-purple-600">15,392개</span>
-                            </div>
-                        </div>
-                    </div>
-
                     </div>
                 </section>
                 <!-- AI 평가 랭킹 섹션 끝 -->
@@ -816,7 +797,7 @@
             </div><!-- 좌측 메인 컨텐츠 끝 (lg:col-span-2) -->
 
             <!-- 우측 사이드바 섹션 (1/3) - AI 랭킹부터 맨 아래까지 연속 -->
-            <div class="space-y-3 mt-4">
+            <div class="space-y-3">
                 <!-- 📊 정치인 등록 현황 -->
                 <div class="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-lg shadow p-2 border border-indigo-200">
                     <h3 class="font-bold text-gray-900 mb-2 flex items-center gap-1 text-xs">
