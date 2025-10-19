@@ -1,282 +1,627 @@
-'use client'
+import { Header } from '@/components/Header';
+import { Footer } from '@/components/Footer';
+import { StatusBadge } from '@/components/StatusBadge';
+import type { PoliticianStatus } from '@/types';
 
-import { Header } from '@/components/Header'
-import Link from 'next/link'
-import { useAuth } from '@/contexts/AuthContext'
-import { useState } from 'react'
-import { useRouter } from 'next/navigation'
+// Mock data for TOP 10 politicians
+const mockPoliticians = [
+  { rank: 1, name: '김철수', position: '국회의원', status: '현직' as PoliticianStatus, party: '민주당', region: '서울 강남', claudeScore: 92.0, memberStars: 5 },
+  { rank: 2, name: '이영희', position: '국회의원', status: '후보자' as PoliticianStatus, party: '국민의힘', region: '부산 해운대', claudeScore: 89.0, memberStars: 4 },
+  { rank: 3, name: '박민수', position: '서울시장', status: '현직' as PoliticianStatus, party: '무소속', region: '서울특별시', claudeScore: 87.0, memberStars: 4 },
+  { rank: 4, name: '정수진', position: '국회의원', status: '예비후보자' as PoliticianStatus, party: '민주당', region: '경기 성남', claudeScore: 85.0, memberStars: 4 },
+  { rank: 5, name: '최동욱', position: '국회의원', status: '현직' as PoliticianStatus, party: '국민의힘', region: '대구 수성', claudeScore: 83.0, memberStars: 4 },
+  { rank: 6, name: '강민지', position: '국회의원', status: '출마자' as PoliticianStatus, party: '민주당', region: '인천 남동', claudeScore: 82.0, memberStars: 4 },
+  { rank: 7, name: '윤서현', position: '국회의원', status: '후보자' as PoliticianStatus, party: '국민의힘', region: '광주 서구', claudeScore: 81.0, memberStars: 4 },
+  { rank: 8, name: '조현우', position: '시장', status: '현직' as PoliticianStatus, party: '무소속', region: '대전광역시', claudeScore: 80.0, memberStars: 4 },
+  { rank: 9, name: '한지민', position: '국회의원', status: '예비후보자' as PoliticianStatus, party: '민주당', region: '경기 수원', claudeScore: 79.0, memberStars: 3 },
+  { rank: 10, name: '오세훈', position: '국회의원', status: '출마자' as PoliticianStatus, party: '국민의힘', region: '서울 종로', claudeScore: 78.0, memberStars: 3 },
+];
+
+// Mock data for hot posts (15 posts in 3 columns)
+const mockHotPosts = [
+  { rank: 1, title: '김철수 의원의 최근 발언에 대한 분석', views: '1.2K', comments: 45, upvotes: 89, isHot: true },
+  { rank: 2, title: 'AI 평가 시스템은 어떻게 작동하나요?', views: '987', comments: 32, upvotes: 67, isHot: false },
+  { rank: 3, title: '지역구 국회의원 공약 이행률 비교', views: '856', comments: 28, upvotes: 54, isHot: false },
+  { rank: 4, title: '정치인 평가 기준에 대한 의견', views: '723', comments: 19, upvotes: 42, isHot: false },
+  { rank: 5, title: '우리 지역구 후보 비교 분석', views: '654', comments: 15, upvotes: 38, isHot: false },
+  { rank: 6, title: '지방선거 주요 공약 총정리', views: '543', comments: 12, upvotes: 31, isHot: false },
+  { rank: 7, title: '국회 법안 통과 현황 분석', views: '489', comments: 9, upvotes: 27, isHot: false },
+  { rank: 8, title: '예산안 심의 주요 쟁점', views: '421', comments: 7, upvotes: 23, isHot: false },
+  { rank: 9, title: '청년 정책 비교 분석', views: '378', comments: 6, upvotes: 19, isHot: false },
+  { rank: 10, title: '환경 정책 실행 현황', views: '312', comments: 5, upvotes: 17, isHot: false },
+  { rank: 11, title: '부동산 정책 분석', views: '289', comments: 4, upvotes: 15, isHot: false },
+  { rank: 12, title: '교육 개혁 방안 토론', views: '267', comments: 3, upvotes: 13, isHot: false },
+  { rank: 13, title: '복지 정책 개선 방향', views: '245', comments: 2, upvotes: 11, isHot: false },
+  { rank: 14, title: '국방 예산 배분 논의', views: '223', comments: 1, upvotes: 9, isHot: false },
+  { rank: 15, title: '지역 개발 계획 리뷰', views: '201', comments: 1, upvotes: 7, isHot: false },
+];
+
+// Mock data for politician recent posts (9 posts in 3 columns x 3 rows)
+const mockPoliticianPosts = [
+  { name: '김철수', status: '현직' as PoliticianStatus, time: '2시간 전', content: '민생 법안 통과를 위해 노력하고 있습니다. 여러분의 목소리를 듣고 있습니다...', comments: 23, upvotes: 156 },
+  { name: '이영희', status: '후보자' as PoliticianStatus, time: '5시간 전', content: '지역 개발 사업 진행 상황을 보고드립니다. 투명하게 공개하겠습니다...', comments: 18, upvotes: 142 },
+  { name: '박민수', status: '후보자' as PoliticianStatus, time: '8시간 전', content: '서울시 교통 정책 개선안을 발표했습니다. 시민 여러분의 의견을 반영했습니다...', comments: 31, upvotes: 203 },
+  { name: '정수진', status: '후보자' as PoliticianStatus, time: '1일 전', content: '청년 일자리 창출 정책을 적극 추진하겠습니다. 청년들의 목소리를 최우선으로...', comments: 45, upvotes: 289 },
+  { name: '최동욱', status: '후보자' as PoliticianStatus, time: '1일 전', content: '교육 예산 확대를 위한 법안을 준비 중입니다. 우리 아이들의 미래를 위해...', comments: 38, upvotes: 234 },
+  { name: '강민지', status: '후보자' as PoliticianStatus, time: '2일 전', content: '환경 보호 정책 강화에 힘쓰고 있습니다. 지속 가능한 미래를 만들어가겠습니다...', comments: 29, upvotes: 198 },
+  { name: '윤서현', status: '후보자' as PoliticianStatus, time: '2일 전', content: '중소기업 지원 확대 방안을 마련했습니다. 경제 활성화를 위해 최선을 다하겠습니다...', comments: 33, upvotes: 176 },
+  { name: '조현우', status: '후보자' as PoliticianStatus, time: '3일 전', content: '복지 사각지대 해소를 위한 조례를 준비하고 있습니다. 모두가 행복한 지역사회...', comments: 27, upvotes: 165 },
+  { name: '한지민', status: '후보자' as PoliticianStatus, time: '3일 전', content: '문화 예술 진흥을 위한 예산 증액을 추진합니다. 시민들의 문화 향유권을 보장하겠습니다...', comments: 22, upvotes: 143 },
+];
 
 export default function Home() {
-  const { isAuthenticated, user } = useAuth()
-  const [searchQuery, setSearchQuery] = useState('')
-  const router = useRouter()
-
-  const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault()
-    if (searchQuery.trim()) {
-      router.push(`/search?q=${encodeURIComponent(searchQuery)}`)
-    }
-  }
-
   return (
-    <div className="min-h-screen bg-gray-50">
+    <>
       <Header />
 
       {/* Hero Section */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12" role="main">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
-            훌륭한 정치인을 찾아드립니다
+      <section className="bg-gradient-to-b from-purple-50 to-white py-8">
+        <div className="max-w-6xl mx-auto px-3 text-center">
+          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+            훌륭한 정치인 찾기
           </h1>
-          <p className="mt-5 max-w-4xl mx-auto text-xl sm:text-2xl md:mt-8 md:text-3xl font-bold bg-gradient-to-r from-purple-600 via-violet-600 to-fuchsia-600 bg-clip-text text-transparent drop-shadow-sm">
-            AI 기반의 정치인 평가 플랫폼
+          <p className="text-lg md:text-xl font-bold bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent mb-4">
+            AI 기반 정치인 평가 플랫폼
           </p>
-        </div>
 
-        {/* Search Bar */}
-        <div className="max-w-3xl mx-auto mb-12">
-          <form onSubmit={handleSearch} className="relative" role="search" aria-label="정치인 검색">
-            <label htmlFor="search-input" className="sr-only">정치인 검색</label>
-            <input
-              id="search-input"
-              type="search"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="정치인 이름, 정당, 지역으로 검색하세요..."
-              className="w-full px-4 py-4 pr-12 text-gray-900 placeholder-gray-500 bg-white border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-              aria-label="정치인 검색 입력"
-            />
-            <button
-              type="submit"
-              className="absolute right-2 top-2 bottom-2 px-4 bg-purple-600 text-white rounded-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
-              aria-label="검색하기"
-            >
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                />
+          {/* Search Bar */}
+          <div className="max-w-2xl mx-auto bg-white rounded-full shadow border border-gray-200 focus-within:border-purple-600">
+            <div className="flex items-center px-4 py-2">
+              <svg className="w-4 h-4 text-gray-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
               </svg>
-            </button>
-          </form>
-        </div>
-
-        {/* Hot Posts Section */}
-        <div className="mb-12">
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl font-bold text-gray-900 flex items-center gap-2">
-              🔥 실시간 인기글
-            </h2>
-            <Link href="/community" className="text-purple-600 hover:text-purple-700 font-medium">
-              전체보기 →
-            </Link>
-          </div>
-          <div className="bg-white rounded-lg shadow-md overflow-hidden">
-            <div className="divide-y">
-              {[1, 2, 3, 4, 5].map((i) => (
-                <div key={i} className="p-4 hover:bg-gray-50 transition-colors cursor-pointer">
-                  <div className="flex items-start justify-between">
-                    <div className="flex-1">
-                      <div className="flex items-center gap-2 mb-1">
-                        <span className="text-purple-600 font-bold">#{i}</span>
-                        <span className="px-2 py-0.5 bg-red-100 text-red-700 text-xs rounded">HOT</span>
-                      </div>
-                      <h3 className="font-semibold text-gray-900 hover:text-purple-600 mb-1">
-                        인기 게시글 제목이 여기에 표시됩니다
-                      </h3>
-                      <div className="flex items-center gap-3 text-sm text-gray-500">
-                        <span>작성자</span>
-                        <span>•</span>
-                        <span>👁️ 1.2k</span>
-                        <span>💬 42</span>
-                        <span>⬆️ 156</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
+              <input
+                type="text"
+                placeholder="정치인 이름, 신분, 직종, 지역, 정당으로 검색..."
+                className="flex-1 outline-none text-gray-900 text-sm"
+              />
+              <button className="bg-purple-600 hover:bg-purple-700 text-white rounded-full px-4 py-1.5 ml-2 text-xs font-medium">
+                검색
+              </button>
             </div>
           </div>
         </div>
+      </section>
 
-        {/* Politician Posts Section */}
-        <div className="mb-12">
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl font-bold text-gray-900 flex items-center gap-2">
-              🏛️ 정치인이 직접 쓴 글
-            </h2>
-            <Link href="/community?category=politician_post" className="text-purple-600 hover:text-purple-700 font-medium">
-              전체보기 →
-            </Link>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {[1, 2, 3, 4].map((i) => (
-              <div key={i} className="bg-gradient-to-r from-purple-50 to-indigo-50 rounded-lg p-5 hover:shadow-md transition-shadow cursor-pointer border border-purple-100">
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold">
-                    홍
-                  </div>
+      {/* Main Content Grid: 3/4 content + 1/4 sidebar */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
+
+          {/* Left Main Content (3/4) */}
+          <div className="lg:col-span-3 space-y-4">
+
+            {/* AI Ranking Section */}
+            <section className="py-4 bg-white border-2 border-purple-600 rounded-lg">
+              <div className="px-3">
+                <div className="flex justify-between items-center mb-3">
                   <div>
-                    <div className="flex items-center gap-2">
-                      <span className="font-semibold text-gray-900">홍길동</span>
-                      <span className="px-2 py-0.5 bg-purple-600 text-white text-xs rounded">🏛️ 본인</span>
-                    </div>
-                    <span className="text-sm text-gray-600">서울 강남구 국회의원</span>
+                    <h2 className="text-xl md:text-2xl font-bold text-gray-900">🤖 AI 평점 랭킹</h2>
+                    <p className="text-xs text-gray-600">AI가 공개된 데이터를 활용하여 객관적으로 평가한 정치인 평점 순위 (TOP 10)</p>
+                  </div>
+                  <div className="flex gap-1 text-xs">
+                    <button className="px-2 py-1 bg-purple-600 text-white rounded font-medium">전체</button>
+                    <button className="px-2 py-1 bg-gray-100 text-gray-700 rounded hover:bg-gray-200">지역</button>
+                    <button className="px-2 py-1 bg-gray-100 text-gray-700 rounded hover:bg-gray-200">정당</button>
+                    <button className="px-2 py-1 bg-gray-100 text-gray-700 rounded hover:bg-gray-200">직종</button>
                   </div>
                 </div>
-                <h3 className="font-semibold text-gray-900 mb-2">
-                  지역 현안에 대한 정치인의 입장문
-                </h3>
-                <div className="flex items-center gap-3 text-sm text-gray-500">
-                  <span>2시간 전</span>
-                  <span>•</span>
-                  <span>👁️ 856</span>
-                  <span>💬 23</span>
+
+                {/* Rankings Table */}
+                <div className="overflow-x-auto bg-white rounded-lg shadow border border-gray-200">
+                  <table className="w-full text-xs">
+                    <thead className="bg-purple-50 border-b border-purple-600">
+                      <tr>
+                        <th className="px-2 py-1.5 text-left font-bold text-gray-900">순위</th>
+                        <th className="px-2 py-1.5 text-left font-bold text-gray-900">이름</th>
+                        <th className="px-2 py-1.5 text-center font-bold text-gray-900">신분</th>
+                        <th className="px-2 py-1.5 text-left font-bold text-gray-900">정당</th>
+                        <th className="px-2 py-1.5 text-left font-bold text-gray-900">지역</th>
+                        <th className="px-2 py-1.5 text-center font-bold text-gray-900">Claude<br />평점</th>
+                        <th className="px-2 py-1.5 text-center font-bold text-gray-500 text-xs">
+                          <div>GPT<br />평점</div>
+                          <div className="text-[9px] font-normal mt-0.5">추후 표시<br />예정</div>
+                        </th>
+                        <th className="px-2 py-1.5 text-center font-bold text-gray-500 text-xs">
+                          <div>Gemini<br />평점</div>
+                          <div className="text-[9px] font-normal mt-0.5">추후 표시<br />예정</div>
+                        </th>
+                        <th className="px-2 py-1.5 text-center font-bold text-gray-500 text-xs">
+                          <div>Grok<br />평점</div>
+                          <div className="text-[9px] font-normal mt-0.5">추후 표시<br />예정</div>
+                        </th>
+                        <th className="px-2 py-1.5 text-center font-bold text-gray-500 text-xs">
+                          <div>Perp<br />평점</div>
+                          <div className="text-[9px] font-normal mt-0.5">추후 표시<br />예정</div>
+                        </th>
+                        <th className="px-2 py-1.5 text-center font-bold text-gray-900">AI종합<br />평점</th>
+                        <th className="px-2 py-1.5 text-center font-bold text-gray-900">회원<br />평점</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-gray-100">
+                      {mockPoliticians.map((politician) => (
+                        <tr key={politician.rank} className="hover:bg-purple-50">
+                          <td className="px-2 py-1">
+                            {politician.rank === 1 ? (
+                              <span className="bg-gradient-to-r from-amber-500 to-amber-600 text-white font-bold px-2 py-0.5 rounded-full text-[10px]">
+                                {politician.rank}
+                              </span>
+                            ) : politician.rank <= 3 ? (
+                              <span className="bg-gray-200 text-gray-700 font-bold px-2 py-0.5 rounded-full text-[10px]">
+                                {politician.rank}
+                              </span>
+                            ) : (
+                              <span className="bg-gray-100 text-gray-600 font-bold px-2 py-0.5 rounded-full text-[10px]">
+                                {politician.rank}
+                              </span>
+                            )}
+                          </td>
+                          <td className="px-2 py-1">
+                            <div className="flex items-center gap-1.5">
+                              <div className="w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 font-bold text-xs">
+                                {politician.name.charAt(0)}
+                              </div>
+                              <div>
+                                <div className="font-bold text-gray-900">{politician.name}</div>
+                                <div className="text-[10px] text-gray-500">{politician.position}</div>
+                              </div>
+                            </div>
+                          </td>
+                          <td className="px-2 py-1 text-center">
+                            <StatusBadge status={politician.status} />
+                          </td>
+                          <td className="px-2 py-1 text-gray-700">{politician.party}</td>
+                          <td className="px-2 py-1 text-gray-700">{politician.region}</td>
+                          <td className="px-2 py-1 text-center">
+                            <div className="flex flex-col items-center gap-0.5">
+                              <span className="text-sm font-bold text-gray-900">{politician.claudeScore.toFixed(1)}</span>
+                              <a href="#ai-detail" className="text-[9px] text-blue-600 hover:text-blue-700">평가내역 보기</a>
+                            </div>
+                          </td>
+                          <td className="px-2 py-1 text-center text-gray-300 text-[10px]">-</td>
+                          <td className="px-2 py-1 text-center text-gray-300 text-[10px]">-</td>
+                          <td className="px-2 py-1 text-center text-gray-300 text-[10px]">-</td>
+                          <td className="px-2 py-1 text-center text-gray-300 text-[10px]">-</td>
+                          <td className="px-2 py-1 text-center">
+                            <span className="text-sm font-bold text-purple-600">{politician.claudeScore.toFixed(1)}</span>
+                          </td>
+                          <td className="px-2 py-1 text-center">
+                            <div className="flex flex-col items-center gap-0.5">
+                              <span className="text-amber-400 text-xs">
+                                {'⭐'.repeat(politician.memberStars)}
+                              </span>
+                              <a href="#rate" className="text-[9px] text-purple-600 hover:text-purple-700">평가하기</a>
+                            </div>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+
+                <div className="mt-3 text-center">
+                  <button className="text-purple-600 hover:text-purple-700 font-medium flex items-center gap-1 mx-auto text-sm">
+                    <span>전체 랭킹 보기 →</span>
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                  </button>
                 </div>
               </div>
-            ))}
+            </section>
+
+            {/* Hot Posts Section */}
+            <div className="bg-white rounded-lg shadow p-3 border-t-2 border-amber-500">
+              <div className="flex justify-between items-center mb-2">
+                <h2 className="text-lg font-bold text-gray-900 flex items-center gap-1">
+                  <span className="text-xl">🔥</span>
+                  실시간 인기글
+                </h2>
+                <div className="flex gap-1 text-[10px]">
+                  <button className="px-2 py-0.5 bg-purple-600 text-white rounded font-medium">1시간</button>
+                  <button className="px-2 py-0.5 bg-gray-100 text-gray-600 rounded">6시간</button>
+                  <button className="px-2 py-0.5 bg-gray-100 text-gray-600 rounded">24시간</button>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-2 text-xs">
+                {/* Column 1 (1-5) */}
+                <div className="space-y-1">
+                  {mockHotPosts.slice(0, 5).map((post) => (
+                    <div key={post.rank} className="flex items-center gap-2 p-1.5 hover:bg-gray-50 rounded cursor-pointer">
+                      <span className={`${post.isHot ? 'bg-gradient-to-r from-amber-500 to-amber-600 animate-pulse' : post.rank <= 3 ? 'bg-gray-200 text-gray-700' : 'bg-gray-100 text-gray-600'} text-white font-bold w-5 h-5 rounded-full flex items-center justify-center text-[10px] flex-shrink-0`}>
+                        {post.rank}
+                      </span>
+                      <div className="flex-1 min-w-0">
+                        <h3 className="font-medium text-gray-900 hover:text-purple-600 truncate">{post.title}</h3>
+                        <div className="flex gap-2 text-[10px] text-gray-500">
+                          <span>👁️ {post.views}</span>
+                          <span>💬 {post.comments}</span>
+                          <span>⬆️ {post.upvotes}</span>
+                          <button className="hover:text-purple-600" title="공유하기">
+                            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path>
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Column 2 (6-10) */}
+                <div className="space-y-1">
+                  {mockHotPosts.slice(5, 10).map((post) => (
+                    <div key={post.rank} className="flex items-center gap-2 p-1.5 hover:bg-gray-50 rounded cursor-pointer">
+                      <span className="bg-gray-100 text-gray-600 font-bold w-5 h-5 rounded-full flex items-center justify-center text-[10px] flex-shrink-0">
+                        {post.rank}
+                      </span>
+                      <div className="flex-1 min-w-0">
+                        <h3 className="font-medium text-gray-900 hover:text-purple-600 truncate">{post.title}</h3>
+                        <div className="flex gap-2 text-[10px] text-gray-500">
+                          <span>👁️ {post.views}</span>
+                          <span>💬 {post.comments}</span>
+                          <span>⬆️ {post.upvotes}</span>
+                          <button className="hover:text-purple-600" title="공유하기">
+                            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path>
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Column 3 (11-15) */}
+                <div className="space-y-1">
+                  {mockHotPosts.slice(10, 15).map((post) => (
+                    <div key={post.rank} className="flex items-center gap-2 p-1.5 hover:bg-gray-50 rounded cursor-pointer">
+                      <span className="bg-gray-100 text-gray-600 font-bold w-5 h-5 rounded-full flex items-center justify-center text-[10px] flex-shrink-0">
+                        {post.rank}
+                      </span>
+                      <div className="flex-1 min-w-0">
+                        <h3 className="font-medium text-gray-900 hover:text-purple-600 truncate">{post.title}</h3>
+                        <div className="flex gap-2 text-[10px] text-gray-500">
+                          <span>👁️ {post.views}</span>
+                          <span>💬 {post.comments}</span>
+                          <span>⬆️ {post.upvotes}</span>
+                          <button className="hover:text-purple-600" title="공유하기">
+                            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path>
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Politician Recent Posts Section */}
+            <div className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-lg shadow p-3 border border-purple-100">
+              <div className="flex justify-between items-center mb-2">
+                <h2 className="text-lg font-bold text-gray-900 flex items-center gap-1">
+                  <span className="text-xl">📝</span>
+                  정치인 최근 글
+                </h2>
+                <a href="#" className="text-purple-600 hover:text-purple-700 font-medium text-xs">전체보기 →</a>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-2 text-xs">
+                {mockPoliticianPosts.map((post, idx) => (
+                  <div key={idx} className="bg-white rounded-lg p-2 shadow-sm hover:shadow transition-shadow cursor-pointer border border-purple-100">
+                    <div className="flex items-center gap-2 mb-2">
+                      <div className="w-7 h-7 bg-gradient-to-br from-amber-400 to-amber-600 rounded flex items-center justify-center text-white font-bold text-xs shadow">
+                        🏅
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-1">
+                          <span className="font-bold text-gray-900 truncate text-xs">{post.name}</span>
+                          <StatusBadge status={post.status} className="text-[9px]" />
+                        </div>
+                        <div className="text-[9px] text-gray-500">{post.time}</div>
+                      </div>
+                    </div>
+                    <p className="text-gray-700 leading-relaxed text-[11px] mb-2">{post.content}</p>
+                    <div className="flex gap-2 text-[10px] text-gray-500">
+                      <span>💬 {post.comments}</span>
+                      <span>⬆️ {post.upvotes}</span>
+                      <button className="hover:text-purple-600" title="공유하기">
+                        <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
           </div>
+
+          {/* Right Sidebar (1/3) */}
+          <div className="space-y-3">
+
+            {/* Politician Registration Status */}
+            <div className="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-lg shadow p-2 border border-indigo-200">
+              <h3 className="font-bold text-gray-900 mb-2 flex items-center gap-1 text-xs">
+                <span className="text-sm">📊</span>
+                정치인 등록 현황
+              </h3>
+              <div className="space-y-1.5 text-[10px]">
+                <div className="flex justify-between items-center p-1 bg-white/70 rounded">
+                  <span className="text-gray-700">총 등록 정치인</span>
+                  <span className="font-bold text-indigo-600">1,247명</span>
+                </div>
+                <div className="flex justify-between items-center p-1 bg-white/70 rounded">
+                  <span className="text-gray-700">현직</span>
+                  <span className="font-bold text-emerald-600">892명</span>
+                </div>
+                <div className="flex justify-between items-center p-1 bg-white/70 rounded">
+                  <span className="text-gray-700">후보자</span>
+                  <span className="font-bold text-cyan-600">245명</span>
+                </div>
+                <div className="flex justify-between items-center p-1 bg-white/70 rounded">
+                  <span className="text-gray-700">예비후보자</span>
+                  <span className="font-bold text-amber-600">87명</span>
+                </div>
+                <div className="flex justify-between items-center p-1 bg-white/70 rounded">
+                  <span className="text-gray-700">출마자</span>
+                  <span className="font-bold text-purple-600">23명</span>
+                </div>
+                <div className="pt-1 border-t border-indigo-200">
+                  <div className="flex justify-between items-center p-1 bg-gradient-to-r from-indigo-100 to-blue-100 rounded">
+                    <span className="text-gray-700 font-medium">이번 주 신규</span>
+                    <span className="font-bold text-blue-600">+18명</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Rising Rating Politicians */}
+            <div className="bg-gradient-to-br from-rose-50 to-pink-50 rounded-lg shadow p-2 border border-rose-200">
+              <h3 className="font-bold text-gray-900 mb-2 flex items-center gap-1 text-xs">
+                <span className="text-sm">📈</span>
+                평점 급상승 정치인
+              </h3>
+              <div className="space-y-1.5 text-[10px]">
+                <div className="flex items-center gap-2 p-1 bg-white/70 rounded hover:bg-white transition-colors cursor-pointer">
+                  <div className="w-8 h-8 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full flex items-center justify-center text-white font-bold text-xs flex-shrink-0 shadow">
+                    김
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="font-bold text-gray-900 truncate">김민수</div>
+                    <div className="text-[9px] text-gray-500">국회의원 · 민주당</div>
+                  </div>
+                  <div className="text-right flex-shrink-0">
+                    <div className="text-rose-600 font-bold text-xs">↑ 5.2</div>
+                    <div className="text-[9px] text-gray-500">이번 주</div>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2 p-1 bg-white/70 rounded hover:bg-white transition-colors cursor-pointer">
+                  <div className="w-8 h-8 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-full flex items-center justify-center text-white font-bold text-xs flex-shrink-0 shadow">
+                    박
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="font-bold text-gray-900 truncate">박지영</div>
+                    <div className="text-[9px] text-gray-500">시의원 · 국민의힘</div>
+                  </div>
+                  <div className="text-right flex-shrink-0">
+                    <div className="text-rose-600 font-bold text-xs">↑ 4.8</div>
+                    <div className="text-[9px] text-gray-500">이번 주</div>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2 p-1 bg-white/70 rounded hover:bg-white transition-colors cursor-pointer">
+                  <div className="w-8 h-8 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full flex items-center justify-center text-white font-bold text-xs flex-shrink-0 shadow">
+                    최
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="font-bold text-gray-900 truncate">최서현</div>
+                    <div className="text-[9px] text-gray-500">시장 · 무소속</div>
+                  </div>
+                  <div className="text-right flex-shrink-0">
+                    <div className="text-rose-600 font-bold text-xs">↑ 3.9</div>
+                    <div className="text-[9px] text-gray-500">이번 주</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Trending Topics */}
+            <div className="bg-white rounded-lg shadow p-2">
+              <h3 className="font-bold text-gray-900 mb-2 flex items-center gap-1 text-xs">
+                <span className="text-sm">📊</span>
+                트렌딩 토픽
+              </h3>
+              <div className="space-y-0.5 text-[10px]">
+                <a href="#" className="flex items-center justify-between p-1 hover:bg-purple-50 rounded">
+                  <span className="text-gray-700">#의정활동</span>
+                  <span className="text-[9px] text-gray-500 bg-gray-100 px-1.5 py-0.5 rounded-full">234</span>
+                </a>
+                <a href="#" className="flex items-center justify-between p-1 hover:bg-purple-50 rounded">
+                  <span className="text-gray-700">#공약이행</span>
+                  <span className="text-[9px] text-gray-500 bg-gray-100 px-1.5 py-0.5 rounded-full">189</span>
+                </a>
+                <a href="#" className="flex items-center justify-between p-1 hover:bg-purple-50 rounded">
+                  <span className="text-gray-700">#지역개발</span>
+                  <span className="text-[9px] text-gray-500 bg-gray-100 px-1.5 py-0.5 rounded-full">156</span>
+                </a>
+                <a href="#" className="flex items-center justify-between p-1 hover:bg-purple-50 rounded">
+                  <span className="text-gray-700">#투명성</span>
+                  <span className="text-[9px] text-gray-500 bg-gray-100 px-1.5 py-0.5 rounded-full">142</span>
+                </a>
+                <a href="#" className="flex items-center justify-between p-1 hover:bg-purple-50 rounded">
+                  <span className="text-gray-700">#청년정책</span>
+                  <span className="text-[9px] text-gray-500 bg-gray-100 px-1.5 py-0.5 rounded-full">128</span>
+                </a>
+              </div>
+            </div>
+
+            {/* Weekly Hot Issues */}
+            <div className="bg-white rounded-lg shadow p-2">
+              <h3 className="font-bold text-gray-900 mb-2 flex items-center gap-1 text-xs">
+                <span className="text-sm">🔥</span>
+                주간 핫이슈
+              </h3>
+              <div className="space-y-1 text-[10px]">
+                <div className="p-1 hover:bg-amber-50 rounded cursor-pointer">
+                  <div className="flex items-center gap-1 mb-0.5">
+                    <span className="text-amber-500 font-bold text-[9px]">1위</span>
+                    <span className="font-medium text-gray-900 truncate">김철수 의원 민생법안 발의</span>
+                  </div>
+                  <div className="text-[9px] text-gray-500">조회 12.3K • 댓글 234</div>
+                </div>
+                <div className="p-1 hover:bg-amber-50 rounded cursor-pointer">
+                  <div className="flex items-center gap-1 mb-0.5">
+                    <span className="text-amber-500 font-bold text-[9px]">2위</span>
+                    <span className="font-medium text-gray-900 truncate">이영희 시장 지역개발 공약</span>
+                  </div>
+                  <div className="text-[9px] text-gray-500">조회 9.8K • 댓글 189</div>
+                </div>
+                <div className="p-1 hover:bg-amber-50 rounded cursor-pointer">
+                  <div className="flex items-center gap-1 mb-0.5">
+                    <span className="text-amber-500 font-bold text-[9px]">3위</span>
+                    <span className="font-medium text-gray-900 truncate">박민수 의원 예산안 심의</span>
+                  </div>
+                  <div className="text-[9px] text-gray-500">조회 7.5K • 댓글 156</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Announcements */}
+            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg shadow p-2 border border-blue-200">
+              <h3 className="font-bold text-gray-900 mb-2 flex items-center gap-1 text-xs">
+                <span className="text-sm">📢</span>
+                공지사항
+              </h3>
+              <div className="space-y-1 text-[10px]">
+                <a href="#" className="block p-1 hover:bg-white/50 rounded">
+                  <div className="flex items-center gap-1 mb-0.5">
+                    <span className="bg-red-500 text-white text-[8px] px-1 py-0.5 rounded font-medium">NEW</span>
+                    <span className="font-medium text-gray-900 truncate">2025 정기국회 일정 안내</span>
+                  </div>
+                  <div className="text-[9px] text-gray-500">2일 전</div>
+                </a>
+                <a href="#" className="block p-1 hover:bg-white/50 rounded">
+                  <div className="flex items-center gap-1 mb-0.5">
+                    <span className="bg-blue-500 text-white text-[8px] px-1 py-0.5 rounded font-medium">이벤트</span>
+                    <span className="font-medium text-gray-900 truncate">AI 평가 이벤트 진행중</span>
+                  </div>
+                  <div className="text-[9px] text-gray-500">5일 전</div>
+                </a>
+                <a href="#" className="block p-1 hover:bg-white/50 rounded">
+                  <div className="font-medium text-gray-900 truncate">서비스 업데이트 안내</div>
+                  <div className="text-[9px] text-gray-500">1주일 전</div>
+                </a>
+              </div>
+            </div>
+
+            {/* My Activity Summary */}
+            <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg shadow p-2 border border-purple-200">
+              <h3 className="font-bold text-gray-900 mb-2 flex items-center gap-1 text-xs">
+                <span className="text-sm">⭐</span>
+                내 활동 요약
+              </h3>
+              <div className="space-y-1.5 text-[10px]">
+                {/* Current Level */}
+                <div className="flex items-center gap-1.5 p-1 bg-white/70 rounded">
+                  <div className="w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center text-white text-[9px] font-bold flex-shrink-0">
+                    3
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex justify-between items-center">
+                      <span className="font-bold text-gray-900">LV.3 참여자</span>
+                      <span className="text-[9px] text-gray-500">230/500 XP</span>
+                    </div>
+                    <div className="w-full bg-gray-200 rounded-full h-1.5 mt-0.5">
+                      <div className="bg-gradient-to-r from-purple-500 to-pink-500 h-1.5 rounded-full" style={{ width: '46%' }}></div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Next Level Info */}
+                <div className="text-[9px] text-gray-600 px-1 py-0.5 bg-white/50 rounded flex items-center gap-1">
+                  <span>다음 레벨:</span>
+                  <div className="flex items-center gap-0.5">
+                    <div className="w-3 h-3 bg-blue-400 rounded-full flex items-center justify-center text-white text-[7px] font-bold">4</div>
+                    <span className="font-medium">기여자</span>
+                    <span className="text-gray-400">(270 XP 남음)</span>
+                  </div>
+                </div>
+
+                {/* Activity Stats */}
+                <div className="flex justify-between items-center p-1 bg-white/50 rounded">
+                  <span className="text-gray-600">평가한 정치인</span>
+                  <span className="font-bold text-gray-900">12명</span>
+                </div>
+                <div className="flex justify-between items-center p-1 bg-white/50 rounded">
+                  <span className="text-gray-600">작성한 글</span>
+                  <span className="font-bold text-gray-900">23개</span>
+                </div>
+                <div className="flex justify-between items-center p-1 bg-white/50 rounded">
+                  <span className="text-gray-600">받은 추천</span>
+                  <span className="font-bold text-orange-500">⬆️ 156</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Connected Services */}
+            <div className="bg-gradient-to-br from-green-50 to-teal-50 rounded-lg shadow p-2 border border-green-200">
+              <h3 className="font-bold text-gray-900 mb-2 flex items-center gap-1 text-xs">
+                <span className="text-sm">🔗</span>
+                연결 서비스
+                <span className="bg-green-500 text-white text-[8px] px-1.5 py-0.5 rounded-full font-medium ml-auto">COMING SOON</span>
+              </h3>
+              <div className="space-y-1 text-[10px]">
+                <div className="p-1 bg-white/50 rounded">
+                  <div className="flex items-center gap-1 mb-0.5">
+                    <span className="text-gray-700">⚖️</span>
+                    <span className="font-medium text-gray-900">법률자문</span>
+                  </div>
+                  <div className="text-[9px] text-gray-500">정치인을 위한 법률자문 서비스</div>
+                </div>
+                <div className="p-1 bg-white/50 rounded">
+                  <div className="flex items-center gap-1 mb-0.5">
+                    <span className="text-gray-700">📢</span>
+                    <span className="font-medium text-gray-900">홍보</span>
+                  </div>
+                  <div className="text-[9px] text-gray-500">정치인의 홍보활동 지원</div>
+                </div>
+                <div className="p-1 bg-white/50 rounded">
+                  <div className="flex items-center gap-1 mb-0.5">
+                    <span className="text-gray-700">💼</span>
+                    <span className="font-medium text-gray-900">컨설팅</span>
+                  </div>
+                  <div className="text-[9px] text-gray-500">선거전략 수립, 컨설팅</div>
+                </div>
+                <a href="#" className="block text-center mt-1 p-1 bg-green-500 hover:bg-green-600 text-white rounded text-[9px] font-medium transition-colors">
+                  서비스 업체 등록 문의 →
+                </a>
+              </div>
+            </div>
+
+            {/* Advertisement Area */}
+            <div className="bg-gray-100 rounded-lg shadow p-3 border-2 border-dashed border-gray-300">
+              <div className="text-center space-y-2">
+                <div className="text-gray-400 text-xs font-medium">광고</div>
+                <div className="bg-white rounded p-4 min-h-[250px] flex items-center justify-center">
+                  <div className="text-center text-gray-400">
+                    <div className="text-4xl mb-2">📺</div>
+                    <div className="text-xs">광고 영역</div>
+                    <div className="text-[10px] mt-1">300 x 250</div>
+                  </div>
+                </div>
+                <div className="text-[9px] text-gray-400">Sponsored</div>
+              </div>
+            </div>
+
+          </div>
+
         </div>
+      </div>
 
-        {/* Feature Cards */}
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-3 mb-12">
-          <div className="bg-white rounded-lg shadow-md p-6">
-            <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
-              <svg
-                className="w-6 h-6 text-purple-600"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                />
-              </svg>
-            </div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">빠른 검색</h3>
-            <p className="text-gray-600">
-              이름, 정당, 지역 등 다양한 조건으로 정치인을 쉽게 찾아보세요.
-            </p>
-          </div>
-
-          <div className="bg-white rounded-lg shadow-md p-6">
-            <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
-              <svg
-                className="w-6 h-6 text-green-600"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                />
-              </svg>
-            </div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">상세 정보</h3>
-            <p className="text-gray-600">
-              경력, 학력, 공약, 의정 활동 등 상세한 정보를 확인하세요.
-            </p>
-          </div>
-
-          <div className="bg-white rounded-lg shadow-md p-6">
-            <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
-              <svg
-                className="w-6 h-6 text-purple-600"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
-                />
-              </svg>
-            </div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">평가 및 리뷰</h3>
-            <p className="text-gray-600">
-              {isAuthenticated
-                ? '다른 사용자들의 평가를 보고 직접 평가를 남겨보세요.'
-                : '로그인하면 정치인 평가를 남길 수 있습니다.'}
-            </p>
-          </div>
-        </div>
-
-        {/* CTA Section */}
-        {!isAuthenticated && (
-          <div className="bg-purple-600 rounded-lg shadow-xl p-8 text-center">
-            <h2 className="text-2xl font-bold text-white mb-4">
-              더 많은 기능을 이용하세요!
-            </h2>
-            <p className="text-purple-100 mb-6">
-              로그인하면 정치인 평가, 관심 정치인 저장 등 더 많은 기능을 사용할 수 있습니다.
-            </p>
-            <div className="flex justify-center space-x-4">
-              <Link
-                href="/login"
-                className="px-6 py-3 bg-white text-purple-600 font-medium rounded-md hover:bg-gray-100 transition-colors"
-              >
-                로그인
-              </Link>
-              <Link
-                href="/signup"
-                className="px-6 py-3 bg-purple-500 text-white font-medium rounded-md hover:bg-purple-400 transition-colors"
-              >
-                회원가입
-              </Link>
-            </div>
-          </div>
-        )}
-
-        {/* User Welcome */}
-        {isAuthenticated && user && (
-          <div className="bg-white rounded-lg shadow-md p-6 text-center">
-            <h2 className="text-xl font-semibold text-gray-900 mb-2">
-              환영합니다, {user.user_metadata?.name || user.email?.split('@')[0]}님!
-            </h2>
-            <p className="text-gray-600 mb-4">
-              이제 모든 기능을 이용하실 수 있습니다.
-            </p>
-            <div className="flex justify-center space-x-4">
-              <Link
-                href="/politicians"
-                className="px-4 py-2 bg-purple-600 text-white font-medium rounded-md hover:bg-purple-700 transition-colors"
-              >
-                정치인 목록 보기
-              </Link>
-              <Link
-                href="/profile"
-                className="px-4 py-2 bg-gray-200 text-gray-700 font-medium rounded-md hover:bg-gray-300 transition-colors"
-              >
-                내 프로필
-              </Link>
-            </div>
-          </div>
-        )}
-      </main>
-
-      {/* Footer */}
-      <footer className="bg-white border-t mt-12">
-        <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-          <p className="text-center text-sm text-gray-500">
-            © 2025 PoliticianFinder. All rights reserved.
-          </p>
-        </div>
-      </footer>
-    </div>
+      <Footer />
+    </>
   );
 }
