@@ -109,27 +109,28 @@
         </div>
     </section>
 
-    <!-- ⭐ AI 평가 랭킹 섹션 (극한 압축) -->
-    <section class="py-4 bg-white border-y-2 border-purple-600">
-        <div class="max-w-full mx-auto px-3">
-            <div class="flex justify-between items-center mb-3">
-                <div>
-                    <h2 class="text-xl md:text-2xl font-bold text-gray-900">🤖 AI 평가 랭킹</h2>
-                    <p class="text-xs text-gray-600">AI가 객관적으로 평가한 정치인 순위 (TOP 10)</p>
-                </div>
-                <div class="flex gap-1 text-xs">
-                    <button class="px-2 py-1 bg-purple-600 text-white rounded font-medium">전체</button>
-                    <button class="px-2 py-1 bg-gray-100 text-gray-700 rounded hover:bg-gray-200">지역</button>
-                    <button class="px-2 py-1 bg-gray-100 text-gray-700 rounded hover:bg-gray-200">당</button>
-                    <button class="px-2 py-1 bg-gray-100 text-gray-700 rounded hover:bg-gray-200">직종</button>
-                </div>
-            </div>
+    <!-- ⭐ 메인 컨텐츠 영역: AI 랭킹 + 커뮤니티 (좌측 2/3) + 사이드바 (우측 1/3) -->
+    <div class="max-w-full mx-auto px-3">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-3">
 
-            <!-- 테이블 + 사이드바 그리드 레이아웃 -->
-            <div class="grid grid-cols-1 lg:grid-cols-4 gap-3">
+            <!-- 좌측 메인 컨텐츠 (2/3) -->
+            <div class="lg:col-span-2 space-y-4">
 
-                <!-- 좌측: AI 랭킹 테이블 (75%) -->
-                <div class="lg:col-span-3">
+                <!-- AI 평가 랭킹 섹션 -->
+                <section class="py-4 bg-white border-2 border-purple-600 rounded-lg">
+                    <div class="px-3">
+                        <div class="flex justify-between items-center mb-3">
+                            <div>
+                                <h2 class="text-xl md:text-2xl font-bold text-gray-900">🤖 AI 평가 랭킹</h2>
+                                <p class="text-xs text-gray-600">AI가 객관적으로 평가한 정치인 순위 (TOP 10)</p>
+                            </div>
+                            <div class="flex gap-1 text-xs">
+                                <button class="px-2 py-1 bg-purple-600 text-white rounded font-medium">전체</button>
+                                <button class="px-2 py-1 bg-gray-100 text-gray-700 rounded hover:bg-gray-200">지역</button>
+                                <button class="px-2 py-1 bg-gray-100 text-gray-700 rounded hover:bg-gray-200">당</button>
+                                <button class="px-2 py-1 bg-gray-100 text-gray-700 rounded hover:bg-gray-200">직종</button>
+                            </div>
+                        </div>
                     <!-- 극한 압축 테이블 -->
             <div class="overflow-x-auto bg-white rounded-lg shadow border border-gray-200">
                 <table class="w-full text-xs">
@@ -593,21 +594,11 @@
                         </div>
                     </div>
 
-                </div>
-                <!-- 사이드바 끝 -->
+                    </div>
+                </section>
+                <!-- AI 평가 랭킹 섹션 끝 -->
 
-            </div>
-            <!-- 그리드 레이아웃 끝 -->
-        </div>
-    </section>
-
-    <!-- B안 스타일 컨텐츠 (극한 압축) -->
-    <section class="py-4 bg-gray-50">
-        <div class="max-w-full mx-auto px-3">
-            <!-- 메인 그리드: 좌측 2/3 + 우측 1/3 -->
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-3">
-                <!-- 좌측: 커뮤니티 섹션 (2/3) -->
-                <div class="lg:col-span-2 space-y-3">
+                <!-- 커뮤니티 섹션 시작 -->
 
                     <!-- 🔥 실시간 인기글 (2열 배치) -->
                     <div class="bg-white rounded-lg shadow p-3 border-t-2 border-amber-500">
@@ -941,10 +932,10 @@
                             </div>
                         </div>
                     </div>
-            </div><!-- 좌측 커뮤니티 섹션 끝 (lg:col-span-2) -->
+            </div><!-- 좌측 메인 컨텐츠 끝 (lg:col-span-2) -->
 
-            <!-- 우측 사이드바 섹션 (1/3) -->
-            <div class="space-y-3">
+            <!-- 우측 사이드바 섹션 (1/3) - AI 랭킹부터 맨 아래까지 연속 -->
+            <div class="space-y-3 mt-4">
                 <!-- 📊 트렌딩 토픽 -->
                 <div class="bg-white rounded-lg shadow p-2">
                     <h3 class="font-bold text-gray-900 mb-2 flex items-center gap-1 text-xs">
@@ -1175,8 +1166,7 @@
             </div><!-- 우측 사이드바 끝 -->
 
         </div><!-- 메인 그리드 끝 (lg:grid-cols-3) -->
-    </div>
-    </section>
+    </div><!-- max-w-full 끝 -->
 
     <!-- A안 스타일 Footer (압축) -->
     <footer class="bg-gray-900 text-gray-300 py-6 text-xs">
