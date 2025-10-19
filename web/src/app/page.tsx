@@ -96,7 +96,7 @@ export default function Home() {
                 <div className="flex justify-between items-center mb-3">
                   <div>
                     <h2 className="text-xl md:text-2xl font-bold text-gray-900">🤖 AI 평점 랭킹</h2>
-                    <p className="text-xs text-gray-600">AI가 공개된 데이터를 활용하여 객관적으로 평가한 정치인 순위 (TOP 10)</p>
+                    <p className="text-xs text-gray-600">AI가 공개된 데이터를 활용하여 객관적으로 평가한 정치인 평점 순위 (TOP 10)</p>
                   </div>
                   <div className="flex gap-1 text-xs">
                     <button className="px-2 py-1 bg-purple-600 text-white rounded font-medium">전체</button>
