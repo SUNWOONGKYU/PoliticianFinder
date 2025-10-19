@@ -76,6 +76,9 @@ __pycache__/
 13DGC-AODM_Grid/project_grid_v2.0_supabase.csv.backup_*
 13DGC-AODM_Grid/backups/
 
+# 15DGC-AODM Grid - 프로젝트 그리드 (보안 - 로컬에만 보관)
+15DGC-AODM_Grid/
+
 # Playwright
 frontend/test-results/
 frontend/playwright-report/
