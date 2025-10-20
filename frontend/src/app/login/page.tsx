@@ -217,12 +217,9 @@ export default function LoginPage() {
           </form>
 
           {/* Google 계속하기 버튼 */}
-          <div className="relative">
+          <div className="relative my-2">
             <div className="absolute inset-0 flex items-center">
               <span className="w-full border-t border-gray-300" />
-            </div>
-            <div className="relative flex justify-center text-xs">
-              <span className="bg-white px-2 text-gray-500">또는</span>
             </div>
           </div>
 
