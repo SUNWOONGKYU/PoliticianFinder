@@ -3,7 +3,7 @@ Politician-related Pydantic schemas with SQL injection prevention
 """
 
 from pydantic import BaseModel, Field, field_validator
-from typing import Optional
+from typing import Optional, ClassVar, Set
 import re
 
 
@@ -189,7 +189,7 @@ class PoliticianSortParams(BaseModel):
     Sorting parameters with strict whitelist validation
     """
 
-    ALLOWED_SORT_FIELDS = {
+    ALLOWED_SORT_FIELDS: ClassVar[Set[str]] = {
         'name', 'party', 'region', 'position',
         'created_at', 'updated_at'
     }
