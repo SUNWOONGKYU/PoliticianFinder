@@ -143,8 +143,8 @@ export default function LoginPage() {
             FinderWorld에 오신 것을 환영합니다
           </CardDescription>
         </CardHeader>
-        <CardContent className="space-y-4">
-          {/* OAuth 에러 메시지 */}
+        <CardContent className="space-y-6">
+          {/* 에러 메시지 */}
           {authErrorParam === 'auth_failed' && (
             <Alert variant="destructive">
               <AlertDescription>
@@ -161,22 +161,7 @@ export default function LoginPage() {
             </Alert>
           )}
 
-          {/* 소셜 로그인 */}
-          <div className="space-y-3">
-            <GoogleLoginButton />
-          </div>
-
-          <div className="relative my-6">
-            <div className="absolute inset-0 flex items-center">
-              <span className="w-full border-t" />
-            </div>
-            <div className="relative flex justify-center text-xs uppercase">
-              <span className="bg-white px-2 text-muted-foreground">
-                또는 이메일로 로그인
-              </span>
-            </div>
-          </div>
-
+          {/* 이메일 로그인 폼 */}
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="space-y-2">
               <Label htmlFor="email">이메일</Label>
@@ -200,7 +185,8 @@ export default function LoginPage() {
                 <Label htmlFor="password">비밀번호</Label>
                 <Link
                   href="/forgot-password"
-                  className="text-sm text-blue-600 hover:text-blue-500"
+                  className="text-sm"
+                  style={{ color: 'var(--color-brand-primary)' }}
                 >
                   비밀번호 찾기
                 </Link>
@@ -222,7 +208,7 @@ export default function LoginPage() {
 
             <Button
               type="submit"
-              className="w-full"
+              className="w-full py-2 font-semibold"
               style={{ backgroundColor: 'var(--color-brand-primary)', color: '#000000' }}
               disabled={isLoading}
             >
@@ -230,9 +216,38 @@ export default function LoginPage() {
             </Button>
           </form>
 
-          <div className="text-center text-sm text-gray-600">
-            아직 계정이 없으신가요?{' '}
-            <Link href="/signup" className="font-medium text-blue-600 hover:text-blue-500">
+          {/* Google 계속하기 버튼 */}
+          <div className="relative">
+            <div className="absolute inset-0 flex items-center">
+              <span className="w-full border-t border-gray-300" />
+            </div>
+            <div className="relative flex justify-center text-xs">
+              <span className="bg-white px-2 text-gray-500">또는</span>
+            </div>
+          </div>
+
+          <Button
+            type="button"
+            onClick={handleGoogleLogin}
+            className="w-full py-2 font-semibold border-2"
+            style={{
+              backgroundColor: 'white',
+              color: '#000000',
+              borderColor: 'var(--color-brand-primary)'
+            }}
+            disabled={isLoading}
+          >
+            Google로 계속하기
+          </Button>
+
+          {/* 회원가입 링크 */}
+          <div className="text-center text-sm text-gray-600 pt-2">
+            계정이 없으신가요?{' '}
+            <Link
+              href="/signup"
+              className="font-medium"
+              style={{ color: 'var(--color-brand-primary)' }}
+            >
               회원가입
             </Link>
           </div>
