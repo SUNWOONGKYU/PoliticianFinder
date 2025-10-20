@@ -1,5 +1,9 @@
 {
   "version": 2,
+  "github": {
+    "enabled": true,
+    "autoAlias": false
+  },
   "builds": [
     {
       "src": "frontend/package.json",
