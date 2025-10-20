@@ -24,8 +24,8 @@ export function Navbar() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 font-bold text-xl">
-            <span className="text-blue-600">정치인</span>
-            <span>찾기</span>
+            <span style={{ color: 'var(--color-brand-primary)' }}>Politician</span>
+            <span>Finder</span>
           </Link>
 
           {/* Desktop Navigation */}
