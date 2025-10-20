@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { PenSquare } from 'lucide-react';
-import { Header } from '@/components/Header';
+;
 import { Footer } from '@/components/Footer';
 import { getSidebarData } from '@/lib/api/home';
 import type { PostsResponse } from '@/types/post';
@@ -57,7 +57,7 @@ export default function CommunityPage() {
   if (loading) {
     return (
       <>
-        <Header />
+        
         <div className="min-h-screen flex items-center justify-center">
           <div className="text-center">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600 mx-auto mb-4"></div>
@@ -71,7 +71,7 @@ export default function CommunityPage() {
 
   return (
     <>
-      <Header />
+      
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         {/* 페이지 헤더 */}

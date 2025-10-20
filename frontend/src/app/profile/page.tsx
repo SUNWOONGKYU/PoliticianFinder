@@ -2,7 +2,6 @@
 
 import { useEffect } from 'react'
 import { useAuth, ProtectedRoute } from '@/contexts/AuthContext'
-import { Header } from '@/components/Header'
 import { useRouter } from 'next/navigation'
 
 export default function ProfilePage() {
@@ -18,7 +17,6 @@ export default function ProfilePage() {
   if (loading) {
     return (
       <div className="min-h-screen bg-gray-50">
-        <Header />
         <div className="flex items-center justify-center py-12">
           <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
         </div>
@@ -33,7 +31,6 @@ export default function ProfilePage() {
   return (
     <ProtectedRoute>
       <div className="min-h-screen bg-gray-50">
-        <Header />
 
         <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="bg-white shadow-lg rounded-lg overflow-hidden">
