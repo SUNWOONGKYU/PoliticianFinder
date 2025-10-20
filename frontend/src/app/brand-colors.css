@@ -148,6 +148,70 @@
   border-bottom-color: var(--color-brand-primary);
 }
 
+/* Tailwind Color Overrides */
+/* Replace blue-600 with brand primary */
+.text-blue-600 {
+  color: var(--color-brand-primary) !important;
+}
+
+.text-blue-500 {
+  color: var(--color-brand-primary-light) !important;
+}
+
+.text-blue-700 {
+  color: var(--color-brand-primary-dark) !important;
+}
+
+.bg-blue-600 {
+  background-color: var(--color-brand-primary) !important;
+}
+
+.bg-blue-50 {
+  background-color: var(--color-brand-bg-light) !important;
+}
+
+.border-blue-200 {
+  border-color: #FFD699 !important;
+}
+
+.border-blue-300 {
+  border-color: #FFD699 !important;
+}
+
+.focus\:ring-blue-500:focus {
+  --tw-ring-color: var(--color-brand-primary) !important;
+}
+
+.hover\:border-blue-300:hover {
+  border-color: #FFD699 !important;
+}
+
+/* Status color mappings */
+.text-red-600 {
+  color: var(--color-error) !important;
+}
+
+.text-red-500 {
+  color: var(--color-error) !important;
+}
+
+.bg-red-50 {
+  background-color: rgba(255, 76, 0, 0.05) !important;
+}
+
+.border-red-200 {
+  border-color: #FFB399 !important;
+}
+
+/* Keep gray for neutral elements (optional) */
+.text-gray-600 {
+  color: var(--color-brand-text-sub) !important;
+}
+
+.text-gray-700 {
+  color: var(--color-brand-text-main) !important;
+}
+
 /* Dark Mode Overrides */
 .dark .card-brand {
   background-color: var(--color-brand-bg-soft);
@@ -160,4 +224,12 @@
 
 .dark .text-brand-main {
   color: var(--color-brand-text-main);
+}
+
+.dark .text-blue-600 {
+  color: var(--color-brand-primary) !important;
+}
+
+.dark .bg-blue-50 {
+  background-color: var(--color-brand-bg-soft) !important;
 }
