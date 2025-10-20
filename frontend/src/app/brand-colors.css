@@ -178,12 +178,42 @@
   border-color: #FFD699 !important;
 }
 
+.border-blue-600 {
+  border-color: var(--color-brand-primary) !important;
+}
+
 .focus\:ring-blue-500:focus {
   --tw-ring-color: var(--color-brand-primary) !important;
 }
 
 .hover\:border-blue-300:hover {
   border-color: #FFD699 !important;
+}
+
+/* Hover state overrides */
+.hover\:text-blue-600:hover {
+  color: var(--color-brand-primary) !important;
+}
+
+.hover\:bg-blue-600:hover {
+  background-color: var(--color-brand-primary) !important;
+}
+
+.hover\:border-blue-600:hover {
+  border-color: var(--color-brand-primary) !important;
+}
+
+/* Focus state overrides */
+.focus\:text-blue-600:focus {
+  color: var(--color-brand-primary) !important;
+}
+
+.focus\:bg-blue-600:focus {
+  background-color: var(--color-brand-primary) !important;
+}
+
+.focus\:border-blue-600:focus {
+  border-color: var(--color-brand-primary) !important;
 }
 
 /* Status color mappings */
