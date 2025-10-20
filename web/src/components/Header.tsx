@@ -7,30 +7,30 @@ export function Header() {
         <div className="flex justify-between items-center h-12">
           {/* 좌측: 브랜드명 */}
           <div className="flex items-center gap-2">
-            <span className="text-xl font-bold text-purple-600">PoliticianFinder</span>
+            <span className="text-xl font-bold text-brand-primary">PoliticianFinder</span>
           </div>
 
           {/* 우측: 네비게이션 메뉴 */}
           <div className="hidden md:flex items-center gap-4 text-sm">
-            <a href="#" className="text-gray-700 hover:text-purple-600">
+            <a href="#" className="text-gray-700 hover:text-brand-primary">
               Home
             </a>
-            <a href="#" className="text-gray-700 hover:text-purple-600">
+            <a href="#" className="text-gray-700 hover:text-brand-primary">
               정치인 목록
             </a>
-            <a href="#" className="text-gray-700 hover:text-purple-600">
+            <a href="#" className="text-gray-700 hover:text-brand-primary">
               커뮤니티
             </a>
-            <a href="#" className="text-gray-700 hover:text-purple-600">
+            <a href="#" className="text-gray-700 hover:text-brand-primary">
               검색
             </a>
-            <a href="#" className="text-gray-600 hover:text-purple-600 text-xs">
+            <a href="#" className="text-gray-600 hover:text-brand-primary text-xs">
               로그인
             </a>
-            <a href="#" className="bg-purple-600 hover:bg-purple-700 text-white px-3 py-1.5 rounded text-xs font-medium">
+            <a href="#" className="bg-brand-primary hover:bg-brand-dark text-white px-3 py-1.5 rounded text-xs font-medium">
               회원가입
             </a>
-            <button className="relative p-1 text-gray-700 hover:text-purple-600">
+            <button className="relative p-1 text-gray-700 hover:text-brand-primary">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path
                   strokeLinecap="round"
