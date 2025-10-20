@@ -1,0 +1,163 @@
+/* Brand Color System - Complete Application Theme */
+
+/* Primary Brand Colors */
+.btn-brand-primary {
+  background-color: var(--color-brand-primary);
+  color: var(--color-brand-text-main);
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.btn-brand-primary:hover {
+  background-color: var(--color-brand-primary-dark);
+}
+
+.btn-brand-primary:active {
+  background-color: var(--color-brand-primary-dark);
+  transform: scale(0.98);
+}
+
+.btn-brand-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Secondary Brand Button */
+.btn-brand-secondary {
+  background-color: transparent;
+  color: var(--color-brand-primary);
+  border: 2px solid var(--color-brand-primary);
+  transition: all 0.2s ease;
+}
+
+.btn-brand-secondary:hover {
+  background-color: var(--color-brand-primary);
+  color: var(--color-brand-text-main);
+}
+
+/* Text Colors */
+.text-brand-main {
+  color: var(--color-brand-text-main);
+}
+
+.text-brand-sub {
+  color: var(--color-brand-text-sub);
+}
+
+.text-brand-muted {
+  color: var(--color-brand-text-muted);
+}
+
+/* Status Colors */
+.text-success {
+  color: var(--color-success);
+}
+
+.text-error {
+  color: var(--color-error);
+}
+
+.text-warning {
+  color: var(--color-warning);
+}
+
+.text-info {
+  color: var(--color-info);
+}
+
+/* Background Colors */
+.bg-brand-light {
+  background-color: var(--color-brand-bg-light);
+}
+
+.bg-brand-soft {
+  background-color: var(--color-brand-bg-soft);
+}
+
+/* Border Colors */
+.border-brand-primary {
+  border-color: var(--color-brand-primary);
+}
+
+/* Accent Highlight */
+.accent-star {
+  color: var(--color-brand-accent-star);
+}
+
+/* Badge / Tag Styles */
+.badge-success {
+  background-color: var(--color-success);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.badge-error {
+  background-color: var(--color-error);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.badge-warning {
+  background-color: var(--color-warning);
+  color: #000;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.badge-info {
+  background-color: var(--color-info);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* Card Styling */
+.card-brand {
+  background-color: var(--color-brand-bg-light);
+  border: 1px solid #E0E0E0;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Hover Effects */
+.card-brand:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  transition: all 0.2s ease;
+}
+
+/* Link Styling */
+.link-brand {
+  color: var(--color-brand-primary);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.link-brand:hover {
+  border-bottom-color: var(--color-brand-primary);
+}
+
+/* Dark Mode Overrides */
+.dark .card-brand {
+  background-color: var(--color-brand-bg-soft);
+  border-color: #3a3a3a;
+}
+
+.dark .badge-warning {
+  color: #000;
+}
+
+.dark .text-brand-main {
+  color: var(--color-brand-text-main);
+}

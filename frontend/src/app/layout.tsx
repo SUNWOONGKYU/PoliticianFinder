@@ -4,6 +4,7 @@ import { AuthProvider } from "@/contexts/AuthContext";
 import { Navbar } from "@/components/Navbar";
 import { WebVitalsReporter } from "./web-vitals";
 import "./globals.css";
+import "./brand-colors.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

@@ -6,10 +6,6 @@ import Link from 'next/link';
 import { useAuthStore } from '@/store/authStore';
 import { useAuth } from '@/contexts/AuthContext';
 import { GoogleLoginButton } from '@/components/auth/GoogleLoginButton';
-import { KakaoLoginButton } from '@/components/auth/KakaoLoginButton';
-import { NaverLoginButton } from '@/components/auth/NaverLoginButton';
-import { FacebookLoginButton } from '@/components/auth/FacebookLoginButton';
-import { XLoginButton } from '@/components/auth/XLoginButton';
 import { MFAVerification } from '@/components/auth/MFAVerification';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -24,7 +20,6 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import { Shield } from 'lucide-react';
 
 export default function LoginPage() {
   const router = useRouter();
@@ -144,7 +139,8 @@ export default function LoginPage() {
         <CardHeader className="space-y-1">
           <CardTitle className="text-2xl font-bold text-center">로그인</CardTitle>
           <CardDescription className="text-center">
-            정치인 평가 플랫폼에 오신 것을 환영합니다
+            AI 기반 정치인 평가 플랫폼<br />
+            FinderWorld에 오신 것을 환영합니다
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
@@ -165,25 +161,9 @@ export default function LoginPage() {
             </Alert>
           )}
 
-          {/* 한국 필수 플랫폼 */}
+          {/* 소셜 로그인 */}
           <div className="space-y-3">
-            <p className="text-xs text-muted-foreground text-center">
-              한국 사용자 추천
-            </p>
-            <KakaoLoginButton />
-            <NaverLoginButton />
-          </div>
-
-          <Separator className="my-4" />
-
-          {/* 글로벌 플랫폼 */}
-          <div className="space-y-3">
-            <p className="text-xs text-muted-foreground text-center">
-              기타 로그인 방법
-            </p>
             <GoogleLoginButton />
-            <FacebookLoginButton />
-            <XLoginButton />
           </div>
 
           <div className="relative my-6">
@@ -243,6 +223,7 @@ export default function LoginPage() {
             <Button
               type="submit"
               className="w-full"
+              style={{ backgroundColor: 'var(--color-brand-primary)', color: '#000000' }}
               disabled={isLoading}
             >
               {isLoading ? '로그인 중...' : '이메일로 로그인'}
@@ -256,17 +237,6 @@ export default function LoginPage() {
             </Link>
           </div>
 
-          <Separator className="my-4" />
-
-          <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
-            <Shield className="w-4 h-4" />
-            <Link
-              href="/settings/security"
-              className="hover:text-foreground hover:underline"
-            >
-              2단계 인증 설정
-            </Link>
-          </div>
         </CardContent>
       </Card>
     </div>
