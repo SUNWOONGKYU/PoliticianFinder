@@ -57,10 +57,10 @@ export default function CommunityPage() {
   if (loading) {
     return (
       <>
-        
+
         <div className="min-h-screen flex items-center justify-center">
           <div className="text-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600 mx-auto mb-4"></div>
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-600 mx-auto mb-4"></div>
             <p className="text-gray-600">데이터를 불러오는 중...</p>
           </div>
         </div>
@@ -83,7 +83,7 @@ export default function CommunityPage() {
             </div>
             <Link
               href="/write"
-              className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500"
+              className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-brand-600 hover:bg-brand-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-500"
             >
               <PenSquare className="w-4 h-4 mr-2" />
               글쓰기
@@ -91,8 +91,8 @@ export default function CommunityPage() {
           </div>
 
           {/* 공지사항 */}
-          <div className="bg-purple-50 border border-purple-200 rounded-lg p-3">
-            <p className="text-xs text-purple-800">
+          <div className="bg-brand-50 border border-brand-200 rounded-lg p-3">
+            <p className="text-xs text-brand-800">
               💡 건전한 토론 문화를 위해 서로를 존중하는 댓글을 작성해주세요. 욕설, 비방, 허위사실 유포 등은 제재 대상이 될 수 있습니다.
             </p>
           </div>
@@ -128,7 +128,7 @@ export default function CommunityPage() {
                     onClick={() => setSelectedCategory(cat.id)}
                     className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${
                       selectedCategory === cat.id
-                        ? 'bg-purple-600 text-white'
+                        ? 'bg-brand-600 text-white'
                         : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                     }`}
                   >
@@ -149,7 +149,7 @@ export default function CommunityPage() {
                   <Link
                     key={post.id}
                     href={`/post/${post.id}`}
-                    className="block bg-white rounded-lg shadow border border-gray-200 p-4 hover:shadow-md hover:border-purple-300 transition-all"
+                    className="block bg-white rounded-lg shadow border border-gray-200 p-4 hover:shadow-md hover:border-brand-300 transition-all"
                   >
                     <div className="flex items-start justify-between">
                       <div className="flex-1">
@@ -163,7 +163,7 @@ export default function CommunityPage() {
                             {post.category || '자유게시판'}
                           </span>
                         </div>
-                        <h2 className="text-base font-bold text-gray-900 mb-2 hover:text-purple-600">
+                        <h2 className="text-base font-bold text-gray-900 mb-2 hover:text-brand-600">
                           {post.title}
                         </h2>
                         <p className="text-sm text-gray-600 line-clamp-2 mb-3">
@@ -188,7 +188,7 @@ export default function CommunityPage() {
             {/* 페이지네이션 (추후 구현) */}
             <div className="mt-6 flex justify-center">
               <div className="flex gap-2">
-                <button className="px-3 py-1.5 bg-purple-600 text-white rounded text-sm font-medium">
+                <button className="px-3 py-1.5 bg-brand-600 text-white rounded text-sm font-medium">
                   1
                 </button>
                 <button className="px-3 py-1.5 bg-gray-100 text-gray-700 rounded text-sm hover:bg-gray-200">
@@ -213,11 +213,11 @@ export default function CommunityPage() {
                 <div className="space-y-1.5 text-xs">
                   <div className="flex justify-between items-center p-1 bg-gray-50 rounded">
                     <span className="text-gray-700">1시간 새 글</span>
-                    <span className="font-bold text-purple-600">{sidebarData.realtimeStats.posts_last_hour}</span>
+                    <span className="font-bold text-brand-600">{sidebarData.realtimeStats.posts_last_hour}</span>
                   </div>
                   <div className="flex justify-between items-center p-1 bg-gray-50 rounded">
                     <span className="text-gray-700">1시간 댓글</span>
-                    <span className="font-bold text-blue-600">{sidebarData.realtimeStats.comments_last_hour}</span>
+                    <span className="font-bold text-brand-600">{sidebarData.realtimeStats.comments_last_hour}</span>
                   </div>
                   <div className="flex justify-between items-center p-1 bg-gray-50 rounded">
                     <span className="text-gray-700">24시간 활성 사용자</span>

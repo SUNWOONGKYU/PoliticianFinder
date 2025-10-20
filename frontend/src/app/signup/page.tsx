@@ -245,7 +245,7 @@ export default function SignupPage() {
             </Button>
             <div className="text-center text-sm text-gray-600">
               이미 계정이 있으신가요?{' '}
-              <Link href="/login" className="font-medium text-blue-600 hover:text-blue-500">
+              <Link href="/login" className="font-medium text-brand-600 hover:text-brand-500">
                 로그인
               </Link>
             </div>

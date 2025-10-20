@@ -18,7 +18,7 @@ export default function ProfilePage() {
     return (
       <div className="min-h-screen bg-gray-50">
         <div className="flex items-center justify-center py-12">
-          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-brand-500"></div>
         </div>
       </div>
     )
@@ -35,7 +35,7 @@ export default function ProfilePage() {
         <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="bg-white shadow-lg rounded-lg overflow-hidden">
             {/* Profile Header */}
-            <div className="bg-gradient-to-r from-blue-500 to-blue-600 px-6 py-8">
+            <div className="bg-gradient-to-r from-brand-500 to-brand-600 px-6 py-8">
               <div className="flex items-center space-x-4">
                 {user.user_metadata?.avatar_url ? (
                   <img
@@ -45,7 +45,7 @@ export default function ProfilePage() {
                   />
                 ) : (
                   <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center">
-                    <span className="text-3xl font-bold text-blue-600">
+                    <span className="text-3xl font-bold text-brand-600">
                       {user.email?.[0]?.toUpperCase() || 'U'}
                     </span>
                   </div>
@@ -54,7 +54,7 @@ export default function ProfilePage() {
                   <h1 className="text-3xl font-bold">
                     {user.user_metadata?.full_name || user.user_metadata?.name || 'User'}
                   </h1>
-                  <p className="text-blue-100">{user.email}</p>
+                  <p className="text-brand-100">{user.email}</p>
                 </div>
               </div>
             </div>
@@ -96,7 +96,7 @@ export default function ProfilePage() {
                   <h2 className="text-xl font-semibold text-gray-900 mb-4">활동 통계</h2>
                   <div className="grid grid-cols-2 gap-4">
                     <div className="bg-gray-50 rounded-lg p-4 text-center">
-                      <p className="text-2xl font-bold text-blue-600">0</p>
+                      <p className="text-2xl font-bold text-brand-600">0</p>
                       <p className="text-sm text-gray-600">평가한 정치인</p>
                     </div>
                     <div className="bg-gray-50 rounded-lg p-4 text-center">
@@ -104,11 +104,11 @@ export default function ProfilePage() {
                       <p className="text-sm text-gray-600">관심 정치인</p>
                     </div>
                     <div className="bg-gray-50 rounded-lg p-4 text-center">
-                      <p className="text-2xl font-bold text-purple-600">0</p>
+                      <p className="text-2xl font-bold text-brand-600">0</p>
                       <p className="text-sm text-gray-600">작성한 리뷰</p>
                     </div>
                     <div className="bg-gray-50 rounded-lg p-4 text-center">
-                      <p className="text-2xl font-bold text-orange-600">0</p>
+                      <p className="text-2xl font-bold text-brand-600">0</p>
                       <p className="text-sm text-gray-600">받은 좋아요</p>
                     </div>
                   </div>

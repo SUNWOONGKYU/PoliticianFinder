@@ -41,6 +41,23 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+
+  /* Brand Colors (Designer Specified) */
+  --color-brand-primary: var(--color-brand-primary);
+  --color-brand-primary-dark: var(--color-brand-primary-dark);
+  --color-brand-primary-light: var(--color-brand-primary-light);
+
+  /* Brand Color Shades for Tailwind (50-950 scale) */
+  --color-brand-50: #FFF8F0;
+  --color-brand-100: #FFEED9;
+  --color-brand-200: #FFD9B3;
+  --color-brand-300: #FFB84D;
+  --color-brand-400: #FFA204;
+  --color-brand-500: #FFA204;
+  --color-brand-600: #FA9600;
+  --color-brand-700: #E08600;
+  --color-brand-800: #C77500;
+  --color-brand-900: #AD6500;
 }
 
 :root {

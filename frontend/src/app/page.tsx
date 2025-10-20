@@ -33,7 +33,7 @@ export default function Home() {
       <>
         <div className="min-h-screen flex items-center justify-center">
           <div className="text-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600 mx-auto mb-4"></div>
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-600 mx-auto mb-4"></div>
             <p className="text-gray-600">데이터를 불러오는 중...</p>
           </div>
         </div>
@@ -50,7 +50,7 @@ export default function Home() {
             <p className="text-red-600 mb-4">{error || '데이터를 불러올 수 없습니다.'}</p>
             <button
               onClick={() => window.location.reload()}
-              className="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700"
+              className="bg-brand-600 text-white px-4 py-2 rounded hover:bg-brand-700"
             >
               다시 시도
             </button>
@@ -65,17 +65,17 @@ export default function Home() {
     <>
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-b from-purple-50 to-white py-8">
+      <section className="bg-gradient-to-b from-brand-50 to-white py-8">
         <div className="max-w-6xl mx-auto px-3 text-center">
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
             훌륭한 정치인 찾기
           </h1>
-          <p className="text-lg md:text-xl font-bold bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent mb-4">
+          <p className="text-lg md:text-xl font-bold bg-gradient-to-r from-brand-600 to-brand-700 bg-clip-text text-transparent mb-4">
             AI 기반 정치인 평가 플랫폼
           </p>
 
           {/* Search Bar */}
-          <div className="max-w-2xl mx-auto bg-white rounded-full shadow border border-gray-200 focus-within:border-purple-600">
+          <div className="max-w-2xl mx-auto bg-white rounded-full shadow border border-gray-200 focus-within:border-brand-500">
             <div className="flex items-center px-4 py-2">
               <svg className="w-4 h-4 text-gray-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
@@ -85,7 +85,7 @@ export default function Home() {
                 placeholder="정치인 이름, 신분, 직종, 지역, 정당으로 검색..."
                 className="flex-1 outline-none text-gray-900 text-sm"
               />
-              <button className="bg-purple-600 hover:bg-purple-700 text-white rounded-full px-4 py-1.5 ml-2 text-xs font-medium">
+              <button className="bg-brand-500 hover:bg-brand-600 text-white rounded-full px-4 py-1.5 ml-2 text-xs font-medium">
                 검색
               </button>
             </div>
@@ -101,7 +101,7 @@ export default function Home() {
           <div className="lg:col-span-3 space-y-4">
 
             {/* AI Ranking Section */}
-            <section className="py-4 bg-white border-2 border-purple-600 rounded-lg">
+            <section className="py-4 bg-white border-2 border-brand-500 rounded-lg">
               <div className="px-3">
                 <div className="flex justify-between items-center mb-3">
                   <div>
@@ -109,7 +109,7 @@ export default function Home() {
                     <p className="text-xs text-gray-600">AI가 공개된 데이터를 활용하여 객관적으로 평가한 정치인 평점 순위 (TOP 10)</p>
                   </div>
                   <div className="flex gap-1 text-xs">
-                    <button className="px-2 py-1 bg-purple-600 text-white rounded font-medium">전체</button>
+                    <button className="px-2 py-1 bg-brand-500 text-white rounded font-medium">전체</button>
                     <button className="px-2 py-1 bg-gray-100 text-gray-700 rounded hover:bg-gray-200">지역</button>
                     <button className="px-2 py-1 bg-gray-100 text-gray-700 rounded hover:bg-gray-200">정당</button>
                     <button className="px-2 py-1 bg-gray-100 text-gray-700 rounded hover:bg-gray-200">직종</button>
@@ -119,7 +119,7 @@ export default function Home() {
                 {/* Rankings Table */}
                 <div className="overflow-x-auto bg-white rounded-lg shadow border border-gray-200">
                   <table className="w-full text-xs">
-                    <thead className="bg-purple-50 border-b border-purple-600">
+                    <thead className="bg-brand-50 border-b border-brand-500">
                       <tr>
                         <th className="px-2 py-1.5 text-left font-bold text-gray-900">순위</th>
                         <th className="px-2 py-1.5 text-left font-bold text-gray-900">이름</th>
@@ -149,7 +149,7 @@ export default function Home() {
                     </thead>
                     <tbody className="divide-y divide-gray-100">
                       {data.aiRanking.map((politician, index) => (
-                        <tr key={politician.id} className="hover:bg-purple-50">
+                        <tr key={politician.id} className="hover:bg-brand-50">
                           <td className="px-2 py-1">
                             {index === 0 ? (
                               <span className="bg-gradient-to-r from-amber-500 to-amber-600 text-white font-bold px-2 py-0.5 rounded-full text-[10px]">
@@ -167,7 +167,7 @@ export default function Home() {
                           </td>
                           <td className="px-2 py-1">
                             <div className="flex items-center gap-1.5">
-                              <div className="w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 font-bold text-xs">
+                              <div className="w-6 h-6 bg-brand-100 rounded-full flex items-center justify-center text-brand-600 font-bold text-xs">
                                 {politician.name.charAt(0)}
                               </div>
                               <div>
@@ -202,7 +202,7 @@ export default function Home() {
                             {politician.perplexity_score ? Number(politician.perplexity_score).toFixed(1) : '-'}
                           </td>
                           <td className="px-2 py-1 text-center">
-                            <span className="text-sm font-bold text-purple-600">
+                            <span className="text-sm font-bold text-brand-600">
                               {politician.composite_score ? Number(politician.composite_score).toFixed(1) : '-'}
                             </span>
                           </td>
@@ -214,7 +214,7 @@ export default function Home() {
                               <span className="text-[9px] text-gray-500">
                                 ({politician.member_rating_count})
                               </span>
-                              <a href="#rate" className="text-[9px] text-purple-600 hover:text-purple-700">평가하기</a>
+                              <a href="#rate" className="text-[9px] text-brand-600 hover:text-brand-700">평가하기</a>
                             </div>
                           </td>
                         </tr>
@@ -224,7 +224,7 @@ export default function Home() {
                 </div>
 
                 <div className="mt-3 text-center">
-                  <button className="text-purple-600 hover:text-purple-700 font-medium flex items-center gap-1 mx-auto text-sm">
+                  <button className="text-brand-600 hover:text-brand-700 font-medium flex items-center gap-1 mx-auto text-sm">
                     <span>전체 랭킹 보기 →</span>
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
@@ -242,7 +242,7 @@ export default function Home() {
                   실시간 인기글
                 </h2>
                 <div className="flex gap-1 text-[10px]">
-                  <button className="px-2 py-0.5 bg-purple-600 text-white rounded font-medium">1시간</button>
+                  <button className="px-2 py-0.5 bg-brand-500 text-white rounded font-medium">1시간</button>
                   <button className="px-2 py-0.5 bg-gray-100 text-gray-600 rounded">6시간</button>
                   <button className="px-2 py-0.5 bg-gray-100 text-gray-600 rounded">24시간</button>
                 </div>
@@ -257,7 +257,7 @@ export default function Home() {
                         {index + 1}
                       </span>
                       <div className="flex-1 min-w-0">
-                        <h3 className="font-medium text-gray-900 hover:text-purple-600 truncate">{post.title}</h3>
+                        <h3 className="font-medium text-gray-900 hover:text-brand-600 truncate">{post.title}</h3>
                         <div className="flex gap-2 text-[10px] text-gray-500">
                           <span>👁️ {post.view_count}</span>
                           <span>💬 {post.comment_count}</span>
@@ -276,7 +276,7 @@ export default function Home() {
                         {index + 6}
                       </span>
                       <div className="flex-1 min-w-0">
-                        <h3 className="font-medium text-gray-900 hover:text-purple-600 truncate">{post.title}</h3>
+                        <h3 className="font-medium text-gray-900 hover:text-brand-600 truncate">{post.title}</h3>
                         <div className="flex gap-2 text-[10px] text-gray-500">
                           <span>👁️ {post.view_count}</span>
                           <span>💬 {post.comment_count}</span>
@@ -295,7 +295,7 @@ export default function Home() {
                         {index + 11}
                       </span>
                       <div className="flex-1 min-w-0">
-                        <h3 className="font-medium text-gray-900 hover:text-purple-600 truncate">{post.title}</h3>
+                        <h3 className="font-medium text-gray-900 hover:text-brand-600 truncate">{post.title}</h3>
                         <div className="flex gap-2 text-[10px] text-gray-500">
                           <span>👁️ {post.view_count}</span>
                           <span>💬 {post.comment_count}</span>
@@ -309,18 +309,18 @@ export default function Home() {
             </div>
 
             {/* Politician Recent Posts Section */}
-            <div className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-lg shadow p-3 border border-purple-100">
+            <div className="bg-gradient-to-br from-brand-50 to-brand-100 rounded-lg shadow p-3 border border-brand-200">
               <div className="flex justify-between items-center mb-2">
                 <h2 className="text-lg font-bold text-gray-900 flex items-center gap-1">
                   <span className="text-xl">📝</span>
                   정치인 최근 글
                 </h2>
-                <a href="#" className="text-purple-600 hover:text-purple-700 font-medium text-xs">전체보기 →</a>
+                <a href="#" className="text-brand-600 hover:text-brand-700 font-medium text-xs">전체보기 →</a>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-2 text-xs">
                 {data.politicianPosts.map((post) => (
-                  <div key={post.id} className="bg-white rounded-lg p-2 shadow-sm hover:shadow transition-shadow cursor-pointer border border-purple-100">
+                  <div key={post.id} className="bg-white rounded-lg p-2 shadow-sm hover:shadow transition-shadow cursor-pointer border border-brand-100">
                     <div className="flex items-center gap-2 mb-2">
                       <div className="w-7 h-7 bg-gradient-to-br from-amber-400 to-amber-600 rounded flex items-center justify-center text-white font-bold text-xs shadow">
                         🏅
@@ -390,7 +390,7 @@ export default function Home() {
                 <div className="space-y-1.5 text-[10px]">
                   {data.sidebar.trendingPoliticians.map((politician: any) => (
                     <div key={politician.id} className="flex items-center gap-2 p-1 bg-white/70 rounded hover:bg-white transition-colors cursor-pointer">
-                      <div className="w-8 h-8 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full flex items-center justify-center text-white font-bold text-xs flex-shrink-0 shadow">
+                      <div className="w-8 h-8 bg-gradient-to-br from-brand-400 to-brand-600 rounded-full flex items-center justify-center text-white font-bold text-xs flex-shrink-0 shadow">
                         {politician.name.charAt(0)}
                       </div>
                       <div className="flex-1 min-w-0">
@@ -417,11 +417,11 @@ export default function Home() {
                 <div className="space-y-1.5 text-[10px]">
                   <div className="flex justify-between items-center p-1 bg-gray-50 rounded">
                     <span className="text-gray-700">1시간 새 글</span>
-                    <span className="font-bold text-purple-600">{data.sidebar.realtimeStats.posts_last_hour}</span>
+                    <span className="font-bold text-brand-600">{data.sidebar.realtimeStats.posts_last_hour}</span>
                   </div>
                   <div className="flex justify-between items-center p-1 bg-gray-50 rounded">
                     <span className="text-gray-700">1시간 댓글</span>
-                    <span className="font-bold text-blue-600">{data.sidebar.realtimeStats.comments_last_hour}</span>
+                    <span className="font-bold text-brand-600">{data.sidebar.realtimeStats.comments_last_hour}</span>
                   </div>
                   <div className="flex justify-between items-center p-1 bg-gray-50 rounded">
                     <span className="text-gray-700">24시간 활성 사용자</span>
