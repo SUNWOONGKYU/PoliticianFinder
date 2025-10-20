@@ -156,22 +156,15 @@
 }
 
 /* Brand Color System - Final Override Layer */
-/* This layer ensures all blue colors are converted to brand colors */
-:is(
-  .text-blue-600,
-  .bg-blue-50,
-  .bg-blue-600,
-  .border-blue-600,
-  .border-blue-300,
-  .hover\:text-blue-600:hover,
-  .hover\:bg-blue-600:hover,
-  .focus\:text-blue-600:focus
-) {
-  --tw-text-opacity: 1;
+/* Color-only overrides for blue utilities */
+.text-blue-600 {
+  color: var(--color-brand-primary) !important;
 }
 
-.text-blue-600,
-.hover\:text-blue-600:hover,
+.hover\:text-blue-600:hover {
+  color: var(--color-brand-primary) !important;
+}
+
 .focus\:text-blue-600:focus {
   color: var(--color-brand-primary) !important;
 }
@@ -180,19 +173,26 @@
   background-color: var(--color-brand-bg-light) !important;
 }
 
-.bg-blue-600,
-.hover\:bg-blue-600:hover,
+.bg-blue-600 {
+  background-color: var(--color-brand-primary) !important;
+}
+
+.hover\:bg-blue-600:hover {
+  background-color: var(--color-brand-primary) !important;
+}
+
 .focus\:bg-blue-600:focus {
   background-color: var(--color-brand-primary) !important;
 }
 
-.border-blue-600,
-.border-blue-300,
-.hover\:border-blue-600:hover {
+.border-blue-600 {
   border-color: var(--color-brand-primary) !important;
 }
 
-/* Icon color override */
-svg[class*="text-blue"] {
-  color: var(--color-brand-primary) !important;
+.border-blue-300 {
+  border-color: var(--color-brand-primary) !important;
+}
+
+.hover\:border-blue-600:hover {
+  border-color: var(--color-brand-primary) !important;
 }
