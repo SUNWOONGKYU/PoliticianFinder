@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { StatusBadge } from '@/components/StatusBadge';
 import type { PoliticianStatus } from '@/types';
@@ -32,7 +31,6 @@ export default function Home() {
   if (loading) {
     return (
       <>
-        <Header />
         <div className="min-h-screen flex items-center justify-center">
           <div className="text-center">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600 mx-auto mb-4"></div>
@@ -47,7 +45,6 @@ export default function Home() {
   if (error || !data) {
     return (
       <>
-        <Header />
         <div className="min-h-screen flex items-center justify-center">
           <div className="text-center">
             <p className="text-red-600 mb-4">{error || '데이터를 불러올 수 없습니다.'}</p>
@@ -66,7 +63,6 @@ export default function Home() {
 
   return (
     <>
-      <Header />
 
       {/* Hero Section */}
       <section className="bg-gradient-to-b from-purple-50 to-white py-8">
