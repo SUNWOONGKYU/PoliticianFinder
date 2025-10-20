@@ -34,11 +34,23 @@ export function Navbar() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`transition-colors ${
-                  isActive(item.href)
-                    ? 'text-blue-600 font-semibold border-b-2 border-blue-600'
-                    : 'text-gray-700 hover:text-blue-600'
-                }`}
+                style={{
+                  color: isActive(item.href) ? 'var(--color-brand-primary)' : '#555555',
+                  fontWeight: isActive(item.href) ? 'bold' : 'normal',
+                  borderBottom: isActive(item.href) ? '2px solid var(--color-brand-primary)' : 'none',
+                  paddingBottom: isActive(item.href) ? '2px' : '0',
+                  transition: 'all 0.2s ease'
+                }}
+                onMouseEnter={(e) => {
+                  if (!isActive(item.href)) {
+                    e.currentTarget.style.color = 'var(--color-brand-primary)';
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (!isActive(item.href)) {
+                    e.currentTarget.style.color = '#555555';
+                  }
+                }}
               >
                 {item.label}
               </Link>
@@ -62,11 +74,14 @@ export function Navbar() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`block py-2 px-4 transition-colors ${
-                  isActive(item.href)
-                    ? 'text-blue-600 font-semibold bg-blue-50'
-                    : 'text-gray-700 hover:bg-gray-50'
-                }`}
+                style={{
+                  display: 'block',
+                  padding: '8px 16px',
+                  color: isActive(item.href) ? 'var(--color-brand-primary)' : '#555555',
+                  fontWeight: isActive(item.href) ? 'bold' : 'normal',
+                  backgroundColor: isActive(item.href) ? 'var(--color-brand-bg-light)' : 'transparent',
+                  transition: 'all 0.2s ease'
+                }}
                 onClick={() => setIsOpen(false)}
               >
                 {item.label}
