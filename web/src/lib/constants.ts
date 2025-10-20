@@ -24,16 +24,16 @@ export const LEVEL_SYSTEM: LevelInfo[] = [
     level: 3,
     name: '참여자',
     shortName: '참여',
-    bgColor: 'bg-purple-500',
-    textColor: 'text-purple-600',
+    bgColor: 'bg-brand-primary',
+    textColor: 'text-brand-primary',
     xpRequired: 500,
   },
   {
     level: 4,
     name: '기여자',
     shortName: '기여',
-    bgColor: 'bg-blue-400',
-    textColor: 'text-blue-500',
+    bgColor: 'bg-brand-dark',
+    textColor: 'text-brand-dark',
     xpRequired: 1000,
   },
   {
@@ -48,26 +48,26 @@ export const LEVEL_SYSTEM: LevelInfo[] = [
     level: 6,
     name: '리더',
     shortName: '리더',
-    bgColor: 'bg-orange-500',
-    textColor: 'text-orange-600',
+    bgColor: 'bg-amber-500',
+    textColor: 'text-amber-600',
     xpRequired: 5000,
   },
   {
     level: 7,
     name: '마스터',
     shortName: '마스터',
-    bgColor: 'bg-gradient-to-br from-yellow-400 to-orange-500',
-    textColor: 'text-yellow-600',
+    bgColor: 'bg-gradient-to-br from-amber-400 to-amber-600',
+    textColor: 'text-amber-600',
     xpRequired: 10000,
   },
 ];
 
 // 정치인 상태별 스타일
 export const STATUS_STYLES = {
-  현직: 'bg-emerald-100 text-emerald-700',
-  후보자: 'bg-cyan-100 text-cyan-700',
+  현직: 'bg-green-100 text-green-700',
+  후보자: 'bg-brand-light text-brand-dark',
   예비후보자: 'bg-amber-100 text-amber-700',
-  출마자: 'bg-purple-100 text-purple-700',
+  출마자: 'bg-gray-100 text-gray-700',
 } as const;
 
 // AI 이름 표시

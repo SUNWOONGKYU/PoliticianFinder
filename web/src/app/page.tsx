@@ -55,17 +55,17 @@ export default function Home() {
       <Header />
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-b from-purple-50 to-white py-8">
+      <section className="bg-gradient-to-b from-brand-light to-white py-8">
         <div className="max-w-6xl mx-auto px-3 text-center">
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
             훌륭한 정치인 찾기
           </h1>
-          <p className="text-lg md:text-xl font-bold bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent mb-4">
+          <p className="text-lg md:text-xl font-bold bg-gradient-to-r from-brand-primary to-brand-dark bg-clip-text text-transparent mb-4">
             AI 기반 정치인 평가 플랫폼
           </p>
 
           {/* Search Bar */}
-          <div className="max-w-2xl mx-auto bg-white rounded-full shadow border border-gray-200 focus-within:border-purple-600">
+          <div className="max-w-2xl mx-auto bg-white rounded-full shadow border border-gray-200 focus-within:border-brand-primary">
             <div className="flex items-center px-4 py-2">
               <svg className="w-4 h-4 text-gray-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
@@ -75,7 +75,7 @@ export default function Home() {
                 placeholder="정치인 이름, 신분, 직종, 지역, 정당으로 검색..."
                 className="flex-1 outline-none text-gray-900 text-sm"
               />
-              <button className="bg-purple-600 hover:bg-purple-700 text-white rounded-full px-4 py-1.5 ml-2 text-xs font-medium">
+              <button className="bg-brand-primary hover:bg-brand-dark text-white rounded-full px-4 py-1.5 ml-2 text-xs font-medium">
                 검색
               </button>
             </div>
@@ -91,7 +91,7 @@ export default function Home() {
           <div className="lg:col-span-3 space-y-4">
 
             {/* AI Ranking Section */}
-            <section className="py-4 bg-white border-2 border-purple-600 rounded-lg">
+            <section className="py-4 bg-white border-2 border-brand-primary rounded-lg">
               <div className="px-3">
                 <div className="flex justify-between items-center mb-3">
                   <div>
@@ -99,7 +99,7 @@ export default function Home() {
                     <p className="text-xs text-gray-600">AI가 공개된 데이터를 활용하여 객관적으로 평가한 정치인 평점 순위 (TOP 10)</p>
                   </div>
                   <div className="flex gap-1 text-xs">
-                    <button className="px-2 py-1 bg-purple-600 text-white rounded font-medium">전체</button>
+                    <button className="px-2 py-1 bg-brand-primary text-white rounded font-medium">전체</button>
                     <button className="px-2 py-1 bg-gray-100 text-gray-700 rounded hover:bg-gray-200">지역</button>
                     <button className="px-2 py-1 bg-gray-100 text-gray-700 rounded hover:bg-gray-200">정당</button>
                     <button className="px-2 py-1 bg-gray-100 text-gray-700 rounded hover:bg-gray-200">직종</button>
@@ -109,7 +109,7 @@ export default function Home() {
                 {/* Rankings Table */}
                 <div className="overflow-x-auto bg-white rounded-lg shadow border border-gray-200">
                   <table className="w-full text-xs">
-                    <thead className="bg-purple-50 border-b border-purple-600">
+                    <thead className="bg-brand-light border-b border-brand-primary">
                       <tr>
                         <th className="px-2 py-1.5 text-left font-bold text-gray-900">순위</th>
                         <th className="px-2 py-1.5 text-left font-bold text-gray-900">이름</th>
@@ -139,7 +139,7 @@ export default function Home() {
                     </thead>
                     <tbody className="divide-y divide-gray-100">
                       {mockPoliticians.map((politician) => (
-                        <tr key={politician.rank} className="hover:bg-purple-50">
+                        <tr key={politician.rank} className="hover:bg-brand-light">
                           <td className="px-2 py-1">
                             {politician.rank === 1 ? (
                               <span className="bg-gradient-to-r from-amber-500 to-amber-600 text-white font-bold px-2 py-0.5 rounded-full text-[10px]">
@@ -157,7 +157,7 @@ export default function Home() {
                           </td>
                           <td className="px-2 py-1">
                             <div className="flex items-center gap-1.5">
-                              <div className="w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 font-bold text-xs">
+                              <div className="w-6 h-6 bg-brand-light rounded-full flex items-center justify-center text-brand-primary font-bold text-xs">
                                 {politician.name.charAt(0)}
                               </div>
                               <div>
@@ -174,7 +174,7 @@ export default function Home() {
                           <td className="px-2 py-1 text-center">
                             <div className="flex flex-col items-center gap-0.5">
                               <span className="text-sm font-bold text-gray-900">{politician.claudeScore.toFixed(1)}</span>
-                              <a href="#ai-detail" className="text-[9px] text-blue-600 hover:text-blue-700">평가내역 보기</a>
+                              <a href="#ai-detail" className="text-[9px] text-brand-primary hover:text-brand-dark">평가내역 보기</a>
                             </div>
                           </td>
                           <td className="px-2 py-1 text-center text-gray-300 text-[10px]">-</td>
@@ -182,14 +182,14 @@ export default function Home() {
                           <td className="px-2 py-1 text-center text-gray-300 text-[10px]">-</td>
                           <td className="px-2 py-1 text-center text-gray-300 text-[10px]">-</td>
                           <td className="px-2 py-1 text-center">
-                            <span className="text-sm font-bold text-purple-600">{politician.claudeScore.toFixed(1)}</span>
+                            <span className="text-sm font-bold text-brand-primary">{politician.claudeScore.toFixed(1)}</span>
                           </td>
                           <td className="px-2 py-1 text-center">
                             <div className="flex flex-col items-center gap-0.5">
                               <span className="text-amber-400 text-xs">
                                 {'⭐'.repeat(politician.memberStars)}
                               </span>
-                              <a href="#rate" className="text-[9px] text-purple-600 hover:text-purple-700">평가하기</a>
+                              <a href="#rate" className="text-[9px] text-brand-primary hover:text-brand-dark">평가하기</a>
                             </div>
                           </td>
                         </tr>
@@ -199,7 +199,7 @@ export default function Home() {
                 </div>
 
                 <div className="mt-3 text-center">
-                  <button className="text-purple-600 hover:text-purple-700 font-medium flex items-center gap-1 mx-auto text-sm">
+                  <button className="text-brand-primary hover:text-brand-dark font-medium flex items-center gap-1 mx-auto text-sm">
                     <span>전체 랭킹 보기 →</span>
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
@@ -217,7 +217,7 @@ export default function Home() {
                   실시간 인기글
                 </h2>
                 <div className="flex gap-1 text-[10px]">
-                  <button className="px-2 py-0.5 bg-purple-600 text-white rounded font-medium">1시간</button>
+                  <button className="px-2 py-0.5 bg-brand-primary text-white rounded font-medium">1시간</button>
                   <button className="px-2 py-0.5 bg-gray-100 text-gray-600 rounded">6시간</button>
                   <button className="px-2 py-0.5 bg-gray-100 text-gray-600 rounded">24시간</button>
                 </div>
@@ -232,12 +232,12 @@ export default function Home() {
                         {post.rank}
                       </span>
                       <div className="flex-1 min-w-0">
-                        <h3 className="font-medium text-gray-900 hover:text-purple-600 truncate">{post.title}</h3>
+                        <h3 className="font-medium text-gray-900 hover:text-brand-primary truncate">{post.title}</h3>
                         <div className="flex gap-2 text-[10px] text-gray-500">
                           <span>👁️ {post.views}</span>
                           <span>💬 {post.comments}</span>
                           <span>⬆️ {post.upvotes}</span>
-                          <button className="hover:text-purple-600" title="공유하기">
+                          <button className="hover:text-brand-primary" title="공유하기">
                             <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path>
                             </svg>
@@ -256,12 +256,12 @@ export default function Home() {
                         {post.rank}
                       </span>
                       <div className="flex-1 min-w-0">
-                        <h3 className="font-medium text-gray-900 hover:text-purple-600 truncate">{post.title}</h3>
+                        <h3 className="font-medium text-gray-900 hover:text-brand-primary truncate">{post.title}</h3>
                         <div className="flex gap-2 text-[10px] text-gray-500">
                           <span>👁️ {post.views}</span>
                           <span>💬 {post.comments}</span>
                           <span>⬆️ {post.upvotes}</span>
-                          <button className="hover:text-purple-600" title="공유하기">
+                          <button className="hover:text-brand-primary" title="공유하기">
                             <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path>
                             </svg>
@@ -280,12 +280,12 @@ export default function Home() {
                         {post.rank}
                       </span>
                       <div className="flex-1 min-w-0">
-                        <h3 className="font-medium text-gray-900 hover:text-purple-600 truncate">{post.title}</h3>
+                        <h3 className="font-medium text-gray-900 hover:text-brand-primary truncate">{post.title}</h3>
                         <div className="flex gap-2 text-[10px] text-gray-500">
                           <span>👁️ {post.views}</span>
                           <span>💬 {post.comments}</span>
                           <span>⬆️ {post.upvotes}</span>
-                          <button className="hover:text-purple-600" title="공유하기">
+                          <button className="hover:text-brand-primary" title="공유하기">
                             <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path>
                             </svg>
@@ -299,18 +299,18 @@ export default function Home() {
             </div>
 
             {/* Politician Recent Posts Section */}
-            <div className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-lg shadow p-3 border border-purple-100">
+            <div className="bg-gradient-to-br from-brand-light to-white rounded-lg shadow p-3 border border-brand-primary">
               <div className="flex justify-between items-center mb-2">
                 <h2 className="text-lg font-bold text-gray-900 flex items-center gap-1">
                   <span className="text-xl">📝</span>
                   정치인 최근 글
                 </h2>
-                <a href="#" className="text-purple-600 hover:text-purple-700 font-medium text-xs">전체보기 →</a>
+                <a href="#" className="text-brand-primary hover:text-brand-dark font-medium text-xs">전체보기 →</a>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-2 text-xs">
                 {mockPoliticianPosts.map((post, idx) => (
-                  <div key={idx} className="bg-white rounded-lg p-2 shadow-sm hover:shadow transition-shadow cursor-pointer border border-purple-100">
+                  <div key={idx} className="bg-white rounded-lg p-2 shadow-sm hover:shadow transition-shadow cursor-pointer border border-brand-primary">
                     <div className="flex items-center gap-2 mb-2">
                       <div className="w-7 h-7 bg-gradient-to-br from-amber-400 to-amber-600 rounded flex items-center justify-center text-white font-bold text-xs shadow">
                         🏅
@@ -327,7 +327,7 @@ export default function Home() {
                     <div className="flex gap-2 text-[10px] text-gray-500">
                       <span>💬 {post.comments}</span>
                       <span>⬆️ {post.upvotes}</span>
-                      <button className="hover:text-purple-600" title="공유하기">
+                      <button className="hover:text-brand-primary" title="공유하기">
                         <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path>
                         </svg>
@@ -344,7 +344,7 @@ export default function Home() {
           <div className="space-y-3">
 
             {/* Politician Registration Status */}
-            <div className="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-lg shadow p-2 border border-indigo-200">
+            <div className="bg-gradient-to-br from-brand-light to-white rounded-lg shadow p-2 border border-brand-primary">
               <h3 className="font-bold text-gray-900 mb-2 flex items-center gap-1 text-xs">
                 <span className="text-sm">📊</span>
                 정치인 등록 현황
@@ -352,15 +352,15 @@ export default function Home() {
               <div className="space-y-1.5 text-[10px]">
                 <div className="flex justify-between items-center p-1 bg-white/70 rounded">
                   <span className="text-gray-700">총 등록 정치인</span>
-                  <span className="font-bold text-indigo-600">1,247명</span>
+                  <span className="font-bold text-brand-primary">1,247명</span>
                 </div>
                 <div className="flex justify-between items-center p-1 bg-white/70 rounded">
                   <span className="text-gray-700">현직</span>
-                  <span className="font-bold text-emerald-600">892명</span>
+                  <span className="font-bold text-green-600">892명</span>
                 </div>
                 <div className="flex justify-between items-center p-1 bg-white/70 rounded">
                   <span className="text-gray-700">후보자</span>
-                  <span className="font-bold text-cyan-600">245명</span>
+                  <span className="font-bold text-brand-primary">245명</span>
                 </div>
                 <div className="flex justify-between items-center p-1 bg-white/70 rounded">
                   <span className="text-gray-700">예비후보자</span>
@@ -368,26 +368,26 @@ export default function Home() {
                 </div>
                 <div className="flex justify-between items-center p-1 bg-white/70 rounded">
                   <span className="text-gray-700">출마자</span>
-                  <span className="font-bold text-purple-600">23명</span>
+                  <span className="font-bold text-brand-dark">23명</span>
                 </div>
-                <div className="pt-1 border-t border-indigo-200">
-                  <div className="flex justify-between items-center p-1 bg-gradient-to-r from-indigo-100 to-blue-100 rounded">
+                <div className="pt-1 border-t border-brand-primary">
+                  <div className="flex justify-between items-center p-1 bg-gradient-to-r from-brand-light to-white rounded">
                     <span className="text-gray-700 font-medium">이번 주 신규</span>
-                    <span className="font-bold text-blue-600">+18명</span>
+                    <span className="font-bold text-brand-primary">+18명</span>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Rising Rating Politicians */}
-            <div className="bg-gradient-to-br from-rose-50 to-pink-50 rounded-lg shadow p-2 border border-rose-200">
+            <div className="bg-gradient-to-br from-red-50 to-white rounded-lg shadow p-2 border border-red-200">
               <h3 className="font-bold text-gray-900 mb-2 flex items-center gap-1 text-xs">
                 <span className="text-sm">📈</span>
                 평점 급상승 정치인
               </h3>
               <div className="space-y-1.5 text-[10px]">
                 <div className="flex items-center gap-2 p-1 bg-white/70 rounded hover:bg-white transition-colors cursor-pointer">
-                  <div className="w-8 h-8 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full flex items-center justify-center text-white font-bold text-xs flex-shrink-0 shadow">
+                  <div className="w-8 h-8 bg-gradient-to-br from-brand-primary to-brand-dark rounded-full flex items-center justify-center text-white font-bold text-xs flex-shrink-0 shadow">
                     김
                   </div>
                   <div className="flex-1 min-w-0">
@@ -395,12 +395,12 @@ export default function Home() {
                     <div className="text-[9px] text-gray-500">국회의원 · 민주당</div>
                   </div>
                   <div className="text-right flex-shrink-0">
-                    <div className="text-rose-600 font-bold text-xs">↑ 5.2</div>
+                    <div className="text-red-600 font-bold text-xs">↑ 5.2</div>
                     <div className="text-[9px] text-gray-500">이번 주</div>
                   </div>
                 </div>
                 <div className="flex items-center gap-2 p-1 bg-white/70 rounded hover:bg-white transition-colors cursor-pointer">
-                  <div className="w-8 h-8 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-full flex items-center justify-center text-white font-bold text-xs flex-shrink-0 shadow">
+                  <div className="w-8 h-8 bg-gradient-to-br from-brand-primary to-brand-dark rounded-full flex items-center justify-center text-white font-bold text-xs flex-shrink-0 shadow">
                     박
                   </div>
                   <div className="flex-1 min-w-0">
@@ -408,12 +408,12 @@ export default function Home() {
                     <div className="text-[9px] text-gray-500">시의원 · 국민의힘</div>
                   </div>
                   <div className="text-right flex-shrink-0">
-                    <div className="text-rose-600 font-bold text-xs">↑ 4.8</div>
+                    <div className="text-red-600 font-bold text-xs">↑ 4.8</div>
                     <div className="text-[9px] text-gray-500">이번 주</div>
                   </div>
                 </div>
                 <div className="flex items-center gap-2 p-1 bg-white/70 rounded hover:bg-white transition-colors cursor-pointer">
-                  <div className="w-8 h-8 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full flex items-center justify-center text-white font-bold text-xs flex-shrink-0 shadow">
+                  <div className="w-8 h-8 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center text-white font-bold text-xs flex-shrink-0 shadow">
                     최
                   </div>
                   <div className="flex-1 min-w-0">
@@ -421,7 +421,7 @@ export default function Home() {
                     <div className="text-[9px] text-gray-500">시장 · 무소속</div>
                   </div>
                   <div className="text-right flex-shrink-0">
-                    <div className="text-rose-600 font-bold text-xs">↑ 3.9</div>
+                    <div className="text-red-600 font-bold text-xs">↑ 3.9</div>
                     <div className="text-[9px] text-gray-500">이번 주</div>
                   </div>
                 </div>
@@ -435,23 +435,23 @@ export default function Home() {
                 트렌딩 토픽
               </h3>
               <div className="space-y-0.5 text-[10px]">
-                <a href="#" className="flex items-center justify-between p-1 hover:bg-purple-50 rounded">
+                <a href="#" className="flex items-center justify-between p-1 hover:bg-brand-light rounded">
                   <span className="text-gray-700">#의정활동</span>
                   <span className="text-[9px] text-gray-500 bg-gray-100 px-1.5 py-0.5 rounded-full">234</span>
                 </a>
-                <a href="#" className="flex items-center justify-between p-1 hover:bg-purple-50 rounded">
+                <a href="#" className="flex items-center justify-between p-1 hover:bg-brand-light rounded">
                   <span className="text-gray-700">#공약이행</span>
                   <span className="text-[9px] text-gray-500 bg-gray-100 px-1.5 py-0.5 rounded-full">189</span>
                 </a>
-                <a href="#" className="flex items-center justify-between p-1 hover:bg-purple-50 rounded">
+                <a href="#" className="flex items-center justify-between p-1 hover:bg-brand-light rounded">
                   <span className="text-gray-700">#지역개발</span>
                   <span className="text-[9px] text-gray-500 bg-gray-100 px-1.5 py-0.5 rounded-full">156</span>
                 </a>
-                <a href="#" className="flex items-center justify-between p-1 hover:bg-purple-50 rounded">
+                <a href="#" className="flex items-center justify-between p-1 hover:bg-brand-light rounded">
                   <span className="text-gray-700">#투명성</span>
                   <span className="text-[9px] text-gray-500 bg-gray-100 px-1.5 py-0.5 rounded-full">142</span>
                 </a>
-                <a href="#" className="flex items-center justify-between p-1 hover:bg-purple-50 rounded">
+                <a href="#" className="flex items-center justify-between p-1 hover:bg-brand-light rounded">
                   <span className="text-gray-700">#청년정책</span>
                   <span className="text-[9px] text-gray-500 bg-gray-100 px-1.5 py-0.5 rounded-full">128</span>
                 </a>
@@ -490,7 +490,7 @@ export default function Home() {
             </div>
 
             {/* Announcements */}
-            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg shadow p-2 border border-blue-200">
+            <div className="bg-gradient-to-br from-brand-light to-white rounded-lg shadow p-2 border border-brand-primary">
               <h3 className="font-bold text-gray-900 mb-2 flex items-center gap-1 text-xs">
                 <span className="text-sm">📢</span>
                 공지사항
@@ -505,7 +505,7 @@ export default function Home() {
                 </a>
                 <a href="#" className="block p-1 hover:bg-white/50 rounded">
                   <div className="flex items-center gap-1 mb-0.5">
-                    <span className="bg-blue-500 text-white text-[8px] px-1 py-0.5 rounded font-medium">이벤트</span>
+                    <span className="bg-brand-primary text-white text-[8px] px-1 py-0.5 rounded font-medium">이벤트</span>
                     <span className="font-medium text-gray-900 truncate">AI 평가 이벤트 진행중</span>
                   </div>
                   <div className="text-[9px] text-gray-500">5일 전</div>
@@ -518,7 +518,7 @@ export default function Home() {
             </div>
 
             {/* My Activity Summary */}
-            <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg shadow p-2 border border-purple-200">
+            <div className="bg-gradient-to-br from-brand-light to-white rounded-lg shadow p-2 border border-brand-primary">
               <h3 className="font-bold text-gray-900 mb-2 flex items-center gap-1 text-xs">
                 <span className="text-sm">⭐</span>
                 내 활동 요약
@@ -526,7 +526,7 @@ export default function Home() {
               <div className="space-y-1.5 text-[10px]">
                 {/* Current Level */}
                 <div className="flex items-center gap-1.5 p-1 bg-white/70 rounded">
-                  <div className="w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center text-white text-[9px] font-bold flex-shrink-0">
+                  <div className="w-6 h-6 bg-brand-primary rounded-full flex items-center justify-center text-white text-[9px] font-bold flex-shrink-0">
                     3
                   </div>
                   <div className="flex-1">
@@ -535,7 +535,7 @@ export default function Home() {
                       <span className="text-[9px] text-gray-500">230/500 XP</span>
                     </div>
                     <div className="w-full bg-gray-200 rounded-full h-1.5 mt-0.5">
-                      <div className="bg-gradient-to-r from-purple-500 to-pink-500 h-1.5 rounded-full" style={{ width: '46%' }}></div>
+                      <div className="bg-gradient-to-r from-brand-primary to-brand-dark h-1.5 rounded-full" style={{ width: '46%' }}></div>
                     </div>
                   </div>
                 </div>
@@ -544,7 +544,7 @@ export default function Home() {
                 <div className="text-[9px] text-gray-600 px-1 py-0.5 bg-white/50 rounded flex items-center gap-1">
                   <span>다음 레벨:</span>
                   <div className="flex items-center gap-0.5">
-                    <div className="w-3 h-3 bg-blue-400 rounded-full flex items-center justify-center text-white text-[7px] font-bold">4</div>
+                    <div className="w-3 h-3 bg-brand-primary rounded-full flex items-center justify-center text-white text-[7px] font-bold">4</div>
                     <span className="font-medium">기여자</span>
                     <span className="text-gray-400">(270 XP 남음)</span>
                   </div>
@@ -561,13 +561,13 @@ export default function Home() {
                 </div>
                 <div className="flex justify-between items-center p-1 bg-white/50 rounded">
                   <span className="text-gray-600">받은 추천</span>
-                  <span className="font-bold text-orange-500">⬆️ 156</span>
+                  <span className="font-bold text-gray-900">⬆️ 156</span>
                 </div>
               </div>
             </div>
 
             {/* Connected Services */}
-            <div className="bg-gradient-to-br from-green-50 to-teal-50 rounded-lg shadow p-2 border border-green-200">
+            <div className="bg-gradient-to-br from-green-50 to-white rounded-lg shadow p-2 border border-green-200">
               <h3 className="font-bold text-gray-900 mb-2 flex items-center gap-1 text-xs">
                 <span className="text-sm">🔗</span>
                 연결 서비스
