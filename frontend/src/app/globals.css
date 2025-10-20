@@ -155,44 +155,92 @@
   }
 }
 
-/* Brand Color System - Final Override Layer */
-/* Color-only overrides for blue utilities */
-.text-blue-600 {
-  color: var(--color-brand-primary) !important;
-}
+@layer utilities {
+  /* Brand Color Overrides - Using Tailwind v4 layer system */
+  /* Text colors */
+  .text-blue-600 {
+    @apply !text-[var(--color-brand-primary)];
+  }
 
-.hover\:text-blue-600:hover {
-  color: var(--color-brand-primary) !important;
-}
+  .text-blue-500 {
+    @apply !text-[var(--color-brand-primary-light)];
+  }
 
-.focus\:text-blue-600:focus {
-  color: var(--color-brand-primary) !important;
-}
+  .text-blue-700 {
+    @apply !text-[var(--color-brand-primary-dark)];
+  }
 
-.bg-blue-50 {
-  background-color: var(--color-brand-bg-light) !important;
-}
+  /* Background colors */
+  .bg-blue-50 {
+    @apply !bg-[var(--color-brand-bg-light)];
+  }
 
-.bg-blue-600 {
-  background-color: var(--color-brand-primary) !important;
-}
+  .bg-blue-600 {
+    @apply !bg-[var(--color-brand-primary)];
+  }
 
-.hover\:bg-blue-600:hover {
-  background-color: var(--color-brand-primary) !important;
-}
+  /* Border colors */
+  .border-blue-200 {
+    @apply !border-[#FFD699];
+  }
 
-.focus\:bg-blue-600:focus {
-  background-color: var(--color-brand-primary) !important;
-}
+  .border-blue-300 {
+    @apply !border-[#FFD699];
+  }
 
-.border-blue-600 {
-  border-color: var(--color-brand-primary) !important;
-}
+  .border-blue-600 {
+    @apply !border-[var(--color-brand-primary)];
+  }
 
-.border-blue-300 {
-  border-color: var(--color-brand-primary) !important;
-}
+  /* Hover states */
+  .hover\:text-blue-600:hover {
+    @apply !text-[var(--color-brand-primary)];
+  }
 
-.hover\:border-blue-600:hover {
-  border-color: var(--color-brand-primary) !important;
+  .hover\:bg-blue-600:hover {
+    @apply !bg-[var(--color-brand-primary)];
+  }
+
+  .hover\:border-blue-300:hover {
+    @apply !border-[#FFD699];
+  }
+
+  .hover\:border-blue-600:hover {
+    @apply !border-[var(--color-brand-primary)];
+  }
+
+  /* Focus states */
+  .focus\:text-blue-600:focus {
+    @apply !text-[var(--color-brand-primary)];
+  }
+
+  .focus\:bg-blue-600:focus {
+    @apply !bg-[var(--color-brand-primary)];
+  }
+
+  .focus\:border-blue-600:focus {
+    @apply !border-[var(--color-brand-primary)];
+  }
+
+  /* Ring colors */
+  .focus\:ring-blue-500:focus {
+    @apply !ring-[var(--color-brand-primary)];
+  }
+
+  /* Status colors */
+  .text-red-600 {
+    @apply !text-[var(--color-error)];
+  }
+
+  .text-red-500 {
+    @apply !text-[var(--color-error)];
+  }
+
+  .bg-red-50 {
+    @apply !bg-[rgba(255,76,0,0.05)];
+  }
+
+  .border-red-200 {
+    @apply !border-[#FFB399];
+  }
 }
