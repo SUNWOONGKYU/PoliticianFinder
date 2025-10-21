@@ -13,6 +13,8 @@ export interface PoliticianRanking {
   party: string;
   region: string;
   position: string;
+  category_type?: string;
+  political_status?: string;
   status: string;
   profile_image_url?: string;
   claude_score?: number;
