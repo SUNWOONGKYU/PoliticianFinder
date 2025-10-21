@@ -1,4 +1,7 @@
-'use client';
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+login_content = """'use client';
 
 import { useState, useEffect } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
@@ -254,3 +257,9 @@ export default function LoginPage() {
     </div>
   );
 }
+"""
+
+with open("C:/PoliticianFinder/frontend/src/app/login/page.tsx", "w", encoding="utf-8") as f:
+    f.write(login_content)
+
+print("Login page fixed!")
