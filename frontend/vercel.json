@@ -4,6 +4,7 @@
   "installCommand": "npm install",
   "framework": "nextjs",
   "outputDirectory": ".next",
+  "rootDirectory": ".",
   "regions": ["icn1"],
   "headers": [
     {
