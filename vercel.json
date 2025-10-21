@@ -1,6 +1,6 @@
 {
-  "buildCommand": "npm install --prefix frontend && npm run build --prefix frontend",
-  "outputDirectory": "frontend/.next",
+  "buildCommand": "npm run build",
+  "outputDirectory": ".next",
   "framework": "nextjs",
   "env": {
     "NEXT_PUBLIC_USE_MOCK_DATA": "true"
