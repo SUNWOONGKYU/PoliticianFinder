@@ -15,6 +15,7 @@ import { PoliticianDetail } from '@/types/politician'
 import { RatingWithProfile, PaginatedResponse } from '@/types/database'
 import { useRatings } from '@/hooks/useRatings'
 import { ArrowLeft, MessageSquare, SortAsc, SortDesc, Filter } from 'lucide-react'
+import { mockAdapterApi } from '@/lib/api/mock-adapter'
 
 type SortOption = 'latest' | 'oldest' | 'highest' | 'lowest'
 
@@ -48,6 +49,21 @@ export default function PoliticianDetailPage() {
         const response = await fetch(`/api/politicians/${politicianId}`)
 
         if (!response.ok) {
+          // API 실패 시 Mock 데이터 사용
+          const mockPolitician = mockAdapterApi.getPoliticianById(politicianId)
+          if (mockPolitician) {
+            // Mock 데이터를 PoliticianDetail 형식으로 변환
+            const mockDetail: PoliticianDetail = {
+              ...mockPolitician,
+              rating_distribution: [0, 0, 0, 0, 0],
+              avg_rating: mockPolitician.member_rating,
+              total_ratings: 0
+            }
+            setPolitician(mockDetail)
+            setLoading(false)
+            return
+          }
+          
           if (response.status === 404) {
             throw new Error('정치인을 찾을 수 없습니다.')
           }
@@ -70,7 +86,6 @@ export default function PoliticianDetailPage() {
       setLoading(false)
     }
   }, [politicianId])
-
   // 평가 목록 로드
   useEffect(() => {
     const fetchRatings = async () => {

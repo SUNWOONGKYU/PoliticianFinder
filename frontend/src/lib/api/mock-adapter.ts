@@ -1134,3 +1134,9 @@ mockAdapterApi.getCommunityPosts = (category = 'all', searchTerm = '', page = 1,
 
   return { data, total, page, limit };
 };
+
+// Add getPostById function to mockAdapterApi
+mockAdapterApi.getPostById = (id: string | number) => {
+  const postId = parseInt(String(id), 10);
+  return MOCK_COMMUNITY_POSTS.find((post) => post.id === postId) || null;
+};

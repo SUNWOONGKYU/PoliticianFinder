@@ -6,6 +6,7 @@ import { ko } from 'date-fns/locale';
 import { Eye, Heart, MessageCircle, Share2, Edit, Trash2, ArrowLeft } from 'lucide-react';
 import PostActions from './PostActions';
 import type { Post } from '@/types/post';
+import { mockAdapterApi } from '@/lib/api/mock-adapter';
 
 interface PageProps {
   params: Promise<{ id: string }>;
@@ -28,7 +29,9 @@ async function getPost(id: string): Promise<Post | null> {
     );
 
     if (response.status === 404) {
-      return null;
+      // API 실패 시 Mock 데이터 사용
+      const mockPost = mockAdapterApi.getPostById(id);
+      return mockPost || null;
     }
 
     if (response.ok) {
@@ -36,6 +39,11 @@ async function getPost(id: string): Promise<Post | null> {
     }
   } catch (error) {
     console.error('Failed to fetch post:', error);
+    // API 에러 시 Mock 데이터 사용
+    const mockPost = mockAdapterApi.getPostById(id);
+    if (mockPost) {
+      return mockPost;
+    }
   }
   return null;
 }
