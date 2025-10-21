@@ -888,7 +888,7 @@ export const MOCK_SIDEBAR_DATA = {
 export const mockAdapterApi = {
   getHomeData: async () => {
     return {
-      aiRanking: MOCK_POLITICIANS,
+      aiRanking: MOCK_POLITICIANS.slice(0, 10),
       hotPosts: MOCK_HOT_POSTS,
       politicianPosts: MOCK_POLITICIAN_POSTS,
       sidebar: MOCK_SIDEBAR_DATA,

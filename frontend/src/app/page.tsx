@@ -209,7 +209,7 @@ export default function Home() {
                           <td className="px-2 py-1 text-center">
                             <div className="flex flex-col items-center gap-0.5">
                               <span className="text-amber-400 text-xs">
-                                {'⭐'.repeat(Math.round(Number(politician.member_rating) / 20))}
+                                {'⭐'.repeat(Math.round(Number(politician.member_rating) || 0))}
                               </span>
                               <span className="text-[9px] text-gray-500">
                                 ({politician.member_rating_count})
