@@ -177,7 +177,7 @@ export default function Home() {
                             </div>
                           </td>
                           <td className="px-2 py-1 text-center">
-                            <StatusBadge status={politician.status as PoliticianStatus} />
+                            <StatusBadge status={politician.political_status as PoliticianStatus} />
                           </td>
                           <td className="px-2 py-1 text-gray-700">{politician.party}</td>
                           <td className="px-2 py-1 text-gray-700">{politician.region}</td>
