@@ -2,7 +2,7 @@
   "projects": [
     {
       "src": "frontend",
-      "name": "politician-frontend",
+      "name": "politician-finder",
       "rootDirectory": "frontend"
     }
   ]

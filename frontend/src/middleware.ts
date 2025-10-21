@@ -15,6 +15,8 @@ const isProduction = process.env.NODE_ENV === 'production';
 // Allowed origins based on environment
 const ALLOWED_ORIGINS = isProduction
   ? [
+      'https://politician-finder.vercel.app',
+      'https://frontend-steel-psi-45.vercel.app',
       'https://politicianfinder.vercel.app',
       'https://www.politicianfinder.com',
       'https://politicianfinder.com',
@@ -22,8 +24,12 @@ const ALLOWED_ORIGINS = isProduction
   : [
       'http://localhost:3000',
       'http://localhost:3001',
+      'http://localhost:3002',
+      'http://localhost:3003',
       'http://127.0.0.1:3000',
       'http://127.0.0.1:3001',
+      'http://127.0.0.1:3002',
+      'http://127.0.0.1:3003',
     ];
 
 // API routes that require CORS handling
@@ -89,7 +95,7 @@ function addSecurityHeaders(response: NextResponse) {
       "style-src 'self' 'unsafe-inline'",
       "img-src 'self' data: https: blob:",
       "font-src 'self' data:",
-      "connect-src 'self' https://api.politicianfinder.com https://*.supabase.co wss://*.supabase.co https://vercel.live",
+      "connect-src 'self' https://api.politicianfinder.com https://*.supabase.co wss://*.supabase.co https://vercel.live https://politician-finder.vercel.app https://frontend-steel-psi-45.vercel.app",
       "frame-src 'self' https://vercel.live",
       "frame-ancestors 'none'",
     ].join('; ');
