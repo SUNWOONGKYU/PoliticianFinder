@@ -6,6 +6,10 @@ import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
 import type { Politician } from '@/types/database'
 import type { SearchFilterParams } from '@/types/filter'
 import type { SortValue } from '@/types/sort'
+import { mockAdapterApi } from '@/lib/api/mock-adapter'
+
+// Use mock data for development
+const USE_MOCK_DATA = process.env.NEXT_PUBLIC_USE_MOCK_DATA !== 'false'
 
 /**
  * Custom hook for fetching and managing politicians list
@@ -63,14 +67,23 @@ export function usePoliticians() {
   const [filters, setFilters] = useState<SearchFilterParams>(getInitialFilters())
 
   /**
-   * Fetch politicians from API
+   * Fetch politicians from Mock Data or API
    */
   const fetchPoliticians = useCallback(async () => {
     try {
       setLoading(true)
       setError(null)
 
-      // Build query
+      // Use mock data for development
+      if (USE_MOCK_DATA) {
+        console.log('[DEV] Using mock data for politicians list')
+        const mockData = mockAdapterApi.getPoliticiansWithFiltering(filters, currentPage, itemsPerPage)
+        setPoliticians(mockData.data)
+        setTotalCount(mockData.total)
+        return
+      }
+
+      // Build Supabase query
       let query = supabase
         .from('politicians')
         .select('*', { count: 'exact' })
@@ -315,6 +328,14 @@ export function usePolitician(id: number) {
       try {
         setLoading(true)
         setError(null)
+
+        // Use mock data for development
+        if (USE_MOCK_DATA) {
+          console.log('[DEV] Using mock data for politician detail:', id)
+          const mockData = mockAdapterApi.getPoliticianById(id)
+          setPolitician(mockData as any)
+          return
+        }
 
         const { data, error: fetchError } = await supabase
           .from('politicians')

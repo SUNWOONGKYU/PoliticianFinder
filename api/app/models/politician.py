@@ -46,8 +46,7 @@ class Politician(Base):
 
     # Stats
     total_ratings = Column(Integer, default=0, nullable=False)
-    average_rating = Column(Float, default=0.0, nullable=False)  # Legacy field (deprecated)
-    avg_rating = Column(Numeric(2, 1), default=0.0, nullable=False)  # New field from P2D1
+    avg_rating = Column(Numeric(3, 1), default=0.0, nullable=False)  # 평균 평점 (0.0~5.0)
     total_bookmarks = Column(Integer, default=0, nullable=False)
 
     # Category

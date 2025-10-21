@@ -12,6 +12,10 @@ from app.api.v1.evaluation import router as evaluation_router
 from app.api.v1.auth import router as auth_router
 from app.api.v1.users import router as users_router
 
+# Consolidated routing:
+# - /auth: signup, login, refresh, logout
+# - /users: /me (get profile, update profile), /me/change-password, /username/{username}, /{user_id}
+# - /evaluations: evaluate-and-save, /{id}, /politician/{name}
 api_router.include_router(auth_router, prefix="/auth", tags=["auth"])
 api_router.include_router(users_router, prefix="/users", tags=["users"])
 api_router.include_router(evaluation_router, prefix="/evaluations", tags=["evaluations"])

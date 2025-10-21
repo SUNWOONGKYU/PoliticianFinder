@@ -3,10 +3,13 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { PenSquare } from 'lucide-react';
-;
 import { Footer } from '@/components/Footer';
 import { getSidebarData } from '@/lib/api/home';
+import { mockAdapterApi } from '@/lib/api/mock-adapter';
 import type { PostsResponse } from '@/types/post';
+
+// Use mock data for development
+const USE_MOCK_DATA = process.env.NEXT_PUBLIC_USE_MOCK_DATA !== 'false';
 
 export default function CommunityPage() {
   const [posts, setPosts] = useState<any[]>([]);
@@ -21,10 +24,16 @@ export default function CommunityPage() {
         setLoading(true);
 
         // 게시글 데이터 로드
-        const response = await fetch('/api/posts?limit=20&sort=latest');
-        if (response.ok) {
-          const data = await response.json();
-          setPosts(data.posts || []);
+        if (USE_MOCK_DATA) {
+          console.log('[DEV] Using mock data for community posts');
+          const mockPosts = mockAdapterApi.getCommunityPosts('all', '', 1, 20);
+          setPosts(mockPosts.data || []);
+        } else {
+          const response = await fetch('/api/posts?limit=20&sort=latest');
+          if (response.ok) {
+            const data = await response.json();
+            setPosts(data.posts || []);
+          }
         }
 
         // 사이드바 데이터 로드
@@ -32,6 +41,12 @@ export default function CommunityPage() {
         setSidebarData(sidebar);
       } catch (error) {
         console.error('Failed to load community data:', error);
+        // Fallback to mock data on error
+        if (!USE_MOCK_DATA) {
+          console.log('[FALLBACK] Using mock data due to error');
+          const mockPosts = mockAdapterApi.getCommunityPosts('all', '', 1, 20);
+          setPosts(mockPosts.data || []);
+        }
       } finally {
         setLoading(false);
       }
@@ -71,7 +86,7 @@ export default function CommunityPage() {
 
   return (
     <>
-      
+
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         {/* 페이지 헤더 */}

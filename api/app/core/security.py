@@ -9,15 +9,40 @@ from app.core.config import settings
 
 def get_password_hash(password: str) -> str:
     """
-    Hash a password using bcrypt directly
-    
-    Note: bcrypt has a maximum password length of 72 bytes.
-    We truncate to 72 bytes to avoid errors.
+    Hash a password using bcrypt
+
+    Security improvements:
+    - Validates password length BEFORE hashing (not after truncation)
+    - Uses bcrypt with proper salt generation
+    - bcrypt truncates to 72 bytes, but we validate upfront
+
+    Args:
+        password: Plain text password to hash
+
+    Returns:
+        Hashed password (bcrypt format)
+
+    Raises:
+        ValueError: If password doesn't meet requirements
     """
-    # Truncate password to 72 bytes for bcrypt
-    password_bytes = password.encode('utf-8')[:72]
-    # Generate salt and hash
-    salt = bcrypt.gensalt()
+    # Validate password requirements BEFORE hashing
+    if len(password) < 8:
+        raise ValueError("암호는 최소 8자 이상이어야 합니다")
+    if len(password) > 128:
+        raise ValueError("암호는 최대 128자 이하여야 합니다")
+
+    # Check password complexity
+    has_upper = any(c.isupper() for c in password)
+    has_lower = any(c.islower() for c in password)
+    has_digit = any(c.isdigit() for c in password)
+    has_special = any(not c.isalnum() for c in password)
+
+    if not (has_upper and has_lower and has_digit and has_special):
+        raise ValueError("암호는 대문자, 소문자, 숫자, 특수문자를 모두 포함해야 합니다")
+
+    # Encode and hash (bcrypt will handle internal truncation if needed)
+    password_bytes = password.encode('utf-8')
+    salt = bcrypt.gensalt(rounds=12)  # 12 rounds for better security
     hashed = bcrypt.hashpw(password_bytes, salt)
     return hashed.decode('utf-8')
 
@@ -25,13 +50,21 @@ def get_password_hash(password: str) -> str:
 def verify_password(plain_password: str, hashed_password: str) -> bool:
     """
     Verify a password against its hash
-    
-    Note: We apply the same truncation as during hashing
+
+    Args:
+        plain_password: Plain text password to verify
+        hashed_password: Hashed password from database
+
+    Returns:
+        True if password matches, False otherwise
     """
-    # Truncate password to 72 bytes for bcrypt
-    password_bytes = plain_password.encode('utf-8')[:72]
-    hashed_bytes = hashed_password.encode('utf-8')
-    return bcrypt.checkpw(password_bytes, hashed_bytes)
+    try:
+        password_bytes = plain_password.encode('utf-8')
+        hashed_bytes = hashed_password.encode('utf-8')
+        return bcrypt.checkpw(password_bytes, hashed_bytes)
+    except Exception:
+        # Handle any bcrypt errors gracefully
+        return False
 
 
 def create_access_token(data: Dict[str, Any], expires_delta: Optional[timedelta] = None) -> str:

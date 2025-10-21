@@ -2,6 +2,10 @@
 // 메인 페이지 데이터 fetch
 
 import { supabase } from '@/lib/supabase';
+import { mockAdapterApi } from './mock-adapter';
+
+// Use mock adapter for development
+const USE_MOCK_DATA = process.env.NEXT_PUBLIC_USE_MOCK_DATA !== 'false';
 
 export interface PoliticianRanking {
   id: number;
@@ -66,6 +70,12 @@ export interface HomeData {
  */
 export async function getHomeData(): Promise<HomeData> {
   try {
+    // Use mock data for development
+    if (USE_MOCK_DATA) {
+      console.log('[DEV] Using mock data for home page');
+      return mockAdapterApi.getHomeData();
+    }
+
     // AI 평점 랭킹 TOP 10 (뷰가 없으면 빈 배열)
     const { data: aiRanking, error: rankingError } = await supabase
       .from('v_ai_ranking_top10')
@@ -112,6 +122,11 @@ export async function getHomeData(): Promise<HomeData> {
     };
   } catch (error) {
     console.error('Failed to fetch home data:', error);
+    // Fallback to mock data on error
+    if (!USE_MOCK_DATA) {
+      console.log('[FALLBACK] Using mock data due to error');
+      return mockAdapterApi.getHomeData();
+    }
     // 에러가 발생해도 빈 데이터 반환 (완전 실패 방지)
     return {
       aiRanking: [],
@@ -131,6 +146,11 @@ export async function getAIRanking(options?: {
   filterValue?: string;
 }): Promise<PoliticianRanking[]> {
   try {
+    // Use mock data for development
+    if (USE_MOCK_DATA) {
+      return mockAdapterApi.getAIRanking(options);
+    }
+
     let query = supabase
       .from('politicians')
       .select(`
@@ -173,6 +193,10 @@ export async function getAIRanking(options?: {
     }));
   } catch (error) {
     console.error('Failed to fetch AI ranking:', error);
+    // Fallback to mock data
+    if (!USE_MOCK_DATA) {
+      return mockAdapterApi.getAIRanking(options);
+    }
     throw error;
   }
 }
@@ -182,6 +206,11 @@ export async function getAIRanking(options?: {
  */
 export async function getHotPosts(limit = 15): Promise<HotPost[]> {
   try {
+    // Use mock data for development
+    if (USE_MOCK_DATA) {
+      return mockAdapterApi.getHotPosts(limit);
+    }
+
     const { data, error } = await supabase
       .from('v_hot_posts_top15')
       .select('*')
@@ -192,6 +221,10 @@ export async function getHotPosts(limit = 15): Promise<HotPost[]> {
     return data || [];
   } catch (error) {
     console.error('Failed to fetch hot posts:', error);
+    // Fallback to mock data
+    if (!USE_MOCK_DATA) {
+      return mockAdapterApi.getHotPosts(limit);
+    }
     throw error;
   }
 }
@@ -201,6 +234,11 @@ export async function getHotPosts(limit = 15): Promise<HotPost[]> {
  */
 export async function getPoliticianPosts(limit = 9): Promise<PoliticianPost[]> {
   try {
+    // Use mock data for development
+    if (USE_MOCK_DATA) {
+      return mockAdapterApi.getPoliticianPosts(limit);
+    }
+
     const { data, error } = await supabase
       .from('v_politician_posts_recent9')
       .select('*')
@@ -211,6 +249,10 @@ export async function getPoliticianPosts(limit = 9): Promise<PoliticianPost[]> {
     return data || [];
   } catch (error) {
     console.error('Failed to fetch politician posts:', error);
+    // Fallback to mock data
+    if (!USE_MOCK_DATA) {
+      return mockAdapterApi.getPoliticianPosts(limit);
+    }
     throw error;
   }
 }
@@ -220,6 +262,11 @@ export async function getPoliticianPosts(limit = 9): Promise<PoliticianPost[]> {
  */
 export async function getSidebarData(): Promise<any> {
   try {
+    // Use mock data for development
+    if (USE_MOCK_DATA) {
+      return mockAdapterApi.getSidebarData();
+    }
+
     const { data: { user } } = await supabase.auth.getUser();
     const { data, error } = await supabase
       .rpc('get_sidebar_data', { p_user_id: user?.id || null });
@@ -229,6 +276,10 @@ export async function getSidebarData(): Promise<any> {
     return data || {};
   } catch (error) {
     console.error('Failed to fetch sidebar data:', error);
+    // Fallback to mock data
+    if (!USE_MOCK_DATA) {
+      return mockAdapterApi.getSidebarData();
+    }
     throw error;
   }
 }

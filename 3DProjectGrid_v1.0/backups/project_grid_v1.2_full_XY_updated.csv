@@ -1,0 +1,657 @@
+영역,속성,Phase 1: 프로젝트 초기 설정,Phase 2: 핵심 기능 개발,Phase 3: 커뮤니티 기능 강화,Phase 4: 테스트 & 최적화,Phase 5: 베타 런칭,Phase 6: 다중 AI 평가,Phase 7: 연결 서비스 플랫폼,Phase 8: AI 아바타 소통
+Frontend,,,,,,,,,
+,작업ID,P1F1,P2F1,P3F1,P4F1,P5F1,P6F1,P7F1,P8F1
+,업무,Next.js 14 프로젝트 초기화,정치인 카드 컴포넌트,알림 벨 컴포넌트,성능 최적화 (코드 스플리팅),사용자 피드백 수집 UI,AI 비교 대시보드 페이지,서비스 업체 목록 페이지,채팅 UI 컴포넌트
+,작업지시서,tasks/P1F1.md,tasks/P2F1.md,tasks/P3F1.md,tasks/P4F1.md,tasks/P5F1.md,tasks/P6F1.md,tasks/P7F1.md,tasks/P8F1.md
+,담당AI,fullstack-developer,fullstack-developer,fullstack-developer,devops-troubleshooter,fullstack-developer,fullstack-developer,fullstack-developer,fullstack-developer
+,진도,0%,0%,0%,0%,0%,0%,0%,0%
+,상태,대기,대기,대기,대기,대기,대기,대기,대기
+,테스트/검토,테스트,테스트,테스트,테스트,테스트,테스트,테스트,테스트
+,자동화방식,수동,수동,수동,수동,수동,수동,수동,수동
+,의존작업,없음,P1F1,P2B1,P4F1,P5B1,P6B5,P7B1,P8B1
+,블로커,없음,없음,없음,없음,없음,없음,없음,없음
+,작업ID,P1F2,P2F2,P3F2,P4F2,P5F2,P6F2,P7F2,P8F2
+,업무,TypeScript & Tailwind 설정,시민 평가 UI 컴포넌트,댓글 작성 컴포넌트,Lighthouse 점수 90+,사용자 가이드 페이지,AI 평가 차트 컴포넌트 (다중),서비스 업체 상세 페이지,정치인별 채팅방 페이지
+,작업지시서,tasks/P1F2.md,tasks/P2F2.md,tasks/P3F2.md,tasks/P4F2.md,tasks/P5F2.md,tasks/P6F2.md,tasks/P7F2.md,tasks/P8F2.md
+,담당AI,fullstack-developer,fullstack-developer,fullstack-developer,devops-troubleshooter,fullstack-developer,fullstack-developer,fullstack-developer,fullstack-developer
+,진도,0%,0%,0%,0%,0%,0%,0%,0%
+,상태,대기,대기,대기,대기,대기,대기,대기,대기
+,테스트/검토,테스트,테스트,테스트,테스트,테스트,테스트,테스트,테스트
+,자동화방식,수동,수동,수동,수동,수동,수동,수동,수동
+,의존작업,P1F1,P2B2,P3B2,P4F1,P5V1,P6B1,P7F1,P8F1
+,블로커,없음,없음,없음,없음,없음,없음,없음,없음
+,작업ID,P1F3,P2F3,P3F3,P4F3,P5F3,P6F3,P7F3,P8F3
+,업무,shadcn/ui 설치 및 설정,검색 필터링 UI,댓글 목록 컴포넌트 (계층형),SEO 메타 태그 최적화,공지사항 팝업 시스템,AI 신뢰도 표시 컴포넌트,서비스 카테고리 필터,대화 히스토리 컴포넌트
+,작업지시서,tasks/P1F3.md,tasks/P2F3.md,tasks/P3F3.md,tasks/P4F3.md,tasks/P5F3.md,tasks/P6F3.md,tasks/P7F3.md,tasks/P8F3.md
+,담당AI,fullstack-developer,fullstack-developer,fullstack-developer,fullstack-developer,fullstack-developer,fullstack-developer,fullstack-developer,fullstack-developer
+,진도,0%,0%,0%,0%,0%,0%,0%,0%
+,상태,대기,대기,대기,대기,대기,대기,대기,대기
+,테스트/검토,테스트,테스트,테스트,테스트,테스트,테스트,테스트,테스트
+,자동화방식,수동,수동,수동,수동,수동,수동,수동,수동
+,의존작업,P1F2,P2B4,P3B3,P4F2,P5V1,P6B5,P7B5,P8B6
+,블로커,없음,없음,없음,없음,없음,없음,없음,없음
+,작업ID,P1F4,P2F4,P3F4,P4F4,,,P6F4,P7F4,P8F4
+,업무,폴더 구조 생성,페이지네이션 컴포넌트,대댓글 UI,로딩 스피너 컴포넌트,,,AI 평가 상세 모달,문의 폼 컴포넌트,음성 녹음 버튼 (STT)
+,작업지시서,tasks/P1F4.md,tasks/P2F4.md,tasks/P3F4.md,tasks/P4F4.md,,,tasks/P6F4.md,tasks/P7F4.md,tasks/P8F4.md
+,담당AI,fullstack-developer,fullstack-developer,fullstack-developer,fullstack-developer,,,fullstack-developer,fullstack-developer,fullstack-developer
+,진도,0%,0%,0%,0%,,,0%,0%,0%
+,상태,대기,대기,대기,대기,,,대기,대기,대기
+,테스트/검토,검토,테스트,테스트,테스트,,,테스트,테스트,테스트
+,자동화방식,수동,수동,수동,수동,,,수동,수동,수동
+,의존작업,P1F1,P2B6,P3B3,없음,,,P6B1,P7B3,P8B7
+,블로커,없음,없음,없음,없음,,,없음,없음,없음
+,작업ID,P1F5,P2F5,P3F5,P4F5,,,P6F5,P7F5,P8F5
+,업무,인증 상태 관리 (Zustand),정렬 옵션 드롭다운,알림 드롭다운 UI,토스트 알림 시스템,,,종합 점수 표시 컴포넌트,문의 내역 페이지,음성 재생 버튼 (TTS)
+,작업지시서,tasks/P1F5.md,tasks/P2F5.md,tasks/P3F5.md,tasks/P4F5.md,,,tasks/P6F5.md,tasks/P7F5.md,tasks/P8F5.md
+,담당AI,fullstack-developer,fullstack-developer,fullstack-developer,fullstack-developer,,,fullstack-developer,fullstack-developer,fullstack-developer
+,진도,0%,0%,0%,0%,,,0%,0%,0%
+,상태,대기,대기,대기,대기,,,대기,대기,대기
+,테스트/검토,테스트,테스트,테스트,테스트,,,테스트,테스트,테스트
+,자동화방식,수동,수동,수동,수동,,,수동,수동,수동
+,의존작업,P1F1,P2B1,P3B4,없음,,,P6B5,P7B4,P8B8
+,블로커,없음,없음,없음,없음,,,없음,없음,없음
+,작업ID,P1F6,P2F6,P3F6,P4F6,,,P6F6,P7F6,P8F6
+,업무,회원가입 페이지,정치인 상세 페이지,좋아요 버튼 컴포넌트,에러 바운더리,,,AI 설정 페이지 (가중치),업체 등록 신청 페이지,실시간 타이핑 인디케이터
+,작업지시서,tasks/P1F6.md,tasks/P2F6.md,tasks/P3F6.md,tasks/P4F6.md,,,tasks/P6F6.md,tasks/P7F6.md,tasks/P8F6.md
+,담당AI,fullstack-developer,fullstack-developer,fullstack-developer,fullstack-developer,,,fullstack-developer,fullstack-developer,fullstack-developer
+,진도,0%,0%,0%,0%,,,0%,0%,0%
+,상태,대기,대기,대기,대기,,,대기,대기,대기
+,테스트/검토,테스트,테스트,테스트,테스트,,,테스트,테스트,테스트
+,자동화방식,수동,수동,수동,수동,,,수동,수동,수동
+,의존작업,P1B6,P2B1,P3B5,없음,,,P6D3,P7B1,P8B1
+,블로커,없음,없음,없음,없음,,,없음,없음,없음
+,작업ID,P1F7,P2F7,P3F7,P4F7,,,,P7F7,P8F7
+,업무,로그인 페이지,정치인 목록 페이지,멘션(@) 입력 UI,404/500 에러 페이지,,,,업체 리뷰 컴포넌트,채팅 검색 기능
+,작업지시서,tasks/P1F7.md,tasks/P2F7.md,tasks/P3F7.md,tasks/P4F7.md,,,,tasks/P7F7.md,tasks/P8F7.md
+,담당AI,fullstack-developer,fullstack-developer,fullstack-developer,fullstack-developer,,,,fullstack-developer,fullstack-developer
+,진도,0%,0%,0%,0%,,,,0%,0%
+,상태,대기,대기,대기,대기,,,,대기,대기
+,테스트/검토,테스트,테스트,테스트,테스트,,,,테스트,테스트
+,자동화방식,수동,수동,수동,수동,,,,수동,수동
+,의존작업,P1B7,P2B1,P3B3,없음,,,,P7B6,P8B9
+,블로커,없음,없음,없음,없음,,,,없음,없음
+,작업ID,,P2F8,P3F8,P4F8,,,,P7F8,P8F8
+,업무,,AI 평가 점수 표시 컴포넌트,북마크 버튼 컴포넌트,폼 유효성 검사,,,,관리자 업체 승인 페이지,채팅방 목록 페이지
+,작업지시서,,tasks/P2F8.md,tasks/P3F8.md,tasks/P4F8.md,,,,tasks/P7F8.md,tasks/P8F8.md
+,담당AI,,fullstack-developer,fullstack-developer,fullstack-developer,,,,fullstack-developer,fullstack-developer
+,진도,,0%,0%,0%,,,,0%,0%
+,상태,,대기,대기,대기,,,,대기,대기
+,테스트/검토,,테스트,테스트,테스트,,,,테스트,테스트
+,자동화방식,,수동,수동,수동,,,,수동,수동
+,의존작업,,P2B3,P3B6,없음,,,,P7B7,P8D1
+,블로커,,없음,없음,없음,,,,없음,없음
+,작업ID,,P2F9,P3F9,,,,,, P8F9
+,업무,,AI 평가 차트 컴포넌트,신고 다이얼로그,,,,,,AI 아바타 이미지
+,작업지시서,,tasks/P2F9.md,tasks/P3F9.md,,,,,,tasks/P8F9.md
+,담당AI,,fullstack-developer,fullstack-developer,,,,,,fullstack-developer
+,진도,,0%,0%,,,,,,0%
+,상태,,대기,대기,,,,,,대기
+,테스트/검토,,테스트,테스트,,,,,,테스트
+,자동화방식,,수동,수동,,,,,,수동
+,의존작업,,P2B3,P3B7,,,,,,P8A1
+,블로커,,없음,없음,,,,,,없음
+,작업ID,,P2F10,P3F10,,,,,, P8F10
+,업무,,메인 페이지 랭킹 섹션,마이페이지,,,,,,대화 공유 기능 (SNS)
+,작업지시서,,tasks/P2F10.md,tasks/P3F10.md,,,,,,tasks/P8F10.md
+,담당AI,,fullstack-developer,fullstack-developer,,,,,,fullstack-developer
+,진도,,0%,0%,,,,,,0%
+,상태,,대기,대기,,,,,,대기
+,테스트/검토,,테스트,테스트,,,,,,테스트
+,자동화방식,,수동,수동,,,,,,수동
+,의존작업,,P2B7,P1B8,,,,,,P8B6
+,블로커,,없음,없음,,,,,,없음
+,작업ID,,,P3F11,,,,,,
+,업무,,,정치인 인증 요청 페이지,,,,,,
+,작업지시서,,,tasks/P3F11.md,,,,,,
+,담당AI,,,fullstack-developer,,,,,,
+,진도,,,0%,,,,,,
+,상태,,,대기,,,,,,
+,테스트/검토,,,테스트,,,,,,
+,자동화방식,,,수동,,,,,,
+,의존작업,,,P3B8,,,,,,
+,블로커,,,없음,,,,,,
+,작업ID,,,P3F12,,,,,,
+,업무,,,관리자 대시보드 페이지,,,,,,
+,작업지시서,,,tasks/P3F12.md,,,,,,
+,담당AI,,,fullstack-developer,,,,,,
+,진도,,,0%,,,,,,
+,상태,,,대기,,,,,,
+,테스트/검토,,,테스트,,,,,,
+,자동화방식,,,수동,,,,,,
+,의존작업,,,P3B9,,,,,,
+,블로커,,,없음,,,,,,
+Backend,,,,,,,,,
+,작업ID,P1B1,P2B1,P3B1,P4B1,P5B1,P6B1,P7B1,P8B1
+,업무,FastAPI 초기화,정치인 목록 API,알림 생성 및 조회 API,쿼리 최적화,피드백 수집 API,GPT API 연동,서비스 업체 CRUD API,WebSocket 서버 구축
+,작업지시서,tasks/P1B1.md,tasks/P2B1.md,tasks/P3B1.md,tasks/P4B1.md,tasks/P5B1.md,tasks/P6B1.md,tasks/P7B1.md,tasks/P8B1.md
+,담당AI,api-designer,api-designer,api-designer,devops-troubleshooter,fullstack-developer,fullstack-developer,fullstack-developer,fullstack-developer
+,진도,0%,0%,0%,0%,0%,0%,0%,0%
+,상태,대기,대기,대기,대기,대기,대기,대기,대기
+,테스트/검토,테스트,테스트,테스트,테스트,테스트,테스트,테스트,테스트
+,자동화방식,수동,수동,수동,수동,수동,수동,수동,수동
+,의존작업,없음,P1B1,P2B1,P3B1,P4B1,P5B1,P6B1,P7B1
+,블로커,없음,없음,없음,없음,없음,없음,없음,없음
+,작업ID,P1B2,P2B2,P3B2,P4B2,P5B2,P6B2,P7B2,P8B2
+,업무,requirements.txt,시민 평가 API,댓글 CRUD API,N+1 쿼리 해결,헬스 체크 엔드포인트,Gemini API 연동,서비스 카테고리 관리 API,Claude API 채팅 연동
+,작업지시서,tasks/P1B2.md,tasks/P2B2.md,tasks/P3B2.md,tasks/P4B2.md,tasks/P5B2.md,tasks/P6B2.md,tasks/P7B2.md,tasks/P8B2.md
+,담당AI,fullstack-developer,api-designer,api-designer,fullstack-developer,devops-troubleshooter,fullstack-developer,fullstack-developer,fullstack-developer
+,진도,0%,0%,0%,0%,0%,0%,0%,0%
+,상태,대기,대기,대기,대기,대기,대기,대기,대기
+,테스트/검토,검토,테스트,테스트,테스트,테스트,테스트,테스트,테스트
+,자동화방식,수동,수동,수동,수동,수동,수동,수동,수동
+,의존작업,P1B1,P2D2,P3D2,P4B1,P5V1,P6B1,P7D2,P8B1
+,블로커,없음,없음,없음,없음,없음,없음,없음,없음
+,작업ID,P1B3,P2B3,P3B3,P4B3,P5B3,P6B3,P7B3,P8B3
+,업무,환경 변수 설정,평가 집계 로직,대댓글 API,Redis 캐싱,API 버전 관리,Perplexity API 연동,문의 전송 API,GPT API 채팅 연동
+,작업지시서,tasks/P1B3.md,tasks/P2B3.md,tasks/P3B3.md,tasks/P4B3.md,tasks/P5B3.md,tasks/P6B3.md,tasks/P7B3.md,tasks/P8B3.md
+,담당AI,security-auditor,fullstack-developer,fullstack-developer,fullstack-developer,fullstack-developer,fullstack-developer,fullstack-developer,fullstack-developer
+,진도,0%,0%,0%,0%,0%,0%,0%,0%
+,상태,대기,대기,대기,대기,대기,대기,대기,대기
+,테스트/검토,검토,테스트,테스트,테스트,테스트,테스트,테스트,테스트
+,자동화방식,수동,수동,수동,수동,수동,수동,수동,수동
+,의존작업,없음,P2B2,P3B2,P1D1,P5B1,P6B2,P7D3,P8B2
+,블로커,없음,없음,없음,없음,없음,없음,없음,없음
+,작업ID,P1B4,P2B4,P3B4,P4B4,P5B4,P6B4,P7B4,P8B4
+,업무,FastAPI 기본 구조,검색/필터링 API,알림 조회 API,Rate Limiting,로그 수집 시스템,Grok API 연동,문의 내역 조회 API,정치인별 학습 데이터 구축 (RAG)
+,작업지시서,tasks/P1B4.md,tasks/P2B4.md,tasks/P3B4.md,tasks/P4B4.md,tasks/P5B4.md,tasks/P6B4.md,tasks/P7B4.md,tasks/P8B4.md
+,담당AI,api-designer,api-designer,fullstack-developer,security-auditor,devops-troubleshooter,fullstack-developer,fullstack-developer,fullstack-developer
+,진도,0%,0%,0%,0%,0%,0%,0%,0%
+,상태,대기,대기,대기,대기,대기,대기,대기,대기
+,테스트/검토,테스트,테스트,테스트,테스트,테스트,테스트,테스트,테스트
+,자동화방식,수동,수동,수동,수동,수동,수동,수동,수동
+,의존작업,P1B1,P2B1,P3B1,없음,P5V1,P6B3,P7B3,P8D3
+,블로커,없음,없음,없음,없음,없음,없음,없음,없음
+,작업ID,P1B5,P2B5,P3B5,P4B5,,P6B5,P7B5,P8B5
+,업무,JWT 인증 시스템,정치인 상세 API,좋아요 API,에러 로깅 시스템,,종합 점수 계산 알고리즘,업체 검색/필터 API,대화 컨텍스트 관리
+,작업지시서,tasks/P1B5.md,tasks/P2B5.md,tasks/P3B5.md,tasks/P4B5.md,,tasks/P6B5.md,tasks/P7B5.md,tasks/P8B5.md
+,담당AI,security-auditor,api-designer,fullstack-developer,devops-troubleshooter,,fullstack-developer,fullstack-developer,fullstack-developer
+,진도,0%,0%,0%,0%,,0%,0%,0%
+,상태,대기,대기,대기,대기,,대기,대기,대기
+,테스트/검토,테스트,테스트,테스트,테스트,,테스트,테스트,테스트
+,자동화방식,수동,수동,수동,수동,,수동,수동,수동
+,의존작업,P1B1,P2B1,P3D3,없음,,P6B4,P7B1,P8B4
+,블로커,없음,없음,없음,없음,,없음,없음,없음
+,작업ID,P1B6,P2B6,P3B6,P4B6,,P6B6,P7B6,P8B6
+,업무,회원가입 API,페이지네이션 로직,알림 읽음 처리 API,CORS 설정,,AI 평가 스케줄러 (주 1회),업체 리뷰 API,대화 히스토리 저장 API
+,작업지시서,tasks/P1B6.md,tasks/P2B6.md,tasks/P3B6.md,tasks/P4B6.md,,tasks/P6B6.md,tasks/P7B6.md,tasks/P8B6.md
+,담당AI,fullstack-developer,fullstack-developer,fullstack-developer,security-auditor,,fullstack-developer,fullstack-developer,fullstack-developer
+,진도,0%,0%,0%,0%,,0%,0%,0%
+,상태,대기,대기,대기,대기,,대기,대기,대기
+,테스트/검토,테스트,테스트,테스트,테스트,,테스트,테스트,테스트
+,자동화방식,수동,수동,수동,수동,,API자동,수동,수동
+,의존작업,P1B5,P2B1,P3B1,없음,,P6B5,P7D4,P8D2
+,블로커,없음,없음,없음,없음,,없음,없음,없음
+,작업ID,P1B7,P2B7,P3B7,P4B7,,P6B7,P7B7,P8B7
+,업무,로그인 API,정치인 랭킹 API,알림 자동 생성 트리거,전역 에러 핸들러,,AI 응답 캐싱 시스템 (Redis),업체 승인 API (관리자),STT API 연동 (Whisper)
+,작업지시서,tasks/P1B7.md,tasks/P2B7.md,tasks/P3B7.md,tasks/P4B7.md,,tasks/P6B7.md,tasks/P7B7.md,tasks/P8B7.md
+,담당AI,fullstack-developer,api-designer,fullstack-developer,fullstack-developer,,fullstack-developer,fullstack-developer,fullstack-developer
+,진도,0%,0%,0%,0%,,0%,0%,0%
+,상태,대기,대기,대기,대기,,대기,대기,대기
+,테스트/검토,테스트,테스트,테스트,테스트,,테스트,테스트,테스트
+,자동화방식,수동,수동,API자동,수동,,수동,수동,API자동
+,의존작업,P1B5,P2B3,P3B1,없음,,P6B5,P7B1,없음
+,블로커,없음,없음,없음,없음,,없음,없음,없음
+,작업ID,P1B8,P2B8,P3B8,P4B8,,P6B8,P7B8,P8B8
+,업무,현재 사용자 조회 API,조회수 증가 로직,정치인 인증 요청 API,API 표준화 응답,,AI 평가 히스토리 API,수수료 정산 로직,TTS API 연동 (ElevenLabs)
+,작업지시서,tasks/P1B8.md,tasks/P2B8.md,tasks/P3B8.md,tasks/P4B8.md,,tasks/P6B8.md,tasks/P7B8.md,tasks/P8B8.md
+,담당AI,fullstack-developer,fullstack-developer,fullstack-developer,fullstack-developer,,fullstack-developer,fullstack-developer,fullstack-developer
+,진도,0%,0%,0%,0%,,0%,0%,0%
+,상태,대기,대기,대기,대기,,대기,대기,대기
+,테스트/검토,테스트,테스트,테스트,테스트,,테스트,테스트,테스트
+,자동화방식,수동,수동,수동,수동,,수동,수동,API자동
+,의존작업,P1B5,P2B1,P3B9,없음,,P6D2,P7D5,없음
+,블로커,없음,없음,없음,없음,,없음,없음,없음
+,작업ID,,,P3B9,P4B9,,,P7B9,P8B9
+,업무,,,회원 등급/포인트 시스템 API,비밀번호 해싱,,,정산 내역 API,채팅 검색 API (Elasticsearch)
+,작업지시서,,,tasks/P3B9.md,tasks/P4B9.md,,,tasks/P7B9.md,tasks/P8B9.md
+,담당AI,,,fullstack-developer,security-auditor,,,fullstack-developer,fullstack-developer
+,진도,,,0%,0%,,,0%,0%
+,상태,,,대기,대기,,,대기,대기
+,테스트/검토,,,테스트,테스트,,,테스트,테스트
+,자동화방식,,,수동,수동,,,수동,수동
+,의존작업,,,P3D4,P1B5,,,P7B8,P8D2
+,블로커,,,없음,없음,,,없음,없음
+,작업ID,,,P3B10,P4B10,,,P7B10,P8B10
+,업무,,,관리자 게시글 관리 API,SQL Injection 방어,,,업체 통계 API,채팅 통계 API
+,작업지시서,,,tasks/P3B10.md,tasks/P4B10.md,,,tasks/P7B10.md,tasks/P8B10.md
+,담당AI,,,fullstack-developer,security-auditor,,,fullstack-developer,fullstack-developer
+,진도,,,0%,0%,,,0%,0%
+,상태,,,대기,대기,,,대기,대기
+,테스트/검토,,,테스트,테스트,,,테스트,테스트
+,자동화방식,,,수동,수동,,,수동,수동
+,의존작업,,,P1B5,없음,,,P7B1,P8B1
+,블로커,,,없음,없음,,,없음,없음
+,작업ID,,,P3B11,P4B11,,,,P8B11
+,업무,,,관리자 회원 차단 API,타임아웃 처리,,,,스팸 필터링 (욕설/반복)
+,작업지시서,,,tasks/P3B11.md,tasks/P4B11.md,,,,tasks/P8B11.md
+,담당AI,,,fullstack-developer,fullstack-developer,,,,fullstack-developer
+,진도,,,0%,0%,,,,0%
+,상태,,,대기,대기,,,,대기
+,테스트/검토,,,테스트,테스트,,,,테스트
+,자동화방식,,,수동,수동,,,,수동
+,의존작업,,,P1B5,없음,,,,P8B1
+,블로커,,,없음,없음,,,,없음
+,작업ID,,,P3B12,,,,,P8B12
+,업무,,,관리자 신고 처리 API,,,,,채팅 알림 시스템 (푸시)
+,작업지시서,,,tasks/P3B12.md,,,,,tasks/P8B12.md
+,담당AI,,,fullstack-developer,,,,,fullstack-developer
+,진도,,,0%,,,,,0%
+,상태,,,대기,,,,,대기
+,테스트/검토,,,테스트,,,,,테스트
+,자동화방식,,,수동,,,,,수동
+,의존작업,,,P1B5,,,,,P8B1
+,블로커,,,없음,,,,,없음
+Database,,,,,,,,,
+,작업ID,P1D1,P2D1,P3D1,P4D1,P5D1,P6D1,P7D1,P8D1
+,업무,User 모델 정의,정치인 테이블 스키마,notifications 테이블,인덱스 추가,데이터베이스 백업 설정,ai_scores_multi 테이블,service_providers 테이블,chat_rooms 테이블
+,작업지시서,tasks/P1D1.md,tasks/P2D1.md,tasks/P3D1.md,tasks/P4D1.md,tasks/P5D1.md,tasks/P6D1.md,tasks/P7D1.md,tasks/P8D1.md
+,담당AI,database-architect,database-architect,database-architect,database-architect,devops-troubleshooter,fullstack-developer,fullstack-developer,fullstack-developer
+,진도,0%,0%,0%,0%,0%,0%,0%,0%
+,상태,대기,대기,대기,대기,대기,대기,대기,대기
+,테스트/검토,테스트,테스트,테스트,테스트,검토,테스트,테스트,테스트
+,자동화방식,수동,수동,수동,수동,수동,수동,수동,수동
+,의존작업,없음,P1D1,P2D1,P3D1,P4D1,P5D1,P6D1,P7D1
+,블로커,없음,없음,없음,없음,없음,없음,없음,없음
+,작업ID,P1D2,P2D2,P3D2,P4D2,P5D2,P6D2,P7D2,P8D2
+,업무,Politician 모델,ratings 테이블,comments 테이블,관계형 쿼리 최적화,프로덕션 DB 마이그레이션,ai_evaluation_history 테이블,service_categories 테이블,chat_messages 테이블
+,작업지시서,tasks/P1D2.md,tasks/P2D2.md,tasks/P3D2.md,tasks/P4D2.md,tasks/P5D2.md,tasks/P6D2.md,tasks/P7D2.md,tasks/P8D2.md
+,담당AI,database-architect,database-architect,database-architect,database-architect,devops-troubleshooter,fullstack-developer,fullstack-developer,fullstack-developer
+,진도,0%,0%,0%,0%,0%,0%,0%,0%
+,상태,대기,대기,대기,대기,대기,대기,대기,대기
+,테스트/검토,테스트,테스트,테스트,테스트,테스트,테스트,테스트,테스트
+,자동화방식,수동,수동,수동,수동,수동,수동,수동,수동
+,의존작업,P1D1,P1D2,P1D1,P4D1,P5D1,P6D1,P7D1,P8D1
+,블로커,없음,없음,없음,없음,없음,없음,없음,없음
+,작업ID,P1D3,P2D3,P3D3,P4D3,,P6D3,P7D3,P8D3
+,업무,Post 모델,평가 인덱스 설정,likes 테이블,DB 연결 풀링,,user_ai_preferences 테이블,inquiries 테이블,politician_knowledge 테이블
+,작업지시서,tasks/P1D3.md,tasks/P2D3.md,tasks/P3D3.md,tasks/P4D3.md,,tasks/P6D3.md,tasks/P7D3.md,tasks/P8D3.md
+,담당AI,database-architect,database-architect,database-architect,database-architect,,fullstack-developer,fullstack-developer,fullstack-developer
+,진도,0%,0%,0%,0%,,0%,0%,0%
+,상태,대기,대기,대기,대기,,대기,대기,대기
+,테스트/검토,테스트,테스트,테스트,테스트,,테스트,테스트,테스트
+,자동화방식,수동,수동,수동,수동,,수동,수동,수동
+,의존작업,P1D1,P2D2,P1D1,P1D1,,P1D1,P7D1,P1D2
+,블로커,없음,없음,없음,없음,,없음,없음,없음
+,작업ID,P1D4,,,P4D4,,P6D4,P7D4,P8D4
+,업무,Comment 모델,,,댓글 인덱스 설정,,AI 평가 인덱스 설정,provider_reviews 테이블,채팅 인덱스 설정
+,작업지시서,tasks/P1D4.md,,,tasks/P4D4.md,,tasks/P6D4.md,tasks/P7D4.md,tasks/P8D4.md
+,담당AI,database-architect,,,database-architect,,fullstack-developer,fullstack-developer,fullstack-developer
+,진도,0%,,,0%,,0%,0%,0%
+,상태,대기,,,대기,,대기,대기,대기
+,테스트/검토,테스트,,,테스트,,테스트,테스트,테스트
+,자동화방식,수동,,,수동,,수동,수동,수동
+,의존작업,P1D3,,,P3D2,,P6D1,P7D1,P8D2
+,블로커,없음,,,없음,,없음,없음,없음
+,작업ID,P1D5,,,,P2D4,,,P7D5,
+,업무,Vote 모델,,,정치인 인덱스 설정,,,settlements 테이블,
+,작업지시서,tasks/P1D5.md,,,,tasks/P2D4.md,,,tasks/P7D5.md,
+,담당AI,database-architect,,,,database-architect,,,fullstack-developer,
+,진도,0%,,,,0%,,,0%,
+,상태,대기,,,,대기,,,대기,
+,테스트/검토,테스트,,,,테스트,,,테스트,
+,자동화방식,수동,,,,수동,,,수동,
+,의존작업,P1D3,,,,P2D1,,,P7D1,
+,블로커,없음,,,,없음,,,없음,
+,작업ID,P1D6,,,P3D4,,,,,
+,업무,Rating 모델,,,user_points 테이블,,,,,
+,작업지시서,tasks/P1D6.md,,,tasks/P3D4.md,,,,,
+,담당AI,database-architect,,,database-architect,,,,,
+,진도,0%,,,0%,,,,,
+,상태,대기,,,대기,,,,,
+,테스트/검토,테스트,,,테스트,,,,,
+,자동화방식,수동,,,수동,,,,,
+,의존작업,P1D2,,,P1D1,,,,,
+,블로커,없음,,,없음,,,,,
+,작업ID,P1D7,,,,,,,,
+,업무,AIScore 모델,,,,,,,,
+,작업지시서,tasks/P1D7.md,,,,,,,,
+,담당AI,database-architect,,,,,,,,
+,진도,0%,,,,,,,,
+,상태,대기,,,,,,,,
+,테스트/검토,테스트,,,,,,,,
+,자동화방식,수동,,,,,,,,
+,의존작업,P1D2,,,,,,,,
+,블로커,없음,,,,,,,,
+,작업ID,P1D8,,,,,,,,
+,업무,Notification 모델,,,,,,,,
+,작업지시서,tasks/P1D8.md,,,,,,,,
+,담당AI,database-architect,,,,,,,,
+,진도,0%,,,,,,,,
+,상태,대기,,,,,,,,
+,테스트/검토,테스트,,,,,,,,
+,자동화방식,수동,,,,,,,,
+,의존작업,P1D1,,,,,,,,
+,블로커,없음,,,,,,,,
+,작업ID,P1D9,,,,,,,,
+,업무,Bookmark 모델,,,,,,,,
+,작업지시서,tasks/P1D9.md,,,,,,,,
+,담당AI,database-architect,,,,,,,,
+,진도,0%,,,,,,,,
+,상태,대기,,,,,,,,
+,테스트/검토,테스트,,,,,,,,
+,자동화방식,수동,,,,,,,,
+,의존작업,P1D1,,,,,,,,
+,블로커,없음,,,,,,,,
+,작업ID,P1D10,,,,,,,,
+,업무,Report 모델,,,,,,,,
+,작업지시서,tasks/P1D10.md,,,,,,,,
+,담당AI,database-architect,,,,,,,,
+,진도,0%,,,,,,,,
+,상태,대기,,,,,,,,
+,테스트/검토,테스트,,,,,,,,
+,자동화방식,수동,,,,,,,,
+,의존작업,P1D1,,,,,,,,
+,블로커,없음,,,,,,,,
+,작업ID,P1D11,,,,,,,,
+,업무,Alembic 초기화,,,,,,,,
+,작업지시서,tasks/P1D11.md,,,,,,,,
+,담당AI,database-architect,,,,,,,,
+,진도,0%,,,,,,,,
+,상태,대기,,,,,,,,
+,테스트/검토,테스트,,,,,,,,
+,자동화방식,수동,,,,,,,,
+,의존작업,P1D10,,,,,,,,
+,블로커,없음,,,,,,,,
+,작업ID,P1D12,,,,,,,,
+,업무,초기 마이그레이션 생성,,,,,,,,
+,작업지시서,tasks/P1D12.md,,,,,,,,
+,담당AI,database-architect,,,,,,,,
+,진도,0%,,,,,,,,
+,상태,대기,,,,,,,,
+,테스트/검토,테스트,,,,,,,,
+,자동화방식,수동,,,,,,,,
+,의존작업,P1D11,,,,,,,,
+,블로커,없음,,,,,,,,
+,작업ID,P1D13,,,,,,,,
+,업무,테스트 데이터 시딩,,,,,,,,
+,작업지시서,tasks/P1D13.md,,,,,,,,
+,담당AI,database-architect,,,,,,,,
+,진도,0%,,,,,,,,
+,상태,대기,,,,,,,,
+,테스트/검토,테스트,,,,,,,,
+,자동화방식,API자동,,,,,,,,
+,의존작업,P1D12,,,,,,,,
+,블로커,없음,,,,,,,,
+Test,,,,,,,,,
+,작업ID,,P2T1,P3T1,P4T1,P5T1,P6T1,P7T1,P8T1
+,업무,,인증 API 테스트,알림 API 테스트,단위 테스트 커버리지 80%,베타 테스터 초대 시스템,AI API 통합 테스트,업체 등록 E2E 테스트,WebSocket 연결 테스트
+,작업지시서,,tasks/P2T1.md,tasks/P3T1.md,tasks/P4T1.md,tasks/P5T1.md,tasks/P6T1.md,tasks/P7T1.md,tasks/P8T1.md
+,담당AI,,code-reviewer,code-reviewer,code-reviewer,fullstack-developer,code-reviewer,code-reviewer,devops-troubleshooter
+,진도,,0%,0%,0%,0%,0%,0%,0%
+,상태,,대기,대기,대기,대기,대기,대기,대기
+,테스트/검토,,테스트,테스트,테스트,테스트,테스트,테스트,테스트
+,자동화방식,,API자동,API자동,API자동,수동,API자동,API자동,API자동
+,의존작업,,P1B5,P3B1,P3T1,P5V1,P6B4,P7B1,P8B1
+,블로커,,없음,없음,없음,없음,없음,없음,없음
+,작업ID,,P2T2,P3T2,P4T2,P5T2,P6T2,P7T2,P8T2
+,업무,,평가 시스템 E2E 테스트,북마크 API 테스트,E2E 테스트 시나리오,최종 사용자 시나리오 테스트,종합 점수 계산 테스트,문의 시스템 테스트,AI 응답 품질 테스트
+,작업지시서,,tasks/P2T2.md,tasks/P3T2.md,tasks/P4T2.md,tasks/P5T2.md,tasks/P6T2.md,tasks/P7T2.md,tasks/P8T2.md
+,담당AI,,code-reviewer,code-reviewer,code-reviewer,code-reviewer,code-reviewer,code-reviewer,code-reviewer
+,진도,,0%,0%,0%,0%,0%,0%,0%
+,상태,,대기,대기,대기,대기,대기,대기,대기
+,테스트/검토,,테스트,테스트,테스트,테스트,테스트,테스트,테스트
+,자동화방식,,API자동,API자동,API자동,수동,API자동,API자동,수동
+,의존작업,,P2B2,P3B6,P4T1,P5V1,P6B5,P7B3,P8B2
+,블로커,,없음,없음,없음,없음,없음,없음,없음
+,작업ID,,,P3T3,P4T3,,P6T3,P7T3,P8T3
+,업무,,,댓글 시스템 통합 테스트,보안 테스트,,캐싱 성능 테스트,수수료 정산 계산 테스트,음성 변환 테스트 (STT/TTS)
+,작업지시서,,,tasks/P3T3.md,tasks/P4T3.md,,tasks/P6T3.md,tasks/P7T3.md,tasks/P8T3.md
+,담당AI,,,code-reviewer,security-auditor,,code-reviewer,code-reviewer,code-reviewer
+,진도,,,0%,0%,,0%,0%,0%
+,상태,,,대기,대기,,대기,대기,대기
+,테스트/검토,,,테스트,테스트,,테스트,테스트,테스트
+,자동화방식,,,API자동,API자동,,API자동,API자동,수동
+,의존작업,,,P3B2,P4B9,,P6B7,P7B8,P8B8
+,블로커,,,없음,없음,,없음,없음,없음
+,작업ID,,,P3T4,P4T4,,,,P8T4
+,업무,,,알림 트리거 테스트,성능 테스트 (부하),,,,채팅 검색 성능 테스트
+,작업지시서,,,tasks/P3T4.md,tasks/P4T4.md,,,,tasks/P8T4.md
+,담당AI,,,code-reviewer,devops-troubleshooter,,,,code-reviewer
+,진도,,,0%,0%,,,,0%
+,상태,,,대기,대기,,,,대기
+,테스트/검토,,,테스트,테스트,,,,테스트
+,자동화방식,,,API자동,API자동,,,,API자동
+,의존작업,,,P3B7,P4B1,,,,P8B9
+,블로커,,,없음,없음,,,,없음
+,작업ID,,,P3T5,P4T5,,,,
+,업무,,,관리자 권한 테스트,pytest 환경 설정,,,,
+,작업지시서,,,tasks/P3T5.md,tasks/P4T5.md,,,,
+,담당AI,,,security-auditor,code-reviewer,,,,
+,진도,,,0%,0%,,,,
+,상태,,,대기,대기,,,,
+,테스트/검토,,,테스트,테스트,,,,
+,자동화방식,,,API자동,수동,,,,
+,의존작업,,,P3B10,없음,,,,
+,블로커,,,없음,없음,,,,
+,작업ID,,,,P4T6,,,,
+,업무,,,,테스트 DB 설정,,,,
+,작업지시서,,,,tasks/P4T6.md,,,,
+,담당AI,,,,code-reviewer,,,,
+,진도,,,,0%,,,,
+,상태,,,,대기,,,,
+,테스트/검토,,,,테스트,,,,
+,자동화방식,,,,수동,,,,
+,의존작업,,,,P4T5,,,,
+,블로커,,,,없음,,,,
+,작업ID,,,,P4T7,,,,
+,업무,,,,필터링/정렬 테스트,,,,
+,작업지시서,,,,tasks/P4T7.md,,,,
+,담당AI,,,,code-reviewer,,,,
+,진도,,,,0%,,,,
+,상태,,,,대기,,,,
+,테스트/검토,,,,테스트,,,,
+,자동화방식,,,,API자동,,,,
+,의존작업,,,,P2B4,,,,
+,블로커,,,,없음,,,,
+,작업ID,,,,P4T8,,,,
+,업무,,,,알림 실시간 전송 테스트,,,,
+,작업지시서,,,,tasks/P4T8.md,,,,
+,담당AI,,,,code-reviewer,,,,
+,진도,,,,0%,,,,
+,상태,,,,대기,,,,
+,테스트/검토,,,,테스트,,,,
+,자동화방식,,,,API자동,,,,
+,의존작업,,,,P3B7,,,,
+,블로커,,,,없음,,,,
+,작업ID,,,,P4T9,,,,
+,업무,,,,캐시 무효화 테스트,,,,
+,작업지시서,,,,tasks/P4T9.md,,,,
+,담당AI,,,,code-reviewer,,,,
+,진도,,,,0%,,,,
+,상태,,,,대기,,,,
+,테스트/검토,,,,테스트,,,,
+,자동화방식,,,,API자동,,,,
+,의존작업,,,,P4B3,,,,
+,블로커,,,,없음,,,,
+,작업ID,,,,P4T10,,,,
+,업무,,,,동시 접속 테스트,,,,
+,작업지시서,,,,tasks/P4T10.md,,,,
+,담당AI,,,,devops-troubleshooter,,,,
+,진도,,,,0%,,,,
+,상태,,,,대기,,,,
+,테스트/검토,,,,테스트,,,,
+,자동화방식,,,,API자동,,,,
+,의존작업,,,,P4T4,,,,
+,블로커,,,,없음,,,,
+,작업ID,,,,P4T11,,,,
+,업무,,,,모바일 반응형 테스트,,,,
+,작업지시서,,,,tasks/P4T11.md,,,,
+,담당AI,,,,code-reviewer,,,,
+,진도,,,,0%,,,,
+,상태,,,,대기,,,,
+,테스트/검토,,,,테스트,,,,
+,자동화방식,,,,수동,,,,
+,의존작업,,,,P4F1,,,,
+,블로커,,,,없음,,,,
+,작업ID,,,,P4T12,,,,
+,업무,,,,테스트 커버리지 검증,,,,
+,작업지시서,,,,tasks/P4T12.md,,,,
+,담당AI,,,,code-reviewer,,,,
+,진도,,,,0%,,,,
+,상태,,,,대기,,,,
+,테스트/검토,,,,테스트,,,,
+,자동화방식,,,,API자동,,,,
+,의존작업,,,,P4T1,,,,
+,블로커,,,,없음,,,,
+DevOps,,,,,,,,,
+,작업ID,P1V1,,,P4V1,P5V1,,,P7V1,P8V1
+,업무,Supabase DB 프로비저닝,,,모니터링 시스템 구축,프로덕션 배포 (Frontend),,,이메일 발송 시스템,WebSocket 서버 배포
+,작업지시서,tasks/P1V1.md,,,tasks/P4V1.md,tasks/P5V1.md,,,tasks/P7V1.md,tasks/P8V1.md
+,담당AI,devops-troubleshooter,,,devops-troubleshooter,devops-troubleshooter,,,devops-troubleshooter,devops-troubleshooter
+,진도,0%,,,0%,0%,,,0%,0%
+,상태,대기,,,대기,대기,,,대기,대기
+,테스트/검토,검토,,,검토,검토,,,검토,검토
+,자동화방식,수동,,,수동,수동,,,수동,수동
+,의존작업,없음,,,P4T4,P4T12,,,없음,P8B1
+,블로커,없음,,,없음,없음,,,없음,없음
+,작업ID,P1V2,,,P4V2,P5V2,,,P7V2,P8V2
+,업무,Vercel 프로젝트 생성,,,로드 밸런싱 설정,프로덕션 배포 (Backend),,,정산 자동화 스크립트,Vector DB 구축 (Pinecone)
+,작업지시서,tasks/P1V2.md,,,tasks/P4V2.md,tasks/P5V2.md,,,tasks/P7V2.md,tasks/P8V2.md
+,담당AI,devops-troubleshooter,,,devops-troubleshooter,devops-troubleshooter,,,devops-troubleshooter,devops-troubleshooter
+,진도,0%,,,0%,0%,,,0%,0%
+,상태,대기,,,대기,대기,,,대기,대기
+,테스트/검토,검토,,,검토,검토,,,검토,검토
+,자동화방식,수동,,,수동,수동,,,API자동,수동
+,의존작업,없음,,,P4V1,P5V1,,,P7B8,P8B4
+,블로커,없음,,,없음,없음,,,없음,없음
+,작업ID,P1V3,,,P4V3,P5V3,,,,P8V3
+,업무,Railway 백엔드 배포 설정,,,프로덕션 환경 최종 점검,SSL 인증서 설정,,,,채팅 로그 백업 (S3)
+,작업지시서,tasks/P1V3.md,,,tasks/P4V3.md,tasks/P5V3.md,,,,tasks/P8V3.md
+,담당AI,devops-troubleshooter,,,devops-troubleshooter,security-auditor,,,,devops-troubleshooter
+,진도,0%,,,0%,0%,,,,0%
+,상태,대기,,,대기,대기,,,,대기
+,테스트/검토,검토,,,검토,검토,,,,검토
+,자동화방식,수동,,,수동,수동,,,,수동
+,의존작업,없음,,,P4V2,P5V1,,,,P8D2
+,블로커,없음,,,없음,없음,,,,없음
+,작업ID,P1V4,,,,P5V4,,,,
+,업무,환경 변수 설정 (각 플랫폼),,,,도메인 연결 및 DNS,,,,
+,작업지시서,tasks/P1V4.md,,,,tasks/P5V4.md,,,,
+,담당AI,devops-troubleshooter,,,,devops-troubleshooter,,,,
+,진도,0%,,,,0%,,,,
+,상태,대기,,,,대기,,,,
+,테스트/검토,검토,,,,검토,,,,
+,자동화방식,수동,,,,수동,,,,
+,의존작업,P1V3,,,,P5V3,,,,
+,블로커,없음,,,,없음,,,,
+,작업ID,,,,,P5V5,,,,
+,업무,,,,,백업 자동화 스크립트,,,,
+,작업지시서,,,,,tasks/P5V5.md,,,,
+,담당AI,,,,,devops-troubleshooter,,,,
+,진도,,,,,0%,,,,
+,상태,,,,,대기,,,,
+,테스트/검토,,,,,검토,,,,
+,자동화방식,,,,,수동,,,,
+,의존작업,,,,,P5D1,,,,
+,블로커,,,,,없음,,,,
+,작업ID,,,,,P5V6,,,,
+,업무,,,,,모니터링 대시보드 (Grafana),,,,
+,작업지시서,,,,,tasks/P5V6.md,,,,
+,담당AI,,,,,devops-troubleshooter,,,,
+,진도,,,,,0%,,,,
+,상태,,,,,대기,,,,
+,테스트/검토,,,,,검토,,,,
+,자동화방식,,,,,수동,,,,
+,의존작업,,,,,P5V1,,,,
+,블로커,,,,,없음,,,,
+,작업ID,,,,,P5V7,,,,
+,업무,,,,,Sentry 에러 트래킹,,,,
+,작업지시서,,,,,tasks/P5V7.md,,,,
+,담당AI,,,,,devops-troubleshooter,,,,
+,진도,,,,,0%,,,,
+,상태,,,,,대기,,,,
+,테스트/검토,,,,,검토,,,,
+,자동화방식,,,,,수동,,,,
+,의존작업,,,,,P5V1,,,,
+,블로커,,,,,없음,,,,
+,작업ID,,,,,P5V8,,,,
+,업무,,,,,Uptime 모니터링,,,,
+,작업지시서,,,,,tasks/P5V8.md,,,,
+,담당AI,,,,,devops-troubleshooter,,,,
+,진도,,,,,0%,,,,
+,상태,,,,,대기,,,,
+,테스트/검토,,,,,검토,,,,
+,자동화방식,,,,,수동,,,,
+,의존작업,,,,,P5V1,,,,
+,블로커,,,,,없음,,,,
+,작업ID,,,,,P5V9,,,,
+,업무,,,,,CI/CD 파이프라인,,,,
+,작업지시서,,,,,tasks/P5V9.md,,,,
+,담당AI,,,,,devops-troubleshooter,,,,
+,진도,,,,,0%,,,,
+,상태,,,,,대기,,,,
+,테스트/검토,,,,,검토,,,,
+,자동화방식,,,,,수동,,,,
+,의존작업,,,,,P5V1,,,,
+,블로커,,,,,없음,,,,
+,작업ID,,,,,P5V10,,,,
+,업무,,,,,롤백 계획 수립,,,,
+,작업지시서,,,,,tasks/P5V10.md,,,,
+,담당AI,,,,,devops-troubleshooter,,,,
+,진도,,,,,0%,,,,
+,상태,,,,,대기,,,,
+,테스트/검토,,,,,검토,,,,
+,자동화방식,,,,,수동,,,,
+,의존작업,,,,,P5V1,,,,
+,블로커,,,,,없음,,,,
+AI/ML,,,,,,,,,
+,작업ID,P1A1,P2A1,P3A1,P4A1,P5A1,P6A1,,P8A1
+,업무,Claude API 연동 준비,AI 평가 점수 계산 로직,댓글 감정 분석,LLM 응답 캐싱 최적화,사용자 행동 분석,GPT 프롬프트 최적화,,정치인 페르소나 설계
+,작업지시서,tasks/P1A1.md,tasks/P2A1.md,tasks/P3A1.md,tasks/P4A1.md,tasks/P5A1.md,tasks/P6A1.md,,tasks/P8A1.md
+,담당AI,ai-ml-engineer,ai-ml-engineer,ai-ml-engineer,ai-ml-engineer,ai-ml-engineer,fullstack-developer,,fullstack-developer
+,진도,0%,0%,0%,0%,0%,0%,,0%
+,상태,대기,대기,대기,대기,대기,대기,,대기
+,테스트/검토,검토,테스트,테스트,테스트,테스트,테스트,,테스트
+,자동화방식,수동,수동,API자동,API자동,API자동,수동,,수동
+,의존작업,없음,P1A1,P3B2,P4B3,P5V1,P6B1,,P8B4
+,블로커,없음,없음,없음,없음,없음,없음,,없음
+,작업ID,,P2A2,,,P5A2,P6A2,,P8A2
+,업무,,정치인 랭킹 알고리즘,,,정치인 유사도 추천,Gemini 프롬프트 최적화,,RAG 시스템 구축
+,작업지시서,,tasks/P2A2.md,,,tasks/P5A2.md,tasks/P6A2.md,,tasks/P8A2.md
+,담당AI,,ai-ml-engineer,,,ai-ml-engineer,fullstack-developer,,fullstack-developer
+,진도,,0%,,,0%,0%,,0%
+,상태,,대기,,,대기,대기,,대기
+,테스트/검토,,테스트,,,테스트,테스트,,테스트
+,자동화방식,,수동,,,API자동,수동,,수동
+,의존작업,,P2A1,,,P5A1,P6B2,,P8V2
+,블로커,,없음,,,없음,없음,,없음
+,작업ID,,,,,,,P6A3,P8A3
+,업무,,,,,,,종합 점수 알고리즘 연구,프롬프트 엔지니어링
+,작업지시서,,,,,,,tasks/P6A3.md,tasks/P8A3.md
+,담당AI,,,,,,,fullstack-developer,fullstack-developer
+,진도,,,,,,,0%,0%
+,상태,,,,,,,대기,대기
+,테스트/검토,,,,,,,테스트,테스트
+,자동화방식,,,,,,,수동,수동
+,의존작업,,,,,,,P6B5,P8A1
+,블로커,,,,,,,없음,없음
+,작업ID,,,,,,,P6A4,P8A4
+,업무,,,,,,,AI 평가 품질 모니터링,대화 품질 평가 시스템
+,작업지시서,,,,,,,tasks/P6A4.md,tasks/P8A4.md
+,담당AI,,,,,,,fullstack-developer,fullstack-developer
+,진도,,,,,,,0%,0%
+,상태,,,,,,,대기,대기
+,테스트/검토,,,,,,,테스트,테스트
+,자동화방식,,,,,,,API자동,API자동
+,의존작업,,,,,,,P6B6,P8B2
+,블로커,,,,,,,없음,없음
+,작업ID,,,,,,,,P8A5
+,업무,,,,,,,,학습 데이터 자동 수집
+,작업지시서,,,,,,,,tasks/P8A5.md
+,담당AI,,,,,,,,fullstack-developer
+,진도,,,,,,,,0%
+,상태,,,,,,,,대기
+,테스트/검토,,,,,,,,테스트
+,자동화방식,,,,,,,,API자동
+,의존작업,,,,,,,,P8D3
+,블로커,,,,,,,,없음
+,작업ID,,,,,,,,P8A6
+,업무,,,,,,,,AI 답변 필터링 (중립성)
+,작업지시서,,,,,,,,tasks/P8A6.md
+,담당AI,,,,,,,,fullstack-developer
+,진도,,,,,,,,0%
+,상태,,,,,,,,대기
+,테스트/검토,,,,,,,,테스트
+,자동화방식,,,,,,,,수동
+,의존작업,,,,,,,,P8B2
+,블로커,,,,,,,,없음

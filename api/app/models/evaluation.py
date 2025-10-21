@@ -1,5 +1,6 @@
-from sqlalchemy import Column, String, Text, DECIMAL, TIMESTAMP
+from sqlalchemy import Column, String, Text, DECIMAL, TIMESTAMP, Integer, ForeignKey
 from sqlalchemy import JSON
+from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func
 import uuid
 
@@ -14,7 +15,7 @@ class PoliticianEvaluation(Base):
     id = Column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
 
     # 정치인 정보
-    politician_id = Column(String(36), nullable=True)
+    politician_id = Column(Integer, ForeignKey("politicians.id"), nullable=True, index=True)
     politician_name = Column(String(100), nullable=False, index=True)
     politician_position = Column(String(100), nullable=False)
     politician_party = Column(String(100), nullable=False)
@@ -53,6 +54,9 @@ class PoliticianEvaluation(Base):
         onupdate=func.now(),
         nullable=False
     )
+
+    # Relationships
+    politician = relationship("Politician", backref="evaluations")
 
     def __repr__(self):
         return f"<Evaluation {self.politician_name} by {self.ai_model}>"

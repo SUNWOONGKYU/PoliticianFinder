@@ -4,8 +4,14 @@ from sqlalchemy.orm import sessionmaker
 from .config import settings
 
 # SQLAlchemy 엔진 생성
+# SQLite의 경우 UTF-8 인코딩 명시
+connect_args = {}
+if settings.DATABASE_URL.startswith("sqlite://"):
+    connect_args = {"check_same_thread": False}
+
 engine = create_engine(
     settings.DATABASE_URL,
+    connect_args=connect_args,
     pool_size=settings.DATABASE_POOL_SIZE,
     max_overflow=settings.DATABASE_MAX_OVERFLOW,
     pool_pre_ping=True,

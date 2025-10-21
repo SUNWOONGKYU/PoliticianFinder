@@ -41,28 +41,22 @@ def create_categories(db: Session) -> dict:
     """Create category records."""
     categories_data = [
         {
-            "id": uuid.uuid4(),
             "name": "국회의원",
             "slug": "national-assembly",
             "description": "대한민국 국회의원",
-            "icon": "building",
-            "order_index": 1,
+            "sort_order": 1,
         },
         {
-            "id": uuid.uuid4(),
             "name": "광역단체장",
             "slug": "metropolitan-mayor",
             "description": "시도지사 및 광역시장",
-            "icon": "office",
-            "order_index": 2,
+            "sort_order": 2,
         },
         {
-            "id": uuid.uuid4(),
             "name": "기초단체장",
             "slug": "local-mayor",
             "description": "시장, 군수, 구청장",
-            "icon": "house",
-            "order_index": 3,
+            "sort_order": 3,
         },
     ]
 
@@ -81,7 +75,6 @@ def create_test_users(db: Session) -> dict:
     """Create test user accounts."""
     users_data = [
         {
-            "id": uuid.uuid4(),
             "email": "admin@politicianfinder.com",
             "username": "admin",
             "full_name": "관리자",
@@ -90,7 +83,6 @@ def create_test_users(db: Session) -> dict:
             "is_verified": True,
         },
         {
-            "id": uuid.uuid4(),
             "email": "user1@example.com",
             "username": "user1",
             "full_name": "홍길동",
@@ -98,7 +90,6 @@ def create_test_users(db: Session) -> dict:
             "is_verified": True,
         },
         {
-            "id": uuid.uuid4(),
             "email": "user2@example.com",
             "username": "user2",
             "full_name": "김철수",
@@ -106,7 +97,6 @@ def create_test_users(db: Session) -> dict:
             "is_verified": True,
         },
         {
-            "id": uuid.uuid4(),
             "email": "user3@example.com",
             "username": "user3",
             "full_name": "이영희",
@@ -114,7 +104,6 @@ def create_test_users(db: Session) -> dict:
             "is_verified": False,
         },
         {
-            "id": uuid.uuid4(),
             "email": "user4@example.com",
             "username": "user4",
             "full_name": "박민수",
@@ -127,7 +116,7 @@ def create_test_users(db: Session) -> dict:
     for user_data in users_data:
         user = User(
             **user_data,
-            hashed_password=get_password_hash("TestPass123"),
+            hashed_password=get_password_hash("TestPass123!"),
             is_active=True,
         )
         db.add(user)

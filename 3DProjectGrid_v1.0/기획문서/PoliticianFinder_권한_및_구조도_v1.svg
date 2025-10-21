@@ -1,0 +1,254 @@
+<svg viewBox="0 0 1200 1550" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="1550" fill="#f8fafc"/>
+  
+  <!-- Title -->
+  <text x="600" y="50" font-size="32" font-weight="bold" text-anchor="middle" fill="#1e40af">
+    Politician Finder Community Structure
+  </text>
+  <text x="600" y="85" font-size="18" text-anchor="middle" fill="#64748b">
+    폴리스티션 파인더 커뮤니티 구조도
+  </text>
+  
+  <!-- Main Layout Section -->
+  <g id="main-layout">
+    <rect x="50" y="120" width="1100" height="350" fill="#ffffff" stroke="#3b82f6" stroke-width="3" rx="10"/>
+    <text x="600" y="155" font-size="24" font-weight="bold" text-anchor="middle" fill="#1e40af">
+      📱 Main Page Layout
+    </text>
+    
+    <!-- Header -->
+    <rect x="80" y="180" width="1040" height="80" fill="#dbeafe" stroke="#3b82f6" stroke-width="2" rx="5"/>
+    <text x="600" y="210" font-size="18" font-weight="bold" text-anchor="middle" fill="#1e3a8a">
+      🏛️ POLITICIAN FINDER
+    </text>
+    <text x="600" y="235" font-size="14" text-anchor="middle" fill="#1e3a8a">
+      훌륭한 정치인을 찾아드립니다
+    </text>
+    <text x="600" y="255" font-size="12" text-anchor="middle" fill="#3b82f6">
+      [지역 선택▼] [검색🔍] [회원가입] [로그인]
+    </text>
+    
+    <!-- Community Board Section -->
+    <rect x="80" y="280" width="1040" height="170" fill="#f0fdf4" stroke="#16a34a" stroke-width="2" rx="5"/>
+    <text x="600" y="310" font-size="16" font-weight="bold" text-anchor="middle" fill="#14532d">
+      💬 커뮤니티 게시판
+    </text>
+    <text x="100" y="340" font-size="13" fill="#166534">
+      [전체] [정치인 글] [지역별] [핫이슈]
+    </text>
+    <text x="100" y="370" font-size="12" fill="#166534">
+      🔥 [HOT] ⬆️523 💬 18 | 홍길동 의원, 교통 문제 해결책 제시
+    </text>
+    <text x="100" y="395" font-size="12" fill="#166534">
+      🏛️ [정치인 글] 홍길동 본인 | 시민 여러분께 감사드립니다
+    </text>
+    <text x="100" y="420" font-size="12" fill="#166534">
+      ⬆️156 ⬇️12 💬 45 | 이번 예산안에 대한 의견을 나눕시다
+    </text>
+  </g>
+  
+  <!-- Permission Matrix -->
+  <g id="permission-matrix">
+    <rect x="50" y="500" width="1100" height="300" fill="#ffffff" stroke="#8b5cf6" stroke-width="3" rx="10"/>
+    <text x="600" y="535" font-size="24" font-weight="bold" text-anchor="middle" fill="#6b21a8">
+      🔐 Permission Matrix
+    </text>
+    
+    <rect x="80" y="560" width="1040" height="220" fill="#faf5ff" stroke="#8b5cf6" stroke-width="2" rx="5"/>
+    
+    <!-- Table Header -->
+    <text x="180" y="590" font-size="14" font-weight="bold" text-anchor="middle" fill="#4c1d95">기능</text>
+    <text x="380" y="590" font-size="14" font-weight="bold" text-anchor="middle" fill="#4c1d95">비회원</text>
+    <text x="580" y="590" font-size="14" font-weight="bold" text-anchor="middle" fill="#4c1d95">일반회원</text>
+    <text x="900" y="590" font-size="14" font-weight="bold" text-anchor="middle" fill="#4c1d95">등록정치인 (비회원)</text>
+    
+    <line x1="100" y1="600" x2="1100" y2="600" stroke="#8b5cf6" stroke-width="2"/>
+    
+    <!-- Table Rows -->
+    <text x="180" y="625" font-size="12" text-anchor="middle" fill="#6b21a8">조회</text>
+    <text x="380" y="625" font-size="12" text-anchor="middle" fill="#16a34a">✅</text>
+    <text x="580" y="625" font-size="12" text-anchor="middle" fill="#16a34a">✅</text>
+    <text x="900" y="625" font-size="12" text-anchor="middle" fill="#16a34a">✅</text>
+    
+    <text x="180" y="655" font-size="12" text-anchor="middle" fill="#6b21a8">글쓰기 (일반)</text>
+    <text x="380" y="655" font-size="12" text-anchor="middle" fill="#dc2626">❌</text>
+    <text x="580" y="655" font-size="12" text-anchor="middle" fill="#16a34a">✅</text>
+    <text x="900" y="655" font-size="12" text-anchor="middle" fill="#dc2626">❌</text>
+    
+    <text x="180" y="685" font-size="12" text-anchor="middle" fill="#6b21a8">글쓰기 ([정치인 글])</text>
+    <text x="380" y="685" font-size="12" text-anchor="middle" fill="#dc2626">❌</text>
+    <text x="580" y="685" font-size="12" text-anchor="middle" fill="#dc2626">❌</text>
+    <text x="900" y="685" font-size="12" text-anchor="middle" fill="#16a34a">✅ 🏛️</text>
+    
+    <text x="180" y="715" font-size="12" text-anchor="middle" fill="#6b21a8">댓글</text>
+    <text x="380" y="715" font-size="12" text-anchor="middle" fill="#dc2626">❌</text>
+    <text x="580" y="715" font-size="12" text-anchor="middle" fill="#16a34a">✅</text>
+    <text x="900" y="715" font-size="12" text-anchor="middle" fill="#16a34a">✅ 🏛️</text>
+    
+    <text x="180" y="745" font-size="12" text-anchor="middle" fill="#6b21a8">투표 (⬆️⬇️)</text>
+    <text x="380" y="745" font-size="12" text-anchor="middle" fill="#dc2626">❌</text>
+    <text x="580" y="745" font-size="12" text-anchor="middle" fill="#16a34a">✅</text>
+    <text x="900" y="745" font-size="12" text-anchor="middle" fill="#dc2626">❌</text>
+    
+    <text x="180" y="770" font-size="12" text-anchor="middle" fill="#6b21a8">리포트 구매</text>
+    <text x="380" y="770" font-size="12" text-anchor="middle" fill="#16a34a">✅</text>
+    <text x="580" y="770" font-size="12" text-anchor="middle" fill="#dc2626">❌</text>
+    <text x="900" y="770" font-size="12" text-anchor="middle" fill="#16a34a">✅</text>
+  </g>
+  
+  <!-- Board Category Structure -->
+  <g id="board-structure">
+    <rect x="50" y="830" width="1100" height="350" fill="#ffffff" stroke="#ec4899" stroke-width="3" rx="10"/>
+    <text x="600" y="865" font-size="24" font-weight="bold" text-anchor="middle" fill="#9f1239">
+      📋 Board Category Structure
+    </text>
+    
+    <!-- Category Layout -->
+    <rect x="80" y="890" width="500" height="270" fill="#fdf2f8" stroke="#ec4899" stroke-width="2" rx="5"/>
+    <text x="330" y="920" font-size="16" font-weight="bold" text-anchor="middle" fill="#831843">
+      일반 게시판
+    </text>
+    <text x="100" y="950" font-size="12" fill="#9f1239">
+      📝 [전체] - 모든 사용자 조회 가능
+    </text>
+    <text x="100" y="975" font-size="12" fill="#9f1239">
+      • 일반회원만 글 작성 가능
+    </text>
+    <text x="100" y="995" font-size="12" fill="#9f1239">
+      • 정치인은 댓글만 가능
+    </text>
+    <text x="100" y="1020" font-size="12" fill="#9f1239">
+      📍 [지역별] - 서울/부산/경기 등
+    </text>
+    <text x="100" y="1045" font-size="12" fill="#9f1239">
+      🔥 [핫이슈] - 추천 많은 글
+    </text>
+    <text x="100" y="1070" font-size="12" fill="#9f1239">
+      💡 [정책토론] - 심도있는 토론
+    </text>
+    <text x="100" y="1095" font-size="12" fill="#9f1239">
+      ❓ [질문/답변] - Q&amp;A 게시판
+    </text>
+    <text x="100" y="1120" font-size="12" fill="#9f1239">
+      📢 [공지사항] - 관리자 전용
+    </text>
+    <text x="100" y="1140" font-size="11" font-style="italic" fill="#be123c">
+      ※ 투표(⬆️⬇️) 기능 있음
+    </text>
+    
+    <rect x="620" y="890" width="500" height="270" fill="#ecfdf5" stroke="#10b981" stroke-width="2" rx="5"/>
+    <text x="870" y="920" font-size="16" font-weight="bold" text-anchor="middle" fill="#065f46">
+      🏛️ [정치인 글] 카테고리
+    </text>
+    <text x="640" y="950" font-size="12" fill="#047857">
+      ✅ 등록 정치인 전용 글쓰기 공간
+    </text>
+    <text x="640" y="975" font-size="12" fill="#047857">
+      • 정치인만 글 작성 가능
+    </text>
+    <text x="640" y="995" font-size="12" fill="#047857">
+      • 본인 인증 후 작성 (회원가입 불필요)
+    </text>
+    <text x="640" y="1015" font-size="12" fill="#047857">
+      • 🏛️ 정치인 뱃지 자동 표시
+    </text>
+    <text x="640" y="1040" font-size="12" fill="#047857">
+      💬 모든 사용자 댓글 가능
+    </text>
+    <text x="640" y="1065" font-size="12" fill="#047857">
+      • 일반회원: 댓글 + 투표 가능
+    </text>
+    <text x="640" y="1085" font-size="12" fill="#047857">
+      • 정치인: 댓글만 가능 (투표 X)
+    </text>
+    <text x="640" y="1110" font-size="12" font-weight="bold" fill="#dc2626">
+      ⚠️ 투표 불가 (공정성 확보)
+    </text>
+    <text x="640" y="1135" font-size="11" font-style="italic" fill="#059669">
+      ※ 별도 섹션에 우선 표시
+    </text>
+  </g>
+  
+  <!-- Politician Authentication System -->
+  <g id="politician-auth">
+    <rect x="50" y="1210" width="1100" height="280" fill="#ffffff" stroke="#f59e0b" stroke-width="3" rx="10"/>
+    <text x="600" y="1245" font-size="24" font-weight="bold" text-anchor="middle" fill="#92400e">
+      🔐 Politician Authentication System
+    </text>
+    
+    <rect x="80" y="1270" width="330" height="200" fill="#fffbeb" stroke="#f59e0b" stroke-width="2" rx="5"/>
+    <text x="245" y="1300" font-size="14" font-weight="bold" text-anchor="middle" fill="#78350f">
+      1단계: 관리자 사전 등록
+    </text>
+    <text x="100" y="1330" font-size="12" fill="#92400e">
+      📝 정치인 정보 DB 등록
+    </text>
+    <text x="100" y="1350" font-size="11" fill="#92400e">
+      • 이름, 소속, 지역구
+    </text>
+    <text x="100" y="1370" font-size="11" fill="#92400e">
+      • 전화번호 (본인 인증용)
+    </text>
+    <text x="100" y="1390" font-size="11" fill="#92400e">
+      • 이메일 (본인 인증용)
+    </text>
+    <text x="100" y="1410" font-size="11" fill="#92400e">
+      • 프로필 사진
+    </text>
+    <text x="100" y="1435" font-size="11" font-style="italic" fill="#b45309">
+      ※ 등록된 정치인만 인증 가능
+    </text>
+    
+    <rect x="440" y="1270" width="330" height="200" fill="#fef3c7" stroke="#f59e0b" stroke-width="2" rx="5"/>
+    <text x="605" y="1300" font-size="14" font-weight="bold" text-anchor="middle" fill="#78350f">
+      2단계: 본인 인증
+    </text>
+    <text x="460" y="1330" font-size="12" fill="#92400e">
+      📱 휴대폰 인증 또는
+    </text>
+    <text x="460" y="1355" font-size="12" fill="#92400e">
+      📧 이메일 인증
+    </text>
+    <text x="460" y="1385" font-size="11" fill="#92400e">
+      1. 정치인 본인 선택
+    </text>
+    <text x="460" y="1405" font-size="11" fill="#92400e">
+      2. 인증 방법 선택
+    </text>
+    <text x="460" y="1425" font-size="11" fill="#92400e">
+      3. 인증 코드 확인
+    </text>
+    <text x="460" y="1450" font-size="11" font-weight="bold" fill="#16a34a">
+      ✅ 인증 완료 시 즉시 사용 가능
+    </text>
+    
+    <rect x="800" y="1270" width="320" height="200" fill="#dcfce7" stroke="#16a34a" stroke-width="2" rx="5"/>
+    <text x="960" y="1300" font-size="14" font-weight="bold" text-anchor="middle" fill="#14532d">
+      3단계: 활동
+    </text>
+    <text x="820" y="1330" font-size="12" fill="#166534">
+      ✍️ [정치인 글] 카테고리에
+    </text>
+    <text x="820" y="1350" font-size="12" fill="#166534">
+      글 작성 가능
+    </text>
+    <text x="820" y="1375" font-size="12" fill="#166534">
+      💬 모든 글에 댓글 가능
+    </text>
+    <text x="820" y="1405" font-size="12" fill="#166534">
+      🏛️ 자동 뱃지 표시:
+    </text>
+    <text x="820" y="1425" font-size="11" font-weight="bold" fill="#047857">
+      "홍길동 🏛️ 본인"
+    </text>
+    <text x="820" y="1450" font-size="11" font-style="italic" fill="#15803d">
+      ※ 회원가입 절차 없음
+    </text>
+  </g>
+  
+  <!-- Footer -->
+  <text x="600" y="1520" font-size="12" text-anchor="middle" fill="#6b7280">
+    글자수: 약 1,800자 / 작성자: Claude / 프롬프터: 써니
+  </text>
+</svg>
