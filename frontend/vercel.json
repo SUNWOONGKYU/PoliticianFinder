@@ -1,0 +1,10 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": ".next",
+  "framework": "nextjs",
+  "env": {
+    "NEXT_PUBLIC_USE_MOCK_DATA": "true",
+    "NEXT_PUBLIC_SUPABASE_URL": "https://dummy.supabase.co",
+    "NEXT_PUBLIC_SUPABASE_ANON_KEY": "dummy-key-for-mock-data"
+  }
+}
