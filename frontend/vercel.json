@@ -6,5 +6,16 @@
     "NEXT_PUBLIC_USE_MOCK_DATA": "true",
     "NEXT_PUBLIC_SUPABASE_URL": "https://dummy.supabase.co",
     "NEXT_PUBLIC_SUPABASE_ANON_KEY": "dummy-key-for-mock-data"
-  }
+  },
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600"
+        }
+      ]
+    }
+  ]
 }
