@@ -29,7 +29,7 @@ export function Navbar() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-4 lg:gap-6">
             {navItems.map((item) => (
               <Link
                 key={item.href}
@@ -39,7 +39,8 @@ export function Navbar() {
                   fontWeight: isActive(item.href) ? 'bold' : 'normal',
                   borderBottom: isActive(item.href) ? '2px solid var(--color-brand-primary)' : 'none',
                   paddingBottom: isActive(item.href) ? '2px' : '0',
-                  transition: 'all 0.2s ease'
+                  transition: 'all 0.2s ease',
+                  whiteSpace: 'nowrap'
                 }}
                 onMouseEnter={(e) => {
                   if (!isActive(item.href)) {
