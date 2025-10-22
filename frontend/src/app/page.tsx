@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { Footer } from '@/components/Footer';
 import { StatusBadge } from '@/components/StatusBadge';
@@ -171,7 +172,7 @@ export default function Home() {
                                 {politician.name.charAt(0)}
                               </div>
                               <div>
-                                <div className="font-bold text-gray-900">{politician.name}</div>
+                                <Link href={`/politicians/${politician.id}`} className="font-bold text-gray-900 hover:text-brand-600 transition-colors">{politician.name}</Link>
                                 <div className="text-[10px] text-gray-500">{politician.position}</div>
                               </div>
                             </div>
@@ -327,7 +328,7 @@ export default function Home() {
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-1">
-                          <span className="font-bold text-gray-900 truncate text-xs">{post.politician_name}</span>
+                          {post.politician_id && (<Link href={`/politicians/${post.politician_id}`} className="font-bold text-gray-900 hover:text-brand-600 transition-colors text-xs truncate">{post.politician_name}</Link>)}
                           <StatusBadge status={post.politician_status as PoliticianStatus} className="text-[9px]" />
                         </div>
                         <div className="text-[9px] text-gray-500">
@@ -394,7 +395,7 @@ export default function Home() {
                         {politician.name.charAt(0)}
                       </div>
                       <div className="flex-1 min-w-0">
-                        <div className="font-bold text-gray-900 truncate">{politician.name}</div>
+                        <Link href={`/politicians/${politician.id}`} className="font-bold text-gray-900 truncate hover:text-brand-600 transition-colors">{politician.name}</Link>
                         <div className="text-[9px] text-gray-500">{politician.position} · {politician.party}</div>
                       </div>
                       <div className="text-right flex-shrink-0">
