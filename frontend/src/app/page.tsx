@@ -187,7 +187,7 @@ export default function Home() {
                               <span className="text-sm font-bold text-gray-900">
                                 {politician.claude_score ? Number(politician.claude_score).toFixed(1) : '-'}
                               </span>
-                              <a href="#ai-detail" className="text-[9px] text-blue-600 hover:text-blue-700">평가내역 보기</a>
+                              <Link href={`/politicians/${politician.id}#ratings`} className="text-[9px] text-blue-600 hover:text-blue-700">평가내역 보기</Link>
                             </div>
                           </td>
                           <td className="px-2 py-1 text-center text-gray-300 text-[10px]">
