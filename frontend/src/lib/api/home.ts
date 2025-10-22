@@ -5,7 +5,7 @@ import { supabase } from '@/lib/supabase';
 import { mockAdapterApi } from './mock-adapter';
 
 // Use mock adapter for development
-const USE_MOCK_DATA = process.env.NEXT_PUBLIC_USE_MOCK_DATA !== 'false';
+const USE_MOCK_DATA = process.env.NEXT_PUBLIC_USE_MOCK_DATA === 'true';
 
 export interface PoliticianRanking {
   id: number;

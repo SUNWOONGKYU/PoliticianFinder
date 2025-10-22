@@ -9,7 +9,7 @@ import { mockAdapterApi } from '@/lib/api/mock-adapter';
 import type { PostsResponse } from '@/types/post';
 
 // Use mock data for development
-const USE_MOCK_DATA = process.env.NEXT_PUBLIC_USE_MOCK_DATA !== 'false';
+const USE_MOCK_DATA = process.env.NEXT_PUBLIC_USE_MOCK_DATA === 'true';
 
 export default function CommunityPage() {
   const [posts, setPosts] = useState<any[]>([]);
