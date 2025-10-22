@@ -26,8 +26,8 @@ export default function CommunityPage() {
         // 게시글 데이터 로드
         if (USE_MOCK_DATA) {
           console.log('[DEV] Using mock data for community posts');
-          const mockPosts = mockAdapterApi.getCommunityPosts('all', '', 1, 20);
-          setPosts(mockPosts.data || []);
+          const mockPosts = mockAdapterApi.getCommunityPosts();
+          setPosts(mockPosts || []);
         } else {
           const response = await fetch('/api/posts?limit=20&sort=latest');
           if (response.ok) {
@@ -44,8 +44,8 @@ export default function CommunityPage() {
         // Fallback to mock data on error
         if (!USE_MOCK_DATA) {
           console.log('[FALLBACK] Using mock data due to error');
-          const mockPosts = mockAdapterApi.getCommunityPosts('all', '', 1, 20);
-          setPosts(mockPosts.data || []);
+          const mockPosts = mockAdapterApi.getCommunityPosts();
+          setPosts(mockPosts || []);
         }
       } finally {
         setLoading(false);
