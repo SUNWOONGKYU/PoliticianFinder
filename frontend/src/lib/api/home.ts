@@ -125,10 +125,8 @@ export async function getHomeData(): Promise<HomeData> {
   } catch (error) {
     console.error('Failed to fetch home data:', error);
     // Fallback to mock data on error
-    if (!USE_MOCK_DATA) {
-      console.log('[FALLBACK] Using mock data due to error');
-      return mockAdapterApi.getHomeData();
-    }
+    console.log('[FALLBACK] Using mock data due to error');
+    return mockAdapterApi.getHomeData();
     // 에러가 발생해도 빈 데이터 반환 (완전 실패 방지)
     return {
       aiRanking: [],
