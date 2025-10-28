@@ -1,0 +1,1458 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>정치인 목록 - PoliticianFinder</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#fff7ed',
+                            100: '#ffedd5',
+                            200: '#fed7aa',
+                            300: '#fdba74',
+                            400: '#fb923c',
+                            500: '#f97316',
+                            600: '#ea580c',
+                            700: '#c2410c',
+                            800: '#9a3412',
+                            900: '#7c2d12',
+                        },
+                        secondary: {
+                            500: '#8b5cf6',
+                            600: '#7c3aed',
+                        },
+                        accent: {
+                            500: '#064E3B',  // 어두운 에메랄드 그린 (Tailwind emerald-900) - AI 평가 권위 강조
+                            600: '#064E3B',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts: Noto Sans KR -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'system-ui', sans-serif;
+            color: #000000;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50 border-b-2 border-primary-500">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo & Catchphrase -->
+                <div class="flex items-center space-x-4">
+                    <a href="index.html" class="text-2xl font-bold text-primary-600">
+                        PoliticianFinder
+                    </a>
+                    <div class="hidden md:block w-48">
+                        <div class="font-bold text-gray-900" style="font-size: clamp(0.5rem, 3vw, 1rem); width: 100%;">훌륭한 정치인 찾기</div>
+                        <div class="text-gray-900 font-medium" style="font-size: clamp(0.38rem, 2.28vw, 0.7125rem); width: 100%;">AI 기반 정치인 평가 플랫폼</div>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="index.html" class="text-gray-900 hover:text-primary-600 font-medium focus:outline-none focus:ring-2 focus:ring-primary-300 rounded px-2 py-1">홈</a>
+                    <a href="politicians.html" class="text-primary-600 font-medium focus:outline-none focus:ring-2 focus:ring-primary-300 rounded px-2 py-1">정치인</a>
+                    <a href="community.html" class="text-gray-900 hover:text-primary-600 font-medium focus:outline-none focus:ring-2 focus:ring-primary-300 rounded px-2 py-1">커뮤니티</a>
+                    <a href="services.html" class="text-gray-900 hover:text-primary-600 font-medium focus:outline-none focus:ring-2 focus:ring-primary-300 rounded px-2 py-1">연결</a>
+
+                    <!-- 알림 아이콘 -->
+                    <a href="notifications.html" class="relative text-gray-900 hover:text-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-300 rounded p-1">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+                        </svg>
+                        <!-- 알림 배지 (새 알림 있을 때) -->
+                        <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">3</span>
+                    </a>
+                </div>
+
+                <!-- Auth Buttons -->
+                <div class="hidden md:flex items-center space-x-3">
+                    <a href="login.html" class="text-gray-900 hover:text-primary-600 font-medium px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary-300 rounded">로그인</a>
+                    <a href="signup.html" class="bg-primary-500 text-white px-4 py-2 rounded-lg hover:bg-primary-600 font-medium focus:outline-none focus:ring-2 focus:ring-primary-300">회원가입</a>
+                </div>
+
+                <!-- Mobile menu button & notification -->
+                <div class="md:hidden flex items-center space-x-3">
+                    <!-- 알림 아이콘 (모바일) -->
+                    <a href="notifications.html" class="relative text-gray-900 hover:text-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-300 rounded p-1">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+                        </svg>
+                        <!-- 알림 배지 (새 알림 있을 때) -->
+                        <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full w-4 h-4 flex items-center justify-center text-xs">3</span>
+                    </a>
+                    <button id="mobile-menu-button" class="text-gray-900 hover:text-primary-600 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <div class="flex flex-col space-y-2">
+                    <a href="index.html" class="text-gray-900 hover:text-primary-600 font-medium px-2 py-2">홈</a>
+                    <a href="politicians.html" class="text-primary-600 font-medium px-2 py-2">정치인</a>
+                    <a href="community.html" class="text-gray-900 hover:text-primary-600 font-medium px-2 py-2">커뮤니티</a>
+                    <a href="services.html" class="text-gray-900 hover:text-primary-600 font-medium px-2 py-2">연결</a>
+                    <hr class="my-2">
+                    <a href="login.html" class="text-gray-900 hover:text-primary-600 font-medium px-2 py-2">로그인</a>
+                    <a href="signup.html" class="bg-primary-500 text-white px-4 py-2 rounded-lg hover:bg-primary-600 font-medium text-center">회원가입</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Page Header -->
+        <div class="mb-6">
+            <p class="text-lg text-gray-600">AI 기반 객관적 평가내역을 참고하여 훌륭한 정치인을 찾아보세요</p>
+        </div>
+
+        <!-- Search & Filter -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <div class="space-y-4">
+                <!-- Search Row -->
+                <div class="flex gap-2">
+                    <input
+                        type="text"
+                        id="search-input"
+                        placeholder="이름, 정당, 지역 등으로 통합검색"
+                        class="flex-1 px-4 py-2 border-2 border-primary-200 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-300 focus:border-primary-500 text-sm"
+                    >
+                    <button
+                        id="search-button"
+                        class="px-8 py-2 bg-primary-500 text-white rounded-md hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-300 font-medium text-sm shadow-sm whitespace-nowrap"
+                    >
+                        검색
+                    </button>
+                </div>
+
+                <!-- Filter Row -->
+                <div class="flex flex-wrap gap-2">
+                    <!-- Status Filter (신분) -->
+                    <div class="flex-1 min-w-[120px]">
+                        <label class="block text-xs font-medium text-gray-700 mb-1">신분</label>
+                        <select id="status-filter" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-200 focus:border-primary-500 text-sm">
+                            <option value="">전체</option>
+                            <option value="현직">현직</option>
+                            <option value="후보자">후보자</option>
+                            <option value="예비후보자">예비후보자</option>
+                            <option value="출마자">출마자</option>
+                        </select>
+                    </div>
+
+                    <!-- Category Filter (출마직종) -->
+                    <div class="flex-1 min-w-[120px]">
+                        <label class="block text-xs font-medium text-gray-700 mb-1">출마직종</label>
+                        <select id="category-filter" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-200 focus:border-primary-500 text-sm">
+                            <option value="">전체</option>
+                            <option value="국회의원">국회의원</option>
+                            <option value="광역단체장">광역단체장</option>
+                            <option value="광역의원">광역의원</option>
+                            <option value="기초단체장">기초단체장</option>
+                            <option value="기초의원">기초의원</option>
+                        </select>
+                    </div>
+
+                    <!-- Party Filter (정당) -->
+                    <div class="flex-1 min-w-[120px]">
+                        <label class="block text-xs font-medium text-gray-700 mb-1">정당</label>
+                        <select id="party-filter" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-200 focus:border-primary-500 text-sm">
+                            <option value="">전체</option>
+                            <option value="더불어민주당">더불어민주당</option>
+                            <option value="국민의힘">국민의힘</option>
+                            <option value="정의당">정의당</option>
+                            <option value="무소속">무소속</option>
+                        </select>
+                    </div>
+
+                    <!-- Region Filter (단일 선택) -->
+                    <div class="flex-1 min-w-[120px]">
+                        <label class="block text-xs font-medium text-gray-700 mb-1">지역</label>
+                        <select id="region-filter" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-200 focus:border-primary-500 text-sm">
+                            <option value="">전체</option>
+
+                            <optgroup label="서울">
+                                <option value="서울특별시">서울특별시 (전체)</option>
+                                <option value="서울 강남구">강남구</option>
+                                <option value="서울 강동구">강동구</option>
+                                <option value="서울 강북구">강북구</option>
+                                <option value="서울 강서구">강서구</option>
+                                <option value="서울 관악구">관악구</option>
+                                <option value="서울 광진구">광진구</option>
+                                <option value="서울 구로구">구로구</option>
+                                <option value="서울 금천구">금천구</option>
+                                <option value="서울 노원구">노원구</option>
+                                <option value="서울 도봉구">도봉구</option>
+                                <option value="서울 동대문구">동대문구</option>
+                                <option value="서울 동작구">동작구</option>
+                                <option value="서울 마포구">마포구</option>
+                                <option value="서울 서대문구">서대문구</option>
+                                <option value="서울 서초구">서초구</option>
+                                <option value="서울 성동구">성동구</option>
+                                <option value="서울 성북구">성북구</option>
+                                <option value="서울 송파구">송파구</option>
+                                <option value="서울 양천구">양천구</option>
+                                <option value="서울 영등포구">영등포구</option>
+                                <option value="서울 용산구">용산구</option>
+                                <option value="서울 은평구">은평구</option>
+                                <option value="서울 종로구">종로구</option>
+                                <option value="서울 중구">중구</option>
+                                <option value="서울 중랑구">중랑구</option>
+                            </optgroup>
+
+                        <optgroup label="부산">
+                                <option value="부산광역시">부산광역시 (전체)</option>
+                                <option value="부산 강서구">강서구</option>
+                                <option value="부산 금정구">금정구</option>
+                                <option value="부산 기장군">기장군</option>
+                                <option value="부산 남구">남구</option>
+                                <option value="부산 동구">동구</option>
+                                <option value="부산 동래구">동래구</option>
+                                <option value="부산 부산진구">부산진구</option>
+                                <option value="부산 북구">북구</option>
+                                <option value="부산 사상구">사상구</option>
+                                <option value="부산 사하구">사하구</option>
+                                <option value="부산 서구">서구</option>
+                                <option value="부산 수영구">수영구</option>
+                                <option value="부산 연제구">연제구</option>
+                                <option value="부산 영도구">영도구</option>
+                                <option value="부산 중구">중구</option>
+                                <option value="부산 해운대구">해운대구</option>
+                            </optgroup>
+
+                        <optgroup label="대구">
+                                <option value="대구광역시">대구광역시 (전체)</option>
+                                <option value="대구 남구">남구</option>
+                                <option value="대구 달서구">달서구</option>
+                                <option value="대구 달성군">달성군</option>
+                                <option value="대구 동구">동구</option>
+                                <option value="대구 북구">북구</option>
+                                <option value="대구 서구">서구</option>
+                                <option value="대구 수성구">수성구</option>
+                                <option value="대구 중구">중구</option>
+                            </optgroup>
+
+                        <optgroup label="인천">
+                                <option value="인천광역시">인천광역시 (전체)</option>
+                                <option value="인천 강화군">강화군</option>
+                                <option value="인천 계양구">계양구</option>
+                                <option value="인천 남동구">남동구</option>
+                                <option value="인천 동구">동구</option>
+                                <option value="인천 미추홀구">미추홀구</option>
+                                <option value="인천 부평구">부평구</option>
+                                <option value="인천 서구">서구</option>
+                                <option value="인천 연수구">연수구</option>
+                                <option value="인천 옹진군">옹진군</option>
+                                <option value="인천 중구">중구</option>
+                            </optgroup>
+
+                        <optgroup label="광주">
+                                <option value="광주광역시">광주광역시 (전체)</option>
+                                <option value="광주 광산구">광산구</option>
+                                <option value="광주 남구">남구</option>
+                                <option value="광주 동구">동구</option>
+                                <option value="광주 북구">북구</option>
+                                <option value="광주 서구">서구</option>
+                            </optgroup>
+
+                        <optgroup label="대전">
+                                <option value="대전광역시">대전광역시 (전체)</option>
+                                <option value="대전 대덕구">대덕구</option>
+                                <option value="대전 동구">동구</option>
+                                <option value="대전 서구">서구</option>
+                                <option value="대전 유성구">유성구</option>
+                                <option value="대전 중구">중구</option>
+                            </optgroup>
+
+                        <optgroup label="울산">
+                                <option value="울산광역시">울산광역시 (전체)</option>
+                                <option value="울산 남구">남구</option>
+                                <option value="울산 동구">동구</option>
+                                <option value="울산 북구">북구</option>
+                                <option value="울산 울주군">울주군</option>
+                                <option value="울산 중구">중구</option>
+                            </optgroup>
+
+                        <optgroup label="세종">
+                                <option value="세종특별자치시">세종특별자치시 (전체)</option>
+                                <option value="세종 세종시">세종시</option>
+                            </optgroup>
+
+                        <optgroup label="경기">
+                                <option value="경기도">경기도 (전체)</option>
+                                <option value="경기 가평군">가평군</option>
+                                <option value="경기 고양시">고양시</option>
+                                <option value="경기 과천시">과천시</option>
+                                <option value="경기 광명시">광명시</option>
+                                <option value="경기 광주시">광주시</option>
+                                <option value="경기 구리시">구리시</option>
+                                <option value="경기 군포시">군포시</option>
+                                <option value="경기 김포시">김포시</option>
+                                <option value="경기 남양주시">남양주시</option>
+                                <option value="경기 동두천시">동두천시</option>
+                                <option value="경기 부천시">부천시</option>
+                                <option value="경기 성남시">성남시</option>
+                                <option value="경기 수원시">수원시</option>
+                                <option value="경기 시흥시">시흥시</option>
+                                <option value="경기 안산시">안산시</option>
+                                <option value="경기 안성시">안성시</option>
+                                <option value="경기 안양시">안양시</option>
+                                <option value="경기 양주시">양주시</option>
+                                <option value="경기 양평군">양평군</option>
+                                <option value="경기 여주시">여주시</option>
+                                <option value="경기 연천군">연천군</option>
+                                <option value="경기 오산시">오산시</option>
+                                <option value="경기 용인시">용인시</option>
+                                <option value="경기 의왕시">의왕시</option>
+                                <option value="경기 의정부시">의정부시</option>
+                                <option value="경기 이천시">이천시</option>
+                                <option value="경기 파주시">파주시</option>
+                                <option value="경기 평택시">평택시</option>
+                                <option value="경기 포천시">포천시</option>
+                                <option value="경기 하남시">하남시</option>
+                                <option value="경기 화성시">화성시</option>
+                            </optgroup>
+
+                        <optgroup label="강원">
+                                <option value="강원특별자치도">강원특별자치도 (전체)</option>
+                                <option value="강원 강릉시">강릉시</option>
+                                <option value="강원 고성군">고성군</option>
+                                <option value="강원 동해시">동해시</option>
+                                <option value="강원 삼척시">삼척시</option>
+                                <option value="강원 속초시">속초시</option>
+                                <option value="강원 양구군">양구군</option>
+                                <option value="강원 양양군">양양군</option>
+                                <option value="강원 영월군">영월군</option>
+                                <option value="강원 원주시">원주시</option>
+                                <option value="강원 인제군">인제군</option>
+                                <option value="강원 정선군">정선군</option>
+                                <option value="강원 철원군">철원군</option>
+                                <option value="강원 춘천시">춘천시</option>
+                                <option value="강원 태백시">태백시</option>
+                                <option value="강원 평창군">평창군</option>
+                                <option value="강원 홍천군">홍천군</option>
+                                <option value="강원 화천군">화천군</option>
+                                <option value="강원 횡성군">횡성군</option>
+                            </optgroup>
+
+                        <optgroup label="충북">
+                                <option value="충청북도">충청북도 (전체)</option>
+                                <option value="충북 괴산군">괴산군</option>
+                                <option value="충북 단양군">단양군</option>
+                                <option value="충북 보은군">보은군</option>
+                                <option value="충북 영동군">영동군</option>
+                                <option value="충북 옥천군">옥천군</option>
+                                <option value="충북 음성군">음성군</option>
+                                <option value="충북 제천시">제천시</option>
+                                <option value="충북 증평군">증평군</option>
+                                <option value="충북 진천군">진천군</option>
+                                <option value="충북 청주시">청주시</option>
+                                <option value="충북 충주시">충주시</option>
+                            </optgroup>
+
+                        <optgroup label="충남">
+                                <option value="충청남도">충청남도 (전체)</option>
+                                <option value="충남 계룡시">계룡시</option>
+                                <option value="충남 공주시">공주시</option>
+                                <option value="충남 금산군">금산군</option>
+                                <option value="충남 논산시">논산시</option>
+                                <option value="충남 당진시">당진시</option>
+                                <option value="충남 보령시">보령시</option>
+                                <option value="충남 부여군">부여군</option>
+                                <option value="충남 서산시">서산시</option>
+                                <option value="충남 서천군">서천군</option>
+                                <option value="충남 아산시">아산시</option>
+                                <option value="충남 예산군">예산군</option>
+                                <option value="충남 천안시">천안시</option>
+                                <option value="충남 청양군">청양군</option>
+                                <option value="충남 태안군">태안군</option>
+                                <option value="충남 홍성군">홍성군</option>
+                            </optgroup>
+
+                        <optgroup label="전북">
+                                <option value="전북특별자치도">전북특별자치도 (전체)</option>
+                                <option value="전북 고창군">고창군</option>
+                                <option value="전북 군산시">군산시</option>
+                                <option value="전북 김제시">김제시</option>
+                                <option value="전북 남원시">남원시</option>
+                                <option value="전북 무주군">무주군</option>
+                                <option value="전북 부안군">부안군</option>
+                                <option value="전북 순창군">순창군</option>
+                                <option value="전북 완주군">완주군</option>
+                                <option value="전북 익산시">익산시</option>
+                                <option value="전북 임실군">임실군</option>
+                                <option value="전북 장수군">장수군</option>
+                                <option value="전북 전주시">전주시</option>
+                                <option value="전북 정읍시">정읍시</option>
+                                <option value="전북 진안군">진안군</option>
+                            </optgroup>
+
+                        <optgroup label="전남">
+                                <option value="전라남도">전라남도 (전체)</option>
+                                <option value="전남 강진군">강진군</option>
+                                <option value="전남 고흥군">고흥군</option>
+                                <option value="전남 곡성군">곡성군</option>
+                                <option value="전남 광양시">광양시</option>
+                                <option value="전남 구례군">구례군</option>
+                                <option value="전남 나주시">나주시</option>
+                                <option value="전남 담양군">담양군</option>
+                                <option value="전남 목포시">목포시</option>
+                                <option value="전남 무안군">무안군</option>
+                                <option value="전남 보성군">보성군</option>
+                                <option value="전남 순천시">순천시</option>
+                                <option value="전남 신안군">신안군</option>
+                                <option value="전남 여수시">여수시</option>
+                                <option value="전남 영광군">영광군</option>
+                                <option value="전남 영암군">영암군</option>
+                                <option value="전남 완도군">완도군</option>
+                                <option value="전남 장성군">장성군</option>
+                                <option value="전남 장흥군">장흥군</option>
+                                <option value="전남 진도군">진도군</option>
+                                <option value="전남 함평군">함평군</option>
+                                <option value="전남 해남군">해남군</option>
+                                <option value="전남 화순군">화순군</option>
+                            </optgroup>
+
+                        <optgroup label="경북">
+                                <option value="경상북도">경상북도 (전체)</option>
+                                <option value="경북 경산시">경산시</option>
+                                <option value="경북 경주시">경주시</option>
+                                <option value="경북 고령군">고령군</option>
+                                <option value="경북 구미시">구미시</option>
+                                <option value="경북 군위군">군위군</option>
+                                <option value="경북 김천시">김천시</option>
+                                <option value="경북 문경시">문경시</option>
+                                <option value="경북 봉화군">봉화군</option>
+                                <option value="경북 상주시">상주시</option>
+                                <option value="경북 성주군">성주군</option>
+                                <option value="경북 안동시">안동시</option>
+                                <option value="경북 영덕군">영덕군</option>
+                                <option value="경북 영양군">영양군</option>
+                                <option value="경북 영주시">영주시</option>
+                                <option value="경북 영천시">영천시</option>
+                                <option value="경북 예천군">예천군</option>
+                                <option value="경북 울릉군">울릉군</option>
+                                <option value="경북 울진군">울진군</option>
+                                <option value="경북 의성군">의성군</option>
+                                <option value="경북 청도군">청도군</option>
+                                <option value="경북 청송군">청송군</option>
+                                <option value="경북 칠곡군">칠곡군</option>
+                                <option value="경북 포항시">포항시</option>
+                            </optgroup>
+
+                        <optgroup label="경남">
+                                <option value="경상남도">경상남도 (전체)</option>
+                                <option value="경남 거제시">거제시</option>
+                                <option value="경남 거창군">거창군</option>
+                                <option value="경남 고성군">고성군</option>
+                                <option value="경남 김해시">김해시</option>
+                                <option value="경남 남해군">남해군</option>
+                                <option value="경남 밀양시">밀양시</option>
+                                <option value="경남 사천시">사천시</option>
+                                <option value="경남 산청군">산청군</option>
+                                <option value="경남 양산시">양산시</option>
+                                <option value="경남 의령군">의령군</option>
+                                <option value="경남 진주시">진주시</option>
+                                <option value="경남 창녕군">창녕군</option>
+                                <option value="경남 창원시">창원시</option>
+                                <option value="경남 통영시">통영시</option>
+                                <option value="경남 하동군">하동군</option>
+                                <option value="경남 함안군">함안군</option>
+                                <option value="경남 함양군">함양군</option>
+                                <option value="경남 합천군">합천군</option>
+                            </optgroup>
+
+                        <optgroup label="제주">
+                                <option value="제주특별자치도">제주특별자치도 (전체)</option>
+                                <option value="제주 서귀포시">서귀포시</option>
+                                <option value="제주 제주시">제주시</option>
+                            </optgroup>
+                        </select>
+                    </div>
+
+                    <!-- Grade Filter (평가등급) -->
+                    <div class="flex-1 min-w-[120px]">
+                        <label class="block text-xs font-medium text-gray-700 mb-1">평가등급</label>
+                        <select id="grade-filter" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-200 focus:border-primary-500 text-sm">
+                            <option value="">전체</option>
+                            <option value="M">🌺 Mugunghwa (93점 이상)</option>
+                            <option value="D">💎 Diamond (86~92점)</option>
+                            <option value="E">💚 Emerald (79~85점)</option>
+                            <option value="P">🥇 Platinum (72~78점)</option>
+                            <option value="G">🥇 Gold (65~71점)</option>
+                            <option value="S">🥈 Silver (58~64점)</option>
+                            <option value="B">🥉 Bronze (51~57점)</option>
+                            <option value="iron">⚫ Iron (44~50점)</option>
+                        </select>
+                    </div>
+
+                    <!-- Filter Search Button -->
+                    <div class="flex-shrink-0">
+                        <label class="block text-xs font-medium text-gray-700 mb-1 invisible">검색</label>
+                        <button id="filter-search-button" class="px-8 py-2 bg-primary-500 text-white rounded-md hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-300 font-medium text-sm shadow-sm whitespace-nowrap">
+                            필터 검색
+                        </button>
+                    </div>
+
+                    <!-- Reset Button -->
+                    <div class="flex-shrink-0">
+                        <label class="block text-xs font-medium text-gray-700 mb-1 invisible">초기화</label>
+                        <button id="reset-filters" class="px-8 py-2 bg-primary-100 text-primary-700 border-2 border-primary-300 rounded-md hover:bg-primary-200 focus:outline-none focus:ring-2 focus:ring-primary-300 font-medium text-sm shadow-sm whitespace-nowrap">
+                            초기화
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Desktop: Table -->
+        <div class="hidden md:block bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="overflow-x-auto">
+                <table class="w-full text-xs">
+                    <thead class="bg-gray-100 border-b-2 border-primary-500">
+                        <tr>
+                            <th class="px-2 py-3 text-center font-bold text-gray-900">순위</th>
+                            <th class="px-3 py-3 text-left font-bold text-gray-900">이름</th>
+                            <th class="px-2 py-3 text-left font-bold text-gray-900">신분</th>
+                            <th class="px-2 py-3 text-left font-bold text-gray-900">직책</th>
+                            <th class="px-2 py-3 text-left font-bold text-gray-900">출마직종</th>
+                            <th class="px-2 py-3 text-left font-bold text-gray-900">정당</th>
+                            <th class="px-2 py-3 text-left font-bold text-gray-900">지역</th>
+                            <th class="px-2 py-3 text-center font-bold text-gray-900">평가등급</th>
+                            <th class="px-2 py-3 text-center font-bold text-gray-900">종합평점</th>
+                            <th class="px-2 py-3 text-center">
+                                <div class="flex flex-col items-center gap-1">
+                                    <img src="https://cdn.brandfetch.io/idW5s392j1/w/338/h/338/theme/dark/icon.png?c=1bxid64Mup7aczewSAYMX&t=1738315794862" alt="Claude" class="h-6 w-6 object-contain rounded">
+                                    <span class="text-xs font-medium text-gray-900">Claude</span>
+                                </div>
+                            </th>
+                            <th class="px-2 py-3 text-center">
+                                <div class="flex flex-col items-center gap-1">
+                                    <img src="https://cdn.brandfetch.io/idR3duQxYl/theme/dark/symbol.svg?c=1bxid64Mup7aczewSAYMX" alt="ChatGPT" class="h-6 w-6 object-contain">
+                                    <span class="text-xs font-medium text-gray-900">ChatGPT</span>
+                                </div>
+                            </th>
+                            <th class="px-2 py-3 text-center">
+                                <div class="flex flex-col items-center gap-1">
+                                    <img src="https://cdn.simpleicons.org/googlegemini/000000" alt="Gemini" class="h-6 w-6 object-contain">
+                                    <span class="text-xs font-medium text-gray-900">Gemini</span>
+                                </div>
+                            </th>
+                            <th class="px-2 py-3 text-center">
+                                <div class="flex flex-col items-center gap-1">
+                                    <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/grok-icon.svg" alt="Grok" class="h-6 w-6 object-contain">
+                                    <span class="text-xs font-medium text-gray-900">Grok</span>
+                                </div>
+                            </th>
+                            <th class="px-2 py-3 text-center">
+                                <div class="flex flex-col items-center gap-1">
+                                    <img src="https://cdn.simpleicons.org/perplexity/000000" alt="Perplexity" class="h-6 w-6 object-contain">
+                                    <span class="text-xs font-medium text-gray-900">Perplexity</span>
+                                </div>
+                            </th>
+                            <th class="px-2 py-3 text-center font-bold text-gray-900">회원평점 (참여자수)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="politician-table-body" class="divide-y divide-gray-200">
+                        <tr class="hover:bg-gray-50 cursor-pointer" data-name="김민준" data-status="현직" data-category="국회의원" data-position="국회의원" data-party="더불어민주당" data-region="서울" data-district="강남구 갑" onclick="location.href='politician-detail.html'">
+                            <td class="px-2 py-3 text-center"><span class="font-bold text-gray-900 text-sm">1</span></td>
+                            <td class="px-3 py-3"><span class="font-bold text-primary-600 hover:text-primary-700 text-sm cursor-pointer inline-flex items-center gap-1">김민준 <span class="text-xs">›</span></span></td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">현직</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">국회의원</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">국회의원</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">더불어민주당</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">서울 강남구 갑</td>
+                            <td class="px-2 py-3 text-center text-xs font-semibold text-accent-600">💚 Emerald</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">84.8</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">85.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">82.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">87.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">84.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">86.0</td>
+                            <td class="px-2 py-3 text-center text-xs">
+                                <span class="font-bold text-secondary-600">★★★★☆</span> <span class="text-gray-900">(1247명)</span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 cursor-pointer" data-name="이서연" data-status="현직" data-category="국회의원" data-position="국회의원" data-party="국민의힘" data-region="부산" data-district="해운대구 을" onclick="location.href='politician-detail.html'">
+                            <td class="px-2 py-3 text-center"><span class="font-bold text-gray-900 text-sm">2</span></td>
+                            <td class="px-3 py-3"><span class="font-bold text-primary-600 hover:text-primary-700 text-sm cursor-pointer inline-flex items-center gap-1">이서연 <span class="text-xs">›</span></span></td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">현직</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">국회의원</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">국회의원</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">국민의힘</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">부산 해운대구 을</td>
+                            <td class="px-2 py-3 text-center text-xs font-semibold text-accent-600">🥇 Platinum</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">78.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">78.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">80.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">76.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">79.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">77.0</td>
+                            <td class="px-2 py-3 text-center text-xs">
+                                <span class="font-bold text-secondary-600">★★★★☆</span> <span class="text-gray-900">(1089명)</span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 cursor-pointer" data-name="박지후" data-status="현직" data-category="광역의원" data-position="서울시의원" data-party="정의당" data-region="서울특별시" data-district="" onclick="location.href='politician-detail.html'">
+                            <td class="px-2 py-3 text-center"><span class="font-bold text-gray-900 text-sm">3</span></td>
+                            <td class="px-3 py-3"><span class="font-bold text-primary-600 hover:text-primary-700 text-sm cursor-pointer inline-flex items-center gap-1">박지후 <span class="text-xs">›</span></span></td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">현직</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">서울시의원</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">광역의원</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">정의당</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">서울특별시</td>
+                            <td class="px-2 py-3 text-center text-xs font-semibold text-accent-600">🥇 Platinum</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">72.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">72.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">74.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">71.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">73.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">70.0</td>
+                            <td class="px-2 py-3 text-center text-xs">
+                                <span class="font-bold text-secondary-600">★★★★☆</span> <span class="text-gray-900">(543명)</span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 cursor-pointer" data-name="최하은" data-status="현직" data-category="광역단체장" data-position="경기도지사" data-party="더불어민주당" data-region="경기도" data-district="" onclick="location.href='politician-detail.html'">
+                            <td class="px-2 py-3 text-center"><span class="font-bold text-gray-900 text-sm">4</span></td>
+                            <td class="px-3 py-3"><span class="font-bold text-primary-600 hover:text-primary-700 text-sm cursor-pointer inline-flex items-center gap-1">최하은 <span class="text-xs">›</span></span></td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">현직</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">경기도지사</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">광역단체장</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">더불어민주당</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">경기도</td>
+                            <td class="px-2 py-3 text-center text-xs font-semibold text-accent-600">💎 Diamond</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">87.6</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">88.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">86.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">89.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">87.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">88.0</td>
+                            <td class="px-2 py-3 text-center text-xs">
+                                <span class="font-bold text-secondary-600">★★★★☆</span> <span class="text-gray-900">(2145명)</span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 cursor-pointer" data-name="정민서" data-status="현직" data-category="국회의원" data-position="국회의원" data-party="국민의힘" data-region="대구" data-district="수성구 갑" onclick="location.href='politician-detail.html'">
+                            <td class="px-2 py-3 text-center"><span class="font-bold text-gray-900 text-sm">5</span></td>
+                            <td class="px-3 py-3"><span class="font-bold text-primary-600 hover:text-primary-700 text-sm cursor-pointer inline-flex items-center gap-1">정민서 <span class="text-xs">›</span></span></td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">현직</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">국회의원</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">국회의원</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">국민의힘</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">대구 수성구 갑</td>
+                            <td class="px-2 py-3 text-center text-xs font-semibold text-accent-600">💚 Emerald</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">81.4</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">81.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">83.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">80.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">82.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">81.0</td>
+                            <td class="px-2 py-3 text-center text-xs">
+                                <span class="font-bold text-secondary-600">★★★★☆</span> <span class="text-gray-900">(987명)</span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 cursor-pointer" data-name="강도윤" data-status="후보자" data-category="국회의원" data-position="" data-party="개혁신당" data-region="인천" data-district="남동구 갑" onclick="location.href='politician-detail.html'">
+                            <td class="px-2 py-3 text-center"><span class="font-bold text-gray-900 text-sm">6</span></td>
+                            <td class="px-3 py-3"><span class="font-bold text-primary-600 hover:text-primary-700 text-sm cursor-pointer inline-flex items-center gap-1">강도윤 <span class="text-xs">›</span></span></td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">후보자</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs"></td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">국회의원</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">개혁신당</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">인천 남동구 갑</td>
+                            <td class="px-2 py-3 text-center text-xs font-semibold text-accent-600">🥇 Platinum</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">75.4</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">75.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">77.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">74.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">76.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">75.0</td>
+                            <td class="px-2 py-3 text-center text-xs">
+                                <span class="font-bold text-secondary-600">★★★★☆</span> <span class="text-gray-900">(623명)</span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 cursor-pointer" data-name="조서윤" data-status="현직" data-category="광역단체장" data-position="부산광역시장" data-party="국민의힘" data-region="부산광역시" data-district="" onclick="location.href='politician-detail.html'">
+                            <td class="px-2 py-3 text-center"><span class="font-bold text-gray-900 text-sm">7</span></td>
+                            <td class="px-3 py-3"><span class="font-bold text-primary-600 hover:text-primary-700 text-sm cursor-pointer inline-flex items-center gap-1">조서윤 <span class="text-xs">›</span></span></td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">현직</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">부산광역시장</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">광역단체장</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">국민의힘</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">부산광역시</td>
+                            <td class="px-2 py-3 text-center text-xs font-semibold text-accent-600">💚 Emerald</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">84.4</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">84.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">85.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">83.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">84.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">86.0</td>
+                            <td class="px-2 py-3 text-center text-xs">
+                                <span class="font-bold text-secondary-600">★★★★☆</span> <span class="text-gray-900">(1876명)</span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 cursor-pointer" data-name="윤준우" data-status="현직" data-category="기초단체장" data-position="성남시장" data-party="더불어민주당" data-region="성남시" data-district="" onclick="location.href='politician-detail.html'">
+                            <td class="px-2 py-3 text-center"><span class="font-bold text-gray-900 text-sm">8</span></td>
+                            <td class="px-3 py-3"><span class="font-bold text-primary-600 hover:text-primary-700 text-sm cursor-pointer inline-flex items-center gap-1">윤준우 <span class="text-xs">›</span></span></td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">현직</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">성남시장</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">기초단체장</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">더불어민주당</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">성남시</td>
+                            <td class="px-2 py-3 text-center text-xs font-semibold text-accent-600">🥇 Platinum</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">78.6</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">79.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">78.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">80.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">77.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">79.0</td>
+                            <td class="px-2 py-3 text-center text-xs">
+                                <span class="font-bold text-secondary-600">★★★★☆</span> <span class="text-gray-900">(1124명)</span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 cursor-pointer" data-name="장지민" data-status="현직" data-category="기초의원" data-position="광진구의원" data-party="정의당" data-region="광진구" data-district="" onclick="location.href='politician-detail.html'">
+                            <td class="px-2 py-3 text-center"><span class="font-bold text-gray-900 text-sm">9</span></td>
+                            <td class="px-3 py-3"><span class="font-bold text-primary-600 hover:text-primary-700 text-sm cursor-pointer inline-flex items-center gap-1">장지민 <span class="text-xs">›</span></span></td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">현직</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">광진구의원</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">기초의원</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">정의당</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">광진구</td>
+                            <td class="px-2 py-3 text-center text-xs font-semibold text-accent-600">🥇 Gold</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">68.4</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">68.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">70.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">67.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">69.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">68.0</td>
+                            <td class="px-2 py-3 text-center text-xs">
+                                <span class="font-bold text-secondary-600">★★★☆☆</span> <span class="text-gray-900">(421명)</span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 cursor-pointer" data-name="임시우" data-status="현직" data-category="국회의원" data-position="국회의원" data-party="무소속" data-region="강원" data-district="춘천시" onclick="location.href='politician-detail.html'">
+                            <td class="px-2 py-3 text-center"><span class="font-bold text-gray-900 text-sm">10</span></td>
+                            <td class="px-3 py-3"><span class="font-bold text-primary-600 hover:text-primary-700 text-sm cursor-pointer inline-flex items-center gap-1">임시우 <span class="text-xs">›</span></span></td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">현직</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">국회의원</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">국회의원</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">무소속</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">강원 춘천시</td>
+                            <td class="px-2 py-3 text-center text-xs font-semibold text-accent-600">🥇 Platinum</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">75.6</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">76.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">75.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">77.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">76.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">74.0</td>
+                            <td class="px-2 py-3 text-center text-xs">
+                                <span class="font-bold text-secondary-600">★★★★☆</span> <span class="text-gray-900">(689명)</span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 cursor-pointer" data-name="한하준" data-status="현직" data-category="국회의원" data-position="국회의원" data-party="국민의힘" data-region="서울" data-district="송파구 갑" onclick="location.href='politician-detail.html'">
+                            <td class="px-2 py-3 text-center"><span class="font-bold text-gray-900 text-sm">11</span></td>
+                            <td class="px-3 py-3"><span class="font-bold text-primary-600 hover:text-primary-700 text-sm cursor-pointer inline-flex items-center gap-1">한하준 <span class="text-xs">›</span></span></td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">현직</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">국회의원</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">국회의원</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">국민의힘</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">서울 송파구 갑</td>
+                            <td class="px-2 py-3 text-center text-xs font-semibold text-accent-600">💚 Emerald</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">81.6</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">82.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">81.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">83.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">80.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">82.0</td>
+                            <td class="px-2 py-3 text-center text-xs">
+                                <span class="font-bold text-secondary-600">★★★★☆</span> <span class="text-gray-900">(1034명)</span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 cursor-pointer" data-name="오지훈" data-status="현직" data-category="광역의원" data-position="경기도의원" data-party="더불어민주당" data-region="경기도" data-district="" onclick="location.href='politician-detail.html'">
+                            <td class="px-2 py-3 text-center"><span class="font-bold text-gray-900 text-sm">12</span></td>
+                            <td class="px-3 py-3"><span class="font-bold text-primary-600 hover:text-primary-700 text-sm cursor-pointer inline-flex items-center gap-1">오지훈 <span class="text-xs">›</span></span></td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">현직</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">경기도의원</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">광역의원</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">더불어민주당</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">경기도</td>
+                            <td class="px-2 py-3 text-center text-xs font-semibold text-accent-600">🥇 Platinum</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">72.6</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">73.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">72.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">74.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">71.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">73.0</td>
+                            <td class="px-2 py-3 text-center text-xs">
+                                <span class="font-bold text-secondary-600">★★★★☆</span> <span class="text-gray-900">(567명)</span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 cursor-pointer" data-name="서승현" data-status="현직" data-category="기초단체장" data-position="용인시장" data-party="국민의힘" data-region="용인시" data-district="" onclick="location.href='politician-detail.html'">
+                            <td class="px-2 py-3 text-center"><span class="font-bold text-gray-900 text-sm">13</span></td>
+                            <td class="px-3 py-3"><span class="font-bold text-primary-600 hover:text-primary-700 text-sm cursor-pointer inline-flex items-center gap-1">서승현 <span class="text-xs">›</span></span></td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">현직</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">용인시장</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">기초단체장</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">국민의힘</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">용인시</td>
+                            <td class="px-2 py-3 text-center text-xs font-semibold text-accent-600">💚 Emerald</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">79.6</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">80.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">79.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">81.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">78.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">80.0</td>
+                            <td class="px-2 py-3 text-center text-xs">
+                                <span class="font-bold text-secondary-600">★★★★☆</span> <span class="text-gray-900">(923명)</span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 cursor-pointer" data-name="신우진" data-status="예비후보자" data-category="국회의원" data-position="" data-party="개혁신당" data-region="경기" data-district="고양시 갑" onclick="location.href='politician-detail.html'">
+                            <td class="px-2 py-3 text-center"><span class="font-bold text-gray-900 text-sm">14</span></td>
+                            <td class="px-3 py-3"><span class="font-bold text-primary-600 hover:text-primary-700 text-sm cursor-pointer inline-flex items-center gap-1">신우진 <span class="text-xs">›</span></span></td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">예비후보자</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs"></td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">국회의원</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">개혁신당</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">경기 고양시 갑</td>
+                            <td class="px-2 py-3 text-center text-xs font-semibold text-accent-600">🥇 Gold</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">71.4</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">71.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">73.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">70.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">72.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">71.0</td>
+                            <td class="px-2 py-3 text-center text-xs">
+                                <span class="font-bold text-secondary-600">★★★★☆</span> <span class="text-gray-900">(389명)</span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 cursor-pointer" data-name="권예은" data-status="현직" data-category="국회의원" data-position="국회의원" data-party="더불어민주당" data-region="광주" data-district="서구 을" onclick="location.href='politician-detail.html'">
+                            <td class="px-2 py-3 text-center"><span class="font-bold text-gray-900 text-sm">15</span></td>
+                            <td class="px-3 py-3"><span class="font-bold text-primary-600 hover:text-primary-700 text-sm cursor-pointer inline-flex items-center gap-1">권예은 <span class="text-xs">›</span></span></td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">현직</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">국회의원</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">국회의원</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">더불어민주당</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">광주 서구 을</td>
+                            <td class="px-2 py-3 text-center text-xs font-semibold text-accent-600">🥇 Platinum</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">76.6</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">77.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">76.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">78.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">75.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">77.0</td>
+                            <td class="px-2 py-3 text-center text-xs">
+                                <span class="font-bold text-secondary-600">★★★★☆</span> <span class="text-gray-900">(812명)</span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 cursor-pointer" data-name="황채원" data-status="현직" data-category="광역의원" data-position="부산시의원" data-party="정의당" data-region="부산광역시" data-district="" onclick="location.href='politician-detail.html'">
+                            <td class="px-2 py-3 text-center"><span class="font-bold text-gray-900 text-sm">16</span></td>
+                            <td class="px-3 py-3"><span class="font-bold text-primary-600 hover:text-primary-700 text-sm cursor-pointer inline-flex items-center gap-1">황채원 <span class="text-xs">›</span></span></td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">현직</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">부산시의원</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">광역의원</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">정의당</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">부산광역시</td>
+                            <td class="px-2 py-3 text-center text-xs font-semibold text-accent-600">🥇 Gold</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">68.6</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">69.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">68.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">70.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">67.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">69.0</td>
+                            <td class="px-2 py-3 text-center text-xs">
+                                <span class="font-bold text-secondary-600">★★★★☆</span> <span class="text-gray-900">(456명)</span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 cursor-pointer" data-name="안지안" data-status="후보자" data-category="기초단체장" data-position="" data-party="무소속" data-region="양평군" data-district="" onclick="location.href='politician-detail.html'">
+                            <td class="px-2 py-3 text-center"><span class="font-bold text-gray-900 text-sm">17</span></td>
+                            <td class="px-3 py-3"><span class="font-bold text-primary-600 hover:text-primary-700 text-sm cursor-pointer inline-flex items-center gap-1">안지안 <span class="text-xs">›</span></span></td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">후보자</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs"></td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">기초단체장</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">무소속</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">양평군</td>
+                            <td class="px-2 py-3 text-center text-xs font-semibold text-accent-600">🥇 Platinum</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">73.6</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">74.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">75.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">73.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">74.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">72.0</td>
+                            <td class="px-2 py-3 text-center text-xs">
+                                <span class="font-bold text-secondary-600">★★★★☆</span> <span class="text-gray-900">(512명)</span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 cursor-pointer" data-name="송민재" data-status="현직" data-category="광역단체장" data-position="대구광역시장" data-party="국민의힘" data-region="대구광역시" data-district="" onclick="location.href='politician-detail.html'">
+                            <td class="px-2 py-3 text-center"><span class="font-bold text-gray-900 text-sm">18</span></td>
+                            <td class="px-3 py-3"><span class="font-bold text-primary-600 hover:text-primary-700 text-sm cursor-pointer inline-flex items-center gap-1">송민재 <span class="text-xs">›</span></span></td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">현직</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">대구광역시장</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">광역단체장</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">국민의힘</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">대구광역시</td>
+                            <td class="px-2 py-3 text-center text-xs font-semibold text-accent-600">💚 Emerald</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">85.6</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">86.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">84.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">87.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">85.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">86.0</td>
+                            <td class="px-2 py-3 text-center text-xs">
+                                <span class="font-bold text-secondary-600">★★★★☆</span> <span class="text-gray-900">(1765명)</span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 cursor-pointer" data-name="전서준" data-status="현직" data-category="국회의원" data-position="국회의원" data-party="개혁신당" data-region="비례대표" data-district="" onclick="location.href='politician-detail.html'">
+                            <td class="px-2 py-3 text-center"><span class="font-bold text-gray-900 text-sm">19</span></td>
+                            <td class="px-3 py-3"><span class="font-bold text-primary-600 hover:text-primary-700 text-sm cursor-pointer inline-flex items-center gap-1">전서준 <span class="text-xs">›</span></span></td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">현직</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">국회의원</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">국회의원</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">개혁신당</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">비례대표</td>
+                            <td class="px-2 py-3 text-center text-xs font-semibold text-accent-600">🥇 Gold</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">69.6</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">70.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">71.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">69.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">70.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">68.0</td>
+                            <td class="px-2 py-3 text-center text-xs">
+                                <span class="font-bold text-secondary-600">★★★★☆</span> <span class="text-gray-900">(645명)</span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 cursor-pointer" data-name="홍수아" data-status="현직" data-category="기초단체장" data-position="안산시장" data-party="더불어민주당" data-region="안산시" data-district="" onclick="location.href='politician-detail.html'">
+                            <td class="px-2 py-3 text-center"><span class="font-bold text-gray-900 text-sm">20</span></td>
+                            <td class="px-3 py-3"><span class="font-bold text-primary-600 hover:text-primary-700 text-sm cursor-pointer inline-flex items-center gap-1">홍수아 <span class="text-xs">›</span></span></td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">현직</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">안산시장</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">기초단체장</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">더불어민주당</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">안산시</td>
+                            <td class="px-2 py-3 text-center text-xs font-semibold text-accent-600">🥇 Platinum</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">75.6</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">76.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">77.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">75.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">76.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">74.0</td>
+                            <td class="px-2 py-3 text-center text-xs">
+                                <span class="font-bold text-secondary-600">★★★★☆</span> <span class="text-gray-900">(834명)</span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 cursor-pointer" data-name="배현우" data-status="현직" data-category="국회의원" data-position="국회의원" data-party="무소속" data-region="제주" data-district="제주시" onclick="location.href='politician-detail.html'">
+                            <td class="px-2 py-3 text-center"><span class="font-bold text-gray-900 text-sm">21</span></td>
+                            <td class="px-3 py-3"><span class="font-bold text-primary-600 hover:text-primary-700 text-sm cursor-pointer inline-flex items-center gap-1">배현우 <span class="text-xs">›</span></span></td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">현직</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">국회의원</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">국회의원</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">무소속</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">제주 제주시</td>
+                            <td class="px-2 py-3 text-center text-xs font-semibold text-accent-600">🥇 Platinum</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">77.6</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">78.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">77.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">79.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">76.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">78.0</td>
+                            <td class="px-2 py-3 text-center text-xs">
+                                <span class="font-bold text-secondary-600">★★★★☆</span> <span class="text-gray-900">(723명)</span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 cursor-pointer" data-name="남도현" data-status="출마자" data-category="기초의원" data-position="" data-party="정의당" data-region="마포구" data-district="" onclick="location.href='politician-detail.html'">
+                            <td class="px-2 py-3 text-center"><span class="font-bold text-gray-900 text-sm">22</span></td>
+                            <td class="px-3 py-3"><span class="font-bold text-primary-600 hover:text-primary-700 text-sm cursor-pointer inline-flex items-center gap-1">남도현 <span class="text-xs">›</span></span></td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">출마자</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs"></td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">기초의원</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">정의당</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">마포구</td>
+                            <td class="px-2 py-3 text-center text-xs font-semibold text-accent-600">🥇 Gold</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">65.4</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">65.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">67.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">64.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">66.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">65.0</td>
+                            <td class="px-2 py-3 text-center text-xs">
+                                <span class="font-bold text-secondary-600">★★★☆☆</span> <span class="text-gray-900">(289명)</span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 cursor-pointer" data-name="구민지" data-status="현직" data-category="광역단체장" data-position="인천광역시장" data-party="국민의힘" data-region="인천광역시" data-district="" onclick="location.href='politician-detail.html'">
+                            <td class="px-2 py-3 text-center"><span class="font-bold text-gray-900 text-sm">23</span></td>
+                            <td class="px-3 py-3"><span class="font-bold text-primary-600 hover:text-primary-700 text-sm cursor-pointer inline-flex items-center gap-1">구민지 <span class="text-xs">›</span></span></td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">현직</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">인천광역시장</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">광역단체장</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">국민의힘</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">인천광역시</td>
+                            <td class="px-2 py-3 text-center text-xs font-semibold text-accent-600">💚 Emerald</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">82.6</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">83.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">82.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">84.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">81.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">83.0</td>
+                            <td class="px-2 py-3 text-center text-xs">
+                                <span class="font-bold text-secondary-600">★★★★☆</span> <span class="text-gray-900">(1543명)</span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 cursor-pointer" data-name="노지우" data-status="현직" data-category="국회의원" data-position="국회의원" data-party="더불어민주당" data-region="전북" data-district="전주시 갑" onclick="location.href='politician-detail.html'">
+                            <td class="px-2 py-3 text-center"><span class="font-bold text-gray-900 text-sm">24</span></td>
+                            <td class="px-3 py-3"><span class="font-bold text-primary-600 hover:text-primary-700 text-sm cursor-pointer inline-flex items-center gap-1">노지우 <span class="text-xs">›</span></span></td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">현직</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">국회의원</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">국회의원</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">더불어민주당</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">전북 전주시 갑</td>
+                            <td class="px-2 py-3 text-center text-xs font-semibold text-accent-600">🥇 Platinum</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">74.6</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">75.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">76.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">74.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">75.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">73.0</td>
+                            <td class="px-2 py-3 text-center text-xs">
+                                <span class="font-bold text-secondary-600">★★★★☆</span> <span class="text-gray-900">(678명)</span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 cursor-pointer" data-name="류서진" data-status="후보자" data-category="광역의원" data-position="" data-party="개혁신당" data-region="대전광역시" data-district="" onclick="location.href='politician-detail.html'">
+                            <td class="px-2 py-3 text-center"><span class="font-bold text-gray-900 text-sm">25</span></td>
+                            <td class="px-3 py-3"><span class="font-bold text-primary-600 hover:text-primary-700 text-sm cursor-pointer inline-flex items-center gap-1">류서진 <span class="text-xs">›</span></span></td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">후보자</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs"></td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">광역의원</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">개혁신당</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">대전광역시</td>
+                            <td class="px-2 py-3 text-center text-xs font-semibold text-accent-600">🥇 Platinum</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">76.6</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">77.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">78.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">76.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">77.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">75.0</td>
+                            <td class="px-2 py-3 text-center text-xs">
+                                <span class="font-bold text-secondary-600">★★★★☆</span> <span class="text-gray-900">(512명)</span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 cursor-pointer" data-name="표하율" data-status="현직" data-category="기초단체장" data-position="화성시장" data-party="국민의힘" data-region="화성시" data-district="" onclick="location.href='politician-detail.html'">
+                            <td class="px-2 py-3 text-center"><span class="font-bold text-gray-900 text-sm">26</span></td>
+                            <td class="px-3 py-3"><span class="font-bold text-primary-600 hover:text-primary-700 text-sm cursor-pointer inline-flex items-center gap-1">표하율 <span class="text-xs">›</span></span></td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">현직</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">화성시장</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">기초단체장</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">국민의힘</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">화성시</td>
+                            <td class="px-2 py-3 text-center text-xs font-semibold text-accent-600">🥇 Platinum</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">78.6</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">79.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">80.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">78.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">79.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">77.0</td>
+                            <td class="px-2 py-3 text-center text-xs">
+                                <span class="font-bold text-secondary-600">★★★★☆</span> <span class="text-gray-900">(1056명)</span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 cursor-pointer" data-name="문지율" data-status="예비후보자" data-category="국회의원" data-position="" data-party="정의당" data-region="서울" data-district="성북구 갑" onclick="location.href='politician-detail.html'">
+                            <td class="px-2 py-3 text-center"><span class="font-bold text-gray-900 text-sm">27</span></td>
+                            <td class="px-3 py-3"><span class="font-bold text-primary-600 hover:text-primary-700 text-sm cursor-pointer inline-flex items-center gap-1">문지율 <span class="text-xs">›</span></span></td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">예비후보자</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs"></td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">국회의원</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">정의당</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">서울 성북구 갑</td>
+                            <td class="px-2 py-3 text-center text-xs font-semibold text-accent-600">🥇 Gold</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">67.6</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">68.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">69.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">67.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">68.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">66.0</td>
+                            <td class="px-2 py-3 text-center text-xs">
+                                <span class="font-bold text-secondary-600">★★★☆☆</span> <span class="text-gray-900">(412명)</span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 cursor-pointer" data-name="소윤서" data-status="현직" data-category="광역단체장" data-position="광주광역시장" data-party="더불어민주당" data-region="광주광역시" data-district="" onclick="location.href='politician-detail.html'">
+                            <td class="px-2 py-3 text-center"><span class="font-bold text-gray-900 text-sm">28</span></td>
+                            <td class="px-3 py-3"><span class="font-bold text-primary-600 hover:text-primary-700 text-sm cursor-pointer inline-flex items-center gap-1">소윤서 <span class="text-xs">›</span></span></td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">현직</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">광주광역시장</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">광역단체장</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">더불어민주당</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">광주광역시</td>
+                            <td class="px-2 py-3 text-center text-xs font-semibold text-accent-600">💚 Emerald</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">84.6</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">85.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">83.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">86.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">84.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">85.0</td>
+                            <td class="px-2 py-3 text-center text-xs">
+                                <span class="font-bold text-secondary-600">★★★★☆</span> <span class="text-gray-900">(1432명)</span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 cursor-pointer" data-name="곽시현" data-status="출마자" data-category="기초의원" data-position="" data-party="기타" data-region="수원시" data-district="" onclick="location.href='politician-detail.html'">
+                            <td class="px-2 py-3 text-center"><span class="font-bold text-gray-900 text-sm">29</span></td>
+                            <td class="px-3 py-3"><span class="font-bold text-primary-600 hover:text-primary-700 text-sm cursor-pointer inline-flex items-center gap-1">곽시현 <span class="text-xs">›</span></span></td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">출마자</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs"></td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">기초의원</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">기타</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">수원시</td>
+                            <td class="px-2 py-3 text-center text-xs font-semibold text-accent-600">🥈 Silver</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">62.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">62.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">64.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">61.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">63.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">60.0</td>
+                            <td class="px-2 py-3 text-center text-xs">
+                                <span class="font-bold text-secondary-600">★★★☆☆</span> <span class="text-gray-900">(234명)</span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 cursor-pointer" data-name="백서우" data-status="현직" data-category="기초단체장" data-position="강남구청장" data-party="무소속" data-region="강남구" data-district="" onclick="location.href='politician-detail.html'">
+                            <td class="px-2 py-3 text-center"><span class="font-bold text-gray-900 text-sm">30</span></td>
+                            <td class="px-3 py-3"><span class="font-bold text-primary-600 hover:text-primary-700 text-sm cursor-pointer inline-flex items-center gap-1">백서우 <span class="text-xs">›</span></span></td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">현직</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">강남구청장</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">기초단체장</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">무소속</td>
+                            <td class="px-2 py-3 text-gray-600 text-xs">강남구</td>
+                            <td class="px-2 py-3 text-center text-xs font-semibold text-accent-600">💚 Emerald</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">80.6</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">81.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">80.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">82.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">79.0</td>
+                            <td class="px-2 py-3 text-center font-bold text-accent-600">81.0</td>
+                            <td class="px-2 py-3 text-center text-xs">
+                                <span class="font-bold text-secondary-600">★★★★☆</span> <span class="text-gray-900">(1345명)</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Pagination -->
+            <div class="border-t p-4 flex justify-center">
+                <nav class="inline-flex rounded-md shadow-sm -space-x-px">
+                    <button class="px-3 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary-300">
+                        이전
+                    </button>
+                    <button class="px-4 py-2 border border-gray-300 bg-primary-500 text-sm font-medium text-white">
+                        1
+                    </button>
+                    <button class="px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary-300">
+                        2
+                    </button>
+                    <button class="px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary-300">
+                        3
+                    </button>
+                    <button class="px-3 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary-300">
+                        다음
+                    </button>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Mobile: Cards -->
+        <div class="md:hidden space-y-4" id="politician-cards">
+            <!-- Card 1 -->
+            <div class="bg-white rounded-lg shadow-md p-4" data-name="김민준" data-party="더불어민주당" data-position="국회의원" data-region="서울" onclick="location.href='politician-detail.html'">
+                <div class="flex items-start justify-between mb-3">
+                    <div>
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="text-lg font-bold text-gray-700">1위</span>
+                            <span class="text-lg font-bold text-gray-900">김민준</span>
+                        </div>
+                        <div class="text-sm text-gray-600">
+                            <span class="font-medium">현직 국회의원</span>
+                            <span class="mx-1">|</span>
+                            <span>더불어민주당</span>
+                        </div>
+                        <div class="text-sm text-gray-600">서울 강남구</div>
+                    </div>
+                </div>
+
+                <div class="border-t pt-3 mt-3">
+                    <div class="text-center mb-3 pb-3 border-b">
+                        <div class="text-xs text-gray-600 mb-1">종합평점</div>
+                        <div class="text-2xl font-bold text-accent-600">90.0</div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-2 text-sm mb-3">
+                        <div class="flex items-center gap-2">
+                            <img src="https://cdn.brandfetch.io/idW5s392j1/w/338/h/338/theme/dark/icon.png?c=1bxid64Mup7aczewSAYMX&t=1738315794862" alt="Claude" class="h-5 w-5 object-contain rounded">
+                            <span class="text-xs text-gray-900">Claude</span>
+                            <span class="ml-auto font-bold text-accent-600">92.0</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <img src="https://cdn.brandfetch.io/idR3duQxYl/theme/dark/symbol.svg?c=1bxid64Mup7aczewSAYMX" alt="ChatGPT" class="h-5 w-5 object-contain">
+                            <span class="text-xs text-gray-900">ChatGPT</span>
+                            <span class="ml-auto font-bold text-accent-600">90.0</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <img src="https://cdn.simpleicons.org/googlegemini/000000" alt="Gemini" class="h-5 w-5 object-contain">
+                            <span class="text-xs text-gray-900">Gemini</span>
+                            <span class="ml-auto font-bold text-accent-600">88.0</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/grok-icon.svg" alt="Grok" class="h-5 w-5 object-contain">
+                            <span class="text-xs text-gray-900">Grok</span>
+                            <span class="ml-auto font-bold text-accent-600">91.0</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <img src="https://cdn.simpleicons.org/perplexity/000000" alt="Perplexity" class="h-5 w-5 object-contain">
+                            <span class="text-xs text-gray-900">Perplexity</span>
+                            <span class="ml-auto font-bold text-accent-600">89.0</span>
+                        </div>
+                    </div>
+
+                    <div class="text-center pt-2 border-t">
+                        <div class="text-xs text-gray-600 mb-1">회원평점</div>
+                        <div class="font-bold text-secondary-600">★★★★★</div>
+                        <div class="text-xs text-gray-600">(234명)</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Pagination -->
+            <div class="flex justify-center pt-4">
+                <nav class="inline-flex rounded-md shadow-sm -space-x-px">
+                    <button class="px-3 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                        이전
+                    </button>
+                    <button class="px-4 py-2 border border-gray-300 bg-primary-500 text-sm font-medium text-white">
+                        1
+                    </button>
+                    <button class="px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
+                        2
+                    </button>
+                    <button class="px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
+                        3
+                    </button>
+                    <button class="px-3 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                        다음
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-primary-500 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <!-- Footer Links -->
+            <div class="flex justify-center items-center space-x-8 text-base py-4">
+                <a href="#" class="text-white hover:text-gray-100 transition font-medium">서비스 소개</a>
+                <a href="#" class="text-white hover:text-gray-100 transition font-medium">이용약관</a>
+                <a href="#" class="text-white hover:text-gray-100 transition font-medium">개인정보처리방침</a>
+                <a href="#" class="text-white hover:text-gray-100 transition font-medium">고객센터</a>
+            </div>
+            <!-- Copyright -->
+            <div class="text-center text-base text-white py-4">
+                <p>&copy; 2025 PoliticianFinder. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Filter functions
+        const searchInput = document.getElementById('search-input');
+        const statusFilter = document.getElementById('status-filter');
+        const categoryFilter = document.getElementById('category-filter');
+        const partyFilter = document.getElementById('party-filter');
+        const regionFilter = document.getElementById('region-filter');
+        const gradeFilter = document.getElementById('grade-filter');
+        const resetButton = document.getElementById('reset-filters');
+
+        function applyFilters() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const selectedStatus = statusFilter.value;
+            const selectedCategory = categoryFilter.value;
+            const selectedParty = partyFilter.value;
+            const selectedRegion = regionFilter.value;
+            const selectedGrade = gradeFilter.value;
+
+            // Desktop table rows
+            const tableRows = document.querySelectorAll('#politician-table-body tr');
+            // Mobile cards
+            const mobileCards = document.querySelectorAll('#politician-cards > div');
+
+            let visibleCount = 0;
+            const maxItemsToShow = 30;
+
+            // Filter table rows
+            tableRows.forEach(row => {
+                const name = row.dataset.name ? row.dataset.name.toLowerCase() : '';
+                const status = row.dataset.status || '';
+                const category = row.dataset.category || '';
+                const party = row.dataset.party || '';
+                const region = row.dataset.region || '';
+                const district = row.dataset.district || '';
+                const grade = row.dataset.grade || '';
+
+                // Integrated search: name, party, category, region, district
+                const searchableText = `${name} ${party} ${category} ${region} ${district}`.toLowerCase();
+                const matchesSearch = !searchTerm || searchableText.includes(searchTerm);
+
+                const matchesStatus = !selectedStatus || status === selectedStatus;
+                const matchesCategory = !selectedCategory || category === selectedCategory;
+                const matchesParty = !selectedParty || party === selectedParty;
+                const matchesGrade = !selectedGrade || grade === selectedGrade;
+
+                // Region filter: support both 광역 and 기초
+                let matchesRegion = !selectedRegion;
+                if (selectedRegion && region) {
+                    const fullRegion = `${region} ${district}`.trim();
+
+                    // Exact match for 기초 (e.g., "서울 강남구")
+                    if (fullRegion === selectedRegion) {
+                        matchesRegion = true;
+                    }
+                    // If 광역 is selected (e.g., "서울특별시"), match all with region starting with "서울"
+                    else if (selectedRegion.includes('특별시') || selectedRegion.includes('광역시') ||
+                             selectedRegion.includes('특별자치시') || selectedRegion.includes('특별자치도') ||
+                             selectedRegion.endsWith('도')) {
+                        // Extract region prefix (서울특별시 → 서울, 경기도 → 경기)
+                        const selectedPrefix = selectedRegion.replace(/(특별시|광역시|특별자치시|특별자치도|도)$/, '');
+                        matchesRegion = region.startsWith(selectedPrefix);
+                    }
+                }
+
+                if (matchesSearch && matchesStatus && matchesCategory && matchesParty && matchesRegion && matchesGrade) {
+                    visibleCount++;
+                    // Show only first 30 items
+                    if (visibleCount <= maxItemsToShow) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+
+            // Filter mobile cards
+            let visibleCardCount = 0;
+            mobileCards.forEach(card => {
+                const name = card.dataset.name ? card.dataset.name.toLowerCase() : '';
+                const status = card.dataset.status || '';
+                const category = card.dataset.category || '';
+                const party = card.dataset.party || '';
+                const region = card.dataset.region || '';
+                const district = card.dataset.district || '';
+                const grade = card.dataset.grade || '';
+
+                const searchableText = `${name} ${party} ${category} ${region} ${district}`.toLowerCase();
+                const matchesSearch = !searchTerm || searchableText.includes(searchTerm);
+
+                const matchesStatus = !selectedStatus || status === selectedStatus;
+                const matchesCategory = !selectedCategory || category === selectedCategory;
+                const matchesParty = !selectedParty || party === selectedParty;
+                const matchesGrade = !selectedGrade || grade === selectedGrade;
+
+                // Region filter: support both 광역 and 기초
+                let matchesRegion = !selectedRegion;
+                if (selectedRegion && region) {
+                    const fullRegion = `${region} ${district}`.trim();
+
+                    // Exact match for 기초 (e.g., "서울 강남구")
+                    if (fullRegion === selectedRegion) {
+                        matchesRegion = true;
+                    }
+                    // If 광역 is selected (e.g., "서울특별시"), match all with region starting with "서울"
+                    else if (selectedRegion.includes('특별시') || selectedRegion.includes('광역시') ||
+                             selectedRegion.includes('특별자치시') || selectedRegion.includes('특별자치도') ||
+                             selectedRegion.endsWith('도')) {
+                        // Extract region prefix (서울특별시 → 서울, 경기도 → 경기)
+                        const selectedPrefix = selectedRegion.replace(/(특별시|광역시|특별자치시|특별자치도|도)$/, '');
+                        matchesRegion = region.startsWith(selectedPrefix);
+                    }
+                }
+
+                if (matchesSearch && matchesStatus && matchesCategory && matchesParty && matchesRegion && matchesGrade) {
+                    visibleCardCount++;
+                    // Show only first 30 items
+                    if (visibleCardCount <= maxItemsToShow) {
+                        card.style.display = '';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Event listeners
+        const searchButton = document.getElementById('search-button');
+        const filterSearchButton = document.getElementById('filter-search-button');
+
+        // Real-time filtering for integrated search
+        searchInput.addEventListener('input', applyFilters);
+
+        // Real-time filtering for filter selects
+        statusFilter.addEventListener('change', applyFilters);
+        categoryFilter.addEventListener('change', applyFilters);
+        partyFilter.addEventListener('change', applyFilters);
+        regionFilter.addEventListener('change', applyFilters);
+        gradeFilter.addEventListener('change', applyFilters);
+
+        // Integrated search button click event
+        searchButton.addEventListener('click', applyFilters);
+
+        // Filter search button click event
+        filterSearchButton.addEventListener('click', applyFilters);
+
+        // Enter key event for search input
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                applyFilters();
+            }
+        });
+
+        // Reset button
+        resetButton.addEventListener('click', function() {
+            searchInput.value = '';
+            statusFilter.value = '';
+            categoryFilter.value = '';
+            partyFilter.value = '';
+            regionFilter.value = '';
+            gradeFilter.value = '';
+            applyFilters();
+        });
+
+        // Apply filters on page load to show only 30 items initially
+        applyFilters();
+    </script>
+
+</body>
+</html>

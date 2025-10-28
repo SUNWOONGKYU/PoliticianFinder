@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>민주시민 프로필 - PoliticianFinder</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#fff7ed',
+                            100: '#ffedd5',
+                            200: '#fed7aa',
+                            300: '#fdba74',
+                            400: '#fb923c',
+                            500: '#f97316',
+                            600: '#ea580c',
+                            700: '#c2410c',
+                            800: '#9a3412',
+                            900: '#7c2d12',
+                        },
+                        secondary: {
+                            500: '#8b5cf6',
+                            600: '#7c3aed',
+                        },
+                        accent: {
+                            500: '#00D26A',
+                            600: '#00D26A',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts: Noto Sans KR -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'system-ui', sans-serif;
+            color: #000000;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Header (로그인 후 상태) -->
+    <header class="bg-white shadow-sm sticky top-0 z-50 border-b-2 border-primary-500">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo & Catchphrase -->
+                <div class="flex items-center space-x-4">
+                    <a href="index.html" class="text-2xl font-bold text-primary-600">PoliticianFinder</a>
+                    <div class="hidden md:block w-48">
+                        <div class="font-bold text-gray-900" style="font-size: clamp(0.5rem, 3vw, 1rem);">훌륭한 정치인 찾기</div>
+                        <div class="text-gray-900 font-medium" style="font-size: clamp(0.38rem, 2.28vw, 0.7125rem);">AI 기반 정치인 평가 플랫폼</div>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="index.html" class="text-gray-900 hover:text-primary-600 font-medium">홈</a>
+                    <a href="politicians.html" class="text-gray-900 hover:text-primary-600 font-medium">정치인</a>
+                    <a href="community.html" class="text-gray-900 hover:text-primary-600 font-medium">커뮤니티</a>
+                    <a href="services.html" class="text-gray-900 hover:text-primary-600 font-medium">연결</a>
+
+                    <!-- 알림 아이콘 -->
+                    <a href="notifications.html" class="relative text-gray-900 hover:text-primary-600">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+                        </svg>
+                        <span class="absolute top-0 right-0 inline-flex items-center justify-center px-1.5 py-0.5 text-xs font-bold leading-none text-white transform translate-x-1/2 -translate-y-1/2 bg-red-600 rounded-full">3</span>
+                    </a>
+
+                    <!-- 프로필 메뉴 -->
+                    <div class="flex items-center gap-2">
+                        <svg class="w-6 h-6 text-gray-900" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
+                        </svg>
+                        <a href="mypage.html" class="text-gray-900 hover:text-primary-600 font-medium">내 프로필</a>
+                    </div>
+
+                    <a href="login.html" class="text-gray-900 hover:text-primary-600 font-medium">로그아웃</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Left Sidebar: Profile Card -->
+            <div class="lg:col-span-1">
+                <div class="bg-white rounded-lg shadow-md p-6 sticky top-24">
+                    <!-- Profile Picture -->
+                    <div class="flex justify-center mb-4">
+                        <div class="w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center">
+                            <svg class="w-16 h-16 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Name & Level -->
+                    <div class="text-center mb-4">
+                        <h2 class="text-2xl font-bold text-gray-900">민주시민</h2>
+                        <p class="text-secondary-600 font-medium mt-1">ML5</p>
+                    </div>
+
+                    <!-- Bio -->
+                    <div class="mb-6 pb-6 border-b">
+                        <h3 class="text-sm font-bold text-gray-700 mb-2">자기소개</h3>
+                        <p id="bio-content" class="text-sm text-gray-600 leading-relaxed">
+                            정치에 관심이 많은 평범한 시민입니다. 더 나은 사회를 만들기 위해 함께 고민하고 토론하는 것을 좋아합니다.
+                        </p>
+                        <div id="bio-private" class="hidden text-sm text-gray-500 text-center py-4">
+                            <svg class="w-8 h-8 mx-auto mb-2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                            </svg>
+                            비공개 계정입니다
+                        </div>
+                    </div>
+
+                    <!-- Stats Summary -->
+                    <div id="stats-summary" class="space-y-3">
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-600">게시글</span>
+                            <span class="text-lg font-bold text-gray-900">24</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-600">댓글</span>
+                            <span class="text-lg font-bold text-gray-900">156</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-600">포인트</span>
+                            <span class="text-lg font-bold text-gray-900">1,248</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Content: Tabs -->
+            <div id="content-section" class="lg:col-span-2">
+                <!-- Private Account Message -->
+                <div id="private-message" class="hidden bg-white rounded-lg shadow-md p-12 text-center">
+                    <svg class="w-16 h-16 mx-auto mb-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                    </svg>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">비공개 계정입니다</h3>
+                    <p class="text-gray-600">이 사용자의 게시글과 활동 내역은 공개되지 않습니다.</p>
+                </div>
+
+                <!-- Tab Navigation -->
+                <div id="tab-navigation" class="bg-white rounded-lg shadow-md mb-6">
+                    <div class="flex border-b">
+                        <button onclick="switchTab('posts')" id="tab-btn-posts" class="flex-1 px-6 py-4 text-center font-medium border-b-2 border-secondary-500 text-secondary-600">
+                            내 게시글
+                        </button>
+                        <button onclick="switchTab('comments')" id="tab-btn-comments" class="flex-1 px-6 py-4 text-center font-medium border-b-2 border-transparent text-gray-500 hover:text-gray-700">
+                            내 댓글
+                        </button>
+                        <button onclick="switchTab('stats')" id="tab-btn-stats" class="flex-1 px-6 py-4 text-center font-medium border-b-2 border-transparent text-gray-500 hover:text-gray-700">
+                            활동 내역
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Tab Content: Posts -->
+                <div id="tab-posts" class="tab-content active">
+                    <div class="bg-white rounded-lg shadow-md divide-y">
+                        <!-- Post Item -->
+                        <div class="p-4 hover:bg-gray-50 transition cursor-pointer">
+                            <div class="flex items-start justify-between">
+                                <div class="flex-1">
+                                    <h3 class="text-base font-semibold text-gray-900 hover:text-secondary-600">
+                                        AI 평가 시스템의 신뢰성에 대한 토론
+                                    </h3>
+                                    <p class="text-sm text-gray-600 mt-1 line-clamp-2">
+                                        Claude AI의 정치인 평가가 얼마나 객관적일 수 있을까요? 여러분의 의견을 들어보고 싶습니다...
+                                    </p>
+                                    <div class="flex items-center gap-4 mt-2 text-xs text-gray-500">
+                                        <span>2025-01-24 10:23</span>
+                                        <span>조회수 234</span>
+                                        <span class="text-red-600">👍 12</span>
+                                        <span class="text-gray-400">👎 3</span>
+                                        <span>댓글 8</span>
+                                        <span class="flex items-center gap-1">
+                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path>
+                                            </svg>
+                                            <span>공유 5</span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <span class="ml-4 px-2 py-1 bg-blue-100 text-blue-700 text-xs font-medium rounded">자유게시판</span>
+                            </div>
+                        </div>
+
+                        <!-- Post Item -->
+                        <div class="p-4 hover:bg-gray-50 transition cursor-pointer">
+                            <div class="flex items-start justify-between">
+                                <div class="flex-1">
+                                    <h3 class="text-base font-semibold text-gray-900 hover:text-secondary-600">
+                                        우리 동네 국회의원 찾기 기능 건의
+                                    </h3>
+                                    <p class="text-sm text-gray-600 mt-1 line-clamp-2">
+                                        주소 입력하면 해당 지역구 국회의원을 바로 볼 수 있으면 좋겠어요...
+                                    </p>
+                                    <div class="flex items-center gap-4 mt-2 text-xs text-gray-500">
+                                        <span>2025-01-22 16:45</span>
+                                        <span>조회수 156</span>
+                                        <span class="text-red-600">👍 28</span>
+                                        <span class="text-gray-400">👎 5</span>
+                                        <span>댓글 15</span>
+                                        <span class="flex items-center gap-1">
+                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path>
+                                            </svg>
+                                            <span>공유 3</span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <span class="ml-4 px-2 py-1 bg-purple-100 text-purple-700 text-xs font-medium rounded">기능건의</span>
+                            </div>
+                        </div>
+
+                        <!-- Post Item -->
+                        <div class="p-4 hover:bg-gray-50 transition cursor-pointer">
+                            <div class="flex items-start justify-between">
+                                <div class="flex-1">
+                                    <h3 class="text-base font-semibold text-gray-900 hover:text-secondary-600">
+                                        정치인 평가 기준이 궁금합니다
+                                    </h3>
+                                    <p class="text-sm text-gray-600 mt-1 line-clamp-2">
+                                        AI가 어떤 데이터를 기반으로 평가하는지 자세한 설명이 있으면 좋겠습니다...
+                                    </p>
+                                    <div class="flex items-center gap-4 mt-2 text-xs text-gray-500">
+                                        <span>2025-01-20 09:12</span>
+                                        <span>조회수 189</span>
+                                        <span class="text-red-600">👍 7</span>
+                                        <span class="text-gray-400">👎 2</span>
+                                        <span>댓글 12</span>
+                                        <span class="flex items-center gap-1">
+                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path>
+                                            </svg>
+                                            <span>공유 4</span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <span class="ml-4 px-2 py-1 bg-blue-100 text-blue-700 text-xs font-medium rounded">자유게시판</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="mt-6 flex justify-center">
+                        <nav class="inline-flex rounded-md shadow-sm -space-x-px">
+                            <button class="px-3 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                                이전
+                            </button>
+                            <button class="px-4 py-2 border border-gray-300 bg-secondary-500 text-sm font-medium text-white">
+                                1
+                            </button>
+                            <button class="px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
+                                2
+                            </button>
+                            <button class="px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
+                                3
+                            </button>
+                            <button class="px-3 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                                다음
+                            </button>
+                        </nav>
+                    </div>
+                </div>
+
+                <!-- Tab Content: Comments -->
+                <div id="tab-comments" class="tab-content">
+                    <div class="bg-white rounded-lg shadow-md divide-y">
+                        <!-- Comment Item -->
+                        <div class="p-4 hover:bg-gray-50 transition">
+                            <div class="text-sm text-gray-500 mb-2">
+                                <a href="#" class="font-medium text-secondary-600 hover:underline">2025년 정치 개혁 방향</a>에 댓글을 남겼습니다
+                            </div>
+                            <p class="text-sm text-gray-900">
+                                정말 공감합니다. 특히 투명성 강화 부분이 중요하다고 생각해요. 국민들이 정치인의 활동을 실시간으로 볼 수 있어야 합니다.
+                            </p>
+                            <div class="flex items-center gap-4 mt-2 text-xs text-gray-500">
+                                <span>2025-01-24 14:32</span>
+                                <span class="text-red-600">👍 5</span>
+                                <span class="text-gray-400">👎 1</span>
+                            </div>
+                        </div>
+
+                        <!-- Comment Item -->
+                        <div class="p-4 hover:bg-gray-50 transition">
+                            <div class="text-sm text-gray-500 mb-2">
+                                <a href="#" class="font-medium text-secondary-600 hover:underline">AI 평가의 한계점</a>에 댓글을 남겼습니다
+                            </div>
+                            <p class="text-sm text-gray-900">
+                                AI도 결국 데이터를 기반으로 하기 때문에 편향이 있을 수 있다는 점을 인지해야 합니다. 하지만 그럼에도 기존 방식보다는 객관적이라고 봅니다.
+                            </p>
+                            <div class="flex items-center gap-4 mt-2 text-xs text-gray-500">
+                                <span>2025-01-23 09:15</span>
+                                <span class="text-red-600">👍 12</span>
+                                <span class="text-gray-400">👎 0</span>
+                            </div>
+                        </div>
+
+                        <!-- Comment Item -->
+                        <div class="p-4 hover:bg-gray-50 transition">
+                            <div class="text-sm text-gray-500 mb-2">
+                                <a href="#" class="font-medium text-secondary-600 hover:underline">지역구 의원 활동 비교</a>에 댓글을 남겼습니다
+                            </div>
+                            <p class="text-sm text-gray-900">
+                                우리 지역구 의원은 AI 평가에서 높은 점수를 받았는데 실제로도 활동을 열심히 하시더라고요. 믿을만한 것 같습니다.
+                            </p>
+                            <div class="flex items-center gap-4 mt-2 text-xs text-gray-500">
+                                <span>2025-01-21 18:42</span>
+                                <span class="text-red-600">👍 8</span>
+                                <span class="text-gray-400">👎 2</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="mt-6 flex justify-center">
+                        <nav class="inline-flex rounded-md shadow-sm -space-x-px">
+                            <button class="px-3 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                                이전
+                            </button>
+                            <button class="px-4 py-2 border border-gray-300 bg-secondary-500 text-sm font-medium text-white">
+                                1
+                            </button>
+                            <button class="px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
+                                2
+                            </button>
+                            <button class="px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
+                                3
+                            </button>
+                            <button class="px-3 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                                다음
+                            </button>
+                        </nav>
+                    </div>
+                </div>
+
+                <!-- Tab Content: Stats -->
+                <div id="tab-stats" class="tab-content">
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h3 class="text-lg font-bold text-gray-900 mb-4">활동 통계</h3>
+
+                        <!-- Stats Grid -->
+                        <div class="grid grid-cols-2 gap-4 mb-6">
+                            <div class="bg-blue-50 rounded-lg p-4">
+                                <div class="text-sm text-gray-600 mb-1">총 게시글</div>
+                                <div class="text-2xl font-bold text-blue-600">24</div>
+                            </div>
+                            <div class="bg-purple-50 rounded-lg p-4">
+                                <div class="text-sm text-gray-600 mb-1">총 댓글</div>
+                                <div class="text-2xl font-bold text-purple-600">156</div>
+                            </div>
+                            <div class="bg-green-50 rounded-lg p-4">
+                                <div class="text-sm text-gray-600 mb-1">받은 공감</div>
+                                <div class="text-2xl font-bold text-green-600">342</div>
+                            </div>
+                            <div class="bg-pink-50 rounded-lg p-4">
+                                <div class="text-sm text-gray-600 mb-1">Best 글</div>
+                                <div class="text-2xl font-bold text-pink-600">3</div>
+                            </div>
+                            <div class="bg-red-50 rounded-lg p-4">
+                                <div class="text-sm text-gray-600 mb-1">Hot 글</div>
+                                <div class="text-2xl font-bold text-red-600">5</div>
+                            </div>
+                            <div class="bg-indigo-50 rounded-lg p-4">
+                                <div class="text-sm text-gray-600 mb-1">활동 일수</div>
+                                <div class="text-2xl font-bold text-indigo-600">127</div>
+                            </div>
+                        </div>
+
+                        <!-- Recent Activity -->
+                        <div class="border-t pt-6 mt-6">
+                            <h4 class="text-sm font-bold text-gray-900 mb-4">최근 활동</h4>
+                            <div class="space-y-3">
+                                <div class="flex items-start gap-3">
+                                    <div class="w-2 h-2 bg-blue-500 rounded-full mt-1.5"></div>
+                                    <div class="flex-1">
+                                        <p class="text-sm text-gray-900">게시글 작성</p>
+                                        <p class="text-xs text-gray-500">AI 평가 시스템의 신뢰성에 대한 토론 • 2025-01-24</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <div class="w-2 h-2 bg-purple-500 rounded-full mt-1.5"></div>
+                                    <div class="flex-1">
+                                        <p class="text-sm text-gray-900">댓글 작성</p>
+                                        <p class="text-xs text-gray-500">2025년 정치 개혁 방향 • 2025-01-24</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <div class="w-2 h-2 bg-green-500 rounded-full mt-1.5"></div>
+                                    <div class="flex-1">
+                                        <p class="text-sm text-gray-900">공감 받음</p>
+                                        <p class="text-xs text-gray-500">우리 동네 국회의원 찾기 기능 건의 • 2025-01-23</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary-500 text-white mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <p class="text-center text-sm">&copy; 2025 PoliticianFinder. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // 비공개 계정 여부 (실제로는 서버에서 가져옴)
+        // URL 파라미터로 테스트: ?private=true
+        const urlParams = new URLSearchParams(window.location.search);
+        const isPrivate = urlParams.get('private') === 'true';
+
+        // 페이지 로드 시 비공개 설정 적용
+        document.addEventListener('DOMContentLoaded', function() {
+            if (isPrivate) {
+                applyPrivateMode();
+            }
+        });
+
+        function applyPrivateMode() {
+            // 자기소개 숨기기
+            document.getElementById('bio-content').classList.add('hidden');
+            document.getElementById('bio-private').classList.remove('hidden');
+
+            // 통계 숨기기
+            document.getElementById('stats-summary').classList.add('hidden');
+
+            // 탭 네비게이션 및 콘텐츠 숨기기
+            document.getElementById('tab-navigation').classList.add('hidden');
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.add('hidden');
+            });
+
+            // 비공개 메시지 표시
+            document.getElementById('private-message').classList.remove('hidden');
+        }
+
+        // Tab switching
+        function switchTab(tabName) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Remove active state from all buttons
+            document.querySelectorAll('[id^="tab-btn-"]').forEach(btn => {
+                btn.classList.remove('border-secondary-500', 'text-secondary-600');
+                btn.classList.add('border-transparent', 'text-gray-500');
+            });
+
+            // Show selected tab
+            document.getElementById('tab-' + tabName).classList.add('active');
+
+            // Add active state to clicked button
+            const activeBtn = document.getElementById('tab-btn-' + tabName);
+            activeBtn.classList.remove('border-transparent', 'text-gray-500');
+            activeBtn.classList.add('border-secondary-500', 'text-secondary-600');
+        }
+    </script>
+</body>
+</html>

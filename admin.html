@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>관리자 대시보드 - PoliticianFinder</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#fff7ed',
+                            100: '#ffedd5',
+                            200: '#fed7aa',
+                            300: '#fdba74',
+                            400: '#fb923c',
+                            500: '#f97316',
+                            600: '#ea580c',
+                            700: '#c2410c',
+                            800: '#9a3412',
+                            900: '#7c2d12',
+                        },
+                        secondary: {
+                            500: '#3b82f6', // 파란색
+                            600: '#2563eb',
+                        },
+                        admin: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            200: '#e2e8f0',
+                            300: '#cbd5e1',
+                            400: '#94a3b8',
+                            500: '#64748b',
+                            600: '#475569',
+                            700: '#334155',
+                            800: '#1e293b',
+                            900: '#0f172a',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Pretendard', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts: Noto Sans KR -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+        /* 활성 탭 스타일 */
+        .tab-active {
+            border-bottom: 2px solid #2563eb;
+            color: #2563eb;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="bg-admin-100">
+
+    <div class="flex h-screen bg-admin-100">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-admin-800 text-white flex flex-col">
+            <div class="p-6 text-2xl font-bold border-b border-admin-700">
+                <a href="index.html">PoliticianFinder</a>
+                <span class="text-sm font-normal block">Admin Panel</span>
+            </div>
+            <nav class="flex-1 p-4 space-y-2">
+                <a href="#dashboard" class="flex items-center gap-3 px-4 py-2 rounded-lg bg-admin-900 text-white font-semibold">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                    <span>대시보드</span>
+                </a>
+                <a href="#user-management" class="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-admin-700">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M15 21a6 6 0 00-9-5.197m0 0A4.978 4.978 0 0112 13a4.978 4.978 0 01-3-1.197m0 0A4.992 4.992 0 0012 13a4.992 4.992 0 00-3-1.197z"></path></svg>
+                    <span>회원 관리</span>
+                </a>
+                <a href="#politician-management" class="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-admin-700">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                    <span>정치인 관리</span>
+                </a>
+                <a href="#content-management" class="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-admin-700">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                    <span>콘텐츠 관리</span>
+                </a>
+                <a href="#report-management" class="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-admin-700">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9"></path></svg>
+                    <span>신고 관리</span>
+                    <span class="ml-auto bg-red-500 text-white text-xs font-bold rounded-full px-2 py-0.5">12</span>
+                </a>
+                 <a href="#score-management" class="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-admin-700">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 14h.01M9 11h.01M12 11h.01M15 11h.01M5.77 7.23a9 9 0 1112.46 0M12 3v1m0 16v1"></path></svg>
+                    <span>AI 점수 관리</span>
+                </a>
+            </nav>
+            <div class="mt-auto p-4 border-t border-admin-700">
+                <a href="#" class="flex items-center gap-3">
+                    <img class="w-10 h-10 rounded-full" src="https://i.pravatar.cc/100?u=admin" alt="Admin">
+                    <div>
+                        <p class="font-semibold">관리자</p>
+                        <p class="text-sm text-admin-400">온라인</p>
+                    </div>
+                </a>
+                 <a href="index.html" class="block w-full text-center mt-4 py-2 bg-secondary-500 text-white rounded-lg hover:bg-secondary-600 text-sm">
+                    메인으로
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-6 lg:p-8 overflow-y-auto">
+            
+            <!-- Dashboard Section -->
+            <section id="dashboard">
+                <h1 class="text-3xl font-bold text-admin-900 mb-6">대시보드</h1>
+                
+                <!-- Stats Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                    <div class="bg-white p-6 rounded-lg shadow-md flex items-center gap-4">
+                        <div class="bg-blue-100 p-3 rounded-full"><svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg></div>
+                        <div>
+                            <p class="text-sm text-gray-500">총 회원 수</p>
+                            <p class="text-2xl font-bold text-gray-900">1,234명</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md flex items-center gap-4">
+                        <div class="bg-green-100 p-3 rounded-full"><svg class="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg></div>
+                        <div>
+                            <p class="text-sm text-gray-500">총 정치인 수</p>
+                            <p class="text-2xl font-bold text-gray-900">152명</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md flex items-center gap-4">
+                        <div class="bg-yellow-100 p-3 rounded-full"><svg class="w-6 h-6 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg></div>
+                        <div>
+                            <p class="text-sm text-gray-500">총 게시글 수</p>
+                            <p class="text-2xl font-bold text-gray-900">5,678개</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md flex items-center gap-4">
+                        <div class="bg-red-100 p-3 rounded-full"><svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9"></path></svg></div>
+                        <div>
+                            <p class="text-sm text-gray-500">처리 대기 신고</p>
+                            <p class="text-2xl font-bold text-gray-900">12건</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activities & Reports -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- 최근 활동 -->
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h2 class="text-xl font-bold text-gray-900 mb-4">최근 활동</h2>
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-3 text-sm">
+                                <span class="bg-blue-100 text-blue-600 p-1 rounded-md text-xs">회원</span>
+                                <p class="flex-1 text-gray-700"><span class="font-semibold">정치신인</span>님이 신규 가입했습니다.</p>
+                                <span class="text-gray-400">방금 전</span>
+                            </div>
+                            <div class="flex items-start gap-3 text-sm">
+                                <span class="bg-red-100 text-red-600 p-1 rounded-md text-xs">신고</span>
+                                <p class="flex-1 text-gray-700"><span class="font-semibold">불량유저</span>님의 댓글에 대한 신고가 접수되었습니다.</p>
+                                <span class="text-gray-400">5분 전</span>
+                            </div>
+                            <div class="flex items-start gap-3 text-sm">
+                                <span class="bg-green-100 text-green-600 p-1 rounded-md text-xs">정치인</span>
+                                <p class="flex-1 text-gray-700"><span class="font-semibold">김민준</span> 의원의 프로필이 업데이트되었습니다.</p>
+                                <span class="text-gray-400">1시간 전</span>
+                            </div>
+                            <div class="flex items-start gap-3 text-sm">
+                                <span class="bg-yellow-100 text-yellow-600 p-1 rounded-md text-xs">게시글</span>
+                                <p class="flex-1 text-gray-700">[공지] 서버 점검 안내 게시글이 등록되었습니다.</p>
+                                <span class="text-gray-400">3시간 전</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 주요 공지사항 -->
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h2 class="text-xl font-bold text-gray-900 mb-4">주요 공지사항</h2>
+                        <div class="space-y-3">
+                            <a href="#" class="block p-3 bg-gray-50 rounded-lg hover:bg-gray-100">
+                                <p class="font-semibold text-gray-800">커뮤니티 가이드라인 업데이트 안내</p>
+                                <p class="text-sm text-gray-500">2025.10.28</p>
+                            </a>
+                            <a href="#" class="block p-3 bg-gray-50 rounded-lg hover:bg-gray-100">
+                                <p class="font-semibold text-gray-800">AI 평가 시스템 v1.1 업데이트</p>
+                                <p class="text-sm text-gray-500">2025.10.25</p>
+                            </a>
+                             <a href="#" class="block p-3 bg-gray-50 rounded-lg hover:bg-gray-100">
+                                <p class="font-semibold text-gray-800">정식 서비스 오픈 안내</p>
+                                <p class="text-sm text-gray-500">2025.10.20</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- User Management Section (Hidden by default) -->
+            <section id="user-management" class="hidden">
+                <h1 class="text-3xl font-bold text-admin-900 mb-6">회원 관리</h1>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <!-- Search and Filter -->
+                    <div class="flex flex-col md:flex-row gap-4 mb-4">
+                        <input type="text" placeholder="회원 검색 (이름, 닉네임, 이메일)" class="flex-grow p-2 border rounded-lg">
+                        <select class="p-2 border rounded-lg">
+                            <option>모든 등급</option>
+                            <option>ML1</option>
+                            <option>ML2</option>
+                            <option>ML3</option>
+                            <option>ML4</option>
+                            <option>ML5</option>
+                        </select>
+                        <select class="p-2 border rounded-lg">
+                            <option>모든 상태</option>
+                            <option>정상</option>
+                            <option>차단</option>
+                        </select>
+                        <button class="bg-secondary-500 text-white px-4 py-2 rounded-lg hover:bg-secondary-600">검색</button>
+                    </div>
+                    <!-- User Table -->
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm text-left">
+                            <thead class="bg-gray-100">
+                                <tr>
+                                    <th class="p-3">ID</th>
+                                    <th class="p-3">닉네임</th>
+                                    <th class="p-3">이메일</th>
+                                    <th class="p-3">가입일</th>
+                                    <th class="p-3">등급</th>
+                                    <th class="p-3">상태</th>
+                                    <th class="p-3">관리</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b hover:bg-gray-50">
+                                    <td class="p-3">1</td>
+                                    <td class="p-3 font-semibold">정치관심러</td>
+                                    <td class="p-3">user1@example.com</td>
+                                    <td class="p-3">2025-10-20</td>
+                                    <td class="p-3">ML3</td>
+                                    <td class="p-3"><span class="bg-green-100 text-green-700 px-2 py-1 rounded-full text-xs">정상</span></td>
+                                    <td class="p-3 space-x-2">
+                                        <button class="text-blue-500 hover:underline">수정</button>
+                                        <button class="text-red-500 hover:underline">차단</button>
+                                    </td>
+                                </tr>
+                                <tr class="border-b hover:bg-gray-50">
+                                    <td class="p-3">2</td>
+                                    <td class="p-3 font-semibold">불량유저</td>
+                                    <td class="p-3">user2@example.com</td>
+                                    <td class="p-3">2025-10-21</td>
+                                    <td class="p-3">ML1</td>
+                                    <td class="p-3"><span class="bg-red-100 text-red-700 px-2 py-1 rounded-full text-xs">차단</span></td>
+                                    <td class="p-3 space-x-2">
+                                        <button class="text-blue-500 hover:underline">수정</button>
+                                        <button class="text-green-500 hover:underline">해제</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Politician Management Section (Hidden by default) -->
+            <section id="politician-management" class="hidden">
+                <h1 class="text-3xl font-bold text-admin-900 mb-6">정치인 관리</h1>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex justify-between items-center mb-4">
+                        <h2 class="text-xl font-bold">정치인 목록</h2>
+                        <button class="bg-secondary-500 text-white px-4 py-2 rounded-lg hover:bg-secondary-600">+ 새 정치인 추가</button>
+                    </div>
+                    <!-- Politician Table -->
+                     <div class="overflow-x-auto">
+                        <table class="w-full text-sm text-left">
+                            <thead class="bg-gray-100">
+                                <tr>
+                                    <th class="p-3">ID</th>
+                                    <th class="p-3">이름</th>
+                                    <th class="p-3">정당</th>
+                                    <th class="p-3">지역</th>
+                                    <th class="p-3">직책</th>
+                                    <th class="p-3">인증계정</th>
+                                    <th class="p-3">관리</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b hover:bg-gray-50">
+                                    <td class="p-3">1</td>
+                                    <td class="p-3 font-semibold">김민준</td>
+                                    <td class="p-3">더불어민주당</td>
+                                    <td class="p-3">서울 강남구</td>
+                                    <td class="p-3">국회의원</td>
+                                    <td class="p-3 text-green-600 font-bold">Y</td>
+                                    <td class="p-3 space-x-2">
+                                        <button class="text-blue-500 hover:underline">수정</button>
+                                        <button class="text-red-500 hover:underline">삭제</button>
+                                    </td>
+                                </tr>
+                                <tr class="border-b hover:bg-gray-50">
+                                    <td class="p-3">2</td>
+                                    <td class="p-3 font-semibold">이서연</td>
+                                    <td class="p-3">국민의힘</td>
+                                    <td class="p-3">부산광역시</td>
+                                    <td class="p-3">부산광역시장</td>
+                                    <td class="p-3 text-gray-400">N</td>
+                                    <td class="p-3 space-x-2">
+                                        <button class="text-blue-500 hover:underline">수정</button>
+                                        <button class="text-red-500 hover:underline">삭제</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Content Management Section (Hidden by default) -->
+            <section id="content-management" class="hidden">
+                <h1 class="text-3xl font-bold text-admin-900 mb-6">콘텐츠 관리</h1>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <!-- Tabs -->
+                    <div class="border-b mb-4">
+                        <nav class="flex gap-6 -mb-px">
+                            <button class="py-3 px-1 border-b-2 border-transparent tab-active" data-tab="posts">게시글 관리</button>
+                            <button class="py-3 px-1 border-b-2 border-transparent text-gray-500 hover:text-secondary-500" data-tab="comments">댓글 관리</button>
+                            <button class="py-3 px-1 border-b-2 border-transparent text-gray-500 hover:text-secondary-500" data-tab="notices">공지사항 관리</button>
+                        </nav>
+                    </div>
+                    
+                    <!-- Posts Tab -->
+                    <div id="posts-tab">
+                        <!-- Search and Filter -->
+                        <div class="flex flex-col md:flex-row gap-4 mb-4">
+                            <input type="text" placeholder="게시글 검색 (제목, 내용, 작성자)" class="flex-grow p-2 border rounded-lg">
+                            <button class="bg-secondary-500 text-white px-4 py-2 rounded-lg hover:bg-secondary-600">검색</button>
+                        </div>
+                        <!-- Posts Table -->
+                        <table class="w-full text-sm text-left">
+                            <thead class="bg-gray-100">
+                                <tr>
+                                    <th class="p-3">ID</th>
+                                    <th class="p-3">제목</th>
+                                    <th class="p-3">작성자</th>
+                                    <th class="p-3">작성일</th>
+                                    <th class="p-3">관리</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b hover:bg-gray-50">
+                                    <td class="p-3">101</td>
+                                    <td class="p-3 font-semibold">우리 지역 정치인 평가 어떤가요?</td>
+                                    <td class="p-3">시민123</td>
+                                    <td class="p-3">2025-10-26</td>
+                                    <td class="p-3"><button class="text-red-500 hover:underline">삭제</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Comments Tab -->
+                    <div id="comments-tab" class="hidden">
+                        <!-- Search and Filter -->
+                        <div class="flex flex-col md:flex-row gap-4 mb-4">
+                            <input type="text" placeholder="댓글 검색 (내용, 작성자)" class="flex-grow p-2 border rounded-lg">
+                            <button class="bg-secondary-500 text-white px-4 py-2 rounded-lg hover:bg-secondary-600">검색</button>
+                        </div>
+                        <!-- Comments Table -->
+                        <table class="w-full text-sm text-left">
+                            <thead class="bg-gray-100">
+                                <tr>
+                                    <th class="p-3">ID</th>
+                                    <th class="p-3">내용</th>
+                                    <th class="p-3">작성자</th>
+                                    <th class="p-3">작성일</th>
+                                    <th class="p-3">관리</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b hover:bg-gray-50">
+                                    <td class="p-3">501</td>
+                                    <td class="p-3">동의합니다. AI 평가가 더 정확해요.</td>
+                                    <td class="p-3">공정사회</td>
+                                    <td class="p-3">2025-10-26</td>
+                                    <td class="p-3"><button class="text-red-500 hover:underline">삭제</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Notices Tab -->
+                    <div id="notices-tab" class="hidden">
+                        <h3 class="text-xl font-bold mb-4">새 공지사항 작성</h3>
+                        <div class="space-y-4 mb-8">
+                            <input type="text" placeholder="제목" class="w-full p-2 border rounded-lg">
+                            <textarea placeholder="내용" rows="6" class="w-full p-2 border rounded-lg"></textarea>
+                            <div class="text-right">
+                                <button class="bg-secondary-500 text-white px-6 py-2 rounded-lg hover:bg-secondary-600">등록</button>
+                            </div>
+                        </div>
+
+                        <h3 class="text-xl font-bold mb-4">공지사항 목록</h3>
+                        <table class="w-full text-sm text-left">
+                            <thead class="bg-gray-100">
+                                <tr>
+                                    <th class="p-3">ID</th>
+                                    <th class="p-3">제목</th>
+                                    <th class="p-3">작성일</th>
+                                    <th class="p-3">관리</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b hover:bg-gray-50">
+                                    <td class="p-3">1</td>
+                                    <td class="p-3 font-semibold">커뮤니티 가이드라인 업데이트 안내</td>
+                                    <td class="p-3">2025-10-28</td>
+                                    <td class="p-3 space-x-2">
+                                        <button class="text-blue-500 hover:underline">수정</button>
+                                        <button class="text-red-500 hover:underline">삭제</button>
+                                    </td>
+                                </tr>
+                                <tr class="border-b hover:bg-gray-50">
+                                    <td class="p-3">2</td>
+                                    <td class="p-3 font-semibold">AI 평가 시스템 v1.1 업데이트</td>
+                                    <td class="p-3">2025-10-25</td>
+                                    <td class="p-3 space-x-2">
+                                        <button class="text-blue-500 hover:underline">수정</button>
+                                        <button class="text-red-500 hover:underline">삭제</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Report Management Section (Hidden by default) -->
+            <section id="report-management" class="hidden">
+                <h1 class="text-3xl font-bold text-admin-900 mb-6">신고 관리</h1>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="space-y-4">
+                        <div class="border rounded-lg p-4 hover:bg-gray-50">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <p class="font-semibold">신고 대상: 댓글 <a href="#" class="text-secondary-600">#502</a></p>
+                                    <p class="text-sm text-gray-600 mt-1">신고 사유: <span class="font-semibold">욕설/비방</span></p>
+                                    <p class="text-xs text-gray-500 mt-1">신고자: 시민123 · 2025-10-28 10:30</p>
+                                    <blockquote class="mt-2 p-2 bg-gray-100 rounded text-sm">이런 사람 뽑으면 안됩니다. XXX!!</blockquote>
+                                </div>
+                                <div class="flex gap-2 mt-2 md:mt-0">
+                                    <button class="px-3 py-1 bg-blue-500 text-white text-xs rounded-lg hover:bg-blue-600">내용 삭제</button>
+                                    <button class="px-3 py-1 bg-red-500 text-white text-xs rounded-lg hover:bg-red-600">사용자 차단</button>
+                                    <button class="px-3 py-1 bg-gray-200 text-gray-700 text-xs rounded-lg hover:bg-gray-300">보류</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border rounded-lg p-4 hover:bg-gray-50">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <p class="font-semibold">신고 대상: 게시글 <a href="#" class="text-secondary-600">#102</a></p>
+                                    <p class="text-sm text-gray-600 mt-1">신고 사유: <span class="font-semibold">허위사실 유포</span></p>
+                                    <p class="text-xs text-gray-500 mt-1">신고자: 팩트체커 · 2025-10-28 09:15</p>
+                                </div>
+                                <div class="flex gap-2 mt-2 md:mt-0">
+                                    <button class="px-3 py-1 bg-blue-500 text-white text-xs rounded-lg hover:bg-blue-600">내용 삭제</button>
+                                    <button class="px-3 py-1 bg-red-500 text-white text-xs rounded-lg hover:bg-red-600">사용자 차단</button>
+                                    <button class="px-3 py-1 bg-gray-200 text-gray-700 text-xs rounded-lg hover:bg-gray-300">보류</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- AI Score Management Section (Hidden by default) -->
+            <section id="score-management" class="hidden">
+                <h1 class="text-3xl font-bold text-admin-900 mb-6">AI 점수 관리</h1>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex flex-col md:flex-row gap-4 mb-4">
+                        <input type="text" placeholder="정치인 이름으로 검색" class="flex-grow p-2 border rounded-lg">
+                        <button class="bg-secondary-500 text-white px-4 py-2 rounded-lg hover:bg-secondary-600">검색</button>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm text-left">
+                            <thead class="bg-gray-100">
+                                <tr>
+                                    <th class="p-3">정치인</th>
+                                    <th class="p-3">Claude</th>
+                                    <th class="p-3">ChatGPT</th>
+                                    <th class="p-3">Gemini</th>
+                                    <th class="p-3">Grok</th>
+                                    <th class="p-3">Perplexity</th>
+                                    <th class="p-3">관리</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b hover:bg-gray-50">
+                                    <td class="p-3 font-semibold">김민준</td>
+                                    <td class="p-3">92.0</td>
+                                    <td class="p-3">90.0</td>
+                                    <td class="p-3">88.0</td>
+                                    <td class="p-3">91.0</td>
+                                    <td class="p-3">89.0</td>
+                                    <td class="p-3"><button class="text-blue-500 hover:underline">수정</button></td>
+                                </tr>
+                                <tr class="border-b hover:bg-gray-50">
+                                    <td class="p-3 font-semibold">이서연</td>
+                                    <td class="p-3">90.0</td>
+                                    <td class="p-3">89.0</td>
+                                    <td class="p-3">87.0</td>
+                                    <td class="p-3">90.0</td>
+                                    <td class="p-3">88.0</td>
+                                    <td class="p-3"><button class="text-blue-500 hover:underline">수정</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sidebarLinks = document.querySelectorAll('aside nav a');
+            const sections = document.querySelectorAll('main > section');
+            const contentTabs = document.querySelectorAll('#content-management nav button');
+            const contentTabPanels = document.querySelectorAll('#content-management > div[id$="-tab"]');
+
+            // Sidebar navigation
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+
+                    sections.forEach(section => {
+                        if (section.id === targetId) {
+                            section.classList.remove('hidden');
+                        } else {
+                            section.classList.add('hidden');
+                        }
+                    });
+
+                    sidebarLinks.forEach(l => l.classList.remove('bg-admin-900', 'text-white', 'font-semibold'));
+                    this.classList.add('bg-admin-900', 'text-white', 'font-semibold');
+                });
+            });
+
+            // Content management tabs
+            contentTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const targetId = this.dataset.tab + '-tab';
+
+                    contentTabPanels.forEach(panel => {
+                        if (panel.id === targetId) {
+                            panel.classList.remove('hidden');
+                        } else {
+                            panel.classList.add('hidden');
+                        }
+                    });
+
+                    contentTabs.forEach(t => t.classList.remove('tab-active'));
+                    this.classList.add('tab-active');
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

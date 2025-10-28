@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>결제하기 - PoliticianFinder</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#fff7ed',
+                            100: '#ffedd5',
+                            200: '#fed7aa',
+                            300: '#fdba74',
+                            400: '#fb923c',
+                            500: '#f97316',
+                            600: '#ea580c',
+                            700: '#c2410c',
+                            800: '#9a3412',
+                            900: '#7c2d12',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50 border-b-2 border-primary-500">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-4">
+                    <a href="index.html" class="text-2xl font-bold text-primary-600">PoliticianFinder</a>
+                    <div class="hidden md:block w-48">
+                        <div class="font-bold text-gray-900" style="font-size: clamp(0.5rem, 3vw, 1rem);">훌륭한 정치인 찾기</div>
+                        <div class="text-gray-900 font-medium" style="font-size: clamp(0.38rem, 2.28vw, 0.7125rem);">AI 기반 정치인 평가 플랫폼</div>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="index.html" class="text-gray-900 hover:text-primary-600 font-medium">홈</a>
+                    <a href="politicians.html" class="text-gray-900 hover:text-primary-600 font-medium">정치인</a>
+                    <a href="community.html" class="text-gray-900 hover:text-primary-600 font-medium">커뮤니티</a>
+                    <a href="services.html" class="text-gray-900 hover:text-primary-600 font-medium">연결</a>
+                    <a href="notifications.html" class="relative text-gray-900 hover:text-primary-600">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+                        </svg>
+                        <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">3</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-3">
+                    <a href="login.html" class="text-gray-900 hover:text-primary-600 font-medium px-4 py-2">로그인</a>
+                    <a href="signup.html" class="bg-primary-500 text-white px-4 py-2 rounded-lg hover:bg-primary-600 font-medium">회원가입</a>
+                </div>
+                <div class="md:hidden flex items-center space-x-3">
+                    <a href="notifications.html" class="relative text-gray-900">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+                        </svg>
+                        <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full w-4 h-4 flex items-center justify-center text-xs">3</span>
+                    </a>
+                    <button id="mobile-menu-button" class="text-gray-900 hover:text-primary-600 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <div class="flex flex-col space-y-3 pt-4 border-t border-gray-200">
+                    <a href="index.html" class="text-gray-900 hover:text-primary-600 font-medium px-2 py-2">홈</a>
+                    <a href="politicians.html" class="text-gray-900 hover:text-primary-600 font-medium px-2 py-2">정치인</a>
+                    <a href="community.html" class="text-gray-900 hover:text-primary-600 font-medium px-2 py-2">커뮤니티</a>
+                    <a href="services.html" class="text-gray-900 hover:text-primary-600 font-medium px-2 py-2">연결</a>
+                    <div class="border-t border-gray-200 pt-3 mt-3">
+                        <a href="login.html" class="block text-gray-900 hover:text-primary-600 font-medium px-2 py-2">로그인</a>
+                        <a href="signup.html" class="block bg-primary-500 text-white px-4 py-2 rounded-lg hover:bg-primary-600 font-medium text-center mt-2">회원가입</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 메인 컨텐츠 -->
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- 왼쪽: 결제 정보 입력 -->
+            <div class="lg:col-span-2 space-y-6">
+                <!-- 주문자 정보 -->
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h2 class="text-xl font-bold text-gray-900 mb-6">주문자 정보</h2>
+                    <div class="space-y-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label for="buyer-name" class="block text-sm font-medium text-gray-900 mb-2">
+                                    이름 <span class="text-red-500">*</span>
+                                </label>
+                                <input
+                                    type="text"
+                                    id="buyer-name"
+                                    name="buyer-name"
+                                    required
+                                    value="김민준"
+                                    readonly
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg bg-gray-50">
+                            </div>
+                            <div>
+                                <label for="buyer-email" class="block text-sm font-medium text-gray-900 mb-2">
+                                    이메일 <span class="text-red-500">*</span>
+                                </label>
+                                <input
+                                    type="email"
+                                    id="buyer-email"
+                                    name="buyer-email"
+                                    required
+                                    value="politician@example.com"
+                                    readonly
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg bg-gray-50">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="buyer-phone" class="block text-sm font-medium text-gray-900 mb-2">
+                                휴대폰 번호 <span class="text-red-500">*</span>
+                            </label>
+                            <input
+                                type="tel"
+                                id="buyer-phone"
+                                name="buyer-phone"
+                                required
+                                value="010-1234-5678"
+                                readonly
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg bg-gray-50">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 본인 인증 -->
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h2 class="text-xl font-bold text-gray-900 mb-4">본인 인증</h2>
+                    <p class="text-sm text-gray-600 mb-4">정치인 정치인 AI 상세평가보고서는 해당 정치인 본인만 구매할 수 있습니다. 본인 확인을 위해 인증이 필요합니다.</p>
+
+                    <div class="space-y-4">
+                        <div class="grid grid-cols-1 gap-4">
+                            <div>
+                                <label for="verify-name" class="block text-sm font-medium text-gray-900 mb-2">
+                                    이름 <span class="text-red-500">*</span>
+                                </label>
+                                <input
+                                    type="text"
+                                    id="verify-name"
+                                    name="verify-name"
+                                    required
+                                    placeholder="정치인 이름"
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                            </div>
+                            <div>
+                                <label for="verify-party" class="block text-sm font-medium text-gray-900 mb-2">
+                                    소속 정당 <span class="text-red-500">*</span>
+                                </label>
+                                <select
+                                    id="verify-party"
+                                    name="verify-party"
+                                    required
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                    <option value="">선택하세요</option>
+                                    <option value="더불어민주당">더불어민주당</option>
+                                    <option value="국민의힘">국민의힘</option>
+                                    <option value="조국혁신당">조국혁신당</option>
+                                    <option value="개혁신당">개혁신당</option>
+                                    <option value="진보당">진보당</option>
+                                    <option value="새로운미래">새로운미래</option>
+                                    <option value="기본소득당">기본소득당</option>
+                                    <option value="사회민주당">사회민주당</option>
+                                    <option value="정의당">정의당</option>
+                                    <option value="무소속">무소속</option>
+                                    <option value="기타">기타</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="verify-position" class="block text-sm font-medium text-gray-900 mb-2">
+                                    출마직종 <span class="text-red-500">*</span>
+                                </label>
+                                <select
+                                    id="verify-position"
+                                    name="verify-position"
+                                    required
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                    <option value="">선택하세요</option>
+                                    <option value="국회의원">국회의원</option>
+                                    <option value="광역단체장">광역단체장</option>
+                                    <option value="광역의원">광역의원</option>
+                                    <option value="기초단체장">기초단체장</option>
+                                    <option value="기초의원">기초의원</option>
+                                    <option value="교육감">교육감</option>
+                                    <option value="현직">현직</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <button
+                            id="verify-btn"
+                            type="button"
+                            class="w-full px-6 py-3 bg-gray-900 text-white rounded-lg hover:bg-gray-800 font-medium">
+                            본인 인증하기
+                        </button>
+
+                        <div id="verify-success" class="hidden p-4 bg-green-50 border border-green-200 rounded-lg">
+                            <div class="flex items-center gap-2 text-green-800">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="font-bold">본인 인증이 완료되었습니다.</span>
+                            </div>
+                        </div>
+
+                        <div id="verify-error" class="hidden p-4 bg-red-50 border border-red-200 rounded-lg">
+                            <div class="flex items-center gap-2 text-red-800">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="font-bold">본인 인증에 실패했습니다. 정보를 다시 확인해주세요.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 결제 수단 선택 -->
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h2 class="text-xl font-bold text-gray-900 mb-6">결제 수단</h2>
+                    <div class="space-y-3">
+                        <label class="flex items-center p-4 border-2 border-gray-300 rounded-lg cursor-pointer hover:border-primary-500 transition-colors">
+                            <input type="radio" name="payment-method" value="transfer" checked class="w-4 h-4 text-primary-600">
+                            <div class="ml-3 flex-1">
+                                <div class="flex items-center gap-2">
+                                    <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"></path>
+                                    </svg>
+                                    <span class="font-medium text-gray-900">계좌이체</span>
+                                </div>
+                            </div>
+                        </label>
+
+
+                    </div>
+                </div>
+
+                <!-- 약관 동의 -->
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h2 class="text-xl font-bold text-gray-900 mb-6">약관 동의</h2>
+                    <div class="space-y-3">
+                        <label class="flex items-start gap-3 cursor-pointer">
+                            <input type="checkbox" id="agree-all" class="w-4 h-4 mt-1 text-primary-600 border-gray-300 rounded">
+                            <span class="font-bold text-gray-900">전체 동의</span>
+                        </label>
+                        <hr>
+                        <label class="flex items-start gap-3 cursor-pointer">
+                            <input type="checkbox" class="agree-item w-4 h-4 mt-1 text-primary-600 border-gray-300 rounded" required>
+                            <span class="text-gray-700">
+                                <span class="text-red-500">[필수]</span> 구매 조건 및 결제 대행 서비스 약관 동의
+                                <a href="#" class="text-primary-600 hover:underline ml-1">보기</a>
+                            </span>
+                        </label>
+                        <label class="flex items-start gap-3 cursor-pointer">
+                            <input type="checkbox" class="agree-item w-4 h-4 mt-1 text-primary-600 border-gray-300 rounded" required>
+                            <span class="text-gray-700">
+                                <span class="text-red-500">[필수]</span> 개인정보 수집 및 이용 동의
+                                <a href="#" class="text-primary-600 hover:underline ml-1">보기</a>
+                            </span>
+                        </label>
+                        <label class="flex items-start gap-3 cursor-pointer">
+                            <input type="checkbox" class="agree-item w-4 h-4 mt-1 text-primary-600 border-gray-300 rounded" required>
+                            <span class="text-gray-700">
+                                <span class="text-red-500">[필수]</span> 개인정보 제3자 제공 동의
+                                <a href="#" class="text-primary-600 hover:underline ml-1">보기</a>
+                            </span>
+                        </label>
+                        <label class="flex items-start gap-3 cursor-pointer">
+                            <input type="checkbox" class="agree-item w-4 h-4 mt-1 text-primary-600 border-gray-300 rounded">
+                            <span class="text-gray-700">
+                                <span class="text-gray-500">[선택]</span> 마케팅 정보 수신 동의
+                            </span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 오른쪽: 주문 요약 -->
+            <div class="lg:col-span-1">
+                <div class="bg-white rounded-lg shadow-md p-6 sticky top-24">
+                    <h2 class="text-xl font-bold text-gray-900 mb-6">주문 정보</h2>
+
+                    <!-- 상품 정보 -->
+                    <div class="mb-6">
+                        <div class="flex items-start gap-3 pb-4 border-b">
+                            <div class="w-16 h-16 bg-gray-100 rounded flex items-center justify-center flex-shrink-0">
+                                <svg class="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                </svg>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <h3 class="font-bold text-gray-900 mb-1">정치인 정치인 AI 상세평가보고서</h3>
+                                <p class="text-sm text-gray-600">김민준 의원</p>
+                                <p class="text-sm text-gray-500">더불어민주당 · 서울 강남구</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 가격 정보 -->
+                    <div class="space-y-3 mb-6 pb-6 border-b">
+                        <div class="flex justify-between text-gray-700">
+                            <span>상품 금액</span>
+                            <span class="font-medium">500,000원</span>
+                        </div>
+                        <div class="flex justify-between text-gray-700">
+                            <span>할인</span>
+                            <span class="font-medium text-red-600">-0원</span>
+                        </div>
+                    </div>
+
+                    <!-- 최종 결제 금액 -->
+                    <div class="mb-6">
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold text-gray-900">최종 결제 금액</span>
+                            <div class="text-right">
+                                <div class="text-2xl font-bold text-primary-600">500,000원</div>
+                                <div class="text-sm text-gray-500">부가세 별도</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 결제 버튼 -->
+                    <button
+                        id="payment-btn"
+                        disabled
+                        class="w-full px-6 py-4 bg-gray-300 text-gray-500 rounded-lg font-bold text-lg cursor-not-allowed">
+                        본인 인증을 완료해주세요
+                    </button>
+
+                    <!-- 유의사항 -->
+                    <div class="mt-6 p-4 bg-amber-50 border border-amber-200 rounded-lg">
+                        <h4 class="font-bold text-primary-600 mb-2 flex items-center gap-2 text-sm">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+                            </svg>
+                            결제 전 확인사항
+                        </h4>
+                        <ul class="text-xs text-gray-700 space-y-1">
+                            <li>• 본인 확인이 필요합니다</li>
+                            <li>• 보고서는 발행 시점의 평가 내용이 기록됩니다</li>
+                            <li>• 결제 후 환불이 불가능합니다</li>
+                            <li>• 구매 내역은 정치인 상세페이지에서 확인 가능합니다</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <!-- 알림 모달 -->
+    <div id="alertModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg max-w-sm w-full p-6">
+            <div class="mb-6">
+                <p id="alertMessage" class="text-gray-900 text-center whitespace-pre-line"></p>
+            </div>
+            <div class="flex justify-center">
+                <button onclick="closeAlertModal()" class="px-8 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-500 transition">
+                    확인
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-primary-500 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div class="flex justify-center items-center space-x-8 text-base py-4">
+                <a href="#" class="hover:text-gray-200">서비스 소개</a>
+                <a href="#" class="hover:text-gray-200">이용약관</a>
+                <a href="#" class="hover:text-gray-200">개인정보처리방침</a>
+                <a href="#" class="hover:text-gray-200">고객센터</a>
+            </div>
+            <div class="text-center text-base text-white py-4">
+                <p>&copy; 2025 PoliticianFinder. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+    </script>
+    <script>
+        let isVerified = false;
+
+        // 본인 인증
+        document.getElementById('verify-btn').addEventListener('click', function() {
+            const name = document.getElementById('verify-name').value;
+            const party = document.getElementById('verify-party').value;
+            const position = document.getElementById('verify-position').value;
+
+            if (!name || !party || !position) {
+                openAlertModal('모든 정보를 입력해주세요.');
+                return;
+            }
+
+            // 실제로는 서버에서 검증
+            // 프로토타입이므로 간단한 데모 인증
+            const validPoliticians = [
+                { name: '김민준', party: '더불어민주당', position: '국회의원' },
+                { name: '이서연', party: '국민의힘', position: '광역단체장' },
+                { name: '박준서', party: '정의당', position: '현직' }
+            ];
+
+            const isValid = validPoliticians.some(p =>
+                p.name === name && p.party === party && p.position === position
+            );
+
+            if (isValid) {
+                document.getElementById('verify-error').classList.add('hidden');
+                document.getElementById('verify-success').classList.remove('hidden');
+                isVerified = true;
+                updatePaymentButton();
+            } else {
+                document.getElementById('verify-success').classList.add('hidden');
+                document.getElementById('verify-error').classList.remove('hidden');
+                isVerified = false;
+                updatePaymentButton();
+            }
+        });
+
+        // 전체 동의
+        document.getElementById('agree-all').addEventListener('change', function() {
+            const checkboxes = document.querySelectorAll('.agree-item');
+            checkboxes.forEach(cb => cb.checked = this.checked);
+            updatePaymentButton();
+        });
+
+        // 개별 체크박스
+        document.querySelectorAll('.agree-item').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                const allChecked = Array.from(document.querySelectorAll('.agree-item')).every(cb => cb.checked);
+                document.getElementById('agree-all').checked = allChecked;
+                updatePaymentButton();
+            });
+        });
+
+        // 결제 버튼 활성화 업데이트
+        function updatePaymentButton() {
+            const requiredCheckboxes = Array.from(document.querySelectorAll('.agree-item[required]'));
+            const allRequiredChecked = requiredCheckboxes.every(cb => cb.checked);
+            const btn = document.getElementById('payment-btn');
+
+            if (isVerified && allRequiredChecked) {
+                btn.disabled = false;
+                btn.className = 'w-full px-6 py-4 bg-primary-500 text-white rounded-lg hover:bg-primary-600 font-bold text-lg cursor-pointer';
+                btn.textContent = '500,000원 결제하기';
+            } else if (!isVerified) {
+                btn.disabled = true;
+                btn.className = 'w-full px-6 py-4 bg-gray-300 text-gray-500 rounded-lg font-bold text-lg cursor-not-allowed';
+                btn.textContent = '본인 인증을 완료해주세요';
+            } else {
+                btn.disabled = true;
+                btn.className = 'w-full px-6 py-4 bg-gray-300 text-gray-500 rounded-lg font-bold text-lg cursor-not-allowed';
+                btn.textContent = '500,000원 결제하기';
+            }
+        }
+
+        // 결제하기
+        document.getElementById('payment-btn').addEventListener('click', function() {
+            if (this.disabled) return;
+
+            // 계좌이체는 confirm 없이 바로 계좌 정보 페이지로 이동
+            window.location.href = 'account-transfer.html';
+        });
+
+
+        // 알림 모달 함수
+        function openAlertModal(message) {
+            document.getElementById('alertMessage').textContent = message;
+            document.getElementById('alertModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function openAlertModalWithCallback(message, callback) {
+            document.getElementById('alertMessage').textContent = message;
+            document.getElementById('alertModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+
+            // 콜백 저장
+            window.alertCallback = callback;
+        }
+
+        function closeAlertModal() {
+            document.getElementById('alertModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+
+            // 콜백 실행
+            if (window.alertCallback) {
+                window.alertCallback();
+                window.alertCallback = null;
+            }
+        }
+
+    </script>
+</body>
+</html>

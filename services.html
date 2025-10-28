@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>서비스 소개 - PoliticianFinder</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#fff7ed',
+                            100: '#ffedd5',
+                            200: '#fed7aa',
+                            300: '#fdba74',
+                            400: '#fb923c',
+                            500: '#f97316',  // 주황색 메인
+                            600: '#ea580c',
+                            700: '#c2410c',
+                            800: '#9a3412',
+                            900: '#7c2d12',
+                        },
+                        secondary: {
+                            500: '#8b5cf6',  // 보라색
+                            600: '#7c3aed',
+                        },
+                        accent: {
+                            500: '#064E3B',  // 어두운 에메랄드 그린 (Tailwind emerald-900) - AI 평가 권위 강조
+                            600: '#064E3B',  // 초록색 (통일)
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Pretendard', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts: Noto Sans KR -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'system-ui', sans-serif;
+            color: #000000;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50 border-b-2 border-primary-500">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo & Catchphrase -->
+                <div class="flex items-center space-x-4">
+                    <a href="index.html" class="text-2xl font-bold text-primary-600">
+                        PoliticianFinder
+                    </a>
+                    <div class="hidden md:block w-48">
+                        <div class="font-bold text-gray-900" style="font-size: clamp(0.5rem, 3vw, 1rem); width: 100%;">훌륭한 정치인 찾기</div>
+                        <div class="text-gray-900 font-medium" style="font-size: clamp(0.38rem, 2.28vw, 0.7125rem); width: 100%;">AI 기반 정치인 평가 플랫폼</div>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="index.html" class="text-gray-900 hover:text-primary-600 font-medium focus:outline-none focus:ring-2 focus:ring-primary-300 rounded px-2 py-1">홈</a>
+                    <a href="politicians.html" class="text-gray-900 hover:text-primary-600 font-medium focus:outline-none focus:ring-2 focus:ring-primary-300 rounded px-2 py-1">정치인</a>
+                    <a href="community.html" class="text-gray-900 hover:text-primary-600 font-medium focus:outline-none focus:ring-2 focus:ring-primary-300 rounded px-2 py-1">커뮤니티</a>
+                    <a href="connection.html" class="text-gray-900 hover:text-primary-600 font-medium focus:outline-none focus:ring-2 focus:ring-primary-300 rounded px-2 py-1">연결</a>
+
+                    <!-- 알림 아이콘 -->
+                    <a href="notifications.html" class="relative text-gray-900 hover:text-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-300 rounded p-1">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+                        </svg>
+                        <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">3</span>
+                    </a>
+                </div>
+
+                <!-- Auth Buttons -->
+                <div class="hidden md:flex items-center space-x-3">
+                    <a href="login.html" class="text-gray-900 hover:text-primary-600 font-medium px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary-300 rounded">로그인</a>
+                    <a href="signup.html" class="bg-primary-500 text-white px-4 py-2 rounded-lg hover:bg-primary-600 font-medium focus:outline-none focus:ring-2 focus:ring-primary-300">회원가입</a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-gray-900 hover:text-primary-600 focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-4 pt-2 pb-4 space-y-2">
+                <a href="index.html" class="block px-3 py-2 text-gray-900 hover:bg-primary-50 rounded-md">홈</a>
+                <a href="politicians.html" class="block px-3 py-2 text-gray-900 hover:bg-primary-50 rounded-md">정치인</a>
+                <a href="community.html" class="block px-3 py-2 text-gray-900 hover:bg-primary-50 rounded-md">커뮤니티</a>
+                <a href="connection.html" class="block px-3 py-2 text-gray-900 hover:bg-primary-50 rounded-md">연결</a>
+                <hr class="my-2">
+                <a href="login.html" class="block px-3 py-2 text-gray-900 hover:bg-primary-50 rounded-md">로그인</a>
+                <a href="signup.html" class="block px-3 py-2 bg-primary-500 text-white hover:bg-primary-600 rounded-md text-center">회원가입</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div class="bg-primary-600 p-8 text-center text-white">
+                <h1 class="text-4xl font-bold">"훌륭한 정치인을 찾아드립니다"</h1>
+                <p class="mt-4 text-lg text-primary-100">AI 기반 정치인 평가 커뮤니티 플랫폼, PoliticianFinder</p>
+            </div>
+
+            <div class="p-8 md:p-12 space-y-16">
+
+                <!-- 1. AI 기반 객관적 평가 -->
+                <section class="flex flex-col md:flex-row items-center gap-8">
+                    <div class="md:w-1/2">
+                        <img src="https://images.unsplash.com/photo-1581092919534-82c2033810f2?q=80&w=2070&auto=format&fit=crop" alt="AI Evaluation" class="rounded-lg shadow-lg">
+                    </div>
+                    <div class="md:w-1/2">
+                        <span class="text-primary-500 font-semibold">Core Feature 01</span>
+                        <h2 class="text-3xl font-bold text-gray-900 mt-2 mb-4">AI 기반 객관적 평가</h2>
+                        <p class="text-gray-600 leading-relaxed">
+                            PoliticianFinder는 정치에 대한 막연한 인상과 감정적인 판단을 넘어, 데이터에 기반한 객관적인 평가를 제공합니다. 5개의 서로 다른 AI 모델(Claude, GPT, Gemini 등)이 국회 의정활동, 공약 이행률, 수상 경력 등 공개된 데이터를 100가지 이상의 세부 항목으로 나누어 분석합니다. 이를 통해 AI의 편향을 최소화하고, 입체적이고 신뢰도 높은 평가 점수를 산출합니다.
+                        </p>
+                        <ul class="mt-4 space-y-2 text-gray-700">
+                            <li class="flex items-center gap-2">
+                                <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <span>다중 AI 모델을 통한 교차 검증</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <span>100개 이상의 세분화된 평가 항목</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <span>평가 기준 및 데이터 출처 투명성 확보</span>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- 2. 시민 참여 커뮤니티 -->
+                <section class="flex flex-col md:flex-row-reverse items-center gap-8">
+                    <div class="md:w-1/2">
+                        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=2070&auto=format&fit=crop" alt="Community" class="rounded-lg shadow-lg">
+                    </div>
+                    <div class="md:w-1/2">
+                        <span class="text-primary-500 font-semibold">Core Feature 02</span>
+                        <h2 class="text-3xl font-bold text-gray-900 mt-2 mb-4">시민이 만드는 정치 커뮤니티</h2>
+                        <p class="text-gray-600 leading-relaxed">
+                            AI의 평가는 시작일 뿐, PoliticianFinder의 핵심은 시민 여러분의 참여입니다. 자유로운 토론과 평가가 가능한 커뮤니티를 통해 특정 정치인이나 정책에 대한 자신의 의견을 나누고, 다른 사람들의 생각을 확인하며 집단지성을 형성할 수 있습니다. 추천/비추천, 댓글, 회원 평가 시스템은 여러분의 목소리가 더 큰 영향력을 갖도록 돕습니다.
+                        </p>
+                        <ul class="mt-4 space-y-2 text-gray-700">
+                            <li class="flex items-center gap-2">
+                                <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <span>실시간 인기글, 베스트글 시스템</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <span>정치인에 대한 시민 별점 평가</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <span>건강한 토론을 위한 신고 및 관리 시스템</span>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- 3. 정치인과 직접 소통 -->
+                <section class="flex flex-col md:flex-row items-center gap-8">
+                    <div class="md:w-1/2">
+                        <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2190&auto=format&fit=crop" alt="Direct Communication" class="rounded-lg shadow-lg">
+                    </div>
+                    <div class="md:w-1/2">
+                        <span class="text-primary-500 font-semibold">Core Feature 03</span>
+                        <h2 class="text-3xl font-bold text-gray-900 mt-2 mb-4">정치인과 유권자의 직접 소통</h2>
+                        <p class="text-gray-600 leading-relaxed">
+                            더 이상 언론이나 SNS를 통한 간접 소통에만 의존하지 마세요. PoliticianFinder에서는 본인 인증을 마친 정치인이 직접 자신의 이름으로 게시글을 작성하고, 시민들의 의견에 댓글로 답하며 직접 소통합니다. 유권자는 궁금한 점을 직접 묻고 답변을 들으며, 정치인은 지역구 주민들의 생생한 목소리를 가장 가까이에서 들을 수 있습니다.
+                        </p>
+                        <ul class="mt-4 space-y-2 text-gray-700">
+                            <li class="flex items-center gap-2">
+                                <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <span>정치인 본인 인증 시스템으로 신뢰 확보</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <span>[정치인 글] 전용 카테고리 운영</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <span>시민과 정치인의 투명한 질의응답</span>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary-500 text-white mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <!-- Footer Links -->
+            <div class="flex justify-center items-center space-x-8 text-base py-4">
+                <a href="services.html" class="text-white hover:text-gray-100 transition font-medium">서비스 소개</a>
+                <a href="terms.html" class="text-white hover:text-gray-100 transition font-medium">이용약관</a>
+                <a href="privacy.html" class="text-white hover:text-gray-100 transition font-medium">개인정보처리방침</a>
+                <a href="support.html" class="text-white hover:text-gray-100 transition font-medium">고객센터</a>
+            </div>
+            <!-- Copyright -->
+            <div class="text-center text-base text-white py-4">
+                <p>&copy; 2025 PoliticianFinder. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu Toggle Script -->
+    <script>
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+    </script>
+
+</body>
+</html>

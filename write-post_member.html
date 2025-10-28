@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시글 작성 - PoliticianFinder</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#fff7ed',
+                            100: '#ffedd5',
+                            200: '#fed7aa',
+                            300: '#fdba74',
+                            400: '#fb923c',
+                            500: '#f97316',
+                            600: '#ea580c',
+                            700: '#c2410c',
+                            800: '#9a3412',
+                            900: '#7c2d12',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'system-ui', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50 border-b-2 border-primary-500">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo & Catchphrase -->
+                <div class="flex items-center space-x-4">
+                    <a href="index.html" class="text-2xl font-bold text-primary-600">PoliticianFinder</a>
+                    <div class="hidden md:block w-48">
+                        <div class="font-bold text-gray-900" style="font-size: clamp(0.5rem, 3vw, 1rem);">훌륭한 정치인 찾기</div>
+                        <div class="text-gray-900 font-medium" style="font-size: clamp(0.38rem, 2.28vw, 0.7125rem);">AI 기반 정치인 평가 플랫폼</div>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="index.html" class="text-gray-900 hover:text-primary-600 font-medium">홈</a>
+                    <a href="politicians.html" class="text-gray-900 hover:text-primary-600 font-medium">정치인</a>
+                    <a href="community.html" class="text-gray-900 hover:text-primary-600 font-medium">커뮤니티</a>
+                    <a href="services.html" class="text-gray-900 hover:text-primary-600 font-medium">연결</a>
+
+                    <!-- 알림 아이콘 -->
+                    <a href="notifications.html" class="relative text-gray-900 hover:text-primary-600">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+                        </svg>
+                        <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">3</span>
+                    </a>
+                </div>
+
+                <!-- Auth Buttons -->
+                <div class="hidden md:flex items-center space-x-3">
+                    <a href="login.html" class="text-gray-900 hover:text-primary-600 font-medium px-4 py-2">로그인</a>
+                    <a href="signup.html" class="bg-primary-500 text-white px-4 py-2 rounded-lg hover:bg-primary-600 font-medium">회원가입</a>
+                </div>
+
+                <!-- Mobile menu button & notification -->
+                <div class="md:hidden flex items-center space-x-3">
+                    <!-- 알림 아이콘 (모바일) -->
+                    <a href="notifications.html" class="relative text-gray-900">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+                        </svg>
+                        <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full w-4 h-4 flex items-center justify-center text-xs">3</span>
+                    </a>
+                    <button id="mobile-menu-button" class="text-gray-900 hover:text-primary-600 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <div class="flex flex-col space-y-3 pt-4 border-t border-gray-200">
+                    <a href="index.html" class="text-gray-900 hover:text-primary-600 font-medium px-2 py-2">홈</a>
+                    <a href="politicians.html" class="text-gray-900 hover:text-primary-600 font-medium px-2 py-2">정치인</a>
+                    <a href="community.html" class="text-gray-900 hover:text-primary-600 font-medium px-2 py-2">커뮤니티</a>
+                    <a href="services.html" class="text-gray-900 hover:text-primary-600 font-medium px-2 py-2">연결</a>
+                    <div class="border-t border-gray-200 pt-3 mt-3">
+                        <a href="login.html" class="block text-gray-900 hover:text-primary-600 font-medium px-2 py-2">로그인</a>
+                        <a href="signup.html" class="block bg-primary-500 text-white px-4 py-2 rounded-lg hover:bg-primary-600 font-medium text-center mt-2">회원가입</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-4 py-8">
+        <div class="mb-6">
+            <h1 class="text-3xl font-bold text-gray-900 mb-2">게시글 작성</h1>
+            <p class="text-gray-600">커뮤니티에 새로운 글을 작성해보세요.</p>
+        </div>
+
+        <form id="post-form" class="bg-white rounded-lg shadow-md p-6 space-y-6">
+            <!-- 카테고리 -->
+            <div>
+                <label class="block text-sm font-medium text-gray-900 mb-2">카테고리</label>
+                <div class="w-full px-4 py-2 border border-gray-300 rounded-lg bg-gray-50">
+                    <span class="font-medium text-purple-600">💬 회원 자유게시판</span>
+                </div>
+                <input type="hidden" name="category" value="general">
+            </div>
+
+
+            <!-- 정치인 태그 (선택사항) -->
+            <div>
+                <label for="politician-tag-search" class="block text-sm font-medium text-gray-900 mb-2">
+                    정치인 태그 <span class="text-gray-500 text-xs">(선택사항)</span>
+                </label>
+                <div class="relative">
+                    <input
+                        type="text"
+                        id="politician-tag-search"
+                        name="politician_tag_search"
+                        placeholder="정치인 이름 검색..."
+                        autocomplete="off"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500">
+                    <input type="hidden" id="politician-tag" name="politician_tag" value="">
+                    
+                    <!-- 검색 결과 드롭다운 -->
+                    <div id="politician-search-results" class="hidden absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg max-h-60 overflow-y-auto">
+                        <!-- JavaScript로 동적 생성 -->
+                    </div>
+                </div>
+                <p class="text-xs text-gray-500 mt-1">
+                    특정 정치인에 대한 글을 작성하시는 경우 검색하여 선택해주세요. 해당 정치인의 프로필 페이지에서도 이 글이 표시됩니다.
+                </p>
+            </div>
+
+
+            <!-- 제목 -->
+            <div>
+                <label for="title" class="block text-sm font-medium text-gray-900 mb-2">
+                    제목 <span class="text-red-500">*</span>
+                </label>
+                <input
+                    type="text"
+                    id="title"
+                    name="title"
+                    required
+                    maxlength="100"
+                    placeholder="제목을 입력하세요 (최대 100자)"
+                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500">
+                <div class="text-right mt-1">
+                    <span id="title-count" class="text-sm text-gray-500">0 / 100</span>
+                </div>
+            </div>
+
+            <!-- 본문 -->
+            <div>
+                <label for="content" class="block text-sm font-medium text-gray-900 mb-2">
+                    내용 <span class="text-red-500">*</span>
+                </label>
+                <textarea
+                    id="content"
+                    name="content"
+                    required
+                    rows="15"
+                    placeholder="내용을 입력하세요&#10;&#10;• 타인을 비방하거나 명예를 훼손하는 내용은 삼가주세요.&#10;• 허위 사실을 유포하거나 악의적인 내용은 삭제될 수 있습니다.&#10;• 건전한 토론 문화를 만들어 주세요."
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 resize-none"></textarea>
+                <div class="text-right mt-1">
+                    <span id="content-count" class="text-sm text-gray-500">0자</span>
+                </div>
+            </div>
+
+            <!-- 태그 -->
+            <div>
+                <label for="tags" class="block text-sm font-medium text-gray-900 mb-2">
+                    태그 <span class="text-gray-500">(선택)</span>
+                </label>
+                <input
+                    type="text"
+                    id="tags"
+                    name="tags"
+                    placeholder="태그를 쉼표(,)로 구분하여 입력하세요"
+                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500">
+                <p class="text-sm text-gray-500 mt-1">최대 5개까지 입력 가능합니다.</p>
+            </div>
+
+            <!-- 첨부파일 -->
+            <div>
+                <label for="files" class="block text-sm font-medium text-gray-900 mb-2">
+                    첨부파일 <span class="text-gray-500">(선택)</span>
+                </label>
+                <div class="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-purple-500 transition">
+                    <input type="file" id="files" name="files" multiple accept="image/*,.pdf,.doc,.docx" class="hidden">
+                    <label for="files" class="cursor-pointer">
+                        <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                        </svg>
+                        <p class="mt-2 text-sm text-gray-600">
+                            <span class="text-purple-600 font-medium">파일 선택</span> 또는 드래그 앤 드롭
+                        </p>
+                        <p class="mt-1 text-xs text-gray-500">이미지, PDF, DOC 파일 (최대 10MB)</p>
+                    </label>
+                </div>
+                <div id="file-list" class="mt-3 space-y-2"></div>
+            </div>
+
+            <!-- 작성 가이드 -->
+            <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                <h3 class="font-bold text-blue-900 mb-2 flex items-center gap-2">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path>
+                    </svg>
+                    작성 가이드
+                </h3>
+                <ul class="text-sm text-gray-700 space-y-1 ml-7">
+                    <li>• 구체적이고 명확한 제목을 작성해주세요.</li>
+                    <li>• 근거 있는 정보를 바탕으로 작성해주세요.</li>
+                    <li>• 타인을 존중하는 언어를 사용해주세요.</li>
+                    <li>• 개인정보 유출에 주의해주세요.</li>
+                </ul>
+            </div>
+
+            <!-- 버튼 -->
+            <div class="flex gap-3 pt-4 border-t">
+                <button type="button" onclick="history.back()" class="flex-1 px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 font-medium">취소</button>
+                <button type="button" onclick="saveDraft()" class="flex-1 px-6 py-3 border border-purple-600 text-purple-600 rounded-lg hover:bg-purple-50 font-medium">임시저장</button>
+                <button type="submit" class="flex-1 px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 font-medium">등록하기</button>
+            </div>
+        </form>
+    </main>
+
+
+    <!-- 알림 모달 -->
+    <div id="alertModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg max-w-sm w-full p-6">
+            <div class="mb-6">
+                <p id="alertMessage" class="text-gray-900 text-center whitespace-pre-line"></p>
+            </div>
+            <div class="flex justify-center">
+                <button onclick="closeAlertModal()" class="px-8 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-500 transition">
+                    확인
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-primary-500 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div class="flex justify-center items-center space-x-8 text-base py-4">
+                <a href="#" class="hover:text-gray-200">서비스 소개</a>
+                <a href="#" class="hover:text-gray-200">이용약관</a>
+                <a href="#" class="hover:text-gray-200">개인정보처리방침</a>
+                <a href="#" class="hover:text-gray-200">고객센터</a>
+            </div>
+            <div class="text-center text-base text-white py-4">
+                <p>&copy; 2025 PoliticianFinder. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 제목 글자 수
+        document.getElementById('title').addEventListener('input', function() {
+            document.getElementById('title-count').textContent = `${this.value.length} / 100`;
+        });
+
+        // 내용 글자 수
+        document.getElementById('content').addEventListener('input', function() {
+            document.getElementById('content-count').textContent = `${this.value.length}자`;
+        });
+
+        // 파일 선택
+        document.getElementById('files').addEventListener('change', function(e) {
+            const fileList = document.getElementById('file-list');
+            fileList.innerHTML = '';
+            Array.from(e.target.files).forEach((file, index) => {
+                const fileItem = document.createElement('div');
+                fileItem.className = 'flex items-center justify-between p-3 bg-gray-50 rounded-lg';
+                fileItem.innerHTML = `
+                    <div class="flex items-center gap-2">
+                        <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                        <span class="text-sm text-gray-700">${file.name}</span>
+                        <span class="text-xs text-gray-500">(${(file.size / 1024).toFixed(1)} KB)</span>
+                    </div>
+                    <button type="button" onclick="removeFile(${index})" class="text-red-500 hover:text-red-700">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                `;
+                fileList.appendChild(fileItem);
+            });
+        });
+
+        // 임시저장
+        function saveDraft() {
+            localStorage.setItem('draft_post_member', JSON.stringify({
+                title: document.getElementById('title').value,
+                content: document.getElementById('content').value,
+                tags: document.getElementById('tags').value,
+                savedAt: new Date().toISOString()
+            }));
+            openAlertModal('임시저장되었습니다.');
+        }
+
+        // 임시저장 불러오기
+        window.addEventListener('DOMContentLoaded', function() {
+            const draft = localStorage.getItem('draft_post_member');
+            if (draft && confirm('임시저장된 글이 있습니다. 불러오시겠습니까?')) {
+                const data = JSON.parse(draft);
+                document.getElementById('title').value = data.title || '';
+                document.getElementById('content').value = data.content || '';
+                document.getElementById('tags').value = data.tags || '';
+                document.getElementById('title').dispatchEvent(new Event('input'));
+                document.getElementById('content').dispatchEvent(new Event('input'));
+            }
+        });
+
+        // 폼 제출
+        document.getElementById('post-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (!document.getElementById('title').value.trim() || !document.getElementById('content').value.trim()) {
+                openAlertModal('제목과 내용을 입력해주세요.');
+                return;
+            }
+            openAlertModal('게시글이 등록되었습니다!');
+            localStorage.removeItem('draft_post_member');
+            window.location.href = 'community.html';
+        });
+// 정치인 검색 기능 (개선: 1000명 대응)
+        const politicians = [
+            { name: "김민준", party: "더불어민주당", position: "국회의원" },
+            { name: "이서연", party: "국민의힘", position: "광역단체장" },
+            { name: "박준서", party: "정의당", position: "현직" },
+            { name: "최지우", party: "더불어민주당", position: "국회의원" },
+            { name: "정하은", party: "국민의힘", position: "기초의원" },
+            { name: "윤서준", party: "더불어민주당", position: "광역의원" },
+            { name: "장민아", party: "국민의힘", position: "기초단체장" },
+            { name: "오지훈", party: "정의당", position: "국회의원" }
+        ];
+
+        const searchInput = document.getElementById('politician-tag-search');
+        const searchResults = document.getElementById('politician-search-results');
+        const hiddenInput = document.getElementById('politician-tag');
+
+        searchInput.addEventListener('input', function() {
+            const query = this.value.trim();
+            const queryLower = query.toLowerCase();
+
+            if (query.length === 0) {
+                searchResults.classList.add('hidden');
+                return;
+            }
+
+            // 우선순위 적용 및 정렬
+            const filtered = politicians
+                .map(p => ({
+                    ...p,
+                    priority: p.name.toLowerCase().startsWith(queryLower) ? 0 :
+                             p.name.toLowerCase().includes(queryLower) ? 1 :
+                             p.party.includes(query) ? 2 : 3
+                }))
+                .filter(p => p.priority < 3)
+                .sort((a, b) => a.priority - b.priority || a.name.localeCompare(b.name))
+                .slice(0, 20); // 최대 20개만 표시
+
+            if (filtered.length === 0) {
+                searchResults.innerHTML = '<div class="p-3 text-sm text-gray-500">검색 결과가 없습니다</div>';
+                searchResults.classList.remove('hidden');
+                return;
+            }
+
+            let html = filtered.map(p => `
+                <div class="p-3 hover:bg-gray-100 cursor-pointer border-b last:border-b-0" onclick="selectPolitician('${p.name}', '${p.party}', '${p.position}')">
+                    <div class="font-medium text-gray-900">${p.name}</div>
+                    <div class="text-xs text-gray-600">${p.party} · ${p.position}</div>
+                </div>
+            `).join('');
+
+            // 20개 이상 결과가 있으면 안내 메시지
+            const totalMatches = politicians.filter(p =>
+                p.name.toLowerCase().includes(queryLower) ||
+                p.party.includes(query)
+            ).length;
+
+            if (totalMatches > 20) {
+                html += '<div class="p-3 text-xs text-gray-500 bg-gray-50 border-t">더 많은 결과가 있습니다. 검색어를 더 구체적으로 입력해주세요.</div>';
+            }
+
+            searchResults.innerHTML = html;
+            searchResults.classList.remove('hidden');
+        });
+
+        function selectPolitician(name, party, position) {
+            searchInput.value = `${name} (${party}, ${position})`;
+            hiddenInput.value = name;
+            searchResults.classList.add('hidden');
+        }
+
+        // 외부 클릭 시 검색 결과 닫기
+        document.addEventListener('click', function(e) {
+            if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
+                searchResults.classList.add('hidden');
+            }
+        });
+
+        // 알림 모달 함수
+        function openAlertModal(message) {
+            document.getElementById('alertMessage').textContent = message;
+            document.getElementById('alertModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function openAlertModalWithCallback(message, callback) {
+            document.getElementById('alertMessage').textContent = message;
+            document.getElementById('alertModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            window.alertCallback = callback;
+        }
+
+        function closeAlertModal() {
+            document.getElementById('alertModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+            if (window.alertCallback) {
+                window.alertCallback();
+                window.alertCallback = null;
+            }
+        }
+
+    </script>
+</body>
+</html>

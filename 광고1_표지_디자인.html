@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claude 완벽 가이드 표지</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700;900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 210mm;
+            height: 297mm;
+            margin: 0 auto;
+            font-family: 'Noto Sans KR', sans-serif;
+            background: linear-gradient(135deg, #FFF8F3 0%, #FFEBE0 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* 배경 장식 원 */
+        .bg-circle {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+        }
+
+        .circle1 {
+            width: 400px;
+            height: 400px;
+            background: #FF6B35;
+            top: -100px;
+            right: -100px;
+        }
+
+        .circle2 {
+            width: 300px;
+            height: 300px;
+            background: #E67E22;
+            bottom: -50px;
+            left: -50px;
+        }
+
+        /* Claude 심볼 스타일 - 터미널 ASCII 아트 */
+        .claude-symbol {
+            position: absolute;
+            top: 60px;
+            right: 80px;
+            z-index: 20;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            background: transparent;
+        }
+
+        .pixel-art {
+            width: 65px;
+            height: 65px;
+            overflow: hidden;
+        }
+
+        .pixel-art img {
+            height: 120%;
+            width: auto;
+            margin-top: -4px;
+        }
+
+
+        /* Claude 공식 별 아이콘 */
+        .star-icon {
+            position: absolute;
+            top: 60px;
+            left: 80px;
+            width: 50px;
+            height: 50px;
+        }
+
+        .claude-svg-logo {
+            width: 50px;
+            height: 50px;
+        }
+
+        .claude-svg-logo svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .header {
+            text-align: center;
+            z-index: 10;
+        }
+
+        .claude-logo {
+            font-size: 36px;
+            color: #FF6B35;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .divider {
+            width: 80px;
+            height: 4px;
+            background: #FF6B35;
+            margin: 0 auto;
+        }
+
+        .main-content {
+            text-align: center;
+            z-index: 10;
+        }
+
+        .main-title {
+            font-size: 52px;
+            font-weight: 900;
+            color: #2C3E50;
+            line-height: 1.1;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .subtitles {
+            margin: 40px 0;
+            text-align: left;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .subtitle-item {
+            font-size: 14px;
+            font-weight: 400;
+            color: #546E7A;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .subtitle-item .number {
+            position: absolute;
+            left: 0;
+            color: #FF6B35;
+            font-weight: 700;
+        }
+
+        .badges {
+            margin-top: 40px;
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(255, 107, 53, 0.1);
+            color: #FF6B35;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            border: 1px solid #FF6B35;
+        }
+
+        .author-intro {
+            margin-top: 30px;
+            font-size: 15px;
+            font-weight: 500;
+            color: #2C3E50;
+            line-height: 1.6;
+            text-align: center;
+            padding: 15px;
+            background: rgba(255, 107, 53, 0.05);
+            border-radius: 10px;
+        }
+
+        /* 구매자 혜택 섹션 */
+        .benefits-section {
+            margin-top: 25px;
+            padding: 18px 20px;
+            background: transparent;
+            border-radius: 12px;
+            border: 2px solid #C15F3C;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .benefits-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #C15F3C;
+            text-align: center;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .benefits-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            font-size: 13px;
+            color: #2C3E50;
+            line-height: 1.4;
+        }
+
+        .benefit-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 22px;
+            height: 22px;
+            background: #C15F3C;
+            color: white;
+            font-weight: 700;
+            font-size: 11px;
+            border-radius: 50%;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+
+        .benefit-text {
+            flex: 1;
+            padding-top: 1px;
+        }
+
+        .footer {
+            text-align: center;
+            z-index: 10;
+        }
+
+        .author {
+            font-size: 18px;
+            color: #546E7A;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .version {
+            font-size: 14px;
+            color: #90A4AE;
+            margin-bottom: 8px;
+        }
+
+        .price {
+            font-size: 16px;
+            font-weight: 700;
+            color: #FF6B35;
+            text-align: center;
+            margin: 20px 0 15px 0;
+            padding: 12px;
+            background: rgba(255, 107, 53, 0.08);
+            border-radius: 8px;
+            display: inline-block;
+        }
+
+        /* 장식 라인 */
+        .decoration-line {
+            position: absolute;
+            width: 2px;
+            height: 100px;
+            background: linear-gradient(to bottom, transparent, #FF6B35, transparent);
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .line-top {
+            top: 140px;
+        }
+
+        .line-bottom {
+            bottom: 140px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 배경 장식 -->
+    <div class="bg-circle circle1"></div>
+    <div class="bg-circle circle2"></div>
+
+    <!-- 장식 라인 -->
+    <div class="decoration-line line-top"></div>
+
+    <!-- Claude 공식 로고 (왼쪽) -->
+    <div class="star-icon">
+        <div class="claude-svg-logo">
+            <svg width="248" height="248" viewBox="0 0 248 248" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M52.4285 162.873L98.7844 136.879L99.5485 134.602L98.7844 133.334H96.4921L88.7237 132.862L62.2346 132.153L39.3113 131.207L17.0249 130.026L11.4214 128.844L6.2 121.873L6.7094 118.447L11.4214 115.257L18.171 115.847L33.0711 116.911L55.485 118.447L71.6586 119.392L95.728 121.873H99.5485L100.058 120.337L98.7844 119.392L97.7656 118.447L74.5877 102.732L49.4995 86.1905L36.3823 76.62L29.3779 71.7757L25.8121 67.2858L24.2839 57.3608L30.6515 50.2716L39.3113 50.8623L41.4763 51.4531L50.2636 58.1879L68.9842 72.7209L93.4357 90.6804L97.0015 93.6343L98.4374 92.6652L98.6571 91.9801L97.0015 89.2625L83.757 65.2772L69.621 40.8192L63.2534 30.6579L61.5978 24.632C60.9565 22.1032 60.579 20.0111 60.579 17.4246L67.8381 7.49965L71.9133 6.19995L81.7193 7.49965L85.7946 11.0443L91.9074 24.9865L101.714 46.8451L116.996 76.62L121.453 85.4816L123.873 93.6343L124.764 96.1155H126.292V94.6976L127.566 77.9197L129.858 57.3608L132.15 30.8942L132.915 23.4505L136.608 14.4708L143.994 9.62643L149.725 12.344L154.437 19.0788L153.8 23.4505L150.998 41.6463L145.522 70.1215L141.957 89.2625H143.994L146.414 86.7813L156.093 74.0206L172.266 53.698L179.398 45.6635L187.803 36.802L193.152 32.5484H203.34L210.726 43.6549L207.415 55.1159L196.972 68.3492L188.312 79.5739L175.896 96.2095L168.191 109.585L168.882 110.689L170.738 110.53L198.755 104.504L213.91 101.787L231.994 98.7149L240.144 102.496L241.036 106.395L237.852 114.311L218.495 119.037L195.826 123.645L162.07 131.592L161.696 131.893L162.137 132.547L177.36 133.925L183.855 134.279H199.774L229.447 136.524L237.215 141.605L241.8 147.867L241.036 152.711L229.065 158.737L213.019 154.956L175.45 145.977L162.587 142.787H160.805V143.85L171.502 154.366L191.242 172.089L215.82 195.011L217.094 200.682L213.91 205.172L210.599 204.699L188.949 188.394L180.544 181.069L161.696 165.118H160.422V166.772L164.752 173.152L187.803 207.771L188.949 218.405L187.294 221.832L181.308 223.959L174.813 222.777L161.187 203.754L147.305 182.486L136.098 163.345L134.745 164.2L128.075 235.42L125.019 239.082L117.887 241.8L111.902 237.31L108.718 229.984L111.902 215.452L115.722 196.547L118.779 181.541L121.58 162.873L123.291 156.636L123.14 156.219L121.773 156.449L107.699 175.752L86.304 204.699L69.3663 222.777L65.291 224.431L58.2867 220.768L58.9235 214.27L62.8713 208.48L86.304 178.705L100.44 160.155L109.551 149.507L109.462 147.967L108.959 147.924L46.6977 188.512L35.6182 189.93L30.7788 185.44L31.4156 178.115L33.7079 175.752L52.4285 162.873Z" fill="#D97757"/>
+            </svg>
+        </div>
+    </div>
+
+    <!-- Claude Code v2.0 픽셀 아트 로고 (오른쪽) -->
+    <div class="claude-symbol">
+        <div class="pixel-art">
+            <img src="ClaudeCode로고_transparent.png" alt="Claude Code">
+        </div>
+    </div>
+
+    <!-- 헤더 -->
+    <div class="header">
+        <div class="claude-logo">CLAUDE GUIDE</div>
+        <div class="divider"></div>
+    </div>
+
+    <!-- 메인 콘텐츠 -->
+    <div class="main-content">
+        <h1 class="main-title">
+            Claude 설치부터<br>
+            기본 사용까지<br>
+            완벽 가이드
+        </h1>
+        <div class="subtitles">
+            <p class="subtitle-item">
+                <span class="number">1.</span> Claude 4종 세트(모바일-앱, 웹, 데스크톱-앱, Code)<br>
+                한번에 설치해서 바로 사용하기
+            </p>
+            <p class="subtitle-item">
+                <span class="number">2.</span> Claude 사용료 체계 완전 이해하고<br>
+                토큰 절약 실전 노하우 적용하기
+            </p>
+            <p class="subtitle-item">
+                <span class="number">3.</span> 기업가치 254조원 Anthropic의 성장 스토리와<br>
+                Claude의 기술 혁신과정 이해하기
+            </p>
+        </div>
+        <div class="badges">
+            <span class="badge">국내 최초 Claude 4종 종합 설치 가이드북</span>
+            <span class="badge">3시간이면 Claude Code까지 설치 완료</span>
+        </div>
+        <div class="author-intro">
+            현직 공인회계사이자 스타트업 엑셀러레이터가<br>
+            5개월간 실제 사용경험을 통해서 만들었습니다.
+        </div>
+        <div class="benefits-section">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px;">
+                <div class="benefits-title" style="margin: 0; flex: 1;">구매자 혜택</div>
+                <div class="price" style="margin: 0; background: none; padding: 0;">₩9,990</div>
+            </div>
+            <div class="benefits-list">
+                <div class="benefit-item">
+                    <span class="benefit-number">1</span>
+                    <span class="benefit-text">GitHub를 통해서 지속적 업데이트 버전 제공</span>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-number">2</span>
+                    <span class="benefit-text">카카오톡 채널 <span style="background: #FAE100; color: #3C1E1E; padding: 2px 6px; border-radius: 4px; font-weight: 700;">@claude</span>를 통한 챗봇 및 저자와의 소통</span>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-number">3</span>
+                    <span class="benefit-text">AI 활용 사업모델에 대한 무료 멘토링</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 푸터 -->
+    <div class="footer">
+        <p class="author">저자: 써니(선웅규) | 집필 AI: Claude</p>
+        <p class="version">Version 1.0 | 2025년 9월 30일</p>
+    </div>
+</body>
+</html>

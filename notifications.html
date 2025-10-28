@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>알림 - PoliticianFinder</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#fff7ed',
+                            100: '#ffedd5',
+                            200: '#fed7aa',
+                            300: '#fdba74',
+                            400: '#fb923c',
+                            500: '#f97316',
+                            600: '#ea580c',
+                            700: '#c2410c',
+                            800: '#9a3412',
+                            900: '#7c2d12',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .notification-item {
+            @apply p-4 border-b hover:bg-gray-50 cursor-pointer transition-colors;
+        }
+        .notification-item.unread {
+            @apply bg-blue-50;
+        }
+        .notification-badge {
+            @apply inline-block w-2 h-2 bg-blue-600 rounded-full;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50 border-b-2 border-primary-500">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-4">
+                    <a href="index.html" class="text-2xl font-bold text-primary-600">PoliticianFinder</a>
+                    <div class="hidden md:block w-48">
+                        <div class="font-bold text-gray-900" style="font-size: clamp(0.5rem, 3vw, 1rem);">훌륭한 정치인 찾기</div>
+                        <div class="text-gray-900 font-medium" style="font-size: clamp(0.38rem, 2.28vw, 0.7125rem);">AI 기반 정치인 평가 플랫폼</div>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="index.html" class="text-gray-900 hover:text-primary-600 font-medium">홈</a>
+                    <a href="politicians.html" class="text-gray-900 hover:text-primary-600 font-medium">정치인</a>
+                    <a href="community.html" class="text-gray-900 hover:text-primary-600 font-medium">커뮤니티</a>
+                    <a href="services.html" class="text-gray-900 hover:text-primary-600 font-medium">연결</a>
+                    <a href="notifications.html" class="relative text-gray-900 hover:text-primary-600">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+                        </svg>
+                        <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">3</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-3">
+                    <a href="login.html" class="text-gray-900 hover:text-primary-600 font-medium px-4 py-2">로그인</a>
+                    <a href="signup.html" class="bg-primary-500 text-white px-4 py-2 rounded-lg hover:bg-primary-600 font-medium">회원가입</a>
+                </div>
+                <div class="md:hidden flex items-center space-x-3">
+                    <a href="notifications.html" class="relative text-gray-900">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+                        </svg>
+                        <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full w-4 h-4 flex items-center justify-center text-xs">3</span>
+                    </a>
+                    <button id="mobile-menu-button" class="text-gray-900 hover:text-primary-600 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <div class="flex flex-col space-y-3 pt-4 border-t border-gray-200">
+                    <a href="index.html" class="text-gray-900 hover:text-primary-600 font-medium px-2 py-2">홈</a>
+                    <a href="politicians.html" class="text-gray-900 hover:text-primary-600 font-medium px-2 py-2">정치인</a>
+                    <a href="community.html" class="text-gray-900 hover:text-primary-600 font-medium px-2 py-2">커뮤니티</a>
+                    <a href="services.html" class="text-gray-900 hover:text-primary-600 font-medium px-2 py-2">연결</a>
+                    <div class="border-t border-gray-200 pt-3 mt-3">
+                        <a href="login.html" class="block text-gray-900 hover:text-primary-600 font-medium px-2 py-2">로그인</a>
+                        <a href="signup.html" class="block bg-primary-500 text-white px-4 py-2 rounded-lg hover:bg-primary-600 font-medium text-center mt-2">회원가입</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 메인 컨텐츠 -->
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- 헤더 -->
+        <div class="mb-6">
+            <div class="flex items-center justify-between mb-4">
+                <h1 class="text-2xl font-bold text-gray-900">알림</h1>
+                <div class="flex items-center gap-3">
+                    <button id="mark-all-read" class="text-sm text-primary-600 hover:text-primary-700 font-medium">
+                        모두 읽음 처리
+                    </button>
+                    <button id="delete-all-read" class="text-sm text-gray-600 hover:text-gray-700 font-medium">
+                        읽은 알림 삭제
+                    </button>
+                    <button id="settings-btn" class="p-2 text-gray-600 hover:text-gray-700">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <p class="text-gray-600">
+                읽지 않은 알림 <span id="unread-count" class="font-bold text-primary-600">5</span>개
+            </p>
+        </div>
+
+        <!-- 필터 탭 -->
+        <div class="bg-white rounded-lg shadow-md mb-6">
+            <div class="flex border-b">
+                <button class="filter-tab active px-6 py-3 text-gray-600 border-b-2 border-transparent hover:text-primary-600 hover:border-primary-600 transition-colors" data-filter="all">
+                    전체
+                </button>
+                <button class="filter-tab px-6 py-3 text-gray-600 border-b-2 border-transparent hover:text-primary-600 hover:border-primary-600 transition-colors" data-filter="comment">
+                    댓글
+                </button>
+
+                <button class="filter-tab px-6 py-3 text-gray-600 border-b-2 border-transparent hover:text-primary-600 hover:border-primary-600 transition-colors" data-filter="like">
+                    공감
+                </button>
+                <button class="filter-tab px-6 py-3 text-gray-600 border-b-2 border-transparent hover:text-primary-600 hover:border-primary-600 transition-colors" data-filter="share">
+                    공유
+                </button>
+                <button class="filter-tab px-6 py-3 text-gray-600 border-b-2 border-transparent hover:text-primary-600 hover:border-primary-600 transition-colors" data-filter="politician_update">
+                    정치인
+                </button>
+                <button class="filter-tab px-6 py-3 text-gray-600 border-b-2 border-transparent hover:text-primary-600 hover:border-primary-600 transition-colors" data-filter="notice">
+                    공지사항
+                </button>
+                <button class="filter-tab px-6 py-3 text-gray-600 border-b-2 border-transparent hover:text-primary-600 hover:border-primary-600 transition-colors" data-filter="system">
+                    시스템
+                </button>
+            </div>
+
+            <!-- 알림 목록 -->
+            <div id="notifications-container">
+                <!-- 알림이 여기에 동적으로 추가됩니다 -->
+            </div>
+
+            <!-- 알림 없음 메시지 -->
+            <div id="no-notifications" class="hidden p-12 text-center">
+                <svg class="w-16 h-16 mx-auto text-gray-300 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+                </svg>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">알림이 없습니다</h3>
+                <p class="text-gray-600">새로운 알림이 오면 여기에 표시됩니다.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary-500 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div class="flex justify-center items-center space-x-8 text-base py-4">
+                <a href="#" class="hover:text-gray-200">서비스 소개</a>
+                <a href="#" class="hover:text-gray-200">이용약관</a>
+                <a href="#" class="hover:text-gray-200">개인정보처리방침</a>
+                <a href="#" class="hover:text-gray-200">고객센터</a>
+            </div>
+            <div class="text-center text-base text-white py-4">
+                <p>&copy; 2025 PoliticianFinder. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+    </script>
+    <script>
+        // 샘플 알림 데이터
+        const notifications = [
+            {
+                id: 1,
+                type: 'comment',
+                title: '내 게시글에 새 댓글이 달렸습니다',
+                content: '<a href="user-profile.html?user=박지민" class="text-purple-600 hover:underline font-medium">박지민</a>님이 "우리 지역 교통 문제 어떻게 생각하시나요?" 게시글에 댓글을 남겼습니다.',
+                timestamp: '2025-01-28T15:30:00',
+                read: false,
+                link: 'post-detail_member.html?id=1',
+                avatar: null
+            },
+            {
+                id: 2,
+                type: 'like',
+                title: '게시글에 공감을 받았습니다',
+                content: '15명이 "2025년 지역 발전 계획 공유드립니다" 게시글에 공감을 눌렀습니다.',
+                timestamp: '2025-01-28T14:20:00',
+                read: false,
+                link: 'post-detail_politician.html?id=1',
+                avatar: null
+            },
+            {
+                id: 3,
+                type: 'comment',
+                title: '내 댓글에 답글이 달렸습니다',
+                content: '<a href="politician-detail.html?id=이서연" class="text-primary-600 hover:underline font-medium">이서연 의원</a>님이 회원님의 댓글에 답글을 남겼습니다.',
+                timestamp: '2025-01-28T13:15:00',
+                read: false,
+                link: 'post-detail_politician.html?id=1',
+                avatar: null
+            },
+            {
+                id: 4,
+                type: 'share',
+                title: '게시글이 공유되었습니다',
+                content: '<a href="user-profile.html?user=정치관심러" class="text-purple-600 hover:underline font-medium">정치관심러</a>님이 "예산안 검토 의견" 게시글을 공유했습니다.',
+                timestamp: '2025-01-28T12:45:00',
+                read: false,
+                link: 'post-detail_member.html?id=1',
+                avatar: null
+            },
+            {
+                id: 5,
+                type: 'notice',
+                title: '새로운 공지사항이 등록되었습니다',
+                content: '서비스 이용약관 변경 안내 - 2025년 2월 1일부터 변경된 약관이 적용됩니다.',
+                timestamp: '2025-01-28T10:00:00',
+                read: false,
+                link: 'notice-detail.html?id=1',
+                avatar: null
+            },
+            {
+                id: 6,
+                type: 'politician_update',
+                title: '관심 정치인의 새 글이 등록되었습니다',
+                content: '<a href="politician-detail.html?id=김민준" class="text-primary-600 hover:underline font-medium">김민준 의원</a>님이 "2025년 1월 활동 보고" 글을 작성하셨습니다.',
+                timestamp: '2025-01-28T09:30:00',
+                read: false,
+                link: 'post-detail_politician.html?id=1',
+                avatar: null
+            },
+            {
+                id: 7,
+                type: 'like',
+                title: '댓글에 공감을 받았습니다',
+                content: '8명이 회원님의 댓글에 공감을 눌렀습니다.',
+                timestamp: '2025-01-27T18:45:00',
+                read: true,
+                link: 'post-detail_member.html?id=1',
+                avatar: null
+            },
+            {
+                id: 8,
+                type: 'comment',
+                title: '내 게시글에 새 댓글이 달렸습니다',
+                content: '<a href="user-profile.html?user=최민수" class="text-purple-600 hover:underline font-medium">최민수</a>님이 "예산안에 대한 의견을 공유합니다" 게시글에 댓글을 남겼습니다.',
+                timestamp: '2025-01-27T16:20:00',
+                read: true,
+                link: 'post-detail_member.html?id=1',
+                avatar: null
+            },
+            {
+                id: 9,
+                type: 'share',
+                title: '게시글이 공유되었습니다',
+                content: '3명이 "지역 현안 토론회 후기" 게시글을 공유했습니다.',
+                timestamp: '2025-01-27T14:10:00',
+                read: true,
+                link: 'post-detail_member.html?id=1',
+                avatar: null
+            },
+            {
+                id: 10,
+                type: 'system',
+                title: '포인트가 적립되었습니다',
+                content: '활동 참여로 50 포인트가 적립되었습니다. (누적: 1,250P)',
+                timestamp: '2025-01-27T12:00:00',
+                read: true,
+                link: 'mypage.html',
+                avatar: null
+            }
+        ];
+
+        let currentFilter = 'all';
+
+        // 아이콘 가져오기
+        function getNotificationIcon(type) {
+            const icons = {
+                comment: `<svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path>
+                </svg>`,
+                like: `<span class="text-2xl">👍</span>`,
+                share: `<svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path>
+                </svg>`,
+                politician_update: `<svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                </svg>`,
+                notice: `<svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"></path>
+                </svg>`,
+                system: `<svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>`,
+                system: `<svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>`
+            };
+            return icons[type] || icons.system;
+        }
+
+        // 시간 포맷 (YYYY-MM-DD HH:MM)
+        function formatTimestamp(timestamp) {
+            const date = new Date(timestamp);
+            const year = date.getFullYear();
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            const day = String(date.getDate()).padStart(2, '0');
+            const hours = String(date.getHours()).padStart(2, '0');
+            const minutes = String(date.getMinutes()).padStart(2, '0');
+
+            return `${year}-${month}-${day} ${hours}:${minutes}`;
+        }
+
+        // 알림 렌더링
+        function renderNotifications(filter = 'all') {
+            const container = document.getElementById('notifications-container');
+            const noNotifications = document.getElementById('no-notifications');
+
+            let filteredNotifications = notifications;
+            if (filter !== 'all') {
+                filteredNotifications = notifications.filter(n => n.type === filter);
+            }
+
+            if (filteredNotifications.length === 0) {
+                container.innerHTML = '';
+                noNotifications.classList.remove('hidden');
+                return;
+            }
+
+            noNotifications.classList.add('hidden');
+
+            container.innerHTML = filteredNotifications.map(notification => `
+                <div class="notification-item ${notification.read ? '' : 'unread'}" data-id="${notification.id}">
+                    <div class="flex items-start gap-4">
+                        <div class="flex-shrink-0">
+                            ${notification.avatar
+                                ? `<img src="${notification.avatar}" alt="avatar" class="w-10 h-10 rounded-full">`
+                                : `<div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center">${getNotificationIcon(notification.type)}</div>`
+                            }
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <div class="flex items-start justify-between mb-1">
+                                <h3 class="font-bold text-gray-900 flex items-center gap-2">
+                                    ${notification.read ? '' : '<span class="notification-badge"></span>'}
+                                    ${notification.title}
+                                </h3>
+                                <button class="delete-button text-gray-400 hover:text-red-600" data-id="${notification.id}">
+                                    <svg class="w-4 h-4 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <p class="text-sm text-gray-600 mb-2">${notification.content}</p>
+                            <span class="text-xs text-gray-500">${formatTimestamp(notification.timestamp)}</span>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            updateUnreadCount();
+        }
+
+        // 읽지 않은 알림 수 업데이트
+        function updateUnreadCount() {
+            const unreadCount = notifications.filter(n => !n.read).length;
+            document.getElementById('unread-count').textContent = unreadCount;
+        }
+
+        // 알림 클릭 처리
+        function handleNotificationClick(id) {
+            const notification = notifications.find(n => n.id === id);
+            if (!notification) return;
+
+            // 읽음 처리
+            notification.read = true;
+            renderNotifications(currentFilter);
+
+            // 링크로 이동
+            if (notification.link) {
+                window.location.href = notification.link;
+            }
+        }
+
+        // 알림 삭제
+        function deleteNotification(id) {
+            const index = notifications.findIndex(n => n.id === id);
+            if (index > -1) {
+                notifications.splice(index, 1);
+                renderNotifications(currentFilter);
+            }
+        }
+
+        // 모두 읽음 처리
+        document.getElementById('mark-all-read').addEventListener('click', function() {
+            notifications.forEach(n => n.read = true);
+            renderNotifications(currentFilter);
+        });
+
+        // 읽은 알림 삭제
+        document.getElementById('delete-all-read').addEventListener('click', function() {
+            if (confirm('읽은 알림을 모두 삭제하시겠습니까?')) {
+                for (let i = notifications.length - 1; i >= 0; i--) {
+                    if (notifications[i].read) {
+                        notifications.splice(i, 1);
+                    }
+                }
+                renderNotifications(currentFilter);
+            }
+        });
+
+        // 설정 버튼
+        document.getElementById('settings-btn').addEventListener('click', function() {
+            window.location.href = 'settings.html';
+        });
+
+        // 필터 탭
+        document.querySelectorAll('.filter-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('.filter-tab').forEach(t => {
+                    t.classList.remove('active', 'text-primary-600', 'border-primary-600', 'font-bold');
+                });
+                this.classList.add('active', 'text-primary-600', 'border-primary-600', 'font-bold');
+                currentFilter = this.dataset.filter;
+                renderNotifications(currentFilter);
+            });
+        });
+
+        // 알림 컨테이너에 이벤트 위임 리스너 추가
+        document.getElementById('notifications-container').addEventListener('click', function(event) {
+            const target = event.target;
+            const deleteButton = target.closest('.delete-button');
+            const notificationItem = target.closest('.notification-item');
+
+            if (deleteButton) {
+                const notificationId = parseInt(deleteButton.dataset.id, 10);
+                deleteNotification(notificationId);
+                return; // Stop further processing
+            }
+
+            if (notificationItem) {
+                const notificationId = parseInt(notificationItem.dataset.id, 10);
+                handleNotificationClick(notificationId);
+            }
+        });
+
+        // 페이지 로드 시 알림 렌더링
+        renderNotifications();
+    </script>
+</body>
+</html>
