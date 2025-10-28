@@ -1,0 +1,14 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Disallow authentication and API routes
+Disallow: /api/
+Disallow: /auth/
+Disallow: /login
+Disallow: /signup
+Disallow: /profile
+Disallow: /settings
+
+# Sitemap location
+Sitemap: https://politician-finder.vercel.app/sitemap.xml

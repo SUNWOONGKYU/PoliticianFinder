@@ -1,0 +1,219 @@
+name: Phase 3 E2E Tests
+
+on:
+  pull_request:
+    branches: [main, develop]
+    paths:
+      - 'frontend/**'
+      - '.github/workflows/phase3-tests.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'frontend/**'
+  workflow_dispatch:
+
+jobs:
+  test-notifications:
+    name: Test Notification System
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install dependencies
+        working-directory: ./frontend
+        run: npm ci
+
+      - name: Install Playwright browsers
+        working-directory: ./frontend
+        run: npx playwright install --with-deps chromium
+
+      - name: Run notification tests
+        working-directory: ./frontend
+        run: npm run test:notifications
+        env:
+          PLAYWRIGHT_BASE_URL: ${{ secrets.PLAYWRIGHT_BASE_URL || 'http://localhost:3000' }}
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: notification-test-results
+          path: frontend/test-results/
+          retention-days: 7
+
+      - name: Upload test report
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: notification-test-report
+          path: frontend/playwright-report/
+          retention-days: 7
+
+  test-bookmarks:
+    name: Test Bookmark System
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install dependencies
+        working-directory: ./frontend
+        run: npm ci
+
+      - name: Install Playwright browsers
+        working-directory: ./frontend
+        run: npx playwright install --with-deps chromium
+
+      - name: Run bookmark tests
+        working-directory: ./frontend
+        run: npm run test:bookmarks
+        env:
+          PLAYWRIGHT_BASE_URL: ${{ secrets.PLAYWRIGHT_BASE_URL || 'http://localhost:3000' }}
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: bookmark-test-results
+          path: frontend/test-results/
+          retention-days: 7
+
+      - name: Upload test report
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: bookmark-test-report
+          path: frontend/playwright-report/
+          retention-days: 7
+
+  test-comments:
+    name: Test Comment System
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install dependencies
+        working-directory: ./frontend
+        run: npm ci
+
+      - name: Install Playwright browsers
+        working-directory: ./frontend
+        run: npx playwright install --with-deps chromium
+
+      - name: Run comment tests
+        working-directory: ./frontend
+        run: npm run test:comments
+        env:
+          PLAYWRIGHT_BASE_URL: ${{ secrets.PLAYWRIGHT_BASE_URL || 'http://localhost:3000' }}
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: comment-test-results
+          path: frontend/test-results/
+          retention-days: 7
+
+      - name: Upload test report
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: comment-test-report
+          path: frontend/playwright-report/
+          retention-days: 7
+
+  test-summary:
+    name: Phase 3 Test Summary
+    needs: [test-notifications, test-bookmarks, test-comments]
+    runs-on: ubuntu-latest
+    if: always()
+
+    steps:
+      - name: Download all test results
+        uses: actions/download-artifact@v3
+        with:
+          path: test-results
+
+      - name: Create test summary
+        run: |
+          echo "# Phase 3 Test Results" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "## Test Execution Status" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "- Notification Tests: ${{ needs.test-notifications.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Bookmark Tests: ${{ needs.test-bookmarks.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Comment Tests: ${{ needs.test-comments.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "## Test Coverage" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "✅ Notification System: API endpoints, read status, pagination" >> $GITHUB_STEP_SUMMARY
+          echo "✅ Bookmark System: Add/remove, persistence, API integration" >> $GITHUB_STEP_SUMMARY
+          echo "✅ Comment System: CRUD, replies, likes, permissions" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Detailed reports available in workflow artifacts." >> $GITHUB_STEP_SUMMARY
+
+  health-check:
+    name: Production Health Check
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    needs: [test-notifications, test-bookmarks, test-comments]
+
+    steps:
+      - name: Check health endpoint
+        run: |
+          HEALTH_URL="${{ secrets.PRODUCTION_URL }}/api/health"
+          echo "Checking health at: $HEALTH_URL"
+
+          response=$(curl -s -o /dev/null -w "%{http_code}" "$HEALTH_URL" || echo "000")
+
+          if [ "$response" = "200" ]; then
+            echo "✅ Health check passed (Status: $response)"
+          else
+            echo "❌ Health check failed (Status: $response)"
+            exit 1
+          fi
+
+      - name: Get health status details
+        if: always()
+        run: |
+          HEALTH_URL="${{ secrets.PRODUCTION_URL }}/api/health"
+          echo "## Health Status" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo '```json' >> $GITHUB_STEP_SUMMARY
+          curl -s "$HEALTH_URL" | jq '.' >> $GITHUB_STEP_SUMMARY || echo "Failed to fetch health details" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY

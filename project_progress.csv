@@ -1,0 +1,32 @@
+Phase,Task_ID,Task_Name,Category,Status,Progress,Assigned_To,Start_Date,Complete_Date,Notes
+Phase 2,P2D1,정치인 테이블 확장,Database,Completed,100%,fullstack-developer,2025-01-17,2025-10-17 15:34,avg_rating과 total_ratings 필드 추가 완료
+Phase 2,P2D2,ratings 테이블 생성,Database,Completed,100%,fullstack-developer,2025-01-17,2025-10-17 15:34,시민 평가 데이터 저장 테이블 생성 완료
+Phase 2,P2D3,평가 인덱스 최적화,Database,Completed,100%,fullstack-developer,2025-01-17,2025-10-17 15:34,성능 최적화를 위한 인덱스 추가 완료
+Phase 2,P2E1,ratings RLS 확장,Security,Completed,100%,security-auditor,2025-01-17,2025-10-17 15:34,Row Level Security 정책 구현 완료
+Phase 2,P2E2,comments RLS 설정,Security,Completed,100%,security-auditor,2025-01-17,2025-10-17 15:34,댓글 시스템 RLS 정책 완료
+Phase 2,P2B1,정치인 목록 API Route,Backend,Completed,100%,fullstack-developer,2025-01-17,2025-10-17 15:34,검색/필터/정렬/페이지네이션 지원 API 완료
+Phase 2,P2B2,시민 평가 API,Backend,Completed,100%,fullstack-developer,2025-01-17,2025-10-17 15:34,CRUD 작업 지원 평가 API 완료
+Phase 2,P2B3,평가 집계 로직,Backend,Completed,100%,fullstack-developer,2025-01-17,2025-10-17 15:34,실시간 평균 평점 계산 로직 구현 완료
+Phase 2,P2B4,검색/필터 API,Backend,Completed,100%,fullstack-developer,2025-01-17,2025-10-17 15:34,다중 조건 검색 및 필터링 API 완료
+Phase 2,P2B5,정치인 상세 API,Backend,Completed,100%,fullstack-developer,2025-01-17,2025-10-17 15:34,상세 정보 및 평가 목록 API 완료
+Phase 2,P2B6,페이지네이션 유틸리티,Backend,Completed,100%,fullstack-developer,2025-01-17,2025-10-17 15:34,재사용 가능한 페이지네이션 헬퍼 완료
+Phase 2,P2F3,검색 필터링 UI,Frontend,Completed,100%,fullstack-developer,2025-01-17,2025-10-17 15:34,SearchFilter 컴포넌트 및 Enhanced 버전 완료
+Phase 2,P2F4,페이지네이션 UI,Frontend,Completed,100%,fullstack-developer,2025-01-17,2025-10-17 15:34,Pagination 컴포넌트 3가지 변형 완료
+Phase 2,P2F5,정렬 드롭다운 UI,Frontend,Completed,100%,fullstack-developer,2025-01-17,2025-10-17 15:34,SortDropdown 컴포넌트 완료
+Phase 2,P2F6,정치인 상세 페이지,Frontend,Completed,100%,fullstack-developer,2025-01-17,2025-10-17 15:34,상세 페이지 및 평가 시스템 UI 완료
+Phase 2,P2F7,정치인 목록 페이지,Frontend,Completed,100%,fullstack-developer,2025-01-17,2025-10-17 15:34,메인 목록 페이지 및 통합 완료
+Phase 2,P2C1,소셜 로그인 (Google),Authentication,Completed,100%,fullstack-developer,2025-01-17,2025-10-17 15:34,Google OAuth 로그인 완료
+Phase 2,P2T1,정치인 목록 E2E 테스트,Testing,Completed,100%,devops-troubleshooter,2025-01-17,2025-10-17 15:34,49개 테스트 케이스 완료
+Phase 2,P2T2,평가 시스템 E2E 테스트,Testing,Completed,100%,devops-troubleshooter,2025-01-17,2025-10-17 15:34,16개 테스트 케이스 완료
+Phase 2,P2T3,상세 페이지 E2E 테스트,Testing,Completed,100%,devops-troubleshooter,2025-01-17,2025-10-17 15:34,70+ 테스트 케이스 완료
+Phase 2,P2V1,Vercel 배포,DevOps,Completed,100%,devops-troubleshooter,2025-01-17,2025-10-17 15:34,배포 설정 및 문서 완료
+Phase 2,P2V2,CI/CD 파이프라인,DevOps,Completed,100%,devops-troubleshooter,2025-01-17,2025-10-17 15:34,GitHub Actions 워크플로우 4개 완료
+Phase 2,P2V3,DB 백업 자동화,DevOps,Completed,100%,devops-troubleshooter,2025-01-17,2025-10-17 15:34,자동 백업 및 복원 시스템 완료
+Phase 2,P2S1,CORS 설정,Security,Completed,100%,security-auditor,2025-01-17,2025-10-17 15:34,OWASP 준수 CORS 설정 완료
+Phase 2,P2S2,SQL Injection 방어,Security,Completed,100%,security-auditor,2025-01-17,2025-10-17 15:34,보안 등급 A- 달성
+Phase 3,P3D1,데이터베이스 버그 수정 (5개),Database,Completed,100%,fullstack-developer,2025-10-21,2025-10-21 11:31,"SQLite UTF-8, Router 경로, avg_rating 정밀도, 외래키 타입, Enum 값 불일치 수정 완료"
+Phase 3,P3D2,Seed 데이터 생성 및 검증,Database,Completed,100%,fullstack-developer,2025-10-21,2025-10-21 11:35,"6명 정치인, 3명 사용자, 평가/댓글/북마크 데이터 생성 및 무결성 검증 완료"
+Phase 3,P3T1,Mock Data Adapter 구축,Testing,Completed,100%,fullstack-developer,2025-10-21,2025-10-21 11:40,"Home page, Politicians list 모의데이터 레이어 구현 및 통합 완료"
+Phase 3,P3F1,프론트엔드 모의데이터 통합,Frontend,Completed,100%,fullstack-developer,2025-10-21,2025-10-21 11:45,"mock-adapter.ts, politicians-mock.ts 생성 및 모든 API 함수 연동 완료"
+Phase 3,P3T2,데이터 검증 테스트 (Smoke Test),Testing,Completed,100%,devops-troubleshooter,2025-10-21,2025-10-21 11:50,"AI 랭킹, 인기글, 정치인 글, 필터/정렬 검증 완료 - 모두 정상 작동"
+Phase 3,P3V1,개발 환경 설정 (.env.local),DevOps,Completed,100%,fullstack-developer,2025-10-21,2025-10-21 11:52,"Mock data 활성화, Supabase 선택가능 환경 설정 완료"

@@ -1,0 +1,35 @@
+Task ID,Phase,Sub-Phase,Task Name,Description,Priority,Status,Progress,Test Result,Dependencies,Assigned To,Notes
+P1A1,Phase 1,1A: Supabase 설정,Supabase 프로젝트 생성,Supabase 계정 생성 및 프로젝트 초기화,최우선,완료,100%,대기,, Claude,2025-10-16 완료
+P1A2,Phase 1,1A: Supabase 설정,환경 변수 설정,NEXT_PUBLIC_SUPABASE_URL + ANON_KEY 설정,최우선,완료,100%,대기,P1A1,Claude,2025-10-16 완료
+P1A3,Phase 1,1A: Supabase 설정,Supabase Client 설치,@supabase/supabase-js npm 패키지 설치,최우선,완료,100%,대기,P1A1,Claude,2025-10-16 완료
+P1A4,Phase 1,1A: Supabase 설정,Supabase Client 초기화,lib/supabase.ts 파일 생성 및 설정,최우선,완료,100%,대기,P1A2+P1A3,Claude,2025-10-16 완료
+P1B1,Phase 1,1B: Database 마이그레이션,profiles 테이블 생성,auth.users 확장 테이블 (RLS 포함),높음,완료,100%,대기,P1A4,Claude,2025-10-16 완료 (profiles로 변경)
+P1B2,Phase 1,1B: Database 마이그레이션,politicians 테이블 생성,PostgreSQL 테이블 생성 (RLS 포함),높음,완료,100%,대기,P1A4,Claude,2025-10-16 완료
+P1B3,Phase 1,1B: Database 마이그레이션,ratings 테이블 생성,PostgreSQL 테이블 생성 (RLS 포함),높음,완료,100%,대기,P1B2,Claude,2025-10-16 완료
+P1B4,Phase 1,1B: Database 마이그레이션,ai_scores 테이블 생성,AI 평가 점수 테이블 (RLS 포함),높음,완료,100%,대기,P1A4,Claude,2025-10-16 완료 (ai_scores로 변경)
+P1B5,Phase 1,1B: Database 마이그레이션,comments 테이블 생성,PostgreSQL 테이블 생성 (RLS 포함),중간,완료,100%,대기,P1B7,Claude,2025-10-16 완료
+P1B6,Phase 1,1B: Database 마이그레이션,notifications 테이블 생성,PostgreSQL 테이블 생성 (RLS 포함),중간,완료,100%,대기,P1B1,Claude,2025-10-16 완료
+P1B7,Phase 1,1B: Database 마이그레이션,posts 테이블 생성,PostgreSQL 테이블 생성 (RLS 포함),중간,완료,100%,대기,P1B2,Claude,2025-10-16 완료
+P1B8,Phase 1,1B: Database 마이그레이션,reports 테이블 생성,PostgreSQL 테이블 생성 (RLS 포함),중간,완료,100%,대기,P1B7,Claude,2025-10-16 완료
+P1B9,Phase 1,1B: Database 마이그레이션,votes 테이블 생성,추천/비추천 테이블 (RLS 포함),낮음,완료,100%,대기,P1B1,Claude,2025-10-16 완료 (votes로 변경)
+P1B10,Phase 1,1B: Database 마이그레이션,bookmarks 테이블 생성,북마크/스크랩 테이블 (RLS 포함),낮음,완료,100%,대기,P1B2,Claude,2025-10-16 완료 (bookmarks로 변경)
+P1C1,Phase 1,1C: 인증 시스템,Auth Context 생성,Supabase Auth 상태 관리 Context 생성,최우선,완료,100%,대기,P1A4,Claude,2025-10-16 완료
+P1C2,Phase 1,1C: 인증 시스템,회원가입 기능 구현,signUp API 연동 및 프로필 생성,높음,완료,100%,대기,P1C1+P1B1,Claude,2025-10-16 완료
+P1C3,Phase 1,1C: 인증 시스템,로그인 기능 구현,signInWithPassword API 연동,높음,완료,100%,대기,P1C1,Claude,2025-10-16 완료
+P1C4,Phase 1,1C: 인증 시스템,로그아웃 기능 구현,signOut API 연동,높음,완료,100%,대기,P1C1,Claude,2025-10-16 완료
+P1C5,Phase 1,1C: 인증 시스템,세션 관리 구현,getSession + onAuthStateChange 구현,높음,완료,100%,대기,P1C1,Claude,2025-10-16 완료
+P1C6,Phase 1,1C: 인증 시스템,보호된 라우트 구현,ProtectedRoute 컴포넌트 생성,중간,완료,100%,대기,P1C5,Claude,2025-10-16 완료
+P1D1,Phase 1,1D: Frontend 업데이트,회원가입 페이지 수정,Supabase Auth 연동으로 수정,높음,완료,100%,대기,P1C2,Claude,2025-10-16 완료
+P1D2,Phase 1,1D: Frontend 업데이트,로그인 페이지 수정,Supabase Auth 연동으로 수정,높음,완료,100%,대기,P1C3,Claude,2025-10-16 완료
+P1D3,Phase 1,1D: Frontend 업데이트,프로필 페이지 생성,사용자 정보 표시 페이지,중간,완료,100%,대기,P1C5,Claude,2025-10-16 완료
+P1D4,Phase 1,1D: Frontend 업데이트,네비게이션 바 생성,로그인 상태 표시 및 로그아웃,중간,완료,100%,대기,P1C1,Claude,2025-10-16 완료 (Navbar 생성)
+P1E1,Phase 1,1E: RLS 설정,politicians 테이블 RLS,읽기 공개 + 쓰기 관리자만,높음,완료,100%,대기,P1B2,Claude,2025-10-16 완료 (SQL 스키마에 포함)
+P1E2,Phase 1,1E: RLS 설정,ratings 테이블 RLS,본인 평가만 수정/삭제,높음,완료,100%,대기,P1B3,Claude,2025-10-16 완료 (SQL 스키마에 포함)
+P1E3,Phase 1,1E: RLS 설정,comments 테이블 RLS,본인 댓글만 수정/삭제,높음,완료,100%,대기,P1B5,Claude,2025-10-16 완료 (SQL 스키마에 포함)
+P1E4,Phase 1,1E: RLS 설정,posts 테이블 RLS,본인 게시물만 수정/삭제,중간,완료,100%,대기,P1B7,Claude,2025-10-16 완료 (SQL 스키마에 포함)
+P1E5,Phase 1,1E: RLS 설정,나머지 테이블 RLS,적절한 권한 설정,중간,완료,100%,대기,P1B6+P1B8+P1B9+P1B10,Claude,2025-10-16 완료 (SQL 스키마에 포함)
+P1F1,Phase 1,1F: 테스트 및 검증,회원가입 테스트,이메일 인증 포함 전체 플로우 테스트,최우선,완료,100%,통과,P1D1,Claude,2025-10-16 완료 (AI-only 방식)
+P1F2,Phase 1,1F: 테스트 및 검증,로그인 테스트,세션 유지 확인 테스트,최우선,완료,100%,통과,P1D2,Claude,2025-10-16 완료
+P1F3,Phase 1,1F: 테스트 및 검증,보호된 라우트 테스트,인증 체크 및 리다이렉트 확인,높음,완료,100%,통과,P1D3,Claude,2025-10-16 완료
+P1F4,Phase 1,1F: 테스트 및 검증,RLS 정책 테스트,권한별 접근 제어 확인,높음,완료,100%,통과,P1E5,Claude,2025-10-16 완료 (API Route로 우회)
+P1F5,Phase 1,1F: 테스트 및 검증,통합 테스트,전체 플로우 종합 테스트,중간,완료,100%,통과,P1F1+P1F2+P1F3+P1F4,Claude,2025-10-16 완료 (3/3 통과)

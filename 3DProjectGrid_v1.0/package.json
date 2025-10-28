@@ -1,0 +1,15 @@
+{
+  "name": "13dgc-aodm_grid",
+  "version": "1.0.0",
+  "description": "**프로젝트명**: 13DGC-AODM (13-Dimensional Grid-Controlled AI-Only Development Management) **목적**: AI-Only 방법론으로 정치인 역량 평가 시스템 개발 **버전**: v2.0 (Supabase 기반) **최종 업데이트**: 2025-10-16",
+  "main": "capture-screenshot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "puppeteer": "^24.25.0"
+  }
+}

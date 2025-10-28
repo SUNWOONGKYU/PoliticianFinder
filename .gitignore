@@ -1,0 +1,92 @@
+# Dependencies
+node_modules/
+frontend/node_modules/
+**/node_modules/
+
+# Testing
+coverage/
+.nyc_output/
+frontend/coverage/
+
+# Next.js
+frontend/.next/
+frontend/out/
+frontend/build/
+.next/
+out/
+build/
+
+# Vercel
+.vercel
+frontend/.vercel
+
+# Production
+dist/
+
+# Environment variables
+.env
+.env*.local
+*.env.local
+frontend/.env
+frontend/.env.local
+frontend/.env.production
+.env.production
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Supabase
+supabase/.branches
+supabase/.temp
+**/supabase/.branches
+**/supabase/.temp
+
+# OS
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Misc
+.turbo
+.cache
+
+# Python (for scripts)
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+*.so
+
+# Backup files
+*.backup
+*_backup_*
+
+# Build logs
+*.log
+build.log
+frontend/build.log
+
+# 13DGC-AODM Grid backups (keep originals only)
+13DGC-AODM_Grid/project_grid_v2.0_supabase.csv.backup_*
+13DGC-AODM_Grid/backups/
+
+# 15DGC-AODM Grid - 프로젝트 그리드 (보안 - 로컬에만 보관)
+15DGC-AODM_Grid/
+
+# Playwright
+frontend/test-results/
+frontend/playwright-report/
+frontend/playwright/.cache/
+
+.vercel
