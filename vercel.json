@@ -1,9 +1,0 @@
-{
-  "projects": [
-    {
-      "src": "frontend",
-      "name": "politician-finder",
-      "rootDirectory": "frontend"
-    }
-  ]
-}

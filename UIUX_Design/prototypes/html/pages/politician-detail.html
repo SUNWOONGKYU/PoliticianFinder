@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>김민준 의원 - PoliticianFinder</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#fff7ed',
+                            100: '#ffedd5',
+                            200: '#fed7aa',
+                            300: '#fdba74',
+                            400: '#fb923c',
+                            500: '#f97316',
+                            600: '#ea580c',
+                            700: '#c2410c',
+                            800: '#9a3412',
+                            900: '#7c2d12',
+                        },
+                        secondary: {
+                            500: '#8b5cf6',
+                            600: '#7c3aed',
+                        },
+                        accent: {
+                            500: '#064E3B',  // 어두운 에메랄드 그린 (Tailwind emerald-900) - AI 평가 권위 강조
+                            600: '#064E3B',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts: Noto Sans KR -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'system-ui', sans-serif;
+            color: #000000;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50 border-b-2 border-primary-500">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo & Catchphrase -->
+                <div class="flex items-center space-x-4">
+                    <a href="index.html" class="text-2xl font-bold text-primary-600">
+                        PoliticianFinder
+                    </a>
+                    <div class="hidden md:block w-48">
+                        <div class="font-bold text-gray-900" style="font-size: clamp(0.5rem, 3vw, 1rem); width: 100%;">훌륭한 정치인 찾기</div>
+                        <div class="text-gray-900 font-medium" style="font-size: clamp(0.38rem, 2.28vw, 0.7125rem); width: 100%;">AI 기반 정치인 평가 플랫폼</div>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="index.html" class="text-gray-900 hover:text-primary-600 font-medium focus:outline-none focus:ring-2 focus:ring-primary-300 rounded px-2 py-1">홈</a>
+                    <a href="politicians.html" class="text-gray-900 hover:text-primary-600 font-medium focus:outline-none focus:ring-2 focus:ring-primary-300 rounded px-2 py-1">정치인</a>
+                    <a href="community.html" class="text-gray-900 hover:text-primary-600 font-medium focus:outline-none focus:ring-2 focus:ring-primary-300 rounded px-2 py-1">커뮤니티</a>
+                    <a href="services.html" class="text-gray-900 hover:text-primary-600 font-medium focus:outline-none focus:ring-2 focus:ring-primary-300 rounded px-2 py-1">연결</a>
+
+                    <!-- 알림 아이콘 -->
+                    <a href="notifications.html" class="relative text-gray-900 hover:text-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-300 rounded p-1">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+                        </svg>
+                        <!-- 알림 배지 (새 알림 있을 때) -->
+                        <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">3</span>
+                    </a>
+                </div>
+
+                <!-- Auth Buttons -->
+                <div class="hidden md:flex items-center space-x-3">
+                    <a href="login.html" class="text-gray-900 hover:text-primary-600 font-medium px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary-300 rounded">로그인</a>
+                    <a href="signup.html" class="bg-primary-500 text-white px-4 py-2 rounded-lg hover:bg-primary-600 font-medium focus:outline-none focus:ring-2 focus:ring-primary-300">회원가입</a>
+                </div>
+
+                <!-- Mobile menu button & notification -->
+                <div class="md:hidden flex items-center space-x-3">
+                    <!-- 알림 아이콘 (모바일) -->
+                    <a href="notifications.html" class="relative text-gray-900 hover:text-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-300 rounded p-1">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+                        </svg>
+                        <!-- 알림 배지 (새 알림 있을 때) -->
+                        <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full w-4 h-4 flex items-center justify-center text-xs">3</span>
+                    </a>
+                    <button id="mobile-menu-button" class="text-gray-900 hover:text-primary-600 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <div class="flex flex-col space-y-2">
+                    <a href="index.html" class="text-gray-900 hover:text-primary-600 font-medium px-2 py-2">홈</a>
+                    <a href="politicians.html" class="text-gray-900 hover:text-primary-600 font-medium px-2 py-2">정치인</a>
+                    <a href="community.html" class="text-gray-900 hover:text-primary-600 font-medium px-2 py-2">커뮤니티</a>
+                    <a href="services.html" class="text-gray-900 hover:text-primary-600 font-medium px-2 py-2">연결</a>
+                    <hr class="my-2">
+                    <a href="login.html" class="text-gray-900 hover:text-primary-600 font-medium px-2 py-2">로그인</a>
+                    <a href="signup.html" class="bg-primary-500 text-white px-4 py-2 rounded-lg hover:bg-primary-600 font-medium text-center">회원가입</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+        <!-- Breadcrumb -->
+        <nav class="mb-6">
+            <ol class="flex items-center space-x-2 text-sm text-gray-600">
+                <li><a href="index.html" class="hover:text-primary-600">홈</a></li>
+                <li>›</li>
+                <li><a href="politicians.html" class="hover:text-primary-600">정치인 목록</a></li>
+                <li>›</li>
+                <li class="text-gray-900 font-medium">김민준</li>
+            </ol>
+        </nav>
+
+        <!-- Page Title -->
+        <div class="mb-6">
+            <h1 class="text-3xl font-bold text-gray-900">정치인 상세페이지</h1>
+        </div>
+
+        <!-- [1] 기본 정보 섹션 -->
+        <section class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <h2 class="text-2xl font-bold text-gray-900 mb-4">기본 정보</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="flex items-center gap-3">
+                    <span class="text-gray-600 font-medium w-24">이름</span>
+                    <span class="text-gray-900 font-bold text-lg">김민준 (金民俊)</span>
+                </div>
+                <div class="flex items-center gap-3">
+                    <span class="text-gray-600 font-medium w-24">신분/직책</span>
+                    <span class="text-gray-900">현직 국회의원 (21대)</span>
+                </div>
+                <div class="flex items-center gap-3">
+                    <span class="text-gray-600 font-medium w-24">출마직종</span>
+                    <span class="text-gray-900">국회의원</span>
+                </div>
+                <div class="flex items-center gap-3">
+                    <span class="text-gray-600 font-medium w-24">소속 정당</span>
+                    <span class="text-gray-900">더불어민주당</span>
+                </div>
+                <div class="flex items-center gap-3">
+                    <span class="text-gray-600 font-medium w-24">지역</span>
+                    <span class="text-gray-900">서울 강남구</span>
+                </div>
+                <div class="flex items-center gap-3">
+                    <span class="text-gray-600 font-medium w-24">생년월일</span>
+                    <span class="text-gray-900">1975.03.15 (50세)</span>
+                </div>
+                <div class="flex items-center gap-3">
+                    <span class="text-gray-600 font-medium w-24">성별</span>
+                    <span class="text-gray-900">남</span>
+                </div>
+                <div class="flex items-center gap-3">
+                    <span class="text-gray-600 font-medium w-24">클로드 평점</span>
+                    <span class="text-accent-600 font-bold text-lg">920점</span>
+                </div>
+                <div class="flex items-center gap-3">
+                    <span class="text-gray-600 font-medium w-24">종합평점</span>
+                    <span class="text-accent-600 font-bold text-lg">950점</span>
+                </div>
+                <div class="flex items-center gap-3">
+                    <span class="text-gray-600 font-medium w-24">평가등급</span>
+                    <span class="text-accent-600 font-bold text-lg">🌺 Mugunghwa</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- [2] AI 평가 정보 섹션 -->
+        <section class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <div class="flex items-center justify-between mb-6">
+                <h2 class="text-2xl font-bold text-gray-900">AI 평가 정보</h2>
+                <div class="text-sm text-gray-600">
+                    최종 갱신: 2025.01.20 14:30
+                </div>
+            </div>
+
+            <!-- 시계열 그래프 -->
+            <div class="mb-6">
+                <div class="bg-gray-50 rounded-lg p-4">
+                    <canvas id="aiScoreChart" height="80"></canvas>
+                </div>
+            </div>
+
+            <!-- 현재 점수 및 AI별 평가내역보기 버튼 -->
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-4 mb-6">
+                <!-- Claude -->
+                <div class="bg-gray-50 rounded-lg p-4">
+                    <div class="flex flex-col items-center gap-2 mb-3">
+                        <img src="https://cdn.brandfetch.io/idW5s392j1/w/338/h/338/theme/dark/icon.png?c=1bxid64Mup7aczewSAYMX&t=1738315794862" alt="Claude" class="w-8 h-8 rounded">
+                        <span class="font-medium text-gray-900 text-sm">Claude</span>
+                        <span class="text-xl font-bold text-accent-600">970점</span>
+                    </div>
+                    <button onclick="openAIDetailModal('claude')" class="w-full px-3 py-2 bg-primary-500 text-white text-sm font-medium rounded-lg hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-300 transition">
+                        평가내역보기
+                    </button>
+                </div>
+
+                <!-- ChatGPT -->
+                <div class="bg-gray-50 rounded-lg p-4">
+                    <div class="flex flex-col items-center gap-2 mb-3">
+                        <img src="https://cdn.brandfetch.io/idR3duQxYl/theme/dark/symbol.svg?c=1bxid64Mup7aczewSAYMX" alt="ChatGPT" class="w-8 h-8">
+                        <span class="font-medium text-gray-900 text-sm">ChatGPT</span>
+                        <span class="text-xl font-bold text-accent-600">950점</span>
+                    </div>
+                    <button onclick="openAIDetailModal('chatgpt')" class="w-full px-3 py-2 bg-primary-500 text-white text-sm font-medium rounded-lg hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-300 transition">
+                        평가내역보기
+                    </button>
+                </div>
+
+                <!-- Gemini -->
+                <div class="bg-gray-50 rounded-lg p-4">
+                    <div class="flex flex-col items-center gap-2 mb-3">
+                        <img src="https://cdn.simpleicons.org/googlegemini/4285F4" alt="Gemini" class="w-8 h-8">
+                        <span class="font-medium text-gray-900 text-sm">Gemini</span>
+                        <span class="text-xl font-bold text-accent-600">930점</span>
+                    </div>
+                    <button onclick="openAIDetailModal('gemini')" class="w-full px-3 py-2 bg-primary-500 text-white text-sm font-medium rounded-lg hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-300 transition">
+                        평가내역보기
+                    </button>
+                </div>
+
+                <!-- Grok -->
+                <div class="bg-gray-50 rounded-lg p-4">
+                    <div class="flex flex-col items-center gap-2 mb-3">
+                        <img src="https://cdn.simpleicons.org/x/000000" alt="Grok" class="w-8 h-8">
+                        <span class="font-medium text-gray-900 text-sm">Grok</span>
+                        <span class="text-xl font-bold text-accent-600">960점</span>
+                    </div>
+                    <button onclick="openAIDetailModal('grok')" class="w-full px-3 py-2 bg-primary-500 text-white text-sm font-medium rounded-lg hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-300 transition">
+                        평가내역보기
+                    </button>
+                </div>
+
+                <!-- Perplexity -->
+                <div class="bg-gray-50 rounded-lg p-4">
+                    <div class="flex flex-col items-center gap-2 mb-3">
+                        <img src="https://cdn.simpleicons.org/perplexity/1FB8CD" alt="Perplexity" class="w-8 h-8">
+                        <span class="font-medium text-gray-900 text-sm">Perplexity</span>
+                        <span class="text-xl font-bold text-accent-600">940점</span>
+                    </div>
+                    <button onclick="openAIDetailModal('perplexity')" class="w-full px-3 py-2 bg-primary-500 text-white text-sm font-medium rounded-lg hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-300 transition">
+                        평가내역보기
+                    </button>
+                </div>
+            </div>
+
+            <!-- 상세평가보고서 구매 섹션 -->
+            <div class="bg-primary-50 rounded-lg p-6 border-2 border-primary-200">
+                <h3 class="text-lg font-bold text-gray-900 mb-3">📊 상세평가보고서 구매</h3>
+                <p class="text-base text-gray-900 mb-3">
+                    <strong class="text-lg">보다 상세한 AI 평가 내역이 궁금하신가요?</strong><br/>
+                    10개 분야별, 세부 항목별 상세 평가 내역이 정리된 보고서(30,000자 분량)를 PDF로 제공해드립니다.
+                </p>
+
+                <!-- AI 선택 옵션 -->
+                <div class="bg-white rounded-lg p-4 mb-4">
+                    <div class="text-sm font-medium text-gray-900 mb-3">AI 선택 (개당 ₩500,000)</div>
+                    <div class="space-y-2">
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input type="checkbox" id="purchase-claude" class="w-4 h-4 text-primary-600 rounded focus:ring-2 focus:ring-primary-300">
+                            <span class="text-sm text-gray-700">Claude 상세평가보고서</span>
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input type="checkbox" id="purchase-chatgpt" class="w-4 h-4 text-primary-600 rounded focus:ring-2 focus:ring-primary-300">
+                            <span class="text-sm text-gray-700">ChatGPT 상세평가보고서</span>
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input type="checkbox" id="purchase-gemini" class="w-4 h-4 text-primary-600 rounded focus:ring-2 focus:ring-primary-300">
+                            <span class="text-sm text-gray-700">Gemini 상세평가보고서</span>
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input type="checkbox" id="purchase-grok" class="w-4 h-4 text-primary-600 rounded focus:ring-2 focus:ring-primary-300">
+                            <span class="text-sm text-gray-700">Grok 상세평가보고서</span>
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input type="checkbox" id="purchase-perplexity" class="w-4 h-4 text-primary-600 rounded focus:ring-2 focus:ring-primary-300">
+                            <span class="text-sm text-gray-700">Perplexity 상세평가보고서</span>
+                        </label>
+                        <div class="pt-2 border-t">
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="checkbox" id="purchase-all" class="w-4 h-4 text-primary-600 rounded focus:ring-2 focus:ring-primary-300" onclick="toggleAllAI()">
+                                <span class="text-sm font-bold text-gray-900">전체 정치인 AI 상세평가보고서 (5개) - ₩2,500,000</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-between">
+                    <div>
+                        <div class="text-sm text-gray-600 mb-1">선택 금액</div>
+                        <div id="purchase-total" class="text-2xl font-bold text-primary-600">₩0</div>
+                    </div>
+                    <button
+                        onclick="openPurchaseModal()"
+                        class="px-6 py-3 bg-primary-500 text-white font-medium rounded-lg hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-300 transition">
+                        상세평가보고서 구매
+                    </button>
+                </div>
+
+                <!-- 유의사항 -->
+                <div class="mt-4 p-4 bg-amber-50 border border-amber-200 rounded-lg">
+                    <h4 class="font-bold text-primary-600 mb-2 flex items-center gap-2">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+                        </svg>
+                        유의사항
+                    </h4>
+                    <ul class="text-sm text-gray-700 space-y-1.5 ml-7">
+                        <li class="flex items-start gap-2">
+                            <span class="text-amber-600 mt-0.5">•</span>
+                            <span><strong>본인 구매 제한:</strong> 상세평가보고서는 해당 정치인 본인만 구매 가능합니다.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-amber-600 mt-0.5">•</span>
+                            <span><strong>본인 인증 필수:</strong> 구매 시 본인 확인 절차가 진행됩니다 (이름, 생년월일, 소속 정당, 지역 일치 확인).</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-amber-600 mt-0.5">•</span>
+                            <span><strong>평가점수 변동:</strong> 보고서는 실제 발행(구매) 시점의 평가 점수 및 내용이 기록됩니다. 현재 화면에 표시된 점수와 보고서 발행 시점의 점수가 다를 수 있습니다.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-amber-600 mt-0.5">•</span>
+                            <span><strong>추가 구매:</strong> 최신 평가 내용이 필요한 경우 새로운 보고서를 추가로 구매하실 수 있습니다.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- [3] 커뮤니티 활동 정보 섹션 -->
+        <section class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <h2 class="text-2xl font-bold text-gray-900 mb-6">커뮤니티 활동 정보</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                <!-- 작성한 게시글 -->
+                <a href="community.html?filter=politician_post&author=김민준" class="block bg-primary-50 rounded-lg p-6 border-2 border-primary-200 hover:border-primary-400 transition cursor-pointer">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <div class="text-sm font-medium text-primary-700 mb-1">🏛️ 작성한 게시글</div>
+                            <div class="text-3xl font-bold text-primary-600">12개</div>
+                            <div class="text-xs text-gray-600 mt-1">(받은 공감 234개)</div>
+                        </div>
+                        <svg class="w-6 h-6 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </div>
+                </a>
+                
+                <!-- 태깅된 게시글 -->
+                <a href="community.html?filter=general&tagged=김민준" class="block bg-purple-50 rounded-lg p-6 border-2 border-purple-200 hover:border-purple-400 transition cursor-pointer">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <div class="text-sm font-medium text-purple-700 mb-1">💬 태깅된 게시글</div>
+                            <div class="text-3xl font-bold text-purple-600">45개</div>
+                            <div class="text-xs text-gray-600 mt-1">(회원들이 이 정치인에 대해 작성)</div>
+                        </div>
+                        <svg class="w-6 h-6 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="text-sm text-gray-500 text-center">
+                클릭하시면 해당 게시글 목록으로 이동합니다
+            </div>
+        </section>
+
+        <!-- [4] 선관위 공식 정보 섹션 -->
+        <section class="bg-white rounded-lg shadow-md p-6">
+            <h2 class="text-2xl font-bold text-gray-900 mb-4">선거관리위원회 공식 정보</h2>
+
+            <div class="space-y-4">
+                <!-- 학력 -->
+                <div>
+                    <h3 class="font-bold text-gray-900 mb-2">학력</h3>
+                    <ul class="list-disc list-inside text-gray-700 space-y-1">
+                        <li>서울대학교 법학과 졸업 (1998년)</li>
+                        <li>하버드 대학교 공공정책대학원 석사 (2005년)</li>
+                        <li>서울 강남고등학교 졸업 (1993년)</li>
+                    </ul>
+                </div>
+
+                <!-- 경력 -->
+                <div>
+                    <h3 class="font-bold text-gray-900 mb-2">경력</h3>
+                    <ul class="list-disc list-inside text-gray-700 space-y-1">
+                        <li>前 국회 법제사법위원회 위원 (2020~2024)</li>
+                        <li>前 더불어민주당 정책위원회 부의장 (2018~2020)</li>
+                        <li>前 법무법인 광장 변호사 (2008~2015)</li>
+                        <li>前 대통령비서실 행정관 (2006~2008)</li>
+                    </ul>
+                </div>
+
+                <!-- 당선 이력 -->
+                <div>
+                    <h3 class="font-bold text-gray-900 mb-2">당선 이력</h3>
+                    <ul class="list-disc list-inside text-gray-700 space-y-1">
+                        <li>제21대 국회의원 (2020년 당선, 서울 강남구)</li>
+                        <li>제20대 국회의원 (2016년 당선, 서울 강남구)</li>
+                    </ul>
+                </div>
+
+                <!-- 병역 -->
+                <div>
+                    <h3 class="font-bold text-gray-900 mb-2">병역</h3>
+                    <p class="text-gray-700">육군 만기 제대 (1999~2001)</p>
+                </div>
+
+                <!-- 재산 공개 -->
+                <div>
+                    <h3 class="font-bold text-gray-900 mb-2">재산 공개</h3>
+                    <ul class="list-disc list-inside text-gray-700 space-y-1">
+                        <li>총 재산: 약 15억원 (2024년 기준)</li>
+                        <li>부동산: 약 12억원 (서울 강남구 아파트)</li>
+                        <li>금융자산: 약 3억원</li>
+                    </ul>
+                </div>
+
+                <!-- 세금 체납 -->
+                <div>
+                    <h3 class="font-bold text-gray-900 mb-2">세금 체납</h3>
+                    <p class="text-gray-700">없음</p>
+                </div>
+
+                <!-- 범죄 경력 -->
+                <div>
+                    <h3 class="font-bold text-gray-900 mb-2">범죄 경력</h3>
+                    <p class="text-gray-700">없음</p>
+                </div>
+
+                <!-- 병역 의혹 -->
+                <div>
+                    <h3 class="font-bold text-gray-900 mb-2">병역 의혹</h3>
+                    <p class="text-gray-700">없음</p>
+                </div>
+
+                <!-- 위장전입 -->
+                <div>
+                    <h3 class="font-bold text-gray-900 mb-2">위장전입</h3>
+                    <p class="text-gray-700">없음</p>
+                </div>
+
+                <!-- 공약 사항 -->
+                <div>
+                    <h3 class="font-bold text-gray-900 mb-2">주요 공약</h3>
+                    <ul class="list-disc list-inside text-gray-700 space-y-1">
+                        <li>강남구 교통 혼잡 완화 (GTX-C 조기 개통)</li>
+                        <li>청년 주택 공급 확대 (연 1,000가구)</li>
+                        <li>노후 학교 시설 현대화 (10개교)</li>
+                    </ul>
+                </div>
+
+                <!-- 출석률 및 의정 활동 -->
+                <div>
+                    <h3 class="font-bold text-gray-900 mb-2">의정 활동</h3>
+                    <ul class="list-disc list-inside text-gray-700 space-y-1">
+                        <li>출석률: 95% (21대 국회 평균 92%)</li>
+                        <li>발의 법안: 42건 (대표 발의 28건, 공동 발의 14건)</li>
+                        <li>가결된 법안: 18건</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- AI별 평가내역 모달 -->
+    <div id="aiDetailModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg max-w-3xl w-full max-h-[90vh] overflow-y-auto p-6">
+            <!-- 헤더 -->
+            <div class="flex items-center justify-between mb-6 border-b pb-4">
+                <h3 id="aiModalTitle" class="text-2xl font-bold text-gray-900">김민준 의원 - Claude 평가 내역</h3>
+                <button onclick="closeAIDetailModal()" class="text-gray-500 hover:text-gray-700 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- 10개 분야 점수 -->
+            <div class="mb-6">
+                <h4 class="text-lg font-bold text-gray-900 mb-4">10개 분야별 평가 점수</h4>
+                <div class="space-y-3">
+                    <!-- 1. 청렴성 -->
+                    <div>
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-sm text-gray-700">1. 청렴성</span>
+                            <span class="text-sm font-bold text-accent-600">92점</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-accent-500 h-2 rounded-full" style="width: 92%"></div>
+                        </div>
+                    </div>
+
+                    <!-- 2. 전문성 -->
+                    <div>
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-sm text-gray-700">2. 전문성</span>
+                            <span class="text-sm font-bold text-accent-600">88점</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-accent-500 h-2 rounded-full" style="width: 88%"></div>
+                        </div>
+                    </div>
+
+                    <!-- 3. 소통능력 -->
+                    <div>
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-sm text-gray-700">3. 소통능력</span>
+                            <span class="text-sm font-bold text-accent-600">85점</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-accent-500 h-2 rounded-full" style="width: 85%"></div>
+                        </div>
+                    </div>
+
+                    <!-- 4. 리더십 -->
+                    <div>
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-sm text-gray-700">4. 리더십</span>
+                            <span class="text-sm font-bold text-accent-600">90점</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-accent-500 h-2 rounded-full" style="width: 90%"></div>
+                        </div>
+                    </div>
+
+                    <!-- 5. 책임감 -->
+                    <div>
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-sm text-gray-700">5. 책임감</span>
+                            <span class="text-sm font-bold text-accent-600">87점</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-accent-500 h-2 rounded-full" style="width: 87%"></div>
+                        </div>
+                    </div>
+
+                    <!-- 6. 투명성 -->
+                    <div>
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-sm text-gray-700">6. 투명성</span>
+                            <span class="text-sm font-bold text-accent-600">91점</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-accent-500 h-2 rounded-full" style="width: 91%"></div>
+                        </div>
+                    </div>
+
+                    <!-- 7. 대응성 -->
+                    <div>
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-sm text-gray-700">7. 대응성</span>
+                            <span class="text-sm font-bold text-accent-600">83점</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-accent-500 h-2 rounded-full" style="width: 83%"></div>
+                        </div>
+                    </div>
+
+                    <!-- 8. 비전 -->
+                    <div>
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-sm text-gray-700">8. 비전</span>
+                            <span class="text-sm font-bold text-accent-600">89점</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-accent-500 h-2 rounded-full" style="width: 89%"></div>
+                        </div>
+                    </div>
+
+                    <!-- 9. 공익추구 -->
+                    <div>
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-sm text-gray-700">9. 공익추구</span>
+                            <span class="text-sm font-bold text-accent-600">93점</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-accent-500 h-2 rounded-full" style="width: 93%"></div>
+                        </div>
+                    </div>
+
+                    <!-- 10. 윤리성 -->
+                    <div>
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-sm text-gray-700">10. 윤리성</span>
+                            <span class="text-sm font-bold text-accent-600">90점</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-accent-500 h-2 rounded-full" style="width: 90%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 강점 -->
+            <div class="mb-6">
+                <h4 class="text-lg font-bold text-gray-900 mb-3">강점</h4>
+                <ul class="space-y-2">
+                    <li class="flex items-start gap-2">
+                        <span class="text-green-600 font-bold">•</span>
+                        <span class="text-gray-700">재산공개 투명, 부패의혹 없음 (청렴성)</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-green-600 font-bold">•</span>
+                        <span class="text-gray-700">법안 통과율 높음, 전문성 우수 (전문성)</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-green-600 font-bold">•</span>
+                        <span class="text-gray-700">SNS 활발, 주민간담회 정기 개최 (소통능력)</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-green-600 font-bold">•</span>
+                        <span class="text-gray-700">공익 법안 다수 발의, 지역 현안 해결 (공익추구)</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 개선점 -->
+            <div class="mb-6">
+                <h4 class="text-lg font-bold text-gray-900 mb-3">개선점</h4>
+                <ul class="space-y-2">
+                    <li class="flex items-start gap-2">
+                        <span class="text-red-600 font-bold">•</span>
+                        <span class="text-gray-700">일부 공약 이행 지연 (책임감)</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-red-600 font-bold">•</span>
+                        <span class="text-gray-700">민원 처리 속도 개선 필요 (대응성)</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 종합 평가 -->
+            <div class="mb-6 p-4 bg-gray-50 rounded-lg">
+                <h4 class="text-lg font-bold text-gray-900 mb-3">종합 평가</h4>
+                <p class="text-gray-700 leading-relaxed">
+                    전반적으로 우수한 평가를 받았으며, 특히 청렴성과 공익추구 분야에서 뛰어난 성과를 보였습니다.
+                    법안 통과율이 높고 전문성이 우수하며, SNS와 주민간담회를 통한 활발한 소통으로 좋은 평가를 받았습니다.
+                    다만, 일부 공약 이행 지연과 민원 처리 속도 개선이 필요한 것으로 나타났습니다.
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 구매 확인 모달 -->
+    <div id="purchaseModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg max-w-md w-full p-6">
+            <div class="flex items-center justify-between mb-6 border-b pb-4">
+                <h3 class="text-xl font-bold text-gray-900">정치인 AI 상세평가보고서 구매</h3>
+                <button onclick="closePurchaseModal()" class="text-gray-500 hover:text-gray-700 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="mb-6">
+                <p class="text-gray-700 mb-4">
+                    선택한 정치인 AI 상세평가보고서를 구매하시겠습니까?
+                </p>
+                <div class="bg-gray-50 rounded-lg p-4 mb-4">
+                    <div class="text-sm text-gray-600 mb-2">선택한 보고서</div>
+                    <div id="purchaseList" class="text-sm text-gray-900 space-y-1 mb-3"></div>
+                    <div class="border-t pt-3">
+                        <div class="flex items-center justify-between">
+                            <span class="font-bold text-gray-900">총 금액</span>
+                            <span id="purchaseModalTotal" class="text-xl font-bold text-primary-600">₩0</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-xs text-gray-500">
+                    * 구매 시 본인 확인 절차가 진행됩니다<br>
+                    * 환불 불가
+                </p>
+            </div>
+
+            <div class="flex gap-3">
+                <button onclick="closePurchaseModal()" class="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary-300 transition">
+                    취소
+                </button>
+                <button onclick="confirmPurchase()" class="flex-1 px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-500 transition">
+                    구매하기
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 알림 모달 (커스텀) -->
+    <div id="alertModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg max-w-sm w-full p-6">
+            <div class="mb-6">
+                <p id="alertMessage" class="text-gray-900 text-center">
+                    구매할 정치인 AI 상세평가보고서를 선택해주세요.
+                </p>
+            </div>
+            <div class="flex justify-center">
+                <button onclick="closeAlertModal()" class="px-8 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-500 transition">
+                    확인
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-primary-500 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <!-- Footer Links -->
+            <div class="flex justify-center items-center space-x-8 text-base py-4">
+                <a href="#" class="text-white hover:text-gray-100 transition font-medium">서비스 소개</a>
+                <a href="#" class="text-white hover:text-gray-100 transition font-medium">이용약관</a>
+                <a href="#" class="text-white hover:text-gray-100 transition font-medium">개인정보처리방침</a>
+                <a href="#" class="text-white hover:text-gray-100 transition font-medium">고객센터</a>
+            </div>
+            <!-- Copyright -->
+            <div class="text-center text-base text-white py-4">
+                <p>&copy; 2025 PoliticianFinder. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Chart.js 시계열 그래프 초기화
+        const ctx = document.getElementById('aiScoreChart').getContext('2d');
+        const aiScoreChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['2024-08', '2024-09', '2024-10', '2024-11', '2024-12', '2025-01'],
+                datasets: [
+                    {
+                        label: '종합평점',
+                        data: [86.7, 87.8, 88.2, 89.0, 89.4, 90.0],
+                        borderColor: '#dc2626',
+                        backgroundColor: 'rgba(220, 38, 38, 0.1)',
+                        borderWidth: 3,
+                        tension: 0.3,
+                        borderDash: []
+                    },
+                    {
+                        label: 'Claude',
+                        data: [88.0, 89.5, 90.0, 91.0, 91.5, 92.0],
+                        borderColor: '#f97316',
+                        backgroundColor: 'rgba(249, 115, 22, 0.1)',
+                        borderWidth: 2,
+                        tension: 0.3
+                    },
+                    {
+                        label: 'ChatGPT',
+                        data: [87.0, 88.0, 88.5, 89.0, 89.5, 90.0],
+                        borderColor: '#00a67e',
+                        backgroundColor: 'rgba(0, 166, 126, 0.1)',
+                        borderWidth: 2,
+                        tension: 0.3
+                    },
+                    {
+                        label: 'Gemini',
+                        data: [85.0, 86.0, 86.5, 87.0, 87.5, 88.0],
+                        borderColor: '#4285f4',
+                        backgroundColor: 'rgba(66, 133, 244, 0.1)',
+                        borderWidth: 2,
+                        tension: 0.3
+                    },
+                    {
+                        label: 'Grok',
+                        data: [87.5, 88.5, 89.0, 90.0, 90.5, 91.0],
+                        borderColor: '#000000',
+                        backgroundColor: 'rgba(0, 0, 0, 0.1)',
+                        borderWidth: 2,
+                        tension: 0.3
+                    },
+                    {
+                        label: 'Perplexity',
+                        data: [86.0, 87.0, 87.5, 88.0, 88.5, 89.0],
+                        borderColor: '#8b5cf6',
+                        backgroundColor: 'rgba(139, 92, 246, 0.1)',
+                        borderWidth: 2,
+                        tension: 0.3
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'bottom'
+                    },
+                    title: {
+                        display: true,
+                        text: 'AI 평가 점수 추이 (월별)',
+                        font: {
+                            size: 16,
+                            weight: 'bold'
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: false,
+                        min: 80,
+                        max: 100,
+                        ticks: {
+                            callback: function(value) {
+                                return value + '점';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // AI별 평가내역 모달 열기
+        const aiNames = {
+            'claude': 'Claude',
+            'chatgpt': 'ChatGPT',
+            'gemini': 'Gemini',
+            'grok': 'Grok',
+            'perplexity': 'Perplexity'
+        };
+
+        function openAIDetailModal(aiType) {
+            const aiName = aiNames[aiType] || 'AI';
+            document.getElementById('aiModalTitle').textContent = `김민준 의원 - ${aiName} 평가 내역`;
+            document.getElementById('aiDetailModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeAIDetailModal() {
+            document.getElementById('aiDetailModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // 구매 체크박스 업데이트
+        const purchaseCheckboxes = ['purchase-claude', 'purchase-chatgpt', 'purchase-gemini', 'purchase-grok', 'purchase-perplexity'];
+
+        purchaseCheckboxes.forEach(id => {
+            document.getElementById(id).addEventListener('change', updatePurchaseTotal);
+        });
+
+        function toggleAllAI() {
+            const allCheckbox = document.getElementById('purchase-all');
+            const isChecked = allCheckbox.checked;
+
+            purchaseCheckboxes.forEach(id => {
+                document.getElementById(id).checked = isChecked;
+            });
+
+            updatePurchaseTotal();
+        }
+
+        function updatePurchaseTotal() {
+            let count = 0;
+            purchaseCheckboxes.forEach(id => {
+                if (document.getElementById(id).checked) {
+                    count++;
+                }
+            });
+
+            // 전체 체크박스 상태 업데이트
+            const allCheckbox = document.getElementById('purchase-all');
+            allCheckbox.checked = (count === 5);
+
+            const total = count * 500000;
+            document.getElementById('purchase-total').textContent = '₩' + total.toLocaleString();
+        }
+
+        // 구매 모달 열기
+        function openPurchaseModal() {
+            let selectedAIs = [];
+            const aiLabels = {
+                'purchase-claude': 'Claude',
+                'purchase-chatgpt': 'ChatGPT',
+                'purchase-gemini': 'Gemini',
+                'purchase-grok': 'Grok',
+                'purchase-perplexity': 'Perplexity'
+            };
+
+            purchaseCheckboxes.forEach(id => {
+                if (document.getElementById(id).checked) {
+                    selectedAIs.push(aiLabels[id]);
+                }
+            });
+
+            if (selectedAIs.length === 0) {
+                openAlertModal('구매할 정치인 AI 상세평가보고서를 선택해주세요.');
+                return;
+            }
+
+            const listHTML = selectedAIs.map(ai => `<div>• ${ai} 상세평가보고서 - ₩500,000</div>`).join('');
+            document.getElementById('purchaseList').innerHTML = listHTML;
+
+            const total = selectedAIs.length * 500000;
+            document.getElementById('purchaseModalTotal').textContent = '₩' + total.toLocaleString();
+
+            document.getElementById('purchaseModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePurchaseModal() {
+            document.getElementById('purchaseModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        function confirmPurchase() {
+            // alert 제거, 바로 결제 페이지로 이동
+            window.location.href = 'payment.html';
+        }
+
+        // 알림 모달 함수
+        function openAlertModal(message) {
+            document.getElementById('alertMessage').textContent = message;
+            document.getElementById('alertModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeAlertModal() {
+            document.getElementById('alertModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // 모달 외부 클릭 시 닫기
+        document.getElementById('aiDetailModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeAIDetailModal();
+            }
+        });
+
+        document.getElementById('purchaseModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closePurchaseModal();
+            }
+        });
+
+        // ESC 키로 모달 닫기
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeAIDetailModal();
+                closePurchaseModal();
+            }
+        });
+
+        // 정치인별 점수 데이터
+        const politicianData = {
+            '김민준': {
+                name: '김민준',
+                position: '현직 국회의원',
+                party: '더불어민주당',
+                region: '서울 강남구',
+                total: 95.0,
+                grade: 'M',
+                gradeEmoji: '🌺',
+                claude: 97.0,
+                chatgpt: 95.0,
+                gemini: 93.0,
+                grok: 96.0,
+                perplexity: 94.0,
+                memberRating: 4.8,
+                memberCount: 1250
+            },
+            '이서연': {
+                name: '이서연',
+                position: '현직 광역단체장',
+                party: '국민의힘',
+                region: '부산광역시',
+                total: 89.0,
+                grade: 'D',
+                gradeEmoji: '💎',
+                claude: 90.0,
+                chatgpt: 89.0,
+                gemini: 87.0,
+                grok: 90.0,
+                perplexity: 88.0,
+                memberRating: 4.5,
+                memberCount: 980
+            },
+            '박준서': {
+                name: '박준서',
+                position: '현직 국회의원',
+                party: '더불어민주당',
+                region: '경기 성남시',
+                total: 87.0,
+                grade: 'D',
+                gradeEmoji: '💎',
+                claude: 88.0,
+                chatgpt: 87.0,
+                gemini: 86.0,
+                grok: 88.0,
+                perplexity: 86.0,
+                memberRating: 4.3,
+                memberCount: 850
+            },
+            '정하은': {
+                name: '정하은',
+                position: '현직 광역의원',
+                party: '국민의힘',
+                region: '인천 연수구',
+                total: 85.0,
+                grade: 'E',
+                gradeEmoji: '💚',
+                claude: 86.0,
+                chatgpt: 85.0,
+                gemini: 84.0,
+                grok: 86.0,
+                perplexity: 84.0,
+                memberRating: 4.2,
+                memberCount: 720
+            },
+            '최지훈': {
+                name: '최지훈',
+                position: '현직 기초단체장',
+                party: '더불어민주당',
+                region: '경기 수원시',
+                total: 84.0,
+                grade: 'E',
+                gradeEmoji: '💚',
+                claude: 85.0,
+                chatgpt: 84.0,
+                gemini: 83.0,
+                grok: 85.0,
+                perplexity: 83.0,
+                memberRating: 4.1,
+                memberCount: 650
+            },
+            '강민서': {
+                name: '강민서',
+                position: '현직 국회의원',
+                party: '국민의힘',
+                region: '대구 수성구',
+                total: 83.0,
+                grade: 'E',
+                gradeEmoji: '💚',
+                claude: 84.0,
+                chatgpt: 83.0,
+                gemini: 82.0,
+                grok: 84.0,
+                perplexity: 82.0,
+                memberRating: 4.0,
+                memberCount: 580
+            },
+            '윤서아': {
+                name: '윤서아',
+                position: '현직 광역단체장',
+                party: '더불어민주당',
+                region: '광주광역시',
+                total: 82.0,
+                grade: 'E',
+                gradeEmoji: '💚',
+                claude: 83.0,
+                chatgpt: 82.0,
+                gemini: 81.0,
+                grok: 83.0,
+                perplexity: 81.0,
+                memberRating: 3.9,
+                memberCount: 520
+            },
+            '임도윤': {
+                name: '임도윤',
+                position: '현직 광역의원',
+                party: '국민의힘',
+                region: '대전 서구',
+                total: 81.0,
+                grade: 'E',
+                gradeEmoji: '💚',
+                claude: 82.0,
+                chatgpt: 81.0,
+                gemini: 80.0,
+                grok: 82.0,
+                perplexity: 80.0,
+                memberRating: 3.8,
+                memberCount: 470
+            },
+            '한예진': {
+                name: '한예진',
+                position: '현직 기초의원',
+                party: '더불어민주당',
+                region: '서울 마포구',
+                total: 80.0,
+                grade: 'E',
+                gradeEmoji: '💚',
+                claude: 81.0,
+                chatgpt: 80.0,
+                gemini: 79.0,
+                grok: 81.0,
+                perplexity: 79.0,
+                memberRating: 3.7,
+                memberCount: 410
+            },
+            '오시우': {
+                name: '오시우',
+                position: '현직 기초단체장',
+                party: '국민의힘',
+                region: '경북 포항시',
+                total: 79.0,
+                grade: 'E',
+                gradeEmoji: '💚',
+                claude: 80.0,
+                chatgpt: 79.0,
+                gemini: 78.0,
+                grok: 80.0,
+                perplexity: 78.0,
+                memberRating: 3.6,
+                memberCount: 380
+            }
+        };
+
+        // URL 파라미터에서 정치인 ID 가져오기
+        function getPoliticianId() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('id') || '김민준'; // 기본값: 김민준
+        }
+
+        // 페이지 로드 시 정치인 데이터 적용
+        function loadPoliticianData() {
+            const politicianId = getPoliticianId();
+            const data = politicianData[politicianId];
+
+            if (!data) {
+                console.error('정치인 데이터를 찾을 수 없습니다:', politicianId);
+                return;
+            }
+
+            // 페이지 타이틀 변경
+            document.title = `${data.name} ${data.position.split(' ')[1]} - PoliticianFinder`;
+
+            // 이름 변경
+            document.querySelectorAll('.politician-name').forEach(el => {
+                el.textContent = data.name;
+            });
+
+            // 기본 정보 업데이트
+            const infoSection = document.querySelector('.bg-white.rounded-lg.shadow-lg.p-6.mb-6');
+            if (infoSection) {
+                const infoDivs = infoSection.querySelectorAll('.flex.items-center.gap-3');
+                if (infoDivs[0]) infoDivs[0].querySelector('span:last-child').textContent = data.position;
+                if (infoDivs[1]) infoDivs[1].querySelector('span:last-child').textContent = data.party;
+                if (infoDivs[2]) infoDivs[2].querySelector('span:last-child').textContent = data.region;
+                if (infoDivs[4]) infoDivs[4].querySelector('span:last-child').textContent = `${data.total}점`;
+            }
+
+            // AI별 점수 업데이트
+            const aiScores = document.querySelectorAll('.bg-gray-50.rounded-lg.p-4');
+            if (aiScores[0]) aiScores[0].querySelector('.text-xl.font-bold.text-accent-600').textContent = `${data.claude}점`;
+            if (aiScores[1]) aiScores[1].querySelector('.text-xl.font-bold.text-accent-600').textContent = `${data.chatgpt}점`;
+            if (aiScores[2]) aiScores[2].querySelector('.text-xl.font-bold.text-accent-600').textContent = `${data.gemini}점`;
+            if (aiScores[3]) aiScores[3].querySelector('.text-xl.font-bold.text-accent-600').textContent = `${data.grok}점`;
+            if (aiScores[4]) aiScores[4].querySelector('.text-xl.font-bold.text-accent-600').textContent = `${data.perplexity}점`;
+        }
+
+        // 페이지 로드 시 실행
+        window.addEventListener('DOMContentLoaded', loadPoliticianData);
+    </script>
+
+</body>
+</html>
