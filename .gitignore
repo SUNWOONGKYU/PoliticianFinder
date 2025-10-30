@@ -53,3 +53,8 @@ ENV/
 
 # Vercel
 .vercel
+
+# PROJECT GRID 매뉴얼 (비밀 노하우)
+**/PROJECT_GRID_매뉴얼*.md
+**/PROJECT_GRID_MANUAL*.md
+**/archive/PROJECT_GRID_MANUAL_V2.0.md
