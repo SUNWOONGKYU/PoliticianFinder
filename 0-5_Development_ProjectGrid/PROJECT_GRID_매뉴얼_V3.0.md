@@ -176,4 +176,112 @@ AI: 죄송합니다. 예상보다 오래 걸렸습니다.
 
 ---
 
+## 🔗 Git 통합 추적 시스템 (Git Integration Tracking System)
+
+PROJECT GRID와 Git을 연동하여 **모든 작업을 양방향으로 추적**하는 시스템입니다.
+
+### 청구항 15: Task ID 헤더
+
+**모든 AI가 생성하는 소스 코드 파일**은 반드시 **Task ID 헤더**를 포함해야 합니다.
+
+#### TypeScript/JavaScript 파일
+```typescript
+/**
+ * Project Grid Task ID: P1F1
+ * 작업명: 회원가입 페이지 구현
+ * 생성시간: 2025-10-30 14:30
+ * 생성자: Claude-3.5-Sonnet
+ */
+
+export default function SignupPage() {
+  // 코드...
+}
+```
+
+#### Python 파일
+```python
+"""
+Project Grid Task ID: P2BA3
+작업명: 정치인 검색 API 구현
+생성시간: 2025-10-30 14:30
+생성자: Claude-3.5-Sonnet
+"""
+
+from fastapi import APIRouter
+# 코드...
+```
+
+#### SQL 파일
+```sql
+-- Project Grid Task ID: P1D2
+-- 작업명: 정치인 테이블 마이그레이션
+-- 생성시간: 2025-10-30 14:30
+-- 생성자: Claude-3.5-Sonnet
+
+CREATE TABLE politicians (
+  id UUID PRIMARY KEY,
+  -- ...
+);
+```
+
+### 청구항 16: Git 커밋 형식
+
+**모든 Git 커밋 메시지**는 Task ID를 포함해야 합니다.
+
+```bash
+[P1F1] 회원가입 페이지 구현 완료
+
+- app/signup/page.tsx 생성
+- 회원가입 폼 UI 구현
+- 유효성 검증 로직 추가
+
+소요시간: 45분
+생성자: Claude-3.5-Sonnet
+```
+
+### 양방향 추적 흐름
+
+```
+PROJECT GRID (작업 관리)
+    ↓
+Task ID 헤더 (소스 코드)
+    ↓
+Git Commit (버전 관리)
+    ↓
+GitHub Repository (원격 저장소)
+    ↓
+작업 완료 기록 → PROJECT GRID 업데이트
+```
+
+### 추적 시스템의 장점
+
+1. **완벽한 이력 관리**
+   - 어떤 코드든 Task ID로 역추적 가능
+   - Git 이력과 작업 기록 자동 연동
+
+2. **특허 증거 확보**
+   - 모든 개발 과정이 자동으로 기록됨
+   - 작업 시간, 생성자, 변경 이력 명확
+
+3. **협업 효율성**
+   - 누가 어떤 작업을 했는지 즉시 확인
+   - 의존성 추적 및 충돌 방지
+
+4. **자동화 가능**
+   - Git hook을 통한 자동 검증
+   - PROJECT GRID 자동 업데이트
+
+### 필수 규칙
+
+✅ **모든 파일**에 Task ID 헤더 포함
+✅ **모든 커밋**에 Task ID 포함
+✅ **실제 소요시간만** 기록
+✅ **생성자 정보** 명시 (AI 모델명)
+
+❌ 헤더 없는 파일 생성 금지
+❌ Task ID 없는 커밋 금지
+❌ 시간 예측 금지
+
+---
+
 **핵심 원칙: AI는 시간을 약속하지 않고, 결과로 말한다.**
