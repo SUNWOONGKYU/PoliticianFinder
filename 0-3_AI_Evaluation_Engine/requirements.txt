@@ -1,0 +1,14 @@
+# PoliticianFinder AI Evaluation Engine V2.0
+# Python 패키지 요구사항
+
+# Supabase 클라이언트
+supabase==2.3.4
+
+# Anthropic Claude API
+anthropic==0.18.1
+
+# 비동기 처리
+asyncio==3.4.3
+
+# 환경 변수
+python-dotenv==1.0.1

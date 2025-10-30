@@ -1,0 +1,323 @@
+{
+  "users": [
+    {
+      "id": "user_1000",
+      "name": "박준혁",
+      "nickname": "정치관심러",
+      "email": "user1000@kakao.com",
+      "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=정치관심러",
+      "role": "admin",
+      "created_at": "2025-05-07T15:59:53.838921Z",
+      "posts_count": 5,
+      "comments_count": 29,
+      "bookmarks": [
+        14
+      ]
+    },
+    {
+      "id": "user_1001",
+      "name": "김서영",
+      "nickname": "민주시민",
+      "email": "민주시민@kakao.com",
+      "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=민주시민",
+      "role": "user",
+      "created_at": "2025-01-01T15:59:53.838921Z",
+      "posts_count": 1,
+      "comments_count": 14,
+      "bookmarks": [
+        7,
+        17
+      ]
+    },
+    {
+      "id": "user_1002",
+      "name": "이동현",
+      "nickname": "정의로운세상",
+      "email": "정의로운세상@kakao.com",
+      "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=정의로운세상",
+      "role": "user",
+      "created_at": "2025-08-27T15:59:53.838921Z",
+      "posts_count": 9,
+      "comments_count": 22,
+      "bookmarks": [
+        1,
+        29,
+        21
+      ]
+    },
+    {
+      "id": "user_1003",
+      "name": "정민아",
+      "nickname": "청년의목소리",
+      "email": "user1003@daum.net",
+      "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=청년의목소리",
+      "role": "user",
+      "created_at": "2025-09-18T15:59:53.838921Z",
+      "posts_count": 10,
+      "comments_count": 11,
+      "bookmarks": [
+        13,
+        29,
+        14,
+        5
+      ]
+    },
+    {
+      "id": "user_1004",
+      "name": "최재원",
+      "nickname": "투명한정치",
+      "email": "투명한정치@naver.com",
+      "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=투명한정치",
+      "role": "user",
+      "created_at": "2025-04-03T15:59:53.838921Z",
+      "posts_count": 6,
+      "comments_count": 12,
+      "bookmarks": [
+        24,
+        20
+      ]
+    },
+    {
+      "id": "user_1005",
+      "name": "강수진",
+      "nickname": "정치평론가",
+      "email": "user1005@hanmail.net",
+      "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=정치평론가",
+      "role": "user",
+      "created_at": "2025-05-03T15:59:53.838921Z",
+      "posts_count": 7,
+      "comments_count": 24,
+      "bookmarks": [
+        16,
+        17
+      ]
+    },
+    {
+      "id": "user_1006",
+      "name": "조현우",
+      "nickname": "시민참여자",
+      "email": "user1006@gmail.com",
+      "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=시민참여자",
+      "role": "user",
+      "created_at": "2025-01-01T15:59:53.838921Z",
+      "posts_count": 3,
+      "comments_count": 21,
+      "bookmarks": [
+        7
+      ]
+    },
+    {
+      "id": "user_1007",
+      "name": "윤지혜",
+      "nickname": "민생이우선",
+      "email": "user1007@kakao.com",
+      "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=민생이우선",
+      "role": "user",
+      "created_at": "2025-07-29T15:59:53.838921Z",
+      "posts_count": 3,
+      "comments_count": 28,
+      "bookmarks": [
+        20,
+        2,
+        9
+      ]
+    },
+    {
+      "id": "user_1008",
+      "name": "장민수",
+      "nickname": "깨어있는시민",
+      "email": "깨어있는시민@naver.com",
+      "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=깨어있는시민",
+      "role": "user",
+      "created_at": "2025-04-10T15:59:53.838921Z",
+      "posts_count": 9,
+      "comments_count": 5,
+      "bookmarks": [
+        23
+      ]
+    },
+    {
+      "id": "user_1009",
+      "name": "임유정",
+      "nickname": "정치개혁",
+      "email": "정치개혁@hanmail.net",
+      "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=정치개혁",
+      "role": "user",
+      "created_at": "2024-11-22T15:59:53.838921Z",
+      "posts_count": 4,
+      "comments_count": 13,
+      "bookmarks": [
+        10,
+        12,
+        28,
+        24,
+        9
+      ]
+    },
+    {
+      "id": "user_1010",
+      "name": "한준호",
+      "nickname": "공정한사회",
+      "email": "공정한사회@naver.com",
+      "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=공정한사회",
+      "role": "user",
+      "created_at": "2024-11-01T15:59:53.838921Z",
+      "posts_count": 8,
+      "comments_count": 20,
+      "bookmarks": [
+        21,
+        8,
+        29,
+        24
+      ]
+    },
+    {
+      "id": "user_1011",
+      "name": "오서연",
+      "nickname": "정치는우리의것",
+      "email": "user1011@naver.com",
+      "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=정치는우리의것",
+      "role": "user",
+      "created_at": "2025-07-23T15:59:53.838921Z",
+      "posts_count": 1,
+      "comments_count": 30,
+      "bookmarks": [
+        27,
+        15,
+        22,
+        29
+      ]
+    },
+    {
+      "id": "user_1012",
+      "name": "서민재",
+      "nickname": "변화를원해",
+      "email": "변화를원해@hanmail.net",
+      "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=변화를원해",
+      "role": "user",
+      "created_at": "2025-02-13T15:59:53.838921Z",
+      "posts_count": 3,
+      "comments_count": 8,
+      "bookmarks": [
+        23,
+        22,
+        12,
+        15,
+        9
+      ]
+    },
+    {
+      "id": "user_1013",
+      "name": "신지수",
+      "nickname": "더나은내일",
+      "email": "더나은내일@daum.net",
+      "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=더나은내일",
+      "role": "user",
+      "created_at": "2024-12-10T15:59:53.838921Z",
+      "posts_count": 7,
+      "comments_count": 17,
+      "bookmarks": [
+        4,
+        2,
+        16,
+        7
+      ]
+    },
+    {
+      "id": "user_1014",
+      "name": "권태준",
+      "nickname": "시민의힘",
+      "email": "시민의힘@kakao.com",
+      "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=시민의힘",
+      "role": "user",
+      "created_at": "2025-03-27T15:59:53.838921Z",
+      "posts_count": 4,
+      "comments_count": 7,
+      "bookmarks": [
+        13,
+        28,
+        5,
+        19,
+        26
+      ]
+    },
+    {
+      "id": "user_1015",
+      "name": "황수빈",
+      "nickname": "정치토론러",
+      "email": "정치토론러@naver.com",
+      "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=정치토론러",
+      "role": "user",
+      "created_at": "2025-04-18T15:59:53.838921Z",
+      "posts_count": 8,
+      "comments_count": 6,
+      "bookmarks": [
+        16,
+        11,
+        12,
+        28
+      ]
+    },
+    {
+      "id": "user_1016",
+      "name": "안재현",
+      "nickname": "올바른선택",
+      "email": "user1016@naver.com",
+      "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=올바른선택",
+      "role": "user",
+      "created_at": "2025-08-02T15:59:53.838921Z",
+      "posts_count": 5,
+      "comments_count": 21,
+      "bookmarks": [
+        11
+      ]
+    },
+    {
+      "id": "user_1017",
+      "name": "송지원",
+      "nickname": "미래세대",
+      "email": "user1017@gmail.com",
+      "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=미래세대",
+      "role": "user",
+      "created_at": "2025-04-03T15:59:53.838921Z",
+      "posts_count": 8,
+      "comments_count": 22,
+      "bookmarks": [
+        5
+      ]
+    },
+    {
+      "id": "user_1018",
+      "name": "전민준",
+      "nickname": "투표하는시민",
+      "email": "user1018@naver.com",
+      "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=투표하는시민",
+      "role": "user",
+      "created_at": "2025-03-03T15:59:53.838921Z",
+      "posts_count": 4,
+      "comments_count": 30,
+      "bookmarks": [
+        30,
+        24,
+        23,
+        12
+      ]
+    },
+    {
+      "id": "user_1019",
+      "name": "홍서아",
+      "nickname": "정책분석가",
+      "email": "정책분석가@naver.com",
+      "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=정책분석가",
+      "role": "user",
+      "created_at": "2025-07-24T15:59:53.838921Z",
+      "posts_count": 8,
+      "comments_count": 25,
+      "bookmarks": [
+        11,
+        22,
+        8
+      ]
+    }
+  ]
+}
