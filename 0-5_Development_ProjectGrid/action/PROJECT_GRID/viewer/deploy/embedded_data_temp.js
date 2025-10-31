@@ -1,5 +1,4 @@
-const GRID_DATA = 
-[
+const GRID_DATA = [
   {
     "phase": 1,
     "area": "O",
@@ -3473,4 +3472,4 @@ const GRID_DATA =
     "validation_result": "⏳ 대기",
     "remarks": "===PHASE GATE=== Phase 8 진입 조건: 모든 작업 완료, 모든 CR 통과, 모든 테스트 통과"
   }
-]
+];
