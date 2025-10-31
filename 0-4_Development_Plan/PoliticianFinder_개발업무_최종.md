@@ -62,7 +62,7 @@
    - 프로젝트 생성
    - API 키 발급
 
-### Backend Infrastructure 영역(Backend Infrastructure Area) (BI) - 2개
+### Backend Infrastructure 영역(Backend Infrastructure Area) (BI) - 3개
 
 **🔗 그룹 C: 인프라 설정**
 7. ⬅️ **Supabase 클라이언트** - `lib/supabase/client.ts` (← 2, 5, 6)
@@ -73,6 +73,11 @@
    - JWT 검증
    - Rate Limiting
    - CORS 설정
+
+18. ⚡ **인증 보안 설정** - `lib/security/auth.ts`
+    - 비밀번호 강도 검증
+    - Rate Limiting 규칙
+    - CSRF 토큰
 
 ### Backend APIs 영역(Backend APIs Area) (BA) - 4개
 
@@ -130,16 +135,6 @@
     - 요구사항 체크
     - 보기/숨기기 토글
 
-### Security 영역(Security Area) (S) - 1개
-
-※ Security는 별도 영역이 아니며, 항상 각 영역(DevOps, Database, Backend, Frontend, Test)에 통합되어야 합니다.
-
-**🔗 그룹 G: 보안**
-18. ⚡ **인증 보안 설정** - `lib/security/auth.ts`
-    - 비밀번호 강도 검증
-    - Rate Limiting 규칙
-    - CSRF 토큰
-
 ### Test 영역(Test Area) (T) - 2개
 
 **🔗 그룹 H: 테스트**
@@ -182,7 +177,7 @@
     - 관심 정치인 목록
     - 검색/추가/삭제
 
-### Backend 영역(Backend Area) (B) - 10개
+### Backend 영역(Backend Area) (B) - 11개
 
 **🔗 그룹 F: 정치인 API**
 24. ⬅️ **정치인 목록 API** - `app/api/politicians/route.ts` (← Database)
@@ -226,6 +221,10 @@
 33. ⚡ **정치인 데이터 유틸** - `lib/utils/politicians.ts`
     - 데이터 정규화
     - 검색 필터링 헬퍼
+
+43. ⚡ **정치인 데이터 보안** - `lib/security/politicians.ts`
+    - 크롤링 Rate Limiting
+    - 이미지 업로드 검증
 
 ### Database 영역(Database Area) (D) - 7개
 
@@ -280,14 +279,6 @@
     - 목록 API
     - 필터링
     - 검색
-
-### Security 영역(Security Area) (S) - 1개
-
-※ Security는 별도 영역이 아니며, 항상 각 영역(DevOps, Database, Backend, Frontend, Test)에 통합되어야 합니다.
-
-43. ⚡ **정치인 데이터 보안** - `lib/security/politicians.ts`
-    - 크롤링 Rate Limiting
-    - 이미지 업로드 검증
 
 ### DevOps 영역(DevOps Area) (O) - 1개
 
@@ -349,7 +340,7 @@
 70. ⚡ **타입 업데이트** - `lib/database.types.ts`
 
 
-### Backend 영역(Backend Area) (B) - 12개
+### Backend 영역(Backend Area) (B) - 13개
 
 **🔗 그룹 K: 게시글 API**
 51. ⬅️ **게시글 생성 API** - `app/api/posts/route.ts` (← Database)
@@ -416,6 +407,11 @@
     - Supabase Storage 업로드 (이미지/PDF/DOC)
     - 10MB 제한
 
+75. ⚡ **커뮤니티 보안** - `lib/security/community.ts`
+    - XSS 방어 (DOMPurify)
+    - 스팸 방지 (연속 작성 제한)
+    - 파일 업로드 검증
+
 
 ### Frontend 영역(Frontend Area) (F) - 6개
 
@@ -473,16 +469,6 @@
 73. ⬅️ **댓글 API 테스트** - `tests/api/comments.test.ts` (← 54-55)
 
 74. ⬅️ **알림 테스트** - `tests/api/notifications.test.ts` (← 59-60)
-
-
-### Security 영역(Security Area) (S) - 1개
-
-※ Security는 별도 영역이 아니며, 항상 각 영역(DevOps, Database, Backend, Frontend, Test)에 통합되어야 합니다.
-
-75. ⚡ **커뮤니티 보안** - `lib/security/community.ts`
-    - XSS 방어 (DOMPurify)
-    - 스팸 방지 (연속 작성 제한)
-    - 파일 업로드 검증
 
 
 ### DevOps 영역(DevOps Area) (O) - 1개
@@ -573,11 +559,6 @@
 89. ⬅️ **포인트 API 테스트** - `tests/api/points.test.ts` (← 80-82)
 
 
-### Security 영역(Security Area) (S) - 1개
-
-※ Security는 별도 영역이 아니며, 항상 각 영역(DevOps, Database, Backend, Frontend, Test)에 통합되어야 합니다. - 0개
-
-
 ### DevOps 영역(DevOps Area) (O) - 1개
 
 90. ⚡ **등급 재계산 스케줄러** - `.github/workflows/recalculate-grades.yml`
@@ -606,7 +587,7 @@
     - evaluation_reports 테이블
 
 
-### Backend 영역(Backend Area) (B) - 5개
+### Backend 영역(Backend Area) (B) - 6개
 
 **🔗 그룹 V: 결제 API**
 93. ⬅️ **결제 생성 API** - `app/api/payments/route.ts` (← 27, 91)
@@ -625,6 +606,11 @@
 
 97. ⚡ **PDF 다운로드 API** - `app/api/reports/[id]/download/route.ts`
     - GET PDF 다운로드 (결제 완료자만)
+
+102. ⚡ **결제 보안** - `lib/security/payments.ts`
+    - 결제 정보 암호화
+    - 본인 인증 검증
+    - PDF 다운로드 권한
 
 
 ### Frontend 영역(Frontend Area) (F) - 2개
@@ -649,15 +635,6 @@
 
 101. ⬅️ **결제 API 테스트** - `tests/api/payments.test.ts` (← 93-97)
 
-
-### Security 영역(Security Area) (S) - 1개
-
-※ Security는 별도 영역이 아니며, 항상 각 영역(DevOps, Database, Backend, Frontend, Test)에 통합되어야 합니다.
-
-102. ⚡ **결제 보안** - `lib/security/payments.ts`
-    - 결제 정보 암호화
-    - 본인 인증 검증
-    - PDF 다운로드 권한
 
 ### DevOps 영역(DevOps Area) (O) - 0개
 
@@ -686,7 +663,7 @@
 121. ⚡ **타입 최종 업데이트** - `lib/database.types.ts`
 
 
-### Backend 영역(Backend Area) (B) - 9개
+### Backend 영역(Backend Area) (B) - 10개
 
 **🔗 그룹 Y: 관리자 API**
 110. ⚡ **관리자 대시보드 API** - `app/api/admin/dashboard/route.ts`
@@ -720,6 +697,10 @@
 
 118. ⚡ **관리자 미들웨어** - `lib/middleware/admin.ts`
     - 관리자 권한 검증
+
+125. ⚡ **관리자 보안** - `lib/security/admin.ts`
+    - 관리자 권한 검증
+    - 로그 기록
 
 
 ### Frontend 영역(Frontend Area) (F) - 7개
@@ -761,15 +742,6 @@
 123. ⬅️ **검색 E2E** - `e2e/search.spec.ts` (← 107, 115)
 
 124. ⬅️ **관리자 API 테스트** - `tests/api/admin.test.ts` (← 110-114)
-
-
-### Security 영역(Security Area) (S) - 1개
-
-※ Security는 별도 영역이 아니며, 항상 각 영역(DevOps, Database, Backend, Frontend, Test)에 통합되어야 합니다.
-
-125. ⚡ **관리자 보안** - `lib/security/admin.ts`
-    - 관리자 권한 검증
-    - 로그 기록
 
 
 ### DevOps 영역(DevOps Area) (O) - 1개
@@ -835,18 +807,13 @@
 140. ⚡ **보안 테스트** - OWASP ZAP 스캔
 
 
-### Security 영역(Security Area) (S) - 1개
-
-※ Security는 별도 영역이 아니며, 항상 각 영역(DevOps, Database, Backend, Frontend, Test)에 통합되어야 합니다. - 2개
+### DevOps 영역(DevOps Area) (O) - 4개
 
 141. ⚡ **보안 최종 점검** - `lib/security/final-check.ts`
     - 보안 헤더
     - HTTPS 강제
 
 142. ⚡ **의존성 스캔** - `npm audit`, Snyk
-
-
-### DevOps 영역(DevOps Area) (O) - 2개
 
 143. ⚡ **Vercel 배포 설정** - `vercel.json`
     - 환경변수

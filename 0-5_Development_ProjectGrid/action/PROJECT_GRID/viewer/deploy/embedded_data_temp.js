@@ -1,4 +1,4 @@
-const GRID_DATA = [
+const EMBEDDED_DATA = [
   {
     "phase": 1,
     "area": "O",
