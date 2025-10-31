@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROJECT GRID 최종 통합 뷰어 v3.0</title>
+    <!-- Supabase JavaScript Client -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', 'Malgun Gothic', sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); overflow-x: hidden; }
+
+        header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.2); }
+        header h1 { font-size: 2em; margin-bottom: 10px; }
+
+        .view-switch { display: flex; justify-content: center; gap: 10px; margin-top: 15px; }
+        .view-switch button { padding: 12px 30px; background: rgba(255,255,255,0.2); color: white; border: 2px solid white; border-radius: 25px; font-size: 1em; font-weight: 600; cursor: pointer; transition: all 0.3s; }
+        .view-switch button.active { background: white; color: #667eea; }
+
+        .connection-status { display: inline-flex; align-items: center; gap: 8px; padding: 8px 15px; border-radius: 20px; font-size: 0.9em; font-weight: 600; margin-top: 10px; background: #ffc107; color: #333; }
+        .status-dot { width: 8px; height: 8px; border-radius: 50%; background: currentColor; animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+
+        /* ========== 2D 뷰 ========== */
+        #view-2d { display: block; background: white; min-height: calc(100vh - 200px); }
+        #view-2d.hidden { display: none; }
+
+        .toolbar { display: flex; gap: 15px; padding: 20px; background: white; flex-wrap: wrap; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .search-box input { width: 100%; min-width: 250px; padding: 12px 20px; border: 2px solid #dee2e6; border-radius: 25px; font-size: 1em; }
+        .filter-btn { padding: 10px 20px; border: 2px solid #dee2e6; background: white; border-radius: 20px; cursor: pointer; transition: all 0.3s; }
+        .filter-btn.active { background: #667eea; color: white; border-color: #667eea; }
+
+        .stats-bar { display: flex; gap: 20px; padding: 15px 20px; background: #f8f9fa; overflow-x: auto; }
+        .stat-value { font-weight: bold; font-size: 1.1em; color: #667eea; }
+
+        .content-2d { padding: 20px; }
+        .phase-tabs { display: flex; gap: 10px; margin-bottom: 20px; overflow-x: auto; }
+        .phase-tab { padding: 12px 25px; background: #f8f9fa; border: 2px solid #dee2e6; border-radius: 10px; cursor: pointer; transition: all 0.3s; }
+        .phase-tab.active { background: #667eea; color: white; border-color: #667eea; }
+
+        .area-section { margin-bottom: 25px; border: 2px solid #dee2e6; border-radius: 15px; overflow: hidden; }
+        .area-header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 15px 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+        .area-content { padding: 20px; display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 20px; }
+        .area-content.collapsed { display: none; }
+
+        .task-card { background: white; border: 2px solid #dee2e6; border-radius: 12px; padding: 20px; transition: all 0.3s; position: relative; }
+        .task-card::before { content: ''; position: absolute; top: 0; left: 0; width: 5px; height: 100%; }
+        .task-card.status-completed::before { background: #28a745; }
+        .task-card.status-in-progress::before { background: #ffc107; }
+        .task-card.status-pending::before { background: #6c757d; }
+        .task-card:hover { box-shadow: 0 5px 20px rgba(0,0,0,0.15); transform: translateY(-3px); }
+
+        /* Phase Gate 특수 스타일 */
+        .task-card.phase-gate { background: linear-gradient(135deg, #fff9e6 0%, #ffe5b4 100%); border: 3px solid #FFD700; box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3); }
+        .task-card.phase-gate::before { background: linear-gradient(180deg, #FFD700 0%, #FFA500 100%); width: 8px; }
+        .task-card.phase-gate .task-id { color: #FF8C00; font-size: 1.4em; }
+        .task-card.phase-gate .task-title::before { content: '⭐ '; }
+        .task-card.phase-gate:hover { box-shadow: 0 6px 25px rgba(255, 215, 0, 0.5); }
+
+        .task-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 2px solid #e9ecef; }
+        .task-id { font-size: 1.3em; font-weight: bold; color: #667eea; }
+        .task-status { padding: 5px 12px; border-radius: 15px; font-size: 0.85em; font-weight: bold; }
+        .status-completed { background: #d4edda; color: #155724; }
+        .status-in-progress { background: #fff3cd; color: #856404; }
+        .status-pending { background: #e2e3e5; color: #383d41; }
+
+        .task-title { font-size: 1.15em; font-weight: 600; margin-bottom: 15px; color: #333; }
+
+        .task-attributes { display: grid; gap: 10px; font-size: 0.9em; }
+        .attr-row { display: grid; grid-template-columns: 120px 1fr; gap: 10px; padding: 8px; background: #f8f9fa; border-radius: 6px; }
+        .attr-label { font-weight: 600; color: #667eea; }
+        .attr-value { color: #333; word-break: break-word; }
+
+        .agent-badge { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 4px 12px; border-radius: 12px; font-size: 0.85em; font-weight: 600; display: inline-block; }
+        .progress-bar { width: 100%; height: 10px; background: #e9ecef; border-radius: 5px; overflow: hidden; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, #667eea 0%, #764ba2 100%); }
+
+        .action-buttons { display: flex; gap: 10px; margin-top: 15px; }
+        .action-btn { flex: 1; padding: 10px 15px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 8px; font-size: 0.9em; font-weight: 600; cursor: pointer; transition: all 0.3s; }
+        .action-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4); }
+        .action-btn.secondary { background: #6c757d; }
+
+        /* ========== 3D 뷰 ========== */
+        #view-3d { display: none; position: relative; height: calc(100vh - 150px); }
+        #view-3d.active { display: block; }
+        #canvas-container { width: 100%; height: 100%; }
+
+        #info-3d { position: absolute; top: 20px; left: 20px; background: rgba(0, 0, 0, 0.85); padding: 20px; border-radius: 10px; max-width: 320px; color: white; border: 2px solid #667eea; }
+        #info-3d h2 { color: #667eea; margin-bottom: 15px; }
+
+        .controls-3d { position: absolute; top: 20px; right: 20px; display: flex; flex-direction: column; gap: 10px; }
+        .btn-3d { padding: 12px 24px; background: rgba(0, 0, 0, 0.85); color: white; border: 2px solid #667eea; border-radius: 8px; cursor: pointer; transition: all 0.3s; }
+        .btn-3d:hover { background: #667eea; }
+
+        .legend-3d { position: absolute; top: 140px; right: 20px; background: rgba(0, 0, 0, 0.85); padding: 15px; border-radius: 10px; color: white; }
+        .legend-item { display: flex; align-items: center; gap: 10px; margin: 5px 0; }
+        .legend-color { width: 20px; height: 20px; border-radius: 4px; }
+
+        /* ========== 팝업 ========== */
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.6); z-index: 1000; align-items: center; justify-content: center; }
+        .modal.active { display: flex; }
+        .modal-content { background: white; padding: 30px; border-radius: 12px; max-width: 800px; width: 90%; max-height: 85vh; overflow-y: auto; }
+        .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #e9ecef; }
+        .modal-header h2 { color: #667eea; }
+        .close-btn { background: none; border: none; font-size: 2em; color: #6c757d; cursor: pointer; }
+        .close-btn:hover { color: #dc3545; }
+
+        .file-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 5px; }
+        .file-link { padding: 6px 12px; background: #667eea; color: white; border-radius: 6px; font-size: 0.85em; cursor: pointer; transition: all 0.3s; text-decoration: none; display: inline-block; }
+        .file-link:hover { background: #5568d3; transform: translateY(-2px); }
+
+        @media (max-width: 768px) {
+            .area-content { grid-template-columns: 1fr; }
+            .attr-row { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>📊 PROJECT GRID 최종 통합 뷰어 v3.0</h1>
+        <p>매뉴얼 준수 | 핵심 10개 속성 카드 표시 | 3D 축 표시</p>
+        <div class="view-switch">
+            <button class="active" onclick="switchView('2d')">📋 2D 카드 뷰</button>
+            <button onclick="switchView('3d')">🎲 3D 블록 뷰</button>
+        </div>
+        <div class="connection-status">
+            <span class="status-dot"></span>
+            <span id="connectionStatus">Supabase 연결 중...</span>
+        </div>
+    </header>
+
+    <!-- ========== 2D 뷰 ========== -->
+    <div id="view-2d">
+        <div class="toolbar">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="🔍 작업 ID 또는 업무명 검색...">
+            </div>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                <div style="display: flex; gap: 5px;">
+                    <strong style="align-self: center; margin-right: 5px;">상태:</strong>
+                    <button class="filter-btn active" data-filter-type="status" data-filter="all">전체</button>
+                    <button class="filter-btn" data-filter-type="status" data-filter="completed">완료</button>
+                    <button class="filter-btn" data-filter-type="status" data-filter="in-progress">진행중</button>
+                    <button class="filter-btn" data-filter-type="status" data-filter="pending">대기중</button>
+                </div>
+                <div style="display: flex; gap: 5px;">
+                    <strong style="align-self: center; margin-right: 5px;">검증:</strong>
+                    <button class="filter-btn active" data-filter-type="validation" data-filter="all">전체</button>
+                    <button class="filter-btn" data-filter-type="validation" data-filter="pass">✅ 통과</button>
+                    <button class="filter-btn" data-filter-type="validation" data-filter="inprogress">🔄 진행중</button>
+                    <button class="filter-btn" data-filter-type="validation" data-filter="waiting">⏳ 대기</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="stats-bar">
+            <div>전체: <span class="stat-value" id="totalTasks">0</span></div>
+            <div style="color: #28a745;">✓ 완료: <span class="stat-value" style="color: #28a745;" id="completedTasks">0</span></div>
+            <div style="color: #ffc107;">● 진행중: <span class="stat-value" style="color: #ffc107;" id="inProgressTasks">0</span></div>
+            <div style="color: #6c757d;">○ 대기중: <span class="stat-value" style="color: #6c757d;" id="pendingTasks">0</span></div>
+        </div>
+
+        <div class="content-2d">
+            <div class="phase-tabs" id="phaseTabs"></div>
+            <div id="gridContent"></div>
+        </div>
+    </div>
+
+    <!-- ========== 3D 뷰 ========== -->
+    <div id="view-3d">
+        <div id="info-3d">
+            <h2>🎲 3D 블록 뷰</h2>
+            <p style="font-size: 0.9em; margin: 5px 0;"><strong>X축(100)</strong>: Phase 개발단계</p>
+            <p style="font-size: 0.9em; margin: 5px 0;"><strong>Y축(200)</strong>: Area 개발영역 (F→B→D)</p>
+            <p style="font-size: 0.9em; margin: 5px 0;"><strong>Z축(300)</strong>: Task 작업번호 (1,2,3...)</p>
+            <hr style="margin: 10px 0; border-color: #667eea;">
+            <p style="font-size: 0.85em; margin: 5px 0; color: #ffd966;"><strong>📍 공간적 참조성</strong></p>
+            <p style="font-size: 0.75em; margin: 3px 0;">• <strong>의존성</strong>: P1F1→P2F1</p>
+            <p style="font-size: 0.75em; margin: 3px 0;">• <strong>병렬성</strong>: P2F1/P2B1/P2D1</p>
+            <p style="font-size: 0.75em; margin: 3px 0;">• <strong>인접성</strong>: 거리↓ 관련성↑</p>
+            <hr style="margin: 10px 0; border-color: #667eea;">
+            <p style="font-size: 0.75em; margin: 3px 0;">🖱️ 드래그: 회전 | 휠: 줌</p>
+            <p style="font-size: 0.75em; margin: 3px 0;">🖱️ 클릭: 상세보기</p>
+        </div>
+
+        <div class="controls-3d">
+            <button class="btn-3d" onclick="resetCamera()">🔄 카메라 리셋</button>
+            <button class="btn-3d" onclick="toggleAutoRotate()">🔁 자동 회전</button>
+        </div>
+
+        <div class="legend-3d">
+            <strong>작업 상태</strong>
+            <div class="legend-item"><div class="legend-color" style="background: #FFD700;"></div><span>⭐ Phase Gate</span></div>
+            <div class="legend-item"><div class="legend-color" style="background: #ffa500;"></div><span>완료</span></div>
+            <div class="legend-item"><div class="legend-color" style="background: #ffd966;"></div><span>진행중</span></div>
+            <div class="legend-item"><div class="legend-color" style="background: #d0d0d0;"></div><span>대기중</span></div>
+        </div>
+
+        <div id="canvas-container"></div>
+    </div>
+
+    <!-- ========== 팝업 ========== -->
+    <div class="modal" id="taskPopup" onclick="if(event.target === this) closePopup()">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="popupTitle">작업 전체 속성</h2>
+                <button class="close-btn" onclick="closePopup()">&times;</button>
+            </div>
+            <div id="popupContent"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="embedded_data_temp.js"></script>
+    <script>
+        const DEMO_MODE = false;
+        const LOCAL_JSON_MODE = false;  // 로컬 JSON 파일 사용
+        const EMBEDDED_MODE = true;  // 임베디드 데이터 사용 (더블클릭으로 열기 지원)
+
+        // Supabase 설정
+        const SUPABASE_URL = 'https://ooddlafwdpzgxfefgsrx.supabase.co';
+        const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9vZGRsYWZ3ZHB6Z3hmZWZnc3J4Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc2MDU5MjQzNCwiZXhwIjoyMDc2MTY4NDM0fQ.qiVzF8VLQ9jyDvv5ZLdw_6XTog8aAUPyJLkeffsA1qU';  // service_role key로 변경
+        const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+
+        // ========== 샘플 데이터 (매뉴얼 용어 준수) ==========
+        const DEMO_DATA = [
+            {
+                작업ID: 'P1F1', phase: 1, area: 'F', 업무: 'AuthContext 생성', 작업지시서: 'tasks/P1F1.md',
+                서브에이전트: 'fullstack-developer', 사용도구: 'React/TypeScript/Supabase', 작업방식: 'AI-Only',
+                의존성체인: '없음', 진도: '100%', 상태: '완료 (2025-10-16 14:30)',
+                생성파일: ['AuthContext.tsx (2025-10-23 12:42:57)', 'useAuth.ts (2025-10-23 12:42:57)'],
+                생성자: 'Claude-3.5-Sonnet', 소요시간: '45분', 수정이력: 'Supabase Auth 통합 완료',
+                테스트내역: 'CR(15/15)@QA-01 → Test(24/24)@Test-01 → Build(성공)@CI',
+                빌드결과: '✅ 성공', 의존성전파: '✅ 이행', 블로커: '없음',
+                종합검증결과: '✅ 통과', 종합검증상세: '✅ 통과 | 보고서: docs/P1F1_REPORT.md (2025-10-23 14:30)', 참고사항: 'Context API 사용'
+            },
+            {
+                작업ID: 'P1F2', phase: 1, area: 'F', 업무: '회원가입 페이지', 작업지시서: 'tasks/P1F2.md',
+                서브에이전트: 'fullstack-developer', 사용도구: 'React/TypeScript', 작업방식: 'AI-Only',
+                의존성체인: 'P1F1', 진도: '100%', 상태: '완료 (2025-10-17 09:15)',
+                생성파일: ['RegisterPage.tsx (2025-10-23 12:43:01)', 'register.module.css (2025-10-23 12:43:01)'],
+                생성자: 'Claude-3.5-Sonnet', 소요시간: '60분', 수정이력: '폼 검증 추가',
+                테스트내역: 'CR(12/12)@QA-02 → Test(18/18)@Test-01 → Build(성공)@CI',
+                빌드결과: '✅ 성공', 의존성전파: '✅ 이행', 블로커: '없음',
+                종합검증결과: '✅ 통과', 종합검증상세: '✅ 통과 | 보고서: docs/P1F2_REPORT.md', 참고사항: 'Zod 스키마 검증'
+            },
+            {
+                작업ID: 'P1B1', phase: 1, area: 'B', 업무: 'JWT 인증 API', 작업지시서: 'tasks/P1B1.md',
+                서브에이전트: 'fullstack-developer', 사용도구: 'Python/FastAPI', 작업방식: 'AI-Only',
+                의존성체인: '없음', 진도: '100%', 상태: '완료 (2025-10-16 11:20)',
+                생성파일: ['auth.py (2025-10-23 12:40:12)', 'jwt_utils.py (2025-10-23 12:40:12)', 'middleware.py (2025-10-23 12:40:12)'],
+                생성자: 'GPT-4', 소요시간: '90분', 수정이력: 'RefreshToken 추가',
+                테스트내역: 'CR(20/20)@QA-03 → Test(35/35)@Test-02 → Build(성공)@CI',
+                빌드결과: '✅ 성공', 의존성전파: '✅ 이행', 블로커: '없음',
+                종합검증결과: '✅ 통과', 종합검증상세: '✅ 통과 | 보고서: docs/P1B1_REPORT.md', 참고사항: 'JWT 만료시간 24시간'
+            },
+            {
+                작업ID: 'P2F1', phase: 2, area: 'F', 업무: 'Dashboard UI 구현', 작업지시서: 'tasks/P2F1.md',
+                서브에이전트: 'fullstack-developer', 사용도구: 'React/Recharts', 작업방식: 'AI-Only',
+                의존성체인: 'P1F2', 진도: '60%', 상태: '진행 중',
+                생성파일: ['Dashboard.tsx (2025-10-24 10:15:22)'],
+                생성자: 'Claude-3.5-Sonnet', 소요시간: '진행중', 수정이력: '차트 컴포넌트 추가 중',
+                테스트내역: 'CR(진행:8/12)@QA-01 → Test(대기) → Build(대기)',
+                빌드결과: '⏳ 대기', 의존성전파: '✅ 이행', 블로커: '없음',
+                종합검증결과: '🔄 진행중', 종합검증상세: '🔄 진행중', 참고사항: 'Recharts 라이브러리 사용'
+            },
+            {
+                작업ID: 'P2B1', phase: 2, area: 'B', 업무: '사용자 CRUD API', 작업지시서: 'tasks/P2B1.md',
+                서브에이전트: 'database-specialist', 사용도구: 'Python/FastAPI/SQLAlchemy', 작업방식: 'AI-Only',
+                의존성체인: 'P1B1', 진도: '70%', 상태: '진행 중',
+                생성파일: ['users.py (2025-10-24 11:20:05)', 'schemas.py (2025-10-24 11:20:05)'],
+                생성자: 'GPT-4', 소요시간: '진행중', 수정이력: 'Pagination 추가',
+                테스트내역: 'CR(15/20)@QA-03 → Test(대기) → Build(대기)',
+                빌드결과: '⏳ 대기', 의존성전파: '✅ 이행', 블로커: '없음',
+                종합검증결과: '🔄 진행중', 종합검증상세: '🔄 진행중', 참고사항: 'FastAPI 라우터'
+            },
+            {
+                작업ID: 'P3F1', phase: 3, area: 'F', 업무: '데이터 시각화 차트', 작업지시서: 'tasks/P3F1.md',
+                서브에이전트: null, 사용도구: 'React/D3.js', 작업방식: 'AI-Only',
+                의존성체인: 'P2F1', 진도: '0%', 상태: '대기',
+                생성파일: [], 생성자: '-', 소요시간: '-', 수정이력: '-',
+                테스트내역: '대기', 빌드결과: '⏳ 대기', 의존성전파: '❌ 불이행 - P2F1', 블로커: 'P2F1 완료 필요',
+                종합검증결과: '⏳ 대기', 종합검증상세: '⏳ 대기', 참고사항: 'D3.js 또는 Recharts'
+            }
+        ];
+
+        const AREA_NAMES = {
+            'O': 'DevOps',
+            'D': 'Database',
+            'BI': 'Backend Infrastructure',
+            'BA': 'Backend APIs',
+            'F': 'Frontend',
+            'T': 'Test',
+            'GATE': 'Phase Gate'
+        };
+
+        let allTasks = [], filteredTasks = [], currentView = '2d', currentPhase = 'all';
+        let currentStatusFilter = 'all', currentValidationFilter = 'all';
+        let scene, camera, renderer, taskObjects = [], autoRotate = false;
+
+        function switchView(view) {
+            currentView = view;
+            document.querySelectorAll('.view-switch button').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            if (view === '2d') {
+                document.getElementById('view-2d').classList.remove('hidden');
+                document.getElementById('view-3d').classList.remove('active');
+            } else {
+                document.getElementById('view-2d').classList.add('hidden');
+                document.getElementById('view-3d').classList.add('active');
+                if (!scene) init3D();
+            }
+        }
+
+        async function loadTasks() {
+            if (DEMO_MODE) {
+                console.log('DEMO 모드: 샘플 데이터 사용');
+                allTasks = [...DEMO_DATA];
+            } else if (EMBEDDED_MODE) {
+                console.log('임베디드 모드: HTML 내장 데이터 사용 (더블클릭 지원)');
+                try {
+                    // EMBEDDED_DATA는 외부 JS 파일에서 로드됨
+                    console.log('임베디드 데이터 로드 완료:', EMBEDDED_DATA.length, '개 작업');
+
+                    // JSON 데이터를 뷰어 형식으로 변환
+                    allTasks = EMBEDDED_DATA.map(task => ({
+                        phase: task.phase,
+                        area: task.area,
+                        작업ID: task.task_id,
+                        업무: task.task_name,
+                        작업지시서: task.instruction_file,
+                        서브에이전트: task.assigned_agent,
+                        사용도구: task.tools,
+                        작업방식: task.work_mode,
+                        의존성체인: task.dependency_chain,
+                        진도: task.progress + '%',
+                        상태: task.status,
+                        생성파일: task.generated_files || [],
+                        생성자: task.generator || '-',
+                        소요시간: task.duration || '-',
+                        수정이력: task.modification_history || '-',
+                        테스트내역: task.test_history || '대기',
+                        빌드결과: task.build_result || '⏳ 대기',
+                        의존성전파: task.dependency_propagation || '⏳ 대기',
+                        블로커: task.blocker || '없음',
+                        종합검증결과: task.validation_result || '⏳ 대기',
+                        종합검증상세: task.validation_result || '⏳ 대기',
+                        참고사항: task.remarks || ''
+                    }));
+                    console.log('변환 완료:', allTasks.length, '개 작업');
+                } catch (err) {
+                    console.error('임베디드 데이터 로딩 에러:', err);
+                    alert('임베디드 데이터 로딩 실패. DEMO_MODE로 전환합니다.');
+                    allTasks = [...DEMO_DATA];
+                }
+            } else if (LOCAL_JSON_MODE) {
+                console.log('로컬 JSON 모드: 최신 Skills 통합 데이터 로드');
+                try {
+                    const response = await fetch('generated_grid_full_v4_10agents_with_skills.json');
+                    const data = await response.json();
+                    console.log('로컬 JSON 로드 완료:', data.length, '개 작업');
+
+                    // JSON 데이터를 뷰어 형식으로 변환
+                    allTasks = data.map(task => ({
+                        phase: task.phase,
+                        area: task.area,
+                        작업ID: task.task_id,
+                        업무: task.task_name,
+                        작업지시서: task.instruction_file,
+                        서브에이전트: task.assigned_agent,
+                        사용도구: task.tools,
+                        작업방식: task.work_mode,
+                        의존성체인: task.dependency_chain,
+                        진도: task.progress + '%',
+                        상태: task.status,
+                        생성파일: task.generated_files || [],
+                        생성자: task.generator || '-',
+                        소요시간: task.duration || '-',
+                        수정이력: task.modification_history || '-',
+                        테스트내역: task.test_history || '대기',
+                        빌드결과: task.build_result || '⏳ 대기',
+                        의존성전파: task.dependency_propagation || '⏳ 대기',
+                        블로커: task.blocker || '없음',
+                        종합검증결과: task.validation_result || '⏳ 대기',
+                        종합검증상세: task.validation_result || '⏳ 대기',
+                        참고사항: task.remarks || ''
+                    }));
+                    console.log('변환 완료:', allTasks.length, '개 작업');
+                } catch (err) {
+                    console.error('로컬 JSON 로딩 에러:', err);
+                    alert('로컬 JSON 로딩 실패: ' + err.message);
+                    allTasks = [];
+                }
+            } else {
+                console.log('Supabase 모드: 데이터베이스에서 로드');
+                // Supabase에서 데이터 가져오기
+                try {
+                    console.log('Supabase 쿼리 시작...');
+                    const { data, error } = await supabase
+                        .from('project_grid_tasks')
+                        .select('*')
+                        .order('phase', { ascending: true })
+                        .order('area', { ascending: true });
+                    
+                    console.log('Supabase 응답:', { data, error });
+                    
+                    if (error) {
+                        console.error('Supabase 에러:', error);
+                        alert('데이터 로딩 실패: ' + error.message);
+                        allTasks = [];
+                    } else if (!data || data.length === 0) {
+                        console.warn('Supabase에서 데이터가 없음');
+                        alert('Supabase에 데이터가 없습니다. 테이블을 확인하세요.');
+                        allTasks = [];
+                    } else {
+                        console.log('원본 데이터:', data);
+                        // Supabase 데이터를 뷰어 형식으로 변환
+                        allTasks = data.map(task => ({
+                            phase: task.phase,
+                            area: task.area,
+                            작업ID: task.task_id,
+                            업무: task.task_name,
+                            작업지시서: task.instruction_file,
+                            서브에이전트: task.assigned_agent,
+                            사용도구: task.tools,
+                            작업방식: task.work_mode,
+                            의존성체인: task.dependency_chain,
+                            진도: task.progress + '%',
+                            상태: task.status,
+                            생성파일: task.generated_files || [],
+                            생성자: task.generator,
+                            소요시간: task.duration,
+                            수정이력: task.modification_history,
+                            테스트내역: task.test_history,
+                            빌드결과: task.build_result,
+                            의존성전파: task.dependency_propagation,
+                            블로커: task.blocker,
+                            종합검증결과: task.validation_result,
+                            종합검증상세: task.validation_result,
+                            참고사항: task.remarks
+                        }));
+                        console.log('변환된 데이터:', allTasks);
+                        console.log('Supabase에서 ' + allTasks.length + '개 작업 로드 완료');
+                    }
+                } catch (err) {
+                    console.error('데이터 로딩 에러:', err);
+                    alert('데이터 로딩 중 오류 발생: ' + err.message);
+                    allTasks = [];
+                }
+            }
+            
+            filteredTasks = [...allTasks];
+            render2D();
+            updateStats();
+        }
+
+        function render2D() {
+            renderPhaseTabs();
+            renderGrid();
+        }
+
+        function renderPhaseTabs() {
+            const phases = [...new Set(allTasks.map(t => t.phase))].sort();
+            let html = '<button class="phase-tab active" onclick="selectPhase(\'all\')">전체</button>';
+            phases.forEach(p => html += `<button class="phase-tab" onclick="selectPhase(${p})">Phase ${p}</button>`);
+            document.getElementById('phaseTabs').innerHTML = html;
+        }
+
+        function renderGrid() {
+            const gridContent = document.getElementById('gridContent');
+            let tasksToShow = filteredTasks.filter(task => {
+                const phaseMatch = currentPhase === 'all' || task.phase === currentPhase;
+                const statusMatch = currentStatusFilter === 'all' || getStatusClass(task) === currentStatusFilter;
+                const validationMatch = currentValidationFilter === 'all' || getValidationClass(task) === currentValidationFilter;
+                return phaseMatch && statusMatch && validationMatch;
+            });
+
+            if (tasksToShow.length === 0) {
+                gridContent.innerHTML = '<div style="text-align:center; padding:60px; color:#6c757d;">검색 결과가 없습니다</div>';
+                return;
+            }
+
+            const groupedByArea = {};
+            tasksToShow.forEach(task => {
+                if (!groupedByArea[task.area]) groupedByArea[task.area] = [];
+                groupedByArea[task.area].push(task);
+            });
+
+            let html = '';
+            // Area 순서: O → D → BI → BA → F → T → GATE (Phase Gate는 항상 마지막)
+            const areaOrder = ['O', 'D', 'BI', 'BA', 'F', 'T', 'GATE'];
+            const sortedAreas = Object.keys(groupedByArea).sort((a, b) => {
+                return areaOrder.indexOf(a) - areaOrder.indexOf(b);
+            });
+            sortedAreas.forEach(area => {
+                const tasks = groupedByArea[area];
+                const areaName = AREA_NAMES[area] || area;
+                const completed = tasks.filter(t => t.상태.includes('완료')).length;
+
+                html += `
+                    <div class="area-section">
+                        <div class="area-header" onclick="toggleArea('${area}')">
+                            <div><strong>${areaName} (${area})</strong></div>
+                            <div>전체: ${tasks.length} | 완료: ${completed}</div>
+                        </div>
+                        <div class="area-content" id="area-${area}">
+                `;
+                tasks.forEach(task => html += createTaskCard(task));
+                html += '</div></div>';
+            });
+            gridContent.innerHTML = html;
+        }
+
+        function createTaskCard(task) {
+            const statusClass = getStatusClass(task);
+            const progress = parseInt(task.진도) || 0;
+            const isPhaseGate = task.area === 'GATE';
+            const gateClass = isPhaseGate ? ' phase-gate' : '';
+
+            return `
+                <div class="task-card status-${statusClass}${gateClass}">
+                    <div class="task-header">
+                        <div class="task-id">${task.작업ID}</div>
+                        <div class="task-status status-${statusClass}">${task.상태.split('(')[0].trim()}</div>
+                    </div>
+                    <div class="task-title">${task.업무}</div>
+
+                    <div class="task-attributes">
+                        <div class="attr-row">
+                            <div class="attr-label">서브 에이전트</div>
+                            <div class="attr-value"><span class="agent-badge">${task.서브에이전트 || '-'}</span></div>
+                        </div>
+                        <div class="attr-row">
+                            <div class="attr-label">사용도구</div>
+                            <div class="attr-value">${task.사용도구}</div>
+                        </div>
+                        <div class="attr-row">
+                            <div class="attr-label">작업 방식</div>
+                            <div class="attr-value">${task.작업방식}</div>
+                        </div>
+                        <div class="attr-row">
+                            <div class="attr-label">의존성 체인</div>
+                            <div class="attr-value">${task.의존성체인}</div>
+                        </div>
+                        <div class="attr-row">
+                            <div class="attr-label">블로커</div>
+                            <div class="attr-value">${task.블로커}</div>
+                        </div>
+                        <div class="attr-row">
+                            <div class="attr-label">진도</div>
+                            <div class="attr-value">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: ${progress}%"></div>
+                                </div>
+                                <small>${task.진도}</small>
+                            </div>
+                        </div>
+                        <div class="attr-row">
+                            <div class="attr-label">빌드결과</div>
+                            <div class="attr-value">${task.빌드결과}</div>
+                        </div>
+                        <div class="attr-row">
+                            <div class="attr-label">종합검증결과</div>
+                            <div class="attr-value">${task.종합검증결과}</div>
+                        </div>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button class="action-btn" onclick="openFile('${task.작업지시서}')">📄 작업지시서</button>
+                        <button class="action-btn secondary" onclick="showFullDetail('${task.작업ID}')">📋 전체 속성 (21개)</button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function selectPhase(phase) {
+            currentPhase = phase;
+            document.querySelectorAll('.phase-tab').forEach(tab => tab.classList.remove('active'));
+            event.target.classList.add('active');
+            renderGrid();
+        }
+
+        function toggleArea(area) {
+            document.getElementById(`area-${area}`).classList.toggle('collapsed');
+        }
+
+        function updateStats() {
+            const total = allTasks.length;
+            const completed = allTasks.filter(t => t.상태.includes('완료')).length;
+            const inProgress = allTasks.filter(t => t.상태.includes('진행')).length;
+            const pending = allTasks.filter(t => t.상태.includes('대기')).length;
+
+            document.getElementById('totalTasks').textContent = total;
+            document.getElementById('completedTasks').textContent = completed;
+            document.getElementById('inProgressTasks').textContent = inProgress;
+            document.getElementById('pendingTasks').textContent = pending;
+        }
+
+        function getStatusClass(task) {
+            if (task.상태.includes('완료')) return 'completed';
+            if (task.상태.includes('진행')) return 'in-progress';
+            return 'pending';
+        }
+
+        function getValidationClass(task) {
+            if (task.종합검증결과.includes('통과')) return 'pass';
+            if (task.종합검증결과.includes('진행')) return 'inprogress';
+            return 'waiting';
+        }
+
+        function openFile(path) {
+            if (!path || path === '-') {
+                alert('파일 경로가 없습니다.');
+                return;
+            }
+            if (DEMO_MODE) {
+                alert(`📄 파일 경로:\n${path}\n\n실제 환경에서는 이 파일이 자동으로 열립니다.`);
+            } else {
+                // 작업지시서 경로 수정: tasks/P1O1.md → ../../../tasks/P1O1.md
+                const correctedPath = path.startsWith('tasks/') ? '../../../' + path : path;
+                window.open(correctedPath, '_blank');
+            }
+        }
+
+        function showFullDetail(taskId) {
+            const task = allTasks.find(t => t.작업ID === taskId);
+            if (!task) return;
+
+            const files = Array.isArray(task.생성파일) ? task.생성파일 : [];
+            const fileList = files.length > 0 ?
+                files.map(f => {
+                    const fileName = f.split('(')[0].trim();
+                    return `<a href="#" class="file-link" onclick="openFile('${fileName}'); return false;">${f}</a>`;
+                }).join('<br>') : '-';
+
+            document.getElementById('popupTitle').textContent = `${task.작업ID}: ${task.업무} - 전체 21개 속성`;
+            document.getElementById('popupContent').innerHTML = `
+                <div class="task-attributes">
+                    <div class="attr-row"><div class="attr-label">1. Phase</div><div class="attr-value">Phase ${task.phase}</div></div>
+                    <div class="attr-row"><div class="attr-label">2. Area</div><div class="attr-value">${AREA_NAMES[task.area]}</div></div>
+                    <div class="attr-row"><div class="attr-label">3. 작업ID</div><div class="attr-value">${task.작업ID}</div></div>
+                    <div class="attr-row"><div class="attr-label">4. 업무</div><div class="attr-value">${task.업무}</div></div>
+                    <div class="attr-row"><div class="attr-label">5. 작업지시서</div><div class="attr-value"><a href="#" class="file-link" onclick="openFile('${task.작업지시서}'); return false;">${task.작업지시서}</a></div></div>
+                    <div class="attr-row"><div class="attr-label">6. 서브 에이전트</div><div class="attr-value">${task.서브에이전트 || '-'}</div></div>
+                    <div class="attr-row"><div class="attr-label">7. 사용도구</div><div class="attr-value">${task.사용도구}</div></div>
+                    <div class="attr-row"><div class="attr-label">8. 작업 방식</div><div class="attr-value">${task.작업방식}</div></div>
+                    <div class="attr-row"><div class="attr-label">9. 의존성 체인</div><div class="attr-value">${task.의존성체인}</div></div>
+                    <div class="attr-row"><div class="attr-label">10. 진도</div><div class="attr-value">${task.진도}</div></div>
+                    <div class="attr-row"><div class="attr-label">11. 상태</div><div class="attr-value">${task.상태}</div></div>
+                    <div class="attr-row"><div class="attr-label">12. 생성파일</div><div class="attr-value" style="line-height:2em;">${fileList}</div></div>
+                    <div class="attr-row"><div class="attr-label">13. 생성자</div><div class="attr-value">${task.생성자}</div></div>
+                    <div class="attr-row"><div class="attr-label">14. 소요시간</div><div class="attr-value">${task.소요시간}</div></div>
+                    <div class="attr-row"><div class="attr-label">15. 수정이력</div><div class="attr-value">${task.수정이력}</div></div>
+                    <div class="attr-row"><div class="attr-label">16. 테스트내역</div><div class="attr-value">${task.테스트내역}</div></div>
+                    <div class="attr-row"><div class="attr-label">17. 빌드결과</div><div class="attr-value">${task.빌드결과}</div></div>
+                    <div class="attr-row"><div class="attr-label">18. 의존성전파</div><div class="attr-value">${task.의존성전파}</div></div>
+                    <div class="attr-row"><div class="attr-label">19. 블로커</div><div class="attr-value">${task.블로커}</div></div>
+                    <div class="attr-row"><div class="attr-label">20. 종합검증결과</div><div class="attr-value">${task.종합검증상세 || task.종합검증결과}</div></div>
+                    <div class="attr-row"><div class="attr-label">21. 참고사항</div><div class="attr-value">${task.참고사항}</div></div>
+                </div>
+            `;
+            document.getElementById('taskPopup').classList.add('active');
+        }
+
+        function closePopup() {
+            document.getElementById('taskPopup').classList.remove('active');
+        }
+
+        // ========== 3D 초기화 ==========
+        function init3D() {
+            scene = new THREE.Scene();
+            scene.background = new THREE.Color(0xf5f5f5);
+
+            camera = new THREE.PerspectiveCamera(75, window.innerWidth / (window.innerHeight - 150), 0.1, 1000);
+            camera.position.set(15, 12, 25);  // 간격 축소에 맞춰 조정
+            camera.lookAt(10, 5, 0);  // 블록 그리드 중앙
+
+            renderer = new THREE.WebGLRenderer({ antialias: true });
+            const container = document.getElementById('canvas-container');
+            renderer.setSize(container.clientWidth, container.clientHeight);
+            container.appendChild(renderer.domElement);
+
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+            scene.add(ambientLight);
+            const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+            directionalLight.position.set(10, 10, 5);
+            scene.add(directionalLight);
+
+            // 축 선을 직접 그리기 (원하는 색상으로)
+            // X축 - 초록색 (오른쪽, Phase)
+            const xAxisMaterial = new THREE.LineBasicMaterial({ color: 0x00ff00 });
+            const xAxisGeometry = new THREE.BufferGeometry().setFromPoints([
+                new THREE.Vector3(0, 0, 0),
+                new THREE.Vector3(50, 0, 0)
+            ]);
+            const xAxis = new THREE.Line(xAxisGeometry, xAxisMaterial);
+            scene.add(xAxis);
+
+            // Y축 - 파란색 (앞으로, Area)
+            const yAxisMaterial = new THREE.LineBasicMaterial({ color: 0xff0000 });
+            const yAxisGeometry = new THREE.BufferGeometry().setFromPoints([
+                new THREE.Vector3(0, 0, 0),
+                new THREE.Vector3(0, 0, 50)
+            ]);
+            const yAxis = new THREE.Line(yAxisGeometry, yAxisMaterial);
+            scene.add(yAxis);
+
+            // Z축 - 빨간색 (위로, Task)
+            const zAxisMaterial = new THREE.LineBasicMaterial({ color: 0x0000ff });
+            const zAxisGeometry = new THREE.BufferGeometry().setFromPoints([
+                new THREE.Vector3(0, 0, 0),
+                new THREE.Vector3(0, 50, 0)
+            ]);
+            const zAxis = new THREE.Line(zAxisGeometry, zAxisMaterial);
+            scene.add(zAxis);
+
+            // X축 레이블 (Phase) - 초록색
+            createTextLabel('X: Phase →', 30, 0, 0, 0x00ff00);
+
+            // Y축 레이블 (Area) - 파란색
+            createTextLabel('Y: Area →', 0, 0, 15, 0xff0000);
+            
+            // Z축 레이블 (Task) - 빨간색
+            createTextLabel('Z: Task ↑', 0, 15, 0, 0x0000ff);
+            
+            // X축 값 표시 (Phase: P1, P2, P3...)
+            for (let p = 1; p <= 4; p++) {
+                createTextLabel('P' + p, p * 5, -3, 0, 0x00ff00);
+            }
+            
+            // Y축 값 표시 (Area: O, D, BI, BA, F, T, GATE)
+            const areas = ['O', 'D', 'BI', 'BA', 'F', 'T', 'GATE'];
+            areas.forEach((area, idx) => {
+                createTextLabel(area, 0, -3, idx * 5, 0xff0000);
+            });
+            
+            // Z축 값 표시 (Task: 1, 2, 3...)
+            for (let t = 1; t <= 3; t++) {
+                createTextLabel(t.toString(), -3, t * 5, 0, 0x0000ff);
+            }
+
+            // 마우스 컨트롤
+            let isDragging = false, previousMousePosition = { x: 0, y: 0 };
+
+            renderer.domElement.addEventListener('mousedown', (e) => {
+                isDragging = true;
+                previousMousePosition = { x: e.clientX, y: e.clientY };
+            });
+            renderer.domElement.addEventListener('mouseup', () => { isDragging = false; });
+            renderer.domElement.addEventListener('mousemove', (e) => {
+                if (isDragging) {
+                    const deltaX = e.clientX - previousMousePosition.x;
+                    const deltaY = e.clientY - previousMousePosition.y;
+                    camera.position.x += deltaX * 0.05;
+                    camera.position.y -= deltaY * 0.05;
+                    camera.lookAt(scene.position);
+                    previousMousePosition = { x: e.clientX, y: e.clientY };
+                }
+            });
+            renderer.domElement.addEventListener('wheel', (e) => {
+                e.preventDefault();
+                camera.position.z += e.deltaY * 0.01;
+            });
+
+            renderer.domElement.addEventListener('click', (e) => {
+                const raycaster = new THREE.Raycaster();
+                const mouse = new THREE.Vector2();
+                const rect = renderer.domElement.getBoundingClientRect();
+                mouse.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+                mouse.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+
+                raycaster.setFromCamera(mouse, camera);
+                const intersects = raycaster.intersectObjects(taskObjects);
+
+                if (intersects.length > 0) {
+                    showFullDetail(intersects[0].object.userData.작업ID);
+                }
+            });
+
+            create3DBlocks();
+            animate();
+        }
+
+        function createTextLabel(text, x, y, z, color) {
+            const canvas = document.createElement('canvas');
+            const context = canvas.getContext('2d');
+            canvas.width = 512;
+            canvas.height = 128;
+            context.fillStyle = '#' + color.toString(16).padStart(6, '0');
+            context.font = 'Bold 64px Arial';
+            context.fillText(text, 20, 80);
+
+            const texture = new THREE.CanvasTexture(canvas);
+            const spriteMaterial = new THREE.SpriteMaterial({ map: texture });
+            const sprite = new THREE.Sprite(spriteMaterial);
+            sprite.position.set(x, y, z);
+            sprite.scale.set(8, 2, 1);
+            scene.add(sprite);
+        }
+
+        function createBlockTexture(taskId, keyword, colorHex) {
+            const canvas = document.createElement('canvas');
+            canvas.width = 512;
+            canvas.height = 512;
+            const context = canvas.getContext('2d');
+
+            // 배경색
+            const r = (colorHex >> 16) & 255;
+            const g = (colorHex >> 8) & 255;
+            const b = colorHex & 255;
+            context.fillStyle = `rgb(${r}, ${g}, ${b})`;
+            context.fillRect(0, 0, 512, 512);
+
+            // 텍스트 설정
+            context.textAlign = 'center';
+            context.textBaseline = 'middle';
+            context.fillStyle = '#000000';
+
+            // 작업ID (위쪽, 크게)
+            context.font = 'bold 120px Arial';
+            context.fillText(taskId, 256, 140);
+
+            // 키워드 (아래쪽, 두 줄 처리)
+            context.font = 'bold 105px Arial';
+            if (keyword.length > 6) {
+                const mid = Math.ceil(keyword.length / 2);
+                context.fillText(keyword.substring(0, mid), 256, 320);
+                context.fillText(keyword.substring(mid), 256, 390);
+            } else {
+                context.fillText(keyword, 256, 355);
+            }
+
+            return new THREE.CanvasTexture(canvas);
+        }
+
+        function create3DBlocks() {
+            // Area를 Y축 인덱스로 매핑 (O=0, D=1, BI=2, BA=3, F=4, T=5, GATE=6)
+            const areaMap = { 'O': 0, 'D': 1, 'BI': 2, 'BA': 3, 'F': 4, 'T': 5, 'GATE': 6 };
+
+            allTasks.forEach(task => {
+                const geometry = new THREE.BoxGeometry(4, 4, 4);  // 블록 크기: 4×4×4
+
+                // Phase Gate는 금색으로 구분, 일반 작업은 상태별 색상
+                const colorValue = task.area === 'GATE' ? 0xFFD700 :  // 금색 (Phase Gate)
+                             task.상태.includes('완료') ? 0xffa500 :
+                             task.상태.includes('진행') ? 0xffd966 : 0xd0d0d0;
+                const keyword = extractKeyword(task.업무);
+                const texture = createBlockTexture(task.작업ID, keyword, colorValue);
+
+                // 모든 면에 텍스처 적용 (어느 각도에서도 보이도록)
+                const materials = [
+                    new THREE.MeshLambertMaterial({ map: texture }), // 오른쪽
+                    new THREE.MeshLambertMaterial({ map: texture }), // 왼쪽
+                    new THREE.MeshLambertMaterial({ map: texture }), // 위
+                    new THREE.MeshLambertMaterial({ map: texture }), // 아래
+                    new THREE.MeshLambertMaterial({ map: texture }), // 앞면
+                    new THREE.MeshLambertMaterial({ map: texture })  // 뒷면
+                ];
+
+                const block = new THREE.Mesh(geometry, materials);
+
+                // 3D 좌표 계산 (도1_3D_좌표계_정보.md 기준)
+                // X축(100): Phase (개발단계) - 오른쪽으로
+                // Y축(200): Area (개발영역) - 앞으로 (F=0, B=1, D=2)
+                // Z축(300): Task (작업번호) - 위로 (같은 Phase+Area에서 1, 2, 3...)
+
+                const posX = task.phase * 5;  // X축: Phase 간격 5 (오른쪽)
+                
+                // Y축: 같은 Phase+Area의 작업들을 세로로 쌓음 (위로)
+                const sameLocationTasks = allTasks.filter(t =>
+                    t.phase === task.phase && t.area === task.area &&
+                    allTasks.indexOf(t) < allTasks.indexOf(task)
+                );
+                const posY = sameLocationTasks.length * 5;
+                
+                const posZ = areaMap[task.area] * 5;  // Z축: Area 간격 5 (앞으로)
+
+                block.position.set(posX, posY, posZ);
+                block.userData = task;
+
+                scene.add(block);
+                taskObjects.push(block);
+            });
+        }
+
+        function extractKeyword(taskName) {
+            // 업무명에서 핵심 키워드 추출
+            const keywords = {
+                'AuthContext': 'Auth',
+                '회원가입': '회원가입',
+                '로그인': '로그인',
+                'JWT': 'JWT',
+                '인증': 'Auth',
+                'Dashboard': 'Dashboard',
+                'UI': 'UI',
+                'CRUD': 'CRUD',
+                'API': 'API',
+                '사용자': 'User',
+                '시각화': '시각화',
+                '차트': 'Chart',
+                '데이터': 'Data',
+                '페이지': 'Page'
+            };
+
+            for (const [key, value] of Object.entries(keywords)) {
+                if (taskName.includes(key)) {
+                    return value;
+                }
+            }
+
+            // 키워드가 없으면 첫 단어 추출 (최대 6자)
+            return taskName.split(' ')[0].substring(0, 6);
+        }
+
+        function createTaskIdLabel(taskId, keyword, x, y, z, color) {
+            const canvas = document.createElement('canvas');
+            const context = canvas.getContext('2d');
+            canvas.width = 256;  // 캔버스 크기 확대: 160 → 256
+            canvas.height = 128;  // 캔버스 높이 확대: 80 → 128
+
+            // 배경 (반투명 검은색)
+            context.fillStyle = 'rgba(0, 0, 0, 0.75)';
+            context.fillRect(0, 0, canvas.width, canvas.height);
+
+            // 작업ID (위쪽)
+            context.fillStyle = '#' + color.toString(16).padStart(6, '0');
+            context.font = 'Bold 32px Arial';  // 폰트 크기 확대: 22 → 32
+            context.textAlign = 'center';
+            context.textBaseline = 'middle';
+            context.fillText(taskId, 128, 42);  // 위치 조정
+
+            // 키워드 (아래쪽, 약간 작고 연한 색)
+            context.fillStyle = '#a0a0ff';
+            context.font = 'Bold 24px Arial';  // 폰트 크기 확대: 16 → 24
+            context.fillText(keyword, 128, 86);  // 위치 조정
+
+            const texture = new THREE.CanvasTexture(canvas);
+            const spriteMaterial = new THREE.SpriteMaterial({ map: texture });
+            const sprite = new THREE.Sprite(spriteMaterial);
+            sprite.position.set(x, y, z);
+            sprite.scale.set(4, 2, 1);  // 스케일 확대: (2,1,1) → (4,2,1)
+            scene.add(sprite);
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            if (autoRotate) {
+                camera.position.x = Math.cos(Date.now() * 0.0005) * 30 + 12;
+                camera.position.z = Math.sin(Date.now() * 0.0005) * 30;
+            camera.lookAt(10, 5, 0);  // 블록 그리드 중앙
+            }
+            renderer.render(scene, camera);
+        }
+
+        function resetCamera() {
+            camera.position.set(15, 12, 25);  // 간격 축소에 맞춰 조정
+            camera.lookAt(10, 5, 0);  // 블록 그리드 중앙
+        }
+
+        function toggleAutoRotate() {
+            autoRotate = !autoRotate;
+        }
+
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            const search = e.target.value.toLowerCase();
+            filteredTasks = search ? allTasks.filter(t =>
+                t.작업ID.toLowerCase().includes(search) ||
+                t.업무.toLowerCase().includes(search)
+            ) : [...allTasks];
+            renderGrid();
+        });
+
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const filterType = btn.dataset.filterType;
+                const filterValue = btn.dataset.filter;
+
+                // 같은 타입의 버튼들만 비활성화
+                document.querySelectorAll(`.filter-btn[data-filter-type="${filterType}"]`).forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                if (filterType === 'status') {
+                    currentStatusFilter = filterValue;
+                } else if (filterType === 'validation') {
+                    currentValidationFilter = filterValue;
+                }
+                renderGrid();
+            });
+        });
+
+        window.addEventListener('resize', () => {
+            if (scene) {
+                const container = document.getElementById('canvas-container');
+                camera.aspect = container.clientWidth / container.clientHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(container.clientWidth, container.clientHeight);
+            }
+        });
+
+
+        // 연결 상태 업데이트
+        window.addEventListener('DOMContentLoaded', async () => {
+            await loadTasks();
+            const statusEl = document.getElementById('connectionStatus');
+            if (statusEl) {
+                if (DEMO_MODE) {
+                    statusEl.textContent = 'DEMO 모드 (샘플 데이터)';
+                } else {
+                    statusEl.textContent = `Supabase 연결 (${allTasks.length}개 작업)`;
+                    statusEl.style.background = '#28a745';
+                }
+            }
+        });
+    </script>
+</body>
+</html>
