@@ -49,22 +49,22 @@ CREATE TABLE IF NOT EXISTS project_grid_tasks (
 -- ============================================
 
 -- Phase별 조회 최적화
-CREATE INDEX idx_phase ON project_grid_tasks(phase);
+CREATE INDEX IF NOT EXISTS idx_phase ON project_grid_tasks(phase);
 
 -- Area별 조회 최적화
-CREATE INDEX idx_area ON project_grid_tasks(area);
+CREATE INDEX IF NOT EXISTS idx_area ON project_grid_tasks(area);
 
 -- Phase + Area 조합 조회 최적화 (3D 블록 뷰)
-CREATE INDEX idx_phase_area ON project_grid_tasks(phase, area);
+CREATE INDEX IF NOT EXISTS idx_phase_area ON project_grid_tasks(phase, area);
 
 -- 상태별 필터링 최적화
-CREATE INDEX idx_status ON project_grid_tasks(status);
+CREATE INDEX IF NOT EXISTS idx_status ON project_grid_tasks(status);
 
 -- 검증 결과별 필터링 최적화
-CREATE INDEX idx_validation_result ON project_grid_tasks(validation_result);
+CREATE INDEX IF NOT EXISTS idx_validation_result ON project_grid_tasks(validation_result);
 
 -- 작업명 전문 검색 인덱스
-CREATE INDEX idx_task_name_search ON project_grid_tasks USING gin(to_tsvector('simple', task_name));
+CREATE INDEX IF NOT EXISTS idx_task_name_search ON project_grid_tasks USING gin(to_tsvector('simple', task_name));
 
 -- ============================================
 -- Row Level Security (RLS) 설정
@@ -266,9 +266,9 @@ ORDER BY
 -- ============================================
 
 -- 특정 작업의 의존성 체인 조회 (재귀)
-CREATE OR REPLACE FUNCTION get_dependency_chain(target_task_id VARCHAR)
+CREATE OR REPLACE FUNCTION get_dependency_chain(target_task_id VARCHAR(20))
 RETURNS TABLE(
-    task_id VARCHAR,
+    task_id VARCHAR(20),
     task_name TEXT,
     status TEXT,
     progress INTEGER,
@@ -314,11 +314,11 @@ $$ LANGUAGE plpgsql;
 -- 블로커가 있는 작업 조회
 CREATE OR REPLACE FUNCTION get_blocked_tasks()
 RETURNS TABLE(
-    task_id VARCHAR,
+    task_id VARCHAR(20),
     task_name TEXT,
     blocker TEXT,
     phase INTEGER,
-    area VARCHAR
+    area VARCHAR(2)
 ) AS $$
 BEGIN
     RETURN QUERY

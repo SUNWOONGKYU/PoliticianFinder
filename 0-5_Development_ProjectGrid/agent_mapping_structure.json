@@ -1,0 +1,273 @@
+{
+  "mapping_version": "1.0",
+  "description": "2단계 에이전트 매핑 구조: Task → Custom Agent → Built-in Agent",
+
+  "stage1_task_to_custom_agent": {
+    "description": "144개 Task를 14개 Custom Agent에 배분",
+    "mapping": {
+      "O": {
+        "area_name": "DevOps",
+        "task_count": 9,
+        "custom_agents": [
+          {
+            "agent": "devops-troubleshooter",
+            "tasks": "모든 O 영역 작업 (P1O1, P2O1, ...)",
+            "specialty": "CI/CD, 배포, 인프라 설정"
+          }
+        ]
+      },
+      "D": {
+        "area_name": "Database",
+        "task_count": 30,
+        "custom_agents": [
+          {
+            "agent": "database-developer",
+            "tasks": "모든 D 영역 작업 (P1D1, P1D2, ...)",
+            "specialty": "스키마 설계, 마이그레이션, SQL"
+          }
+        ]
+      },
+      "BI": {
+        "area_name": "Backend Infrastructure",
+        "task_count": 3,
+        "custom_agents": [
+          {
+            "agent": "backend-developer",
+            "tasks": "모든 BI 영역 작업 (P1BI1, P1BI2, P1BI3)",
+            "specialty": "백엔드 인프라, Supabase 클라이언트"
+          }
+        ]
+      },
+      "BA": {
+        "area_name": "Backend APIs",
+        "task_count": 53,
+        "custom_agents": [
+          {
+            "agent": "api-designer",
+            "tasks": "모든 BA 영역 작업 (P1BA1~P1BA4, P2BA1~P2BA11, ...)",
+            "specialty": "API 설계, RESTful, Zod 스키마",
+            "subtypes": {
+              "auth_apis": ["P1BA1", "P1BA2", "P1BA3", "P1BA4"],
+              "politician_apis": ["P2BA1", "P2BA2", "P2BA3", "P2BA4"],
+              "evaluation_apis": ["P2BA5", "P2BA6", "P2BA7"],
+              "admin_apis": ["P2BA8", "P2BA9", "P2BA10"],
+              "security": ["P2BA11"]
+            }
+          }
+        ]
+      },
+      "F": {
+        "area_name": "Frontend",
+        "task_count": 31,
+        "custom_agents": [
+          {
+            "agent": "frontend-developer",
+            "tasks": "대부분의 F 영역 작업",
+            "specialty": "React 컴포넌트, 페이지 구현",
+            "task_count": 26
+          },
+          {
+            "agent": "ui-designer",
+            "tasks": "UI/UX 중점 작업 (P1F1 레이아웃 등)",
+            "specialty": "디자인 시스템, UI 컴포넌트",
+            "task_count": 5
+          }
+        ]
+      },
+      "T": {
+        "area_name": "Test",
+        "task_count": 18,
+        "custom_agents": [
+          {
+            "agent": "test-engineer",
+            "tasks": "E2E 테스트, 통합 테스트",
+            "specialty": "Playwright, 자동화 테스트",
+            "task_count": 15
+          },
+          {
+            "agent": "code-reviewer",
+            "tasks": "코드 품질 검증 작업",
+            "specialty": "코드 리뷰, 정적 분석",
+            "task_count": 3
+          }
+        ]
+      }
+    }
+  },
+
+  "stage2_custom_to_builtin": {
+    "description": "14개 Custom Agent를 4개 Built-in Agent로 매핑",
+    "mapping": {
+      "general-purpose": {
+        "custom_agents": [
+          "devops-troubleshooter",
+          "database-developer",
+          "backend-developer",
+          "api-designer",
+          "frontend-developer",
+          "ui-designer",
+          "test-engineer",
+          "code-reviewer",
+          "performance-optimizer",
+          "security-auditor",
+          "security-specialist"
+        ],
+        "usage": "대부분의 개발 작업에 사용",
+        "invocation_method": "간접 소환 (Read agent.md → pass to general-purpose)"
+      },
+      "statusline-setup": {
+        "custom_agents": [],
+        "usage": "Claude Code 상태바 설정 전용",
+        "invocation_method": "직접 소환"
+      },
+      "output-style-setup": {
+        "custom_agents": [],
+        "usage": "Claude Code 출력 스타일 설정 전용",
+        "invocation_method": "직접 소환"
+      },
+      "Explore": {
+        "custom_agents": [
+          "code-reviewer"
+        ],
+        "usage": "코드베이스 탐색, 검색 작업",
+        "invocation_method": "직접 소환 (코드 리뷰 시 탐색 필요)"
+      }
+    }
+  },
+
+  "invocation_flow": {
+    "description": "실제 작업 실행 흐름",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Task 선택",
+        "example": "P1BA1 (회원가입 API)"
+      },
+      {
+        "step": 2,
+        "action": "Custom Agent 확인",
+        "example": "api-designer"
+      },
+      {
+        "step": 3,
+        "action": "Custom Agent .md 파일 읽기",
+        "code": "Read('/c/Users/home/.claude/agents/api-designer.md')"
+      },
+      {
+        "step": 4,
+        "action": "Built-in Agent에 전달",
+        "code": "Task(subagent_type='general-purpose', prompt=agent_content + task_instruction)"
+      },
+      {
+        "step": 5,
+        "action": "작업 실행",
+        "result": "api-designer 역할로 작업 수행"
+      }
+    ]
+  },
+
+  "available_custom_agents": {
+    "총_14개": [
+      {
+        "name": "api-designer",
+        "file": "api-designer.md",
+        "specialty": "API 설계, RESTful",
+        "builtin": "general-purpose"
+      },
+      {
+        "name": "backend-developer",
+        "file": "backend-developer.md",
+        "specialty": "백엔드 개발, 인프라",
+        "builtin": "general-purpose"
+      },
+      {
+        "name": "code-reviewer",
+        "file": "code-reviewer.md",
+        "specialty": "코드 리뷰, 품질 검증",
+        "builtin": "general-purpose 또는 Explore"
+      },
+      {
+        "name": "copywriter",
+        "file": "copywriter.md",
+        "specialty": "컨텐츠 작성, 문서화",
+        "builtin": "general-purpose"
+      },
+      {
+        "name": "database-developer",
+        "file": "database-developer.md",
+        "specialty": "데이터베이스 설계, SQL",
+        "builtin": "general-purpose"
+      },
+      {
+        "name": "devops-troubleshooter",
+        "file": "devops-troubleshooter.md",
+        "specialty": "DevOps, CI/CD, 배포",
+        "builtin": "general-purpose"
+      },
+      {
+        "name": "frontend-developer",
+        "file": "frontend-developer.md",
+        "specialty": "React, 프론트엔드",
+        "builtin": "general-purpose"
+      },
+      {
+        "name": "fullstack-developer",
+        "file": "fullstack-developer.md",
+        "specialty": "풀스택 개발",
+        "builtin": "general-purpose",
+        "note": "사용 지양 (전문화 부족)"
+      },
+      {
+        "name": "performance-optimizer",
+        "file": "performance-optimizer.md",
+        "specialty": "성능 최적화",
+        "builtin": "general-purpose"
+      },
+      {
+        "name": "security-auditor",
+        "file": "security-auditor.md",
+        "specialty": "보안 감사, 취약점 분석",
+        "builtin": "general-purpose"
+      },
+      {
+        "name": "security-specialist",
+        "file": "security-specialist.md",
+        "specialty": "보안 구현, 암호화",
+        "builtin": "general-purpose"
+      },
+      {
+        "name": "test-engineer",
+        "file": "test-engineer.md",
+        "specialty": "테스트 자동화, E2E",
+        "builtin": "general-purpose"
+      },
+      {
+        "name": "test-simple",
+        "file": "test-simple.md",
+        "specialty": "간단한 테스트",
+        "builtin": "general-purpose"
+      },
+      {
+        "name": "ui-designer",
+        "file": "ui-designer.md",
+        "specialty": "UI/UX 디자인",
+        "builtin": "general-purpose"
+      }
+    ]
+  },
+
+  "recommended_distribution": {
+    "description": "추천 작업 배분 (144개 → 14개 에이전트)",
+    "distribution": [
+      { "agent": "api-designer", "count": 53, "percentage": "37%" },
+      { "agent": "frontend-developer", "count": 26, "percentage": "18%" },
+      { "agent": "database-developer", "count": 30, "percentage": "21%" },
+      { "agent": "test-engineer", "count": 15, "percentage": "10%" },
+      { "agent": "devops-troubleshooter", "count": 9, "percentage": "6%" },
+      { "agent": "ui-designer", "count": 5, "percentage": "3%" },
+      { "agent": "backend-developer", "count": 3, "percentage": "2%" },
+      { "agent": "code-reviewer", "count": 3, "percentage": "2%" }
+    ],
+    "total": 144
+  }
+}
