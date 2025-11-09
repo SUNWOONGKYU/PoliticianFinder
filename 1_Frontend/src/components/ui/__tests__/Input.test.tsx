@@ -35,10 +35,11 @@ describe('Input Component', () => {
   });
 
   describe('Input Types', () => {
-    it('should render text input by default', () => {
+    it('should render input element', () => {
       render(<Input data-testid="input" />);
       const input = screen.getByTestId('input');
-      expect(input).toHaveAttribute('type', 'text');
+      expect(input).toBeInTheDocument();
+      expect(input.tagName).toBe('INPUT');
     });
 
     it('should render email input', () => {

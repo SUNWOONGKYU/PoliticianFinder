@@ -148,7 +148,7 @@ export default function AccountTransferPage() {
               <div className="flex-1">
                 <div className="text-sm text-primary-600 mb-1">입금 금액</div>
                 <div className="text-2xl font-bold text-primary-600">{orderInfo.amount}</div>
-                <div className="text-xs text-gray-600 mt-1">부가세 별도</div>
+                <div className="text-xs text-gray-600 mt-1">부가세 포함</div>
               </div>
               <button
                 onClick={() => copyToClipboard(orderInfo.amount, '금액이 복사되었습니다.')}

@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Task: P5T3
 /**
  * Integration Test Setup

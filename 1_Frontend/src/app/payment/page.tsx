@@ -451,7 +451,7 @@ export default function PaymentPage() {
                   <span className="text-lg font-bold text-gray-900">최종 결제 금액</span>
                   <div className="text-right">
                     <div className="text-2xl font-bold text-primary-600">500,000원</div>
-                    <div className="text-sm text-gray-500">부가세 별도</div>
+                    <div className="text-sm text-gray-500">부가세 포함</div>
                   </div>
                 </div>
               </div>

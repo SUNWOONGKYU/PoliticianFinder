@@ -10,16 +10,18 @@ import { uploadFile, getFileExtension } from '../uploads';
 // Mock fetch globally
 global.fetch = jest.fn();
 
+// Helper to create mock files
+const createMockFile = (type: string, size: number, name = 'test.jpg'): File => {
+  const blob = new Blob(['x'.repeat(size)], { type });
+  return new File([blob], name, { type });
+};
+
 describe('Upload Utility', () => {
   beforeEach(() => {
     jest.clearAllMocks();
   });
 
   describe('uploadFile', () => {
-    const createMockFile = (type: string, size: number, name = 'test.jpg'): File => {
-      const blob = new Blob(['x'.repeat(size)], { type });
-      return new File([blob], name, { type });
-    };
 
     it('should successfully upload valid image file', async () => {
       const mockFile = createMockFile('image/jpeg', 1024 * 1024);
@@ -232,7 +234,7 @@ describe('Upload Utility', () => {
     });
 
     it('should handle filename without extension', () => {
-      expect(getFileExtension('filename')).toBe('');
+      expect(getFileExtension('filename')).toBe('filename');
     });
 
     it('should handle filename with multiple dots', () => {

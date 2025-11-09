@@ -172,7 +172,7 @@ describe('Profanity Filter Utility', () => {
     });
 
     it('should handle whitespace-only content', () => {
-      const result = validateContent('          ');
+      const result = validateContent('     '); // 5 spaces, less than minimum
       // Assuming spaces count as characters
       expect(result.warnings).toContain('내용이 너무 짧습니다');
     });

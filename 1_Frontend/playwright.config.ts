@@ -1,6 +1,7 @@
-// P1T1: 인증 E2E 테스트 설정
-// 작업일: 2025-11-04
-// 설명: Playwright E2E 테스트 설정 파일
+// Task: P5T2
+// E2E Tests Configuration
+// 작업일: 2025-11-10
+// 설명: Playwright E2E 테스트 설정 파일 (Updated)
 
 import { defineConfig, devices } from '@playwright/test';
 
