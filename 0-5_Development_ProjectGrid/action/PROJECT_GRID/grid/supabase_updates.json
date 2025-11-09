@@ -1,0 +1,590 @@
+[
+  {
+    "task_id": "P1O1",
+    "assigned_agent": "1차: devops-troubleshooter"
+  },
+  {
+    "task_id": "P1D1",
+    "assigned_agent": "1차: database-developer"
+  },
+  {
+    "task_id": "P1D2",
+    "assigned_agent": "1차: database-developer"
+  },
+  {
+    "task_id": "P1D3",
+    "assigned_agent": "database-developer"
+  },
+  {
+    "task_id": "P1D4",
+    "assigned_agent": "database-developer"
+  },
+  {
+    "task_id": "P1D5",
+    "assigned_agent": "database-developer"
+  },
+  {
+    "task_id": "P1BI1",
+    "assigned_agent": "1차: backend-developer"
+  },
+  {
+    "task_id": "P1BI2",
+    "assigned_agent": "1차: backend-developer"
+  },
+  {
+    "task_id": "P1BI3",
+    "assigned_agent": "backend-developer"
+  },
+  {
+    "task_id": "P1BA1",
+    "assigned_agent": "1차: api-designer"
+  },
+  {
+    "task_id": "P1BA2",
+    "assigned_agent": "1차: api-designer"
+  },
+  {
+    "task_id": "P1BA3",
+    "assigned_agent": "1차: api-designer"
+  },
+  {
+    "task_id": "P1BA4",
+    "assigned_agent": "1차: api-designer"
+  },
+  {
+    "task_id": "P1F1",
+    "assigned_agent": "ui-designer"
+  },
+  {
+    "task_id": "P1F2",
+    "assigned_agent": "1차: ui-designer"
+  },
+  {
+    "task_id": "P1F3",
+    "assigned_agent": "1차: frontend-developer"
+  },
+  {
+    "task_id": "P1F4",
+    "assigned_agent": "1차: frontend-developer"
+  },
+  {
+    "task_id": "P1F5",
+    "assigned_agent": "1차: frontend-developer"
+  },
+  {
+    "task_id": "P1T1",
+    "assigned_agent": "1차: test-engineer"
+  },
+  {
+    "task_id": "P1T2",
+    "assigned_agent": "test-engineer"
+  },
+  {
+    "task_id": "P2F1",
+    "assigned_agent": "ui-designer"
+  },
+  {
+    "task_id": "P2F2",
+    "assigned_agent": "ui-designer"
+  },
+  {
+    "task_id": "P2F3",
+    "assigned_agent": "ui-designer"
+  },
+  {
+    "task_id": "P2BA1",
+    "assigned_agent": "api-designer"
+  },
+  {
+    "task_id": "P2BA2",
+    "assigned_agent": "api-designer"
+  },
+  {
+    "task_id": "P2BA3",
+    "assigned_agent": "api-designer"
+  },
+  {
+    "task_id": "P2BA4",
+    "assigned_agent": "api-designer"
+  },
+  {
+    "task_id": "P2BA5",
+    "assigned_agent": "api-designer"
+  },
+  {
+    "task_id": "P2BA6",
+    "assigned_agent": "api-designer"
+  },
+  {
+    "task_id": "P2BA7",
+    "assigned_agent": "api-designer"
+  },
+  {
+    "task_id": "P2BA8",
+    "assigned_agent": "api-designer"
+  },
+  {
+    "task_id": "P2BA9",
+    "assigned_agent": "api-designer"
+  },
+  {
+    "task_id": "P2BA10",
+    "assigned_agent": "api-designer"
+  },
+  {
+    "task_id": "P2BA11",
+    "assigned_agent": "security-specialist"
+  },
+  {
+    "task_id": "P2D1",
+    "assigned_agent": "database-developer"
+  },
+  {
+    "task_id": "P2D2",
+    "assigned_agent": "database-developer"
+  },
+  {
+    "task_id": "P2D3",
+    "assigned_agent": "database-developer"
+  },
+  {
+    "task_id": "P2D4",
+    "assigned_agent": "database-developer"
+  },
+  {
+    "task_id": "P2D5",
+    "assigned_agent": "database-developer"
+  },
+  {
+    "task_id": "P2D6",
+    "assigned_agent": "database-developer"
+  },
+  {
+    "task_id": "P2D7",
+    "assigned_agent": "database-developer"
+  },
+  {
+    "task_id": "P2T1",
+    "assigned_agent": "test-engineer"
+  },
+  {
+    "task_id": "P2T2",
+    "assigned_agent": "test-engineer"
+  },
+  {
+    "task_id": "P2O1",
+    "assigned_agent": "devops-troubleshooter"
+  },
+  {
+    "task_id": "P3D1",
+    "assigned_agent": "database-developer"
+  },
+  {
+    "task_id": "P3D2",
+    "assigned_agent": "database-developer"
+  },
+  {
+    "task_id": "P3D3",
+    "assigned_agent": "database-developer"
+  },
+  {
+    "task_id": "P3D4",
+    "assigned_agent": "database-developer"
+  },
+  {
+    "task_id": "P3D5",
+    "assigned_agent": "database-developer"
+  },
+  {
+    "task_id": "P3D6",
+    "assigned_agent": "database-developer"
+  },
+  {
+    "task_id": "P3D7",
+    "assigned_agent": "database-developer"
+  },
+  {
+    "task_id": "P3D8",
+    "assigned_agent": "database-developer"
+  },
+  {
+    "task_id": "P3BA1",
+    "assigned_agent": "api-designer"
+  },
+  {
+    "task_id": "P3BA2",
+    "assigned_agent": "api-designer"
+  },
+  {
+    "task_id": "P3BA3",
+    "assigned_agent": "api-designer"
+  },
+  {
+    "task_id": "P3BA4",
+    "assigned_agent": "api-designer"
+  },
+  {
+    "task_id": "P3BA5",
+    "assigned_agent": "api-designer"
+  },
+  {
+    "task_id": "P3BA6",
+    "assigned_agent": "api-designer"
+  },
+  {
+    "task_id": "P3BA7",
+    "assigned_agent": "api-designer"
+  },
+  {
+    "task_id": "P3BA8",
+    "assigned_agent": "api-designer"
+  },
+  {
+    "task_id": "P3BA9",
+    "assigned_agent": "api-designer"
+  },
+  {
+    "task_id": "P3BA10",
+    "assigned_agent": "api-designer"
+  },
+  {
+    "task_id": "P3BA11",
+    "assigned_agent": "api-designer"
+  },
+  {
+    "task_id": "P3BA12",
+    "assigned_agent": "api-designer"
+  },
+  {
+    "task_id": "P3BA13",
+    "assigned_agent": "security-specialist"
+  },
+  {
+    "task_id": "P3F1",
+    "assigned_agent": "frontend-developer"
+  },
+  {
+    "task_id": "P3F2",
+    "assigned_agent": "frontend-developer"
+  },
+  {
+    "task_id": "P3F3",
+    "assigned_agent": "frontend-developer"
+  },
+  {
+    "task_id": "P3F4",
+    "assigned_agent": "frontend-developer"
+  },
+  {
+    "task_id": "P3F5",
+    "assigned_agent": "frontend-developer"
+  },
+  {
+    "task_id": "P3F6",
+    "assigned_agent": "ui-designer"
+  },
+  {
+    "task_id": "P3T1",
+    "assigned_agent": "test-engineer"
+  },
+  {
+    "task_id": "P3T2",
+    "assigned_agent": "test-engineer"
+  },
+  {
+    "task_id": "P3T3",
+    "assigned_agent": "test-engineer"
+  },
+  {
+    "task_id": "P3T4",
+    "assigned_agent": "test-engineer"
+  },
+  {
+    "task_id": "P3O1",
+    "assigned_agent": "devops-troubleshooter"
+  },
+  {
+    "task_id": "P4D1",
+    "assigned_agent": "database-developer"
+  },
+  {
+    "task_id": "P4D2",
+    "assigned_agent": "database-developer"
+  },
+  {
+    "task_id": "P4D3",
+    "assigned_agent": "database-developer"
+  },
+  {
+    "task_id": "P4BA1",
+    "assigned_agent": "api-designer"
+  },
+  {
+    "task_id": "P4BA2",
+    "assigned_agent": "api-designer"
+  },
+  {
+    "task_id": "P4BA3",
+    "assigned_agent": "api-designer"
+  },
+  {
+    "task_id": "P4BA4",
+    "assigned_agent": "api-designer"
+  },
+  {
+    "task_id": "P4BA5",
+    "assigned_agent": "api-designer"
+  },
+  {
+    "task_id": "P4F1",
+    "assigned_agent": "frontend-developer"
+  },
+  {
+    "task_id": "P4F2",
+    "assigned_agent": "ui-designer"
+  },
+  {
+    "task_id": "P4F3",
+    "assigned_agent": "ui-designer"
+  },
+  {
+    "task_id": "P4T1",
+    "assigned_agent": "test-engineer"
+  },
+  {
+    "task_id": "P4T2",
+    "assigned_agent": "test-engineer"
+  },
+  {
+    "task_id": "P4O1",
+    "assigned_agent": "devops-troubleshooter"
+  },
+  {
+    "task_id": "P5D1",
+    "assigned_agent": "database-developer"
+  },
+  {
+    "task_id": "P5D2",
+    "assigned_agent": "database-developer"
+  },
+  {
+    "task_id": "P5BA1",
+    "assigned_agent": "api-designer"
+  },
+  {
+    "task_id": "P5BA2",
+    "assigned_agent": "api-designer"
+  },
+  {
+    "task_id": "P5BA3",
+    "assigned_agent": "api-designer"
+  },
+  {
+    "task_id": "P5BA4",
+    "assigned_agent": "api-designer"
+  },
+  {
+    "task_id": "P5BA5",
+    "assigned_agent": "api-designer"
+  },
+  {
+    "task_id": "P5BA6",
+    "assigned_agent": "security-specialist"
+  },
+  {
+    "task_id": "P5F1",
+    "assigned_agent": "frontend-developer"
+  },
+  {
+    "task_id": "P5F2",
+    "assigned_agent": "frontend-developer"
+  },
+  {
+    "task_id": "P5T1",
+    "assigned_agent": "test-engineer"
+  },
+  {
+    "task_id": "P5T2",
+    "assigned_agent": "test-engineer"
+  },
+  {
+    "task_id": "P6D1",
+    "assigned_agent": "database-developer"
+  },
+  {
+    "task_id": "P6D2",
+    "assigned_agent": "database-developer"
+  },
+  {
+    "task_id": "P6D3",
+    "assigned_agent": "database-developer"
+  },
+  {
+    "task_id": "P6BA1",
+    "assigned_agent": "api-designer"
+  },
+  {
+    "task_id": "P6BA2",
+    "assigned_agent": "api-designer"
+  },
+  {
+    "task_id": "P6BA3",
+    "assigned_agent": "api-designer"
+  },
+  {
+    "task_id": "P6BA4",
+    "assigned_agent": "api-designer"
+  },
+  {
+    "task_id": "P6BA5",
+    "assigned_agent": "api-designer"
+  },
+  {
+    "task_id": "P6BA6",
+    "assigned_agent": "api-designer"
+  },
+  {
+    "task_id": "P6BA7",
+    "assigned_agent": "api-designer"
+  },
+  {
+    "task_id": "P6BA8",
+    "assigned_agent": "api-designer"
+  },
+  {
+    "task_id": "P6BA9",
+    "assigned_agent": "api-designer"
+  },
+  {
+    "task_id": "P6BA10",
+    "assigned_agent": "security-specialist"
+  },
+  {
+    "task_id": "P6F1",
+    "assigned_agent": "frontend-developer"
+  },
+  {
+    "task_id": "P6F2",
+    "assigned_agent": "ui-designer"
+  },
+  {
+    "task_id": "P6F3",
+    "assigned_agent": "ui-designer"
+  },
+  {
+    "task_id": "P6F4",
+    "assigned_agent": "ui-designer"
+  },
+  {
+    "task_id": "P6F5",
+    "assigned_agent": "ui-designer"
+  },
+  {
+    "task_id": "P6F6",
+    "assigned_agent": "ui-designer"
+  },
+  {
+    "task_id": "P6F7",
+    "assigned_agent": "ui-designer"
+  },
+  {
+    "task_id": "P6T1",
+    "assigned_agent": "code-reviewer"
+  },
+  {
+    "task_id": "P6T2",
+    "assigned_agent": "code-reviewer"
+  },
+  {
+    "task_id": "P6T3",
+    "assigned_agent": "code-reviewer"
+  },
+  {
+    "task_id": "P6O1",
+    "assigned_agent": "devops-troubleshooter"
+  },
+  {
+    "task_id": "P7BA1",
+    "assigned_agent": "api-designer"
+  },
+  {
+    "task_id": "P7BA2",
+    "assigned_agent": "api-designer"
+  },
+  {
+    "task_id": "P7BA3",
+    "assigned_agent": "api-designer"
+  },
+  {
+    "task_id": "P7BA4",
+    "assigned_agent": "api-designer"
+  },
+  {
+    "task_id": "P7F1",
+    "assigned_agent": "frontend-developer"
+  },
+  {
+    "task_id": "P7F2",
+    "assigned_agent": "frontend-developer"
+  },
+  {
+    "task_id": "P7F3",
+    "assigned_agent": "frontend-developer"
+  },
+  {
+    "task_id": "P7F4",
+    "assigned_agent": "frontend-developer"
+  },
+  {
+    "task_id": "P7F5",
+    "assigned_agent": "frontend-developer"
+  },
+  {
+    "task_id": "P7D1",
+    "assigned_agent": "database-developer"
+  },
+  {
+    "task_id": "P7D2",
+    "assigned_agent": "database-developer"
+  },
+  {
+    "task_id": "P7T1",
+    "assigned_agent": "code-reviewer"
+  },
+  {
+    "task_id": "P7T2",
+    "assigned_agent": "code-reviewer"
+  },
+  {
+    "task_id": "P7T3",
+    "assigned_agent": "code-reviewer"
+  },
+  {
+    "task_id": "P7O1",
+    "assigned_agent": "devops-troubleshooter"
+  },
+  {
+    "task_id": "P7O2",
+    "assigned_agent": "devops-troubleshooter"
+  },
+  {
+    "task_id": "P7O3",
+    "assigned_agent": "devops-troubleshooter"
+  },
+  {
+    "task_id": "P7O4",
+    "assigned_agent": "devops-troubleshooter"
+  },
+  {
+    "task_id": "P4F4",
+    "assigned_agent": "ui-designer"
+  },
+  {
+    "task_id": "P5F3",
+    "assigned_agent": "ui-designer"
+  },
+  {
+    "task_id": "P5F4",
+    "assigned_agent": "ui-designer"
+  }
+]

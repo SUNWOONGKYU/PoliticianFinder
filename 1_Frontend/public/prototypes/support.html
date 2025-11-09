@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>고객센터 - PoliticianFinder</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: { 50: '#fff7ed', 100: '#ffedd5', 200: '#fed7aa', 300: '#fdba74', 400: '#fb923c', 500: '#f97316', 600: '#ea580c', 700: '#c2410c', 800: '#9a3412', 900: '#7c2d12' },
+                        secondary: { 500: '#8b5cf6', 600: '#7c3aed' },
+                        accent: { 500: '#064E3B', 600: '#064E3B' }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'system-ui', sans-serif; color: #000000; }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <header class="bg-white shadow-sm sticky top-0 z-50 border-b-2 border-primary-500">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-4">
+                    <a href="index.html" class="text-2xl font-bold text-primary-600">PoliticianFinder</a>
+                    <div class="hidden md:block w-48">
+                        <div class="font-bold text-gray-900" style="font-size: clamp(0.5rem, 3vw, 1rem); width: 100%;">훌륭한 정치인 찾기</div>
+                        <div class="text-gray-900 font-medium" style="font-size: clamp(0.38rem, 2.28vw, 0.7125rem); width: 100%;">AI 기반 정치인 평가 플랫폼</div>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="index.html" class="text-gray-900 hover:text-primary-600 font-medium">홈</a>
+                    <a href="politicians.html" class="text-gray-900 hover:text-primary-600 font-medium">정치인</a>
+                    <a href="community.html" class="text-gray-900 hover:text-primary-600 font-medium">커뮤니티</a>
+                    <a href="services.html" class="text-gray-900 hover:text-primary-600 font-medium">연결</a>
+                </div>
+                <div class="hidden md:flex items-center space-x-3">
+                    <a href="login.html" class="text-gray-900 hover:text-primary-600 font-medium px-4 py-2">로그인</a>
+                    <a href="signup.html" class="bg-primary-500 text-white px-4 py-2 rounded-lg hover:bg-primary-600 font-medium">회원가입</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-gray-900 hover:text-primary-600 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    </button>
+                </div>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <a href="index.html" class="block py-2 px-4 text-sm hover:bg-gray-100">홈</a>
+                <a href="politicians.html" class="block py-2 px-4 text-sm hover:bg-gray-100">정치인</a>
+                <a href="community.html" class="block py-2 px-4 text-sm hover:bg-gray-100">커뮤니티</a>
+                <a href="services.html" class="block py-2 px-4 text-sm hover:bg-gray-100">연결</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="text-center mb-12">
+            <h1 class="text-4xl font-bold text-gray-900">고객센터</h1>
+            <p class="text-lg text-gray-600 mt-2">무엇을 도와드릴까요?</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <!-- 문의하기 -->
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-6">문의하기</h2>
+                <form action="#" method="POST" class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700">이름</label>
+                        <input type="text" name="name" id="name" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700">이메일</label>
+                        <input type="email" name="email" id="email" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500">
+                    </div>
+                    <div>
+                        <label for="phone" class="block text-sm font-medium text-gray-700">
+                            핸드폰 번호 <span class="text-gray-500 text-xs">(선택사항)</span>
+                        </label>
+                        <input type="tel" name="phone" id="phone" placeholder="010-1234-5678" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-700">문의 내용</label>
+                        <textarea id="message" name="message" rows="4" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500"></textarea>
+                    </div>
+                    <div>
+                        <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-secondary-500 hover:bg-secondary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary-500">
+                            문의 제출
+                        </button>
+                    </div>
+                </form>
+
+                <!-- 잘못된 정보 제보 안내 -->
+                <div class="mt-6 p-4 bg-purple-50 border-l-4 border-secondary-500 rounded">
+                    <div class="flex items-start">
+                        <svg class="w-5 h-5 text-secondary-600 mt-0.5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <div>
+                            <h3 class="text-sm font-semibold text-purple-900">잘못된 정보 발견 시 또는 신고</h3>
+                            <p class="text-sm text-purple-800 mt-1">정치인 정보나 기타 내용에 오류가 있거나, 부적절한 게시글/댓글을 발견하신 경우 위 문의 폼을 통해 제보 및 신고해주세요. 검토 후 신속하게 조치하겠습니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 자주 묻는 질문 (FAQ) -->
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-6">자주 묻는 질문</h2>
+                <div class="space-y-4">
+                    <div>
+                        <h3 class="font-semibold text-gray-900">Q. AI 평가는 어떻게 이루어지나요?</h3>
+                        <p class="text-gray-600 mt-1">A. 5개의 서로 다른 AI 모델(Claude, ChatGPT, Gemini, Grok, Perplexity)이 10개 분야 70개 항목을 데이터 기반으로 평가합니다. 1,000점 만점으로 정량적 평가를 수행하며, 다중 AI 시스템으로 편향을 최소화합니다.</p>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-gray-900">Q. 회원가입은 필수인가요?</h3>
+                        <p class="text-gray-600 mt-1">A. 정치인 정보와 AI 평가 결과는 로그인 없이 누구나 볼 수 있습니다. 다만 게시글 작성, 댓글 작성, 포인트 적립 등 커뮤니티 활동을 하시려면 회원가입이 필요합니다.</p>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-gray-900">Q. 어떤 게시판에 글을 쓸 수 있나요?</h3>
+                        <p class="text-gray-600 mt-1">A. 회원이라면 누구나 회원 자유게시판에 글을 작성할 수 있습니다. 정치인 게시판은 등록된 정치인만 글을 작성할 수 있으며, 일반 회원은 댓글로 참여할 수 있습니다.</p>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-gray-900">Q. 포인트는 어떻게 적립되나요?</h3>
+                        <p class="text-gray-600 mt-1">A. 다양한 활동을 통해 포인트가 적립됩니다. 게시글 작성(10p), 댓글 작성(5p), 로그인(1p/일), 정치인 평가(3p), 게시글 공감받기(2p), 댓글 공감받기(1p), 베스트글 선정(50p) 등이 있으며, 월간 보너스도 지급됩니다. 포인트가 쌓이면 활동 등급(ML1~ML10)이 올라가며, 포인트에 상응하는 소정의 활동보수를 지급받을 수 있습니다.</p>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-gray-900">Q. 활동 등급과 영향력 등급의 차이는 무엇인가요?</h3>
+                        <p class="text-gray-600 mt-1">A. 활동 등급(ML1~ML10)은 포인트를 쌓아서 올리는 개인 활동 수준이고, 영향력 등급(방랑자~군주)은 팔로워 수와 지역구 내 순위로 결정되는 커뮤니티 영향력입니다. 활동 등급은 활동 수준을, 영향력 등급은 커뮤니티 내 위상을 나타냅니다.</p>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-gray-900">Q. 비밀번호를 잊어버렸어요</h3>
+                        <p class="text-gray-600 mt-1">A. 로그인 페이지에서 '비밀번호 찾기'를 클릭하시면 가입하신 이메일로 비밀번호 재설정 링크를 보내드립니다.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-primary-500 text-white mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div class="flex justify-center items-center space-x-8 text-base py-4">
+                <a href="services.html" class="text-white hover:text-gray-100 transition font-medium">서비스 소개</a>
+                <a href="terms.html" class="text-white hover:text-gray-100 transition font-medium">이용약관</a>
+                <a href="privacy.html" class="text-white hover:text-gray-100 transition font-medium">개인정보처리방침</a>
+                <a href="support.html" class="text-white hover:text-gray-100 transition font-medium">고객센터</a>
+            </div>
+            <div class="text-center text-base text-white py-4">
+                <p>&copy; 2025 PoliticianFinder. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>

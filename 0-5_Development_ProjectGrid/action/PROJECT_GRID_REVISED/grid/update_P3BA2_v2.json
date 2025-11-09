@@ -1,0 +1,15 @@
+{
+  "task_name": "Real API - 정치인 (Supabase + OpenAI 통합)",
+  "instruction_file": "tasks/P3BA2.md",
+  "assigned_agent": "1차: backend-developer | 2차: Claude Code(실행 및 검증)",
+  "tools": "Read, Edit, Write, Grep, Glob, Bash / TypeScript, Next.js API Routes, Supabase, OpenAI / supabase-db, openai-api",
+  "work_mode": "AI-Only",
+  "dependency_chain": "P3D1, P3D2, P3BA1, P1BA2",
+  "progress": 0,
+  "status": "대기",
+  "generated_files": "-",
+  "generator": "-",
+  "duration": "-",
+  "modification_history": "-",
+  "remarks": "정치인 데이터를 Supabase DB로 관리, OpenAI로 AI 분석 구현"
+}

@@ -1,0 +1,1373 @@
+{
+  "generated_at": "2025-11-04",
+  "version": "1.0",
+  "file_mapping": {
+    "P1BI3": [
+      {
+        "filename": "P1BI3_db_types.ts",
+        "path": "2_Backend_Infrastructure/P1BI3_db_types.ts",
+        "ext": ".ts"
+      },
+      {
+        "filename": "P1BI3_auth_security.ts",
+        "path": "1_Frontend/src/lib/security/P1BI3_auth_security.ts",
+        "ext": ".ts"
+      },
+      {
+        "filename": "P1BI3_2nd_verification.txt",
+        "path": "0-5_Development_ProjectGrid/validation/results/P1BI3_2nd_verification.txt",
+        "ext": ".txt"
+      },
+      {
+        "filename": "P1BI3.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P1BI3.md",
+        "ext": ".md"
+      }
+    ],
+    "P1T2": [
+      {
+        "filename": "P1T2_auth.test.ts",
+        "path": "6_Test/api/P1T2_auth.test.ts",
+        "ext": ".ts"
+      },
+      {
+        "filename": "P1T2_2nd_verification.txt",
+        "path": "0-5_Development_ProjectGrid/validation/results/P1T2_2nd_verification.txt",
+        "ext": ".txt"
+      },
+      {
+        "filename": "P1T2.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P1T2.md",
+        "ext": ".md"
+      }
+    ],
+    "P1T1": [
+      {
+        "filename": "P1T1_auth.spec.ts",
+        "path": "6_Test/auth/P1T1_auth.spec.ts",
+        "ext": ".ts"
+      },
+      {
+        "filename": "P1T1_auth.test.ts",
+        "path": "6_Test/auth/P1T1_auth.test.ts",
+        "ext": ".ts"
+      },
+      {
+        "filename": "P1T1_2nd_verification.txt",
+        "path": "0-5_Development_ProjectGrid/validation/results/P1T1_2nd_verification.txt",
+        "ext": ".txt"
+      },
+      {
+        "filename": "P1T1.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P1T1.md",
+        "ext": ".md"
+      }
+    ],
+    "P1O1": [
+      {
+        "filename": "P1O1_README.md",
+        "path": "5_DevOps/P1O1/P1O1_README.md",
+        "ext": ".md"
+      },
+      {
+        "filename": "P1O1_2nd_verification.txt",
+        "path": "0-5_Development_ProjectGrid/validation/results/P1O1_2nd_verification.txt",
+        "ext": ".txt"
+      },
+      {
+        "filename": "P1O1.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P1O1.md",
+        "ext": ".md"
+      }
+    ],
+    "P1D1": [
+      {
+        "filename": "P1D1_README.md",
+        "path": "4_Database/P1D1/P1D1_README.md",
+        "ext": ".md"
+      },
+      {
+        "filename": "P1D1_2nd_verification.txt",
+        "path": "0-5_Development_ProjectGrid/validation/results/P1D1_2nd_verification.txt",
+        "ext": ".txt"
+      },
+      {
+        "filename": "P1D1.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P1D1.md",
+        "ext": ".md"
+      }
+    ],
+    "P1D2": [
+      {
+        "filename": "P1D2_002_auth_triggers.sql",
+        "path": "4_Database/supabase/migrations/P1D2_002_auth_triggers.sql",
+        "ext": ".sql"
+      },
+      {
+        "filename": "P1D2_2nd_verification.txt",
+        "path": "0-5_Development_ProjectGrid/validation/results/P1D2_2nd_verification.txt",
+        "ext": ".txt"
+      },
+      {
+        "filename": "P1D2.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P1D2.md",
+        "ext": ".md"
+      }
+    ],
+    "P1D3": [
+      {
+        "filename": "P1D3_seed.sql",
+        "path": "4_Database/supabase/seed/P1D3_seed.sql",
+        "ext": ".sql"
+      },
+      {
+        "filename": "P1D3_2nd_verification.txt",
+        "path": "0-5_Development_ProjectGrid/validation/results/P1D3_2nd_verification.txt",
+        "ext": ".txt"
+      },
+      {
+        "filename": "P1D3.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P1D3.md",
+        "ext": ".md"
+      }
+    ],
+    "P1BA1": [
+      {
+        "filename": "P1BA1_signup.ts",
+        "path": "3_Backend_APIs/auth/P1BA1_signup.ts",
+        "ext": ".ts"
+      },
+      {
+        "filename": "P1BA1_2nd_verification.txt",
+        "path": "0-5_Development_ProjectGrid/validation/results/P1BA1_2nd_verification.txt",
+        "ext": ".txt"
+      },
+      {
+        "filename": "P1BA1.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P1BA1.md",
+        "ext": ".md"
+      }
+    ],
+    "P1BA2": [
+      {
+        "filename": "P1BA2_login.ts",
+        "path": "3_Backend_APIs/auth/P1BA2_login.ts",
+        "ext": ".ts"
+      },
+      {
+        "filename": "P1BA2_2nd_verification.txt",
+        "path": "0-5_Development_ProjectGrid/validation/results/P1BA2_2nd_verification.txt",
+        "ext": ".txt"
+      },
+      {
+        "filename": "P1BA2.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P1BA2.md",
+        "ext": ".md"
+      }
+    ],
+    "P1BA3": [
+      {
+        "filename": "P1BA3_logout.ts",
+        "path": "3_Backend_APIs/auth/P1BA3_logout.ts",
+        "ext": ".ts"
+      },
+      {
+        "filename": "P1BA3_2nd_verification.txt",
+        "path": "0-5_Development_ProjectGrid/validation/results/P1BA3_2nd_verification.txt",
+        "ext": ".txt"
+      },
+      {
+        "filename": "P1BA3.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P1BA3.md",
+        "ext": ".md"
+      }
+    ],
+    "P1BA4": [
+      {
+        "filename": "P1BA4_profile.ts",
+        "path": "3_Backend_APIs/auth/P1BA4_profile.ts",
+        "ext": ".ts"
+      },
+      {
+        "filename": "P1BA4_2nd_verification.txt",
+        "path": "0-5_Development_ProjectGrid/validation/results/P1BA4_2nd_verification.txt",
+        "ext": ".txt"
+      },
+      {
+        "filename": "P1BA4.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P1BA4.md",
+        "ext": ".md"
+      }
+    ],
+    "P1F1": [
+      {
+        "filename": "P1F1_AuthContext.tsx",
+        "path": "1_Frontend/src/lib/contexts/P1F1_AuthContext.tsx",
+        "ext": ".tsx"
+      },
+      {
+        "filename": "P1F1_LoginForm.tsx",
+        "path": "1_Frontend/src/components/auth/P1F1_LoginForm.tsx",
+        "ext": ".tsx"
+      },
+      {
+        "filename": "P1F1_2nd_verification.txt",
+        "path": "0-5_Development_ProjectGrid/validation/results/P1F1_2nd_verification.txt",
+        "ext": ".txt"
+      },
+      {
+        "filename": "P1F1.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P1F1.md",
+        "ext": ".md"
+      }
+    ],
+    "P1BI1": [
+      {
+        "filename": "P1BI1_client.ts",
+        "path": "1_Frontend/src/lib/supabase/P1BI1_client.ts",
+        "ext": ".ts"
+      },
+      {
+        "filename": "P1BI1_2nd_verification.txt",
+        "path": "0-5_Development_ProjectGrid/validation/results/P1BI1_2nd_verification.txt",
+        "ext": ".txt"
+      },
+      {
+        "filename": "P1BI1.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P1BI1.md",
+        "ext": ".md"
+      }
+    ],
+    "P1F2": [
+      {
+        "filename": "P1F2_SignupForm.tsx",
+        "path": "1_Frontend/src/components/auth/P1F2_SignupForm.tsx",
+        "ext": ".tsx"
+      },
+      {
+        "filename": "P1F2_2nd_verification.txt",
+        "path": "0-5_Development_ProjectGrid/validation/results/P1F2_2nd_verification.txt",
+        "ext": ".txt"
+      },
+      {
+        "filename": "P1F2.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P1F2.md",
+        "ext": ".md"
+      }
+    ],
+    "P1BI2": [
+      {
+        "filename": "P1BI2_2nd_verification.txt",
+        "path": "0-5_Development_ProjectGrid/validation/results/P1BI2_2nd_verification.txt",
+        "ext": ".txt"
+      },
+      {
+        "filename": "P1BI2.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P1BI2.md",
+        "ext": ".md"
+      }
+    ],
+    "P1D4": [
+      {
+        "filename": "P1D4_2nd_verification.txt",
+        "path": "0-5_Development_ProjectGrid/validation/results/P1D4_2nd_verification.txt",
+        "ext": ".txt"
+      },
+      {
+        "filename": "P1D4.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P1D4.md",
+        "ext": ".md"
+      }
+    ],
+    "P1D5": [
+      {
+        "filename": "P1D5_2nd_verification.txt",
+        "path": "0-5_Development_ProjectGrid/validation/results/P1D5_2nd_verification.txt",
+        "ext": ".txt"
+      },
+      {
+        "filename": "P1D5.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P1D5.md",
+        "ext": ".md"
+      }
+    ],
+    "P1F10": [
+      {
+        "filename": "P1F10_2nd_verification.txt",
+        "path": "0-5_Development_ProjectGrid/validation/results/P1F10_2nd_verification.txt",
+        "ext": ".txt"
+      }
+    ],
+    "P1F11": [
+      {
+        "filename": "P1F11_2nd_verification.txt",
+        "path": "0-5_Development_ProjectGrid/validation/results/P1F11_2nd_verification.txt",
+        "ext": ".txt"
+      }
+    ],
+    "P1F3": [
+      {
+        "filename": "P1F3_2nd_verification.txt",
+        "path": "0-5_Development_ProjectGrid/validation/results/P1F3_2nd_verification.txt",
+        "ext": ".txt"
+      },
+      {
+        "filename": "P1F3.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P1F3.md",
+        "ext": ".md"
+      }
+    ],
+    "P1F4": [
+      {
+        "filename": "P1F4_2nd_verification.txt",
+        "path": "0-5_Development_ProjectGrid/validation/results/P1F4_2nd_verification.txt",
+        "ext": ".txt"
+      },
+      {
+        "filename": "P1F4.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P1F4.md",
+        "ext": ".md"
+      }
+    ],
+    "P1F5": [
+      {
+        "filename": "P1F5_2nd_verification.txt",
+        "path": "0-5_Development_ProjectGrid/validation/results/P1F5_2nd_verification.txt",
+        "ext": ".txt"
+      },
+      {
+        "filename": "P1F5.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P1F5.md",
+        "ext": ".md"
+      }
+    ],
+    "P1F6": [
+      {
+        "filename": "P1F6_2nd_verification.txt",
+        "path": "0-5_Development_ProjectGrid/validation/results/P1F6_2nd_verification.txt",
+        "ext": ".txt"
+      }
+    ],
+    "P2BA1": [
+      {
+        "filename": "P2BA1.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P2BA1.md",
+        "ext": ".md"
+      }
+    ],
+    "P2BA10": [
+      {
+        "filename": "P2BA10.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P2BA10.md",
+        "ext": ".md"
+      }
+    ],
+    "P2BA11": [
+      {
+        "filename": "P2BA11.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P2BA11.md",
+        "ext": ".md"
+      }
+    ],
+    "P2BA2": [
+      {
+        "filename": "P2BA2.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P2BA2.md",
+        "ext": ".md"
+      }
+    ],
+    "P2BA3": [
+      {
+        "filename": "P2BA3.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P2BA3.md",
+        "ext": ".md"
+      }
+    ],
+    "P2BA4": [
+      {
+        "filename": "P2BA4.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P2BA4.md",
+        "ext": ".md"
+      }
+    ],
+    "P2BA5": [
+      {
+        "filename": "P2BA5.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P2BA5.md",
+        "ext": ".md"
+      }
+    ],
+    "P2BA6": [
+      {
+        "filename": "P2BA6.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P2BA6.md",
+        "ext": ".md"
+      }
+    ],
+    "P2BA7": [
+      {
+        "filename": "P2BA7.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P2BA7.md",
+        "ext": ".md"
+      }
+    ],
+    "P2BA8": [
+      {
+        "filename": "P2BA8.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P2BA8.md",
+        "ext": ".md"
+      }
+    ],
+    "P2BA9": [
+      {
+        "filename": "P2BA9.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P2BA9.md",
+        "ext": ".md"
+      }
+    ],
+    "P2D1": [
+      {
+        "filename": "P2D1.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P2D1.md",
+        "ext": ".md"
+      }
+    ],
+    "P2D2": [
+      {
+        "filename": "P2D2.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P2D2.md",
+        "ext": ".md"
+      }
+    ],
+    "P2D3": [
+      {
+        "filename": "P2D3.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P2D3.md",
+        "ext": ".md"
+      }
+    ],
+    "P2D4": [
+      {
+        "filename": "P2D4.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P2D4.md",
+        "ext": ".md"
+      }
+    ],
+    "P2D5": [
+      {
+        "filename": "P2D5.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P2D5.md",
+        "ext": ".md"
+      }
+    ],
+    "P2D6": [
+      {
+        "filename": "P2D6.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P2D6.md",
+        "ext": ".md"
+      }
+    ],
+    "P2D7": [
+      {
+        "filename": "P2D7.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P2D7.md",
+        "ext": ".md"
+      }
+    ],
+    "P2F1": [
+      {
+        "filename": "P2F1.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P2F1.md",
+        "ext": ".md"
+      }
+    ],
+    "P2F2": [
+      {
+        "filename": "P2F2.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P2F2.md",
+        "ext": ".md"
+      }
+    ],
+    "P2F3": [
+      {
+        "filename": "P2F3.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P2F3.md",
+        "ext": ".md"
+      }
+    ],
+    "P2O1": [
+      {
+        "filename": "P2O1.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P2O1.md",
+        "ext": ".md"
+      }
+    ],
+    "P2T1": [
+      {
+        "filename": "P2T1.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P2T1.md",
+        "ext": ".md"
+      }
+    ],
+    "P2T2": [
+      {
+        "filename": "P2T2.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P2T2.md",
+        "ext": ".md"
+      }
+    ],
+    "P3BA1": [
+      {
+        "filename": "P3BA1.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P3BA1.md",
+        "ext": ".md"
+      }
+    ],
+    "P3BA10": [
+      {
+        "filename": "P3BA10.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P3BA10.md",
+        "ext": ".md"
+      }
+    ],
+    "P3BA11": [
+      {
+        "filename": "P3BA11.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P3BA11.md",
+        "ext": ".md"
+      }
+    ],
+    "P3BA12": [
+      {
+        "filename": "P3BA12.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P3BA12.md",
+        "ext": ".md"
+      }
+    ],
+    "P3BA13": [
+      {
+        "filename": "P3BA13.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P3BA13.md",
+        "ext": ".md"
+      }
+    ],
+    "P3BA2": [
+      {
+        "filename": "P3BA2.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P3BA2.md",
+        "ext": ".md"
+      }
+    ],
+    "P3BA3": [
+      {
+        "filename": "P3BA3.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P3BA3.md",
+        "ext": ".md"
+      }
+    ],
+    "P3BA4": [
+      {
+        "filename": "P3BA4.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P3BA4.md",
+        "ext": ".md"
+      }
+    ],
+    "P3BA5": [
+      {
+        "filename": "P3BA5.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P3BA5.md",
+        "ext": ".md"
+      }
+    ],
+    "P3BA6": [
+      {
+        "filename": "P3BA6.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P3BA6.md",
+        "ext": ".md"
+      }
+    ],
+    "P3BA7": [
+      {
+        "filename": "P3BA7.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P3BA7.md",
+        "ext": ".md"
+      }
+    ],
+    "P3BA8": [
+      {
+        "filename": "P3BA8.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P3BA8.md",
+        "ext": ".md"
+      }
+    ],
+    "P3BA9": [
+      {
+        "filename": "P3BA9.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P3BA9.md",
+        "ext": ".md"
+      }
+    ],
+    "P3D1": [
+      {
+        "filename": "P3D1.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P3D1.md",
+        "ext": ".md"
+      }
+    ],
+    "P3D2": [
+      {
+        "filename": "P3D2.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P3D2.md",
+        "ext": ".md"
+      }
+    ],
+    "P3D3": [
+      {
+        "filename": "P3D3.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P3D3.md",
+        "ext": ".md"
+      }
+    ],
+    "P3D4": [
+      {
+        "filename": "P3D4.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P3D4.md",
+        "ext": ".md"
+      }
+    ],
+    "P3D5": [
+      {
+        "filename": "P3D5.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P3D5.md",
+        "ext": ".md"
+      }
+    ],
+    "P3D6": [
+      {
+        "filename": "P3D6.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P3D6.md",
+        "ext": ".md"
+      }
+    ],
+    "P3D7": [
+      {
+        "filename": "P3D7.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P3D7.md",
+        "ext": ".md"
+      }
+    ],
+    "P3D8": [
+      {
+        "filename": "P3D8.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P3D8.md",
+        "ext": ".md"
+      }
+    ],
+    "P3F1": [
+      {
+        "filename": "P3F1.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P3F1.md",
+        "ext": ".md"
+      }
+    ],
+    "P3F2": [
+      {
+        "filename": "P3F2.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P3F2.md",
+        "ext": ".md"
+      }
+    ],
+    "P3F3": [
+      {
+        "filename": "P3F3.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P3F3.md",
+        "ext": ".md"
+      }
+    ],
+    "P3F4": [
+      {
+        "filename": "P3F4.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P3F4.md",
+        "ext": ".md"
+      }
+    ],
+    "P3F5": [
+      {
+        "filename": "P3F5.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P3F5.md",
+        "ext": ".md"
+      }
+    ],
+    "P3F6": [
+      {
+        "filename": "P3F6.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P3F6.md",
+        "ext": ".md"
+      }
+    ],
+    "P3O1": [
+      {
+        "filename": "P3O1.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P3O1.md",
+        "ext": ".md"
+      }
+    ],
+    "P3T1": [
+      {
+        "filename": "P3T1.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P3T1.md",
+        "ext": ".md"
+      }
+    ],
+    "P3T2": [
+      {
+        "filename": "P3T2.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P3T2.md",
+        "ext": ".md"
+      }
+    ],
+    "P3T3": [
+      {
+        "filename": "P3T3.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P3T3.md",
+        "ext": ".md"
+      }
+    ],
+    "P3T4": [
+      {
+        "filename": "P3T4.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P3T4.md",
+        "ext": ".md"
+      }
+    ],
+    "P4BA1": [
+      {
+        "filename": "P4BA1.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P4BA1.md",
+        "ext": ".md"
+      }
+    ],
+    "P4BA2": [
+      {
+        "filename": "P4BA2.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P4BA2.md",
+        "ext": ".md"
+      }
+    ],
+    "P4BA3": [
+      {
+        "filename": "P4BA3.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P4BA3.md",
+        "ext": ".md"
+      }
+    ],
+    "P4BA4": [
+      {
+        "filename": "P4BA4.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P4BA4.md",
+        "ext": ".md"
+      }
+    ],
+    "P4BA5": [
+      {
+        "filename": "P4BA5.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P4BA5.md",
+        "ext": ".md"
+      }
+    ],
+    "P4D1": [
+      {
+        "filename": "P4D1.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P4D1.md",
+        "ext": ".md"
+      }
+    ],
+    "P4D2": [
+      {
+        "filename": "P4D2.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P4D2.md",
+        "ext": ".md"
+      }
+    ],
+    "P4D3": [
+      {
+        "filename": "P4D3.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P4D3.md",
+        "ext": ".md"
+      }
+    ],
+    "P4F1": [
+      {
+        "filename": "P4F1.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P4F1.md",
+        "ext": ".md"
+      }
+    ],
+    "P4F2": [
+      {
+        "filename": "P4F2.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P4F2.md",
+        "ext": ".md"
+      }
+    ],
+    "P4F3": [
+      {
+        "filename": "P4F3.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P4F3.md",
+        "ext": ".md"
+      }
+    ],
+    "P4O1": [
+      {
+        "filename": "P4O1.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P4O1.md",
+        "ext": ".md"
+      }
+    ],
+    "P4T1": [
+      {
+        "filename": "P4T1.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P4T1.md",
+        "ext": ".md"
+      }
+    ],
+    "P4T2": [
+      {
+        "filename": "P4T2.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P4T2.md",
+        "ext": ".md"
+      }
+    ],
+    "P5BA1": [
+      {
+        "filename": "P5BA1.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P5BA1.md",
+        "ext": ".md"
+      }
+    ],
+    "P5BA2": [
+      {
+        "filename": "P5BA2.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P5BA2.md",
+        "ext": ".md"
+      }
+    ],
+    "P5BA3": [
+      {
+        "filename": "P5BA3.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P5BA3.md",
+        "ext": ".md"
+      }
+    ],
+    "P5BA4": [
+      {
+        "filename": "P5BA4.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P5BA4.md",
+        "ext": ".md"
+      }
+    ],
+    "P5BA5": [
+      {
+        "filename": "P5BA5.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P5BA5.md",
+        "ext": ".md"
+      }
+    ],
+    "P5BA6": [
+      {
+        "filename": "P5BA6.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P5BA6.md",
+        "ext": ".md"
+      }
+    ],
+    "P5D1": [
+      {
+        "filename": "P5D1.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P5D1.md",
+        "ext": ".md"
+      }
+    ],
+    "P5D2": [
+      {
+        "filename": "P5D2.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P5D2.md",
+        "ext": ".md"
+      }
+    ],
+    "P5F1": [
+      {
+        "filename": "P5F1.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P5F1.md",
+        "ext": ".md"
+      }
+    ],
+    "P5F2": [
+      {
+        "filename": "P5F2.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P5F2.md",
+        "ext": ".md"
+      }
+    ],
+    "P5T1": [
+      {
+        "filename": "P5T1.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P5T1.md",
+        "ext": ".md"
+      }
+    ],
+    "P5T2": [
+      {
+        "filename": "P5T2.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P5T2.md",
+        "ext": ".md"
+      }
+    ],
+    "P6BA1": [
+      {
+        "filename": "P6BA1.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P6BA1.md",
+        "ext": ".md"
+      }
+    ],
+    "P6BA10": [
+      {
+        "filename": "P6BA10.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P6BA10.md",
+        "ext": ".md"
+      }
+    ],
+    "P6BA2": [
+      {
+        "filename": "P6BA2.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P6BA2.md",
+        "ext": ".md"
+      }
+    ],
+    "P6BA3": [
+      {
+        "filename": "P6BA3.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P6BA3.md",
+        "ext": ".md"
+      }
+    ],
+    "P6BA4": [
+      {
+        "filename": "P6BA4.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P6BA4.md",
+        "ext": ".md"
+      }
+    ],
+    "P6BA5": [
+      {
+        "filename": "P6BA5.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P6BA5.md",
+        "ext": ".md"
+      }
+    ],
+    "P6BA6": [
+      {
+        "filename": "P6BA6.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P6BA6.md",
+        "ext": ".md"
+      }
+    ],
+    "P6BA7": [
+      {
+        "filename": "P6BA7.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P6BA7.md",
+        "ext": ".md"
+      }
+    ],
+    "P6BA8": [
+      {
+        "filename": "P6BA8.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P6BA8.md",
+        "ext": ".md"
+      }
+    ],
+    "P6BA9": [
+      {
+        "filename": "P6BA9.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P6BA9.md",
+        "ext": ".md"
+      }
+    ],
+    "P6D1": [
+      {
+        "filename": "P6D1.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P6D1.md",
+        "ext": ".md"
+      }
+    ],
+    "P6D2": [
+      {
+        "filename": "P6D2.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P6D2.md",
+        "ext": ".md"
+      }
+    ],
+    "P6D3": [
+      {
+        "filename": "P6D3.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P6D3.md",
+        "ext": ".md"
+      }
+    ],
+    "P6F1": [
+      {
+        "filename": "P6F1.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P6F1.md",
+        "ext": ".md"
+      }
+    ],
+    "P6F2": [
+      {
+        "filename": "P6F2.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P6F2.md",
+        "ext": ".md"
+      }
+    ],
+    "P6F3": [
+      {
+        "filename": "P6F3.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P6F3.md",
+        "ext": ".md"
+      }
+    ],
+    "P6F4": [
+      {
+        "filename": "P6F4.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P6F4.md",
+        "ext": ".md"
+      }
+    ],
+    "P6F5": [
+      {
+        "filename": "P6F5.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P6F5.md",
+        "ext": ".md"
+      }
+    ],
+    "P6F6": [
+      {
+        "filename": "P6F6.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P6F6.md",
+        "ext": ".md"
+      }
+    ],
+    "P6F7": [
+      {
+        "filename": "P6F7.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P6F7.md",
+        "ext": ".md"
+      }
+    ],
+    "P6O1": [
+      {
+        "filename": "P6O1.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P6O1.md",
+        "ext": ".md"
+      }
+    ],
+    "P6T1": [
+      {
+        "filename": "P6T1.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P6T1.md",
+        "ext": ".md"
+      }
+    ],
+    "P6T2": [
+      {
+        "filename": "P6T2.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P6T2.md",
+        "ext": ".md"
+      }
+    ],
+    "P6T3": [
+      {
+        "filename": "P6T3.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P6T3.md",
+        "ext": ".md"
+      }
+    ],
+    "P7BA1": [
+      {
+        "filename": "P7BA1.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P7BA1.md",
+        "ext": ".md"
+      }
+    ],
+    "P7BA2": [
+      {
+        "filename": "P7BA2.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P7BA2.md",
+        "ext": ".md"
+      }
+    ],
+    "P7BA3": [
+      {
+        "filename": "P7BA3.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P7BA3.md",
+        "ext": ".md"
+      }
+    ],
+    "P7BA4": [
+      {
+        "filename": "P7BA4.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P7BA4.md",
+        "ext": ".md"
+      }
+    ],
+    "P7D1": [
+      {
+        "filename": "P7D1.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P7D1.md",
+        "ext": ".md"
+      }
+    ],
+    "P7D2": [
+      {
+        "filename": "P7D2.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P7D2.md",
+        "ext": ".md"
+      }
+    ],
+    "P7F1": [
+      {
+        "filename": "P7F1.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P7F1.md",
+        "ext": ".md"
+      }
+    ],
+    "P7F2": [
+      {
+        "filename": "P7F2.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P7F2.md",
+        "ext": ".md"
+      }
+    ],
+    "P7F3": [
+      {
+        "filename": "P7F3.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P7F3.md",
+        "ext": ".md"
+      }
+    ],
+    "P7F4": [
+      {
+        "filename": "P7F4.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P7F4.md",
+        "ext": ".md"
+      }
+    ],
+    "P7F5": [
+      {
+        "filename": "P7F5.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P7F5.md",
+        "ext": ".md"
+      }
+    ],
+    "P7O1": [
+      {
+        "filename": "P7O1.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P7O1.md",
+        "ext": ".md"
+      }
+    ],
+    "P7O2": [
+      {
+        "filename": "P7O2.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P7O2.md",
+        "ext": ".md"
+      }
+    ],
+    "P7O3": [
+      {
+        "filename": "P7O3.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P7O3.md",
+        "ext": ".md"
+      }
+    ],
+    "P7O4": [
+      {
+        "filename": "P7O4.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P7O4.md",
+        "ext": ".md"
+      }
+    ],
+    "P7T1": [
+      {
+        "filename": "P7T1.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P7T1.md",
+        "ext": ".md"
+      }
+    ],
+    "P7T2": [
+      {
+        "filename": "P7T2.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P7T2.md",
+        "ext": ".md"
+      }
+    ],
+    "P7T3": [
+      {
+        "filename": "P7T3.md",
+        "path": "0-5_Development_ProjectGrid/action/PROJECT_GRID/viewer/deploy/tasks/P7T3.md",
+        "ext": ".md"
+      }
+    ]
+  },
+  "summary": {
+    "total_tasks": 147,
+    "total_files": 184,
+    "tasks": {
+      "P1BI3": 4,
+      "P1T2": 3,
+      "P1T1": 4,
+      "P1O1": 3,
+      "P1D1": 3,
+      "P1D2": 3,
+      "P1D3": 3,
+      "P1BA1": 3,
+      "P1BA2": 3,
+      "P1BA3": 3,
+      "P1BA4": 3,
+      "P1F1": 4,
+      "P1BI1": 3,
+      "P1F2": 3,
+      "P1BI2": 2,
+      "P1D4": 2,
+      "P1D5": 2,
+      "P1F10": 1,
+      "P1F11": 1,
+      "P1F3": 2,
+      "P1F4": 2,
+      "P1F5": 2,
+      "P1F6": 1,
+      "P2BA1": 1,
+      "P2BA10": 1,
+      "P2BA11": 1,
+      "P2BA2": 1,
+      "P2BA3": 1,
+      "P2BA4": 1,
+      "P2BA5": 1,
+      "P2BA6": 1,
+      "P2BA7": 1,
+      "P2BA8": 1,
+      "P2BA9": 1,
+      "P2D1": 1,
+      "P2D2": 1,
+      "P2D3": 1,
+      "P2D4": 1,
+      "P2D5": 1,
+      "P2D6": 1,
+      "P2D7": 1,
+      "P2F1": 1,
+      "P2F2": 1,
+      "P2F3": 1,
+      "P2O1": 1,
+      "P2T1": 1,
+      "P2T2": 1,
+      "P3BA1": 1,
+      "P3BA10": 1,
+      "P3BA11": 1,
+      "P3BA12": 1,
+      "P3BA13": 1,
+      "P3BA2": 1,
+      "P3BA3": 1,
+      "P3BA4": 1,
+      "P3BA5": 1,
+      "P3BA6": 1,
+      "P3BA7": 1,
+      "P3BA8": 1,
+      "P3BA9": 1,
+      "P3D1": 1,
+      "P3D2": 1,
+      "P3D3": 1,
+      "P3D4": 1,
+      "P3D5": 1,
+      "P3D6": 1,
+      "P3D7": 1,
+      "P3D8": 1,
+      "P3F1": 1,
+      "P3F2": 1,
+      "P3F3": 1,
+      "P3F4": 1,
+      "P3F5": 1,
+      "P3F6": 1,
+      "P3O1": 1,
+      "P3T1": 1,
+      "P3T2": 1,
+      "P3T3": 1,
+      "P3T4": 1,
+      "P4BA1": 1,
+      "P4BA2": 1,
+      "P4BA3": 1,
+      "P4BA4": 1,
+      "P4BA5": 1,
+      "P4D1": 1,
+      "P4D2": 1,
+      "P4D3": 1,
+      "P4F1": 1,
+      "P4F2": 1,
+      "P4F3": 1,
+      "P4O1": 1,
+      "P4T1": 1,
+      "P4T2": 1,
+      "P5BA1": 1,
+      "P5BA2": 1,
+      "P5BA3": 1,
+      "P5BA4": 1,
+      "P5BA5": 1,
+      "P5BA6": 1,
+      "P5D1": 1,
+      "P5D2": 1,
+      "P5F1": 1,
+      "P5F2": 1,
+      "P5T1": 1,
+      "P5T2": 1,
+      "P6BA1": 1,
+      "P6BA10": 1,
+      "P6BA2": 1,
+      "P6BA3": 1,
+      "P6BA4": 1,
+      "P6BA5": 1,
+      "P6BA6": 1,
+      "P6BA7": 1,
+      "P6BA8": 1,
+      "P6BA9": 1,
+      "P6D1": 1,
+      "P6D2": 1,
+      "P6D3": 1,
+      "P6F1": 1,
+      "P6F2": 1,
+      "P6F3": 1,
+      "P6F4": 1,
+      "P6F5": 1,
+      "P6F6": 1,
+      "P6F7": 1,
+      "P6O1": 1,
+      "P6T1": 1,
+      "P6T2": 1,
+      "P6T3": 1,
+      "P7BA1": 1,
+      "P7BA2": 1,
+      "P7BA3": 1,
+      "P7BA4": 1,
+      "P7D1": 1,
+      "P7D2": 1,
+      "P7F1": 1,
+      "P7F2": 1,
+      "P7F3": 1,
+      "P7F4": 1,
+      "P7F5": 1,
+      "P7O1": 1,
+      "P7O2": 1,
+      "P7O3": 1,
+      "P7O4": 1,
+      "P7T1": 1,
+      "P7T2": 1,
+      "P7T3": 1
+    }
+  }
+}

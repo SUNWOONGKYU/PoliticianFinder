@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연결 - PoliticianFinder</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#fff7ed',
+                            100: '#ffedd5',
+                            200: '#fed7aa',
+                            300: '#fdba74',
+                            400: '#fb923c',
+                            500: '#f97316',
+                            600: '#ea580c',
+                            700: '#c2410c',
+                            800: '#9a3412',
+                            900: '#7c2d12',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50 border-b-2 border-primary-500">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo & Catchphrase -->
+                <div class="flex items-center space-x-4">
+                    <a href="index.html" class="text-2xl font-bold text-primary-600">
+                        PoliticianFinder
+                    </a>
+                    <div class="hidden md:block w-48">
+                        <div class="font-bold text-gray-900" style="font-size: clamp(0.5rem, 3vw, 1rem); width: 100%;">훌륭한 정치인 찾기</div>
+                        <div class="text-gray-900 font-medium" style="font-size: clamp(0.38rem, 2.28vw, 0.7125rem); width: 100%;">AI 기반 정치인 평가 플랫폼</div>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="index.html" class="text-gray-900 hover:text-primary-600 font-medium focus:outline-none focus:ring-2 focus:ring-primary-300 rounded px-2 py-1">홈</a>
+                    <a href="politicians.html" class="text-gray-900 hover:text-primary-600 font-medium focus:outline-none focus:ring-2 focus:ring-primary-300 rounded px-2 py-1">정치인</a>
+                    <a href="community.html" class="text-gray-900 hover:text-primary-600 font-medium focus:outline-none focus:ring-2 focus:ring-primary-300 rounded px-2 py-1">커뮤니티</a>
+                    <a href="connection.html" class="text-primary-600 font-medium focus:outline-none focus:ring-2 focus:ring-primary-300 rounded px-2 py-1">연결</a>
+
+                    <!-- 알림 아이콘 -->
+                    <a href="notifications.html" class="relative text-gray-900 hover:text-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-300 rounded p-1">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+                        </svg>
+                        <!-- 알림 배지 (새 알림 있을 때) -->
+                        <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">3</span>
+                    </a>
+                </div>
+
+                <!-- Auth Buttons -->
+                <div class="hidden md:flex items-center space-x-3">
+                    <a href="login.html" class="text-gray-900 hover:text-primary-600 font-medium px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary-300 rounded">로그인</a>
+                    <a href="signup.html" class="bg-primary-500 text-white px-4 py-2 rounded-lg hover:bg-primary-600 font-medium focus:outline-none focus:ring-2 focus:ring-primary-300">회원가입</a>
+                </div>
+
+                <!-- Mobile menu button & notification -->
+                <div class="md:hidden flex items-center space-x-3">
+                    <!-- 알림 아이콘 (모바일) -->
+                    <a href="notifications.html" class="relative text-gray-900 hover:text-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-300 rounded p-1">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+                        </svg>
+                        <!-- 알림 배지 (새 알림 있을 때) -->
+                        <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full w-4 h-4 flex items-center justify-center text-xs">3</span>
+                    </a>
+                    <button id="mobile-menu-button" class="text-gray-900 hover:text-primary-600 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <div class="flex flex-col space-y-2">
+                    <a href="index.html" class="text-gray-900 hover:text-primary-600 font-medium px-2 py-2">홈</a>
+                    <a href="politicians.html" class="text-gray-900 hover:text-primary-600 font-medium px-2 py-2">정치인</a>
+                    <a href="community.html" class="text-gray-900 hover:text-primary-600 font-medium px-2 py-2">커뮤니티</a>
+                    <a href="connection.html" class="text-primary-600 font-medium px-2 py-2">연결</a>
+                    <hr class="my-2">
+                    <a href="login.html" class="text-gray-900 hover:text-primary-600 font-medium px-2 py-2">로그인</a>
+                    <a href="signup.html" class="bg-primary-500 text-white px-4 py-2 rounded-lg hover:bg-primary-600 font-medium text-center">회원가입</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 메인 컨텐츠 -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- 헤더 -->
+        <div class="text-center mb-12">
+            <h1 class="text-3xl font-bold text-gray-900 mb-4">연결</h1>
+            <p class="text-lg text-gray-600">정치인과 시민을 연결해드립니다</p>
+        </div>
+
+        <!-- 두 개의 폼을 나란히 배치 -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- 문의하기 폼 -->
+            <section id="inquiry-section">
+                <div class="bg-white rounded-lg shadow-md p-8">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6">문의하기</h2>
+                    <p class="text-gray-600 mb-6">관심있는 정치인에게 질문을 할 수 있습니다. 정치인 선택 후 문의 내용을 작성해주세요.</p>
+
+                    <form id="inquiry-form" class="space-y-6">
+                        <!-- 정치인 검색 -->
+                        <div>
+                            <label for="inquiry-politician-search" class="block text-sm font-medium text-gray-900 mb-2">
+                                정치인 검색 <span class="text-red-500">*</span>
+                            </label>
+                            <div class="relative">
+                                <input
+                                    type="text"
+                                    id="inquiry-politician-search"
+                                    placeholder="정치인 이름을 입력하세요"
+                                    required
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+                                    autocomplete="off"
+                                    oninput="searchInquiryPolitician(this.value)">
+                                <!-- 검색 결과 드롭다운 -->
+                                <div id="inquiry-politician-results" class="hidden absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg max-h-60 overflow-y-auto">
+                                    <!-- 검색 결과가 여기에 표시됩니다 -->
+                                </div>
+                            </div>
+                            <!-- 선택된 정치인 표시 -->
+                            <div id="inquiry-selected-politician" class="hidden mt-3 p-3 bg-purple-50 border border-purple-200 rounded-lg">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <div class="font-medium text-gray-900" id="inquiry-selected-politician-name"></div>
+                                        <div class="text-sm text-gray-600" id="inquiry-selected-politician-info"></div>
+                                    </div>
+                                    <button type="button" onclick="clearInquiryPolitician()" class="text-red-500 hover:text-red-700">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <input type="hidden" id="inquiry-politician-id" name="politician_id" required>
+                        </div>
+
+                        <!-- 제목 -->
+                        <div>
+                            <label for="inquiry-title" class="block text-sm font-medium text-gray-900 mb-2">
+                                제목 <span class="text-red-500">*</span>
+                            </label>
+                            <input
+                                type="text"
+                                id="inquiry-title"
+                                name="title"
+                                required
+                                maxlength="100"
+                                placeholder="제목을 입력하세요"
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500">
+                        </div>
+
+                        <!-- 내용 (박스 크기 증가) -->
+                        <div>
+                            <label for="inquiry-content" class="block text-sm font-medium text-gray-900 mb-2">
+                                내용 <span class="text-red-500">*</span>
+                            </label>
+                            <textarea
+                                id="inquiry-content"
+                                name="content"
+                                required
+                                rows="16"
+                                maxlength="5000"
+                                placeholder="문의 내용을 입력하세요 (최대 5000자)"
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 resize-none"></textarea>
+                            <div class="flex justify-between text-sm text-gray-500 mt-1">
+                                <span>최대 5000자</span>
+                                <span id="inquiry-char-count">0 / 5000</span>
+                            </div>
+                        </div>
+
+                        <!-- 연락처 -->
+                        <div>
+                            <label for="inquiry-email" class="block text-sm font-medium text-gray-900 mb-2">
+                                이메일 <span class="text-red-500">*</span>
+                            </label>
+                            <input
+                                type="email"
+                                id="inquiry-email"
+                                name="email"
+                                required
+                                placeholder="답변받을 이메일을 입력하세요"
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500">
+                        </div>
+
+                        <!-- 제출 버튼 -->
+                        <div class="flex gap-3">
+                            <button
+                                type="button"
+                                onclick="resetInquiryForm()"
+                                class="flex-1 px-6 py-3 border-2 border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 font-medium">
+                                초기화
+                            </button>
+                            <button
+                                type="submit"
+                                class="flex-1 px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 font-medium">
+                                문의 등록하기
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <!-- 제안하기 폼 -->
+            <section id="proposal-section">
+                <div class="bg-white rounded-lg shadow-md p-8">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6">제안하기</h2>
+                    <p class="text-gray-600 mb-6">지역 발전을 위한 아이디어나 개선이 필요한 사항을 제안할 수 있습니다. 관련 정치인 선택 후 제안 내용을 작성해주세요.</p>
+
+                    <form id="proposal-form" class="space-y-6">
+                        <!-- 정치인 검색 -->
+                        <div>
+                            <label for="proposal-politician-search" class="block text-sm font-medium text-gray-900 mb-2">
+                                정치인 검색 <span class="text-red-500">*</span>
+                            </label>
+                            <div class="relative">
+                                <input
+                                    type="text"
+                                    id="proposal-politician-search"
+                                    placeholder="정치인 이름을 입력하세요"
+                                    required
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+                                    autocomplete="off"
+                                    oninput="searchProposalPolitician(this.value)">
+                                <!-- 검색 결과 드롭다운 -->
+                                <div id="proposal-politician-results" class="hidden absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg max-h-60 overflow-y-auto">
+                                    <!-- 검색 결과가 여기에 표시됩니다 -->
+                                </div>
+                            </div>
+                            <!-- 선택된 정치인 표시 -->
+                            <div id="proposal-selected-politician" class="hidden mt-3 p-3 bg-purple-50 border border-purple-200 rounded-lg">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <div class="font-medium text-gray-900" id="proposal-selected-politician-name"></div>
+                                        <div class="text-sm text-gray-600" id="proposal-selected-politician-info"></div>
+                                    </div>
+                                    <button type="button" onclick="clearProposalPolitician()" class="text-red-500 hover:text-red-700">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <input type="hidden" id="proposal-politician-id" name="politician_id" required>
+                        </div>
+
+                        <!-- 광역 지역 선택 -->
+                        <div>
+                            <label for="proposal-region-metro" class="block text-sm font-medium text-gray-900 mb-2">
+                                광역 지역 선택 <span class="text-red-500">*</span>
+                            </label>
+                            <select
+                                id="proposal-region-metro"
+                                name="region_metro"
+                                required
+                                onchange="updateLocalRegions(this.value)"
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500">
+                                <option value="">광역 지역을 선택하세요</option>
+                                <option value="seoul">서울특별시</option>
+                                <option value="busan">부산광역시</option>
+                                <option value="daegu">대구광역시</option>
+                                <option value="incheon">인천광역시</option>
+                                <option value="gwangju">광주광역시</option>
+                                <option value="daejeon">대전광역시</option>
+                                <option value="ulsan">울산광역시</option>
+                                <option value="sejong">세종특별자치시</option>
+                                <option value="gyeonggi">경기도</option>
+                                <option value="gangwon">강원특별자치도</option>
+                                <option value="chungbuk">충청북도</option>
+                                <option value="chungnam">충청남도</option>
+                                <option value="jeonbuk">전북특별자치도</option>
+                                <option value="jeonnam">전라남도</option>
+                                <option value="gyeongbuk">경상북도</option>
+                                <option value="gyeongnam">경상남도</option>
+                                <option value="jeju">제주특별자치도</option>
+                            </select>
+                        </div>
+
+                        <!-- 기초 지역 선택 -->
+                        <div id="local-region-wrapper" class="hidden">
+                            <label for="proposal-region-local" class="block text-sm font-medium text-gray-900 mb-2">
+                                기초 지역 선택 <span class="text-red-500">*</span>
+                            </label>
+                            <select
+                                id="proposal-region-local"
+                                name="region_local"
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500">
+                                <option value="">기초 지역을 선택하세요</option>
+                            </select>
+                        </div>
+
+                        <!-- 카테고리 -->
+                        <div>
+                            <label for="proposal-category" class="block text-sm font-medium text-gray-900 mb-2">
+                                카테고리 <span class="text-red-500">*</span>
+                            </label>
+                            <select
+                                id="proposal-category"
+                                name="category"
+                                required
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500">
+                                <option value="">카테고리를 선택하세요</option>
+                                <option value="education">교육</option>
+                                <option value="transport">교통</option>
+                                <option value="environment">환경</option>
+                                <option value="welfare">복지</option>
+                                <option value="safety">안전</option>
+                                <option value="culture">문화</option>
+                                <option value="economy">경제</option>
+                                <option value="other">기타</option>
+                            </select>
+                        </div>
+
+                        <!-- 제목 -->
+                        <div>
+                            <label for="proposal-title" class="block text-sm font-medium text-gray-900 mb-2">
+                                제목 <span class="text-red-500">*</span>
+                            </label>
+                            <input
+                                type="text"
+                                id="proposal-title"
+                                name="title"
+                                required
+                                maxlength="100"
+                                placeholder="제안 제목을 입력하세요"
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500">
+                        </div>
+
+                        <!-- 내용 -->
+                        <div>
+                            <label for="proposal-content" class="block text-sm font-medium text-gray-900 mb-2">
+                                내용 <span class="text-red-500">*</span>
+                            </label>
+                            <textarea
+                                id="proposal-content"
+                                name="content"
+                                required
+                                rows="6"
+                                maxlength="5000"
+                                placeholder="제안 내용을 구체적으로 작성해주세요 (최대 5000자)"
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 resize-none"></textarea>
+                            <div class="flex justify-between text-sm text-gray-500 mt-1">
+                                <span>최대 5000자</span>
+                                <span id="proposal-char-count">0 / 5000</span>
+                            </div>
+                        </div>
+
+                        <!-- 연락처 -->
+                        <div>
+                            <label for="proposal-email" class="block text-sm font-medium text-gray-900 mb-2">
+                                이메일 <span class="text-red-500">*</span>
+                            </label>
+                            <input
+                                type="email"
+                                id="proposal-email"
+                                name="email"
+                                required
+                                placeholder="답변받을 이메일을 입력하세요"
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500">
+                        </div>
+
+                        <!-- 제출 버튼 -->
+                        <div class="flex gap-3">
+                            <button
+                                type="button"
+                                onclick="resetProposalForm()"
+                                class="flex-1 px-6 py-3 border-2 border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 font-medium">
+                                초기화
+                            </button>
+                            <button
+                                type="submit"
+                                class="flex-1 px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 font-medium">
+                                제안 등록하기
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- 알림 모달 -->
+    <div id="alertModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg max-w-sm w-full p-6">
+            <div class="mb-6">
+                <p id="alertMessage" class="text-gray-900 text-center whitespace-pre-line"></p>
+            </div>
+            <div class="flex justify-center">
+                <button onclick="closeAlertModal()" class="px-8 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-500 transition">
+                    확인
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-primary-500 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div class="flex justify-center items-center space-x-8 text-base py-4">
+                <a href="#" class="hover:text-gray-200">서비스 소개</a>
+                <a href="#" class="hover:text-gray-200">이용약관</a>
+                <a href="#" class="hover:text-gray-200">개인정보처리방침</a>
+                <a href="#" class="hover:text-gray-200">고객센터</a>
+            </div>
+            <div class="text-center text-base text-white py-4">
+                <p>&copy; 2025 PoliticianFinder. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 샘플 정치인 데이터
+        const politicians = [
+            { id: 1, name: '김민준', party: '더불어민주당', position: '국회의원', region: '서울 강남구' },
+            { id: 2, name: '이서연', party: '국민의힘', position: '국회의원', region: '경기 성남시 분당구' },
+            { id: 3, name: '박준호', party: '더불어민주당', position: '국회의원', region: '부산 해운대구' },
+            { id: 4, name: '최지우', party: '조국혁신당', position: '국회의원', region: '서울 마포구' },
+            { id: 5, name: '정하늘', party: '국민의힘', position: '국회의원', region: '경기 수원시' }
+        ];
+
+        // 지역 데이터 (광역-기초)
+        const regions = {
+            seoul: ['강남구', '강동구', '강북구', '강서구', '관악구', '광진구', '구로구', '금천구', '노원구', '도봉구', '동대문구', '동작구', '마포구', '서대문구', '서초구', '성동구', '성북구', '송파구', '양천구', '영등포구', '용산구', '은평구', '종로구', '중구', '중랑구'],
+            busan: ['강서구', '금정구', '기장군', '남구', '동구', '동래구', '부산진구', '북구', '사상구', '사하구', '서구', '수영구', '연제구', '영도구', '중구', '해운대구'],
+            daegu: ['남구', '달서구', '달성군', '동구', '북구', '서구', '수성구', '중구'],
+            incheon: ['강화군', '계양구', '남동구', '동구', '미추홀구', '부평구', '서구', '연수구', '옹진군', '중구'],
+            gwangju: ['광산구', '남구', '동구', '북구', '서구'],
+            daejeon: ['대덕구', '동구', '서구', '유성구', '중구'],
+            ulsan: ['남구', '동구', '북구', '울주군', '중구'],
+            sejong: ['세종시'],
+            gyeonggi: ['가평군', '고양시', '과천시', '광명시', '광주시', '구리시', '군포시', '김포시', '남양주시', '동두천시', '부천시', '성남시', '수원시', '시흥시', '안산시', '안성시', '안양시', '양주시', '양평군', '여주시', '연천군', '오산시', '용인시', '의왕시', '의정부시', '이천시', '파주시', '평택시', '포천시', '하남시', '화성시'],
+            gangwon: ['강릉시', '고성군', '동해시', '삼척시', '속초시', '양구군', '양양군', '영월군', '원주시', '인제군', '정선군', '철원군', '춘천시', '태백시', '평창군', '홍천군', '화천군', '횡성군'],
+            chungbuk: ['괴산군', '단양군', '보은군', '영동군', '옥천군', '음성군', '제천시', '증평군', '진천군', '청주시', '충주시'],
+            chungnam: ['계룡시', '공주시', '금산군', '논산시', '당진시', '보령시', '부여군', '서산시', '서천군', '아산시', '예산군', '천안시', '청양군', '태안군', '홍성군'],
+            jeonbuk: ['고창군', '군산시', '김제시', '남원시', '무주군', '부안군', '순창군', '완주군', '익산시', '임실군', '장수군', '전주시', '정읍시', '진안군'],
+            jeonnam: ['강진군', '고흥군', '곡성군', '광양시', '구례군', '나주시', '담양군', '목포시', '무안군', '보성군', '순천시', '신안군', '여수시', '영광군', '영암군', '완도군', '장성군', '장흥군', '진도군', '함평군', '해남군', '화순군'],
+            gyeongbuk: ['경산시', '경주시', '고령군', '구미시', '군위군', '김천시', '문경시', '봉화군', '상주시', '성주군', '안동시', '영덕군', '영양군', '영주시', '영천시', '예천군', '울릉군', '울진군', '의성군', '청도군', '청송군', '칠곡군', '포항시'],
+            gyeongnam: ['거제시', '거창군', '고성군', '김해시', '남해군', '밀양시', '사천시', '산청군', '양산시', '의령군', '진주시', '창녕군', '창원시', '통영시', '하동군', '함안군', '함양군', '합천군'],
+            jeju: ['서귀포시', '제주시']
+        };
+
+        // 기초 지역 업데이트
+        function updateLocalRegions(metroValue) {
+            const localSelect = document.getElementById('proposal-region-local');
+            const wrapper = document.getElementById('local-region-wrapper');
+
+            if (!metroValue || metroValue === 'sejong') {
+                wrapper.classList.add('hidden');
+                localSelect.removeAttribute('required');
+                return;
+            }
+
+            const localRegions = regions[metroValue] || [];
+            localSelect.innerHTML = '<option value="">기초 지역을 선택하세요</option>';
+
+            localRegions.forEach(region => {
+                const option = document.createElement('option');
+                option.value = region;
+                option.textContent = region;
+                localSelect.appendChild(option);
+            });
+
+            wrapper.classList.remove('hidden');
+            localSelect.setAttribute('required', 'required');
+        }
+
+        // 문의하기 폼 - 정치인 검색 (개선: 1000명 대응)
+        function searchInquiryPolitician(query) {
+            const resultsDiv = document.getElementById('inquiry-politician-results');
+
+            if (query.trim() === '') {
+                resultsDiv.classList.add('hidden');
+                return;
+            }
+
+            const queryLower = query.toLowerCase();
+
+            // 이름으로 시작하는 것 우선, 포함하는 것 다음, 정당/지역 포함
+            const filtered = politicians
+                .map(p => ({
+                    ...p,
+                    priority: p.name.toLowerCase().startsWith(queryLower) ? 0 :
+                             p.name.toLowerCase().includes(queryLower) ? 1 :
+                             p.party.includes(query) ? 2 :
+                             p.region.includes(query) ? 3 : 4
+                }))
+                .filter(p => p.priority < 4)
+                .sort((a, b) => a.priority - b.priority || a.name.localeCompare(b.name))
+                .slice(0, 20); // 최대 20개만 표시
+
+            if (filtered.length === 0) {
+                resultsDiv.innerHTML = '<div class="p-4 text-sm text-gray-500">검색 결과가 없습니다.</div>';
+                resultsDiv.classList.remove('hidden');
+                return;
+            }
+
+            let html = filtered.map(p => `
+                <div class="p-3 hover:bg-gray-50 cursor-pointer border-b last:border-b-0"
+                     onclick="selectInquiryPolitician(${p.id}, '${p.name}', '${p.party}', '${p.position}', '${p.region}')">
+                    <div class="font-medium text-gray-900">${p.name}</div>
+                    <div class="text-sm text-gray-600">${p.party} | ${p.position} | ${p.region}</div>
+                </div>
+            `).join('');
+
+            // 20개 이상 결과가 있으면 안내 메시지 추가
+            if (politicians.filter(p =>
+                p.name.toLowerCase().includes(queryLower) ||
+                p.party.includes(query) ||
+                p.region.includes(query)
+            ).length > 20) {
+                html += '<div class="p-3 text-xs text-gray-500 bg-gray-50 border-t">더 많은 결과가 있습니다. 검색어를 더 구체적으로 입력해주세요.</div>';
+            }
+
+            resultsDiv.innerHTML = html;
+            resultsDiv.classList.remove('hidden');
+        }
+
+        function selectInquiryPolitician(id, name, party, position, region) {
+            document.getElementById('inquiry-politician-id').value = id;
+            document.getElementById('inquiry-selected-politician-name').textContent = name;
+            document.getElementById('inquiry-selected-politician-info').textContent = `${party} | ${position} | ${region}`;
+            document.getElementById('inquiry-selected-politician').classList.remove('hidden');
+            document.getElementById('inquiry-politician-search').value = '';
+            document.getElementById('inquiry-politician-results').classList.add('hidden');
+        }
+
+        function clearInquiryPolitician() {
+            document.getElementById('inquiry-politician-id').value = '';
+            document.getElementById('inquiry-selected-politician').classList.add('hidden');
+            document.getElementById('inquiry-politician-search').value = '';
+        }
+
+        // 제안하기 폼 - 정치인 검색 (개선: 1000명 대응)
+        function searchProposalPolitician(query) {
+            const resultsDiv = document.getElementById('proposal-politician-results');
+
+            if (query.trim() === '') {
+                resultsDiv.classList.add('hidden');
+                return;
+            }
+
+            const queryLower = query.toLowerCase();
+
+            // 이름으로 시작하는 것 우선, 포함하는 것 다음, 정당/지역 포함
+            const filtered = politicians
+                .map(p => ({
+                    ...p,
+                    priority: p.name.toLowerCase().startsWith(queryLower) ? 0 :
+                             p.name.toLowerCase().includes(queryLower) ? 1 :
+                             p.party.includes(query) ? 2 :
+                             p.region.includes(query) ? 3 : 4
+                }))
+                .filter(p => p.priority < 4)
+                .sort((a, b) => a.priority - b.priority || a.name.localeCompare(b.name))
+                .slice(0, 20); // 최대 20개만 표시
+
+            if (filtered.length === 0) {
+                resultsDiv.innerHTML = '<div class="p-4 text-sm text-gray-500">검색 결과가 없습니다.</div>';
+                resultsDiv.classList.remove('hidden');
+                return;
+            }
+
+            let html = filtered.map(p => `
+                <div class="p-3 hover:bg-gray-50 cursor-pointer border-b last:border-b-0"
+                     onclick="selectProposalPolitician(${p.id}, '${p.name}', '${p.party}', '${p.position}', '${p.region}')">
+                    <div class="font-medium text-gray-900">${p.name}</div>
+                    <div class="text-sm text-gray-600">${p.party} | ${p.position} | ${p.region}</div>
+                </div>
+            `).join('');
+
+            // 20개 이상 결과가 있으면 안내 메시지 추가
+            if (politicians.filter(p =>
+                p.name.toLowerCase().includes(queryLower) ||
+                p.party.includes(query) ||
+                p.region.includes(query)
+            ).length > 20) {
+                html += '<div class="p-3 text-xs text-gray-500 bg-gray-50 border-t">더 많은 결과가 있습니다. 검색어를 더 구체적으로 입력해주세요.</div>';
+            }
+
+            resultsDiv.innerHTML = html;
+            resultsDiv.classList.remove('hidden');
+        }
+
+        function selectProposalPolitician(id, name, party, position, region) {
+            document.getElementById('proposal-politician-id').value = id;
+            document.getElementById('proposal-selected-politician-name').textContent = name;
+            document.getElementById('proposal-selected-politician-info').textContent = `${party} | ${position} | ${region}`;
+            document.getElementById('proposal-selected-politician').classList.remove('hidden');
+            document.getElementById('proposal-politician-search').value = '';
+            document.getElementById('proposal-politician-results').classList.add('hidden');
+        }
+
+        function clearProposalPolitician() {
+            document.getElementById('proposal-politician-id').value = '';
+            document.getElementById('proposal-selected-politician').classList.add('hidden');
+            document.getElementById('proposal-politician-search').value = '';
+        }
+
+        // 글자 수 카운터
+        document.getElementById('inquiry-content').addEventListener('input', function() {
+            const count = this.value.length;
+            document.getElementById('inquiry-char-count').textContent = `${count} / 5000`;
+        });
+
+        document.getElementById('proposal-content').addEventListener('input', function() {
+            const count = this.value.length;
+            document.getElementById('proposal-char-count').textContent = `${count} / 5000`;
+        });
+
+        // 문의 폼 제출
+        document.getElementById('inquiry-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // 정치인 선택 확인
+            if (!document.getElementById('inquiry-politician-id').value) {
+                openAlertModal('정치인을 선택해주세요.');
+                return;
+            }
+
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+
+            console.log('문의 내용:', data);
+            openAlertModal('문의가 등록되었습니다.\n빠른 시일 내에 답변드리겠습니다.');
+            resetInquiryForm();
+        });
+
+        // 제안 폼 제출
+        document.getElementById('proposal-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // 정치인 선택 확인
+            if (!document.getElementById('proposal-politician-id').value) {
+                openAlertModal('정치인을 선택해주세요.');
+                return;
+            }
+
+            // 광역 선택 확인
+            const metroValue = document.getElementById('proposal-region-metro').value;
+            if (!metroValue) {
+                openAlertModal('광역 지역을 선택해주세요.');
+                return;
+            }
+
+            // 기초 선택 확인 (세종시 제외)
+            if (metroValue !== 'sejong') {
+                const localValue = document.getElementById('proposal-region-local').value;
+                if (!localValue) {
+                    openAlertModal('기초 지역을 선택해주세요.');
+                    return;
+                }
+            }
+
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+
+            console.log('제안 내용:', data);
+            openAlertModal('제안이 등록되었습니다.\n정치인에게 전달됩니다.');
+            resetProposalForm();
+        });
+
+        // 폼 초기화
+        function resetInquiryForm() {
+            document.getElementById('inquiry-form').reset();
+            clearInquiryPolitician();
+            document.getElementById('inquiry-char-count').textContent = '0 / 5000';
+        }
+
+        function resetProposalForm() {
+            document.getElementById('proposal-form').reset();
+            clearProposalPolitician();
+            document.getElementById('proposal-char-count').textContent = '0 / 5000';
+            document.getElementById('local-region-wrapper').classList.add('hidden');
+        }
+
+        // 알림 모달 함수
+        function openAlertModal(message) {
+            document.getElementById('alertMessage').textContent = message;
+            document.getElementById('alertModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeAlertModal() {
+            document.getElementById('alertModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // 모바일 메뉴 토글
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 검색 결과 외부 클릭 시 닫기
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('#inquiry-politician-search') && !e.target.closest('#inquiry-politician-results')) {
+                document.getElementById('inquiry-politician-results').classList.add('hidden');
+            }
+            if (!e.target.closest('#proposal-politician-search') && !e.target.closest('#proposal-politician-results')) {
+                document.getElementById('proposal-politician-results').classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>

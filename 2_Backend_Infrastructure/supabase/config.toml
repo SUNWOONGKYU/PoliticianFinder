@@ -1,0 +1,168 @@
+# P1D5: Supabase 프로젝트 설정
+# 작업일: 2025-10-31
+# 설명: PoliticianFinder Supabase 프로젝트 설정 파일
+
+# ============================================================================
+# 프로젝트 정보
+# ============================================================================
+
+project_id = "your-project-ref" # Supabase 콘솔에서 발급받은 프로젝트 ID
+
+# ============================================================================
+# API 설정
+# ============================================================================
+
+[api]
+enabled = true
+port = 54321
+schemas = ["public", "storage", "graphql_public"]
+extra_search_path = ["public", "extensions"]
+max_rows = 1000
+
+# ============================================================================
+# 데이터베이스 설정
+# ============================================================================
+
+[db]
+port = 54322
+major_version = 15
+
+# ============================================================================
+# 인증 설정 (Supabase Auth)
+# ============================================================================
+
+[auth]
+enabled = true
+site_url = "http://localhost:3000" # 개발 환경 (프로덕션: https://politicianfinder.com)
+
+# 추가 리다이렉트 URL
+additional_redirect_urls = [
+  "http://localhost:3000",
+  "http://localhost:3000/auth/callback"
+]
+
+# JWT 설정
+jwt_expiry = 3600 # Access Token 만료 시간 (1시간)
+enable_refresh_token_rotation = true # Refresh Token 로테이션
+refresh_token_reuse_interval = 10 # Refresh Token 재사용 간격 (초)
+
+# 이메일 인증 설정
+enable_signup = true # 회원가입 활성화
+enable_confirmations = true # 이메일 인증 필수
+double_confirm_changes_on_email = true # 이메일 변경 시 재인증
+enable_anonymous_sign_ins = false # 익명 로그인 비활성화
+
+# OAuth 제공자 설정
+[auth.external.google]
+enabled = true
+client_id = "env(GOOGLE_OAUTH_CLIENT_ID)" # Google Cloud Console에서 발급
+client_secret = "env(GOOGLE_OAUTH_CLIENT_SECRET)"
+redirect_uri = "http://localhost:54321/auth/v1/callback" # 개발 환경
+
+# 비밀번호 정책
+[auth.password]
+min_length = 8 # signup.html: 8자 이상
+require_letters = true
+require_numbers = true
+require_symbols = false # signup.html: 영문+숫자 조합 (특수문자 선택)
+
+# 이메일 템플릿
+[auth.email]
+enable_signup = true
+double_confirm_changes = true
+max_frequency = "1h" # 이메일 전송 빈도 제한
+
+# 회원가입 이메일 템플릿
+[auth.email.template.invite]
+subject = "[PoliticianFinder] 회원가입을 환영합니다"
+content_path = "./supabase/templates/invite.html"
+
+# 이메일 인증 템플릿
+[auth.email.template.confirmation]
+subject = "[PoliticianFinder] 이메일 인증을 완료해 주세요"
+content_path = "./supabase/templates/confirmation.html"
+
+# 비밀번호 재설정 템플릿
+[auth.email.template.recovery]
+subject = "[PoliticianFinder] 비밀번호 재설정 안내"
+content_path = "./supabase/templates/recovery.html"
+
+# 이메일 변경 템플릿
+[auth.email.template.email_change]
+subject = "[PoliticianFinder] 이메일 변경 확인"
+content_path = "./supabase/templates/email_change.html"
+
+# ============================================================================
+# Storage 설정
+# ============================================================================
+
+[storage]
+enabled = true
+file_size_limit = "50MiB" # 파일 크기 제한
+buckets = [
+  { name = "avatars", public = true },
+  { name = "documents", public = false }
+]
+
+# ============================================================================
+# Edge Functions 설정
+# ============================================================================
+
+[functions]
+enabled = true
+
+# ============================================================================
+# 로컬 개발 설정
+# ============================================================================
+
+[studio]
+enabled = true
+port = 54323
+api_url = "http://localhost"
+
+# ============================================================================
+# 데이터베이스 연결
+# ============================================================================
+
+[db.pooler]
+enabled = false
+port = 54329
+pool_mode = "transaction"
+default_pool_size = 20
+max_client_conn = 100
+
+# ============================================================================
+# 로깅 설정
+# ============================================================================
+
+[analytics]
+enabled = true
+port = 54327
+
+# ============================================================================
+# 실시간 기능 (Realtime)
+# ============================================================================
+
+[realtime]
+enabled = true
+ip_version = "IPv4"
+
+# ============================================================================
+# 완료
+# ============================================================================
+# P1D5: Supabase 프로젝트 설정 완료
+#
+# 설정 내용:
+# - API 설정 (포트 54321)
+# - 데이터베이스 설정 (PostgreSQL 15)
+# - 인증 설정 (이메일, Google OAuth)
+# - 비밀번호 정책 (signup.html 기반: 8자 이상, 영문+숫자)
+# - 이메일 템플릿 (회원가입, 인증, 비밀번호 재설정)
+# - Storage 설정 (avatars, documents)
+# - 로컬 개발 환경 (Studio 포트 54323)
+#
+# 다음 단계:
+# 1. Supabase 콘솔에서 프로젝트 생성
+# 2. API 키 발급 (anon key, service_role key)
+# 3. Google OAuth 설정 (client_id, client_secret)
+# 4. .env.local에 API 키 입력

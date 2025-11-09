@@ -1,0 +1,15 @@
+{
+  "task_name": "Mock API - 기타 (4개 API 통합)",
+  "instruction_file": "tasks/P1BA4.md",
+  "assigned_agent": "1차: api-designer | 2차: Claude Code(실행 및 검증)",
+  "tools": "Read, Edit, Write, Grep, Glob, Bash / TypeScript, Next.js API Routes, Zod / api-builder, api-test",
+  "work_mode": "AI-Only",
+  "dependency_chain": "P1D1, P1D2",
+  "progress": 0,
+  "status": "작업지시서 작성 완료",
+  "generated_files": "작업지시서: tasks/P1BA4.md (590줄) - 4개 기타 API 통합 작업지시서",
+  "generator": "Claude Code",
+  "duration": "1차: 작업지시서 작성(590줄)",
+  "modification_history": "2025-11-07: 작업지시서 작성 완료 (통합 버전)",
+  "remarks": "4개 기타 API를 1개 작업지시서로 통합 / 건강체크 / 시스템정보 / 알림 / Mock 데이터"
+}

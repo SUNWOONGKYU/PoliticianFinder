@@ -1,0 +1,15 @@
+{
+  "task_name": "Real API - 커뮤니티 (Supabase CRUD 통합)",
+  "instruction_file": "tasks/P3BA3.md",
+  "assigned_agent": "1차: backend-developer | 2차: Claude Code(실행 및 검증)",
+  "tools": "Read, Edit, Write, Grep, Glob, Bash / TypeScript, Next.js API Routes, Supabase / supabase-db, api-builder",
+  "work_mode": "AI-Only",
+  "dependency_chain": "P3D1, P3D2, P3BA1, P1BA3",
+  "progress": 0,
+  "status": "작업지시서 작성 완료",
+  "generated_files": "작업지시서: tasks/P3BA3.md (1185줄) - Supabase CRUD 통합 작업지시서",
+  "generator": "Claude Code",
+  "duration": "1차: 작업지시서 작성(1185줄)",
+  "modification_history": "2025-11-07: 작업지시서 작성 완료 (Supabase 통합 버전)",
+  "remarks": "Supabase로 실제 커뮤니티 데이터 관리 / 게시글/댓글 CRUD / 투표 / 북마크 / RLS 정책"
+}

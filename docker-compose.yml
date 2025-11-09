@@ -1,0 +1,54 @@
+version: '3.9'
+
+services:
+  # Frontend Service
+  frontend:
+    build:
+      context: ./1_Frontend
+      dockerfile: Dockerfile
+    container_name: politicianfinder-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_SUPABASE_URL=${NEXT_PUBLIC_SUPABASE_URL}
+      - NEXT_PUBLIC_SUPABASE_ANON_KEY=${NEXT_PUBLIC_SUPABASE_ANON_KEY}
+      - NEXT_PUBLIC_API_BASE_URL=http://backend:3001/api
+    depends_on:
+      - backend
+    networks:
+      - politicianfinder-network
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:3000"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Backend Service (placeholder for future implementation)
+  backend:
+    image: node:20-alpine
+    container_name: politicianfinder-backend
+    working_dir: /app
+    command: npm run dev
+    ports:
+      - "3001:3001"
+    environment:
+      - NODE_ENV=development
+      - DATABASE_URL=${DATABASE_URL}
+      - SUPABASE_URL=${NEXT_PUBLIC_SUPABASE_URL}
+      - SUPABASE_KEY=${NEXT_PUBLIC_SUPABASE_ANON_KEY}
+      - JWT_SECRET=${JWT_SECRET}
+    volumes:
+      - ./3_Backend_APIs:/app
+      - ./2_Backend_Infrastructure:/app/infrastructure
+      - /app/node_modules
+    networks:
+      - politicianfinder-network
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:3001/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+networks:
+  politicianfinder-network:
+    driver: bridge

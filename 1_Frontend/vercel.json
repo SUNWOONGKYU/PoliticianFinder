@@ -1,0 +1,21 @@
+{
+  "crons": [
+    {
+      "path": "/api/cron/update-politicians",
+      "schedule": "0 6 * * *"
+    },
+    {
+      "path": "/api/cron/recalculate-ranks",
+      "schedule": "0 3 * * *"
+    },
+    {
+      "path": "/api/cron/aggregate-trending",
+      "schedule": "0 * * * *"
+    }
+  ],
+  "buildCommand": "npm run build",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install",
+  "framework": "nextjs",
+  "outputDirectory": ".next"
+}

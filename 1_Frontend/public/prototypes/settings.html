@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>설정 - PoliticianFinder</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#fff7ed',
+                            100: '#ffedd5',
+                            200: '#fed7aa',
+                            300: '#fdba74',
+                            400: '#fb923c',
+                            500: '#f97316',
+                            600: '#ea580c',
+                            700: '#c2410c',
+                            800: '#9a3412',
+                            900: '#7c2d12',
+                        },
+                        secondary: {
+                            500: '#8b5cf6',
+                            600: '#7c3aed',
+                        },
+                        accent: {
+                            500: '#00D26A',
+                            600: '#00D26A',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts: Noto Sans KR -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'system-ui', sans-serif;
+            color: #000000;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50 border-b-2 border-primary-500">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo & Catchphrase -->
+                <div class="flex items-center space-x-4">
+                    <a href="index.html" class="text-2xl font-bold text-primary-600">PoliticianFinder</a>
+                    <div class="hidden md:block w-48">
+                        <div class="font-bold text-gray-900" style="font-size: clamp(0.5rem, 3vw, 1rem);">훌륭한 정치인 찾기</div>
+                        <div class="text-gray-900 font-medium" style="font-size: clamp(0.38rem, 2.28vw, 0.7125rem);">AI 기반 정치인 평가 플랫폼</div>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="index.html" class="text-gray-900 hover:text-primary-600 font-medium">홈</a>
+                    <a href="politicians.html" class="text-gray-900 hover:text-primary-600 font-medium">정치인</a>
+                    <a href="community.html" class="text-gray-900 hover:text-primary-600 font-medium">커뮤니티</a>
+                    <a href="services.html" class="text-gray-900 hover:text-primary-600 font-medium">연결</a>
+
+                    <!-- 알림 아이콘 -->
+                    <a href="notifications.html" class="relative text-gray-900 hover:text-primary-600">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+                        </svg>
+                        <span class="absolute top-0 right-0 inline-flex items-center justify-center px-1.5 py-0.5 text-xs font-bold leading-none text-white transform translate-x-1/2 -translate-y-1/2 bg-red-600 rounded-full">3</span>
+                    </a>
+
+                    <!-- 프로필 메뉴 -->
+                    <div class="flex items-center gap-2">
+                        <svg class="w-6 h-6 text-gray-900" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
+                        </svg>
+                        <a href="mypage.html" class="text-gray-900 hover:text-primary-600 font-medium">민주시민</a>
+                    </div>
+
+                    <a href="login.html" class="text-gray-900 hover:text-primary-600 font-medium">로그아웃</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="mb-6">
+            <h1 class="text-3xl font-bold text-gray-900">설정</h1>
+            <p class="text-gray-600 mt-2">계정 및 알림 설정을 관리할 수 있습니다.</p>
+        </div>
+
+        <!-- 알림 설정 -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <h2 class="text-xl font-bold text-gray-900 mb-4">알림 설정</h2>
+
+            <div class="space-y-4">
+                <!-- 댓글 알림 -->
+                <div class="flex items-center justify-between py-3 border-b">
+                    <div>
+                        <h3 class="font-medium text-gray-900">댓글 알림</h3>
+                        <p class="text-sm text-gray-500">내 게시글에 댓글이 달렸을 때 알림을 받습니다</p>
+                    </div>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" class="sr-only peer" checked>
+                        <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-secondary-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary-500"></div>
+                    </label>
+                </div>
+
+                <!-- 공감 알림 -->
+                <div class="flex items-center justify-between py-3 border-b">
+                    <div>
+                        <h3 class="font-medium text-gray-900">공감 알림</h3>
+                        <p class="text-sm text-gray-500">내 게시글이나 댓글에 공감을 받았을 때 알림을 받습니다</p>
+                    </div>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" class="sr-only peer" checked>
+                        <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-secondary-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary-500"></div>
+                    </label>
+                </div>
+
+                <!-- 공유 알림 -->
+                <div class="flex items-center justify-between py-3 border-b">
+                    <div>
+                        <h3 class="font-medium text-gray-900">공유 알림</h3>
+                        <p class="text-sm text-gray-500">내 게시글이 공유되었을 때 알림을 받습니다</p>
+                    </div>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" class="sr-only peer" checked>
+                        <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-secondary-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary-500"></div>
+                    </label>
+                </div>
+
+                <!-- 정치인 업데이트 알림 -->
+                <div class="flex items-center justify-between py-3">
+                    <div class="flex-1">
+                        <h3 class="font-medium text-gray-900">정치인 업데이트 알림</h3>
+                        <p class="text-sm text-gray-500">관심 정치인의 새로운 활동이 있을 때 알림을 받습니다</p>
+                        <a href="favorite-politicians.html" class="text-xs text-secondary-600 hover:text-secondary-700 font-medium mt-1 inline-block">
+                            관심 정치인 관리 →
+                        </a>
+                    </div>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" class="sr-only peer">
+                        <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-secondary-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary-500"></div>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- 비밀번호 변경 -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <h2 class="text-xl font-bold text-gray-900 mb-4">비밀번호 변경</h2>
+
+            <form id="password-form" class="space-y-4">
+                <div>
+                    <label for="current-password" class="block text-sm font-medium text-gray-900 mb-2">
+                        현재 비밀번호 <span class="text-red-500">*</span>
+                    </label>
+                    <input
+                        type="password"
+                        id="current-password"
+                        required
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary-500 focus:border-secondary-500">
+                </div>
+
+                <div>
+                    <label for="new-password" class="block text-sm font-medium text-gray-900 mb-2">
+                        새 비밀번호 <span class="text-red-500">*</span>
+                    </label>
+                    <input
+                        type="password"
+                        id="new-password"
+                        required
+                        minlength="8"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary-500 focus:border-secondary-500">
+                    <p class="text-xs text-gray-500 mt-1">8자 이상, 영문, 숫자, 특수문자를 포함해주세요.</p>
+                </div>
+
+                <div>
+                    <label for="confirm-password" class="block text-sm font-medium text-gray-900 mb-2">
+                        새 비밀번호 확인 <span class="text-red-500">*</span>
+                    </label>
+                    <input
+                        type="password"
+                        id="confirm-password"
+                        required
+                        minlength="8"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary-500 focus:border-secondary-500">
+                </div>
+
+                <div class="pt-2">
+                    <button type="submit" class="w-full px-6 py-3 bg-secondary-500 text-white rounded-lg hover:bg-secondary-600 font-medium">
+                        비밀번호 변경
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- 계정 관리 -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <h2 class="text-xl font-bold text-gray-900 mb-4">계정 관리</h2>
+
+            <div class="space-y-4">
+                <!-- 계정 비공개 -->
+                <div class="flex items-center justify-between py-3 border-b">
+                    <div>
+                        <h3 class="font-medium text-gray-900">계정 비공개</h3>
+                        <p class="text-sm text-gray-500">내 활동을 다른 사람에게 공개하지 않습니다</p>
+                    </div>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" class="sr-only peer">
+                        <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-secondary-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary-500"></div>
+                    </label>
+                </div>
+
+                <!-- 계정 삭제 -->
+                <div class="pt-3">
+                    <button onclick="confirmDeleteAccount()" class="px-6 py-2 text-red-600 border border-red-600 rounded-lg hover:bg-red-50 font-medium transition">
+                        계정 삭제
+                    </button>
+                    <p class="text-xs text-gray-500 mt-2">계정을 삭제하면 모든 데이터가 영구적으로 삭제되며 복구할 수 없습니다.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 기타 설정 -->
+        <div class="bg-white rounded-lg shadow-md p-6">
+            <h2 class="text-xl font-bold text-gray-900 mb-4">기타 설정</h2>
+
+            <div class="space-y-4">
+                <!-- 언어 설정 -->
+                <div class="py-3 border-b">
+                    <label for="language" class="block text-sm font-medium text-gray-900 mb-2">언어</label>
+                    <select id="language" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary-500 focus:border-secondary-500">
+                        <option value="ko" selected>한국어</option>
+                        <option value="en">English</option>
+                    </select>
+                </div>
+
+                <!-- 테마 설정 -->
+                <div class="py-3">
+                    <label for="theme" class="block text-sm font-medium text-gray-900 mb-2">테마</label>
+                    <select id="theme" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary-500 focus:border-secondary-500">
+                        <option value="light" selected>라이트 모드</option>
+                        <option value="dark">다크 모드</option>
+                        <option value="auto">시스템 설정 따르기</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- 마이페이지로 돌아가기 -->
+        <div class="mt-6">
+            <a href="mypage.html" class="inline-flex items-center text-secondary-600 hover:text-secondary-700 font-medium">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                </svg>
+                마이페이지로 돌아가기
+            </a>
+        </div>
+    </main>
+
+
+    <!-- 알림 모달 -->
+    <div id="alertModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg max-w-sm w-full p-6">
+            <div class="mb-6">
+                <p id="alertMessage" class="text-gray-900 text-center whitespace-pre-line"></p>
+            </div>
+            <div class="flex justify-center">
+                <button onclick="closeAlertModal()" class="px-8 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-500 transition">
+                    확인
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-primary-500 text-white mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <p class="text-center text-sm">&copy; 2025 PoliticianFinder. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // 비밀번호 변경 폼 제출
+        document.getElementById('password-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const currentPassword = document.getElementById('current-password').value;
+            const newPassword = document.getElementById('new-password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+
+            // 비밀번호 일치 확인
+            if (newPassword !== confirmPassword) {
+                openAlertModal('새 비밀번호가 일치하지 않습니다.');
+                return;
+            }
+
+            // 비밀번호 강도 확인 (간단한 예시)
+            const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+            if (!passwordRegex.test(newPassword)) {
+                openAlertModal('비밀번호는 8자 이상이며, 영문, 숫자, 특수문자를 포함해야 합니다.');
+                return;
+            }
+
+            openAlertModal('비밀번호가 변경되었습니다!');
+            this.reset();
+        });
+
+        // 계정 삭제 확인
+        function confirmDeleteAccount() {
+            if (confirm('정말로 계정을 삭제하시겠습니까?\n\n모든 데이터가 영구적으로 삭제되며 복구할 수 없습니다.')) {
+                if (confirm('계속하시겠습니까? 이 작업은 되돌릴 수 없습니다.')) {
+                    openAlertModal('계정이 삭제되었습니다.');
+                    window.location.href = 'index.html';
+                }
+            }
+        }
+
+        // 알림 설정 저장 (토글 변경 시)
+        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                // 실제로는 서버에 저장하지만, 여기서는 알림만 표시
+                console.log('설정이 저장되었습니다.');
+            });
+        });
+
+        // 알림 모달 함수
+        function openAlertModal(message) {
+            document.getElementById('alertMessage').textContent = message;
+            document.getElementById('alertModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function openAlertModalWithCallback(message, callback) {
+            document.getElementById('alertMessage').textContent = message;
+            document.getElementById('alertModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            window.alertCallback = callback;
+        }
+
+        function closeAlertModal() {
+            document.getElementById('alertModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+            if (window.alertCallback) {
+                window.alertCallback();
+                window.alertCallback = null;
+            }
+        }
+
+    </script>
+</body>
+</html>

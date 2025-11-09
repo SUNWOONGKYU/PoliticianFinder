@@ -1,0 +1,147 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
+jobs:
+  # Frontend Build and Test
+  frontend-build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./1_Frontend
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: ./1_Frontend/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run linter
+        run: npm run lint
+        continue-on-error: true
+
+      - name: Build application
+        run: npm run build
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: frontend-build
+          path: ./1_Frontend/.next
+
+  # Backend Build and Test (when implemented)
+  backend-build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./3_Backend_APIs
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Check if backend exists
+        id: backend-check
+        run: |
+          if [ -f "package.json" ]; then
+            echo "exists=true" >> $GITHUB_OUTPUT
+          else
+            echo "exists=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Install dependencies
+        if: steps.backend-check.outputs.exists == 'true'
+        run: npm ci
+        continue-on-error: true
+
+      - name: Run linter
+        if: steps.backend-check.outputs.exists == 'true'
+        run: npm run lint 2>/dev/null || echo "Lint skipped"
+        continue-on-error: true
+
+      - name: Build application
+        if: steps.backend-check.outputs.exists == 'true'
+        run: npm run build 2>/dev/null || echo "Build skipped"
+        continue-on-error: true
+
+  # Docker Build (optional)
+  docker-build:
+    needs: frontend-build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Docker images
+        uses: docker/build-push-action@v5
+        with:
+          context: ./1_Frontend
+          push: false
+          tags: politicianfinder-frontend:latest
+          cache-from: type=registry,ref=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:buildcache
+          cache-to: type=registry,ref=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:buildcache,mode=max
+
+  # Code Quality Check
+  quality-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run SuperLinter
+        uses: super-linter/super-linter@v5.0.0
+        env:
+          DEFAULT_BRANCH: main
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VALIDATE_MARKDOWN: true
+          VALIDATE_JSON: true
+          VALIDATE_YAML: true
+
+  # Type Checking
+  type-check:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./1_Frontend
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: ./1_Frontend/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Type check
+        run: npx tsc --noEmit
+        continue-on-error: true

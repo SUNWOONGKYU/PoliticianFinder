@@ -1,0 +1,332 @@
+/**
+ * Project Grid Task ID: P1BI2
+ * 작업명: API 미들웨어
+ * 생성시간: 2025-10-31
+ * 생성자: Claude-Sonnet-4.5
+ * 의존성: 없음
+ * 설명: Next.js 앱의 모든 요청을 처리하는 미들웨어. JWT를 사용한 사용자 인증, API 속도 제한(Rate Limiting), CORS 정책을 적용합니다.
+ */
+
+import { NextResponse } from 'next/server';
+import type { NextRequest } from 'next/server';
+import { createServerClient } from '@supabase/ssr';
+
+// ============================================================================
+// 설정
+// ============================================================================
+
+// Rate Limiting 설정
+const RATE_LIMIT_WINDOW = 60 * 1000; // 1분
+const RATE_LIMIT_MAX_REQUESTS = 100; // 1분당 최대 요청 수
+
+// Rate Limiting 저장소 (프로덕션에서는 Redis 사용 권장)
+const rateLimitStore = new Map<
+  string,
+  { count: number; resetTime: number }
+>();
+
+// 보호가 필요한 경로
+const PROTECTED_ROUTES = [
+  '/dashboard',
+  '/profile',
+  '/settings',
+  '/api/protected',
+];
+
+// 인증이 필요한 API 경로
+const PROTECTED_API_ROUTES = [
+  '/api/auth/me',
+  '/api/auth/logout',
+  '/api/profile',
+];
+
+// CORS 허용 Origin (개발/프로덕션)
+const ALLOWED_ORIGINS = [
+  'http://localhost:3000',
+  'https://politicianfinder.com',
+  'https://www.politicianfinder.com',
+];
+
+// ============================================================================
+// 미들웨어 메인 함수
+// ============================================================================
+
+export async function middleware(request: NextRequest) {
+  const { pathname } = request.nextUrl;
+
+  // 1. CORS 헤더 추가
+  const response = handleCORS(request);
+
+  // 2. Preflight 요청 처리 (OPTIONS)
+  if (request.method === 'OPTIONS') {
+    return response;
+  }
+
+  // 3. Rate Limiting 적용
+  const rateLimitResult = await handleRateLimit(request);
+  if (rateLimitResult) {
+    return rateLimitResult;
+  }
+
+  // 4. 정적 파일 및 Next.js 내부 경로 제외
+  if (
+    pathname.startsWith('/_next') ||
+    pathname.startsWith('/static') ||
+    pathname.includes('.')
+  ) {
+    return response;
+  }
+
+  // 5. 인증 필요 여부 확인
+  const needsAuth = isProtectedRoute(pathname);
+
+  if (needsAuth) {
+    // 6. JWT 검증
+    const authResult = await verifyAuth(request);
+
+    if (!authResult.authenticated) {
+      // 인증 실패 - 로그인 페이지로 리다이렉트
+      if (pathname.startsWith('/api/')) {
+        // API 요청은 401 에러 반환
+        return NextResponse.json(
+          {
+            success: false,
+            error: {
+              code: 'UNAUTHORIZED',
+              message: '인증이 필요합니다. 로그인해 주세요.',
+            },
+          },
+          { status: 401 }
+        );
+      } else {
+        // 페이지 요청은 로그인 페이지로 리다이렉트
+        const loginUrl = new URL('/login', request.url);
+        loginUrl.searchParams.set('redirect', pathname);
+        return NextResponse.redirect(loginUrl);
+      }
+    }
+
+    // 7. 사용자 정보를 헤더에 추가 (API에서 사용)
+    response.headers.set('x-user-id', authResult.userId!);
+    response.headers.set('x-user-email', authResult.userEmail!);
+  }
+
+  return response;
+}
+
+// ============================================================================
+// CORS 처리
+// ============================================================================
+
+function handleCORS(request: NextRequest): NextResponse {
+  const origin = request.headers.get('origin') || '';
+  const response = NextResponse.next();
+
+  // Origin이 허용 목록에 있는지 확인
+  if (ALLOWED_ORIGINS.includes(origin)) {
+    response.headers.set('Access-Control-Allow-Origin', origin);
+  }
+
+  // CORS 헤더 설정
+  response.headers.set('Access-Control-Allow-Credentials', 'true');
+  response.headers.set(
+    'Access-Control-Allow-Methods',
+    'GET, POST, PUT, PATCH, DELETE, OPTIONS'
+  );
+  response.headers.set(
+    'Access-Control-Allow-Headers',
+    'Content-Type, Authorization, X-Requested-With, Accept, Origin'
+  );
+  response.headers.set('Access-Control-Max-Age', '86400'); // 24시간
+
+  return response;
+}
+
+// ============================================================================
+// Rate Limiting
+// ============================================================================
+
+async function handleRateLimit(
+  request: NextRequest
+): Promise<NextResponse | null> {
+  // Rate Limiting 제외 경로
+  if (
+    request.nextUrl.pathname.startsWith('/_next') ||
+    request.nextUrl.pathname.startsWith('/static')
+  ) {
+    return null;
+  }
+
+  // 클라이언트 식별 (IP 주소 또는 인증된 사용자 ID)
+  const clientId =
+    request.headers.get('x-forwarded-for') ||
+    request.headers.get('x-real-ip') ||
+    'anonymous';
+
+  const now = Date.now();
+  const limitData = rateLimitStore.get(clientId);
+
+  if (!limitData || now > limitData.resetTime) {
+    // 새로운 윈도우 시작
+    rateLimitStore.set(clientId, {
+      count: 1,
+      resetTime: now + RATE_LIMIT_WINDOW,
+    });
+    return null;
+  }
+
+  if (limitData.count >= RATE_LIMIT_MAX_REQUESTS) {
+    // Rate Limit 초과
+    const retryAfter = Math.ceil((limitData.resetTime - now) / 1000);
+
+    return NextResponse.json(
+      {
+        success: false,
+        error: {
+          code: 'RATE_LIMIT_EXCEEDED',
+          message: '요청 한도를 초과했습니다. 잠시 후 다시 시도해 주세요.',
+          retryAfter,
+        },
+      },
+      {
+        status: 429,
+        headers: {
+          'Retry-After': retryAfter.toString(),
+          'X-RateLimit-Limit': RATE_LIMIT_MAX_REQUESTS.toString(),
+          'X-RateLimit-Remaining': '0',
+          'X-RateLimit-Reset': limitData.resetTime.toString(),
+        },
+      }
+    );
+  }
+
+  // 요청 카운트 증가
+  limitData.count++;
+  rateLimitStore.set(clientId, limitData);
+
+  return null;
+}
+
+// ============================================================================
+// JWT 검증
+// ============================================================================
+
+async function verifyAuth(request: NextRequest): Promise<{
+  authenticated: boolean;
+  userId?: string;
+  userEmail?: string;
+}> {
+  try {
+    // Supabase 서버 클라이언트 생성
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+    const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
+    if (!supabaseUrl || !supabaseAnonKey) {
+      console.error('Supabase 환경변수가 설정되지 않았습니다.');
+      return { authenticated: false };
+    }
+
+    // 쿠키에서 인증 정보 가져오기
+    const cookieStore = request.cookies;
+
+    const supabase = createServerClient(supabaseUrl, supabaseAnonKey, {
+      cookies: {
+        get(name: string) {
+          return cookieStore.get(name)?.value;
+        },
+        set() {},
+        remove() {},
+      },
+    });
+
+    // 사용자 세션 확인
+    const {
+      data: { user },
+      error,
+    } = await supabase.auth.getUser();
+
+    if (error || !user) {
+      return { authenticated: false };
+    }
+
+    return {
+      authenticated: true,
+      userId: user.id,
+      userEmail: user.email || '',
+    };
+  } catch (error) {
+    console.error('인증 검증 실패:', error);
+    return { authenticated: false };
+  }
+}
+
+// ============================================================================
+// 유틸리티 함수
+// ============================================================================
+
+/**
+ * 보호가 필요한 경로인지 확인
+ * @param pathname 경로
+ * @returns 보호 여부
+ */
+function isProtectedRoute(pathname: string): boolean {
+  // 페이지 보호 경로
+  for (const route of PROTECTED_ROUTES) {
+    if (pathname.startsWith(route)) {
+      return true;
+    }
+  }
+
+  // API 보호 경로
+  for (const route of PROTECTED_API_ROUTES) {
+    if (pathname.startsWith(route)) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
+// ============================================================================
+// 미들웨어 설정 (matcher)
+// ============================================================================
+
+// 미들웨어가 실행될 경로 패턴
+export const config = {
+  matcher: [
+    /*
+     * 다음 경로를 제외한 모든 경로에서 실행:
+     * - api (API routes)
+     * - _next/static (static files)
+     * - _next/image (image optimization files)
+     * - favicon.ico (favicon file)
+     */
+    '/((?!_next/static|_next/image|favicon.ico).*)',
+  ],
+};
+
+// ============================================================================
+// 완료
+// ============================================================================
+// P1BI2: API 미들웨어 구현 완료
+//
+// 구현된 기능:
+// - CORS 헤더 설정 (localhost, politicianfinder.com)
+// - Preflight 요청 처리 (OPTIONS)
+// - Rate Limiting (1분당 100 요청)
+// - JWT 검증 (Supabase Auth)
+// - 보호 경로 인증 (dashboard, profile, settings, API)
+// - 인증 실패 시 리다이렉트 (페이지) 또는 401 (API)
+//
+// 보호 경로:
+// - /dashboard, /profile, /settings
+// - /api/auth/me, /api/auth/logout, /api/profile
+//
+// Rate Limit:
+// - 1분당 100 요청
+// - 초과 시 429 에러 (Retry-After 헤더 포함)
+//
+// CORS:
+// - localhost:3000, politicianfinder.com 허용
+// - Credentials 허용
+// - OPTIONS 요청 처리

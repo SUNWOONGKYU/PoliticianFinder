@@ -1,0 +1,15 @@
+{
+  "task_name": "Mock API - 인증 (6개 API 통합)",
+  "instruction_file": "tasks/P1BA1.md",
+  "assigned_agent": "1차: api-designer | 2차: Claude Code(실행 및 검증)",
+  "tools": "Read, Edit, Write, Grep, Glob, Bash / TypeScript, Next.js API Routes, Zod / api-builder, api-test",
+  "work_mode": "AI-Only",
+  "dependency_chain": "P1D1, P1D2",
+  "progress": 0,
+  "status": "대기",
+  "generated_files": "-",
+  "generator": "-",
+  "duration": "-",
+  "modification_history": "-",
+  "remarks": "6개 인증 API를 1개 작업지시서로 통합 (회원가입, Google OAuth, 로그인, 비밀번호 재설정, 토큰 리프레시, 로그아웃)"
+}

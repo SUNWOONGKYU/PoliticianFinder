@@ -1,0 +1,36 @@
+# P1D5: Supabase 프로젝트 설정
+# 작업일: 2025-11-02
+# 설명: Supabase CLI를 위한 로컬 프로젝트 설정 파일입니다.
+
+# 프로젝트 ID는 'supabase init' 실행 시 자동으로 생성됩니다.
+# 이 ID는 로컬 환경에서만 사용됩니다.
+project_id = "politician-finder"
+
+[api]
+# 로컬 개발용 API 포트
+port = 54321
+
+[db]
+# 로컬 개발용 데이터베이스 포트
+port = 54322
+
+[studio]
+# 로컬 Supabase Studio 포트
+port = 54323
+
+# In-memory mode for local development
+# studio_in_memory_mode = true
+
+[auth]
+# 로컬 개발용 이메일 설정
+enable_signup = true
+
+# 이메일 확인 비활성화 (로컬 테스트용)
+# disable_email_autoverify = true
+
+# 외부 OAuth 제공자 설정 (예: google)
+# enable_implicit_grant_flow_for_pkce = true
+# external_providers = ["google"]
+# [auth.external.google]
+# client_id = "YOUR_GOOGLE_CLIENT_ID"
+# secret = "YOUR_GOOGLE_CLIENT_SECRET"

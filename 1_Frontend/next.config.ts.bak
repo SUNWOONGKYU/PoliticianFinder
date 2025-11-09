@@ -1,0 +1,16 @@
+/**
+ * Project Grid Task ID: P1O1
+ * 작업명: 프로젝트 초기화
+ * 생성시간: 2025-11-01
+ * 생성자: Gemini
+ * 의존성: 없음
+ * 설명: Next.js 프로젝트의 기본 설정을 정의합니다. React Strict Mode를 활성화합니다.
+ */
+
+import type { NextConfig } from 'next';
+
+const nextConfig: NextConfig = {
+  reactStrictMode: true,
+};
+
+export default nextConfig;

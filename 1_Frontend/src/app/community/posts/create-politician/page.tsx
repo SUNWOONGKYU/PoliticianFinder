@@ -1,0 +1,301 @@
+'use client';
+
+import { useState, useEffect, useRef, ChangeEvent, FormEvent } from 'react';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+
+// TypeScript interfaces
+interface DraftData {
+  title: string;
+  content: string;
+  tags: string;
+  savedAt: string;
+}
+
+interface SelectedFile {
+  file: File;
+  name: string;
+  size: number;
+}
+
+export default function CreatePoliticianPostPage() {
+  const router = useRouter();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [title, setTitle] = useState('');
+  const [content, setContent] = useState('');
+  const [tags, setTags] = useState('');
+  const [selectedFiles, setSelectedFiles] = useState<SelectedFile[]>([]);
+  const [alertMessage, setAlertMessage] = useState('');
+  const [showAlert, setShowAlert] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  // Load draft on component mount
+  useEffect(() => {
+    const draft = localStorage.getItem('draft_post_politician');
+    if (draft) {
+      const shouldLoad = window.confirm('임시저장된 글이 있습니다. 불러오시겠습니까?');
+      if (shouldLoad) {
+        const data: DraftData = JSON.parse(draft);
+        setTitle(data.title || '');
+        setContent(data.content || '');
+        setTags(data.tags || '');
+      }
+    }
+  }, []);
+
+  // Handle file selection
+  const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files) {
+      const files = Array.from(e.target.files).map(file => ({
+        file,
+        name: file.name,
+        size: file.size
+      }));
+      setSelectedFiles(files);
+    }
+  };
+
+  // Remove file
+  const removeFile = (index: number) => {
+    setSelectedFiles(prev => prev.filter((_, i) => i !== index));
+    if (fileInputRef.current) {
+      fileInputRef.current.value = '';
+    }
+  };
+
+  // Save draft
+  const saveDraft = () => {
+    const draft: DraftData = {
+      title,
+      content,
+      tags,
+      savedAt: new Date().toISOString()
+    };
+    localStorage.setItem('draft_post_politician', JSON.stringify(draft));
+    showAlertModal('임시저장되었습니다.');
+  };
+
+  // Handle form submission
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (!title.trim() || !content.trim()) {
+      showAlertModal('제목과 내용을 입력해주세요.');
+      return;
+    }
+
+    // In production, this would be an API call
+    // const formData = new FormData();
+    // formData.append('title', title);
+    // formData.append('content', content);
+    // formData.append('tags', tags);
+    // formData.append('category', 'politician_post');
+    // selectedFiles.forEach(f => formData.append('files', f.file));
+
+    showAlertModal('게시글이 등록되었습니다!');
+    localStorage.removeItem('draft_post_politician');
+
+    // Redirect after a short delay
+    setTimeout(() => {
+      router.push('/community');
+    }, 1500);
+  };
+
+  // Alert modal functions
+  const showAlertModal = (message: string) => {
+    setAlertMessage(message);
+    setShowAlert(true);
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeAlertModal = () => {
+    setShowAlert(false);
+    setAlertMessage('');
+    document.body.style.overflow = 'auto';
+  };
+
+  return (
+    <div className="bg-gray-50 min-h-screen">
+      {/* Main Content */}
+      <main className="max-w-4xl mx-auto px-4 py-8">
+        <div className="mb-6">
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">게시글 작성</h1>
+          <p className="text-gray-600">커뮤니티에 새로운 글을 작성해보세요.</p>
+        </div>
+
+        <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow-md p-6 space-y-6">
+          {/* Category */}
+          <div>
+            <label className="block text-sm font-medium text-gray-900 mb-2">카테고리</label>
+            <div className="w-full px-4 py-2 border border-gray-300 rounded-lg bg-gray-50">
+              <span className="font-medium text-primary-600">🏛️ 정치인 게시판</span>
+            </div>
+          </div>
+
+          {/* Title */}
+          <div>
+            <label htmlFor="title" className="block text-sm font-medium text-gray-900 mb-2">
+              제목 <span className="text-red-500">*</span>
+            </label>
+            <input
+              type="text"
+              id="title"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              required
+              maxLength={100}
+              placeholder="제목을 입력하세요 (최대 100자)"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+            />
+            <div className="text-right mt-1">
+              <span className="text-sm text-gray-500">{title.length} / 100</span>
+            </div>
+          </div>
+
+          {/* Content */}
+          <div>
+            <label htmlFor="content" className="block text-sm font-medium text-gray-900 mb-2">
+              내용 <span className="text-red-500">*</span>
+            </label>
+            <textarea
+              id="content"
+              value={content}
+              onChange={(e) => setContent(e.target.value)}
+              required
+              rows={15}
+              placeholder="내용을 입력하세요&#10;&#10;• 타인을 비방하거나 명예를 훼손하는 내용은 삼가주세요.&#10;• 허위 사실을 유포하거나 악의적인 내용은 삭제될 수 있습니다.&#10;• 건전한 토론 문화를 만들어 주세요."
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 resize-none"
+            />
+            <div className="text-right mt-1">
+              <span className="text-sm text-gray-500">{content.length}자</span>
+            </div>
+          </div>
+
+          {/* Tags */}
+          <div>
+            <label htmlFor="tags" className="block text-sm font-medium text-gray-900 mb-2">
+              태그 <span className="text-gray-500">(선택)</span>
+            </label>
+            <input
+              type="text"
+              id="tags"
+              value={tags}
+              onChange={(e) => setTags(e.target.value)}
+              placeholder="태그를 쉼표(,)로 구분하여 입력하세요"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+            />
+            <p className="text-sm text-gray-500 mt-1">최대 5개까지 입력 가능합니다.</p>
+          </div>
+
+          {/* File Upload */}
+          <div>
+            <label htmlFor="files" className="block text-sm font-medium text-gray-900 mb-2">
+              첨부파일 <span className="text-gray-500">(선택)</span>
+            </label>
+            <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-primary-500 transition">
+              <input
+                type="file"
+                id="files"
+                ref={fileInputRef}
+                multiple
+                accept="image/*,.pdf,.doc,.docx"
+                onChange={handleFileChange}
+                className="hidden"
+              />
+              <label htmlFor="files" className="cursor-pointer">
+                <svg className="mx-auto h-12 w-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                </svg>
+                <p className="mt-2 text-sm text-gray-600">
+                  <span className="text-primary-600 font-medium">파일 선택</span> 또는 드래그 앤 드롭
+                </p>
+                <p className="mt-1 text-xs text-gray-500">이미지, PDF, DOC 파일 (최대 10MB)</p>
+              </label>
+            </div>
+            <div className="mt-3 space-y-2">
+              {selectedFiles.map((file, index) => (
+                <div key={index} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                  <div className="flex items-center gap-2">
+                    <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                    <span className="text-sm text-gray-700">{file.name}</span>
+                    <span className="text-xs text-gray-500">({(file.size / 1024).toFixed(1)} KB)</span>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => removeFile(index)}
+                    className="text-red-500 hover:text-red-700"
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Writing Guide */}
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+            <h3 className="font-bold text-blue-900 mb-2 flex items-center gap-2">
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+              </svg>
+              작성 가이드
+            </h3>
+            <ul className="text-sm text-gray-700 space-y-1 ml-7">
+              <li>• 구체적이고 명확한 제목을 작성해주세요.</li>
+              <li>• 근거 있는 정보를 바탕으로 작성해주세요.</li>
+              <li>• 타인을 존중하는 언어를 사용해주세요.</li>
+              <li>• 개인정보 유출에 주의해주세요.</li>
+            </ul>
+          </div>
+
+          {/* Buttons */}
+          <div className="flex gap-3 pt-4 border-t">
+            <button
+              type="button"
+              onClick={() => router.back()}
+              className="flex-1 px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 font-medium"
+            >
+              취소
+            </button>
+            <button
+              type="button"
+              onClick={saveDraft}
+              className="flex-1 px-6 py-3 border border-primary-600 text-primary-600 rounded-lg hover:bg-purple-50 font-medium"
+            >
+              임시저장
+            </button>
+            <button
+              type="submit"
+              className="flex-1 px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 font-medium"
+            >
+              등록하기
+            </button>
+          </div>
+        </form>
+      </main>
+
+      {/* Alert Modal */}
+      {showAlert && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-lg max-w-sm w-full p-6">
+            <div className="mb-6">
+              <p className="text-gray-900 text-center whitespace-pre-line">{alertMessage}</p>
+            </div>
+            <div className="flex justify-center">
+              <button
+                onClick={closeAlertModal}
+                className="px-8 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-500 transition"
+              >
+                확인
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}

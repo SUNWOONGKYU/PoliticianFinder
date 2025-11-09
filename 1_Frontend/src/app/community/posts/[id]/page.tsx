@@ -1,0 +1,371 @@
+'use client';
+
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
+
+interface Comment {
+  id: number;
+  author: string;
+  userId: string;
+  memberLevel: string;
+  influenceLevel: string;
+  timestamp: string;
+  content: string;
+  upvotes: number;
+  downvotes: number;
+  isFollowing: boolean;
+}
+
+export default function PostDetailPage({ params }: { params: { id: string } }) {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [shareModalOpen, setShareModalOpen] = useState(false);
+  const [alertMessage, setAlertMessage] = useState('');
+  const [alertModalOpen, setAlertModalOpen] = useState(false);
+  const [commentText, setCommentText] = useState('');
+  const [upvoted, setUpvoted] = useState(false);
+  const [downvoted, setDownvoted] = useState(false);
+  const [upvotes, setUpvotes] = useState(45);
+  const [downvotes, setDownvotes] = useState(3);
+
+  // Sample post data (would come from API in production)
+  const post = {
+    id: params.id,
+    title: '우리 지역 교통 문제 어떻게 생각하시나요?',
+    category: '자유게시판',
+    author: '박지민',
+    memberLevel: 'ML3',
+    timestamp: '2025.10.25 14:30',
+    views: 234,
+    commentCount: 28,
+    shareCount: 7,
+    content: `안녕하세요, 평소에 출퇴근 시간대 교통 문제로 고민이 많은 직장인입니다.
+
+요즘 출퇴근 시간에 너무 막히는데, 다들 어떻게 생각하시나요? 좋은 해결책이 있을까요?
+
+## 현재 문제점
+
+1. 출퇴근 시간 30분 → 1시간 이상 소요
+2. 버스 배차 간격이 너무 길어서 대기 시간이 김
+3. 지하철역까지 거리가 멀어서 접근성이 떨어짐
+
+## 제안하고 싶은 해결책
+
+• 버스 배차 간격 단축 (특히 출퇴근 시간대)
+• 마을버스 노선 신설
+• 자전거 도로 확충
+
+여러분의 의견이 궁금합니다. 댓글로 자유롭게 의견 남겨주세요!`
+  };
+
+  const [comments] = useState<Comment[]>([
+    {
+      id: 1,
+      author: '직장인A',
+      userId: 'user_001',
+      memberLevel: 'ML2',
+      influenceLevel: '영주',
+      timestamp: '2025.10.25 15:00',
+      content: '저도 같은 문제로 고민하고 있어요. 특히 버스 배차 간격이 너무 길어서 출근할 때 매번 택시를 타게 됩니다. 개선이 시급합니다!',
+      upvotes: 18,
+      downvotes: 0,
+      isFollowing: false
+    },
+    {
+      id: 2,
+      author: '교통전문가',
+      userId: 'user_002',
+      memberLevel: 'ML4',
+      influenceLevel: '영주',
+      timestamp: '2025.10.25 15:30',
+      content: '좋은 문제 제기입니다. 제안하신 해결책 중에서 마을버스 노선 신설이 가장 현실적인 대안이 될 것 같네요. 관련 부서에 건의해보는 것도 좋을 것 같습니다.',
+      upvotes: 22,
+      downvotes: 1,
+      isFollowing: false
+    },
+    {
+      id: 3,
+      author: '주민123',
+      userId: 'user_003',
+      memberLevel: 'ML1',
+      influenceLevel: '영주',
+      timestamp: '2025.10.25 16:00',
+      content: '자전거 도로 확충도 좋은 생각이네요! 가까운 거리는 자전거로 이동할 수 있으면 교통 혼잡도 줄어들 것 같아요.',
+      upvotes: 10,
+      downvotes: 2,
+      isFollowing: false
+    }
+  ]);
+
+  const handleUpvote = () => {
+    if (upvoted) {
+      setUpvotes(upvotes - 1);
+      setUpvoted(false);
+    } else {
+      setUpvotes(upvotes + 1);
+      setUpvoted(true);
+      if (downvoted) {
+        setDownvotes(downvotes - 1);
+        setDownvoted(false);
+      }
+    }
+  };
+
+  const handleDownvote = () => {
+    if (downvoted) {
+      setDownvotes(downvotes - 1);
+      setDownvoted(false);
+    } else {
+      setDownvotes(downvotes + 1);
+      setDownvoted(true);
+      if (upvoted) {
+        setUpvotes(upvotes - 1);
+        setUpvoted(false);
+      }
+    }
+  };
+
+  const handleShare = () => {
+    setShareModalOpen(true);
+  };
+
+  const copyLinkToClipboard = () => {
+    if (typeof window !== 'undefined') {
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        showAlert('게시글 링크가 클립보드에 복사되었습니다.');
+        setShareModalOpen(false);
+      }).catch(() => {
+        showAlert('링크 복사에 실패했습니다.');
+      });
+    }
+  };
+
+  const shareToFacebook = () => {
+    if (typeof window !== 'undefined') {
+      const url = window.location.href;
+      window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank', 'width=600,height=400');
+    }
+  };
+
+  const shareToTwitter = () => {
+    if (typeof window !== 'undefined') {
+      const url = window.location.href;
+      window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(post.title)}`, '_blank', 'width=600,height=400');
+    }
+  };
+
+  const shareToNaverBlog = () => {
+    if (typeof window !== 'undefined') {
+      const url = window.location.href;
+      window.open(`https://blog.naver.com/openapi/share?url=${encodeURIComponent(url)}&title=${encodeURIComponent(post.title)}`, '_blank', 'width=600,height=500');
+    }
+  };
+
+  const showAlert = (message: string) => {
+    setAlertMessage(message);
+    setAlertModalOpen(true);
+  };
+
+  return (
+    <div className="min-h-screen bg-gray-50">
+      {/* Main Content */}
+      <main className="max-w-4xl mx-auto px-4 py-8">
+        <div className="mb-4">
+          <Link href="/community" className="inline-flex items-center text-gray-600 hover:text-primary-600">
+            <svg className="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+            목록으로
+          </Link>
+        </div>
+
+        {/* Post Detail */}
+        <article className="bg-white rounded-lg shadow-md p-6 mb-6">
+          <div className="flex items-center gap-2 mb-4">
+            <span className="px-2 py-1 bg-emerald-100 text-emerald-800 text-xs font-bold rounded">💬 {post.category}</span>
+          </div>
+
+          <h1 className="text-3xl font-bold text-gray-900 mb-4">{post.title}</h1>
+
+          <div className="border-b pb-4 mb-6">
+            <div className="flex items-center gap-3 text-xs text-gray-500 flex-wrap">
+              <span className="font-medium text-purple-600">{post.author}</span>
+              <span className="text-gray-900" aria-label={`활동 등급 ${post.memberLevel}`} title={`활동 등급: ${post.memberLevel}`}>{post.memberLevel}</span>
+              <span>{post.timestamp}</span>
+              <span>조회수 {post.views}</span>
+              <span className="text-red-600">👍 {upvotes}</span>
+              <span className="text-gray-400">👎 {downvotes}</span>
+              <span>댓글 {post.commentCount}</span>
+              <button onClick={handleShare} className="flex items-center gap-1 hover:text-emerald-900">
+                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.59 13.51l6.83 3.98m-.01-10.98l-6.82 3.98M21 5a3 3 0 11-6 0 3 3 0 016 0zM9 12a3 3 0 11-6 0 3 3 0 016 0zm12 7a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                <span>공유 {post.shareCount}</span>
+              </button>
+            </div>
+          </div>
+
+          <div className="prose max-w-none mb-8">
+            {post.content.split('\n\n').map((paragraph, idx) => {
+              if (paragraph.startsWith('## ')) {
+                return <h2 key={idx} className="text-2xl font-bold text-gray-900 mt-6 mb-3">{paragraph.replace('## ', '')}</h2>;
+              }
+              return <p key={idx} className="text-gray-700 leading-relaxed mb-4" dangerouslySetInnerHTML={{ __html: paragraph.replace(/\n/g, '<br>') }} />;
+            })}
+          </div>
+
+          <div className="flex items-center justify-center gap-4 py-6 border-t border-b">
+            <button
+              onClick={handleUpvote}
+              className={`flex flex-col items-center gap-1 px-6 py-3 rounded-lg transition ${upvoted ? 'bg-red-100' : 'bg-red-50 hover:bg-red-100'}`}
+            >
+              <span className="text-2xl">👍</span>
+              <span className="text-sm font-medium text-gray-700">공감 <span className="text-red-600">{upvotes}</span></span>
+            </button>
+            <button
+              onClick={handleDownvote}
+              className={`flex flex-col items-center gap-1 px-6 py-3 rounded-lg transition ${downvoted ? 'bg-gray-100' : 'bg-gray-50 hover:bg-gray-100'}`}
+            >
+              <span className="text-2xl">👎</span>
+              <span className="text-sm font-medium text-gray-700">비공감 <span className="text-gray-500">{downvotes}</span></span>
+            </button>
+            <button onClick={handleShare} className="flex flex-col items-center gap-1 px-6 py-3 bg-emerald-50 hover:bg-emerald-100 rounded-lg transition">
+              <svg className="w-6 h-6 text-emerald-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.59 13.51l6.83 3.98m-.01-10.98l-6.82 3.98M21 5a3 3 0 11-6 0 3 3 0 016 0zM9 12a3 3 0 11-6 0 3 3 0 016 0zm12 7a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              <span className="text-sm font-medium text-gray-700">공유 <span className="text-emerald-900">{post.shareCount}</span></span>
+            </button>
+          </div>
+        </article>
+
+        {/* Comments Section */}
+        <section className="bg-white rounded-lg shadow-md p-6">
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">댓글 <span className="text-emerald-900">{post.commentCount}</span></h2>
+
+          <div className="mb-6 p-4 bg-gray-50 rounded-lg">
+            <textarea
+              value={commentText}
+              onChange={(e) => setCommentText(e.target.value)}
+              rows={3}
+              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 resize-none"
+              placeholder="댓글을 입력하세요..."
+            />
+            <div className="flex justify-between items-center mt-2">
+              <span className="text-sm text-gray-500">로그인 후 댓글을 작성할 수 있습니다.</span>
+              <button className="px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 font-medium">
+                댓글 작성
+              </button>
+            </div>
+          </div>
+
+          <div className="space-y-4">
+            {comments.map((comment) => (
+              <div key={comment.id} className="border-b pb-4">
+                <div className="mb-2">
+                  <div className="flex items-center gap-3 text-xs text-gray-500 flex-wrap">
+                    <Link href={`/users/${comment.userId}/profile`} className="font-medium text-purple-600 hover:text-purple-700 hover:underline">
+                      {comment.author}
+                    </Link>
+                    <span className="text-gray-900" aria-label={`활동 등급 ${comment.memberLevel}`} title={`활동 등급: ${comment.memberLevel}`}>{comment.memberLevel}</span>
+                    <span className="text-[10px] text-emerald-900 font-medium" aria-label={`영향력 등급 ${comment.influenceLevel}`} title={`영향력 등급: ${comment.influenceLevel}`}>🏰 {comment.influenceLevel}</span>
+                    <button className="px-2 py-0.5 border border-emerald-700 text-emerald-900 rounded text-xs hover:bg-gray-50 transition">
+                      + 팔로우
+                    </button>
+                    <span>{comment.timestamp}</span>
+                    <span className="text-red-600">👍 {comment.upvotes}</span>
+                    <span className="text-gray-400">👎 {comment.downvotes}</span>
+                  </div>
+                </div>
+                <p className="text-gray-700 leading-relaxed">{comment.content}</p>
+              </div>
+            ))}
+
+            <div className="text-center pt-4">
+              <button className="px-6 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 font-medium">
+                댓글 더보기 (25개 남음)
+              </button>
+            </div>
+          </div>
+        </section>
+
+        {/* Other Posts */}
+        <section className="mt-8">
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">다른 게시글</h2>
+          <div className="space-y-3">
+            <Link href="/community/posts/1" className="block p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition">
+              <div className="flex items-center justify-between">
+                <span className="font-medium text-gray-900">정치인 평가 시스템 정말 혁신적이네요</span>
+                <span className="text-sm text-gray-500">👍 32</span>
+              </div>
+            </Link>
+            <Link href="/community/posts/2" className="block p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition">
+              <div className="flex items-center justify-between">
+                <span className="font-medium text-gray-900">우리 동네 복지센터 이용 후기</span>
+                <span className="text-sm text-gray-500">👍 21</span>
+              </div>
+            </Link>
+          </div>
+        </section>
+      </main>
+
+      {/* Share Modal */}
+      {shareModalOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4" onClick={() => setShareModalOpen(false)}>
+          <div className="bg-white rounded-lg shadow-xl max-w-md w-full p-6" onClick={(e) => e.stopPropagation()}>
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-2xl font-bold text-gray-900">게시글 공유하기</h2>
+              <button onClick={() => setShareModalOpen(false)} className="text-gray-400 hover:text-gray-600">
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            <p className="text-gray-600 mb-6">{post.title}</p>
+            <div className="space-y-3">
+              <button onClick={copyLinkToClipboard} className="w-full px-4 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-lg text-left flex items-center gap-3 shadow-md">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                </svg>
+                <div className="font-medium">링크 복사</div>
+              </button>
+              <button onClick={shareToFacebook} className="w-full px-4 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-left flex items-center gap-3">
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                </svg>
+                <div className="font-medium">Facebook에 공유</div>
+              </button>
+              <button onClick={shareToTwitter} className="w-full px-4 py-3 bg-black hover:bg-gray-800 text-white rounded-lg text-left flex items-center gap-3">
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                </svg>
+                <div className="font-medium">X (Twitter)에 공유</div>
+              </button>
+              <button onClick={shareToNaverBlog} className="w-full px-4 py-3 bg-emerald-500 hover:bg-green-600 text-white rounded-lg text-left flex items-center gap-3">
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M16.273 12.845L7.376 0H0v24h7.726l8.898-12.845L24 24V0h-7.727z" />
+                </svg>
+                <div className="font-medium">네이버 블로그에 공유</div>
+              </button>
+            </div>
+            <button onClick={() => setShareModalOpen(false)} className="mt-4 w-full px-6 py-3 bg-gray-200 hover:bg-gray-300 rounded-lg font-medium">닫기</button>
+          </div>
+        </div>
+      )}
+
+      {/* Alert Modal */}
+      {alertModalOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4" onClick={() => setAlertModalOpen(false)}>
+          <div className="bg-white rounded-lg max-w-sm w-full p-6" onClick={(e) => e.stopPropagation()}>
+            <div className="mb-6">
+              <p className="text-gray-900 text-center whitespace-pre-line">{alertMessage}</p>
+            </div>
+            <div className="flex justify-center">
+              <button onClick={() => setAlertModalOpen(false)} className="px-8 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-500 transition">
+                확인
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}

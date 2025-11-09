@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Grid 상태 대시보드</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .dashboard {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 40px;
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .status-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .status-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            border-left: 5px solid #ddd;
+            transition: all 0.3s ease;
+        }
+
+        .status-card.online {
+            border-left-color: #28a745;
+            background: #f0f8f5;
+        }
+
+        .status-card.offline {
+            border-left-color: #dc3545;
+            background: #fdf5f5;
+        }
+
+        .status-card.loading {
+            border-left-color: #ffc107;
+            background: #fffbf0;
+        }
+
+        .port-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+        }
+
+        .port-number {
+            font-size: 24px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        .indicator-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        .indicator-dot.online {
+            background: #28a745;
+        }
+
+        .indicator-dot.offline {
+            background: #dc3545;
+            animation: none;
+        }
+
+        .indicator-dot.loading {
+            background: #ffc107;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(40, 167, 69, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(40, 167, 69, 0);
+            }
+        }
+
+        .status-text {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .status-text.online {
+            color: #28a745;
+        }
+
+        .status-text.offline {
+            color: #dc3545;
+        }
+
+        .status-text.loading {
+            color: #ffc107;
+        }
+
+        .response-time {
+            font-size: 12px;
+            color: #999;
+            margin-top: 10px;
+        }
+
+        .action-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .btn {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.2);
+        }
+
+        .btn-secondary {
+            background: #e9ecef;
+            color: #333;
+        }
+
+        .btn-secondary:hover {
+            background: #dee2e6;
+            transform: translateY(-2px);
+        }
+
+        .btn-small {
+            padding: 8px 12px;
+            font-size: 12px;
+        }
+
+        .info-section {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        .info-section h3 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            font-size: 13px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .info-item:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            color: #666;
+            font-weight: 500;
+        }
+
+        .info-value {
+            color: #333;
+            font-weight: 600;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e9ecef;
+            font-size: 12px;
+            color: #999;
+        }
+
+        .last-update {
+            font-size: 12px;
+            color: #999;
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        @media (max-width: 600px) {
+            .status-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .action-buttons {
+                grid-template-columns: 1fr;
+            }
+
+            .header h1 {
+                font-size: 24px;
+            }
+
+            .dashboard {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <div class="header">
+            <h1>🚀 Project Grid Status</h1>
+            <p>포트 모니터링 대시보드</p>
+        </div>
+
+        <div class="status-grid">
+            <!-- 포트 9999 -->
+            <div class="status-card loading" id="port9999">
+                <div class="port-name">뷰어 & 파일 인덱스</div>
+                <div class="port-number">Port 9999</div>
+                <div class="status-indicator">
+                    <div class="indicator-dot loading"></div>
+                    <div class="status-text loading">확인 중...</div>
+                </div>
+                <div class="response-time" id="time9999">응답 시간: -</div>
+            </div>
+
+            <!-- 포트 8090 -->
+            <div class="status-card loading" id="port8090">
+                <div class="port-name">콘텐츠 & UTF-8</div>
+                <div class="port-number">Port 8090</div>
+                <div class="status-indicator">
+                    <div class="indicator-dot loading"></div>
+                    <div class="status-text loading">확인 중...</div>
+                </div>
+                <div class="response-time" id="time8090">응답 시간: -</div>
+            </div>
+        </div>
+
+        <div class="action-buttons">
+            <a href="http://localhost:9999/viewer/project_grid_최종통합뷰어_v4.html" class="btn btn-primary" target="_blank">
+                📊 Project Grid 열기
+            </a>
+            <button class="btn btn-secondary" onclick="location.reload()">
+                🔄 새로고침
+            </button>
+        </div>
+
+        <div class="info-section">
+            <h3>📋 정보</h3>
+            <div class="info-item">
+                <span class="info-label">자동 시작</span>
+                <span class="info-value">✅ 활성화됨</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">검색 기능</span>
+                <span class="info-value">✅ 개선됨</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">파일 매핑</span>
+                <span class="info-value">✅ 147개 로드됨</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">작업 데이터</span>
+                <span class="info-value">✅ 144개 로드됨</span>
+            </div>
+        </div>
+
+        <div class="last-update">
+            마지막 확인: <span id="lastUpdate">-</span>
+        </div>
+
+        <div class="footer">
+            <p>Project Grid Status Dashboard v1.0</p>
+            <p>2025-11-04</p>
+        </div>
+    </div>
+
+    <script>
+        // 포트 상태 확인
+        async function checkPortStatus() {
+            const ports = [
+                { port: 9999, element: 'port9999', time: 'time9999', url: 'http://localhost:9999/viewer/project_grid_최종통합뷰어_v4.html' },
+                { port: 8090, element: 'port8090', time: 'time8090', url: 'http://localhost:8090/0-5_Development_ProjectGrid/action/PROJECT_GRID/grid/file_mapping.json' }
+            ];
+
+            for (const { port, element, time, url } of ports) {
+                const startTime = performance.now();
+                try {
+                    const response = await fetch(url, { method: 'HEAD', mode: 'no-cors' });
+                    const endTime = performance.now();
+                    const responseTime = Math.round(endTime - startTime);
+
+                    updatePortStatus(element, 'online', responseTime, time);
+                } catch (error) {
+                    updatePortStatus(element, 'offline', null, time);
+                }
+            }
+
+            // 마지막 확인 시간 업데이트
+            const now = new Date();
+            const timeStr = now.toLocaleTimeString('ko-KR');
+            document.getElementById('lastUpdate').textContent = timeStr;
+        }
+
+        function updatePortStatus(elementId, status, responseTime, timeId) {
+            const element = document.getElementById(elementId);
+            const timeElement = document.getElementById(timeId);
+
+            // 클래스 업데이트
+            element.classList.remove('loading', 'online', 'offline');
+            element.classList.add(status);
+
+            // 상태 텍스트 업데이트
+            const statusText = element.querySelector('.status-text');
+            const indicatorDot = element.querySelector('.indicator-dot');
+
+            indicatorDot.classList.remove('loading', 'online', 'offline');
+            indicatorDot.classList.add(status);
+
+            if (status === 'online') {
+                statusText.textContent = '🟢 정상 작동 중';
+                statusText.classList.remove('loading', 'offline');
+                statusText.classList.add('online');
+                timeElement.textContent = `응답 시간: ${responseTime}ms`;
+            } else {
+                statusText.textContent = '🔴 오프라인';
+                statusText.classList.remove('loading', 'online');
+                statusText.classList.add('offline');
+                timeElement.textContent = '응답 시간: -';
+            }
+        }
+
+        // 초기 확인
+        checkPortStatus();
+
+        // 5초마다 확인
+        setInterval(checkPortStatus, 5000);
+
+        // 페이지 포커스 시 확인
+        window.addEventListener('focus', checkPortStatus);
+    </script>
+</body>
+</html>

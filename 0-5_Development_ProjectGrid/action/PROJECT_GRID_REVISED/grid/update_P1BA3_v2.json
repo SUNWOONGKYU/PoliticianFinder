@@ -1,0 +1,15 @@
+{
+  "task_name": "Mock API - 커뮤니티 (7개 API 통합)",
+  "instruction_file": "tasks/P1BA3.md",
+  "assigned_agent": "1차: api-designer | 2차: Claude Code(실행 및 검증)",
+  "tools": "Read, Edit, Write, Grep, Glob, Bash / TypeScript, Next.js API Routes, Zod / api-builder, api-test",
+  "work_mode": "AI-Only",
+  "dependency_chain": "P1D1, P1D2, P1BA1",
+  "progress": 0,
+  "status": "대기",
+  "generated_files": "-",
+  "generator": "-",
+  "duration": "-",
+  "modification_history": "-",
+  "remarks": "7개 커뮤니티 API를 1개 작업지시서로 통합 (게시글 CRUD, 댓글, 좋아요)"
+}

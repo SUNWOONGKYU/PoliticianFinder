@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\serve_port_8090.py", line 46, in <module>
+    with socketserver.TCPServer(("", PORT), Handler) as httpd:
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\socketserver.py", line 457, in __init__
+    self.server_bind()
+    ~~~~~~~~~~~~~~~~^^
+  File "C:\Python313\Lib\socketserver.py", line 478, in server_bind
+    self.socket.bind(self.server_address)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+OSError: [WinError 10048] 각 소켓 주소(프로토콜/네트워크 주소/포트)는 하나만 사용할 수 있습니다

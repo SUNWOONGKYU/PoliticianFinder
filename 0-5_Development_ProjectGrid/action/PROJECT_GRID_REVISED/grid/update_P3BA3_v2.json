@@ -1,0 +1,15 @@
+{
+  "task_name": "Real API - 커뮤니티 (Supabase CRUD 통합)",
+  "instruction_file": "tasks/P3BA3.md",
+  "assigned_agent": "1차: backend-developer | 2차: Claude Code(실행 및 검증)",
+  "tools": "Read, Edit, Write, Grep, Glob, Bash / TypeScript, Next.js API Routes, Supabase / supabase-db, api-builder",
+  "work_mode": "AI-Only",
+  "dependency_chain": "P3D1, P3D2, P3BA1, P1BA3",
+  "progress": 0,
+  "status": "대기",
+  "generated_files": "-",
+  "generator": "-",
+  "duration": "-",
+  "modification_history": "-",
+  "remarks": "P1BA3의 Mock을 Supabase로 전환 (실제 커뮤니티 CRUD, RLS 정책)"
+}

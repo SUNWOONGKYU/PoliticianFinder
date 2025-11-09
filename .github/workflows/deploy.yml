@@ -1,0 +1,110 @@
+name: Deploy to Production
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
+jobs:
+  # Run tests before deployment
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./1_Frontend
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: ./1_Frontend/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run build
+        run: npm run build
+
+  # Deploy frontend to Vercel
+  deploy-frontend:
+    needs: test
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: https://politicianfinder.vercel.app
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Deploy to Vercel
+        uses: vercel/action@master
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          working-directory: ./1_Frontend
+          production: true
+
+  # Build and push Docker image
+  build-and-push-docker:
+    needs: deploy-frontend
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to Container Registry
+        if: github.event_name != 'pull_request'
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract metadata
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          tags: |
+            type=ref,event=branch
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: ./1_Frontend
+          push: ${{ github.event_name != 'pull_request' }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+
+  # Notify deployment status
+  notify-deployment:
+    needs: [deploy-frontend, build-and-push-docker]
+    runs-on: ubuntu-latest
+    if: always()
+
+    steps:
+      - name: Deployment Status
+        run: |
+          if [ "${{ needs.deploy-frontend.result }}" == "success" ]; then
+            echo "✅ Frontend deployed successfully"
+          else
+            echo "❌ Frontend deployment failed"
+            exit 1
+          fi

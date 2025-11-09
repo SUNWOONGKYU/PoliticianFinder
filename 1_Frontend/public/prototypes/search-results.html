@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>검색 결과 - PoliticianFinder</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#fff7ed',
+                            100: '#ffedd5',
+                            200: '#fed7aa',
+                            300: '#fdba74',
+                            400: '#fb923c',
+                            500: '#f97316',  // 주황색 메인
+                            600: '#ea580c',
+                            700: '#c2410c',
+                            800: '#9a3412',
+                            900: '#7c2d12',
+                        },
+                        secondary: {
+                            500: '#8b5cf6',  // 보라색
+                            600: '#7c3aed',
+                        },
+                        accent: {
+                            500: '#064E3B',  // 어두운 에메랄드 그린 (Tailwind emerald-900) - AI 평가 권위 강조
+                            600: '#064E3B',  // 초록색 (통일)
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Pretendard', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts: Noto Sans KR -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'system-ui', sans-serif;
+            color: #000000;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50 border-b-2 border-primary-500">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo & Catchphrase -->
+                <div class="flex items-center space-x-4">
+                    <a href="index.html" class="text-2xl font-bold text-primary-600">
+                        PoliticianFinder
+                    </a>
+                    <div class="hidden md:block w-48">
+                        <div class="font-bold text-gray-900" style="font-size: clamp(0.5rem, 3vw, 1rem); width: 100%;">훌륭한 정치인 찾기</div>
+                        <div class="text-gray-900 font-medium" style="font-size: clamp(0.38rem, 2.28vw, 0.7125rem); width: 100%;">AI 기반 정치인 평가 플랫폼</div>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="index.html" class="text-gray-900 hover:text-primary-600 font-medium focus:outline-none focus:ring-2 focus:ring-primary-300 rounded px-2 py-1">홈</a>
+                    <a href="politicians.html" class="text-gray-900 hover:text-primary-600 font-medium focus:outline-none focus:ring-2 focus:ring-primary-300 rounded px-2 py-1">정치인</a>
+                    <a href="community.html" class="text-gray-900 hover:text-primary-600 font-medium focus:outline-none focus:ring-2 focus:ring-primary-300 rounded px-2 py-1">커뮤니티</a>
+                    <a href="services.html" class="text-gray-900 hover:text-primary-600 font-medium focus:outline-none focus:ring-2 focus:ring-primary-300 rounded px-2 py-1">연결</a>
+
+                    <!-- 알림 아이콘 -->
+                    <a href="notifications.html" class="relative text-gray-900 hover:text-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-300 rounded p-1">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+                        </svg>
+                        <!-- 알림 배지 (새 알림 있을 때) -->
+                        <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">3</span>
+                    </a>
+                </div>
+
+                <!-- Auth Buttons -->
+                <div class="hidden md:flex items-center space-x-3">
+                    <a href="login.html" class="text-gray-900 hover:text-primary-600 font-medium px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary-300 rounded">로그인</a>
+                    <a href="signup.html" class="bg-primary-500 text-white px-4 py-2 rounded-lg hover:bg-primary-600 font-medium focus:outline-none focus:ring-2 focus:ring-primary-300">회원가입</a>
+                </div>
+
+                <!-- Mobile menu button & notification -->
+                <div class="md:hidden flex items-center space-x-3">
+                    <!-- 알림 아이콘 (모바일) -->
+                    <a href="notifications.html" class="relative text-gray-900 hover:text-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-300 rounded p-1">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+                        </svg>
+                        <!-- 알림 배지 (새 알림 있을 때) -->
+                        <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full w-4 h-4 flex items-center justify-center text-xs">3</span>
+                    </a>
+                    <button id="mobile-menu-button" class="text-gray-900 hover:text-primary-600 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <div class="flex flex-col space-y-2">
+                    <a href="index.html" class="text-gray-900 hover:text-primary-600 font-medium px-2 py-2">홈</a>
+                    <a href="politicians.html" class="text-gray-900 hover:text-primary-600 font-medium px-2 py-2">정치인</a>
+                    <a href="community.html" class="text-gray-900 hover:text-primary-600 font-medium px-2 py-2">커뮤니티</a>
+                    <a href="services.html" class="text-gray-900 hover:text-primary-600 font-medium px-2 py-2">연결</a>
+                    <hr class="my-2">
+                    <a href="login.html" class="text-gray-900 hover:text-primary-600 font-medium px-2 py-2">로그인</a>
+                    <a href="signup.html" class="bg-primary-500 text-white px-4 py-2 rounded-lg hover:bg-primary-600 font-medium text-center">회원가입</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- 검색 정보 헤더 -->
+        <div class="mb-6">
+            <h1 class="text-3xl font-bold text-gray-900 mb-2">
+                '<span id="search-query" class="text-primary-600"></span>' 검색 결과
+            </h1>
+            <p class="text-gray-600">
+                총 <span id="total-results" class="font-bold text-primary-600">0</span>건의 결과를 찾았습니다.
+            </p>
+        </div>
+
+        <!-- 섹션 1: 정치인 검색 결과 -->
+        <section class="bg-white rounded-lg shadow-md mb-6">
+            <div class="border-b border-primary-200 bg-primary-50 px-6 py-4">
+                <h2 class="text-2xl font-bold text-gray-900">
+                    정치인 <span id="count-politicians" class="text-primary-600">(0)</span>
+                </h2>
+            </div>
+            <div id="politicians-container" class="divide-y">
+                <!-- 정치인 결과가 여기에 동적으로 추가됩니다 -->
+            </div>
+            <div id="no-politicians" class="hidden p-8 text-center">
+                <p class="text-gray-500">검색 결과에 해당하는 정치인이 없습니다.</p>
+            </div>
+        </section>
+
+        <!-- 섹션 2: 정치인 게시글 검색 결과 -->
+        <section class="bg-white rounded-lg shadow-md mb-6">
+            <div class="border-b border-primary-200 bg-primary-50 px-6 py-4">
+                <h2 class="text-2xl font-bold text-gray-900">
+                    정치인 게시글 <span id="count-politician-posts" class="text-primary-600">(0)</span>
+                </h2>
+            </div>
+            <div id="politician-posts-container" class="divide-y">
+                <!-- 정치인 게시글 결과가 여기에 동적으로 추가됩니다 -->
+            </div>
+            <div id="no-politician-posts" class="hidden p-8 text-center">
+                <p class="text-gray-500">검색 결과에 해당하는 정치인 게시글이 없습니다.</p>
+            </div>
+        </section>
+
+        <!-- 섹션 3: 회원 게시글 검색 결과 -->
+        <section class="bg-white rounded-lg shadow-md mb-6">
+            <div class="border-b border-purple-200 bg-purple-50 px-6 py-4">
+                <h2 class="text-2xl font-bold text-gray-900">
+                    회원 게시글 <span id="count-member-posts" class="text-purple-600">(0)</span>
+                </h2>
+            </div>
+            <div id="member-posts-container" class="divide-y">
+                <!-- 회원 게시글 결과가 여기에 동적으로 추가됩니다 -->
+            </div>
+            <div id="no-member-posts" class="hidden p-8 text-center">
+                <p class="text-gray-500">검색 결과에 해당하는 회원 게시글이 없습니다.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary-500 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <!-- Footer Links -->
+            <div class="flex justify-center items-center space-x-8 text-base py-4">
+                <a href="#" class="text-white hover:text-gray-100 transition font-medium">서비스 소개</a>
+                <a href="#" class="text-white hover:text-gray-100 transition font-medium">이용약관</a>
+                <a href="#" class="text-white hover:text-gray-100 transition font-medium">개인정보처리방침</a>
+                <a href="#" class="text-white hover:text-gray-100 transition font-medium">고객센터</a>
+            </div>
+            <!-- Copyright -->
+            <div class="text-center text-base text-white py-4">
+                <p>&copy; 2025 PoliticianFinder. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu Toggle Script -->
+    <script>
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // URL에서 검색어 가져오기
+        const urlParams = new URLSearchParams(window.location.search);
+        const searchQuery = urlParams.get('q') || '';
+        document.getElementById('search-query').textContent = searchQuery;
+
+        // 샘플 데이터 (실제로는 API에서 가져옴)
+        const samplePoliticians = [
+            {
+                id: 1,
+                name: '김민준',
+                position: '국회의원',
+                status: '현직',
+                party: '더불어민주당',
+                region: '서울 강남구',
+                grade: 'Emerald',
+                total_score: 84.8,
+                claude_score: 85.0,
+                chatgpt_score: 82.0,
+                gemini_score: 87.0,
+                grok_score: 84.0,
+                perplexity_score: 86.0,
+                member_rating: 4.0,
+                member_rating_count: 1247,
+                profile_image: null
+            },
+            {
+                id: 2,
+                name: '이서연',
+                position: '국회의원',
+                status: '현직',
+                party: '국민의힘',
+                region: '부산 해운대구',
+                grade: 'Platinum',
+                total_score: 92.3,
+                claude_score: 93.0,
+                chatgpt_score: 91.0,
+                gemini_score: 94.0,
+                grok_score: 91.0,
+                perplexity_score: 93.0,
+                member_rating: 4.5,
+                member_rating_count: 982,
+                profile_image: null
+            }
+        ];
+
+        const samplePoliticianPosts = [
+            {
+                id: 1,
+                title: '2025년 지역 발전 계획 공유드립니다',
+                content: '우리 지역의 교통 인프라 개선과 청년 일자리 창출을 위한 구체적인 계획을 공유합니다...',
+                author: '🏛️ 김민준 | 현직 국회의원',
+                author_link: 'politician-detail.html?id=김민준',
+                category: 'politician_post',
+                created_at: '2025-01-28T09:00:00',
+                views: 512,
+                upvotes: 89,
+                downvotes: 12,
+                comment_count: 45,
+                share_count: 23
+            },
+            {
+                id: 2,
+                title: '2024년 정책 성과 보고',
+                content: '지난 1년간 추진한 주요 정책의 성과를 보고드립니다. 주민 여러분의 의견을 반영하여...',
+                author: '🏛️ 이서연 | 현직 국회의원',
+                author_link: 'politician-detail.html?id=이서연',
+                category: 'politician_post',
+                created_at: '2025-01-27T15:20:00',
+                views: 387,
+                upvotes: 67,
+                downvotes: 8,
+                comment_count: 32,
+                share_count: 15
+            }
+        ];
+
+        const sampleMemberPosts = [
+            {
+                id: 3,
+                title: '우리 지역 교통 문제 어떻게 생각하시나요?',
+                content: '요즘 출퇴근 시간에 너무 막히는데, 다들 어떻게 생각하시나요? 좋은 해결책이 있을까요?',
+                author: '박지민',
+                author_link: 'user-profile.html?user=박지민',
+                member_level: 'Lv.3',
+                category: 'general',
+                created_at: '2025-01-28T14:30:00',
+                views: 234,
+                upvotes: 45,
+                downvotes: 3,
+                comment_count: 28,
+                share_count: 7
+            },
+            {
+                id: 4,
+                title: '청년 일자리 정책에 대한 제안',
+                content: '청년으로서 느끼는 일자리 문제에 대해 이야기하고 싶습니다. 정치인들이 주목해주셨으면...',
+                author: '최수영',
+                author_link: 'user-profile.html?user=최수영',
+                member_level: 'Lv.4',
+                category: 'proposal',
+                created_at: '2025-01-27T11:15:00',
+                views: 456,
+                upvotes: 78,
+                downvotes: 5,
+                comment_count: 41,
+                share_count: 12
+            }
+        ];
+
+        // 검색 수행 (실제로는 API 호출)
+        function performSearch(query) {
+            // 검색어가 포함된 결과 필터링
+            const filteredPoliticians = samplePoliticians.filter(p =>
+                p.name.includes(query) || p.region.includes(query) || p.party.includes(query)
+            );
+
+            const filteredPoliticianPosts = samplePoliticianPosts.filter(p =>
+                p.title.includes(query) || p.content.includes(query) || p.author.includes(query)
+            );
+
+            const filteredMemberPosts = sampleMemberPosts.filter(p =>
+                p.title.includes(query) || p.content.includes(query) || p.author.includes(query)
+            );
+
+            // 카운트 업데이트
+            const totalCount = filteredPoliticians.length + filteredPoliticianPosts.length + filteredMemberPosts.length;
+            document.getElementById('total-results').textContent = totalCount;
+            document.getElementById('count-politicians').textContent = `(${filteredPoliticians.length})`;
+            document.getElementById('count-politician-posts').textContent = `(${filteredPoliticianPosts.length})`;
+            document.getElementById('count-member-posts').textContent = `(${filteredMemberPosts.length})`;
+
+            // 결과 렌더링
+            renderPoliticians(filteredPoliticians);
+            renderPoliticianPosts(filteredPoliticianPosts);
+            renderMemberPosts(filteredMemberPosts);
+        }
+
+        // 정치인 결과 렌더링
+        function renderPoliticians(politicians) {
+            const container = document.getElementById('politicians-container');
+            const noResults = document.getElementById('no-politicians');
+
+            container.innerHTML = '';
+
+            if (politicians.length === 0) {
+                noResults.classList.remove('hidden');
+                return;
+            }
+
+            noResults.classList.add('hidden');
+
+            politicians.forEach(politician => {
+                container.appendChild(createPoliticianCard(politician));
+            });
+        }
+
+        // 정치인 게시글 결과 렌더링
+        function renderPoliticianPosts(posts) {
+            const container = document.getElementById('politician-posts-container');
+            const noResults = document.getElementById('no-politician-posts');
+
+            container.innerHTML = '';
+
+            if (posts.length === 0) {
+                noResults.classList.remove('hidden');
+                return;
+            }
+
+            noResults.classList.add('hidden');
+
+            posts.forEach(post => {
+                container.appendChild(createPostCard(post, true));
+            });
+        }
+
+        // 회원 게시글 결과 렌더링
+        function renderMemberPosts(posts) {
+            const container = document.getElementById('member-posts-container');
+            const noResults = document.getElementById('no-member-posts');
+
+            container.innerHTML = '';
+
+            if (posts.length === 0) {
+                noResults.classList.remove('hidden');
+                return;
+            }
+
+            noResults.classList.add('hidden');
+
+            posts.forEach(post => {
+                container.appendChild(createPostCard(post, false));
+            });
+        }
+
+        // 정치인 카드 생성 (간단한 정보만)
+        function createPoliticianCard(politician) {
+            const card = document.createElement('div');
+            card.className = 'p-6 hover:bg-gray-50 cursor-pointer transition';
+            card.onclick = () => location.href = `politician-detail.html?id=${politician.id}`;
+
+            card.innerHTML = `
+                <div class="flex items-start gap-4">
+                    <div class="flex-1">
+                        <div class="flex items-center gap-2 mb-2">
+                            <h3 class="text-xl font-bold text-gray-900">${highlightSearchTerm(politician.name, searchQuery)}</h3>
+                        </div>
+                        <div class="flex items-center gap-4 text-sm text-gray-600">
+                            <span class="font-medium">${politician.status} ${politician.position}</span>
+                            <span>🏛️ ${highlightSearchTerm(politician.party, searchQuery)}</span>
+                            <span>📍 ${highlightSearchTerm(politician.region, searchQuery)}</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            return card;
+        }
+
+        // 게시글 카드 생성
+        function createPostCard(post, isPoliticianPost) {
+            const card = document.createElement('div');
+            card.className = 'p-6 hover:bg-gray-50 cursor-pointer transition';
+            card.onclick = () => location.href = `post-detail_${isPoliticianPost ? 'politician' : 'member'}.html?id=${post.id}`;
+
+            // 배지 제거 - community.html 표준 따름 (배지 없이 author로만 구분)
+
+            const date = new Date(post.created_at);
+            const formattedDateTime = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')} ${String(date.getHours()).padStart(2, '0')}:${String(date.getMinutes()).padStart(2, '0')}`;
+
+            const authorColor = isPoliticianPost ? 'text-primary-600' : 'text-purple-600';
+
+            card.innerHTML = `
+                <div class="flex items-start justify-between">
+                    <div class="flex-1">
+                        <h3 class="font-bold text-gray-900 mb-2">${highlightSearchTerm(post.title, searchQuery)}</h3>
+                        <p class="text-sm text-gray-600 mb-3 line-clamp-2">${highlightSearchTerm(post.content, searchQuery)}</p>
+                        <div class="flex items-center gap-3 text-xs text-gray-500">
+                            <a href="${post.author_link}" class="font-medium ${authorColor} hover:underline">${isPoliticianPost ? post.author : post.author + ' | ' + (post.member_level || 'Lv.1')}</a>
+                            <span>${formattedDateTime}</span>
+                            <span>조회수 ${post.views}</span>
+                            <span class="text-red-600">👍 ${post.upvotes}</span>
+                            <span class="text-gray-400">👎 ${post.downvotes}</span>
+                            <span>댓글 ${post.comment_count}</span>
+                            <span class="flex items-center gap-1">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path>
+                                </svg>
+                                <span>공유 ${post.share_count}</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            return card;
+        }
+
+        // 검색어 하이라이트
+        function highlightSearchTerm(text, term) {
+            if (!term) return text;
+            const regex = new RegExp(`(${term})`, 'gi');
+            return text.replace(regex, '<mark class="bg-yellow-200 px-1">$1</mark>');
+        }
+
+        // 페이지 로드 시 검색 수행
+        if (searchQuery) {
+            performSearch(searchQuery);
+        }
+    </script>
+</body>
+</html>

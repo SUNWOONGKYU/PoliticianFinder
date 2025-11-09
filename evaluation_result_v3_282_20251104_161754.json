@@ -1,0 +1,242 @@
+{
+  "status": "오류",
+  "politician_id": 282,
+  "politician_name": "서영교",
+  "categories_total": 10,
+  "categories_completed": 0,
+  "categories_skipped": 0,
+  "categories_error": 10,
+  "total_items": 0,
+  "official_ratio": 0,
+  "public_ratio": 0,
+  "negative_ratio": 0,
+  "positive_ratio": 0,
+  "results": {
+    "1": {
+      "status": "미달",
+      "category": 1,
+      "category_name": "전문성과 역량 (Professional Competence)",
+      "politician_id": 282,
+      "politician_name": "서영교",
+      "total_items": 0,
+      "items_by_element": {
+        "education": 0,
+        "certification": 0,
+        "career": 0,
+        "policy_expertise": 0,
+        "legal_knowledge": 0,
+        "economic_understanding": 0
+      },
+      "official_ratio": 0,
+      "public_ratio": 0,
+      "negative_ratio": 0,
+      "positive_ratio": 0,
+      "grade_distribution": {},
+      "items": [],
+      "errors": []
+    },
+    "2": {
+      "status": "미달",
+      "category": 2,
+      "category_name": "리더십과 관리능력 (Leadership)",
+      "politician_id": 282,
+      "politician_name": "서영교",
+      "total_items": 0,
+      "items_by_element": {
+        "organizational_leadership": 0,
+        "crisis_management": 0,
+        "policy_implementation": 0,
+        "team_management": 0
+      },
+      "official_ratio": 0,
+      "public_ratio": 0,
+      "negative_ratio": 0,
+      "positive_ratio": 0,
+      "grade_distribution": {},
+      "items": [],
+      "errors": []
+    },
+    "3": {
+      "status": "미달",
+      "category": 3,
+      "category_name": "비전과 정책능력 (Vision & Policy)",
+      "politician_id": 282,
+      "politician_name": "서영교",
+      "total_items": 0,
+      "items_by_element": {
+        "long_term_vision": 0,
+        "policy_direction": 0,
+        "innovation": 0,
+        "policy_consistency": 0
+      },
+      "official_ratio": 0,
+      "public_ratio": 0,
+      "negative_ratio": 0,
+      "positive_ratio": 0,
+      "grade_distribution": {},
+      "items": [],
+      "errors": []
+    },
+    "4": {
+      "status": "미달",
+      "category": 4,
+      "category_name": "청렴성 (Integrity)",
+      "politician_id": 282,
+      "politician_name": "서영교",
+      "total_items": 0,
+      "items_by_element": {
+        "property_disclosure": 0,
+        "real_estate": 0,
+        "stock_trading": 0,
+        "bribes": 0,
+        "conflict_of_interest": 0
+      },
+      "official_ratio": 0,
+      "public_ratio": 0,
+      "negative_ratio": 0,
+      "positive_ratio": 0,
+      "grade_distribution": {},
+      "items": [],
+      "errors": []
+    },
+    "5": {
+      "status": "미달",
+      "category": 5,
+      "category_name": "윤리성 (Morality/Ethics)",
+      "politician_id": 282,
+      "politician_name": "서영교",
+      "total_items": 0,
+      "items_by_element": {
+        "moral_judgment": 0,
+        "social_responsibility": 0,
+        "double_standards": 0,
+        "care_for_vulnerable": 0,
+        "fairness": 0
+      },
+      "official_ratio": 0,
+      "public_ratio": 0,
+      "negative_ratio": 0,
+      "positive_ratio": 0,
+      "grade_distribution": {},
+      "items": [],
+      "errors": []
+    },
+    "7": {
+      "status": "미달",
+      "category": 7,
+      "category_name": "투명성 (Transparency)",
+      "politician_id": 282,
+      "politician_name": "서영교",
+      "total_items": 0,
+      "items_by_element": {
+        "information_disclosure": 0,
+        "financial_transparency": 0,
+        "decision_making_process": 0,
+        "record_management": 0
+      },
+      "official_ratio": 0,
+      "public_ratio": 0,
+      "negative_ratio": 0,
+      "positive_ratio": 0,
+      "grade_distribution": {},
+      "items": [],
+      "errors": []
+    },
+    "6": {
+      "status": "미달",
+      "category": 6,
+      "category_name": "책임성 (Accountability)",
+      "politician_id": 282,
+      "politician_name": "서영교",
+      "total_items": 0,
+      "items_by_element": {
+        "responsibility_acknowledgment": 0,
+        "apology": 0,
+        "improvement_plan": 0,
+        "fulfillment": 0
+      },
+      "official_ratio": 0,
+      "public_ratio": 0,
+      "negative_ratio": 0,
+      "positive_ratio": 0,
+      "grade_distribution": {},
+      "items": [],
+      "errors": []
+    },
+    "9": {
+      "status": "미달",
+      "category": 9,
+      "category_name": "대응성 (Responsiveness)",
+      "politician_id": 282,
+      "politician_name": "서영교",
+      "total_items": 0,
+      "items_by_element": {
+        "quick_response": 0,
+        "complaint_handling": 0,
+        "problem_solving": 0,
+        "monitoring": 0
+      },
+      "official_ratio": 0,
+      "public_ratio": 0,
+      "negative_ratio": 0,
+      "positive_ratio": 0,
+      "grade_distribution": {},
+      "items": [],
+      "errors": []
+    },
+    "8": {
+      "status": "미달",
+      "category": 8,
+      "category_name": "소통능력 (Communication)",
+      "politician_id": 282,
+      "politician_name": "서영교",
+      "total_items": 0,
+      "items_by_element": {
+        "public_communication": 0,
+        "sns_utilization": 0,
+        "explanation": 0,
+        "listening": 0,
+        "feedback_acceptance": 0
+      },
+      "official_ratio": 0,
+      "public_ratio": 0,
+      "negative_ratio": 0,
+      "positive_ratio": 0,
+      "grade_distribution": {},
+      "items": [],
+      "errors": []
+    },
+    "10": {
+      "status": "미달",
+      "category": 10,
+      "category_name": "공익추구 (Public Interest)",
+      "politician_id": 282,
+      "politician_name": "서영교",
+      "total_items": 0,
+      "items_by_element": {
+        "public_interest_priority": 0,
+        "fairness": 0,
+        "support_for_vulnerable": 0,
+        "public_service": 0,
+        "social_contribution": 0
+      },
+      "official_ratio": 0,
+      "public_ratio": 0,
+      "negative_ratio": 0,
+      "positive_ratio": 0,
+      "grade_distribution": {},
+      "items": [],
+      "errors": []
+    }
+  },
+  "statistics": {
+    "total_items": 0,
+    "official_ratio": 0,
+    "public_ratio": 0,
+    "negative_ratio": 0,
+    "positive_ratio": 0
+  },
+  "start_time": "2025-11-04T16:17:54.699943",
+  "end_time": "2025-11-04T16:17:54.708696",
+  "duration_seconds": 0.008753
+}

@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>커뮤니티 - PoliticianFinder</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#fff7ed',
+                            100: '#ffedd5',
+                            200: '#fed7aa',
+                            300: '#fdba74',
+                            400: '#fb923c',
+                            500: '#f97316',
+                            600: '#ea580c',
+                            700: '#c2410c',
+                            800: '#9a3412',
+                            900: '#7c2d12',
+                        },
+                        secondary: {
+                            500: '#8b5cf6',
+                            600: '#7c3aed',
+                        },
+                        accent: {
+                            500: '#064E3B',
+                            600: '#064E3B',
+                        }
+                    }
+                }
+            }
+        }
+
+    </script>
+
+    <!-- Google Fonts: Noto Sans KR -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'system-ui', sans-serif;
+            color: #000000;
+        }
+
+        /* 팔로우 토스트 애니메이션 */
+        @keyframes slide-in {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fade-out {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+
+        .animate-slide-in {
+            animation: slide-in 0.3s ease-out;
+        }
+
+        .animate-fade-out {
+            animation: fade-out 0.3s ease-out;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50 border-b-2 border-primary-500">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo & Catchphrase -->
+                <div class="flex items-center space-x-4">
+                    <a href="index.html" class="text-2xl font-bold text-primary-600">
+                        PoliticianFinder
+                    </a>
+                    <div class="hidden md:block w-48">
+                        <div class="font-bold text-gray-900" style="font-size: clamp(0.5rem, 3vw, 1rem); width: 100%;">훌륭한 정치인 찾기</div>
+                        <div class="text-gray-900 font-medium" style="font-size: clamp(0.38rem, 2.28vw, 0.7125rem); width: 100%;">AI 기반 정치인 평가 플랫폼</div>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="index.html" class="text-gray-900 hover:text-primary-600 font-medium focus:outline-none focus:ring-2 focus:ring-primary-300 rounded px-2 py-1">홈</a>
+                    <a href="politicians.html" class="text-gray-900 hover:text-primary-600 font-medium focus:outline-none focus:ring-2 focus:ring-primary-300 rounded px-2 py-1">정치인</a>
+                    <a href="community.html" class="text-primary-600 font-medium focus:outline-none focus:ring-2 focus:ring-primary-300 rounded px-2 py-1">커뮤니티</a>
+                    <a href="services.html" class="text-gray-900 hover:text-primary-600 font-medium focus:outline-none focus:ring-2 focus:ring-primary-300 rounded px-2 py-1">연결</a>
+
+                    <!-- 알림 아이콘 -->
+                    <a href="notifications.html" class="relative text-gray-900 hover:text-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-300 rounded p-1">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+                        </svg>
+                        <!-- 알림 배지 (새 알림 있을 때) -->
+                        <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">3</span>
+                    </a>
+                </div>
+
+                <!-- Auth Buttons -->
+                <div class="hidden md:flex items-center space-x-3">
+                    <a href="login.html" class="text-gray-900 hover:text-primary-600 font-medium px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary-300 rounded">로그인</a>
+                    <a href="signup.html" class="bg-primary-500 text-white px-4 py-2 rounded-lg hover:bg-primary-600 font-medium focus:outline-none focus:ring-2 focus:ring-primary-300">회원가입</a>
+                </div>
+
+                <!-- Mobile menu button & notification -->
+                <div class="md:hidden flex items-center space-x-3">
+                    <!-- 알림 아이콘 (모바일) -->
+                    <a href="notifications.html" class="relative text-gray-900 hover:text-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-300 rounded p-1">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+                        </svg>
+                        <!-- 알림 배지 (새 알림 있을 때) -->
+                        <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full w-4 h-4 flex items-center justify-center text-xs">3</span>
+                    </a>
+                    <button id="mobile-menu-button" class="text-gray-900 hover:text-primary-600 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <div class="flex flex-col space-y-2">
+                    <a href="index.html" class="text-gray-900 hover:text-primary-600 font-medium px-2 py-2">홈</a>
+                    <a href="politicians.html" class="text-gray-900 hover:text-primary-600 font-medium px-2 py-2">정치인</a>
+                    <a href="community.html" class="text-primary-600 font-medium px-2 py-2">커뮤니티</a>
+                    <a href="services.html" class="text-gray-900 hover:text-primary-600 font-medium px-2 py-2">연결</a>
+                    <hr class="my-2">
+                    <a href="login.html" class="text-gray-900 hover:text-primary-600 font-medium px-2 py-2">로그인</a>
+                    <a href="signup.html" class="bg-primary-500 text-white px-4 py-2 rounded-lg hover:bg-primary-600 font-medium text-center">회원가입</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+        <!-- Page Title -->
+        <div class="mb-6">
+            <p class="text-lg text-gray-600">정치 관련 자신의 주장을 하고 다양한 의견을 나누면서 토론해 보세요</p>
+        </div>
+
+        <!-- 게시글 검색 -->
+        <section class="bg-white rounded-lg shadow-lg p-4 mb-6">
+            <div class="relative flex gap-2">
+                <div class="relative flex-1">
+                    <input type="text" id="community-search-input" placeholder="제목, 내용, 작성자 등으로 게시글 통합검색" class="w-full px-4 py-3 pl-12 border-2 border-primary-300 rounded-lg focus:outline-none focus:border-primary-500 text-gray-900 focus:ring-2 focus:ring-primary-200">
+                    <svg class="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                </div>
+                <button id="community-search-button" class="px-8 py-3 bg-primary-500 text-white rounded-lg hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-300 font-semibold text-sm shadow-sm">
+                    검색
+                </button>
+            </div>
+        </section>
+
+        <!-- Tab Menu + Write Button -->
+        <div class="flex items-center justify-between mb-6">
+            <!-- Tabs (균등 너비) -->
+            <div class="flex items-center space-x-4 overflow-x-auto">
+                <button onclick="filterCategory('all')" id="tab-all" class="flex-1 px-4 py-2 bg-primary-500 text-white rounded-lg font-medium hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-300 transition whitespace-nowrap text-center min-w-[160px]">
+                    전체
+                </button>
+                <button onclick="filterCategory('politician_post')" id="tab-politician_post" class="flex-1 px-4 py-2 bg-white text-gray-700 rounded-lg border-2 border-primary-500 font-medium hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-primary-300 transition whitespace-nowrap text-center min-w-[160px]">
+                    🏛️ 정치인 게시판
+                </button>
+                <button onclick="filterCategory('general')" id="tab-general" class="flex-1 px-4 py-2 bg-white text-gray-700 rounded-lg border-2 border-purple-600 font-medium hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-primary-300 transition whitespace-nowrap text-center min-w-[160px]">
+                    💬 회원 자유게시판
+                </button>
+            </div>
+
+            <!-- Write Button -->
+            <button id="write-button" onclick="handleWriteClick()" class="px-6 py-2 bg-primary-500 text-white rounded-lg font-medium hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-300 transition whitespace-nowrap shadow-md">
+                글쓰기
+            </button>
+        </div>
+
+        <!-- Sort Options -->
+        <div class="flex items-center justify-between mb-4">
+            <div class="text-sm text-gray-600">
+                총 <span id="post-count" class="font-bold text-gray-900">0</span>개의 게시글
+            </div>
+            <div class="flex items-center space-x-2">
+                <select id="sort-select" onchange="sortPosts()" class="px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-primary-300">
+                    <option value="latest">최신순</option>
+                    <option value="popular">공감순</option>
+                    <option value="views">조회순</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Post List -->
+        <div id="post-list" class="space-y-4">
+            <!-- Posts will be dynamically loaded here -->
+        </div>
+
+        <!-- Empty State -->
+        <div id="empty-state" class="hidden text-center py-16">
+            <p class="text-gray-500 text-lg">게시글이 없습니다</p>
+        </div>
+
+    </div>
+<!-- Category Selection Modal -->
+    <div id="category-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg shadow-xl max-w-md w-full p-6">
+            <h2 class="text-2xl font-bold text-gray-900 mb-4">카테고리 선택</h2>
+            <p class="text-gray-600 mb-6">어떤 게시판에 글을 작성하시겠습니까?</p>
+            
+            <div class="space-y-3">
+                <!-- 정치인 게시판 -->
+                <a href="write-post_politician.html" class="block w-full px-6 py-2 bg-primary-500 text-white rounded-lg hover:bg-primary-600 transition text-center font-medium shadow-sm border-4 border-primary-600">
+                    🏛️ 정치인 게시판
+                </a>
+                
+                <!-- 회원 자유게시판 -->
+                <a href="write-post_member.html" class="block w-full px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition text-center font-medium shadow-sm border-4 border-purple-700">
+                    💬 회원 자유게시판
+                </a>
+            </div>
+            
+            <button onclick="closeCategoryModal()" class="mt-4 w-full px-6 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition font-medium">
+                취소
+            </button>
+        </div>
+    </div>
+
+
+    <!-- Footer -->
+    <footer class="bg-primary-500 text-white mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <!-- Footer Links -->
+            <div class="flex justify-center items-center space-x-8 text-base py-4">
+                <a href="services.html" class="text-white hover:text-gray-100 transition font-medium">서비스 소개</a>
+                <a href="terms.html" class="text-white hover:text-gray-100 transition font-medium">이용약관</a>
+                <a href="privacy.html" class="text-white hover:text-gray-100 transition font-medium">개인정보처리방침</a>
+                <a href="support.html" class="text-white hover:text-gray-100 transition font-medium">고객센터</a>
+            </div>
+            <!-- Copyright -->
+            <div class="text-center text-base text-white py-4">
+                <p>&copy; 2025 PoliticianFinder. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Global variables
+        let allPosts = [];
+        let currentCategory = 'all';
+        let currentSort = 'latest';
+        let currentSearchTerm = '';
+        let currentShareUrl = '';
+        let currentShareTitle = '';
+
+        // Sample data (fallback) - 카테고리: politician_post, general 만 사용
+        const samplePosts = [
+            {
+                        "id": 1,
+                        "title": "청년 일자리 공약, 실현 가능성은?",
+                        "content": "최근 여러 정치인들이 청년 일자리 창출을 공약으로 내세우고 있습니다. 하지만 구체적인 실행 계획이 부족해 보입니다. 여러분의 의견은 어떠신가요?",
+                        "category": "general",
+                        "author": "정치는우리의것",
+                        "author_id": "user_7659",
+                        "author_type": "user",
+                        "politician_id": null,
+                        "upvotes": 12,
+                        "downvotes": 2,
+                        "score": 10,
+                        "views": 157,
+                        "comment_count": 4,
+                        "tags": [
+                                    "청년정책",
+                                    "일자리",
+                                    "공약검증"
+                        ],
+                        "is_pinned": true,
+                        "is_best": false,
+                        "is_hot": false,
+                        "created_at": "2025-10-13T19:58:04.407753Z"
+            },
+            {
+                        "id": 2,
+                        "title": "지역 교통 인프라 개선 예산안에 대해",
+                        "content": "우리 지역 교통 인프라 개선을 위한 예산안이 통과되었습니다. 시민들의 실생활에 큰 도움이 될 것으로 기대됩니다.",
+                        "category": "general",
+                        "author": "투명한정치",
+                        "author_id": "user_2572",
+                        "author_type": "user",
+                        "politician_id": null,
+                        "upvotes": 76,
+                        "downvotes": 4,
+                        "score": 72,
+                        "views": 766,
+                        "comment_count": 2,
+                        "tags": [
+                                    "교통",
+                                    "인프라",
+                                    "예산"
+                        ],
+                        "is_pinned": false,
+                        "is_best": false,
+                        "is_hot": false,
+                        "created_at": "2025-10-18T23:58:04.407753Z"
+            },
+            {
+                        "id": 3,
+                        "title": "정치인 평가 시스템, 어떻게 개선할 수 있을까요?",
+                        "content": "현재 플랫폼의 정치인 평가 시스템에 대한 의견을 나누고 싶습니다. AI 평가와 회원 평가의 균형을 어떻게 맞춰야 할까요?",
+                        "category": "general",
+                        "author": "투명한정치",
+                        "author_id": "user_6952",
+                        "author_type": "user",
+                        "politician_id": null,
+                        "upvotes": 79,
+                        "downvotes": 13,
+                        "score": 66,
+                        "views": 480,
+                        "comment_count": 4,
+                        "tags": [
+                                    "평가시스템",
+                                    "개선제안",
+                                    "AI"
+                        ],
+                        "is_pinned": false,
+                        "is_best": false,
+                        "is_hot": true,
+                        "created_at": "2025-10-23T12:58:04.407753Z"
+            },
+            {
+                        "id": 4,
+                        "title": "중소기업 지원 정책의 실효성",
+                        "content": "중소기업 지원 정책들이 많이 발표되지만, 실제로 중소기업을 운영하는 입장에서는 체감이 잘 안 됩니다. 현장의 목소리를 정책에 반영할 방법이 필요합니다.",
+                        "category": "general",
+                        "author": "시민참여자",
+                        "author_id": "user_6952",
+                        "author_type": "user",
+                        "politician_id": null,
+                        "upvotes": 26,
+                        "downvotes": 1,
+                        "score": 25,
+                        "views": 153,
+                        "comment_count": 1,
+                        "tags": [
+                                    "중소기업",
+                                    "경제정책",
+                                    "현장목소리"
+                        ],
+                        "is_pinned": false,
+                        "is_best": false,
+                        "is_hot": false,
+                        "created_at": "2025-09-25T11:58:04.407753Z"
+            },
+            {
+                        "id": 5,
+                        "title": "교육 개혁안, 찬반 의견 나눠봐요",
+                        "content": "새로운 교육 개혁안이 발표되었습니다. 학생, 학부모, 교사 모두의 입장에서 다양한 의견을 듣고 싶습니다.",
+                        "category": "general",
+                        "author": "민주시민",
+                        "author_id": "user_8649",
+                        "author_type": "user",
+                        "politician_id": null,
+                        "upvotes": 13,
+                        "downvotes": 2,
+                        "score": 11,
+                        "views": 138,
+                        "comment_count": 3,
+                        "tags": [
+                                    "교육",
+                                    "개혁안",
+                                    "토론"
+                        ],
+                        "is_pinned": false,
+                        "is_best": false,
+                        "is_hot": false,
+                        "created_at": "2025-10-06T14:58:04.407753Z"
+            },
+            {
+                        "id": 6,
+                        "title": "복지 정책 확대, 재원 마련은?",
+                        "content": "복지 정책 확대에는 모두 찬성하지만, 재원 마련 방안에 대해서는 의견이 분분합니다. 증세 vs 재정 효율화, 어떤 방법이 더 합리적일까요?",
+                        "category": "general",
+                        "author": "투표하는시민",
+                        "author_id": "user_7348",
+                        "author_type": "user",
+                        "politician_id": null,
+                        "upvotes": 52,
+                        "downvotes": 11,
+                        "score": 41,
+                        "views": 490,
+                        "comment_count": 2,
+                        "tags": [
+                                    "복지",
+                                    "재정",
+                                    "증세"
+                        ],
+                        "is_pinned": false,
+                        "is_best": false,
+                        "is_hot": false,
+                        "created_at": "2025-10-04T13:58:04.407753Z"
+            },
+            {
+                        "id": 7,
+                        "title": "환경 정책 공약 비교 분석",
+                        "content": "각 정당의 환경 정책 공약을 비교 분석해봤습니다. 실현 가능성과 효과성 측면에서 평가해보고 싶습니다.",
+                        "category": "general",
+                        "author": "정치는우리의것",
+                        "author_id": "user_9507",
+                        "author_type": "user",
+                        "politician_id": null,
+                        "upvotes": 112,
+                        "downvotes": 22,
+                        "score": 90,
+                        "views": 939,
+                        "comment_count": 6,
+                        "tags": [
+                                    "환경",
+                                    "기후변화",
+                                    "공약비교"
+                        ],
+                        "is_pinned": false,
+                        "is_best": true,
+                        "is_hot": false,
+                        "created_at": "2025-10-12T20:58:04.407753Z"
+            },
+            {
+                        "id": 8,
+                        "title": "지역 발전 정책에 대한 의견",
+                        "content": "우리 지역 발전을 위한 정책들이 필요합니다. 지역 주민들의 실질적인 의견을 모아 정치인들에게 전달하면 좋겠습니다.",
+                        "category": "general",
+                        "author": "민생이우선",
+                        "author_id": "user_6505",
+                        "author_type": "user",
+                        "politician_id": null,
+                        "upvotes": 132,
+                        "downvotes": 25,
+                        "score": 107,
+                        "views": 779,
+                        "comment_count": 2,
+                        "tags": [
+                                    "지역발전",
+                                    "주민참여",
+                                    "정책제안"
+                        ],
+                        "is_pinned": false,
+                        "is_best": true,
+                        "is_hot": false,
+                        "created_at": "2025-10-01T06:58:04.407753Z"
+            },
+            {
+                        "id": 9,
+                        "title": "공공의료 확대 정책 어떻게 보시나요?",
+                        "content": "공공의료 확대 정책이 발표되었습니다. 의료 접근성 향상에 도움이 될지, 의료 서비스 질에는 어떤 영향이 있을지 토론해봅시다.",
+                        "category": "general",
+                        "author": "미래세대",
+                        "author_id": "user_4493",
+                        "author_type": "user",
+                        "politician_id": null,
+                        "upvotes": 50,
+                        "downvotes": 7,
+                        "score": 43,
+                        "views": 575,
+                        "comment_count": 4,
+                        "tags": [
+                                    "의료",
+                                    "공공의료",
+                                    "보건정책"
+                        ],
+                        "is_pinned": false,
+                        "is_best": false,
+                        "is_hot": false,
+                        "created_at": "2025-10-02T04:58:04.407753Z"
+            },
+            {
+                        "id": 10,
+                        "title": "부동산 정책, 실수요자 보호는?",
+                        "content": "최근 부동산 정책들이 연이어 발표되고 있습니다. 투기 억제도 중요하지만 실수요자 보호 방안도 충분히 고려되었는지 궁금합니다.",
+                        "category": "general",
+                        "author": "투표하는시민",
+                        "author_id": "user_9585",
+                        "author_type": "user",
+                        "politician_id": null,
+                        "upvotes": 27,
+                        "downvotes": 1,
+                        "score": 26,
+                        "views": 369,
+                        "comment_count": 1,
+                        "tags": [
+                                    "부동산",
+                                    "주택정책",
+                                    "실수요자"
+                        ],
+                        "is_pinned": false,
+                        "is_best": false,
+                        "is_hot": false,
+                        "created_at": "2025-10-01T17:58:04.407753Z"
+            },
+            {
+                        "id": 11,
+                        "title": "디지털 전환 정책, 소외계층 배려는?",
+                        "content": "정부의 디지털 전환 정책이 빠르게 진행되고 있습니다. 하지만 디지털 소외계층에 대한 배려가 부족해 보입니다.",
+                        "category": "general",
+                        "author": "변화를원해",
+                        "author_id": "user_1065",
+                        "author_type": "user",
+                        "politician_id": null,
+                        "upvotes": 36,
+                        "downvotes": 6,
+                        "score": 30,
+                        "views": 322,
+                        "comment_count": 4,
+                        "tags": [
+                                    "디지털",
+                                    "포용정책",
+                                    "소외계층"
+                        ],
+                        "is_pinned": false,
+                        "is_best": false,
+                        "is_hot": false,
+                        "created_at": "2025-10-06T02:58:04.407753Z"
+            },
+            {
+                        "id": 12,
+                        "title": "국방 정책 방향성에 대해",
+                        "content": "변화하는 안보 환경 속에서 우리나라 국방 정책의 방향성에 대한 토론이 필요합니다.",
+                        "category": "general",
+                        "author": "시민참여자",
+                        "author_id": "user_9116",
+                        "author_type": "user",
+                        "politician_id": null,
+                        "upvotes": 113,
+                        "downvotes": 28,
+                        "score": 85,
+                        "views": 1040,
+                        "comment_count": 4,
+                        "tags": [
+                                    "국방",
+                                    "안보",
+                                    "정책방향"
+                        ],
+                        "is_pinned": false,
+                        "is_best": true,
+                        "is_hot": false,
+                        "created_at": "2025-10-09T16:58:04.407753Z"
+            },
+            {
+                        "id": 13,
+                        "title": "지방 소멸 위기, 어떻게 해결할까?",
+                        "content": "지방 소멸 위기가 심각합니다. 청년 유출을 막고 지역 경제를 살릴 수 있는 실질적인 정책이 필요합니다.",
+                        "category": "general",
+                        "author": "시민참여자",
+                        "author_id": "user_2493",
+                        "author_type": "user",
+                        "politician_id": null,
+                        "upvotes": 31,
+                        "downvotes": 5,
+                        "score": 26,
+                        "views": 219,
+                        "comment_count": 3,
+                        "tags": [
+                                    "지방소멸",
+                                    "인구정책",
+                                    "지역경제"
+                        ],
+                        "is_pinned": false,
+                        "is_best": false,
+                        "is_hot": false,
+                        "created_at": "2025-10-08T19:58:04.407753Z"
+            },
+            {
+                        "id": 14,
+                        "title": "정치 투명성 제고 방안",
+                        "content": "정치 자금, 정책 결정 과정 등 정치의 투명성을 높이기 위한 방안들을 함께 논의해봅시다.",
+                        "category": "general",
+                        "author": "변화를원해",
+                        "author_id": "user_3924",
+                        "author_type": "user",
+                        "politician_id": null,
+                        "upvotes": 99,
+                        "downvotes": 5,
+                        "score": 94,
+                        "views": 1119,
+                        "comment_count": 2,
+                        "tags": [
+                                    "투명성",
+                                    "정치개혁",
+                                    "시민참여"
+                        ],
+                        "is_pinned": false,
+                        "is_best": true,
+                        "is_hot": false,
+                        "created_at": "2025-10-12T23:58:04.407753Z"
+            },
+            {
+                        "id": 15,
+                        "title": "기후 위기 대응 정책 긴급합니다",
+                        "content": "기후 위기가 현실이 되고 있습니다. 더 늦기 전에 실질적인 대응 정책이 필요합니다.",
+                        "category": "general",
+                        "author": "깨어있는시민",
+                        "author_id": "user_3580",
+                        "author_type": "user",
+                        "politician_id": null,
+                        "upvotes": 34,
+                        "downvotes": 0,
+                        "score": 34,
+                        "views": 250,
+                        "comment_count": 4,
+                        "tags": [
+                                    "기후위기",
+                                    "환경",
+                                    "긴급대응"
+                        ],
+                        "is_pinned": false,
+                        "is_best": false,
+                        "is_hot": false,
+                        "created_at": "2025-10-02T20:58:04.407753Z"
+            },
+            {
+                        "id": 16,
+                        "title": "스타트업 지원 정책, 현장의 목소리",
+                        "content": "스타트업 지원 정책들이 많지만 실제 스타트업 현장에서는 체감이 어렵습니다. 실질적인 지원 방안을 제안합니다.",
+                        "category": "general",
+                        "author": "정책분석가",
+                        "author_id": "user_9107",
+                        "author_type": "user",
+                        "politician_id": null,
+                        "upvotes": 60,
+                        "downvotes": 13,
+                        "score": 47,
+                        "views": 593,
+                        "comment_count": 5,
+                        "tags": [
+                                    "스타트업",
+                                    "창업지원",
+                                    "현장목소리"
+                        ],
+                        "is_pinned": false,
+                        "is_best": false,
+                        "is_hot": false,
+                        "created_at": "2025-09-29T00:58:04.407753Z"
+            },
+            {
+                        "id": 17,
+                        "title": "농업 정책, 농민들의 실질적 도움 될까?",
+                        "content": "농업 정책들이 발표되고 있지만 실제 농민들에게 얼마나 도움이 될지 의문입니다. 농촌 현장의 목소리를 들어야 합니다.",
+                        "category": "general",
+                        "author": "시민참여자",
+                        "author_id": "user_3258",
+                        "author_type": "user",
+                        "politician_id": null,
+                        "upvotes": 137,
+                        "downvotes": 33,
+                        "score": 104,
+                        "views": 1668,
+                        "comment_count": 2,
+                        "tags": [
+                                    "농업",
+                                    "농촌정책",
+                                    "농민"
+                        ],
+                        "is_pinned": false,
+                        "is_best": true,
+                        "is_hot": false,
+                        "created_at": "2025-10-20T19:58:04.407753Z"
+            },
+            {
+                        "id": 18,
+                        "title": "[공식] 청년 일자리 창출 정책 설명",
+                        "content": "안녕하세요. 청년 일자리 2만개 창출 공약에 대해 구체적인 실행 계획을 말씀드리겠습니다. 중소기업 인턴십 프로그램 1만개, 공공부문 신규 채용 5천개, 창업 지원 5천개로 구성됩니다.",
+                        "category": "general",
+                        "author": "정치관심러",
+                        "author_id": "user_8918",
+                        "author_type": "user",
+                        "politician_id": null,
+                        "upvotes": 16,
+                        "downvotes": 5,
+                        "score": 11,
+                        "views": 109,
+                        "comment_count": 1,
+                        "tags": [
+                                    "청년정책",
+                                    "일자리",
+                                    "공약설명"
+                        ],
+                        "is_pinned": false,
+                        "is_best": false,
+                        "is_hot": false,
+                        "created_at": "2025-10-12T02:58:04.407753Z"
+            },
+            {
+                        "id": 19,
+                        "title": "육아 지원 정책 확대 필요성",
+                        "content": "저출산 문제 해결을 위해서는 실질적인 육아 지원 정책 확대가 필수입니다. 보육비 지원, 육아휴직 확대 등이 필요합니다.",
+                        "category": "politician_post",
+                        "author": "🏛️ 임승현",
+                        "author_id": "politician_24",
+                        "author_type": "politician",
+                        "politician_id": 26,
+                        "upvotes": 10,
+                        "downvotes": 0,
+                        "score": 10,
+                        "views": 133,
+                        "comment_count": 2,
+                        "tags": [
+                                    "육아",
+                                    "저출산",
+                                    "복지정책"
+                        ],
+                        "is_pinned": false,
+                        "is_best": false,
+                        "is_hot": false,
+                        "created_at": "2025-10-05T07:58:04.407753Z"
+            },
+            {
+                        "id": 20,
+                        "title": "문화 예술 지원 정책 어떻게 보시나요?",
+                        "content": "문화 예술 분야에 대한 지원 정책이 부족하다는 의견이 많습니다. 예술인들의 안정적인 창작 활동을 위한 지원 방안이 필요합니다.",
+                        "category": "politician_post",
+                        "author": "🏛️ 신지민",
+                        "author_id": "politician_15",
+                        "author_type": "politician",
+                        "politician_id": 4,
+                        "upvotes": 10,
+                        "downvotes": 0,
+                        "score": 10,
+                        "views": 57,
+                        "comment_count": 3,
+                        "tags": [
+                                    "문화",
+                                    "예술",
+                                    "지원정책"
+                        ],
+                        "is_pinned": false,
+                        "is_best": false,
+                        "is_hot": false,
+                        "created_at": "2025-10-12T11:58:04.407753Z"
+            },
+            {
+                        "id": 21,
+                        "title": "김민준 의원님의 청년 정책에 대해 의견 드립니다",
+                        "content": "김민준 의원님께서 발표하신 청년 일자리 2만개 창출 공약에 대해 몇 가지 의견을 드리고 싶습니다. 중소기업 인턴십 프로그램은 좋지만, 급여 수준과 정규직 전환율이 명확하지 않은 것 같습니다.",
+                        "category": "general",
+                        "author": "청년정책연구",
+                        "author_id": "user_8901",
+                        "author_type": "user",
+                        "politician_tag": "김민준",
+                        "politician_id": "pol_001",
+                        "upvotes": 28,
+                        "downvotes": 5,
+                        "score": 23,
+                        "views": 342,
+                        "comment_count": 8,
+                        "tags": [
+                                    "청년정책",
+                                    "일자리",
+                                    "정책제안"
+                        ],
+                        "is_pinned": false,
+                        "is_best": false,
+                        "is_hot": true,
+                        "created_at": "2025-10-25T14:30:00.000000Z",
+                        "politician_position": "국회의원",
+                        "politician_status": "현직"
+            },
+            {
+                        "id": 22,
+                        "title": "이서연 단체장님의 교통 정책 궁금합니다",
+                        "content": "광주 서구에서 추진 중인 지하철 연장 사업에 대해 이서연 단체장님의 입장이 궁금합니다. 주민 설명회는 언제 열리나요?",
+                        "category": "general",
+                        "author": "광주시민",
+                        "author_id": "user_8902",
+                        "author_type": "user",
+                        "politician_tag": "이서연",
+                        "politician_id": "pol_002",
+                        "upvotes": 15,
+                        "downvotes": 2,
+                        "score": 13,
+                        "views": 218,
+                        "comment_count": 5,
+                        "tags": [
+                                    "교통",
+                                    "지역개발",
+                                    "질문"
+                        ],
+                        "is_pinned": false,
+                        "is_best": false,
+                        "is_hot": false,
+                        "created_at": "2025-10-26T09:15:00.000000Z",
+                        "politician_position": "광역단체장",
+                        "politician_status": "현직"
+            },
+            {
+                        "id": 23,
+                        "title": "박준서 의원의 환경 정책 지지합니다",
+                        "content": "박준서 의원님께서 추진하시는 탄소중립 정책에 전적으로 동의합니다. 특히 재생에너지 확대 방안이 매우 실질적이라고 생각합니다.",
+                        "category": "general",
+                        "author": "환경지킴이",
+                        "author_id": "user_8903",
+                        "author_type": "user",
+                        "politician_tag": "박준서",
+                        "politician_id": "pol_003",
+                        "upvotes": 42,
+                        "downvotes": 3,
+                        "score": 39,
+                        "views": 456,
+                        "comment_count": 12,
+                        "tags": [
+                                    "환경",
+                                    "탄소중립",
+                                    "응원"
+                        ],
+                        "is_pinned": false,
+                        "is_best": true,
+                        "is_hot": true,
+                        "created_at": "2025-10-25T11:20:00.000000Z",
+                        "politician_position": "기초단체장",
+                        "politician_status": "현직"
+            }
+        ];
+
+        // Load posts from JSON
+        async function loadPosts() {
+            try {
+                let response = await fetch('../assets/community-data.json');
+                if (!response.ok) {
+                    throw new Error('Failed to load JSON');
+                }
+                const data = await response.json();
+                allPosts = data.posts;
+                renderPosts();
+            } catch (error) {
+                console.warn('JSON 파일 로드 실패, 샘플 데이터 사용:', error.message);
+                allPosts = samplePosts;
+                renderPosts();
+            }
+        }
+
+        // Filter by category
+        function filterCategory(category) {
+            currentCategory = category;
+
+            // Update tab styles
+            document.querySelectorAll('[id^="tab-"]').forEach(tab => {
+                if (tab.id === `tab-${category}`) {
+                    tab.classList.remove('bg-white', 'text-gray-700');
+                    if (category === 'general') {
+                        tab.classList.add('bg-secondary-500', 'text-white');
+                    } else {
+                        tab.classList.add('bg-primary-500', 'text-white');
+                    }
+                } else {
+                    tab.classList.remove('bg-primary-500', 'bg-secondary-500', 'text-white');
+                    tab.classList.add('bg-white', 'text-gray-700');
+                }
+            });
+
+            // Update write button color
+            const writeButton = document.getElementById('write-button');
+            if (category === 'general') {
+                writeButton.classList.remove('bg-primary-500', 'hover:bg-primary-600', 'focus:ring-primary-300');
+                writeButton.classList.add('bg-secondary-500', 'hover:bg-secondary-600', 'focus:ring-secondary-300');
+            } else {
+                writeButton.classList.remove('bg-secondary-500', 'hover:bg-secondary-600', 'focus:ring-secondary-300');
+                writeButton.classList.add('bg-primary-500', 'hover:bg-primary-600', 'focus:ring-primary-300');
+            }
+
+            renderPosts();
+        }
+
+        // Sort posts
+        function sortPosts() {
+            currentSort = document.getElementById('sort-select').value;
+            renderPosts();
+        }
+
+        // Render posts
+        function renderPosts() {
+            let posts = allPosts;
+
+            // Filter by search term
+            if (currentSearchTerm) {
+                posts = posts.filter(post => {
+                    const searchableText = `${post.title} ${post.content} ${post.author}`.toLowerCase();
+                    return searchableText.includes(currentSearchTerm.toLowerCase());
+                });
+            }
+
+            // Filter by category
+            if (currentCategory !== 'all') {
+                posts = posts.filter(post => post.category === currentCategory);
+            }
+
+            // Sort posts
+            if (currentSort === 'latest') {
+                posts.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+            } else if (currentSort === 'popular') {
+                posts.sort((a, b) => b.score - a.score);
+            } else if (currentSort === 'views') {
+                posts.sort((a, b) => b.views - a.views);
+            }
+
+            // Update count
+            document.getElementById('post-count').textContent = posts.length;
+
+            // Render
+            const postList = document.getElementById('post-list');
+            const emptyState = document.getElementById('empty-state');
+
+            if (posts.length === 0) {
+                postList.innerHTML = '';
+                emptyState.classList.remove('hidden');
+                return;
+            }
+
+            emptyState.classList.add('hidden');
+            postList.innerHTML = posts.map(post => createPostCard(post)).join('');
+
+            // Attach listeners after rendering
+            attachActionListeners();
+        }
+
+        // Create post card HTML
+        function createPostCard(post) {
+            const date = new Date(post.created_at);
+            const formattedDateTime = `${date.getFullYear()}.${String(date.getMonth() + 1).padStart(2, '0')}.${String(date.getDate()).padStart(2, '0')} ${String(date.getHours()).padStart(2, '0')}:${String(date.getMinutes()).padStart(2, '0')}`;
+
+            const badges = [];
+            if (post.is_hot) badges.push('<span class="px-2 py-1 bg-red-100 text-red-700 text-xs font-medium rounded">Hot</span>');
+            if (post.is_best) badges.push('<span class="px-2 py-1 bg-yellow-100 text-yellow-800 text-xs font-medium rounded">Best</span>');
+
+            return `
+                <div class="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition cursor-pointer post-card" data-post-url="${post.category === 'politician_post' ? 'post-detail_politician.html' : 'post-detail_member.html'}?id=${post.id}">
+                    <div class="flex items-start justify-between mb-3">
+                        <div class="flex items-center space-x-2">
+                            ${badges.join('')}
+                        </div>
+                    </div>
+
+                    <h3 class="text-lg font-bold text-gray-900 mb-2 hover:text-primary-600">${post.title}</h3>
+                    ${post.politician_tag ? `
+                    <div class="mb-2">
+                        <span class="inline-flex items-center px-2 py-1 bg-primary-100 text-primary-700 text-xs font-medium rounded border border-primary-300">
+                            🏷️ ${post.politician_tag} | ${post.politician_status || '현직'} ${post.politician_position || '국회의원'} | 정치인에 대해서
+                        </span>
+                    </div>
+                    ` : ''}
+                    <p class="text-gray-600 text-sm mb-4 line-clamp-2">${post.content}</p>
+
+                    ${post.tags && post.tags.length > 0 ? `
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        ${post.tags.map(tag => `<span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">#${tag}</span>`).join('')}
+                    </div>
+                    ` : ''}
+
+                    <div class="flex items-center gap-3 text-xs text-gray-500 border-t pt-3">
+                        ${post.category === 'politician_post'
+                            ? `<a href="politician-detail.html?id=${post.author}" class="font-medium text-primary-600 hover:text-primary-700 hover:underline" onclick="event.stopPropagation()">${post.author} | ${post.status || '현직'} ${post.position || '국회의원'}</a>`
+                            : `
+                            <div class="flex items-center gap-2">
+                                <a href="user-profile.html?user=${post.author}" class="font-medium text-purple-600 hover:text-purple-700 hover:underline" onclick="event.stopPropagation()">${post.author}</a>
+                                <span class="text-[10px] text-gray-900 font-medium">ML${post.member_level ? post.member_level.replace('ML', '') : '1'}</span>
+                                <span class="text-[10px] text-emerald-900 font-medium">🏰 영주</span>
+                                <button
+                                    class="follow-btn ml-1 px-3 py-1 border-2 border-emerald-700 text-emerald-900 rounded-md text-xs hover:bg-gray-50 transition"
+                                    data-user="${post.author}"
+                                    onclick="event.stopPropagation(); toggleFollow(this, '${post.author}')"
+                                >
+                                    + 팔로우
+                                </button>
+                            </div>
+                            `
+                        }
+                        <span>${formattedDateTime}</span>
+                        <span>조회수 ${post.views || 0}</span>
+                        <span class="text-red-600">👍 ${post.upvotes}</span>
+                        <span class="text-gray-400">👎 ${post.downvotes}</span>
+                        <span>댓글 ${post.comment_count}</span>
+                        <span class="flex items-center gap-1 text-gray-500">
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path>
+                            </svg>
+                            <span>공유 ${post.share_count || 0}</span>
+                        </span>
+                    </div>
+                </div>
+            `;
+        }
+
+        function attachActionListeners() {
+            // Post card click handlers
+            document.querySelectorAll('.post-card').forEach(card => {
+                card.addEventListener('click', function(e) {
+                    if (!e.target.closest('button') && !e.target.closest('a')) {
+                        const url = this.dataset.postUrl;
+                        if (url) window.location.href = url;
+                    }
+                });
+            });
+        }
+
+
+        // Search functionality
+        function performCommunitySearch() {
+            const searchInput = document.getElementById('community-search-input');
+            currentSearchTerm = searchInput.value.trim();
+            renderPosts();
+        }
+
+        document.getElementById('community-search-button').addEventListener('click', performCommunitySearch);
+        document.getElementById('community-search-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                performCommunitySearch();
+            }
+        });
+        document.getElementById('community-search-input').addEventListener('input', function() {
+            currentSearchTerm = this.value.trim();
+            renderPosts();
+        });
+
+        // Write button functionality
+        function handleWriteClick() {
+            if (currentCategory === 'all') {
+                openCategoryModal();
+            } else if (currentCategory === 'politician_post') {
+                window.location.href = 'write-post_politician.html';
+            } else if (currentCategory === 'general') {
+                window.location.href = 'write-post_member.html';
+            }
+        }
+
+        function openCategoryModal() {
+            document.getElementById('category-modal').classList.remove('hidden');
+        }
+
+        function closeCategoryModal() {
+            document.getElementById('category-modal').classList.add('hidden');
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            const modal = document.getElementById('category-modal');
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    closeCategoryModal();
+                }
+            });
+            loadPosts();
+        });
+
+    </script>
+
+</body>
+</html>
