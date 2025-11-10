@@ -6,16 +6,16 @@ import { z } from "zod";
 import { createClient } from "@/lib/supabase/server";
 
 const getPoliticiansQuerySchema = z.object({
-  page: z.string().optional().default("1").transform(Number),
-  limit: z.string().optional().default("20").transform(Number),
-  search: z.string().optional().default(""),
-  political_party_id: z.string().optional().transform(val => val ? Number(val) : undefined),
-  position_id: z.string().optional().transform(val => val ? Number(val) : undefined),
-  constituency_id: z.string().optional().transform(val => val ? Number(val) : undefined),
-  is_active: z.enum(["true", "false"]).optional().transform(val => val === "true"),
-  verified_only: z.enum(["true", "false"]).optional().transform(val => val === "true"),
-  sort: z.string().optional().default("name"),
-  order: z.enum(["asc", "desc"]).optional().default("asc"),
+  page: z.string().nullable().optional().default("1").transform(Number),
+  limit: z.string().nullable().optional().default("20").transform(Number),
+  search: z.string().nullable().optional().default(""),
+  party: z.string().nullable().optional(),
+  position: z.string().nullable().optional(),
+  region: z.string().nullable().optional(),
+  district: z.string().nullable().optional(),
+  verified_only: z.enum(["true", "false"]).nullable().optional().transform(val => val === "true"),
+  sort: z.string().nullable().optional().default("name"),
+  order: z.enum(["asc", "desc"]).nullable().optional().default("asc"),
 });
 
 type GetPoliticiansQuery = z.infer<typeof getPoliticiansQuerySchema>;
@@ -27,10 +27,10 @@ export async function GET(request: NextRequest) {
       page: searchParams.get("page") || "1",
       limit: searchParams.get("limit") || "20",
       search: searchParams.get("search") || "",
-      political_party_id: searchParams.get("political_party_id"),
-      position_id: searchParams.get("position_id"),
-      constituency_id: searchParams.get("constituency_id"),
-      is_active: searchParams.get("is_active"),
+      party: searchParams.get("party"),
+      position: searchParams.get("position"),
+      region: searchParams.get("region"),
+      district: searchParams.get("district"),
       verified_only: searchParams.get("verified_only"),
       sort: searchParams.get("sort") || "name",
       order: searchParams.get("order") || "asc",
@@ -44,27 +44,30 @@ export async function GET(request: NextRequest) {
     // Supabase 쿼리 빌더 시작
     let queryBuilder = supabase
       .from("politicians")
-      .select("*", { count: "exact" })
-      .eq("is_active", query.is_active ?? true);
+      .select("*", { count: "exact" });
 
-    // Full-text 검색 (이름, 이름 한자, 영어 이름)
+    // Full-text 검색 (이름, 영어 이름, 정당, 지역)
     if (query.search) {
       queryBuilder = queryBuilder.or(
-        `name.ilike.%${query.search}%,name_kana.ilike.%${query.search}%,name_english.ilike.%${query.search}%,bio.ilike.%${query.search}%`
+        `name.ilike.%${query.search}%,name_en.ilike.%${query.search}%,party.ilike.%${query.search}%,region.ilike.%${query.search}%,district.ilike.%${query.search}%`
       );
     }
 
     // 필터 적용
-    if (query.political_party_id !== undefined) {
-      queryBuilder = queryBuilder.eq("political_party_id", query.political_party_id);
+    if (query.party) {
+      queryBuilder = queryBuilder.eq("party", query.party);
     }
 
-    if (query.position_id !== undefined) {
-      queryBuilder = queryBuilder.eq("position_id", query.position_id);
+    if (query.position) {
+      queryBuilder = queryBuilder.eq("position", query.position);
     }
 
-    if (query.constituency_id !== undefined) {
-      queryBuilder = queryBuilder.eq("constituency_id", query.constituency_id);
+    if (query.region) {
+      queryBuilder = queryBuilder.eq("region", query.region);
+    }
+
+    if (query.district) {
+      queryBuilder = queryBuilder.eq("district", query.district);
     }
 
     if (query.verified_only) {
@@ -73,7 +76,7 @@ export async function GET(request: NextRequest) {
 
     // 정렬 적용
     const isDescending = query.order === "desc";
-    queryBuilder = queryBuilder.order(query.sort, { ascending: !isDescending });
+    queryBuilder = queryBuilder.order(query.sort || "name", { ascending: !isDescending });
 
     // 페이지네이션 적용
     const start = (query.page - 1) * query.limit;

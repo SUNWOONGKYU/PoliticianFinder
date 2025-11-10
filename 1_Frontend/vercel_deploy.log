@@ -1,0 +1,14 @@
+Vercel CLI 48.4.0
+WARN! `--confirm` is deprecated, please use `--yes` instead
+Loading scopes…
+Searching for existing projects…
+Local settings detected in vercel.json:
+- Build Command: npm run build
+- Framework: nextjs
+- Output Directory: .next
+Merging default Project Settings for Next.js. Previously listed overrides are prioritized.
+Auto-detected Project Settings (Next.js):
+- Development Command: next dev --port $PORT
+- Install Command: `yarn install`, `pnpm install`, `npm install`, or `bun install`
+Error: Project names can be up to 100 characters long and must be lowercase. They can include letters, digits, and the following characters: '.', '_', '-'. However, they cannot contain the sequence '---'. (400)
+Learn More: https://vercel.com/docs/projects/overview#project-name

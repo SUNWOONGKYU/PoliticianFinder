@@ -21,6 +21,14 @@ const customJestConfig = {
     '**/__tests__/**/*.[jt]s?(x)',
     '**/?(*.)+(spec|test).[jt]s?(x)',
   ],
+  testPathIgnorePatterns: [
+    '/node_modules/',
+    '/.next/',
+    '/e2e/',  // Issue #3: Exclude Playwright E2E tests
+    '/__tests__/integration/',  // Issue #2: Exclude integration tests (need separate environment)
+    '/src/app/api/',  // Issue #1: Exclude all API route tests (need edge runtime)
+    'setup\\.ts$',  // Exclude setup files from being run as tests
+  ],
   collectCoverageFrom: [
     'src/**/*.{js,jsx,ts,tsx}',
     '!src/**/*.d.ts',

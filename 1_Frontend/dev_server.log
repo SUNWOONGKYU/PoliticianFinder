@@ -1,0 +1,16 @@
+
+> politicianfinder-frontend@0.1.0 dev
+> next dev
+
+  ▲ Next.js 14.2.18
+  - Local:        http://localhost:3000
+  - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 2.3s
+ ○ Compiling /src/middleware ...
+ ✓ Compiled /src/middleware in 538ms (72 modules)
+ ○ Compiling / ...
+ ✓ Compiled / in 4.4s (531 modules)
+ GET / 200 in 5067ms
+ ✓ Compiled in 737ms (258 modules)

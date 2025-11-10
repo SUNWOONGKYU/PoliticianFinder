@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState } from 'react';
 
 // 정치인 데이터 타입 정의
@@ -859,8 +860,8 @@ export default function Home() {
                           >
                             새내기회원
                           </a>
-                          <span className="text-[10px] text-gray-900 font-medium">ML1</span>
-                          <span className="text-[10px] text-emerald-900 font-medium">
+                          <span className="text-xs text-gray-900 font-medium">ML1</span>
+                          <span className="text-xs text-emerald-900 font-medium">
                             🚶 방랑자
                           </span>
                         </div>
@@ -892,8 +893,8 @@ export default function Home() {
                           >
                             투명정치
                           </a>
-                          <span className="text-[10px] text-gray-900 font-medium">ML3</span>
-                          <span className="text-[10px] text-emerald-900 font-medium">⚔️ 기사</span>
+                          <span className="text-xs text-gray-900 font-medium">ML3</span>
+                          <span className="text-xs text-emerald-900 font-medium">⚔️ 기사</span>
                         </div>
                         <span>2025.10.23 14:20</span>
                         <span>조회수 142</span>

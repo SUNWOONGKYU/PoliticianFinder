@@ -89,7 +89,10 @@ describe('image-upload 유틸리티', () => {
     });
 
     it('파일 크기가 5MB를 초과하면 에러를 반환해야 함', async () => {
-      const largeFile = Buffer.alloc(6 * 1024 * 1024); // 6MB
+      // Issue #5: Use valid JPEG header so type validation passes and size validation runs
+      const jpegHeader = Buffer.from([0xff, 0xd8, 0xff, 0xe0]);
+      const padding = Buffer.alloc(6 * 1024 * 1024 - jpegHeader.length); // 6MB total
+      const largeFile = Buffer.concat([jpegHeader, padding]);
 
       const result = await uploadImage({
         file: largeFile,

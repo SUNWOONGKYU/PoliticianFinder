@@ -425,6 +425,75 @@ export default function PoliticiansPage() {
           </div>
         </div>
 
+        {/* Mobile: Card View */}
+        <div className="md:hidden space-y-4">
+          {filteredData.map((p) => (
+            <div key={p.rank} className="bg-white rounded-lg shadow-md p-4">
+              <div className="flex justify-between items-start mb-3">
+                <div className="flex items-center gap-2">
+                  <span className="text-lg font-bold text-primary-500">#{p.rank}</span>
+                  <Link href={`/politicians/${p.name}`}>
+                    <span className="text-lg font-bold text-gray-900 hover:text-primary-600">
+                      {p.name}
+                    </span>
+                  </Link>
+                </div>
+                <div className="text-sm font-semibold text-accent-600">
+                  {p.grade === 'E' && '💚 Emerald'}
+                  {p.grade === 'P' && '🥇 Platinum'}
+                  {p.grade === 'D' && '💎 Diamond'}
+                  {p.grade === 'M' && '🌺 Mugunghwa'}
+                  {p.grade === 'G' && '🥇 Gold'}
+                </div>
+              </div>
+
+              <div className="text-sm text-gray-600 space-y-1 mb-3">
+                <div>{p.status} • {p.category}</div>
+                <div>{p.party} • {p.region} {p.district}</div>
+              </div>
+
+              <div className="border-t pt-3">
+                <div className="text-center mb-3 pb-3 border-b">
+                  <div className="text-xs text-gray-600 mb-1">종합평점</div>
+                  <div className="text-2xl font-bold text-accent-600">{p.overallScore}</div>
+                </div>
+
+                <div className="grid grid-cols-2 gap-2 text-sm mb-3">
+                  <div className="flex justify-between items-center">
+                    <span className="text-gray-600 text-xs">Claude</span>
+                    <span className="font-bold text-accent-600">{p.claudeScore}</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-gray-600 text-xs">ChatGPT</span>
+                    <span className="font-bold text-accent-600">{p.chatgptScore}</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-gray-600 text-xs">Gemini</span>
+                    <span className="font-bold text-accent-600">{p.geminiScore}</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-gray-600 text-xs">Grok</span>
+                    <span className="font-bold text-accent-600">{p.grokScore}</span>
+                  </div>
+                  <div className="flex justify-between items-center col-span-2">
+                    <span className="text-gray-600 text-xs">Perplexity</span>
+                    <span className="font-bold text-accent-600">{p.perplexityScore}</span>
+                  </div>
+                </div>
+
+                <div className="text-center pt-2 border-t">
+                  <div className="text-xs text-gray-600 mb-1">회원평점</div>
+                  <div className="font-bold text-secondary-600">
+                    {'★'.repeat(p.memberRating)}
+                    {'☆'.repeat(5 - p.memberRating)}
+                  </div>
+                  <div className="text-xs text-gray-500">({p.memberCount}명)</div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
         {/* No results message */}
         {filteredData.length === 0 && (
           <div className="text-center py-12">

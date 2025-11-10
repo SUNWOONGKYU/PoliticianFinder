@@ -633,8 +633,8 @@ export default function CommunityPage() {
                         <Link href={`/users/${post.author_id}/profile`} className="font-medium text-secondary-600 hover:text-secondary-700 hover:underline" onClick={(e) => e.stopPropagation()}>
                           {post.author}
                         </Link>
-                        {post.member_level && <span className="text-[10px] text-gray-900 font-medium">ML{post.member_level.replace('ML', '')}</span>}
-                        <span className="text-[10px] text-emerald-900 font-medium">🏰 영주</span>
+                        {post.member_level && <span className="text-xs text-gray-900 font-medium">ML{post.member_level.replace('ML', '')}</span>}
+                        <span className="text-xs text-emerald-900 font-medium">🏰 영주</span>
                         <button
                           onClick={(e) => {
                             e.preventDefault();

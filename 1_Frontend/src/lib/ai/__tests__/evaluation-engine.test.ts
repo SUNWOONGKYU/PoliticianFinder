@@ -7,6 +7,9 @@ import { validateEvaluationResponse } from '../prompts/evaluation-prompt';
 describe('AI Evaluation System', () => {
   describe('validateEvaluationResponse', () => {
     it('should validate correct response structure', () => {
+      // Issue #6: Evidence must be at least 100 characters as per validation function
+      const longEvidence = 'This is a detailed evidence text that exceeds 100 characters to satisfy the validation requirement for AI evaluation criteria evidence strings.';
+
       const validResponse = {
         overall_score: 85,
         overall_grade: 'A',
@@ -15,16 +18,16 @@ describe('AI Evaluation System', () => {
         weaknesses: ['weakness1'],
         sources: ['source1'],
         criteria: {
-          integrity: { score: 90, evidence: 'Long evidence text...' },
-          expertise: { score: 85, evidence: 'Long evidence text...' },
-          communication: { score: 88, evidence: 'Long evidence text...' },
-          leadership: { score: 86, evidence: 'Long evidence text...' },
-          transparency: { score: 92, evidence: 'Long evidence text...' },
-          responsiveness: { score: 84, evidence: 'Long evidence text...' },
-          innovation: { score: 80, evidence: 'Long evidence text...' },
-          collaboration: { score: 87, evidence: 'Long evidence text...' },
-          constituency_service: { score: 89, evidence: 'Long evidence text...' },
-          policy_impact: { score: 83, evidence: 'Long evidence text...' },
+          integrity: { score: 90, evidence: longEvidence },
+          expertise: { score: 85, evidence: longEvidence },
+          communication: { score: 88, evidence: longEvidence },
+          leadership: { score: 86, evidence: longEvidence },
+          transparency: { score: 92, evidence: longEvidence },
+          responsiveness: { score: 84, evidence: longEvidence },
+          innovation: { score: 80, evidence: longEvidence },
+          collaboration: { score: 87, evidence: longEvidence },
+          constituency_service: { score: 89, evidence: longEvidence },
+          policy_impact: { score: 83, evidence: longEvidence },
         },
       };
 

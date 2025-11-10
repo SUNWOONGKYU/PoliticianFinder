@@ -1,5 +1,5 @@
 // jest.setup.js
-import '@testing-library/jest-dom'
+require('@testing-library/jest-dom')
 
 // Detect if running integration tests
 const isIntegrationTest = process.env.TEST_INTEGRATION === 'true' ||
