@@ -961,8 +961,8 @@
 
             // 작업지시서 파일 (tasks/*.md)
             if (path.startsWith('tasks/')) {
-                const correctedPath = '../../../' + path;
-                window.open(correctedPath, '_blank');
+                // GitHub Pages와 로컬 모두에서 작동
+                window.open(path, '_blank');
             }
             // 생성파일 (src/app/..., src/lib/... 등)
             else if (path.startsWith('src/')) {

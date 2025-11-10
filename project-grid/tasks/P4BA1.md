@@ -1,0 +1,131 @@
+# 작업지시서: P4BA1
+
+## 📋 기본 정보
+
+- **작업 ID**: P4BA1
+- **업무명**: 선관위 크롤링 스크립트
+- **Phase**: Phase 4
+- **Area**: Backend APIs (BA)
+- **서브 에이전트**: api-designer
+- **작업 방식**: AI-Only
+
+---
+
+## 🎯 작업 목표
+
+선관위 사이트에서 정치인 데이터 크롤링
+
+---
+
+## 🔧 사용 도구
+
+```
+[Claude 도구]
+Read, Edit, Write, Grep, Glob, Bash
+
+[기술 스택]
+TypeScript, Next.js API Routes, Supabase, Zod
+
+[전문 스킬]
+api-builder, api-test
+```
+
+**도구 설명**:
+- **Claude 도구**: Claude Code의 기본 기능 (Read, Write, Edit, Bash, Glob, Grep 등)
+- **기술 스택**: 프로젝트에 사용되는 프레임워크 및 라이브러리
+- **전문 스킬**: Anthropic 빌트인 스킬 (.claude/skills/*.md 참조)
+
+## 🔗 의존성 정보
+
+**의존성 체인**: P2D1
+
+이 작업을 시작하기 전에 다음 작업이 완료되어야 합니다: P2D1
+
+---
+
+## 📦 기대 결과물
+
+**생성할 파일:**
+1. `lib/crawlers/nec-crawler.ts` - 선관위 크롤러 메인 로직
+2. `lib/crawlers/types.ts` - 크롤링 데이터 타입 정의
+3. `lib/crawlers/utils.ts` - 크롤링 유틸리티 (재시도, 파싱)
+
+**크롤링 대상 정보:**
+- 사이트: 중앙선거관리위원회 정치인 정보
+- URL: https://www.nec.go.kr
+- 수집 데이터: 이름, 정당, 지역구, 연락처, 약력
+
+**설치 필요 패키지:**
+```bash
+npm install puppeteer
+# 또는 더 가벼운 playwright
+npm install playwright
+```
+
+---
+
+## 💾 구현 파일 저장 위치
+
+**루트 폴더**: `3_Backend_APIs/`
+
+**파일 경로**:
+```
+3_Backend_APIs/
+└── lib/
+    └── crawlers/
+        └── nec-crawler.ts
+```
+
+**절대 경로 별칭**: `@/` (예: `import ... from '@/lib/crawlers/nec-crawler'`)
+
+---
+
+## 📝 작업 지시사항
+
+### 1. 준비 단계
+
+- 프로젝트 루트 디렉토리에서 작업 시작
+- 필요한 도구 확인: TypeScript/Next.js API Routes/Supabase/Zod
+- 의존성 작업 완료 확인 (P2D1)
+
+### 2. 구현 단계
+
+**구현해야 할 세부 항목**:
+
+1. 선관위 사이트 분석
+2. Puppeteer/Playwright 크롤러 구현
+3. 데이터 파싱 로직
+4. 에러 처리 및 재시도 로직
+5. 크롤링 결과 저장 (JSON)
+
+각 항목을 체계적으로 구현하고 테스트하세요.
+
+### 3. 검증 단계
+
+- 작성한 코드의 정상 동작 확인
+- 타입 체크 및 린트 통과
+- 필요한 경우 단위 테스트 작성
+- 코드 리뷰 준비
+
+### 4. 완료 단계
+
+- 생성된 파일 목록 확인
+- PROJECT GRID 상태 업데이트
+- 다음 의존 작업에 영향 확인
+
+---
+
+## ✅ 완료 기준
+
+- [ ] 선관위 크롤링 스크립트 기능이 정상적으로 구현됨
+- [ ] 기대 결과물이 모두 생성됨
+- [ ] 코드가 정상적으로 빌드/실행됨
+- [ ] 타입 체크 및 린트 통과
+- [ ] PROJECT GRID 상태 업데이트 완료
+- [ ] API 엔드포인트가 정상적으로 응답함
+- [ ] 요청/응답 스키마 검증 통과
+
+---
+
+**작업지시서 생성일**: 2025-11-06
+**PROJECT GRID Version**: v4.0
