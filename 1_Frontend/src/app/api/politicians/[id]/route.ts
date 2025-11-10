@@ -22,23 +22,10 @@ export async function GET(
     // Supabase 서버 클라이언트 생성 (RLS 적용)
     const supabase = createClient();
 
-    // 정치인 상세 정보 조회 (politician_details 조인)
+    // 정치인 상세 정보 조회
     const { data: politician, error: politicianError } = await supabase
       .from("politicians")
-      .select(`
-        *,
-        politician_details (
-          education,
-          career_history,
-          achievements,
-          controversies,
-          donation_limit,
-          campaign_headquarters,
-          election_count,
-          election_wins,
-          election_votes_received
-        )
-      `)
+      .select("*")
       .eq("id", id)
       .single();
 
@@ -114,9 +101,6 @@ export async function GET(
       is_active: politician.is_active,
       created_at: politician.created_at,
       updated_at: politician.updated_at,
-
-      // 상세 정보
-      details: politician.politician_details?.[0] || null,
 
       // AI 평가 정보
       ai_evaluations: evaluationsByModel,

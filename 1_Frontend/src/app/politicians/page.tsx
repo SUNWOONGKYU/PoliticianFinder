@@ -137,12 +137,13 @@ export default function PoliticiansPage() {
     const fetchPoliticians = async () => {
       try {
         setLoading(true);
-        // FIXED: limit을 100으로 늘려서 모든 정치인 가져오기
+        // FIXED: limit을 100으로 늘려서 모든 정치인 가져오기 (BUGFIX_006: Vercel 캐시 무효화)
         const response = await fetch('/api/politicians?limit=100&page=1', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
           },
+          cache: 'no-store', // Disable caching to ensure fresh data
         });
 
         if (!response.ok) {
