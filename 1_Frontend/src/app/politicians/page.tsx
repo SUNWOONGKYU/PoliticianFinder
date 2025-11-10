@@ -137,7 +137,8 @@ export default function PoliticiansPage() {
     const fetchPoliticians = async () => {
       try {
         setLoading(true);
-        const response = await fetch('/api/politicians', {
+        // FIXED: limit을 100으로 늘려서 모든 정치인 가져오기
+        const response = await fetch('/api/politicians?limit=100&page=1', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -145,11 +146,14 @@ export default function PoliticiansPage() {
         });
 
         if (!response.ok) {
+          console.error('API response not OK:', response.status, response.statusText);
           throw new Error('Failed to fetch politicians');
         }
 
         const data = await response.json();
-        if (data.success && data.data) {
+        console.log('API response:', data); // 디버깅용
+
+        if (data.success && data.data && data.data.length > 0) {
           // API 데이터를 프론트엔드 형식으로 변환
           const transformedData = data.data.map((p: any, index: number) => ({
             rank: index + 1,
@@ -160,7 +164,7 @@ export default function PoliticiansPage() {
             party: p.party || '',
             region: p.region || '',
             district: '',
-            grade: calculateGrade(p.composite_score),
+            grade: calculateGrade(p.composite_score || 0),
             overallScore: p.composite_score || 0,
             claudeScore: p.composite_score || 0,
             chatgptScore: p.composite_score || 0,
@@ -170,8 +174,10 @@ export default function PoliticiansPage() {
             memberRating: p.avg_rating || 0,
             memberCount: 0,
           }));
+          console.log(`Loaded ${transformedData.length} politicians from API`);
           setPoliticians(transformedData);
         } else {
+          console.warn('No data from API, using sample data');
           setPoliticians(SAMPLE_POLITICIANS);
         }
       } catch (err) {

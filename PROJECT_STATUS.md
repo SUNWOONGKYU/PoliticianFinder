@@ -1,9 +1,10 @@
 # PoliticianFinder 프로젝트 현황
 
 **작성 일시**: 2025년 11월 10일 오전 4시 15분
-**최종 업데이트**: 2025-11-10 04:15 AM
+**최종 업데이트**: 2025-11-10 05:00 AM
 **프로젝트 상태**: ✅ **100% 완성** (Phase 1~6 모두 승인)
-**다음 단계**: Vercel 프로덕션 배포
+**배포 상태**: ✅ **Vercel 프로덕션 배포 완료**
+**프로덕션 URL**: https://politician-finder.vercel.app/
 
 ---
 
@@ -23,9 +24,21 @@
 
 ---
 
-## 🔍 Supabase 데이터 확인 방법
+## 🔍 프로젝트 그리드 데이터베이스 접근 방법
 
-### Python으로 전체 작업 조회
+### Supabase 연결 정보
+
+**프로젝트 그리드는 Supabase에 저장되어 있습니다:**
+
+```
+Supabase URL: https://ooddlafwdpzgxfefgsrx.supabase.co
+테이블명: project_grid_tasks_revised
+```
+
+**접근 키 위치**: `1_Frontend/.env.local` 파일
+
+### 방법 1: 환경 변수 파일 사용 (권장)
+
 ```python
 cd "C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend"
 
@@ -45,6 +58,36 @@ result = supabase.table('project_grid_tasks_revised').select('task_id, task_name
 for task in result.data:
     print(f\"{task['task_id']}: {task['task_name']} - {task['status']} ({task['progress']}%)\")
 "
+```
+
+### 방법 2: 직접 연결 (어느 디렉토리에서나 가능)
+
+```python
+from supabase import create_client
+
+# Supabase 연결 정보 (직접 입력)
+SUPABASE_URL = "https://ooddlafwdpzgxfefgsrx.supabase.co"
+SERVICE_ROLE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9vZGRsYWZ3ZHB6Z3hmZWZnc3J4Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc2MDU5MjQzNCwiZXhwIjoyMDc2MTY4NDM0fQ.qiVzF8VLQ9jyDvv5ZLdw_6XTog8aAUPyJLkeffsA1qU"
+
+# 중요: 정확한 테이블명 사용!
+TABLE_NAME = "project_grid_tasks_revised"
+
+# 연결 생성
+supabase = create_client(SUPABASE_URL, SERVICE_ROLE_KEY)
+
+# 전체 작업 조회
+result = supabase.table(TABLE_NAME).select('task_id, task_name, status, progress').order('task_id').execute()
+
+for task in result.data:
+    print(f"{task['task_id']}: {task['task_name']} - {task['status']} ({task['progress']}%)")
+```
+
+### 방법 3: 한 줄 명령어 (빠른 확인)
+
+```bash
+cd "C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder"
+
+python -c "from supabase import create_client; supabase = create_client('https://ooddlafwdpzgxfefgsrx.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9vZGRsYWZ3ZHB6Z3hmZWZnc3J4Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc2MDU5MjQzNCwiZXhwIjoyMDc2MTY4NDM0fQ.qiVzF8VLQ9jyDvv5ZLdw_6XTog8aAUPyJLkeffsA1qU'); result = supabase.table('project_grid_tasks_revised').select('task_id, task_name, status, progress').order('task_id').execute(); [print(f\"{t['task_id']}: {t['task_name']} - {t['status']} ({t['progress']}%)\") for t in result.data]"
 ```
 
 ### Phase별 작업 조회
