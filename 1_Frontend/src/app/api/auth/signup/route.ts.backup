@@ -85,30 +85,30 @@ type SignupRequest = z.infer<typeof signupSchema>;
  */
 export async function POST(request: NextRequest) {
   try {
-    // TESTING:     // 1. Rate Limiting (10분에 3회)
-    // TESTING:     const ip = extractIpAddress(request);
-    // TESTING:     const rateLimitKey = generateRateLimitKey(ip, 'signup');
-    // TESTING:     const rateLimitResult = checkRateLimit(rateLimitKey, RATE_LIMIT_RULES.signup);
-    // TESTING: 
-    // TESTING:     if (!rateLimitResult.allowed) {
-    // TESTING:       return NextResponse.json(
-    // TESTING:         {
-    // TESTING:           success: false,
-    // TESTING:           error: {
-    // TESTING:             code: 'RATE_LIMIT_EXCEEDED',
-    // TESTING:             message: rateLimitResult.message,
-    // TESTING:           },
-    // TESTING:         },
-    // TESTING:         {
-    // TESTING:           status: 429,
-    // TESTING:           headers: {
-    // TESTING:             'Retry-After': Math.ceil(
-    // TESTING:               (rateLimitResult.resetTime - Date.now()) / 1000
-    // TESTING:             ).toString(),
-    // TESTING:           },
-    // TESTING:         }
-    // TESTING:       );
-    // TESTING:     }
+    // 1. Rate Limiting (10분에 3회)
+    const ip = extractIpAddress(request);
+    const rateLimitKey = generateRateLimitKey(ip, 'signup');
+    const rateLimitResult = checkRateLimit(rateLimitKey, RATE_LIMIT_RULES.signup);
+
+    if (!rateLimitResult.allowed) {
+      return NextResponse.json(
+        {
+          success: false,
+          error: {
+            code: 'RATE_LIMIT_EXCEEDED',
+            message: rateLimitResult.message,
+          },
+        },
+        {
+          status: 429,
+          headers: {
+            'Retry-After': Math.ceil(
+              (rateLimitResult.resetTime - Date.now()) / 1000
+            ).toString(),
+          },
+        }
+      );
+    }
 
     // 2. Request Body Parsing
     const body = await request.json();

@@ -1,0 +1,15 @@
+// 원본 Rate Limit 설정 (프로덕션용)
+export const RATE_LIMIT_RULES = {
+  default: { limit: 10, windowMs: 60000 },
+  login: { limit: 5, windowMs: 5 * 60 * 1000 },
+  passwordReset: { limit: 5, windowMs: 5 * 60 * 1000 },
+  signup: { limit: 5, windowMs: 5 * 60 * 1000 },
+};
+
+// 테스트용 Rate Limit 설정
+export const RATE_LIMIT_RULES = {
+  default: { limit: 100, windowMs: 60000 },
+  login: { limit: 100, windowMs: 60000 },
+  passwordReset: { limit: 100, windowMs: 60000 },
+  signup: { limit: 100, windowMs: 60000 },
+};

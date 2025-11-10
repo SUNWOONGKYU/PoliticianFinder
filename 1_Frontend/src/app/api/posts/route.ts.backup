@@ -89,6 +89,7 @@ export async function POST(request: NextRequest) {
         category: validated.category,
         politician_id: validated.politician_id || null,
         tags: validated.tags || null,
+        moderation_status: 'pending', // 기본값: 검토 대기
       })
       .select()
       .single();
@@ -167,6 +168,7 @@ export async function GET(request: NextRequest) {
     let queryBuilder = supabase
       .from("posts")
       .select("*", { count: "exact" })
+      .eq("moderation_status", "approved"); // 승인된 게시글만
 
     // 4. 필터 적용
     if (query.category) {
@@ -183,6 +185,7 @@ export async function GET(request: NextRequest) {
     
     // 고정 게시글 우선, 그 다음 정렬
     queryBuilder = queryBuilder
+      .order("is_pinned", { ascending: false })
       .order(sortKey as any, { ascending: !isDescending });
 
     // 6. 페이지네이션 적용

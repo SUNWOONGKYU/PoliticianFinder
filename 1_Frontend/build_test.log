@@ -1,0 +1,308 @@
+
+> politicianfinder-frontend@0.1.0 build
+> next build
+
+  ▲ Next.js 14.2.18
+  - Environments: .env.local
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully
+   Linting and checking validity of types ...
+   Collecting page data ...
+   Generating static pages (0/98) ...
+[GET /api/ads] Unexpected error: B [Error]: Dynamic server usage: Route /api/ads couldn't be rendered statically because it used `nextUrl.searchParams`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error
+    at V (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\next-server\app-route.runtime.prod.js:6:21777)
+    at Object.get (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\next-server\app-route.runtime.prod.js:6:28809)
+    at l (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\.next\server\app\api\ads\route.js:1:1204)
+    at C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\next-server\app-route.runtime.prod.js:6:37016
+    at C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\server\lib\trace\tracer.js:140:36
+    at NoopContextManager.with (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\@opentelemetry\api\index.js:1:7062)
+    at ContextAPI.with (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\@opentelemetry\api\index.js:1:518)
+    at NoopTracer.startActiveSpan (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\@opentelemetry\api\index.js:1:18093)
+    at ProxyTracer.startActiveSpan (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\@opentelemetry\api\index.js:1:18854)
+    at C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\server\lib\trace\tracer.js:122:103 {
+  description: "Route /api/ads couldn't be rendered statically because it used `nextUrl.searchParams`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error",
+  digest: 'DYNAMIC_SERVER_USAGE'
+}
+   Generating static pages (24/98) 
+[Cron] Unexpected error during rank recalculation: B [Error]: Dynamic server usage: Route /api/cron/recalculate-ranks couldn't be rendered statically because it used `request.headers`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error
+    at V (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\next-server\app-route.runtime.prod.js:6:21777)
+    at Object.get (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\next-server\app-route.runtime.prod.js:6:29137)
+    at d (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\.next\server\app\api\cron\recalculate-ranks\route.js:1:1044)
+    at C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\next-server\app-route.runtime.prod.js:6:37016
+    at C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\server\lib\trace\tracer.js:140:36
+    at NoopContextManager.with (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\@opentelemetry\api\index.js:1:7062)
+    at ContextAPI.with (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\@opentelemetry\api\index.js:1:518)
+    at NoopTracer.startActiveSpan (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\@opentelemetry\api\index.js:1:18093)
+    at ProxyTracer.startActiveSpan (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\@opentelemetry\api\index.js:1:18854)
+    at C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\server\lib\trace\tracer.js:122:103 {
+  description: "Route /api/cron/recalculate-ranks couldn't be rendered statically because it used `request.headers`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error",
+  digest: 'DYNAMIC_SERVER_USAGE'
+}
+GET /api/payments/history error: n [Error]: Dynamic server usage: Route /api/payments/history couldn't be rendered statically because it used `cookies`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error
+    at l (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\.next\server\chunks\8948.js:1:37157)
+    at d (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\.next\server\chunks\9706.js:1:1733)
+    at n (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\.next\server\app\api\auth\google\route.js:1:3712)
+    at p (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\.next\server\app\api\payments\history\route.js:1:1059)
+    at C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\next-server\app-route.runtime.prod.js:6:37016
+    at C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\server\lib\trace\tracer.js:140:36
+    at NoopContextManager.with (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\@opentelemetry\api\index.js:1:7062)
+    at ContextAPI.with (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\@opentelemetry\api\index.js:1:518)
+    at NoopTracer.startActiveSpan (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\@opentelemetry\api\index.js:1:18093)
+    at ProxyTracer.startActiveSpan (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\@opentelemetry\api\index.js:1:18854) {
+  description: "Route /api/payments/history couldn't be rendered statically because it used `cookies`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error",
+  digest: 'DYNAMIC_SERVER_USAGE'
+}
+GET /api/politicians/statistics error: n [Error]: Dynamic server usage: Route /api/politicians/statistics couldn't be rendered statically because it used `cookies`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error
+    at l (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\.next\server\chunks\8948.js:1:37157)
+    at d (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\.next\server\chunks\9706.js:1:1733)
+    at o (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\.next\server\app\api\admin\audit-logs\route.js:1:12292)
+    at l (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\.next\server\app\api\politicians\statistics\route.js:1:1059)
+    at C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\next-server\app-route.runtime.prod.js:6:37016
+    at C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\server\lib\trace\tracer.js:140:36
+    at NoopContextManager.with (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\@opentelemetry\api\index.js:1:7062)
+    at ContextAPI.with (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\@opentelemetry\api\index.js:1:518)
+    at NoopTracer.startActiveSpan (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\@opentelemetry\api\index.js:1:18093)
+    at ProxyTracer.startActiveSpan (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\@opentelemetry\api\index.js:1:18854) {
+  description: "Route /api/politicians/statistics couldn't be rendered statically because it used `cookies`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error",
+  digest: 'DYNAMIC_SERVER_USAGE'
+}
+[GET /api/posts/search] Unexpected error: B [Error]: Dynamic server usage: Route /api/posts/search couldn't be rendered statically because it used `nextUrl.searchParams`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error
+    at V (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\next-server\app-route.runtime.prod.js:6:21777)
+    at Object.get (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\next-server\app-route.runtime.prod.js:6:28809)
+    at d (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\.next\server\app\api\posts\search\route.js:1:1307)
+    at C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\next-server\app-route.runtime.prod.js:6:37016
+    at C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\server\lib\trace\tracer.js:140:36
+    at NoopContextManager.with (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\@opentelemetry\api\index.js:1:7062)
+    at ContextAPI.with (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\@opentelemetry\api\index.js:1:518)
+    at NoopTracer.startActiveSpan (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\@opentelemetry\api\index.js:1:18093)
+    at ProxyTracer.startActiveSpan (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\@opentelemetry\api\index.js:1:18854)
+    at C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\server\lib\trace\tracer.js:122:103 {
+  description: "Route /api/posts/search couldn't be rendered statically because it used `nextUrl.searchParams`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error",
+  digest: 'DYNAMIC_SERVER_USAGE'
+}
+   Generating static pages (48/98) 
+GET /api/statistics/community error: n [Error]: Dynamic server usage: Route /api/statistics/community couldn't be rendered statically because it used `cookies`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error
+    at l (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\.next\server\chunks\8948.js:1:37157)
+    at d (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\.next\server\chunks\9706.js:1:1733)
+    at s (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\.next\server\app\api\admin\action-logs\stats\route.js:1:11922)
+    at u (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\.next\server\app\api\statistics\community\route.js:1:1059)
+    at C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\next-server\app-route.runtime.prod.js:6:37016
+    at C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\server\lib\trace\tracer.js:140:36
+    at NoopContextManager.with (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\@opentelemetry\api\index.js:1:7062)
+    at ContextAPI.with (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\@opentelemetry\api\index.js:1:518)
+    at NoopTracer.startActiveSpan (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\@opentelemetry\api\index.js:1:18093)
+    at ProxyTracer.startActiveSpan (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\@opentelemetry\api\index.js:1:18854) {
+  description: "Route /api/statistics/community couldn't be rendered statically because it used `cookies`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error",
+  digest: 'DYNAMIC_SERVER_USAGE'
+}
+GET /api/statistics/politicians-stats error: n [Error]: Dynamic server usage: Route /api/statistics/politicians-stats couldn't be rendered statically because it used `cookies`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error
+    at l (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\.next\server\chunks\8948.js:1:37157)
+    at d (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\.next\server\chunks\9706.js:1:1733)
+    at s (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\.next\server\app\api\admin\action-logs\route.js:1:11571)
+    at u (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\.next\server\app\api\statistics\politicians-stats\route.js:1:1055)
+    at C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\next-server\app-route.runtime.prod.js:6:37016
+    at C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\server\lib\trace\tracer.js:140:36
+    at NoopContextManager.with (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\@opentelemetry\api\index.js:1:7062)
+    at ContextAPI.with (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\@opentelemetry\api\index.js:1:518)
+    at NoopTracer.startActiveSpan (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\@opentelemetry\api\index.js:1:18093)
+    at ProxyTracer.startActiveSpan (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\@opentelemetry\api\index.js:1:18854) {
+  description: "Route /api/statistics/politicians-stats couldn't be rendered statically because it used `cookies`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error",
+  digest: 'DYNAMIC_SERVER_USAGE'
+}
+GET /api/statistics/payments error: n [Error]: Dynamic server usage: Route /api/statistics/payments couldn't be rendered statically because it used `cookies`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error
+    at l (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\.next\server\chunks\8948.js:1:37157)
+    at d (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\.next\server\chunks\9706.js:1:1733)
+    at o (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\.next\server\app\api\admin\audit-logs\route.js:1:12292)
+    at u (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\.next\server\app\api\statistics\payments\route.js:1:1055)
+    at C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\next-server\app-route.runtime.prod.js:6:37016
+    at C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\server\lib\trace\tracer.js:140:36
+    at NoopContextManager.with (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\@opentelemetry\api\index.js:1:7062)
+    at ContextAPI.with (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\@opentelemetry\api\index.js:1:518)
+    at NoopTracer.startActiveSpan (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\@opentelemetry\api\index.js:1:18093)
+    at ProxyTracer.startActiveSpan (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\@opentelemetry\api\index.js:1:18854) {
+  description: "Route /api/statistics/payments couldn't be rendered statically because it used `cookies`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error",
+  digest: 'DYNAMIC_SERVER_USAGE'
+}
+GET /api/statistics/overview error: n [Error]: Dynamic server usage: Route /api/statistics/overview couldn't be rendered statically because it used `cookies`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error
+    at l (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\.next\server\chunks\8948.js:1:37157)
+    at d (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\.next\server\chunks\9706.js:1:1733)
+    at n (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\.next\server\app\api\admin\ads\[id]\route.js:1:6380)
+    at u (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\.next\server\app\api\statistics\overview\route.js:1:1057)
+    at C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\next-server\app-route.runtime.prod.js:6:37016
+    at C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\server\lib\trace\tracer.js:140:36
+    at NoopContextManager.with (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\@opentelemetry\api\index.js:1:7062)
+    at ContextAPI.with (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\@opentelemetry\api\index.js:1:518)
+    at NoopTracer.startActiveSpan (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\@opentelemetry\api\index.js:1:18093)
+    at ProxyTracer.startActiveSpan (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\@opentelemetry\api\index.js:1:18854) {
+  description: "Route /api/statistics/overview couldn't be rendered statically because it used `cookies`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error",
+  digest: 'DYNAMIC_SERVER_USAGE'
+}
+GET /api/politicians/search error: B [Error]: Dynamic server usage: Route /api/politicians/search couldn't be rendered statically because it used `nextUrl.searchParams`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error
+    at V (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\next-server\app-route.runtime.prod.js:6:21777)
+    at Object.get (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\next-server\app-route.runtime.prod.js:6:28809)
+    at u (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\.next\server\app\api\politicians\search\route.js:1:1594)
+    at C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\next-server\app-route.runtime.prod.js:6:37016
+    at C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\server\lib\trace\tracer.js:140:36
+    at NoopContextManager.with (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\@opentelemetry\api\index.js:1:7062)
+    at ContextAPI.with (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\@opentelemetry\api\index.js:1:518)
+    at NoopTracer.startActiveSpan (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\@opentelemetry\api\index.js:1:18093)
+    at ProxyTracer.startActiveSpan (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\@opentelemetry\api\index.js:1:18854)
+    at C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\server\lib\trace\tracer.js:122:103 {
+  description: "Route /api/politicians/search couldn't be rendered statically because it used `nextUrl.searchParams`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error",
+  digest: 'DYNAMIC_SERVER_USAGE'
+}
+[GET /api/admin/ads/stats] Unexpected error: n [Error]: Dynamic server usage: Route /api/admin/ads/stats couldn't be rendered statically because it used `cookies`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error
+    at l (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\.next\server\chunks\8948.js:1:37157)
+    at d (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\.next\server\chunks\9706.js:1:1733)
+    at n (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\.next\server\app\api\admin\ads\stats\route.js:1:4648)
+    at n (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\.next\server\app\api\admin\ads\stats\route.js:1:3792)
+    at i (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\.next\server\app\api\admin\ads\stats\route.js:1:3919)
+    at d (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\.next\server\app\api\admin\ads\stats\route.js:1:4370)
+    at m (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\.next\server\app\api\admin\ads\stats\route.js:1:1197)
+    at C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\next-server\app-route.runtime.prod.js:6:37016
+    at C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\server\lib\trace\tracer.js:140:36
+    at NoopContextManager.with (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\@opentelemetry\api\index.js:1:7062) {
+  description: "Route /api/admin/ads/stats couldn't be rendered statically because it used `cookies`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error",
+  digest: 'DYNAMIC_SERVER_USAGE'
+}
+   Generating static pages (73/98) 
+ ✓ Generating static pages (98/98)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                                              Size     First Load JS
+┌ ○ /                                                    6.96 kB         101 kB
+├ ○ /_not-found                                          873 B          88.1 kB
+├ ○ /account-transfer                                    3 kB             97 kB
+├ ○ /admin                                               2.45 kB        96.5 kB
+├ ○ /admin/login                                         1.19 kB        88.4 kB
+├ ○ /admin/politicians                                   2.13 kB        96.2 kB
+├ ○ /admin/posts                                         2.5 kB         96.5 kB
+├ ○ /admin/reports                                       3.99 kB          98 kB
+├ ○ /admin/users                                         2.41 kB        96.4 kB
+├ ƒ /api/admin/action-logs                               0 B                0 B
+├ ƒ /api/admin/action-logs/stats                         0 B                0 B
+├ ƒ /api/admin/ads                                       0 B                0 B
+├ ƒ /api/admin/ads/[id]                                  0 B                0 B
+├ ƒ /api/admin/ads/stats                                 0 B                0 B
+├ ƒ /api/admin/audit                                     0 B                0 B
+├ ƒ /api/admin/audit-logs                                0 B                0 B
+├ ƒ /api/admin/auto-moderate                             0 B                0 B
+├ ○ /api/admin/dashboard                                 0 B                0 B
+├ ƒ /api/admin/moderation                                0 B                0 B
+├ ƒ /api/admin/policies                                  0 B                0 B
+├ ƒ /api/admin/reports                                   0 B                0 B
+├ ƒ /api/admin/settings                                  0 B                0 B
+├ ƒ /api/admin/users                                     0 B                0 B
+├ ƒ /api/ads                                             0 B                0 B
+├ ƒ /api/ads/track                                       0 B                0 B
+├ ƒ /api/auth/google                                     0 B                0 B
+├ ƒ /api/auth/google/callback                            0 B                0 B
+├ ƒ /api/auth/login                                      0 B                0 B
+├ ƒ /api/auth/logout                                     0 B                0 B
+├ ƒ /api/auth/me                                         0 B                0 B
+├ ƒ /api/auth/refresh                                    0 B                0 B
+├ ƒ /api/auth/reset-password                             0 B                0 B
+├ ƒ /api/auth/signup                                     0 B                0 B
+├ ƒ /api/comments                                        0 B                0 B
+├ ƒ /api/comments/[id]                                   0 B                0 B
+├ ƒ /api/crawl/nec                                       0 B                0 B
+├ ƒ /api/cron/aggregate-trending                         0 B                0 B
+├ ƒ /api/cron/recalculate-ranks                          0 B                0 B
+├ ƒ /api/cron/update-politicians                         0 B                0 B
+├ ƒ /api/errors                                          0 B                0 B
+├ ƒ /api/evaluations/[evaluationId]                      0 B                0 B
+├ ƒ /api/evaluations/[evaluationId]/update               0 B                0 B
+├ ƒ /api/evaluations/archive                             0 B                0 B
+├ ƒ /api/evaluations/batch                               0 B                0 B
+├ ƒ /api/evaluations/compare                             0 B                0 B
+├ ƒ /api/evaluations/generate                            0 B                0 B
+├ ƒ /api/evaluations/generate-ai                         0 B                0 B
+├ ƒ /api/evaluations/history                             0 B                0 B
+├ ƒ /api/evaluations/history/[politicianId]              0 B                0 B
+├ ƒ /api/evaluations/trends                              0 B                0 B
+├ ƒ /api/favorites                                       0 B                0 B
+├ ƒ /api/follows                                         0 B                0 B
+├ ƒ /api/health                                          0 B                0 B
+├ ƒ /api/news                                            0 B                0 B
+├ ƒ /api/notifications                                   0 B                0 B
+├ ƒ /api/payments                                        0 B                0 B
+├ ƒ /api/payments/[id]/cancel                            0 B                0 B
+├ ƒ /api/payments/checkout                               0 B                0 B
+├ ƒ /api/payments/confirm                                0 B                0 B
+├ ƒ /api/payments/history                                0 B                0 B
+├ ƒ /api/payments/webhook                                0 B                0 B
+├ ƒ /api/politicians                                     0 B                0 B
+├ ƒ /api/politicians/[id]                                0 B                0 B
+├ ƒ /api/politicians/[id]/evaluation                     0 B                0 B
+├ ƒ /api/politicians/[id]/verify                         0 B                0 B
+├ ƒ /api/politicians/bulk                                0 B                0 B
+├ ƒ /api/politicians/evaluation                          0 B                0 B
+├ ƒ /api/politicians/search                              0 B                0 B
+├ ƒ /api/politicians/statistics                          0 B                0 B
+├ ƒ /api/politicians/verification/request                0 B                0 B
+├ ƒ /api/politicians/verification/status/[politicianId]  0 B                0 B
+├ ƒ /api/politicians/verification/verify                 0 B                0 B
+├ ƒ /api/politicians/verify                              0 B                0 B
+├ ƒ /api/posts                                           0 B                0 B
+├ ƒ /api/posts/[id]                                      0 B                0 B
+├ ƒ /api/posts/[id]/likes                                0 B                0 B
+├ ƒ /api/posts/attachments                               0 B                0 B
+├ ƒ /api/posts/search                                    0 B                0 B
+├ ƒ /api/receipts                                        0 B                0 B
+├ ƒ /api/recommendations/politicians                     0 B                0 B
+├ ƒ /api/reports/download/[evaluationId]                 0 B                0 B
+├ ƒ /api/reports/generate                                0 B                0 B
+├ ƒ /api/search/politicians                              0 B                0 B
+├ ƒ /api/seed                                            0 B                0 B
+├ ƒ /api/shares                                          0 B                0 B
+├ ƒ /api/statistics/community                            0 B                0 B
+├ ƒ /api/statistics/overview                             0 B                0 B
+├ ƒ /api/statistics/payments                             0 B                0 B
+├ ƒ /api/statistics/politicians                          0 B                0 B
+├ ƒ /api/statistics/politicians-stats                    0 B                0 B
+├ ƒ /api/storage/upload                                  0 B                0 B
+├ ƒ /api/upload/profile                                  0 B                0 B
+├ ƒ /api/user/delete                                     0 B                0 B
+├ ƒ /api/user/profile                                    0 B                0 B
+├ ƒ /api/user/profile/update                             0 B                0 B
+├ ƒ /api/votes                                           0 B                0 B
+├ ○ /auth/login                                          2.04 kB        96.1 kB
+├ ○ /auth/password-reset                                 3.63 kB        97.7 kB
+├ ○ /auth/signup                                         2.51 kB        96.5 kB
+├ ○ /community                                           6.01 kB         100 kB
+├ ƒ /community/posts/[id]                                4.32 kB        98.3 kB
+├ ƒ /community/posts/[id]/politician                     5.31 kB        99.3 kB
+├ ○ /community/posts/create                              3.98 kB        91.2 kB
+├ ○ /community/posts/create-politician                   3.05 kB        90.2 kB
+├ ○ /connection                                          4.27 kB        91.5 kB
+├ ○ /favorites                                           2.59 kB        96.6 kB
+├ ○ /mypage                                              3.88 kB        97.9 kB
+├ ○ /notices                                             2 kB             96 kB
+├ ƒ /notices/[id]                                        2.19 kB        96.2 kB
+├ ○ /notifications                                       3.27 kB        97.3 kB
+├ ○ /payment                                             4.37 kB        91.5 kB
+├ ○ /politicians                                         3.49 kB        97.5 kB
+├ ƒ /politicians/[id]                                    105 kB          199 kB
+├ ƒ /politicians/[id]/profile                            5.24 kB        92.4 kB
+├ ○ /privacy                                             3.12 kB        90.3 kB
+├ ○ /profile/edit                                        1.97 kB        89.2 kB
+├ ○ /search                                              1.15 kB        95.2 kB
+├ ○ /services                                            2.21 kB        96.2 kB
+├ ○ /services/relay                                      1.02 kB        88.2 kB
+├ ○ /settings                                            3 kB             97 kB
+├ ○ /support                                             2.9 kB         90.1 kB
+├ ○ /terms                                               2.46 kB        89.6 kB
+└ ƒ /users/[id]/profile                                  3.46 kB        90.6 kB
++ First Load JS shared by all                            87.2 kB
+  ├ chunks/117-39734156bd04f343.js                       31.6 kB
+  ├ chunks/fd9d1056-96dd2d94b4b440c0.js                  53.6 kB
+  └ other shared chunks (total)                          1.96 kB
+
+
+ƒ Middleware                                             27.7 kB
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+
