@@ -1,11 +1,17 @@
-// P1BA1: Mock API - 인증
+// P3BA1: Real API - Google OAuth
 /**
- * Project Grid Task ID: P1BA1
- * 작업명: Google OAuth API (Mock with Supabase)
- * 생성시간: 2025-11-07
+ * Project Grid Task ID: P3BA1
+ * 작업명: Google OAuth API (Real - Supabase Auth)
+ * 생성시간: 2025-11-10
  * 생성자: Claude-Sonnet-4.5
- * 의존성: P1BI1, P1BI2, P1D5
- * 설명: Mock Google OAuth 인증 - Phase 1용 Mock API with Supabase connection
+ * 의존성: P2D1, P1BA1
+ * 설명: Supabase Auth를 사용한 실제 Google OAuth 인증
+ *
+ * 수정내역:
+ * [2025-11-10] Mock 구현에서 Real Supabase Auth 구현으로 전환
+ * - 실사용자 오류 보고: Google 소셜 로그인 안됨
+ * - 원인: Mock 구현(P1BA1)이 프로덕션에 배포됨
+ * - 조치: Supabase Auth의 signInWithOAuth 사용
  */
 
 import { NextRequest, NextResponse } from 'next/server';
@@ -21,13 +27,13 @@ import {
 // GET /api/auth/google
 // ============================================================================
 /**
- * Google OAuth Mock API
+ * Google OAuth Real API (Supabase Auth)
  *
- * @description Phase 1: Mock Google OAuth - Supabase 연결 준비
+ * @description Phase 3: Supabase Auth 기반 Google OAuth 인증
  * @route GET /api/auth/google
  * @access Public
  *
- * @returns {302} Redirect to Mock Google login page
+ * @returns {302} Redirect to Google OAuth consent screen
  * @returns {429} { success: false, error: { code, message } } - Rate limit
  */
 export async function GET(request: NextRequest) {
@@ -57,22 +63,56 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    // 2. Supabase Client Connection (Mock - Phase 1)
+    // 2. Supabase Client Connection (Real - Phase 3)
     const supabase = createClient();
-    console.log('[Phase 1 Mock] Supabase client connected:', !!supabase);
-    console.log('[Phase 1 Mock] Google OAuth initiated');
 
-    // 3. Mock Google OAuth (Phase 1)
-    // Phase 3 will use: supabase.auth.signInWithOAuth({ provider: 'google' })
-    const { origin } = new URL(request.url);
-    const mockCode = `mock_google_code_${Date.now()}`;
+    // 3. Initiate Google OAuth with Supabase Auth
+    const { data, error } = await supabase.auth.signInWithOAuth({
+      provider: 'google',
+      options: {
+        redirectTo: `${process.env.NEXT_PUBLIC_SITE_URL}/api/auth/google/callback`,
+        queryParams: {
+          access_type: 'offline',
+          prompt: 'consent',
+        },
+      },
+    });
 
-    // In Phase 1, directly redirect to callback with mock code
-    return NextResponse.redirect(
-      `${origin}/api/auth/google/callback?code=${mockCode}`
+    // 4. Handle OAuth errors
+    if (error) {
+      console.error('[Google OAuth Real API] 오류:', error);
+      return NextResponse.json(
+        {
+          success: false,
+          error: {
+            code: 'OAUTH_INITIATION_FAILED',
+            message: 'Google 로그인을 시작할 수 없습니다. 잠시 후 다시 시도해 주세요.',
+            details: error.message,
+          },
+        },
+        { status: 500 }
+      );
+    }
+
+    // 5. Redirect to Google OAuth consent screen
+    if (data.url) {
+      console.log('[Google OAuth Real API] 인증 시작:', data.url.substring(0, 50) + '...');
+      return NextResponse.redirect(data.url);
+    }
+
+    // 6. No redirect URL (unexpected error)
+    return NextResponse.json(
+      {
+        success: false,
+        error: {
+          code: 'OAUTH_URL_MISSING',
+          message: 'Google 로그인 URL을 생성할 수 없습니다.',
+        },
+      },
+      { status: 500 }
     );
   } catch (error) {
-    console.error('[Google OAuth Mock API] 오류:', error);
+    console.error('[Google OAuth Real API] 오류:', error);
     return NextResponse.json(
       {
         success: false,
