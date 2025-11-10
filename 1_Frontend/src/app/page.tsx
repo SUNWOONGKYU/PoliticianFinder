@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 // 정치인 데이터 타입 정의
 interface Politician {
@@ -28,9 +28,85 @@ interface Politician {
 
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState('');
+  const [politicians, setPoliticians] = useState<Politician[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  // 정치인 데이터 (10명, 프로토타입과 정확히 일치)
-  const politicians: Politician[] = [
+  // API에서 TOP 10 정치인 데이터 가져오기
+  useEffect(() => {
+    const fetchTopPoliticians = async () => {
+      try {
+        setLoading(true);
+        const response = await fetch('/api/politicians?limit=10&page=1', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          cache: 'no-store',
+        });
+
+        if (!response.ok) {
+          throw new Error('Failed to fetch politicians');
+        }
+
+        const data = await response.json();
+
+        if (data.success && data.data && data.data.length > 0) {
+          // API 데이터를 홈 페이지 형식으로 변환
+          const transformedData = data.data.map((p: any, index: number) => ({
+            id: p.id || index + 1,
+            rank: index + 1,
+            name: p.name,
+            status: p.status || '현직',
+            position: p.position || '-',
+            office: p.position || '국회의원',
+            party: p.party || '',
+            region: p.region || '',
+            totalScore: p.composite_score || 0,
+            grade: calculateGrade(p.composite_score || 0),
+            gradeEmoji: getGradeEmoji(calculateGrade(p.composite_score || 0)),
+            claude: p.composite_score || 0,
+            chatgpt: p.composite_score || 0,
+            gemini: p.composite_score || 0,
+            grok: p.composite_score || 0,
+            perplexity: p.composite_score || 0,
+            userRating: '★'.repeat(Math.round(p.avg_rating || 0)) + '☆'.repeat(5 - Math.round(p.avg_rating || 0)),
+            userCount: 0,
+          }));
+          setPoliticians(transformedData);
+        }
+      } catch (err) {
+        console.error('Error fetching politicians:', err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchTopPoliticians();
+  }, []);
+
+  // Grade calculation helper
+  const calculateGrade = (score: number): string => {
+    if (score >= 90) return 'M';
+    if (score >= 85) return 'D';
+    if (score >= 80) return 'P';
+    if (score >= 75) return 'G';
+    return 'E';
+  };
+
+  // Grade emoji helper
+  const getGradeEmoji = (grade: string): string => {
+    const emojiMap: Record<string, string> = {
+      'M': '🌺',
+      'D': '💎',
+      'P': '🥇',
+      'G': '🥇',
+      'E': '💚',
+    };
+    return emojiMap[grade] || '💚';
+  };
+
+  // Sample data as fallback (keep for reference but not used)
+  const samplePoliticians: Politician[] = [
     {
       id: 1,
       rank: 1,
@@ -304,15 +380,32 @@ export default function Home() {
             {/* 정치인 순위 섹션 */}
             <section className="bg-white rounded-lg shadow">
               <div className="px-4 pt-4">
-                <h2 className="text-2xl font-bold text-gray-900">🏆 정치인 순위</h2>
+                <h2 className="text-2xl font-bold text-gray-900">🏆 정치인 순위 TOP 10</h2>
                 <p className="text-sm text-gray-600 mt-1">
-                  공개된 데이터를 활용하여 AI가 객관적으로 산출한 정치인 평점 순위
+                  공개된 데이터를 활용하여 AI가 객관적으로 산출한 정치인 평점 순위 (상위 10명)
                 </p>
                 <div className="w-full h-0.5 bg-primary-500 mt-3 mb-4"></div>
               </div>
               <div className="p-4">
-                {/* 데스크톱: 테이블 */}
-                <div className="hidden md:block overflow-x-auto">
+                {/* Loading state */}
+                {loading && (
+                  <div className="text-center py-12">
+                    <p className="text-gray-500">데이터를 불러오는 중...</p>
+                  </div>
+                )}
+
+                {/* Empty state */}
+                {!loading && politicians.length === 0 && (
+                  <div className="text-center py-12">
+                    <p className="text-gray-500">정치인 데이터가 없습니다.</p>
+                  </div>
+                )}
+
+                {/* Data loaded */}
+                {!loading && politicians.length > 0 && (
+                  <>
+                    {/* 데스크톱: 테이블 */}
+                    <div className="hidden md:block overflow-x-auto">
                   <table className="w-full text-xs">
                     <thead className="bg-gray-100 border-b-2 border-primary-500">
                       <tr>
@@ -663,6 +756,8 @@ export default function Home() {
                     전체 순위 보기 →
                   </Link>
                 </div>
+                  </>
+                )}
               </div>
             </section>
 

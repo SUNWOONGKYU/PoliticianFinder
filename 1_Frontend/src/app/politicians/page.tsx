@@ -99,7 +99,13 @@ export default function PoliticiansPage() {
   const [politicians, setPoliticians] = useState(SAMPLE_POLITICIANS);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  
+
+  // Pagination states
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  const [totalCount, setTotalCount] = useState(0);
+  const ITEMS_PER_PAGE = 20;
+
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState('');
   const [categoryFilter, setCategoryFilter] = useState('');
@@ -132,13 +138,13 @@ export default function PoliticiansPage() {
   }, [politicians, searchTerm, statusFilter, categoryFilter, partyFilter, regionFilter, gradeFilter]);
 
 
-  // API에서 정치인 데이터 가져오기
+  // API에서 정치인 데이터 가져오기 (페이지네이션 포함)
   useEffect(() => {
     const fetchPoliticians = async () => {
       try {
         setLoading(true);
-        // FIXED: limit을 100으로 늘려서 모든 정치인 가져오기 (BUGFIX_006: Vercel 캐시 무효화)
-        const response = await fetch('/api/politicians?limit=100&page=1', {
+        // Pagination: 20개씩 가져오기
+        const response = await fetch(`/api/politicians?limit=${ITEMS_PER_PAGE}&page=${currentPage}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -155,9 +161,15 @@ export default function PoliticiansPage() {
         console.log('API response:', data); // 디버깅용
 
         if (data.success && data.data && data.data.length > 0) {
+          // Pagination 정보 업데이트
+          if (data.pagination) {
+            setTotalPages(data.pagination.totalPages);
+            setTotalCount(data.pagination.total);
+          }
+
           // API 데이터를 프론트엔드 형식으로 변환
           const transformedData = data.data.map((p: any, index: number) => ({
-            rank: index + 1,
+            rank: (currentPage - 1) * ITEMS_PER_PAGE + index + 1,
             name: p.name,
             status: p.status || '현직',
             position: p.position || '',
@@ -175,7 +187,7 @@ export default function PoliticiansPage() {
             memberRating: p.avg_rating || 0,
             memberCount: 0,
           }));
-          console.log(`Loaded ${transformedData.length} politicians from API`);
+          console.log(`Loaded ${transformedData.length} politicians from API (Page ${currentPage}/${data.pagination?.totalPages || 1})`);
           setPoliticians(transformedData);
         } else {
           console.warn('No data from API, using sample data');
@@ -191,7 +203,7 @@ export default function PoliticiansPage() {
     };
 
     fetchPoliticians();
-  }, []);
+  }, [currentPage]);
 
   const handleResetFilters = () => {
     setSearchTerm('');
@@ -500,6 +512,29 @@ export default function PoliticiansPage() {
             </div>
           ))}
         </div>
+
+        {/* Pagination Controls */}
+        {totalPages > 1 && (
+          <div className="flex justify-center items-center gap-4 mt-8 mb-4">
+            <button
+              onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))}
+              disabled={currentPage === 1}
+              className="px-4 py-2 bg-primary-600 text-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-primary-700 transition-colors"
+            >
+              이전
+            </button>
+            <span className="text-gray-700 font-medium">
+              페이지 {currentPage} / {totalPages} (총 {totalCount}명)
+            </span>
+            <button
+              onClick={() => setCurrentPage(prev => Math.min(totalPages, prev + 1))}
+              disabled={currentPage === totalPages}
+              className="px-4 py-2 bg-primary-600 text-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-primary-700 transition-colors"
+            >
+              다음
+            </button>
+          </div>
+        )}
 
         {/* No results message */}
         {filteredData.length === 0 && (
