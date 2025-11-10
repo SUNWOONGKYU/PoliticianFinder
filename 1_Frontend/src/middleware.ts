@@ -46,36 +46,36 @@ export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const ip = request.ip || request.headers.get('x-forwarded-for') || 'unknown';
 
-  // === 1. Rate Limiting === TEMPORARILY DISABLED FOR TESTING
-  // let rateLimit = RATE_LIMIT.API;
-  // if (pathname.startsWith('/api/auth/login')) {
-  //   rateLimit = RATE_LIMIT.LOGIN;
-  // } else if (pathname.startsWith('/api/auth/signup')) {
-  //   rateLimit = RATE_LIMIT.SIGNUP;
-  // }
+  // === 1. Rate Limiting === BUGFIX_002: Restored to production values
+  let rateLimit = RATE_LIMIT.API;
+  if (pathname.startsWith('/api/auth/login')) {
+    rateLimit = RATE_LIMIT.LOGIN;
+  } else if (pathname.startsWith('/api/auth/signup')) {
+    rateLimit = RATE_LIMIT.SIGNUP;
+  }
 
-  // const rateLimitKey = getRateLimitKey(ip, pathname);
-  // const rateLimitResult = checkRateLimit(rateLimitKey, rateLimit);
+  const rateLimitKey = getRateLimitKey(ip, pathname);
+  const rateLimitResult = checkRateLimit(rateLimitKey, rateLimit);
 
-  // if (!rateLimitResult.allowed) {
-  //   return new NextResponse(
-  //     JSON.stringify({
-  //       success: false,
-  //       error: 'Too many requests. Please try again later.',
-  //       retryAfter: Math.ceil((rateLimitResult.resetTime - Date.now()) / 1000),
-  //     }),
-  //     {
-  //       status: 429,
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //         'X-RateLimit-Limit': String(rateLimit.requests),
-  //         'X-RateLimit-Remaining': String(rateLimitResult.remaining),
-  //         'X-RateLimit-Reset': String(rateLimitResult.resetTime),
-  //         'Retry-After': String(Math.ceil((rateLimitResult.resetTime - Date.now()) / 1000)),
-  //       },
-  //     }
-  //   );
-  // }
+  if (!rateLimitResult.allowed) {
+    return new NextResponse(
+      JSON.stringify({
+        success: false,
+        error: 'Too many requests. Please try again later.',
+        retryAfter: Math.ceil((rateLimitResult.resetTime - Date.now()) / 1000),
+      }),
+      {
+        status: 429,
+        headers: {
+          'Content-Type': 'application/json',
+          'X-RateLimit-Limit': String(rateLimit.requests),
+          'X-RateLimit-Remaining': String(rateLimitResult.remaining),
+          'X-RateLimit-Reset': String(rateLimitResult.resetTime),
+          'Retry-After': String(Math.ceil((rateLimitResult.resetTime - Date.now()) / 1000)),
+        },
+      }
+    );
+  }
 
   // === 2. Admin Protection (기존 로직 유지) ===
   if (pathname !== '/admin/login' && pathname.startsWith('/admin')) {
@@ -137,10 +137,10 @@ export function middleware(request: NextRequest) {
     );
   }
 
-  // Rate Limit Headers - TEMPORARILY DISABLED FOR TESTING
-  // response.headers.set('X-RateLimit-Limit', String(rateLimit.requests));
-  // response.headers.set('X-RateLimit-Remaining', String(rateLimitResult.remaining));
-  // response.headers.set('X-RateLimit-Reset', String(rateLimitResult.resetTime));
+  // Rate Limit Headers
+  response.headers.set('X-RateLimit-Limit', String(rateLimit.requests));
+  response.headers.set('X-RateLimit-Remaining', String(rateLimitResult.remaining));
+  response.headers.set('X-RateLimit-Reset', String(rateLimitResult.resetTime));
 
   return response;
 }
