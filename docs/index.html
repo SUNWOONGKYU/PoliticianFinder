@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROJECT GRID - 44 Tasks Real-time Viewer</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', 'Malgun Gothic', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+
+        header h1 {
+            font-size: 2.8em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            opacity: 0.95;
+            margin-bottom: 10px;
+        }
+
+        .last-updated {
+            font-size: 0.9em;
+            opacity: 0.8;
+            margin-top: 10px;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* ========== 통계 섹션 ========== */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 25px rgba(0,0,0,0.15);
+        }
+
+        .stat-number {
+            font-size: 3.5em;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+
+        .stat-subtext {
+            color: #999;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+
+        /* ========== Phase Progress 섹션 ========== */
+        .phase-progress-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            font-size: 2em;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #e9ecef;
+        }
+
+        .phase-item {
+            padding: 20px;
+            margin-bottom: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+        }
+
+        .phase-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .phase-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .phase-status {
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        .status-approved {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-pending {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .progress-bar-container {
+            width: 100%;
+            height: 30px;
+            background: #e9ecef;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.5s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .phase-details {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.95em;
+            color: #666;
+        }
+
+        /* ========== Task Table 섹션 ========== */
+        .tasks-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .filter-bar {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 25px;
+            background: #e9ecef;
+            color: #333;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .filter-btn:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .filter-btn.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .task-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 10px;
+        }
+
+        .task-table thead th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .task-table thead th:first-child {
+            border-radius: 10px 0 0 10px;
+        }
+
+        .task-table thead th:last-child {
+            border-radius: 0 10px 10px 0;
+        }
+
+        .task-table tbody tr {
+            background: #f8f9fa;
+            transition: all 0.3s;
+        }
+
+        .task-table tbody tr:hover {
+            background: #e9ecef;
+            transform: scale(1.01);
+        }
+
+        .task-table tbody td {
+            padding: 15px;
+            border-top: 1px solid #dee2e6;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .task-table tbody td:first-child {
+            border-left: 1px solid #dee2e6;
+            border-radius: 10px 0 0 10px;
+        }
+
+        .task-table tbody td:last-child {
+            border-right: 1px solid #dee2e6;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .task-id {
+            font-weight: bold;
+            color: #667eea;
+            font-family: 'Courier New', monospace;
+        }
+
+        .task-name {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .task-status {
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        .status-완료 {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-진행중 {
+            background: #cce5ff;
+            color: #004085;
+        }
+
+        .status-대기 {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .status-completed {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .progress-badge {
+            padding: 6px 12px;
+            border-radius: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        /* ========== Issues Section ========== */
+        .issues-section {
+            background: #fff3cd;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-left: 5px solid #ffc107;
+        }
+
+        .issue-item {
+            background: white;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #dc3545;
+        }
+
+        .issue-title {
+            font-weight: bold;
+            color: #dc3545;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .issue-description {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* ========== Loading ========== */
+        .loading {
+            text-align: center;
+            padding: 50px;
+            font-size: 1.5em;
+            color: white;
+        }
+
+        .spinner {
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #667eea;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🎯 PROJECT GRID - Real-time Dashboard</h1>
+        <div class="subtitle">PoliticianFinder 프로젝트 - 44 Tasks 통합 관리</div>
+        <div class="last-updated" id="lastUpdated">Loading...</div>
+    </header>
+
+    <div class="container">
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+            <div>Supabase 데이터 로딩 중...</div>
+        </div>
+
+        <div id="content" style="display: none;">
+            <!-- 통계 섹션 -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" id="totalTasks">0</div>
+                    <div class="stat-label">총 Task 수</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="completedTasks">0</div>
+                    <div class="stat-label">완료된 Task</div>
+                    <div class="stat-subtext" id="completionRate">0%</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="inProgressTasks">0</div>
+                    <div class="stat-label">진행 중</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="pendingTasks">0</div>
+                    <div class="stat-label">대기 중</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="approvedPhases">0</div>
+                    <div class="stat-label">승인된 Phase</div>
+                    <div class="stat-subtext">/ 6 Phases</div>
+                </div>
+            </div>
+
+            <!-- Issues 섹션 -->
+            <div id="issuesSection" class="issues-section" style="display: none;">
+                <div class="section-title">⚠️ 발견된 문제점</div>
+                <div id="issuesList"></div>
+            </div>
+
+            <!-- Phase Progress 섹션 -->
+            <div class="phase-progress-section">
+                <div class="section-title">📊 Phase별 진행 현황</div>
+                <div id="phaseProgress"></div>
+            </div>
+
+            <!-- Task Table 섹션 -->
+            <div class="tasks-section">
+                <div class="section-title">📋 전체 Task 목록</div>
+
+                <div class="filter-bar">
+                    <button class="filter-btn active" onclick="filterTasks('all')">전체 (44)</button>
+                    <button class="filter-btn" onclick="filterTasks('완료')">완료</button>
+                    <button class="filter-btn" onclick="filterTasks('진행중')">진행중</button>
+                    <button class="filter-btn" onclick="filterTasks('대기')">대기</button>
+                    <button class="filter-btn" onclick="filterPhase(1)">Phase 1</button>
+                    <button class="filter-btn" onclick="filterPhase(2)">Phase 2</button>
+                    <button class="filter-btn" onclick="filterPhase(3)">Phase 3</button>
+                    <button class="filter-btn" onclick="filterPhase(4)">Phase 4</button>
+                    <button class="filter-btn" onclick="filterPhase(5)">Phase 5</button>
+                    <button class="filter-btn" onclick="filterPhase(6)">Phase 6</button>
+                </div>
+
+                <table class="task-table">
+                    <thead>
+                        <tr>
+                            <th>Phase</th>
+                            <th>Task ID</th>
+                            <th>작업명</th>
+                            <th>담당 에이전트</th>
+                            <th>상태</th>
+                            <th>진행률</th>
+                            <th>빌드</th>
+                        </tr>
+                    </thead>
+                    <tbody id="taskTableBody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Supabase 설정
+        const SUPABASE_URL = 'https://ooddlafwdpzgxfefgsrx.supabase.co';
+        const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9vZGRsYWZ3ZHB6Z3hmZWZnc3J4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjA1OTI0MzQsImV4cCI6MjA3NjE2ODQzNH0.knUt4zhH7Ld8c0GxaiLgcQp5m_tGnjt5djcetJgd-k8';
+
+        const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+        let allTasks = [];
+        let currentFilter = 'all';
+
+        // 데이터 로드
+        async function loadData() {
+            try {
+                const { data, error } = await supabase
+                    .from('project_grid_tasks_revised')
+                    .select('*')
+                    .order('phase')
+                    .order('task_id');
+
+                if (error) throw error;
+
+                allTasks = data;
+                updateStats(data);
+                updatePhaseProgress(data);
+                renderTasks(data);
+                checkIssues(data);
+
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('content').style.display = 'block';
+                document.getElementById('lastUpdated').textContent = `마지막 업데이트: ${new Date().toLocaleString('ko-KR')}`;
+
+            } catch (error) {
+                console.error('Error loading data:', error);
+                document.getElementById('loading').innerHTML = '<div style="color: #dc3545;">데이터 로딩 실패: ' + error.message + '</div>';
+            }
+        }
+
+        // 통계 업데이트
+        function updateStats(tasks) {
+            const total = tasks.length;
+            const completed = tasks.filter(t => t.status === '완료' || t.status === 'completed').length;
+            const inProgress = tasks.filter(t => t.status === '진행중').length;
+            const pending = tasks.filter(t => t.status === '대기').length;
+
+            // Phase Gate 승인 상태 확인 (모든 task가 완료된 phase 카운트)
+            const phaseGroups = {};
+            tasks.forEach(t => {
+                if (!phaseGroups[t.phase]) phaseGroups[t.phase] = { total: 0, completed: 0 };
+                phaseGroups[t.phase].total++;
+                if (t.status === '완료' || t.status === 'completed') phaseGroups[t.phase].completed++;
+            });
+
+            const approvedPhases = Object.values(phaseGroups).filter(p => p.total === p.completed).length;
+
+            document.getElementById('totalTasks').textContent = total;
+            document.getElementById('completedTasks').textContent = completed;
+            document.getElementById('inProgressTasks').textContent = inProgress;
+            document.getElementById('pendingTasks').textContent = pending;
+            document.getElementById('approvedPhases').textContent = approvedPhases;
+            document.getElementById('completionRate').textContent = `${Math.round(completed / total * 100)}%`;
+        }
+
+        // Phase별 진행 상황
+        function updatePhaseProgress(tasks) {
+            const phaseData = {};
+
+            tasks.forEach(task => {
+                if (!phaseData[task.phase]) {
+                    phaseData[task.phase] = {
+                        total: 0,
+                        completed: 0,
+                        tasks: []
+                    };
+                }
+                phaseData[task.phase].total++;
+                if (task.status === '완료' || task.status === 'completed') {
+                    phaseData[task.phase].completed++;
+                }
+                phaseData[task.phase].tasks.push(task);
+            });
+
+            const container = document.getElementById('phaseProgress');
+            container.innerHTML = '';
+
+            for (let phase = 1; phase <= 6; phase++) {
+                const data = phaseData[phase] || { total: 0, completed: 0 };
+                const percentage = data.total > 0 ? Math.round((data.completed / data.total) * 100) : 0;
+                const isApproved = data.total > 0 && data.completed === data.total;
+
+                const phaseHTML = `
+                    <div class="phase-item">
+                        <div class="phase-header">
+                            <div class="phase-title">Phase ${phase}</div>
+                            <div class="phase-status ${isApproved ? 'status-approved' : 'status-pending'}">
+                                ${isApproved ? '✅ 승인 완료' : '⏳ 진행 중'}
+                            </div>
+                        </div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" style="width: ${percentage}%">
+                                ${percentage}%
+                            </div>
+                        </div>
+                        <div class="phase-details">
+                            <span>완료: ${data.completed} / ${data.total}</span>
+                            <span>Task 수: ${data.total}개</span>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += phaseHTML;
+            }
+        }
+
+        // Task 테이블 렌더링
+        function renderTasks(tasks) {
+            const tbody = document.getElementById('taskTableBody');
+            tbody.innerHTML = '';
+
+            tasks.forEach(task => {
+                const statusClass = `status-${task.status || 'completed'}`;
+                const row = `
+                    <tr class="task-row" data-status="${task.status}" data-phase="${task.phase}">
+                        <td><strong>P${task.phase}</strong></td>
+                        <td><span class="task-id">${task.task_id}</span></td>
+                        <td><span class="task-name">${task.task_name}</span></td>
+                        <td>${task.assigned_agent || '-'}</td>
+                        <td><span class="task-status ${statusClass}">${task.status || 'completed'}</span></td>
+                        <td><span class="progress-badge">${task.progress}%</span></td>
+                        <td>${task.build_result || '⏳ 대기'}</td>
+                    </tr>
+                `;
+                tbody.innerHTML += row;
+            });
+        }
+
+        // 문제점 체크
+        function checkIssues(tasks) {
+            const issues = [];
+
+            // P2D1 마이그레이션 이슈
+            const p2d1 = tasks.find(t => t.task_id === 'P2D1');
+            if (p2d1 && p2d1.modification_history && p2d1.modification_history.includes('2025-11-10')) {
+                issues.push({
+                    title: 'P2D1: Database 마이그레이션 미적용',
+                    description: '16개 테이블이 Supabase에 누락되어 있습니다. combined_all_migrations.sql 파일을 Supabase SQL Editor에서 실행해야 합니다.'
+                });
+            }
+
+            if (issues.length > 0) {
+                const issuesSection = document.getElementById('issuesSection');
+                const issuesList = document.getElementById('issuesList');
+                issuesSection.style.display = 'block';
+
+                issuesList.innerHTML = issues.map(issue => `
+                    <div class="issue-item">
+                        <div class="issue-title">${issue.title}</div>
+                        <div class="issue-description">${issue.description}</div>
+                    </div>
+                `).join('');
+            }
+        }
+
+        // 필터링
+        function filterTasks(status) {
+            currentFilter = status;
+            updateFilterButtons();
+
+            const rows = document.querySelectorAll('.task-row');
+            rows.forEach(row => {
+                if (status === 'all') {
+                    row.style.display = '';
+                } else {
+                    row.style.display = row.dataset.status === status ? '' : 'none';
+                }
+            });
+        }
+
+        function filterPhase(phase) {
+            currentFilter = `phase${phase}`;
+            updateFilterButtons();
+
+            const rows = document.querySelectorAll('.task-row');
+            rows.forEach(row => {
+                row.style.display = parseInt(row.dataset.phase) === phase ? '' : 'none';
+            });
+        }
+
+        function updateFilterButtons() {
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+
+        // 초기 로드
+        loadData();
+
+        // 30초마다 자동 새로고침
+        setInterval(loadData, 30000);
+    </script>
+</body>
+</html>
