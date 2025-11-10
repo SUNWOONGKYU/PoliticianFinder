@@ -4,8 +4,8 @@
 
 -- Politician Details table
 CREATE TABLE IF NOT EXISTS politician_details (
-  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  politician_id UUID NOT NULL REFERENCES politicians(id) ON DELETE CASCADE,
+  id BIGSERIAL PRIMARY KEY,
+  politician_id BIGINT NOT NULL REFERENCES politicians(id) ON DELETE CASCADE,
   education TEXT,
   career_history TEXT,
   achievements TEXT,
