@@ -3,10 +3,17 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { useAuth } from '@/lib/contexts/P1F1_AuthContext';
+import { createClient } from '@/lib/supabase/client';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { user, isLoading } = useAuth();
+
+  const handleLogout = async () => {
+    const supabase = createClient();
+    await supabase.auth.signOut();
+    window.location.href = '/';
+  };
 
   return (
     <header className="bg-white shadow-sm sticky top-0 z-50 border-b-2 border-primary-500">
@@ -50,12 +57,7 @@ export default function Header() {
                   {user.user_metadata?.name || user.email?.split('@')[0] || '사용자'}
                 </Link>
                 <button
-                  onClick={async () => {
-                    const { createClient } = await import('@/lib/supabase/client');
-                    const supabase = createClient();
-                    await supabase.auth.signOut();
-                    window.location.href = '/';
-                  }}
+                  onClick={handleLogout}
                   className="text-gray-900 hover:text-primary-600 font-medium px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary-300 rounded"
                 >
                   로그아웃
@@ -105,12 +107,7 @@ export default function Header() {
                     {user.user_metadata?.name || user.email?.split('@')[0] || '프로필'}
                   </Link>
                   <button
-                    onClick={async () => {
-                      const { createClient } = await import('@/lib/supabase/client');
-                      const supabase = createClient();
-                      await supabase.auth.signOut();
-                      window.location.href = '/';
-                    }}
+                    onClick={handleLogout}
                     className="text-gray-900 hover:text-primary-600 font-medium px-2 py-2 text-left"
                   >
                     로그아웃
