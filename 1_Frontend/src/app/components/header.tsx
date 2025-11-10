@@ -2,9 +2,11 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
+import { useAuth } from '@/lib/contexts/P1F1_AuthContext';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { user, isLoading } = useAuth();
 
   return (
     <header className="bg-white shadow-sm sticky top-0 z-50 border-b-2 border-primary-500">
@@ -40,8 +42,31 @@ export default function Header() {
 
           {/* Auth Buttons (Desktop) */}
           <div className="hidden md:flex items-center space-x-3">
-            <Link href="/auth/login" className="text-gray-900 hover:text-primary-600 font-medium px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary-300 rounded">로그인</Link>
-            <Link href="/auth/signup" className="bg-primary-500 text-white px-4 py-2 rounded-lg hover:bg-primary-600 font-medium focus:outline-none focus:ring-2 focus:ring-primary-300">회원가입</Link>
+            {isLoading ? (
+              <div className="text-gray-500">로딩중...</div>
+            ) : user ? (
+              <>
+                <Link href="/profile" className="text-gray-900 hover:text-primary-600 font-medium px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary-300 rounded">
+                  {user.user_metadata?.name || user.email?.split('@')[0] || '사용자'}
+                </Link>
+                <button
+                  onClick={async () => {
+                    const { createClient } = await import('@/lib/supabase/client');
+                    const supabase = createClient();
+                    await supabase.auth.signOut();
+                    window.location.href = '/';
+                  }}
+                  className="text-gray-900 hover:text-primary-600 font-medium px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary-300 rounded"
+                >
+                  로그아웃
+                </button>
+              </>
+            ) : (
+              <>
+                <Link href="/auth/login" className="text-gray-900 hover:text-primary-600 font-medium px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary-300 rounded">로그인</Link>
+                <Link href="/auth/signup" className="bg-primary-500 text-white px-4 py-2 rounded-lg hover:bg-primary-600 font-medium focus:outline-none focus:ring-2 focus:ring-primary-300">회원가입</Link>
+              </>
+            )}
           </div>
 
           {/* Mobile menu button & notification */}
@@ -74,8 +99,29 @@ export default function Header() {
               <Link href="/community" className="text-gray-900 hover:text-primary-600 font-medium px-2 py-2" onClick={() => setMobileMenuOpen(false)}>커뮤니티</Link>
               <Link href="/connection" className="text-gray-900 hover:text-primary-600 font-medium px-2 py-2" onClick={() => setMobileMenuOpen(false)}>연결</Link>
               <hr className="my-2" />
-              <Link href="/auth/login" className="text-gray-900 hover:text-primary-600 font-medium px-2 py-2" onClick={() => setMobileMenuOpen(false)}>로그인</Link>
-              <Link href="/auth/signup" className="bg-primary-500 text-white px-4 py-2 rounded-lg hover:bg-primary-600 font-medium text-center" onClick={() => setMobileMenuOpen(false)}>회원가입</Link>
+              {user ? (
+                <>
+                  <Link href="/profile" className="text-gray-900 hover:text-primary-600 font-medium px-2 py-2" onClick={() => setMobileMenuOpen(false)}>
+                    {user.user_metadata?.name || user.email?.split('@')[0] || '프로필'}
+                  </Link>
+                  <button
+                    onClick={async () => {
+                      const { createClient } = await import('@/lib/supabase/client');
+                      const supabase = createClient();
+                      await supabase.auth.signOut();
+                      window.location.href = '/';
+                    }}
+                    className="text-gray-900 hover:text-primary-600 font-medium px-2 py-2 text-left"
+                  >
+                    로그아웃
+                  </button>
+                </>
+              ) : (
+                <>
+                  <Link href="/auth/login" className="text-gray-900 hover:text-primary-600 font-medium px-2 py-2" onClick={() => setMobileMenuOpen(false)}>로그인</Link>
+                  <Link href="/auth/signup" className="bg-primary-500 text-white px-4 py-2 rounded-lg hover:bg-primary-600 font-medium text-center" onClick={() => setMobileMenuOpen(false)}>회원가입</Link>
+                </>
+              )}
             </div>
           </div>
         )}
