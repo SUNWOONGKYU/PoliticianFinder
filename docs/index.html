@@ -454,13 +454,24 @@
         const SUPABASE_URL = 'https://ooddlafwdpzgxfefgsrx.supabase.co';
         const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9vZGRsYWZ3ZHB6Z3hmZWZnc3J4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjA1OTI0MzQsImV4cCI6MjA3NjE2ODQzNH0.knUt4zhH7Ld8c0GxaiLgcQp5m_tGnjt5djcetJgd-k8';
 
-        const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+        // Check if Supabase is loaded
+        if (!window.supabase) {
+            console.error('Supabase library not loaded! Check CDN.');
+            document.getElementById('loading').innerHTML = '<div style="color: #dc3545;">Supabase 라이브러리 로딩 실패. CDN 확인이 필요합니다.</div>';
+        }
+
+        const supabase = window.supabase ? window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY) : null;
 
         let allTasks = [];
         let currentFilter = 'all';
 
         // 데이터 로드
         async function loadData() {
+            if (!supabase) {
+                console.error('Supabase client not initialized');
+                return;
+            }
+
             try {
                 const { data, error } = await supabase
                     .from('project_grid_tasks_revised')
