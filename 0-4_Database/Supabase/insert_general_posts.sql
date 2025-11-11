@@ -1,0 +1,40 @@
+WITH sample_users AS (
+  SELECT user_id, ROW_NUMBER() OVER (ORDER BY email) as user_num
+  FROM users WHERE email LIKE 'user%@example.com'
+  LIMIT 10
+)
+INSERT INTO posts (user_id, title, content, category, tags, view_count, like_count, comment_count, is_pinned, created_at, moderation_status)
+SELECT
+  u.user_id,
+  t.title, t.content, t.category, t.tags, t.view_count, t.like_count, t.comment_count, t.is_pinned, t.created_at, t.moderation_status
+FROM (VALUES
+  (1, '청년 일자리 공약, 실현 가능성은?', '최근 여러 정치인들이 청년 일자리 창출을 공약으로 내세우고 있습니다. 하지만 구체적인 실행 계획이 부족해 보입니다. 여러분의 의견은 어떠신가요?', 'general', ARRAY['청년정책', '일자리', '공약검증'], 157, 12, 4, TRUE, '2025-10-13T19:58:04.407753Z'::timestamptz, 'approved'),
+  (1, '지역 교통 인프라 개선 예산안에 대해', '우리 지역 교통 인프라 개선을 위한 예산안이 통과되었습니다. 시민들의 실생활에 큰 도움이 될 것으로 기대됩니다.', 'general', ARRAY['교통', '인프라', '예산'], 766, 76, 2, FALSE, '2025-10-18T23:58:04.407753Z'::timestamptz, 'approved'),
+  (2, '정치인 평가 시스템, 어떻게 개선할 수 있을까요?', '현재 플랫폼의 정치인 평가 시스템에 대한 의견을 나누고 싶습니다. AI 평가와 회원 평가의 균형을 어떻게 맞춰야 할까요?', 'general', ARRAY['평가시스템', '개선제안', 'AI'], 480, 79, 4, FALSE, '2025-10-23T12:58:04.407753Z'::timestamptz, 'approved'),
+  (2, '중소기업 지원 정책의 실효성', '중소기업 지원 정책들이 많이 발표되지만, 실제로 중소기업을 운영하는 입장에서는 체감이 잘 안 됩니다. 현장의 목소리를 정책에 반영할 방법이 필요합니다.', 'general', ARRAY['중소기업', '경제정책', '현장목소리'], 153, 26, 1, FALSE, '2025-09-25T11:58:04.407753Z'::timestamptz, 'approved'),
+  (3, '교육 개혁안, 찬반 의견 나눠봐요', '새로운 교육 개혁안이 발표되었습니다. 학생, 학부모, 교사 모두의 입장에서 다양한 의견을 듣고 싶습니다.', 'general', ARRAY['교육', '개혁안', '토론'], 138, 13, 3, FALSE, '2025-10-06T14:58:04.407753Z'::timestamptz, 'approved'),
+  (3, '복지 정책 확대, 재원 마련은?', '복지 정책 확대에는 모두 찬성하지만, 재원 마련 방안에 대해서는 의견이 분분합니다. 증세 vs 재정 효율화, 어떤 방법이 더 합리적일까요?', 'general', ARRAY['복지', '재정', '증세'], 490, 52, 2, FALSE, '2025-10-04T13:58:04.407753Z'::timestamptz, 'approved'),
+  (4, '환경 정책 공약 비교 분석', '각 정당의 환경 정책 공약을 비교 분석해봤습니다. 실현 가능성과 효과성 측면에서 평가해보고 싶습니다.', 'general', ARRAY['환경', '기후변화', '공약비교'], 939, 112, 6, FALSE, '2025-10-12T20:58:04.407753Z'::timestamptz, 'approved'),
+  (4, '지역 발전 정책에 대한 의견', '우리 지역 발전을 위한 정책들이 필요합니다. 지역 주민들의 실질적인 의견을 모아 정치인들에게 전달하면 좋겠습니다.', 'general', ARRAY['지역발전', '주민참여', '정책제안'], 779, 132, 2, FALSE, '2025-10-01T06:58:04.407753Z'::timestamptz, 'approved'),
+  (5, '공공의료 확대 정책 어떻게 보시나요?', '공공의료 확대 정책이 발표되었습니다. 의료 접근성 향상에 도움이 될지, 의료 서비스 질에는 어떤 영향이 있을지 토론해봅시다.', 'general', ARRAY['의료', '공공의료', '보건정책'], 575, 50, 4, FALSE, '2025-10-02T04:58:04.407753Z'::timestamptz, 'approved'),
+  (5, '부동산 정책, 실수요자 보호는?', '최근 부동산 정책들이 연이어 발표되고 있습니다. 투기 억제도 중요하지만 실수요자 보호 방안도 충분히 고려되었는지 궁금합니다.', 'general', ARRAY['부동산', '주택정책', '실수요자'], 369, 27, 1, FALSE, '2025-10-01T17:58:04.407753Z'::timestamptz, 'approved'),
+  (6, '디지털 전환 정책, 소외계층 배려는?', '정부의 디지털 전환 정책이 빠르게 진행되고 있습니다. 하지만 디지털 소외계층에 대한 배려가 부족해 보입니다.', 'general', ARRAY['디지털', '포용정책', '소외계층'], 322, 36, 4, FALSE, '2025-10-06T02:58:04.407753Z'::timestamptz, 'approved'),
+  (6, '국방 정책 방향성에 대해', '변화하는 안보 환경 속에서 우리나라 국방 정책의 방향성에 대한 토론이 필요합니다.', 'general', ARRAY['국방', '안보', '정책방향'], 1040, 113, 4, FALSE, '2025-10-09T16:58:04.407753Z'::timestamptz, 'approved'),
+  (7, '지방 소멸 위기, 어떻게 해결할까?', '지방 소멸 위기가 심각합니다. 청년 유출을 막고 지역 경제를 살릴 수 있는 실질적인 정책이 필요합니다.', 'general', ARRAY['지방소멸', '인구정책', '지역경제'], 219, 31, 3, FALSE, '2025-10-08T19:58:04.407753Z'::timestamptz, 'approved'),
+  (7, '정치 투명성 제고 방안', '정치 자금, 정책 결정 과정 등 정치의 투명성을 높이기 위한 방안들을 함께 논의해봅시다.', 'general', ARRAY['투명성', '정치개혁', '시민참여'], 1119, 99, 2, FALSE, '2025-10-12T23:58:04.407753Z'::timestamptz, 'approved'),
+  (8, '기후 위기 대응 정책 긴급합니다', '기후 위기가 현실이 되고 있습니다. 더 늦기 전에 실질적인 대응 정책이 필요합니다.', 'general', ARRAY['기후위기', '환경', '긴급대응'], 250, 34, 4, FALSE, '2025-10-02T20:58:04.407753Z'::timestamptz, 'approved'),
+  (8, '스타트업 지원 정책, 현장의 목소리', '스타트업 지원 정책들이 많지만 실제 스타트업 현장에서는 체감이 어렵습니다. 실질적인 지원 방안을 제안합니다.', 'general', ARRAY['스타트업', '창업지원', '현장목소리'], 593, 60, 5, FALSE, '2025-09-29T00:58:04.407753Z'::timestamptz, 'approved'),
+  (9, '농업 정책, 농민들의 실질적 도움 될까?', '농업 정책들이 발표되고 있지만 실제 농민들에게 얼마나 도움이 될지 의문입니다. 농촌 현장의 목소리를 들어야 합니다.', 'general', ARRAY['농업', '농촌정책', '농민'], 1668, 137, 2, FALSE, '2025-10-20T19:58:04.407753Z'::timestamptz, 'approved'),
+  (9, '[공식] 청년 일자리 창출 정책 설명', '안녕하세요. 청년 일자리 2만개 창출 공약에 대해 구체적인 실행 계획을 말씀드리겠습니다. 중소기업 인턴십 프로그램 1만개, 공공부문 신규 채용 5천개, 창업 지원 5천개로 구성됩니다.', 'general', ARRAY['청년정책', '일자리', '공약설명'], 109, 16, 1, FALSE, '2025-10-12T02:58:04.407753Z'::timestamptz, 'approved'),
+  (10, '육아 지원 정책 확대 필요성', '저출산 문제 해결을 위해서는 실질적인 육아 지원 정책 확대가 필수입니다. 보육비 지원, 육아휴직 확대 등이 필요합니다.', 'general', ARRAY['육아', '저출산', '복지정책'], 133, 10, 2, FALSE, '2025-10-05T07:58:04.407753Z'::timestamptz, 'approved'),
+  (10, '문화 예술 지원 정책 어떻게 보시나요?', '문화 예술 분야에 대한 지원 정책이 부족하다는 의견이 많습니다. 예술인들의 안정적인 창작 활동을 위한 지원 방안이 필요합니다.', 'general', ARRAY['문화', '예술', '지원정책'], 57, 10, 3, FALSE, '2025-10-12T11:58:04.407753Z'::timestamptz, 'approved')
+) AS t(user_num, title, content, category, tags, view_count, like_count, comment_count, is_pinned, created_at, moderation_status)
+JOIN sample_users u ON u.user_num = t.user_num;
+
+SELECT COUNT(*) as total_general_posts FROM posts WHERE politician_id IS NULL;
+SELECT u.nickname, COUNT(p.id) as post_count
+FROM users u
+LEFT JOIN posts p ON u.user_id = p.user_id AND p.politician_id IS NULL
+WHERE u.email LIKE 'user%@example.com'
+GROUP BY u.nickname
+ORDER BY post_count DESC;
