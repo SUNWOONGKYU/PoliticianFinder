@@ -168,7 +168,7 @@ export async function GET(request: NextRequest) {
       .from("posts")
       .select(`
         *,
-        users!posts_user_id_fkey (
+        users (
           id,
           name,
           avatar_url

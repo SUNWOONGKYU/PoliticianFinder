@@ -653,70 +653,41 @@ export default function CommunityPage() {
           </div>
         </div>
 
-        {/* Pagination - 무조건 표시 */}
-        <div style={{
-          display: 'flex',
-          justifyContent: 'center',
-          gap: '10px',
-          marginBottom: '30px',
-          padding: '30px',
-          backgroundColor: '#FEF3C7',
-          border: '5px solid #F59E0B',
-          borderRadius: '10px',
-          boxShadow: '0 10px 30px rgba(0,0,0,0.2)'
-        }}>
-          <button
-            onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
-            disabled={currentPage === 1}
-            style={{
-              padding: '15px 30px',
-              fontSize: '18px',
-              fontWeight: 'bold',
-              backgroundColor: '#9CA3AF',
-              border: 'none',
-              borderRadius: '8px',
-              cursor: 'pointer',
-              opacity: currentPage === 1 ? 0.5 : 1
-            }}
-          >
-            이전
-          </button>
-          {[1, 2, 3, 4, 5, 6].map(pageNum => (
+        {/* Pagination */}
+        {totalPages > 1 && (
+          <div className="flex justify-center gap-2 mb-6">
             <button
-              key={pageNum}
-              onClick={() => setCurrentPage(pageNum)}
-              style={{
-                padding: '15px 25px',
-                fontSize: '20px',
-                fontWeight: 'bold',
-                backgroundColor: currentPage === pageNum ? '#DC2626' : '#E5E7EB',
-                color: currentPage === pageNum ? '#FFFFFF' : '#000000',
-                border: 'none',
-                borderRadius: '8px',
-                cursor: 'pointer',
-                boxShadow: currentPage === pageNum ? '0 5px 15px rgba(220,38,38,0.5)' : 'none'
-              }}
+              onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
+              disabled={currentPage === 1}
+              className="px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {pageNum}
+              이전
             </button>
-          ))}
-          <button
-            onClick={() => setCurrentPage(Math.min(6, currentPage + 1))}
-            disabled={currentPage >= 6}
-            style={{
-              padding: '15px 30px',
-              fontSize: '18px',
-              fontWeight: 'bold',
-              backgroundColor: '#9CA3AF',
-              border: 'none',
-              borderRadius: '8px',
-              cursor: 'pointer',
-              opacity: currentPage >= 6 ? 0.5 : 1
-            }}
-          >
-            다음
-          </button>
-        </div>
+            {Array.from({ length: Math.min(totalPages, 5) }, (_, i) => {
+              const page = i + 1;
+              return (
+                <button
+                  key={page}
+                  onClick={() => setCurrentPage(page)}
+                  className={`px-4 py-2 rounded ${
+                    currentPage === page
+                      ? 'bg-primary-500 text-white'
+                      : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                  }`}
+                >
+                  {page}
+                </button>
+              );
+            })}
+            <button
+              onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 1))}
+              disabled={currentPage >= totalPages}
+              className="px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              다음
+            </button>
+          </div>
+        )}
 
         {/* Loading State */}
         {loading ? (
