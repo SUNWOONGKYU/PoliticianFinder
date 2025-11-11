@@ -653,71 +653,6 @@ export default function CommunityPage() {
           </div>
         </div>
 
-        {/* Pagination - 무조건 표시 */}
-        <div style={{
-          display: 'flex',
-          justifyContent: 'center',
-          gap: '10px',
-          marginBottom: '30px',
-          padding: '30px',
-          backgroundColor: '#FEF3C7',
-          border: '5px solid #F59E0B',
-          borderRadius: '10px',
-          boxShadow: '0 10px 30px rgba(0,0,0,0.2)'
-        }}>
-          <button
-            onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
-            disabled={currentPage === 1}
-            style={{
-              padding: '15px 30px',
-              fontSize: '18px',
-              fontWeight: 'bold',
-              backgroundColor: '#9CA3AF',
-              border: 'none',
-              borderRadius: '8px',
-              cursor: 'pointer',
-              opacity: currentPage === 1 ? 0.5 : 1
-            }}
-          >
-            이전
-          </button>
-          {[1, 2, 3, 4, 5, 6].map(pageNum => (
-            <button
-              key={pageNum}
-              onClick={() => setCurrentPage(pageNum)}
-              style={{
-                padding: '15px 25px',
-                fontSize: '20px',
-                fontWeight: 'bold',
-                backgroundColor: currentPage === pageNum ? '#DC2626' : '#E5E7EB',
-                color: currentPage === pageNum ? '#FFFFFF' : '#000000',
-                border: 'none',
-                borderRadius: '8px',
-                cursor: 'pointer',
-                boxShadow: currentPage === pageNum ? '0 5px 15px rgba(220,38,38,0.5)' : 'none'
-              }}
-            >
-              {pageNum}
-            </button>
-          ))}
-          <button
-            onClick={() => setCurrentPage(Math.min(6, currentPage + 1))}
-            disabled={currentPage >= 6}
-            style={{
-              padding: '15px 30px',
-              fontSize: '18px',
-              fontWeight: 'bold',
-              backgroundColor: '#9CA3AF',
-              border: 'none',
-              borderRadius: '8px',
-              cursor: 'pointer',
-              opacity: currentPage >= 6 ? 0.5 : 1
-            }}
-          >
-            다음
-          </button>
-        </div>
-
         {/* Loading State */}
         {loading ? (
           <div className="text-center py-16">
@@ -818,46 +753,27 @@ export default function CommunityPage() {
 
         {/* Pagination - 하단 */}
         {!loading && !error && filteredPosts.length > 0 && (
-          <div style={{
-            display: 'flex',
-            justifyContent: 'center',
-            gap: '10px',
-            marginTop: '40px',
-            padding: '25px',
-            backgroundColor: '#F3F4F6',
-            border: '2px solid #9CA3AF',
-            borderRadius: '8px',
-          }}>
+          <div className="flex justify-center gap-2 mt-8">
             <button
               onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
               disabled={currentPage === 1}
-              style={{
-                padding: '12px 24px',
-                fontSize: '16px',
-                fontWeight: '600',
-                backgroundColor: currentPage === 1 ? '#E5E7EB' : '#6B7280',
-                color: currentPage === 1 ? '#9CA3AF' : '#FFFFFF',
-                border: 'none',
-                borderRadius: '6px',
-                cursor: currentPage === 1 ? 'not-allowed' : 'pointer',
-              }}
+              className={`px-4 py-2 rounded-lg font-medium transition ${
+                currentPage === 1
+                  ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                  : 'bg-gray-500 text-white hover:bg-gray-600'
+              }`}
             >
               이전
             </button>
-            {Array.from({ length: Math.min(totalPages, 6) }, (_, i) => i + 1).map(pageNum => (
+            {Array.from({ length: Math.min(totalPages, 10) }, (_, i) => i + 1).map(pageNum => (
               <button
                 key={pageNum}
                 onClick={() => setCurrentPage(pageNum)}
-                style={{
-                  padding: '12px 20px',
-                  fontSize: '16px',
-                  fontWeight: '600',
-                  backgroundColor: currentPage === pageNum ? '#3B82F6' : '#FFFFFF',
-                  color: currentPage === pageNum ? '#FFFFFF' : '#374151',
-                  border: currentPage === pageNum ? 'none' : '2px solid #D1D5DB',
-                  borderRadius: '6px',
-                  cursor: 'pointer',
-                }}
+                className={`px-4 py-2 rounded-lg font-medium transition ${
+                  currentPage === pageNum
+                    ? 'bg-primary-500 text-white'
+                    : 'bg-white text-gray-700 border-2 border-gray-300 hover:bg-gray-50'
+                }`}
               >
                 {pageNum}
               </button>
@@ -865,16 +781,11 @@ export default function CommunityPage() {
             <button
               onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 1))}
               disabled={currentPage >= totalPages}
-              style={{
-                padding: '12px 24px',
-                fontSize: '16px',
-                fontWeight: '600',
-                backgroundColor: currentPage >= totalPages ? '#E5E7EB' : '#6B7280',
-                color: currentPage >= totalPages ? '#9CA3AF' : '#FFFFFF',
-                border: 'none',
-                borderRadius: '6px',
-                cursor: currentPage >= totalPages ? 'not-allowed' : 'pointer',
-              }}
+              className={`px-4 py-2 rounded-lg font-medium transition ${
+                currentPage >= totalPages
+                  ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                  : 'bg-gray-500 text-white hover:bg-gray-600'
+              }`}
             >
               다음
             </button>
