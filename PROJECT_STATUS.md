@@ -1,7 +1,7 @@
 # PoliticianFinder 프로젝트 현황
 
 **작성 일시**: 2025년 11월 10일 오전 4시 15분
-**최종 업데이트**: 2025-11-11 (Google 로그인 헤더 상태 업데이트 수정)
+**최종 업데이트**: 2025-11-11 (커뮤니티 게시글 조회 실패 문제 해결)
 **프로젝트 상태**: ✅ **100% 완성** (Phase 1~6 모두 승인)
 **배포 상태**: ✅ **Vercel 프로덕션 배포 완료**
 **프로덕션 URL**: https://politician-finder.vercel.app/
@@ -26,7 +26,41 @@
 
 ## 🔄 최근 수정사항 (2025-11-11)
 
-### Google 소셜 로그인 후 헤더 상태 자동 업데이트 기능 추가
+### 커뮤니티 게시글 조회 실패 문제 해결 (2025-11-11 오후)
+
+**문제**: 커뮤니티 페이지에서 "⚠️ 게시글을 불러오는데 실패했습니다" 에러 발생, 게시글이 전혀 표시되지 않음
+
+**근본 원인**:
+- `posts` 테이블의 `moderation_status` 기본값이 'pending'으로 설정됨
+- RLS(Row Level Security) 정책은 `moderation_status = 'approved'` 게시글만 조회 허용
+- 결과: 모든 새 게시글이 'pending' 상태로 생성되어 아무도 볼 수 없음
+
+**수정 내용**:
+- **Task ID**: P3BA3 (Real API - 커뮤니티)
+- **수정 파일**:
+  - `0-4_Database/Supabase/migrations/045_fix_posts_moderation_default.sql` (신규 생성)
+    - `moderation_status` 기본값을 'pending' → 'approved'로 변경
+    - 기존 'pending' 게시글도 'approved'로 일괄 업데이트
+  - `1_Frontend/src/app/api/posts/route.ts`
+    - 게시글 생성 시 `moderation_status: 'approved'` 명시적 설정
+    - 상세한 에러 로깅 추가 (요청 파라미터, Supabase 쿼리 오류 등)
+  - `1_Frontend/src/app/community/page.tsx`
+    - API 호출 에러 로깅 개선 (응답 상태, 에러 데이터 포함)
+    - 샘플 데이터 fallback 제거 (실제 DB 데이터만 사용)
+
+**작업자**: Claude Code (CLI)
+
+**다음 단계**:
+1. Supabase에서 migration 실행 필요: `045_fix_posts_moderation_default.sql`
+2. 실행 후 커뮤니티 페이지에서 게시글 정상 표시 확인
+
+**브랜치**: `claude/fix-performance-freezing-011CV1tGbjaan4CD1wktvMjK`
+
+**커밋**: 451f469 "Fix: 게시글 조회 실패 문제 해결 (moderation_status)"
+
+---
+
+### Google 소셜 로그인 후 헤더 상태 자동 업데이트 기능 추가 (2025-11-11 오전)
 
 **문제**: Google 로그인 성공 후 홈 화면의 헤더가 "로그인" 버튼에서 "로그아웃" 버튼으로 자동 변경되지 않음
 
