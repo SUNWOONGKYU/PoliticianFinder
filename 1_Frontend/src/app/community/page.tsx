@@ -466,7 +466,7 @@ export default function CommunityPage() {
             title: post.title,
             content: post.content,
             category: post.category === 'general' ? 'general' : 'politician_post',
-            author: post.users?.name || '알 수 없음',
+            author: post.users?.nickname || post.users?.name || `회원${post.user_id?.substring(0, 4)}`,
             author_id: post.user_id,
             author_type: 'user' as const,
             politician_id: post.politician_id,
@@ -813,6 +813,71 @@ export default function CommunityPage() {
                 </div>
               </Link>
             ))}
+          </div>
+        )}
+
+        {/* Pagination - 하단 */}
+        {!loading && !error && filteredPosts.length > 0 && (
+          <div style={{
+            display: 'flex',
+            justifyContent: 'center',
+            gap: '10px',
+            marginTop: '40px',
+            padding: '25px',
+            backgroundColor: '#F3F4F6',
+            border: '2px solid #9CA3AF',
+            borderRadius: '8px',
+          }}>
+            <button
+              onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
+              disabled={currentPage === 1}
+              style={{
+                padding: '12px 24px',
+                fontSize: '16px',
+                fontWeight: '600',
+                backgroundColor: currentPage === 1 ? '#E5E7EB' : '#6B7280',
+                color: currentPage === 1 ? '#9CA3AF' : '#FFFFFF',
+                border: 'none',
+                borderRadius: '6px',
+                cursor: currentPage === 1 ? 'not-allowed' : 'pointer',
+              }}
+            >
+              이전
+            </button>
+            {Array.from({ length: Math.min(totalPages, 6) }, (_, i) => i + 1).map(pageNum => (
+              <button
+                key={pageNum}
+                onClick={() => setCurrentPage(pageNum)}
+                style={{
+                  padding: '12px 20px',
+                  fontSize: '16px',
+                  fontWeight: '600',
+                  backgroundColor: currentPage === pageNum ? '#3B82F6' : '#FFFFFF',
+                  color: currentPage === pageNum ? '#FFFFFF' : '#374151',
+                  border: currentPage === pageNum ? 'none' : '2px solid #D1D5DB',
+                  borderRadius: '6px',
+                  cursor: 'pointer',
+                }}
+              >
+                {pageNum}
+              </button>
+            ))}
+            <button
+              onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 1))}
+              disabled={currentPage >= totalPages}
+              style={{
+                padding: '12px 24px',
+                fontSize: '16px',
+                fontWeight: '600',
+                backgroundColor: currentPage >= totalPages ? '#E5E7EB' : '#6B7280',
+                color: currentPage >= totalPages ? '#9CA3AF' : '#FFFFFF',
+                border: 'none',
+                borderRadius: '6px',
+                cursor: currentPage >= totalPages ? 'not-allowed' : 'pointer',
+              }}
+            >
+              다음
+            </button>
           </div>
         )}
       </div>
