@@ -451,13 +451,20 @@ export default function CommunityPage() {
         setLoading(true);
         setError(null);
 
+        console.log('[커뮤니티] API 호출 시작:', `/api/posts?page=${currentPage}&limit=20`);
         const response = await fetch(`/api/posts?page=${currentPage}&limit=20`);
 
+        console.log('[커뮤니티] API 응답 상태:', response.status, response.statusText);
+
         if (!response.ok) {
-          throw new Error('게시글을 불러오는데 실패했습니다.');
+          // 에러 응답 body를 읽어서 자세한 정보 확인
+          const errorData = await response.json().catch(() => null);
+          console.error('[커뮤니티] API 에러 응답:', errorData);
+          throw new Error(errorData?.error?.message || `API 요청 실패 (${response.status})`);
         }
 
         const result = await response.json();
+        console.log('[커뮤니티] API 응답 데이터:', result);
 
         if (result.success && result.data) {
           // Map API response to CommunityPost interface
@@ -487,18 +494,19 @@ export default function CommunityPage() {
             share_count: post.share_count || 0,
           }));
 
+          console.log('[커뮤니티] 변환된 게시글 수:', mappedPosts.length);
           setPosts(mappedPosts);
 
           // Set total pages from pagination
           if (result.pagination) {
             setTotalPages(result.pagination.totalPages);
           }
+        } else {
+          console.warn('[커뮤니티] API 응답이 성공이 아니거나 데이터가 없음:', result);
         }
       } catch (err) {
         console.error('[커뮤니티 페이지] 게시글 조회 오류:', err);
         setError(err instanceof Error ? err.message : '알 수 없는 오류가 발생했습니다.');
-        // Fallback to sample posts on error
-        setPosts(SAMPLE_POSTS);
       } finally {
         setLoading(false);
       }

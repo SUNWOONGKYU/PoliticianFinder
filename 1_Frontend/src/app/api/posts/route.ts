@@ -89,6 +89,7 @@ export async function POST(request: NextRequest) {
         category: validated.category,
         politician_id: validated.politician_id || null,
         tags: validated.tags || null,
+        moderation_status: 'approved', // 즉시 표시되도록 approved로 설정
       })
       .select()
       .single();
@@ -158,17 +159,22 @@ export async function GET(request: NextRequest) {
       sort: searchParams.get("sort") || "-created_at",
     };
 
+    console.log('[GET /api/posts] 요청 파라미터:', queryParams);
+
     const query = getPostsQuerySchema.parse(queryParams);
+    console.log('[GET /api/posts] 검증된 쿼리:', query);
 
     // 2. Supabase 클라이언트 생성 (RLS 적용됨)
     const supabase = createClient();
+    console.log('[GET /api/posts] Supabase 클라이언트 생성 완료');
 
     // 3. 쿼리 빌더 시작 (RLS로 승인된 게시글만 조회)
+    // users를 LEFT JOIN으로 조인 (foreign key 자동 감지)
     let queryBuilder = supabase
       .from("posts")
       .select(`
         *,
-        users!posts_user_id_fkey (
+        users (
           id,
           name,
           avatar_url
@@ -178,16 +184,19 @@ export async function GET(request: NextRequest) {
     // 4. 필터 적용
     if (query.category) {
       queryBuilder = queryBuilder.eq("category", query.category);
+      console.log('[GET /api/posts] 카테고리 필터 적용:', query.category);
     }
 
     if (query.politician_id) {
       queryBuilder = queryBuilder.eq("politician_id", query.politician_id);
+      console.log('[GET /api/posts] 정치인 ID 필터 적용:', query.politician_id);
     }
 
     // 5. 정렬 적용
     const sortKey = query.sort.startsWith("-") ? query.sort.substring(1) : query.sort;
     const isDescending = query.sort.startsWith("-");
-    
+    console.log('[GET /api/posts] 정렬 적용:', { sortKey, isDescending });
+
     // 고정 게시글 우선, 그 다음 정렬
     queryBuilder = queryBuilder
       .order(sortKey as any, { ascending: !isDescending });
@@ -196,23 +205,37 @@ export async function GET(request: NextRequest) {
     const start = (query.page - 1) * query.limit;
     const end = start + query.limit - 1;
     queryBuilder = queryBuilder.range(start, end);
+    console.log('[GET /api/posts] 페이지네이션 적용:', { start, end });
 
     // 7. 데이터 가져오기
     const { data: posts, count, error } = await queryBuilder;
 
     if (error) {
-      console.error("[GET /api/posts] Supabase query error:", error);
+      console.error("[GET /api/posts] Supabase query error:", {
+        error,
+        message: error.message,
+        details: error.details,
+        hint: error.hint,
+        code: error.code
+      });
       return NextResponse.json(
         {
           success: false,
           error: {
             code: 'DATABASE_ERROR',
             message: '게시글 목록 조회 중 오류가 발생했습니다.',
+            details: error.message,
           },
         },
         { status: 500 }
       );
     }
+
+    console.log('[GET /api/posts] 조회 성공:', {
+      postsCount: posts?.length || 0,
+      totalCount: count,
+      hasData: !!posts
+    });
 
     const total = count || 0;
     const totalPages = Math.ceil(total / query.limit);
@@ -233,6 +256,7 @@ export async function GET(request: NextRequest) {
     );
   } catch (error) {
     if (error instanceof z.ZodError) {
+      console.error("[GET /api/posts] Validation error:", error.errors);
       return NextResponse.json(
         {
           success: false,
@@ -245,7 +269,11 @@ export async function GET(request: NextRequest) {
         { status: 400 }
       );
     }
-    console.error("[GET /api/posts] Unexpected error:", error);
+    console.error("[GET /api/posts] Unexpected error:", {
+      error,
+      message: error instanceof Error ? error.message : 'Unknown error',
+      stack: error instanceof Error ? error.stack : undefined
+    });
     return NextResponse.json(
       {
         success: false,
