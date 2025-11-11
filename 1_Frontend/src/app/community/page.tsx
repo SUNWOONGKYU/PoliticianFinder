@@ -441,6 +441,8 @@ export default function CommunityPage() {
   const [posts, setPosts] = useState<CommunityPost[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
 
   // Fetch posts from API
   useEffect(() => {
@@ -449,7 +451,7 @@ export default function CommunityPage() {
         setLoading(true);
         setError(null);
 
-        const response = await fetch('/api/posts?limit=100');
+        const response = await fetch(`/api/posts?page=${currentPage}&limit=20`);
 
         if (!response.ok) {
           throw new Error('게시글을 불러오는데 실패했습니다.');
@@ -486,6 +488,11 @@ export default function CommunityPage() {
           }));
 
           setPosts(mappedPosts);
+
+          // Set total pages from pagination
+          if (result.pagination) {
+            setTotalPages(result.pagination.totalPages);
+          }
         }
       } catch (err) {
         console.error('[커뮤니티 페이지] 게시글 조회 오류:', err);
@@ -498,7 +505,7 @@ export default function CommunityPage() {
     };
 
     fetchPosts();
-  }, []);
+  }, [currentPage]);
 
   // Filter and sort posts
   const filteredPosts = useMemo(() => {
@@ -631,6 +638,7 @@ export default function CommunityPage() {
         <div className="flex items-center justify-between mb-4">
           <div className="text-sm text-gray-600">
             총 <span className="font-bold text-gray-900">{filteredPosts.length}</span>개의 게시글
+            {totalPages > 1 && <span className="ml-2 text-gray-500">({currentPage}/{totalPages} 페이지)</span>}
           </div>
           <div className="flex items-center space-x-2">
             <select
@@ -644,6 +652,39 @@ export default function CommunityPage() {
             </select>
           </div>
         </div>
+
+        {/* Pagination */}
+        {totalPages > 1 && (
+          <div className="flex justify-center gap-2 mb-6 p-4 bg-white rounded-lg shadow">
+            <button
+              onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
+              disabled={currentPage === 1}
+              className="px-4 py-2 bg-gray-200 rounded disabled:opacity-50"
+            >
+              이전
+            </button>
+            {Array.from({ length: totalPages }, (_, i) => i + 1).map(pageNum => (
+              <button
+                key={pageNum}
+                onClick={() => setCurrentPage(pageNum)}
+                className={`px-4 py-2 rounded ${
+                  currentPage === pageNum
+                    ? 'bg-blue-600 text-white font-bold'
+                    : 'bg-gray-100 hover:bg-gray-200'
+                }`}
+              >
+                {pageNum}
+              </button>
+            ))}
+            <button
+              onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 1))}
+              disabled={currentPage === totalPages}
+              className="px-4 py-2 bg-gray-200 rounded disabled:opacity-50"
+            >
+              다음
+            </button>
+          </div>
+        )}
 
         {/* Loading State */}
         {loading ? (
