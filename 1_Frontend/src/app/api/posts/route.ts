@@ -89,6 +89,7 @@ export async function POST(request: NextRequest) {
         category: validated.category,
         politician_id: validated.politician_id || null,
         tags: validated.tags || null,
+        moderation_status: 'approved', // Auto-approve for now
       })
       .select()
       .single();
