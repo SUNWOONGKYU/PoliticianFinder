@@ -251,7 +251,7 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
           </div>
 
           <div className="prose max-w-none mb-8">
-            {post.content.split('\n\n').map((paragraph, idx) => {
+            {post.content.split('\n\n').map((paragraph: string, idx: number) => {
               if (paragraph.startsWith('## ')) {
                 return <h2 key={idx} className="text-2xl font-bold text-gray-900 mt-6 mb-3">{paragraph.replace('## ', '')}</h2>;
               }
