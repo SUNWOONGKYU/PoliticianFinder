@@ -438,8 +438,8 @@ export default function CommunityPage() {
   const [sortBy, setSortBy] = useState<'latest' | 'popular' | 'views'>('latest');
   const [showCategoryModal, setShowCategoryModal] = useState(false);
   const [followedUsers, setFollowedUsers] = useState<Set<string>>(new Set());
-  const [posts, setPosts] = useState<CommunityPost[]>(SAMPLE_POSTS);
-  const [loading, setLoading] = useState(false);
+  const [posts, setPosts] = useState<CommunityPost[]>([]);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
@@ -509,8 +509,7 @@ export default function CommunityPage() {
       } catch (err) {
         console.error('[커뮤니티 페이지] 게시글 조회 오류:', err);
         setError(err instanceof Error ? err.message : '알 수 없는 오류가 발생했습니다.');
-        // Fallback to sample posts on error
-        setPosts(SAMPLE_POSTS);
+        setPosts([]);
       } finally {
         setLoading(false);
       }
