@@ -12,13 +12,6 @@ import type { Database } from '../database.types';
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
-if (!supabaseUrl || !supabaseAnonKey) {
-  throw new Error(
-    'Supabase 환경변수가 설정되지 않았습니다. .env.local 파일을 확인하세요.\n' +
-      'NEXT_PUBLIC_SUPABASE_URL과 NEXT_PUBLIC_SUPABASE_ANON_KEY가 필요합니다.'
-  );
-}
-
 // ============================================================================
 // 브라우저용 Supabase 클라이언트
 // ============================================================================
@@ -26,7 +19,22 @@ if (!supabaseUrl || !supabaseAnonKey) {
 // SSR을 지원하며, 자동으로 쿠키를 관리합니다.
 
 export function createClient() {
-  return createBrowserClient<Database>(supabaseUrl!, supabaseAnonKey!);
+  // 빌드 타임에는 환경변수가 없을 수 있으므로 체크
+  if (!supabaseUrl || !supabaseAnonKey) {
+    if (typeof window !== 'undefined') {
+      // 브라우저에서는 에러 출력
+      console.error(
+        'Supabase 환경변수가 설정되지 않았습니다. .env.local 파일을 확인하세요.\n' +
+          'NEXT_PUBLIC_SUPABASE_URL과 NEXT_PUBLIC_SUPABASE_ANON_KEY가 필요합니다.'
+      );
+    }
+    // 빌드 타임에는 더미 클라이언트 반환 (실제로 사용되지 않음)
+    return createBrowserClient<Database>(
+      'https://placeholder.supabase.co',
+      'placeholder-anon-key'
+    );
+  }
+  return createBrowserClient<Database>(supabaseUrl, supabaseAnonKey);
 }
 
 // 싱글톤 패턴으로 클라이언트 인스턴스 생성
