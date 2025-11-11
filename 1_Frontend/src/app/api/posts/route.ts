@@ -169,7 +169,6 @@ export async function GET(request: NextRequest) {
       .select(`
         *
       `, { count: "exact" })
-      .eq("moderation_status", "approved")
 
     // 4. 필터 적용
     if (query.category) {
