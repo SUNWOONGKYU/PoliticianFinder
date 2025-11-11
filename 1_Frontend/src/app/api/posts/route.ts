@@ -167,10 +167,7 @@ export async function GET(request: NextRequest) {
     let queryBuilder = supabase
       .from("posts")
       .select(`
-        *,
-        users!user_id (
-          nickname
-        )
+        *
       `, { count: "exact" })
 
     // 4. 필터 적용
