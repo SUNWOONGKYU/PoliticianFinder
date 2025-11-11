@@ -466,7 +466,7 @@ export default function CommunityPage() {
             title: post.title,
             content: post.content,
             category: post.category === 'general' ? 'general' : 'politician_post',
-            author: post.users?.nickname || post.users?.name || `회원${post.user_id?.substring(0, 4)}`,
+            author: post.users?.nickname || '알 수 없음',
             author_id: post.user_id,
             author_type: 'user' as const,
             politician_id: post.politician_id,
