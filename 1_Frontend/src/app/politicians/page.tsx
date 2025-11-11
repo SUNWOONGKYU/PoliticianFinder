@@ -95,6 +95,10 @@ const SAMPLE_POLITICIANS: Politician[] = [
   },
 ];
 
+// Force dynamic rendering to prevent caching issues on Vercel
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export default function PoliticiansPage() {
   const [politicians, setPoliticians] = useState(SAMPLE_POLITICIANS);
   const [loading, setLoading] = useState(true);

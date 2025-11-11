@@ -159,14 +159,20 @@ async function upsertPoliticians(
           updated++;
 
           // Update politician_details if career data exists
+          // Note: politician_details table may not exist in current schema
           if (politician.career && politician.career.length > 0) {
-            await supabase
-              .from('politician_details')
-              .upsert({
-                politician_id: existing.id,
-                career_history: politician.career.join('\n'),
-                updated_at: now,
-              });
+            try {
+              await supabase
+                .from('politician_details')
+                .upsert({
+                  politician_id: existing.id,
+                  career_history: politician.career.join('\n'),
+                  updated_at: now,
+                });
+            } catch (detailsError) {
+              // Ignore errors if politician_details table doesn't exist
+              console.warn('politician_details table not found, skipping career update');
+            }
           }
         }
       } else {
@@ -193,13 +199,19 @@ async function upsertPoliticians(
           inserted++;
 
           // Insert politician_details if career data exists
+          // Note: politician_details table may not exist in current schema
           if (newPolitician && politician.career && politician.career.length > 0) {
-            await supabase.from('politician_details').insert({
-              politician_id: newPolitician.id,
-              career_history: politician.career.join('\n'),
-              created_at: now,
-              updated_at: now,
-            });
+            try {
+              await supabase.from('politician_details').insert({
+                politician_id: newPolitician.id,
+                career_history: politician.career.join('\n'),
+                created_at: now,
+                updated_at: now,
+              });
+            } catch (detailsError) {
+              // Ignore errors if politician_details table doesn't exist
+              console.warn('politician_details table not found, skipping career insert');
+            }
           }
         }
       }

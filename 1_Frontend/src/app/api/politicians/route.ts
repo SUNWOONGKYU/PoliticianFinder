@@ -6,16 +6,16 @@ import { z } from "zod";
 import { createClient } from "@/lib/supabase/server";
 
 const getPoliticiansQuerySchema = z.object({
-  page: z.string().nullable().optional().default("1").transform(Number),
-  limit: z.string().nullable().optional().default("20").transform(Number),
-  search: z.string().nullable().optional().default(""),
-  party: z.string().nullable().optional(),
-  position: z.string().nullable().optional(),
-  region: z.string().nullable().optional(),
-  district: z.string().nullable().optional(),
-  verified_only: z.enum(["true", "false"]).nullable().optional().transform(val => val === "true"),
-  sort: z.string().nullable().optional().default("name"),
-  order: z.enum(["asc", "desc"]).nullable().optional().default("asc"),
+  page: z.string().optional().default("1").transform(val => parseInt(val, 10) || 1),
+  limit: z.string().optional().default("20").transform(val => parseInt(val, 10) || 20),
+  search: z.string().optional().default(""),
+  party: z.string().optional(),
+  position: z.string().optional(),
+  region: z.string().optional(),
+  district: z.string().optional(),
+  verified_only: z.enum(["true", "false"]).optional().transform(val => val === "true"),
+  sort: z.string().optional().default("name"),
+  order: z.enum(["asc", "desc"]).optional().default("asc"),
 });
 
 type GetPoliticiansQuery = z.infer<typeof getPoliticiansQuerySchema>;
