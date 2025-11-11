@@ -198,15 +198,32 @@ export async function POST(request: NextRequest) {
     // 9. Handle Supabase Auth Errors
     if (authError) {
       console.error('[회원가입 API] Supabase Auth 오류:', authError);
+      console.error('[회원가입 API] 에러 메시지:', authError.message);
+
+      // Rate limit exceeded
+      if (authError.message.includes('rate') || authError.message.includes('limit') || authError.message.includes('email_send_rate_limit')) {
+        return NextResponse.json(
+          {
+            success: false,
+            error: {
+              code: 'RATE_LIMIT_EXCEEDED',
+              message: 'Supabase 이메일 발송 제한에 도달했습니다. 1시간 후 다시 시도해 주세요.',
+              details: authError.message,
+            },
+          },
+          { status: 429 }
+        );
+      }
 
       // Email already exists
-      if (authError.message.includes('already registered')) {
+      if (authError.message.includes('already registered') || authError.message.includes('already exists')) {
         return NextResponse.json(
           {
             success: false,
             error: {
               code: 'EMAIL_ALREADY_EXISTS',
               message: '이미 사용 중인 이메일입니다.',
+              details: authError.message,
             },
           },
           { status: 409 }
@@ -221,19 +238,20 @@ export async function POST(request: NextRequest) {
             error: {
               code: 'INVALID_EMAIL',
               message: '유효한 이메일 주소를 입력해 주세요.',
+              details: authError.message,
             },
           },
           { status: 400 }
         );
       }
 
-      // Other Supabase errors
+      // Other Supabase errors - 실제 에러 메시지 노출
       return NextResponse.json(
         {
           success: false,
           error: {
             code: 'SIGNUP_FAILED',
-            message: '회원가입에 실패했습니다. 잠시 후 다시 시도해 주세요.',
+            message: authError.message || '회원가입에 실패했습니다.',
             details: authError.message,
           },
         },
