@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import Link from 'next/link';
 
 interface CommunityPost {
@@ -438,15 +438,83 @@ export default function CommunityPage() {
   const [sortBy, setSortBy] = useState<'latest' | 'popular' | 'views'>('latest');
   const [showCategoryModal, setShowCategoryModal] = useState(false);
   const [followedUsers, setFollowedUsers] = useState<Set<string>>(new Set());
+  const [posts, setPosts] = useState<CommunityPost[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+
+  // Fetch posts from API
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        setLoading(true);
+        setError(null);
+
+        const response = await fetch(`/api/posts?page=${currentPage}&limit=20`);
+
+        if (!response.ok) {
+          throw new Error('게시글을 불러오는데 실패했습니다.');
+        }
+
+        const result = await response.json();
+
+        if (result.success && result.data) {
+          // Map API response to CommunityPost interface
+          const mappedPosts: CommunityPost[] = result.data.map((post: any) => ({
+            id: post.id,
+            title: post.title,
+            content: post.content,
+            category: post.category === 'general' ? 'general' : 'politician_post',
+            author: post.users?.name || '알 수 없음',
+            author_id: post.user_id,
+            author_type: 'user' as const,
+            politician_id: post.politician_id,
+            politician_tag: undefined,
+            politician_status: undefined,
+            politician_position: undefined,
+            member_level: undefined,
+            upvotes: post.like_count || 0,
+            downvotes: 0,
+            score: post.like_count || 0,
+            views: post.view_count || 0,
+            comment_count: post.comment_count || 0,
+            tags: post.tags || [],
+            is_pinned: post.is_pinned || false,
+            is_best: false,
+            is_hot: (post.view_count || 0) > 100,
+            created_at: post.created_at,
+            share_count: post.share_count || 0,
+          }));
+
+          setPosts(mappedPosts);
+
+          // Set total pages from pagination
+          if (result.pagination) {
+            setTotalPages(result.pagination.totalPages);
+          }
+        }
+      } catch (err) {
+        console.error('[커뮤니티 페이지] 게시글 조회 오류:', err);
+        setError(err instanceof Error ? err.message : '알 수 없는 오류가 발생했습니다.');
+        // Fallback to sample posts on error
+        setPosts(SAMPLE_POSTS);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchPosts();
+  }, [currentPage]);
 
   // Filter and sort posts
   const filteredPosts = useMemo(() => {
-    let posts = SAMPLE_POSTS;
+    let postsToFilter = posts;
 
     // Filter by search term
     if (searchTerm) {
       const searchLower = searchTerm.toLowerCase();
-      posts = posts.filter(post =>
+      postsToFilter = postsToFilter.filter(post =>
         post.title.toLowerCase().includes(searchLower) ||
         post.content.toLowerCase().includes(searchLower) ||
         post.author.toLowerCase().includes(searchLower)
@@ -455,11 +523,11 @@ export default function CommunityPage() {
 
     // Filter by category
     if (currentCategory !== 'all') {
-      posts = posts.filter(post => post.category === currentCategory);
+      postsToFilter = postsToFilter.filter(post => post.category === currentCategory);
     }
 
     // Sort posts
-    const sorted = [...posts];
+    const sorted = [...postsToFilter];
     if (sortBy === 'latest') {
       sorted.sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
     } else if (sortBy === 'popular') {
@@ -469,7 +537,7 @@ export default function CommunityPage() {
     }
 
     return sorted;
-  }, [searchTerm, currentCategory, sortBy]);
+  }, [posts, searchTerm, currentCategory, sortBy]);
 
   const handleFollow = (userId: string) => {
     const newFollowed = new Set(followedUsers);
@@ -570,6 +638,7 @@ export default function CommunityPage() {
         <div className="flex items-center justify-between mb-4">
           <div className="text-sm text-gray-600">
             총 <span className="font-bold text-gray-900">{filteredPosts.length}</span>개의 게시글
+            {totalPages > 1 && <span className="ml-2 text-gray-500">({currentPage}/{totalPages} 페이지)</span>}
           </div>
           <div className="flex items-center space-x-2">
             <select
@@ -584,12 +653,90 @@ export default function CommunityPage() {
           </div>
         </div>
 
-        {/* Post List */}
-        {filteredPosts.length === 0 ? (
+        {/* Pagination - 무조건 표시 */}
+        <div style={{
+          display: 'flex',
+          justifyContent: 'center',
+          gap: '10px',
+          marginBottom: '30px',
+          padding: '30px',
+          backgroundColor: '#FEF3C7',
+          border: '5px solid #F59E0B',
+          borderRadius: '10px',
+          boxShadow: '0 10px 30px rgba(0,0,0,0.2)'
+        }}>
+          <button
+            onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
+            disabled={currentPage === 1}
+            style={{
+              padding: '15px 30px',
+              fontSize: '18px',
+              fontWeight: 'bold',
+              backgroundColor: '#9CA3AF',
+              border: 'none',
+              borderRadius: '8px',
+              cursor: 'pointer',
+              opacity: currentPage === 1 ? 0.5 : 1
+            }}
+          >
+            이전
+          </button>
+          {[1, 2, 3, 4, 5, 6].map(pageNum => (
+            <button
+              key={pageNum}
+              onClick={() => setCurrentPage(pageNum)}
+              style={{
+                padding: '15px 25px',
+                fontSize: '20px',
+                fontWeight: 'bold',
+                backgroundColor: currentPage === pageNum ? '#DC2626' : '#E5E7EB',
+                color: currentPage === pageNum ? '#FFFFFF' : '#000000',
+                border: 'none',
+                borderRadius: '8px',
+                cursor: 'pointer',
+                boxShadow: currentPage === pageNum ? '0 5px 15px rgba(220,38,38,0.5)' : 'none'
+              }}
+            >
+              {pageNum}
+            </button>
+          ))}
+          <button
+            onClick={() => setCurrentPage(Math.min(6, currentPage + 1))}
+            disabled={currentPage >= 6}
+            style={{
+              padding: '15px 30px',
+              fontSize: '18px',
+              fontWeight: 'bold',
+              backgroundColor: '#9CA3AF',
+              border: 'none',
+              borderRadius: '8px',
+              cursor: 'pointer',
+              opacity: currentPage >= 6 ? 0.5 : 1
+            }}
+          >
+            다음
+          </button>
+        </div>
+
+        {/* Loading State */}
+        {loading ? (
+          <div className="text-center py-16">
+            <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-primary-500"></div>
+            <p className="text-gray-500 text-lg mt-4">게시글을 불러오는 중...</p>
+          </div>
+        ) : error ? (
+          /* Error State */
+          <div className="text-center py-16">
+            <p className="text-red-500 text-lg mb-2">⚠️ {error}</p>
+            <p className="text-gray-500 text-sm">잠시 후 다시 시도해 주세요.</p>
+          </div>
+        ) : filteredPosts.length === 0 ? (
+          /* Empty State */
           <div className="text-center py-16">
             <p className="text-gray-500 text-lg">게시글이 없습니다</p>
           </div>
         ) : (
+          /* Post List */
           <div className="space-y-4">
             {filteredPosts.map((post) => (
               <Link key={post.id} href={`/community/posts/${post.id}`}>
