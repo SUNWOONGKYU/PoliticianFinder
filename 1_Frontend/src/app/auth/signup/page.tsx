@@ -55,16 +55,31 @@ export default function SignupPage() {
 
     setLoading(true);
     try {
-      // API 호출 (P1BA1)
+      // API 호출 - 필드 이름을 API 스키마에 맞게 변환
       const response = await fetch('/api/auth/signup', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
+        body: JSON.stringify({
+          email: formData.email,
+          password: formData.password,
+          password_confirm: formData.password_confirm,
+          nickname: formData.nickname,
+          terms_agreed: formData.terms_service,
+          privacy_agreed: formData.terms_privacy,
+          marketing_agreed: formData.terms_marketing,
+        })
       });
 
       if (!response.ok) {
         const data = await response.json();
-        setError(data.message || '회원가입에 실패했습니다.');
+        console.error('Signup error:', data);
+
+        // 더 상세한 에러 메시지 표시
+        if (data.error) {
+          setError(data.error.message || '회원가입에 실패했습니다.');
+        } else {
+          setError(data.message || '회원가입에 실패했습니다.');
+        }
         return;
       }
 

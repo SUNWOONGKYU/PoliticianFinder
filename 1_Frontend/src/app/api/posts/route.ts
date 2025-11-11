@@ -166,7 +166,14 @@ export async function GET(request: NextRequest) {
     // 3. 쿼리 빌더 시작 (RLS로 승인된 게시글만 조회)
     let queryBuilder = supabase
       .from("posts")
-      .select("*", { count: "exact" })
+      .select(`
+        *,
+        users!posts_user_id_fkey (
+          id,
+          name,
+          avatar_url
+        )
+      `, { count: "exact" })
 
     // 4. 필터 적용
     if (query.category) {
