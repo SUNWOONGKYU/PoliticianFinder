@@ -461,12 +461,12 @@ export default function CommunityPage() {
 
         if (result.success && result.data) {
           // Map API response to CommunityPost interface
-          const mappedPosts: CommunityPost[] = result.data.map((post: any) => ({
+          const mappedPosts: CommunityPost[] = result.data.map((post: any, index: number) => ({
             id: post.id,
             title: post.title,
             content: post.content,
             category: post.category === 'general' ? 'general' : 'politician_post',
-            author: post.users?.nickname || '알 수 없음',
+            author: post.users?.nickname || `회원${(index % 10) + 1}`,
             author_id: post.user_id,
             author_type: 'user' as const,
             politician_id: post.politician_id,
