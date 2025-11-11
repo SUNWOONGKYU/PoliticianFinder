@@ -438,8 +438,8 @@ export default function CommunityPage() {
   const [sortBy, setSortBy] = useState<'latest' | 'popular' | 'views'>('latest');
   const [showCategoryModal, setShowCategoryModal] = useState(false);
   const [followedUsers, setFollowedUsers] = useState<Set<string>>(new Set());
-  const [posts, setPosts] = useState<CommunityPost[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [posts, setPosts] = useState<CommunityPost[]>(SAMPLE_POSTS);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
