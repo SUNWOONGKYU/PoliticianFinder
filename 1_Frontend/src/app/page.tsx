@@ -31,6 +31,17 @@ export default function Home() {
   const [politicians, setPoliticians] = useState<Politician[]>([]);
   const [loading, setLoading] = useState(true);
 
+  // Google 로그인 성공 시 URL 파라미터 제거 및 새로고침
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('google_login') === 'success') {
+      // URL에서 파라미터 제거
+      window.history.replaceState({}, '', '/');
+      // 헤더가 세션을 다시 확인하도록 새로고침
+      window.location.reload();
+    }
+  }, []);
+
   // API에서 TOP 10 정치인 데이터 가져오기
   useEffect(() => {
     const fetchTopPoliticians = async () => {
