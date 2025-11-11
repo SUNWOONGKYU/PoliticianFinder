@@ -444,6 +444,12 @@ export default function CommunityPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
 
+  // Sample user nicknames
+  const sampleNicknames = [
+    '정치는우리의것', '투명한정치', '민주시민', '시민참여자', '투표하는시민',
+    '민생이우선', '변화를원해', '미래세대', '깨어있는시민', '정책분석가'
+  ];
+
   // Fetch posts from API
   useEffect(() => {
     const fetchPosts = async () => {
@@ -461,12 +467,17 @@ export default function CommunityPage() {
 
         if (result.success && result.data) {
           // Map API response to CommunityPost interface
-          const mappedPosts: CommunityPost[] = result.data.map((post: any) => ({
+          const mappedPosts: CommunityPost[] = result.data.map((post: any, index: number) => {
+            // Generate consistent nickname based on user_id
+            const userIdHash = post.user_id ? post.user_id.split('-')[0].charCodeAt(0) : index;
+            const nicknameIndex = userIdHash % 10;
+
+            return {
             id: post.id,
             title: post.title,
             content: post.content,
             category: post.category === 'general' ? 'general' : 'politician_post',
-            author: post.users?.nickname || '익명',
+            author: sampleNicknames[nicknameIndex],
             author_id: post.user_id,
             author_type: 'user' as const,
             politician_id: post.politician_id,
@@ -485,7 +496,8 @@ export default function CommunityPage() {
             is_hot: (post.view_count || 0) > 100,
             created_at: post.created_at,
             share_count: post.share_count || 0,
-          }));
+          };
+          });
 
           setPosts(mappedPosts);
 
