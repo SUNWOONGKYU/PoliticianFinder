@@ -466,7 +466,7 @@ export default function CommunityPage() {
             title: post.title,
             content: post.content,
             category: post.category === 'general' ? 'general' : 'politician_post',
-            author: post.users?.name || '알 수 없음',
+            author: post.users?.nickname || '익명',
             author_id: post.user_id,
             author_type: 'user' as const,
             politician_id: post.politician_id,
@@ -653,71 +653,6 @@ export default function CommunityPage() {
           </div>
         </div>
 
-        {/* Pagination - 무조건 표시 */}
-        <div style={{
-          display: 'flex',
-          justifyContent: 'center',
-          gap: '10px',
-          marginBottom: '30px',
-          padding: '30px',
-          backgroundColor: '#FEF3C7',
-          border: '5px solid #F59E0B',
-          borderRadius: '10px',
-          boxShadow: '0 10px 30px rgba(0,0,0,0.2)'
-        }}>
-          <button
-            onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
-            disabled={currentPage === 1}
-            style={{
-              padding: '15px 30px',
-              fontSize: '18px',
-              fontWeight: 'bold',
-              backgroundColor: '#9CA3AF',
-              border: 'none',
-              borderRadius: '8px',
-              cursor: 'pointer',
-              opacity: currentPage === 1 ? 0.5 : 1
-            }}
-          >
-            이전
-          </button>
-          {[1, 2, 3, 4, 5, 6].map(pageNum => (
-            <button
-              key={pageNum}
-              onClick={() => setCurrentPage(pageNum)}
-              style={{
-                padding: '15px 25px',
-                fontSize: '20px',
-                fontWeight: 'bold',
-                backgroundColor: currentPage === pageNum ? '#DC2626' : '#E5E7EB',
-                color: currentPage === pageNum ? '#FFFFFF' : '#000000',
-                border: 'none',
-                borderRadius: '8px',
-                cursor: 'pointer',
-                boxShadow: currentPage === pageNum ? '0 5px 15px rgba(220,38,38,0.5)' : 'none'
-              }}
-            >
-              {pageNum}
-            </button>
-          ))}
-          <button
-            onClick={() => setCurrentPage(Math.min(6, currentPage + 1))}
-            disabled={currentPage >= 6}
-            style={{
-              padding: '15px 30px',
-              fontSize: '18px',
-              fontWeight: 'bold',
-              backgroundColor: '#9CA3AF',
-              border: 'none',
-              borderRadius: '8px',
-              cursor: 'pointer',
-              opacity: currentPage >= 6 ? 0.5 : 1
-            }}
-          >
-            다음
-          </button>
-        </div>
-
         {/* Loading State */}
         {loading ? (
           <div className="text-center py-16">
@@ -813,6 +748,47 @@ export default function CommunityPage() {
                 </div>
               </Link>
             ))}
+          </div>
+        )}
+
+        {/* Pagination - 하단 */}
+        {!loading && !error && filteredPosts.length > 0 && (
+          <div className="flex justify-center gap-2 mt-8">
+            <button
+              onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
+              disabled={currentPage === 1}
+              className={`px-4 py-2 rounded-lg font-medium transition ${
+                currentPage === 1
+                  ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                  : 'bg-gray-500 text-white hover:bg-gray-600'
+              }`}
+            >
+              이전
+            </button>
+            {Array.from({ length: Math.min(totalPages, 10) }, (_, i) => i + 1).map(pageNum => (
+              <button
+                key={pageNum}
+                onClick={() => setCurrentPage(pageNum)}
+                className={`px-4 py-2 rounded-lg font-medium transition ${
+                  currentPage === pageNum
+                    ? 'bg-primary-500 text-white'
+                    : 'bg-white text-gray-700 border-2 border-gray-300 hover:bg-gray-50'
+                }`}
+              >
+                {pageNum}
+              </button>
+            ))}
+            <button
+              onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 1))}
+              disabled={currentPage >= totalPages}
+              className={`px-4 py-2 rounded-lg font-medium transition ${
+                currentPage >= totalPages
+                  ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                  : 'bg-gray-500 text-white hover:bg-gray-600'
+              }`}
+            >
+              다음
+            </button>
           </div>
         )}
       </div>
