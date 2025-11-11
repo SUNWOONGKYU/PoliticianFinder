@@ -72,7 +72,14 @@ export default function SignupPage() {
 
       if (!response.ok) {
         const data = await response.json();
-        setError(data.message || '회원가입에 실패했습니다.');
+        console.error('Signup error:', data);
+
+        // 더 상세한 에러 메시지 표시
+        if (data.error) {
+          setError(data.error.message || '회원가입에 실패했습니다.');
+        } else {
+          setError(data.message || '회원가입에 실패했습니다.');
+        }
         return;
       }
 
