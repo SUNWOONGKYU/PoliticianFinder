@@ -489,7 +489,7 @@ export default function Home() {
                             <span className="font-bold text-gray-900 text-sm">{p.rank}</span>
                           </td>
                           <td className="px-3 py-3">
-                            <Link href={`/politician-detail?id=${p.name}`}>
+                            <Link href={`/politicians/${p.id}`}>
                               <span className="font-bold text-primary-600 hover:text-primary-700 text-sm inline-flex items-center gap-1">
                                 {p.name} <span className="text-xs">›</span>
                               </span>
@@ -544,7 +544,7 @@ export default function Home() {
                         <div className="flex items-center gap-2 mb-2">
                           <span className="text-2xl font-bold text-primary-500">1위</span>
                           <Link
-                            href={`/politician-detail?id=${politicians[0].name}`}
+                            href={`/politicians/${politicians[0].id}`}
                             className="text-xl font-bold text-gray-900 hover:text-primary-600 hover:underline"
                           >
                             {politicians[0].name}
@@ -645,7 +645,7 @@ export default function Home() {
                           <div className="flex items-center gap-2 mb-2">
                             <span className="text-xl font-bold text-gray-700">{p.rank}위</span>
                             <Link
-                              href={`/politician-detail?id=${p.name}`}
+                              href={`/politicians/${p.id}`}
                               className="text-lg font-bold text-gray-900 hover:text-primary-600 hover:underline"
                             >
                               {p.name}
@@ -737,7 +737,7 @@ export default function Home() {
                           <span className="text-lg font-bold text-gray-700">{p.rank}위</span>
                           <div>
                             <Link
-                              href={`/politician-detail?id=${p.name}`}
+                              href={`/politicians/${p.id}`}
                               className="font-bold text-gray-900 hover:text-primary-600 hover:underline"
                             >
                               {p.name}
@@ -791,7 +791,7 @@ export default function Home() {
                       </p>
                       <div className="flex items-center gap-3 text-xs text-gray-500">
                         <Link
-                          href="/politician-detail?id=김민준"
+                          href="/politicians/1"
                           className="font-medium text-primary-600 hover:text-primary-700 hover:underline"
                         >
                           김민준 | 현직 국회의원
@@ -816,7 +816,7 @@ export default function Home() {
                       </p>
                       <div className="flex items-center gap-3 text-xs text-gray-500">
                         <Link
-                          href="/politician-detail?id=이서연"
+                          href="/politicians/2"
                           className="font-medium text-primary-600 hover:text-primary-700 hover:underline"
                         >
                           이서연 | 현직 광역단체장
@@ -840,7 +840,7 @@ export default function Home() {
                       </p>
                       <div className="flex items-center gap-3 text-xs text-gray-500">
                         <Link
-                          href="/politician-detail?id=박준서"
+                          href="/politicians/3"
                           className="font-medium text-primary-600 hover:text-primary-700 hover:underline"
                         >
                           박준서 | 현직 국회의원
@@ -934,7 +934,7 @@ export default function Home() {
                       </p>
                       <div className="flex items-center gap-3 text-xs text-gray-500">
                         <Link
-                          href="/politician-detail?id=김민준"
+                          href="/politicians/1"
                           className="font-medium text-primary-600 hover:text-primary-700 hover:underline"
                         >
                           김민준 | 현직 국회의원
