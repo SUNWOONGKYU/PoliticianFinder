@@ -1,11 +1,12 @@
-# 코드 수정 사항 정리 (2025-11-11)
+# 코드 수정 사항 정리 (2025-11-11 ~ 2025-11-12)
 
 ## 📋 목차
-1. [데이터베이스 RLS 정책 수정](#1-데이터베이스-rls-정책-수정)
-2. [정치인 상세 페이지 링크 수정](#2-정치인-상세-페이지-링크-수정)
-3. [홈 페이지 게시글 데이터베이스 연결](#3-홈-페이지-게시글-데이터베이스-연결)
-4. [게시글 상세 페이지 API 연결](#4-게시글-상세-페이지-api-연결)
-5. [TypeScript 빌드 에러 수정](#5-typescript-빌드-에러-수정)
+1. [데이터베이스 RLS 정책 수정](#1-데이터베이스-rls-정책-수정) - 2025-11-11
+2. [정치인 상세 페이지 링크 수정](#2-정치인-상세-페이지-링크-수정) - 2025-11-11
+3. [홈 페이지 게시글 데이터베이스 연결](#3-홈-페이지-게시글-데이터베이스-연결) - 2025-11-11
+4. [게시글 상세 페이지 API 연결](#4-게시글-상세-페이지-api-연결) - 2025-11-11
+5. [TypeScript 빌드 에러 수정](#5-typescript-빌드-에러-수정) - 2025-11-11
+6. [커뮤니티 게시판 클릭 연동 문제 수정](#6-커뮤니티-게시판-클릭-연동-문제-수정) - 2025-11-12
 
 ---
 
@@ -596,6 +597,148 @@ const author = sampleNicknames[nicknameIndex];
 
 ---
 
-**작성일:** 2025-11-11
+## 6. 커뮤니티 게시판 클릭 연동 문제 수정
+
+### 문제점
+- 커뮤니티 게시판 페이지에서 게시글을 클릭해도 상세페이지로 이동하지 않음
+- Link 컴포넌트가 중첩되어 있어 클릭 이벤트가 제대로 작동하지 않음
+- 내부 Link 요소들의 `stopPropagation()`이 외부 Link의 클릭을 방해
+
+### 원인 분석
+```tsx
+// 문제가 있는 코드 구조
+<Link href={`/community/posts/${post.id}`}>  {/* 외부 Link */}
+  <div className="...">
+    <Link href={`/users/${post.author_id}/profile`} onClick={(e) => e.stopPropagation()}>
+      {/* 내부 Link가 외부 Link 클릭을 방해 */}
+    </Link>
+  </div>
+</Link>
+```
+
+### 수정 파일
+**파일:** `/1_Frontend/src/app/community/page.tsx`
+
+### 변경 내용
+
+#### 1. useRouter 임포트 추가
+
+**Before:**
+```tsx
+'use client';
+
+import { useState, useMemo, useEffect } from 'react';
+import Link from 'next/link';
+```
+
+**After:**
+```tsx
+'use client';
+
+import { useState, useMemo, useEffect } from 'react';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+```
+
+#### 2. Router 인스턴스 생성
+
+**Before:**
+```tsx
+export default function CommunityPage() {
+  const [searchTerm, setSearchTerm] = useState('');
+```
+
+**After:**
+```tsx
+export default function CommunityPage() {
+  const router = useRouter();
+  const [searchTerm, setSearchTerm] = useState('');
+```
+
+#### 3. Link를 div + onClick으로 변경
+
+**Before (line 688):**
+```tsx
+<Link key={post.id} href={`/community/posts/${post.id}`}>
+  <div className="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition cursor-pointer">
+    {/* 게시글 내용 */}
+  </div>
+</Link>
+```
+
+**After (line 688):**
+```tsx
+<div
+  key={post.id}
+  className="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition cursor-pointer"
+  onClick={() => router.push(`/community/posts/${post.id}`)}
+>
+  {/* 게시글 내용 */}
+</div>
+```
+
+### 수정 위치
+- **Line 4-5**: useRouter import 추가
+- **Line 437**: router 인스턴스 생성
+- **Line 688-760**: Link를 div + onClick으로 변경
+
+### 작동 원리
+1. **외부 Link 제거**: 중첩된 Link 문제 해결
+2. **onClick 이벤트 사용**: `router.push()`로 직접 라우팅
+3. **내부 Link는 유지**: 작성자 프로필, 정치인 링크는 그대로 작동
+4. **stopPropagation 유지**: 내부 Link 클릭 시 외부 클릭 이벤트 발생하지 않음
+
+### 커밋
+```
+Fix: 커뮤니티 게시판 글 클릭 시 상세페이지 연결 문제 수정
+- Link 중첩 문제로 인한 클릭 불가 이슈 해결
+- useRouter를 사용하여 클릭 이벤트 처리
+- 내부 Link의 stopPropagation과 충돌 방지
+```
+
+### 테스트 결과
+✅ 커뮤니티 게시판에서 게시글 클릭 시 상세페이지로 정상 이동
+✅ 작성자 닉네임 클릭 시 프로필 페이지로 이동
+✅ 정치인 이름 클릭 시 정치인 상세 페이지로 이동
+✅ 팔로우 버튼 클릭 시 팔로우 기능만 작동
+
+---
+
+## 📊 전체 수정 요약 (업데이트)
+
+### 수정된 파일
+1. `/1_Frontend/src/app/page.tsx` - 홈 페이지
+   - 정치인 링크 수정 (8개 위치)
+   - 게시글 API 연동 (정치인 게시글 3개, 인기 게시글 3개)
+   - Post 인터페이스 추가
+   - 날짜 포맷 함수 추가
+
+2. `/1_Frontend/src/app/community/page.tsx` - 커뮤니티 페이지 ⭐ NEW
+   - Link 중첩 문제 수정
+   - useRouter 기반 클릭 이벤트 처리
+   - 게시글 상세페이지 연동 문제 해결
+
+3. `/1_Frontend/src/app/community/posts/[id]/page.tsx` - 게시글 상세 페이지
+   - API 연동으로 실제 데이터 표시
+   - 로딩 & 에러 처리 추가
+   - TypeScript 타입 에러 수정
+
+4. Supabase 데이터베이스
+   - posts 테이블 RLS 정책 수정
+
+### Git 커밋 히스토리 (업데이트)
+```bash
+e23e777 - Fix: 커뮤니티 게시판 글 클릭 시 상세페이지 연결 문제 수정 (2025-11-12)
+0c9b280 - Docs: Add comprehensive code changes summary document
+165798a - Fix: Add TypeScript types to fix build error (2025-11-11)
+87fb221 - Fix: Connect post detail page to database API (2025-11-11)
+2cd74a7 - Feature: Connect homepage posts to database (2025-11-11)
+b9985e5 - Fix: Change politician links from /politician-detail?id=name to /politicians/id (2025-11-11)
+abd0861 - Trigger rebuild to include environment variables in production build
+```
+
+---
+
+**최종 업데이트:** 2025-11-12
 **브랜치:** `claude/compare-colord-versions-011CV13bN5d7hEQP4px9xLYC`
 **작성자:** Claude AI Assistant
