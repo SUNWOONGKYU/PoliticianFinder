@@ -10,7 +10,7 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
-import { createClient } from '@/lib/supabase/server';
+import { createClient, createAdminClient } from '@/lib/supabase/server';
 import {
   validatePasswordStrength,
   validatePasswordMatch,
@@ -274,22 +274,35 @@ export async function POST(request: NextRequest) {
     }
 
     // 11. Create user profile in users table
-    const { error: profileError } = await supabase.from('users').insert({
-      id: authData.user.id,
-      email: data.email,
-      name: data.nickname,
-      role: 'user',
-      points: 0,
-      level: 1,
-      is_banned: false,
-      created_at: new Date().toISOString(),
-      updated_at: new Date().toISOString(),
-    });
+    // Fix: users 테이블의 실제 컬럼명에 맞춰 수정 (id → user_id)
+    const adminClient = createAdminClient();
+    const { data: profileData, error: profileError } = await adminClient
+      .from('users')
+      .insert({
+        user_id: authData.user.id, // users 테이블의 PK는 'user_id'
+        email: data.email,
+        nickname: data.nickname,
+        name: data.nickname, // nickname과 name 모두 설정
+        role: 'user',
+        points: 0,
+        level: 1,
+        is_banned: false,
+        is_active: true,
+        terms_agreed: true, // 회원가입 시 필수 약관 동의 완료
+        privacy_agreed: true,
+        marketing_agreed: data.marketing_agreed,
+        created_at: new Date().toISOString(),
+        updated_at: new Date().toISOString(),
+      } as any) // TypeScript 타입 체크 우회 (database.types.ts에 users 테이블 타입 미정의)
+      .select()
+      .single();
 
     // Handle profile creation error (non-critical - auth user already created)
     if (profileError) {
       console.error('[회원가입 API] users 테이블 삽입 오류:', profileError);
       // Continue - auth user is created, profile can be created later
+    } else {
+      console.log('[회원가입 API] users 테이블 삽입 성공:', profileData);
     }
 
     console.log('[회원가입 API] 사용자 생성 완료:', {

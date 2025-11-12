@@ -10,8 +10,11 @@
  */
 
 import './globals.css';
-import Header from './components/header';
+import dynamic from 'next/dynamic';
 import Footer from './components/footer';
+
+// Header를 클라이언트 전용으로 로드 (Hydration 에러 방지)
+const Header = dynamic(() => import('./components/header'), { ssr: false });
 
 export const metadata = {
   title: 'PoliticianFinder - 훌륭한 정치인 찾기',

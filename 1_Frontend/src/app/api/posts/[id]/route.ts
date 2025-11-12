@@ -3,10 +3,7 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
-import { createClient } from '@supabase/supabase-js';
-
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
+import { createClient } from '@/lib/supabase/server';
 
 // Mock User UUID
 const MOCK_USER_ID = "7f61567b-bbdf-427a-90a9-0ee060ef4595";
@@ -29,7 +26,7 @@ export async function GET(
     const { id } = params;
 
     // Supabase 클라이언트 생성
-    const supabase = createClient(supabaseUrl, supabaseServiceKey);
+    const supabase = createClient();
 
     // 게시글 조회
     const { data: post, error } = await supabase
@@ -99,7 +96,7 @@ export async function PATCH(
     const validated = updatePostSchema.parse(body);
 
     // Supabase 클라이언트 생성
-    const supabase = createClient(supabaseUrl, supabaseServiceKey);
+    const supabase = createClient();
 
     // 게시글 존재 여부 및 권한 확인
     const { data: existingPost, error: fetchError } = await supabase
@@ -186,7 +183,7 @@ export async function DELETE(
     const { id } = params;
 
     // Supabase 클라이언트 생성
-    const supabase = createClient(supabaseUrl, supabaseServiceKey);
+    const supabase = createClient();
 
     // 게시글 존재 여부 및 권한 확인
     const { data: existingPost, error: fetchError } = await supabase

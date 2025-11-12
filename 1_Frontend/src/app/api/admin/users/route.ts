@@ -131,11 +131,11 @@ export async function PATCH(request: NextRequest) {
 
     // 감사 로그 기록
     await supabase.from('audit_logs').insert({
-      action: 'user_updated',
+      action_type: 'user_updated',
       target_type: 'user',
       target_id: validated.user_id,
-      actor_id: MOCK_ADMIN_ID,
-      details: JSON.stringify(validated),
+      admin_id: MOCK_ADMIN_ID,
+      metadata: validated,
     });
 
     // 비밀번호 필드 제거
@@ -203,11 +203,11 @@ export async function DELETE(request: NextRequest) {
 
     // 감사 로그 기록
     await supabase.from('audit_logs').insert({
-      action: 'user_deleted',
+      action_type: 'user_deleted',
       target_type: 'user',
       target_id: user_id,
-      actor_id: MOCK_ADMIN_ID,
-      details: JSON.stringify({ username: existingUser.username }),
+      admin_id: MOCK_ADMIN_ID,
+      metadata: { username: existingUser.username },
     });
 
     return NextResponse.json({
