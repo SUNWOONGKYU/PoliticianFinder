@@ -70,9 +70,10 @@ export async function GET(request: NextRequest) {
 
     console.log('[이메일 인증] 성공:', { userId: data?.user?.id, email: data?.user?.email });
 
-    // Success: redirect to specified path with success message
+    // Success: redirect to login WITHOUT code parameter
+    // The login page will clean up any remaining URL parameters
     return NextResponse.redirect(
-      `${requestUrl.origin}${next}?message=${encodeURIComponent('이메일 인증이 완료되었습니다! 로그인해주세요.')}`
+      `${requestUrl.origin}/auth/login?verified=true&message=${encodeURIComponent('이메일 인증이 완료되었습니다! 로그인해주세요.')}`
     );
   }
 
