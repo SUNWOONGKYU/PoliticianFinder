@@ -221,14 +221,14 @@ export default function PoliticianPostDetailPage({ params }: { params: { id: str
   };
 
   const shareToTwitter = () => {
-    if (typeof window !== 'undefined') {
+    if (typeof window !== 'undefined' && post) {
       const url = window.location.href;
       window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(post.title)}`, '_blank', 'width=600,height=400');
     }
   };
 
   const shareToNaverBlog = () => {
-    if (typeof window !== 'undefined') {
+    if (typeof window !== 'undefined' && post) {
       const url = window.location.href;
       window.open(`https://blog.naver.com/openapi/share?url=${encodeURIComponent(url)}&title=${encodeURIComponent(post.title)}`, '_blank', 'width=600,height=500');
     }
@@ -547,7 +547,7 @@ export default function PoliticianPostDetailPage({ params }: { params: { id: str
       )}
 
       {/* Share Modal */}
-      {shareModalOpen && (
+      {shareModalOpen && post && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4" onClick={() => setShareModalOpen(false)}>
           <div className="bg-white rounded-lg shadow-xl max-w-md w-full p-6" onClick={(e) => e.stopPropagation()}>
             <div className="flex items-center justify-between mb-6">
