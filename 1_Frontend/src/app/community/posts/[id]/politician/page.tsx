@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
 interface Comment {
@@ -18,6 +18,19 @@ interface Comment {
   downvotes: number;
 }
 
+interface Post {
+  id: string;
+  title: string;
+  category: string;
+  author: string;
+  politicianName?: string;
+  timestamp: string;
+  views: number;
+  commentCount: number;
+  shareCount: number;
+  content: string;
+}
+
 export default function PoliticianPostDetailPage({ params }: { params: { id: string } }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [shareModalOpen, setShareModalOpen] = useState(false);
@@ -29,41 +42,77 @@ export default function PoliticianPostDetailPage({ params }: { params: { id: str
   const [commentFilter, setCommentFilter] = useState<'all' | 'politician' | 'member'>('all');
   const [upvoted, setUpvoted] = useState(false);
   const [downvoted, setDownvoted] = useState(false);
-  const [upvotes, setUpvotes] = useState(89);
-  const [downvotes, setDownvotes] = useState(12);
+  const [upvotes, setUpvotes] = useState(0);
+  const [downvotes, setDownvotes] = useState(0);
+  const [post, setPost] = useState<Post | null>(null);
+  const [loading, setLoading] = useState(true);
 
-  const post = {
-    id: params.id,
-    title: '2025년 지역 발전 계획 공유드립니다',
-    category: '정치인 글',
-    author: '김민준 의원',
-    timestamp: '2025.10.25 09:00',
-    views: 512,
-    commentCount: 45,
-    shareCount: 23,
-    content: `안녕하세요, 김민준 의원입니다.
+  // Fetch post data from API
+  useEffect(() => {
+    const fetchPost = async () => {
+      try {
+        setLoading(true);
+        const response = await fetch(`/api/posts/${params.id}`);
 
-우리 지역의 발전을 위한 2025년 계획을 공유드립니다. 주민 여러분의 의견을 적극 수렴하여 만든 계획이니 많은 관심과 의견 부탁드립니다.
+        if (!response.ok) {
+          throw new Error('게시글을 불러오는데 실패했습니다.');
+        }
 
-## 1. 교통 인프라 개선
+        const result = await response.json();
 
-• 지하철 연장선 착공 예정
-• 버스 노선 재편 및 증편
-• 주차 공간 확충 사업
+        if (result.success && result.data) {
+          const postData = result.data;
 
-## 2. 청년 일자리 창출
+          // Fetch politician name if politician_id exists
+          let politicianName = '';
+          if (postData.politician_id) {
+            try {
+              const politicianResponse = await fetch(`/api/politicians/${postData.politician_id}`);
+              if (politicianResponse.ok) {
+                const politicianResult = await politicianResponse.json();
+                if (politicianResult.success && politicianResult.data) {
+                  politicianName = `${politicianResult.data.name} 의원`;
+                }
+              }
+            } catch (err) {
+              console.error('[정치인 정보 조회] 오류:', err);
+            }
+          }
 
-• 청년 창업 지원센터 설립
-• 지역 기업 취업 장려금 지원
-• IT 산업 유치 활동
+          setPost({
+            id: postData.id,
+            title: postData.title,
+            category: '정치인 글',
+            author: politicianName || '정치인',
+            politicianName,
+            timestamp: formatDate(postData.created_at),
+            views: postData.view_count || 0,
+            commentCount: postData.comment_count || 0,
+            shareCount: postData.share_count || 0,
+            content: postData.content
+          });
 
-## 3. 교육 환경 개선
+          setUpvotes(postData.like_count || 0);
+        }
+      } catch (err) {
+        console.error('[게시글 상세] 오류:', err);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-• 노후 학교 시설 개선
-• 방과후 프로그램 확대
-• 무상급식 품질 향상
+    fetchPost();
+  }, [params.id]);
 
-주민 여러분의 소중한 의견을 듣고 싶습니다. 댓글로 자유롭게 의견을 남겨주세요.`
+  // Date format helper
+  const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    const hours = String(date.getHours()).padStart(2, '0');
+    const minutes = String(date.getMinutes()).padStart(2, '0');
+    return `${year}.${month}.${day} ${hours}:${minutes}`;
   };
 
   const [comments] = useState<Comment[]>([
@@ -172,14 +221,14 @@ export default function PoliticianPostDetailPage({ params }: { params: { id: str
   };
 
   const shareToTwitter = () => {
-    if (typeof window !== 'undefined') {
+    if (typeof window !== 'undefined' && post) {
       const url = window.location.href;
       window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(post.title)}`, '_blank', 'width=600,height=400');
     }
   };
 
   const shareToNaverBlog = () => {
-    if (typeof window !== 'undefined') {
+    if (typeof window !== 'undefined' && post) {
       const url = window.location.href;
       window.open(`https://blog.naver.com/openapi/share?url=${encodeURIComponent(url)}&title=${encodeURIComponent(post.title)}`, '_blank', 'width=600,height=500');
     }
@@ -207,6 +256,18 @@ export default function PoliticianPostDetailPage({ params }: { params: { id: str
           </Link>
         </div>
 
+        {loading ? (
+          <div className="text-center py-16">
+            <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-primary-500"></div>
+            <p className="text-gray-500 text-lg mt-4">게시글을 불러오는 중...</p>
+          </div>
+        ) : !post ? (
+          <div className="text-center py-16">
+            <p className="text-red-500 text-lg mb-2">⚠️ 게시글을 찾을 수 없습니다</p>
+            <p className="text-gray-500 text-sm">존재하지 않거나 삭제된 게시글입니다.</p>
+          </div>
+        ) : (
+          <>
         {/* Post Detail */}
         <article className="bg-white rounded-lg shadow-md p-6 mb-6">
           <div className="flex items-center gap-2 mb-4">
@@ -398,6 +459,8 @@ export default function PoliticianPostDetailPage({ params }: { params: { id: str
             </Link>
           </div>
         </section>
+          </>
+        )}
       </main>
 
       {/* Politician Verification Modal */}
@@ -484,7 +547,7 @@ export default function PoliticianPostDetailPage({ params }: { params: { id: str
       )}
 
       {/* Share Modal */}
-      {shareModalOpen && (
+      {shareModalOpen && post && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4" onClick={() => setShareModalOpen(false)}>
           <div className="bg-white rounded-lg shadow-xl max-w-md w-full p-6" onClick={(e) => e.stopPropagation()}>
             <div className="flex items-center justify-between mb-6">
