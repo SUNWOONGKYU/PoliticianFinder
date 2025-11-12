@@ -34,6 +34,7 @@ interface Post {
   category: string;
   author: string;
   author_id: string;
+  member_level?: string;
   politician_id?: number | null;
   politician_name?: string;
   politician_position?: string;
@@ -130,27 +131,60 @@ export default function Home() {
       try {
         setPostsLoading(true);
 
-        // 정치인 최근 게시글 가져오기 (politician_id가 있는 게시글, 최신순 3개)
+        // 정치인 최근 게시글 가져오기 (has_politician=true, 최신순 3개)
         const politicianPostsResponse = await fetch('/api/posts?has_politician=true&limit=3&page=1');
         if (politicianPostsResponse.ok) {
           const politicianPostsData = await politicianPostsResponse.json();
           if (politicianPostsData.success && politicianPostsData.data) {
-            const mappedPoliticianPosts = politicianPostsData.data.map((post: any) => ({
-              id: post.id,
-              title: post.title,
-              content: post.content,
-              category: post.category,
-              author: post.politician_name || '정치인',
-              author_id: post.user_id,
-              politician_id: post.politician_id,
-              politician_name: post.politician_name,
-              politician_position: post.politician_position || '국회의원',
-              politician_status: post.politician_status || '현직',
-              view_count: post.view_count || 0,
-              like_count: post.like_count || 0,
-              comment_count: post.comment_count || 0,
-              created_at: post.created_at,
-            }));
+            // Fetch politician names for posts with politician_id
+            const mappedPoliticianPosts = await Promise.all(
+              politicianPostsData.data.map(async (post: any) => {
+                let politicianName = '정치인';
+                let politicianPosition = '국회의원';
+                let politicianStatus = '현직';
+
+                if (post.politician_id) {
+                  try {
+                    const politicianResponse = await fetch(`/api/politicians/${post.politician_id}`);
+                    if (politicianResponse.ok) {
+                      const politicianResult = await politicianResponse.json();
+                      if (politicianResult.success && politicianResult.data) {
+                        politicianName = `${politicianResult.data.name} 의원`;
+                        // Position ID mapping (simple version)
+                        const positionMap: Record<number, string> = {
+                          1: '국회의원',
+                          2: '광역단체장',
+                          3: '광역의원',
+                          4: '기초단체장',
+                          5: '기초의원'
+                        };
+                        politicianPosition = positionMap[politicianResult.data.position_id] || '정치인';
+                        politicianStatus = politicianResult.data.is_active ? '현직' : '전직';
+                      }
+                    }
+                  } catch (err) {
+                    console.error('[정치인 정보 조회 오류]:', err);
+                  }
+                }
+
+                return {
+                  id: post.id,
+                  title: post.title,
+                  content: post.content,
+                  category: post.category,
+                  author: politicianName,
+                  author_id: post.user_id,
+                  politician_id: post.politician_id,
+                  politician_name: politicianName,
+                  politician_position: politicianPosition,
+                  politician_status: politicianStatus,
+                  view_count: post.view_count || 0,
+                  like_count: post.like_count || 0,
+                  comment_count: post.comment_count || 0,
+                  created_at: post.created_at,
+                };
+              })
+            );
             setPoliticianPosts(mappedPoliticianPosts);
           }
         }
@@ -163,6 +197,8 @@ export default function Home() {
             const mappedPopularPosts = popularPostsData.data.map((post: any, index: number) => {
               const userIdHash = post.user_id ? post.user_id.split('-')[0].charCodeAt(0) : index;
               const nicknameIndex = userIdHash % 10;
+              // Generate member level based on user_id hash (ML1 ~ ML5)
+              const memberLevel = `ML${(userIdHash % 5) + 1}`;
 
               return {
                 id: post.id,
@@ -171,6 +207,7 @@ export default function Home() {
                 category: post.category,
                 author: sampleNicknames[nicknameIndex],
                 author_id: post.user_id,
+                member_level: memberLevel,
                 politician_id: post.politician_id,
                 view_count: post.view_count || 0,
                 like_count: post.like_count || 0,
@@ -984,9 +1021,16 @@ export default function Home() {
                                   {post.politician_name} | {post.politician_status} {post.politician_position}
                                 </Link>
                               ) : (
-                                <span className="font-medium text-secondary-600">
-                                  {post.author}
-                                </span>
+                                <>
+                                  <span className="font-medium text-secondary-600">
+                                    {post.author}
+                                  </span>
+                                  {post.member_level && (
+                                    <span className="text-gray-900 font-medium" title={`활동 등급: ${post.member_level}`}>
+                                      {post.member_level}
+                                    </span>
+                                  )}
+                                </>
                               )}
                               <span>{formatDate(post.created_at)}</span>
                               <span>조회 {post.view_count}</span>
