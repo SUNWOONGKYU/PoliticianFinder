@@ -77,11 +77,7 @@ export default function SignupPage() {
         return;
       }
 
-      // 이메일 인증 안내와 함께 로그인 페이지로 리다이렉트
-      const message = encodeURIComponent(
-        data.data?.message || '회원가입이 완료되었습니다. 이메일을 확인하여 인증을 완료해 주세요.'
-      );
-      window.location.href = `/auth/login?message=${message}`;
+      window.location.href = '/auth/login?message=회원가입이 완료되었습니다. 이메일 인증을 완료해 주세요.';
     } catch (err) {
       setError('오류가 발생했습니다.');
     } finally {

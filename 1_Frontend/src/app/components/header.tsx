@@ -2,22 +2,23 @@
 
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
+import dynamic from 'next/dynamic';
 import { createClient } from '@/lib/supabase/client';
 import { User } from '@supabase/supabase-js';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [user, setUser] = useState<User | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
+    setIsMounted(true);
     const supabase = createClient();
 
     // 초기 세션 확인
     const getUser = async () => {
       const { data: { user } } = await supabase.auth.getUser();
       setUser(user);
-      setLoading(false);
     };
 
     getUser();
@@ -70,8 +71,8 @@ export default function Header() {
 
           {/* Auth Buttons (Desktop) */}
           <div className="hidden md:flex items-center space-x-3">
-            {loading ? (
-              <div className="text-gray-400 px-4 py-2">...</div>
+            {!isMounted ? (
+              <div className="text-gray-400 px-4 py-2"></div>
             ) : user ? (
               <>
                 <Link href="/mypage" className="text-gray-900 hover:text-primary-600 font-medium px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary-300 rounded">
@@ -122,8 +123,8 @@ export default function Header() {
               <Link href="/community" className="text-gray-900 hover:text-primary-600 font-medium px-2 py-2" onClick={() => setMobileMenuOpen(false)}>커뮤니티</Link>
               <Link href="/connection" className="text-gray-900 hover:text-primary-600 font-medium px-2 py-2" onClick={() => setMobileMenuOpen(false)}>연결</Link>
               <hr className="my-2" />
-              {loading ? (
-                <div className="text-gray-400 px-2 py-2">...</div>
+              {!isMounted ? (
+                <div className="text-gray-400 px-2 py-2"></div>
               ) : user ? (
                 <>
                   <Link href="/mypage" className="text-gray-900 hover:text-primary-600 font-medium px-2 py-2" onClick={() => setMobileMenuOpen(false)}>
