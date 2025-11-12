@@ -8,8 +8,9 @@
  * 설명: Supabase 이메일 인증 후 콜백 처리
  */
 
-import { createClient } from '@/lib/supabase/server';
+import { createServerClient, type CookieOptions } from '@supabase/ssr';
 import { NextRequest, NextResponse } from 'next/server';
+import { cookies } from 'next/headers';
 
 /**
  * 이메일 인증 콜백 핸들러
@@ -32,7 +33,26 @@ export async function GET(request: NextRequest) {
   console.log('[이메일 인증 콜백] 시작:', { code: code?.substring(0, 10) + '...', next });
 
   if (code) {
-    const supabase = createClient();
+    const cookieStore = cookies();
+
+    // Create Supabase client with proper cookie handling
+    const supabase = createServerClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+      {
+        cookies: {
+          get(name: string) {
+            return cookieStore.get(name)?.value;
+          },
+          set(name: string, value: string, options: CookieOptions) {
+            cookieStore.set({ name, value, ...options });
+          },
+          remove(name: string, options: CookieOptions) {
+            cookieStore.set({ name, value: '', ...options });
+          },
+        },
+      }
+    );
 
     // Exchange code for session
     const { data, error } = await supabase.auth.exchangeCodeForSession(code);
