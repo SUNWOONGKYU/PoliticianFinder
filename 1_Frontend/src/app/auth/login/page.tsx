@@ -6,7 +6,7 @@
 
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
 export default function LoginPage() {
@@ -19,6 +19,27 @@ export default function LoginPage() {
   const [error, setError] = useState('');
   const [message, setMessage] = useState('');
   const [loading, setLoading] = useState(false);
+
+  // URL 파라미터에서 메시지와 에러 읽기
+  useEffect(() => {
+    const searchParams = new URLSearchParams(window.location.search);
+    const urlMessage = searchParams.get('message');
+    const urlError = searchParams.get('error');
+
+    // message나 error가 있으면 표시
+    if (urlMessage) {
+      setMessage(decodeURIComponent(urlMessage));
+    }
+    if (urlError) {
+      setError(decodeURIComponent(urlError));
+    }
+
+    // URL을 깨끗하게 정리 (code, message, error 파라미터 제거)
+    if (urlMessage || urlError || searchParams.get('code')) {
+      const cleanUrl = window.location.pathname;
+      window.history.replaceState({}, '', cleanUrl);
+    }
+  }, []);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, type, checked, value } = e.target;
@@ -42,9 +63,10 @@ export default function LoginPage() {
         body: JSON.stringify(formData)
       });
 
+      const data = await response.json();
+
       if (!response.ok) {
-        const data = await response.json();
-        setError(data.message || '로그인에 실패했습니다.');
+        setError(data.error?.message || data.message || '로그인에 실패했습니다.');
         return;
       }
 

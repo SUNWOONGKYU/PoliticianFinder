@@ -19,6 +19,7 @@ const getPostsQuerySchema = z.object({
   limit: z.string().optional().default("20").transform(Number).refine(val => val >= 1 && val <= 100, "limit은 1-100 사이여야 합니다"),
   category: z.string().optional(),
   politician_id: z.string().uuid().optional(),
+  has_politician: z.string().optional().transform(val => val === 'true'),
   sort: z.string().optional().default("-created_at"),
 });
 
@@ -155,6 +156,7 @@ export async function GET(request: NextRequest) {
       limit: searchParams.get("limit") || "20",
       category: searchParams.get("category") || undefined,
       politician_id: searchParams.get("politician_id") || undefined,
+      has_politician: searchParams.get("has_politician") || undefined,
       sort: searchParams.get("sort") || "-created_at",
     };
 
@@ -177,6 +179,16 @@ export async function GET(request: NextRequest) {
 
     if (query.politician_id) {
       queryBuilder = queryBuilder.eq("politician_id", query.politician_id);
+    }
+
+    if (query.has_politician !== undefined) {
+      if (query.has_politician) {
+        // politician_id가 null이 아닌 게시글만
+        queryBuilder = queryBuilder.not("politician_id", "is", null);
+      } else {
+        // politician_id가 null인 게시글만
+        queryBuilder = queryBuilder.is("politician_id", null);
+      }
     }
 
     // 5. 정렬 적용

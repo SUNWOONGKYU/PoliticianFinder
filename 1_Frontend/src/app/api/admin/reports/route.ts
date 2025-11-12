@@ -189,11 +189,11 @@ export async function PATCH(request: NextRequest) {
 
     // 감사 로그 기록
     await supabase.from('audit_logs').insert({
-      action: 'report_resolved',
+      action_type: 'report_resolved',
       target_type: 'report',
       target_id: report_id,
-      actor_id: MOCK_USER_ID, // 실제로는 관리자 ID 사용
-      details: JSON.stringify({ status, action, admin_notes }),
+      admin_id: MOCK_USER_ID, // 실제로는 관리자 ID 사용
+      metadata: { status, action, admin_notes },
     });
 
     return NextResponse.json({ success: true, data: updatedReport }, { status: 200 });

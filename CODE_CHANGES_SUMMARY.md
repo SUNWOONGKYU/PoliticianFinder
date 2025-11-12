@@ -7,6 +7,7 @@
 4. [게시글 상세 페이지 API 연결](#4-게시글-상세-페이지-api-연결) - 2025-11-11
 5. [TypeScript 빌드 에러 수정](#5-typescript-빌드-에러-수정) - 2025-11-11
 6. [커뮤니티 게시판 클릭 연동 문제 수정](#6-커뮤니티-게시판-클릭-연동-문제-수정) - 2025-11-12
+7. [API 500 에러 수정](#7-api-500-에러-수정) - 2025-11-12
 
 ---
 
@@ -704,6 +705,110 @@ Fix: 커뮤니티 게시판 글 클릭 시 상세페이지 연결 문제 수정
 
 ---
 
+## 7. API 500 에러 수정
+
+### 문제점
+- 홈페이지에서 "커뮤니티 인기 게시글" 섹션이 비어있음
+- 게시글 상세 페이지에서 500 에러 발생
+- 브라우저 콘솔에 API 500 에러 메시지 출력:
+  - `/api/posts?limit=3&page=1&sort=views` → 500 에러
+  - `/api/posts/[id]` → 500 에러
+
+### 원인 분석
+
+#### 1. 잘못된 정렬 파라미터
+**파일:** `/1_Frontend/src/app/page.tsx` (line 159)
+
+```typescript
+// 문제: sort=views 사용
+const popularPostsResponse = await fetch('/api/posts?limit=3&page=1&sort=views');
+```
+
+- 데이터베이스 컬럼명은 `view_count`인데 `views`로 요청
+- API에서 존재하지 않는 컬럼으로 정렬 시도 → 500 에러 발생
+
+#### 2. 잘못된 Supabase 클라이언트 초기화
+**파일:** `/1_Frontend/src/app/api/posts/[id]/route.ts`
+
+```typescript
+// 문제: 직접 @supabase/supabase-js 사용
+import { createClient } from '@supabase/supabase-js';
+
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
+
+const supabase = createClient(supabaseUrl, supabaseServiceKey);
+```
+
+- 환경 변수가 서버 사이드에서 제대로 로드되지 않음
+- 다른 API 라우트는 `@/lib/supabase/server`를 사용하는데 이 파일만 다른 방식 사용
+- 일관성 없는 Supabase 클라이언트 초기화 → 500 에러 발생
+
+### 수정 내용
+
+#### 1. 정렬 파라미터 수정
+
+**파일:** `/1_Frontend/src/app/page.tsx` (line 159)
+
+**Before:**
+```typescript
+const popularPostsResponse = await fetch('/api/posts?limit=3&page=1&sort=views');
+```
+
+**After:**
+```typescript
+const popularPostsResponse = await fetch('/api/posts?limit=3&page=1&sort=-view_count');
+```
+
+- `sort=views` → `sort=-view_count`로 변경
+- `-` 접두사로 내림차순 정렬 (조회수 높은 순)
+- 실제 데이터베이스 컬럼명 사용
+
+#### 2. Supabase 클라이언트 초기화 수정
+
+**파일:** `/1_Frontend/src/app/api/posts/[id]/route.ts`
+
+**Before:**
+```typescript
+import { createClient } from '@supabase/supabase-js';
+
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
+
+// ... in each function
+const supabase = createClient(supabaseUrl, supabaseServiceKey);
+```
+
+**After:**
+```typescript
+import { createClient } from '@/lib/supabase/server';
+
+// ... in each function
+const supabase = createClient();
+```
+
+**수정된 위치:**
+- GET 함수 (line 32)
+- PATCH 함수 (line 102)
+- DELETE 함수 (line 189)
+
+### 커밋
+```
+Fix: Resolve API 500 errors - correct sort parameter and Supabase client
+- Fix popular posts API call: change sort=views to sort=-view_count
+- Fix posts/[id] API: use @/lib/supabase/server instead of direct @supabase/supabase-js
+- Remove hardcoded environment variables from API routes
+- Ensures consistent Supabase client initialization across all API routes
+```
+
+### 테스트 결과
+✅ 홈페이지 "커뮤니티 인기 게시글" 정상 표시
+✅ 게시글 상세 페이지 정상 로드
+✅ 조회수 순으로 정렬된 게시글 표시
+✅ 500 에러 완전 해결
+
+---
+
 ## 📊 전체 수정 요약 (업데이트)
 
 ### 수정된 파일
@@ -712,8 +817,9 @@ Fix: 커뮤니티 게시판 글 클릭 시 상세페이지 연결 문제 수정
    - 게시글 API 연동 (정치인 게시글 3개, 인기 게시글 3개)
    - Post 인터페이스 추가
    - 날짜 포맷 함수 추가
+   - API 호출 정렬 파라미터 수정 (sort=views → sort=-view_count) ⭐ NEW
 
-2. `/1_Frontend/src/app/community/page.tsx` - 커뮤니티 페이지 ⭐ NEW
+2. `/1_Frontend/src/app/community/page.tsx` - 커뮤니티 페이지
    - Link 중첩 문제 수정
    - useRouter 기반 클릭 이벤트 처리
    - 게시글 상세페이지 연동 문제 해결
@@ -723,11 +829,18 @@ Fix: 커뮤니티 게시판 글 클릭 시 상세페이지 연결 문제 수정
    - 로딩 & 에러 처리 추가
    - TypeScript 타입 에러 수정
 
-4. Supabase 데이터베이스
+4. `/1_Frontend/src/app/api/posts/[id]/route.ts` - 게시글 상세 API ⭐ NEW
+   - Supabase 클라이언트 초기화 방식 변경
+   - @supabase/supabase-js → @/lib/supabase/server
+   - 환경 변수 하드코딩 제거
+   - 500 에러 해결
+
+5. Supabase 데이터베이스
    - posts 테이블 RLS 정책 수정
 
 ### Git 커밋 히스토리 (업데이트)
 ```bash
+65cb775 - Fix: Resolve API 500 errors - correct sort parameter and Supabase client (2025-11-12) ⭐ NEW
 e23e777 - Fix: 커뮤니티 게시판 글 클릭 시 상세페이지 연결 문제 수정 (2025-11-12)
 0c9b280 - Docs: Add comprehensive code changes summary document
 165798a - Fix: Add TypeScript types to fix build error (2025-11-11)
@@ -740,5 +853,6 @@ abd0861 - Trigger rebuild to include environment variables in production build
 ---
 
 **최종 업데이트:** 2025-11-12
-**브랜치:** `claude/compare-colord-versions-011CV13bN5d7hEQP4px9xLYC`
+**브랜치:** `claude/fix-api-500-errors-011CV13bN5d7hEQP4px9xLYC`
+**이전 브랜치:** `claude/compare-colord-versions-011CV13bN5d7hEQP4px9xLYC`
 **작성자:** Claude AI Assistant

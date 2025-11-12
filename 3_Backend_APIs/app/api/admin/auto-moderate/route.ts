@@ -266,16 +266,16 @@ async function logAudit(
   const supabase = getSupabaseAdmin();
 
   await supabase.from('audit_logs').insert({
-    action: 'auto_moderate',
+    action_type: 'auto_moderate',
     target_type: 'report',
     target_id: reportId,
-    actor_id: 'system', // 시스템 자동 처리
-    details: JSON.stringify({
+    admin_id: null, // 시스템 자동 처리
+    metadata: {
       action,
       severity,
       aiAnalysis: aiAnalysis.substring(0, 500), // 길이 제한
       timestamp: new Date().toISOString(),
-    }),
+    },
   });
 }
 
