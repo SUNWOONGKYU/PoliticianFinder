@@ -196,6 +196,20 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // 8-1. Check if email is verified
+    if (!authData.user.email_confirmed_at) {
+      return NextResponse.json(
+        {
+          success: false,
+          error: {
+            code: 'EMAIL_NOT_CONFIRMED',
+            message: '이메일 인증이 필요합니다. 가입하신 이메일에서 인증 링크를 클릭해 주세요.',
+          },
+        },
+        { status: 403 }
+      );
+    }
+
     // 9. Get user profile from users table
     const { data: userProfile } = await supabase
       .from('users')

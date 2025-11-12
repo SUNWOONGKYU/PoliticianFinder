@@ -1,0 +1,55 @@
+// P3BA1-1: Email Verification Callback
+/**
+ * Project Grid Task ID: P3BA1-1
+ * 작업명: 이메일 인증 콜백 API
+ * 생성시간: 2025-11-12
+ * 생성자: Claude-Sonnet-4.5
+ * 의존성: P3BA1
+ * 설명: Supabase 이메일 인증 후 콜백 처리
+ */
+
+import { createClient } from '@/lib/supabase/server';
+import { NextRequest, NextResponse } from 'next/server';
+
+/**
+ * 이메일 인증 콜백 핸들러
+ *
+ * @description Supabase가 이메일 인증 링크 클릭 시 이 엔드포인트로 리다이렉트
+ * @route GET /auth/callback
+ * @access Public
+ *
+ * @param {string} code - Supabase 인증 코드 (URL 파라미터)
+ * @param {string} next - 인증 후 이동할 경로 (선택)
+ *
+ * @returns {302} Redirect to login page with success message
+ * @returns {302} Redirect to login page with error message
+ */
+export async function GET(request: NextRequest) {
+  const requestUrl = new URL(request.url);
+  const code = requestUrl.searchParams.get('code');
+  const next = requestUrl.searchParams.get('next') ?? '/auth/login';
+
+  if (code) {
+    const supabase = createClient();
+
+    // Exchange code for session
+    const { error } = await supabase.auth.exchangeCodeForSession(code);
+
+    if (error) {
+      console.error('[이메일 인증] 오류:', error);
+      return NextResponse.redirect(
+        `${requestUrl.origin}/auth/login?error=${encodeURIComponent('이메일 인증에 실패했습니다.')}`
+      );
+    }
+
+    // Success: redirect to specified path with success message
+    return NextResponse.redirect(
+      `${requestUrl.origin}${next}?message=${encodeURIComponent('이메일 인증이 완료되었습니다! 로그인해주세요.')}`
+    );
+  }
+
+  // No code provided
+  return NextResponse.redirect(
+    `${requestUrl.origin}/auth/login?error=${encodeURIComponent('잘못된 인증 링크입니다.')}`
+  );
+}

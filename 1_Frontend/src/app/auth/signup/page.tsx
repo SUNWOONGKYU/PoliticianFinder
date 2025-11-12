@@ -15,10 +15,9 @@ export default function SignupPage() {
     password: '',
     password_confirm: '',
     nickname: '',
-    full_name: '',
-    terms_service: false,
-    terms_privacy: false,
-    terms_marketing: false
+    terms_agreed: false,
+    privacy_agreed: false,
+    marketing_agreed: false
   });
 
   const [error, setError] = useState('');
@@ -38,9 +37,9 @@ export default function SignupPage() {
     setTermsAll(newState);
     setFormData(prev => ({
       ...prev,
-      terms_service: newState,
-      terms_privacy: newState,
-      terms_marketing: newState
+      terms_agreed: newState,
+      privacy_agreed: newState,
+      marketing_agreed: newState
     }));
   };
 
@@ -48,7 +47,7 @@ export default function SignupPage() {
     e.preventDefault();
     setError('');
 
-    if (!formData.terms_service || !formData.terms_privacy) {
+    if (!formData.terms_agreed || !formData.privacy_agreed) {
       setError('필수 약관에 동의해주세요.');
       return;
     }
@@ -70,20 +69,19 @@ export default function SignupPage() {
         })
       });
 
-      if (!response.ok) {
-        const data = await response.json();
-        console.error('Signup error:', data);
+      const data = await response.json();
 
-        // 더 상세한 에러 메시지 표시
-        if (data.error) {
-          setError(data.error.message || '회원가입에 실패했습니다.');
-        } else {
-          setError(data.message || '회원가입에 실패했습니다.');
-        }
+      if (!response.ok) {
+        console.error('Signup error:', data);
+        setError(data.error?.message || data.message || '회원가입에 실패했습니다.');
         return;
       }
 
-      window.location.href = '/login?message=회원가입이 완료되었습니다.';
+      // 이메일 인증 안내와 함께 로그인 페이지로 리다이렉트
+      const message = encodeURIComponent(
+        data.data?.message || '회원가입이 완료되었습니다. 이메일을 확인하여 인증을 완료해 주세요.'
+      );
+      window.location.href = `/auth/login?message=${message}`;
     } catch (err) {
       setError('오류가 발생했습니다.');
     } finally {
@@ -148,10 +146,13 @@ export default function SignupPage() {
                 type="password"
                 value={formData.password}
                 onChange={handleInputChange}
-                placeholder="8자 이상 영문 소문자, 숫자 조합"
+                placeholder="8자 이상"
                 className="w-full px-3 py-1.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-200 focus:border-primary-500 placeholder-gray-400 text-sm"
                 required
               />
+              <p className="mt-1 text-xs text-gray-500">
+                비밀번호는 최소 8자 이상이어야 합니다.
+              </p>
             </div>
 
             {/* Password Confirm */}
@@ -188,21 +189,6 @@ export default function SignupPage() {
               />
             </div>
 
-            {/* Full Name */}
-            <div className="space-y-2.5">
-              <label htmlFor="full_name" className="block text-sm font-medium text-gray-700">
-                실명 <span className="text-gray-500">(선택)</span>
-              </label>
-              <input
-                id="full_name"
-                name="full_name"
-                type="text"
-                value={formData.full_name}
-                onChange={handleInputChange}
-                placeholder="실명을 입력하세요"
-                className="w-full px-3 py-1.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-200 focus:border-primary-500 placeholder-gray-400 text-sm"
-              />
-            </div>
 
             {/* Terms Agreement */}
             <div className="space-y-1.5 pt-2 border-t">
@@ -224,44 +210,44 @@ export default function SignupPage() {
               <div className="border-t pt-1.5 space-y-1">
                 <div className="flex items-center">
                   <input
-                    id="terms-service"
-                    name="terms_service"
+                    id="terms-agreed"
+                    name="terms_agreed"
                     type="checkbox"
-                    checked={formData.terms_service}
+                    checked={formData.terms_agreed}
                     onChange={handleInputChange}
                     className="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded"
                     required
                   />
-                  <label htmlFor="terms-service" className="ml-2 block text-sm text-gray-700">
+                  <label htmlFor="terms-agreed" className="ml-2 block text-sm text-gray-700">
                     (필수) 이용약관 동의
                   </label>
                 </div>
 
                 <div className="flex items-center">
                   <input
-                    id="terms-privacy"
-                    name="terms_privacy"
+                    id="privacy-agreed"
+                    name="privacy_agreed"
                     type="checkbox"
-                    checked={formData.terms_privacy}
+                    checked={formData.privacy_agreed}
                     onChange={handleInputChange}
                     className="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded"
                     required
                   />
-                  <label htmlFor="terms-privacy" className="ml-2 block text-sm text-gray-700">
+                  <label htmlFor="privacy-agreed" className="ml-2 block text-sm text-gray-700">
                     (필수) 개인정보 수집 및 이용 동의
                   </label>
                 </div>
 
                 <div className="flex items-center">
                   <input
-                    id="terms-marketing"
-                    name="terms_marketing"
+                    id="marketing-agreed"
+                    name="marketing_agreed"
                     type="checkbox"
-                    checked={formData.terms_marketing}
+                    checked={formData.marketing_agreed}
                     onChange={handleInputChange}
                     className="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded"
                   />
-                  <label htmlFor="terms-marketing" className="ml-2 block text-sm text-gray-700">
+                  <label htmlFor="marketing-agreed" className="ml-2 block text-sm text-gray-700">
                     (선택) 마케팅 정보 수신 동의
                   </label>
                 </div>
