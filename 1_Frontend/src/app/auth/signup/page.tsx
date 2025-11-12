@@ -63,9 +63,9 @@ export default function SignupPage() {
           password: formData.password,
           password_confirm: formData.password_confirm,
           nickname: formData.nickname,
-          terms_agreed: formData.terms_service,
-          privacy_agreed: formData.terms_privacy,
-          marketing_agreed: formData.terms_marketing,
+          terms_agreed: formData.terms_agreed,
+          privacy_agreed: formData.privacy_agreed,
+          marketing_agreed: formData.marketing_agreed,
         })
       });
 
