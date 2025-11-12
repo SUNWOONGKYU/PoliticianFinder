@@ -9,19 +9,22 @@
       "first_execution_minutes": 45,
       "second_execution_minutes": 60,
       "debugging_minutes": 90,
-      "total_minutes": 195
+      "additional_fixes_minutes": 15,
+      "total_minutes": 210
     },
     "files": {
       "modified": [
         "1_Frontend/src/app/api/auth/signup/route.ts",
         "1_Frontend/src/app/auth/signup/page.tsx",
         "1_Frontend/src/app/auth/callback/route.ts",
+        "1_Frontend/src/app/auth/login/page.tsx",
         "1_Frontend/src/app/layout.tsx",
         "1_Frontend/src/app/components/header.tsx"
       ],
       "added": [
         "DEPLOYMENT_GUIDE.md",
-        "PRODUCTION_SETUP.md"
+        "PRODUCTION_SETUP.md",
+        "1_Frontend/scripts/delete_all_users.mjs"
       ]
     },
     "static_analysis": {
@@ -111,13 +114,29 @@
         "description": "이메일 인증 에러 로깅 강화",
         "file": "1_Frontend/src/app/auth/callback/route.ts",
         "status": "✅ 완료"
+      },
+      {
+        "type": "버그",
+        "description": "로그인 페이지 PKCE 에러 (code 파라미터 잔존)",
+        "file": "1_Frontend/src/app/auth/login/page.tsx",
+        "fix_applied": "URL 파라미터 읽은 후 window.history.replaceState로 정리",
+        "root_cause": "이메일 인증 콜백 후 로그인 페이지로 리다이렉트될 때 URL에 code 파라미터 남음",
+        "error_message": "invalid request: both auth code and code verifier should be non-empty",
+        "status": "✅ 수정 완료"
+      },
+      {
+        "type": "개선",
+        "description": "테스트 사용자 계정 일괄 삭제 스크립트 추가",
+        "file": "1_Frontend/scripts/delete_all_users.mjs",
+        "purpose": "회원가입 테스트를 위한 계정 초기화 유틸리티",
+        "status": "✅ 완료"
       }
     ],
     "production_deployment": {
       "status": "✅ 배포 완료",
       "url": "https://politician-finder.vercel.app",
-      "deployment_count": 4,
-      "final_deployment_at": "2025-11-12T17:00:00Z",
+      "deployment_count": 5,
+      "final_deployment_at": "2025-11-13T02:17:00Z",
       "supabase_config": {
         "site_url": "https://politician-finder.vercel.app",
         "redirect_urls": [
@@ -165,6 +184,21 @@
         "hash": "aa3afc9",
         "message": "fix: 이메일 인증 콜백 쿠키 처리 수정",
         "files": ["auth/callback/route.ts"]
+      },
+      {
+        "hash": "79b11b6",
+        "message": "docs: P3BA1 회원가입 및 이메일 인증 프로세스 최종 완료 기록",
+        "files": ["update_email_auth_final.json"]
+      },
+      {
+        "hash": "321f97f",
+        "message": "feat: 테스트 사용자 계정 일괄 삭제 스크립트 추가",
+        "files": ["scripts/delete_all_users.mjs"]
+      },
+      {
+        "hash": "93a265b",
+        "message": "fix: 로그인 페이지 PKCE 에러 해결",
+        "files": ["auth/login/page.tsx"]
       }
     ],
     "test_history": "CodeReview ✅ + Build ✅ + Runtime Tests ✅ + Production Tests ✅ + Debug ✅",
@@ -176,7 +210,9 @@
       "Supabase PKCE 플로우 지원 (createServerClient 직접 사용)",
       "Route Handler 쿠키 처리 최적화 (try-catch 제거)",
       "TypeScript 타입 안정성 확보 (as any 임시, database.types.ts 업데이트 필요)",
-      "프로덕션 배포 가이드 문서화 완료"
+      "프로덕션 배포 가이드 문서화 완료",
+      "로그인 페이지 URL 정리로 PKCE 에러 방지 (window.history.replaceState)",
+      "테스트 계정 초기화 스크립트로 반복 테스트 지원 (delete_all_users.mjs)"
     ],
     "known_limitations": [
       "database.types.ts에 users 테이블 타입 미정의 (as any로 임시 해결)",
@@ -187,7 +223,8 @@
       "이메일 템플릿 커스터마이징 고려",
       "소셜 로그인 (Google OAuth) 구현"
     ],
-    "updated_at": "2025-11-12T17:00:00Z",
-    "updated_by": "Claude Code"
+    "updated_at": "2025-11-13T02:17:00Z",
+    "updated_by": "Claude Code",
+    "final_status": "완전 완료 - 추가 버그 수정 및 테스트 도구 추가"
   }
 }
