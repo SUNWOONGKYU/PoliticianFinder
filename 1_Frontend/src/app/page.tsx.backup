@@ -54,17 +54,6 @@ export default function Home() {
   const [popularPosts, setPopularPosts] = useState<Post[]>([]);
   const [postsLoading, setPostsLoading] = useState(true);
 
-  // Google 로그인 성공 시 URL 파라미터 제거 및 새로고침
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    if (params.get('google_login') === 'success') {
-      // URL에서 파라미터 제거
-      window.history.replaceState({}, '', '/');
-      // 헤더가 세션을 다시 확인하도록 새로고침
-      window.location.reload();
-    }
-  }, []);
-
   // API에서 TOP 10 정치인 데이터 가져오기
   useEffect(() => {
     const fetchTopPoliticians = async () => {
@@ -971,34 +960,144 @@ export default function Home() {
                                 {post.title}
                               </h3>
                             </div>
-                            <p className="text-sm text-gray-600 mb-2 line-clamp-2">
-                              {post.content}
-                            </p>
-                            <div className="flex items-center gap-3 text-xs text-gray-500">
-                              {post.politician_id ? (
-                                <Link
-                                  href={`/politicians/${post.politician_id}`}
-                                  className="font-medium text-primary-600 hover:text-primary-700 hover:underline"
-                                  onClick={(e) => e.stopPropagation()}
-                                >
-                                  {post.politician_name} | {post.politician_status} {post.politician_position}
-                                </Link>
-                              ) : (
-                                <span className="font-medium text-secondary-600">
-                                  {post.author}
-                                </span>
-                              )}
-                              <span>{formatDate(post.created_at)}</span>
-                              <span>조회 {post.view_count}</span>
-                              <span className="text-red-600">👍 {post.like_count}</span>
-                              <span>댓글 {post.comment_count}</span>
-                            </div>
-                          </div>
-                        </div>
+                      <p className="text-sm text-gray-600 mb-2">
+                        최근 AI 평가 결과를 보니 생각보다 객관적인 것 같아요. 여러분 의견은...
+                      </p>
+                      <div className="flex items-center gap-3 text-xs text-gray-500">
+                        <a
+                          href="#"
+                          className="font-medium text-secondary-600 hover:text-secondary-700 hover:underline"
+                        >
+                          시민123 | Lv.4
+                        </a>
+                        <span>2025.10.26 15:30</span>
+                        <span>조회수 234</span>
+                        <span className="text-red-600">👍 45</span>
+                        <span className="text-gray-400">👎 8</span>
+                        <span>댓글 28</span>
                       </div>
-                    </Link>
-                  ))
-                )}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="p-4 hover:bg-gray-50 cursor-pointer">
+                  <div className="flex items-start justify-between">
+                    <div className="flex-1">
+                      <div className="flex items-center gap-2 mb-1">
+                        <span className="px-2 py-0.5 bg-yellow-100 text-yellow-800 text-xs font-bold rounded">
+                          Best
+                        </span>
+                        <h3 className="font-bold text-gray-900">정치인 평가 시스템 정말 혁신적이네요</h3>
+                      </div>
+                      <p className="text-sm text-gray-600 mb-2">
+                        AI가 공약 이행률, 법안 발의 등을 종합 평가하니 훨씬 신뢰가 가는 것 같습니다...
+                      </p>
+                      <div className="flex items-center gap-3 text-xs text-gray-500">
+                        <a
+                          href="#"
+                          className="font-medium text-secondary-600 hover:text-secondary-700 hover:underline"
+                        >
+                          정치관심러 | Lv.3
+                        </a>
+                        <span>2025.10.25 10:15</span>
+                        <span>조회수 189</span>
+                        <span className="text-red-600">👍 32</span>
+                        <span className="text-gray-400">👎 5</span>
+                        <span>댓글 15</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="p-4 hover:bg-gray-50 cursor-pointer">
+                  <div className="flex items-start justify-between">
+                    <div className="flex-1">
+                      <h3 className="font-bold text-gray-900 mb-1">
+                        2025년 지역 발전 계획 공유드립니다
+                      </h3>
+                      <p className="text-sm text-gray-600 mb-2">
+                        우리 지역의 교통 인프라 개선과 청년 일자리 창출을 위한 구체적인 계획을
+                        공유합니다...
+                      </p>
+                      <div className="flex items-center gap-3 text-xs text-gray-500">
+                        <Link
+                          href="/politicians/1"
+                          className="font-medium text-primary-600 hover:text-primary-700 hover:underline"
+                        >
+                          김민준 | 현직 국회의원
+                        </Link>
+                        <span>2025.10.25 09:00</span>
+                        <span>조회수 512</span>
+                        <span className="text-red-600">👍 89</span>
+                        <span className="text-gray-400">👎 12</span>
+                        <span>댓글 45</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="p-4 hover:bg-gray-50 cursor-pointer">
+                  <div className="flex items-start justify-between">
+                    <div className="flex-1">
+                      <h3 className="font-bold text-gray-900 mb-1">
+                        커뮤니티 활동 포인트 제도 질문있어요
+                      </h3>
+                      <p className="text-sm text-gray-600 mb-2">
+                        글 작성하고 댓글 달면 포인트 쌓인다고 들었는데, 정확한 기준이 궁금합니다...
+                      </p>
+                      <div className="flex items-center gap-3 text-xs text-gray-500">
+                        <div className="flex items-center gap-2">
+                          <a
+                            href="#"
+                            className="font-medium text-secondary-600 hover:text-secondary-700 hover:underline"
+                          >
+                            새내기회원
+                          </a>
+                          <span className="text-xs text-gray-900 font-medium">ML1</span>
+                          <span className="text-xs text-emerald-900 font-medium">
+                            🚶 방랑자
+                          </span>
+                        </div>
+                        <span>2025.10.24 14:20</span>
+                        <span>조회수 156</span>
+                        <span className="text-red-600">👍 18</span>
+                        <span className="text-gray-400">👎 3</span>
+                        <span>댓글 22</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="p-4 hover:bg-gray-50 cursor-pointer">
+                  <div className="flex items-start justify-between">
+                    <div className="flex-1">
+                      <h3 className="font-bold text-gray-900 mb-1">
+                        지역구 국회의원 공약 이행률 체크 방법
+                      </h3>
+                      <p className="text-sm text-gray-600 mb-2">
+                        우리 지역구 국회의원이 선거 때 한 공약들을 어떻게 확인할 수 있나요? 이행률
+                        확인하는 방법 알려주세요...
+                      </p>
+                      <div className="flex items-center gap-3 text-xs text-gray-500">
+                        <div className="flex items-center gap-2">
+                          <a
+                            href="#"
+                            className="font-medium text-secondary-600 hover:text-secondary-700 hover:underline"
+                          >
+                            투명정치
+                          </a>
+                          <span className="text-xs text-gray-900 font-medium">ML3</span>
+                          <span className="text-xs text-emerald-900 font-medium">⚔️ 기사</span>
+                        </div>
+                        <span>2025.10.23 14:20</span>
+                        <span>조회수 142</span>
+                        <span className="text-red-600">👍 24</span>
+                        <span className="text-gray-400">👎 3</span>
+                        <span>댓글 18</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
               <div className="p-4 text-center border-t">
                 <Link
