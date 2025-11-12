@@ -29,18 +29,26 @@ export async function GET(request: NextRequest) {
   const code = requestUrl.searchParams.get('code');
   const next = requestUrl.searchParams.get('next') ?? '/auth/login';
 
+  console.log('[이메일 인증 콜백] 시작:', { code: code?.substring(0, 10) + '...', next });
+
   if (code) {
     const supabase = createClient();
 
     // Exchange code for session
-    const { error } = await supabase.auth.exchangeCodeForSession(code);
+    const { data, error } = await supabase.auth.exchangeCodeForSession(code);
 
     if (error) {
-      console.error('[이메일 인증] 오류:', error);
+      console.error('[이메일 인증] 오류:', {
+        message: error.message,
+        status: error.status,
+        code: error.code,
+      });
       return NextResponse.redirect(
-        `${requestUrl.origin}/auth/login?error=${encodeURIComponent('이메일 인증에 실패했습니다.')}`
+        `${requestUrl.origin}/auth/login?error=${encodeURIComponent('이메일 인증에 실패했습니다: ' + error.message)}`
       );
     }
+
+    console.log('[이메일 인증] 성공:', { userId: data?.user?.id, email: data?.user?.email });
 
     // Success: redirect to specified path with success message
     return NextResponse.redirect(
@@ -49,6 +57,7 @@ export async function GET(request: NextRequest) {
   }
 
   // No code provided
+  console.error('[이메일 인증] code 파라미터 없음');
   return NextResponse.redirect(
     `${requestUrl.origin}/auth/login?error=${encodeURIComponent('잘못된 인증 링크입니다.')}`
   );
