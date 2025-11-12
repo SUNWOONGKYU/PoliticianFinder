@@ -2,6 +2,7 @@
 
 import { useState, useMemo, useEffect } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 interface CommunityPost {
   id: number;
@@ -433,13 +434,14 @@ const SAMPLE_POSTS: CommunityPost[] = [
 ];
 
 export default function CommunityPage() {
+  const router = useRouter();
   const [searchTerm, setSearchTerm] = useState('');
   const [currentCategory, setCurrentCategory] = useState<'all' | 'politician_post' | 'general'>('all');
   const [sortBy, setSortBy] = useState<'latest' | 'popular' | 'views'>('latest');
   const [showCategoryModal, setShowCategoryModal] = useState(false);
   const [followedUsers, setFollowedUsers] = useState<Set<string>>(new Set());
-  const [posts, setPosts] = useState<CommunityPost[]>(SAMPLE_POSTS);
-  const [loading, setLoading] = useState(false);
+  const [posts, setPosts] = useState<CommunityPost[]>([]);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
@@ -509,8 +511,7 @@ export default function CommunityPage() {
       } catch (err) {
         console.error('[커뮤니티 페이지] 게시글 조회 오류:', err);
         setError(err instanceof Error ? err.message : '알 수 없는 오류가 발생했습니다.');
-        // Fallback to sample posts on error
-        setPosts(SAMPLE_POSTS);
+        setPosts([]);
       } finally {
         setLoading(false);
       }
@@ -686,8 +687,7 @@ export default function CommunityPage() {
           /* Post List */
           <div className="space-y-4">
             {filteredPosts.map((post) => (
-              <Link key={post.id} href={`/community/posts/${post.id}`}>
-                <div className="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition cursor-pointer">
+              <div key={post.id} className="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition cursor-pointer" onClick={() => router.push(`/community/posts/${post.id}`)}>
                   <div className="flex items-start justify-between mb-3">
                     <div className="flex items-center space-x-2">
                       {post.is_hot && <span className="px-2 py-1 bg-red-100 text-red-700 text-xs font-medium rounded">Hot</span>}
@@ -757,8 +757,7 @@ export default function CommunityPage() {
                       <span>공유 {post.share_count || 0}</span>
                     </span>
                   </div>
-                </div>
-              </Link>
+              </div>
             ))}
           </div>
         )}

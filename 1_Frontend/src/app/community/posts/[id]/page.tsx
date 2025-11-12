@@ -24,37 +24,71 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
   const [commentText, setCommentText] = useState('');
   const [upvoted, setUpvoted] = useState(false);
   const [downvoted, setDownvoted] = useState(false);
-  const [upvotes, setUpvotes] = useState(45);
-  const [downvotes, setDownvotes] = useState(3);
+  const [upvotes, setUpvotes] = useState(0);
+  const [downvotes, setDownvotes] = useState(0);
+  const [post, setPost] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
 
-  // Sample post data (would come from API in production)
-  const post = {
-    id: params.id,
-    title: '우리 지역 교통 문제 어떻게 생각하시나요?',
-    category: '자유게시판',
-    author: '박지민',
-    memberLevel: 'ML3',
-    timestamp: '2025.10.25 14:30',
-    views: 234,
-    commentCount: 28,
-    shareCount: 7,
-    content: `안녕하세요, 평소에 출퇴근 시간대 교통 문제로 고민이 많은 직장인입니다.
+  // Sample user nicknames
+  const sampleNicknames = [
+    '정치는우리의것', '투명한정치', '민주시민', '시민참여자', '투표하는시민',
+    '민생이우선', '변화를원해', '미래세대', '깨어있는시민', '정책분석가'
+  ];
 
-요즘 출퇴근 시간에 너무 막히는데, 다들 어떻게 생각하시나요? 좋은 해결책이 있을까요?
+  // Fetch post data from API
+  useEffect(() => {
+    const fetchPost = async () => {
+      try {
+        setLoading(true);
+        const response = await fetch(`/api/posts/${params.id}`);
 
-## 현재 문제점
+        if (!response.ok) {
+          throw new Error('게시글을 불러오는데 실패했습니다.');
+        }
 
-1. 출퇴근 시간 30분 → 1시간 이상 소요
-2. 버스 배차 간격이 너무 길어서 대기 시간이 김
-3. 지하철역까지 거리가 멀어서 접근성이 떨어짐
+        const result = await response.json();
 
-## 제안하고 싶은 해결책
+        if (result.success && result.data) {
+          const postData = result.data;
 
-• 버스 배차 간격 단축 (특히 출퇴근 시간대)
-• 마을버스 노선 신설
-• 자전거 도로 확충
+          // Generate consistent nickname based on user_id
+          const userIdHash = postData.user_id ? postData.user_id.split('-')[0].charCodeAt(0) : 0;
+          const nicknameIndex = userIdHash % 10;
 
-여러분의 의견이 궁금합니다. 댓글로 자유롭게 의견 남겨주세요!`
+          setPost({
+            id: postData.id,
+            title: postData.title,
+            category: postData.category === 'politician_post' ? '정치인 게시판' : '자유게시판',
+            author: sampleNicknames[nicknameIndex],
+            memberLevel: 'ML3',
+            timestamp: formatDate(postData.created_at),
+            views: postData.view_count || 0,
+            commentCount: postData.comment_count || 0,
+            shareCount: postData.share_count || 0,
+            content: postData.content
+          });
+
+          setUpvotes(postData.like_count || 0);
+        }
+      } catch (err) {
+        console.error('[게시글 상세] 오류:', err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchPost();
+  }, [params.id]);
+
+  // Date format helper
+  const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    const hours = String(date.getHours()).padStart(2, '0');
+    const minutes = String(date.getMinutes()).padStart(2, '0');
+    return `${year}.${month}.${day} ${hours}:${minutes}`;
   };
 
   const [comments] = useState<Comment[]>([
@@ -178,8 +212,20 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
           </Link>
         </div>
 
-        {/* Post Detail */}
-        <article className="bg-white rounded-lg shadow-md p-6 mb-6">
+        {loading ? (
+          <div className="text-center py-16">
+            <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-primary-500"></div>
+            <p className="text-gray-500 text-lg mt-4">게시글을 불러오는 중...</p>
+          </div>
+        ) : !post ? (
+          <div className="text-center py-16">
+            <p className="text-red-500 text-lg mb-2">⚠️ 게시글을 찾을 수 없습니다</p>
+            <p className="text-gray-500 text-sm">존재하지 않거나 삭제된 게시글입니다.</p>
+          </div>
+        ) : (
+          <>
+            {/* Post Detail */}
+            <article className="bg-white rounded-lg shadow-md p-6 mb-6">
           <div className="flex items-center gap-2 mb-4">
             <span className="px-2 py-1 bg-emerald-100 text-emerald-800 text-xs font-bold rounded">💬 {post.category}</span>
           </div>
@@ -205,7 +251,7 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
           </div>
 
           <div className="prose max-w-none mb-8">
-            {post.content.split('\n\n').map((paragraph, idx) => {
+            {post.content.split('\n\n').map((paragraph: string, idx: number) => {
               if (paragraph.startsWith('## ')) {
                 return <h2 key={idx} className="text-2xl font-bold text-gray-900 mt-6 mb-3">{paragraph.replace('## ', '')}</h2>;
               }
@@ -305,6 +351,8 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
             </Link>
           </div>
         </section>
+          </>
+        )}
       </main>
 
       {/* Share Modal */}
