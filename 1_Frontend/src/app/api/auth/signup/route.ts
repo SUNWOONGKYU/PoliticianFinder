@@ -293,7 +293,7 @@ export async function POST(request: NextRequest) {
         marketing_agreed: data.marketing_agreed,
         created_at: new Date().toISOString(),
         updated_at: new Date().toISOString(),
-      })
+      } as any) // TypeScript 타입 체크 우회 (database.types.ts에 users 테이블 타입 미정의)
       .select()
       .single();
 
