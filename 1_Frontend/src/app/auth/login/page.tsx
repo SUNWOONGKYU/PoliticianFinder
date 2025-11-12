@@ -25,6 +25,7 @@ export default function LoginPage() {
     const searchParams = new URLSearchParams(window.location.search);
     const urlMessage = searchParams.get('message');
     const urlError = searchParams.get('error');
+    const urlCode = searchParams.get('code');
 
     // message나 error가 있으면 표시
     if (urlMessage) {
@@ -34,9 +35,11 @@ export default function LoginPage() {
       setError(decodeURIComponent(urlError));
     }
 
-    // URL을 깨끗하게 정리 (code, message, error 파라미터 제거)
-    if (urlMessage || urlError || searchParams.get('code')) {
+    // CRITICAL: URL을 즉시 정리하여 PKCE 에러 방지
+    // code 파라미터가 있으면 반드시 제거
+    if (urlCode || urlMessage || urlError) {
       const cleanUrl = window.location.pathname;
+      // 즉시 URL 정리 - 이렇게 하지 않으면 Supabase가 code를 처리하려고 시도함
       window.history.replaceState({}, '', cleanUrl);
     }
   }, []);

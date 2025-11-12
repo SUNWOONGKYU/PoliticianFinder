@@ -43,8 +43,20 @@ function checkRateLimit(
 }
 
 export function middleware(request: NextRequest) {
-  const { pathname } = request.nextUrl;
+  const { pathname, searchParams } = request.nextUrl;
   const ip = request.ip || request.headers.get('x-forwarded-for') || 'unknown';
+
+  // === 0. PKCE Error Prevention ===
+  // If /auth/login has a 'code' parameter, redirect to /auth/callback
+  // This prevents "invalid request: both auth code and code verifier should be non-empty" error
+  if (pathname === '/auth/login' && searchParams.has('code')) {
+    const callbackUrl = new URL('/auth/callback', request.url);
+    callbackUrl.searchParams.set('code', searchParams.get('code')!);
+    if (searchParams.has('next')) {
+      callbackUrl.searchParams.set('next', searchParams.get('next')!);
+    }
+    return NextResponse.redirect(callbackUrl);
+  }
 
   // === 1. Rate Limiting === BUGFIX_002: Restored to production values
   let rateLimit = RATE_LIMIT.API;
