@@ -25,11 +25,19 @@ export default function LoginPage() {
     const searchParams = new URLSearchParams(window.location.search);
     const urlMessage = searchParams.get('message');
     const urlError = searchParams.get('error');
+
+    // message나 error가 있으면 표시
     if (urlMessage) {
       setMessage(decodeURIComponent(urlMessage));
     }
     if (urlError) {
       setError(decodeURIComponent(urlError));
+    }
+
+    // URL을 깨끗하게 정리 (code, message, error 파라미터 제거)
+    if (urlMessage || urlError || searchParams.get('code')) {
+      const cleanUrl = window.location.pathname;
+      window.history.replaceState({}, '', cleanUrl);
     }
   }, []);
 
