@@ -130,8 +130,8 @@ export default function Home() {
       try {
         setPostsLoading(true);
 
-        // 정치인 최근 게시글 가져오기 (카테고리: politician_post, 최신순 3개)
-        const politicianPostsResponse = await fetch('/api/posts?category=politician_post&limit=3&page=1');
+        // 정치인 최근 게시글 가져오기 (politician_id가 있는 게시글, 최신순 3개)
+        const politicianPostsResponse = await fetch('/api/posts?has_politician=true&limit=3&page=1');
         if (politicianPostsResponse.ok) {
           const politicianPostsData = await politicianPostsResponse.json();
           if (politicianPostsData.success && politicianPostsData.data) {

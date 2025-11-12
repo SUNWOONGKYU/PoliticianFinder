@@ -459,7 +459,17 @@ export default function CommunityPage() {
         setLoading(true);
         setError(null);
 
-        const response = await fetch(`/api/posts?page=${currentPage}&limit=20`);
+        // Build API URL with filters
+        let apiUrl = `/api/posts?page=${currentPage}&limit=20`;
+
+        // Add category filter if not 'all'
+        if (currentCategory === 'politician_post') {
+          apiUrl += '&has_politician=true';
+        } else if (currentCategory === 'general') {
+          apiUrl += '&has_politician=false';
+        }
+
+        const response = await fetch(apiUrl);
 
         if (!response.ok) {
           throw new Error('게시글을 불러오는데 실패했습니다.');
@@ -478,7 +488,7 @@ export default function CommunityPage() {
             id: post.id,
             title: post.title,
             content: post.content,
-            category: post.category === 'general' ? 'general' : 'politician_post',
+            category: post.politician_id ? 'politician_post' : 'general',
             author: sampleNicknames[nicknameIndex],
             author_id: post.user_id,
             author_type: 'user' as const,
@@ -518,13 +528,13 @@ export default function CommunityPage() {
     };
 
     fetchPosts();
-  }, [currentPage]);
+  }, [currentPage, currentCategory]);
 
   // Filter and sort posts
   const filteredPosts = useMemo(() => {
     let postsToFilter = posts;
 
-    // Filter by search term
+    // Filter by search term (category filtering is done by API)
     if (searchTerm) {
       const searchLower = searchTerm.toLowerCase();
       postsToFilter = postsToFilter.filter(post =>
@@ -532,11 +542,6 @@ export default function CommunityPage() {
         post.content.toLowerCase().includes(searchLower) ||
         post.author.toLowerCase().includes(searchLower)
       );
-    }
-
-    // Filter by category
-    if (currentCategory !== 'all') {
-      postsToFilter = postsToFilter.filter(post => post.category === currentCategory);
     }
 
     // Sort posts
