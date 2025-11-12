@@ -156,7 +156,7 @@ export default function Home() {
         }
 
         // 커뮤니티 인기 게시글 가져오기 (전체, 조회수 순 3개)
-        const popularPostsResponse = await fetch('/api/posts?limit=3&page=1&sort=views');
+        const popularPostsResponse = await fetch('/api/posts?limit=3&page=1&sort=-view_count');
         if (popularPostsResponse.ok) {
           const popularPostsData = await popularPostsResponse.json();
           if (popularPostsData.success && popularPostsData.data) {
