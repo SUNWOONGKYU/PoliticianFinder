@@ -55,11 +55,16 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
           const userIdHash = postData.user_id ? postData.user_id.split('-')[0].charCodeAt(0) : 0;
           const nicknameIndex = userIdHash % 10;
 
+          // Determine author based on politician_id
+          const author = postData.politician_id && postData.politicians
+            ? `${postData.politicians.name} ${postData.politicians.position || '의원'}`
+            : sampleNicknames[nicknameIndex];
+
           setPost({
             id: postData.id,
             title: postData.title,
-            category: postData.category === 'politician_post' ? '정치인 게시판' : '자유게시판',
-            author: sampleNicknames[nicknameIndex],
+            category: postData.politician_id ? '정치인 게시판' : '자유게시판',
+            author: author,
             memberLevel: 'ML3',
             timestamp: formatDate(postData.created_at),
             views: postData.view_count || 0,
