@@ -57,16 +57,16 @@ export async function GET(
       );
     }
 
-    // 조회수 증가
-    const { error: updateError } = await supabase
+    // 조회수 증가 (비동기 처리 - 응답 속도 개선)
+    supabase
       .from('posts')
       .update({ view_count: (post.view_count || 0) + 1 })
-      .eq('id', id);
-
-    if (updateError) {
-      console.error('조회수 업데이트 오류:', updateError);
-      // 조회수 업데이트 실패는 치명적이지 않으므로 계속 진행
-    }
+      .eq('id', id)
+      .then(({ error }) => {
+        if (error) {
+          console.error('조회수 업데이트 오류:', error);
+        }
+      });
 
     return NextResponse.json(
       {

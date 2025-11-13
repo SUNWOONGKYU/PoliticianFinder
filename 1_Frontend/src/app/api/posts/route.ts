@@ -165,11 +165,23 @@ export async function GET(request: NextRequest) {
     // 2. Supabase 클라이언트 생성 (RLS 적용됨)
     const supabase = createClient();
 
-    // 3. 쿼리 빌더 시작 (승인된 게시글만 조회)
+    // 3. 쿼리 빌더 시작 (승인된 게시글만 조회, 필요한 필드만 선택)
     let queryBuilder = supabase
       .from("posts")
       .select(`
-        *,
+        id,
+        user_id,
+        politician_id,
+        title,
+        content,
+        category,
+        tags,
+        is_pinned,
+        view_count,
+        like_count,
+        comment_count,
+        created_at,
+        updated_at,
         politicians:politician_id (
           name,
           position,
@@ -242,7 +254,12 @@ export async function GET(request: NextRequest) {
         },
         timestamp: new Date().toISOString(),
       },
-      { status: 200 }
+      {
+        status: 200,
+        headers: {
+          'Cache-Control': 'public, s-maxage=30, stale-while-revalidate=60',
+        }
+      }
     );
   } catch (error) {
     if (error instanceof z.ZodError) {
