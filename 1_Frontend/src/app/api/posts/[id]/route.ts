@@ -31,7 +31,14 @@ export async function GET(
     // 게시글 조회
     const { data: post, error } = await supabase
       .from('posts')
-      .select('*')
+      .select(`
+        *,
+        politicians:politician_id (
+          name,
+          position,
+          status
+        )
+      `)
       .eq('id', id)
       .single();
 
