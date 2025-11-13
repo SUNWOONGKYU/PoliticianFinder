@@ -643,7 +643,18 @@ export default function CommunityPage() {
           </div>
 
           <button
-            onClick={() => setShowCategoryModal(true)}
+            onClick={() => {
+              if (currentCategory === 'all') {
+                // 전체 탭: 정치인/회원 선택 모달
+                setShowCategoryModal(true);
+              } else if (currentCategory === 'politician_post') {
+                // 정치인 게시판: 바로 정치인 글쓰기로
+                router.push('/community/write?type=politician');
+              } else {
+                // 자유게시판: 바로 회원 글쓰기로
+                router.push('/community/write?type=member');
+              }
+            }}
             className={`px-6 py-2 text-white rounded-lg font-medium hover:bg-opacity-90 transition whitespace-nowrap shadow-md ${
               currentCategory === 'general' ? 'bg-secondary-500' : 'bg-primary-500'
             }`}
