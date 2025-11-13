@@ -518,21 +518,39 @@ export default function PoliticiansPage() {
 
         {/* Pagination Controls */}
         {totalPages > 1 && (
-          <div className="flex justify-center items-center gap-4 mt-8 mb-4">
+          <div className="flex justify-center gap-2 mt-8 mb-4">
             <button
-              onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))}
+              onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
               disabled={currentPage === 1}
-              className="px-4 py-2 bg-primary-600 text-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-primary-700 transition-colors"
+              className={`px-4 py-2 rounded-lg font-medium transition ${
+                currentPage === 1
+                  ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                  : 'bg-gray-500 text-white hover:bg-gray-600'
+              }`}
             >
               이전
             </button>
-            <span className="text-gray-700 font-medium">
-              페이지 {currentPage} / {totalPages} (총 {totalCount}명)
-            </span>
+            {Array.from({ length: Math.min(totalPages, 10) }, (_, i) => i + 1).map(pageNum => (
+              <button
+                key={pageNum}
+                onClick={() => setCurrentPage(pageNum)}
+                className={`px-4 py-2 rounded-lg font-medium transition ${
+                  currentPage === pageNum
+                    ? 'bg-primary-500 text-white'
+                    : 'bg-white text-gray-700 border-2 border-gray-300 hover:bg-gray-50'
+                }`}
+              >
+                {pageNum}
+              </button>
+            ))}
             <button
-              onClick={() => setCurrentPage(prev => Math.min(totalPages, prev + 1))}
-              disabled={currentPage === totalPages}
-              className="px-4 py-2 bg-primary-600 text-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-primary-700 transition-colors"
+              onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 1))}
+              disabled={currentPage >= totalPages}
+              className={`px-4 py-2 rounded-lg font-medium transition ${
+                currentPage >= totalPages
+                  ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                  : 'bg-gray-500 text-white hover:bg-gray-600'
+              }`}
             >
               다음
             </button>
