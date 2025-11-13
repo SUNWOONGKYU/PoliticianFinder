@@ -484,6 +484,9 @@ export default function CommunityPage() {
             const userIdHash = post.user_id ? post.user_id.split('-')[0].charCodeAt(0) : index;
             const nicknameIndex = userIdHash % 10;
 
+            // Generate consistent member level (ML1-ML5) based on user_id
+            const mlLevel = post.politician_id ? undefined : `ML${(userIdHash % 5) + 1}`;
+
             return {
             id: post.id,
             title: post.title,
@@ -496,7 +499,7 @@ export default function CommunityPage() {
             politician_tag: post.politicians?.name,
             politician_status: post.politicians?.status,
             politician_position: post.politicians?.position,
-            member_level: undefined,
+            member_level: mlLevel,
             upvotes: post.like_count || 0,
             downvotes: 0,
             score: post.like_count || 0,
@@ -649,10 +652,10 @@ export default function CommunityPage() {
                 setShowCategoryModal(true);
               } else if (currentCategory === 'politician_post') {
                 // 정치인 게시판: 바로 정치인 글쓰기로
-                router.push('/community/write?type=politician');
+                router.push('/community/posts/create-politician');
               } else {
                 // 자유게시판: 바로 회원 글쓰기로
-                router.push('/community/write?type=member');
+                router.push('/community/posts/create');
               }
             }}
             className={`px-6 py-2 text-white rounded-lg font-medium hover:bg-opacity-90 transition whitespace-nowrap shadow-md ${
