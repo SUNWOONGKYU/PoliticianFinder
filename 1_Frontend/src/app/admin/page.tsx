@@ -33,8 +33,13 @@ export default function AdminPage() {
         }
 
         const result = await response.json();
-        setData(result);
-        setError(null);
+
+        if (result.success && result.data) {
+          setData(result.data);
+          setError(null);
+        } else {
+          throw new Error(result.error || 'Invalid API response');
+        }
       } catch (err) {
         setError(err instanceof Error ? err.message : '데이터를 불러오는데 실패했습니다.');
         console.error('Dashboard data fetch error:', err);
