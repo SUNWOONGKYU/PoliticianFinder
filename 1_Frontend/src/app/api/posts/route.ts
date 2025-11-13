@@ -165,7 +165,7 @@ export async function GET(request: NextRequest) {
     // 2. Supabase 클라이언트 생성 (RLS 적용됨)
     const supabase = createClient();
 
-    // 3. 쿼리 빌더 시작 (RLS로 승인된 게시글만 조회)
+    // 3. 쿼리 빌더 시작 (승인된 게시글만 조회)
     let queryBuilder = supabase
       .from("posts")
       .select(`
@@ -176,6 +176,7 @@ export async function GET(request: NextRequest) {
           status
         )
       `, { count: "exact" })
+      .eq("moderation_status", "approved")
 
     // 4. 필터 적용
     if (query.category) {

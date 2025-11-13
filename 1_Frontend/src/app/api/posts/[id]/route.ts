@@ -28,7 +28,7 @@ export async function GET(
     // Supabase 클라이언트 생성
     const supabase = createClient();
 
-    // 게시글 조회
+    // 게시글 조회 (승인된 게시글만)
     const { data: post, error } = await supabase
       .from('posts')
       .select(`
@@ -40,6 +40,7 @@ export async function GET(
         )
       `)
       .eq('id', id)
+      .eq('moderation_status', 'approved')
       .single();
 
     if (error) {
