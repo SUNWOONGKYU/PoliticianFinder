@@ -87,26 +87,29 @@ export default function Home() {
 
         if (data.success && data.data && data.data.length > 0) {
           // API 데이터를 홈 페이지 형식으로 변환
-          const transformedData = data.data.map((p: any, index: number) => ({
-            id: p.id || index + 1,
-            rank: index + 1,
-            name: p.name,
-            status: p.status || '현직',
-            position: p.position || '-',
-            office: p.position || '국회의원',
-            party: p.party || '',
-            region: p.region || '',
-            totalScore: p.composite_score || 0,
-            grade: calculateGrade(p.composite_score || 0),
-            gradeEmoji: getGradeEmoji(calculateGrade(p.composite_score || 0)),
-            claude: p.composite_score || 0,
-            chatgpt: p.composite_score || 0,
-            gemini: p.composite_score || 0,
-            grok: p.composite_score || 0,
-            perplexity: p.composite_score || 0,
-            userRating: '★'.repeat(Math.round(p.avg_rating || 0)) + '☆'.repeat(5 - Math.round(p.avg_rating || 0)),
-            userCount: 0,
-          }));
+          const transformedData = data.data.map((p: any, index: number) => {
+            const aiScore = p.ai_score || p.evaluation_score || 0;
+            return {
+              id: p.id || index + 1,
+              rank: index + 1,
+              name: p.name,
+              status: p.status || '현직',
+              position: p.position || '-',
+              office: p.position || '국회의원',
+              party: p.party || '',
+              region: p.region || '',
+              totalScore: aiScore,
+              grade: calculateGrade(aiScore),
+              gradeEmoji: getGradeEmoji(calculateGrade(aiScore)),
+              claude: aiScore,
+              chatgpt: aiScore,
+              gemini: aiScore,
+              grok: aiScore,
+              perplexity: aiScore,
+              userRating: '★'.repeat(Math.round(p.user_rating || 0)) + '☆'.repeat(5 - Math.round(p.user_rating || 0)),
+              userCount: p.rating_count || 0,
+            };
+          });
           setPoliticians(transformedData);
         }
       } catch (err) {
