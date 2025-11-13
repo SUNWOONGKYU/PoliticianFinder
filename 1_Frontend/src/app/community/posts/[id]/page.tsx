@@ -58,9 +58,12 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
           const userIdHash = postData.user_id ? postData.user_id.split('-')[0].charCodeAt(0) : 0;
           const nicknameIndex = userIdHash % 10;
 
+          // Generate consistent member level (ML1-ML5) based on user_id
+          const mlLevel = postData.politician_id ? undefined : `ML${(userIdHash % 5) + 1}`;
+
           // Determine author based on politician_id
           const author = postData.politician_id && postData.politicians
-            ? `${postData.politicians.name} ${postData.politicians.position || '의원'}`
+            ? postData.politicians.name
             : sampleNicknames[nicknameIndex];
 
           setPost({
@@ -69,9 +72,9 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
             category: postData.politician_id ? '정치인 게시판' : '자유게시판',
             author: author,
             isPolitician: !!postData.politician_id,
-            politicianStatus: postData.politicians?.status || '현직',
-            politicianPosition: postData.politicians?.position || '의원',
-            memberLevel: 'ML3',
+            politicianStatus: postData.politicians?.status,
+            politicianPosition: postData.politicians?.position,
+            memberLevel: mlLevel,
             timestamp: formatDate(postData.created_at),
             views: postData.view_count || 0,
             commentCount: postData.comment_count || 0,
