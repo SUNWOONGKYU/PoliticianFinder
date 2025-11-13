@@ -491,7 +491,7 @@ export default function CommunityPage() {
             category: post.politician_id ? 'politician_post' : 'general',
             author: post.politician_id && post.politicians ? post.politicians.name : sampleNicknames[nicknameIndex],
             author_id: post.user_id,
-            author_type: (post.politician_id ? 'politician' : 'user') as const,
+            author_type: post.politician_id ? 'politician' as const : 'user' as const,
             politician_id: post.politician_id,
             politician_tag: post.politicians?.name,
             politician_status: post.politicians?.status,
