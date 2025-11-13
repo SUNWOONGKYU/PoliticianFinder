@@ -62,7 +62,8 @@ export default function AdminPostsPage() {
         throw new Error(`Failed to fetch posts: ${response.status}`);
       }
 
-      const data = await response.json();
+      const result = await response.json();
+      const data = (result.success && Array.isArray(result.data)) ? result.data : (Array.isArray(result) ? result : []);
       setPosts(data);
     } catch (error) {
       console.error('Error fetching posts:', error);
@@ -88,7 +89,8 @@ export default function AdminPostsPage() {
         throw new Error(`Failed to fetch comments: ${response.status}`);
       }
 
-      const data = await response.json();
+      const result = await response.json();
+      const data = (result.success && Array.isArray(result.data)) ? result.data : (Array.isArray(result) ? result : []);
       setComments(data);
     } catch (error) {
       console.error('Error fetching comments:', error);
@@ -114,7 +116,8 @@ export default function AdminPostsPage() {
         throw new Error(`Failed to fetch notices: ${response.status}`);
       }
 
-      const data = await response.json();
+      const result = await response.json();
+      const data = (result.success && Array.isArray(result.data)) ? result.data : (Array.isArray(result) ? result : []);
       setNotices(data);
     } catch (error) {
       console.error('Error fetching notices:', error);

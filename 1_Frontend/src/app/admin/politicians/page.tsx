@@ -36,9 +36,17 @@ export default function AdminPoliticiansPage() {
         throw new Error('정치인 목록을 불러오는데 실패했습니다.');
       }
 
-      const data = await response.json();
-      setPoliticians(data);
-      setFilteredPoliticians(data);
+      const result = await response.json();
+      
+      if (result.success && Array.isArray(result.data)) {
+        setPoliticians(result.data);
+        setFilteredPoliticians(result.data);
+      } else {
+        // Fallback: if API doesn't return expected format
+        const data = Array.isArray(result) ? result : [];
+        setPoliticians(data);
+        setFilteredPoliticians(data);
+      }
     } catch (err) {
       setError(err instanceof Error ? err.message : '알 수 없는 오류가 발생했습니다.');
     } finally {
