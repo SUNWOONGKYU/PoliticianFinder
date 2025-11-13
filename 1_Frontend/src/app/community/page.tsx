@@ -3,6 +3,7 @@
 import { useState, useMemo, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { createClient } from '@/lib/supabase/client';
 
 interface CommunityPost {
   id: number;
@@ -459,63 +460,91 @@ export default function CommunityPage() {
         setLoading(true);
         setError(null);
 
-        // Build API URL with filters
-        let apiUrl = `/api/posts?page=${currentPage}&limit=20`;
+        const supabase = createClient();
 
-        // Add category filter if not 'all'
+        // Build query
+        let query = supabase
+          .from('posts')
+          .select(`
+            id,
+            user_id,
+            politician_id,
+            title,
+            content,
+            category,
+            tags,
+            is_pinned,
+            view_count,
+            like_count,
+            comment_count,
+            created_at,
+            updated_at,
+            politicians:politician_id (
+              name,
+              position,
+              status
+            )
+          `, { count: 'exact' })
+          .eq('moderation_status', 'approved')
+          .order('created_at', { ascending: false });
+
+        // Add category filter
         if (currentCategory === 'politician_post') {
-          apiUrl += '&has_politician=true';
+          query = query.not('politician_id', 'is', null);
         } else if (currentCategory === 'general') {
-          apiUrl += '&has_politician=false';
+          query = query.is('politician_id', null);
         }
 
-        const response = await fetch(apiUrl);
+        // Pagination
+        const start = (currentPage - 1) * 20;
+        const end = start + 19;
+        query = query.range(start, end);
 
-        if (!response.ok) {
-          throw new Error('게시글을 불러오는데 실패했습니다.');
+        const { data, count, error: queryError } = await query;
+
+        if (queryError) {
+          throw queryError;
         }
 
-        const result = await response.json();
-
-        if (result.success && result.data) {
-          // Map API response to CommunityPost interface
-          const mappedPosts: CommunityPost[] = result.data.map((post: any, index: number) => {
+        if (data) {
+          // Map data to CommunityPost interface
+          const mappedPosts: CommunityPost[] = data.map((post: any, index: number) => {
             // Generate consistent nickname based on user_id
             const userIdHash = post.user_id ? post.user_id.split('-')[0].charCodeAt(0) : index;
             const nicknameIndex = userIdHash % 10;
 
             return {
-            id: post.id,
-            title: post.title,
-            content: post.content,
-            category: post.politician_id ? 'politician_post' : 'general',
-            author: post.politician_id && post.politicians ? post.politicians.name : sampleNicknames[nicknameIndex],
-            author_id: post.user_id,
-            author_type: post.politician_id ? 'politician' as const : 'user' as const,
-            politician_id: post.politician_id,
-            politician_tag: post.politicians?.name,
-            politician_status: post.politicians?.status,
-            politician_position: post.politicians?.position,
-            member_level: undefined,
-            upvotes: post.like_count || 0,
-            downvotes: 0,
-            score: post.like_count || 0,
-            views: post.view_count || 0,
-            comment_count: post.comment_count || 0,
-            tags: post.tags || [],
-            is_pinned: post.is_pinned || false,
-            is_best: false,
-            is_hot: (post.view_count || 0) > 100,
-            created_at: post.created_at,
-            share_count: post.share_count || 0,
-          };
+              id: post.id,
+              title: post.title,
+              content: post.content,
+              category: post.politician_id ? 'politician_post' : 'general',
+              author: post.politician_id && post.politicians ? post.politicians.name : sampleNicknames[nicknameIndex],
+              author_id: post.user_id,
+              author_type: post.politician_id ? 'politician' as const : 'user' as const,
+              politician_id: post.politician_id,
+              politician_tag: post.politicians?.name,
+              politician_status: post.politicians?.status,
+              politician_position: post.politicians?.position,
+              member_level: undefined,
+              upvotes: post.like_count || 0,
+              downvotes: 0,
+              score: post.like_count || 0,
+              views: post.view_count || 0,
+              comment_count: post.comment_count || 0,
+              tags: post.tags || [],
+              is_pinned: post.is_pinned || false,
+              is_best: false,
+              is_hot: (post.view_count || 0) > 100,
+              created_at: post.created_at,
+              share_count: post.share_count || 0,
+            };
           });
 
           setPosts(mappedPosts);
 
-          // Set total pages from pagination
-          if (result.pagination) {
-            setTotalPages(result.pagination.totalPages);
+          // Set total pages
+          if (count !== null) {
+            setTotalPages(Math.ceil(count / 20));
           }
         }
       } catch (err) {
