@@ -63,27 +63,16 @@ export default function PoliticianPostDetailPage({ params }: { params: { id: str
         if (result.success && result.data) {
           const postData = result.data;
 
-          // Fetch politician name if politician_id exists
-          let politicianName = '';
-          if (postData.politician_id) {
-            try {
-              const politicianResponse = await fetch(`/api/politicians/${postData.politician_id}`);
-              if (politicianResponse.ok) {
-                const politicianResult = await politicianResponse.json();
-                if (politicianResult.success && politicianResult.data) {
-                  politicianName = `${politicianResult.data.name} 의원`;
-                }
-              }
-            } catch (err) {
-              console.error('[정치인 정보 조회] 오류:', err);
-            }
-          }
+          // Get politician name from joined data
+          const politicianName = postData.politicians?.name
+            ? `${postData.politicians.name} ${postData.politicians.position || '의원'}`
+            : '정치인';
 
           setPost({
             id: postData.id,
             title: postData.title,
             category: '정치인 글',
-            author: politicianName || '정치인',
+            author: politicianName,
             politicianName,
             timestamp: formatDate(postData.created_at),
             views: postData.view_count || 0,
