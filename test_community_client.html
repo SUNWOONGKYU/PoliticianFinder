@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>커뮤니티 게시글 테스트</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <h1>커뮤니티 게시글 테스트</h1>
+    <div id="status">로딩 중...</div>
+    <div id="posts"></div>
+
+    <script>
+        const SUPABASE_URL = 'https://ooddlafwdpzgxfefgsrx.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9vZGRsYWZ3ZHB6Z3hmZWZnc3J4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjA1OTI0MzQsImV4cCI6MjA3NjE2ODQzNH0.knUt4zhH7Ld8c0GxaiLgcQp5m_tGnjt5djcetJgd-k8';
+
+        const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        async function loadPosts() {
+            try {
+                const { data, error, count } = await supabase
+                    .from('posts')
+                    .select(`
+                        id,
+                        title,
+                        content,
+                        moderation_status,
+                        view_count,
+                        like_count,
+                        comment_count,
+                        created_at,
+                        politicians:politician_id (
+                            name,
+                            position
+                        )
+                    `, { count: 'exact' })
+                    .eq('moderation_status', 'approved')
+                    .order('created_at', { ascending: false })
+                    .limit(10);
+
+                if (error) {
+                    document.getElementById('status').innerHTML =
+                        `<span style="color: red;">❌ 오류 발생: ${error.message}</span>`;
+                    console.error('Error:', error);
+                    return;
+                }
+
+                document.getElementById('status').innerHTML =
+                    `<span style="color: green;">✅ 총 ${count}개의 게시글 발견! (10개 표시)</span>`;
+
+                if (data && data.length > 0) {
+                    const postsHtml = data.map((post, index) => `
+                        <div style="border: 1px solid #ddd; padding: 15px; margin: 10px 0; border-radius: 8px;">
+                            <h3>${index + 1}. ${post.title}</h3>
+                            <p>${post.content.substring(0, 100)}...</p>
+                            <div style="color: #666; font-size: 0.9em;">
+                                <span>👁️ 조회: ${post.view_count || 0}</span> |
+                                <span>❤️ 좋아요: ${post.like_count || 0}</span> |
+                                <span>💬 댓글: ${post.comment_count || 0}</span>
+                                ${post.politicians ? ` | 👤 ${post.politicians.name}` : ''}
+                            </div>
+                            <small style="color: #999;">${new Date(post.created_at).toLocaleString('ko-KR')}</small>
+                        </div>
+                    `).join('');
+
+                    document.getElementById('posts').innerHTML = postsHtml;
+                } else {
+                    document.getElementById('posts').innerHTML =
+                        '<p style="color: orange;">게시글이 없습니다.</p>';
+                }
+            } catch (err) {
+                document.getElementById('status').innerHTML =
+                    `<span style="color: red;">❌ 예외 발생: ${err.message}</span>`;
+                console.error('Exception:', err);
+            }
+        }
+
+        loadPosts();
+    </script>
+</body>
+</html>
