@@ -25,13 +25,13 @@ interface Politician {
 
 // composite_score를 grade로 변환하는 함수
 const calculateGrade = (score: number): string => {
-  if (score >= 90) return 'D';
-  if (score >= 85) return 'E';
-  if (score >= 80) return 'P';
-  if (score >= 75) return 'G';
-  if (score >= 70) return 'S';
-  if (score >= 65) return 'B';
-  if (score >= 60) return 'I';
+  if (score >= 900) return 'D';
+  if (score >= 850) return 'E';
+  if (score >= 800) return 'P';
+  if (score >= 750) return 'G';
+  if (score >= 700) return 'S';
+  if (score >= 650) return 'B';
+  if (score >= 600) return 'I';
   return 'Tn';
 };
 

@@ -225,10 +225,10 @@ export default function Home() {
 
   // Grade calculation helper
   const calculateGrade = (score: number): string => {
-    if (score >= 90) return 'M';
-    if (score >= 85) return 'D';
-    if (score >= 80) return 'P';
-    if (score >= 75) return 'G';
+    if (score >= 900) return 'M';
+    if (score >= 850) return 'D';
+    if (score >= 800) return 'P';
+    if (score >= 750) return 'G';
     return 'E';
   };
 
