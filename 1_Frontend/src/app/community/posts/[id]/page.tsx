@@ -7,8 +7,11 @@ interface Comment {
   id: number;
   author: string;
   userId: string;
-  memberLevel: string;
-  influenceLevel: string;
+  authorType: 'politician' | 'member';
+  politicianStatus?: string;
+  politicianPosition?: string;
+  memberLevel?: string;
+  influenceLevel?: string;
   timestamp: string;
   content: string;
   upvotes: number;
@@ -102,8 +105,22 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
   const [comments] = useState<Comment[]>([
     {
       id: 1,
+      author: '김민준',
+      userId: 'politician_001',
+      authorType: 'politician',
+      politicianStatus: '현직',
+      politicianPosition: '국회의원',
+      timestamp: '2025.10.25 14:30',
+      content: '교통 정책에 대한 좋은 제안입니다. 국회에서도 대중교통 예산 확충을 위해 노력하고 있습니다. 시민들의 의견을 적극 반영하겠습니다.',
+      upvotes: 25,
+      downvotes: 2,
+      isFollowing: false
+    },
+    {
+      id: 2,
       author: '직장인A',
       userId: 'user_001',
+      authorType: 'member',
       memberLevel: 'ML2',
       influenceLevel: '영주',
       timestamp: '2025.10.25 15:00',
@@ -113,9 +130,10 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
       isFollowing: false
     },
     {
-      id: 2,
+      id: 3,
       author: '교통전문가',
       userId: 'user_002',
+      authorType: 'member',
       memberLevel: 'ML4',
       influenceLevel: '영주',
       timestamp: '2025.10.25 15:30',
@@ -125,9 +143,10 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
       isFollowing: false
     },
     {
-      id: 3,
+      id: 4,
       author: '주민123',
       userId: 'user_003',
+      authorType: 'member',
       memberLevel: 'ML1',
       influenceLevel: '영주',
       timestamp: '2025.10.25 16:00',
@@ -359,14 +378,25 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
               <div key={comment.id} className="border-b pb-4">
                 <div className="mb-2">
                   <div className="flex items-center gap-3 text-xs text-gray-500 flex-wrap">
-                    <Link href={`/users/${comment.userId}/profile`} className="font-medium text-purple-600 hover:text-purple-700 hover:underline">
-                      {comment.author}
-                    </Link>
-                    <span className="text-gray-900" aria-label={`활동 등급 ${comment.memberLevel}`} title={`활동 등급: ${comment.memberLevel}`}>{comment.memberLevel}</span>
-                    <span className="text-xs text-emerald-900 font-medium" aria-label={`영향력 등급 ${comment.influenceLevel}`} title={`영향력 등급: ${comment.influenceLevel}`}>🏰 {comment.influenceLevel}</span>
-                    <button className="px-2 py-0.5 border border-emerald-700 text-emerald-900 rounded text-xs hover:bg-gray-50 transition">
-                      + 팔로우
-                    </button>
+                    {comment.authorType === 'politician' ? (
+                      <>
+                        <Link href={`/politicians/${comment.userId}`} className="font-medium text-primary-600 hover:text-primary-700 hover:underline">
+                          {comment.author}
+                        </Link>
+                        <span className="text-gray-900">{comment.politicianStatus} {comment.politicianPosition}</span>
+                      </>
+                    ) : (
+                      <>
+                        <Link href={`/users/${comment.userId}/profile`} className="font-medium text-secondary-600 hover:text-secondary-700 hover:underline">
+                          {comment.author}
+                        </Link>
+                        <span className="text-gray-900" aria-label={`활동 등급 ${comment.memberLevel}`} title={`활동 등급: ${comment.memberLevel}`}>{comment.memberLevel}</span>
+                        <span className="text-xs text-emerald-900 font-medium" aria-label={`영향력 등급 ${comment.influenceLevel}`} title={`영향력 등급: ${comment.influenceLevel}`}>🏰 {comment.influenceLevel}</span>
+                        <button className="px-2 py-0.5 border border-emerald-700 text-emerald-900 rounded text-xs hover:bg-gray-50 transition">
+                          + 팔로우
+                        </button>
+                      </>
+                    )}
                     <span>{comment.timestamp}</span>
                     <span className="text-red-600">👍 {comment.upvotes}</span>
                     <span className="text-gray-400">👎 {comment.downvotes}</span>
