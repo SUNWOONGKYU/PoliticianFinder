@@ -169,7 +169,12 @@ export async function GET(request: NextRequest) {
     let queryBuilder = supabase
       .from("posts")
       .select(`
-        *
+        *,
+        politicians:politician_id (
+          name,
+          position,
+          status
+        )
       `, { count: "exact" })
 
     // 4. 필터 적용
