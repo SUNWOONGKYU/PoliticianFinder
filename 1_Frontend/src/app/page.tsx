@@ -1027,10 +1027,11 @@ export default function Home() {
                                     {post.author}
                                   </span>
                                   {post.member_level && (
-                                    <span className="text-gray-900 font-medium" title={`활동 등급: ${post.member_level}`}>
+                                    <span className="text-xs text-gray-900 font-medium" title={`활동 등급: ${post.member_level}`}>
                                       {post.member_level}
                                     </span>
                                   )}
+                                  <span className="text-xs text-emerald-900 font-medium">🏰 영주</span>
                                 </>
                               )}
                               <span>{formatDate(post.created_at)}</span>
