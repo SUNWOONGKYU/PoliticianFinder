@@ -102,6 +102,12 @@ export async function GET(
       created_at: politician.created_at,
       updated_at: politician.updated_at,
 
+      // 평가 점수
+      evaluation_score: politician.evaluation_score,
+      ai_score: politician.ai_score,
+      user_rating: politician.user_rating,
+      rating_count: politician.rating_count,
+
       // AI 평가 정보
       ai_evaluations: evaluationsByModel,
       has_evaluations: Object.keys(evaluationsByModel).length > 0,

@@ -168,25 +168,28 @@ export default function PoliticiansPage() {
           }
 
           // API 데이터를 프론트엔드 형식으로 변환
-          const transformedData = data.data.map((p: any, index: number) => ({
-            rank: (currentPage - 1) * ITEMS_PER_PAGE + index + 1,
-            name: p.name,
-            status: p.status || '현직',
-            position: p.position || '',
-            category: p.position || '',
-            party: p.party || '',
-            region: p.region || '',
-            district: '',
-            grade: calculateGrade(p.composite_score || 0),
-            overallScore: p.composite_score || 0,
-            claudeScore: p.composite_score || 0,
-            chatgptScore: p.composite_score || 0,
-            geminiScore: p.composite_score || 0,
-            grokScore: p.composite_score || 0,
-            perplexityScore: p.composite_score || 0,
-            memberRating: p.avg_rating || 0,
-            memberCount: 0,
-          }));
+          const transformedData = data.data.map((p: any, index: number) => {
+            const aiScore = p.ai_score || p.evaluation_score || 0;
+            return {
+              rank: (currentPage - 1) * ITEMS_PER_PAGE + index + 1,
+              name: p.name,
+              status: p.status || '현직',
+              position: p.position || '',
+              category: p.position || '',
+              party: p.party || '',
+              region: p.region || '',
+              district: '',
+              grade: calculateGrade(aiScore),
+              overallScore: aiScore,
+              claudeScore: aiScore,
+              chatgptScore: aiScore,
+              geminiScore: aiScore,
+              grokScore: aiScore,
+              perplexityScore: aiScore,
+              memberRating: p.user_rating || 0,
+              memberCount: p.rating_count || 0,
+            };
+          });
           console.log(`Loaded ${transformedData.length} politicians from API (Page ${currentPage}/${data.pagination?.totalPages || 1})`);
           setPoliticians(transformedData);
         } else {
