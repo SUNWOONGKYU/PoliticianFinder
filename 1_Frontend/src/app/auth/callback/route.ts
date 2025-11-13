@@ -63,8 +63,18 @@ export async function GET(request: NextRequest) {
         status: error.status,
         code: error.code,
       });
+
+      // Determine user-friendly error message based on error type
+      let userMessage = '이메일 인증에 실패했습니다.';
+
+      if (error.message.includes('expired') || error.message.includes('invalid')) {
+        userMessage = '인증 링크가 만료되었거나 이미 사용되었습니다. 다시 회원가입을 시도해주세요.';
+      } else if (error.message.includes('already confirmed')) {
+        userMessage = '이미 인증이 완료된 계정입니다. 로그인해주세요.';
+      }
+
       return NextResponse.redirect(
-        `${requestUrl.origin}/auth/login?error=${encodeURIComponent('이메일 인증에 실패했습니다: ' + error.message)}`
+        `${requestUrl.origin}/auth/login?error=${encodeURIComponent(userMessage)}`
       );
     }
 
