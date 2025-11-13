@@ -38,9 +38,15 @@ export async function GET(request: NextRequest) {
       query = query.or(`username.ilike.%${search}%,email.ilike.%${search}%`);
     }
 
-    // 상태 필터
+    // 상태 필터 (status -> is_active/is_banned 매핑)
     if (status) {
-      query = query.eq('status', status);
+      if (status === 'active') {
+        query = query.eq('is_active', true).eq('is_banned', false);
+      } else if (status === 'banned') {
+        query = query.eq('is_banned', true);
+      } else if (status === 'suspended') {
+        query = query.eq('is_active', false).eq('is_banned', false);
+      }
     }
 
     // 역할 필터
