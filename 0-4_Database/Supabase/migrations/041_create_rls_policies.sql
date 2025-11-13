@@ -5,7 +5,7 @@
 -- ============================================================================
 -- Enable RLS on all tables
 -- ============================================================================
-ALTER TABLE users ENABLE ROW LEVEL SECURITY;
+
 ALTER TABLE politicians ENABLE ROW LEVEL SECURITY;
 ALTER TABLE careers ENABLE ROW LEVEL SECURITY;
 ALTER TABLE pledges ENABLE ROW LEVEL SECURITY;
@@ -34,7 +34,7 @@ CREATE OR REPLACE FUNCTION is_admin()
 RETURNS BOOLEAN AS $$
 BEGIN
   RETURN EXISTS (
-    SELECT 1 FROM users
+    SELECT 1 FROM profiles
     WHERE id = auth.uid() AND role = 'admin'
   );
 END;
@@ -44,44 +44,13 @@ CREATE OR REPLACE FUNCTION is_moderator()
 RETURNS BOOLEAN AS $$
 BEGIN
   RETURN EXISTS (
-    SELECT 1 FROM users
+    SELECT 1 FROM profiles
     WHERE id = auth.uid() AND role IN ('admin', 'moderator')
   );
 END;
 $$ LANGUAGE plpgsql SECURITY DEFINER;
 
--- ============================================================================
--- RLS Policies: Users
--- ============================================================================
 
--- Anyone can view non-banned users (public profiles)
-CREATE POLICY "Anyone can view non-banned users"
-  ON users FOR SELECT
-  USING (is_banned = FALSE);
-
--- Users can view their own profile even if banned
-CREATE POLICY "Users can view own profile"
-  ON users FOR SELECT
-  USING (auth.uid() = id);
-
--- Users can update their own profile
-CREATE POLICY "Users can update own profile"
-  ON users FOR UPDATE
-  USING (auth.uid() = id)
-  WITH CHECK (
-    auth.uid() = id AND
-    role = (SELECT role FROM users WHERE id = auth.uid()) -- Can't change own role
-  );
-
--- Admins can view all users
-CREATE POLICY "Admins can view all users"
-  ON users FOR SELECT
-  USING (is_admin());
-
--- Admins can update any user
-CREATE POLICY "Admins can update users"
-  ON users FOR UPDATE
-  USING (is_admin());
 
 -- ============================================================================
 -- RLS Policies: Politicians
@@ -155,10 +124,10 @@ CREATE POLICY "Moderators can delete pledges"
 -- RLS Policies: Posts
 -- ============================================================================
 
--- Anyone can view approved posts
-CREATE POLICY "Anyone can view approved posts"
+-- Anyone can view approved or pending posts
+CREATE POLICY "Anyone can view non-rejected posts"
   ON posts FOR SELECT
-  USING (moderation_status = 'approved');
+  USING (moderation_status <> 'rejected');
 
 -- Users can view their own posts
 CREATE POLICY "Users can view own posts"

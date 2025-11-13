@@ -5,7 +5,7 @@
 -- Posts table
 CREATE TABLE IF NOT EXISTS posts (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  user_id UUID NOT NULL REFERENCES profiles(id) ON DELETE CASCADE,
   politician_id UUID REFERENCES politicians(id) ON DELETE SET NULL,
   title TEXT NOT NULL,
   content TEXT NOT NULL,
@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS posts (
   moderation_status TEXT DEFAULT 'pending' CHECK (moderation_status IN ('pending', 'approved', 'rejected', 'flagged')),
   moderation_reason TEXT,
   moderated_at TIMESTAMPTZ,
-  moderated_by UUID REFERENCES users(id),
+  moderated_by UUID REFERENCES profiles(id),
   created_at TIMESTAMPTZ DEFAULT NOW(),
   updated_at TIMESTAMPTZ DEFAULT NOW()
 );
