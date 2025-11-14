@@ -709,14 +709,11 @@ export default function CommunityPage() {
           <div className="space-y-4">
             {filteredPosts.map((post) => (
               <div key={post.id} className="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition cursor-pointer" onClick={() => router.push(`/community/posts/${post.id}`)}>
-                  <div className="flex items-start justify-between mb-3">
-                    <div className="flex items-center space-x-2">
-                      {post.is_hot && <span className="px-2 py-1 bg-red-100 text-red-700 text-xs font-medium rounded">Hot</span>}
-                      {post.is_best && <span className="px-2 py-1 bg-yellow-100 text-yellow-800 text-xs font-medium rounded">Best</span>}
-                    </div>
+                  <div className="flex items-center gap-2 mb-2">
+                    {post.is_hot && <span className="px-2 py-1 bg-red-100 text-red-700 text-xs font-medium rounded">Hot</span>}
+                    {post.is_best && <span className="px-2 py-1 bg-yellow-100 text-yellow-800 text-xs font-medium rounded">Best</span>}
+                    <h3 className="text-lg font-bold text-gray-900 hover:text-primary-600">{post.title}</h3>
                   </div>
-
-                  <h3 className="text-lg font-bold text-gray-900 mb-2 hover:text-primary-600">{post.title}</h3>
 
                   {post.politician_tag && (
                     <div className="mb-2">
