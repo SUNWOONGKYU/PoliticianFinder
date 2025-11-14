@@ -108,7 +108,10 @@ export async function GET(request: NextRequest) {
 
     let query = supabase
       .from('reports')
-      .select('*, profiles!reports_reporter_id_fkey(id, username, email)', { count: 'exact' })
+      .select(`
+        *,
+        users:profiles!reports_reporter_id_fkey(id, username, email)
+      `, { count: 'exact' })
       .order('created_at', { ascending: false });
 
     if (status) {
