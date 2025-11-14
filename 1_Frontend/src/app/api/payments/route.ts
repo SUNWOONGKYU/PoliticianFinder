@@ -1,15 +1,10 @@
-// P1BA4: Mock API - 기타 (결제 API - 정치인 검증 및 결제 처리 포함)
-// Supabase 연동 - 결제 데이터 관리
+// P1BA4: Real API - 결제 API
+// Supabase RLS 연동: 실제 인증 사용자 기반 결제
 
 import { NextRequest, NextResponse } from "next/server";
-import { createClient } from "@supabase/supabase-js";
 import { z } from "zod";
-
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
-
-// Mock User UUID for testing
-const MOCK_USER_ID = '7f61567b-bbdf-427a-90a9-0ee060ef4595';
+import { createClient } from "@/lib/supabase/server";
+import { requireAuth } from "@/lib/auth/helpers";
 
 const paymentSchema = z.object({
   user_id: z.string().uuid().optional(),
@@ -21,12 +16,18 @@ const paymentSchema = z.object({
 
 export async function POST(request: NextRequest) {
   try {
-    const supabase = createClient(supabaseUrl, supabaseServiceKey);
+    const authResult = await requireAuth();
+    if (authResult instanceof NextResponse) {
+      return authResult;
+    }
+    const { user } = authResult;
+
+    const supabase = createClient();
     const body = await request.json();
 
     const payment = paymentSchema.parse({
       ...body,
-      user_id: body.user_id || MOCK_USER_ID,
+      user_id: user.id,
     });
 
     // 정치인 검증 확인
@@ -101,23 +102,21 @@ export async function POST(request: NextRequest) {
 
 export async function GET(request: NextRequest) {
   try {
-    const supabase = createClient(supabaseUrl, supabaseServiceKey);
-    const user_id = request.nextUrl.searchParams.get("user_id") || MOCK_USER_ID;
+    const authResult = await requireAuth();
+    if (authResult instanceof NextResponse) {
+      return authResult;
+    }
+    const { user } = authResult;
+
+    const supabase = createClient();
     const page = parseInt(request.nextUrl.searchParams.get('page') || '1');
     const limit = parseInt(request.nextUrl.searchParams.get('limit') || '20');
-
-    if (!user_id) {
-      return NextResponse.json(
-        { success: false, error: "user_id is required" },
-        { status: 400 }
-      );
-    }
 
     let query = supabase
       .from('payments')
       .select('*, politicians(name, party, position)', { count: 'exact' })
-      .eq('user_id', user_id)
-      .order('created_at', { ascending: false });
+      .eq('user_id', user.id)
+      .order('created_at', { ascending: false});
 
     const start = (page - 1) * limit;
     const end = start + limit - 1;
