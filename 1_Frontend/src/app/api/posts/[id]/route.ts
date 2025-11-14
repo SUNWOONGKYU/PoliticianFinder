@@ -1,12 +1,10 @@
-// P1BA3: Mock API - 커뮤니티
-// Supabase 연동: 게시글 상세 조회/수정/삭제
+// P1BA3: Real API - 커뮤니티 게시글 상세
+// Supabase RLS 연동: 게시글 조회/수정/삭제
 
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 import { createClient } from '@/lib/supabase/server';
-
-// Mock User UUID
-const MOCK_USER_ID = "7f61567b-bbdf-427a-90a9-0ee060ef4595";
+import { requireAuth } from '@/lib/auth/helpers';
 
 const updatePostSchema = z.object({
   title: z.string().min(5, "제목은 최소 5자 이상이어야 합니다").optional(),
@@ -98,14 +96,21 @@ export async function PATCH(
   { params }: { params: { id: string } }
 ) {
   try {
+    // 1. 인증 확인
+    const authResult = await requireAuth();
+    if (authResult instanceof NextResponse) {
+      return authResult;
+    }
+    const { user } = authResult;
+
     const { id } = params;
     const body = await request.json();
     const validated = updatePostSchema.parse(body);
 
-    // Supabase 클라이언트 생성
+    // 2. Supabase 클라이언트 생성
     const supabase = createClient();
 
-    // 게시글 존재 여부 및 권한 확인
+    // 3. 게시글 존재 여부 및 권한 확인
     const { data: existingPost, error: fetchError } = await supabase
       .from('community_posts')
       .select('user_id')
@@ -113,23 +118,41 @@ export async function PATCH(
       .single();
 
     if (fetchError) {
-      console.error('Supabase query error:', fetchError);
+      console.error('[PATCH /api/posts/[id]] Supabase query error:', fetchError);
       if (fetchError.code === 'PGRST116') {
         return NextResponse.json(
-          { success: false, error: '게시글을 찾을 수 없습니다.' },
+          {
+            success: false,
+            error: {
+              code: 'NOT_FOUND',
+              message: '게시글을 찾을 수 없습니다.',
+            },
+          },
           { status: 404 }
         );
       }
       return NextResponse.json(
-        { success: false, error: '게시글 조회 중 오류가 발생했습니다.' },
+        {
+          success: false,
+          error: {
+            code: 'DATABASE_ERROR',
+            message: '게시글 조회 중 오류가 발생했습니다.',
+          },
+        },
         { status: 500 }
       );
     }
 
-    // 권한 확인 (실제 환경에서는 JWT 토큰에서 user_id를 가져와야 함)
-    if (existingPost.user_id !== MOCK_USER_ID) {
+    // 4. 권한 확인 (작성자 본인만 수정 가능)
+    if (existingPost.user_id !== user.id) {
       return NextResponse.json(
-        { success: false, error: '게시글 수정 권한이 없습니다.' },
+        {
+          success: false,
+          error: {
+            code: 'FORBIDDEN',
+            message: '게시글 수정 권한이 없습니다.',
+          },
+        },
         { status: 403 }
       );
     }
@@ -187,12 +210,19 @@ export async function DELETE(
   { params }: { params: { id: string } }
 ) {
   try {
+    // 1. 인증 확인
+    const authResult = await requireAuth();
+    if (authResult instanceof NextResponse) {
+      return authResult;
+    }
+    const { user } = authResult;
+
     const { id } = params;
 
-    // Supabase 클라이언트 생성
+    // 2. Supabase 클라이언트 생성
     const supabase = createClient();
 
-    // 게시글 존재 여부 및 권한 확인
+    // 3. 게시글 존재 여부 및 권한 확인
     const { data: existingPost, error: fetchError } = await supabase
       .from('community_posts')
       .select('user_id')
@@ -200,23 +230,41 @@ export async function DELETE(
       .single();
 
     if (fetchError) {
-      console.error('Supabase query error:', fetchError);
+      console.error('[DELETE /api/posts/[id]] Supabase query error:', fetchError);
       if (fetchError.code === 'PGRST116') {
         return NextResponse.json(
-          { success: false, error: '게시글을 찾을 수 없습니다.' },
+          {
+            success: false,
+            error: {
+              code: 'NOT_FOUND',
+              message: '게시글을 찾을 수 없습니다.',
+            },
+          },
           { status: 404 }
         );
       }
       return NextResponse.json(
-        { success: false, error: '게시글 조회 중 오류가 발생했습니다.' },
+        {
+          success: false,
+          error: {
+            code: 'DATABASE_ERROR',
+            message: '게시글 조회 중 오류가 발생했습니다.',
+          },
+        },
         { status: 500 }
       );
     }
 
-    // 권한 확인 (실제 환경에서는 JWT 토큰에서 user_id를 가져와야 함)
-    if (existingPost.user_id !== MOCK_USER_ID) {
+    // 4. 권한 확인 (작성자 본인만 삭제 가능)
+    if (existingPost.user_id !== user.id) {
       return NextResponse.json(
-        { success: false, error: '게시글 삭제 권한이 없습니다.' },
+        {
+          success: false,
+          error: {
+            code: 'FORBIDDEN',
+            message: '게시글 삭제 권한이 없습니다.',
+          },
+        },
         { status: 403 }
       );
     }
