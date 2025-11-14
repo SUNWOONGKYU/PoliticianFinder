@@ -31,92 +31,8 @@ const calculateGrade = (score: number): string => {
   return 'Tn';
 };
 
-const SAMPLE_POLITICIANS: Politician[] = [
-  {
-    rank: 1,
-    id: 'POL001',
-    name: '김민준',
-    identity: '현직',
-    title: '국회의원 (21대)',
-    position: '국회의원',
-    category: '국회의원',
-    party: '더불어민주당',
-    region: '서울',
-    district: '강남구 갑',
-    claudeScore: 850,
-    totalScore: 850,
-    grade: 'E',
-    gradeEmoji: '💚',
-    overallScore: 850,
-    chatgptScore: 820,
-    geminiScore: 870,
-    grokScore: 840,
-    perplexityScore: 860,
-    userRating: 4,
-    ratingCount: 1247,
-    memberRating: 4,
-    memberCount: 1247,
-    profileImageUrl: null,
-    updatedAt: '2025-01-20T14:30:00Z',
-  },
-  {
-    rank: 2,
-    id: 'POL002',
-    name: '이서연',
-    identity: '현직',
-    title: '국회의원 (21대)',
-    position: '국회의원',
-    category: '국회의원',
-    party: '국민의힘',
-    region: '부산',
-    district: '해운대구 을',
-    claudeScore: 780,
-    totalScore: 780,
-    grade: 'G',
-    gradeEmoji: '🥇',
-    overallScore: 780,
-    chatgptScore: 800,
-    geminiScore: 760,
-    grokScore: 790,
-    perplexityScore: 770,
-    userRating: 4,
-    ratingCount: 1089,
-    memberRating: 4,
-    memberCount: 1089,
-    profileImageUrl: null,
-    updatedAt: '2025-01-20T14:30:00Z',
-  },
-  {
-    rank: 3,
-    id: 'POL003',
-    name: '박지후',
-    identity: '현직',
-    title: '서울시의원',
-    position: '서울시의원',
-    category: '광역의원',
-    party: '정의당',
-    region: '서울특별시',
-    district: '',
-    claudeScore: 720,
-    totalScore: 720,
-    grade: 'E',
-    gradeEmoji: '💚',
-    overallScore: 720,
-    chatgptScore: 740,
-    geminiScore: 710,
-    grokScore: 730,
-    perplexityScore: 700,
-    userRating: 4,
-    ratingCount: 543,
-    memberRating: 4,
-    memberCount: 543,
-    profileImageUrl: null,
-    updatedAt: '2025-01-20T14:30:00Z',
-  },
-];
-
 export default function PoliticiansPage() {
-  const [politicians, setPoliticians] = useState(SAMPLE_POLITICIANS);
+  const [politicians, setPoliticians] = useState<Politician[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -243,13 +159,13 @@ export default function PoliticiansPage() {
           console.log(`Loaded ${transformedData.length} politicians from API (Page ${currentPage}/${data.pagination?.totalPages || 1})`);
           setPoliticians(transformedData);
         } else {
-          console.warn('No data from API, using sample data');
-          setPoliticians(SAMPLE_POLITICIANS);
+          console.warn('No data from API');
+          setPoliticians([]);
         }
       } catch (err) {
         console.error('Error fetching politicians:', err);
         setError(err instanceof Error ? err.message : 'An error occurred');
-        setPoliticians(SAMPLE_POLITICIANS);
+        setPoliticians([]);
       } finally {
         setLoading(false);
       }

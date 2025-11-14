@@ -11,40 +11,12 @@ interface SearchResult {
   score?: number;
 }
 
-const SAMPLE_RESULTS: SearchResult[] = [
-  {
-    id: 'POL001',
-    type: 'politician',
-    name: '김민준',
-    subtext: '더불어민주당 | 서울 강남구',
-    score: 84.8,
-  },
-  {
-    id: 'POL002',
-    type: 'politician',
-    name: '이준호',
-    subtext: '국민의힘 | 부산 부산진구',
-    score: 81.5,
-  },
-  {
-    id: 'COM001',
-    type: 'community',
-    name: '정책 토론 - 부동산 규제',
-    subtext: '커뮤니티 | 345개 댓글',
-  },
-];
-
 export default function SearchPage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [filterType, setFilterType] = useState('all');
+  const [results, setResults] = useState<SearchResult[]>([]);
 
-  const results = useMemo(() => {
-    return SAMPLE_RESULTS.filter((result) => {
-      const matchesSearch = !searchTerm || result.name.toLowerCase().includes(searchTerm.toLowerCase());
-      const matchesFilter = filterType === 'all' || result.type === filterType;
-      return matchesSearch && matchesFilter;
-    });
-  }, [searchTerm, filterType]);
+  // 검색 기능은 API를 통해 구현 필요
 
   return (
     <div className="min-h-screen bg-gray-50">
