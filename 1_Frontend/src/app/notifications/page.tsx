@@ -1,20 +1,20 @@
+// P3BA28: 알림 시스템 API 연동
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import Link from 'next/link';
 
 interface Notification {
-  id: number;
-  type: 'comment' | 'like' | 'share' | 'politician_update' | 'notice' | 'system';
+  id: string;
+  type: 'post_like' | 'comment' | 'follow' | 'payment' | 'system';
   title: string;
-  content: string;
-  timestamp: string;
-  read: boolean;
-  link: string;
-  avatar?: string | null;
+  message: string;
+  link?: string;
+  is_read: boolean;
+  created_at: string;
 }
 
-const SAMPLE_NOTIFICATIONS: Notification[] = [
+const SAMPLE_NOTIFICATIONS_BACKUP: any[] = [
   {
     id: 1,
     type: 'comment',
@@ -26,7 +26,7 @@ const SAMPLE_NOTIFICATIONS: Notification[] = [
   },
   {
     id: 2,
-    type: 'like',
+    type: 'post_like',
     title: '게시글에 공감을 받았습니다',
     content: '15명이 "2025년 지역 발전 계획 공유드립니다" 게시글에 공감을 눌렀습니다.',
     timestamp: '2025-01-28T14:20:00',
@@ -44,7 +44,7 @@ const SAMPLE_NOTIFICATIONS: Notification[] = [
   },
   {
     id: 4,
-    type: 'share',
+    type: 'follow',
     title: '게시글이 공유되었습니다',
     content: '정치관심러님이 "예산안 검토 의견" 게시글을 공유했습니다.',
     timestamp: '2025-01-28T12:45:00',
@@ -53,7 +53,7 @@ const SAMPLE_NOTIFICATIONS: Notification[] = [
   },
   {
     id: 5,
-    type: 'notice',
+    type: 'system',
     title: '새로운 공지사항이 등록되었습니다',
     content: '서비스 이용약관 변경 안내 - 2025년 2월 1일부터 변경된 약관이 적용됩니다.',
     timestamp: '2025-01-28T10:00:00',
@@ -62,7 +62,7 @@ const SAMPLE_NOTIFICATIONS: Notification[] = [
   },
   {
     id: 6,
-    type: 'politician_update',
+    type: 'payment',
     title: '관심 정치인의 새 글이 등록되었습니다',
     content: '김민준 의원님이 "2025년 1월 활동 보고" 글을 작성하셨습니다.',
     timestamp: '2025-01-28T09:30:00',
@@ -71,7 +71,7 @@ const SAMPLE_NOTIFICATIONS: Notification[] = [
   },
   {
     id: 7,
-    type: 'like',
+    type: 'post_like',
     title: '댓글에 공감을 받았습니다',
     content: '8명이 회원님의 댓글에 공감을 눌렀습니다.',
     timestamp: '2025-01-27T18:45:00',
@@ -89,7 +89,7 @@ const SAMPLE_NOTIFICATIONS: Notification[] = [
   },
   {
     id: 9,
-    type: 'share',
+    type: 'follow',
     title: '게시글이 공유되었습니다',
     content: '3명이 "지역 현안 토론회 후기" 게시글을 공유했습니다.',
     timestamp: '2025-01-27T14:10:00',
@@ -108,8 +108,31 @@ const SAMPLE_NOTIFICATIONS: Notification[] = [
 ];
 
 export default function NotificationsPage() {
-  const [notifications, setNotifications] = useState<Notification[]>(SAMPLE_NOTIFICATIONS);
-  const [currentFilter, setCurrentFilter] = useState<'all' | 'comment' | 'like' | 'share' | 'politician_update' | 'notice' | 'system'>('all');
+  const [notifications, setNotifications] = useState<Notification[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [currentFilter, setCurrentFilter] = useState<'all' | 'post_like' | 'comment' | 'follow' | 'payment' | 'system'>('all');
+
+  // API에서 알림 데이터 가져오기
+  useEffect(() => {
+    const fetchNotifications = async () => {
+      try {
+        setLoading(true);
+        const response = await fetch('/api/notifications');
+        if (response.ok) {
+          const data = await response.json();
+          if (data.success && data.data) {
+            setNotifications(data.data);
+          }
+        }
+      } catch (err) {
+        console.error('Error fetching notifications:', err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchNotifications();
+  }, []);
 
   const filteredNotifications = useMemo(() => {
     if (currentFilter === 'all') {
@@ -118,7 +141,7 @@ export default function NotificationsPage() {
     return notifications.filter(n => n.type === currentFilter);
   }, [notifications, currentFilter]);
 
-  const unreadCount = useMemo(() => notifications.filter(n => !n.read).length, [notifications]);
+  const unreadCount = useMemo(() => notifications.filter(n => !n.is_read).length, [notifications]);
 
   const getNotificationIcon = (type: string) => {
     switch (type) {
@@ -128,24 +151,18 @@ export default function NotificationsPage() {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
           </svg>
         );
-      case 'like':
+      case 'post_like':
         return <span className="text-2xl">👍</span>;
-      case 'share':
+      case 'follow':
         return (
           <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
-          </svg>
-        );
-      case 'politician_update':
-        return (
-          <svg className="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
           </svg>
         );
-      case 'notice':
+      case 'payment':
         return (
           <svg className="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
           </svg>
         );
       case 'system':
@@ -169,22 +186,59 @@ export default function NotificationsPage() {
     return `${year}-${month}-${day} ${hours}:${minutes}`;
   };
 
-  const handleMarkAllRead = () => {
-    setNotifications(notifications.map(n => ({ ...n, read: true })));
-  };
-
-  const handleDeleteAllRead = () => {
-    if (window.confirm('읽은 알림을 모두 삭제하시겠습니까?')) {
-      setNotifications(notifications.filter(n => !n.read));
+  const handleMarkAllRead = async () => {
+    try {
+      // 읽지 않은 알림들을 모두 읽음 처리
+      const unreadNotifications = notifications.filter(n => !n.is_read);
+      await Promise.all(
+        unreadNotifications.map(n =>
+          fetch(`/api/notifications?notificationId=${n.id}`, { method: 'PATCH' })
+        )
+      );
+      setNotifications(notifications.map(n => ({ ...n, is_read: true })));
+    } catch (err) {
+      console.error('Error marking all as read:', err);
     }
   };
 
-  const handleDeleteNotification = (id: number) => {
-    setNotifications(notifications.filter(n => n.id !== id));
+  const handleDeleteAllRead = async () => {
+    if (!window.confirm('읽은 알림을 모두 삭제하시겠습니까?')) return;
+
+    try {
+      const readNotifications = notifications.filter(n => n.is_read);
+      await Promise.all(
+        readNotifications.map(n =>
+          fetch(`/api/notifications?notificationId=${n.id}`, { method: 'DELETE' })
+        )
+      );
+      setNotifications(notifications.filter(n => !n.is_read));
+    } catch (err) {
+      console.error('Error deleting read notifications:', err);
+    }
   };
 
-  const handleNotificationClick = (notification: Notification) => {
-    setNotifications(notifications.map(n => (n.id === notification.id ? { ...n, read: true } : n)));
+  const handleDeleteNotification = async (id: string) => {
+    try {
+      await fetch(`/api/notifications?notificationId=${id}`, { method: 'DELETE' });
+      setNotifications(notifications.filter(n => n.id !== id));
+    } catch (err) {
+      console.error('Error deleting notification:', err);
+    }
+  };
+
+  const handleNotificationClick = async (notification: Notification) => {
+    if (!notification.is_read) {
+      try {
+        await fetch(`/api/notifications?notificationId=${notification.id}`, { method: 'PATCH' });
+        setNotifications(notifications.map(n => (n.id === notification.id ? { ...n, is_read: true } : n)));
+      } catch (err) {
+        console.error('Error marking as read:', err);
+      }
+    }
+    // 링크가 있으면 이동
+    if (notification.link) {
+      window.location.href = notification.link;
+    }
   };
 
   return (
@@ -218,7 +272,7 @@ export default function NotificationsPage() {
         {/* Filter Tabs */}
         <div className="bg-white rounded-lg shadow-md mb-6">
           <div className="flex border-b overflow-x-auto">
-            {['all', 'comment', 'like', 'share', 'politician_update', 'notice', 'system'].map((filter) => (
+            {['all', 'comment', 'post_like', 'follow', 'payment', 'system', 'system'].map((filter) => (
               <button
                 key={filter}
                 onClick={() => setCurrentFilter(filter as any)}
@@ -228,10 +282,10 @@ export default function NotificationsPage() {
               >
                 {filter === 'all' && '전체'}
                 {filter === 'comment' && '댓글'}
-                {filter === 'like' && '공감'}
-                {filter === 'share' && '공유'}
-                {filter === 'politician_update' && '정치인'}
-                {filter === 'notice' && '공지사항'}
+                {filter === 'post_like' && '공감'}
+                {filter === 'follow' && '공유'}
+                {filter === 'payment' && '정치인'}
+                {filter === 'system' && '공지사항'}
                 {filter === 'system' && '시스템'}
               </button>
             ))}
@@ -252,7 +306,7 @@ export default function NotificationsPage() {
                 <div
                   key={notification.id}
                   onClick={() => handleNotificationClick(notification)}
-                  className={`p-4 hover:bg-gray-50 cursor-pointer transition-colors ${!notification.read ? 'bg-blue-50' : ''}`}
+                  className={`p-4 hover:bg-gray-50 cursor-pointer transition-colors ${!notification.is_read ? 'bg-blue-50' : ''}`}
                 >
                   <div className="flex items-start gap-4">
                     <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center">
@@ -261,7 +315,7 @@ export default function NotificationsPage() {
                     <div className="flex-1 min-w-0">
                       <div className="flex items-start justify-between mb-1">
                         <h3 className="font-bold text-gray-900 flex items-center gap-2">
-                          {!notification.read && <span className="inline-block w-2 h-2 bg-blue-600 rounded-full"></span>}
+                          {!notification.is_read && <span className="inline-block w-2 h-2 bg-blue-600 rounded-full"></span>}
                           {notification.title}
                         </h3>
                         <button
@@ -276,8 +330,8 @@ export default function NotificationsPage() {
                           </svg>
                         </button>
                       </div>
-                      <p className="text-sm text-gray-600 mb-2">{notification.content}</p>
-                      <span className="text-xs text-gray-500">{formatTimestamp(notification.timestamp)}</span>
+                      <p className="text-sm text-gray-600 mb-2">{notification.message}</p>
+                      <span className="text-xs text-gray-500">{formatTimestamp(notification.created_at)}</span>
                     </div>
                   </div>
                 </div>
