@@ -26,7 +26,8 @@ export default function AdminPoliticiansPage() {
     name_en: '',
     party: '',
     position: '', // 출마직종
-    region: '',
+    region: '', // 광역 지역
+    district: '', // 기초 지역
     identity: '', // 신분
     title: '', // 직책
     birth_date: '', // 생년월일
@@ -144,8 +145,8 @@ export default function AdminPoliticiansPage() {
     e.preventDefault();
 
     // Validate required fields
-    if (!addFormData.name || !addFormData.party || !addFormData.position || !addFormData.region || !addFormData.identity) {
-      alert('필수 항목을 모두 입력해주세요.');
+    if (!addFormData.name || !addFormData.party || !addFormData.position || !addFormData.region || !addFormData.district || !addFormData.identity) {
+      alert('필수 항목을 모두 입력해주세요 (이름, 정당, 출마직종, 광역 지역, 기초 지역, 신분)');
       return;
     }
 
@@ -162,6 +163,7 @@ export default function AdminPoliticiansPage() {
           party: addFormData.party,
           position: addFormData.position,
           region: addFormData.region,
+          district: addFormData.district || null,
           identity: addFormData.identity,
           title: addFormData.title || null,
           birth_date: addFormData.birth_date || null,
@@ -186,6 +188,7 @@ export default function AdminPoliticiansPage() {
           party: '',
           position: '',
           region: '',
+          district: '',
           identity: '',
           title: '',
           birth_date: '',
@@ -219,6 +222,7 @@ export default function AdminPoliticiansPage() {
       party: '',
       position: '',
       region: '',
+      district: '',
       identity: '',
       title: '',
       birth_date: '',
@@ -490,16 +494,32 @@ export default function AdminPoliticiansPage() {
                   </select>
                 </div>
 
-                {/* Region */}
+                {/* Region (광역) */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
-                    지역 <span className="text-red-500">*</span>
+                    광역 지역 <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="text"
                     value={addFormData.region}
                     onChange={(e) => handleFormChange('region', e.target.value)}
-                    placeholder="예: 서울 강남구, 부산 해운대구"
+                    placeholder="예: 서울, 부산, 경기"
+                    required
+                    disabled={submitting}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:bg-gray-100"
+                  />
+                </div>
+
+                {/* District (기초) */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    기초 지역 <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    value={addFormData.district}
+                    onChange={(e) => handleFormChange('district', e.target.value)}
+                    placeholder="예: 강남구 갑, 서초구 을"
                     required
                     disabled={submitting}
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:bg-gray-100"

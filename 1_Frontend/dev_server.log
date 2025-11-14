@@ -180,3 +180,5 @@ uest-cookies.js (C:\Development_PoliticianFinder_copy\Developement_Real_Politici
 }
 <w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, stat 'C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\.next\cache\webpack\server-development\13.pack.gz'
  ✓ Compiled in 4.9s (507 modules)
+   Reload env: .env.local
+ ✓ Compiled in 2.5s (507 modules)
