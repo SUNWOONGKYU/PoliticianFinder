@@ -22,6 +22,8 @@ import {
   ExternalLink
 } from 'lucide-react'
 
+import { Politician } from '@/types/politician'
+
 // Types
 interface PoliticianProfile {
   id: number

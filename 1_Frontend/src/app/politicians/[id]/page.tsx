@@ -4,39 +4,65 @@ import { useState, useCallback, useMemo, useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-
-interface Politician {
-  id: string;
-  name: string;
-  nameKanji: string;
-  status: string;
-  position: string;
-  party: string;
-  region: string;
-  birthDate: string;
-  age: number;
-  gender: string;
-  claudeScore: number;
-  totalScore: number;
-  grade: string;
-  lastUpdated: string;
-}
+import { Politician } from '@/types/politician';
 
 const SAMPLE_POLITICIAN: Politician = {
   id: 'POL001',
   name: '김민준',
   nameKanji: '金民俊',
-  status: '현직 국회의원 (21대)',
+  nameEn: 'Kim Min-jun',
+  identity: '현직',
+  title: '국회의원 (21대)',
   position: '국회의원',
   party: '더불어민주당',
   region: '서울 강남구',
+  district: '강남구 갑',
   birthDate: '1975.03.15',
   age: 50,
   gender: '남',
   claudeScore: 970,
   totalScore: 950,
-  grade: '🌺 Mugunghwa',
+  grade: 'M',
+  gradeEmoji: '🌺',
   lastUpdated: '2025.01.20 14:30',
+  postCount: 12,
+  likeCount: 234,
+  taggedCount: 45,
+  education: ['서울대학교 법학과 졸업 (1998년)', '하버드 대학교 공공정책대학원 석사 (2005년)', '서울 강남고등학교 졸업 (1993년)'],
+  career: ['前 국회 법제사법위원회 위원 (2020~2024)', '前 더불어민주당 정책위원회 부의장 (2018~2020)', '前 법무법인 광장 변호사 (2008~2015)', '前 대통령비서실 행정관 (2006~2008)'],
+  electionHistory: ['제21대 국회의원 (2020년 당선, 서울 강남구)', '제20대 국회의원 (2016년 당선, 서울 강남구)'],
+  militaryService: '육군 만기 제대 (1999~2001)',
+  assets: {
+    total: '약 15억원 (2024년 기준)',
+    real_estate: '약 12억원 (서울 강남구 아파트)',
+    financial: '약 3억원'
+  },
+  taxArrears: '없음',
+  criminalRecord: '없음',
+  militaryServiceIssue: '없음',
+  residencyFraud: '없음',
+  pledges: ['강남구 교통 혼잡 완화 (GTX-C 조기 개통)', '청년 주택 공급 확대 (연 1,000가구)', '노후 학교 시설 현대화 (10개교)'],
+  legislativeActivity: {
+    attendance_rate: '95% (21대 국회 평균 92%)',
+    bills_proposed: 42,
+    bills_representative: 28,
+    bills_co_proposed: 14,
+    bills_passed: 18
+  },
+  profileImageUrl: null,
+  websiteUrl: null,
+  bio: '',
+  phone: '',
+  email: '',
+  twitterHandle: '',
+  facebookUrl: '',
+  instagramHandle: '',
+  verifiedAt: null,
+  isActive: true,
+  createdAt: '2024-01-01T00:00:00Z',
+  updatedAt: '2025-01-20T14:30:00Z',
+  userRating: 0,
+  ratingCount: 0
 };
 
 const AI_SCORES = [
@@ -192,8 +218,12 @@ export default function PoliticianDetailPage() {
               <span className="text-gray-900 font-bold text-lg">{politician.name} ({politician.nameKanji})</span>
             </div>
             <div className="flex items-center gap-3">
-              <span className="text-gray-600 font-medium w-24">신분/직책</span>
-              <span className="text-gray-900">{politician.status}</span>
+              <span className="text-gray-600 font-medium w-24">신분</span>
+              <span className="text-gray-900">{politician.identity}</span>
+            </div>
+            <div className="flex items-center gap-3">
+              <span className="text-gray-600 font-medium w-24">직책</span>
+              <span className="text-gray-900">{politician.title || '-'}</span>
             </div>
             <div className="flex items-center gap-3">
               <span className="text-gray-600 font-medium w-24">출마직종</span>
@@ -225,7 +255,7 @@ export default function PoliticianDetailPage() {
             </div>
             <div className="flex items-center gap-3">
               <span className="text-gray-600 font-medium w-24">평가등급</span>
-              <span className="text-accent-600 font-bold text-lg">{politician.grade}</span>
+              <span className="text-accent-600 font-bold text-lg">{politician.gradeEmoji} {politician.grade}</span>
             </div>
           </div>
         </section>
@@ -370,8 +400,8 @@ export default function PoliticianDetailPage() {
               <div className="flex items-center justify-between">
                 <div>
                   <div className="text-sm font-medium text-primary-700 mb-1">🏛️ 작성한 게시글</div>
-                  <div className="text-3xl font-bold text-primary-600">12개</div>
-                  <div className="text-xs text-gray-600 mt-1">(받은 공감 234개)</div>
+                  <div className="text-3xl font-bold text-primary-600">{politician.postCount || 0}개</div>
+                  <div className="text-xs text-gray-600 mt-1">(받은 공감 {politician.likeCount || 0}개)</div>
                 </div>
                 <svg className="w-6 h-6 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7"></path>
@@ -384,7 +414,7 @@ export default function PoliticianDetailPage() {
               <div className="flex items-center justify-between">
                 <div>
                   <div className="text-sm font-medium text-purple-700 mb-1">💬 태깅된 게시글</div>
-                  <div className="text-3xl font-bold text-purple-600">45개</div>
+                  <div className="text-3xl font-bold text-purple-600">{politician.taggedCount || 0}개</div>
                   <div className="text-xs text-gray-600 mt-1">(회원들이 이 정치인에 대해 작성)</div>
                 </div>
                 <svg className="w-6 h-6 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -405,94 +435,123 @@ export default function PoliticianDetailPage() {
 
           <div className="space-y-4">
             {/* 학력 */}
-            <div>
-              <h3 className="font-bold text-gray-900 mb-2">학력</h3>
-              <ul className="list-disc list-inside text-gray-700 space-y-1">
-                <li>서울대학교 법학과 졸업 (1998년)</li>
-                <li>하버드 대학교 공공정책대학원 석사 (2005년)</li>
-                <li>서울 강남고등학교 졸업 (1993년)</li>
-              </ul>
-            </div>
+            {politician.education && politician.education.length > 0 && (
+              <div>
+                <h3 className="font-bold text-gray-900 mb-2">학력</h3>
+                <ul className="list-disc list-inside text-gray-700 space-y-1">
+                  {politician.education.map((edu, index) => (
+                    <li key={index}>{edu}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
 
             {/* 경력 */}
-            <div>
-              <h3 className="font-bold text-gray-900 mb-2">경력</h3>
-              <ul className="list-disc list-inside text-gray-700 space-y-1">
-                <li>前 국회 법제사법위원회 위원 (2020~2024)</li>
-                <li>前 더불어민주당 정책위원회 부의장 (2018~2020)</li>
-                <li>前 법무법인 광장 변호사 (2008~2015)</li>
-                <li>前 대통령비서실 행정관 (2006~2008)</li>
-              </ul>
-            </div>
+            {politician.career && politician.career.length > 0 && (
+              <div>
+                <h3 className="font-bold text-gray-900 mb-2">경력</h3>
+                <ul className="list-disc list-inside text-gray-700 space-y-1">
+                  {politician.career.map((item, index) => (
+                    <li key={index}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
 
             {/* 당선 이력 */}
-            <div>
-              <h3 className="font-bold text-gray-900 mb-2">당선 이력</h3>
-              <ul className="list-disc list-inside text-gray-700 space-y-1">
-                <li>제21대 국회의원 (2020년 당선, 서울 강남구)</li>
-                <li>제20대 국회의원 (2016년 당선, 서울 강남구)</li>
-              </ul>
-            </div>
+            {politician.electionHistory && politician.electionHistory.length > 0 && (
+              <div>
+                <h3 className="font-bold text-gray-900 mb-2">당선 이력</h3>
+                <ul className="list-disc list-inside text-gray-700 space-y-1">
+                  {politician.electionHistory.map((item, index) => (
+                    <li key={index}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
 
             {/* 병역 */}
-            <div>
-              <h3 className="font-bold text-gray-900 mb-2">병역</h3>
-              <p className="text-gray-700">육군 만기 제대 (1999~2001)</p>
-            </div>
+            {politician.militaryService && (
+              <div>
+                <h3 className="font-bold text-gray-900 mb-2">병역</h3>
+                <p className="text-gray-700">{politician.militaryService}</p>
+              </div>
+            )}
 
             {/* 재산 공개 */}
-            <div>
-              <h3 className="font-bold text-gray-900 mb-2">재산 공개</h3>
-              <ul className="list-disc list-inside text-gray-700 space-y-1">
-                <li>총 재산: 약 15억원 (2024년 기준)</li>
-                <li>부동산: 약 12억원 (서울 강남구 아파트)</li>
-                <li>금융자산: 약 3억원</li>
-              </ul>
-            </div>
+            {politician.assets && Object.keys(politician.assets).length > 0 && (
+              <div>
+                <h3 className="font-bold text-gray-900 mb-2">재산 공개</h3>
+                <ul className="list-disc list-inside text-gray-700 space-y-1">
+                  {politician.assets.total && <li>총 재산: {politician.assets.total}</li>}
+                  {politician.assets.real_estate && <li>부동산: {politician.assets.real_estate}</li>}
+                  {politician.assets.financial && <li>금융자산: {politician.assets.financial}</li>}
+                </ul>
+              </div>
+            )}
 
             {/* 세금 체납 */}
-            <div>
-              <h3 className="font-bold text-gray-900 mb-2">세금 체납</h3>
-              <p className="text-gray-700">없음</p>
-            </div>
+            {politician.taxArrears && (
+              <div>
+                <h3 className="font-bold text-gray-900 mb-2">세금 체납</h3>
+                <p className="text-gray-700">{politician.taxArrears}</p>
+              </div>
+            )}
 
             {/* 범죄 경력 */}
-            <div>
-              <h3 className="font-bold text-gray-900 mb-2">범죄 경력</h3>
-              <p className="text-gray-700">없음</p>
-            </div>
+            {politician.criminalRecord && (
+              <div>
+                <h3 className="font-bold text-gray-900 mb-2">범죄 경력</h3>
+                <p className="text-gray-700">{politician.criminalRecord}</p>
+              </div>
+            )}
 
             {/* 병역 의혹 */}
-            <div>
-              <h3 className="font-bold text-gray-900 mb-2">병역 의혹</h3>
-              <p className="text-gray-700">없음</p>
-            </div>
+            {politician.militaryServiceIssue && (
+              <div>
+                <h3 className="font-bold text-gray-900 mb-2">병역 의혹</h3>
+                <p className="text-gray-700">{politician.militaryServiceIssue}</p>
+              </div>
+            )}
 
             {/* 위장전입 */}
-            <div>
-              <h3 className="font-bold text-gray-900 mb-2">위장전입</h3>
-              <p className="text-gray-700">없음</p>
-            </div>
+            {politician.residencyFraud && (
+              <div>
+                <h3 className="font-bold text-gray-900 mb-2">위장전입</h3>
+                <p className="text-gray-700">{politician.residencyFraud}</p>
+              </div>
+            )}
 
             {/* 공약 사항 */}
-            <div>
-              <h3 className="font-bold text-gray-900 mb-2">주요 공약</h3>
-              <ul className="list-disc list-inside text-gray-700 space-y-1">
-                <li>강남구 교통 혼잡 완화 (GTX-C 조기 개통)</li>
-                <li>청년 주택 공급 확대 (연 1,000가구)</li>
-                <li>노후 학교 시설 현대화 (10개교)</li>
-              </ul>
-            </div>
+            {politician.pledges && politician.pledges.length > 0 && (
+              <div>
+                <h3 className="font-bold text-gray-900 mb-2">주요 공약</h3>
+                <ul className="list-disc list-inside text-gray-700 space-y-1">
+                  {politician.pledges.map((pledge, index) => (
+                    <li key={index}>{pledge}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
 
             {/* 의정 활동 */}
-            <div>
-              <h3 className="font-bold text-gray-900 mb-2">의정 활동</h3>
-              <ul className="list-disc list-inside text-gray-700 space-y-1">
-                <li>출석률: 95% (21대 국회 평균 92%)</li>
-                <li>발의 법안: 42건 (대표 발의 28건, 공동 발의 14건)</li>
-                <li>가결된 법안: 18건</li>
-              </ul>
-            </div>
+            {politician.legislativeActivity && Object.keys(politician.legislativeActivity).length > 0 && (
+              <div>
+                <h3 className="font-bold text-gray-900 mb-2">의정 활동</h3>
+                <ul className="list-disc list-inside text-gray-700 space-y-1">
+                  {politician.legislativeActivity.attendance_rate && <li>출석률: {politician.legislativeActivity.attendance_rate}</li>}
+                  {politician.legislativeActivity.bills_proposed && (
+                    <li>
+                      발의 법안: {politician.legislativeActivity.bills_proposed}건
+                      {politician.legislativeActivity.bills_representative && politician.legislativeActivity.bills_co_proposed &&
+                        ` (대표 발의 ${politician.legislativeActivity.bills_representative}건, 공동 발의 ${politician.legislativeActivity.bills_co_proposed}건)`
+                      }
+                    </li>
+                  )}
+                  {politician.legislativeActivity.bills_passed && <li>가결된 법안: {politician.legislativeActivity.bills_passed}건</li>}
+                </ul>
+              </div>
+            )}
           </div>
         </section>
       </div>

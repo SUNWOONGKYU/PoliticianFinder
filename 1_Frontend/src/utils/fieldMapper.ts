@@ -1,0 +1,169 @@
+/**
+ * P3F4: Field Mapper Utility
+ *
+ * Converts database fields (snake_case) to frontend fields (camelCase)
+ * and adds computed fields (age, postCount, etc.)
+ */
+
+/**
+ * Calculate age from birth date
+ */
+function calculateAge(birthDate: string | null): number {
+  if (!birthDate) return 0;
+
+  const birth = new Date(birthDate);
+  const today = new Date();
+  let age = today.getFullYear() - birth.getFullYear();
+  const monthDiff = today.getMonth() - birth.getMonth();
+
+  if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birth.getDate())) {
+    age--;
+  }
+
+  return age;
+}
+
+/**
+ * Map politician fields from database (snake_case) to frontend (camelCase)
+ *
+ * @param dbRecord - Raw record from politicians table
+ * @param communityStats - Optional community statistics (postCount, likeCount, taggedCount)
+ * @returns Mapped politician object with camelCase fields
+ */
+export function mapPoliticianFields(
+  dbRecord: any,
+  communityStats?: {
+    postCount?: number;
+    likeCount?: number;
+    taggedCount?: number;
+  }
+) {
+  // Calculate age from birth_date
+  const age = calculateAge(dbRecord.birth_date);
+
+  return {
+    // Basic info
+    id: dbRecord.id,
+    name: dbRecord.name,
+    nameKanji: dbRecord.name_kanji || '',
+    nameEn: dbRecord.name_en || dbRecord.name_english || '',
+
+    // P3F3: identity and title (separated from status)
+    identity: dbRecord.identity || '현직',
+    title: dbRecord.title || '',
+
+    // Position and party
+    position: dbRecord.position || '',
+    party: dbRecord.party || '',
+    region: dbRecord.region || '',
+    district: dbRecord.district || '',
+
+    // Personal info
+    birthDate: dbRecord.birth_date || '',
+    age: age,
+    gender: dbRecord.gender || '',
+
+    // AI evaluation (snake_case → camelCase)
+    claudeScore: dbRecord.ai_score || 0,
+    totalScore: dbRecord.evaluation_score || 0,
+    grade: dbRecord.evaluation_grade || '',
+    gradeEmoji: getGradeEmoji(dbRecord.evaluation_grade || ''),
+    lastUpdated: dbRecord.updated_at || '',
+
+    // Community activity (computed fields)
+    postCount: communityStats?.postCount || 0,
+    likeCount: communityStats?.likeCount || 0,
+    taggedCount: communityStats?.taggedCount || 0,
+
+    // Election Commission official info
+    education: dbRecord.education || [],
+    career: dbRecord.career || [],
+    electionHistory: dbRecord.election_history || [],
+    militaryService: dbRecord.military_service || '',
+    assets: dbRecord.assets || {},
+    taxArrears: dbRecord.tax_arrears || '없음',
+    criminalRecord: dbRecord.criminal_record || '없음',
+    militaryServiceIssue: dbRecord.military_service_issue || '없음',
+    residencyFraud: dbRecord.residency_fraud || '없음',
+    pledges: dbRecord.pledges || [],
+    legislativeActivity: dbRecord.legislative_activity || {},
+
+    // Other fields
+    profileImageUrl: dbRecord.profile_image_url || null,
+    websiteUrl: dbRecord.website || null,
+    bio: dbRecord.bio || '',
+    phone: dbRecord.phone || '',
+    email: dbRecord.email || '',
+
+    // SNS
+    twitterHandle: dbRecord.twitter_handle || '',
+    facebookUrl: dbRecord.facebook_url || '',
+    instagramHandle: dbRecord.instagram_handle || '',
+
+    // Metadata
+    verifiedAt: dbRecord.verified_at || null,
+    isActive: dbRecord.is_active !== false,
+    createdAt: dbRecord.created_at || '',
+    updatedAt: dbRecord.updated_at || '',
+
+    // User ratings
+    userRating: dbRecord.user_rating || 0,
+    ratingCount: dbRecord.rating_count || 0,
+  };
+}
+
+/**
+ * Map politician list fields (lightweight version for list view)
+ * Only includes essential fields for better performance
+ */
+export function mapPoliticianListFields(dbRecord: any) {
+  return {
+    id: dbRecord.id,
+    name: dbRecord.name,
+    identity: dbRecord.identity || '현직',
+    title: dbRecord.title || '',
+    position: dbRecord.position || '',
+    party: dbRecord.party || '',
+    region: dbRecord.region || '',
+
+    // AI scores
+    claudeScore: dbRecord.ai_score || 0,
+    totalScore: dbRecord.evaluation_score || 0,
+    grade: dbRecord.evaluation_grade || '',
+    gradeEmoji: getGradeEmoji(dbRecord.evaluation_grade || ''),
+
+    // User ratings
+    userRating: dbRecord.user_rating || 0,
+    ratingCount: dbRecord.rating_count || 0,
+
+    // Metadata
+    profileImageUrl: dbRecord.profile_image_url || null,
+    updatedAt: dbRecord.updated_at || '',
+  };
+}
+
+/**
+ * Get grade emoji based on evaluation grade
+ */
+function getGradeEmoji(grade: string): string {
+  const emojiMap: Record<string, string> = {
+    'M': '🌺', // Mugunghwa (900+)
+    'D': '💎', // Diamond (850-899)
+    'P': '🥇', // Platinum (800-849)
+    'G': '🥇', // Gold (750-799)
+    'E': '💚', // Emerald (< 750)
+  };
+
+  return emojiMap[grade] || '💚';
+}
+
+/**
+ * Calculate grade from score
+ */
+export function calculateGrade(score: number): string {
+  if (score >= 900) return 'M';
+  if (score >= 850) return 'D';
+  if (score >= 800) return 'P';
+  if (score >= 750) return 'G';
+  return 'E';
+}

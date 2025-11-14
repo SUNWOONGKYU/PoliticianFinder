@@ -104,8 +104,10 @@
  ✓ Compiled /api/auth/signup in 118ms (513 modules)
  ⨯ TypeError: __webpack_modules__[moduleId] is not a function
     at __webpack_require__ (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\.next\server\webpack-runtime.js:33:42)
-    at eval (webpack-internal:///(rsc)/./node_modules/next/dist/server/web/spec-extension/adapters/request-cookies.js:31:47)
-    at (rsc)/./node_modules/next/dist/server/web/spec-extension/adapters/request-cookies.js (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\.next\server\vendor-chunks\next.js:304:1)
+    at eval (webpack-internal:///(rsc)/./node_modules/next/dist/server/web/spec-extension/adapters/ ✓ Compiled in 1578ms (274 modules)
+   Reload env: .env.local
+ ✓ Compiled in 1164ms (274 modules)
+uest-cookies.js (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\.next\server\vendor-chunks\next.js:304:1)
     at __webpack_require__ (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\.next\server\webpack-runtime.js:33:42)
     at eval (webpack-internal:///(rsc)/./node_modules/next/dist/client/components/headers.js:23:25)
     at (rsc)/./node_modules/next/dist/client/components/headers.js (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\.next\server\vendor-chunks\next.js:64:1)
@@ -177,3 +179,4 @@
   path: 'C:\\Development_PoliticianFinder_copy\\Developement_Real_PoliticianFinder\\1_Frontend\\.next\\cache\\webpack\\server-development\\13.pack.gz'
 }
 <w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, stat 'C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\.next\cache\webpack\server-development\13.pack.gz'
+ ✓ Compiled in 4.9s (507 modules)

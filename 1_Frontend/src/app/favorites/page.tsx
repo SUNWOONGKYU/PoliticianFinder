@@ -9,18 +9,19 @@ interface Politician {
   party: string;
   position: string;
   region: string;
-  status: string;
+  identity: string;  // P3F3: 신분
+  title?: string;    // P3F3: 직책
 }
 
 const SAMPLE_POLITICIANS: Politician[] = [
-  { id: '1', name: '김민준', party: '더불어민주당', position: '국회의원', region: '서울 강남구', status: '현직' },
-  { id: '2', name: '이서연', party: '국민의힘', position: '광역단체장', region: '부산광역시', status: '현직' },
-  { id: '3', name: '박준서', party: '정의당', position: '국회의원', region: '경기도 수원시', status: '현직' },
-  { id: '4', name: '최지우', party: '더불어민주당', position: '국회의원', region: '인천 남동구', status: '현직' },
-  { id: '5', name: '정하은', party: '국민의힘', position: '기초의원', region: '대구 중구', status: '현직' },
-  { id: '6', name: '윤서준', party: '더불어민주당', position: '광역의원', region: '광주광역시', status: '현직' },
-  { id: '7', name: '장민아', party: '국민의힘', position: '기초단체장', region: '대전 서구', status: '현직' },
-  { id: '8', name: '오지훈', party: '정의당', position: '국회의원', region: '울산 북구', status: '현직' },
+  { id: '1', name: '김민준', party: '더불어민주당', position: '국회의원', region: '서울 강남구', identity: '현직' },
+  { id: '2', name: '이서연', party: '국민의힘', position: '광역단체장', region: '부산광역시', identity: '현직' },
+  { id: '3', name: '박준서', party: '정의당', position: '국회의원', region: '경기도 수원시', identity: '현직' },
+  { id: '4', name: '최지우', party: '더불어민주당', position: '국회의원', region: '인천 남동구', identity: '현직' },
+  { id: '5', name: '정하은', party: '국민의힘', position: '기초의원', region: '대구 중구', identity: '현직' },
+  { id: '6', name: '윤서준', party: '더불어민주당', position: '광역의원', region: '광주광역시', identity: '현직' },
+  { id: '7', name: '장민아', party: '국민의힘', position: '기초단체장', region: '대전 서구', identity: '현직' },
+  { id: '8', name: '오지훈', party: '정의당', position: '국회의원', region: '울산 북구', identity: '현직' },
 ];
 
 export default function FavoritesPage() {
@@ -166,7 +167,7 @@ export default function FavoritesPage() {
                         {politician.party} · {politician.position}
                       </p>
                       <div className="flex items-center gap-2 mt-1">
-                        <span className="px-2 py-0.5 bg-primary-100 text-primary-700 text-xs rounded">{politician.status}</span>
+                        <span className="px-2 py-0.5 bg-primary-100 text-primary-700 text-xs rounded">{politician.identity} {politician.title && `• ${politician.title}`}</span>
                         <span className="text-xs text-gray-500">{politician.region}</span>
                       </div>
                     </div>

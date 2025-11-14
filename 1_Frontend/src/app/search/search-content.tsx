@@ -9,7 +9,8 @@ interface Politician {
   id: number;
   name: string;
   position: string;
-  status: string;
+  identity: string;  // P3F3: 신분
+  title?: string;    // P3F3: 직책
   party: string;
   region: string;
   grade: string;
@@ -47,7 +48,7 @@ const samplePoliticians: Politician[] = [
     id: 1,
     name: '김민준',
     position: '국회의원',
-    status: '현직',
+    identity: '현직',
     party: '더불어민주당',
     region: '서울 강남구',
     grade: 'Emerald',
@@ -65,7 +66,7 @@ const samplePoliticians: Politician[] = [
     id: 2,
     name: '이서연',
     position: '국회의원',
-    status: '현직',
+    identity: '현직',
     party: '국민의힘',
     region: '부산 해운대구',
     grade: 'Platinum',
@@ -258,7 +259,7 @@ export default function SearchContent() {
                     </div>
                     <div className="flex items-center gap-4 text-sm text-gray-600">
                       <span className="font-medium">
-                        {politician.status} {politician.position}
+                        {politician.identity} {politician.title && `• ${politician.title}`}
                       </span>
                       <span>
                         {highlightSearchTerm(politician.party, searchQuery)}
