@@ -4,6 +4,7 @@ import { useState, useMemo, useEffect } from 'react';
 import Link from 'next/link';
 import { PoliticianListItem } from '@/types/politician';
 import { REGIONS } from '@/constants/regions';
+import { CONSTITUENCIES, getConstituenciesByMetropolitan } from '@/constants/constituencies';
 
 interface Politician extends PoliticianListItem {
   rank: number;
@@ -345,25 +346,42 @@ export default function PoliticiansPage() {
                 </select>
               </div>
 
-              {/* Region Filter */}
+              {/* Region/Constituency Filter - 국회의원이면 선거구, 아니면 지역 */}
               <div className="flex-1 min-w-[120px]">
-                <label className="block text-xs font-medium text-gray-700 mb-1">지역</label>
+                <label className="block text-xs font-medium text-gray-700 mb-1">
+                  {categoryFilter === '국회의원' ? '지역구' : '지역'}
+                </label>
                 <select
                   value={regionFilter}
                   onChange={(e) => setRegionFilter(e.target.value)}
                   className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-200 focus:border-primary-500 text-sm"
                 >
                   <option value="">전체</option>
-                  {REGIONS.map((region) => (
-                    <optgroup key={region.label} label={region.label}>
-                      <option value={region.fullName}>{region.fullName} (전체)</option>
-                      {region.districts.map((district) => (
-                        <option key={district} value={`${region.label} ${district}`}>
-                          {district}
-                        </option>
-                      ))}
-                    </optgroup>
-                  ))}
+
+                  {categoryFilter === '국회의원' ? (
+                    // 국회의원 선거구 드롭다운
+                    CONSTITUENCIES.map((constituency) => (
+                      <optgroup key={constituency.metropolitanArea} label={constituency.metropolitanArea}>
+                        {constituency.districts.map((district) => (
+                          <option key={district} value={`${constituency.metropolitanArea} ${district}`}>
+                            {district}
+                          </option>
+                        ))}
+                      </optgroup>
+                    ))
+                  ) : (
+                    // 일반 지역 드롭다운 (광역의원, 기초의원 등)
+                    REGIONS.map((region) => (
+                      <optgroup key={region.label} label={region.label}>
+                        <option value={region.fullName}>{region.fullName} (전체)</option>
+                        {region.districts.map((district) => (
+                          <option key={district} value={`${region.label} ${district}`}>
+                            {district}
+                          </option>
+                        ))}
+                      </optgroup>
+                    ))
+                  )}
                 </select>
               </div>
 
