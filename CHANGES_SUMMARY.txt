@@ -1,0 +1,141 @@
+================================================================================
+ADMIN CONTENT MANAGEMENT SYSTEM - BUG FIXES SUMMARY
+================================================================================
+
+Date: 2025-11-15
+Task: Fix admin content management system bugs
+
+================================================================================
+ISSUES FIXED
+================================================================================
+
+1. Admin posts page showed "86 contents" but admin couldn't see them
+   - Root cause: API querying wrong table ('posts' instead of 'community_posts')
+
+2. Comments tab showed no data
+   - Root cause: Missing joins to get author and post information
+
+3. Notices tab showed no data
+   - Root cause: Data mapping issues and incorrect DELETE endpoint
+
+================================================================================
+FILES MODIFIED
+================================================================================
+
+1. C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\src\app\api\admin\content\route.ts
+   Changes:
+   - Line 41: Changed .from("posts") to .from("community_posts")
+   - Line 134: Changed .from("posts") to .from("community_posts")
+   - Line 180: Changed .from("posts") to .from("community_posts")
+   Impact: Admin content API now queries correct table
+
+2. C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\src\app\api\comments\route.ts
+   Changes:
+   - Lines 136-148: Enhanced SELECT query to include joins:
+     * profiles:user_id (username, email)
+     * community_posts:post_id (title)
+   Impact: Comments API now returns author names and post titles
+
+3. C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\src\app\api\posts\[id]\route.ts
+   Changes:
+   - Line 33: Changed .from('posts') to .from('community_posts')
+   - Line 61: Changed .from('posts') to .from('community_posts')
+   - Line 110: Changed .from('posts') to .from('community_posts')
+   - Line 139: Changed .from('posts') to .from('community_posts')
+   - Line 197: Changed .from('posts') to .from('community_posts')
+   - Line 226: Changed .from('posts') to .from('community_posts')
+   Impact: Individual post operations now use correct table
+
+4. C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\src\app\api\community\posts\route.ts
+   Changes:
+   - Line 67: Changed .from("posts") to .from("community_posts")
+   Impact: Community posts API now uses correct table
+
+5. C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\src\app\admin\posts\page.tsx
+   Changes:
+   - Lines 65-76: Added data mapping for posts
+     * Maps database fields to UI interface
+     * Extracts author from profiles.username or profiles.email
+     * Formats date to Korean locale
+   - Lines 105-111: Added data mapping for comments
+     * Extracts author from profiles data
+     * Extracts post title from community_posts data
+     * Formats date to Korean locale
+   - Lines 142-147: Added data mapping for notices
+     * Sets author to "Admin"
+     * Formats date to Korean locale
+   - Line 213: Fixed notice deletion endpoint from `/api/notices/${id}` to `/api/notices?id=${id}`
+   Impact: Admin UI now properly displays all data
+
+================================================================================
+DATABASE SCHEMA CONSISTENCY
+================================================================================
+
+Before:
+- /api/admin/dashboard          → community_posts ✓
+- /api/admin/content            → posts ✗
+- /api/comments                 → comments ✓, posts (foreign key) ✗
+- /api/posts/[id]               → posts ✗
+- /api/community/posts          → posts ✗
+
+After:
+- /api/admin/dashboard          → community_posts ✓
+- /api/admin/content            → community_posts ✓
+- /api/comments                 → comments ✓, community_posts ✓
+- /api/posts/[id]               → community_posts ✓
+- /api/community/posts          → community_posts ✓
+
+================================================================================
+BUILD STATUS
+================================================================================
+
+✓ TypeScript compilation successful
+✓ Linting passed
+✓ Next.js build completed successfully
+✓ No critical errors
+
+Note: Dynamic server usage warnings are expected for API routes that use
+      query parameters and cookies (these are not errors)
+
+================================================================================
+TESTING RECOMMENDATIONS
+================================================================================
+
+1. Test admin posts tab:
+   - Navigate to /admin/posts
+   - Verify posts are displayed with author names and dates
+
+2. Test admin comments tab:
+   - Click "댓글 관리" tab
+   - Verify comments show with author and post title
+
+3. Test admin notices tab:
+   - Click "공지사항 관리" tab
+   - Verify notices are displayed
+
+4. Test search functionality in all three tabs
+
+5. Test delete operations for posts, comments, and notices
+
+See ADMIN_TESTING_GUIDE.md for detailed testing procedures.
+
+================================================================================
+ADDITIONAL FILES CREATED
+================================================================================
+
+1. ADMIN_FIXES_SUMMARY.md - Detailed technical documentation of fixes
+2. ADMIN_TESTING_GUIDE.md - Step-by-step testing procedures
+3. test_admin_fixes.js - Automated test script for API endpoints
+4. CHANGES_SUMMARY.txt - This file
+
+================================================================================
+NOTES
+================================================================================
+
+- The 'posts' table appears to be legacy/deprecated
+- All APIs should use 'community_posts' for consistency
+- Other API files still reference 'posts' table but were not modified as
+  they are outside the scope of the admin content management system
+- Future work: Audit all API files for 'posts' table references
+
+================================================================================

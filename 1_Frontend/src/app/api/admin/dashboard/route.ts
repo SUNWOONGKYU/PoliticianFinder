@@ -17,19 +17,19 @@ export async function GET(request: NextRequest) {
       postsResult,
       commentsResult,
       paymentsResult,
-      reportsResult,
+      inquiriesResult,
       auditLogsResult
     ] = await Promise.all([
       // 전체 사용자 수
-      supabase.from('users').select('id', { count: 'exact', head: true }),
+      supabase.from('profiles').select('id', { count: 'exact', head: true }),
       // 전체 게시물 수
-      supabase.from('posts').select('id', { count: 'exact', head: true }),
+      supabase.from('community_posts').select('id', { count: 'exact', head: true }),
       // 전체 댓글 수
       supabase.from('comments').select('id', { count: 'exact', head: true }),
       // 전체 결제 금액 및 건수
       supabase.from('payments').select('amount'),
-      // 대기 중인 신고 수
-      supabase.from('reports').select('id', { count: 'exact', head: true }).eq('status', 'pending'),
+      // 대기 중인 문의 수
+      supabase.from('inquiries').select('id', { count: 'exact', head: true }).eq('status', 'pending'),
       // 최근 감사 로그
       supabase.from('audit_logs')
         .select('*')
@@ -42,7 +42,7 @@ export async function GET(request: NextRequest) {
 
     // 최근 게시물
     const { data: recentPosts } = await supabase
-      .from('posts')
+      .from('community_posts')
       .select('id, title, created_at')
       .order('created_at', { ascending: false })
       .limit(5);
@@ -76,20 +76,20 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    // 최근 신고
-    const { data: recentReports } = await supabase
-      .from('reports')
-      .select('id, reason, created_at')
+    // 최근 문의
+    const { data: recentInquiries } = await supabase
+      .from('inquiries')
+      .select('id, title, created_at')
       .order('created_at', { ascending: false })
       .limit(5);
 
-    if (recentReports) {
+    if (recentInquiries) {
       recentActivities.push(
-        ...recentReports.map(report => ({
-          id: `report-${report.id}`,
-          type: 'report_filed',
-          timestamp: report.created_at,
-          details: `신고 접수: ${report.reason}`,
+        ...recentInquiries.map(inquiry => ({
+          id: `inquiry-${inquiry.id}`,
+          type: 'inquiry_received',
+          timestamp: inquiry.created_at,
+          details: `문의 접수: ${inquiry.title}`,
         }))
       );
     }
@@ -109,7 +109,7 @@ export async function GET(request: NextRequest) {
       total_payments: totalPayments,
       recent_activity: recentActivities.slice(0, 10),
       moderation_queue: 0, // 승인 대기 게시물 (필요시 구현)
-      pending_reports: reportsResult.count || 0,
+      pending_reports: inquiriesResult.count || 0, // 대기 중인 문의 수
       warnings_issued: 0, // 경고 발행 수 (필요시 구현)
       audit_logs: auditLogsResult.data || [],
       timestamp: new Date().toISOString(),

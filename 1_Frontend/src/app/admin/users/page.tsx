@@ -9,7 +9,7 @@ interface User {
   email: string;
   created_at: string;
   status: 'active' | 'suspended' | 'banned';
-  role: 'user' | 'admin' | 'moderator';
+  role: 'member' | 'admin' | 'senior_committee' | 'committee';
   admin_notes?: string;
 }
 
@@ -241,8 +241,9 @@ export default function AdminUsersPage() {
                 onChange={(e) => setRoleFilter(e.target.value)}
               >
                 <option value="">모든 역할</option>
-                <option value="user">일반 사용자</option>
-                <option value="moderator">중재자</option>
+                <option value="member">일반 회원</option>
+                <option value="committee">운영위원</option>
+                <option value="senior_committee">상임운영위원</option>
                 <option value="admin">관리자</option>
               </select>
               <select
@@ -303,11 +304,13 @@ export default function AdminUsersPage() {
                             <td className="p-3">
                               <span className={`px-2 py-1 rounded-full text-xs ${
                                 user.role === 'admin' ? 'bg-purple-100 text-purple-700' :
-                                user.role === 'moderator' ? 'bg-blue-100 text-blue-700' :
+                                user.role === 'senior_committee' ? 'bg-blue-100 text-blue-700' :
+                                user.role === 'committee' ? 'bg-green-100 text-green-700' :
                                 'bg-gray-100 text-gray-700'
                               }`}>
                                 {user.role === 'admin' ? '관리자' :
-                                 user.role === 'moderator' ? '중재자' : '일반'}
+                                 user.role === 'senior_committee' ? '상임운영위원' :
+                                 user.role === 'committee' ? '운영위원' : '일반 회원'}
                               </span>
                             </td>
                             <td className="p-3">
@@ -409,8 +412,9 @@ export default function AdminUsersPage() {
                   value={editFormData.role}
                   onChange={(e) => setEditFormData({ ...editFormData, role: e.target.value })}
                 >
-                  <option value="user">일반 사용자</option>
-                  <option value="moderator">중재자</option>
+                  <option value="member">일반 회원</option>
+                  <option value="committee">운영위원</option>
+                  <option value="senior_committee">상임운영위원</option>
                   <option value="admin">관리자</option>
                 </select>
               </div>

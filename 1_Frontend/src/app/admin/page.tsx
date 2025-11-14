@@ -144,13 +144,13 @@ export default function AdminPage() {
                   </div>
 
                   <div className="bg-white p-6 rounded-lg shadow-md flex items-center gap-4">
-                    <div className="bg-red-100 p-3 rounded-full">
-                      <svg className="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9"></path>
+                    <div className="bg-purple-100 p-3 rounded-full">
+                      <svg className="w-6 h-6 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path>
                       </svg>
                     </div>
                     <div>
-                      <p className="text-sm text-gray-500">처리 대기 신고</p>
+                      <p className="text-sm text-gray-500">처리 대기 문의</p>
                       <p className="text-2xl font-bold text-gray-900">{data.pending_reports}건</p>
                     </div>
                   </div>

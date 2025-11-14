@@ -63,8 +63,17 @@ export default function AdminPostsPage() {
       }
 
       const result = await response.json();
-      const data = (result.success && Array.isArray(result.data)) ? result.data : (Array.isArray(result) ? result : []);
-      setPosts(data);
+      const rawData = (result.success && Array.isArray(result.data)) ? result.data : (Array.isArray(result) ? result : []);
+
+      // Map the data to match Post interface
+      const mappedPosts = rawData.map((post: any) => ({
+        id: post.id,
+        title: post.title || 'Untitled',
+        author: post.profiles?.username || post.profiles?.email || 'Unknown',
+        date: new Date(post.created_at).toLocaleDateString('ko-KR'),
+      }));
+
+      setPosts(mappedPosts);
     } catch (error) {
       console.error('Error fetching posts:', error);
       setPostsError(error instanceof Error ? error.message : 'Failed to load posts');
@@ -90,8 +99,18 @@ export default function AdminPostsPage() {
       }
 
       const result = await response.json();
-      const data = (result.success && Array.isArray(result.data)) ? result.data : (Array.isArray(result) ? result : []);
-      setComments(data);
+      const rawData = (result.success && Array.isArray(result.data)) ? result.data : (Array.isArray(result) ? result : []);
+
+      // Map the data to match Comment interface
+      const mappedComments = rawData.map((comment: any) => ({
+        id: comment.id,
+        content: comment.content || '',
+        author: comment.profiles?.username || comment.profiles?.email || 'Unknown',
+        postTitle: comment.community_posts?.title || 'Unknown Post',
+        date: new Date(comment.created_at).toLocaleDateString('ko-KR'),
+      }));
+
+      setComments(mappedComments);
     } catch (error) {
       console.error('Error fetching comments:', error);
       setCommentsError(error instanceof Error ? error.message : 'Failed to load comments');
@@ -117,8 +136,17 @@ export default function AdminPostsPage() {
       }
 
       const result = await response.json();
-      const data = (result.success && Array.isArray(result.data)) ? result.data : (Array.isArray(result) ? result : []);
-      setNotices(data);
+      const rawData = (result.success && Array.isArray(result.data)) ? result.data : (Array.isArray(result) ? result : []);
+
+      // Map the data to match Notice interface
+      const mappedNotices = rawData.map((notice: any) => ({
+        id: notice.id,
+        title: notice.title || 'Untitled',
+        author: 'Admin', // Notices are created by admin
+        date: new Date(notice.created_at).toLocaleDateString('ko-KR'),
+      }));
+
+      setNotices(mappedNotices);
     } catch (error) {
       console.error('Error fetching notices:', error);
       setNoticesError(error instanceof Error ? error.message : 'Failed to load notices');
@@ -182,7 +210,7 @@ export default function AdminPostsPage() {
     }
 
     try {
-      const response = await fetch(`/api/notices/${noticeId}`, {
+      const response = await fetch(`/api/notices?id=${noticeId}`, {
         method: 'DELETE',
       });
 
