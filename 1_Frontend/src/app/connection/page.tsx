@@ -94,13 +94,13 @@ export default function ConnectionPage() {
 
   const selectInquiryPolitician = (politician: any) => {
     setInquirySelected(politician);
-    setInquirySearch('');
+    setInquirySearch(politician.name);
     setInquiryShowResults(false);
   };
 
   const selectProposalPolitician = (politician: any) => {
     setProposalSelected(politician);
-    setProposalSearch('');
+    setProposalSearch(politician.name);
     setProposalShowResults(false);
   };
 
