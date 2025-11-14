@@ -66,18 +66,12 @@ export async function POST(request: NextRequest) {
 
     // Prepare politician data with basic info only
     // Additional info will be collected through data collection process
-    // Note: status field is kept for backward compatibility (combines identity + title for display)
-    const status = validated.title
-      ? `${validated.identity} ${validated.title}`
-      : validated.identity;
-
     const newPolitician = {
       name: validated.name,
       name_en: validated.name_en || null,
       party: validated.party,
       position: validated.position,
       region: validated.region,
-      status, // Combined for display compatibility
       identity: validated.identity,
       title: validated.title || null,
       birth_date: validated.birth_date || null,

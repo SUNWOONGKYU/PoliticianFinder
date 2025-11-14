@@ -715,7 +715,8 @@ export default function CommunityPage() {
                     <h3 className="text-lg font-bold text-gray-900 hover:text-primary-600">{post.title}</h3>
                   </div>
 
-                  {post.politician_tag && (
+                  {/* 정치인 태그: 회원 자유게시판에서만 표시 (정치인이 쓴 글에는 표시 안 함) */}
+                  {post.politician_tag && post.author_type === 'user' && (
                     <div className="mb-2">
                       <span className="inline-flex items-center px-2 py-1 bg-primary-100 text-primary-700 text-xs font-medium rounded border border-primary-300">
                         🏷️ {post.politician_tag} | {post.politician_status || '현직'} {post.politician_position || '국회의원'} | 정치인에 대해서

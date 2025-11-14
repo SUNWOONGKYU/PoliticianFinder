@@ -1,9 +1,11 @@
 // P3BA2: Real API - 정치인 상세 (Supabase + AI Evaluations)
 // 정치인 상세 정보 및 AI 평가 데이터 조회
+// P3F4: Field mapping and community statistics
 
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { z } from "zod";
+import { mapPoliticianFields } from "@/utils/fieldMapper";
 
 export async function GET(
   request: NextRequest,
@@ -58,6 +60,24 @@ export async function GET(
       console.error("AI evaluations query error:", evalError);
     }
 
+    // P3F4: Calculate community statistics
+    // Count posts by this politician
+    const { data: posts, error: postsError } = await supabase
+      .from("community_posts")
+      .select("like_count")
+      .eq("user_id", id)
+      .eq("author_type", "politician");
+
+    const postCount = posts?.length || 0;
+    const likeCount = posts?.reduce((sum, post) => sum + (post.like_count || 0), 0) || 0;
+
+    // Count posts where this politician is tagged (회원 자유게시판에서만 - 정치인이 쓴 글 제외)
+    const { count: taggedCount } = await supabase
+      .from("community_posts")
+      .select("*", { count: "exact", head: true })
+      .contains("tagged_politicians", [politician.name])
+      .neq("author_type", "politician"); // 정치인이 직접 쓴 글은 제외
+
     // AI 평가 데이터 그룹화 (모델별)
     const evaluationsByModel: Record<string, any> = {};
     aiEvaluations?.forEach((evaluation) => {
@@ -71,43 +91,16 @@ export async function GET(
       };
     });
 
-    // 응답 데이터 구성
+    // P3F4: Map fields using fieldMapper (snake_case → camelCase)
+    const mappedData = mapPoliticianFields(politician, {
+      postCount,
+      likeCount,
+      taggedCount: taggedCount || 0,
+    });
+
+    // Add AI evaluations to mapped data
     const responseData = {
-      // 기본 정보
-      id: politician.id,
-      name: politician.name,
-      name_kana: politician.name_kana,
-      name_english: politician.name_english,
-      birth_date: politician.birth_date,
-      gender: politician.gender,
-      political_party_id: politician.political_party_id,
-      position_id: politician.position_id,
-      constituency_id: politician.constituency_id,
-
-      // 연락처 및 SNS
-      phone: politician.phone,
-      email: politician.email,
-      website: politician.website,
-      twitter_handle: politician.twitter_handle,
-      facebook_url: politician.facebook_url,
-      instagram_handle: politician.instagram_handle,
-
-      // 프로필
-      profile_image_url: politician.profile_image_url,
-      bio: politician.bio,
-
-      // 메타데이터
-      verified_at: politician.verified_at,
-      is_active: politician.is_active,
-      created_at: politician.created_at,
-      updated_at: politician.updated_at,
-
-      // 평가 점수
-      evaluation_score: politician.evaluation_score,
-      ai_score: politician.ai_score,
-      user_rating: politician.user_rating,
-      rating_count: politician.rating_count,
-
+      ...mappedData,
       // AI 평가 정보
       ai_evaluations: evaluationsByModel,
       has_evaluations: Object.keys(evaluationsByModel).length > 0,

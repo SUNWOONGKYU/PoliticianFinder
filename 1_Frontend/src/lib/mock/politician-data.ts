@@ -1,6 +1,6 @@
 // Mock data for politician profile development and testing
 
-import { PoliticianProfile, CareerItem, Pledge } from '@/types/politician'
+import { Politician, CareerItem, Pledge } from '@/types/politician'
 
 /**
  * Sample Career Data
@@ -84,36 +84,45 @@ export const mockPledges: Pledge[] = [
 /**
  * Sample Politician Profile
  */
-export const mockPoliticianProfile: PoliticianProfile = {
+export const mockPoliticianProfile: Politician = {
   id: 1,
   name: '김민주',
-  profile_image_url: null,
-  party: '더불어민주당',
+  identity: '현직',
+  title: '국회의원 (21대)',
   position: '국회의원',
+  party: '더불어민주당',
   region: '서울 강남구',
-  is_verified: true,
-  bio: '국민과 소통하며, 실질적인 변화를 만들어가는 정치인입니다. 청년과 중소기업, 교육 분야에 특별한 관심을 가지고 활동하고 있습니다.',
-  birth_date: '1975-03-15',
+  birthDate: '1975-03-15',
+  age: 50,
+  gender: '남',
+  claudeScore: 847,
+  totalScore: 847,
+  grade: 'P',
+  gradeEmoji: '🥇',
+  lastUpdated: '2025-01-20T14:30:00Z',
+  postCount: 12,
+  likeCount: 234,
+  taggedCount: 45,
   education: [
     '서울대학교 법과대학 법학과 학사',
     'Harvard University 공공정책대학원 석사',
     '서울대학교 법학전문대학원 박사'
   ],
-  career: mockCareer,
-  pledges: mockPledges,
-  ai_score: 847,
-  followers_count: 12847,
-  ratings_count: 1543,
-  avg_rating: 4.3,
-  website_url: 'https://example.com',
-  email: 'contact@example.com',
+  career: mockCareer.map(c => `${c.period} ${c.title}`),
+  profileImageUrl: null,
+  websiteUrl: 'https://example.com',
+  bio: '국민과 소통하며, 실질적인 변화를 만들어가는 정치인입니다. 청년과 중소기업, 교육 분야에 특별한 관심을 가지고 활동하고 있습니다.',
   phone: '02-1234-5678',
-  social_media: {
-    twitter: 'https://twitter.com/example',
-    facebook: 'https://facebook.com/example',
-    instagram: 'https://instagram.com/example',
-    youtube: 'https://youtube.com/@example'
-  }
+  email: 'contact@example.com',
+  twitterHandle: '@example',
+  facebookUrl: 'https://facebook.com/example',
+  instagramHandle: '@example',
+  verifiedAt: '2024-01-01T00:00:00Z',
+  isActive: true,
+  createdAt: '2024-01-01T00:00:00Z',
+  updatedAt: '2025-01-20T14:30:00Z',
+  userRating: 4.3,
+  ratingCount: 1543,
 }
 
 /**
@@ -129,39 +138,34 @@ export const mockProfiles = {
     id: 2,
     name: '이정희',
     party: '국민의힘',
-    is_verified: false,
-    ai_score: 672,
-    followers_count: 5423,
-    ratings_count: 234,
-    avg_rating: 3.8
+    totalScore: 672,
+    claudeScore: 672,
+    verifiedAt: null,
+    ratingCount: 234,
+    userRating: 3.8
   },
 
   // New politician with minimal data
   minimal: {
+    ...mockPoliticianProfile,
     id: 3,
     name: '박준영',
-    profile_image_url: null,
     party: '정의당',
     position: '시의원',
     region: '부산 해운대구',
-    is_verified: false,
-    bio: null,
-    birth_date: null,
+    verifiedAt: null,
+    bio: '',
     education: [],
     career: [],
-    pledges: [],
-    ai_score: null,
-    followers_count: 52,
-    ratings_count: 5,
-    avg_rating: 4.0,
-    website_url: null
+    ratingCount: 5,
+    userRating: 4.0,
   }
 }
 
 /**
  * Get mock profile by ID
  */
-export function getMockProfile(id: number): PoliticianProfile | null {
+export function getMockProfile(id: number): Politician | null {
   const profiles = Object.values(mockProfiles)
   return profiles.find(p => p.id === id) || null
 }

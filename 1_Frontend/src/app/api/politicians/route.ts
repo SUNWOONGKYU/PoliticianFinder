@@ -1,9 +1,11 @@
 // P3BA2: Real API - 정치인 목록 (Supabase + RLS)
 // Supabase 연동 및 Full-text Search 지원
+// P3F4: Field mapping for list view
 
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { createClient } from "@/lib/supabase/server";
+import { mapPoliticianListFields } from "@/utils/fieldMapper";
 
 const getPoliticiansQuerySchema = z.object({
   page: z.string().nullable().optional().default("1").transform(Number),
@@ -42,6 +44,7 @@ export async function GET(request: NextRequest) {
     const supabase = createClient();
 
     // Supabase 쿼리 빌더 시작
+    // P3F3: identity, title 필드 포함 (select * 사용)
     let queryBuilder = supabase
       .from("politicians")
       .select("*", { count: "exact" });
@@ -101,10 +104,13 @@ export async function GET(request: NextRequest) {
     const total = count || 0;
     const totalPages = Math.ceil(total / query.limit);
 
+    // P3F4: Map fields for list view (snake_case → camelCase)
+    const mappedPoliticians = (politicians || []).map(mapPoliticianListFields);
+
     return NextResponse.json(
       {
         success: true,
-        data: politicians || [],
+        data: mappedPoliticians,
         pagination: {
           page: query.page,
           limit: query.limit,

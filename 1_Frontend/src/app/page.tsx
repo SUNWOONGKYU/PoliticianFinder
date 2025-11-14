@@ -9,7 +9,8 @@ interface Politician {
   id: number;
   rank: number;
   name: string;
-  status: string;
+  identity: string;  // P3F3: 신분 (현직, 후보자 등)
+  title?: string;    // P3F3: 직책 (국회의원 (21대) 등)
   position: string;
   office: string;
   party: string;
@@ -38,7 +39,8 @@ interface Post {
   politician_id?: number | null;
   politician_name?: string;
   politician_position?: string;
-  politician_status?: string;
+  politician_identity?: string;  // P3F3: 신분
+  politician_title?: string;     // P3F3: 직책
   view_count: number;
   like_count: number;
   comment_count: number;
@@ -93,7 +95,8 @@ export default function Home() {
               id: p.id || index + 1,
               rank: index + 1,
               name: p.name,
-              status: p.status || '현직',
+              identity: p.identity || '현직',  // P3F3: 신분
+              title: p.title || '',           // P3F3: 직책
               position: p.position || '-',
               office: p.position || '국회의원',
               party: p.party || '',
@@ -144,7 +147,8 @@ export default function Home() {
               politicianPostsData.data.map(async (post: any) => {
                 let politicianName = post.politicians?.name || '정치인';
                 let politicianPosition = '국회의원';
-                let politicianStatus = post.politicians?.status;
+                let politicianIdentity = post.politicians?.identity;  // P3F3: 신분
+                let politicianTitle = post.politicians?.title;        // P3F3: 직책
 
                 if (post.politician_id && post.politicians) {
                   // Position ID mapping (simple version)
@@ -156,7 +160,8 @@ export default function Home() {
                     5: '기초의원'
                   };
                   politicianPosition = post.politicians.position || positionMap[post.politicians.position_id] || '정치인';
-                  politicianStatus = post.politicians.status;
+                  politicianIdentity = post.politicians.identity;
+                  politicianTitle = post.politicians.title;
                   politicianName = post.politicians.name;
                 }
 
@@ -170,7 +175,8 @@ export default function Home() {
                   politician_id: post.politician_id,
                   politician_name: politicianName,
                   politician_position: politicianPosition,
-                  politician_status: politicianStatus,
+                  politician_identity: politicianIdentity,  // P3F3
+                  politician_title: politicianTitle,        // P3F3
                   view_count: post.view_count || 0,
                   like_count: post.like_count || 0,
                   comment_count: post.comment_count || 0,
@@ -261,7 +267,8 @@ export default function Home() {
       id: 1,
       rank: 1,
       name: '김민준',
-      status: '현직',
+      identity: '현직',
+      title: '',
       position: '-',
       office: '국회의원',
       party: '더불어민주당',
@@ -281,8 +288,9 @@ export default function Home() {
       id: 2,
       rank: 2,
       name: '이서연',
-      status: '현직',
-      position: '부산광역시장',
+      identity: '현직',
+      title: '부산광역시장',
+      position: '-',
       office: '광역단체장',
       party: '국민의힘',
       region: '부산광역시',
@@ -301,7 +309,8 @@ export default function Home() {
       id: 3,
       rank: 3,
       name: '박준서',
-      status: '현직',
+      identity: '현직',
+      title: '',
       position: '-',
       office: '국회의원',
       party: '더불어민주당',
@@ -321,7 +330,8 @@ export default function Home() {
       id: 4,
       rank: 4,
       name: '정하은',
-      status: '현직',
+      identity: '현직',
+      title: '',
       position: '-',
       office: '광역의원',
       party: '국민의힘',
@@ -341,8 +351,9 @@ export default function Home() {
       id: 5,
       rank: 5,
       name: '최지훈',
-      status: '현직',
-      position: '수원시장',
+      identity: '현직',
+      title: '수원시장',
+      position: '-',
       office: '기초단체장',
       party: '더불어민주당',
       region: '경기 수원시',
@@ -361,7 +372,8 @@ export default function Home() {
       id: 6,
       rank: 6,
       name: '강민서',
-      status: '현직',
+      identity: '현직',
+      title: '',
       position: '-',
       office: '국회의원',
       party: '국민의힘',
@@ -381,8 +393,9 @@ export default function Home() {
       id: 7,
       rank: 7,
       name: '윤서아',
-      status: '현직',
-      position: '광주광역시장',
+      identity: '현직',
+      title: '광주광역시장',
+      position: '-',
       office: '광역단체장',
       party: '더불어민주당',
       region: '광주광역시',
@@ -401,7 +414,8 @@ export default function Home() {
       id: 8,
       rank: 8,
       name: '임도윤',
-      status: '현직',
+      identity: '현직',
+      title: '',
       position: '-',
       office: '광역의원',
       party: '국민의힘',
@@ -421,7 +435,8 @@ export default function Home() {
       id: 9,
       rank: 9,
       name: '한예진',
-      status: '현직',
+      identity: '현직',
+      title: '',
       position: '-',
       office: '기초의원',
       party: '더불어민주당',
@@ -441,8 +456,9 @@ export default function Home() {
       id: 10,
       rank: 10,
       name: '오시우',
-      status: '현직',
-      position: '용인시장',
+      identity: '현직',
+      title: '용인시장',
+      position: '-',
       office: '기초단체장',
       party: '국민의힘',
       region: '경기 용인시',
@@ -635,8 +651,8 @@ export default function Home() {
                             </Link>
                           </td>
                           <td className="px-2 py-3 text-gray-600">
-                            <div className="font-medium">{p.status}</div>
-                            <div className="text-xs">{p.position}</div>
+                            <div className="font-medium">{p.identity}</div>
+                            <div className="text-xs">{p.title || '-'}</div>
                           </td>
                           <td className="px-2 py-3 text-gray-600 text-xs">{p.office}</td>
                           <td className="px-2 py-3 text-gray-600">
@@ -691,7 +707,7 @@ export default function Home() {
                         </div>
                         <div className="text-sm text-gray-600">
                           <span className="font-medium">
-                            {politicians[0].status} {politicians[0].office}
+                            {politicians[0].identity} {politicians[0].title && `• ${politicians[0].title}`}
                           </span>
                           <span className="mx-1">|</span>
                           <span>{politicians[0].party}</span>
@@ -792,7 +808,7 @@ export default function Home() {
                           </div>
                           <div className="text-sm text-gray-600">
                             <span className="font-medium">
-                              {p.status} {p.office}
+                              {p.identity} {p.title && `• ${p.title}`}
                             </span>
                             <span className="mx-1">|</span>
                             <span>{p.party}</span>
@@ -882,7 +898,7 @@ export default function Home() {
                               {p.name}
                             </Link>
                             <div className="text-xs text-gray-600">
-                              {p.status} {p.office} | {p.party}
+                              {p.identity} {p.title && `• ${p.title}`} | {p.party}
                             </div>
                           </div>
                         </div>
@@ -945,7 +961,7 @@ export default function Home() {
                                   className="font-medium text-primary-600 hover:text-primary-700 hover:underline"
                                   onClick={(e) => e.stopPropagation()}
                                 >
-                                  {post.politician_name} | {post.politician_status} {post.politician_position}
+                                  {post.politician_name} | {post.politician_identity} {post.politician_title && `• ${post.politician_title}`}
                                 </Link>
                               ) : (
                                 <span className="font-medium text-primary-600">
@@ -1019,7 +1035,7 @@ export default function Home() {
                                   className="font-medium text-primary-600 hover:text-primary-700 hover:underline"
                                   onClick={(e) => e.stopPropagation()}
                                 >
-                                  {post.politician_name} | {post.politician_status} {post.politician_position}
+                                  {post.politician_name} | {post.politician_identity} {post.politician_title && `• ${post.politician_title}`}
                                 </Link>
                               ) : (
                                 <>

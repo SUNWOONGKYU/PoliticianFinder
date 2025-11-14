@@ -1,155 +1,245 @@
-// Type definitions for Politician-related data structures
+/**
+ * P3F4: Politician Type Definitions
+ *
+ * Complete type definitions for politician data with all fields
+ * including official information from Election Commission
+ */
 
 /**
- * Basic Politician Information
+ * Full Politician interface with all fields
  */
 export interface Politician {
-  id: number
-  name: string
-  profile_image_url: string | null
-  party: string
-  position: string
-  region: string
-  is_verified: boolean
+  // Basic info
+  id: string | number;
+  name: string;
+  nameKanji?: string;
+  nameEn?: string;
+
+  // P3F3: identity and title (separated from status)
+  identity: string;       // 신분 (현직, 후보자 등)
+  title?: string;        // 직책 (국회의원 (21대) 등)
+
+  // Position and party
+  position: string;
+  party: string;
+  region: string;
+  district?: string;
+
+  // Personal info
+  birthDate: string;
+  age: number;
+  gender: string;
+
+  // AI evaluation
+  claudeScore: number;
+  totalScore: number;
+  grade: string;
+  gradeEmoji: string;
+  lastUpdated: string;
+
+  // Community activity (computed fields)
+  postCount: number;
+  likeCount: number;
+  taggedCount: number;
+
+  // Election Commission official info
+  education?: string[];
+  career?: string[];
+  electionHistory?: string[];
+  militaryService?: string;
+  assets?: {
+    total?: string;
+    real_estate?: string;
+    financial?: string;
+  };
+  taxArrears?: string;
+  criminalRecord?: string;
+  militaryServiceIssue?: string;
+  residencyFraud?: string;
+  pledges?: string[];
+  legislativeActivity?: {
+    attendance_rate?: string;
+    bills_proposed?: number;
+    bills_representative?: number;
+    bills_co_proposed?: number;
+    bills_passed?: number;
+  };
+
+  // Other fields
+  profileImageUrl: string | null;
+  websiteUrl: string | null;
+  bio: string;
+  phone: string;
+  email: string;
+
+  // SNS
+  twitterHandle: string;
+  facebookUrl: string;
+  instagramHandle: string;
+
+  // Metadata
+  verifiedAt: string | null;
+  isActive: boolean;
+  createdAt: string;
+  updatedAt: string;
+
+  // User ratings
+  userRating: number;
+  ratingCount: number;
+}
+
+/**
+ * Lightweight politician list item for list views
+ */
+export interface PoliticianListItem {
+  id: string | number;
+  name: string;
+  identity: string;
+  title?: string;
+  position: string;
+  party: string;
+  region: string;
+
+  // AI scores
+  claudeScore: number;
+  totalScore: number;
+  grade: string;
+  gradeEmoji: string;
+
+  // User ratings
+  userRating: number;
+  ratingCount: number;
+
+  // Metadata
+  profileImageUrl: string | null;
+  updatedAt: string;
+}
+
+/**
+ * Database record with snake_case fields
+ */
+export interface PoliticianDbRecord {
+  id: string | number;
+  name: string;
+  name_kanji?: string;
+  name_en?: string;
+  name_english?: string;
+
+  // P3F3: identity and title
+  identity?: string;
+  title?: string;
+
+  // Position and party
+  position?: string;
+  party?: string;
+  region?: string;
+  district?: string;
+
+  // Personal info
+  birth_date?: string;
+  gender?: string;
+
+  // AI evaluation (DB field names)
+  ai_score?: number;
+  evaluation_score?: number;
+  evaluation_grade?: string;
+  updated_at?: string;
+
+  // Election Commission official info
+  education?: string[];
+  career?: string[];
+  election_history?: string[];
+  military_service?: string;
+  assets?: {
+    total?: string;
+    real_estate?: string;
+    financial?: string;
+  };
+  tax_arrears?: string;
+  criminal_record?: string;
+  military_service_issue?: string;
+  residency_fraud?: string;
+  pledges?: string[];
+  legislative_activity?: {
+    attendance_rate?: string;
+    bills_proposed?: number;
+    bills_representative?: number;
+    bills_co_proposed?: number;
+    bills_passed?: number;
+  };
+
+  // Other fields
+  profile_image_url?: string | null;
+  website?: string | null;
+  bio?: string;
+  phone?: string;
+  email?: string;
+
+  // SNS
+  twitter_handle?: string;
+  facebook_url?: string;
+  instagram_handle?: string;
+
+  // Metadata
+  verified_at?: string | null;
+  is_active?: boolean;
+  created_at?: string;
+
+  // User ratings
+  user_rating?: number;
+  rating_count?: number;
 }
 
 /**
  * Career Item for Politician Timeline
  */
 export interface CareerItem {
-  period: string
-  title: string
-  description?: string
+  period: string;
+  title: string;
+  description?: string;
 }
 
 /**
  * Pledge Status Types
  */
-export type PledgeStatus = 'pending' | 'in_progress' | 'completed' | 'failed'
+export type PledgeStatus = 'pending' | 'in_progress' | 'completed' | 'failed';
 
 /**
  * Politician Pledge/Promise
  */
 export interface Pledge {
-  id: number
-  title: string
-  description: string
-  category: string
-  status: PledgeStatus
-  created_at?: string
-  updated_at?: string
-}
-
-/**
- * Detailed Politician Profile (extends basic info)
- */
-export interface PoliticianProfile extends Politician {
-  bio: string | null
-  birth_date: string | null
-  education: string[]
-  career: CareerItem[]
-  pledges: Pledge[]
-  ai_score: number | null
-  followers_count: number
-  ratings_count: number
-  avg_rating: number
-  website_url: string | null
-  email?: string | null
-  phone?: string | null
-  social_media?: {
-    twitter?: string
-    facebook?: string
-    instagram?: string
-    youtube?: string
-  }
-}
-
-/**
- * Politician Statistics
- */
-export interface PoliticianStats {
-  followers: number
-  ratings: number
-  avgScore: number
-  aiScore: number | null
-}
-
-/**
- * Rating Distribution
- */
-export interface RatingDistribution {
-  1: number
-  2: number
-  3: number
-  4: number
-  5: number
-}
-
-/**
- * Politician Detail (includes rating stats)
- */
-export interface PoliticianDetail extends PoliticianProfile {
-  rating_distribution: RatingDistribution
-  total_ratings: number
-}
-
-/**
- * Politician List Item (for list views)
- */
-export interface PoliticianListItem {
-  id: number
-  name: string
-  profile_image_url: string | null
-  party: string
-  position: string
-  region: string
-  is_verified: boolean
-  avg_rating: number
-  ratings_count: number
-  ai_score: number | null
+  id: number;
+  title: string;
+  description: string;
+  category: string;
+  status: PledgeStatus;
+  created_at?: string;
+  updated_at?: string;
 }
 
 /**
  * Politician Filter Options
  */
 export interface PoliticianFilters {
-  party?: string[]
-  region?: string[]
-  position?: string[]
-  minRating?: number
-  maxRating?: number
-  isVerified?: boolean
-  sortBy?: 'name' | 'rating' | 'ai_score' | 'followers'
-  sortOrder?: 'asc' | 'desc'
+  party?: string[];
+  region?: string[];
+  position?: string[];
+  minRating?: number;
+  maxRating?: number;
+  isVerified?: boolean;
+  sortBy?: 'name' | 'rating' | 'ai_score' | 'followers';
+  sortOrder?: 'asc' | 'desc';
 }
 
 /**
  * Paginated Politician Response
  */
 export interface PaginatedPoliticians {
-  data: PoliticianListItem[]
+  data: PoliticianListItem[];
   pagination: {
-    page: number
-    limit: number
-    total: number
-    totalPages: number
-  }
-}
-
-/**
- * Follow Status
- */
-export interface FollowStatus {
-  isFollowing: boolean
-  followerId?: number
-  followedAt?: string
-}
-
-/**
- * Politician Search Result
- */
-export interface PoliticianSearchResult {
-  politician: PoliticianListItem
-  matchScore: number
-  matchedFields: string[]
+    page: number;
+    limit: number;
+    total: number;
+    totalPages: number;
+  };
 }
