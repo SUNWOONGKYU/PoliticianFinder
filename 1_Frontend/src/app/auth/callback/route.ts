@@ -27,12 +27,13 @@ import { cookies } from 'next/headers';
  */
 export async function GET(request: NextRequest) {
   const requestUrl = new URL(request.url);
-  const code = requestUrl.searchParams.get('code');
+  const token_hash = requestUrl.searchParams.get('token_hash');
+  const type = requestUrl.searchParams.get('type');
   const next = requestUrl.searchParams.get('next') ?? '/auth/login';
 
-  console.log('[이메일 인증 콜백] 시작:', { code: code?.substring(0, 10) + '...', next });
+  console.log('[이메일 인증 콜백] 시작:', { token_hash: token_hash?.substring(0, 10) + '...', type, next });
 
-  if (code) {
+  if (token_hash && type) {
     const cookieStore = cookies();
 
     // Create Supabase client with proper cookie handling
@@ -54,8 +55,11 @@ export async function GET(request: NextRequest) {
       }
     );
 
-    // Exchange code for session
-    const { data, error } = await supabase.auth.exchangeCodeForSession(code);
+    // Verify email using token hash
+    const { data, error } = await supabase.auth.verifyOtp({
+      token_hash,
+      type: type as any,
+    });
 
     if (error) {
       console.error('[이메일 인증] 오류:', {
@@ -87,8 +91,8 @@ export async function GET(request: NextRequest) {
     );
   }
 
-  // No code provided
-  console.error('[이메일 인증] code 파라미터 없음');
+  // No token_hash or type provided
+  console.error('[이메일 인증] token_hash 또는 type 파라미터 없음');
   return NextResponse.redirect(
     `${requestUrl.origin}/auth/login?error=${encodeURIComponent('잘못된 인증 링크입니다.')}`
   );

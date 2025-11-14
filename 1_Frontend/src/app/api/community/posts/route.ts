@@ -5,8 +5,15 @@ import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { z } from "zod";
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+
+if (!supabaseUrl || !supabaseServiceKey) {
+  console.error('[Community Posts API] Missing environment variables:', {
+    hasUrl: !!supabaseUrl,
+    hasServiceKey: !!supabaseServiceKey,
+  });
+}
 
 const getPostsQuerySchema = z.object({
   page: z.string().optional().default("1").transform(Number),
@@ -22,6 +29,25 @@ const getPostsQuerySchema = z.object({
  */
 export async function GET(request: NextRequest) {
   try {
+    // 환경 변수 체크
+    if (!supabaseUrl || !supabaseServiceKey) {
+      console.error('[Community Posts API] Environment variables not configured');
+      return NextResponse.json(
+        {
+          success: false,
+          error: {
+            code: 'CONFIG_ERROR',
+            message: 'Server configuration error. Please contact administrator.',
+            details: {
+              hasUrl: !!supabaseUrl,
+              hasServiceKey: !!supabaseServiceKey,
+            },
+          },
+        },
+        { status: 500 }
+      );
+    }
+
     const searchParams = request.nextUrl.searchParams;
     const queryParams = {
       page: searchParams.get("page") || "1",
