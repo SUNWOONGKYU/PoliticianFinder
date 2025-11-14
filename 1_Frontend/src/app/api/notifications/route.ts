@@ -1,15 +1,10 @@
-// P1BA4: Mock API - 기타 (알림 조회/처리 API)
-// Supabase 연동 - 사용자 알림 데이터 관리
+// P1BA4: Real API - 알림 조회/처리 API
+// Supabase RLS 연동: 실제 인증 사용자 기반 알림
 
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@supabase/supabase-js';
 import { z } from 'zod';
-
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
-
-// Mock User UUID for testing
-const MOCK_USER_ID = '7f61567b-bbdf-427a-90a9-0ee060ef4595';
+import { createClient } from '@/lib/supabase/server';
+import { requireAuth } from '@/lib/auth/helpers';
 
 const notificationSchema = z.object({
   user_id: z.string().uuid().optional(),
@@ -21,17 +16,22 @@ const notificationSchema = z.object({
 
 export async function GET(request: NextRequest) {
   try {
-    const supabase = createClient(supabaseUrl, supabaseServiceKey);
+    const authResult = await requireAuth();
+    if (authResult instanceof NextResponse) {
+      return authResult;
+    }
+    const { user } = authResult;
+
+    const supabase = createClient();
 
     const page = parseInt(request.nextUrl.searchParams.get('page') || '1');
     const limit = parseInt(request.nextUrl.searchParams.get('limit') || '20');
     const type = request.nextUrl.searchParams.get('type');
-    const user_id = request.nextUrl.searchParams.get('user_id') || MOCK_USER_ID;
 
     let query = supabase
       .from('notifications')
       .select('*', { count: 'exact' })
-      .eq('user_id', user_id)
+      .eq('user_id', user.id)
       .order('created_at', { ascending: false });
 
     if (type) {
@@ -79,18 +79,24 @@ export async function GET(request: NextRequest) {
 
 export async function POST(request: NextRequest) {
   try {
-    const supabase = createClient(supabaseUrl, supabaseServiceKey);
+    const authResult = await requireAuth();
+    if (authResult instanceof NextResponse) {
+      return authResult;
+    }
+    const { user } = authResult;
+
+    const supabase = createClient();
     const body = await request.json();
 
     const validated = notificationSchema.parse({
       ...body,
-      user_id: body.user_id || MOCK_USER_ID,
+      user_id: user.id,
     });
 
     const { data, error } = await supabase
       .from('notifications')
       .insert({
-        user_id: validated.user_id,
+        user_id: user.id,
         type: validated.type,
         title: validated.title,
         message: validated.message,
@@ -126,12 +132,18 @@ export async function POST(request: NextRequest) {
 
 export async function PATCH(request: NextRequest) {
   try {
-    const supabase = createClient(supabaseUrl, supabaseServiceKey);
+    const authResult = await requireAuth();
+    if (authResult instanceof NextResponse) {
+      return authResult;
+    }
+    const { user } = authResult;
+
+    const supabase = createClient();
     const notificationId = request.nextUrl.searchParams.get('notificationId');
 
     if (!notificationId) {
       return NextResponse.json(
-        { success: false, error: 'notificationId is required' },
+        { success: false, error: {code: 'VALIDATION_ERROR', message: 'notificationId is required'} },
         { status: 400 }
       );
     }
@@ -140,6 +152,7 @@ export async function PATCH(request: NextRequest) {
       .from('notifications')
       .update({ is_read: true, updated_at: new Date().toISOString() })
       .eq('id', notificationId)
+      .eq('user_id', user.id)
       .select()
       .single();
 
@@ -163,12 +176,18 @@ export async function PATCH(request: NextRequest) {
 
 export async function DELETE(request: NextRequest) {
   try {
-    const supabase = createClient(supabaseUrl, supabaseServiceKey);
+    const authResult = await requireAuth();
+    if (authResult instanceof NextResponse) {
+      return authResult;
+    }
+    const { user } = authResult;
+
+    const supabase = createClient();
     const notificationId = request.nextUrl.searchParams.get('notificationId');
 
     if (!notificationId) {
       return NextResponse.json(
-        { success: false, error: 'notificationId is required' },
+        { success: false, error: {code: 'VALIDATION_ERROR', message: 'notificationId is required'} },
         { status: 400 }
       );
     }
@@ -176,7 +195,8 @@ export async function DELETE(request: NextRequest) {
     const { error } = await supabase
       .from('notifications')
       .delete()
-      .eq('id', notificationId);
+      .eq('id', notificationId)
+      .eq('user_id', user.id);
 
     if (error) {
       console.error('Supabase delete error:', error);
