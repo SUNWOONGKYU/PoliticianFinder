@@ -327,61 +327,86 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
           <h2 className="text-2xl font-bold text-gray-900 mb-4">댓글 <span className="text-emerald-900">{post.commentCount}</span></h2>
 
           {/* 댓글 탭 */}
-          <div className="flex gap-2 mb-4">
-            <button className="px-4 py-2 bg-primary-500 text-white rounded-lg border-2 border-primary-500 font-medium hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-300 transition">
-              🏛️ 정치인 댓글
-            </button>
-            <button className="px-4 py-2 bg-white text-gray-700 rounded-lg border-2 border-secondary-600 font-medium hover:bg-purple-50 focus:outline-none focus:ring-2 focus:ring-secondary-300 transition">
-              👤 회원 댓글
-            </button>
-          </div>
+          {/* 정치인 게시판에만 정치인/회원 댓글 구분 표시 */}
+          {post?.isPolitician ? (
+            <>
+              <div className="flex gap-2 mb-4">
+                <button className="px-4 py-2 bg-primary-500 text-white rounded-lg border-2 border-primary-500 font-medium hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-300 transition">
+                  🏛️ 정치인 댓글
+                </button>
+                <button className="px-4 py-2 bg-white text-gray-700 rounded-lg border-2 border-secondary-600 font-medium hover:bg-purple-50 focus:outline-none focus:ring-2 focus:ring-secondary-300 transition">
+                  👤 회원 댓글
+                </button>
+              </div>
 
-          {/* 정치인 댓글 작성 폼 */}
-          <div className="mb-4 p-4 bg-orange-50 border border-primary-200 rounded-lg">
-            <div className="flex items-center gap-2 mb-2">
-              <span className="text-sm font-bold text-primary-600">🏛️ 정치인으로 댓글 작성</span>
-            </div>
-            <textarea
-              value={commentText}
-              onChange={(e) => setCommentText(e.target.value)}
-              rows={3}
-              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 resize-none"
-              placeholder="정치인으로 댓글을 입력하세요..."
-            />
-            <div className="flex justify-between items-center mt-2">
-              <span className="text-sm text-gray-500">정치인 본인 인증 필요</span>
-              <button className="px-6 py-2 bg-primary-500 text-white rounded-lg hover:bg-primary-600 font-medium">
-                정치인 댓글 등록
-              </button>
-            </div>
-          </div>
+              {/* 정치인 댓글 작성 폼 */}
+              <div className="mb-4 p-4 bg-orange-50 border border-primary-200 rounded-lg">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="text-sm font-bold text-primary-600">🏛️ 정치인으로 댓글 작성</span>
+                </div>
+                <textarea
+                  value={commentText}
+                  onChange={(e) => setCommentText(e.target.value)}
+                  rows={3}
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 resize-none"
+                  placeholder="정치인으로 댓글을 입력하세요..."
+                />
+                <div className="flex justify-between items-center mt-2">
+                  <span className="text-sm text-gray-500">정치인 본인 인증 필요</span>
+                  <button className="px-6 py-2 bg-primary-500 text-white rounded-lg hover:bg-primary-600 font-medium">
+                    정치인 댓글 등록
+                  </button>
+                </div>
+              </div>
 
-          {/* 회원 댓글 작성 폼 */}
-          <div className="mb-6 p-4 bg-purple-50 border border-secondary-200 rounded-lg">
-            <div className="flex items-center gap-2 mb-2">
-              <span className="text-sm font-bold text-secondary-600">👤 회원으로 댓글 작성</span>
+              {/* 회원 댓글 작성 폼 */}
+              <div className="mb-6 p-4 bg-purple-50 border border-secondary-200 rounded-lg">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="text-sm font-bold text-secondary-600">👤 회원으로 댓글 작성</span>
+                </div>
+                <textarea
+                  value={commentText}
+                  onChange={(e) => setCommentText(e.target.value)}
+                  rows={3}
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary-500 focus:border-secondary-500 resize-none"
+                  placeholder="회원으로 댓글을 입력하세요..."
+                />
+                <div className="flex justify-between items-center mt-2">
+                  <span className="text-sm text-gray-500">회원 계정으로 로그인 필요</span>
+                  <button className="px-6 py-2 bg-secondary-600 text-white rounded-lg hover:bg-secondary-700 font-medium">
+                    회원 댓글 등록
+                  </button>
+                </div>
+              </div>
+            </>
+          ) : (
+            /* 회원 자유게시판 - 일반 댓글 작성 폼만 표시 */
+            <div className="mb-6 p-4 bg-white border border-gray-200 rounded-lg">
+              <div className="flex items-center gap-2 mb-2">
+                <span className="text-sm font-bold text-gray-700">💬 댓글 작성</span>
+              </div>
+              <textarea
+                value={commentText}
+                onChange={(e) => setCommentText(e.target.value)}
+                rows={3}
+                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 resize-none"
+                placeholder="댓글을 입력하세요..."
+              />
+              <div className="flex justify-end items-center mt-2">
+                <button className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-medium">
+                  댓글 등록
+                </button>
+              </div>
             </div>
-            <textarea
-              value={commentText}
-              onChange={(e) => setCommentText(e.target.value)}
-              rows={3}
-              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary-500 focus:border-secondary-500 resize-none"
-              placeholder="회원으로 댓글을 입력하세요..."
-            />
-            <div className="flex justify-between items-center mt-2">
-              <span className="text-sm text-gray-500">회원 계정으로 로그인 필요</span>
-              <button className="px-6 py-2 bg-secondary-600 text-white rounded-lg hover:bg-secondary-700 font-medium">
-                회원 댓글 등록
-              </button>
-            </div>
-          </div>
+          )}
 
           <div className="space-y-4">
             {comments.map((comment) => (
               <div key={comment.id} className="border-b pb-4">
                 <div className="mb-2">
                   <div className="flex items-center gap-3 text-xs text-gray-500 flex-wrap">
-                    {comment.authorType === 'politician' ? (
+                    {/* 정치인 게시판에서만 정치인/회원 구분 표시 */}
+                    {post?.isPolitician && comment.authorType === 'politician' ? (
                       <>
                         <Link href={`/politicians/${comment.userId}`} className="font-medium text-primary-600 hover:text-primary-700 hover:underline">
                           {comment.author}
@@ -390,7 +415,7 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
                       </>
                     ) : (
                       <>
-                        <Link href={`/users/${comment.userId}/profile`} className="font-medium text-secondary-600 hover:text-secondary-700 hover:underline">
+                        <Link href={`/users/${comment.userId}/profile`} className="font-medium text-gray-700 hover:text-gray-900 hover:underline">
                           {comment.author}
                         </Link>
                         <span className="text-gray-900" aria-label={`활동 등급 ${comment.memberLevel}`} title={`활동 등급: ${comment.memberLevel}`}>{comment.memberLevel}</span>
