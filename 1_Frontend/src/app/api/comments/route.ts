@@ -1,15 +1,10 @@
-// P1BA3: Mock API - 커뮤니티
-// Supabase 연동: 댓글 목록 조회 및 작성
+// P1BA3: Real API - 커뮤니티 댓글
+// Supabase RLS 연동: 실제 인증 사용자 기반 댓글 CRUD
 
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
-import { createClient } from "@supabase/supabase-js";
-
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
-
-// Mock User UUID
-const MOCK_USER_ID = "7f61567b-bbdf-427a-90a9-0ee060ef4595";
+import { createClient } from "@/lib/supabase/server";
+import { requireAuth } from "@/lib/auth/helpers";
 
 const createCommentSchema = z.object({
   post_id: z.string().min(1, "게시글 ID는 필수입니다"),
@@ -26,17 +21,25 @@ const getCommentsQuerySchema = z.object({
 
 /**
  * POST /api/comments
- * 댓글 작성
+ * 댓글 작성 (인증 필요)
  */
 export async function POST(request: NextRequest) {
   try {
+    // 1. 인증 확인
+    const authResult = await requireAuth();
+    if (authResult instanceof NextResponse) {
+      return authResult;
+    }
+    const { user } = authResult;
+
+    // 2. 요청 데이터 검증
     const body = await request.json();
     const validated = createCommentSchema.parse(body);
 
-    // Supabase 클라이언트 생성
-    const supabase = createClient(supabaseUrl, supabaseServiceKey);
+    // 3. Supabase 클라이언트 생성
+    const supabase = createClient();
 
-    // 게시글 존재 여부 확인
+    // 4. 게시글 존재 여부 확인
     const { data: post, error: postError } = await supabase
       .from('community_posts')
       .select('id')
@@ -45,12 +48,18 @@ export async function POST(request: NextRequest) {
 
     if (postError || !post) {
       return NextResponse.json(
-        { success: false, error: '게시글을 찾을 수 없습니다.' },
+        {
+          success: false,
+          error: {
+            code: 'NOT_FOUND',
+            message: '게시글을 찾을 수 없습니다.',
+          },
+        },
         { status: 404 }
       );
     }
 
-    // 대댓글인 경우 부모 댓글 존재 여부 확인
+    // 5. 대댓글인 경우 부모 댓글 존재 여부 확인
     if (validated.parent_id) {
       const { data: parentComment, error: parentError } = await supabase
         .from('comments')
@@ -60,54 +69,74 @@ export async function POST(request: NextRequest) {
 
       if (parentError || !parentComment) {
         return NextResponse.json(
-          { success: false, error: '부모 댓글을 찾을 수 없습니다.' },
+          {
+            success: false,
+            error: {
+              code: 'NOT_FOUND',
+              message: '부모 댓글을 찾을 수 없습니다.',
+            },
+          },
           { status: 404 }
         );
       }
     }
 
-    // 댓글 ID 생성 (timestamp 기반)
-    const commentId = `comment_${Date.now()}`;
-
-    // Supabase에 댓글 삽입
+    // 6. Supabase에 댓글 삽입 (RLS로 user_id 자동 검증)
     const { data: newComment, error } = await supabase
       .from('comments')
       .insert({
-        id: commentId,
         post_id: validated.post_id,
         content: validated.content,
-        user_id: MOCK_USER_ID,
+        user_id: user.id,
         parent_id: validated.parent_id || null,
-        upvotes: 0,
-        downvotes: 0,
-        created_at: new Date().toISOString(),
-        updated_at: new Date().toISOString(),
       })
       .select()
       .single();
 
     if (error) {
-      console.error('Supabase insert error:', error);
+      console.error('[POST /api/comments] Supabase insert error:', error);
       return NextResponse.json(
-        { success: false, error: '댓글 작성 중 오류가 발생했습니다.' },
+        {
+          success: false,
+          error: {
+            code: 'DATABASE_ERROR',
+            message: '댓글 작성 중 오류가 발생했습니다.',
+          },
+        },
         { status: 500 }
       );
     }
 
     return NextResponse.json(
-      { success: true, data: newComment },
+      {
+        success: true,
+        data: newComment,
+      },
       { status: 201 }
     );
   } catch (error) {
     if (error instanceof z.ZodError) {
       return NextResponse.json(
-        { success: false, error: error.errors },
+        {
+          success: false,
+          error: {
+            code: 'VALIDATION_ERROR',
+            message: '입력 데이터가 올바르지 않습니다.',
+            details: error.errors,
+          },
+        },
         { status: 400 }
       );
     }
-    console.error('POST /api/comments error:', error);
+    console.error('[POST /api/comments] Unexpected error:', error);
     return NextResponse.json(
-      { success: false, error: 'Internal server error' },
+      {
+        success: false,
+        error: {
+          code: 'INTERNAL_SERVER_ERROR',
+          message: '서버 오류가 발생했습니다.',
+        },
+      },
       { status: 500 }
     );
   }
@@ -115,10 +144,11 @@ export async function POST(request: NextRequest) {
 
 /**
  * GET /api/comments
- * 댓글 목록 조회
+ * 댓글 목록 조회 (인증 선택적)
  */
 export async function GET(request: NextRequest) {
   try {
+    // 1. 쿼리 파라미터 검증
     const searchParams = request.nextUrl.searchParams;
     const queryParams = {
       post_id: searchParams.get("post_id") || undefined,
@@ -129,10 +159,10 @@ export async function GET(request: NextRequest) {
 
     const query = getCommentsQuerySchema.parse(queryParams);
 
-    // Supabase 클라이언트 생성
-    const supabase = createClient(supabaseUrl, supabaseServiceKey);
+    // 2. Supabase 클라이언트 생성
+    const supabase = createClient();
 
-    // Supabase 쿼리 빌더 시작 (profiles와 community_posts 조인 추가)
+    // 3. Supabase 쿼리 빌더 시작 (profiles와 community_posts 조인 추가)
     let queryBuilder = supabase
       .from('comments')
       .select(`
@@ -147,28 +177,34 @@ export async function GET(request: NextRequest) {
       `, { count: 'exact' })
       .order('created_at', { ascending: false });
 
-    // post_id 필터 (선택적)
+    // 4. post_id 필터 (선택적)
     if (query.post_id) {
       queryBuilder = queryBuilder.eq('post_id', query.post_id);
     }
 
-    // search 필터 (선택적)
+    // 5. search 필터 (선택적)
     if (query.search) {
       queryBuilder = queryBuilder.ilike('content', `%${query.search}%`);
     }
 
-    // 페이지네이션 적용
+    // 6. 페이지네이션 적용
     const start = (query.page - 1) * query.limit;
     const end = start + query.limit - 1;
     queryBuilder = queryBuilder.range(start, end);
 
-    // 데이터 가져오기
+    // 7. 데이터 가져오기
     const { data: comments, count, error } = await queryBuilder;
 
     if (error) {
-      console.error('Supabase query error:', error);
+      console.error('[GET /api/comments] Supabase query error:', error);
       return NextResponse.json(
-        { success: false, error: '댓글 목록 조회 중 오류가 발생했습니다.' },
+        {
+          success: false,
+          error: {
+            code: 'DATABASE_ERROR',
+            message: '댓글 목록 조회 중 오류가 발생했습니다.',
+          },
+        },
         { status: 500 }
       );
     }
@@ -180,7 +216,12 @@ export async function GET(request: NextRequest) {
       {
         success: true,
         data: comments || [],
-        pagination: { page: query.page, limit: query.limit, total, totalPages },
+        pagination: {
+          page: query.page,
+          limit: query.limit,
+          total,
+          totalPages,
+        },
         timestamp: new Date().toISOString(),
       },
       { status: 200 }
@@ -188,13 +229,26 @@ export async function GET(request: NextRequest) {
   } catch (error) {
     if (error instanceof z.ZodError) {
       return NextResponse.json(
-        { success: false, error: error.errors },
+        {
+          success: false,
+          error: {
+            code: 'VALIDATION_ERROR',
+            message: '쿼리 파라미터가 올바르지 않습니다.',
+            details: error.errors,
+          },
+        },
         { status: 400 }
       );
     }
-    console.error('GET /api/comments error:', error);
+    console.error('[GET /api/comments] Unexpected error:', error);
     return NextResponse.json(
-      { success: false, error: 'Internal server error' },
+      {
+        success: false,
+        error: {
+          code: 'INTERNAL_SERVER_ERROR',
+          message: '서버 오류가 발생했습니다.',
+        },
+      },
       { status: 500 }
     );
   }

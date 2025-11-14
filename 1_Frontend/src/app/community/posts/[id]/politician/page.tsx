@@ -46,6 +46,16 @@ export default function PoliticianPostDetailPage({ params }: { params: { id: str
   const [downvotes, setDownvotes] = useState(0);
   const [post, setPost] = useState<Post | null>(null);
   const [loading, setLoading] = useState(true);
+  const [comments, setComments] = useState<Comment[]>([]);
+  const [commentsLoading, setCommentsLoading] = useState(false);
+  const [totalComments, setTotalComments] = useState(0);
+  const [displayedComments, setDisplayedComments] = useState(5);
+
+  // Sample user nicknames
+  const sampleNicknames = [
+    '정치는우리의것', '투명한정치', '민주시민', '시민참여자', '투표하는시민',
+    '민생이우선', '변화를원해', '미래세대', '깨어있는시민', '정책분석가'
+  ];
 
   // Fetch post data from API
   useEffect(() => {
@@ -104,55 +114,63 @@ export default function PoliticianPostDetailPage({ params }: { params: { id: str
     return `${year}.${month}.${day} ${hours}:${minutes}`;
   };
 
-  const [comments] = useState<Comment[]>([
-    {
-      id: 1,
-      author: '김민준 의원',
-      authorType: 'politician',
-      politicianId: 1,
-      politicianPosition: '국회의원',
-      timestamp: '2025.10.25 14:20',
-      content: '주민 여러분의 소중한 의견 감사합니다. 모든 의견을 적극 반영하여 더 나은 정책을 만들어가겠습니다. 특히 교통 인프라는 최우선 과제로 추진하고 있으니 조금만 기다려주시기 바랍니다.',
-      upvotes: 45,
-      downvotes: 2
-    },
-    {
-      id: 2,
-      author: '시민123',
-      authorType: 'member',
-      userId: 'user_001',
-      memberLevel: 'ML4',
-      influenceLevel: '영주',
-      timestamp: '2025.10.25 10:30',
-      content: '교통 인프라 개선 정말 필요했습니다! 특히 지하철 연장선은 우리 지역 주민들이 오래 기다려온 사업이에요. 빠른 진행 부탁드립니다.',
-      upvotes: 12,
-      downvotes: 1
-    },
-    {
-      id: 3,
-      author: '정치관심러',
-      authorType: 'member',
-      userId: 'user_002',
-      memberLevel: 'ML3',
-      influenceLevel: '영주',
-      timestamp: '2025.10.25 11:15',
-      content: '청년 일자리 창출 정책 좋네요. 구체적인 예산과 일정도 공개해주시면 더 신뢰가 갈 것 같습니다.',
-      upvotes: 8,
-      downvotes: 0
-    },
-    {
-      id: 4,
-      author: '학부모',
-      authorType: 'member',
-      userId: 'user_003',
-      memberLevel: 'ML2',
-      influenceLevel: '영주',
-      timestamp: '2025.10.25 12:00',
-      content: '교육 환경 개선에 대한 구체적인 계획 감사합니다. 특히 노후 학교 시설 개선은 시급한 문제입니다. 우리 아이 학교도 꼭 포함되었으면 좋겠어요.',
-      upvotes: 15,
-      downvotes: 2
-    }
-  ]);
+  // Fetch comments from API
+  useEffect(() => {
+    const fetchComments = async () => {
+      if (!params.id) return;
+
+      try {
+        setCommentsLoading(true);
+        const response = await fetch(`/api/comments?post_id=${params.id}&limit=100`);
+
+        if (!response.ok) {
+          throw new Error('댓글을 불러오는데 실패했습니다.');
+        }
+
+        const result = await response.json();
+
+        if (result.success && result.data) {
+          // Map API response to Comment interface
+          const mappedComments: Comment[] = result.data.map((comment: any, index: number) => {
+            // Generate consistent nickname based on user_id
+            const userIdHash = comment.user_id ? comment.user_id.split('-')[0].charCodeAt(0) : index;
+            const nicknameIndex = userIdHash % 10;
+
+            // Generate consistent member level (ML1-ML5) based on user_id
+            const mlLevel = `ML${(userIdHash % 5) + 1}`;
+
+            const formatDate = (dateString: string) => {
+              const date = new Date(dateString);
+              return `${date.getFullYear()}.${String(date.getMonth() + 1).padStart(2, '0')}.${String(date.getDate()).padStart(2, '0')} ${String(date.getHours()).padStart(2, '0')}:${String(date.getMinutes()).padStart(2, '0')}`;
+            };
+
+            return {
+              id: comment.id,
+              author: comment.profiles?.username || sampleNicknames[nicknameIndex],
+              authorType: 'member' as const,
+              userId: comment.user_id,
+              memberLevel: mlLevel,
+              influenceLevel: '영주',
+              timestamp: formatDate(comment.created_at),
+              content: comment.content,
+              upvotes: comment.upvotes || 0,
+              downvotes: comment.downvotes || 0
+            };
+          });
+
+          setComments(mappedComments);
+          setTotalComments(result.pagination?.total || mappedComments.length);
+        }
+      } catch (err) {
+        console.error('[정치인 게시글 상세] 댓글 조회 오류:', err);
+        setComments([]);
+      } finally {
+        setCommentsLoading(false);
+      }
+    };
+
+    fetchComments();
+  }, [params.id]);
 
   const filteredComments = comments.filter(comment => {
     if (commentFilter === 'all') return true;
@@ -392,7 +410,7 @@ export default function PoliticianPostDetailPage({ params }: { params: { id: str
 
           {/* Comment List */}
           <div className="space-y-4">
-            {filteredComments.map((comment) => (
+            {filteredComments.slice(0, displayedComments).map((comment) => (
               <div key={comment.id} className="border-b pb-4">
                 <div className="mb-2">
                   <div className="flex items-center gap-3 text-xs text-gray-500 flex-wrap">
@@ -422,11 +440,16 @@ export default function PoliticianPostDetailPage({ params }: { params: { id: str
               </div>
             ))}
 
-            <div className="text-center pt-4">
-              <button className="px-6 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 font-medium">
-                댓글 더보기 (42개 남음)
-              </button>
-            </div>
+            {filteredComments.length > displayedComments && (
+              <div className="text-center pt-4">
+                <button
+                  onClick={() => setDisplayedComments(prev => prev + 10)}
+                  className="px-6 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 font-medium"
+                >
+                  댓글 더보기 ({filteredComments.length - displayedComments}개 남음)
+                </button>
+              </div>
+            )}
           </div>
         </section>
 
