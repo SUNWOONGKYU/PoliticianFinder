@@ -73,8 +73,11 @@ export function middleware(request: NextRequest) {
     return new NextResponse(
       JSON.stringify({
         success: false,
-        error: 'Too many requests. Please try again later.',
-        retryAfter: Math.ceil((rateLimitResult.resetTime - Date.now()) / 1000),
+        error: {
+          code: 'RATE_LIMIT_EXCEEDED',
+          message: 'Too many requests. Please try again later.',
+          retryAfter: Math.ceil((rateLimitResult.resetTime - Date.now()) / 1000),
+        },
       }),
       {
         status: 429,
