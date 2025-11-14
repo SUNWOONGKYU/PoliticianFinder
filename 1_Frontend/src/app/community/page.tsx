@@ -445,6 +445,7 @@ export default function CommunityPage() {
   const [error, setError] = useState<string | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
+  const [totalCount, setTotalCount] = useState(0);
 
   // Sample user nicknames
   const sampleNicknames = [
@@ -516,9 +517,10 @@ export default function CommunityPage() {
 
           setPosts(mappedPosts);
 
-          // Set total pages from pagination
+          // Set total pages and count from pagination
           if (result.pagination) {
             setTotalPages(result.pagination.totalPages);
+            setTotalCount(result.pagination.total);
           }
         }
       } catch (err) {
@@ -669,7 +671,7 @@ export default function CommunityPage() {
         {/* Sort Options */}
         <div className="flex items-center justify-between mb-4">
           <div className="text-sm text-gray-600">
-            총 <span className="font-bold text-gray-900">{filteredPosts.length}</span>개의 게시글
+            총 <span className="font-bold text-gray-900">{totalCount}</span>개의 게시글
             {totalPages > 1 && <span className="ml-2 text-gray-500">({currentPage}/{totalPages} 페이지)</span>}
           </div>
           <div className="flex items-center space-x-2">
