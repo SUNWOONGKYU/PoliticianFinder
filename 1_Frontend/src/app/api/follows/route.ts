@@ -1,15 +1,10 @@
-// P1BA4: Mock API - 기타 (팔로우 API)
-// Supabase 연동 - 사용자-정치인 팔로우 관계 관리
+// P1BA4: Real API - 팔로우 API
+// Supabase RLS 연동: 실제 인증 사용자 기반 팔로우
 
 import { NextRequest, NextResponse } from "next/server";
-import { createClient } from "@supabase/supabase-js";
 import { z } from "zod";
-
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
-
-// Mock User UUID for testing
-const MOCK_USER_ID = '7f61567b-bbdf-427a-90a9-0ee060ef4595';
+import { createClient } from "@/lib/supabase/server";
+import { requireAuth } from "@/lib/auth/helpers";
 
 const followSchema = z.object({
   user_id: z.string().uuid().optional(),
@@ -18,12 +13,18 @@ const followSchema = z.object({
 
 export async function POST(request: NextRequest) {
   try {
-    const supabase = createClient(supabaseUrl, supabaseServiceKey);
+    const authResult = await requireAuth();
+    if (authResult instanceof NextResponse) {
+      return authResult;
+    }
+    const { user } = authResult;
+
+    const supabase = createClient();
     const body = await request.json();
 
     const follow = followSchema.parse({
       ...body,
-      user_id: body.user_id || MOCK_USER_ID,
+      user_id: user.id,
     });
 
     // 정치인 존재 여부 확인
@@ -100,22 +101,20 @@ export async function POST(request: NextRequest) {
 
 export async function GET(request: NextRequest) {
   try {
-    const supabase = createClient(supabaseUrl, supabaseServiceKey);
-    const user_id = request.nextUrl.searchParams.get("user_id") || MOCK_USER_ID;
+    const authResult = await requireAuth();
+    if (authResult instanceof NextResponse) {
+      return authResult;
+    }
+    const { user } = authResult;
+
+    const supabase = createClient();
     const page = parseInt(request.nextUrl.searchParams.get('page') || '1');
     const limit = parseInt(request.nextUrl.searchParams.get('limit') || '20');
-
-    if (!user_id) {
-      return NextResponse.json(
-        { success: false, error: "user_id is required" },
-        { status: 400 }
-      );
-    }
 
     let query = supabase
       .from('follows')
       .select('*, politicians(id, name, party, position, region, profile_image_url)', { count: 'exact' })
-      .eq('user_id', user_id)
+      .eq('user_id', user.id)
       .order('created_at', { ascending: false });
 
     const start = (page - 1) * limit;
@@ -155,14 +154,20 @@ export async function GET(request: NextRequest) {
 
 export async function DELETE(request: NextRequest) {
   try {
-    const supabase = createClient(supabaseUrl, supabaseServiceKey);
+    const authResult = await requireAuth();
+    if (authResult instanceof NextResponse) {
+      return authResult;
+    }
+    const { user } = authResult;
+
+    const supabase = createClient();
     const body = await request.json();
 
-    const { user_id, politician_id } = body;
+    const { politician_id } = body;
 
-    if (!user_id || !politician_id) {
+    if (!politician_id) {
       return NextResponse.json(
-        { success: false, error: "user_id and politician_id are required" },
+        { success: false, error: {code: 'VALIDATION_ERROR', message: "politician_id is required"} },
         { status: 400 }
       );
     }
@@ -170,7 +175,7 @@ export async function DELETE(request: NextRequest) {
     const { error } = await supabase
       .from('follows')
       .delete()
-      .eq('user_id', user_id || MOCK_USER_ID)
+      .eq('user_id', user.id)
       .eq('politician_id', politician_id);
 
     if (error) {
