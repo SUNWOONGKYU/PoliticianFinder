@@ -49,6 +49,13 @@ interface Post {
   is_best?: boolean;
 }
 
+// 공지사항 데이터 타입 정의
+interface Notice {
+  id: number;
+  title: string;
+  created_at: string;
+}
+
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState('');
   const [politicians, setPoliticians] = useState<Politician[]>([]);
@@ -56,6 +63,8 @@ export default function Home() {
   const [politicianPosts, setPoliticianPosts] = useState<Post[]>([]);
   const [popularPosts, setPopularPosts] = useState<Post[]>([]);
   const [postsLoading, setPostsLoading] = useState(true);
+  const [notices, setNotices] = useState<Notice[]>([]);
+  const [noticesLoading, setNoticesLoading] = useState(true);
 
   // Google 로그인 성공 시 URL 파라미터 제거 및 새로고침
   useEffect(() => {
@@ -90,7 +99,8 @@ export default function Home() {
         if (data.success && data.data && data.data.length > 0) {
           // API 데이터를 홈 페이지 형식으로 변환
           const transformedData = data.data.map((p: any, index: number) => {
-            const aiScore = p.ai_score || p.evaluation_score || 0;
+            // fieldMapper에서 camelCase로 변환된 필드 사용
+            const aiScore = p.totalScore || p.claudeScore || 0;
             return {
               id: p.id || index + 1,
               rank: index + 1,
@@ -102,15 +112,15 @@ export default function Home() {
               party: p.party || '',
               region: p.region || '',
               totalScore: aiScore,
-              grade: calculateGrade(aiScore),
-              gradeEmoji: getGradeEmoji(calculateGrade(aiScore)),
+              grade: p.grade || calculateGrade(aiScore),
+              gradeEmoji: p.gradeEmoji || getGradeEmoji(p.grade || calculateGrade(aiScore)),
               claude: aiScore,
               chatgpt: aiScore,
               gemini: aiScore,
               grok: aiScore,
               perplexity: aiScore,
-              userRating: '★'.repeat(Math.round(p.user_rating || 0)) + '☆'.repeat(5 - Math.round(p.user_rating || 0)),
-              userCount: p.rating_count || 0,
+              userRating: '★'.repeat(Math.round(p.userRating || 0)) + '☆'.repeat(5 - Math.round(p.userRating || 0)),
+              userCount: p.ratingCount || 0,
             };
           });
           setPoliticians(transformedData);
@@ -227,6 +237,28 @@ export default function Home() {
     };
 
     fetchPosts();
+  }, []);
+
+  // API에서 공지사항 데이터 가져오기
+  useEffect(() => {
+    const fetchNotices = async () => {
+      try {
+        setNoticesLoading(true);
+        const response = await fetch('/api/notices?limit=3');
+        if (response.ok) {
+          const data = await response.json();
+          if (data.success && data.data) {
+            setNotices(data.data);
+          }
+        }
+      } catch (err) {
+        console.error('Error fetching notices:', err);
+      } finally {
+        setNoticesLoading(false);
+      }
+    };
+
+    fetchNotices();
   }, []);
 
   // Grade calculation helper
@@ -1091,18 +1123,22 @@ export default function Home() {
                 </Link>
               </div>
               <div className="space-y-2 text-sm text-gray-600">
-                <Link href="/notices/1" className="block hover:text-primary-600 line-clamp-1">
-                  <span className="text-red-600 font-bold mr-1">📢</span>
-                  PoliticianFinder 정식 오픈!
-                </Link>
-                <Link href="/notices/2" className="block hover:text-primary-600 line-clamp-1">
-                  <span className="text-primary-600 mr-1">📢</span>
-                  AI 평가 시스템 업데이트 안내
-                </Link>
-                <Link href="/notices/3" className="block hover:text-primary-600 line-clamp-1">
-                  <span className="text-primary-600 mr-1">📢</span>
-                  커뮤니티 이용 가이드라인 안내
-                </Link>
+                {noticesLoading ? (
+                  <p className="text-center text-gray-500">로딩 중...</p>
+                ) : notices.length === 0 ? (
+                  <p className="text-center text-gray-500">공지사항이 없습니다</p>
+                ) : (
+                  notices.map((notice, index) => (
+                    <Link
+                      key={notice.id}
+                      href={`/notices/${notice.id}`}
+                      className="block hover:text-primary-600 line-clamp-1"
+                    >
+                      <span className={index === 0 ? "text-red-600 font-bold mr-1" : "text-primary-600 mr-1"}>📢</span>
+                      {notice.title}
+                    </Link>
+                  ))
+                )}
               </div>
             </div>
 
@@ -1264,32 +1300,32 @@ export default function Home() {
                 🔗 서비스 중개
               </h3>
               <div className="space-y-3 text-sm">
-                <a
-                  href="#"
+                <Link
+                  href="/relay"
                   className="block p-3 bg-gray-50 rounded-lg hover:bg-gray-100 cursor-pointer"
                 >
                   <div className="font-semibold text-gray-900 mb-1">⚖️ 법률자문</div>
                   <p className="text-xs text-gray-600">정치 활동 관련 법률자문 서비스</p>
-                </a>
-                <a
-                  href="#"
+                </Link>
+                <Link
+                  href="/relay"
                   className="block p-3 bg-gray-50 rounded-lg hover:bg-gray-100 cursor-pointer"
                 >
                   <div className="font-semibold text-gray-900 mb-1">💼 컨설팅</div>
                   <p className="text-xs text-gray-600">선거 전략, 공약 개발 관련 컨설팅</p>
-                </a>
-                <a
-                  href="#"
+                </Link>
+                <Link
+                  href="/relay"
                   className="block p-3 bg-gray-50 rounded-lg hover:bg-gray-100 cursor-pointer"
                 >
                   <div className="font-semibold text-gray-900 mb-1">🎯 홍보</div>
                   <p className="text-xs text-gray-600">SNS 관리, 미디어 홍보, 브랜딩</p>
-                </a>
+                </Link>
               </div>
               <div className="mt-3 pt-3 border-t text-center">
-                <a href="#" className="text-gray-700 hover:text-gray-900 font-medium text-sm">
+                <Link href="/relay" className="text-gray-700 hover:text-gray-900 font-medium text-sm">
                   전체 서비스 보기 →
-                </a>
+                </Link>
               </div>
             </div>
 

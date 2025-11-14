@@ -107,10 +107,14 @@
     at eval (webpack-internal:///(rsc)/./node_modules/next/dist/server/web/spec-extension/adapters/ ✓ Compiled in 1578ms (274 modules)
    Reload env: .env.local
  ✓ Compiled in 1164ms (274 modules)
-uest-cookies.js (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\.next\server\vendor-chunks\next.js:304:1)
-    at __webpack_require__ (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\.next\server\webpack-runtime.js:33:42)
-    at eval (webpack-internal:///(rsc)/./node_modules/next/dist/client/components/headers.js:23:25)
-    at (rsc)/./node_modules/next/dist/client/components/headers.js (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\.next\server\vendor-chunks\next.js:64:1)
+ ✓ Compiled in 1378ms (274 modules)
+ ✓ Compiled in 354ms (274 modules)
+   Reload env: .env.local
+ ✓ Compiled in 6s (274 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, stat 'C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\.next\cache\webpack\edge-server-development\1.pack.gz'
+ ✓ Compiled in 2.7s (274 modules)
+ ✓ Compiled in 1594ms (274 modules)
+\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\.next\server\vendor-chunks\next.js:64:1)
     at __webpack_require__ (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\.next\server\webpack-runtime.js:33:42)
     at eval (webpack-internal:///(rsc)/./node_modules/next/dist/api/headers.js:2:84)
     at (rsc)/./node_modules/next/dist/api/headers.js (C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\.next\server\vendor-chunks\next.js:20:1)
@@ -182,3 +186,11 @@ uest-cookies.js (C:\Development_PoliticianFinder_copy\Developement_Real_Politici
  ✓ Compiled in 4.9s (507 modules)
    Reload env: .env.local
  ✓ Compiled in 2.5s (507 modules)
+ ✓ Compiled in 2.2s (507 modules)
+ ✓ Compiled in 903ms (507 modules)
+ ✓ Compiled in 246ms (435 modules)
+   Reload env: .env.local
+ ✓ Compiled in 9.1s (507 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, stat 'C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\.next\cache\webpack\edge-server-development\2.pack.gz'
+ ✓ Compiled in 4s (507 modules)
+ ✓ Compiled in 2.1s (507 modules)
