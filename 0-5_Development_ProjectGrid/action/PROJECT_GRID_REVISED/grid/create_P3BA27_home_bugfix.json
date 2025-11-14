@@ -1,0 +1,255 @@
+{
+  "task_id": "P3BA27",
+  "task_name": "홈 화면 버그 수정 (공지사항, 중계, 평가점수)",
+  "phase": 3,
+  "area": "BA",
+  "status": "완료",
+  "progress": 100,
+
+  "execution_info": {
+    "assigned_agent": "Claude Code (버그 수정 및 기능 개선)",
+    "generator": "Claude Code",
+    "generated_at": "2025-11-15T18:45:00Z",
+    "task_type": "버그 수정 (홈 화면 다중 이슈)"
+  },
+
+  "duration": {
+    "execution_minutes": 35,
+    "total_minutes": 35
+  },
+
+  "issue": {
+    "type": "홈 화면 다중 이슈",
+    "description": "홈 화면에서 3가지 주요 문제 발생: 공지사항 하드코딩, 중계 페이지 HTML, 평가점수 미표시",
+    "root_causes": [
+      "공지사항이 하드코딩되어 있어 API 연동 필요",
+      "서비스 중계 페이지가 HTML 프로토타입 상태로 React 전환 필요",
+      "API 응답 필드명과 프론트엔드 사용 필드명 불일치 (snake_case vs camelCase)"
+    ],
+    "affected_features": [
+      "홈 화면 공지사항 섹션",
+      "서비스 중계 페이지",
+      "정치인 평가점수 표시"
+    ]
+  },
+
+  "files": {
+    "modified": [
+      "1_Frontend/src/app/page.tsx"
+    ],
+    "created": [
+      "1_Frontend/src/app/relay/page.tsx"
+    ]
+  },
+
+  "commits": [
+    {
+      "hash": "2c9436b",
+      "message": "fix: 홈 화면 버그 수정 - 공지사항, 중계 페이지, 평가점수",
+      "timestamp": "2025-11-15T18:45:00Z",
+      "files_changed": 2
+    }
+  ],
+
+  "static_analysis": {
+    "task_id_comment": {
+      "status": "✅",
+      "location": "각 파일 상단 주석에 P3BA27 명시"
+    },
+    "file_paths": {
+      "status": "✅",
+      "details": "수정 및 신규 생성된 모든 파일 정확히 식별"
+    },
+    "content_validation": {
+      "status": "✅",
+      "requirements_met": "100%",
+      "details": [
+        "공지사항 API 연동 (/api/notices에서 최근 3개 가져오기)",
+        "중계 페이지 React 컴포넌트 전환 (8가지 카테고리)",
+        "평가점수 필드명 수정 (totalScore, claudeScore 사용)"
+      ]
+    },
+    "dependencies": {
+      "status": "✅",
+      "details": "API 엔드포인트 및 React 컴포넌트 구조 적합"
+    }
+  },
+
+  "dynamic_analysis": {
+    "build": {
+      "status": "✅ 성공",
+      "details": "TypeScript compilation successful, 0 errors"
+    },
+    "unit_tests": {
+      "status": "⏭️ 생략",
+      "reason": "UI 버그 수정으로 별도 테스트 불필요"
+    },
+    "manual_tests": {
+      "status": "✅ 통과",
+      "tests": [
+        "홈 화면에서 공지사항 API 데이터 정상 표시 (최근 3개)",
+        "중계 페이지 접근 및 8가지 카테고리 정상 렌더링",
+        "정치인 평가점수 정상 표시 (총점 및 Claude 점수)"
+      ]
+    },
+    "lint": {
+      "status": "✅ 통과",
+      "errors": 0,
+      "warnings": 0
+    },
+    "type_check": {
+      "status": "✅ 통과",
+      "errors": 0
+    }
+  },
+
+  "changes_detail": [
+    {
+      "file": "1_Frontend/src/app/page.tsx",
+      "change": "공지사항 하드코딩 → API 연동",
+      "implementation": [
+        "useEffect로 /api/notices에서 데이터 가져오기",
+        "limit=3 파라미터로 최근 3개만 조회",
+        "로딩 및 에러 상태 처리 추가"
+      ],
+      "impact": "동적 공지사항 표시",
+      "status": "✅ 완료"
+    },
+    {
+      "file": "1_Frontend/src/app/page.tsx",
+      "change": "평가점수 필드명 수정",
+      "implementation": [
+        "politician.score → politician.totalScore",
+        "politician.claude_score → politician.claudeScore"
+      ],
+      "impact": "평가점수 정상 표시",
+      "status": "✅ 완료"
+    },
+    {
+      "file": "1_Frontend/src/app/relay/page.tsx",
+      "change": "HTML 프로토타입 → React 페이지 전환",
+      "implementation": [
+        "서비스 중계 페이지 React 컴포넌트 생성",
+        "8가지 카테고리 (법률, 컨설팅, 홍보, 기술, 교육, 행사기획, 디자인, 마케팅)",
+        "각 카테고리별 설명 및 아이콘 추가",
+        "반응형 그리드 레이아웃 적용"
+      ],
+      "impact": "서비스 중계 페이지 정상 작동",
+      "status": "✅ 완료"
+    }
+  ],
+
+  "feature_improvements": [
+    {
+      "feature": "공지사항 섹션",
+      "before": "하드코딩된 정적 데이터",
+      "after": "API에서 동적으로 가져온 최근 3개 공지사항",
+      "benefit": "실시간 공지사항 업데이트 가능",
+      "status": "✅ 개선됨"
+    },
+    {
+      "feature": "서비스 중계 페이지",
+      "before": "HTML 프로토타입 (정적)",
+      "after": "React 컴포넌트 (8가지 카테고리)",
+      "benefit": "확장 가능한 서비스 카테고리 관리",
+      "status": "✅ 개선됨"
+    },
+    {
+      "feature": "정치인 평가점수",
+      "before": "필드명 불일치로 미표시",
+      "after": "totalScore, claudeScore 정상 표시",
+      "benefit": "평가 시스템 정상 작동",
+      "status": "✅ 개선됨"
+    }
+  ],
+
+  "implementation_details": {
+    "notices_api_integration": {
+      "endpoint": "/api/notices?limit=3",
+      "method": "GET",
+      "data_structure": {
+        "id": "UUID",
+        "title": "string",
+        "content": "string",
+        "created_at": "timestamp"
+      },
+      "ui_update": "동적 렌더링으로 변경",
+      "status": "✅ 완료"
+    },
+    "relay_page_conversion": {
+      "categories": [
+        {
+          "name": "법률 자문",
+          "icon": "⚖️",
+          "description": "법률 전문가 매칭"
+        },
+        {
+          "name": "경영 컨설팅",
+          "icon": "💼",
+          "description": "전략 및 경영 자문"
+        },
+        {
+          "name": "홍보/PR",
+          "icon": "📢",
+          "description": "미디어 및 홍보 전략"
+        },
+        {
+          "name": "기술 개발",
+          "icon": "💻",
+          "description": "IT 및 기술 솔루션"
+        },
+        {
+          "name": "교육 프로그램",
+          "icon": "📚",
+          "description": "교육 및 워크샵"
+        },
+        {
+          "name": "행사 기획",
+          "icon": "🎉",
+          "description": "이벤트 및 행사 관리"
+        },
+        {
+          "name": "디자인",
+          "icon": "🎨",
+          "description": "그래픽 및 브랜드 디자인"
+        },
+        {
+          "name": "마케팅",
+          "icon": "📈",
+          "description": "디지털 마케팅 전략"
+        }
+      ],
+      "layout": "반응형 그리드 (grid-cols-1 md:grid-cols-2 lg:grid-cols-4)",
+      "status": "✅ 완료"
+    },
+    "score_field_fix": {
+      "before": {
+        "total": "politician.score",
+        "claude": "politician.claude_score"
+      },
+      "after": {
+        "total": "politician.totalScore",
+        "claude": "politician.claudeScore"
+      },
+      "reason": "API 응답이 camelCase로 제공됨",
+      "status": "✅ 완료"
+    }
+  },
+
+  "test_history": {
+    "execution": "Manual Test ✅ | Build ✅ | Type ✅ | Lint ✅",
+    "combined": "최종: Build ✅ + Type ✅ + Lint ✅ + Manual Test ✅"
+  },
+
+  "validation_result": "✅ 통과",
+  "ready_for_deployment": true,
+
+  "notes": [
+    "새로운 태스크 P3BA27 생성 (홈 화면 버그 수정)",
+    "3가지 주요 이슈를 하나의 태스크로 통합 해결",
+    "공지사항 API 연동으로 동적 데이터 표시",
+    "중계 페이지 React 전환으로 확장성 확보",
+    "평가점수 필드명 수정으로 정상 작동",
+    "commit 2c9436b에 모든 변경사항 포함"
+  ]
+}

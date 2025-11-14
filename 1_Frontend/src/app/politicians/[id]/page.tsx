@@ -1,3 +1,4 @@
+// P3BA28: 관심 등록 버튼 추가
 'use client';
 
 import { useState, useCallback, useMemo, useEffect } from 'react';
@@ -5,6 +6,7 @@ import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { Politician } from '@/types/politician';
+import FavoriteButton from '@/components/FavoriteButton';
 
 const SAMPLE_POLITICIAN: Politician = {
   id: 'POL001',
@@ -211,7 +213,10 @@ export default function PoliticianDetailPage() {
 
         {/* [1] 기본 정보 섹션 */}
         <section className="bg-white rounded-lg shadow-md p-6 mb-6">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">기본 정보</h2>
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-2xl font-bold text-gray-900">기본 정보</h2>
+            <FavoriteButton politicianId={String(politician.id)} politicianName={politician.name} />
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="flex items-center gap-3">
               <span className="text-gray-600 font-medium w-24">이름</span>
