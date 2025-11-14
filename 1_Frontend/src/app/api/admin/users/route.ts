@@ -1,15 +1,10 @@
-// P1BA4: Mock API - 기타 (사용자 관리 API)
+// P1BA4: Real API - 기타 (사용자 관리 API)
 // Supabase 연동 - 관리자용 사용자 데이터 관리
 
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@supabase/supabase-js';
+import { createClient } from '@/lib/supabase/server';
+import { requireAuth } from '@/lib/auth/helpers';
 import { z } from 'zod';
-
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
-
-// Mock Admin UUID for testing
-const MOCK_ADMIN_ID = '7f61567b-bbdf-427a-90a9-0ee060ef4595';
 
 const userUpdateSchema = z.object({
   user_id: z.string().uuid(),
@@ -20,7 +15,14 @@ const userUpdateSchema = z.object({
 
 export async function GET(request: NextRequest) {
   try {
-    const supabase = createClient(supabaseUrl, supabaseServiceKey);
+    // 관리자 권한 확인
+    const authResult = await requireAuth();
+    if (authResult instanceof NextResponse) {
+      return authResult;
+    }
+    const { user } = authResult;
+
+    const supabase = createClient();
 
     const page = parseInt(request.nextUrl.searchParams.get('page') || '1');
     const limit = parseInt(request.nextUrl.searchParams.get('limit') || '20');
@@ -101,7 +103,14 @@ export async function GET(request: NextRequest) {
 
 export async function PATCH(request: NextRequest) {
   try {
-    const supabase = createClient(supabaseUrl, supabaseServiceKey);
+    // 관리자 권한 확인
+    const authResult = await requireAuth();
+    if (authResult instanceof NextResponse) {
+      return authResult;
+    }
+    const { user } = authResult;
+
+    const supabase = createClient();
     const body = await request.json();
 
     const validated = userUpdateSchema.parse(body);
@@ -160,7 +169,7 @@ export async function PATCH(request: NextRequest) {
       action_type: 'user_updated',
       target_type: 'user',
       target_id: validated.user_id,
-      admin_id: MOCK_ADMIN_ID,
+      admin_id: user.id,
       metadata: validated,
     });
 
@@ -189,7 +198,14 @@ export async function PATCH(request: NextRequest) {
 
 export async function DELETE(request: NextRequest) {
   try {
-    const supabase = createClient(supabaseUrl, supabaseServiceKey);
+    // 관리자 권한 확인
+    const authResult = await requireAuth();
+    if (authResult instanceof NextResponse) {
+      return authResult;
+    }
+    const { user } = authResult;
+
+    const supabase = createClient();
     const user_id = request.nextUrl.searchParams.get('user_id');
 
     if (!user_id) {
@@ -232,7 +248,7 @@ export async function DELETE(request: NextRequest) {
       action_type: 'user_deleted',
       target_type: 'user',
       target_id: user_id,
-      admin_id: MOCK_ADMIN_ID,
+      admin_id: user.id,
       metadata: { username: existingUser.username },
     });
 
