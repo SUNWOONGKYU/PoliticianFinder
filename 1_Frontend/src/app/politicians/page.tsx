@@ -3,6 +3,7 @@
 import { useState, useMemo, useEffect } from 'react';
 import Link from 'next/link';
 import { PoliticianListItem } from '@/types/politician';
+import { REGIONS } from '@/constants/regions';
 
 interface Politician extends PoliticianListItem {
   rank: number;
@@ -141,7 +142,30 @@ export default function PoliticiansPage() {
       const matchesIdentity = !identityFilter || p.identity === identityFilter;  // P3F3: status → identity
       const matchesCategory = !categoryFilter || p.category === categoryFilter;
       const matchesParty = !partyFilter || p.party === partyFilter;
-      const matchesRegion = !regionFilter || p.region === regionFilter || p.district === regionFilter;
+
+      // Region filter logic:
+      // - If regionFilter is empty: match all
+      // - If regionFilter is full metropolitan name (e.g., "서울특별시"): match by region
+      // - If regionFilter is "region + district" format (e.g., "서울 강남구"): exact match
+      let matchesRegion = !regionFilter;
+      if (regionFilter) {
+        const politicianFullLocation = p.district ? `${p.region} ${p.district}` : p.region;
+
+        // Check if it's a full metropolitan name (contains "특별시", "광역시", "특별자치시", "특별자치도", or "도")
+        const isMetropolitanFilter = regionFilter.includes('특별시') ||
+                                      regionFilter.includes('광역시') ||
+                                      regionFilter.includes('특별자치') ||
+                                      regionFilter.endsWith('도');
+
+        if (isMetropolitanFilter) {
+          // Match by region only (광역 전체)
+          matchesRegion = p.region === regionFilter.replace(/특별시|광역시|특별자치시|특별자치도|도/g, '');
+        } else {
+          // Match exact "region district" format
+          matchesRegion = politicianFullLocation === regionFilter;
+        }
+      }
+
       const matchesGrade = !gradeFilter || p.grade === gradeFilter;
 
       return (
@@ -330,11 +354,16 @@ export default function PoliticiansPage() {
                   className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-200 focus:border-primary-500 text-sm"
                 >
                   <option value="">전체</option>
-                  <option value="서울">서울</option>
-                  <option value="부산">부산</option>
-                  <option value="대구">대구</option>
-                  <option value="인천">인천</option>
-                  <option value="광주">광주</option>
+                  {REGIONS.map((region) => (
+                    <optgroup key={region.label} label={region.label}>
+                      <option value={region.fullName}>{region.fullName} (전체)</option>
+                      {region.districts.map((district) => (
+                        <option key={district} value={`${region.label} ${district}`}>
+                          {district}
+                        </option>
+                      ))}
+                    </optgroup>
+                  ))}
                 </select>
               </div>
 
