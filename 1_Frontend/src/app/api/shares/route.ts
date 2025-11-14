@@ -1,15 +1,10 @@
-// P1BA4: Mock API - 기타 (공유 API)
-// Supabase 연동 - 게시물 공유 데이터 관리
+// P1BA4: Real API - 공유 API
+// Supabase RLS 연동: 실제 인증 사용자 기반 공유
 
 import { NextRequest, NextResponse } from "next/server";
-import { createClient } from "@supabase/supabase-js";
 import { z } from "zod";
-
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
-
-// Mock User UUID for testing
-const MOCK_USER_ID = '7f61567b-bbdf-427a-90a9-0ee060ef4595';
+import { createClient } from "@/lib/supabase/server";
+import { requireAuth } from "@/lib/auth/helpers";
 
 const shareSchema = z.object({
   post_id: z.string().uuid(),
@@ -19,17 +14,23 @@ const shareSchema = z.object({
 
 export async function POST(request: NextRequest) {
   try {
-    const supabase = createClient(supabaseUrl, supabaseServiceKey);
+    const authResult = await requireAuth();
+    if (authResult instanceof NextResponse) {
+      return authResult;
+    }
+    const { user } = authResult;
+
+    const supabase = createClient();
     const body = await request.json();
 
     const share = shareSchema.parse({
       ...body,
-      user_id: body.user_id || MOCK_USER_ID,
+      user_id: user.id,
     });
 
     // 게시물 존재 여부 확인
     const { data: post, error: postError } = await supabase
-      .from('posts')
+      .from('community_posts')
       .select('id, title')
       .eq('id', share.post_id)
       .single();
@@ -90,7 +91,7 @@ export async function POST(request: NextRequest) {
 
 export async function GET(request: NextRequest) {
   try {
-    const supabase = createClient(supabaseUrl, supabaseServiceKey);
+    const supabase = createClient();
     const post_id = request.nextUrl.searchParams.get("post_id");
     const user_id = request.nextUrl.searchParams.get("user_id");
     const page = parseInt(request.nextUrl.searchParams.get('page') || '1');
@@ -98,15 +99,15 @@ export async function GET(request: NextRequest) {
 
     if (!post_id && !user_id) {
       return NextResponse.json(
-        { success: false, error: "post_id or user_id is required" },
+        { success: false, error: {code: 'VALIDATION_ERROR', message: "post_id or user_id is required"} },
         { status: 400 }
       );
     }
 
     let query = supabase
       .from('shares')
-      .select('*, posts(id, title), users(id, username)', { count: 'exact' })
-      .order('created_at', { ascending: false });
+      .select('*, community_posts(id, title), profiles(id, username)', { count: 'exact' })
+      .order('created_at', { ascending: false});
 
     if (post_id) {
       query = query.eq('post_id', post_id);
