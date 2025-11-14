@@ -18,9 +18,10 @@ const createCommentSchema = z.object({
 });
 
 const getCommentsQuerySchema = z.object({
-  post_id: z.string().min(1, "게시글 ID는 필수입니다"),
+  post_id: z.string().optional(),
   page: z.string().optional().default("1").transform(Number),
   limit: z.string().optional().default("20").transform(Number),
+  search: z.string().optional(),
 });
 
 /**
@@ -120,9 +121,10 @@ export async function GET(request: NextRequest) {
   try {
     const searchParams = request.nextUrl.searchParams;
     const queryParams = {
-      post_id: searchParams.get("post_id") || "",
+      post_id: searchParams.get("post_id") || undefined,
       page: searchParams.get("page") || "1",
       limit: searchParams.get("limit") || "20",
+      search: searchParams.get("search") || undefined,
     };
 
     const query = getCommentsQuerySchema.parse(queryParams);
@@ -134,8 +136,17 @@ export async function GET(request: NextRequest) {
     let queryBuilder = supabase
       .from('comments')
       .select('*', { count: 'exact' })
-      .eq('post_id', query.post_id)
-      .order('created_at', { ascending: true });
+      .order('created_at', { ascending: false });
+
+    // post_id 필터 (선택적)
+    if (query.post_id) {
+      queryBuilder = queryBuilder.eq('post_id', query.post_id);
+    }
+
+    // search 필터 (선택적)
+    if (query.search) {
+      queryBuilder = queryBuilder.ilike('content', `%${query.search}%`);
+    }
 
     // 페이지네이션 적용
     const start = (query.page - 1) * query.limit;
