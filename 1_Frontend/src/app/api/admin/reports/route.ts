@@ -47,7 +47,7 @@ export async function POST(request: NextRequest) {
       targetExists = !!data;
     } else if (report.target_type === 'user') {
       const { data } = await supabase
-        .from('users')
+        .from('profiles')
         .select('id')
         .eq('id', report.target_id)
         .single();
@@ -108,7 +108,7 @@ export async function GET(request: NextRequest) {
 
     let query = supabase
       .from('reports')
-      .select('*, users!reports_reporter_id_fkey(id, username, email)', { count: 'exact' })
+      .select('*, profiles!reports_reporter_id_fkey(id, username, email)', { count: 'exact' })
       .order('created_at', { ascending: false });
 
     if (status) {
