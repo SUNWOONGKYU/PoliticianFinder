@@ -1,15 +1,10 @@
-// P1BA4: Mock API - 기타 (신고 관리 API - 콘텐츠 조정)
+// P1BA4: Real API - 기타 (신고 관리 API - 콘텐츠 조정)
 // Supabase 연동 - 신고 데이터 관리
 
 import { NextRequest, NextResponse } from "next/server";
-import { createClient } from "@supabase/supabase-js";
+import { createClient } from "@/lib/supabase/server";
+import { requireAuth } from "@/lib/auth/helpers";
 import { z } from "zod";
-
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
-
-// Mock User UUID for testing
-const MOCK_USER_ID = '7f61567b-bbdf-427a-90a9-0ee060ef4595';
 
 const reportSchema = z.object({
   target_id: z.string().uuid(),
@@ -21,12 +16,19 @@ const reportSchema = z.object({
 
 export async function POST(request: NextRequest) {
   try {
-    const supabase = createClient(supabaseUrl, supabaseServiceKey);
+    // 사용자 인증 확인
+    const authResult = await requireAuth();
+    if (authResult instanceof NextResponse) {
+      return authResult;
+    }
+    const { user } = authResult;
+
+    const supabase = createClient();
     const body = await request.json();
 
     const report = reportSchema.parse({
       ...body,
-      reporter_id: body.reporter_id || MOCK_USER_ID,
+      reporter_id: user.id,
     });
 
     // 신고 대상 존재 여부 확인
@@ -101,7 +103,13 @@ export async function POST(request: NextRequest) {
 
 export async function GET(request: NextRequest) {
   try {
-    const supabase = createClient(supabaseUrl, supabaseServiceKey);
+    // 관리자 권한 확인
+    const authResult = await requireAuth();
+    if (authResult instanceof NextResponse) {
+      return authResult;
+    }
+
+    const supabase = createClient();
     const status = request.nextUrl.searchParams.get("status");
     const page = parseInt(request.nextUrl.searchParams.get('page') || '1');
     const limit = parseInt(request.nextUrl.searchParams.get('limit') || '20');
@@ -155,7 +163,14 @@ export async function GET(request: NextRequest) {
 
 export async function PATCH(request: NextRequest) {
   try {
-    const supabase = createClient(supabaseUrl, supabaseServiceKey);
+    // 관리자 권한 확인
+    const authResult = await requireAuth();
+    if (authResult instanceof NextResponse) {
+      return authResult;
+    }
+    const { user } = authResult;
+
+    const supabase = createClient();
     const body = await request.json();
     const { report_id, status, action, admin_notes } = body;
 
@@ -195,7 +210,7 @@ export async function PATCH(request: NextRequest) {
       action_type: 'report_resolved',
       target_type: 'report',
       target_id: report_id,
-      admin_id: MOCK_USER_ID, // 실제로는 관리자 ID 사용
+      admin_id: user.id,
       metadata: { status, action, admin_notes },
     });
 
