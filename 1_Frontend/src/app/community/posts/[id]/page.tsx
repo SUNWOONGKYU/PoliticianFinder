@@ -31,6 +31,10 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
   const [downvotes, setDownvotes] = useState(0);
   const [post, setPost] = useState<any>(null);
   const [loading, setLoading] = useState(true);
+  const [comments, setComments] = useState<Comment[]>([]);
+  const [commentsLoading, setCommentsLoading] = useState(false);
+  const [totalComments, setTotalComments] = useState(0);
+  const [displayedComments, setDisplayedComments] = useState(5); // 처음에 5개만 표시
 
   // Sample user nicknames
   const sampleNicknames = [
@@ -105,60 +109,65 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
     return `${year}.${month}.${day} ${hours}:${minutes}`;
   };
 
-  const [comments] = useState<Comment[]>([
-    {
-      id: 1,
-      author: '김민준',
-      userId: 'politician_001',
-      authorType: 'politician',
-      politicianStatus: '현직',
-      politicianPosition: '국회의원',
-      timestamp: '2025.10.25 14:30',
-      content: '교통 정책에 대한 좋은 제안입니다. 국회에서도 대중교통 예산 확충을 위해 노력하고 있습니다. 시민들의 의견을 적극 반영하겠습니다.',
-      upvotes: 25,
-      downvotes: 2,
-      isFollowing: false
-    },
-    {
-      id: 2,
-      author: '직장인A',
-      userId: 'user_001',
-      authorType: 'member',
-      memberLevel: 'ML2',
-      influenceLevel: '영주',
-      timestamp: '2025.10.25 15:00',
-      content: '저도 같은 문제로 고민하고 있어요. 특히 버스 배차 간격이 너무 길어서 출근할 때 매번 택시를 타게 됩니다. 개선이 시급합니다!',
-      upvotes: 18,
-      downvotes: 0,
-      isFollowing: false
-    },
-    {
-      id: 3,
-      author: '교통전문가',
-      userId: 'user_002',
-      authorType: 'member',
-      memberLevel: 'ML4',
-      influenceLevel: '영주',
-      timestamp: '2025.10.25 15:30',
-      content: '좋은 문제 제기입니다. 제안하신 해결책 중에서 마을버스 노선 신설이 가장 현실적인 대안이 될 것 같네요. 관련 부서에 건의해보는 것도 좋을 것 같습니다.',
-      upvotes: 22,
-      downvotes: 1,
-      isFollowing: false
-    },
-    {
-      id: 4,
-      author: '주민123',
-      userId: 'user_003',
-      authorType: 'member',
-      memberLevel: 'ML1',
-      influenceLevel: '영주',
-      timestamp: '2025.10.25 16:00',
-      content: '자전거 도로 확충도 좋은 생각이네요! 가까운 거리는 자전거로 이동할 수 있으면 교통 혼잡도 줄어들 것 같아요.',
-      upvotes: 10,
-      downvotes: 2,
-      isFollowing: false
-    }
-  ]);
+  // Fetch comments from API
+  useEffect(() => {
+    const fetchComments = async () => {
+      if (!params.id) return;
+
+      try {
+        setCommentsLoading(true);
+        const response = await fetch(`/api/comments?post_id=${params.id}&limit=100`);
+
+        if (!response.ok) {
+          throw new Error('댓글을 불러오는데 실패했습니다.');
+        }
+
+        const result = await response.json();
+
+        if (result.success && result.data) {
+          // Map API response to Comment interface
+          const mappedComments: Comment[] = result.data.map((comment: any, index: number) => {
+            // Generate consistent nickname based on user_id
+            const userIdHash = comment.user_id ? comment.user_id.split('-')[0].charCodeAt(0) : index;
+            const nicknameIndex = userIdHash % 10;
+
+            // Generate consistent member level (ML1-ML5) based on user_id
+            const mlLevel = `ML${(userIdHash % 5) + 1}`;
+
+            // Format date
+            const formatDate = (dateString: string) => {
+              const date = new Date(dateString);
+              return `${date.getFullYear()}.${String(date.getMonth() + 1).padStart(2, '0')}.${String(date.getDate()).padStart(2, '0')} ${String(date.getHours()).padStart(2, '0')}:${String(date.getMinutes()).padStart(2, '0')}`;
+            };
+
+            return {
+              id: comment.id,
+              author: comment.profiles?.username || sampleNicknames[nicknameIndex],
+              userId: comment.user_id,
+              authorType: 'member' as const,
+              memberLevel: mlLevel,
+              influenceLevel: '영주',
+              timestamp: formatDate(comment.created_at),
+              content: comment.content,
+              upvotes: comment.upvotes || 0,
+              downvotes: comment.downvotes || 0,
+              isFollowing: false
+            };
+          });
+
+          setComments(mappedComments);
+          setTotalComments(result.pagination?.total || mappedComments.length);
+        }
+      } catch (err) {
+        console.error('[게시글 상세] 댓글 조회 오류:', err);
+        setComments([]);
+      } finally {
+        setCommentsLoading(false);
+      }
+    };
+
+    fetchComments();
+  }, [params.id]);
 
   const handleUpvote = () => {
     if (upvoted) {
@@ -401,7 +410,7 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
           )}
 
           <div className="space-y-4">
-            {comments.map((comment) => (
+            {comments.slice(0, displayedComments).map((comment) => (
               <div key={comment.id} className="border-b pb-4">
                 <div className="mb-2">
                   <div className="flex items-center gap-3 text-xs text-gray-500 flex-wrap">
@@ -434,11 +443,16 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
               </div>
             ))}
 
-            <div className="text-center pt-4">
-              <button className="px-6 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 font-medium">
-                댓글 더보기 (25개 남음)
-              </button>
-            </div>
+            {comments.length > displayedComments && (
+              <div className="text-center pt-4">
+                <button
+                  onClick={() => setDisplayedComments(prev => prev + 10)}
+                  className="px-6 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 font-medium"
+                >
+                  댓글 더보기 ({comments.length - displayedComments}개 남음)
+                </button>
+              </div>
+            )}
           </div>
         </section>
 
