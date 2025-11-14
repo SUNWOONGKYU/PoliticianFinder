@@ -53,8 +53,8 @@ export default function AdminPostsPage() {
 
     try {
       const url = search
-        ? `/api/posts?search=${encodeURIComponent(search)}`
-        : '/api/posts';
+        ? `/api/admin/content?search=${encodeURIComponent(search)}`
+        : '/api/admin/content';
 
       const response = await fetch(url);
 

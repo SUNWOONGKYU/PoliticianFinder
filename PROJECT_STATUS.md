@@ -1,7 +1,7 @@
 # PoliticianFinder 프로젝트 현황
 
 **작성 일시**: 2025년 11월 10일 오전 4시 15분
-**최종 업데이트**: 2025-11-11 (Google 로그인 헤더 상태 업데이트 수정)
+**최종 업데이트**: 2025-11-13 (프로젝트 그리드 작업 개수 정정 및 설명 추가)
 **프로젝트 상태**: ✅ **100% 완성** (Phase 1~6 모두 승인)
 **배포 상태**: ✅ **Vercel 프로덕션 배포 완료**
 **프로덕션 URL**: https://politician-finder.vercel.app/
@@ -16,17 +16,22 @@
 |-------|--------|---------|------|--------|------|
 | Phase 1 | Frontend Prototypes | 8 | 8 | 100% | ✅ |
 | Phase 2 | Database Setup | 1 | 1 | 100% | ✅ |
-| Phase 3 | API Integration | 4 | 4 | 100% | ✅ |
+| Phase 3 | API Integration | 6 | 6 | 100% | ✅ |
 | Phase 4 | Advanced Features | 22 | 22 | 100% | ✅ |
 | Phase 5 | Testing & QA | 3 | 3 | 100% | ✅ |
 | Phase 6 | Operations | 4 | 4 | 100% | ✅ |
-| **총계** | | **42** | **42** | **100%** | ✅ |
+| **총계** | | **44** | **44** | **100%** | ✅ |
 
 ---
 
-## 🔄 최근 수정사항 (2025-11-11)
+## 🔄 최근 수정사항
 
-### Google 소셜 로그인 후 헤더 상태 자동 업데이트 기능 추가
+### 2025-11-13: 프로젝트 그리드 데이터 정정
+- **작업 개수**: 42개 → **44개로 정정** (Phase 3이 6개 작업)
+- **P1BA4 상태**: "complete" → "완료"로 수정
+- **프로젝트 그리드 설명 추가**: 시스템 개요, 이중 검증 프로세스, 웹 뷰어 안내
+
+### 2025-11-11: Google 소셜 로그인 후 헤더 상태 자동 업데이트 기능 추가
 
 **문제**: Google 로그인 성공 후 홈 화면의 헤더가 "로그인" 버튼에서 "로그아웃" 버튼으로 자동 변경되지 않음
 
@@ -48,6 +53,73 @@
 **배포 상태**: GitHub push 완료, Vercel 자동 배포 진행 중
 
 **프로젝트 그리드 업데이트**: Supabase `project_grid_tasks_revised` 테이블 P3BA1 수정 이력 기록 완료
+
+---
+
+## 📋 프로젝트 그리드 (Project Grid) 시스템
+
+### 프로젝트 그리드란?
+
+**프로젝트 그리드**는 이 프로젝트의 모든 작업을 Phase 단위로 관리하는 **작업 추적 시스템**입니다.
+
+### 핵심 특징
+
+1. **Supabase 기반 관리**
+   - 모든 작업 정보가 Supabase `project_grid_tasks_revised` 테이블에 저장됨
+   - 실시간 조회 및 업데이트 가능
+   - 웹 기반 뷰어 제공
+
+2. **Phase 기반 개발**
+   - Phase 1~6으로 구분된 44개 작업
+   - 각 Phase 완료 후 Gate Approval 진행
+   - Phase별 검증 리포트 자동 생성
+
+3. **이중 검증 시스템 (Dual Execution)**
+   - **1차 실행**: Claude Code Sub-agents가 작업 수행
+   - **2차 실행 & 검증**: Claude Code (다른 세션)가 코드 검토 및 수정
+   - 품질 보장을 위한 2단계 검증 프로세스
+
+4. **작업 추적 필드**
+   ```
+   - task_id: 작업 ID (예: P1BA1, P3BA4)
+   - task_name: 작업명
+   - phase: Phase 번호 (1~6)
+   - status: 상태 (완료/진행중/대기)
+   - progress: 진행률 (0~100%)
+   - assigned_agent: 담당 에이전트
+   - files: 생성된 파일 목록
+   - build_result: 빌드 결과
+   - test_history: 테스트 이력
+   - duration: 소요 시간
+   ```
+
+5. **Phase Gate Approval**
+   - 각 Phase 완료 후 승인 프로세스
+   - 승인 문서: `0-5_Development_ProjectGrid/validation/results/PHASE*_GATE_APPROVAL.md`
+   - 검증 항목: 빌드, 테스트, TypeScript, 코드 품질
+
+### 프로젝트 그리드 현황
+
+| Phase | 작업 수 | 완료 | 승인 상태 |
+|-------|---------|------|-----------|
+| Phase 1 | 8 | 8 | ✅ 승인 |
+| Phase 2 | 1 | 1 | ✅ 승인 |
+| Phase 3 | 6 | 6 | ✅ 승인 |
+| Phase 4 | 22 | 22 | ✅ 승인 |
+| Phase 5 | 3 | 3 | ✅ 승인 |
+| Phase 6 | 4 | 4 | ✅ 승인 |
+| **총계** | **44** | **44** | **✅ 100% 완료** |
+
+### 웹 뷰어
+
+프로젝트 그리드를 시각적으로 확인할 수 있는 웹 뷰어:
+
+```bash
+cd 0-5_Development_ProjectGrid/action/PROJECT_GRID_REVISED/viewer
+python run_viewer.py
+```
+
+**접속 URL**: http://localhost:8081/viewer_supabase_36tasks.html
 
 ---
 
@@ -183,8 +255,8 @@ for task in result.data:
 - **상태**: ✅ 승인
 - **테이블**: 10개 테이블 생성 완료
 
-### Phase 3: API Integration (4개 작업)
-- **작업**: P3BA1~P3BA4
+### Phase 3: API Integration (6개 작업)
+- **작업**: P3BA1~P3BA6
 - **결과물**: 59개 Real API Routes
 - **상태**: ✅ 승인
 - **변환**: Mock API → Real API 100%

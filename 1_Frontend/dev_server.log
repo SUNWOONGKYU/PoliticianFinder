@@ -2,99 +2,104 @@
 > politicianfinder-frontend@0.1.0 dev
 > next dev
 
+ ⚠ Port 3000 is in use, trying 3001 instead.
+ ⚠ Port 3001 is in use, trying 3002 instead.
   ▲ Next.js 14.2.18
-  - Local:        http://localhost:3000
+  - Local:        http://localhost:3002
   - Environments: .env.local
 
  ✓ Starting...
- ✓ Ready in 2.3s
- ○ Compiling /src/middleware ...
- ✓ Compiled /src/middleware in 538ms (72 modules)
- ○ Compiling / ...
- ✓ Compiled / in 4.4s (531 modules)
- GET / 200 in 5067ms
- ✓ Compiled in 737ms (258 modules)
- ✓ Compiled in 1165ms (72 modules)
- ✓ Compiled in 714ms (258 modules)
- ✓ Compiled in 280ms (72 modules)
- ✓ Compiled in 545ms (258 modules)
- ✓ Compiled in 421ms (258 modules)
- ✓ Compiled in 368ms (258 modules)
- ⨯ ./src/app/globals.css.webpack[javascript/auto]!=!./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[12].use[3]!./src/app/globals.css
-Error: ENOENT: no such file or directory, stat 'C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\src\app\api\auth\google\route_real.ts'
-Import trace for requested module:
-./src/app/globals.css.webpack[javascript/auto]!=!./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[12].use[3]!./src/app/globals.css
-./src/app/globals.css
- ✓ Compiled in 886ms (258 modules)
- ✓ Compiled in 274ms (258 modules)
- ✓ Compiled in 587ms (258 modules)
- ✓ Compiled in 669ms (258 modules)
- ⨯ ./src/app/page.tsx
-Error: 
-  [31mx[0m Unexpected token `main`. Expected jsx identifier
-     ,-[[36;1;4mC:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\src\app\page.tsx[0m:325:1]
- [2m325[0m |   };
- [2m326[0m | 
- [2m327[0m |   return (
- [2m328[0m |     <main className="bg-gray-50">
-     : [31;1m     ^^^^[0m
- [2m329[0m |       {/* 메인 레이아웃 */}
- [2m330[0m |       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
- [2m331[0m |         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-     `----
-
-Caused by:
-    Syntax Error
-
-Import trace for requested module:
-./src/app/page.tsx
- ✓ Compiled in 649ms (258 modules)
-<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, lstat 'C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\.next\server\app\page.js'
-<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving '../../../../.next/server/app/page' in C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\server for build dependencies doesn't lead to expected result 'C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\.next\server\app\page.js', but to 'Error: Can't resolve '../../../../.next/server/app/page' in 'C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\server'' instead. Resolving dependencies are ignored for this path.
-<w>  at resolve commonjs file ../../../../.next/server/app/page (expected C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\.next\server\app\page.js)
-<w>  at file dependencies C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\server\require.js
-<w>  at file C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\server\require.js
-<w>  at file dependencies C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\server\load-components.js
-<w>  at file C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\server\load-components.js
-<w>  at file dependencies C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\build\utils.js
-<w>  at file C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\build\utils.js
-<w>  at file dependencies C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\build\webpack\loaders\next-app-loader.js
-<w>  at file C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\build\webpack\loaders\next-app-loader.js
-<w>  at file dependencies C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\loader-runner\LoaderRunner.js
-<w>  at file C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\loader-runner\LoaderRunner.js
-<w>  at file dependencies C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\webpack\bundle5.js
-<w>  at file C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\webpack\bundle5.js
-<w>  at file dependencies C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\webpack\webpack.js
-<w>  at file C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\webpack\webpack.js
-<w>  at file dependencies C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\build\webpack\plugins\define-env-plugin.js
-<w>  at file C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\build\webpack\plugins\define-env-plugin.js
-<w>  at file dependencies C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\build\swc\index.js
-<w>  at file C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\build\swc\index.js
-<w>  at file dependencies C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js
-<w>  at file C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js
-<w>  at resolve commonjs C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js
- ✓ Compiled in 2.9s (316 modules)
-<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, lstat 'C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\.next\server\app\page.js'
-<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving '../../../../.next/server/app/page' in C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\server for build dependencies doesn't lead to expected result 'C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\.next\server\app\page.js', but to 'Error: Can't resolve '../../../../.next/server/app/page' in 'C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\server'' instead. Resolving dependencies are ignored for this path.
-<w>  at resolve commonjs file ../../../../.next/server/app/page (expected C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\.next\server\app\page.js)
-<w>  at file dependencies C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\server\require.js
-<w>  at file C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\server\require.js
-<w>  at file dependencies C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\server\load-components.js
-<w>  at file C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\server\load-components.js
-<w>  at file dependencies C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\build\utils.js
-<w>  at file C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\build\utils.js
-<w>  at file dependencies C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\build\webpack\loaders\next-app-loader.js
-<w>  at file C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\build\webpack\loaders\next-app-loader.js
-<w>  at file dependencies C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\loader-runner\LoaderRunner.js
-<w>  at file C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\loader-runner\LoaderRunner.js
-<w>  at file dependencies C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\webpack\bundle5.js
-<w>  at file C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\webpack\bundle5.js
-<w>  at file dependencies C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\webpack\webpack.js
-<w>  at file C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\compiled\webpack\webpack.js
-<w>  at file dependencies C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\build\webpack\plugins\define-env-plugin.js
-<w>  at file C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\build\webpack\plugins\define-env-plugin.js
-<w>  at file dependencies C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\build\swc\index.js
-<w>  at file C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\build\swc\index.js
-<w>  at file dependencies C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js
-<w>  at file C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js
-<w>  at resolve commonjs C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js
+ ✓ Ready in 2.8s
+ ✓ Compiled /src/middleware in 211ms (72 modules)
+ ○ Compiling /api/auth/signup ...
+ ✓ Compiled /api/auth/signup in 575ms (513 modules)
+[회원가입 API] users 테이블 삽입 성공: {
+  user_id: 'ca6022c1-65eb-4ee1-b06d-93bbb399da55',
+  email: 'debugtest_1763042979497@example.com',
+  nickname: '디버그테스트',
+  profile_image_url: null,
+  created_at: '2025-11-13T14:09:43.959+00:00',
+  updated_at: '2025-11-13T14:09:43.959+00:00',
+  last_login_at: null,
+  terms_agreed: true,
+  privacy_agreed: true,
+  marketing_agreed: true,
+  is_active: true,
+  name: '디버그테스트',
+  avatar_url: null,
+  role: 'user',
+  points: 0,
+  level: 1,
+  bio: null,
+  location: null,
+  is_banned: false,
+  banned_at: null,
+  banned_reason: null,
+  banned_by: null
+}
+[회원가입 API] 사용자 생성 완료: {
+  id: 'ca6022c1-65eb-4ee1-b06d-93bbb399da55',
+  email: 'debugtest_1763042979497@example.com'
+}
+ POST /api/auth/signup 201 in 4166ms
+[회원가입 API] users 테이블 삽입 성공: {
+  user_id: '582ab4b7-e2e5-4b13-aa24-ffdd5c54fc2c',
+  email: 'debugtest_1763043185099@example.com',
+  nickname: '디버그테스트',
+  profile_image_url: null,
+  created_at: '2025-11-13T14:13:08.962+00:00',
+  updated_at: '2025-11-13T14:13:08.962+00:00',
+  last_login_at: null,
+  terms_agreed: true,
+  privacy_agreed: true,
+  marketing_agreed: true,
+  is_active: true,
+  name: '디버그테스트',
+  avatar_url: null,
+  role: 'user',
+  points: 0,
+  level: 1,
+  bio: null,
+  location: null,
+  is_banned: false,
+  banned_at: null,
+  banned_reason: null,
+  banned_by: null
+}
+[회원가입 API] 사용자 생성 완료: {
+  id: '582ab4b7-e2e5-4b13-aa24-ffdd5c54fc2c',
+  email: 'debugtest_1763043185099@example.com'
+}
+ POST /api/auth/signup 201 in 3972ms
+[회원가입 API] users 테이블 삽입 성공: {
+  user_id: '391a31ac-8e85-4b1a-ba23-c58953703054',
+  email: 'debugtest_1763043199276@example.com',
+  nickname: '디버그테스트',
+  profile_image_url: null,
+  created_at: '2025-11-13T14:13:22.847+00:00',
+  updated_at: '2025-11-13T14:13:22.847+00:00',
+  last_login_at: null,
+  terms_agreed: true,
+  privacy_agreed: true,
+  marketing_agreed: true,
+  is_active: true,
+  name: '디버그테스트',
+  avatar_url: null,
+  role: 'user',
+  points: 0,
+  level: 1,
+  bio: null,
+  location: null,
+  is_banned: false,
+  banned_at: null,
+  banned_reason: null,
+  banned_by: null
+}
+[회원가입 API] 사용자 생성 완료: {
+  id: '391a31ac-8e85-4b1a-ba23-c58953703054',
+  email: 'debugtest_1763043199276@example.com'
+}
+ POST /api/aut ✓ Compiled in 1435ms (274 modules)
+<w> [webpack.cache.Pack ✓ Compiled in 1058ms (274 modules)
+pack: Error: ENOENT: no such file or directory, rename 'C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\.next\cache\webpack\client-development\17.pack.gz_' -> 'C:\Development_PoliticianFinder_copy\Developement_Real_PoliticianFinder\1_Frontend\.next\cache\webpack\client-development\17.pack.gz'
+ ✓ Compiled in 1046ms (274 modules)
