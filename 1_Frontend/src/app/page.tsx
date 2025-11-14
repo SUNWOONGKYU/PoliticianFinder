@@ -157,7 +157,7 @@ export default function Home() {
                   };
                   politicianPosition = post.politicians.position || positionMap[post.politicians.position_id] || '정치인';
                   politicianStatus = post.politicians.status;
-                  politicianName = `${post.politicians.name} 의원`;
+                  politicianName = post.politicians.name;
                 }
 
                 return {
