@@ -6,7 +6,7 @@ import { createClient } from "@supabase/supabase-js";
 import { z } from "zod";
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY?.replace(/\s/g, '');
 
 if (!supabaseUrl || !supabaseServiceKey) {
   console.error('[Community Posts API] Missing environment variables:', {
