@@ -111,6 +111,7 @@ export async function GET(request: NextRequest) {
           error: {
             code: 'DATABASE_ERROR',
             message: '게시글 목록 조회 중 오류가 발생했습니다.',
+            details: error.message || error,
           },
         },
         { status: 500 }
