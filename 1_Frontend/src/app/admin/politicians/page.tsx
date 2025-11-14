@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import AdminSidebar from '../components/AdminSidebar';
+import { REGIONS } from '@/constants/regions';
+import { CONSTITUENCIES } from '@/constants/constituencies';
 
 interface Politician {
   id: number;
@@ -510,20 +512,53 @@ export default function AdminPoliticiansPage() {
                   />
                 </div>
 
-                {/* District (기초) */}
+                {/* District (기초 지역 또는 지역구) */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
-                    기초 지역 <span className="text-red-500">*</span>
+                    {addFormData.position === '국회의원' ? '지역구' : '기초 지역'} <span className="text-red-500">*</span>
                   </label>
-                  <input
-                    type="text"
-                    value={addFormData.district}
-                    onChange={(e) => handleFormChange('district', e.target.value)}
-                    placeholder="예: 강남구 갑, 서초구 을"
-                    required
-                    disabled={submitting}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:bg-gray-100"
-                  />
+                  {addFormData.position === '국회의원' ? (
+                    // 국회의원: 254개 지역구 드롭다운
+                    <select
+                      value={addFormData.district}
+                      onChange={(e) => handleFormChange('district', e.target.value)}
+                      required
+                      disabled={submitting}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:bg-gray-100"
+                    >
+                      <option value="">지역구를 선택하세요</option>
+                      {CONSTITUENCIES.map((constituency) => (
+                        <optgroup key={constituency.metropolitanArea} label={constituency.metropolitanArea}>
+                          {constituency.districts.map((district) => (
+                            <option key={district} value={district}>
+                              {district}
+                            </option>
+                          ))}
+                        </optgroup>
+                      ))}
+                    </select>
+                  ) : (
+                    // 다른 직책: 일반 지역 드롭다운
+                    <select
+                      value={addFormData.district}
+                      onChange={(e) => handleFormChange('district', e.target.value)}
+                      required
+                      disabled={submitting}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:bg-gray-100"
+                    >
+                      <option value="">지역을 선택하세요</option>
+                      {REGIONS.map((region) => (
+                        <optgroup key={region.label} label={region.label}>
+                          <option value={region.fullName}>{region.fullName} (전체)</option>
+                          {region.districts.map((district) => (
+                            <option key={district} value={district}>
+                              {district}
+                            </option>
+                          ))}
+                        </optgroup>
+                      ))}
+                    </select>
+                  )}
                 </div>
 
                 {/* Identity (신분) */}
