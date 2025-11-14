@@ -13,38 +13,16 @@ interface Politician {
   title?: string;    // P3F3: 직책
 }
 
-const SAMPLE_POLITICIANS: Politician[] = [
-  { id: '1', name: '김민준', party: '더불어민주당', position: '국회의원', region: '서울 강남구', identity: '현직' },
-  { id: '2', name: '이서연', party: '국민의힘', position: '광역단체장', region: '부산광역시', identity: '현직' },
-  { id: '3', name: '박준서', party: '정의당', position: '국회의원', region: '경기도 수원시', identity: '현직' },
-  { id: '4', name: '최지우', party: '더불어민주당', position: '국회의원', region: '인천 남동구', identity: '현직' },
-  { id: '5', name: '정하은', party: '국민의힘', position: '기초의원', region: '대구 중구', identity: '현직' },
-  { id: '6', name: '윤서준', party: '더불어민주당', position: '광역의원', region: '광주광역시', identity: '현직' },
-  { id: '7', name: '장민아', party: '국민의힘', position: '기초단체장', region: '대전 서구', identity: '현직' },
-  { id: '8', name: '오지훈', party: '정의당', position: '국회의원', region: '울산 북구', identity: '현직' },
-];
-
 export default function FavoritesPage() {
   const [searchQuery, setSearchQuery] = useState('');
-  const [favorites, setFavorites] = useState<Politician[]>([
-    SAMPLE_POLITICIANS[0],
-    SAMPLE_POLITICIANS[1],
-    SAMPLE_POLITICIANS[2],
-  ]);
+  const [favorites, setFavorites] = useState<Politician[]>([]);
   const [showAlert, setShowAlert] = useState(false);
   const [alertMessage, setAlertMessage] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const filteredResults = useMemo(() => {
-    if (!searchQuery.trim()) return [];
-    const query = searchQuery.toLowerCase();
-    return SAMPLE_POLITICIANS.filter(
-      (p) =>
-        (p.name.toLowerCase().includes(query) ||
-          p.party.includes(query) ||
-          p.region.includes(query)) &&
-        !favorites.find((fav) => fav.id === p.id)
-    );
+  const filteredResults = useMemo((): Politician[] => {
+    // 검색 기능은 API를 통해 구현 필요
+    return [];
   }, [searchQuery, favorites]);
 
   const handleAddFavorite = (politician: Politician) => {
