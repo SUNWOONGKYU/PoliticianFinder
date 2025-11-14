@@ -29,7 +29,7 @@ export async function GET(request: NextRequest) {
     const role = request.nextUrl.searchParams.get('role');
 
     let query = supabase
-      .from('users')
+      .from('profiles')
       .select('*', { count: 'exact' })
       .order('created_at', { ascending: false });
 
@@ -72,8 +72,17 @@ export async function GET(request: NextRequest) {
     const total = count || 0;
     const totalPages = Math.ceil(total / limit);
 
-    // 비밀번호 필드 제거
-    const sanitizedUsers = (data || []).map(({ password, ...user }) => user);
+    // profiles 테이블에는 이미 id, username, email 필드가 있음
+    // status 필드는 is_active, is_banned에서 파생
+    const sanitizedUsers = (data || []).map((profile: any) => ({
+      id: profile.id,
+      username: profile.username || profile.nickname || profile.name,
+      email: profile.email,
+      created_at: profile.created_at,
+      status: profile.is_banned ? 'banned' : (profile.is_active ? 'active' : 'suspended'),
+      role: profile.role || 'user',
+      admin_notes: profile.banned_reason || '',
+    }));
 
     return NextResponse.json({
       success: true,
@@ -99,7 +108,7 @@ export async function PATCH(request: NextRequest) {
 
     // 사용자 존재 확인
     const { data: existingUser, error: fetchError } = await supabase
-      .from('users')
+      .from('profiles')
       .select('id, username, email')
       .eq('id', validated.user_id)
       .single();
@@ -116,12 +125,23 @@ export async function PATCH(request: NextRequest) {
       updated_at: new Date().toISOString(),
     };
 
-    if (validated.status) updateData.status = validated.status;
+    // status를 is_active, is_banned으로 변환
+    if (validated.status) {
+      if (validated.status === 'active') {
+        updateData.is_active = true;
+        updateData.is_banned = false;
+      } else if (validated.status === 'banned') {
+        updateData.is_banned = true;
+      } else if (validated.status === 'suspended') {
+        updateData.is_active = false;
+        updateData.is_banned = false;
+      }
+    }
     if (validated.role) updateData.role = validated.role;
-    if (validated.admin_notes) updateData.admin_notes = validated.admin_notes;
+    if (validated.admin_notes) updateData.banned_reason = validated.admin_notes;
 
     const { data: updatedUser, error: updateError } = await supabase
-      .from('users')
+      .from('profiles')
       .update(updateData)
       .eq('id', validated.user_id)
       .select()
@@ -144,8 +164,8 @@ export async function PATCH(request: NextRequest) {
       metadata: validated,
     });
 
-    // 비밀번호 필드 제거
-    const { password, ...sanitizedUser } = updatedUser;
+    // profiles 테이블에는 password 필드 없음
+    const sanitizedUser = updatedUser;
 
     return NextResponse.json({
       success: true,
@@ -181,7 +201,7 @@ export async function DELETE(request: NextRequest) {
 
     // 사용자 존재 확인
     const { data: existingUser, error: fetchError } = await supabase
-      .from('users')
+      .from('profiles')
       .select('id, username')
       .eq('id', user_id)
       .single();
@@ -195,7 +215,7 @@ export async function DELETE(request: NextRequest) {
 
     // 사용자 삭제 (실제로는 soft delete 권장)
     const { error: deleteError } = await supabase
-      .from('users')
+      .from('profiles')
       .delete()
       .eq('id', user_id);
 
