@@ -171,6 +171,9 @@ export default function PaymentPage() {
             <div className="bg-white rounded-lg shadow-md p-6">
               <h2 className="text-xl font-bold text-gray-900 mb-6">주문자 정보</h2>
               <div className="space-y-4">
+                <p className="text-sm text-gray-600">
+                  로그인한 사용자 정보가 자동으로 입력됩니다.
+                </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-gray-900 mb-2">
@@ -178,7 +181,7 @@ export default function PaymentPage() {
                     </label>
                     <input
                       type="text"
-                      value="김민준"
+                      value={verifyForm.name}
                       readOnly
                       className="w-full px-4 py-2 border border-gray-300 rounded-lg bg-gray-50"
                     />
@@ -189,7 +192,7 @@ export default function PaymentPage() {
                     </label>
                     <input
                       type="email"
-                      value="politician@example.com"
+                      value={verifyForm.party}
                       readOnly
                       className="w-full px-4 py-2 border border-gray-300 rounded-lg bg-gray-50"
                     />
@@ -197,13 +200,12 @@ export default function PaymentPage() {
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-900 mb-2">
-                    휴대폰 번호 <span className="text-red-500">*</span>
+                    전화번호 <span className="text-gray-500">(선택)</span>
                   </label>
                   <input
                     type="tel"
-                    value="010-1234-5678"
-                    readOnly
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg bg-gray-50"
+                    placeholder="전화번호를 입력하세요 (선택사항)"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500"
                   />
                 </div>
               </div>

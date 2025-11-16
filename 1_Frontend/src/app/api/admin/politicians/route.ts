@@ -1,10 +1,12 @@
 // P3BA5_새정치인추가
 // Admin API - 정치인 관리 (추가)
 // Service Role Key 사용으로 RLS 우회
+// Updated: 2025-11-17 - requireAdmin() 추가
 
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { z } from "zod";
+import { requireAdmin } from "@/lib/auth/helpers";
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY?.replace(/\s/g, '') || '';
@@ -15,6 +17,12 @@ const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY?.replace(/\s/g,
  */
 export async function POST(request: NextRequest) {
   try {
+    // 관리자 권한 확인
+    const authResult = await requireAdmin();
+    if (authResult instanceof NextResponse) {
+      return authResult;
+    }
+
     // Environment variables check
     if (!supabaseUrl || !supabaseServiceKey) {
       console.error('[Admin Politicians API] Environment variables not configured');

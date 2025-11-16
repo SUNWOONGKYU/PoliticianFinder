@@ -1,7 +1,9 @@
 // P2BA6: AI 평가 결과 API (정치인별 평가 점수 및 시계열 데이터)
+// Updated: 2025-11-17 - Mock 데이터 제거, 실제 DB 쿼리 사용
 
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
+import { createClient } from "@/lib/supabase/server";
 
 const getEvaluationResultsSchema = z.object({
   politician_id: z.string().optional(),
@@ -24,119 +26,6 @@ const EVALUATION_CRITERIA = {
   ethics: "윤리성",
 };
 
-// Mock 평가 결과 데이터
-const mockEvaluationResults = [
-  {
-    id: "eval-1",
-    politician_id: "1",
-    name: "김민준",
-    party: "더불어민주당",
-    position: "국회의원",
-    ai_model: "claude",
-    overall_score: 97,
-    criteria: {
-      integrity: 98,
-      expertise: 95,
-      communication: 97,
-      leadership: 96,
-      responsibility: 99,
-      transparency: 94,
-      responsiveness: 97,
-      vision: 96,
-      public_interest: 95,
-      ethics: 98,
-    },
-    evaluated_at: "2025-01-10T10:00:00Z",
-    expires_at: "2025-02-10T10:00:00Z",
-  },
-  {
-    id: "eval-2",
-    politician_id: "2",
-    name: "이서연",
-    party: "국민의힘",
-    position: "국회의원",
-    ai_model: "chatgpt",
-    overall_score: 88,
-    criteria: {
-      integrity: 90,
-      expertise: 86,
-      communication: 88,
-      leadership: 87,
-      responsibility: 89,
-      transparency: 85,
-      responsiveness: 88,
-      vision: 87,
-      public_interest: 86,
-      ethics: 90,
-    },
-    evaluated_at: "2025-01-09T15:30:00Z",
-    expires_at: "2025-02-09T15:30:00Z",
-  },
-  {
-    id: "eval-3",
-    politician_id: "3",
-    name: "박지후",
-    party: "정의당",
-    position: "광역의원",
-    ai_model: "gemini",
-    overall_score: 82,
-    criteria: {
-      integrity: 84,
-      expertise: 80,
-      communication: 82,
-      leadership: 81,
-      responsibility: 83,
-      transparency: 79,
-      responsiveness: 82,
-      vision: 81,
-      public_interest: 80,
-      ethics: 84,
-    },
-    evaluated_at: "2025-01-08T09:00:00Z",
-    expires_at: "2025-02-08T09:00:00Z",
-  },
-];
-
-// Mock 시계열 데이터
-const mockTimeSeriesData = [
-  {
-    politician_id: "1",
-    date: "2025-01-01",
-    overall_score: 95,
-    model_scores: {
-      claude: 94,
-      chatgpt: 93,
-      gemini: 92,
-      grok: 95,
-      perplexity: 93,
-    },
-  },
-  {
-    politician_id: "1",
-    date: "2025-01-05",
-    overall_score: 96,
-    model_scores: {
-      claude: 96,
-      chatgpt: 94,
-      gemini: 93,
-      grok: 96,
-      perplexity: 94,
-    },
-  },
-  {
-    politician_id: "1",
-    date: "2025-01-10",
-    overall_score: 97,
-    model_scores: {
-      claude: 97,
-      chatgpt: 95,
-      gemini: 94,
-      grok: 96,
-      perplexity: 95,
-    },
-  },
-];
-
 export async function GET(request: NextRequest) {
   try {
     const searchParams = request.nextUrl.searchParams;
@@ -144,39 +33,136 @@ export async function GET(request: NextRequest) {
     const politicianId = searchParams.get("politician_id");
     const limit = parseInt(searchParams.get("limit") || "10");
 
+    const supabase = createClient();
+
     if (type === "timeseries") {
-      // 시계열 데이터 반환
-      let timeSeriesData = mockTimeSeriesData;
+      // 시계열 데이터: evaluations 테이블에서 가져오기
+      let query = supabase
+        .from('evaluations')
+        .select(`
+          politician_id,
+          created_at,
+          overall_score,
+          claude_score,
+          chatgpt_score,
+          gemini_score,
+          grok_score,
+          perplexity_score
+        `)
+        .order('created_at', { ascending: true })
+        .limit(limit);
 
       if (politicianId) {
-        timeSeriesData = timeSeriesData.filter(
-          (d) => d.politician_id === politicianId
+        query = query.eq('politician_id', politicianId);
+      }
+
+      const { data: evaluations, error } = await query;
+
+      if (error) {
+        console.error('[평가 시계열 API] DB 오류:', error);
+        return NextResponse.json(
+          {
+            success: false,
+            error: 'Database query failed',
+            message: error.message,
+          },
+          { status: 500 }
         );
       }
+
+      // 시계열 데이터 포맷 변환
+      const timeSeriesData = (evaluations || []).map(evaluation => ({
+        politician_id: evaluation.politician_id,
+        date: new Date(evaluation.created_at).toISOString().split('T')[0],
+        overall_score: evaluation.overall_score || 0,
+        model_scores: {
+          claude: evaluation.claude_score || 0,
+          chatgpt: evaluation.chatgpt_score || 0,
+          gemini: evaluation.gemini_score || 0,
+          grok: evaluation.grok_score || 0,
+          perplexity: evaluation.perplexity_score || 0,
+        },
+      }));
 
       return NextResponse.json(
         {
           success: true,
           type: "timeseries",
-          data: timeSeriesData.slice(0, limit),
+          data: timeSeriesData,
           count: timeSeriesData.length,
         },
         { status: 200 }
       );
     }
 
-    // 평가 결과 반환 (기본값)
-    let results = mockEvaluationResults;
+    // 평가 결과 반환 (기본값): evaluations + politicians 조인
+    let query = supabase
+      .from('evaluations')
+      .select(`
+        id,
+        politician_id,
+        overall_score,
+        claude_score,
+        chatgpt_score,
+        gemini_score,
+        grok_score,
+        perplexity_score,
+        criteria_scores,
+        created_at,
+        expires_at,
+        politicians:politician_id (
+          name,
+          party,
+          position
+        )
+      `)
+      .order('created_at', { ascending: false })
+      .limit(limit);
 
     if (politicianId) {
-      results = results.filter((r) => r.politician_id === politicianId);
+      query = query.eq('politician_id', politicianId);
     }
+
+    const { data: evaluations, error } = await query;
+
+    if (error) {
+      console.error('[평가 결과 API] DB 오류:', error);
+      return NextResponse.json(
+        {
+          success: false,
+          error: 'Database query failed',
+          message: error.message,
+        },
+        { status: 500 }
+      );
+    }
+
+    // 평가 결과 포맷 변환
+    const results = (evaluations || []).map(evaluation => ({
+      id: evaluation.id,
+      politician_id: evaluation.politician_id,
+      name: (evaluation.politicians as any)?.name || '알 수 없음',
+      party: (evaluation.politicians as any)?.party || '',
+      position: (evaluation.politicians as any)?.position || '',
+      ai_model: 'claude', // 주요 모델
+      overall_score: evaluation.overall_score || 0,
+      criteria: evaluation.criteria_scores || {},
+      model_scores: {
+        claude: evaluation.claude_score || 0,
+        chatgpt: evaluation.chatgpt_score || 0,
+        gemini: evaluation.gemini_score || 0,
+        grok: evaluation.grok_score || 0,
+        perplexity: evaluation.perplexity_score || 0,
+      },
+      evaluated_at: evaluation.created_at,
+      expires_at: evaluation.expires_at,
+    }));
 
     return NextResponse.json(
       {
         success: true,
         type: "results",
-        data: results.slice(0, limit),
+        data: results,
         count: results.length,
         evaluation_criteria: EVALUATION_CRITERIA,
       },

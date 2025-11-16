@@ -2,6 +2,11 @@
 
 // Task ID: P1F10
 // 유저 프로필 페이지
+// TODO: 사용자별 게시글/댓글 API 연동 필요
+// - GET /api/users/{id}/posts - 사용자의 게시글 목록
+// - GET /api/users/{id}/comments - 사용자의 댓글 목록
+// - GET /api/users/{id}/profile - 사용자 프로필 정보
+// 현재는 샘플 데이터를 사용 중입니다.
 
 import { useParams } from 'next/navigation';
 import { useState } from 'react';

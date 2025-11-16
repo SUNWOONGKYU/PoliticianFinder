@@ -1,83 +1,89 @@
-// P1BA1: Mock API - 인증
+// P3BA1: Real API - 인증
 /**
- * Project Grid Task ID: P1BA1
- * 작업명: 현재 사용자 정보 API (Mock with Supabase)
+ * Project Grid Task ID: P3BA1 (Updated from P1BA1)
+ * 작업명: 현재 사용자 정보 API (Real Supabase Auth)
  * 생성시간: 2025-11-07
+ * 수정시간: 2025-11-17
  * 생성자: Claude-Sonnet-4.5
  * 의존성: P1BI1, P1BI2, P1D5
- * 설명: 현재 로그인된 사용자 정보 조회 - Phase 1용 Mock API with Supabase connection
+ * 설명: 현재 로그인된 사용자 정보 조회 - Real Supabase Auth 사용
+ * 변경사항: MOCK_USER_ID 제거, 실제 Supabase 세션 사용
  */
 
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 
 // ============================================================================
-// Constants
-// ============================================================================
-const MOCK_USER_ID = '7f61567b-bbdf-427a-90a9-0ee060ef4595';
-
-// ============================================================================
 // GET /api/auth/me
 // ============================================================================
 /**
- * 현재 사용자 정보 API (Mock with Supabase)
+ * 현재 사용자 정보 API (Real Supabase Auth)
  *
- * @description Phase 1: Mock 현재 사용자 정보 조회 - Supabase 연결 준비
+ * @description 실제 Supabase Auth를 사용하여 현재 사용자 정보 조회
  * @route GET /api/auth/me
- * @access Private (requires access_token)
+ * @access Private (requires authentication)
  *
- * @header {string} Authorization - Bearer {access_token}
+ * @header {string} Authorization - Bearer {access_token} (optional, uses cookie)
  *
  * @returns {200} { success: true, data: { user } }
  * @returns {401} { success: false, error: { code, message } } - 인증 실패
  */
 export async function GET(request: NextRequest) {
   try {
-    // 1. Extract Access Token from Authorization header
-    const authHeader = request.headers.get('authorization');
+    // 1. Create Supabase client (uses cookies automatically)
+    const supabase = createClient();
 
-    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+    // 2. Get authenticated user from Supabase session
+    const { data: { user }, error } = await supabase.auth.getUser();
+
+    if (error || !user) {
+      console.log('[현재 사용자 정보 API] 인증 실패:', error?.message);
       return NextResponse.json(
         {
           success: false,
           error: {
             code: 'UNAUTHORIZED',
-            message: '인증이 필요합니다.',
+            message: '인증이 필요합니다. 로그인해 주세요.',
           },
         },
         { status: 401 }
       );
     }
 
-    const accessToken = authHeader.substring(7); // Remove "Bearer "
-    console.log('[Phase 1 Mock] User info request with token:', accessToken.substring(0, 20) + '...');
+    // 3. Get user profile from users table
+    const { data: profile, error: profileError } = await supabase
+      .from('users')
+      .select('nickname, role, points, level, is_banned, created_at, updated_at')
+      .eq('user_id', user.id)
+      .single();
 
-    // 2. Supabase Client Connection (Mock - Phase 1)
-    const supabase = createClient();
-    console.log('[Phase 1 Mock] Supabase client connected:', !!supabase);
+    if (profileError) {
+      console.error('[현재 사용자 정보 API] 프로필 조회 실패:', profileError);
+    }
 
-    // 3. Mock: Get User Info (Phase 1)
-    // Phase 3 will use: supabase.auth.getUser()
-    // For Phase 1, return mock user data
-    const mockUser = {
-      id: MOCK_USER_ID,
-      email: 'test@example.com',
-      name: '테스트 사용자',
-      avatar_url: null,
-      role: 'user' as const,
-      is_email_verified: true,
-      created_at: '2025-01-01T00:00:00Z',
-      updated_at: new Date().toISOString(),
+    // 4. Construct user response
+    const userData = {
+      id: user.id,
+      email: user.email || '',
+      name: profile?.nickname || user.user_metadata?.name || '사용자',
+      avatar_url: user.user_metadata?.avatar_url || null,
+      role: profile?.role || 'user',
+      points: profile?.points || 0,
+      level: profile?.level || 1,
+      is_banned: profile?.is_banned || false,
+      is_email_verified: !!user.email_confirmed_at,
+      created_at: user.created_at,
+      updated_at: profile?.updated_at || user.updated_at,
     };
 
-    console.log('[Phase 1 Mock] User info retrieved for:', mockUser.email);
+    console.log('[현재 사용자 정보 API] 사용자 조회 성공:', userData.email);
 
-    // 4. Success Response
+    // 5. Success Response
     return NextResponse.json(
       {
         success: true,
         data: {
-          user: mockUser,
+          user: userData,
         },
       },
       { status: 200 }
