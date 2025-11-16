@@ -1,7 +1,22 @@
 // Email service utility using Resend
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Lazy initialization - only create Resend instance when actually sending email
+let resend: Resend | null = null;
+
+function getResendClient(): Resend {
+  if (!resend) {
+    const apiKey = process.env.RESEND_API_KEY;
+    if (!apiKey) {
+      console.warn('RESEND_API_KEY is not set. Email functionality will not work.');
+      // Return a dummy client that won't be used (will fail gracefully)
+      resend = new Resend('re_dummy_key_for_build');
+    } else {
+      resend = new Resend(apiKey);
+    }
+  }
+  return resend;
+}
 
 interface SendInquiryResponseEmailParams {
   to: string;
@@ -19,7 +34,17 @@ export async function sendInquiryResponseEmail({
   inquiryId,
 }: SendInquiryResponseEmailParams) {
   try {
-    const { data, error } = await resend.emails.send({
+    // Check if RESEND_API_KEY is configured
+    if (!process.env.RESEND_API_KEY) {
+      console.error('RESEND_API_KEY is not configured. Skipping email send.');
+      return {
+        success: false,
+        error: 'Email service not configured. Please set RESEND_API_KEY environment variable.'
+      };
+    }
+
+    const resendClient = getResendClient();
+    const { data, error } = await resendClient.emails.send({
       from: "PoliticianFinder <noreply@politicianfinder.com>",
       to: [to],
       subject: `[PoliticianFinder] 문의 답변: ${inquiryTitle}`,
