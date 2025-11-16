@@ -1,15 +1,79 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
-
-// Mock user ID - in real implementation, get from auth context
-const CURRENT_USER_ID = '1';
 
 type TabType = 'posts' | 'comments' | 'activity';
 
+interface UserData {
+  id: string;
+  email: string;
+  name: string;
+  role: string;
+  points: number;
+  level: number;
+}
+
 export default function MypagePage() {
   const [activeTab, setActiveTab] = useState<TabType>('posts');
+  const [userData, setUserData] = useState<UserData | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        setLoading(true);
+        const response = await fetch('/api/auth/me');
+        const result = await response.json();
+
+        if (!response.ok || !result.success) {
+          throw new Error(result.error?.message || '사용자 정보를 불러오는데 실패했습니다.');
+        }
+
+        setUserData(result.data.user);
+      } catch (err) {
+        console.error('Failed to fetch user data:', err);
+        setError(err instanceof Error ? err.message : '알 수 없는 오류가 발생했습니다.');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchUserData();
+  }, []);
+
+  // Loading state
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-secondary-600 mx-auto"></div>
+          <p className="mt-4 text-gray-600">로딩 중...</p>
+        </div>
+      </div>
+    );
+  }
+
+  // Error state
+  if (error || !userData) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="text-red-600 mb-4">
+            <svg className="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h2 className="text-xl font-bold text-gray-900 mb-2">오류가 발생했습니다</h2>
+          <p className="text-gray-600 mb-4">{error || '사용자 정보를 불러올 수 없습니다.'}</p>
+          <Link href="/login" className="inline-block px-6 py-2 bg-secondary-500 text-white rounded-md hover:bg-secondary-600">
+            로그인 페이지로 이동
+          </Link>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -26,9 +90,9 @@ export default function MypagePage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                   </svg>
                 </div>
-                <h2 className="text-xl font-bold text-gray-900">민주시민</h2>
-                <p className="text-sm text-gray-500 mt-1">demo@example.com</p>
-                <span className="inline-block bg-secondary-100 text-secondary-700 text-xs font-semibold px-3 py-1 rounded-full mt-2">ML5</span>
+                <h2 className="text-xl font-bold text-gray-900">{userData.name}</h2>
+                <p className="text-sm text-gray-500 mt-1">{userData.email}</p>
+                <span className="inline-block bg-secondary-100 text-secondary-700 text-xs font-semibold px-3 py-1 rounded-full mt-2">ML{userData.level}</span>
               </div>
 
               {/* Stats */}
@@ -42,7 +106,7 @@ export default function MypagePage() {
                   <div className="text-xs text-gray-500">댓글</div>
                 </div>
                 <div>
-                  <div className="text-xl font-bold text-gray-900">1,248</div>
+                  <div className="text-xl font-bold text-gray-900">{userData.points.toLocaleString()}</div>
                   <div className="text-xs text-gray-500">포인트</div>
                 </div>
                 <div>
@@ -58,7 +122,7 @@ export default function MypagePage() {
               {/* Actions */}
               <div className="mt-6 space-y-2">
                 <Link
-                  href={`/users/${CURRENT_USER_ID}/profile`}
+                  href={`/users/${userData.id}/profile`}
                   className="block w-full text-center px-4 py-2 bg-secondary-500 text-white rounded-md hover:bg-secondary-600 font-medium text-sm focus:outline-none focus:ring-2 focus:ring-secondary-300"
                 >
                   프로필 수정

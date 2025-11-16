@@ -1,8 +1,10 @@
-// P2BA3: 정치인 검색 API
+// P2BA3: 정치인 검색 API (Real DB)
 // 정치인 검색 기능 제공
+// Updated: 2025-11-17 - Mock 데이터 제거, 실제 DB 쿼리 사용
 
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
+import { createClient } from '@/lib/supabase/server';
 
 const searchQuerySchema = z.object({
   q: z.string().min(1),
@@ -12,37 +14,9 @@ const searchQuerySchema = z.object({
 
 type SearchQuery = z.infer<typeof searchQuerySchema>;
 
-// 임시 데이터
-const mockPoliticians = [
-  {
-    id: '1',
-    name: '김정치',
-    party: '국민의힘',
-    region: '서울',
-    position: '국회의원',
-    bio: '경제 전문가',
-  },
-  {
-    id: '2',
-    name: '이정책',
-    party: '더불어민주당',
-    region: '경기',
-    position: '국회의원',
-    bio: '교육 정책가',
-  },
-  {
-    id: '3',
-    name: '박개혁',
-    party: '국민의힘',
-    region: '인천',
-    position: '시장',
-    bio: '도시개발 전문가',
-  },
-];
-
 /**
  * GET /api/search/politicians?q=검색어&type=name&limit=10
- * 정치인 검색
+ * 정치인 검색 (Real Supabase DB)
  */
 export async function GET(request: NextRequest) {
   try {
@@ -53,35 +27,49 @@ export async function GET(request: NextRequest) {
       limit: searchParams.get('limit'),
     });
 
-    // 검색 수행
-    const results = mockPoliticians.filter((politician) => {
-      const searchTerm = query.q.toLowerCase();
+    const supabase = createClient();
+    const searchTerm = `%${query.q}%`;
 
-      if (query.type === 'name') {
-        return politician.name.toLowerCase().includes(searchTerm);
-      }
+    // Build query based on search type
+    let queryBuilder = supabase
+      .from('politicians')
+      .select('id, name, party, region, district, position, identity, title, profile_image_url')
+      .limit(query.limit);
 
-      if (query.type === 'bio') {
-        return politician.bio.toLowerCase().includes(searchTerm);
-      }
-
-      // all
-      return (
-        politician.name.toLowerCase().includes(searchTerm) ||
-        politician.bio.toLowerCase().includes(searchTerm) ||
-        politician.party.toLowerCase().includes(searchTerm) ||
-        politician.region.toLowerCase().includes(searchTerm)
+    if (query.type === 'name') {
+      // Search by name only
+      queryBuilder = queryBuilder.ilike('name', searchTerm);
+    } else if (query.type === 'bio') {
+      // Search by biography/career
+      queryBuilder = queryBuilder.or(
+        `education.ilike.${searchTerm},career.ilike.${searchTerm}`
       );
-    });
+    } else {
+      // Search all fields (name, party, region, position)
+      queryBuilder = queryBuilder.or(
+        `name.ilike.${searchTerm},party.ilike.${searchTerm},region.ilike.${searchTerm},district.ilike.${searchTerm},position.ilike.${searchTerm}`
+      );
+    }
 
-    // 결과 제한
-    const limited = results.slice(0, query.limit);
+    const { data: politicians, error, count } = await queryBuilder;
+
+    if (error) {
+      console.error('[정치인 검색 API] DB 오류:', error);
+      return NextResponse.json(
+        {
+          success: false,
+          error: 'Database query failed',
+          message: error.message,
+        },
+        { status: 500 }
+      );
+    }
 
     return NextResponse.json(
       {
         success: true,
-        data: limited,
-        total: results.length,
+        data: politicians || [],
+        total: politicians?.length || 0,
         timestamp: new Date().toISOString(),
       },
       { status: 200 }

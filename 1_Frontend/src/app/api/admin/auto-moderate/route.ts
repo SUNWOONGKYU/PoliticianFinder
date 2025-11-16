@@ -2,14 +2,17 @@
  * Project Grid Task ID: P4BA7
  * 작업명: 자동 중재 시스템 API
  * 생성시간: 2025-11-09
+ * 수정시간: 2025-11-17
  * 생성자: Claude-Sonnet-4.5
  * 의존성: P3BA23 (콘텐츠 신고 API)
  * 설명: AI 기반 자동 중재 시스템으로 신고된 콘텐츠를 자동으로 분석하고 처리
+ * 변경사항: requireAdmin() 추가
  */
 
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 import { createClient } from '@supabase/supabase-js';
+import { requireAdmin } from '@/lib/auth/helpers';
 import {
   analyzeContent,
   severityToAction,
@@ -302,6 +305,12 @@ async function logAudit(
 export async function POST(request: NextRequest): Promise<NextResponse<AutoModerateResponse>> {
   try {
     console.log('[자동 중재 API] 요청 시작');
+
+    // 0. 관리자 권한 확인
+    const authResult = await requireAdmin();
+    if (authResult instanceof NextResponse) {
+      return authResult as NextResponse<AutoModerateResponse>;
+    }
 
     // 1. Request Body Parsing
     const body = await request.json();

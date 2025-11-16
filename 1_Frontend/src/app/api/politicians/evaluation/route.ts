@@ -98,7 +98,8 @@ export async function POST(request: NextRequest) {
   }
 }
 
-// GET: 평가 결과 조회
+// GET: 평가 결과 조회 (Real DB)
+// Updated: 2025-11-17 - Mock 데이터 제거, 실제 DB 쿼리 사용
 export async function GET(request: NextRequest) {
   try {
     const politicianId = request.nextUrl.searchParams.get("politician_id");
@@ -111,34 +112,65 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    // Mock 평가 결과 반환
-    const mockEvaluation = {
-      politician_id: politicianId,
-      name: "김민준",
-      party: "더불어민주당",
-      position: "국회의원",
-      ai_model: aiModel || "claude",
-      overall_score: 94,
-      criteria: {
-        integrity: 95,
-        expertise: 92,
-        communication: 94,
-        leadership: 93,
-        responsibility: 96,
-        transparency: 91,
-        responsiveness: 94,
-        vision: 93,
-        public_interest: 92,
-        ethics: 95,
+    const { createClient } = await import("@/lib/supabase/server");
+    const supabase = createClient();
+
+    // DB에서 평가 결과 조회
+    const { data: evaluation, error } = await supabase
+      .from('evaluations')
+      .select(`
+        *,
+        politicians:politician_id (
+          name,
+          party,
+          position
+        )
+      `)
+      .eq('politician_id', politicianId)
+      .order('created_at', { ascending: false })
+      .limit(1)
+      .single();
+
+    if (error || !evaluation) {
+      console.log('[평가 조회 API] 평가 데이터 없음:', politicianId);
+      return NextResponse.json(
+        {
+          success: false,
+          error: "평가 데이터를 찾을 수 없습니다. AI 평가를 먼저 요청해주세요.",
+          politician_id: politicianId,
+        },
+        { status: 404 }
+      );
+    }
+
+    // 특정 AI 모델 점수만 반환하거나 종합 평가 반환
+    const modelScore = aiModel ?
+      evaluation[`${aiModel}_score` as keyof typeof evaluation] || 0 :
+      evaluation.overall_score || 0;
+
+    const result = {
+      politician_id: evaluation.politician_id,
+      name: (evaluation.politicians as any)?.name || '알 수 없음',
+      party: (evaluation.politicians as any)?.party || '',
+      position: (evaluation.politicians as any)?.position || '',
+      ai_model: aiModel || "overall",
+      overall_score: modelScore,
+      criteria: evaluation.criteria_scores || {},
+      model_scores: {
+        claude: evaluation.claude_score || 0,
+        chatgpt: evaluation.chatgpt_score || 0,
+        gemini: evaluation.gemini_score || 0,
+        grok: evaluation.grok_score || 0,
+        perplexity: evaluation.perplexity_score || 0,
       },
-      evaluated_at: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString(),
-      expires_at: new Date(Date.now() + 23 * 24 * 60 * 60 * 1000).toISOString(),
+      evaluated_at: evaluation.created_at,
+      expires_at: evaluation.expires_at,
     };
 
     return NextResponse.json(
       {
         success: true,
-        data: mockEvaluation,
+        data: result,
         evaluation_criteria: EVALUATION_CRITERIA,
       },
       { status: 200 }

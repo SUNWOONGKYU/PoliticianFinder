@@ -1,9 +1,11 @@
 // Admin API - 콘텐츠 관리 (게시글 목록 조회)
 // Service Role Key 사용으로 RLS 우회
+// Updated: 2025-11-17 - requireAdmin() 추가
 
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { z } from "zod";
+import { requireAdmin } from "@/lib/auth/helpers";
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY?.replace(/\s/g, '') || '';
@@ -22,6 +24,12 @@ const getPostsQuerySchema = z.object({
  */
 export async function GET(request: NextRequest) {
   try {
+    // 관리자 권한 확인
+    const authResult = await requireAdmin();
+    if (authResult instanceof NextResponse) {
+      return authResult;
+    }
+
     const searchParams = request.nextUrl.searchParams;
     const queryParams = {
       page: searchParams.get("page") || "1",
@@ -119,6 +127,12 @@ export async function GET(request: NextRequest) {
  */
 export async function PATCH(request: NextRequest) {
   try {
+    // 관리자 권한 확인
+    const authResult = await requireAdmin();
+    if (authResult instanceof NextResponse) {
+      return authResult;
+    }
+
     const supabase = createClient(supabaseUrl, supabaseServiceKey);
     const body = await request.json();
     const { post_id, moderation_status, admin_notes } = body;
@@ -165,6 +179,12 @@ export async function PATCH(request: NextRequest) {
  */
 export async function DELETE(request: NextRequest) {
   try {
+    // 관리자 권한 확인
+    const authResult = await requireAdmin();
+    if (authResult instanceof NextResponse) {
+      return authResult;
+    }
+
     const supabase = createClient(supabaseUrl, supabaseServiceKey);
     const { searchParams } = new URL(request.url);
     const post_id = searchParams.get("post_id");

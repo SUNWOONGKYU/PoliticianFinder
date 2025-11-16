@@ -39,19 +39,9 @@ export default function CreatePostPage() {
   const [showSearchResults, setShowSearchResults] = useState(false);
   const [alertMessage, setAlertMessage] = useState('');
   const [showAlert, setShowAlert] = useState(false);
+  const [politicians, setPoliticians] = useState<Politician[]>([]);
+  const [loadingPoliticians, setLoadingPoliticians] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
-
-  // Sample politicians data (in production, this would come from an API)
-  const politicians: Politician[] = [
-    { name: "김민준", party: "더불어민주당", position: "국회의원" },
-    { name: "이서연", party: "국민의힘", position: "광역단체장" },
-    { name: "박준서", party: "정의당", position: "현직" },
-    { name: "최지우", party: "더불어민주당", position: "국회의원" },
-    { name: "정하은", party: "국민의힘", position: "기초의원" },
-    { name: "윤서준", party: "더불어민주당", position: "광역의원" },
-    { name: "장민아", party: "국민의힘", position: "기초단체장" },
-    { name: "오지훈", party: "정의당", position: "국회의원" }
-  ];
 
   // Load draft on component mount
   useEffect(() => {
@@ -69,30 +59,55 @@ export default function CreatePostPage() {
     }
   }, []);
 
-  // Handle politician search
+  // Handle politician search - API call
   useEffect(() => {
     const query = politicianSearch.trim();
-    const queryLower = query.toLowerCase();
 
     if (query.length === 0) {
       setShowSearchResults(false);
+      setSearchResults([]);
       return;
     }
 
-    // Priority-based filtering and sorting
-    const filtered = politicians
-      .map(p => ({
-        ...p,
-        priority: p.name.toLowerCase().startsWith(queryLower) ? 0 :
-                 p.name.toLowerCase().includes(queryLower) ? 1 :
-                 p.party.includes(query) ? 2 : 3
-      }))
-      .filter(p => p.priority < 3)
-      .sort((a, b) => a.priority - b.priority || a.name.localeCompare(b.name))
-      .slice(0, 20);
+    if (query.length < 2) {
+      // Require at least 2 characters for search
+      return;
+    }
 
-    setSearchResults(filtered);
-    setShowSearchResults(true);
+    const fetchPoliticians = async () => {
+      try {
+        setLoadingPoliticians(true);
+        const response = await fetch(
+          `/api/politicians/search?q=${encodeURIComponent(query)}&type=name&limit=20`
+        );
+        const result = await response.json();
+
+        if (result.success && result.data) {
+          // Transform API data to match component interface
+          const transformedData: Politician[] = result.data.map((p: any) => ({
+            name: p.name,
+            party: p.political_party_name || '정당 정보 없음',
+            position: p.position_name || '직책 정보 없음',
+          }));
+
+          setSearchResults(transformedData);
+          setShowSearchResults(true);
+        } else {
+          setSearchResults([]);
+          setShowSearchResults(true);
+        }
+      } catch (error) {
+        console.error('Failed to fetch politicians:', error);
+        setSearchResults([]);
+        setShowSearchResults(false);
+      } finally {
+        setLoadingPoliticians(false);
+      }
+    };
+
+    // Debounce search
+    const timeoutId = setTimeout(fetchPoliticians, 300);
+    return () => clearTimeout(timeoutId);
   }, [politicianSearch]);
 
   // Handle file selection
@@ -226,7 +241,12 @@ export default function CreatePostPage() {
               {/* Search Results Dropdown */}
               {showSearchResults && (
                 <div id="politician-search-results" className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg max-h-60 overflow-y-auto">
-                  {searchResults.length === 0 ? (
+                  {loadingPoliticians ? (
+                    <div className="p-3 text-sm text-gray-500 text-center">
+                      <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-purple-600 mx-auto mb-2"></div>
+                      검색 중...
+                    </div>
+                  ) : searchResults.length === 0 ? (
                     <div className="p-3 text-sm text-gray-500">검색 결과가 없습니다</div>
                   ) : (
                     <>
@@ -240,14 +260,6 @@ export default function CreatePostPage() {
                           <div className="text-xs text-gray-600">{p.party} · {p.position}</div>
                         </div>
                       ))}
-                      {politicians.filter(p =>
-                        p.name.toLowerCase().includes(politicianSearch.toLowerCase()) ||
-                        p.party.includes(politicianSearch)
-                      ).length > 20 && (
-                        <div className="p-3 text-xs text-gray-500 bg-gray-50 border-t">
-                          더 많은 결과가 있습니다. 검색어를 더 구체적으로 입력해주세요.
-                        </div>
-                      )}
                     </>
                   )}
                 </div>

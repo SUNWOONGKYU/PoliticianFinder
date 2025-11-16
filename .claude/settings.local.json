@@ -6,7 +6,10 @@
       "Bash(git push:*)",
       "Bash(python run_p3f4_migration.py:*)",
       "Bash(npm run build:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(cat:*)",
+      "Bash(npx tsc:*)",
+      "Bash(python -c:*)"
     ],
     "deny": [],
     "ask": []

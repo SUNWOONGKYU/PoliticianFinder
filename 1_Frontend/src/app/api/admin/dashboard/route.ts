@@ -1,14 +1,22 @@
 // P1BA4: Mock API - 기타 (Admin Dashboard API - 대시보드 및 감시)
 // Supabase 연동 - 관리자 대시보드 통계 및 활동 데이터
+// Updated: 2025-11-17 - requireAdmin() 추가
 
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
+import { requireAdmin } from "@/lib/auth/helpers";
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
 
 export async function GET(request: NextRequest) {
   try {
+    // 관리자 권한 확인
+    const authResult = await requireAdmin();
+    if (authResult instanceof NextResponse) {
+      return authResult;
+    }
+
     const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
     // 병렬로 모든 통계 데이터 가져오기
