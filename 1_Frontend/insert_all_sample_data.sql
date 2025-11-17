@@ -53,22 +53,23 @@ INSERT INTO notices (title, content, author_id, created_at, updated_at) VALUES
 많은 기대 부탁드립니다!', NULL, NOW() - INTERVAL '12 days', NOW() - INTERVAL '12 days');
 
 -- 2. 알림 데이터 (content + target_url 사용)
+-- 허용되는 알림 타입: comment, mention, reply, system
 DO $$
 DECLARE
     target_auth_id UUID;
 BEGIN
     SELECT id INTO target_auth_id FROM auth.users LIMIT 1;
-    
+
     IF target_auth_id IS NOT NULL THEN
         INSERT INTO notifications (user_id, type, content, target_url, is_read, created_at) VALUES
         (target_auth_id, 'system', '🎉 PoliticianFinder에 오신 것을 환영합니다! 우리 지역 정치인을 만나보세요.', '/politicians', false, NOW() - INTERVAL '1 hour'),
         (target_auth_id, 'system', '📢 새로운 공지사항이 등록되었습니다. 서비스 이용약관 변경 안내를 확인해주세요.', '/notices', false, NOW() - INTERVAL '3 hours'),
         (target_auth_id, 'comment', '💬 새 댓글이 달렸습니다. 회원님이 작성한 게시글에 새로운 댓글이 달렸습니다.', '/community/posts', false, NOW() - INTERVAL '5 hours'),
-        (target_auth_id, 'post_like', '👍 게시글에 공감을 받았습니다. 회원님의 게시글에 3명이 공감을 표시했습니다.', '/community/posts', false, NOW() - INTERVAL '8 hours'),
+        (target_auth_id, 'reply', '💭 댓글에 답글이 달렸습니다. 회원님의 댓글에 3명이 답글을 작성했습니다.', '/community/posts', false, NOW() - INTERVAL '8 hours'),
         (target_auth_id, 'system', '🔔 알림 설정을 확인해주세요. 원하는 알림만 받아보실 수 있습니다.', '/settings', true, NOW() - INTERVAL '1 day'),
-        (target_auth_id, 'follow', '✨ 새로운 정치인 활동이 있습니다. 관심 정치인이 새로운 게시글을 작성했습니다.', '/politicians', true, NOW() - INTERVAL '2 days'),
+        (target_auth_id, 'mention', '✨ 게시글에서 언급되었습니다. 관심 있는 게시글에서 회원님이 언급되었습니다.', '/community/posts', true, NOW() - INTERVAL '2 days'),
         (target_auth_id, 'system', '📱 모바일 앱 출시 예정 안내. PoliticianFinder 모바일 앱이 3월에 출시됩니다!', '/notices', true, NOW() - INTERVAL '3 days');
-        
+
         RAISE NOTICE 'Inserted notifications for user: %', target_auth_id;
     END IF;
 END $$;
