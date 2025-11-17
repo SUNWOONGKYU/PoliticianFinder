@@ -11,7 +11,8 @@
       "Bash(npx tsc:*)",
       "Bash(python -c:*)",
       "Bash(git checkout:*)",
-      "Bash(nslookup:*)"
+      "Bash(nslookup:*)",
+      "Bash(node detect_notifications_columns.js:*)"
     ],
     "deny": [],
     "ask": []

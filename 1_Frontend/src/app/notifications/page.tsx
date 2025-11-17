@@ -7,9 +7,8 @@ import Link from 'next/link';
 interface Notification {
   id: string;
   type: 'post_like' | 'comment' | 'follow' | 'payment' | 'system';
-  title: string;
-  message: string;
-  link?: string;
+  content: string;
+  target_url?: string;
   is_read: boolean;
   created_at: string;
 }
@@ -236,8 +235,8 @@ export default function NotificationsPage() {
       }
     }
     // 링크가 있으면 이동
-    if (notification.link) {
-      window.location.href = notification.link;
+    if (notification.target_url) {
+      window.location.href = notification.target_url;
     }
   };
 
@@ -316,7 +315,7 @@ export default function NotificationsPage() {
                       <div className="flex items-start justify-between mb-1">
                         <h3 className="font-bold text-gray-900 flex items-center gap-2">
                           {!notification.is_read && <span className="inline-block w-2 h-2 bg-blue-600 rounded-full"></span>}
-                          {notification.title}
+                          알림
                         </h3>
                         <button
                           onClick={(e) => {
@@ -330,7 +329,7 @@ export default function NotificationsPage() {
                           </svg>
                         </button>
                       </div>
-                      <p className="text-sm text-gray-600 mb-2">{notification.message}</p>
+                      <p className="text-sm text-gray-600 mb-2">{notification.content}</p>
                       <span className="text-xs text-gray-500">{formatTimestamp(notification.created_at)}</span>
                     </div>
                   </div>
