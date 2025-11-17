@@ -78,18 +78,6 @@ export default function AdminSidebar() {
           </svg>
           <span>문의 관리</span>
         </Link>
-        <Link
-          href="/admin/reports"
-          className={`flex items-center gap-3 px-4 py-2 rounded-lg ${
-            isActive('/admin/reports') ? 'bg-gray-900 text-white font-semibold' : 'hover:bg-gray-700'
-          }`}
-        >
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9"></path>
-          </svg>
-          <span>신고 관리</span>
-          <span className="ml-auto bg-red-500 text-white text-xs font-bold rounded-full px-2 py-0.5">12</span>
-        </Link>
       </nav>
       <div className="mt-auto p-4 border-t border-gray-700">
         <div className="flex items-center gap-3 mb-4">
