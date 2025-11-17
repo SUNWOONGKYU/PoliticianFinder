@@ -9,7 +9,9 @@
       "Bash(git commit:*)",
       "Bash(cat:*)",
       "Bash(npx tsc:*)",
-      "Bash(python -c:*)"
+      "Bash(python -c:*)",
+      "Bash(git checkout:*)",
+      "Bash(nslookup:*)"
     ],
     "deny": [],
     "ask": []
