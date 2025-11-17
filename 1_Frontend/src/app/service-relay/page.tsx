@@ -1,11 +1,8 @@
-// P3BA27: 서비스 중개 페이지 (relay)
-// 프로토타입 기준으로 복원 - "준비 중" 상태
 'use client';
 
 import Link from 'next/link';
 
-export default function RelayPage() {
-
+export default function ServiceRelayPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
