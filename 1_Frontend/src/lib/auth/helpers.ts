@@ -76,17 +76,17 @@ export async function checkUserRestrictions(userId: string): Promise<boolean> {
 export async function checkIsAdmin(userId: string): Promise<boolean> {
   const supabase = createClient();
 
-  const { data: profile, error } = await supabase
-    .from('profiles')
+  const { data: user, error } = await supabase
+    .from('users')
     .select('role')
     .eq('id', userId)
     .single();
 
-  if (error || !profile) {
+  if (error || !user) {
     return false;
   }
 
-  return profile.role === 'admin';
+  return user.role === 'admin';
 }
 
 /**
