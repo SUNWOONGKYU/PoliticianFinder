@@ -63,7 +63,7 @@ export async function GET(
     // P3F4: Calculate community statistics
     // Count posts by this politician
     const { data: posts, error: postsError } = await supabase
-      .from("community_posts")
+      .from("posts")
       .select("like_count")
       .eq("user_id", id)
       .eq("author_type", "politician");
@@ -73,7 +73,7 @@ export async function GET(
 
     // Count posts where this politician is tagged (회원 자유게시판에서만 - 정치인이 쓴 글 제외)
     const { count: taggedCount } = await supabase
-      .from("community_posts")
+      .from("posts")
       .select("*", { count: "exact", head: true })
       .contains("tagged_politicians", [politician.name])
       .neq("author_type", "politician"); // 정치인이 직접 쓴 글은 제외

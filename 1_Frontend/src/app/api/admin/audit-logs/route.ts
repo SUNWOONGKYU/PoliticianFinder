@@ -53,7 +53,7 @@ async function checkAdminRole(userId: string): Promise<boolean> {
     const supabase = createClient();
 
     const { data: profile, error } = await supabase
-      .from('profiles')
+      .from('users')
       .select('role')
       .eq('id', userId)
       .single();

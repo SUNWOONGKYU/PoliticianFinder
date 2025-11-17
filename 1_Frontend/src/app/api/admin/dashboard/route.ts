@@ -29,9 +29,9 @@ export async function GET(request: NextRequest) {
       auditLogsResult
     ] = await Promise.all([
       // 전체 사용자 수
-      supabase.from('profiles').select('id', { count: 'exact', head: true }),
+      supabase.from('users').select('id', { count: 'exact', head: true }),
       // 전체 게시물 수
-      supabase.from('community_posts').select('id', { count: 'exact', head: true }),
+      supabase.from('posts').select('id', { count: 'exact', head: true }),
       // 전체 댓글 수
       supabase.from('comments').select('id', { count: 'exact', head: true }),
       // 전체 결제 금액 및 건수
@@ -50,7 +50,7 @@ export async function GET(request: NextRequest) {
 
     // 최근 게시물
     const { data: recentPosts } = await supabase
-      .from('community_posts')
+      .from('posts')
       .select('id, title, created_at')
       .order('created_at', { ascending: false })
       .limit(5);

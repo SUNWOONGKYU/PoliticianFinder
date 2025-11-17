@@ -82,7 +82,7 @@ export async function POST(request: NextRequest) {
 
     // 6. 게시글 삽입 (RLS 정책으로 user_id 자동 검증)
     const { data: newPost, error } = await supabase
-      .from("community_posts")
+      .from("posts")
       .insert({
         user_id: user.id,
         title: validated.title,
@@ -167,7 +167,7 @@ export async function GET(request: NextRequest) {
 
     // 3. 쿼리 빌더 시작 (RLS로 승인된 게시글만 조회)
     let queryBuilder = supabase
-      .from("community_posts")
+      .from("posts")
       .select(`
         *,
         politicians:politician_id (

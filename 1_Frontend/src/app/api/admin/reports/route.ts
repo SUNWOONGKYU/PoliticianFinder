@@ -49,7 +49,7 @@ export async function POST(request: NextRequest) {
       targetExists = !!data;
     } else if (report.target_type === 'user') {
       const { data } = await supabase
-        .from('profiles')
+        .from('users')
         .select('id')
         .eq('id', report.target_id)
         .single();
