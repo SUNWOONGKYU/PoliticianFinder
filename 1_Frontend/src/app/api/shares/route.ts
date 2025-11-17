@@ -30,7 +30,7 @@ export async function POST(request: NextRequest) {
 
     // 게시물 존재 여부 확인
     const { data: post, error: postError } = await supabase
-      .from('community_posts')
+      .from('posts')
       .select('id, title')
       .eq('id', share.post_id)
       .single();
@@ -106,7 +106,7 @@ export async function GET(request: NextRequest) {
 
     let query = supabase
       .from('shares')
-      .select('*, community_posts(id, title), profiles(id, username)', { count: 'exact' })
+      .select('*, posts(id, title), profiles(id, username)', { count: 'exact' })
       .order('created_at', { ascending: false});
 
     if (post_id) {

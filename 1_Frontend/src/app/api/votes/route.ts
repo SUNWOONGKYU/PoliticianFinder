@@ -33,7 +33,7 @@ export async function POST(request: NextRequest) {
 
     // 4. 게시물 존재 여부 확인
     const { data: post, error: postError } = await supabase
-      .from('community_posts')
+      .from('posts')
       .select('id, title')
       .eq('id', vote.post_id)
       .single();

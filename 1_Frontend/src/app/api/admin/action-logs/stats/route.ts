@@ -31,7 +31,7 @@ async function checkAdminRole(userId: string): Promise<boolean> {
     const supabase = createClient();
 
     const { data: profile, error } = await supabase
-      .from('profiles')
+      .from('users')
       .select('role')
       .eq('id', userId)
       .single();
@@ -301,7 +301,7 @@ export async function POST(request: NextRequest) {
 
       for (const [adminId, count] of Object.entries(adminCounts)) {
         const { data: profile } = await supabase
-          .from('profiles')
+          .from('users')
           .select('full_name, email')
           .eq('id', adminId)
           .single();

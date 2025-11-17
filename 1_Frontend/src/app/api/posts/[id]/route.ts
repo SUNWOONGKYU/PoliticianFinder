@@ -28,7 +28,7 @@ export async function GET(
 
     // 게시글 조회
     const { data: post, error } = await supabase
-      .from('community_posts')
+      .from('posts')
       .select(`
         *,
         politicians:politician_id (
@@ -56,7 +56,7 @@ export async function GET(
 
     // 조회수 증가
     const { error: updateError } = await supabase
-      .from('community_posts')
+      .from('posts')
       .update({ view_count: (post.view_count || 0) + 1 })
       .eq('id', id);
 
@@ -112,7 +112,7 @@ export async function PATCH(
 
     // 3. 게시글 존재 여부 및 권한 확인
     const { data: existingPost, error: fetchError } = await supabase
-      .from('community_posts')
+      .from('posts')
       .select('user_id')
       .eq('id', id)
       .single();
@@ -159,7 +159,7 @@ export async function PATCH(
 
     // 게시글 업데이트
     const { data: updatedPost, error: updateError } = await supabase
-      .from('community_posts')
+      .from('posts')
       .update({
         ...validated,
         updated_at: new Date().toISOString(),
@@ -224,7 +224,7 @@ export async function DELETE(
 
     // 3. 게시글 존재 여부 및 권한 확인
     const { data: existingPost, error: fetchError } = await supabase
-      .from('community_posts')
+      .from('posts')
       .select('user_id')
       .eq('id', id)
       .single();
@@ -271,7 +271,7 @@ export async function DELETE(
 
     // 게시글 삭제 (실제 삭제)
     const { error: deleteError } = await supabase
-      .from('community_posts')
+      .from('posts')
       .delete()
       .eq('id', id);
 

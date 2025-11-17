@@ -41,7 +41,7 @@ export async function POST(request: NextRequest) {
 
     // 4. 게시글 존재 여부 확인
     const { data: post, error: postError } = await supabase
-      .from('community_posts')
+      .from('posts')
       .select('id')
       .eq('id', validated.post_id)
       .single();
@@ -162,7 +162,7 @@ export async function GET(request: NextRequest) {
     // 2. Supabase 클라이언트 생성
     const supabase = createClient();
 
-    // 3. Supabase 쿼리 빌더 시작 (profiles와 community_posts 조인 추가)
+    // 3. Supabase 쿼리 빌더 시작 (profiles와 posts 조인 추가)
     let queryBuilder = supabase
       .from('comments')
       .select(`
@@ -171,7 +171,7 @@ export async function GET(request: NextRequest) {
           username,
           email
         ),
-        community_posts:post_id (
+        posts:post_id (
           title
         )
       `, { count: 'exact' })
