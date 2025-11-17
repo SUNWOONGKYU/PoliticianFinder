@@ -31,7 +31,7 @@ export async function GET(request: NextRequest) {
     const role = request.nextUrl.searchParams.get('role');
 
     let query = supabase
-      .from('profiles')
+      .from('users')
       .select('*', { count: 'exact' })
       .order('created_at', { ascending: false });
 
@@ -117,7 +117,7 @@ export async function PATCH(request: NextRequest) {
 
     // 사용자 존재 확인
     const { data: existingUser, error: fetchError } = await supabase
-      .from('profiles')
+      .from('users')
       .select('id, username, email')
       .eq('id', validated.user_id)
       .single();
@@ -150,7 +150,7 @@ export async function PATCH(request: NextRequest) {
     if (validated.admin_notes) updateData.banned_reason = validated.admin_notes;
 
     const { data: updatedUser, error: updateError } = await supabase
-      .from('profiles')
+      .from('users')
       .update(updateData)
       .eq('id', validated.user_id)
       .select()
@@ -217,7 +217,7 @@ export async function DELETE(request: NextRequest) {
 
     // 사용자 존재 확인
     const { data: existingUser, error: fetchError } = await supabase
-      .from('profiles')
+      .from('users')
       .select('id, username')
       .eq('id', user_id)
       .single();
@@ -231,7 +231,7 @@ export async function DELETE(request: NextRequest) {
 
     // 사용자 삭제 (실제로는 soft delete 권장)
     const { error: deleteError } = await supabase
-      .from('profiles')
+      .from('users')
       .delete()
       .eq('id', user_id);
 
