@@ -46,7 +46,7 @@ export async function GET(request: NextRequest) {
 
     // 쿼리 빌더 시작
     let queryBuilder = supabase
-      .from("community_posts")
+      .from("posts")
       .select(`
         *,
         politicians:politician_id (
@@ -54,8 +54,8 @@ export async function GET(request: NextRequest) {
           position,
           status
         ),
-        profiles:user_id (
-          username,
+        users:user_id (
+          name,
           email
         )
       `, { count: "exact" })
@@ -145,7 +145,7 @@ export async function PATCH(request: NextRequest) {
     }
 
     const { data: updatedPost, error } = await supabase
-      .from("community_posts")
+      .from("posts")
       .update({
         moderation_status,
         admin_notes: admin_notes || null,
@@ -197,7 +197,7 @@ export async function DELETE(request: NextRequest) {
     }
 
     const { error } = await supabase
-      .from("community_posts")
+      .from("posts")
       .delete()
       .eq("id", post_id);
 
