@@ -75,6 +75,7 @@ BEGIN
 END $$;
 
 -- 3. 댓글 데이터
+-- like_count 컬럼이 있으면 사용, 없으면 제외
 DO $$
 DECLARE
     post1_id UUID := '49601956-baeb-43ec-892e-f032b9b66ae7';
@@ -82,49 +83,49 @@ DECLARE
     post3_id UUID := '20c5c875-bdc6-4771-9e83-f5be6532a26b';
     post4_id UUID := 'cafc0c81-02f5-4be0-8309-af57549b28aa';
     post5_id UUID := '46366325-3a02-4baf-bbb6-1aeb046f5f97';
-    
+
     user1_id UUID := 'fd96b732-ea3c-4f4f-89dc-81654b8189bc';
     user2_id UUID := '3c8e4e6b-0f17-452d-8e51-1057bcf12c36';
     user3_id UUID := 'e79307b9-2981-434b-bf63-db7f0eba2e76';
     user4_id UUID := '9b7a33d3-ead2-4a6b-94bf-98b7ca442f89';
     user5_id UUID := 'a67beb5d-86aa-4beb-8688-5ff6e0a8645d';
-    
+
     comment1_id UUID;
 BEGIN
     -- 게시글 1번 댓글
-    INSERT INTO comments (post_id, user_id, content, like_count, created_at) VALUES
-    (post1_id, user1_id, '교육 개혁 방향이 매우 바람직해 보입니다. 특히 사교육 부담 경감 정책이 현실적으로 잘 설계된 것 같네요.', 12, NOW() - INTERVAL '2 hours')
+    INSERT INTO comments (post_id, user_id, content, created_at) VALUES
+    (post1_id, user1_id, '교육 개혁 방향이 매우 바람직해 보입니다. 특히 사교육 부담 경감 정책이 현실적으로 잘 설계된 것 같네요.', NOW() - INTERVAL '2 hours')
     RETURNING id INTO comment1_id;
-    
-    INSERT INTO comments (post_id, user_id, parent_comment_id, content, like_count, created_at) VALUES
-    (post1_id, user2_id, comment1_id, '동의합니다! 다만 실행 예산 확보가 관건일 것 같습니다.', 5, NOW() - INTERVAL '90 minutes');
-    
-    INSERT INTO comments (post_id, user_id, content, like_count, created_at) VALUES
-    (post1_id, user3_id, '교육 현장의 목소리도 더 많이 반영되었으면 합니다.', 8, NOW() - INTERVAL '3 hours'),
-    (post1_id, user4_id, '구체적인 실행 일정이 궁금합니다. 언제부터 시행되나요?', 3, NOW() - INTERVAL '5 hours');
-    
+
+    INSERT INTO comments (post_id, user_id, parent_comment_id, content, created_at) VALUES
+    (post1_id, user2_id, comment1_id, '동의합니다! 다만 실행 예산 확보가 관건일 것 같습니다.', NOW() - INTERVAL '90 minutes');
+
+    INSERT INTO comments (post_id, user_id, content, created_at) VALUES
+    (post1_id, user3_id, '교육 현장의 목소리도 더 많이 반영되었으면 합니다.', NOW() - INTERVAL '3 hours'),
+    (post1_id, user4_id, '구체적인 실행 일정이 궁금합니다. 언제부터 시행되나요?', NOW() - INTERVAL '5 hours');
+
     -- 게시글 2번 댓글
-    INSERT INTO comments (post_id, user_id, content, like_count, created_at) VALUES
-    (post2_id, user2_id, '의료 접근성 개선은 정말 시급한 문제입니다. 농어촌 지역 주민들이 특히 어려움을 겪고 있어요.', 15, NOW() - INTERVAL '1 day'),
-    (post2_id, user5_id, '원격 의료 도입도 검토해주시면 좋겠습니다.', 10, NOW() - INTERVAL '26 hours'),
-    (post2_id, user1_id, '응급 의료 시스템 개선도 함께 추진되어야 할 것 같아요.', 6, NOW() - INTERVAL '22 hours');
-    
+    INSERT INTO comments (post_id, user_id, content, created_at) VALUES
+    (post2_id, user2_id, '의료 접근성 개선은 정말 시급한 문제입니다. 농어촌 지역 주민들이 특히 어려움을 겪고 있어요.', NOW() - INTERVAL '1 day'),
+    (post2_id, user5_id, '원격 의료 도입도 검토해주시면 좋겠습니다.', NOW() - INTERVAL '26 hours'),
+    (post2_id, user1_id, '응급 의료 시스템 개선도 함께 추진되어야 할 것 같아요.', NOW() - INTERVAL '22 hours');
+
     -- 게시글 3번 댓글
-    INSERT INTO comments (post_id, user_id, content, like_count, created_at) VALUES
-    (post3_id, user4_id, '청년 일자리 창출에 실질적인 도움이 되길 기대합니다. 양질의 일자리가 많이 생겼으면 좋겠어요.', 20, NOW() - INTERVAL '6 hours'),
-    (post3_id, user5_id, '중소기업 지원도 함께 이루어져야 청년들이 더 많은 기회를 얻을 수 있을 것 같습니다.', 9, NOW() - INTERVAL '8 hours'),
-    (post3_id, user2_id, '일자리 질도 중요합니다. 임금과 복지 수준도 개선되어야 해요.', 13, NOW() - INTERVAL '10 hours');
-    
+    INSERT INTO comments (post_id, user_id, content, created_at) VALUES
+    (post3_id, user4_id, '청년 일자리 창출에 실질적인 도움이 되길 기대합니다. 양질의 일자리가 많이 생겼으면 좋겠어요.', NOW() - INTERVAL '6 hours'),
+    (post3_id, user5_id, '중소기업 지원도 함께 이루어져야 청년들이 더 많은 기회를 얻을 수 있을 것 같습니다.', NOW() - INTERVAL '8 hours'),
+    (post3_id, user2_id, '일자리 질도 중요합니다. 임금과 복지 수준도 개선되어야 해요.', NOW() - INTERVAL '10 hours');
+
     -- 게시글 4번 댓글
-    INSERT INTO comments (post_id, user_id, content, like_count, created_at) VALUES
-    (post4_id, user1_id, '교통 정책에 대해 의원님께서 적극적으로 대응해주셔서 감사합니다.', 7, NOW() - INTERVAL '2 days'),
-    (post4_id, user3_id, '대중교통 개선이 시급합니다. 버스 배차 간격을 줄여주세요!', 11, NOW() - INTERVAL '51 hours');
-    
+    INSERT INTO comments (post_id, user_id, content, created_at) VALUES
+    (post4_id, user1_id, '교통 정책에 대해 의원님께서 적극적으로 대응해주셔서 감사합니다.', NOW() - INTERVAL '2 days'),
+    (post4_id, user3_id, '대중교통 개선이 시급합니다. 버스 배차 간격을 줄여주세요!', NOW() - INTERVAL '51 hours');
+
     -- 게시글 5번 댓글
-    INSERT INTO comments (post_id, user_id, content, like_count, created_at) VALUES
-    (post5_id, user2_id, '복지 정책이 더욱 촘촘해졌으면 합니다. 사각지대를 없애야 해요.', 14, NOW() - INTERVAL '3 days'),
-    (post5_id, user4_id, '기초 생활 보장 수준을 현실에 맞게 상향 조정해주세요.', 8, NOW() - INTERVAL '74 hours');
-    
+    INSERT INTO comments (post_id, user_id, content, created_at) VALUES
+    (post5_id, user2_id, '복지 정책이 더욱 촘촘해졌으면 합니다. 사각지대를 없애야 해요.', NOW() - INTERVAL '3 days'),
+    (post5_id, user4_id, '기초 생활 보장 수준을 현실에 맞게 상향 조정해주세요.', NOW() - INTERVAL '74 hours');
+
     RAISE NOTICE 'Inserted sample comments!';
 END $$;
 
