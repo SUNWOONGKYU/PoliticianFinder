@@ -9,9 +9,8 @@ import { requireAuth } from '@/lib/auth/helpers';
 const notificationSchema = z.object({
   user_id: z.string().uuid().optional(),
   type: z.enum(['post_like', 'comment', 'follow', 'payment', 'system']),
-  title: z.string().min(1),
-  message: z.string().min(1),
-  link: z.string().url().optional(),
+  content: z.string().min(1),
+  target_url: z.string().optional(),
 });
 
 export async function GET(request: NextRequest) {
@@ -98,9 +97,8 @@ export async function POST(request: NextRequest) {
       .insert({
         user_id: user.id,
         type: validated.type,
-        title: validated.title,
-        message: validated.message,
-        link: validated.link,
+        content: validated.content,
+        target_url: validated.target_url,
         is_read: false,
       })
       .select()
