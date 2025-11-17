@@ -64,7 +64,7 @@ export async function GET(request: NextRequest) {
 
     // 쿼리 빌더 시작
     let queryBuilder = supabase
-      .from("community_posts")
+      .from("posts")
       .select(`
         *,
         politicians:politician_id (
