@@ -32,18 +32,10 @@ export async function GET(request: NextRequest) {
     const limit = parseInt(searchParams.get("limit") || "20");
     const offset = (page - 1) * limit;
 
-    // Build query
+    // Build query - fetch inquiries only first
     let query = supabase
       .from("inquiries")
-      .select(
-        `
-        *,
-        user:users!inquiries_user_id_fkey(user_id, name, email),
-        politician:politicians!inquiries_politician_id_fkey(id, name, party, position),
-        admin:users!inquiries_admin_id_fkey(user_id, name)
-      `,
-        { count: "exact" }
-      )
+      .select("*", { count: "exact" })
       .order("created_at", { ascending: false })
       .range(offset, offset + limit - 1);
 
@@ -61,13 +53,52 @@ export async function GET(request: NextRequest) {
     if (error) {
       console.error("Error fetching inquiries:", error);
       return NextResponse.json(
-        { error: "문의 목록을 불러오는데 실패했습니다." },
+        { error: "문의 목록을 불러오는데 실패했습니다.", details: error.message },
         { status: 500 }
       );
     }
 
+    // Manually join related data for each inquiry
+    const enrichedInquiries = await Promise.all(
+      (inquiries || []).map(async (inquiry) => {
+        const enriched: any = { ...inquiry };
+
+        // Get user data if user_id exists
+        if (inquiry.user_id) {
+          const { data: userData } = await supabase
+            .from("users")
+            .select("user_id, name, email")
+            .eq("user_id", inquiry.user_id)
+            .single();
+          enriched.user = userData;
+        }
+
+        // Get politician data if politician_id exists
+        if (inquiry.politician_id) {
+          const { data: politicianData } = await supabase
+            .from("politicians")
+            .select("id, name, party, position")
+            .eq("id", inquiry.politician_id)
+            .single();
+          enriched.politician = politicianData;
+        }
+
+        // Get admin data if admin_id exists
+        if (inquiry.admin_id) {
+          const { data: adminData } = await supabase
+            .from("users")
+            .select("user_id, name")
+            .eq("user_id", inquiry.admin_id)
+            .single();
+          enriched.admin = adminData;
+        }
+
+        return enriched;
+      })
+    );
+
     return NextResponse.json({
-      inquiries,
+      inquiries: enrichedInquiries,
       pagination: {
         total: count || 0,
         page,
@@ -186,43 +217,66 @@ export async function PATCH(request: NextRequest) {
       .from("inquiries")
       .update(updateData)
       .eq("id", inquiry_id)
-      .select(
-        `
-        *,
-        user:users!inquiries_user_id_fkey(user_id, name, email),
-        politician:politicians!inquiries_politician_id_fkey(id, name, party, position),
-        admin:users!inquiries_admin_id_fkey(user_id, name)
-      `
-      )
+      .select("*")
       .single();
 
     if (error) {
       console.error("Error updating inquiry:", error);
       return NextResponse.json(
-        { error: "문의 업데이트에 실패했습니다." },
+        { error: "문의 업데이트에 실패했습니다.", details: error.message },
         { status: 500 }
       );
     }
 
+    // Manually join related data
+    const enriched: any = { ...inquiry };
+
+    if (inquiry.user_id) {
+      const { data: userData } = await supabase
+        .from("users")
+        .select("user_id, name, email")
+        .eq("user_id", inquiry.user_id)
+        .single();
+      enriched.user = userData;
+    }
+
+    if (inquiry.politician_id) {
+      const { data: politicianData } = await supabase
+        .from("politicians")
+        .select("id, name, party, position")
+        .eq("id", inquiry.politician_id)
+        .single();
+      enriched.politician = politicianData;
+    }
+
+    if (inquiry.admin_id) {
+      const { data: adminData } = await supabase
+        .from("users")
+        .select("user_id, name")
+        .eq("user_id", inquiry.admin_id)
+        .single();
+      enriched.admin = adminData;
+    }
+
     // Send email notification if admin response was provided
-    if (admin_response && inquiry.email) {
+    if (admin_response && enriched.email) {
       const emailResult = await sendInquiryResponseEmail({
-        to: inquiry.email,
-        inquiryTitle: inquiry.title,
-        inquiryContent: inquiry.content,
+        to: enriched.email,
+        inquiryTitle: enriched.title,
+        inquiryContent: enriched.content,
         adminResponse: admin_response,
-        inquiryId: inquiry.id,
+        inquiryId: enriched.id,
       });
 
       if (!emailResult.success) {
         console.error("Failed to send email, but inquiry was updated:", emailResult.error);
         // Don't fail the request if email fails - inquiry is already updated
       } else {
-        console.log("Email notification sent successfully to:", inquiry.email);
+        console.log("Email notification sent successfully to:", enriched.email);
       }
     }
 
-    return NextResponse.json({ inquiry });
+    return NextResponse.json({ inquiry: enriched });
   } catch (error) {
     console.error("Server error:", error);
     return NextResponse.json(
