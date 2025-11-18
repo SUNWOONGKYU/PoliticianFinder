@@ -4,7 +4,14 @@
 -- 문제: comments 테이블이 잘못된 스키마로 생성됨 (post_id가 INTEGER로 되어있음)
 -- 해결: 테이블을 DROP하고 올바른 스키마로 재생성
 
--- 1. 기존 comments 테이블 삭제
+-- 1. RLS 정책 삭제 (있다면)
+DROP POLICY IF EXISTS "Users can view approved comments" ON comments;
+DROP POLICY IF EXISTS "Users can create comments" ON comments;
+DROP POLICY IF EXISTS "Users can update own comments" ON comments;
+DROP POLICY IF EXISTS "Users can delete own comments" ON comments;
+DROP POLICY IF EXISTS "Admins can manage all comments" ON comments;
+
+-- 2. 기존 comments 테이블 삭제
 DROP TABLE IF EXISTS comments CASCADE;
 
 -- 2. 올바른 스키마로 comments 테이블 생성
@@ -42,6 +49,34 @@ COMMENT ON TABLE comments IS 'Comments on posts with nested reply support';
 COMMENT ON COLUMN comments.parent_comment_id IS 'Parent comment ID for nested replies (NULL for top-level comments)';
 COMMENT ON COLUMN comments.is_deleted IS 'Soft delete flag (content hidden but structure preserved)';
 COMMENT ON COLUMN comments.moderation_status IS 'Moderation status: pending, approved, rejected, flagged';
+
+-- 7. RLS (Row Level Security) 활성화
+ALTER TABLE comments ENABLE ROW LEVEL SECURITY;
+
+-- 8. RLS 정책 생성
+-- 모든 사용자가 승인된 댓글을 볼 수 있음
+CREATE POLICY "Anyone can view approved comments"
+ON comments FOR SELECT
+USING (moderation_status = 'approved' OR is_deleted = false);
+
+-- 인증된 사용자는 댓글을 작성할 수 있음
+CREATE POLICY "Authenticated users can create comments"
+ON comments FOR INSERT
+TO authenticated
+WITH CHECK (true);
+
+-- 사용자는 자신의 댓글을 수정할 수 있음
+CREATE POLICY "Users can update own comments"
+ON comments FOR UPDATE
+TO authenticated
+USING (user_id = auth.uid())
+WITH CHECK (user_id = auth.uid());
+
+-- 사용자는 자신의 댓글을 삭제할 수 있음 (소프트 삭제)
+CREATE POLICY "Users can delete own comments"
+ON comments FOR DELETE
+TO authenticated
+USING (user_id = auth.uid());
 
 -- 완료 메시지
 DO $$
