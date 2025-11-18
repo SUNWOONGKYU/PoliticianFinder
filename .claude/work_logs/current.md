@@ -18,6 +18,59 @@
 
 ## 작업 기록 시작
 
+## 2025-11-19 08:37
+
+### 작업: Admin Inquiries 페이지 완전 수정 완료 ✅
+
+**문제 발견 및 해결 과정**:
+
+1. **프론트엔드 필드명 불일치 문제**
+   - 문제: API 응답의 `user.name` vs 프론트엔드 기대 `user.username`
+   - 해결: 인터페이스 및 표시 로직 수정
+   - 파일: `1_Frontend/src/app/admin/inquiries/page.tsx`
+   - Commit: a356477
+
+2. **CSP (Content Security Policy) 문제**
+   - 문제: Google Fonts 로드 차단
+   - 해결: `style-src`에 `https://fonts.googleapis.com` 추가, `font-src`에 `https://fonts.gstatic.com` 추가
+   - 파일: `1_Frontend/src/middleware.ts`
+   - Commit: e31d196
+
+3. **API 500 에러 - JOIN 쿼리 실패** (핵심 문제)
+   - 문제: Foreign key constraint를 명시한 JOIN이 NULL 값에서 실패
+     - `user_id`: NULL 가능 (익명 문의)
+     - `politician_id`: NULL 가능 (정치인 무관 문의)
+     - `admin_id`: NULL 가능 (답변 전 문의)
+   - 해결: Foreign key JOIN → 수동 조인으로 변경
+     1. inquiries 테이블만 먼저 조회
+     2. 각 필드가 NULL이 아닐 때만 관련 데이터 조인
+     3. GET, PATCH 메서드 모두 수정
+   - 파일: `1_Frontend/src/app/api/admin/inquiries/route.ts`
+   - Commit: e93664a
+
+**수정된 파일**:
+- ✅ `1_Frontend/src/app/admin/inquiries/page.tsx` - 필드명 매핑 수정
+- ✅ `1_Frontend/src/middleware.ts` - Google Fonts CSP 허용
+- ✅ `1_Frontend/src/app/api/admin/inquiries/route.ts` - JOIN 쿼리 수동 조인으로 변경
+
+**배포 정보**:
+- 최종 Commit: e93664a
+- Production URL: https://politician-finder-ou2d9ntid-finder-world.vercel.app
+- Status: ✅ 완전 해결
+
+**검증 결과**:
+- ✅ 문의 목록 정상 표시 (6개 샘플 데이터)
+- ✅ 익명 문의 (user_id NULL) 정상 처리
+- ✅ Google Fonts 정상 로드
+- ✅ 500 에러 해결
+
+**기술적 교훈**:
+- Supabase의 foreign key JOIN은 NULL 값에 안전하지 않음
+- NULL이 허용되는 필드는 수동 조인으로 처리해야 함
+- CSP 설정 시 외부 리소스 도메인 명시 필요
+
+---
+
 ## 2025-11-18 22:10
 
 ### 작업: Admin API user_id 필드명 일괄 수정 완료
