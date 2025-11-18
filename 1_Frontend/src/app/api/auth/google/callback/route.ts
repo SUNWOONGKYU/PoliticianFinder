@@ -135,6 +135,7 @@ export async function GET(request: NextRequest) {
         user_id: data.user.id,
         email: data.user.email!,
         name: data.user.user_metadata?.full_name || data.user.user_metadata?.name || data.user.email!.split('@')[0],
+        nickname: data.user.email!.split('@')[0],
         avatar_url: data.user.user_metadata?.avatar_url || data.user.user_metadata?.picture,
         role: 'user',
         points: 0,
