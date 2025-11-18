@@ -95,7 +95,7 @@ async function fetchReport(reportId: string) {
 
   const { data, error } = await supabase
     .from('reports')
-    .select('*, users!reports_reporter_id_fkey(id, username, email)')
+    .select('*, users!reports_reporter_id_fkey(id, name, email)')
     .eq('id', reportId)
     .single();
 
@@ -115,7 +115,7 @@ async function fetchContent(contentType: 'post' | 'comment', contentId: string) 
 
   const { data, error } = await supabase
     .from(table)
-    .select('*, users!fkey(id, username, email)')
+    .select('*, users:user_id(id, name, email)')
     .eq('id', contentId)
     .single();
 

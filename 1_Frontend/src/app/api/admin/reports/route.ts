@@ -118,7 +118,7 @@ export async function GET(request: NextRequest) {
       .from('reports')
       .select(`
         *,
-        users:profiles!reports_reporter_id_fkey(id, username, email)
+        users:users!reports_reporter_id_fkey(id, name, email)
       `, { count: 'exact' })
       .order('created_at', { ascending: false });
 

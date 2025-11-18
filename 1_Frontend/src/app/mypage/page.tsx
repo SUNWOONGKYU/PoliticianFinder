@@ -14,9 +14,22 @@ interface UserData {
   level: number;
 }
 
+interface UserPost {
+  id: number;
+  title: string;
+  content: string;
+  created_at: string;
+  view_count: number;
+  like_count: number;
+  comment_count: number;
+  share_count: number;
+}
+
 export default function MypagePage() {
   const [activeTab, setActiveTab] = useState<TabType>('posts');
   const [userData, setUserData] = useState<UserData | null>(null);
+  const [userPosts, setUserPosts] = useState<UserPost[]>([]);
+  const [postsLoading, setPostsLoading] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -42,6 +55,29 @@ export default function MypagePage() {
 
     fetchUserData();
   }, []);
+
+  // Fetch user posts when userData is available and posts tab is active
+  useEffect(() => {
+    const fetchUserPosts = async () => {
+      if (!userData || activeTab !== 'posts') return;
+
+      try {
+        setPostsLoading(true);
+        const response = await fetch(`/api/community/posts?user_id=${userData.id}&limit=10`);
+        const result = await response.json();
+
+        if (result.success && result.data) {
+          setUserPosts(result.data);
+        }
+      } catch (err) {
+        console.error('Failed to fetch user posts:', err);
+      } finally {
+        setPostsLoading(false);
+      }
+    };
+
+    fetchUserPosts();
+  }, [userData, activeTab]);
 
   // Loading state
   if (loading) {
@@ -180,109 +216,47 @@ export default function MypagePage() {
             {/* Tab Content: Posts */}
             {activeTab === 'posts' && (
               <div>
-                <div className="bg-white rounded-lg shadow-md divide-y">
-                  {/* Post Item */}
-                  <div className="p-4 hover:bg-gray-50 transition">
-                    <div className="flex items-start justify-between">
-                      <div className="flex-1">
-                        <h3 className="text-base font-semibold text-gray-900 hover:text-secondary-600 cursor-pointer">
-                          AI 평가 시스템의 신뢰성에 대한 토론
-                        </h3>
-                        <p className="text-sm text-gray-600 mt-1 line-clamp-2">
-                          Claude AI의 정치인 평가가 얼마나 객관적일 수 있을까요? 여러분의 의견을 들어보고 싶습니다...
-                        </p>
-                        <div className="flex items-center gap-4 mt-2 text-xs text-gray-500">
-                          <span>2025-01-24 10:23</span>
-                          <span>조회수 234</span>
-                          <span className="text-red-600">👍 12</span>
-                          <span className="text-gray-400">👎 3</span>
-                          <span>댓글 8</span>
-                          <span className="flex items-center gap-1">
-                            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
-                            </svg>
-                            <span>공유 5</span>
-                          </span>
-                        </div>
-                      </div>
-                    </div>
+                {postsLoading ? (
+                  <div className="bg-white rounded-lg shadow-md p-8 text-center">
+                    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-secondary-600 mx-auto"></div>
+                    <p className="mt-4 text-gray-600">게시글을 불러오는 중...</p>
                   </div>
-
-                  {/* Post Item */}
-                  <div className="p-4 hover:bg-gray-50 transition">
-                    <div className="flex items-start justify-between">
-                      <div className="flex-1">
-                        <h3 className="text-base font-semibold text-gray-900 hover:text-secondary-600 cursor-pointer">
-                          우리 동네 국회의원 찾기 기능 건의
-                        </h3>
-                        <p className="text-sm text-gray-600 mt-1 line-clamp-2">
-                          주소 입력하면 해당 지역구 국회의원을 바로 볼 수 있으면 좋겠어요...
-                        </p>
-                        <div className="flex items-center gap-4 mt-2 text-xs text-gray-500">
-                          <span>2025-01-22 16:45</span>
-                          <span>조회수 156</span>
-                          <span className="text-red-600">👍 28</span>
-                          <span className="text-gray-400">👎 5</span>
-                          <span>댓글 15</span>
-                          <span className="flex items-center gap-1">
-                            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
-                            </svg>
-                            <span>공유 3</span>
-                          </span>
-                        </div>
-                      </div>
-                    </div>
+                ) : userPosts.length === 0 ? (
+                  <div className="bg-white rounded-lg shadow-md p-8 text-center">
+                    <p className="text-gray-600">작성한 게시글이 없습니다.</p>
                   </div>
-
-                  {/* Post Item */}
-                  <div className="p-4 hover:bg-gray-50 transition">
-                    <div className="flex items-start justify-between">
-                      <div className="flex-1">
-                        <h3 className="text-base font-semibold text-gray-900 hover:text-secondary-600 cursor-pointer">
-                          정치인 평가 기준이 궁금합니다
-                        </h3>
-                        <p className="text-sm text-gray-600 mt-1 line-clamp-2">
-                          AI가 어떤 데이터를 기반으로 평가하는지 자세한 설명이 있으면 좋겠습니다...
-                        </p>
-                        <div className="flex items-center gap-4 mt-2 text-xs text-gray-500">
-                          <span>2025-01-20 09:12</span>
-                          <span>조회수 189</span>
-                          <span className="text-red-600">👍 7</span>
-                          <span className="text-gray-400">👎 2</span>
-                          <span>댓글 12</span>
-                          <span className="flex items-center gap-1">
-                            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
-                            </svg>
-                            <span>공유 4</span>
-                          </span>
+                ) : (
+                  <div className="bg-white rounded-lg shadow-md divide-y">
+                    {userPosts.map((post) => (
+                      <Link key={post.id} href={`/community/posts/${post.id}`}>
+                        <div className="p-4 hover:bg-gray-50 transition cursor-pointer">
+                          <div className="flex items-start justify-between">
+                            <div className="flex-1">
+                              <h3 className="text-base font-semibold text-gray-900 hover:text-secondary-600">
+                                {post.title}
+                              </h3>
+                              <p className="text-sm text-gray-600 mt-1 line-clamp-2">
+                                {post.content}
+                              </p>
+                              <div className="flex items-center gap-4 mt-2 text-xs text-gray-500">
+                                <span>{new Date(post.created_at).toLocaleDateString('ko-KR')}</span>
+                                <span>조회수 {post.view_count || 0}</span>
+                                <span className="text-red-600">👍 {post.like_count || 0}</span>
+                                <span>댓글 {post.comment_count || 0}</span>
+                                <span className="flex items-center gap-1">
+                                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+                                  </svg>
+                                  <span>공유 {post.share_count || 0}</span>
+                                </span>
+                              </div>
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                    </div>
+                      </Link>
+                    ))}
                   </div>
-                </div>
-
-                {/* Pagination */}
-                <div className="mt-6 flex justify-center">
-                  <nav className="inline-flex rounded-md shadow-sm -space-x-px">
-                    <button className="px-3 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
-                      이전
-                    </button>
-                    <button className="px-4 py-2 border border-gray-300 bg-secondary-500 text-sm font-medium text-white">
-                      1
-                    </button>
-                    <button className="px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
-                      2
-                    </button>
-                    <button className="px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
-                      3
-                    </button>
-                    <button className="px-3 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
-                      다음
-                    </button>
-                  </nav>
-                </div>
+                )}
               </div>
             )}
 

@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 interface Notification {
   id: string;
-  type: 'post_like' | 'comment' | 'follow' | 'payment' | 'system';
+  type: 'post_like' | 'comment' | 'follow' | 'payment' | 'system' | 'reply' | 'mention';
   content: string;
   target_url?: string;
   is_read: boolean;
@@ -109,7 +109,7 @@ const SAMPLE_NOTIFICATIONS_BACKUP: any[] = [
 export default function NotificationsPage() {
   const [notifications, setNotifications] = useState<Notification[]>([]);
   const [loading, setLoading] = useState(true);
-  const [currentFilter, setCurrentFilter] = useState<'all' | 'post_like' | 'comment' | 'follow' | 'payment' | 'system'>('all');
+  const [currentFilter, setCurrentFilter] = useState<'all' | 'post_like' | 'comment' | 'follow' | 'payment' | 'system' | 'reply' | 'mention'>('all');
 
   // API에서 알림 데이터 가져오기
   useEffect(() => {
@@ -148,6 +148,18 @@ export default function NotificationsPage() {
         return (
           <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
+          </svg>
+        );
+      case 'reply':
+        return (
+          <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6" />
+          </svg>
+        );
+      case 'mention':
+        return (
+          <svg className="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
           </svg>
         );
       case 'post_like':
@@ -271,7 +283,7 @@ export default function NotificationsPage() {
         {/* Filter Tabs */}
         <div className="bg-white rounded-lg shadow-md mb-6">
           <div className="flex border-b overflow-x-auto">
-            {['all', 'comment', 'post_like', 'follow', 'payment', 'system', 'system'].map((filter) => (
+            {['all', 'comment', 'reply', 'mention', 'post_like', 'follow', 'payment', 'system'].map((filter) => (
               <button
                 key={filter}
                 onClick={() => setCurrentFilter(filter as any)}
@@ -281,10 +293,11 @@ export default function NotificationsPage() {
               >
                 {filter === 'all' && '전체'}
                 {filter === 'comment' && '댓글'}
+                {filter === 'reply' && '답글'}
+                {filter === 'mention' && '멘션'}
                 {filter === 'post_like' && '공감'}
                 {filter === 'follow' && '공유'}
                 {filter === 'payment' && '정치인'}
-                {filter === 'system' && '공지사항'}
                 {filter === 'system' && '시스템'}
               </button>
             ))}

@@ -20,6 +20,8 @@ const getPostsQuerySchema = z.object({
   limit: z.string().optional().default("20").transform(Number),
   category: z.string().optional(),
   has_politician: z.string().optional(),
+  user_id: z.string().optional(),
+  search: z.string().optional(),
   sort: z.string().optional().default("-created_at"),
 });
 
@@ -54,6 +56,8 @@ export async function GET(request: NextRequest) {
       limit: searchParams.get("limit") || "20",
       category: searchParams.get("category") || undefined,
       has_politician: searchParams.get("has_politician") || undefined,
+      user_id: searchParams.get("user_id") || undefined,
+      search: searchParams.get("search") || undefined,
       sort: searchParams.get("sort") || "-created_at",
     };
 
@@ -90,6 +94,16 @@ export async function GET(request: NextRequest) {
       queryBuilder = queryBuilder.is("politician_id", null);
     }
 
+    // user_id 필터 (특정 사용자의 게시글만)
+    if (query.user_id) {
+      queryBuilder = queryBuilder.eq("user_id", query.user_id);
+    }
+
+    // 검색어 필터 (제목과 내용 검색)
+    if (query.search) {
+      queryBuilder = queryBuilder.or(`title.ilike.%${query.search}%,content.ilike.%${query.search}%`);
+    }
+
     // 정렬 적용
     const sortKey = query.sort.startsWith("-") ? query.sort.substring(1) : query.sort;
     const isDescending = query.sort.startsWith("-");
@@ -118,13 +132,28 @@ export async function GET(request: NextRequest) {
       );
     }
 
+    // 각 게시글의 댓글 개수 계산
+    const postsWithCommentCount = await Promise.all(
+      (posts || []).map(async (post) => {
+        const { count: commentCount } = await supabase
+          .from('comments')
+          .select('*', { count: 'exact', head: true })
+          .eq('post_id', post.id);
+
+        return {
+          ...post,
+          comment_count: commentCount || 0,
+        };
+      })
+    );
+
     const total = count || 0;
     const totalPages = Math.ceil(total / query.limit);
 
     return NextResponse.json(
       {
         success: true,
-        data: posts || [],
+        data: postsWithCommentCount || [],
         pagination: {
           page: query.page,
           limit: query.limit,

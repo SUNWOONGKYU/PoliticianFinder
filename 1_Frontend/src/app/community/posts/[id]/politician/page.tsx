@@ -146,7 +146,7 @@ export default function PoliticianPostDetailPage({ params }: { params: { id: str
 
             return {
               id: comment.id,
-              author: comment.profiles?.username || sampleNicknames[nicknameIndex],
+              author: comment.users?.name || sampleNicknames[nicknameIndex],
               authorType: 'member' as const,
               userId: comment.user_id,
               memberLevel: mlLevel,

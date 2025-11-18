@@ -8,7 +8,7 @@ import { requireAuth } from '@/lib/auth/helpers';
 
 const notificationSchema = z.object({
   user_id: z.string().uuid().optional(),
-  type: z.enum(['post_like', 'comment', 'follow', 'payment', 'system']),
+  type: z.enum(['post_like', 'comment', 'follow', 'payment', 'system', 'reply', 'mention']),
   content: z.string().min(1),
   target_url: z.string().optional(),
 });

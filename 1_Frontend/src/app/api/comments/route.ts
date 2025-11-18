@@ -162,13 +162,13 @@ export async function GET(request: NextRequest) {
     // 2. Supabase 클라이언트 생성
     const supabase = createClient();
 
-    // 3. Supabase 쿼리 빌더 시작 (profiles와 posts 조인 추가)
+    // 3. Supabase 쿼리 빌더 시작 (users와 posts 조인 추가)
     let queryBuilder = supabase
       .from('comments')
       .select(`
         *,
-        profiles:user_id (
-          username,
+        users:user_id (
+          name,
           email
         ),
         posts:post_id (

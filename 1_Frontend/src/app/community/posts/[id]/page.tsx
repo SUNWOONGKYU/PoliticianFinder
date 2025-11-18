@@ -142,7 +142,7 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
 
             return {
               id: comment.id,
-              author: comment.profiles?.username || sampleNicknames[nicknameIndex],
+              author: comment.users?.name || sampleNicknames[nicknameIndex],
               userId: comment.user_id,
               authorType: 'member' as const,
               memberLevel: mlLevel,
