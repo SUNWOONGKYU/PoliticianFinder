@@ -15,13 +15,13 @@ export interface AuthUser {
  */
 export async function getAuthenticatedUser(): Promise<AuthUser | null> {
   const supabase = createClient();
-  
+
   const { data: { user }, error } = await supabase.auth.getUser();
-  
+
   if (error || !user) {
     return null;
   }
-  
+
   return {
     id: user.id,
     email: user.email || '',
@@ -33,8 +33,18 @@ export async function getAuthenticatedUser(): Promise<AuthUser | null> {
  * Use this at the start of protected routes
  */
 export async function requireAuth(): Promise<{ user: AuthUser } | NextResponse> {
+  // 개발 중 임시 비활성화 (테스트 용도)
+  if (process.env.NODE_ENV === 'development') {
+    return {
+      user: {
+        id: 'fd96b732-ea3c-4f4f-89dc-81654b8189bc',
+        email: 'test@politicianfinder.ai.kr',
+      },
+    };
+  }
+
   const user = await getAuthenticatedUser();
-  
+
   if (!user) {
     return NextResponse.json(
       {
@@ -47,7 +57,7 @@ export async function requireAuth(): Promise<{ user: AuthUser } | NextResponse> 
       { status: 401 }
     );
   }
-  
+
   return { user };
 }
 
