@@ -20,8 +20,8 @@ interface Inquiry {
   responded_at?: string;
   resolved_at?: string;
   user?: {
-    id: string;
-    username: string;
+    user_id: string;
+    name: string;
     email: string;
   };
   politician?: {
@@ -31,8 +31,8 @@ interface Inquiry {
     position: string;
   };
   admin?: {
-    id: string;
-    username: string;
+    user_id: string;
+    name: string;
   };
 }
 
@@ -311,7 +311,7 @@ export default function AdminInquiriesPage() {
                     >
                       <td className="px-6 py-4 whitespace-nowrap">
                         <div className="text-sm font-medium text-gray-900">
-                          {inquiry.user?.username || "익명"}
+                          {inquiry.user?.name || "익명"}
                         </div>
                         <div className="text-sm text-gray-500">
                           {inquiry.email}
@@ -489,7 +489,7 @@ export default function AdminInquiriesPage() {
                         문의자
                       </label>
                       <p className="mt-1 text-gray-900">
-                        {selectedInquiry.user?.username || "익명"}
+                        {selectedInquiry.user?.name || "익명"}
                       </p>
                       <p className="text-sm text-gray-500">
                         {selectedInquiry.email}
@@ -592,7 +592,7 @@ export default function AdminInquiriesPage() {
                       </p>
                       {selectedInquiry.admin && (
                         <p className="text-sm text-gray-500 mt-2">
-                          답변자: {selectedInquiry.admin.username}
+                          답변자: {selectedInquiry.admin.name}
                         </p>
                       )}
                     </div>
