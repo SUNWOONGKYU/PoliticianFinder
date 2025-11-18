@@ -129,7 +129,8 @@ export async function GET(request: NextRequest) {
       .single();
 
     // If user doesn't exist in users table, create profile
-    if (!existingUser && !userCheckError) {
+    // When user doesn't exist, Supabase returns PGRST116 error, so we check for that
+    if (!existingUser) {
       const { error: profileError } = await supabase.from('users').insert({
         user_id: data.user.id,
         email: data.user.email!,
