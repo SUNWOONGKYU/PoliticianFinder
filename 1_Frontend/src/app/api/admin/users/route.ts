@@ -74,10 +74,10 @@ export async function GET(request: NextRequest) {
     const total = count || 0;
     const totalPages = Math.ceil(total / limit);
 
-    // users 테이블 스키마: id (PK), name, email
+    // users 테이블 스키마: user_id (PK), name, email
     // status 필드는 is_active, is_banned에서 파생
     const sanitizedUsers = (data || []).map((user: any) => ({
-      id: user.id,
+      id: user.user_id,
       username: user.name || 'Unknown',
       email: user.email || 'N/A',
       created_at: user.created_at,
@@ -118,8 +118,8 @@ export async function PATCH(request: NextRequest) {
     // 사용자 존재 확인
     const { data: existingUser, error: fetchError } = await supabase
       .from('users')
-      .select('id, name, email')
-      .eq('id', validated.user_id)
+      .select('user_id, name, email')
+      .eq('user_id', validated.user_id)
       .single();
 
     if (fetchError || !existingUser) {
@@ -152,7 +152,7 @@ export async function PATCH(request: NextRequest) {
     const { data: updatedUser, error: updateError } = await supabase
       .from('users')
       .update(updateData)
-      .eq('id', validated.user_id)
+      .eq('user_id', validated.user_id)
       .select()
       .single();
 

@@ -33,7 +33,7 @@ async function checkAdminRole(userId: string): Promise<boolean> {
     const { data: profile, error } = await supabase
       .from('users')
       .select('role')
-      .eq('id', userId)
+      .eq('user_id', userId)
       .single();
 
     if (error || !profile) {

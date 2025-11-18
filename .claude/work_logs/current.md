@@ -18,6 +18,37 @@
 
 ## 작업 기록 시작
 
+## 2025-11-18 22:02
+
+### 작업: Google OAuth nickname 필드 추가 및 Admin 권한 부여 완료
+
+**작업 내용**:
+- users 테이블 nickname 필드 NOT NULL 제약조건 발견
+- OAuth callback에 nickname 필드 추가 (email의 @ 앞부분 사용)
+- create_user_profile.py 스크립트로 wksun999@gmail.com 수동 생성
+- grant_admin_role.py로 admin 권한 부여 완료
+
+**생성/수정된 파일**:
+- ✅ `1_Frontend/src/app/api/auth/google/callback/route.ts` (수정) - nickname 필드 추가
+- ✅ `create_user_profile.py` (생성) - auth.users에서 public.users로 프로필 생성
+
+**실행 결과**:
+```
+User ID: 6a000ddb-5cb5-4a24-85e5-5789d9b93b6a
+Email: wksun999@gmail.com
+Role: admin ✅
+```
+
+**배포 정보**:
+- Commit: 87cbb91
+- Production URL: https://politician-finder-c8cs1bjyd-finder-world.vercel.app
+- GitHub Push: 503 에러로 백그라운드 재시도 중
+
+**다음 작업**:
+- Admin 기능 테스트 (페이지 접근 권한 확인)
+
+---
+
 ## 2025-11-18 21:55
 
 ### 작업: Google OAuth 사용자 삽입 로직 수정
@@ -35,12 +66,6 @@
 - Commit: c698bba
 - Production URL: https://politician-finder-c0xooda1r-finder-world.vercel.app
 - 배포 완료
-
-**다음 작업**:
-1. 사용자가 이 새 URL로 Google 로그인 재시도
-2. `python search_user.py`로 wksun999@gmail.com 확인
-3. 사용자 확인되면 `python grant_admin_role.py wksun999@gmail.com` 실행
-4. Admin 기능 테스트
 
 ---
 
