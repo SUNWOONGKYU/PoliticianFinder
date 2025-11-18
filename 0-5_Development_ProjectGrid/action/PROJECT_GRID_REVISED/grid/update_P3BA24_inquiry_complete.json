@@ -10,12 +10,14 @@
     "assigned_agent": "Claude Code (실행 및 검증)",
     "generator": "Claude Code",
     "generated_at": "2025-11-15T14:30:00Z",
-    "update_type": "문의 관리 시스템 전체 구현 완료"
+    "last_updated": "2025-11-19T08:37:00Z",
+    "update_type": "문의 관리 시스템 전체 구현 완료 + 버그 수정"
   },
 
   "duration": {
     "execution_minutes": 90,
-    "total_minutes": 90
+    "bugfix_minutes": 45,
+    "total_minutes": 135
   },
 
   "files": {
@@ -40,6 +42,27 @@
       "message": "feat: 문의 관리 시스템 완전 구현 (DB, API, UI, Email)",
       "timestamp": "2025-11-15T14:30:00Z",
       "files_changed": 9
+    },
+    {
+      "hash": "a356477",
+      "message": "fix: inquiries 페이지 필드명 매핑 수정",
+      "timestamp": "2025-11-19T08:20:00Z",
+      "files_changed": 1,
+      "details": "user.username → user.name, admin.username → admin.name"
+    },
+    {
+      "hash": "e31d196",
+      "message": "fix: CSP에 Google Fonts 도메인 허용 추가",
+      "timestamp": "2025-11-19T08:25:00Z",
+      "files_changed": 1,
+      "details": "style-src, font-src에 Google Fonts 허용"
+    },
+    {
+      "hash": "e93664a",
+      "message": "fix: inquiries API JOIN 쿼리를 수동 조인으로 변경",
+      "timestamp": "2025-11-19T08:37:00Z",
+      "files_changed": 1,
+      "details": "Foreign key JOIN → 수동 조인, NULL 안전 처리"
     }
   ],
 
@@ -191,10 +214,62 @@
   "validation_result": "✅ 통과",
   "ready_for_deployment": true,
 
+  "bugfixes_2025_11_19": [
+    {
+      "issue": "프론트엔드 필드명 불일치",
+      "symptom": "문의 목록이 화면에 표시되지 않음",
+      "root_cause": "API 응답 필드명(user.name)과 프론트엔드 기대값(user.username) 불일치",
+      "solution": "인터페이스 및 표시 로직을 API 응답 구조에 맞게 수정",
+      "files": ["1_Frontend/src/app/admin/inquiries/page.tsx"],
+      "commit": "a356477"
+    },
+    {
+      "issue": "CSP 정책으로 Google Fonts 차단",
+      "symptom": "Google Fonts 로드 실패 에러",
+      "root_cause": "Content Security Policy에 Google Fonts 도메인 미허용",
+      "solution": "style-src에 fonts.googleapis.com, font-src에 fonts.gstatic.com 추가",
+      "files": ["1_Frontend/src/middleware.ts"],
+      "commit": "e31d196"
+    },
+    {
+      "issue": "API 500 에러 - JOIN 쿼리 실패",
+      "symptom": "문의 목록 API 호출 시 500 Internal Server Error",
+      "root_cause": "Foreign key constraint를 명시한 JOIN이 NULL 값(익명 문의, 정치인 무관, 미답변)에서 실패",
+      "solution": "JOIN 쿼리를 수동 조인으로 변경, NULL 체크 후 선택적 조인",
+      "technical_details": {
+        "before": "users!inquiries_user_id_fkey(user_id, name, email)",
+        "after": "inquiries만 조회 → NULL 아닐 때만 users 조회",
+        "affected_fields": ["user_id", "politician_id", "admin_id"]
+      },
+      "files": ["1_Frontend/src/app/api/admin/inquiries/route.ts"],
+      "commit": "e93664a"
+    }
+  ],
+
+  "deployment_history": [
+    {
+      "date": "2025-11-15T14:30:00Z",
+      "url": "https://politician-finder-[initial].vercel.app",
+      "status": "초기 구현 완료"
+    },
+    {
+      "date": "2025-11-19T08:37:00Z",
+      "url": "https://politician-finder-ou2d9ntid-finder-world.vercel.app",
+      "status": "버그 수정 완료 ✅",
+      "verified": [
+        "문의 목록 6개 정상 표시",
+        "익명 문의(user_id NULL) 정상 처리",
+        "Google Fonts 정상 로드",
+        "500 에러 해결"
+      ]
+    }
+  ],
+
   "notes": [
     "P3BA24 문의 관리 시스템 완전 구현 완료",
     "Resend API 키 환경변수 설정 필요 (RESEND_API_KEY)",
     "이메일 발송은 선택적 (체크박스로 제어)",
-    "reports 용어를 inquiries로 완전히 대체"
+    "reports 용어를 inquiries로 완전히 대체",
+    "2025-11-19: NULL 값 처리 버그 수정으로 완전 안정화"
   ]
 }
