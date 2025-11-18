@@ -70,7 +70,7 @@ export async function checkUserRestrictions(userId: string): Promise<boolean> {
   const { data: user, error } = await supabase
     .from('users')
     .select('is_banned')
-    .eq('id', userId)
+    .eq('user_id', userId)
     .single();
 
   if (error || !user) {
@@ -89,7 +89,7 @@ export async function checkIsAdmin(userId: string): Promise<boolean> {
   const { data: user, error } = await supabase
     .from('users')
     .select('role')
-    .eq('id', userId)
+    .eq('user_id', userId)
     .single();
 
   if (error || !user) {
