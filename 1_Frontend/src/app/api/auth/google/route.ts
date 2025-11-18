@@ -66,11 +66,14 @@ export async function GET(request: NextRequest) {
     // 2. Supabase Client Connection (Real - Phase 3)
     const supabase = createClient();
 
+    // 3. Get current origin from request for dynamic redirect URL
+    const { origin } = new URL(request.url);
+
     // 3. Initiate Google OAuth with Supabase Auth
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: 'google',
       options: {
-        redirectTo: `${process.env.NEXT_PUBLIC_SITE_URL}/api/auth/google/callback`,
+        redirectTo: `${origin}/api/auth/google/callback`,
         queryParams: {
           access_type: 'offline',
           prompt: 'consent',
