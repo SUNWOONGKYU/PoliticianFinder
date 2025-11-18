@@ -29,7 +29,7 @@ export async function GET(request: NextRequest) {
       auditLogsResult
     ] = await Promise.all([
       // 전체 사용자 수
-      supabase.from('users').select('id', { count: 'exact', head: true }),
+      supabase.from('users').select('user_id', { count: 'exact', head: true }),
       // 전체 게시물 수
       supabase.from('posts').select('id', { count: 'exact', head: true }),
       // 전체 댓글 수

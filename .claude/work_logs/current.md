@@ -18,6 +18,32 @@
 
 ## 작업 기록 시작
 
+## 2025-11-18 22:10
+
+### 작업: Admin API user_id 필드명 일괄 수정 완료
+
+**작업 내용**:
+- 모든 admin API에서 users 테이블 쿼리 시 `id` → `user_id` 수정
+- 핵심 문제: checkIsAdmin(), checkUserRestrictions()에서 잘못된 필드명 사용
+- 이로 인해 모든 admin API가 작동하지 않았음
+
+**수정된 파일**:
+- ✅ `1_Frontend/src/lib/auth/helpers.ts` - checkUserRestrictions, checkIsAdmin
+- ✅ `1_Frontend/src/app/api/admin/users/route.ts` - GET, PATCH 메서드
+- ✅ `1_Frontend/src/app/api/admin/action-logs/route.ts`
+- ✅ `1_Frontend/src/app/api/admin/action-logs/stats/route.ts`
+- ✅ `1_Frontend/src/app/api/admin/audit-logs/route.ts`
+
+**배포 정보**:
+- Commit: 2f94a48
+- Production URL: https://politician-finder-akgxbvu1d-finder-world.vercel.app
+- Status: ✅ 배포 완료
+
+**검증 필요**:
+- wksun999@gmail.com 계정으로 admin 기능 정상 작동 확인
+
+---
+
 ## 2025-11-18 22:02
 
 ### 작업: Google OAuth nickname 필드 추가 및 Admin 권한 부여 완료
@@ -42,10 +68,7 @@ Role: admin ✅
 **배포 정보**:
 - Commit: 87cbb91
 - Production URL: https://politician-finder-c8cs1bjyd-finder-world.vercel.app
-- GitHub Push: 503 에러로 백그라운드 재시도 중
-
-**다음 작업**:
-- Admin 기능 테스트 (페이지 접근 권한 확인)
+- GitHub Push: 503 에러 (로컬에 커밋됨)
 
 ---
 
