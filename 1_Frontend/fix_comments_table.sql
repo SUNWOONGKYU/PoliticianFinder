@@ -34,8 +34,8 @@ CREATE INDEX idx_comments_created_at ON comments(created_at DESC);
 CREATE INDEX idx_comments_post_approved ON comments(post_id, moderation_status, created_at) WHERE moderation_status = 'approved';
 CREATE INDEX idx_comments_parent_created ON comments(parent_comment_id, created_at) WHERE parent_comment_id IS NOT NULL;
 
--- 5. 전체 텍스트 검색 인덱스
-CREATE INDEX idx_comments_search ON comments USING gin(to_tsvector('korean', content));
+-- 5. 전체 텍스트 검색 인덱스 (simple 사용 - korean 설정이 없는 경우)
+CREATE INDEX idx_comments_search ON comments USING gin(to_tsvector('simple', content));
 
 -- 6. 테이블 및 컬럼 설명
 COMMENT ON TABLE comments IS 'Comments on posts with nested reply support';
