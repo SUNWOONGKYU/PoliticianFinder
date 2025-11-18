@@ -38,9 +38,9 @@ export async function GET(request: NextRequest) {
       .select(
         `
         *,
-        user:users!inquiries_user_id_fkey(id, name, email),
+        user:users!inquiries_user_id_fkey(user_id, name, email),
         politician:politicians!inquiries_politician_id_fkey(id, name, party, position),
-        admin:users!inquiries_admin_id_fkey(id, name)
+        admin:users!inquiries_admin_id_fkey(user_id, name)
       `,
         { count: "exact" }
       )
@@ -189,9 +189,9 @@ export async function PATCH(request: NextRequest) {
       .select(
         `
         *,
-        user:users!inquiries_user_id_fkey(id, name, email),
+        user:users!inquiries_user_id_fkey(user_id, name, email),
         politician:politicians!inquiries_politician_id_fkey(id, name, party, position),
-        admin:users!inquiries_admin_id_fkey(id, name)
+        admin:users!inquiries_admin_id_fkey(user_id, name)
       `
       )
       .single();
