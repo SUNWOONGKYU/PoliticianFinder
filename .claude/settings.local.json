@@ -1,18 +1,21 @@
 {
   "permissions": {
     "allow": [
-      "Bash(git add:*)",
-      "Bash(git commit -m \"$(cat <<''EOF''\nfix: 커뮤니티 하드코딩 데이터 수정 및 글쓰기 경로 수정\n\n커뮤니티 목록 페이지:\n- 회원 레벨(ML1-ML5) 동적 생성 (user_id 기반)\n- 글쓰기 버튼 경로 수정: /community/posts/create-politician, /community/posts/create\n\n게시글 상세 페이지:\n- 정치인 status 하드코딩 제거 (API 데이터 사용)\n- 회원 레벨(ML1-ML5) 동적 생성\n- 정치인 이름에서 직책 제거 (name만 표시)\n\n모든 하드코딩 제거 및 실제 데이터 기반 표시 구현\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
-      "Bash(git push:*)",
-      "Bash(python run_p3f4_migration.py:*)",
-      "Bash(npm run build:*)",
-      "Bash(git commit:*)",
+      "Bash(mkdir:*)",
+      "Bash(pandoc:*)",
+      "Bash(node temp_html_to_pdf.js:*)",
+      "Bash(npm install:*)",
+      "Bash(node inbox_server.js:*)",
+      "Bash(curl:*)",
       "Bash(cat:*)",
-      "Bash(npx tsc:*)",
-      "Bash(python -c:*)",
-      "Bash(git checkout:*)",
-      "Bash(nslookup:*)",
-      "Bash(node detect_notifications_columns.js:*)"
+      "Bash(for i in {1..3})",
+      "Bash(do curl -X POST http://localhost:3030/save -H \"Content-Type: application/json\" -d \"{\"\"content\"\":\"\"# Task $i\\n\\nTest content $i\"\",\"\"filename\"\":\"\"task_test_$i.md\"\"}\" -s)",
+      "Bash(done)",
+      "WebSearch",
+      "WebFetch(domain:www.perplexity.ai)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push)"
     ],
     "deny": [],
     "ask": []

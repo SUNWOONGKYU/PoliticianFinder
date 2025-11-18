@@ -1,0 +1,108 @@
+{
+  "updates": [
+    {
+      "task_id": "P3BA28",
+      "task_name": "알림 시스템 API",
+      "status": "완료",
+      "progress": 100,
+      "notes": "알림 타입 확장 (reply, mention 추가)",
+      "generated_files": "1_Frontend/src/app/api/notifications/route.ts, 1_Frontend/src/app/notifications/page.tsx",
+      "modifications": [
+        {
+          "file": "1_Frontend/src/app/api/notifications/route.ts",
+          "change": "알림 타입 enum에 'reply', 'mention' 추가하여 모든 알림 표시 가능하도록 수정"
+        },
+        {
+          "file": "1_Frontend/src/app/notifications/page.tsx",
+          "change": "reply, mention 알림 아이콘 및 UI 추가"
+        }
+      ],
+      "testing": "DB에 있는 reply, mention 타입 알림이 정상 표시됨 확인",
+      "git_commit": "0085075"
+    },
+    {
+      "task_id": "P1BA3",
+      "task_name": "커뮤니티 댓글 API",
+      "status": "완료",
+      "progress": 100,
+      "notes": "profiles → users 테이블 변경, 댓글 표시 오류 수정",
+      "generated_files": "1_Frontend/src/app/api/comments/route.ts, 1_Frontend/src/app/community/posts/[id]/page.tsx, 1_Frontend/src/app/community/posts/[id]/politician/page.tsx",
+      "modifications": [
+        {
+          "file": "1_Frontend/src/app/api/comments/route.ts",
+          "change": "profiles.username → users.name으로 변경하여 댓글 작성자 정보 올바르게 조회"
+        },
+        {
+          "file": "1_Frontend/src/app/community/posts/[id]/page.tsx",
+          "change": "profiles.username → users.name으로 변경"
+        },
+        {
+          "file": "1_Frontend/src/app/community/posts/[id]/politician/page.tsx",
+          "change": "profiles.username → users.name으로 변경"
+        }
+      ],
+      "testing": "댓글 작성자 이름이 정상 표시됨 확인",
+      "git_commit": "0085075"
+    },
+    {
+      "task_id": "P1BA4",
+      "task_name": "기타 (사용자 관리 API)",
+      "status": "완료",
+      "progress": 100,
+      "notes": "Admin API profiles → users 테이블 변경",
+      "generated_files": "1_Frontend/src/app/api/admin/users/route.ts, 1_Frontend/src/app/api/admin/inquiries/route.ts, 1_Frontend/src/app/api/admin/reports/route.ts, 1_Frontend/src/app/api/admin/auto-moderate/route.ts",
+      "modifications": [
+        {
+          "file": "1_Frontend/src/app/api/admin/users/route.ts",
+          "change": "검색 필터 username → name 변경, user_id 대신 id 사용"
+        },
+        {
+          "file": "1_Frontend/src/app/api/admin/inquiries/route.ts",
+          "change": "users!inquiries_user_id_fkey에서 username → name으로 변경"
+        },
+        {
+          "file": "1_Frontend/src/app/api/admin/reports/route.ts",
+          "change": "profiles!reports_reporter_id_fkey → users!reports_reporter_id_fkey, username → name 변경"
+        },
+        {
+          "file": "1_Frontend/src/app/api/admin/auto-moderate/route.ts",
+          "change": "users 조인에서 username → name으로 변경"
+        }
+      ],
+      "testing": "Admin 페이지에서 사용자 목록, 문의, 신고 정상 조회 확인",
+      "git_commit": "0085075"
+    },
+    {
+      "task_id": "P3BA29",
+      "task_name": "목 데이터 제거 및 실제 DB 연동",
+      "status": "완료",
+      "progress": 100,
+      "notes": "모든 하드코딩된 댓글 개수 및 목 데이터 제거",
+      "generated_files": "1_Frontend/src/app/api/community/posts/route.ts, 1_Frontend/src/app/mypage/page.tsx",
+      "modifications": [
+        {
+          "file": "1_Frontend/src/app/api/community/posts/route.ts",
+          "change": "각 게시글의 댓글 개수를 comments 테이블에서 실시간 계산하여 반환, user_id 필터 추가, search 필터 추가"
+        },
+        {
+          "file": "1_Frontend/src/app/mypage/page.tsx",
+          "change": "하드코딩된 게시글 3개 제거, 실제 사용자 게시글 API 연동"
+        }
+      ],
+      "testing": "커뮤니티 게시글 목록에서 실제 댓글 개수 표시 확인, 마이페이지에서 사용자 게시글 정상 조회 확인",
+      "git_commit": "0085075"
+    }
+  ],
+  "summary": {
+    "date": "2025-11-18",
+    "total_tasks": 4,
+    "files_modified": 11,
+    "files_created": 2,
+    "created_files": [
+      "GOOGLE_OAUTH_SETUP_GUIDE.md",
+      "SIGNUP_EMAIL_SETUP_GUIDE.md"
+    ],
+    "commit_hash": "0085075",
+    "commit_message": "fix: 알림/댓글/어드민 기능 오류 수정 및 목 데이터 제거"
+  }
+}
