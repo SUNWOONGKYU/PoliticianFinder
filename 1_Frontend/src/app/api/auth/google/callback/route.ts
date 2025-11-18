@@ -124,14 +124,14 @@ export async function GET(request: NextRequest) {
     // 9. Create or update user profile in users table
     const { data: existingUser, error: userCheckError } = await supabase
       .from('users')
-      .select('id')
-      .eq('id', data.user.id)
+      .select('user_id')
+      .eq('user_id', data.user.id)
       .single();
 
     // If user doesn't exist in users table, create profile
     if (!existingUser && !userCheckError) {
       const { error: profileError } = await supabase.from('users').insert({
-        id: data.user.id,
+        user_id: data.user.id,
         email: data.user.email!,
         name: data.user.user_metadata?.full_name || data.user.user_metadata?.name || data.user.email!.split('@')[0],
         avatar_url: data.user.user_metadata?.avatar_url || data.user.user_metadata?.picture,
