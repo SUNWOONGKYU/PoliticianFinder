@@ -74,16 +74,16 @@ export async function GET(request: NextRequest) {
     const total = count || 0;
     const totalPages = Math.ceil(total / limit);
 
-    // profiles 테이블에는 이미 id, username, email 필드가 있음
+    // users 테이블 스키마: user_id (PK), username, email, nickname, name
     // status 필드는 is_active, is_banned에서 파생
-    const sanitizedUsers = (data || []).map((profile: any) => ({
-      id: profile.id,
-      username: profile.username || profile.nickname || profile.name,
-      email: profile.email,
-      created_at: profile.created_at,
-      status: profile.is_banned ? 'banned' : (profile.is_active ? 'active' : 'suspended'),
-      role: profile.role || 'user',
-      admin_notes: profile.banned_reason || '',
+    const sanitizedUsers = (data || []).map((user: any) => ({
+      id: user.user_id,
+      username: user.username || user.nickname || user.name || 'Unknown',
+      email: user.email || 'N/A',
+      created_at: user.created_at,
+      status: user.is_banned ? 'banned' : (user.is_active ? 'active' : 'suspended'),
+      role: user.role || 'member',
+      admin_notes: user.banned_reason || '',
     }));
 
     return NextResponse.json({
