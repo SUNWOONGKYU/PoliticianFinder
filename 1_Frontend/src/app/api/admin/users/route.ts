@@ -37,7 +37,7 @@ export async function GET(request: NextRequest) {
 
     // 검색 필터
     if (search) {
-      query = query.or(`username.ilike.%${search}%,email.ilike.%${search}%`);
+      query = query.or(`name.ilike.%${search}%,email.ilike.%${search}%`);
     }
 
     // 상태 필터 (status -> is_active/is_banned 매핑)
@@ -74,11 +74,11 @@ export async function GET(request: NextRequest) {
     const total = count || 0;
     const totalPages = Math.ceil(total / limit);
 
-    // users 테이블 스키마: user_id (PK), username, email, nickname, name
+    // users 테이블 스키마: id (PK), name, email
     // status 필드는 is_active, is_banned에서 파생
     const sanitizedUsers = (data || []).map((user: any) => ({
-      id: user.user_id,
-      username: user.username || user.nickname || user.name || 'Unknown',
+      id: user.id,
+      username: user.name || 'Unknown',
       email: user.email || 'N/A',
       created_at: user.created_at,
       status: user.is_banned ? 'banned' : (user.is_active ? 'active' : 'suspended'),
@@ -118,7 +118,7 @@ export async function PATCH(request: NextRequest) {
     // 사용자 존재 확인
     const { data: existingUser, error: fetchError } = await supabase
       .from('users')
-      .select('id, username, email')
+      .select('id, name, email')
       .eq('id', validated.user_id)
       .single();
 
@@ -218,7 +218,7 @@ export async function DELETE(request: NextRequest) {
     // 사용자 존재 확인
     const { data: existingUser, error: fetchError } = await supabase
       .from('users')
-      .select('id, username')
+      .select('id, name')
       .eq('id', user_id)
       .single();
 
@@ -249,7 +249,7 @@ export async function DELETE(request: NextRequest) {
       target_type: 'user',
       target_id: user_id,
       admin_id: user.id,
-      metadata: { username: existingUser.username },
+      metadata: { name: existingUser.name },
     });
 
     return NextResponse.json({
