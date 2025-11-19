@@ -183,17 +183,27 @@ export async function POST(request: NextRequest) {
     const supabase = createClient();
 
     // 8. Create User with Supabase Auth (Real - Phase 3)
-    // 임시: 이메일 확인 비활성화 (SMTP 문제 우회)
-    const adminClient = createAdminClient();
-    const { data: authData, error: authError } = await adminClient.auth.admin.createUser({
+    // 임시: 이메일 확인 자동 승인 (SMTP 문제 우회)
+    const { data: authData, error: authError } = await supabase.auth.signUp({
       email: data.email,
       password: data.password,
-      email_confirm: true, // 이메일 확인 즉시 완료 처리
-      user_metadata: {
-        name: data.nickname,
-        marketing_agreed: data.marketing_agreed,
+      options: {
+        data: {
+          name: data.nickname,
+          marketing_agreed: data.marketing_agreed,
+        },
+        // 이메일 확인 요구 안 함
+        emailRedirectTo: undefined,
       },
     });
+
+    // 이메일 확인을 Admin API로 즉시 완료 처리
+    if (authData.user && !authData.user.email_confirmed_at) {
+      const adminClient = createAdminClient();
+      await adminClient.auth.admin.updateUserById(authData.user.id, {
+        email_confirm: true,
+      });
+    }
 
     // 9. Handle Supabase Auth Errors
     if (authError) {
