@@ -183,7 +183,7 @@ export async function POST(request: NextRequest) {
     const supabase = createClient();
 
     // 8. Create User with Supabase Auth (Real - Phase 3)
-    // 임시: 이메일 확인 자동 승인 (SMTP 문제 우회)
+    // Supabase Dashboard에서 이메일 확인 비활성화됨 (SMTP 문제 우회)
     const { data: authData, error: authError } = await supabase.auth.signUp({
       email: data.email,
       password: data.password,
@@ -192,18 +192,9 @@ export async function POST(request: NextRequest) {
           name: data.nickname,
           marketing_agreed: data.marketing_agreed,
         },
-        // 이메일 확인 요구 안 함
-        emailRedirectTo: undefined,
+        emailRedirectTo: `${process.env.NEXT_PUBLIC_SITE_URL}/auth/callback`,
       },
     });
-
-    // 이메일 확인을 Admin API로 즉시 완료 처리
-    if (authData.user && !authData.user.email_confirmed_at) {
-      const adminClient = createAdminClient();
-      await adminClient.auth.admin.updateUserById(authData.user.id, {
-        email_confirm: true,
-      });
-    }
 
     // 9. Handle Supabase Auth Errors
     if (authError) {
@@ -285,6 +276,7 @@ export async function POST(request: NextRequest) {
 
     // 11. Create user profile in users table
     // Fix: users 테이블의 실제 컬럼명 'id' 사용 (Google OAuth callback과 일치)
+    const adminClient = createAdminClient();
     const { data: profileData, error: profileError } = await adminClient
       .from('users')
       .insert({
