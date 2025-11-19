@@ -12,6 +12,86 @@ const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY?.replace(/\s/g, '') || '';
 
 /**
+ * GET /api/admin/politicians
+ * 관리자용 정치인 목록 조회
+ */
+export async function GET(request: NextRequest) {
+  try {
+    // 관리자 권한 확인
+    const authResult = await requireAdmin();
+    if (authResult instanceof NextResponse) {
+      return authResult;
+    }
+
+    // Environment variables check
+    if (!supabaseUrl || !supabaseServiceKey) {
+      console.error('[Admin Politicians API] Environment variables not configured');
+      return NextResponse.json(
+        {
+          success: false,
+          error: 'Server configuration error. Please contact administrator.',
+        },
+        { status: 500 }
+      );
+    }
+
+    const page = parseInt(request.nextUrl.searchParams.get('page') || '1');
+    const limit = parseInt(request.nextUrl.searchParams.get('limit') || '20');
+    const search = request.nextUrl.searchParams.get('search') || '';
+    const party = request.nextUrl.searchParams.get('party');
+
+    // Create Supabase client with Service Role Key
+    const supabase = createClient(supabaseUrl, supabaseServiceKey);
+
+    let query = supabase
+      .from('politicians')
+      .select('*', { count: 'exact' })
+      .order('created_at', { ascending: false });
+
+    // 검색 필터
+    if (search) {
+      query = query.or(`name.ilike.%${search}%,name_en.ilike.%${search}%`);
+    }
+
+    // 정당 필터
+    if (party) {
+      query = query.eq('party', party);
+    }
+
+    // 페이지네이션
+    const start = (page - 1) * limit;
+    const end = start + limit - 1;
+    query = query.range(start, end);
+
+    const { data, count, error } = await query;
+
+    if (error) {
+      console.error('[Admin Politicians API] Query error:', error);
+      return NextResponse.json(
+        { success: false, error: '정치인 목록 조회 중 오류가 발생했습니다' },
+        { status: 500 }
+      );
+    }
+
+    const total = count || 0;
+    const totalPages = Math.ceil(total / limit);
+
+    return NextResponse.json({
+      success: true,
+      data: data || [],
+      pagination: { page, limit, total, totalPages },
+      timestamp: new Date().toISOString(),
+    }, { status: 200 });
+  } catch (error) {
+    console.error('[Admin Politicians API] GET error:', error);
+    return NextResponse.json(
+      { success: false, error: 'Internal server error' },
+      { status: 500 }
+    );
+  }
+}
+
+/**
  * POST /api/admin/politicians
  * 새 정치인 추가 (기본 정보만)
  */
