@@ -1,0 +1,117 @@
+{
+  "task_id": "P3BA5",
+  "task_name": "관리자 정치인 API - GET 메서드 추가",
+  "phase": 3,
+  "area": "BA",
+  "type": "update",
+  "update_type": "feature_enhancement",
+  "update_date": "2025-11-19",
+  "status": "완료",
+  "progress": 100,
+
+  "update_summary": "기존 POST만 지원하던 /api/admin/politicians API에 GET 메서드 추가",
+
+  "background": {
+    "issue": "프로덕션 테스트 중 /api/admin/politicians GET 메서드 405 오류 발견",
+    "existing_functionality": "POST /api/admin/politicians - 새 정치인 추가",
+    "missing_functionality": "GET /api/admin/politicians - 정치인 목록 조회",
+    "impact": "관리자가 정치인 목록을 조회할 수 없음",
+    "severity": "high"
+  },
+
+  "changes_made": {
+    "files_modified": [
+      "1_Frontend/src/app/api/admin/politicians/route.ts"
+    ],
+    "new_functions_added": [
+      "export async function GET(request: NextRequest)"
+    ],
+    "existing_functions": [
+      "export async function POST(request: NextRequest) - 유지"
+    ]
+  },
+
+  "new_get_endpoint": {
+    "path": "GET /api/admin/politicians",
+    "description": "관리자용 정치인 목록 조회",
+    "authentication": "requireAdmin() - 관리자 권한 필요",
+    "authorization": "Service Role Key 사용 (RLS 우회)",
+    "query_parameters": {
+      "page": "페이지 번호 (기본값: 1)",
+      "limit": "페이지당 항목 수 (기본값: 20)",
+      "search": "검색어 (name, name_en)",
+      "party": "정당 필터"
+    },
+    "response": {
+      "success": true,
+      "data": "정치인 배열",
+      "pagination": {
+        "page": 1,
+        "limit": 20,
+        "total": 46,
+        "totalPages": 3
+      },
+      "timestamp": "ISO 8601 timestamp"
+    },
+    "database_operations": [
+      "Supabase createClient with Service Role Key",
+      "politicians 테이블 조회",
+      "검색 필터 (name, name_en or ilike)",
+      "정당 필터 (party eq)",
+      "페이지네이션 (range)",
+      "생성일 기준 내림차순 정렬"
+    ]
+  },
+
+  "existing_post_endpoint": {
+    "path": "POST /api/admin/politicians",
+    "description": "새 정치인 추가 (기본 정보)",
+    "status": "변경 없음 - 기존 기능 유지"
+  },
+
+  "technical_details": {
+    "service_role_key": {
+      "usage": "RLS (Row Level Security) 우회를 위해 Service Role Key 사용",
+      "reason": "관리자가 모든 정치인 데이터에 접근 필요",
+      "environment_variable": "SUPABASE_SERVICE_ROLE_KEY"
+    },
+    "authentication_flow": [
+      "1. requireAdmin() 호출하여 관리자 권한 검증",
+      "2. Service Role Key로 Supabase 클라이언트 생성",
+      "3. RLS 우회하여 모든 데이터 접근",
+      "4. 쿼리 실행 및 결과 반환"
+    ]
+  },
+
+  "test_results": {
+    "before": "Status 405 (Method Not Allowed)",
+    "after": "Status 401 (Unauthorized) ✅",
+    "note": "401은 정상 - 인증 없이 접근 시 반환되는 올바른 응답",
+    "with_auth": "Status 200 (정상 응답 예상)",
+    "deployment_url": "https://politician-finder-p4ogc5z6q-finder-world.vercel.app/api/admin/politicians"
+  },
+
+  "code_quality": {
+    "error_handling": [
+      "Environment variable 검증",
+      "requireAdmin() 권한 검증",
+      "Supabase 쿼리 오류 처리",
+      "상세한 에러 로깅"
+    ],
+    "response_format": "일관된 JSON 응답 형식",
+    "pagination": "표준 페이지네이션 구현"
+  },
+
+  "related_tasks": ["P3BA5 (original)", "P3BA30", "P3BA31"],
+  "dependencies": [
+    "P2D1 (Database)",
+    "requireAdmin() helper",
+    "SUPABASE_SERVICE_ROLE_KEY environment variable"
+  ],
+
+  "execution_info": {
+    "executor": "Claude Code",
+    "execution_date": "2025-11-19",
+    "duration_minutes": 15
+  }
+}

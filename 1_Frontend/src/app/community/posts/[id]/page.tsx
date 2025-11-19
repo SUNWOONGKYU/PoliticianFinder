@@ -86,7 +86,8 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
             content: postData.content
           });
 
-          setUpvotes(postData.like_count || 0);
+          setUpvotes(postData.upvotes || 0);
+          setDownvotes(postData.downvotes || 0);
         }
       } catch (err) {
         console.error('[게시글 상세] 오류:', err);

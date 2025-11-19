@@ -49,7 +49,7 @@ export default function PostsPage() {
             author_id: post.user_id,
             politician_id: post.politician_id,
             politician_name: post.politicians?.name,
-            upvotes: post.like_count || 0,
+            upvotes: post.upvotes || 0,
             views: post.view_count || 0,
             comment_count: post.comment_count || 0,
             created_at: post.created_at,

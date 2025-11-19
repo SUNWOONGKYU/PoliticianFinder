@@ -16,7 +16,10 @@
       "Bash(git add:*)",
       "Bash(git commit:*)",
       "Bash(git push)",
-      "Bash(vercel deploy:*)"
+      "Bash(vercel deploy:*)",
+      "Bash(python populate_all_tables.py:*)",
+      "Bash(python -c:*)",
+      "Bash(python check_politician_duplicates.py:*)"
     ],
     "deny": [],
     "ask": []

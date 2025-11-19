@@ -34,7 +34,8 @@ export function mapPoliticianFields(
   dbRecord: any,
   communityStats?: {
     postCount?: number;
-    likeCount?: number;
+    upvoteCount?: number;
+    downvoteCount?: number;
     taggedCount?: number;
   }
 ) {
@@ -72,7 +73,8 @@ export function mapPoliticianFields(
 
     // Community activity (computed fields)
     postCount: communityStats?.postCount || 0,
-    likeCount: communityStats?.likeCount || 0,
+    upvoteCount: communityStats?.upvoteCount || 0,
+    downvoteCount: communityStats?.downvoteCount || 0,
     taggedCount: communityStats?.taggedCount || 0,
 
     // Election Commission official info

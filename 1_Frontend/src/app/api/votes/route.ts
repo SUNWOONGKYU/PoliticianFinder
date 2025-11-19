@@ -110,11 +110,11 @@ export async function POST(request: NextRequest) {
       result = data;
     }
 
-    // 게시물의 like/dislike 카운트 업데이트
+    // 게시물의 upvote/downvote 카운트 업데이트
     if (vote.vote_type === 'like') {
-      await supabase.rpc('increment_like_count', { post_id: vote.post_id });
-    } else {
-      await supabase.rpc('increment_dislike_count', { post_id: vote.post_id });
+      await supabase.rpc('increment_post_upvotes', { post_id: vote.post_id });
+    } else if (vote.vote_type === 'dislike') {
+      await supabase.rpc('increment_post_downvotes', { post_id: vote.post_id });
     }
 
     return NextResponse.json(

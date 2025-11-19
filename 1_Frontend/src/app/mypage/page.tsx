@@ -20,7 +20,8 @@ interface UserPost {
   content: string;
   created_at: string;
   view_count: number;
-  like_count: number;
+  upvotes: number;
+  downvotes: number;
   comment_count: number;
   share_count: number;
 }
@@ -241,7 +242,7 @@ export default function MypagePage() {
                               <div className="flex items-center gap-4 mt-2 text-xs text-gray-500">
                                 <span>{new Date(post.created_at).toLocaleDateString('ko-KR')}</span>
                                 <span>조회수 {post.view_count || 0}</span>
-                                <span className="text-red-600">👍 {post.like_count || 0}</span>
+                                <span className="text-red-600">👍 {post.upvotes || 0}</span>
                                 <span>댓글 {post.comment_count || 0}</span>
                                 <span className="flex items-center gap-1">
                                   <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

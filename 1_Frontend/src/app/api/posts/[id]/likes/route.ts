@@ -94,14 +94,15 @@ export async function POST(
       isLiked = true;
     }
 
-    // 4. 업데이트된 좋아요 수 조회
+    // 4. 업데이트된 upvote/downvote 수 조회
     const { data: updatedPost, error: countError } = await supabase
       .from('posts')
-      .select('like_count')
+      .select('upvotes, downvotes')
       .eq('id', postId)
       .single();
 
-    const likeCount = updatedPost?.like_count || 0;
+    const upvoteCount = updatedPost?.upvotes || 0;
+    const downvoteCount = updatedPost?.downvotes || 0;
 
     return NextResponse.json(
       {
@@ -109,7 +110,8 @@ export async function POST(
         data: {
           postId,
           isLiked,
-          likeCount,
+          upvoteCount,
+          downvoteCount,
         },
         message: isLiked ? '좋아요가 추가되었습니다.' : '좋아요가 제거되었습니다.',
       },
