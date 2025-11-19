@@ -1,0 +1,77 @@
+================================================================================
+Populate All Tables with Sample Data
+================================================================================
+
+Existing users: 15
+Existing profiles: 13
+
+================================================================================
+Step 1: Add more users (target: 15 total)
+================================================================================
+  Skipped (exists): user4@example.com
+  Skipped (exists): user5@example.com
+  Skipped (exists): user6@example.com
+  Skipped (exists): user7@example.com
+  Skipped (exists): user8@example.com
+  Skipped (exists): user9@example.com
+  Skipped (exists): user10@example.com
+  Skipped (exists): user11@example.com
+  Skipped (exists): user12@example.com
+  Skipped (exists): user13@example.com
+Total users: 25
+
+================================================================================
+Step 2: Politicians (target: 15)
+================================================================================
+  Created: 김영철 (민주당, 국회의원)
+  Created: 이민호 (국민의힘, 국회의원)
+  Created: 박지성 (정의당, 시의원)
+  Created: 최수진 (민주당, 국회의원)
+  Created: 정하늘 (국민의힘, 국회의원)
+  Created: 강민수 (민주당, 도의원)
+  Created: 윤서연 (정의당, 국회의원)
+  Created: 임태양 (국민의힘, 시의원)
+  Created: 한별 (민주당, 국회의원)
+  Created: 송미래 (국민의힘, 국회의원)
+  Created: 조현우 (정의당, 도의원)
+  Created: 배성훈 (민주당, 국회의원)
+  Created: 오다은 (국민의힘, 국회의원)
+  Created: 권지훈 (민주당, 시의원)
+  Created: 남궁하늘 (정의당, 국회의원)
+Total politicians: 15
+
+================================================================================
+Step 3: Posts (target: 20)
+================================================================================
+  Created post: 민생 법안 통과에 대한 의견
+  Created post: 지역 개발 프로젝트 진행 상황
+  Created post: 교육 정책 개선 방안
+  Created post: 의료 보험 확대 필요성
+  Created post: 중소기업 지원 정책
+  Created post: 환경 보호 법안 논의
+  Created post: 청년 일자리 창출
+  Created post: 부동산 정책 개선
+  Created post: 국방 예산 증액
+  Created post: 복지 정책 강화
+  Created post: 교통 인프라 확충
+  Created post: 디지털 전환 정책
+  Created post: 농업 지원 방안
+  Created post: 문화 예술 진흥
+  Created post: 스타트업 생태계
+  Created post: 노인 복지 정책
+  Created post: 아동 보호 법안
+  Created post: 장애인 인권
+  Created post: 기후 변화 대응
+  Created post: 에너지 전환 정책
+Total posts: 20
+
+================================================================================
+Step 4: Comments (target: 30)
+================================================================================
+Traceback (most recent call last):
+  File "C:\Development_PoliticianFinder_com\Developement_Real_PoliticianFinder\populate_all_tables.py", line 177, in <module>
+    supabase.table('comments').insert(comment_data).execute()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\home\AppData\Roaming\Python\Python313\site-packages\postgrest\_sync\request_builder.py", line 53, in execute
+    raise APIError(dict(json_obj))
+postgrest.exceptions.APIError: {'message': 'insert or update on table "comments" violates foreign key constraint "comments_user_id_fkey"', 'code': '23503', 'hint': None, 'details': 'Key (user_id)=(15dd6e69-6e24-450f-9728-6e3a557f6a57) is not present in table "users".'}

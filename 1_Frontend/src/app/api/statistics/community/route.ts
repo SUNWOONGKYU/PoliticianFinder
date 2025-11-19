@@ -85,9 +85,9 @@ export async function GET(request: NextRequest) {
       // 인기 게시글 (좋아요 기준)
       supabase
         .from('posts')
-        .select('id, title, like_count, view_count, comment_count, created_at')
+        .select('id, title, upvotes, downvotes, view_count, comment_count, created_at')
         .eq('moderation_status', 'approved')
-        .order('like_count', { ascending: false })
+        .order('upvotes', { ascending: false })
         .limit(10),
     ]);
 

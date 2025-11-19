@@ -1,0 +1,68 @@
+{
+  "task_id": "P3F8",
+  "task_name": "게시글 목록 페이지 (/posts)",
+  "phase": 3,
+  "area": "F",
+  "type": "create",
+  "created_date": "2025-11-19",
+  "status": "완료",
+  "progress": 100,
+
+  "task_description": "게시글 목록을 조회하고 검색할 수 있는 /posts 페이지 구현",
+
+  "background": {
+    "issue": "프로덕션 테스트 중 /posts 페이지 404 오류 발견",
+    "impact": "사용자가 게시글 목록 페이지에 접근 불가",
+    "severity": "high"
+  },
+
+  "implementation": {
+    "assigned_agent": "frontend-developer",
+    "files_created": [
+      "1_Frontend/src/app/posts/page.tsx"
+    ],
+    "technologies": [
+      "Next.js 14 App Router",
+      "React Client Components",
+      "TypeScript",
+      "Tailwind CSS"
+    ]
+  },
+
+  "features_implemented": [
+    "게시글 목록 조회 (GET /api/posts)",
+    "검색 기능 (제목, 내용, 작성자)",
+    "정치인 태그 표시",
+    "조회수, 추천수, 댓글수 표시",
+    "게시글 클릭 시 상세 페이지로 이동",
+    "로딩 상태 표시",
+    "에러 상태 처리",
+    "빈 상태 처리"
+  ],
+
+  "code_structure": {
+    "state_management": [
+      "searchTerm: 검색어",
+      "posts: 게시글 목록",
+      "loading: 로딩 상태",
+      "error: 에러 메시지"
+    ],
+    "api_integration": "/api/posts 연동",
+    "styling": "Tailwind CSS 사용"
+  },
+
+  "test_results": {
+    "before": "Status 404",
+    "after": "Status 200 ✅",
+    "deployment_url": "https://politician-finder-p4ogc5z6q-finder-world.vercel.app/posts"
+  },
+
+  "related_tasks": ["P3F1"],
+  "dependencies": ["P2D1 (Database)", "/api/posts API"],
+
+  "execution_info": {
+    "executor": "Claude Code",
+    "execution_date": "2025-11-19",
+    "duration_minutes": 10
+  }
+}

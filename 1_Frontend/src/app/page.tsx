@@ -42,7 +42,8 @@ interface Post {
   politician_identity?: string;  // P3F3: 신분
   politician_title?: string;     // P3F3: 직책
   view_count: number;
-  like_count: number;
+  upvotes: number;
+  downvotes: number;
   comment_count: number;
   created_at: string;
   is_hot?: boolean;
@@ -188,7 +189,8 @@ export default function Home() {
                   politician_identity: politicianIdentity,  // P3F3
                   politician_title: politicianTitle,        // P3F3
                   view_count: post.view_count || 0,
-                  like_count: post.like_count || 0,
+                  upvotes: post.upvotes || 0,
+                  downvotes: post.downvotes || 0,
                   comment_count: post.comment_count || 0,
                   created_at: post.created_at,
                 };
@@ -219,11 +221,12 @@ export default function Home() {
                 member_level: memberLevel,
                 politician_id: post.politician_id,
                 view_count: post.view_count || 0,
-                like_count: post.like_count || 0,
+                upvotes: post.upvotes || 0,
+                downvotes: post.downvotes || 0,
                 comment_count: post.comment_count || 0,
                 created_at: post.created_at,
                 is_hot: (post.view_count || 0) > 100,
-                is_best: (post.like_count || 0) > 50,
+                is_best: (post.upvotes || 0) > 50,
               };
             });
             setPopularPosts(mappedPopularPosts);
@@ -1002,7 +1005,7 @@ export default function Home() {
                               )}
                               <span>{formatDate(post.created_at)}</span>
                               <span>조회 {post.view_count}</span>
-                              <span className="text-red-600">👍 {post.like_count}</span>
+                              <span className="text-red-600">👍 {post.upvotes}</span>
                               <span className="text-gray-400">👎 0</span>
                               <span>댓글 {post.comment_count}</span>
                               <span className="flex items-center gap-1">
@@ -1084,7 +1087,7 @@ export default function Home() {
                               )}
                               <span>{formatDate(post.created_at)}</span>
                               <span>조회 {post.view_count}</span>
-                              <span className="text-red-600">👍 {post.like_count}</span>
+                              <span className="text-red-600">👍 {post.upvotes}</span>
                               <span className="text-gray-400">👎 0</span>
                               <span>댓글 {post.comment_count}</span>
                               <span className="flex items-center gap-1">

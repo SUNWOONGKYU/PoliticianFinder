@@ -64,12 +64,13 @@ export async function GET(
     // Count posts by this politician
     const { data: posts, error: postsError } = await supabase
       .from("posts")
-      .select("like_count")
+      .select("upvotes, downvotes")
       .eq("user_id", id)
       .eq("author_type", "politician");
 
     const postCount = posts?.length || 0;
-    const likeCount = posts?.reduce((sum, post) => sum + (post.like_count || 0), 0) || 0;
+    const upvoteCount = posts?.reduce((sum, post) => sum + (post.upvotes || 0), 0) || 0;
+    const downvoteCount = posts?.reduce((sum, post) => sum + (post.downvotes || 0), 0) || 0;
 
     // Count posts where this politician is tagged (회원 자유게시판에서만 - 정치인이 쓴 글 제외)
     const { count: taggedCount } = await supabase
@@ -94,7 +95,8 @@ export async function GET(
     // P3F4: Map fields using fieldMapper (snake_case → camelCase)
     const mappedData = mapPoliticianFields(politician, {
       postCount,
-      likeCount,
+      upvoteCount,
+      downvoteCount,
       taggedCount: taggedCount || 0,
     });
 
