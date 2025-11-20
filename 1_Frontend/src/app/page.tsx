@@ -584,51 +584,19 @@ export default function Home() {
                   <table className="w-full text-xs">
                     <thead className="bg-gray-100 border-b-2 border-primary-500">
                       <tr>
-                        <th className="px-2 py-3 text-center font-bold text-gray-900">순위</th>
-                        <th className="px-3 py-3 text-left font-bold text-gray-900">이름</th>
-                        <th className="px-2 py-3 text-left font-bold text-gray-900">신분</th>
-                        <th className="px-2 py-3 text-left font-bold text-gray-900">직책</th>
-                        <th className="px-2 py-3 text-left font-bold text-gray-900">출마직종</th>
-                        <th className="px-2 py-3 text-left font-bold text-gray-900">정당/지역</th>
-                        <th className="px-2 py-3 text-center font-bold text-gray-900">
-                          종합평점
-                          <br />
-                          (평가등급)
-                        </th>
-                        <th className="px-2 py-3 text-center">
-                          <div className="flex flex-col items-center gap-1">
-                            <img
-                              src={aiLogos.claude}
-                              alt="Claude"
-                              className="h-6 w-6 object-contain rounded"
-                            />
-                            <span className="text-xs font-medium text-gray-900">Claude</span>
-                          </div>
-                        </th>
-                        <th className="px-2 py-3 text-center">
-                          <div className="flex flex-col items-center gap-1">
-                            <img
-                              src={aiLogos.chatgpt}
-                              alt="ChatGPT"
-                              className="h-6 w-6 object-contain"
-                            />
-                            <span className="text-xs font-medium text-gray-900">ChatGPT</span>
-                          </div>
-                        </th>
-                        <th className="px-2 py-3 text-center">
-                          <div className="flex flex-col items-center gap-1">
-                            <img
-                              src={aiLogos.grok}
-                              alt="Grok"
-                              className="h-6 w-6 object-contain"
-                            />
-                            <span className="text-xs font-medium text-gray-900">Grok</span>
-                          </div>
-                        </th>
-                        <th className="px-2 py-3 text-center">
-                          <div className="font-bold text-gray-900">회원평점</div>
-                          <div className="text-gray-900 text-xs">(참여자수)</div>
-                        </th>
+                        <th className="px-2 py-3 text-center font-bold text-gray-900 w-12">순위</th>
+                        <th className="px-3 py-3 text-left font-bold text-gray-900 w-24">이름</th>
+                        <th className="px-2 py-3 text-left font-bold text-gray-900 w-16">신분</th>
+                        <th className="px-2 py-3 text-left font-bold text-gray-900 w-28">직책</th>
+                        <th className="px-2 py-3 text-left font-bold text-gray-900 w-24">출마직종</th>
+                        <th className="px-2 py-3 text-left font-bold text-gray-900 w-24">정당</th>
+                        <th className="px-2 py-3 text-left font-bold text-gray-900 w-28">지역</th>
+                        <th className="px-2 py-3 text-center font-bold text-gray-900 w-24">평가등급</th>
+                        <th className="px-2 py-3 text-center font-bold text-gray-900 w-20">종합평점</th>
+                        <th className="px-2 py-3 text-center font-bold text-gray-900 w-16">Claude</th>
+                        <th className="px-2 py-3 text-center font-bold text-gray-900 w-16">ChatGPT</th>
+                        <th className="px-2 py-3 text-center font-bold text-gray-900 w-16">Grok</th>
+                        <th className="px-2 py-3 text-center font-bold text-gray-900 w-32">회원평점 (참여자수)</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-200">
@@ -651,16 +619,12 @@ export default function Home() {
                             {p.title || '-'}
                           </td>
                           <td className="px-2 py-3 text-gray-600 text-xs">{p.office}</td>
-                          <td className="px-2 py-3 text-gray-600">
-                            <div className="font-medium">{p.party}</div>
-                            <div className="text-xs">{p.region}</div>
+                          <td className="px-2 py-3 text-gray-600 text-xs">{p.party}</td>
+                          <td className="px-2 py-3 text-gray-600 text-xs">{p.region}</td>
+                          <td className="px-2 py-3 text-center text-xs font-semibold text-accent-600">
+                            {p.gradeEmoji} {p.grade}
                           </td>
-                          <td className="px-2 py-3 text-center">
-                            <div className="font-bold text-accent-600">{p.totalScore}</div>
-                            <div className="text-xs font-semibold text-accent-600 mt-0.5">
-                              {p.gradeEmoji} {p.grade}
-                            </div>
-                          </td>
+                          <td className="px-2 py-3 text-center font-bold text-accent-600">{p.totalScore}</td>
                           <td className="px-2 py-3 text-center font-bold text-accent-600">
                             {p.claude}
                           </td>
@@ -670,9 +634,9 @@ export default function Home() {
                           <td className="px-2 py-3 text-center font-bold text-accent-600">
                             {p.grok}
                           </td>
-                          <td className="px-2 py-3 text-center">
-                            <div className="font-bold text-secondary-600">{p.userRating}</div>
-                            <div className="text-gray-900 text-xs">({p.userCount}명)</div>
+                          <td className="px-2 py-3 text-center text-xs">
+                            <span className="font-bold text-secondary-600">{p.userRating}</span>{' '}
+                            <span className="text-gray-900">({p.userCount}명)</span>
                           </td>
                         </tr>
                       ))}
