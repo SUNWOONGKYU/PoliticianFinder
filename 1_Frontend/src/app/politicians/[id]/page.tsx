@@ -70,18 +70,16 @@ const SAMPLE_POLITICIAN: Politician = {
 const AI_SCORES = [
   { name: 'Claude', score: 970, color: '#f97316' },
   { name: 'ChatGPT', score: 950, color: '#00a67e' },
-  { name: 'Gemini', score: 930, color: '#4285f4' },
   { name: 'Grok', score: 960, color: '#000000' },
-  { name: 'Perplexity', score: 940, color: '#8b5cf6' },
 ];
 
 const CHART_DATA = [
-  { month: '2024-08', total: 867, claude: 880, chatgpt: 870, gemini: 850, grok: 875, perplexity: 860 },
-  { month: '2024-09', total: 878, claude: 895, chatgpt: 880, gemini: 860, grok: 885, perplexity: 870 },
-  { month: '2024-10', total: 882, claude: 900, chatgpt: 885, gemini: 865, grok: 890, perplexity: 875 },
-  { month: '2024-11', total: 890, claude: 910, chatgpt: 890, gemini: 870, grok: 900, perplexity: 880 },
-  { month: '2024-12', total: 894, claude: 915, chatgpt: 895, gemini: 875, grok: 905, perplexity: 885 },
-  { month: '2025-01', total: 950, claude: 970, chatgpt: 950, gemini: 930, grok: 960, perplexity: 940 },
+  { month: '2024-08', total: 867, claude: 880, chatgpt: 870, grok: 875 },
+  { month: '2024-09', total: 878, claude: 895, chatgpt: 880, grok: 885 },
+  { month: '2024-10', total: 882, claude: 900, chatgpt: 885, grok: 890 },
+  { month: '2024-11', total: 890, claude: 910, chatgpt: 890, grok: 900 },
+  { month: '2024-12', total: 894, claude: 915, chatgpt: 895, grok: 905 },
+  { month: '2025-01', total: 950, claude: 970, chatgpt: 950, grok: 960 },
 ];
 
 const CATEGORY_SCORES = [
@@ -288,16 +286,14 @@ export default function PoliticianDetailPage() {
                   <Line type="monotone" dataKey="total" stroke="#dc2626" strokeWidth={3} name="종합평점" />
                   <Line type="monotone" dataKey="claude" stroke="#f97316" strokeWidth={2} name="Claude" />
                   <Line type="monotone" dataKey="chatgpt" stroke="#00a67e" strokeWidth={2} name="ChatGPT" />
-                  <Line type="monotone" dataKey="gemini" stroke="#4285f4" strokeWidth={2} name="Gemini" />
                   <Line type="monotone" dataKey="grok" stroke="#000000" strokeWidth={2} name="Grok" />
-                  <Line type="monotone" dataKey="perplexity" stroke="#8b5cf6" strokeWidth={2} name="Perplexity" />
                 </LineChart>
               </ResponsiveContainer>
             </div>
           </div>
 
           {/* AI별 현재 점수 및 평가내역보기 버튼 */}
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-4 mb-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
             {AI_SCORES.map((ai) => (
               <div key={ai.name} className="bg-gray-50 rounded-lg p-4">
                 <div className="flex flex-col items-center gap-2 mb-3">

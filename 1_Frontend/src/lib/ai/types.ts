@@ -2,9 +2,9 @@
 // AI Evaluation Types
 
 /**
- * AI Model Identifiers
+ * AI Model Identifiers (3 models: Claude, ChatGPT, Grok)
  */
-export type AIModel = 'claude' | 'chatgpt' | 'gemini' | 'grok' | 'perplexity';
+export type AIModel = 'claude' | 'chatgpt' | 'grok';
 
 /**
  * Evaluation Criteria Names (10 criteria)
