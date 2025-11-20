@@ -214,7 +214,7 @@ export async function POST(request: NextRequest) {
     const { data: userProfile } = await supabase
       .from('users')
       .select('*')
-      .eq('id', authData.user.id)
+      .eq('user_id', authData.user.id)
       .single();
 
     // 9-1. If no profile in users table, create one from auth.users data
@@ -222,16 +222,21 @@ export async function POST(request: NextRequest) {
       console.log('[로그인 API] users 테이블에 프로필 없음, 생성 시도:', authData.user.id);
 
       const adminClient = createClient();
-      const { data: newProfile, error: insertError } = await adminClient
+      const { data: newProfile, error: insertError} = await adminClient
         .from('users')
         .insert({
-          id: authData.user.id,
+          user_id: authData.user.id,
           email: authData.user.email,
+          nickname: authData.user.user_metadata?.name || authData.user.email?.split('@')[0] || 'User',
           name: authData.user.user_metadata?.name || authData.user.email?.split('@')[0] || 'User',
           role: 'user',
           points: 0,
           level: 1,
           is_banned: false,
+          is_active: true,
+          terms_agreed: true,
+          privacy_agreed: true,
+          marketing_agreed: false,
           created_at: new Date().toISOString(),
           updated_at: new Date().toISOString(),
         } as any)

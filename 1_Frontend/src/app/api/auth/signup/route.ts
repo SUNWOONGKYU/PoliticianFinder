@@ -297,18 +297,23 @@ export async function POST(request: NextRequest) {
     }
 
     // 11. Create user profile in users table (CRITICAL - must succeed)
-    // Fix: users 테이블의 실제 컬럼명 'id' 사용 (Google OAuth callback과 일치)
+    // Fix: users 테이블의 실제 컬럼명 'user_id' 사용
     const adminClient = createAdminClient();
     const { data: profileData, error: profileError } = await adminClient
       .from('users')
       .insert({
-        id: authData.user.id, // users 테이블의 PK는 'id'
+        user_id: authData.user.id, // users 테이블의 PK는 'user_id'
         email: data.email,
-        name: data.nickname, // name 컬럼 사용 (nickname 컬럼 없음)
+        nickname: data.nickname, // nickname 컬럼 사용
+        name: data.nickname, // name 컬럼에도 저장
         role: 'user',
         points: 0,
         level: 1,
         is_banned: false,
+        is_active: true,
+        terms_agreed: true,
+        privacy_agreed: true,
+        marketing_agreed: data.marketing_agreed || false,
         created_at: new Date().toISOString(),
         updated_at: new Date().toISOString(),
       } as any) // TypeScript 타입 체크 우회 (database.types.ts에 users 테이블 타입 미정의)
