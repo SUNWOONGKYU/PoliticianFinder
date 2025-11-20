@@ -596,7 +596,7 @@ export default function Home() {
                         <th className="px-2 py-3 text-center font-bold text-gray-900 w-16">Claude</th>
                         <th className="px-2 py-3 text-center font-bold text-gray-900 w-16">ChatGPT</th>
                         <th className="px-2 py-3 text-center font-bold text-gray-900 w-16">Grok</th>
-                        <th className="px-2 py-3 text-center font-bold text-gray-900 w-32">회원평점 (참여자수)</th>
+                        <th className="px-2 py-3 text-center font-bold text-gray-900 w-20">회원평점</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-200">
@@ -635,8 +635,7 @@ export default function Home() {
                             {p.grok}
                           </td>
                           <td className="px-2 py-3 text-center text-xs">
-                            <span className="font-bold text-secondary-600">{p.userRating}</span>{' '}
-                            <span className="text-gray-900">({p.userCount}명)</span>
+                            <span className="font-bold text-secondary-600">{p.userRating}</span>
                           </td>
                         </tr>
                       ))}
