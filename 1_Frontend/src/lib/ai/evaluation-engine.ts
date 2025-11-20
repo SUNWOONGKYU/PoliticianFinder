@@ -1,5 +1,5 @@
 // Task ID: P4BA14
-// AI Evaluation Engine - Orchestrates all 5 AI models
+// AI Evaluation Engine - Orchestrates 3 AI models (Claude, ChatGPT, Grok)
 
 import { createClient } from '@/lib/supabase/server';
 import {
@@ -12,9 +12,7 @@ import {
 import { generateEvaluationPrompt, validateEvaluationResponse } from './prompts/evaluation-prompt';
 import { OpenAIEvaluationClient } from './clients/openai-client';
 import { AnthropicEvaluationClient } from './clients/anthropic-client';
-import { GoogleEvaluationClient } from './clients/google-client';
 import { XAIEvaluationClient } from './clients/xai-client';
-import { PerplexityEvaluationClient } from './clients/perplexity-client';
 
 /**
  * Default retry configuration
@@ -27,24 +25,20 @@ const DEFAULT_RETRY_CONFIG: RetryConfig = {
 
 /**
  * AI Evaluation Engine
- * Coordinates evaluation generation across 5 AI models
+ * Coordinates evaluation generation across 3 AI models (Claude, ChatGPT, Grok)
  */
 export class EvaluationEngine {
   private clients: {
     chatgpt: OpenAIEvaluationClient;
     claude: AnthropicEvaluationClient;
-    gemini: GoogleEvaluationClient;
     grok: XAIEvaluationClient;
-    perplexity: PerplexityEvaluationClient;
   };
 
   constructor() {
     this.clients = {
       chatgpt: new OpenAIEvaluationClient(),
       claude: new AnthropicEvaluationClient(),
-      gemini: new GoogleEvaluationClient(),
       grok: new XAIEvaluationClient(),
-      perplexity: new PerplexityEvaluationClient(),
     };
   }
 
@@ -172,7 +166,7 @@ export class EvaluationEngine {
   }
 
   /**
-   * Generate evaluations from all 5 AI models in parallel
+   * Generate evaluations from all 3 AI models in parallel
    */
   async generateAllEvaluations(
     politicianId: string
@@ -186,8 +180,8 @@ export class EvaluationEngine {
     // 2. Generate prompt
     const prompt = generateEvaluationPrompt(politician);
 
-    // 3. Call all 5 AI models in parallel
-    const models: AIModel[] = ['chatgpt', 'claude', 'gemini', 'grok', 'perplexity'];
+    // 3. Call all 3 AI models in parallel
+    const models: AIModel[] = ['chatgpt', 'claude', 'grok'];
 
     const results = await Promise.allSettled(
       models.map((model) => this.generateWithRetry(model, prompt))
@@ -310,7 +304,7 @@ export class EvaluationEngine {
   }
 
   /**
-   * Generate and save evaluations for all 5 AI models
+   * Generate and save evaluations for all 3 AI models
    */
   async generateAndSaveAll(
     politicianId: string

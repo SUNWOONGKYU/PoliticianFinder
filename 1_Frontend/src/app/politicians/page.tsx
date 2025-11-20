@@ -12,9 +12,7 @@ interface Politician extends PoliticianListItem {
   district: string;
   overallScore: number;
   chatgptScore: number;
-  geminiScore: number;
   grokScore: number;
-  perplexityScore: number;
   memberRating: number;
   memberCount: number;
 }
@@ -145,9 +143,7 @@ export default function PoliticiansPage() {
               gradeEmoji: p.gradeEmoji || '💚',
               overallScore: p.totalScore || 0,
               chatgptScore: p.totalScore || 0,
-              geminiScore: p.totalScore || 0,
               grokScore: p.totalScore || 0,
-              perplexityScore: p.totalScore || 0,
               userRating: p.userRating || 0,
               ratingCount: p.ratingCount || 0,
               memberRating: p.userRating || 0,
@@ -372,17 +368,7 @@ export default function PoliticiansPage() {
                   </th>
                   <th className="px-2 py-3 text-center">
                     <div className="flex flex-col items-center gap-1">
-                      <span className="text-xs font-medium text-gray-900">Gemini</span>
-                    </div>
-                  </th>
-                  <th className="px-2 py-3 text-center">
-                    <div className="flex flex-col items-center gap-1">
                       <span className="text-xs font-medium text-gray-900">Grok</span>
-                    </div>
-                  </th>
-                  <th className="px-2 py-3 text-center">
-                    <div className="flex flex-col items-center gap-1">
-                      <span className="text-xs font-medium text-gray-900">Perplexity</span>
                     </div>
                   </th>
                   <th className="px-2 py-3 text-center font-bold text-gray-900">회원평점 (참여자수)</th>
@@ -418,9 +404,7 @@ export default function PoliticiansPage() {
                     <td className="px-2 py-3 text-center font-bold text-accent-600">{p.overallScore}</td>
                     <td className="px-2 py-3 text-center font-bold text-accent-600">{p.claudeScore}</td>
                     <td className="px-2 py-3 text-center font-bold text-accent-600">{p.chatgptScore}</td>
-                    <td className="px-2 py-3 text-center font-bold text-accent-600">{p.geminiScore}</td>
                     <td className="px-2 py-3 text-center font-bold text-accent-600">{p.grokScore}</td>
-                    <td className="px-2 py-3 text-center font-bold text-accent-600">{p.perplexityScore}</td>
                     <td className="px-2 py-3 text-center text-xs">
                       <span className="font-bold text-secondary-600">
                         {'★'.repeat(p.memberRating)}
@@ -478,16 +462,8 @@ export default function PoliticiansPage() {
                     <span className="font-bold text-accent-600">{p.chatgptScore}</span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-gray-600 text-xs">Gemini</span>
-                    <span className="font-bold text-accent-600">{p.geminiScore}</span>
-                  </div>
-                  <div className="flex justify-between items-center">
                     <span className="text-gray-600 text-xs">Grok</span>
                     <span className="font-bold text-accent-600">{p.grokScore}</span>
-                  </div>
-                  <div className="flex justify-between items-center col-span-2">
-                    <span className="text-gray-600 text-xs">Perplexity</span>
-                    <span className="font-bold text-accent-600">{p.perplexityScore}</span>
                   </div>
                 </div>
 

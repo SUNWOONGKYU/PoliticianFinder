@@ -641,6 +641,52 @@ mv YYYY-MM-DD.md archive/
 
 ---
 
+## 2025-11-20 13:00
+
+### 작업: P3BA28 알림 배지 하드코딩 제거 Project Grid 업데이트 완료 ✅
+
+**작업 배경**:
+- P3BA28 (알림 시스템 API 연동) 작업의 수정 내역을 Project Grid에 기록
+- JSON 파일만 생성하고 Supabase DB 업데이트 누락 → 완료
+
+**수행 작업**:
+
+1. **update_P3BA28_notification_badge_fix.json 기반 DB 업데이트**:
+   ```python
+   # update_p3ba28.py 스크립트 생성
+   - dotenv 패턴 사용 (.env.local 로드)
+   - modification_history 추가
+   - 작업 내용 상세 기록
+   ```
+
+2. **Supabase DB 업데이트 실행**:
+   ```bash
+   python update_p3ba28.py
+   ```
+
+3. **업데이트 내용**:
+   - status: 완료
+   - progress: 100%
+   - duration: 55분
+   - generated_files: header.tsx (수정)
+   - modification_history: 알림 배지 하드코딩 제거, send-email-hook 삭제
+   - test_history: Build ✅ | Type ✅ | Deploy ✅ | Badge Dynamic ✅
+   - build_result: ✅ 성공
+   - validation_result: Complete
+
+**검증 결과**: ✅ P3BA28 Supabase DB 업데이트 완료
+- Task: P3BA28 - 알림 시스템 연동
+- Status: 완료
+- Progress: 100%
+- Duration: 55분
+
+**교훈**:
+- JSON 파일 생성 후 반드시 Supabase DB 업데이트 필수
+- 기존 스크립트 패턴 활용 (insert_nov11_posts.py)
+- modification_history로 변경 이력 추적
+
+---
+
 ## 2025-11-19 23:00
 
 ### 작업: like_count 컬럼 제거 및 upvotes/downvotes 시스템 전환 완료 ✅

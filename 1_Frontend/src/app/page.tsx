@@ -20,9 +20,7 @@ interface Politician {
   gradeEmoji: string;
   claude: number;
   chatgpt: number;
-  gemini: number;
   grok: number;
-  perplexity: number;
   userRating: string;
   userCount: number;
 }
@@ -117,9 +115,7 @@ export default function Home() {
               gradeEmoji: p.gradeEmoji || getGradeEmoji(p.grade || calculateGrade(aiScore)),
               claude: aiScore,
               chatgpt: aiScore,
-              gemini: aiScore,
               grok: aiScore,
-              perplexity: aiScore,
               userRating: '★'.repeat(Math.round(p.userRating || 0)) + '☆'.repeat(5 - Math.round(p.userRating || 0)),
               userCount: p.ratingCount || 0,
             };
@@ -313,9 +309,7 @@ export default function Home() {
       gradeEmoji: '🌺',
       claude: 920,
       chatgpt: 900,
-      gemini: 880,
       grok: 910,
-      perplexity: 890,
       userRating: '★★★★★',
       userCount: 234,
     },
@@ -334,9 +328,7 @@ export default function Home() {
       gradeEmoji: '💎',
       claude: 900,
       chatgpt: 890,
-      gemini: 870,
       grok: 900,
-      perplexity: 880,
       userRating: '★★★★☆',
       userCount: 189,
     },
@@ -355,9 +347,7 @@ export default function Home() {
       gradeEmoji: '💎',
       claude: 880,
       chatgpt: 870,
-      gemini: 860,
       grok: 880,
-      perplexity: 860,
       userRating: '★★★★☆',
       userCount: 156,
     },
@@ -376,9 +366,7 @@ export default function Home() {
       gradeEmoji: '💚',
       claude: 860,
       chatgpt: 850,
-      gemini: 840,
       grok: 860,
-      perplexity: 840,
       userRating: '★★★★☆',
       userCount: 143,
     },
@@ -397,9 +385,7 @@ export default function Home() {
       gradeEmoji: '💚',
       claude: 850,
       chatgpt: 840,
-      gemini: 830,
       grok: 850,
-      perplexity: 830,
       userRating: '★★★★☆',
       userCount: 128,
     },
@@ -418,9 +404,7 @@ export default function Home() {
       gradeEmoji: '💚',
       claude: 840,
       chatgpt: 830,
-      gemini: 820,
       grok: 840,
-      perplexity: 820,
       userRating: '★★★★☆',
       userCount: 115,
     },
@@ -439,9 +423,7 @@ export default function Home() {
       gradeEmoji: '💚',
       claude: 830,
       chatgpt: 820,
-      gemini: 810,
       grok: 830,
-      perplexity: 810,
       userRating: '★★★☆☆',
       userCount: 102,
     },
@@ -460,9 +442,7 @@ export default function Home() {
       gradeEmoji: '💚',
       claude: 820,
       chatgpt: 810,
-      gemini: 800,
       grok: 820,
-      perplexity: 800,
       userRating: '★★★☆☆',
       userCount: 95,
     },
@@ -481,9 +461,7 @@ export default function Home() {
       gradeEmoji: '💚',
       claude: 810,
       chatgpt: 800,
-      gemini: 790,
       grok: 810,
-      perplexity: 790,
       userRating: '★★★☆☆',
       userCount: 87,
     },
@@ -502,9 +480,7 @@ export default function Home() {
       gradeEmoji: '💚',
       claude: 800,
       chatgpt: 790,
-      gemini: 780,
       grok: 800,
-      perplexity: 780,
       userRating: '★★★☆☆',
       userCount: 76,
     },
@@ -514,9 +490,7 @@ export default function Home() {
   const aiLogos = {
     claude: 'https://cdn.brandfetch.io/idW5s392j1/w/338/h/338/theme/dark/icon.png?c=1bxid64Mup7aczewSAYMX&t=1738315794862',
     chatgpt: 'https://cdn.brandfetch.io/idR3duQxYl/theme/dark/symbol.svg?c=1bxid64Mup7aczewSAYMX',
-    gemini: 'https://cdn.simpleicons.org/googlegemini/4285F4',
     grok: 'https://cdn.simpleicons.org/x/000000',
-    perplexity: 'https://cdn.simpleicons.org/perplexity/1FB8CD',
   };
 
   const handleSearch = () => {
@@ -612,7 +586,8 @@ export default function Home() {
                       <tr>
                         <th className="px-2 py-3 text-center font-bold text-gray-900">순위</th>
                         <th className="px-3 py-3 text-left font-bold text-gray-900">이름</th>
-                        <th className="px-2 py-3 text-left font-bold text-gray-900">신분/직책</th>
+                        <th className="px-2 py-3 text-left font-bold text-gray-900">신분</th>
+                        <th className="px-2 py-3 text-left font-bold text-gray-900">직책</th>
                         <th className="px-2 py-3 text-left font-bold text-gray-900">출마직종</th>
                         <th className="px-2 py-3 text-left font-bold text-gray-900">정당/지역</th>
                         <th className="px-2 py-3 text-center font-bold text-gray-900">
@@ -643,27 +618,11 @@ export default function Home() {
                         <th className="px-2 py-3 text-center">
                           <div className="flex flex-col items-center gap-1">
                             <img
-                              src={aiLogos.gemini}
-                              alt="Gemini"
+                              src={aiLogos.grok}
+                              alt="Grok"
                               className="h-6 w-6 object-contain"
                             />
-                            <span className="text-xs font-medium text-gray-900">Gemini</span>
-                          </div>
-                        </th>
-                        <th className="px-2 py-3 text-center">
-                          <div className="flex flex-col items-center gap-1">
-                            <img src={aiLogos.grok} alt="Grok" className="h-6 w-6 object-contain" />
                             <span className="text-xs font-medium text-gray-900">Grok</span>
-                          </div>
-                        </th>
-                        <th className="px-2 py-3 text-center">
-                          <div className="flex flex-col items-center gap-1">
-                            <img
-                              src={aiLogos.perplexity}
-                              alt="Perplexity"
-                              className="h-6 w-6 object-contain"
-                            />
-                            <span className="text-xs font-medium text-gray-900">Perplexity</span>
                           </div>
                         </th>
                         <th className="px-2 py-3 text-center">
@@ -685,9 +644,11 @@ export default function Home() {
                               </span>
                             </Link>
                           </td>
-                          <td className="px-2 py-3 text-gray-600">
-                            <div className="font-medium">{p.identity}</div>
-                            <div className="text-xs">{p.title || '-'}</div>
+                          <td className="px-2 py-3 text-gray-600 text-xs">
+                            {p.identity}
+                          </td>
+                          <td className="px-2 py-3 text-gray-600 text-xs">
+                            {p.title || '-'}
                           </td>
                           <td className="px-2 py-3 text-gray-600 text-xs">{p.office}</td>
                           <td className="px-2 py-3 text-gray-600">
@@ -707,13 +668,7 @@ export default function Home() {
                             {p.chatgpt}
                           </td>
                           <td className="px-2 py-3 text-center font-bold text-accent-600">
-                            {p.gemini}
-                          </td>
-                          <td className="px-2 py-3 text-center font-bold text-accent-600">
                             {p.grok}
-                          </td>
-                          <td className="px-2 py-3 text-center font-bold text-accent-600">
-                            {p.perplexity}
                           </td>
                           <td className="px-2 py-3 text-center">
                             <div className="font-bold text-secondary-600">{p.userRating}</div>
@@ -787,32 +742,10 @@ export default function Home() {
                           </span>
                         </div>
                         <div className="flex items-center gap-2">
-                          <img
-                            src={aiLogos.gemini}
-                            alt="Gemini"
-                            className="h-5 w-5 object-contain"
-                          />
-                          <span className="text-xs text-gray-900">Gemini</span>
-                          <span className="ml-auto font-bold text-accent-600">
-                            {politicians[0].gemini}
-                          </span>
-                        </div>
-                        <div className="flex items-center gap-2">
                           <img src={aiLogos.grok} alt="Grok" className="h-5 w-5 object-contain" />
                           <span className="text-xs text-gray-900">Grok</span>
                           <span className="ml-auto font-bold text-accent-600">
                             {politicians[0].grok}
-                          </span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <img
-                            src={aiLogos.perplexity}
-                            alt="Perplexity"
-                            className="h-5 w-5 object-contain"
-                          />
-                          <span className="text-xs text-gray-900">Perplexity</span>
-                          <span className="ml-auto font-bold text-accent-600">
-                            {politicians[0].perplexity}
                           </span>
                         </div>
                       </div>
@@ -881,29 +814,9 @@ export default function Home() {
                             <span className="ml-auto font-bold text-accent-600">{p.chatgpt}</span>
                           </div>
                           <div className="flex items-center gap-2">
-                            <img
-                              src={aiLogos.gemini}
-                              alt="Gemini"
-                              className="h-5 w-5 object-contain"
-                            />
-                            <span className="text-xs text-gray-900">Gemini</span>
-                            <span className="ml-auto font-bold text-accent-600">{p.gemini}</span>
-                          </div>
-                          <div className="flex items-center gap-2">
                             <img src={aiLogos.grok} alt="Grok" className="h-5 w-5 object-contain" />
                             <span className="text-xs text-gray-900">Grok</span>
                             <span className="ml-auto font-bold text-accent-600">{p.grok}</span>
-                          </div>
-                          <div className="flex items-center gap-2">
-                            <img
-                              src={aiLogos.perplexity}
-                              alt="Perplexity"
-                              className="h-5 w-5 object-contain"
-                            />
-                            <span className="text-xs text-gray-900">Perplexity</span>
-                            <span className="ml-auto font-bold text-accent-600">
-                              {p.perplexity}
-                            </span>
                           </div>
                         </div>
 

@@ -7,8 +7,8 @@ import { createClient } from "@/lib/supabase/server";
 // Force dynamic rendering for this route
 export const dynamic = 'force-dynamic';
 
-// AI 모델 타입 정의
-type AIModel = 'claude' | 'chatgpt' | 'gemini' | 'grok' | 'perplexity';
+// AI 모델 타입 정의 (3개: Claude, ChatGPT, Grok)
+type AIModel = 'claude' | 'chatgpt' | 'grok';
 
 // 요청 본문 인터페이스
 interface GenerateEvaluationRequest {
@@ -54,7 +54,7 @@ function generateMockEvaluation(evaluator: AIModel): {
   sources: string[];
 } {
   // Mock 점수 (evaluator별로 약간의 차이)
-  const baseScore = evaluator === 'claude' ? 85 : evaluator === 'chatgpt' ? 83 : evaluator === 'gemini' ? 87 : evaluator === 'grok' ? 82 : 88;
+  const baseScore = evaluator === 'claude' ? 85 : evaluator === 'chatgpt' ? 83 : 82;
 
   const criteria: EvaluationCriteria = {
     integrity_score: Math.min(100, baseScore + Math.floor(Math.random() * 10)),
@@ -155,7 +155,7 @@ export async function POST(request: NextRequest) {
     }
 
     // AI 모델 검증
-    const validModels: AIModel[] = ['claude', 'chatgpt', 'gemini', 'grok', 'perplexity'];
+    const validModels: AIModel[] = ['claude', 'chatgpt', 'grok'];
     if (!validModels.includes(evaluator)) {
       return NextResponse.json(
         {

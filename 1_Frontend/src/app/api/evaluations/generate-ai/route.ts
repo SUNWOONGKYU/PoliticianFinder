@@ -1,5 +1,5 @@
 // Task ID: P4BA14
-// POST /api/evaluations/generate-ai - Generate AI evaluations from all 5 models
+// POST /api/evaluations/generate-ai - Generate AI evaluations from 3 AI models
 
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
@@ -13,16 +13,16 @@ export const dynamic = 'force-dynamic';
  */
 interface GenerateAIEvaluationRequest {
   politician_id: string;
-  models?: ('claude' | 'chatgpt' | 'gemini' | 'grok' | 'perplexity')[];
+  models?: ('claude' | 'chatgpt' | 'grok')[];
 }
 
 /**
  * POST /api/evaluations/generate-ai
- * Generate AI evaluations for a politician using all 5 AI models
+ * Generate AI evaluations for a politician using 3 AI models
  *
  * Request body:
  * - politician_id: string (required)
- * - models?: string[] (optional, defaults to all 5 models)
+ * - models?: string[] (optional, defaults to all 3 models)
  *
  * Response:
  * - success: boolean
@@ -153,8 +153,8 @@ export async function GET(request: NextRequest) {
       success: true,
       endpoint: '/api/evaluations/generate-ai',
       methods: ['POST'],
-      description: 'Generate AI evaluations using 5 different AI models',
-      models: ['claude', 'chatgpt', 'gemini', 'grok', 'perplexity'],
+      description: 'Generate AI evaluations using 3 AI models (Claude, ChatGPT, Grok)',
+      models: ['claude', 'chatgpt', 'grok'],
       configuration: {
         max_retries: 3,
         retry_delay_ms: 2000,
@@ -162,14 +162,12 @@ export async function GET(request: NextRequest) {
       },
       request_format: {
         politician_id: 'string (required)',
-        models: 'string[] (optional, defaults to all 5)',
+        models: 'string[] (optional, defaults to all 3)',
       },
       api_keys_configured: {
         openai: !!process.env.OPENAI_API_KEY,
         anthropic: !!process.env.ANTHROPIC_API_KEY,
-        google: !!process.env.GOOGLE_AI_API_KEY,
         xai: !!process.env.XAI_API_KEY,
-        perplexity: !!process.env.PERPLEXITY_API_KEY,
       },
     });
   } catch (error) {
