@@ -19,7 +19,8 @@
       "Bash(vercel deploy:*)",
       "Bash(python populate_all_tables.py:*)",
       "Bash(python -c:*)",
-      "Bash(python check_politician_duplicates.py:*)"
+      "Bash(python check_politician_duplicates.py:*)",
+      "Bash(python:*)"
     ],
     "deny": [],
     "ask": []
