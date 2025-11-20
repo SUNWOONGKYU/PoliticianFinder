@@ -347,31 +347,19 @@ export default function PoliticiansPage() {
             <table className="w-full text-xs">
               <thead className="bg-gray-100 border-b-2 border-primary-500">
                 <tr>
-                  <th className="px-2 py-3 text-center font-bold text-gray-900">순위</th>
-                  <th className="px-3 py-3 text-left font-bold text-gray-900">이름</th>
-                  <th className="px-2 py-3 text-left font-bold text-gray-900">신분</th>
-                  <th className="px-2 py-3 text-left font-bold text-gray-900">직책</th>
-                  <th className="px-2 py-3 text-left font-bold text-gray-900">출마직종</th>
-                  <th className="px-2 py-3 text-left font-bold text-gray-900">정당</th>
-                  <th className="px-2 py-3 text-left font-bold text-gray-900">지역</th>
-                  <th className="px-2 py-3 text-center font-bold text-gray-900">평가등급</th>
-                  <th className="px-2 py-3 text-center font-bold text-gray-900">종합평점</th>
-                  <th className="px-2 py-3 text-center">
-                    <div className="flex flex-col items-center gap-1">
-                      <span className="text-xs font-medium text-gray-900">Claude</span>
-                    </div>
-                  </th>
-                  <th className="px-2 py-3 text-center">
-                    <div className="flex flex-col items-center gap-1">
-                      <span className="text-xs font-medium text-gray-900">ChatGPT</span>
-                    </div>
-                  </th>
-                  <th className="px-2 py-3 text-center">
-                    <div className="flex flex-col items-center gap-1">
-                      <span className="text-xs font-medium text-gray-900">Grok</span>
-                    </div>
-                  </th>
-                  <th className="px-2 py-3 text-center font-bold text-gray-900">회원평점 (참여자수)</th>
+                  <th className="px-2 py-3 text-center font-bold text-gray-900 w-12">순위</th>
+                  <th className="px-3 py-3 text-left font-bold text-gray-900 w-24">이름</th>
+                  <th className="px-2 py-3 text-left font-bold text-gray-900 w-16">신분</th>
+                  <th className="px-2 py-3 text-left font-bold text-gray-900 w-28">직책</th>
+                  <th className="px-2 py-3 text-left font-bold text-gray-900 w-24">출마직종</th>
+                  <th className="px-2 py-3 text-left font-bold text-gray-900 w-24">정당</th>
+                  <th className="px-2 py-3 text-left font-bold text-gray-900 w-28">지역</th>
+                  <th className="px-2 py-3 text-center font-bold text-gray-900 w-24">평가등급</th>
+                  <th className="px-2 py-3 text-center font-bold text-gray-900 w-20">종합평점</th>
+                  <th className="px-2 py-3 text-center font-bold text-gray-900 w-16">Claude</th>
+                  <th className="px-2 py-3 text-center font-bold text-gray-900 w-16">ChatGPT</th>
+                  <th className="px-2 py-3 text-center font-bold text-gray-900 w-16">Grok</th>
+                  <th className="px-2 py-3 text-center font-bold text-gray-900 w-32">회원평점 (참여자수)</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">
