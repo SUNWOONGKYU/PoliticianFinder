@@ -210,12 +210,41 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // 9. Get user profile from users table
+    // 9. Get user profile from users table (optional - fallback to auth.users)
     const { data: userProfile } = await supabase
       .from('users')
       .select('*')
       .eq('id', authData.user.id)
       .single();
+
+    // 9-1. If no profile in users table, create one from auth.users data
+    if (!userProfile) {
+      console.log('[로그인 API] users 테이블에 프로필 없음, 생성 시도:', authData.user.id);
+
+      const adminClient = createClient();
+      const { data: newProfile, error: insertError } = await adminClient
+        .from('users')
+        .insert({
+          id: authData.user.id,
+          email: authData.user.email,
+          name: authData.user.user_metadata?.name || authData.user.email?.split('@')[0] || 'User',
+          role: 'user',
+          points: 0,
+          level: 1,
+          is_banned: false,
+          created_at: new Date().toISOString(),
+          updated_at: new Date().toISOString(),
+        } as any)
+        .select()
+        .single();
+
+      if (insertError) {
+        console.error('[로그인 API] users 테이블 프로필 생성 실패:', insertError);
+        // Continue with auth.users data only
+      } else {
+        console.log('[로그인 API] users 테이블 프로필 생성 성공');
+      }
+    }
 
     console.log('[로그인 API] 로그인 성공:', {
       id: authData.user.id,
@@ -230,7 +259,7 @@ export async function POST(request: NextRequest) {
           user: {
             id: authData.user.id,
             email: authData.user.email,
-            name: userProfile?.name || authData.user.user_metadata?.name || null,
+            name: userProfile?.name || authData.user.user_metadata?.name || authData.user.email?.split('@')[0] || 'User',
             avatar_url: userProfile?.avatar_url || null,
             role: userProfile?.role || 'user',
             is_email_verified: authData.user.email_confirmed_at !== null,
