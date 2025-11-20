@@ -182,6 +182,28 @@ export async function POST(request: NextRequest) {
     // 7. Supabase Client Connection (Real - Phase 3)
     const supabase = createClient();
 
+    // 7.5. Check for duplicate email (Supabase doesn't throw error on duplicate)
+    const { data: existingUsers, error: checkError } = await supabase.auth.admin.listUsers();
+
+    if (!checkError && existingUsers) {
+      const emailExists = existingUsers.users.some(
+        user => user.email?.toLowerCase() === data.email.toLowerCase()
+      );
+
+      if (emailExists) {
+        return NextResponse.json(
+          {
+            success: false,
+            error: {
+              code: 'EMAIL_ALREADY_EXISTS',
+              message: '이미 가입된 이메일입니다.',
+            },
+          },
+          { status: 409 }
+        );
+      }
+    }
+
     // 8. Create User with Supabase Auth (Real - Phase 3)
     // Supabase Dashboard에서 이메일 확인 비활성화됨 (SMTP 문제 우회)
     const { data: authData, error: authError } = await supabase.auth.signUp({
