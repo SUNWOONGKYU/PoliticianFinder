@@ -214,7 +214,7 @@ export async function POST(request: NextRequest) {
           name: data.nickname,
           marketing_agreed: data.marketing_agreed,
         },
-        emailRedirectTo: `${process.env.NEXT_PUBLIC_SITE_URL}/auth/callback`,
+        emailRedirectTo: 'https://www.politicianfinder.ai.kr/auth/callback',
       },
     });
 
