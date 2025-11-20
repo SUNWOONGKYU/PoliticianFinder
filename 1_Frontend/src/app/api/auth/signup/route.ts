@@ -296,7 +296,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // 11. Create user profile in users table
+    // 11. Create user profile in users table (CRITICAL - must succeed)
     // Fix: users 테이블의 실제 컬럼명 'id' 사용 (Google OAuth callback과 일치)
     const adminClient = createAdminClient();
     const { data: profileData, error: profileError } = await adminClient
@@ -315,13 +315,33 @@ export async function POST(request: NextRequest) {
       .select()
       .single();
 
-    // Handle profile creation error (non-critical - auth user already created)
+    // CRITICAL: users 테이블 삽입 실패 시 auth.users도 삭제 (롤백)
     if (profileError) {
       console.error('[회원가입 API] users 테이블 삽입 오류:', profileError);
-      // Continue - auth user is created, profile can be created later
-    } else {
-      console.log('[회원가입 API] users 테이블 삽입 성공:', profileData);
+      console.error('[회원가입 API] auth.users 롤백 시작:', authData.user.id);
+
+      // auth.users에서 사용자 삭제 (롤백)
+      try {
+        await adminClient.auth.admin.deleteUser(authData.user.id);
+        console.log('[회원가입 API] auth.users 롤백 완료');
+      } catch (deleteError) {
+        console.error('[회원가입 API] auth.users 롤백 실패:', deleteError);
+      }
+
+      return NextResponse.json(
+        {
+          success: false,
+          error: {
+            code: 'PROFILE_CREATION_FAILED',
+            message: '회원가입 처리 중 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.',
+            details: profileError.message,
+          },
+        },
+        { status: 500 }
+      );
     }
+
+    console.log('[회원가입 API] users 테이블 삽입 성공:', profileData);
 
     console.log('[회원가입 API] 사용자 생성 완료:', {
       id: authData.user.id,
