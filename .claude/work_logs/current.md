@@ -569,6 +569,78 @@ mv YYYY-MM-DD.md archive/
 
 ---
 
+## 2025-11-20 12:00
+
+### 작업: P3BA1 이메일 인증 시스템 완료 및 P3BA30 Resend 이메일 연동 완료 ✅
+
+**작업 배경**:
+- P3BA1 (회원가입 API) 이메일 인증 시스템 구축
+- P3BA30 (Resend 이메일 시스템 연동) 별도 태스크로 기록 필요
+
+**완료된 작업**:
+
+1. **P3BA1: 회원가입 API 이메일 인증 완료** ✅
+   - 이메일 링크 도메인 수정 (politicianfinder.ai.kr → www.politicianfinder.ai.kr)
+   - Supabase 이메일 템플릿 하드코딩 수정
+   - Send Email Hook 시도 및 제거 (불필요)
+   - users 테이블 user_id 컬럼명 수정
+   - auth.users ↔ users 테이블 동기화 (롤백 로직 + 자동 생성)
+   - 총 작업 시간: 645분
+
+2. **P3BA30: Resend 이메일 시스템 연동 완료** ✅
+   - Resend 도메인 추가: politicianfinder.ai.kr
+   - DNS 레코드 설정 (Whois): SPF (MX + TXT), DMARC, DKIM
+   - DKIM 인증 완료 (당일 Verified)
+   - Supabase SMTP 연동 (smtp.resend.com:587)
+   - 이메일 템플릿 www 도메인으로 수정
+   - Send Email Hook 제거 (SMTP만 사용)
+
+**생성된 파일**:
+- ✅ `0-5_Development_ProjectGrid/action/PROJECT_GRID_REVISED/grid/update_P3BA1_email_verification_complete.json`
+- ✅ `0-5_Development_ProjectGrid/action/PROJECT_GRID_REVISED/grid/create_P3BA30_resend_email_integration.json`
+- ✅ `학습용_콘텐츠/2_웹개발_지식/회원가입을_위한_이메일_인증_시스템_구축_방법.md`
+- ✅ `insert_p3ba30.py` (Supabase DB 삽입 스크립트)
+
+**수정된 파일**:
+- ✅ `1_Frontend/src/app/api/auth/signup/route.ts` (user_id 컬럼명 수정, 롤백 로직)
+- ✅ `1_Frontend/src/app/api/auth/login/route.ts` (user_id 컬럼명 수정, 자동 생성)
+- ✅ Supabase Email Templates (Dashboard에서 www 도메인 하드코딩)
+- ✅ Supabase SMTP Settings (Resend 연동)
+
+**Supabase DB 업데이트**:
+- ✅ `project_grid_tasks_revised` 테이블에 P3BA30 레코드 업데이트 완료
+
+**검증 결과**:
+- ✅ Resend DKIM: Verified
+- ✅ Supabase SMTP: Connected
+- ✅ 이메일 발송: 성공 (wksun999@gmail.com)
+- ✅ 이메일 링크: https://www.politicianfinder.ai.kr/auth/callback (정상)
+- ✅ 이메일 인증: 성공
+- ✅ 로그인: 성공
+- ✅ users 테이블 동기화: 완료
+
+**Git 커밋**:
+- 67d976f: fix: 로그인 시 users 테이블 프로필 자동 생성 추가
+- df28681: fix: 회원가입 시 users 테이블 삽입 필수화 및 롤백 로직 추가
+- e1a038f: fix: users 테이블 컬럼명을 user_id로 수정
+
+**배포**:
+- Production URL: https://www.politicianfinder.ai.kr
+- Status: ✅ 배포 완료
+- 검증: ✅ 회원가입 → 이메일 인증 → 로그인 전체 프로세스 정상 작동
+
+**교훈**:
+1. Supabase {{ .SiteURL }} 변수는 emailRedirectTo를 무시함 → 하드코딩이 가장 확실
+2. Send Email Hook은 복잡한 로직 필요 시에만 사용 → SMTP + 템플릿 수정이 간단
+3. auth.users와 users 테이블은 항상 동기화 유지 (롤백 + 자동 생성)
+4. 테이블 스키마 확인 필수 (user_id vs id)
+
+**다음 작업**:
+- Magic Link, Password Recovery 템플릿도 동일하게 수정
+- 실제 사용자 테스트 진행
+
+---
+
 ## 2025-11-19 23:00
 
 ### 작업: like_count 컬럼 제거 및 upvotes/downvotes 시스템 전환 완료 ✅
