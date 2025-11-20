@@ -568,3 +568,168 @@ mv YYYY-MM-DD.md archive/
 - 실패 시 대체 방법 검토 (다른 이메일 서비스 또는 REST API 완전 구현)
 
 ---
+
+## 2025-11-19 23:00
+
+### 작업: like_count 컬럼 제거 및 upvotes/downvotes 시스템 전환 완료 ✅
+
+**작업 배경**:
+- 사용자 질문: "웹사이트의 upvote 숫자(41개)가 데이터베이스와 일치하는가?"
+- 조사 결과: `posts` 테이블에 `like_count` 컬럼이 중복 존재
+- 이전 작업에서 `post_likes`/`comment_likes` **테이블**만 삭제, **컬럼**은 삭제하지 않음
+- 프론트엔드가 `like_count` 사용 중 → `upvotes`/`downvotes`로 전환 필요
+
+**문제 발견**:
+```
+posts 테이블:
+├── upvotes: 0 (사용 안 함)
+├── downvotes: 0 (사용 안 함)
+└── like_count: 41, 50, 49... (실제 사용 중) ← 문제!
+```
+
+**수행 작업**:
+
+1. **데이터 마이그레이션**:
+   ```python
+   # like_count → upvotes 복사
+   affected_posts = 58
+   status = "✅ 완료"
+   ```
+
+2. **데이터베이스 스키마 변경**:
+   ```sql
+   -- 사용자가 Supabase SQL Editor에서 실행
+   ALTER TABLE posts DROP COLUMN IF EXISTS like_count;
+   ```
+
+3. **프론트엔드 코드 수정** (6개 파일):
+   - `1_Frontend/src/app/community/page.tsx` (line 101-103)
+     - `like_count` → `upvotes`, `downvotes` 추가
+     - score 계산: `upvotes - downvotes`
+   
+   - `1_Frontend/src/app/posts/page.tsx` (line 52)
+     - `like_count` → `upvotes`
+   
+   - `1_Frontend/src/app/community/posts/[id]/page.tsx` (line 89-90)
+     - `downvotes` state 추가
+   
+   - `1_Frontend/src/app/community/posts/[id]/politician/page.tsx` (line 94-95)
+     - `downvotes` state 추가
+   
+   - `1_Frontend/src/app/mypage/page.tsx` (line 23-24, 245)
+     - interface 수정: `like_count` → `upvotes`, `downvotes`
+   
+   - `1_Frontend/src/app/page.tsx` (line 45-46, 192-193, 224-225, 1005, 1087)
+     - 모든 `like_count` → `upvotes` 변경
+
+4. **API 엔드포인트 수정** (4개 파일):
+   - `1_Frontend/src/app/api/votes/route.ts` (line 114-117)
+     - `increment_like_count` → `increment_post_upvotes`
+     - `increment_dislike_count` → `increment_post_downvotes`
+   
+   - `1_Frontend/src/app/api/statistics/community/route.ts` (line 88-90)
+     - 인기 게시글 정렬: `like_count` → `upvotes`
+   
+   - `1_Frontend/src/app/api/politicians/[id]/route.ts` (line 67-73, 96-100)
+     - `likeCount` → `upvoteCount`, `downvoteCount` 계산
+   
+   - `1_Frontend/src/app/api/posts/[id]/likes/route.ts` (line 98-105, 111-114)
+     - 응답 형식 변경: `{ likeCount }` → `{ upvoteCount, downvoteCount }`
+
+5. **유틸리티 수정** (1개 파일):
+   - `1_Frontend/src/utils/fieldMapper.ts` (line 35-40, 75-77)
+     - `communityStats` 타입: `likeCount` → `upvoteCount`, `downvoteCount`
+
+6. **Supabase RPC 함수 생성**:
+   ```sql
+   CREATE OR REPLACE FUNCTION increment_post_upvotes(post_id UUID) ...
+   CREATE OR REPLACE FUNCTION increment_post_downvotes(post_id UUID) ...
+   GRANT EXECUTE ON FUNCTION ... TO authenticated;
+   ```
+   - Status: ✅ 완료
+
+**빌드 & 배포**:
+```bash
+# 빌드 시도 1: mapPoliticianFields 타입 오류
+# 빌드 시도 2: votes API 타입 오류
+# 빌드 시도 3: ✅ 성공
+
+git commit -m "fix: Remove like_count column, migrate to upvotes/downvotes system"
+# Commit: deeb6f6
+git push
+# Status: ✅ 완료
+```
+
+**검증 결과**:
+- ✅ 빌드 성공 (타입 에러 0개)
+- ✅ 데이터 마이그레이션 완료 (58개 게시글)
+- ✅ RPC 함수 생성 완료
+- ✅ Git 커밋 & 푸시 완료
+- 🔄 Vercel 자동 배포 진행 중
+
+**수정된 파일 (총 11개)**:
+```
+Frontend (6):
+├── community/page.tsx
+├── posts/page.tsx
+├── community/posts/[id]/page.tsx
+├── community/posts/[id]/politician/page.tsx
+├── mypage/page.tsx
+└── page.tsx
+
+API (4):
+├── api/votes/route.ts
+├── api/statistics/community/route.ts
+├── api/politicians/[id]/route.ts
+└── api/posts/[id]/likes/route.ts
+
+Utils (1):
+└── utils/fieldMapper.ts
+```
+
+**데이터베이스 변경**:
+```
+Before:
+posts.like_count = 41, 50, 49...
+posts.upvotes = 0
+posts.downvotes = 0
+
+After:
+posts.like_count = (삭제됨)
+posts.upvotes = 41, 50, 49... (복사됨)
+posts.downvotes = 0
+```
+
+**Project Grid 업데이트**:
+- 파일 생성: `update_P3BA4_like_count_removal.json`
+- Task ID: P3BA4
+- Status: 완료 (100%)
+- ready_for_production: true
+
+**남은 작업**:
+- ⏳ Vercel 배포 완료 대기
+- ⏳ 웹사이트에서 투표 기능 실제 테스트
+- ⏳ upvote 숫자 표시 확인 (41, 50, 49... 정상 표시 예상)
+
+**배운 점**:
+1. **테이블 삭제 ≠ 컬럼 삭제**
+   - `DROP TABLE post_likes` → post_likes 테이블 삭제
+   - `ALTER TABLE posts DROP COLUMN like_count` → posts.like_count 컬럼 삭제
+   
+2. **불완전한 작업의 문제**:
+   - 처음에 테이블만 삭제하고 컬럼을 남겨둠
+   - 중복 데이터로 인한 혼란 발생
+   - 완전한 마이그레이션의 중요성
+
+3. **세션 컨텍스트 손실**:
+   - 이전 세션에서 한 작업을 모르고 "일치한다"고 잘못 보고
+   - work_log를 먼저 확인했어야 함
+   - CLAUDE.md "FIRST THINGS FIRST" 원칙 중요
+
+**다음 작업**:
+- Vercel 배포 완료 확인
+- 투표 기능 실제 테스트
+- DKIM 검증 상태 확인 (이메일 인증 관련)
+
+---
+
