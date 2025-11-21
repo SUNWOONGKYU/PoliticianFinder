@@ -62,22 +62,26 @@ CREATE POLICY IF NOT EXISTS delete_own_rating ON politician_ratings
 -- Function to update politician_details rating stats
 CREATE OR REPLACE FUNCTION update_politician_rating_stats()
 RETURNS TRIGGER AS $$
+DECLARE
+  v_avg_rating NUMERIC;
+  v_rating_count INTEGER;
 BEGIN
-  -- Update average rating and count in politician_details
-  UPDATE politician_details
-  SET
-    user_rating = (
-      SELECT ROUND(AVG(rating)::numeric, 2)
-      FROM politician_ratings
-      WHERE politician_id = NEW.politician_id
-    ),
-    rating_count = (
-      SELECT COUNT(*)
-      FROM politician_ratings
-      WHERE politician_id = NEW.politician_id
-    ),
-    updated_at = NOW()
+  -- Calculate average rating and count
+  SELECT
+    COALESCE(ROUND(AVG(rating)::numeric, 2), 0),
+    COALESCE(COUNT(*), 0)
+  INTO v_avg_rating, v_rating_count
+  FROM politician_ratings
   WHERE politician_id = NEW.politician_id;
+
+  -- UPSERT: Insert or update politician_details
+  -- This ensures the record exists even if it wasn't created beforehand
+  INSERT INTO politician_details (politician_id, user_rating, rating_count, updated_at)
+  VALUES (NEW.politician_id, v_avg_rating, v_rating_count, NOW())
+  ON CONFLICT (politician_id) DO UPDATE SET
+    user_rating = EXCLUDED.user_rating,
+    rating_count = EXCLUDED.rating_count,
+    updated_at = NOW();
 
   RETURN NEW;
 END;
@@ -98,22 +102,25 @@ EXECUTE FUNCTION update_politician_rating_stats();
 -- Trigger for DELETE
 CREATE OR REPLACE FUNCTION update_politician_rating_stats_on_delete()
 RETURNS TRIGGER AS $$
+DECLARE
+  v_avg_rating NUMERIC;
+  v_rating_count INTEGER;
 BEGIN
-  -- Update average rating and count in politician_details
-  UPDATE politician_details
-  SET
-    user_rating = COALESCE((
-      SELECT ROUND(AVG(rating)::numeric, 2)
-      FROM politician_ratings
-      WHERE politician_id = OLD.politician_id
-    ), 0),
-    rating_count = COALESCE((
-      SELECT COUNT(*)
-      FROM politician_ratings
-      WHERE politician_id = OLD.politician_id
-    ), 0),
-    updated_at = NOW()
+  -- Calculate average rating and count after deletion
+  SELECT
+    COALESCE(ROUND(AVG(rating)::numeric, 2), 0),
+    COALESCE(COUNT(*), 0)
+  INTO v_avg_rating, v_rating_count
+  FROM politician_ratings
   WHERE politician_id = OLD.politician_id;
+
+  -- UPSERT: Insert or update politician_details
+  INSERT INTO politician_details (politician_id, user_rating, rating_count, updated_at)
+  VALUES (OLD.politician_id, v_avg_rating, v_rating_count, NOW())
+  ON CONFLICT (politician_id) DO UPDATE SET
+    user_rating = EXCLUDED.user_rating,
+    rating_count = EXCLUDED.rating_count,
+    updated_at = NOW();
 
   RETURN OLD;
 END;

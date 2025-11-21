@@ -2,6 +2,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Toast from './Toast';
 
 interface FavoriteButtonProps {
   politicianId: string;
@@ -11,6 +12,7 @@ interface FavoriteButtonProps {
 export default function FavoriteButton({ politicianId, politicianName }: FavoriteButtonProps) {
   const [isFavorite, setIsFavorite] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' | 'info' } | null>(null);
 
   // 관심 등록 여부 확인
   useEffect(() => {
@@ -44,10 +46,10 @@ export default function FavoriteButton({ politicianId, politicianName }: Favorit
 
         if (response.ok) {
           setIsFavorite(false);
-          alert(`${politicianName} 님을 관심 정치인에서 제거했습니다.`);
+          setToast({ message: `${politicianName} 님을 관심 정치인에서 제거했습니다.`, type: 'success' });
         } else {
           const data = await response.json();
-          alert(data.error || '관심 취소에 실패했습니다.');
+          setToast({ message: data.error || '관심 취소에 실패했습니다.', type: 'error' });
         }
       } else {
         // 관심 등록
@@ -64,27 +66,37 @@ export default function FavoriteButton({ politicianId, politicianName }: Favorit
 
         if (response.ok) {
           setIsFavorite(true);
-          alert(`${politicianName} 님을 관심 정치인으로 등록했습니다.`);
+          setToast({ message: `${politicianName} 님을 관심 정치인으로 등록했습니다.`, type: 'success' });
         } else {
           const data = await response.json();
           if (response.status === 401) {
-            alert('로그인이 필요합니다.');
-            window.location.href = '/auth/login';
+            setToast({ message: '로그인이 필요합니다.', type: 'error' });
+            setTimeout(() => {
+              window.location.href = '/auth/login';
+            }, 2000);
           } else {
-            alert(data.error || '관심 등록에 실패했습니다.');
+            setToast({ message: data.error || '관심 등록에 실패했습니다.', type: 'error' });
           }
         }
       }
     } catch (err) {
       console.error('Error toggling favorite:', err);
-      alert('오류가 발생했습니다. 다시 시도해주세요.');
+      setToast({ message: '오류가 발생했습니다. 다시 시도해주세요.', type: 'error' });
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <button
+    <>
+      {toast && (
+        <Toast
+          message={toast.message}
+          type={toast.type}
+          onClose={() => setToast(null)}
+        />
+      )}
+      <button
       onClick={handleToggleFavorite}
       disabled={loading}
       className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition ${
@@ -114,5 +126,6 @@ export default function FavoriteButton({ politicianId, politicianName }: Favorit
         </>
       )}
     </button>
+    </>
   );
 }

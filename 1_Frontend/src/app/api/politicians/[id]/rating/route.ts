@@ -53,43 +53,30 @@ export async function POST(
       );
     }
 
-    // 해당 정치인의 평균 별점과 평가 수 계산
-    const { data: stats, error: statsError } = await supabase
-      .from('politician_ratings')
-      .select('rating')
-      .eq('politician_id', politicianId); // TEXT 타입이므로 parseInt 제거
+    // Trigger가 자동으로 평균 계산 및 업데이트하므로 중복 계산 제거
+    // 대신 업데이트된 값을 조회
+    const { data: updatedDetails, error: detailsError } = await supabase
+      .from('politician_details')
+      .select('user_rating, rating_count')
+      .eq('politician_id', politicianId)
+      .single();
 
-    if (statsError) {
-      console.error('Stats calculation error:', statsError);
-      // 평가는 저장되었으므로 성공 응답
+    if (detailsError) {
+      console.error('Details fetch error:', detailsError);
+      // 평가는 저장되었으므로 기본 응답
       return NextResponse.json({
         success: true,
+        message: '평가를 등록했습니다.',
         averageRating: rating,
         ratingCount: 1
       });
     }
 
-    const averageRating = stats.length > 0
-      ? stats.reduce((sum, r) => sum + r.rating, 0) / stats.length
-      : 0;
-    const ratingCount = stats.length;
-
-    // politician_details 테이블 업데이트 (평균 별점 및 평가 수)
-    // Note: Triggers가 자동으로 업데이트하므로 이 부분은 생략 가능
-    // 하지만 명시적으로 업데이트할 수도 있음
-    await supabase
-      .from('politician_details')
-      .update({
-        user_rating: Math.round(averageRating * 100) / 100,
-        rating_count: ratingCount,
-        updated_at: new Date().toISOString()
-      })
-      .eq('politician_id', politicianId); // TEXT 타입이므로 parseInt 제거
-
     return NextResponse.json({
       success: true,
-      averageRating: Math.round(averageRating * 10) / 10,
-      ratingCount
+      message: '평가를 등록했습니다.',
+      averageRating: Math.round(updatedDetails.user_rating * 10) / 10,
+      ratingCount: updatedDetails.rating_count
     });
 
   } catch (error) {

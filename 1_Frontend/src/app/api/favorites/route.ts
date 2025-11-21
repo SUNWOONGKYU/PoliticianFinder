@@ -34,6 +34,7 @@ export async function GET(request: NextRequest) {
 
     // 즐겨찾기 목록 조회 (정치인 정보와 조인)
     // RLS 정책으로 자동으로 user_id 필터링됨
+    // 성능 최적화: 필요한 컬럼만 선택
     const { data: favorites, error } = await supabase
       .from('favorite_politicians')
       .select(`
@@ -42,24 +43,17 @@ export async function GET(request: NextRequest) {
         notes,
         notification_enabled,
         is_pinned,
-        added_at,
-        updated_at,
+        created_at,
         politicians (
           id,
           name,
-          name_kana,
-          name_english,
-          political_party_id,
-          position_id,
-          constituency_id,
-          profile_image_url,
-          bio,
-          verified_at,
-          is_active
+          party,
+          position,
+          profile_image_url
         )
       `)
       .order('is_pinned', { ascending: false })
-      .order('added_at', { ascending: false });
+      .order('created_at', { ascending: false });
 
     if (error) {
       console.error('Supabase query error:', error);
