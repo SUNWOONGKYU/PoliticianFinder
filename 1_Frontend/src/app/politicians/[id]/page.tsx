@@ -111,6 +111,10 @@ export default function PoliticianDetailPage() {
   const [userRating, setUserRating] = useState(0);
   const [hoverRating, setHoverRating] = useState(0);
 
+  // 플로팅 버튼용 상태
+  const [isFavoriteFloating, setIsFavoriteFloating] = useState(false);
+  const [loadingFavorite, setLoadingFavorite] = useState(false);
+
   // API에서 정치인 상세 정보 가져오기
   useEffect(() => {
     const fetchPoliticianDetail = async () => {
@@ -221,6 +225,80 @@ export default function PoliticianDetailPage() {
     } catch (error) {
       console.error('Rating submit error:', error);
       alert('평가 제출 중 오류가 발생했습니다.');
+    }
+  };
+
+  // 플로팅 버튼용 관심 정치인 등록 확인
+  useEffect(() => {
+    const checkFavorite = async () => {
+      try {
+        const response = await fetch('/api/favorites');
+        if (response.ok) {
+          const data = await response.json();
+          if (data.success && data.data) {
+            const isFav = data.data.some((fav: any) => fav.politician_id === politicianId);
+            setIsFavoriteFloating(isFav);
+          }
+        }
+      } catch (err) {
+        console.error('Error checking favorite:', err);
+      }
+    };
+
+    checkFavorite();
+  }, [politicianId]);
+
+  // 플로팅 버튼용 관심 정치인 토글
+  const handleToggleFavoriteFloating = async () => {
+    setLoadingFavorite(true);
+
+    try {
+      if (isFavoriteFloating) {
+        // 관심 취소
+        const response = await fetch(`/api/favorites?politician_id=${politicianId}`, {
+          method: 'DELETE',
+        });
+
+        if (response.ok) {
+          setIsFavoriteFloating(false);
+          alert(`${politician.name} 님을 관심 정치인에서 제거했습니다.`);
+        } else {
+          const data = await response.json();
+          alert(data.error || '관심 취소에 실패했습니다.');
+        }
+      } else {
+        // 관심 등록
+        const response = await fetch('/api/favorites', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            politician_id: politicianId,
+            notification_enabled: true,
+          }),
+        });
+
+        if (response.ok) {
+          setIsFavoriteFloating(true);
+          alert(`${politician.name} 님을 관심 정치인으로 등록했습니다.`);
+        } else {
+          const data = await response.json();
+          if (response.status === 401) {
+            alert('로그인이 필요합니다.');
+            setTimeout(() => {
+              window.location.href = '/auth/login';
+            }, 1000);
+          } else {
+            alert(data.error || '관심 등록에 실패했습니다.');
+          }
+        }
+      }
+    } catch (err) {
+      console.error('Error toggling favorite:', err);
+      alert('오류가 발생했습니다. 다시 시도해주세요.');
+    } finally {
+      setLoadingFavorite(false);
     }
   };
 
@@ -825,6 +903,53 @@ export default function PoliticianDetailPage() {
           </div>
         </div>
       )}
+
+      {/* 플로팅 액션 버튼 (스크롤 시 화면 따라다님) */}
+      <div className="fixed bottom-8 right-8 flex flex-col gap-3 z-40">
+        {/* 지역 검색 버튼 */}
+        <button
+          onClick={() => window.location.href = '/politicians'}
+          className="w-14 h-14 bg-white rounded-full shadow-lg hover:shadow-xl transition flex items-center justify-center border-2 border-primary-300 group"
+          title="지역 검색"
+        >
+          <svg className="w-6 h-6 text-primary-600 group-hover:text-primary-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+        </button>
+
+        {/* 별점 평가 버튼 */}
+        <button
+          onClick={() => setShowRatingModal(true)}
+          className="w-14 h-14 bg-secondary-500 rounded-full shadow-lg hover:shadow-xl hover:bg-secondary-600 transition flex items-center justify-center group"
+          title="별점 평가"
+        >
+          <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+          </svg>
+        </button>
+
+        {/* 관심 정치인 등록 버튼 */}
+        <button
+          onClick={handleToggleFavoriteFloating}
+          disabled={loadingFavorite}
+          className={`w-14 h-14 rounded-full shadow-lg hover:shadow-xl transition flex items-center justify-center group ${
+            isFavoriteFloating
+              ? 'bg-red-500 hover:bg-red-600'
+              : 'bg-primary-500 hover:bg-primary-600'
+          } ${loadingFavorite ? 'opacity-50 cursor-not-allowed' : ''}`}
+          title={isFavoriteFloating ? '관심 정치인 취소' : '관심 정치인 등록'}
+        >
+          {isFavoriteFloating ? (
+            <svg className="w-6 h-6 text-white fill-current" viewBox="0 0 24 24">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+            </svg>
+          ) : (
+            <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+            </svg>
+          )}
+        </button>
+      </div>
     </div>
   );
 }
