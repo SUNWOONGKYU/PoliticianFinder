@@ -34,7 +34,7 @@ export async function POST(
       .from('politician_ratings')
       .insert([
         {
-          politician_id: parseInt(politicianId),
+          politician_id: politicianId, // TEXT 타입이므로 parseInt 제거
           user_id: userId,
           rating: rating,
           created_at: new Date().toISOString()
@@ -55,7 +55,7 @@ export async function POST(
     const { data: stats, error: statsError } = await supabase
       .from('politician_ratings')
       .select('rating')
-      .eq('politician_id', parseInt(politicianId));
+      .eq('politician_id', politicianId); // TEXT 타입이므로 parseInt 제거
 
     if (statsError) {
       console.error('Stats calculation error:', statsError);
@@ -82,7 +82,7 @@ export async function POST(
         rating_count: ratingCount,
         updated_at: new Date().toISOString()
       })
-      .eq('politician_id', parseInt(politicianId));
+      .eq('politician_id', politicianId); // TEXT 타입이므로 parseInt 제거
 
     return NextResponse.json({
       success: true,
