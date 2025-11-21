@@ -1,11 +1,6 @@
 // P1BA-RATING: 정치인 별점 평가 API
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@supabase/supabase-js';
-
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-);
+import { createClient } from '@/lib/supabase/server';
 
 export async function POST(
   request: NextRequest,
@@ -23,11 +18,18 @@ export async function POST(
       );
     }
 
-    // TODO: 사용자 인증 확인 (현재는 비회원도 평가 가능)
-    // const userId = getUserIdFromSession();
+    // 사용자 인증 확인
+    const supabase = createClient();
+    const { data: { user }, error: authError } = await supabase.auth.getUser();
 
-    // 임시 사용자 ID (실제로는 세션에서 가져와야 함)
-    const userId = 'anonymous-' + Date.now();
+    if (authError || !user) {
+      return NextResponse.json(
+        { error: '로그인이 필요합니다.' },
+        { status: 401 }
+      );
+    }
+
+    const userId = user.id;
 
     // 평가 데이터 삽입
     const { data: ratingData, error: insertError } = await supabase
