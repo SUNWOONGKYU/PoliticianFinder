@@ -18,6 +18,68 @@
 
 ## 작업 기록 시작
 
+## 2025-11-21 18:00
+
+### 작업: 사용자 별점 평가 기능 구현 ✅
+
+**작업 목표**:
+- 정치인 상세페이지에 사용자 별점 평가 기능 추가
+- 별점만 입력 (코멘트 없음)
+- FavoriteButton 옆에 "별점 평가" 버튼 배치
+
+**구현 내역**:
+
+1. **별점 평가 UI 추가** (`1_Frontend/src/app/politicians/[id]/page.tsx`)
+   - 라인 109-112: 별점 평가 상태 변수 추가
+     * `showRatingModal`: 모달 표시 여부
+     * `userRating`: 사용자가 선택한 별점 (1-5)
+     * `hoverRating`: 호버 시 표시할 별점
+
+   - 라인 187-215: 별점 제출 함수 구현
+     * 별점 검증 (1-5점)
+     * POST `/api/politicians/[id]/rating` 호출
+     * 평가 후 평균 별점 및 평가 수 업데이트
+
+   - 라인 251-262: "별점 평가" 버튼 추가
+     * FavoriteButton 옆에 배치
+     * secondary-600/700 (보라색) 색상 사용
+     * 별 아이콘 포함
+
+   - 라인 738-817: 별점 평가 모달 구현
+     * 5개 별 UI (클릭 및 호버 효과)
+     * 현재 선택 별점 표시
+     * 취소/평가 제출 버튼
+
+2. **별점 평가 API 엔드포인트 생성**
+   - 파일: `1_Frontend/src/app/api/politicians/[id]/rating/route.ts`
+   - POST 메서드로 별점 저장
+   - `politician_ratings` 테이블에 삽입
+   - 평균 별점 및 평가 수 계산
+   - `politician_profiles` 업데이트 (user_rating, rating_count)
+   - 임시 사용자 ID 사용 (추후 인증 연동 필요)
+
+**기술 스택**:
+- React hooks: useState
+- Tailwind CSS: 별 아이콘, 호버 효과, 모달 스타일
+- Next.js API Routes
+- Supabase: 평가 데이터 저장
+
+**Git 커밋**:
+- Commit: `6477f5a`
+- 메시지: "feat: 정치인 상세페이지에 사용자 별점 평가 기능 추가"
+- 변경: 2 files changed, 226 insertions(+)
+
+**배포**:
+- ✅ GitHub 푸시 완료
+- ✅ Vercel 자동 배포 진행 중
+
+**다음 작업 예정**:
+- 프로덕션 배포 확인
+- 별점 평가 기능 테스트
+- 다음 UI/UX 개선사항 진행
+
+---
+
 ## 2025-11-21 01:30
 
 ### 작업: 프로젝트 그리드 데이터베이스 반영 ✅
