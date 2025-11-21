@@ -27,7 +27,7 @@ COMMENT ON COLUMN politician_details.rating_count IS 'Total number of user ratin
 -- Create politician_ratings table for storing individual ratings
 CREATE TABLE IF NOT EXISTS politician_ratings (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  politician_id BIGINT NOT NULL REFERENCES politicians(id) ON DELETE CASCADE,
+  politician_id TEXT NOT NULL REFERENCES politicians(id) ON DELETE CASCADE,
   user_id UUID NOT NULL REFERENCES auth.users(id) ON DELETE CASCADE,
   rating INTEGER NOT NULL CHECK (rating >= 1 AND rating <= 5),
   created_at TIMESTAMPTZ DEFAULT NOW(),
