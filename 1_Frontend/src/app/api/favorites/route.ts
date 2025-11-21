@@ -1,11 +1,11 @@
-// P3BA2: Real API - 즐겨찾기 (User Authentication + RLS)
-// Supabase 연동: 즐겨찾기 목록 조회 및 추가/삭제
+// P3BA2: Real API - 관심 정치인 (User Authentication + RLS)
+// Supabase 연동: 관심 정치인 목록 조회 및 추가/삭제
 
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { createClient } from "@/lib/supabase/server";
 
-// 즐겨찾기 추가 스키마
+// 관심 정치인 추가 스키마
 // politician_id는 8자리 hexadecimal 문자열 (예: 'cd8c0263')
 const addFavoriteSchema = z.object({
   politician_id: z.string().length(8, "유효한 정치인 ID가 아닙니다."),
@@ -16,7 +16,7 @@ const addFavoriteSchema = z.object({
 
 /**
  * GET /api/favorites
- * 현재 사용자의 즐겨찾기 목록 조회 (RLS 적용)
+ * 현재 사용자의 관심 정치인 목록 조회 (RLS 적용)
  */
 export async function GET(request: NextRequest) {
   try {
@@ -33,7 +33,7 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    // 즐겨찾기 목록 조회 (정치인 정보와 조인)
+    // 관심 정치인 목록 조회 (정치인 정보와 조인)
     // RLS 정책으로 자동으로 user_id 필터링됨
     // 성능 최적화: 필요한 컬럼만 선택
     const { data: favorites, error } = await supabase
@@ -61,7 +61,7 @@ export async function GET(request: NextRequest) {
       return NextResponse.json(
         {
           success: false,
-          error: '즐겨찾기 목록 조회 중 오류가 발생했습니다.',
+          error: '관심 정치인 목록 조회 중 오류가 발생했습니다.',
           details: error.message
         },
         { status: 500 }
@@ -92,7 +92,7 @@ export async function GET(request: NextRequest) {
 
 /**
  * POST /api/favorites
- * 즐겨찾기 추가 (RLS 적용)
+ * 관심 정치인 추가 (RLS 적용)
  */
 export async function POST(request: NextRequest) {
   try {
@@ -138,7 +138,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json(
         {
           success: false,
-          error: '즐겨찾기 확인 중 오류가 발생했습니다.',
+          error: '관심 정치인 확인 중 오류가 발생했습니다.',
           details: existError.message
         },
         { status: 500 }
@@ -147,12 +147,12 @@ export async function POST(request: NextRequest) {
 
     if (existing) {
       return NextResponse.json(
-        { success: false, error: '이미 즐겨찾기에 추가된 정치인입니다.' },
+        { success: false, error: '이미 관심 정치인으로 등록된 정치인입니다.' },
         { status: 409 }
       );
     }
 
-    // 즐겨찾기 추가 (RLS 정책으로 user_id 자동 설정)
+    // 관심 정치인 추가 (RLS 정책으로 user_id 자동 설정)
     const { data: newFavorite, error } = await supabase
       .from('favorite_politicians')
       .insert({
@@ -179,7 +179,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json(
         {
           success: false,
-          error: '즐겨찾기 추가 중 오류가 발생했습니다.',
+          error: '관심 정치인 등록 중 오류가 발생했습니다.',
           details: error.message
         },
         { status: 500 }
@@ -189,7 +189,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json(
       {
         success: true,
-        message: '즐겨찾기에 추가되었습니다.',
+        message: '관심 정치인으로 등록되었습니다.',
         data: newFavorite,
       },
       { status: 201 }
@@ -219,7 +219,7 @@ export async function POST(request: NextRequest) {
 
 /**
  * DELETE /api/favorites?politician_id={uuid}
- * 즐겨찾기 삭제 (RLS 적용)
+ * 관심 정치인 삭제 (RLS 적용)
  */
 export async function DELETE(request: NextRequest) {
   try {
@@ -256,7 +256,7 @@ export async function DELETE(request: NextRequest) {
       );
     }
 
-    // 즐겨찾기 존재 여부 확인 (RLS 정책으로 자동 필터링)
+    // 관심 정치인 존재 여부 확인 (RLS 정책으로 자동 필터링)
     const { data: existing, error: existError } = await supabase
       .from('favorite_politicians')
       .select('id')
@@ -268,7 +268,7 @@ export async function DELETE(request: NextRequest) {
       return NextResponse.json(
         {
           success: false,
-          error: '즐겨찾기 확인 중 오류가 발생했습니다.',
+          error: '관심 정치인 확인 중 오류가 발생했습니다.',
           details: existError.message
         },
         { status: 500 }
@@ -277,12 +277,12 @@ export async function DELETE(request: NextRequest) {
 
     if (!existing) {
       return NextResponse.json(
-        { success: false, error: '즐겨찾기에서 찾을 수 없습니다.' },
+        { success: false, error: '관심 정치인 목록에서 찾을 수 없습니다.' },
         { status: 404 }
       );
     }
 
-    // 즐겨찾기 삭제 (RLS 정책으로 user_id 자동 필터링)
+    // 관심 정치인 삭제 (RLS 정책으로 user_id 자동 필터링)
     const { error: deleteError } = await supabase
       .from('favorite_politicians')
       .delete()
@@ -293,7 +293,7 @@ export async function DELETE(request: NextRequest) {
       return NextResponse.json(
         {
           success: false,
-          error: '즐겨찾기 삭제 중 오류가 발생했습니다.',
+          error: '관심 정치인 삭제 중 오류가 발생했습니다.',
           details: deleteError.message
         },
         { status: 500 }
@@ -303,7 +303,7 @@ export async function DELETE(request: NextRequest) {
     return NextResponse.json(
       {
         success: true,
-        message: '즐겨찾기에서 제거되었습니다.',
+        message: '관심 정치인 목록에서 제거되었습니다.',
         data: { politician_id },
       },
       { status: 200 }
