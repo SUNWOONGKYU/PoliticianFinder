@@ -232,10 +232,10 @@ export async function DELETE(request: NextRequest) {
       );
     }
 
-    // UUID 형식 검증
-    const uuidSchema = z.string().uuid();
+    // politician_id 형식 검증 (8자리 hexadecimal)
+    const politicianIdSchema = z.string().length(8);
     try {
-      uuidSchema.parse(politician_id);
+      politicianIdSchema.parse(politician_id);
     } catch {
       return NextResponse.json(
         { success: false, error: '유효한 politician_id 형식이 아닙니다.' },
