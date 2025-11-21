@@ -508,18 +508,13 @@ export default function Home() {
           <div className="lg:col-span-9 space-y-6">
             {/* 검색 섹션 */}
             <section className="bg-white rounded-lg shadow-lg p-3">
-              <div className="mb-2">
-                <p className="text-sm text-gray-600 text-center">
-                  정치인과 게시글을 통합 검색하세요
-                </p>
-              </div>
               <div className="space-y-4">
                 <div className="relative flex gap-2">
                   <div className="relative flex-1">
                     <input
                       type="text"
                       id="index-search-input"
-                      placeholder="정치인, 게시글을 검색해보세요"
+                      placeholder="정치인과 게시글을 통합 검색하세요"
                       className="w-full px-4 py-3 pl-12 border-2 border-primary-300 rounded-lg focus:outline-none focus:border-primary-500 text-gray-900 focus:ring-2 focus:ring-primary-200"
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
