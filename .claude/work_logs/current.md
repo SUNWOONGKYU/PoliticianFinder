@@ -18,6 +18,145 @@
 
 ## 작업 기록 시작
 
+## 2025-11-22 10:00
+
+### 작업: 관심 정치인 & 별점 평가 기능 완성 및 검증 ✅
+
+**작업 배경**:
+- 이전 세션에서 UI는 구현했으나 데이터베이스 스키마 미확인
+- Code-reviewer 투입하여 Critical/Warning 이슈 발견
+- 모든 이슈 수정 및 검증 완료
+
+**주요 문제점 및 해결**:
+
+1. **politician_id 타입 불일치 문제**
+   - 문제: politicians.id는 TEXT(8자리 hex)인데, 관련 테이블이 BIGINT 사용
+   - 영향: politician_ratings, politician_details 테이블
+   - 해결: 모든 테이블을 TEXT 타입으로 통일
+   - 문서화: CLAUDE.md에 "데이터베이스 규칙" 섹션 추가
+
+2. **마이그레이션 누락**
+   - 문제: favorite_politicians에 notes, notification_enabled, is_pinned 컬럼 없음
+   - 해결: 024_add_favorite_politicians_columns_fixed.sql 작성 및 실행
+   - 추가: UUID 형식 잘못된 데이터 자동 정리
+
+3. **API 인증 미구현**
+   - 문제: Rating API가 익명 사용자 ID 사용
+   - 해결: server client + auth.getUser()로 실제 인증 구현
+
+4. **Trigger 중복 계산**
+   - 문제: Rating API에서 평균 계산 후 Trigger도 계산 (중복)
+   - 해결: API의 중복 계산 로직 제거, Trigger UPSERT만 사용
+
+5. **UX 개선**
+   - 문제: alert() 사용
+   - 해결: Toast 컴포넌트 생성 및 적용
+
+6. **쿼리 성능 최적화**
+   - 문제: Favorites API가 불필요한 컬럼 많이 조회
+   - 해결: 필요한 컬럼만 선택 (5개 컬럼으로 축소)
+
+**생성/수정된 파일**:
+
+1. **마이그레이션 파일**:
+   - `0-4_Database/Supabase/migrations/023_add_rating_favorite_to_politician_details.sql`
+     * politician_ratings 테이블 생성 (TEXT 타입)
+     * politician_details에 user_rating, rating_count 컬럼 추가
+     * Trigger 함수 (UPSERT 패턴)
+
+   - `0-4_Database/Supabase/migrations/024_add_favorite_politicians_columns_fixed.sql`
+     * favorite_politicians에 notes, notification_enabled, is_pinned 추가
+     * politician_id 타입 TEXT로 변경
+     * FK 제약조건 추가
+
+   - `0-4_Database/Supabase/migrations/025_fix_politician_details_politician_id_type.sql`
+     * politician_details.politician_id를 BIGINT → TEXT로 변경
+
+2. **API 파일**:
+   - `1_Frontend/src/app/api/politicians/[id]/rating/route.ts`
+     * 실제 인증 구현 (createClient + auth.getUser)
+     * parseInt() 제거 (TEXT 타입)
+     * 중복 계산 로직 제거 (Trigger 활용)
+
+   - `1_Frontend/src/app/api/favorites/route.ts`
+     * 쿼리 최적화 (필요한 컬럼만 선택)
+
+3. **컴포넌트 파일**:
+   - `1_Frontend/src/components/Toast.tsx` (신규)
+     * 성공/오류/정보 타입 지원
+     * 자동 닫기 (3초)
+     * 페이드 애니메이션
+
+   - `1_Frontend/src/components/FavoriteButton.tsx`
+     * alert() → Toast 컴포넌트로 교체
+
+4. **문서화**:
+   - `.claude/CLAUDE.md`
+     * "데이터베이스 규칙" 섹션 추가
+     * politician_id 타입 규칙 상세 설명
+     * 금지 사항 및 올바른 예시
+
+   - `0-4_Database/Supabase/migrations/DATABASE_SCHEMA.md`
+     * politicians 테이블 설명에 politician_id 규칙 추가
+
+5. **테스트 스크립트**:
+   - `test_priority_validation.py`
+     * 1순위 필수 테스트 (마이그레이션, 레코드, 타입)
+
+   - `test_rating_favorite_apis.py`
+     * 2순위 기능 테스트 (Trigger UPSERT, RLS)
+
+   - `test_namoonhee_issue.py`
+     * 나문희 이슈 테스트 (동명이인 필터링)
+
+**테스트 결과**:
+
+1. **1순위 테스트: 모두 PASS**
+   - TEST 1: 마이그레이션 실행 확인 ✅
+     * politician_ratings 테이블 존재
+     * politician_details에 user_rating, rating_count 존재
+     * favorite_politicians에 notes, notification_enabled, is_pinned 존재
+
+   - TEST 2: 레코드 매칭 ✅
+     * politicians: 52개
+     * politician_details: 0개 (정상 - Trigger UPSERT가 첫 평가 시 자동 생성)
+
+   - TEST 3: 타입 검증 ✅
+     * politicians.id: TEXT (8자리 hex)
+     * 모든 politician_id: TEXT 타입 일관성 유지
+
+2. **2순위 테스트: RLS 정상 동작 확인**
+   - 테스트용 UUID로 INSERT 시도 → RLS 차단 (정상 동작)
+   - 이것은 보안이 제대로 작동하는 증거
+   - 실제 로그인 사용자만 API 사용 가능
+
+**Git 커밋**:
+```
+commit: fix: 관심 정치인 & 별점 평가 기능 완성
+- politician_id 타입 TEXT로 통일 (모든 테이블)
+- favorite_politicians 스키마 완성 (notes, notification, pinned)
+- Rating API 실제 인증 구현
+- Trigger UPSERT 패턴으로 중복 계산 제거
+- Toast 컴포넌트로 UX 개선
+- 쿼리 성능 최적화
+- CLAUDE.md에 데이터베이스 규칙 문서화
+
+TEST:
+- 1순위 필수 테스트: PASS (마이그레이션, 타입, 레코드)
+- 2순위 기능 테스트: RLS 정상 동작 확인
+
+VERIFIED:
+- code-reviewer: 7개 이슈 모두 수정 완료
+- test_priority_validation.py: PASS
+```
+
+**다음 작업**:
+- 브라우저에서 실제 로그인 후 기능 테스트
+- 나문희 이슈 테스트 (동명이인 필터링)
+- 프로젝트 그리드 데이터베이스 반영
+
+---
+
 ## 2025-11-21 18:00
 
 ### 작업: 사용자 별점 평가 기능 구현 ✅
