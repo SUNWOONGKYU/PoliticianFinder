@@ -369,7 +369,7 @@ export default function PoliticiansPage() {
                       <span className="font-bold text-gray-900 text-sm">{p.rank}</span>
                     </td>
                     <td className="px-3 py-3">
-                      <Link href={`/politicians/${p.name}`}>
+                      <Link href={`/politicians/${p.id}`}>
                         <span className="font-bold text-primary-600 hover:text-primary-700 text-sm cursor-pointer inline-flex items-center gap-1">
                           {p.name} <span className="text-xs">›</span>
                         </span>
@@ -414,7 +414,7 @@ export default function PoliticiansPage() {
               <div className="flex justify-between items-start mb-3">
                 <div className="flex items-center gap-2">
                   <span className="text-lg font-bold text-primary-500">#{p.rank}</span>
-                  <Link href={`/politicians/${p.name}`}>
+                  <Link href={`/politicians/${p.id}`}>
                     <span className="text-lg font-bold text-gray-900 hover:text-primary-600">
                       {p.name}
                     </span>
