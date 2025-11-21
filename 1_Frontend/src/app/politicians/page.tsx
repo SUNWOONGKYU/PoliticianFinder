@@ -364,16 +364,18 @@ export default function PoliticiansPage() {
               </thead>
               <tbody className="divide-y divide-gray-200">
                 {filteredData.map((p) => (
-                  <tr key={p.rank} className="hover:bg-gray-50 cursor-pointer">
+                  <tr
+                    key={p.rank}
+                    className="hover:bg-gray-50 cursor-pointer"
+                    onClick={() => window.location.href = `/politicians/${p.id}`}
+                  >
                     <td className="px-2 py-3 text-center">
                       <span className="font-bold text-gray-900 text-sm">{p.rank}</span>
                     </td>
                     <td className="px-3 py-3">
-                      <Link href={`/politicians/${p.id}`}>
-                        <span className="font-bold text-primary-600 hover:text-primary-700 text-sm cursor-pointer inline-flex items-center gap-1">
-                          {p.name} <span className="text-xs">›</span>
-                        </span>
-                      </Link>
+                      <span className="font-bold text-primary-600 hover:text-primary-700 text-sm inline-flex items-center gap-1">
+                        {p.name} <span className="text-xs">›</span>
+                      </span>
                     </td>
                     <td className="px-2 py-3 text-gray-600 text-xs">{p.identity}</td>
                     <td className="px-2 py-3 text-gray-600 text-xs">{p.title || '-'}</td>
@@ -410,15 +412,17 @@ export default function PoliticiansPage() {
         {/* Mobile: Card View */}
         <div className="md:hidden space-y-4">
           {filteredData.map((p) => (
-            <div key={p.rank} className="bg-white rounded-lg shadow-md p-4">
+            <div
+              key={p.rank}
+              className="bg-white rounded-lg shadow-md p-4 cursor-pointer hover:shadow-lg transition"
+              onClick={() => window.location.href = `/politicians/${p.id}`}
+            >
               <div className="flex justify-between items-start mb-3">
                 <div className="flex items-center gap-2">
                   <span className="text-lg font-bold text-primary-500">#{p.rank}</span>
-                  <Link href={`/politicians/${p.id}`}>
-                    <span className="text-lg font-bold text-gray-900 hover:text-primary-600">
-                      {p.name}
-                    </span>
-                  </Link>
+                  <span className="text-lg font-bold text-gray-900">
+                    {p.name}
+                  </span>
                 </div>
                 <div className="text-sm font-semibold text-accent-600">
                   {p.grade === 'E' && '💚 Emerald'}
