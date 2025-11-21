@@ -921,6 +921,191 @@ GitHub 토큰 설정이 필요합니다. 진행하시겠습니까?"
 ---
 ---
 
+## ⚠️ 🚨 CRITICAL: 데이터베이스 규칙 🚨 ⚠️
+
+### politician_id 타입 규칙
+
+**이 규칙은 프로젝트 전체에서 절대적으로 지켜야 합니다!**
+
+#### 핵심 규칙
+
+**politician_id의 데이터 타입:**
+- ✅ **TEXT** (PostgreSQL/Supabase)
+- ✅ **string** (TypeScript/JavaScript)
+- ✅ **str** (Python)
+- ❌ **BIGINT** (절대 사용 금지)
+- ❌ **INTEGER** (절대 사용 금지)
+- ❌ **UUID** (전체 UUID가 아님, 앞 8자리만)
+- ❌ **number** (절대 변환 금지)
+
+**형식:**
+```
+8자리 hexadecimal 문자열 (UUID 앞 8자리)
+```
+
+**예시:**
+```javascript
+'17270f25'  // 정원오
+'de49f056'  // 금태섭
+'eeefba98'  // 안철수
+'88aaecf2'  // 나경원
+'507226bb'  // 박주민
+'62e7b453'  // 오세훈
+```
+
+#### 생성 방법
+
+**Python:**
+```python
+import uuid
+politician_id = str(uuid.uuid4())[:8]
+# 예: 'a1b2c3d4'
+```
+
+**TypeScript/JavaScript:**
+```typescript
+import { v4 as uuidv4 } from 'uuid';
+const politicianId = uuidv4().substring(0, 8);
+// 예: 'a1b2c3d4'
+```
+
+#### 적용 범위
+
+**모든 테이블에서 동일한 규칙 적용:**
+
+1. `politicians.id` (PRIMARY KEY, TEXT)
+2. `politician_details.politician_id` (FOREIGN KEY, TEXT)
+3. `politician_ratings.politician_id` (FOREIGN KEY, TEXT)
+4. `favorite_politicians.politician_id` (FOREIGN KEY, TEXT)
+5. `careers.politician_id` (FOREIGN KEY, TEXT)
+6. `pledges.politician_id` (FOREIGN KEY, TEXT)
+7. `ai_evaluations.politician_id` (FOREIGN KEY, TEXT)
+8. 기타 모든 politician 관련 테이블
+
+#### 절대 금지 사항
+
+**❌ 절대 하지 말아야 할 것:**
+
+```typescript
+// ❌ 잘못된 예시 - parseInt() 사용
+const politicianId = params.id;
+politician_id: parseInt(politicianId)  // 🚨 ERROR! NaN 발생
+
+// ❌ 잘못된 예시 - Number() 사용
+politician_id: Number(politicianId)  // 🚨 ERROR! NaN 발생
+
+// ❌ 잘못된 예시 - SQL에서 BIGINT 사용
+CREATE TABLE politician_ratings (
+  politician_id BIGINT  // 🚨 ERROR! TEXT여야 함
+);
+```
+
+**✅ 올바른 예시:**
+
+```typescript
+// ✅ 올바른 방법 - 문자열 그대로 사용
+const politicianId = params.id;  // '17270f25'
+politician_id: politicianId  // ✅ CORRECT
+
+// ✅ 올바른 SQL
+CREATE TABLE politician_ratings (
+  politician_id TEXT NOT NULL REFERENCES politicians(id)  // ✅ CORRECT
+);
+
+// ✅ 올바른 쿼리
+.eq('politician_id', politicianId)  // ✅ CORRECT (문자열 비교)
+```
+
+#### 왜 이 규칙이 중요한가?
+
+**실제 발생한 문제:**
+1. `parseInt('17270f25')` → `17270f25` (숫자)로 변환 시도
+2. 하지만 DB에서는 `'17270f25'` (문자열)로 저장됨
+3. `17270f25 === '17270f25'` → `false` (타입 불일치)
+4. 쿼리 실패, 데이터를 찾을 수 없음
+
+**올바른 방법:**
+1. `'17270f25'` (문자열) 그대로 사용
+2. DB에서 `'17270f25'` (문자열)로 비교
+3. `'17270f25' === '17270f25'` → `true` (타입 일치)
+4. 쿼리 성공 ✅
+
+#### 마이그레이션 작성 시 주의
+
+```sql
+-- ✅ CORRECT
+CREATE TABLE politician_ratings (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  politician_id TEXT NOT NULL REFERENCES politicians(id) ON DELETE CASCADE,
+  -- ^^^ TEXT 타입 사용
+  user_id UUID NOT NULL REFERENCES auth.users(id) ON DELETE CASCADE,
+  rating INTEGER NOT NULL CHECK (rating >= 1 AND rating <= 5)
+);
+
+-- ❌ WRONG
+CREATE TABLE politician_ratings (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  politician_id BIGINT NOT NULL REFERENCES politicians(id),
+  -- ^^^ BIGINT 사용 금지!
+);
+```
+
+#### API 코드 작성 시 주의
+
+```typescript
+// ✅ CORRECT
+export async function POST(
+  request: NextRequest,
+  { params }: { params: { id: string } }
+) {
+  const politicianId = params.id;  // '17270f25'
+
+  await supabase
+    .from('politician_ratings')
+    .insert([{
+      politician_id: politicianId,  // ✅ 문자열 그대로
+      // ...
+    }]);
+
+  await supabase
+    .from('politician_ratings')
+    .select('*')
+    .eq('politician_id', politicianId);  // ✅ 문자열 그대로
+}
+
+// ❌ WRONG
+export async function POST(
+  request: NextRequest,
+  { params }: { params: { id: string } }
+) {
+  const politicianId = params.id;
+
+  await supabase
+    .from('politician_ratings')
+    .insert([{
+      politician_id: parseInt(politicianId),  // ❌ parseInt 금지!
+      // ...
+    }]);
+}
+```
+
+#### 체크리스트
+
+**새로운 테이블이나 API를 만들 때:**
+
+- [ ] `politician_id`를 TEXT 타입으로 정의했는가?
+- [ ] Foreign Key가 `politicians.id (TEXT)`를 참조하는가?
+- [ ] API 코드에서 `parseInt()` 또는 `Number()`를 사용하지 않았는가?
+- [ ] 쿼리에서 문자열 그대로 비교하는가?
+- [ ] TypeScript 타입을 `string`으로 정의했는가?
+
+#### 참고 문서
+
+- `0-4_Database/Supabase/migrations/DATABASE_SCHEMA.md` - 전체 스키마 문서
+- `0-4_Database/Supabase/migrations/023_add_rating_favorite_to_politician_details.sql` - 예시 마이그레이션
+
+---
+
 ## Universal Development Guidelines
 
 ### Code Quality Standards

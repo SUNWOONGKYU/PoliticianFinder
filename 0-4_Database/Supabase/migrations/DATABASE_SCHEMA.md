@@ -80,9 +80,26 @@ User accounts and profiles
 #### politicians
 Politician profiles and information
 
+**⚠️ CRITICAL: politician_id Type Convention**
+
+All `politician_id` fields across the entire database follow this strict rule:
+
+- **Type**: TEXT (NOT BIGINT, NOT INTEGER, NOT UUID)
+- **Format**: 8-character hexadecimal string (UUID first 8 chars)
+- **Examples**: `'17270f25'`, `'de49f056'`, `'eeefba98'`, `'88aaecf2'`
+- **Generation**: `str(uuid.uuid4())[:8]` (Python) or similar
+- **⚠️ WARNING**: NEVER use `parseInt()` or convert to number - always treat as TEXT string
+
+This applies to ALL tables:
+- `politicians.id` (PRIMARY KEY)
+- `politician_details.politician_id` (FOREIGN KEY)
+- `politician_ratings.politician_id` (FOREIGN KEY)
+- `favorite_politicians.politician_id` (FOREIGN KEY)
+- `careers.politician_id`, `pledges.politician_id`, etc.
+
 | Column | Type | Description |
 |--------|------|-------------|
-| id | UUID | Primary key |
+| id | TEXT | Primary key (8-char hex UUID) |
 | name | TEXT | Korean name |
 | name_en | TEXT | English name |
 | party | TEXT | Political party |

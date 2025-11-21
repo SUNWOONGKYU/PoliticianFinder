@@ -3,6 +3,13 @@
 -- Created: 2025-11-21
 -- Description: Add user rating and favorite tracking to politician_details table
 
+-- ⚠️ CRITICAL: politician_id Type Convention
+-- ALL politician_id fields must be TEXT type (NOT BIGINT, NOT INTEGER, NOT UUID)
+-- Format: 8-character hexadecimal string (UUID first 8 chars)
+-- Examples: '17270f25', 'de49f056', 'eeefba98', '88aaecf2'
+-- Generation: str(uuid.uuid4())[:8] (Python)
+-- WARNING: NEVER use parseInt() or convert to number in application code!
+
 -- Add user_rating column (average rating from users, 0.0 to 5.0)
 ALTER TABLE politician_details
 ADD COLUMN IF NOT EXISTS user_rating DECIMAL(3,2) DEFAULT 0.00 CHECK (user_rating >= 0 AND user_rating <= 5);
