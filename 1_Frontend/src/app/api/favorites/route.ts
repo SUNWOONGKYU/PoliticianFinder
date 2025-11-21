@@ -6,8 +6,9 @@ import { z } from "zod";
 import { createClient } from "@/lib/supabase/server";
 
 // 즐겨찾기 추가 스키마
+// politician_id는 8자리 hexadecimal 문자열 (예: 'cd8c0263')
 const addFavoriteSchema = z.object({
-  politician_id: z.string().uuid("유효한 정치인 ID가 아닙니다."),
+  politician_id: z.string().length(8, "유효한 정치인 ID가 아닙니다."),
   notes: z.string().optional(),
   notification_enabled: z.boolean().optional().default(false),
   is_pinned: z.boolean().optional().default(false),
