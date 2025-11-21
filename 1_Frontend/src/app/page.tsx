@@ -505,7 +505,7 @@ export default function Home() {
       {/* 검색 버튼 */}
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-        className="bg-primary-600 text-white px-6 py-3 rounded-full shadow-lg hover:bg-primary-700 transition-all hover:scale-105 flex items-center gap-2"
+        className="bg-primary-500 text-white px-6 py-3 rounded-full shadow-lg hover:bg-primary-600 transition-all hover:scale-105 flex items-center gap-2"
         aria-label="맨 위로 스크롤하여 검색"
       >
         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -514,7 +514,7 @@ export default function Home() {
         <span>검색</span>
       </button>
 
-      {/* 평가하기 버튼 */}
+      {/* 평가하기 버튼 - 정치인 목록 페이지로 이동 */}
       <button
         onClick={() => window.location.href = '/politicians'}
         className="bg-secondary-600 text-white p-3 rounded-full shadow-lg hover:bg-secondary-700 transition-all hover:scale-105"
