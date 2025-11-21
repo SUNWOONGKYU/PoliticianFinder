@@ -115,9 +115,8 @@ export async function POST(request: NextRequest) {
     // 정치인 존재 여부 확인
     const { data: politician, error: politicianError } = await supabase
       .from('politicians')
-      .select('id, name, political_party_id, position_id, constituency_id')
+      .select('id, name, party, position')
       .eq('id', validated.politician_id)
-      .eq('is_active', true)
       .single();
 
     if (politicianError || !politician) {

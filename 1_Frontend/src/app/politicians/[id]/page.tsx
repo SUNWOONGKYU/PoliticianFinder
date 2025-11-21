@@ -197,20 +197,30 @@ export default function PoliticianDetailPage() {
         body: JSON.stringify({ rating: userRating })
       });
 
+      const data = await response.json();
+
       if (response.ok) {
         alert('평가가 완료되었습니다!');
         setShowRatingModal(false);
         setUserRating(0);
         // Refresh politician data
-        const updatedData = await response.json();
         setPolitician(prev => ({
           ...prev,
-          userRating: updatedData.averageRating,
-          ratingCount: updatedData.ratingCount
+          userRating: data.averageRating,
+          ratingCount: data.ratingCount
         }));
+      } else {
+        // 에러 처리
+        if (response.status === 401) {
+          alert('로그인이 필요합니다.');
+          window.location.href = '/auth/login';
+        } else {
+          alert(data.error || '평가 제출에 실패했습니다.');
+        }
       }
     } catch (error) {
-      alert('평가 제출에 실패했습니다.');
+      console.error('Rating submit error:', error);
+      alert('평가 제출 중 오류가 발생했습니다.');
     }
   };
 
