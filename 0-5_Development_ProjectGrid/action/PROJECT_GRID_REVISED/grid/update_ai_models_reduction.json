@@ -1,0 +1,138 @@
+{
+  "task_id": "AI_MODELS_REDUCTION",
+  "task_name": "AI 평가 모델 축소 (5개 → 3개)",
+  "category": "refactoring",
+  "phase": 3,
+  "area": "BA",
+  "status": "완료",
+  "progress": 100,
+
+  "execution_info": {
+    "assigned_agent": "Claude Code",
+    "generator": "Claude Code",
+    "generated_at": "2025-11-21T00:00:00Z"
+  },
+
+  "task_description": {
+    "summary": "AI 평가 모델을 5개(Claude, ChatGPT, Gemini, Grok, Perplexity)에서 3개(Claude, ChatGPT, Grok)로 축소",
+    "reason": "Grok은 X/Twitter 데이터 접근이 가능하여 유지. Gemini와 Perplexity 제거하여 평가 시스템 단순화",
+    "requirements": [
+      "데이터베이스 마이그레이션으로 gemini_score, perplexity_score 컬럼 제거",
+      "AI 클라이언트 파일 삭제 (google-client.ts, perplexity-client.ts)",
+      "TypeScript 타입 정의 업데이트 (AIModel 타입)",
+      "evaluation-engine을 3개 모델로 업데이트",
+      "모든 페이지 UI에서 AI 3개만 표시",
+      "API 라우트 업데이트",
+      "빌드 성공 확인"
+    ]
+  },
+
+  "files_modified": [
+    {
+      "path": "0-4_Database/Supabase/migrations/050_remove_grok_perplexity_columns.sql",
+      "type": "created",
+      "description": "데이터베이스 마이그레이션 파일 - gemini_score, perplexity_score 컬럼 제거"
+    },
+    {
+      "path": "1_Frontend/src/lib/ai/types.ts",
+      "type": "modified",
+      "description": "AIModel 타입을 'claude' | 'chatgpt' | 'grok'로 업데이트"
+    },
+    {
+      "path": "1_Frontend/src/lib/ai/clients/google-client.ts",
+      "type": "deleted",
+      "description": "Gemini AI 클라이언트 파일 삭제"
+    },
+    {
+      "path": "1_Frontend/src/lib/ai/clients/perplexity-client.ts",
+      "type": "deleted",
+      "description": "Perplexity AI 클라이언트 파일 삭제"
+    },
+    {
+      "path": "1_Frontend/src/lib/ai/index.ts",
+      "type": "modified",
+      "description": "제거된 AI 클라이언트 export 삭제"
+    },
+    {
+      "path": "1_Frontend/src/lib/ai/evaluation-engine.ts",
+      "type": "modified",
+      "description": "3개 AI 모델로 평가 엔진 업데이트"
+    },
+    {
+      "path": "1_Frontend/src/app/page.tsx",
+      "type": "modified",
+      "description": "홈 화면 - AI 3개로 업데이트, 신분/직책 분리 유지"
+    },
+    {
+      "path": "1_Frontend/src/app/politicians/page.tsx",
+      "type": "modified",
+      "description": "정치인 목록 - AI 3개로 업데이트"
+    },
+    {
+      "path": "1_Frontend/src/app/politicians/[id]/page.tsx",
+      "type": "modified",
+      "description": "정치인 상세 페이지 - AI 3개로 업데이트, 차트 수정"
+    },
+    {
+      "path": "1_Frontend/src/app/api/evaluations/generate-ai/route.ts",
+      "type": "modified",
+      "description": "AI 평가 생성 API - 3개 모델로 업데이트"
+    },
+    {
+      "path": "1_Frontend/src/app/api/evaluations/batch/route.ts",
+      "type": "modified",
+      "description": "일괄 평가 API - AIModel 타입 및 검증 업데이트"
+    },
+    {
+      "path": "1_Frontend/src/app/api/evaluations/generate/route.ts",
+      "type": "modified",
+      "description": "평가 생성 API - AIModel 타입 및 검증 업데이트"
+    }
+  ],
+
+  "verification": {
+    "build": {
+      "status": "✅ 성공",
+      "build_id": "ct112G_uPa_e77u5ULhnx",
+      "details": "TypeScript 컴파일 성공, 타입 체크 통과"
+    },
+    "static_analysis": {
+      "typescript": "✅ 통과",
+      "linting": "✅ 통과",
+      "type_safety": "✅ 통과"
+    },
+    "code_review": {
+      "consistency": "✅ 모든 파일에서 일관되게 적용",
+      "completeness": "✅ 누락된 참조 없음",
+      "ui_alignment": "✅ UI에서 3개 AI 모델만 표시"
+    }
+  },
+
+  "git_commit": {
+    "hash": "d6f51ff",
+    "message": "refactor: AI 평가 모델을 5개에서 3개로 축소 (Claude, ChatGPT, Grok)",
+    "changes": "15 files changed, 304 insertions(+), 470 deletions(-)",
+    "pushed": true
+  },
+
+  "impact_analysis": {
+    "database": "마이그레이션으로 gemini_score, perplexity_score 컬럼 제거 필요",
+    "api": "3개 AI 모델만 지원하도록 변경",
+    "ui": "홈, 정치인 목록, 정치인 상세 페이지에서 3개 AI만 표시",
+    "performance": "평가 시 호출되는 AI 모델 수 감소로 성능 향상 예상"
+  },
+
+  "remaining_work": [
+    "데이터베이스 마이그레이션 실행 (Supabase에서 050_remove_grok_perplexity_columns.sql 실행)",
+    "기존 evaluation_snapshots 데이터의 gemini_score, perplexity_score 데이터 정리"
+  ],
+
+  "notes": [
+    "Grok은 X/Twitter 데이터 접근이 가능하여 유지",
+    "Gemini는 Grok에 문제가 생겼을 때 교체용으로 고려",
+    "신분/직책 컬럼은 분리된 상태로 유지 (한 줄로 합치지 않음)",
+    "빌드 성공 확인 완료 - 프로덕션 배포 가능"
+  ],
+
+  "completed_at": "2025-11-21T00:00:00Z"
+}

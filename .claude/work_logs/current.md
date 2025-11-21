@@ -18,6 +18,128 @@
 
 ## 작업 기록 시작
 
+## 2025-11-21 01:30
+
+### 작업: 프로젝트 그리드 데이터베이스 반영 ✅
+
+**작업 목표**:
+- AI 모델 축소 작업을 Supabase 프로젝트 그리드에 반영
+- 테이블 레이아웃 균형 조정 작업을 Supabase 프로젝트 그리드에 반영
+
+**데이터베이스 반영 내역**:
+
+1. **AI_MODELS_REDUCTION** (AI 평가 모델 축소)
+   - Task ID: `AI_MODELS_REDUCTION`
+   - 작업명: "AI 평가 모델 축소 (5개 → 3개)"
+   - Phase: 3, Area: BA
+   - Status: 완료, Progress: 100%
+   - Assigned Agent: Claude Code
+   - Git Commit: `d6f51ff`
+   - 주요 변경:
+     * AI 모델 5개 → 3개 (Claude, ChatGPT, Grok)
+     * Gemini, Perplexity 제거
+     * 15 files changed, 304 insertions(+), 470 deletions(-)
+
+2. **TABLE_LAYOUT_BALANCE** (테이블 레이아웃 균형 조정)
+   - Task ID: `TABLE_LAYOUT_BALANCE`
+   - 작업명: "홈 및 정치인 페이지 테이블 레이아웃 균형 조정"
+   - Phase: 3, Area: F
+   - Status: 완료, Progress: 100%
+   - Assigned Agent: Claude Code
+   - Git Commit: `ad177de`
+   - 주요 변경:
+     * 홈 및 정치인 페이지 레이아웃 통일
+     * 컬럼별 적절한 너비 클래스 적용
+     * 2 files changed, 34 insertions(+), 82 deletions(-)
+
+**생성된 스크립트**:
+- `update_project_grid.py` - 프로젝트 그리드 Supabase 반영 스크립트
+- `check_table_schema.py` - 테이블 스키마 확인 스크립트
+
+**반영 결과**:
+```
+[OK] AI_MODELS_REDUCTION 반영 성공
+[OK] TABLE_LAYOUT_BALANCE 반영 성공
+Total: 2개 작업 성공적으로 반영
+```
+
+**Supabase 테이블**: `project_grid_tasks_revised`
+- 반영된 컬럼: task_id, task_name, phase, area, status, progress, assigned_agent, generated_files, modification_history, build_result, validation_result, remarks, updated_at
+
+**다음 작업**:
+- 프로덕션 배포 완료 확인
+- 웹사이트에서 프로젝트 그리드 업데이트 확인
+
+---
+
+## 2025-11-21 01:00
+
+### 작업: 홈 및 정치인 페이지 테이블 레이아웃 균형 조정 ✅
+
+**작업 목표**:
+- 두 줄로 표시되던 컬럼들을 한 줄로 정리
+- 홈 페이지와 정치인 페이지의 레이아웃 통일
+- 각 컬럼 특성에 맞는 너비 클래스 적용
+- 가독성 향상을 위한 균형있는 간격 배치
+
+**수정된 파일**:
+- `1_Frontend/src/app/page.tsx` - 홈 페이지 테이블 헤더에 너비 클래스 추가
+- `1_Frontend/src/app/politicians/page.tsx` - 정치인 목록 페이지 테이블 헤더에 너비 클래스 추가
+
+**적용된 컬럼 구조** (13개 컬럼):
+| 컬럼명 | 너비 클래스 | 용도 |
+|--------|-------------|------|
+| 순위 | w-12 | 순위 번호 (좁은 너비) |
+| 이름 | w-24 | 정치인 이름 |
+| 신분 | w-16 | 현역/예비 등 |
+| 직책 | w-28 | 국회의원 등 직책 |
+| 출마직종 | w-24 | 대통령/국회의원 등 |
+| 정당 | w-24 | 정당명 |
+| 지역 | w-28 | 선거구 지역 |
+| 평가등급 | w-24 | S, A+, A 등 등급 |
+| 종합평점 | w-20 | 1000점 만점 점수 |
+| Claude | w-16 | Claude AI 평가 |
+| ChatGPT | w-16 | ChatGPT 평가 |
+| Grok | w-16 | Grok AI 평가 |
+| 회원평점 | w-32 | 회원 평가 (참여자수) |
+
+**빌드 결과**:
+```
+✅ Build successful
+- 110개 페이지 생성 완료
+- TypeScript 컴파일 성공
+- 번들 사이즈: 87.2 kB (First Load JS shared)
+```
+
+**Git 커밋**:
+- Hash: `ad177de`
+- Message: "refactor: 홈 및 정치인 페이지 테이블 레이아웃 균형 조정"
+- Changes: 2 files changed, 34 insertions(+), 82 deletions(-)
+- Pushed: ✅
+
+**Project Grid 기록**:
+- `0-5_Development_ProjectGrid/action/PROJECT_GRID_REVISED/grid/update_table_layout_balance.json` 생성
+
+**개선 효과**:
+- ✅ 모든 컬럼이 한 줄로 깔끔하게 표시
+- ✅ 평가등급과 종합평점이 별도 컬럼으로 분리
+- ✅ 정당과 지역이 별도 컬럼으로 분리
+- ✅ 홈과 정치인 페이지가 동일한 구조로 통일
+- ✅ 각 컬럼에 적절한 너비 클래스 적용으로 가독성 향상
+
+**배포 상태**:
+- Git push 완료
+- Vercel 자동 배포 진행 중
+
+**📬 Inbox 확인**:
+- 새 작업 없음 (inbox 비어있음)
+
+**다음 작업**:
+- Vercel 배포 완료 대기
+- 프로덕션 환경에서 레이아웃 확인
+
+---
+
 ## 2025-11-19 16:10
 
 ### 작업: 전체 테이블 관계(FK) 연결 구조 검증 완료 ✅
@@ -851,3 +973,62 @@ posts.downvotes = 0
 
 ---
 
+
+## 2025-11-21 00:00
+
+### 작업: AI 평가 모델 축소 (5개 → 3개) ✅
+
+**작업 목표**:
+- AI 평가 모델을 5개(Claude, ChatGPT, Gemini, Grok, Perplexity)에서 3개(Claude, ChatGPT, Grok)로 축소
+- Grok은 X/Twitter 데이터 접근 가능하여 유지
+- Gemini와 Perplexity 제거하여 평가 시스템 단순화
+
+**변경된 파일 목록**:
+
+1. **데이터베이스 마이그레이션**:
+   - `0-4_Database/Supabase/migrations/050_remove_grok_perplexity_columns.sql` (생성)
+   - gemini_score, perplexity_score 컬럼 제거
+
+2. **AI 클라이언트 삭제**:
+   - `1_Frontend/src/lib/ai/clients/google-client.ts` (삭제 - Gemini)
+   - `1_Frontend/src/lib/ai/clients/perplexity-client.ts` (삭제)
+
+3. **TypeScript 타입 업데이트**:
+   - `1_Frontend/src/lib/ai/types.ts`: AIModel = 'claude' | 'chatgpt' | 'grok'
+   - `1_Frontend/src/lib/ai/index.ts`: 제거된 클라이언트 export 삭제
+   - `1_Frontend/src/lib/ai/evaluation-engine.ts`: 3개 모델로 업데이트
+
+4. **UI 페이지 수정**:
+   - `1_Frontend/src/app/page.tsx`: 홈 화면 - AI 3개로 수정, 신분/직책 분리 유지
+   - `1_Frontend/src/app/politicians/page.tsx`: 정치인 목록 - AI 3개로 수정
+   - `1_Frontend/src/app/politicians/[id]/page.tsx`: 정치인 상세 - AI 3개로 수정, 차트 업데이트
+
+5. **API 라우트 수정**:
+   - `1_Frontend/src/app/api/evaluations/generate-ai/route.ts`: 3개 모델로 업데이트
+   - `1_Frontend/src/app/api/evaluations/batch/route.ts`: AIModel 타입 및 검증 업데이트
+   - `1_Frontend/src/app/api/evaluations/generate/route.ts`: AIModel 타입 및 검증 업데이트
+
+**빌드 결과**:
+- ✅ 빌드 성공 (BUILD_ID: ct112G_uPa_e77u5ULhnx)
+- ✅ TypeScript 컴파일 성공
+- ✅ 타입 체크 통과
+- ✅ 정적 페이지 생성 완료
+
+**Git 커밋**:
+- Commit: d6f51ff
+- Message: "refactor: AI 평가 모델을 5개에서 3개로 축소 (Claude, ChatGPT, Grok)"
+- Changes: 15 files changed, 304 insertions(+), 470 deletions(-)
+- ✅ Push 완료
+
+**프로젝트 그리드**:
+- `0-5_Development_ProjectGrid/action/PROJECT_GRID_REVISED/grid/update_ai_models_reduction.json` 생성
+- 작업 내역 상세 기록 완료
+
+**남은 작업**:
+1. 데이터베이스 마이그레이션 실행 (Supabase에서 050_remove_grok_perplexity_columns.sql 실행)
+2. 기존 evaluation_snapshots 데이터의 gemini_score, perplexity_score 데이터 정리
+
+**다음 작업**:
+- inbox 확인하여 새로운 작업 지시 확인
+
+---

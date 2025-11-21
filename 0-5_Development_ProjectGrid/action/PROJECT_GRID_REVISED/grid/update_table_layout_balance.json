@@ -1,0 +1,107 @@
+{
+  "task_id": "TABLE_LAYOUT_BALANCE",
+  "task_name": "홈 및 정치인 페이지 테이블 레이아웃 균형 조정",
+  "category": "ui-improvement",
+  "phase": 3,
+  "area": "F",
+  "status": "완료",
+  "progress": 100,
+
+  "execution_info": {
+    "assigned_agent": "Claude Code",
+    "generator": "Claude Code",
+    "generated_at": "2025-11-21T01:00:00Z"
+  },
+
+  "task_description": {
+    "summary": "홈 화면과 정치인 목록 페이지의 테이블 레이아웃을 균형있게 조정",
+    "reason": "일부 컬럼이 두 줄로 표시되어 가독성 저하, 페이지 간 레이아웃 불일치",
+    "requirements": [
+      "모든 데이터를 한 줄로 표시",
+      "홈 페이지와 정치인 페이지의 컬럼 구조 및 순서 통일",
+      "각 컬럼 특성에 맞는 너비 클래스 적용",
+      "가독성 향상을 위한 균형있는 간격 배치"
+    ]
+  },
+
+  "files_modified": [
+    {
+      "path": "1_Frontend/src/app/page.tsx",
+      "type": "modified",
+      "description": "홈 페이지 테이블 헤더에 너비 클래스 추가 (w-12, w-24, w-16, w-28 등)"
+    },
+    {
+      "path": "1_Frontend/src/app/politicians/page.tsx",
+      "type": "modified",
+      "description": "정치인 목록 페이지 테이블 헤더에 너비 클래스 추가 (동일한 구조)"
+    }
+  ],
+
+  "layout_changes": {
+    "before": {
+      "issues": [
+        "정당/지역이 두 줄로 표시",
+        "평가등급/종합평점이 한 컬럼으로 합쳐짐",
+        "컬럼 간격 불균형",
+        "페이지 간 레이아웃 불일치"
+      ]
+    },
+    "after": {
+      "improvements": [
+        "모든 컬럼이 한 줄로 깔끔하게 표시",
+        "평가등급과 종합평점이 별도 컬럼으로 분리",
+        "각 컬럼에 적절한 너비 클래스 적용",
+        "홈과 정치인 페이지가 동일한 구조로 통일"
+      ],
+      "column_structure": [
+        {"column": "순위", "width": "w-12"},
+        {"column": "이름", "width": "w-24"},
+        {"column": "신분", "width": "w-16"},
+        {"column": "직책", "width": "w-28"},
+        {"column": "출마직종", "width": "w-24"},
+        {"column": "정당", "width": "w-24"},
+        {"column": "지역", "width": "w-28"},
+        {"column": "평가등급", "width": "w-24"},
+        {"column": "종합평점", "width": "w-20"},
+        {"column": "Claude", "width": "w-16"},
+        {"column": "ChatGPT", "width": "w-16"},
+        {"column": "Grok", "width": "w-16"},
+        {"column": "회원평점 (참여자수)", "width": "w-32"}
+      ]
+    }
+  },
+
+  "verification": {
+    "build": {
+      "status": "✅ 성공",
+      "details": "TypeScript 컴파일 성공, 110개 페이지 생성 완료"
+    },
+    "static_analysis": {
+      "typescript": "✅ 통과",
+      "layout_consistency": "✅ 양쪽 페이지 동일한 구조",
+      "responsive_design": "✅ 데스크톱 및 모바일 뷰 모두 정상"
+    }
+  },
+
+  "git_commit": {
+    "hash": "ad177de",
+    "message": "refactor: 홈 및 정치인 페이지 테이블 레이아웃 균형 조정",
+    "changes": "2 files changed, 34 insertions(+), 82 deletions(-)",
+    "pushed": true
+  },
+
+  "impact_analysis": {
+    "ui": "테이블 가독성 크게 향상, 정보 파악이 더 쉬워짐",
+    "consistency": "홈과 정치인 페이지의 일관된 사용자 경험 제공",
+    "maintenance": "통일된 구조로 향후 유지보수 용이"
+  },
+
+  "notes": [
+    "AI 모델 축소 작업(5개→3개)과 함께 진행된 UI 개선",
+    "Tailwind CSS 너비 유틸리티 클래스 활용",
+    "모바일 뷰(카드 형태)는 기존 구조 유지",
+    "빌드 성공 확인 완료 - 프로덕션 배포 진행 중"
+  ],
+
+  "completed_at": "2025-11-21T01:00:00Z"
+}
