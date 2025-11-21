@@ -99,6 +99,11 @@ def main():
             'path': '0-5_Development_ProjectGrid/action/PROJECT_GRID_REVISED/grid/update_table_layout_balance.json',
             'task_id': 'TABLE_LAYOUT_BALANCE',
             'description': '홈 및 정치인 페이지 테이블 레이아웃 균형 조정'
+        },
+        {
+            'path': '0-5_Development_ProjectGrid/action/PROJECT_GRID_REVISED/grid/create_user_rating_feature.json',
+            'task_id': 'USER_RATING_FEATURE',
+            'description': '사용자 별점 평가 및 관심 정치인 등록 기능'
         }
     ]
 
@@ -144,6 +149,12 @@ def main():
         print("   - 홈 및 정치인 페이지 레이아웃 통일")
         print("   - 컬럼별 적절한 너비 클래스 적용")
         print("   - Git: ad177de")
+        print("")
+        print("3. USER_RATING_FEATURE (사용자 별점 평가 및 관심 정치인 등록)")
+        print("   - 정치인 상세페이지에 별점 평가 기능 추가 (1-5점)")
+        print("   - 관심 정치인 등록 버튼 텍스트 변경")
+        print("   - API 엔드포인트 구현 및 데이터베이스 연동")
+        print("   - Git: 6477f5a, c30a343")
         print("="*70 + "\n")
 
 if __name__ == "__main__":

@@ -72,11 +72,13 @@ export async function POST(
       : 0;
     const ratingCount = stats.length;
 
-    // 정치인 프로필 업데이트 (평균 별점 및 평가 수)
+    // politician_details 테이블 업데이트 (평균 별점 및 평가 수)
+    // Note: Triggers가 자동으로 업데이트하므로 이 부분은 생략 가능
+    // 하지만 명시적으로 업데이트할 수도 있음
     await supabase
-      .from('politician_profiles')
+      .from('politician_details')
       .update({
-        user_rating: averageRating,
+        user_rating: Math.round(averageRating * 100) / 100,
         rating_count: ratingCount,
         updated_at: new Date().toISOString()
       })
