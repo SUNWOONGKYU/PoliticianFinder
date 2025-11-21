@@ -106,6 +106,11 @@ export default function PoliticianDetailPage() {
   const [showAIDetailModal, setShowAIDetailModal] = useState(false);
   const [selectedAI, setSelectedAI] = useState<string>('');
 
+  // 별점 평가 상태
+  const [showRatingModal, setShowRatingModal] = useState(false);
+  const [userRating, setUserRating] = useState(0);
+  const [hoverRating, setHoverRating] = useState(0);
+
   // API에서 정치인 상세 정보 가져오기
   useEffect(() => {
     const fetchPoliticianDetail = async () => {
@@ -179,6 +184,36 @@ export default function PoliticianDetailPage() {
     window.location.href = '/payment';
   };
 
+  const handleRatingSubmit = async () => {
+    if (userRating === 0) {
+      alert('별점을 선택해주세요.');
+      return;
+    }
+
+    try {
+      const response = await fetch(`/api/politicians/${politicianId}/rating`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ rating: userRating })
+      });
+
+      if (response.ok) {
+        alert('평가가 완료되었습니다!');
+        setShowRatingModal(false);
+        setUserRating(0);
+        // Refresh politician data
+        const updatedData = await response.json();
+        setPolitician(prev => ({
+          ...prev,
+          userRating: updatedData.averageRating,
+          ratingCount: updatedData.ratingCount
+        }));
+      }
+    } catch (error) {
+      alert('평가 제출에 실패했습니다.');
+    }
+  };
+
   if (loading) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
@@ -213,7 +248,18 @@ export default function PoliticianDetailPage() {
         <section className="bg-white rounded-lg shadow-md p-6 mb-6">
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-2xl font-bold text-gray-900">기본 정보</h2>
-            <FavoriteButton politicianId={String(politician.id)} politicianName={politician.name} />
+            <div className="flex gap-2">
+              <FavoriteButton politicianId={String(politician.id)} politicianName={politician.name} />
+              <button
+                onClick={() => setShowRatingModal(true)}
+                className="px-4 py-2 bg-secondary-600 text-white rounded-lg hover:bg-secondary-700 transition-all flex items-center gap-2"
+              >
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                별점 평가
+              </button>
+            </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="flex items-center gap-3">
@@ -683,6 +729,87 @@ export default function PoliticianDetailPage() {
               </button>
               <button onClick={confirmPurchase} className="flex-1 px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition">
                 구매하기
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* 별점 평가 모달 */}
+      {showRatingModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+          <div className="bg-white rounded-lg shadow-xl max-w-md w-full p-6">
+            <div className="flex items-center justify-between mb-6">
+              <h3 className="text-xl font-bold text-gray-900">별점 평가</h3>
+              <button
+                onClick={() => {
+                  setShowRatingModal(false);
+                  setUserRating(0);
+                  setHoverRating(0);
+                }}
+                className="text-gray-400 hover:text-gray-600 transition"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+
+            <div className="mb-6">
+              <p className="text-gray-700 mb-4 text-center">
+                <span className="font-bold">{politician.name}</span> 정치인에 대한 평가를 남겨주세요
+              </p>
+
+              {/* 별점 UI */}
+              <div className="flex justify-center gap-2 mb-2">
+                {[1, 2, 3, 4, 5].map((star) => (
+                  <button
+                    key={star}
+                    onClick={() => setUserRating(star)}
+                    onMouseEnter={() => setHoverRating(star)}
+                    onMouseLeave={() => setHoverRating(0)}
+                    className="transition-transform hover:scale-110"
+                  >
+                    <svg
+                      className="w-12 h-12"
+                      fill={star <= (hoverRating || userRating) ? '#F59E0B' : 'none'}
+                      stroke={star <= (hoverRating || userRating) ? '#F59E0B' : '#D1D5DB'}
+                      strokeWidth={2}
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
+                      />
+                    </svg>
+                  </button>
+                ))}
+              </div>
+
+              <div className="text-center">
+                <span className="text-gray-600">
+                  {userRating > 0 ? `${userRating}점` : '별점을 선택해주세요'}
+                </span>
+              </div>
+            </div>
+
+            <div className="flex gap-3">
+              <button
+                onClick={() => {
+                  setShowRatingModal(false);
+                  setUserRating(0);
+                  setHoverRating(0);
+                }}
+                className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition"
+              >
+                취소
+              </button>
+              <button
+                onClick={handleRatingSubmit}
+                className="flex-1 px-4 py-2 bg-secondary-600 text-white rounded-lg hover:bg-secondary-700 transition"
+              >
+                평가 제출
               </button>
             </div>
           </div>
