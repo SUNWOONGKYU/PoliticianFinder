@@ -73,10 +73,68 @@
 - ✅ GitHub 푸시 완료
 - ✅ Vercel 자동 배포 진행 중
 
+**프로젝트 그리드 데이터베이스 반영**:
+- ✅ Task ID: `USER_RATING_FEATURE`
+- ✅ Supabase `project_grid_tasks_revised` 테이블에 반영 완료
+- Phase: 3, Area: F
+- Status: 완료, Progress: 100%
+
 **다음 작업 예정**:
 - 프로덕션 배포 확인
 - 별점 평가 기능 테스트
 - 다음 UI/UX 개선사항 진행
+
+---
+
+## 2025-11-21 18:45
+
+### 작업: 관심 정치인 등록 버튼 텍스트 변경 및 프로젝트 그리드 반영 ✅
+
+**작업 목표**:
+- FavoriteButton 텍스트 "관심 등록" → "관심 정치인 등록" 변경
+- 전체 기능(별점 평가 + 관심 등록)을 프로젝트 그리드에 반영
+
+**완료 내역**:
+
+1. **FavoriteButton 텍스트 변경**
+   - 파일: `1_Frontend/src/components/FavoriteButton.tsx`
+   - 라인 113: "관심 등록" → "관심 정치인 등록"
+   - 버튼 명칭 명확화
+
+2. **관심 정치인 등록 기능 확인**
+   - FavoriteButton 컴포넌트: 이미 완전히 구현되어 있음 (P3BA28)
+   - API 엔드포인트: `/api/favorites` (GET, POST, DELETE) 모두 구현됨
+   - 사용자 인증 및 RLS 적용
+   - 중복 방지 로직 구현
+
+3. **프로젝트 그리드 JSON 파일 생성**
+   - 파일: `0-5_Development_ProjectGrid/action/PROJECT_GRID_REVISED/grid/create_user_rating_feature.json`
+   - Task ID: `USER_RATING_FEATURE`
+   - 별점 평가 + 관심 정치인 등록 기능 통합 문서화
+
+4. **Supabase 프로젝트 그리드 반영**
+   - `update_project_grid.py` 스크립트 업데이트
+   - USER_RATING_FEATURE 작업 추가
+   - Supabase 데이터베이스 반영 성공
+
+**Git 커밋**:
+- Commit: `c30a343`
+- 메시지: "fix: FavoriteButton 텍스트 변경"
+- 변경: 2 files changed, 63 insertions(+), 1 deletion(-)
+
+**프로젝트 그리드 반영 결과**:
+- ✅ USER_RATING_FEATURE 반영 성공
+- ⚠️ AI_MODELS_REDUCTION: 이미 존재 (중복 키)
+- ⚠️ TABLE_LAYOUT_BALANCE: 이미 존재 (중복 키)
+
+**배포**:
+- ✅ GitHub 푸시 완료
+- ✅ Vercel 자동 배포 진행 중
+
+**다음 작업 예정**:
+- 프로덕션 배포 확인
+- 전체 기능 테스트
+- 다음 UI/UX 개선사항 계속 진행
 
 ---
 
