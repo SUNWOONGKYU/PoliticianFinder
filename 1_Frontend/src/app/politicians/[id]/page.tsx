@@ -906,12 +906,12 @@ export default function PoliticianDetailPage() {
 
       {/* 플로팅 액션 버튼 (스크롤 시 화면 따라다님) */}
       <div className="fixed bottom-8 right-8 flex flex-col gap-3 z-40">
-        {/* 지역 검색 버튼 */}
+        {/* 통합 검색 버튼 */}
         <div className="relative group">
           <button
             onClick={() => window.location.href = '/politicians'}
             className="w-14 h-14 bg-white rounded-full shadow-lg hover:shadow-xl transition flex items-center justify-center border-2 border-primary-300"
-            title="지역 검색"
+            title="통합 검색"
           >
             <svg className="w-6 h-6 text-primary-600 group-hover:text-primary-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -919,7 +919,7 @@ export default function PoliticianDetailPage() {
           </button>
           <div className="absolute right-16 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
             <div className="bg-gray-900 text-white text-sm px-3 py-2 rounded-lg shadow-lg">
-              지역 검색
+              통합 검색
             </div>
           </div>
         </div>
