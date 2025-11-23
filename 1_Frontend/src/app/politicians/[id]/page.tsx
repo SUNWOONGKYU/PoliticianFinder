@@ -907,38 +907,53 @@ export default function PoliticianDetailPage() {
       {/* 플로팅 액션 버튼 (스크롤 시 화면 따라다님) */}
       <div className="fixed bottom-8 right-8 flex flex-col gap-3 z-40">
         {/* 지역 검색 버튼 */}
-        <button
-          onClick={() => window.location.href = '/politicians'}
-          className="w-14 h-14 bg-white rounded-full shadow-lg hover:shadow-xl transition flex items-center justify-center border-2 border-primary-300 group"
-          title="지역 검색"
-        >
-          <svg className="w-6 h-6 text-primary-600 group-hover:text-primary-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-          </svg>
-        </button>
+        <div className="relative group">
+          <button
+            onClick={() => window.location.href = '/politicians'}
+            className="w-14 h-14 bg-white rounded-full shadow-lg hover:shadow-xl transition flex items-center justify-center border-2 border-primary-300"
+            title="지역 검색"
+          >
+            <svg className="w-6 h-6 text-primary-600 group-hover:text-primary-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+          </button>
+          <div className="absolute right-16 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
+            <div className="bg-gray-900 text-white text-sm px-3 py-2 rounded-lg shadow-lg">
+              지역 검색
+            </div>
+          </div>
+        </div>
 
         {/* 별점 평가 버튼 */}
-        <button
-          onClick={() => setShowRatingModal(true)}
-          className="w-14 h-14 bg-secondary-500 rounded-full shadow-lg hover:shadow-xl hover:bg-secondary-600 transition flex items-center justify-center group"
-          title="별점 평가"
-        >
-          <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-          </svg>
-        </button>
+        <div className="relative group">
+          <button
+            onClick={() => setShowRatingModal(true)}
+            className="w-14 h-14 bg-secondary-500 rounded-full shadow-lg hover:shadow-xl hover:bg-secondary-600 transition flex items-center justify-center"
+            title="별점 평가"
+          >
+            <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+            </svg>
+          </button>
+          <div className="absolute right-16 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
+            <div className="bg-gray-900 text-white text-sm px-3 py-2 rounded-lg shadow-lg">
+              별점 평가
+            </div>
+          </div>
+        </div>
 
         {/* 관심 정치인 등록 버튼 */}
-        <button
-          onClick={handleToggleFavoriteFloating}
-          disabled={loadingFavorite}
-          className={`w-14 h-14 rounded-full shadow-lg hover:shadow-xl transition flex items-center justify-center group ${
-            isFavoriteFloating
-              ? 'bg-red-500 hover:bg-red-600'
-              : 'bg-primary-500 hover:bg-primary-600'
-          } ${loadingFavorite ? 'opacity-50 cursor-not-allowed' : ''}`}
-          title={isFavoriteFloating ? '관심 정치인 취소' : '관심 정치인 등록'}
-        >
+        <div className="relative group">
+          <button
+            onClick={handleToggleFavoriteFloating}
+            disabled={loadingFavorite}
+            className={`w-14 h-14 rounded-full shadow-lg hover:shadow-xl transition flex items-center justify-center ${
+              isFavoriteFloating
+                ? 'bg-red-500 hover:bg-red-600'
+                : 'bg-primary-500 hover:bg-primary-600'
+            } ${loadingFavorite ? 'opacity-50 cursor-not-allowed' : ''}`}
+            title={isFavoriteFloating ? '관심 정치인 취소' : '관심 정치인 등록'}
+          >
           {isFavoriteFloating ? (
             <svg className="w-6 h-6 text-white fill-current" viewBox="0 0 24 24">
               <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
@@ -949,6 +964,12 @@ export default function PoliticianDetailPage() {
             </svg>
           )}
         </button>
+        <div className="absolute right-16 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
+          <div className="bg-gray-900 text-white text-sm px-3 py-2 rounded-lg shadow-lg">
+            {isFavoriteFloating ? '관심 정치인 취소' : '관심 정치인 등록'}
+          </div>
+        </div>
+      </div>
       </div>
     </div>
   );
