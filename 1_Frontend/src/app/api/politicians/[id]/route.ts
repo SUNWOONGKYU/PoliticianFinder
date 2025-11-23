@@ -54,7 +54,7 @@ export async function GET(
       .from("ai_evaluations")
       .select("*")
       .eq("politician_id", id)
-      .order("evaluation_date", { ascending: false });
+      .order("created_at", { ascending: false });
 
     if (evalError) {
       console.error("AI evaluations query error:", evalError);
@@ -85,7 +85,7 @@ export async function GET(
       const modelKey = evaluation.ai_model.toLowerCase();
       evaluationsByModel[modelKey] = {
         overall_score: evaluation.overall_score,
-        evaluation_date: evaluation.evaluation_date,
+        created_at: evaluation.created_at,
         expiry_date: evaluation.expiry_date,
         report_url: evaluation.report_url,
         raw_data: evaluation.raw_data,
