@@ -168,8 +168,8 @@ export async function POST(request: NextRequest) {
           id,
           name,
           profile_image_url,
-          political_party_id,
-          position_id
+          party,
+          position
         )
       `)
       .single();
