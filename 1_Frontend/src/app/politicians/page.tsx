@@ -303,6 +303,8 @@ export default function PoliticiansPage() {
               <button
                 onClick={() => setShowMobileFilters(!showMobileFilters)}
                 className="w-full px-4 py-3 bg-white border-2 border-primary-500 text-primary-700 rounded-lg font-medium flex items-center justify-between min-h-touch"
+                aria-label={showMobileFilters ? '필터 패널 닫기' : '필터 패널 열기'}
+                aria-expanded={showMobileFilters}
               >
                 <span className="flex items-center gap-2">
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -475,8 +477,17 @@ export default function PoliticiansPage() {
                 {filteredData.map((p) => (
                   <tr
                     key={p.rank}
-                    className="hover:bg-gray-50 cursor-pointer"
+                    className="hover:bg-gray-50 cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary-500"
                     onClick={() => window.location.href = `/politicians/${p.id}`}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        window.location.href = `/politicians/${p.id}`;
+                      }
+                    }}
+                    tabIndex={0}
+                    role="button"
+                    aria-label={`${p.name} 상세 정보 보기`}
                   >
                     <td className="px-2 py-3 text-center">
                       <span className="font-bold text-gray-900 text-sm">{p.rank}</span>
@@ -523,8 +534,17 @@ export default function PoliticiansPage() {
           {filteredData.map((p) => (
             <div
               key={p.rank}
-              className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden touch-manipulation"
+              className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden touch-manipulation focus:outline-none focus:ring-2 focus:ring-primary-500 cursor-pointer"
               onClick={() => window.location.href = `/politicians/${p.id}`}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  window.location.href = `/politicians/${p.id}`;
+                }
+              }}
+              tabIndex={0}
+              role="button"
+              aria-label={`${p.name} 상세 정보 보기`}
             >
               {/* Card Header with Rank and Grade */}
               <div className="bg-gradient-to-r from-primary-50 to-secondary-50 px-4 py-3 flex justify-between items-center">

@@ -391,7 +391,19 @@ export default function CommunityPage() {
                 </div>
 
                 {/* Body: Content - Clickable Area */}
-                <div className="p-6 hover:bg-gray-50 transition-colors cursor-pointer" onClick={() => router.push(`/community/posts/${post.id}`)}>
+                <div
+                  className="p-6 hover:bg-gray-50 transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500"
+                  onClick={() => router.push(`/community/posts/${post.id}`)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      router.push(`/community/posts/${post.id}`);
+                    }
+                  }}
+                  tabIndex={0}
+                  role="button"
+                  aria-label={`${post.title} 게시글 보기`}
+                >
                   {/* Badges */}
                   <div className="flex items-center gap-2 mb-3">
                     {post.is_hot && (
@@ -439,18 +451,27 @@ export default function CommunityPage() {
                 {/* Footer: Interaction Stats */}
                 <div className="px-6 py-3 bg-gray-50 border-t border-gray-100 flex items-center justify-between text-sm text-gray-600">
                   <div className="flex items-center gap-6">
-                    <button className="flex items-center gap-1.5 hover:text-primary-600 transition">
+                    <button
+                      className="flex items-center gap-1.5 hover:text-primary-600 transition min-h-touch px-2"
+                      aria-label={`공감 ${post.upvotes}개`}
+                    >
                       <span className="text-base">👍</span>
                       <span className="font-medium">{post.upvotes}</span>
                     </button>
 
-                    <button className="flex items-center gap-1.5 hover:text-gray-500 transition">
+                    <button
+                      className="flex items-center gap-1.5 hover:text-gray-500 transition min-h-touch px-2"
+                      aria-label={`비공감 ${post.downvotes}개`}
+                    >
                       <span className="text-base">👎</span>
                       <span className="font-medium">{post.downvotes}</span>
                     </button>
 
-                    <button className="flex items-center gap-1.5 hover:text-secondary-600 transition">
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <button
+                      className="flex items-center gap-1.5 hover:text-secondary-600 transition min-h-touch px-2"
+                      aria-label={`댓글 ${post.comment_count}개`}
+                    >
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                       </svg>
                       <span className="font-medium">{post.comment_count}</span>
@@ -544,7 +565,11 @@ export default function CommunityPage() {
               </Link>
             </div>
 
-            <button onClick={() => setShowCategoryModal(false)} className="mt-4 w-full px-6 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition font-medium">
+            <button
+              onClick={() => setShowCategoryModal(false)}
+              className="mt-4 w-full px-6 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition font-medium min-h-touch"
+              aria-label="카테고리 선택 취소"
+            >
               취소
             </button>
           </div>
