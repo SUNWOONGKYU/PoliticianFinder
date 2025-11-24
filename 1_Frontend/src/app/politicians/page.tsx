@@ -46,6 +46,7 @@ export default function PoliticiansPage() {
   const [partyFilter, setPartyFilter] = useState('');
   const [regionFilter, setRegionFilter] = useState('');
   const [gradeFilter, setGradeFilter] = useState('');
+  const [showMobileFilters, setShowMobileFilters] = useState(false);
 
   const filteredData = useMemo(() => {
     return politicians.filter((p) => {
@@ -297,8 +298,26 @@ export default function PoliticiansPage() {
               </div>
             )}
 
+            {/* Mobile Filter Toggle Button */}
+            <div className="md:hidden mb-4">
+              <button
+                onClick={() => setShowMobileFilters(!showMobileFilters)}
+                className="w-full px-4 py-3 bg-white border-2 border-primary-500 text-primary-700 rounded-lg font-medium flex items-center justify-between min-h-touch"
+              >
+                <span className="flex items-center gap-2">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+                  </svg>
+                  필터 {identityFilter || categoryFilter || partyFilter || regionFilter || gradeFilter ? `(${[identityFilter, categoryFilter, partyFilter, regionFilter, gradeFilter].filter(Boolean).length}개 적용중)` : ''}
+                </span>
+                <svg className={`w-5 h-5 transition-transform ${showMobileFilters ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+            </div>
+
             {/* Filter Row */}
-            <div className="flex flex-wrap gap-2">
+            <div className={`flex-wrap gap-2 ${showMobileFilters ? 'flex' : 'hidden md:flex'}`}>
               {/* Identity Filter (신분) - P3F3 */}
               <div className="flex-1 min-w-[120px]">
                 <label className="block text-xs font-medium text-gray-700 mb-1">신분</label>
