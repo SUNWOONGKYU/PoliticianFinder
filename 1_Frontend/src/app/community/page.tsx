@@ -328,77 +328,136 @@ export default function CommunityPage() {
             </button>
           </div>
         ) : (
-          /* Post List */
+          /* Post List - Redesigned */
           <div className="space-y-4">
             {filteredPosts.map((post) => (
-              <div key={post.id} className="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition cursor-pointer" onClick={() => router.push(`/community/posts/${post.id}`)}>
-                  <div className="flex items-center gap-2 mb-2">
-                    {post.is_hot && <span className="px-2 py-1 bg-red-100 text-red-700 text-xs font-medium rounded">Hot</span>}
-                    {post.is_best && <span className="px-2 py-1 bg-yellow-100 text-yellow-800 text-xs font-medium rounded">Best</span>}
-                    <h3 className="text-lg font-bold text-gray-900 hover:text-primary-600">{post.title}</h3>
+              <div key={post.id} className="bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden touch-manipulation">
+                {/* Header: Author Info */}
+                <div className="px-6 py-4 border-b border-gray-100">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      {/* Author Avatar */}
+                      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary-400 to-primary-500 flex items-center justify-center flex-shrink-0">
+                        <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v1c0 .55.45 1 1 1h14c.55 0 1-.45 1-1v-1c0-2.66-5.33-4-8-4z"/>
+                        </svg>
+                      </div>
+
+                      <div>
+                        <div className="flex items-center gap-2">
+                          {post.author_type === 'politician' ? (
+                            <Link
+                              href={`/politicians/${post.politician_id}`}
+                              className="font-semibold text-gray-900 hover:text-primary-600"
+                              onClick={(e) => e.stopPropagation()}
+                            >
+                              {post.author}
+                            </Link>
+                          ) : (
+                            <Link
+                              href={`/users/${post.author_id}/profile`}
+                              className="font-semibold text-gray-900 hover:text-secondary-600"
+                              onClick={(e) => e.stopPropagation()}
+                            >
+                              {post.author}
+                            </Link>
+                          )}
+                          {post.member_level && (
+                            <span className="text-xs text-emerald-700 font-medium">🏰 {post.member_level}</span>
+                          )}
+                        </div>
+                        <div className="text-xs text-gray-500">{formatDate(post.created_at)}</div>
+                      </div>
+                    </div>
+
+                    {/* Follow Button (회원 글만) */}
+                    {post.author_type === 'user' && (
+                      <button
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          handleFollow(post.author_id);
+                        }}
+                        className={`px-4 py-1.5 text-sm font-medium rounded-lg transition ${
+                          followedUsers.has(post.author_id)
+                            ? 'bg-primary-100 text-primary-700'
+                            : 'text-primary-600 hover:bg-primary-50'
+                        }`}
+                      >
+                        {followedUsers.has(post.author_id) ? '팔로잉' : '팔로우'}
+                      </button>
+                    )}
+                  </div>
+                </div>
+
+                {/* Body: Content - Clickable Area */}
+                <div className="p-6 hover:bg-gray-50 transition-colors cursor-pointer" onClick={() => router.push(`/community/posts/${post.id}`)}>
+                  {/* Badges */}
+                  <div className="flex items-center gap-2 mb-3">
+                    {post.is_hot && (
+                      <span className="px-2 py-1 bg-red-100 text-red-700 text-xs font-medium rounded-full">🔥 Hot</span>
+                    )}
+                    {post.is_best && (
+                      <span className="px-2 py-1 bg-yellow-100 text-yellow-800 text-xs font-medium rounded-full">⭐ Best</span>
+                    )}
                   </div>
 
-                  {/* 정치인 태그: 회원 자유게시판에서만 표시 (정치인이 쓴 글에는 표시 안 함) */}
+                  {/* Title */}
+                  <h3 className="text-lg font-bold text-gray-900 mb-2 line-clamp-2">
+                    {post.title}
+                  </h3>
+
+                  {/* Politician Tag */}
                   {post.politician_tag && post.author_type === 'user' && (
-                    <div className="mb-2">
-                      <span className="inline-flex items-center px-2 py-1 bg-primary-100 text-primary-700 text-xs font-medium rounded border border-primary-300">
-                        🏷️ {post.politician_tag} | {post.politician_status || '현직'} {post.politician_position || '국회의원'} | 정치인에 대해서
+                    <div className="mb-3">
+                      <span className="inline-flex items-center px-3 py-1 bg-primary-50 text-primary-700 text-xs font-medium rounded-full border border-primary-200">
+                        🏷️ {post.politician_tag}
                       </span>
                     </div>
                   )}
 
-                  <p className="text-gray-600 text-sm mb-4 line-clamp-2">{post.content}</p>
+                  {/* Content Preview */}
+                  <p className="text-gray-600 text-sm mb-4 line-clamp-3">
+                    {post.content}
+                  </p>
 
+                  {/* Tags */}
                   {post.tags && post.tags.length > 0 && (
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {post.tags.map((tag) => (
-                        <span key={tag} className="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">
+                    <div className="flex flex-wrap gap-2">
+                      {post.tags.slice(0, 3).map((tag) => (
+                        <span key={tag} className="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-full">
                           #{tag}
                         </span>
                       ))}
+                      {post.tags.length > 3 && (
+                        <span className="px-2 py-1 text-gray-500 text-xs">+{post.tags.length - 3}</span>
+                      )}
                     </div>
                   )}
+                </div>
 
-                  <div className="flex items-center gap-3 text-xs text-gray-500 border-t pt-3 flex-wrap">
-                    {post.author_type === 'politician' ? (
-                      <Link href={`/politicians/${post.politician_id}`} className="font-medium text-primary-600 hover:text-primary-700 hover:underline" onClick={(e) => e.stopPropagation()}>
-                        {post.author} | {post.politician_status || '현직'} {post.politician_position || '국회의원'}
-                      </Link>
-                    ) : (
-                      <div className="flex items-center gap-2">
-                        <Link href={`/users/${post.author_id}/profile`} className="font-medium text-secondary-600 hover:text-secondary-700 hover:underline" onClick={(e) => e.stopPropagation()}>
-                          {post.author}
-                        </Link>
-                        {post.member_level && <span className="text-xs text-gray-900 font-medium">{post.member_level}</span>}
-                        <span className="text-xs text-emerald-900 font-medium">🏰 영주</span>
-                        <button
-                          onClick={(e) => {
-                            e.preventDefault();
-                            e.stopPropagation();
-                            handleFollow(post.author_id);
-                          }}
-                          className={`ml-1 px-3 py-1 border-2 rounded-md text-xs transition ${
-                            followedUsers.has(post.author_id)
-                              ? 'border-emerald-700 bg-emerald-50 text-emerald-900'
-                              : 'border-emerald-700 text-emerald-900 hover:bg-gray-50'
-                          }`}
-                        >
-                          {followedUsers.has(post.author_id) ? '✓ 팔로우중' : '+ 팔로우'}
-                        </button>
-                      </div>
-                    )}
-                    <span>{formatDate(post.created_at)}</span>
-                    <span>조회수 {post.views}</span>
-                    <span className="text-red-600">👍 {post.upvotes}</span>
-                    <span className="text-gray-400">👎 {post.downvotes}</span>
-                    <span>댓글 {post.comment_count}</span>
-                    <span className="flex items-center gap-1 text-gray-500">
-                      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+                {/* Footer: Interaction Stats */}
+                <div className="px-6 py-3 bg-gray-50 border-t border-gray-100 flex items-center justify-between text-sm text-gray-600">
+                  <div className="flex items-center gap-6">
+                    <button className="flex items-center gap-1.5 hover:text-red-600 transition">
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                       </svg>
-                      <span>공유 {post.share_count || 0}</span>
-                    </span>
+                      <span className="font-medium">{post.upvotes}</span>
+                    </button>
+
+                    <button className="flex items-center gap-1.5 hover:text-secondary-600 transition">
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                      </svg>
+                      <span className="font-medium">{post.comment_count}</span>
+                    </button>
                   </div>
+
+                  <div className="flex items-center gap-4 text-xs">
+                    <span>조회 {post.views}</span>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
