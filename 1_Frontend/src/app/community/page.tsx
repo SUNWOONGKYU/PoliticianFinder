@@ -421,6 +421,26 @@ export default function CommunityPage() {
         )}
       </div>
 
+      {/* Floating Action Button (FAB) for Writing */}
+      <button
+        onClick={() => {
+          if (currentCategory === 'all') {
+            setShowCategoryModal(true);
+          } else if (currentCategory === 'politician_post') {
+            router.push('/community/posts/create-politician');
+          } else {
+            router.push('/community/posts/create');
+          }
+        }}
+        className="fixed bottom-6 right-6 z-40 w-14 h-14 bg-gradient-to-r from-primary-600 to-secondary-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all hover:scale-110 flex items-center justify-center"
+        title="글쓰기"
+        aria-label="글쓰기"
+      >
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+        </svg>
+      </button>
+
       {/* Category Modal */}
       {showCategoryModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4" onClick={() => setShowCategoryModal(false)}>
