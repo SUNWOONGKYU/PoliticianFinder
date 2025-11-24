@@ -499,64 +499,108 @@ export default function PoliticiansPage() {
           </div>
         </div>
 
-        {/* Mobile: Card View */}
+        {/* Mobile: Enhanced Card View */}
         <div className="md:hidden space-y-4">
           {filteredData.map((p) => (
             <div
               key={p.rank}
-              className="bg-white rounded-lg shadow-md p-4 cursor-pointer hover:shadow-lg transition"
+              className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden touch-manipulation"
               onClick={() => window.location.href = `/politicians/${p.id}`}
             >
-              <div className="flex justify-between items-start mb-3">
-                <div className="flex items-center gap-2">
-                  <span className="text-lg font-bold text-primary-500">#{p.rank}</span>
-                  <span className="text-lg font-bold text-gray-900">
-                    {p.name}
+              {/* Card Header with Rank and Grade */}
+              <div className="bg-gradient-to-r from-primary-50 to-secondary-50 px-4 py-3 flex justify-between items-center">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-sm">
+                    <span className="text-base font-bold text-primary-600">#{p.rank}</span>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-900">{p.name}</h3>
+                    <p className="text-xs text-gray-600">{p.party}</p>
+                  </div>
+                </div>
+                <div className="text-right">
+                  <div className="text-sm font-bold text-accent-600 whitespace-nowrap">
+                    {p.grade === 'E' && '💚 Emerald'}
+                    {p.grade === 'P' && '🥇 Platinum'}
+                    {p.grade === 'D' && '💎 Diamond'}
+                    {p.grade === 'M' && '🌺 Mugunghwa'}
+                    {p.grade === 'G' && '🥇 Gold'}
+                  </div>
+                </div>
+              </div>
+
+              {/* Card Body */}
+              <div className="p-4">
+                {/* Basic Info */}
+                <div className="flex flex-wrap gap-2 mb-4">
+                  <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-medium">
+                    {p.identity}
+                  </span>
+                  {p.title && (
+                    <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">
+                      {p.title}
+                    </span>
+                  )}
+                  <span className="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-xs font-medium">
+                    {p.category}
                   </span>
                 </div>
-                <div className="text-sm font-semibold text-accent-600">
-                  {p.grade === 'E' && '💚 Emerald'}
-                  {p.grade === 'P' && '🥇 Platinum'}
-                  {p.grade === 'D' && '💎 Diamond'}
-                  {p.grade === 'M' && '🌺 Mugunghwa'}
-                  {p.grade === 'G' && '🥇 Gold'}
+
+                <div className="flex items-center gap-1 text-sm text-gray-600 mb-4">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                  <span>{p.region} {p.district}</span>
+                </div>
+
+                {/* Overall Score Highlight */}
+                <div className="bg-gradient-to-br from-accent-50 to-accent-100 rounded-lg p-4 mb-4 text-center">
+                  <div className="text-xs text-accent-700 font-medium mb-1">종합 AI 평점</div>
+                  <div className="text-3xl font-bold text-accent-600">{p.overallScore}</div>
+                  <div className="text-xs text-accent-600 mt-1">점</div>
+                </div>
+
+                {/* AI Scores Grid */}
+                <div className="grid grid-cols-3 gap-2 mb-4">
+                  <div className="bg-gray-50 rounded-lg p-3 text-center">
+                    <div className="text-xs text-gray-500 mb-1">Claude</div>
+                    <div className="text-lg font-bold text-gray-900">{p.claudeScore}</div>
+                  </div>
+                  <div className="bg-gray-50 rounded-lg p-3 text-center">
+                    <div className="text-xs text-gray-500 mb-1">ChatGPT</div>
+                    <div className="text-lg font-bold text-gray-900">{p.chatgptScore}</div>
+                  </div>
+                  <div className="bg-gray-50 rounded-lg p-3 text-center">
+                    <div className="text-xs text-gray-500 mb-1">Grok</div>
+                    <div className="text-lg font-bold text-gray-900">{p.grokScore}</div>
+                  </div>
+                </div>
+
+                {/* Member Rating */}
+                <div className="bg-secondary-50 rounded-lg p-3 flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <svg className="w-5 h-5 text-secondary-600" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                    </svg>
+                    <span className="text-xs text-gray-600">회원 평가</span>
+                  </div>
+                  <div className="text-right">
+                    <div className="text-secondary-600 font-bold text-sm">
+                      {'★'.repeat(p.memberRating)}
+                      {'☆'.repeat(5 - p.memberRating)}
+                    </div>
+                    <div className="text-xs text-gray-500">{p.memberCount}명 참여</div>
+                  </div>
                 </div>
               </div>
 
-              <div className="text-sm text-gray-600 space-y-1 mb-3">
-                <div>{p.identity} {p.title && `• ${p.title}`} • {p.category}</div>
-                <div>{p.party} • {p.region} {p.district}</div>
-              </div>
-
-              <div className="border-t pt-3">
-                <div className="text-center mb-3 pb-3 border-b">
-                  <div className="text-xs text-gray-600 mb-1">종합평점</div>
-                  <div className="text-2xl font-bold text-accent-600">{p.overallScore}</div>
-                </div>
-
-                <div className="grid grid-cols-2 gap-2 text-sm mb-3">
-                  <div className="flex justify-between items-center">
-                    <span className="text-gray-600 text-xs">Claude</span>
-                    <span className="font-bold text-accent-600">{p.claudeScore}</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-gray-600 text-xs">ChatGPT</span>
-                    <span className="font-bold text-accent-600">{p.chatgptScore}</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-gray-600 text-xs">Grok</span>
-                    <span className="font-bold text-accent-600">{p.grokScore}</span>
-                  </div>
-                </div>
-
-                <div className="text-center pt-2 border-t">
-                  <div className="text-xs text-gray-600 mb-1">회원평점</div>
-                  <div className="font-bold text-secondary-600">
-                    {'★'.repeat(p.memberRating)}
-                    {'☆'.repeat(5 - p.memberRating)}
-                  </div>
-                  <div className="text-xs text-gray-500">({p.memberCount}명)</div>
-                </div>
+              {/* Card Footer - View Detail Arrow */}
+              <div className="bg-gray-50 px-4 py-3 flex items-center justify-center text-primary-600 font-medium text-sm">
+                <span>상세보기</span>
+                <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
               </div>
             </div>
           ))}
