@@ -576,6 +576,60 @@ export default function Home() {
               </div>
             </section>
 
+            {/* 통계 섹션 */}
+            <section className="bg-gradient-to-br from-primary-50 to-secondary-50 rounded-lg shadow-lg p-8">
+              <div className="text-center mb-8">
+                <h2 className="text-3xl font-bold text-gray-900 mb-3">
+                  투명한 정치를 위한 우리의 여정
+                </h2>
+                <p className="text-gray-600">
+                  함께 만들어가는 더 나은 정치 문화
+                </p>
+              </div>
+
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                {/* 등록된 정치인 */}
+                <div className="text-center bg-white/70 backdrop-blur-sm rounded-lg p-6 hover:shadow-md transition-shadow">
+                  <div className="text-4xl md:text-5xl font-bold text-primary-600 mb-2">
+                    {politicians.length > 0 ? '300+' : '...'}
+                  </div>
+                  <div className="text-sm md:text-base text-gray-700 font-medium">
+                    등록된 정치인
+                  </div>
+                </div>
+
+                {/* AI 평가 */}
+                <div className="text-center bg-white/70 backdrop-blur-sm rounded-lg p-6 hover:shadow-md transition-shadow">
+                  <div className="text-4xl md:text-5xl font-bold text-secondary-600 mb-2">
+                    900+
+                  </div>
+                  <div className="text-sm md:text-base text-gray-700 font-medium">
+                    AI 평가
+                  </div>
+                </div>
+
+                {/* 커뮤니티 글 */}
+                <div className="text-center bg-white/70 backdrop-blur-sm rounded-lg p-6 hover:shadow-md transition-shadow">
+                  <div className="text-4xl md:text-5xl font-bold text-green-600 mb-2">
+                    {politicianPosts.length + popularPosts.length > 0 ? '50+' : '...'}
+                  </div>
+                  <div className="text-sm md:text-base text-gray-700 font-medium">
+                    커뮤니티 글
+                  </div>
+                </div>
+
+                {/* 만족도 */}
+                <div className="text-center bg-white/70 backdrop-blur-sm rounded-lg p-6 hover:shadow-md transition-shadow">
+                  <div className="text-4xl md:text-5xl font-bold text-blue-600 mb-2">
+                    98.5%
+                  </div>
+                  <div className="text-sm md:text-base text-gray-700 font-medium">
+                    만족도
+                  </div>
+                </div>
+              </div>
+            </section>
+
             {/* 정치인 순위 섹션 */}
             <section className="bg-white rounded-lg shadow">
               <div className="px-4 pt-4">
