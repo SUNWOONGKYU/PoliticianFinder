@@ -603,10 +603,30 @@ export default function PoliticiansPage() {
           </div>
         )}
 
-        {/* No results message */}
+        {/* Empty State - Enhanced for mobile UX */}
         {filteredData.length === 0 && (
-          <div className="text-center py-12">
-            <p className="text-gray-500 text-lg">검색 결과가 없습니다.</p>
+          <div className="text-center py-16 px-4">
+            <svg className="mx-auto h-16 w-16 text-gray-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">검색 결과가 없습니다</h3>
+            <p className="text-gray-500 text-sm mb-6">다른 검색어나 필터 조건을 시도해보세요</p>
+            <button
+              onClick={() => {
+                setSearchQuery('');
+                setIdentityFilter('');
+                setCategoryFilter('');
+                setPartyFilter('');
+                setRegionFilter('');
+                setGradeFilter('');
+              }}
+              className="inline-flex items-center gap-2 px-6 py-3 bg-primary-500 text-white rounded-lg hover:bg-primary-600 transition min-h-touch"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+              </svg>
+              필터 초기화
+            </button>
           </div>
         )}
       </div>
