@@ -494,23 +494,80 @@ export default function PoliticianDetailPage() {
             </div>
           </div>
 
-          {/* 시계열 그래프 */}
+          {/* 시계열 그래프 - Mobile Optimized */}
           <div className="mb-6">
-            <div className="bg-gray-50 rounded-lg p-4">
-              <h3 className="text-center font-bold mb-4">AI 평가 점수 추이 (월별)</h3>
-              <ResponsiveContainer width="100%" height={300}>
-                <LineChart data={CHART_DATA}>
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="month" />
-                  <YAxis domain={[800, 1000]} />
-                  <Tooltip />
-                  <Legend />
-                  <Line type="monotone" dataKey="total" stroke="#dc2626" strokeWidth={3} name="종합평점" />
-                  <Line type="monotone" dataKey="claude" stroke="#f97316" strokeWidth={2} name="Claude" />
-                  <Line type="monotone" dataKey="chatgpt" stroke="#00a67e" strokeWidth={2} name="ChatGPT" />
-                  <Line type="monotone" dataKey="grok" stroke="#000000" strokeWidth={2} name="Grok" />
-                </LineChart>
-              </ResponsiveContainer>
+            <div className="bg-white rounded-lg shadow-md p-4 md:p-6">
+              <h3 className="text-center font-bold mb-4 text-base md:text-lg">AI 평가 점수 추이 (월별)</h3>
+
+              {/* Desktop Chart */}
+              <div className="hidden md:block">
+                <ResponsiveContainer width="100%" height={350}>
+                  <LineChart data={CHART_DATA} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
+                    <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+                    <XAxis
+                      dataKey="month"
+                      tick={{ fontSize: 12 }}
+                      stroke="#6b7280"
+                    />
+                    <YAxis
+                      domain={[800, 1000]}
+                      tick={{ fontSize: 12 }}
+                      stroke="#6b7280"
+                    />
+                    <Tooltip
+                      contentStyle={{
+                        backgroundColor: '#fff',
+                        border: '1px solid #e5e7eb',
+                        borderRadius: '8px',
+                        fontSize: '12px'
+                      }}
+                    />
+                    <Legend wrapperStyle={{ fontSize: '14px' }} />
+                    <Line type="monotone" dataKey="total" stroke="#dc2626" strokeWidth={3} name="종합평점" dot={{ r: 4 }} />
+                    <Line type="monotone" dataKey="claude" stroke="#f97316" strokeWidth={2} name="Claude" dot={{ r: 3 }} />
+                    <Line type="monotone" dataKey="chatgpt" stroke="#00a67e" strokeWidth={2} name="ChatGPT" dot={{ r: 3 }} />
+                    <Line type="monotone" dataKey="grok" stroke="#000000" strokeWidth={2} name="Grok" dot={{ r: 3 }} />
+                  </LineChart>
+                </ResponsiveContainer>
+              </div>
+
+              {/* Mobile Chart - Simplified */}
+              <div className="md:hidden">
+                <ResponsiveContainer width="100%" height={250}>
+                  <LineChart data={CHART_DATA} margin={{ top: 5, right: 10, left: -20, bottom: 5 }}>
+                    <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+                    <XAxis
+                      dataKey="month"
+                      tick={{ fontSize: 10 }}
+                      angle={-45}
+                      textAnchor="end"
+                      height={60}
+                    />
+                    <YAxis
+                      domain={[800, 1000]}
+                      tick={{ fontSize: 10 }}
+                      width={40}
+                    />
+                    <Tooltip
+                      contentStyle={{
+                        backgroundColor: '#fff',
+                        border: '1px solid #e5e7eb',
+                        borderRadius: '8px',
+                        fontSize: '11px',
+                        padding: '8px'
+                      }}
+                    />
+                    <Legend
+                      wrapperStyle={{ fontSize: '11px' }}
+                      iconSize={10}
+                    />
+                    <Line type="monotone" dataKey="total" stroke="#dc2626" strokeWidth={2.5} name="종합" dot={{ r: 3 }} />
+                    <Line type="monotone" dataKey="claude" stroke="#f97316" strokeWidth={1.5} name="Claude" dot={{ r: 2 }} />
+                    <Line type="monotone" dataKey="chatgpt" stroke="#00a67e" strokeWidth={1.5} name="ChatGPT" dot={{ r: 2 }} />
+                    <Line type="monotone" dataKey="grok" stroke="#000000" strokeWidth={1.5} name="Grok" dot={{ r: 2 }} />
+                  </LineChart>
+                </ResponsiveContainer>
+              </div>
             </div>
           </div>
 
