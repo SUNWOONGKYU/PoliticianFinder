@@ -25,6 +25,28 @@ const config: Config = {
       minWidth: {
         'touch': '44px',  // WCAG 터치 타겟 최소 크기
       },
+      fontSize: {
+        // Display (히어로 섹션, 랜딩)
+        'display-2xl': ['4.5rem', { lineHeight: '1.1', letterSpacing: '-0.02em', fontWeight: '700' }],  // 72px
+        'display-xl': ['3.75rem', { lineHeight: '1.2', letterSpacing: '-0.02em', fontWeight: '700' }],  // 60px
+        'display-lg': ['3rem', { lineHeight: '1.2', letterSpacing: '-0.02em', fontWeight: '700' }],     // 48px
+
+        // Heading (섹션 제목)
+        'heading-xl': ['2.25rem', { lineHeight: '1.3', letterSpacing: '-0.01em', fontWeight: '600' }],  // 36px
+        'heading-lg': ['1.875rem', { lineHeight: '1.3', letterSpacing: '-0.01em', fontWeight: '600' }], // 30px
+        'heading-md': ['1.5rem', { lineHeight: '1.4', fontWeight: '600' }],                             // 24px
+        'heading-sm': ['1.25rem', { lineHeight: '1.4', fontWeight: '600' }],                            // 20px
+
+        // Body (본문)
+        'body-lg': ['1.125rem', { lineHeight: '1.6', fontWeight: '400' }],  // 18px
+        'body-md': ['1rem', { lineHeight: '1.6', fontWeight: '400' }],      // 16px
+        'body-sm': ['0.875rem', { lineHeight: '1.5', fontWeight: '400' }],  // 14px
+
+        // Label (레이블, 캡션)
+        'label-lg': ['0.875rem', { lineHeight: '1.4', fontWeight: '500' }],    // 14px
+        'label-md': ['0.75rem', { lineHeight: '1.4', fontWeight: '500' }],     // 12px
+        'label-sm': ['0.6875rem', { lineHeight: '1.4', fontWeight: '500' }],   // 11px
+      },
       colors: {
         // 주황색 메인 컬러
         primary: {
