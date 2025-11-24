@@ -613,7 +613,7 @@ export default function PoliticiansPage() {
             <p className="text-gray-500 text-sm mb-6">다른 검색어나 필터 조건을 시도해보세요</p>
             <button
               onClick={() => {
-                setSearchQuery('');
+                setSearchTerm('');
                 setIdentityFilter('');
                 setCategoryFilter('');
                 setPartyFilter('');
