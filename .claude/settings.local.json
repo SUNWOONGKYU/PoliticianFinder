@@ -20,7 +20,10 @@
       "Bash(python populate_all_tables.py:*)",
       "Bash(python -c:*)",
       "Bash(python check_politician_duplicates.py:*)",
-      "Bash(python:*)"
+      "Bash(python:*)",
+      "Bash(node test_favorite_api.js:*)",
+      "Bash(node test_db_direct.js:*)",
+      "Bash(node:*)"
     ],
     "deny": [],
     "ask": []

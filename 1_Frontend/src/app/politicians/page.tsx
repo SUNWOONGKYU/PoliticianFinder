@@ -207,6 +207,95 @@ export default function PoliticiansPage() {
               </button>
             </div>
 
+            {/* Active Filters Tags */}
+            {(identityFilter || categoryFilter || partyFilter || regionFilter || gradeFilter) && (
+              <div className="flex flex-wrap items-center gap-2 pb-4 mb-4 border-b border-gray-200">
+                <span className="text-sm font-medium text-gray-700">활성 필터:</span>
+
+                {identityFilter && (
+                  <span className="inline-flex items-center gap-1 px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm">
+                    신분: {identityFilter}
+                    <button
+                      onClick={() => setIdentityFilter('')}
+                      className="hover:bg-primary-200 rounded-full p-0.5"
+                      aria-label="신분 필터 제거"
+                    >
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    </button>
+                  </span>
+                )}
+
+                {categoryFilter && (
+                  <span className="inline-flex items-center gap-1 px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm">
+                    출마직종: {categoryFilter}
+                    <button
+                      onClick={() => setCategoryFilter('')}
+                      className="hover:bg-primary-200 rounded-full p-0.5"
+                      aria-label="출마직종 필터 제거"
+                    >
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    </button>
+                  </span>
+                )}
+
+                {partyFilter && (
+                  <span className="inline-flex items-center gap-1 px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm">
+                    정당: {partyFilter}
+                    <button
+                      onClick={() => setPartyFilter('')}
+                      className="hover:bg-primary-200 rounded-full p-0.5"
+                      aria-label="정당 필터 제거"
+                    >
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    </button>
+                  </span>
+                )}
+
+                {regionFilter && (
+                  <span className="inline-flex items-center gap-1 px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm">
+                    지역: {regionFilter}
+                    <button
+                      onClick={() => setRegionFilter('')}
+                      className="hover:bg-primary-200 rounded-full p-0.5"
+                      aria-label="지역 필터 제거"
+                    >
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    </button>
+                  </span>
+                )}
+
+                {gradeFilter && (
+                  <span className="inline-flex items-center gap-1 px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm">
+                    평가등급: {gradeFilter}
+                    <button
+                      onClick={() => setGradeFilter('')}
+                      className="hover:bg-primary-200 rounded-full p-0.5"
+                      aria-label="평가등급 필터 제거"
+                    >
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    </button>
+                  </span>
+                )}
+
+                <button
+                  onClick={handleResetFilters}
+                  className="text-sm text-primary-600 hover:text-primary-800 font-medium"
+                >
+                  전체 초기화
+                </button>
+              </div>
+            )}
+
             {/* Filter Row */}
             <div className="flex flex-wrap gap-2">
               {/* Identity Filter (신분) - P3F3 */}
