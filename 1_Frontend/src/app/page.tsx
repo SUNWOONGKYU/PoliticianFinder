@@ -541,10 +541,11 @@ export default function Home() {
                 <div className="relative flex gap-2">
                   <div className="relative flex-1">
                     <input
-                      type="text"
+                      type="search"
+                      inputMode="search"
                       id="index-search-input"
-                      placeholder="정치인과 게시글을 통합 검색하세요"
-                      className="w-full px-4 py-3 pl-12 border-2 border-primary-300 rounded-lg focus:outline-none focus:border-primary-500 text-gray-900 focus:ring-2 focus:ring-primary-200"
+                      placeholder="정치인, 게시글 검색"
+                      className="w-full px-4 py-3 pl-12 border-2 border-primary-300 rounded-lg focus:outline-none focus:border-primary-500 text-gray-900 focus:ring-2 focus:ring-primary-200 text-base"
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
                       onKeyPress={(e) => {

@@ -196,11 +196,12 @@ export default function PoliticiansPage() {
             {/* Search Row */}
             <div className="flex gap-2">
               <input
-                type="text"
+                type="search"
+                inputMode="search"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                placeholder="이름, 정당, 지역 등으로 통합검색"
-                className="flex-1 px-4 py-2 border-2 border-primary-200 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-300 focus:border-primary-500 text-sm"
+                placeholder="이름, 정당, 지역 검색"
+                className="flex-1 px-4 py-2 border-2 border-primary-200 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-300 focus:border-primary-500 text-base"
               />
               <button className="px-8 py-2 bg-primary-500 text-white rounded-md hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-300 font-medium text-sm shadow-sm whitespace-nowrap">
                 검색
