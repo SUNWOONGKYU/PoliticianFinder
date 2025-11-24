@@ -341,7 +341,7 @@ export default function PoliticianDetailPage() {
             <div className="flex flex-col md:flex-row items-center gap-8">
               {/* Profile Image */}
               <div className="relative flex-shrink-0">
-                <div className="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-white shadow-xl overflow-hidden bg-white">
+                <div className="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-white shadow-xl overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
                   {politician.profileImageUrl ? (
                     <img
                       src={politician.profileImageUrl}
@@ -349,11 +349,19 @@ export default function PoliticianDetailPage() {
                       className="w-full h-full object-cover"
                     />
                   ) : (
-                    <img
-                      src={`https://ui-avatars.com/api/?name=${encodeURIComponent(politician.name)}&background=f97316&color=fff&size=200&bold=true&font-size=0.4`}
-                      alt={politician.name}
-                      className="w-full h-full object-cover"
-                    />
+                    <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary-400 to-primary-500">
+                      {politician.gender === '여' ? (
+                        // Female silhouette
+                        <svg className="w-20 h-20 md:w-24 md:h-24 text-white" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v1c0 .55.45 1 1 1h14c.55 0 1-.45 1-1v-1c0-2.66-5.33-4-8-4z"/>
+                        </svg>
+                      ) : (
+                        // Male silhouette
+                        <svg className="w-20 h-20 md:w-24 md:h-24 text-white" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v1c0 .55.45 1 1 1h14c.55 0 1-.45 1-1v-1c0-2.66-5.33-4-8-4z"/>
+                        </svg>
+                      )}
+                    </div>
                   )}
                 </div>
                 {/* Favorite Badge */}
