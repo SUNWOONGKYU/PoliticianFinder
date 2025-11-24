@@ -211,60 +211,153 @@ export default function CommunityPage() {
           </div>
         </section>
 
-        {/* Tab Menu + Write Button */}
-        <div className="flex items-center justify-between mb-6 gap-4 flex-wrap">
-          <div className="flex items-center space-x-4 overflow-x-auto">
+        {/* Tab Menu - Enhanced for Mobile */}
+        <div className="mb-6">
+          {/* Desktop: Tabs + Write Button */}
+          <div className="hidden sm:flex items-center justify-between gap-4">
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => setCurrentCategory('all')}
+                className={`px-5 py-2.5 rounded-lg font-semibold whitespace-nowrap transition-all ${
+                  currentCategory === 'all'
+                    ? 'bg-primary-500 text-white shadow-md'
+                    : 'bg-white text-gray-700 border-2 border-gray-300 hover:border-primary-300 hover:bg-gray-50'
+                }`}
+                aria-label="전체 게시판"
+                aria-pressed={currentCategory === 'all'}
+              >
+                <span className="flex items-center gap-2">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 10h16M4 14h16M4 18h16" />
+                  </svg>
+                  전체
+                </span>
+              </button>
+              <button
+                onClick={() => setCurrentCategory('politician_post')}
+                className={`px-5 py-2.5 rounded-lg font-semibold whitespace-nowrap transition-all ${
+                  currentCategory === 'politician_post'
+                    ? 'bg-primary-500 text-white shadow-md'
+                    : 'bg-white text-gray-700 border-2 border-gray-300 hover:border-primary-300 hover:bg-gray-50'
+                }`}
+                aria-label="정치인 게시판"
+                aria-pressed={currentCategory === 'politician_post'}
+              >
+                <span className="flex items-center gap-2">
+                  🏛️ 정치인 게시판
+                </span>
+              </button>
+              <button
+                onClick={() => setCurrentCategory('general')}
+                className={`px-5 py-2.5 rounded-lg font-semibold whitespace-nowrap transition-all ${
+                  currentCategory === 'general'
+                    ? 'bg-secondary-500 text-white shadow-md'
+                    : 'bg-white text-gray-700 border-2 border-gray-300 hover:border-secondary-300 hover:bg-gray-50'
+                }`}
+                aria-label="회원 자유게시판"
+                aria-pressed={currentCategory === 'general'}
+              >
+                <span className="flex items-center gap-2">
+                  💬 회원 자유게시판
+                </span>
+              </button>
+            </div>
+
             <button
-              onClick={() => setCurrentCategory('all')}
-              className={`px-4 py-2 rounded-lg font-medium whitespace-nowrap text-center min-w-[160px] transition ${
-                currentCategory === 'all'
-                  ? 'bg-primary-500 text-white hover:bg-primary-600'
-                  : 'bg-white text-gray-700 border-2 border-primary-500 hover:bg-gray-100'
+              onClick={() => {
+                if (currentCategory === 'all') {
+                  setShowCategoryModal(true);
+                } else if (currentCategory === 'politician_post') {
+                  router.push('/community/posts/create-politician');
+                } else {
+                  router.push('/community/posts/create');
+                }
+              }}
+              className={`px-6 py-2.5 text-white rounded-lg font-semibold hover:shadow-lg transition-all whitespace-nowrap shadow-md ${
+                currentCategory === 'general' ? 'bg-secondary-500 hover:bg-secondary-600' : 'bg-primary-500 hover:bg-primary-600'
               }`}
+              aria-label="글쓰기"
             >
-              전체
-            </button>
-            <button
-              onClick={() => setCurrentCategory('politician_post')}
-              className={`px-4 py-2 rounded-lg font-medium whitespace-nowrap text-center min-w-[160px] transition ${
-                currentCategory === 'politician_post'
-                  ? 'bg-primary-500 text-white hover:bg-primary-600'
-                  : 'bg-white text-gray-700 border-2 border-primary-500 hover:bg-gray-100'
-              }`}
-            >
-              🏛️ 정치인 게시판
-            </button>
-            <button
-              onClick={() => setCurrentCategory('general')}
-              className={`px-4 py-2 rounded-lg font-medium whitespace-nowrap text-center min-w-[160px] transition ${
-                currentCategory === 'general'
-                  ? 'bg-secondary-500 text-white hover:bg-secondary-600'
-                  : 'bg-white text-gray-700 border-2 border-secondary-500 hover:bg-gray-100'
-              }`}
-            >
-              💬 회원 자유게시판
+              <span className="flex items-center gap-2">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+                </svg>
+                글쓰기
+              </span>
             </button>
           </div>
 
-          <button
-            onClick={() => {
-              if (currentCategory === 'all') {
-                // 전체 탭: 정치인/회원 선택 모달
-                setShowCategoryModal(true);
-              } else if (currentCategory === 'politician_post') {
-                // 정치인 게시판: 바로 정치인 글쓰기로
-                router.push('/community/posts/create-politician');
-              } else {
-                // 자유게시판: 바로 회원 글쓰기로
-                router.push('/community/posts/create');
-              }
-            }}
-            className={`px-6 py-2 text-white rounded-lg font-medium hover:bg-opacity-90 transition whitespace-nowrap shadow-md ${
-              currentCategory === 'general' ? 'bg-secondary-500' : 'bg-primary-500'
-            }`}
-          >
-            글쓰기
-          </button>
+          {/* Mobile: Scrollable Tabs */}
+          <div className="flex sm:hidden flex-col gap-3">
+            {/* Tab Pills */}
+            <div className="flex gap-2 overflow-x-auto pb-1 -mx-4 px-4" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+              <button
+                onClick={() => setCurrentCategory('all')}
+                className={`flex-shrink-0 px-4 py-2 rounded-full font-semibold text-sm whitespace-nowrap transition-all ${
+                  currentCategory === 'all'
+                    ? 'bg-primary-500 text-white shadow-md'
+                    : 'bg-white text-gray-700 border-2 border-gray-300'
+                }`}
+                aria-label="전체 게시판"
+                aria-pressed={currentCategory === 'all'}
+              >
+                <span className="flex items-center gap-1.5">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 10h16M4 14h16M4 18h16" />
+                  </svg>
+                  전체
+                </span>
+              </button>
+              <button
+                onClick={() => setCurrentCategory('politician_post')}
+                className={`flex-shrink-0 px-4 py-2 rounded-full font-semibold text-sm whitespace-nowrap transition-all ${
+                  currentCategory === 'politician_post'
+                    ? 'bg-primary-500 text-white shadow-md'
+                    : 'bg-white text-gray-700 border-2 border-gray-300'
+                }`}
+                aria-label="정치인 게시판"
+                aria-pressed={currentCategory === 'politician_post'}
+              >
+                🏛️ 정치인 게시판
+              </button>
+              <button
+                onClick={() => setCurrentCategory('general')}
+                className={`flex-shrink-0 px-4 py-2 rounded-full font-semibold text-sm whitespace-nowrap transition-all ${
+                  currentCategory === 'general'
+                    ? 'bg-secondary-500 text-white shadow-md'
+                    : 'bg-white text-gray-700 border-2 border-gray-300'
+                }`}
+                aria-label="회원 자유게시판"
+                aria-pressed={currentCategory === 'general'}
+              >
+                💬 회원 자유게시판
+              </button>
+            </div>
+
+            {/* Write Button - Full Width on Mobile */}
+            <button
+              onClick={() => {
+                if (currentCategory === 'all') {
+                  setShowCategoryModal(true);
+                } else if (currentCategory === 'politician_post') {
+                  router.push('/community/posts/create-politician');
+                } else {
+                  router.push('/community/posts/create');
+                }
+              }}
+              className={`w-full px-4 py-3 text-white rounded-lg font-semibold hover:shadow-lg transition-all shadow-md min-h-touch ${
+                currentCategory === 'general' ? 'bg-secondary-500' : 'bg-primary-500'
+              }`}
+              aria-label="글쓰기"
+            >
+              <span className="flex items-center justify-center gap-2">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+                </svg>
+                글쓰기
+              </span>
+            </button>
+          </div>
         </div>
 
         {/* Sort Options - Enhanced Visual Design */}
