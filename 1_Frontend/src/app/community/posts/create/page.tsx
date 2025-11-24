@@ -207,13 +207,13 @@ export default function CreatePostPage() {
   return (
     <div className="bg-gray-50 min-h-screen">
       {/* Main Content */}
-      <main className="max-w-4xl mx-auto px-4 py-8">
-        <div className="mb-6">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">게시글 작성</h1>
-          <p className="text-gray-600">커뮤니티에 새로운 글을 작성해보세요.</p>
+      <main className="max-w-4xl mx-auto px-4 md:px-6 py-6 md:py-8">
+        <div className="mb-4 md:mb-6">
+          <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-1 md:mb-2">게시글 작성</h1>
+          <p className="text-sm md:text-base text-gray-600">커뮤니티에 새로운 글을 작성해보세요.</p>
         </div>
 
-        <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow-md p-6 space-y-6">
+        <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow-md p-4 md:p-6 space-y-4 md:space-y-6">
           {/* Category */}
           <div>
             <label className="block text-sm font-medium text-gray-900 mb-2">카테고리</label>
@@ -283,7 +283,7 @@ export default function CreatePostPage() {
               required
               maxLength={100}
               placeholder="제목을 입력하세요 (최대 100자)"
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-base"
             />
             <div className="text-right mt-1">
               <span className="text-sm text-gray-500">{title.length} / 100</span>
@@ -300,9 +300,9 @@ export default function CreatePostPage() {
               value={content}
               onChange={(e) => setContent(e.target.value)}
               required
-              rows={15}
+              rows={10}
               placeholder="내용을 입력하세요&#10;&#10;• 타인을 비방하거나 명예를 훼손하는 내용은 삼가주세요.&#10;• 허위 사실을 유포하거나 악의적인 내용은 삭제될 수 있습니다.&#10;• 건전한 토론 문화를 만들어 주세요."
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 resize-none"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 resize-none text-base md:rows-15"
             />
             <div className="text-right mt-1">
               <span className="text-sm text-gray-500">{content.length}자</span>
@@ -390,25 +390,25 @@ export default function CreatePostPage() {
             </ul>
           </div>
 
-          {/* Buttons */}
-          <div className="flex gap-3 pt-4 border-t">
+          {/* Buttons - Mobile Optimized */}
+          <div className="flex flex-col md:flex-row gap-3 pt-4 border-t">
             <button
               type="button"
               onClick={() => router.back()}
-              className="flex-1 px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 font-medium"
+              className="flex-1 px-6 py-3 min-h-touch border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 font-medium transition"
             >
               취소
             </button>
             <button
               type="button"
               onClick={saveDraft}
-              className="flex-1 px-6 py-3 border border-purple-600 text-purple-600 rounded-lg hover:bg-purple-50 font-medium"
+              className="flex-1 px-6 py-3 min-h-touch border border-purple-600 text-purple-600 rounded-lg hover:bg-purple-50 font-medium transition"
             >
               임시저장
             </button>
             <button
               type="submit"
-              className="flex-1 px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 font-medium"
+              className="flex-1 px-6 py-3 min-h-touch bg-purple-600 text-white rounded-lg hover:bg-purple-700 font-medium transition"
             >
               등록하기
             </button>
