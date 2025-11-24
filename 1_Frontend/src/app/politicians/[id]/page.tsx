@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { Politician } from '@/types/politician';
 import FavoriteButton from '@/components/FavoriteButton';
+import { LoadingPage } from '@/components/ui/Spinner';
 
 const SAMPLE_POLITICIAN: Politician = {
   id: 'POL001',
@@ -304,11 +305,8 @@ export default function PoliticianDetailPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600 mx-auto mb-4"></div>
-          <p className="text-gray-600">로딩 중...</p>
-        </div>
+      <div className="min-h-screen bg-gray-50">
+        <LoadingPage message="정치인 정보를 불러오는 중..." />
       </div>
     );
   }

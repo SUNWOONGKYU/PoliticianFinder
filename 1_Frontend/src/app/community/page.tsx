@@ -3,6 +3,7 @@
 import { useState, useMemo, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { LoadingPage } from '@/components/ui/Spinner';
 
 interface CommunityPost {
   id: number;
@@ -287,10 +288,7 @@ export default function CommunityPage() {
 
         {/* Loading State */}
         {loading ? (
-          <div className="text-center py-16">
-            <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-primary-500"></div>
-            <p className="text-gray-500 text-lg mt-4">게시글을 불러오는 중...</p>
-          </div>
+          <LoadingPage message="게시글을 불러오는 중..." />
         ) : error ? (
           /* Error State */
           <div className="text-center py-16">

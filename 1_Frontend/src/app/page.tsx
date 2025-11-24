@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
+import { LoadingSection } from '@/components/ui/Spinner';
 
 // 정치인 데이터 타입 정의
 interface Politician {
@@ -642,9 +643,7 @@ export default function Home() {
               <div className="p-4">
                 {/* Loading state */}
                 {loading && (
-                  <div className="text-center py-12">
-                    <p className="text-gray-500">데이터를 불러오는 중...</p>
-                  </div>
+                  <LoadingSection message="데이터를 불러오는 중..." height="h-48" />
                 )}
 
                 {/* Empty state */}
