@@ -267,22 +267,127 @@ export default function CommunityPage() {
           </button>
         </div>
 
-        {/* Sort Options */}
-        <div className="flex items-center justify-between mb-4">
+        {/* Sort Options - Enhanced Visual Design */}
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-4">
+          {/* Total Count */}
           <div className="text-sm text-gray-600">
             총 <span className="font-bold text-gray-900">{totalCount}</span>개의 게시글
             {totalPages > 1 && <span className="ml-2 text-gray-500">({currentPage}/{totalPages} 페이지)</span>}
           </div>
-          <div className="flex items-center space-x-2">
-            <select
-              value={sortBy}
-              onChange={(e) => setSortBy(e.target.value as 'latest' | 'popular' | 'views')}
-              className="px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-primary-300"
-            >
-              <option value="latest">최신순</option>
-              <option value="popular">공감순</option>
-              <option value="views">조회순</option>
-            </select>
+
+          {/* Sort Buttons - Mobile-first design */}
+          <div className="flex items-center gap-2 w-full sm:w-auto">
+            {/* Desktop: Button Group */}
+            <div className="hidden sm:flex rounded-lg border border-gray-300 overflow-hidden">
+              <button
+                onClick={() => setSortBy('latest')}
+                className={`px-4 py-2 text-sm font-medium transition-colors ${
+                  sortBy === 'latest'
+                    ? 'bg-primary-500 text-white'
+                    : 'bg-white text-gray-700 hover:bg-gray-50'
+                }`}
+                aria-label="최신순 정렬"
+                aria-pressed={sortBy === 'latest'}
+              >
+                <span className="flex items-center gap-1.5">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  최신순
+                </span>
+              </button>
+              <button
+                onClick={() => setSortBy('popular')}
+                className={`px-4 py-2 text-sm font-medium transition-colors border-l border-gray-300 ${
+                  sortBy === 'popular'
+                    ? 'bg-primary-500 text-white'
+                    : 'bg-white text-gray-700 hover:bg-gray-50'
+                }`}
+                aria-label="공감순 정렬"
+                aria-pressed={sortBy === 'popular'}
+              >
+                <span className="flex items-center gap-1.5">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                  </svg>
+                  공감순
+                </span>
+              </button>
+              <button
+                onClick={() => setSortBy('views')}
+                className={`px-4 py-2 text-sm font-medium transition-colors border-l border-gray-300 ${
+                  sortBy === 'views'
+                    ? 'bg-primary-500 text-white'
+                    : 'bg-white text-gray-700 hover:bg-gray-50'
+                }`}
+                aria-label="조회순 정렬"
+                aria-pressed={sortBy === 'views'}
+              >
+                <span className="flex items-center gap-1.5">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                  </svg>
+                  조회순
+                </span>
+              </button>
+            </div>
+
+            {/* Mobile: Segmented Control with Icons */}
+            <div className="flex sm:hidden w-full rounded-lg border border-gray-300 overflow-hidden bg-white">
+              <button
+                onClick={() => setSortBy('latest')}
+                className={`flex-1 px-3 py-2.5 text-sm font-medium transition-all ${
+                  sortBy === 'latest'
+                    ? 'bg-primary-500 text-white shadow-sm'
+                    : 'bg-white text-gray-700'
+                }`}
+                aria-label="최신순 정렬"
+                aria-pressed={sortBy === 'latest'}
+              >
+                <span className="flex flex-col items-center gap-1">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span className="text-xs">최신순</span>
+                </span>
+              </button>
+              <button
+                onClick={() => setSortBy('popular')}
+                className={`flex-1 px-3 py-2.5 text-sm font-medium transition-all border-l border-gray-300 ${
+                  sortBy === 'popular'
+                    ? 'bg-primary-500 text-white shadow-sm'
+                    : 'bg-white text-gray-700'
+                }`}
+                aria-label="공감순 정렬"
+                aria-pressed={sortBy === 'popular'}
+              >
+                <span className="flex flex-col items-center gap-1">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                  </svg>
+                  <span className="text-xs">공감순</span>
+                </span>
+              </button>
+              <button
+                onClick={() => setSortBy('views')}
+                className={`flex-1 px-3 py-2.5 text-sm font-medium transition-all border-l border-gray-300 ${
+                  sortBy === 'views'
+                    ? 'bg-primary-500 text-white shadow-sm'
+                    : 'bg-white text-gray-700'
+                }`}
+                aria-label="조회순 정렬"
+                aria-pressed={sortBy === 'views'}
+              >
+                <span className="flex flex-col items-center gap-1">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                  </svg>
+                  <span className="text-xs">조회순</span>
+                </span>
+              </button>
+            </div>
           </div>
         </div>
 
