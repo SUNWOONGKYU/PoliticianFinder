@@ -19,6 +19,12 @@ const config: Config = {
       fontFamily: {
         sans: ['Pretendard', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'sans-serif'],
       },
+      minHeight: {
+        'touch': '44px',  // WCAG 터치 타겟 최소 크기
+      },
+      minWidth: {
+        'touch': '44px',  // WCAG 터치 타겟 최소 크기
+      },
       colors: {
         // 주황색 메인 컬러
         primary: {
