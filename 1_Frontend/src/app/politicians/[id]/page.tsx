@@ -75,13 +75,28 @@ const AI_SCORES = [
   { name: 'Grok', score: 960, color: '#000000' },
 ];
 
-const CHART_DATA = [
+// H9: 확장된 차트 데이터 (12개월)
+const CHART_DATA_FULL = [
+  { month: '2024-02', total: 845, claude: 860, chatgpt: 850, grok: 855 },
+  { month: '2024-03', total: 850, claude: 865, chatgpt: 855, grok: 860 },
+  { month: '2024-04', total: 855, claude: 870, chatgpt: 860, grok: 865 },
+  { month: '2024-05', total: 858, claude: 872, chatgpt: 862, grok: 868 },
+  { month: '2024-06', total: 862, claude: 875, chatgpt: 865, grok: 870 },
+  { month: '2024-07', total: 865, claude: 878, chatgpt: 868, grok: 873 },
   { month: '2024-08', total: 867, claude: 880, chatgpt: 870, grok: 875 },
   { month: '2024-09', total: 878, claude: 895, chatgpt: 880, grok: 885 },
   { month: '2024-10', total: 882, claude: 900, chatgpt: 885, grok: 890 },
   { month: '2024-11', total: 890, claude: 910, chatgpt: 890, grok: 900 },
   { month: '2024-12', total: 894, claude: 915, chatgpt: 895, grok: 905 },
   { month: '2025-01', total: 950, claude: 970, chatgpt: 950, grok: 960 },
+];
+
+// H9: 기간별 필터링 옵션
+type ChartPeriod = '3m' | '6m' | '12m';
+const CHART_PERIODS: { id: ChartPeriod; label: string }[] = [
+  { id: '3m', label: '3개월' },
+  { id: '6m', label: '6개월' },
+  { id: '12m', label: '12개월' },
 ];
 
 const CATEGORY_SCORES = [
@@ -129,6 +144,13 @@ export default function PoliticianDetailPage() {
     { id: 'community', label: '커뮤니티', icon: '💬' },
     { id: 'official', label: '공식 정보', icon: '🏛️' },
   ];
+
+  // H9: 차트 기간 상태 및 필터링된 데이터
+  const [chartPeriod, setChartPeriod] = useState<ChartPeriod>('6m');
+  const chartData = useMemo(() => {
+    const monthCount = chartPeriod === '3m' ? 3 : chartPeriod === '6m' ? 6 : 12;
+    return CHART_DATA_FULL.slice(-monthCount);
+  }, [chartPeriod]);
 
   // API에서 정치인 상세 정보 가져오기
   useEffect(() => {
@@ -571,13 +593,32 @@ export default function PoliticianDetailPage() {
 
           {/* 시계열 그래프 - Mobile Optimized */}
           <div className="mb-6">
-            <div className="bg-white rounded-lg shadow-md p-4 md:p-6">
-              <h3 className="text-center font-bold mb-4 text-base md:text-lg">AI 평가 점수 추이 (월별)</h3>
+            <div className="bg-white dark:bg-gray-700 rounded-lg shadow-md p-4 md:p-6">
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-3 mb-4">
+                <h3 className="font-bold text-base md:text-lg text-gray-900 dark:text-white">AI 평가 점수 추이 (월별)</h3>
+
+                {/* H9: 기간 선택 버튼 그룹 */}
+                <div className="flex bg-gray-100 dark:bg-gray-600 rounded-lg p-1">
+                  {CHART_PERIODS.map((period) => (
+                    <button
+                      key={period.id}
+                      onClick={() => setChartPeriod(period.id)}
+                      className={`px-3 py-1.5 text-sm font-medium rounded-md transition-all min-h-touch flex items-center justify-center ${
+                        chartPeriod === period.id
+                          ? 'bg-primary-500 text-white shadow-sm'
+                          : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white'
+                      }`}
+                    >
+                      {period.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
 
               {/* Desktop Chart */}
               <div className="hidden md:block">
                 <ResponsiveContainer width="100%" height={350}>
-                  <LineChart data={CHART_DATA} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
+                  <LineChart data={chartData} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
                     <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
                     <XAxis
                       dataKey="month"
@@ -609,7 +650,7 @@ export default function PoliticianDetailPage() {
               {/* Mobile Chart - Simplified */}
               <div className="md:hidden">
                 <ResponsiveContainer width="100%" height={250}>
-                  <LineChart data={CHART_DATA} margin={{ top: 5, right: 10, left: -20, bottom: 5 }}>
+                  <LineChart data={chartData} margin={{ top: 5, right: 10, left: -20, bottom: 5 }}>
                     <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
                     <XAxis
                       dataKey="month"
