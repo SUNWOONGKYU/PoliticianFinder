@@ -65,6 +65,12 @@ export default function Home() {
   const [postsLoading, setPostsLoading] = useState(true);
   const [notices, setNotices] = useState<Notice[]>([]);
   const [noticesLoading, setNoticesLoading] = useState(true);
+  const [statistics, setStatistics] = useState({
+    politicians: 0,
+    users: 0,
+    posts: 0,
+    ratings: 0,
+  });
 
   // Google 로그인 성공 시 URL 파라미터 제거 및 새로고침
   useEffect(() => {
@@ -241,6 +247,42 @@ export default function Home() {
     };
 
     fetchPosts();
+  }, []);
+
+  // API에서 통계 데이터 가져오기
+  useEffect(() => {
+    const fetchStatistics = async () => {
+      try {
+        const response = await fetch('/api/statistics/overview', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          cache: 'no-store',
+        });
+
+        if (!response.ok) {
+          throw new Error('Failed to fetch statistics');
+        }
+
+        const data = await response.json();
+
+        if (data.success && data.data) {
+          setStatistics({
+            politicians: data.data.total.politicians || 0,
+            users: data.data.total.users || 0,
+            posts: data.data.total.posts || 0,
+            ratings: data.data.total.ratings || 0,
+          });
+        }
+      } catch (err) {
+        if (process.env.NODE_ENV === 'development') {
+          console.error('Error fetching statistics:', err);
+        }
+      }
+    };
+
+    fetchStatistics();
   }, []);
 
   // API에서 공지사항 데이터 가져오기
@@ -550,7 +592,7 @@ export default function Home() {
                       type="search"
                       inputMode="search"
                       id="index-search-input"
-                      placeholder="정치인, 게시글 검색"
+                      placeholder="정치인과 게시글을 통합 검색하세요"
                       className="w-full px-4 py-3 pl-12 border-2 border-primary-300 rounded-lg focus:outline-none focus:border-primary-500 text-gray-900 focus:ring-2 focus:ring-primary-200 text-base"
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
@@ -584,53 +626,44 @@ export default function Home() {
 
             {/* 통계 섹션 */}
             <section className="bg-gradient-to-br from-primary-50 to-secondary-50 rounded-lg shadow-lg p-8">
-              <div className="text-center mb-8">
-                <h2 className="text-3xl font-bold text-gray-900 mb-3">
-                  투명한 정치를 위한 우리의 여정
-                </h2>
-                <p className="text-gray-600">
-                  함께 만들어가는 더 나은 정치 문화
-                </p>
-              </div>
-
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                 {/* 등록된 정치인 */}
                 <div className="text-center bg-white/70 backdrop-blur-sm rounded-lg p-6 hover:shadow-md transition-shadow">
                   <div className="text-4xl md:text-5xl font-bold text-primary-600 mb-2">
-                    {politicians.length > 0 ? '300+' : '...'}
+                    {statistics.politicians > 0 ? `${statistics.politicians.toLocaleString()}+` : '...'}
                   </div>
                   <div className="text-sm md:text-base text-gray-700 font-medium">
                     등록된 정치인
                   </div>
                 </div>
 
-                {/* AI 평가 */}
+                {/* 회원 */}
                 <div className="text-center bg-white/70 backdrop-blur-sm rounded-lg p-6 hover:shadow-md transition-shadow">
                   <div className="text-4xl md:text-5xl font-bold text-secondary-600 mb-2">
-                    900+
+                    {statistics.users > 0 ? `${statistics.users.toLocaleString()}+` : '...'}
                   </div>
                   <div className="text-sm md:text-base text-gray-700 font-medium">
-                    AI 평가
+                    회원
                   </div>
                 </div>
 
                 {/* 커뮤니티 글 */}
                 <div className="text-center bg-white/70 backdrop-blur-sm rounded-lg p-6 hover:shadow-md transition-shadow">
                   <div className="text-4xl md:text-5xl font-bold text-green-600 mb-2">
-                    {politicianPosts.length + popularPosts.length > 0 ? '50+' : '...'}
+                    {statistics.posts > 0 ? `${statistics.posts.toLocaleString()}+` : '...'}
                   </div>
                   <div className="text-sm md:text-base text-gray-700 font-medium">
                     커뮤니티 글
                   </div>
                 </div>
 
-                {/* 만족도 */}
+                {/* 평가 참여자 */}
                 <div className="text-center bg-white/70 backdrop-blur-sm rounded-lg p-6 hover:shadow-md transition-shadow">
                   <div className="text-4xl md:text-5xl font-bold text-blue-600 mb-2">
-                    98.5%
+                    {statistics.ratings > 0 ? `${statistics.ratings.toLocaleString()}+` : '...'}
                   </div>
                   <div className="text-sm md:text-base text-gray-700 font-medium">
-                    만족도
+                    평가 참여자
                   </div>
                 </div>
               </div>
