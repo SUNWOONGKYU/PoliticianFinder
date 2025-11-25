@@ -1,0 +1,954 @@
+{
+  "results": [
+    {
+      "page": "홈페이지",
+      "device": "iPhone-14",
+      "theme": "light",
+      "path": "iPhone-14_home_light.png",
+      "issues": [
+        "작은 터치 타겟 발견: a(189x32): \"PoliticianFinder\", button(32x32): \"\", a(32x32): \"\", button(24x24): \"\", a(55x28): \"강민수\""
+      ]
+    },
+    {
+      "page": "홈페이지",
+      "device": "iPhone-14",
+      "theme": "dark",
+      "path": "iPhone-14_home_dark.png",
+      "issues": [
+        "작은 터치 타겟 발견: a(189x32): \"PoliticianFinder\", button(32x32): \"\", a(32x32): \"\", button(24x24): \"\", a(55x28): \"강민수\""
+      ]
+    },
+    {
+      "page": "정치인 목록",
+      "device": "iPhone-14",
+      "theme": "light",
+      "path": "iPhone-14_politicians-list_light.png",
+      "issues": [
+        "작은 터치 타겟 발견: a(189x32): \"PoliticianFinder\", button(32x32): \"\", a(32x32): \"\", button(24x24): \"\", button(41x44): \"1\""
+      ]
+    },
+    {
+      "page": "정치인 목록",
+      "device": "iPhone-14",
+      "theme": "dark",
+      "path": "iPhone-14_politicians-list_dark.png",
+      "issues": [
+        "작은 터치 타겟 발견: a(189x32): \"PoliticianFinder\", button(32x32): \"\", a(32x32): \"\", button(24x24): \"\", button(41x44): \"1\""
+      ]
+    },
+    {
+      "page": "정치인 상세",
+      "device": "iPhone-14",
+      "theme": "light",
+      "path": "iPhone-14_politician-detail_light.png",
+      "issues": [
+        "작은 터치 타겟 발견: a(189x32): \"PoliticianFinder\", button(32x32): \"\", a(32x32): \"\", button(24x24): \"\", a(13x20): \"홈\"",
+        "작은 텍스트(12px 미만) 8개 발견",
+        "화면 밖으로 넘치는 요소 2개"
+      ]
+    },
+    {
+      "page": "정치인 상세",
+      "device": "iPhone-14",
+      "theme": "dark",
+      "path": "iPhone-14_politician-detail_dark.png",
+      "issues": [
+        "작은 터치 타겟 발견: a(189x32): \"PoliticianFinder\", button(32x32): \"\", a(32x32): \"\", button(24x24): \"\", a(13x20): \"홈\"",
+        "작은 텍스트(12px 미만) 8개 발견",
+        "화면 밖으로 넘치는 요소 2개"
+      ]
+    },
+    {
+      "page": "커뮤니티",
+      "device": "iPhone-14",
+      "theme": "light",
+      "path": "iPhone-14_community_light.png",
+      "issues": [
+        "작은 터치 타겟 발견: a(189x32): \"PoliticianFinder\", button(32x32): \"\", a(32x32): \"\", button(24x24): \"\", button(80x40): \"전체\"",
+        "화면 밖으로 넘치는 요소 1개"
+      ]
+    },
+    {
+      "page": "커뮤니티",
+      "device": "iPhone-14",
+      "theme": "dark",
+      "path": "iPhone-14_community_dark.png",
+      "issues": [
+        "작은 터치 타겟 발견: a(189x32): \"PoliticianFinder\", button(32x32): \"\", a(32x32): \"\", button(24x24): \"\", button(80x40): \"전체\"",
+        "화면 밖으로 넘치는 요소 1개"
+      ]
+    },
+    {
+      "page": "로그인",
+      "device": "iPhone-14",
+      "theme": "light",
+      "path": "iPhone-14_login_light.png",
+      "issues": [
+        "작은 터치 타겟 발견: a(189x32): \"PoliticianFinder\", button(32x32): \"\", a(32x32): \"\", button(24x24): \"\", a(52x20): \"회원가입\""
+      ]
+    },
+    {
+      "page": "로그인",
+      "device": "iPhone-14",
+      "theme": "dark",
+      "path": "iPhone-14_login_dark.png",
+      "issues": [
+        "작은 터치 타겟 발견: a(189x32): \"PoliticianFinder\", button(32x32): \"\", a(32x32): \"\", button(24x24): \"\", a(52x20): \"회원가입\""
+      ]
+    },
+    {
+      "page": "회원가입",
+      "device": "iPhone-14",
+      "theme": "light",
+      "path": "iPhone-14_signup_light.png",
+      "issues": [
+        "작은 터치 타겟 발견: a(189x32): \"PoliticianFinder\", button(32x32): \"\", a(32x32): \"\", button(24x24): \"\", a(39x20): \"로그인\""
+      ]
+    },
+    {
+      "page": "회원가입",
+      "device": "iPhone-14",
+      "theme": "dark",
+      "path": "iPhone-14_signup_dark.png",
+      "issues": [
+        "작은 터치 타겟 발견: a(189x32): \"PoliticianFinder\", button(32x32): \"\", a(32x32): \"\", button(24x24): \"\", a(39x20): \"로그인\""
+      ]
+    },
+    {
+      "page": "검색",
+      "device": "iPhone-14",
+      "theme": "light",
+      "path": "iPhone-14_search_light.png",
+      "issues": [
+        "작은 터치 타겟 발견: a(189x32): \"PoliticianFinder\", button(32x32): \"\", a(32x32): \"\", button(24x24): \"\", button(61x40): \"전체\"",
+        "페이지 컨텐츠가 거의 없음"
+      ]
+    },
+    {
+      "page": "검색",
+      "device": "iPhone-14",
+      "theme": "dark",
+      "path": "iPhone-14_search_dark.png",
+      "issues": [
+        "작은 터치 타겟 발견: a(189x32): \"PoliticianFinder\", button(32x32): \"\", a(32x32): \"\", button(24x24): \"\", button(61x40): \"전체\"",
+        "페이지 컨텐츠가 거의 없음"
+      ]
+    },
+    {
+      "page": "마이페이지",
+      "device": "iPhone-14",
+      "theme": "light",
+      "path": "iPhone-14_mypage_light.png",
+      "issues": [
+        "작은 터치 타겟 발견: a(189x32): \"PoliticianFinder\", button(32x32): \"\", a(32x32): \"\", button(24x24): \"\", a(189x40): \"로그인 페이지로 이동\"",
+        "페이지 컨텐츠가 거의 없음"
+      ]
+    },
+    {
+      "page": "마이페이지",
+      "device": "iPhone-14",
+      "theme": "dark",
+      "path": "iPhone-14_mypage_dark.png",
+      "issues": [
+        "작은 터치 타겟 발견: a(189x32): \"PoliticianFinder\", button(32x32): \"\", a(32x32): \"\", button(24x24): \"\", a(189x40): \"로그인 페이지로 이동\"",
+        "페이지 컨텐츠가 거의 없음"
+      ]
+    },
+    {
+      "page": "관심 정치인",
+      "device": "iPhone-14",
+      "theme": "light",
+      "path": "iPhone-14_favorites_light.png",
+      "issues": [
+        "작은 터치 타겟 발견: a(189x32): \"PoliticianFinder\", button(32x32): \"\", a(32x32): \"\", button(24x24): \"\", a(150x24): \"설정으로 돌아가기\""
+      ]
+    },
+    {
+      "page": "관심 정치인",
+      "device": "iPhone-14",
+      "theme": "dark",
+      "path": "iPhone-14_favorites_dark.png",
+      "issues": [
+        "작은 터치 타겟 발견: a(189x32): \"PoliticianFinder\", button(32x32): \"\", a(32x32): \"\", button(24x24): \"\", a(150x24): \"설정으로 돌아가기\""
+      ]
+    },
+    {
+      "page": "알림",
+      "device": "iPhone-14",
+      "theme": "light",
+      "path": "iPhone-14_notifications_light.png",
+      "issues": [
+        "작은 터치 타겟 발견: a(189x32): \"PoliticianFinder\", button(32x32): \"\", a(32x32): \"\", button(24x24): \"\", button(71x28): \"모두 읽음\"",
+        "화면 밖으로 넘치는 요소 2개"
+      ]
+    },
+    {
+      "page": "알림",
+      "device": "iPhone-14",
+      "theme": "dark",
+      "path": "iPhone-14_notifications_dark.png",
+      "issues": [
+        "작은 터치 타겟 발견: a(189x32): \"PoliticianFinder\", button(32x32): \"\", a(32x32): \"\", button(24x24): \"\", button(71x28): \"모두 읽음\"",
+        "화면 밖으로 넘치는 요소 2개"
+      ]
+    },
+    {
+      "page": "설정",
+      "device": "iPhone-14",
+      "theme": "light",
+      "path": "iPhone-14_settings_light.png",
+      "issues": [
+        "작은 터치 타겟 발견: a(189x32): \"PoliticianFinder\", button(32x32): \"\", a(32x32): \"\", button(24x24): \"\", a(189x32): \"PoliticianFinder\""
+      ]
+    },
+    {
+      "page": "설정",
+      "device": "iPhone-14",
+      "theme": "dark",
+      "path": "iPhone-14_settings_dark.png",
+      "issues": [
+        "작은 터치 타겟 발견: a(189x32): \"PoliticianFinder\", button(32x32): \"\", a(32x32): \"\", button(24x24): \"\", a(189x32): \"PoliticianFinder\""
+      ]
+    },
+    {
+      "page": "공지사항",
+      "device": "iPhone-14",
+      "theme": "light",
+      "path": "iPhone-14_notices_light.png",
+      "issues": [
+        "작은 터치 타겟 발견: a(189x32): \"PoliticianFinder\", button(32x32): \"\", a(32x32): \"\", button(24x24): \"\", button(52x38): \"이전\""
+      ]
+    },
+    {
+      "page": "공지사항",
+      "device": "iPhone-14",
+      "theme": "dark",
+      "path": "iPhone-14_notices_dark.png",
+      "issues": [
+        "작은 터치 타겟 발견: a(189x32): \"PoliticianFinder\", button(32x32): \"\", a(32x32): \"\", button(24x24): \"\", button(52x38): \"이전\""
+      ]
+    },
+    {
+      "page": "고객지원",
+      "device": "iPhone-14",
+      "theme": "light",
+      "path": "iPhone-14_support_light.png",
+      "issues": [
+        "작은 터치 타겟 발견: a(189x32): \"PoliticianFinder\", button(32x32): \"\", a(32x32): \"\", button(24x24): \"\", input(294x42): \"\""
+      ]
+    },
+    {
+      "page": "고객지원",
+      "device": "iPhone-14",
+      "theme": "dark",
+      "path": "iPhone-14_support_dark.png",
+      "issues": [
+        "작은 터치 타겟 발견: a(189x32): \"PoliticianFinder\", button(32x32): \"\", a(32x32): \"\", button(24x24): \"\", input(294x42): \"\""
+      ]
+    },
+    {
+      "page": "이용약관",
+      "device": "iPhone-14",
+      "theme": "light",
+      "path": "iPhone-14_terms_light.png",
+      "issues": [
+        "작은 터치 타겟 발견: a(189x32): \"PoliticianFinder\", button(32x32): \"\", a(32x32): \"\", button(24x24): \"\", a(78x24): \"서비스 소개\""
+      ]
+    },
+    {
+      "page": "이용약관",
+      "device": "iPhone-14",
+      "theme": "dark",
+      "path": "iPhone-14_terms_dark.png",
+      "issues": [
+        "작은 터치 타겟 발견: a(189x32): \"PoliticianFinder\", button(32x32): \"\", a(32x32): \"\", button(24x24): \"\", a(78x24): \"서비스 소개\""
+      ]
+    },
+    {
+      "page": "개인정보처리방침",
+      "device": "iPhone-14",
+      "theme": "light",
+      "path": "iPhone-14_privacy_light.png",
+      "issues": [
+        "작은 터치 타겟 발견: a(189x32): \"PoliticianFinder\", button(32x32): \"\", a(32x32): \"\", button(24x24): \"\", a(78x24): \"서비스 소개\""
+      ]
+    },
+    {
+      "page": "개인정보처리방침",
+      "device": "iPhone-14",
+      "theme": "dark",
+      "path": "iPhone-14_privacy_dark.png",
+      "issues": [
+        "작은 터치 타겟 발견: a(189x32): \"PoliticianFinder\", button(32x32): \"\", a(32x32): \"\", button(24x24): \"\", a(78x24): \"서비스 소개\""
+      ]
+    },
+    {
+      "page": "홈페이지",
+      "device": "Galaxy-S9",
+      "theme": "light",
+      "path": "Galaxy-S9_home_light.png",
+      "issues": [
+        "가로 스크롤 발생 - 컨텐츠가 화면 밖으로 넘침",
+        "작은 터치 타겟 발견: a(189x32): \"PoliticianFinder\", button(32x32): \"\", a(32x32): \"\", button(24x24): \"\", a(55x28): \"강민수\""
+      ]
+    },
+    {
+      "page": "홈페이지",
+      "device": "Galaxy-S9",
+      "theme": "dark",
+      "path": "Galaxy-S9_home_dark.png",
+      "issues": [
+        "가로 스크롤 발생 - 컨텐츠가 화면 밖으로 넘침",
+        "작은 터치 타겟 발견: a(189x32): \"PoliticianFinder\", button(32x32): \"\", a(32x32): \"\", button(24x24): \"\", a(55x28): \"강민수\""
+      ]
+    },
+    {
+      "page": "정치인 목록",
+      "device": "Galaxy-S9",
+      "theme": "light",
+      "path": "Galaxy-S9_politicians-list_light.png",
+      "issues": [
+        "가로 스크롤 발생 - 컨텐츠가 화면 밖으로 넘침",
+        "작은 터치 타겟 발견: a(189x32): \"PoliticianFinder\", button(32x32): \"\", a(32x32): \"\", button(24x24): \"\", button(41x64): \"1\""
+      ]
+    },
+    {
+      "page": "정치인 목록",
+      "device": "Galaxy-S9",
+      "theme": "dark",
+      "path": "Galaxy-S9_politicians-list_dark.png",
+      "issues": [
+        "가로 스크롤 발생 - 컨텐츠가 화면 밖으로 넘침",
+        "작은 터치 타겟 발견: a(189x32): \"PoliticianFinder\", button(32x32): \"\", a(32x32): \"\", button(24x24): \"\", button(41x64): \"1\""
+      ]
+    },
+    {
+      "page": "정치인 상세",
+      "device": "Galaxy-S9",
+      "theme": "light",
+      "path": "Galaxy-S9_politician-detail_light.png",
+      "issues": [
+        "작은 터치 타겟 발견: a(189x32): \"PoliticianFinder\", button(32x32): \"\", a(32x32): \"\", button(24x24): \"\", a(13x20): \"홈\"",
+        "작은 텍스트(12px 미만) 8개 발견",
+        "화면 밖으로 넘치는 요소 4개"
+      ]
+    },
+    {
+      "page": "정치인 상세",
+      "device": "Galaxy-S9",
+      "theme": "dark",
+      "path": "Galaxy-S9_politician-detail_dark.png",
+      "issues": [
+        "작은 터치 타겟 발견: a(189x32): \"PoliticianFinder\", button(32x32): \"\", a(32x32): \"\", button(24x24): \"\", a(13x20): \"홈\"",
+        "작은 텍스트(12px 미만) 8개 발견",
+        "화면 밖으로 넘치는 요소 4개"
+      ]
+    },
+    {
+      "page": "커뮤니티",
+      "device": "Galaxy-S9",
+      "theme": "light",
+      "path": "Galaxy-S9_community_light.png",
+      "issues": [
+        "작은 터치 타겟 발견: a(189x32): \"PoliticianFinder\", button(32x32): \"\", a(32x32): \"\", button(24x24): \"\", button(80x40): \"전체\"",
+        "화면 밖으로 넘치는 요소 1개"
+      ]
+    },
+    {
+      "page": "커뮤니티",
+      "device": "Galaxy-S9",
+      "theme": "dark",
+      "path": "Galaxy-S9_community_dark.png",
+      "issues": [
+        "작은 터치 타겟 발견: a(189x32): \"PoliticianFinder\", button(32x32): \"\", a(32x32): \"\", button(24x24): \"\", button(80x40): \"전체\"",
+        "화면 밖으로 넘치는 요소 1개"
+      ]
+    },
+    {
+      "page": "로그인",
+      "device": "Galaxy-S9",
+      "theme": "light",
+      "path": "Galaxy-S9_login_light.png",
+      "issues": [
+        "작은 터치 타겟 발견: a(189x32): \"PoliticianFinder\", button(32x32): \"\", a(32x32): \"\", button(24x24): \"\", a(52x20): \"회원가입\""
+      ]
+    },
+    {
+      "page": "로그인",
+      "device": "Galaxy-S9",
+      "theme": "dark",
+      "path": "Galaxy-S9_login_dark.png",
+      "issues": [
+        "작은 터치 타겟 발견: a(189x32): \"PoliticianFinder\", button(32x32): \"\", a(32x32): \"\", button(24x24): \"\", a(52x20): \"회원가입\""
+      ]
+    },
+    {
+      "page": "회원가입",
+      "device": "Galaxy-S9",
+      "theme": "light",
+      "path": "Galaxy-S9_signup_light.png",
+      "issues": [
+        "작은 터치 타겟 발견: a(189x32): \"PoliticianFinder\", button(32x32): \"\", a(32x32): \"\", button(24x24): \"\", a(39x20): \"로그인\""
+      ]
+    },
+    {
+      "page": "회원가입",
+      "device": "Galaxy-S9",
+      "theme": "dark",
+      "path": "Galaxy-S9_signup_dark.png",
+      "issues": [
+        "작은 터치 타겟 발견: a(189x32): \"PoliticianFinder\", button(32x32): \"\", a(32x32): \"\", button(24x24): \"\", a(39x20): \"로그인\""
+      ]
+    },
+    {
+      "page": "검색",
+      "device": "Galaxy-S9",
+      "theme": "light",
+      "path": "Galaxy-S9_search_light.png",
+      "issues": [
+        "작은 터치 타겟 발견: a(189x32): \"PoliticianFinder\", button(32x32): \"\", a(32x32): \"\", button(24x24): \"\", button(61x40): \"전체\"",
+        "페이지 컨텐츠가 거의 없음"
+      ]
+    },
+    {
+      "page": "검색",
+      "device": "Galaxy-S9",
+      "theme": "dark",
+      "path": "Galaxy-S9_search_dark.png",
+      "issues": [
+        "작은 터치 타겟 발견: a(189x32): \"PoliticianFinder\", button(32x32): \"\", a(32x32): \"\", button(24x24): \"\", button(61x40): \"전체\"",
+        "페이지 컨텐츠가 거의 없음"
+      ]
+    },
+    {
+      "page": "마이페이지",
+      "device": "Galaxy-S9",
+      "theme": "light",
+      "path": "Galaxy-S9_mypage_light.png",
+      "issues": [
+        "작은 터치 타겟 발견: a(189x32): \"PoliticianFinder\", button(32x32): \"\", a(32x32): \"\", button(24x24): \"\", a(189x40): \"로그인 페이지로 이동\"",
+        "페이지 컨텐츠가 거의 없음"
+      ]
+    },
+    {
+      "page": "마이페이지",
+      "device": "Galaxy-S9",
+      "theme": "dark",
+      "path": "Galaxy-S9_mypage_dark.png",
+      "issues": [
+        "작은 터치 타겟 발견: a(189x32): \"PoliticianFinder\", button(32x32): \"\", a(32x32): \"\", button(24x24): \"\", a(189x40): \"로그인 페이지로 이동\"",
+        "페이지 컨텐츠가 거의 없음"
+      ]
+    },
+    {
+      "page": "관심 정치인",
+      "device": "Galaxy-S9",
+      "theme": "light",
+      "path": "Galaxy-S9_favorites_light.png",
+      "issues": [
+        "작은 터치 타겟 발견: a(189x32): \"PoliticianFinder\", button(32x32): \"\", a(32x32): \"\", button(24x24): \"\", a(150x24): \"설정으로 돌아가기\""
+      ]
+    },
+    {
+      "page": "관심 정치인",
+      "device": "Galaxy-S9",
+      "theme": "dark",
+      "path": "Galaxy-S9_favorites_dark.png",
+      "issues": [
+        "작은 터치 타겟 발견: a(189x32): \"PoliticianFinder\", button(32x32): \"\", a(32x32): \"\", button(24x24): \"\", a(150x24): \"설정으로 돌아가기\""
+      ]
+    },
+    {
+      "page": "알림",
+      "device": "Galaxy-S9",
+      "theme": "light",
+      "path": "Galaxy-S9_notifications_light.png",
+      "issues": [
+        "작은 터치 타겟 발견: a(189x32): \"PoliticianFinder\", button(32x32): \"\", a(32x32): \"\", button(24x24): \"\", button(71x28): \"모두 읽음\"",
+        "화면 밖으로 넘치는 요소 3개"
+      ]
+    },
+    {
+      "page": "알림",
+      "device": "Galaxy-S9",
+      "theme": "dark",
+      "path": "Galaxy-S9_notifications_dark.png",
+      "issues": [
+        "작은 터치 타겟 발견: a(189x32): \"PoliticianFinder\", button(32x32): \"\", a(32x32): \"\", button(24x24): \"\", button(71x28): \"모두 읽음\"",
+        "화면 밖으로 넘치는 요소 3개"
+      ]
+    },
+    {
+      "page": "설정",
+      "device": "Galaxy-S9",
+      "theme": "light",
+      "path": "Galaxy-S9_settings_light.png",
+      "issues": [
+        "작은 터치 타겟 발견: a(189x32): \"PoliticianFinder\", button(32x32): \"\", a(32x32): \"\", button(24x24): \"\", a(189x32): \"PoliticianFinder\""
+      ]
+    },
+    {
+      "page": "설정",
+      "device": "Galaxy-S9",
+      "theme": "dark",
+      "path": "Galaxy-S9_settings_dark.png",
+      "issues": [
+        "작은 터치 타겟 발견: a(189x32): \"PoliticianFinder\", button(32x32): \"\", a(32x32): \"\", button(24x24): \"\", a(189x32): \"PoliticianFinder\""
+      ]
+    },
+    {
+      "page": "공지사항",
+      "device": "Galaxy-S9",
+      "theme": "light",
+      "path": "Galaxy-S9_notices_light.png",
+      "issues": [
+        "작은 터치 타겟 발견: a(189x32): \"PoliticianFinder\", button(32x32): \"\", a(32x32): \"\", button(24x24): \"\", button(52x38): \"이전\""
+      ]
+    },
+    {
+      "page": "공지사항",
+      "device": "Galaxy-S9",
+      "theme": "dark",
+      "path": "Galaxy-S9_notices_dark.png",
+      "issues": [
+        "작은 터치 타겟 발견: a(189x32): \"PoliticianFinder\", button(32x32): \"\", a(32x32): \"\", button(24x24): \"\", button(52x38): \"이전\""
+      ]
+    },
+    {
+      "page": "고객지원",
+      "device": "Galaxy-S9",
+      "theme": "light",
+      "path": "Galaxy-S9_support_light.png",
+      "issues": [
+        "작은 터치 타겟 발견: a(189x32): \"PoliticianFinder\", button(32x32): \"\", a(32x32): \"\", button(24x24): \"\", input(224x42): \"\""
+      ]
+    },
+    {
+      "page": "고객지원",
+      "device": "Galaxy-S9",
+      "theme": "dark",
+      "path": "Galaxy-S9_support_dark.png",
+      "issues": [
+        "작은 터치 타겟 발견: a(189x32): \"PoliticianFinder\", button(32x32): \"\", a(32x32): \"\", button(24x24): \"\", input(224x42): \"\""
+      ]
+    },
+    {
+      "page": "이용약관",
+      "device": "Galaxy-S9",
+      "theme": "light",
+      "path": "Galaxy-S9_terms_light.png",
+      "issues": [
+        "작은 터치 타겟 발견: a(189x32): \"PoliticianFinder\", button(32x32): \"\", a(32x32): \"\", button(24x24): \"\", a(78x24): \"서비스 소개\""
+      ]
+    },
+    {
+      "page": "이용약관",
+      "device": "Galaxy-S9",
+      "theme": "dark",
+      "path": "Galaxy-S9_terms_dark.png",
+      "issues": [
+        "작은 터치 타겟 발견: a(189x32): \"PoliticianFinder\", button(32x32): \"\", a(32x32): \"\", button(24x24): \"\", a(78x24): \"서비스 소개\""
+      ]
+    },
+    {
+      "page": "개인정보처리방침",
+      "device": "Galaxy-S9",
+      "theme": "light",
+      "path": "Galaxy-S9_privacy_light.png",
+      "issues": [
+        "작은 터치 타겟 발견: a(189x32): \"PoliticianFinder\", button(32x32): \"\", a(32x32): \"\", button(24x24): \"\", a(78x24): \"서비스 소개\""
+      ]
+    },
+    {
+      "page": "개인정보처리방침",
+      "device": "Galaxy-S9",
+      "theme": "dark",
+      "path": "Galaxy-S9_privacy_dark.png",
+      "issues": [
+        "작은 터치 타겟 발견: a(189x32): \"PoliticianFinder\", button(32x32): \"\", a(32x32): \"\", button(24x24): \"\", a(78x24): \"서비스 소개\""
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "page": "home-light",
+      "description": "작은 터치 타겟 5개",
+      "severity": "medium"
+    },
+    {
+      "page": "home-dark",
+      "description": "작은 터치 타겟 5개",
+      "severity": "medium"
+    },
+    {
+      "page": "politicians-list-light",
+      "description": "작은 터치 타겟 5개",
+      "severity": "medium"
+    },
+    {
+      "page": "politicians-list-dark",
+      "description": "작은 터치 타겟 5개",
+      "severity": "medium"
+    },
+    {
+      "page": "politician-detail-light",
+      "description": "작은 터치 타겟 5개",
+      "severity": "medium"
+    },
+    {
+      "page": "politician-detail-light",
+      "description": "작은 텍스트 8개",
+      "severity": "low"
+    },
+    {
+      "page": "politician-detail-dark",
+      "description": "작은 터치 타겟 5개",
+      "severity": "medium"
+    },
+    {
+      "page": "politician-detail-dark",
+      "description": "작은 텍스트 8개",
+      "severity": "low"
+    },
+    {
+      "page": "community-light",
+      "description": "작은 터치 타겟 5개",
+      "severity": "medium"
+    },
+    {
+      "page": "community-dark",
+      "description": "작은 터치 타겟 5개",
+      "severity": "medium"
+    },
+    {
+      "page": "login-light",
+      "description": "작은 터치 타겟 5개",
+      "severity": "medium"
+    },
+    {
+      "page": "login-dark",
+      "description": "작은 터치 타겟 5개",
+      "severity": "medium"
+    },
+    {
+      "page": "signup-light",
+      "description": "작은 터치 타겟 5개",
+      "severity": "medium"
+    },
+    {
+      "page": "signup-dark",
+      "description": "작은 터치 타겟 5개",
+      "severity": "medium"
+    },
+    {
+      "page": "search-light",
+      "description": "작은 터치 타겟 5개",
+      "severity": "medium"
+    },
+    {
+      "page": "search-light",
+      "description": "빈 페이지 또는 컨텐츠 부족",
+      "severity": "high"
+    },
+    {
+      "page": "search-dark",
+      "description": "작은 터치 타겟 5개",
+      "severity": "medium"
+    },
+    {
+      "page": "search-dark",
+      "description": "빈 페이지 또는 컨텐츠 부족",
+      "severity": "high"
+    },
+    {
+      "page": "mypage-light",
+      "description": "작은 터치 타겟 5개",
+      "severity": "medium"
+    },
+    {
+      "page": "mypage-light",
+      "description": "빈 페이지 또는 컨텐츠 부족",
+      "severity": "high"
+    },
+    {
+      "page": "mypage-dark",
+      "description": "작은 터치 타겟 5개",
+      "severity": "medium"
+    },
+    {
+      "page": "mypage-dark",
+      "description": "빈 페이지 또는 컨텐츠 부족",
+      "severity": "high"
+    },
+    {
+      "page": "favorites-light",
+      "description": "작은 터치 타겟 5개",
+      "severity": "medium"
+    },
+    {
+      "page": "favorites-dark",
+      "description": "작은 터치 타겟 5개",
+      "severity": "medium"
+    },
+    {
+      "page": "notifications-light",
+      "description": "작은 터치 타겟 5개",
+      "severity": "medium"
+    },
+    {
+      "page": "notifications-dark",
+      "description": "작은 터치 타겟 5개",
+      "severity": "medium"
+    },
+    {
+      "page": "settings-light",
+      "description": "작은 터치 타겟 5개",
+      "severity": "medium"
+    },
+    {
+      "page": "settings-dark",
+      "description": "작은 터치 타겟 5개",
+      "severity": "medium"
+    },
+    {
+      "page": "notices-light",
+      "description": "작은 터치 타겟 5개",
+      "severity": "medium"
+    },
+    {
+      "page": "notices-dark",
+      "description": "작은 터치 타겟 5개",
+      "severity": "medium"
+    },
+    {
+      "page": "support-light",
+      "description": "작은 터치 타겟 5개",
+      "severity": "medium"
+    },
+    {
+      "page": "support-dark",
+      "description": "작은 터치 타겟 5개",
+      "severity": "medium"
+    },
+    {
+      "page": "terms-light",
+      "description": "작은 터치 타겟 5개",
+      "severity": "medium"
+    },
+    {
+      "page": "terms-dark",
+      "description": "작은 터치 타겟 5개",
+      "severity": "medium"
+    },
+    {
+      "page": "privacy-light",
+      "description": "작은 터치 타겟 5개",
+      "severity": "medium"
+    },
+    {
+      "page": "privacy-dark",
+      "description": "작은 터치 타겟 5개",
+      "severity": "medium"
+    },
+    {
+      "page": "home-light",
+      "description": "가로 스크롤 발생",
+      "severity": "high"
+    },
+    {
+      "page": "home-light",
+      "description": "작은 터치 타겟 5개",
+      "severity": "medium"
+    },
+    {
+      "page": "home-dark",
+      "description": "가로 스크롤 발생",
+      "severity": "high"
+    },
+    {
+      "page": "home-dark",
+      "description": "작은 터치 타겟 5개",
+      "severity": "medium"
+    },
+    {
+      "page": "politicians-list-light",
+      "description": "가로 스크롤 발생",
+      "severity": "high"
+    },
+    {
+      "page": "politicians-list-light",
+      "description": "작은 터치 타겟 5개",
+      "severity": "medium"
+    },
+    {
+      "page": "politicians-list-dark",
+      "description": "가로 스크롤 발생",
+      "severity": "high"
+    },
+    {
+      "page": "politicians-list-dark",
+      "description": "작은 터치 타겟 5개",
+      "severity": "medium"
+    },
+    {
+      "page": "politician-detail-light",
+      "description": "작은 터치 타겟 5개",
+      "severity": "medium"
+    },
+    {
+      "page": "politician-detail-light",
+      "description": "작은 텍스트 8개",
+      "severity": "low"
+    },
+    {
+      "page": "politician-detail-dark",
+      "description": "작은 터치 타겟 5개",
+      "severity": "medium"
+    },
+    {
+      "page": "politician-detail-dark",
+      "description": "작은 텍스트 8개",
+      "severity": "low"
+    },
+    {
+      "page": "community-light",
+      "description": "작은 터치 타겟 5개",
+      "severity": "medium"
+    },
+    {
+      "page": "community-dark",
+      "description": "작은 터치 타겟 5개",
+      "severity": "medium"
+    },
+    {
+      "page": "login-light",
+      "description": "작은 터치 타겟 5개",
+      "severity": "medium"
+    },
+    {
+      "page": "login-dark",
+      "description": "작은 터치 타겟 5개",
+      "severity": "medium"
+    },
+    {
+      "page": "signup-light",
+      "description": "작은 터치 타겟 5개",
+      "severity": "medium"
+    },
+    {
+      "page": "signup-dark",
+      "description": "작은 터치 타겟 5개",
+      "severity": "medium"
+    },
+    {
+      "page": "search-light",
+      "description": "작은 터치 타겟 5개",
+      "severity": "medium"
+    },
+    {
+      "page": "search-light",
+      "description": "빈 페이지 또는 컨텐츠 부족",
+      "severity": "high"
+    },
+    {
+      "page": "search-dark",
+      "description": "작은 터치 타겟 5개",
+      "severity": "medium"
+    },
+    {
+      "page": "search-dark",
+      "description": "빈 페이지 또는 컨텐츠 부족",
+      "severity": "high"
+    },
+    {
+      "page": "mypage-light",
+      "description": "작은 터치 타겟 5개",
+      "severity": "medium"
+    },
+    {
+      "page": "mypage-light",
+      "description": "빈 페이지 또는 컨텐츠 부족",
+      "severity": "high"
+    },
+    {
+      "page": "mypage-dark",
+      "description": "작은 터치 타겟 5개",
+      "severity": "medium"
+    },
+    {
+      "page": "mypage-dark",
+      "description": "빈 페이지 또는 컨텐츠 부족",
+      "severity": "high"
+    },
+    {
+      "page": "favorites-light",
+      "description": "작은 터치 타겟 5개",
+      "severity": "medium"
+    },
+    {
+      "page": "favorites-dark",
+      "description": "작은 터치 타겟 5개",
+      "severity": "medium"
+    },
+    {
+      "page": "notifications-light",
+      "description": "작은 터치 타겟 5개",
+      "severity": "medium"
+    },
+    {
+      "page": "notifications-dark",
+      "description": "작은 터치 타겟 5개",
+      "severity": "medium"
+    },
+    {
+      "page": "settings-light",
+      "description": "작은 터치 타겟 5개",
+      "severity": "medium"
+    },
+    {
+      "page": "settings-dark",
+      "description": "작은 터치 타겟 5개",
+      "severity": "medium"
+    },
+    {
+      "page": "notices-light",
+      "description": "작은 터치 타겟 5개",
+      "severity": "medium"
+    },
+    {
+      "page": "notices-dark",
+      "description": "작은 터치 타겟 5개",
+      "severity": "medium"
+    },
+    {
+      "page": "support-light",
+      "description": "작은 터치 타겟 5개",
+      "severity": "medium"
+    },
+    {
+      "page": "support-dark",
+      "description": "작은 터치 타겟 5개",
+      "severity": "medium"
+    },
+    {
+      "page": "terms-light",
+      "description": "작은 터치 타겟 5개",
+      "severity": "medium"
+    },
+    {
+      "page": "terms-dark",
+      "description": "작은 터치 타겟 5개",
+      "severity": "medium"
+    },
+    {
+      "page": "privacy-light",
+      "description": "작은 터치 타겟 5개",
+      "severity": "medium"
+    },
+    {
+      "page": "privacy-dark",
+      "description": "작은 터치 타겟 5개",
+      "severity": "medium"
+    }
+  ]
+}
