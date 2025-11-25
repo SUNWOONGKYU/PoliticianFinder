@@ -1,7 +1,8 @@
 // P3BA28: 관심 등록 버튼 추가
+// H13: 정치인 상세 탭 네비게이션 추가
 'use client';
 
-import { useState, useCallback, useMemo, useEffect } from 'react';
+import { useState, useCallback, useMemo, useEffect, useRef } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
@@ -115,6 +116,19 @@ export default function PoliticianDetailPage() {
   // 플로팅 버튼용 상태
   const [isFavoriteFloating, setIsFavoriteFloating] = useState(false);
   const [loadingFavorite, setLoadingFavorite] = useState(false);
+
+  // H13: 탭 네비게이션용 상태
+  const [activeTab, setActiveTab] = useState<string>('basic');
+  const [showStickyNav, setShowStickyNav] = useState(false);
+  const heroRef = useRef<HTMLElement>(null);
+
+  // 탭 정의
+  const tabs = [
+    { id: 'basic', label: '기본 정보', icon: '📋' },
+    { id: 'ai-eval', label: 'AI 평가', icon: '🤖' },
+    { id: 'community', label: '커뮤니티', icon: '💬' },
+    { id: 'official', label: '공식 정보', icon: '🏛️' },
+  ];
 
   // API에서 정치인 상세 정보 가져오기
   useEffect(() => {
@@ -249,6 +263,43 @@ export default function PoliticianDetailPage() {
     checkFavorite();
   }, [politicianId]);
 
+  // H13: 스크롤 감지로 스티키 네비게이션 표시/숨김 및 활성 탭 업데이트
+  useEffect(() => {
+    const handleScroll = () => {
+      // Hero 섹션 아래로 스크롤되면 스티키 네비게이션 표시
+      if (heroRef.current) {
+        const heroBottom = heroRef.current.getBoundingClientRect().bottom;
+        setShowStickyNav(heroBottom < 80);
+      }
+
+      // 현재 보이는 섹션 감지
+      const sections = ['basic', 'ai-eval', 'community', 'official'];
+      for (const sectionId of sections) {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top <= 150 && rect.bottom > 150) {
+            setActiveTab(sectionId);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // H13: 탭 클릭 시 해당 섹션으로 스크롤
+  const scrollToSection = useCallback((sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const offsetTop = element.getBoundingClientRect().top + window.pageYOffset - 100;
+      window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+      setActiveTab(sectionId);
+    }
+  }, []);
+
   // 플로팅 버튼용 관심 정치인 토글
   const handleToggleFavoriteFloating = async () => {
     setLoadingFavorite(true);
@@ -326,7 +377,7 @@ export default function PoliticianDetailPage() {
         </nav>
 
         {/* Hero Section */}
-        <section className="relative bg-gradient-to-br from-primary-500 via-primary-600 to-secondary-600 rounded-2xl shadow-2xl overflow-hidden mb-8">
+        <section ref={heroRef} className="relative bg-gradient-to-br from-primary-500 via-primary-600 to-secondary-600 rounded-2xl shadow-2xl overflow-hidden mb-8">
           {/* Background Pattern */}
           <div className="absolute inset-0 opacity-10">
             <div className="absolute inset-0" style={{
@@ -441,9 +492,34 @@ export default function PoliticianDetailPage() {
           </div>
         </section>
 
+        {/* H13: 스티키 탭 네비게이션 */}
+        <nav
+          className={`sticky top-16 z-20 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 shadow-sm transition-all duration-300 ${
+            showStickyNav ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 pointer-events-none'
+          }`}
+        >
+          <div className="flex overflow-x-auto scrollbar-hide">
+            {tabs.map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => scrollToSection(tab.id)}
+                className={`flex-1 min-w-max px-4 py-3 text-sm font-medium whitespace-nowrap transition-colors flex items-center justify-center gap-1.5 min-h-touch ${
+                  activeTab === tab.id
+                    ? 'text-primary-600 dark:text-primary-400 border-b-2 border-primary-600 dark:border-primary-400 bg-primary-50 dark:bg-primary-900/20'
+                    : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700'
+                }`}
+                aria-current={activeTab === tab.id ? 'page' : undefined}
+              >
+                <span className="text-base">{tab.icon}</span>
+                <span>{tab.label}</span>
+              </button>
+            ))}
+          </div>
+        </nav>
+
         {/* [1] 기본 정보 섹션 (상세) */}
-        <section className="bg-white rounded-lg shadow-md p-6 mb-6">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">상세 정보</h2>
+        <section id="basic" className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-6 scroll-mt-32">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">상세 정보</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="flex items-center gap-3">
               <span className="text-gray-600 font-medium w-24">한자명</span>
@@ -485,9 +561,9 @@ export default function PoliticianDetailPage() {
         </section>
 
         {/* [2] AI 평가 정보 섹션 */}
-        <section className="bg-white rounded-lg shadow-md p-6 mb-6">
+        <section id="ai-eval" className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-6 scroll-mt-32">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl font-bold text-gray-900">AI 평가 정보</h2>
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">AI 평가 정보</h2>
             <div className="text-sm text-gray-600">
               최종 갱신: {politician.lastUpdated}
             </div>
@@ -670,8 +746,8 @@ export default function PoliticianDetailPage() {
         </section>
 
         {/* [3] 커뮤니티 활동 정보 섹션 */}
-        <section className="bg-white rounded-lg shadow-md p-6 mb-6">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">커뮤니티 활동 정보</h2>
+        <section id="community" className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-6 scroll-mt-32">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">커뮤니티 활동 정보</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
             {/* 작성한 게시글 */}
@@ -709,8 +785,8 @@ export default function PoliticianDetailPage() {
         </section>
 
         {/* [4] 선관위 공식 정보 섹션 */}
-        <section className="bg-white rounded-lg shadow-md p-6">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">선거관리위원회 공식 정보</h2>
+        <section id="official" className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 scroll-mt-32">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">선거관리위원회 공식 정보</h2>
 
           <div className="space-y-4">
             {/* 학력 */}
