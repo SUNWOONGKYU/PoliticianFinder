@@ -1226,7 +1226,7 @@ export default function PoliticianDetailPage() {
 
               <div className="text-center">
                 <span className="text-gray-600">
-                  {userRating > 0 ? `${userRating}점` : '별점을 선택해주세요'}
+                  {userRating > 0 ? '★'.repeat(userRating) : '별점 평가를 해주세요'}
                 </span>
               </div>
             </div>
