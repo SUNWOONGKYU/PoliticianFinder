@@ -92,21 +92,80 @@ export default function MypagePage() {
     );
   }
 
-  // Error state
+  // Error state - 비로그인 상태 안내
   if (error || !userData) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="text-center">
-          <div className="text-red-600 mb-4">
-            <svg className="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center px-4 overflow-x-hidden">
+        <div className="text-center max-w-md">
+          <div className="text-primary-500 dark:text-primary-400 mb-6">
+            <svg className="w-20 h-20 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
             </svg>
           </div>
-          <h2 className="text-xl font-bold text-gray-900 mb-2">오류가 발생했습니다</h2>
-          <p className="text-gray-600 mb-4">{error || '사용자 정보를 불러올 수 없습니다.'}</p>
-          <Link href="/login" className="inline-block px-6 py-2 bg-secondary-500 text-white rounded-md hover:bg-secondary-600">
-            로그인 페이지로 이동
-          </Link>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">로그인이 필요합니다</h2>
+          <p className="text-gray-600 dark:text-gray-400 mb-6">
+            마이페이지를 이용하려면 로그인해주세요.
+            <br />
+            <span className="text-sm">회원가입 후 다양한 기능을 이용할 수 있습니다.</span>
+          </p>
+
+          {/* 주요 버튼 */}
+          <div className="space-y-3 mb-8">
+            <Link
+              href="/auth/login"
+              className="block w-full px-6 py-3 bg-primary-500 text-white rounded-lg hover:bg-primary-600 font-medium transition min-h-[48px] flex items-center justify-center"
+            >
+              로그인 페이지로 이동
+            </Link>
+            <Link
+              href="/auth/signup"
+              className="block w-full px-6 py-3 border-2 border-primary-500 text-primary-600 dark:text-primary-400 rounded-lg hover:bg-primary-50 dark:hover:bg-primary-900/30 font-medium transition min-h-[48px] flex items-center justify-center"
+            >
+              회원가입
+            </Link>
+          </div>
+
+          {/* 구분선 */}
+          <div className="relative my-6">
+            <div className="absolute inset-0 flex items-center">
+              <div className="w-full border-t border-gray-300 dark:border-gray-600"></div>
+            </div>
+            <div className="relative flex justify-center text-sm">
+              <span className="px-2 bg-gray-50 dark:bg-gray-900 text-gray-500 dark:text-gray-400">또는</span>
+            </div>
+          </div>
+
+          {/* 다른 페이지로 이동 */}
+          <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">로그인 없이 둘러보기</p>
+          <div className="flex flex-wrap justify-center gap-3">
+            <Link
+              href="/"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition min-h-[44px]"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+              </svg>
+              홈
+            </Link>
+            <Link
+              href="/politicians"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition min-h-[44px]"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
+              정치인
+            </Link>
+            <Link
+              href="/community"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition min-h-[44px]"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
+              </svg>
+              커뮤니티
+            </Link>
+          </div>
         </div>
       </div>
     );

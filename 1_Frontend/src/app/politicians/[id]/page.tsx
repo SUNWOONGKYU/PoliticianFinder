@@ -387,14 +387,14 @@ export default function PoliticianDetailPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Breadcrumb */}
+        {/* Breadcrumb - 모바일 접근성을 위해 최소 14px */}
         <nav className="mb-6">
-          <ol className="flex items-center space-x-2 text-sm text-gray-600">
-            <li><Link href="/" className="hover:text-primary-600">홈</Link></li>
+          <ol className="flex items-center space-x-2 text-sm sm:text-base text-gray-600 min-h-touch">
+            <li><Link href="/" className="hover:text-primary-600 py-1">홈</Link></li>
             <li>›</li>
-            <li><Link href="/politicians" className="hover:text-primary-600">정치인 목록</Link></li>
+            <li><Link href="/politicians" className="hover:text-primary-600 py-1">정치인 목록</Link></li>
             <li>›</li>
-            <li className="text-gray-900 font-medium">{politician.name}</li>
+            <li className="text-gray-900 font-medium py-1">{politician.name}</li>
           </ol>
         </nav>
 
@@ -427,11 +427,12 @@ export default function PoliticianDetailPage() {
                     </div>
                   )}
                 </div>
-                {/* Favorite Badge */}
-                <div className="absolute -bottom-2 -right-2">
+                {/* Favorite Badge - 아이콘만 표시 */}
+                <div className="absolute -bottom-1 -right-1">
                   <FavoriteButton
                     politicianId={String(politician.id)}
                     politicianName={politician.name}
+                    compact={true}
                   />
                 </div>
               </div>
@@ -470,13 +471,13 @@ export default function PoliticianDetailPage() {
                 {/* Action Button */}
                 <button
                   onClick={() => setShowRatingModal(true)}
-                  className="px-8 py-3 bg-white text-primary-600 rounded-xl font-bold hover:shadow-2xl hover:scale-105 transition-all flex items-center gap-2 mx-auto md:mx-0 min-h-touch"
-                  aria-label={`${politician.name} 평가하기`}
+                  className="px-8 py-3 bg-white text-primary-600 rounded-xl font-bold hover:shadow-2xl hover:scale-105 transition-all flex items-center gap-2 mx-auto md:mx-0 min-h-[44px]"
+                  aria-label={`${politician.name} 별점 평가`}
                 >
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                   </svg>
-                  이 정치인 평가하기
+                  별점 평가
                 </button>
               </div>
 
@@ -484,23 +485,23 @@ export default function PoliticianDetailPage() {
               <div className="grid grid-cols-3 md:grid-cols-1 gap-3 w-full md:w-auto">
                 {/* AI Score */}
                 <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 text-center border border-white/20">
-                  <div className="text-xs text-white/80 mb-1">AI 평점</div>
+                  <div className="text-sm text-white/80 mb-1">AI 평점</div>
                   <div className="text-2xl md:text-3xl font-bold text-white">{politician.totalScore}</div>
-                  <div className="text-xs text-white/80 mt-1">/ 1000점</div>
+                  <div className="text-sm text-white/80 mt-1">/ 1000점</div>
                 </div>
 
                 {/* Member Rating */}
                 <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 text-center border border-white/20">
-                  <div className="text-xs text-white/80 mb-1">회원 평가</div>
+                  <div className="text-sm text-white/80 mb-1">회원 평가</div>
                   <div className="text-2xl md:text-3xl font-bold text-yellow-300">
                     {politician.userRating > 0 ? `${politician.userRating.toFixed(1)}★` : '-'}
                   </div>
-                  <div className="text-xs text-white/80 mt-1">{politician.ratingCount}명 참여</div>
+                  <div className="text-sm text-white/80 mt-1">{politician.ratingCount}명 참여</div>
                 </div>
 
                 {/* Grade Badge */}
                 <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 text-center border border-white/20">
-                  <div className="text-xs text-white/80 mb-1">등급</div>
+                  <div className="text-sm text-white/80 mb-1">등급</div>
                   <div className="text-xl md:text-2xl font-bold text-white">
                     {politician.grade === 'E' && '💚 Emerald'}
                     {politician.grade === 'P' && '🥇 Platinum'}
@@ -543,50 +544,50 @@ export default function PoliticianDetailPage() {
         <section id="basic" className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-6 scroll-mt-32">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">상세 정보</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="flex items-center gap-3">
-              <span className="text-gray-600 font-medium w-24">한자명</span>
-              <span className="text-gray-900">{politician.nameKanji}</span>
+            <div className="flex items-center gap-3 min-h-[44px]">
+              <span className="text-gray-600 dark:text-gray-400 font-medium w-24 text-base">한자명</span>
+              <span className="text-gray-900 dark:text-white text-base">{politician.nameKanji}</span>
             </div>
-            <div className="flex items-center gap-3">
-              <span className="text-gray-600 font-medium w-24">영문명</span>
-              <span className="text-gray-900">{politician.nameEn}</span>
+            <div className="flex items-center gap-3 min-h-[44px]">
+              <span className="text-gray-600 dark:text-gray-400 font-medium w-24 text-base">영문명</span>
+              <span className="text-gray-900 dark:text-white text-base">{politician.nameEn}</span>
             </div>
-            <div className="flex items-center gap-3">
-              <span className="text-gray-600 font-medium w-24">소속 정당</span>
-              <span className="text-gray-900">{politician.party}</span>
+            <div className="flex items-center gap-3 min-h-[44px]">
+              <span className="text-gray-600 dark:text-gray-400 font-medium w-24 text-base">소속 정당</span>
+              <span className="text-gray-900 dark:text-white text-base">{politician.party}</span>
             </div>
-            <div className="flex items-center gap-3">
-              <span className="text-gray-600 font-medium w-24">지역</span>
-              <span className="text-gray-900">{politician.region}</span>
+            <div className="flex items-center gap-3 min-h-[44px]">
+              <span className="text-gray-600 dark:text-gray-400 font-medium w-24 text-base">지역</span>
+              <span className="text-gray-900 dark:text-white text-base">{politician.region}</span>
             </div>
-            <div className="flex items-center gap-3">
-              <span className="text-gray-600 font-medium w-24">생년월일</span>
-              <span className="text-gray-900">{politician.birthDate} ({politician.age}세)</span>
+            <div className="flex items-center gap-3 min-h-[44px]">
+              <span className="text-gray-600 dark:text-gray-400 font-medium w-24 text-base">생년월일</span>
+              <span className="text-gray-900 dark:text-white text-base">{politician.birthDate} ({politician.age}세)</span>
             </div>
-            <div className="flex items-center gap-3">
-              <span className="text-gray-600 font-medium w-24">성별</span>
-              <span className="text-gray-900">{politician.gender}</span>
+            <div className="flex items-center gap-3 min-h-[44px]">
+              <span className="text-gray-600 dark:text-gray-400 font-medium w-24 text-base">성별</span>
+              <span className="text-gray-900 dark:text-white text-base">{politician.gender}</span>
             </div>
-            <div className="flex items-center gap-3">
-              <span className="text-gray-600 font-medium w-24">클로드 평점</span>
-              <span className="text-accent-600 font-bold text-lg">{politician.claudeScore}점</span>
+            <div className="flex items-center gap-3 min-h-[44px]">
+              <span className="text-gray-600 dark:text-gray-400 font-medium w-24 text-base">클로드 평점</span>
+              <span className="text-accent-600 dark:text-accent-400 font-bold text-lg">{politician.claudeScore}점</span>
             </div>
-            <div className="flex items-center gap-3">
-              <span className="text-gray-600 font-medium w-24">종합평점</span>
-              <span className="text-accent-600 font-bold text-lg">{politician.totalScore}점</span>
+            <div className="flex items-center gap-3 min-h-[44px]">
+              <span className="text-gray-600 dark:text-gray-400 font-medium w-24 text-base">종합평점</span>
+              <span className="text-accent-600 dark:text-accent-400 font-bold text-lg">{politician.totalScore}점</span>
             </div>
-            <div className="flex items-center gap-3">
-              <span className="text-gray-600 font-medium w-24">평가등급</span>
-              <span className="text-accent-600 font-bold text-lg">{politician.gradeEmoji} {politician.grade}</span>
+            <div className="flex items-center gap-3 min-h-[44px]">
+              <span className="text-gray-600 dark:text-gray-400 font-medium w-24 text-base">평가등급</span>
+              <span className="text-accent-600 dark:text-accent-400 font-bold text-lg">{politician.gradeEmoji} {politician.grade}</span>
             </div>
           </div>
         </section>
 
         {/* [2] AI 평가 정보 섹션 */}
         <section id="ai-eval" className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-6 scroll-mt-32">
-          <div className="flex items-center justify-between mb-6">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 mb-6">
             <h2 className="text-2xl font-bold text-gray-900 dark:text-white">AI 평가 정보</h2>
-            <div className="text-sm text-gray-600">
+            <div className="text-sm sm:text-base text-gray-600 dark:text-gray-400">
               최종 갱신: {politician.lastUpdated}
             </div>
           </div>
@@ -690,14 +691,14 @@ export default function PoliticianDetailPage() {
           {/* AI별 현재 점수 및 평가내역보기 버튼 */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
             {AI_SCORES.map((ai) => (
-              <div key={ai.name} className="bg-gray-50 rounded-lg p-4">
+              <div key={ai.name} className="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
                 <div className="flex flex-col items-center gap-2 mb-3">
-                  <span className="font-medium text-gray-900 text-sm">{ai.name}</span>
-                  <span className="text-xl font-bold text-accent-600">{ai.score}점</span>
+                  <span className="font-medium text-gray-900 dark:text-white text-base">{ai.name}</span>
+                  <span className="text-xl font-bold text-accent-600 dark:text-accent-400">{ai.score}점</span>
                 </div>
                 <button
                   onClick={() => openAIDetailModal(ai.name)}
-                  className="w-full px-3 py-2 bg-primary-500 text-white text-sm font-medium rounded-lg hover:bg-primary-600 transition"
+                  className="w-full px-3 py-2.5 bg-primary-500 text-white text-base font-medium rounded-lg hover:bg-primary-600 transition min-h-[44px]"
                 >
                   평가내역보기
                 </button>
@@ -715,28 +716,28 @@ export default function PoliticianDetailPage() {
 
             {/* AI 선택 옵션 */}
             <div className="bg-white rounded-lg p-4 mb-4">
-              <div className="text-sm font-medium text-gray-900 mb-3">AI 선택 (개당 ₩500,000)</div>
-              <div className="space-y-2">
+              <div className="text-base font-medium text-gray-900 mb-3">AI 선택 (개당 ₩500,000)</div>
+              <div className="space-y-3">
                 {AI_SCORES.map((ai) => (
-                  <label key={ai.name} className="flex items-center gap-2 cursor-pointer">
+                  <label key={ai.name} className="flex items-center gap-3 cursor-pointer min-h-[44px]">
                     <input
                       type="checkbox"
                       checked={selectedReports.includes(ai.name)}
                       onChange={() => handleReportToggle(ai.name)}
-                      className="w-4 h-4 text-primary-600 rounded focus:ring-2 focus:ring-primary-300"
+                      className="w-5 h-5 text-primary-600 rounded focus:ring-2 focus:ring-primary-300"
                     />
-                    <span className="text-sm text-gray-700">{ai.name} 상세평가보고서</span>
+                    <span className="text-base text-gray-700">{ai.name} 상세평가보고서</span>
                   </label>
                 ))}
-                <div className="pt-2 border-t">
-                  <label className="flex items-center gap-2 cursor-pointer">
+                <div className="pt-3 border-t">
+                  <label className="flex items-center gap-3 cursor-pointer min-h-[44px]">
                     <input
                       type="checkbox"
                       checked={selectedReports.length === AI_SCORES.length}
                       onChange={handleToggleAll}
-                      className="w-4 h-4 text-primary-600 rounded focus:ring-2 focus:ring-primary-300"
+                      className="w-5 h-5 text-primary-600 rounded focus:ring-2 focus:ring-primary-300"
                     />
-                    <span className="text-sm font-bold text-gray-900">전체 정치인 AI 상세평가보고서 (5개) - ₩2,500,000</span>
+                    <span className="text-base font-bold text-gray-900">전체 정치인 AI 상세평가보고서 (5개) - ₩2,500,000</span>
                   </label>
                 </div>
               </div>
@@ -744,7 +745,7 @@ export default function PoliticianDetailPage() {
 
             <div className="flex items-center justify-between">
               <div>
-                <div className="text-sm text-gray-600 mb-1">선택 금액</div>
+                <div className="text-base text-gray-600 mb-1">선택 금액</div>
                 <div className="text-2xl font-bold text-primary-600">₩{totalPrice.toLocaleString()}</div>
               </div>
               <button
@@ -792,12 +793,12 @@ export default function PoliticianDetailPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
             {/* 작성한 게시글 */}
-            <Link href={`/community?filter=politician&author=${politician.name}`} className="block bg-primary-50 rounded-lg p-6 border-2 border-primary-200 hover:border-primary-400 transition cursor-pointer">
+            <Link href={`/community?filter=politician&author=${politician.name}`} className="block bg-primary-50 dark:bg-primary-900/20 rounded-lg p-6 border-2 border-primary-200 dark:border-primary-700 hover:border-primary-400 transition cursor-pointer min-h-[100px]">
               <div className="flex items-center justify-between">
                 <div>
-                  <div className="text-sm font-medium text-primary-700 mb-1">🏛️ 작성한 게시글</div>
-                  <div className="text-3xl font-bold text-primary-600">{politician.postCount || 0}개</div>
-                  <div className="text-xs text-gray-600 mt-1">(받은 공감 {politician.likeCount || 0}개)</div>
+                  <div className="text-base font-medium text-primary-700 dark:text-primary-300 mb-1">🏛️ 작성한 게시글</div>
+                  <div className="text-3xl font-bold text-primary-600 dark:text-primary-400">{politician.postCount || 0}개</div>
+                  <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">(받은 공감 {politician.likeCount || 0}개)</div>
                 </div>
                 <svg className="w-6 h-6 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7"></path>
@@ -806,12 +807,12 @@ export default function PoliticianDetailPage() {
             </Link>
 
             {/* 태깅된 게시글 */}
-            <Link href={`/community?filter=general&tagged=${politician.name}`} className="block bg-purple-50 rounded-lg p-6 border-2 border-purple-200 hover:border-purple-400 transition cursor-pointer">
+            <Link href={`/community?filter=general&tagged=${politician.name}`} className="block bg-purple-50 dark:bg-purple-900/20 rounded-lg p-6 border-2 border-purple-200 dark:border-purple-700 hover:border-purple-400 transition cursor-pointer min-h-[100px]">
               <div className="flex items-center justify-between">
                 <div>
-                  <div className="text-sm font-medium text-purple-700 mb-1">💬 태깅된 게시글</div>
-                  <div className="text-3xl font-bold text-purple-600">{politician.taggedCount || 0}개</div>
-                  <div className="text-xs text-gray-600 mt-1">(회원들이 이 정치인에 대해 작성)</div>
+                  <div className="text-base font-medium text-purple-700 dark:text-purple-300 mb-1">💬 태깅된 게시글</div>
+                  <div className="text-3xl font-bold text-purple-600 dark:text-purple-400">{politician.taggedCount || 0}개</div>
+                  <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">(회원들이 이 정치인에 대해 작성)</div>
                 </div>
                 <svg className="w-6 h-6 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7"></path>
@@ -820,7 +821,7 @@ export default function PoliticianDetailPage() {
             </Link>
           </div>
 
-          <div className="text-sm text-gray-500 text-center">
+          <div className="text-base text-gray-500 dark:text-gray-400 text-center">
             클릭하시면 해당 게시글 목록으로 이동합니다
           </div>
         </section>
@@ -833,8 +834,8 @@ export default function PoliticianDetailPage() {
             {/* 학력 */}
             {politician.education && politician.education.length > 0 && (
               <div>
-                <h3 className="font-bold text-gray-900 mb-2">학력</h3>
-                <ul className="list-disc list-inside text-gray-700 space-y-1">
+                <h3 className="font-bold text-gray-900 dark:text-white mb-2 text-lg">학력</h3>
+                <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-1 text-base">
                   {politician.education.map((edu, index) => (
                     <li key={index}>{edu}</li>
                   ))}
@@ -845,8 +846,8 @@ export default function PoliticianDetailPage() {
             {/* 경력 */}
             {politician.career && politician.career.length > 0 && (
               <div>
-                <h3 className="font-bold text-gray-900 mb-2">경력</h3>
-                <ul className="list-disc list-inside text-gray-700 space-y-1">
+                <h3 className="font-bold text-gray-900 dark:text-white mb-2 text-lg">경력</h3>
+                <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-1 text-base">
                   {politician.career.map((item, index) => (
                     <li key={index}>{item}</li>
                   ))}
@@ -857,8 +858,8 @@ export default function PoliticianDetailPage() {
             {/* 당선 이력 */}
             {politician.electionHistory && politician.electionHistory.length > 0 && (
               <div>
-                <h3 className="font-bold text-gray-900 mb-2">당선 이력</h3>
-                <ul className="list-disc list-inside text-gray-700 space-y-1">
+                <h3 className="font-bold text-gray-900 dark:text-white mb-2 text-lg">당선 이력</h3>
+                <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-1 text-base">
                   {politician.electionHistory.map((item, index) => (
                     <li key={index}>{item}</li>
                   ))}
@@ -869,16 +870,16 @@ export default function PoliticianDetailPage() {
             {/* 병역 */}
             {politician.militaryService && (
               <div>
-                <h3 className="font-bold text-gray-900 mb-2">병역</h3>
-                <p className="text-gray-700">{politician.militaryService}</p>
+                <h3 className="font-bold text-gray-900 dark:text-white mb-2 text-lg">병역</h3>
+                <p className="text-gray-700 dark:text-gray-300 text-base">{politician.militaryService}</p>
               </div>
             )}
 
             {/* 재산 공개 */}
             {politician.assets && Object.keys(politician.assets).length > 0 && (
               <div>
-                <h3 className="font-bold text-gray-900 mb-2">재산 공개</h3>
-                <ul className="list-disc list-inside text-gray-700 space-y-1">
+                <h3 className="font-bold text-gray-900 dark:text-white mb-2 text-lg">재산 공개</h3>
+                <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-1 text-base">
                   {politician.assets.total && <li>총 재산: {politician.assets.total}</li>}
                   {politician.assets.real_estate && <li>부동산: {politician.assets.real_estate}</li>}
                   {politician.assets.financial && <li>금융자산: {politician.assets.financial}</li>}
@@ -889,40 +890,40 @@ export default function PoliticianDetailPage() {
             {/* 세금 체납 */}
             {politician.taxArrears && (
               <div>
-                <h3 className="font-bold text-gray-900 mb-2">세금 체납</h3>
-                <p className="text-gray-700">{politician.taxArrears}</p>
+                <h3 className="font-bold text-gray-900 dark:text-white mb-2 text-lg">세금 체납</h3>
+                <p className="text-gray-700 dark:text-gray-300 text-base">{politician.taxArrears}</p>
               </div>
             )}
 
             {/* 범죄 경력 */}
             {politician.criminalRecord && (
               <div>
-                <h3 className="font-bold text-gray-900 mb-2">범죄 경력</h3>
-                <p className="text-gray-700">{politician.criminalRecord}</p>
+                <h3 className="font-bold text-gray-900 dark:text-white mb-2 text-lg">범죄 경력</h3>
+                <p className="text-gray-700 dark:text-gray-300 text-base">{politician.criminalRecord}</p>
               </div>
             )}
 
             {/* 병역 의혹 */}
             {politician.militaryServiceIssue && (
               <div>
-                <h3 className="font-bold text-gray-900 mb-2">병역 의혹</h3>
-                <p className="text-gray-700">{politician.militaryServiceIssue}</p>
+                <h3 className="font-bold text-gray-900 dark:text-white mb-2 text-lg">병역 의혹</h3>
+                <p className="text-gray-700 dark:text-gray-300 text-base">{politician.militaryServiceIssue}</p>
               </div>
             )}
 
             {/* 위장전입 */}
             {politician.residencyFraud && (
               <div>
-                <h3 className="font-bold text-gray-900 mb-2">위장전입</h3>
-                <p className="text-gray-700">{politician.residencyFraud}</p>
+                <h3 className="font-bold text-gray-900 dark:text-white mb-2 text-lg">위장전입</h3>
+                <p className="text-gray-700 dark:text-gray-300 text-base">{politician.residencyFraud}</p>
               </div>
             )}
 
             {/* 공약 사항 */}
             {politician.pledges && politician.pledges.length > 0 && (
               <div>
-                <h3 className="font-bold text-gray-900 mb-2">주요 공약</h3>
-                <ul className="list-disc list-inside text-gray-700 space-y-1">
+                <h3 className="font-bold text-gray-900 dark:text-white mb-2 text-lg">주요 공약</h3>
+                <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-1 text-base">
                   {politician.pledges.map((pledge, index) => (
                     <li key={index}>{pledge}</li>
                   ))}
@@ -933,8 +934,8 @@ export default function PoliticianDetailPage() {
             {/* 의정 활동 */}
             {politician.legislativeActivity && Object.keys(politician.legislativeActivity).length > 0 && (
               <div>
-                <h3 className="font-bold text-gray-900 mb-2">의정 활동</h3>
-                <ul className="list-disc list-inside text-gray-700 space-y-1">
+                <h3 className="font-bold text-gray-900 dark:text-white mb-2 text-lg">의정 활동</h3>
+                <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-1 text-base">
                   {politician.legislativeActivity.attendance_rate && <li>출석률: {politician.legislativeActivity.attendance_rate}</li>}
                   {politician.legislativeActivity.bills_proposed && (
                     <li>
@@ -957,10 +958,10 @@ export default function PoliticianDetailPage() {
             <h2 className="text-2xl font-bold text-gray-900 dark:text-white">관련 정치인</h2>
             <Link
               href={`/politicians?party=${encodeURIComponent(politician.party)}`}
-              className="text-sm text-primary-600 dark:text-primary-400 hover:underline flex items-center gap-1"
+              className="text-base text-primary-600 dark:text-primary-400 hover:underline flex items-center gap-1 min-h-[44px] px-2"
             >
               더보기
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
             </Link>
@@ -968,7 +969,7 @@ export default function PoliticianDetailPage() {
 
           {/* 같은 정당 정치인 */}
           <div className="mb-4">
-            <h3 className="text-sm font-medium text-gray-600 dark:text-gray-400 mb-3">
+            <h3 className="text-base font-medium text-gray-600 dark:text-gray-400 mb-3">
               같은 정당 ({politician.party})
             </h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
@@ -982,21 +983,21 @@ export default function PoliticianDetailPage() {
                 <Link
                   key={idx}
                   href={`/politicians?search=${encodeURIComponent(p.name)}`}
-                  className="block p-3 bg-gray-50 dark:bg-gray-700 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition"
+                  className="block p-3 bg-gray-50 dark:bg-gray-700 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition min-h-[80px]"
                 >
                   <div className="flex items-center gap-2 mb-2">
-                    <div className="w-10 h-10 rounded-full bg-primary-100 dark:bg-primary-800 flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-full bg-primary-100 dark:bg-primary-800 flex items-center justify-center flex-shrink-0">
                       <svg className="w-5 h-5 text-primary-500" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v1c0 .55.45 1 1 1h14c.55 0 1-.45 1-1v-1c0-2.66-5.33-4-8-4z" />
                       </svg>
                     </div>
                     <div className="flex-1 min-w-0">
-                      <div className="font-medium text-gray-900 dark:text-white text-sm truncate">{p.name}</div>
-                      <div className="text-xs text-gray-500 dark:text-gray-400 truncate">{p.region}</div>
+                      <div className="font-medium text-gray-900 dark:text-white text-base truncate">{p.name}</div>
+                      <div className="text-sm text-gray-500 dark:text-gray-400 truncate">{p.region}</div>
                     </div>
                   </div>
                   <div className="text-right">
-                    <span className="text-sm font-bold text-primary-600 dark:text-primary-400">{p.score}점</span>
+                    <span className="text-base font-bold text-primary-600 dark:text-primary-400">{p.score}점</span>
                   </div>
                 </Link>
               ))}
@@ -1005,7 +1006,7 @@ export default function PoliticianDetailPage() {
 
           {/* 같은 지역 정치인 */}
           <div>
-            <h3 className="text-sm font-medium text-gray-600 dark:text-gray-400 mb-3">
+            <h3 className="text-base font-medium text-gray-600 dark:text-gray-400 mb-3">
               같은 지역 ({politician.region})
             </h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
@@ -1016,21 +1017,21 @@ export default function PoliticianDetailPage() {
                 <Link
                   key={idx}
                   href={`/politicians?search=${encodeURIComponent(p.name)}`}
-                  className="block p-3 bg-gray-50 dark:bg-gray-700 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition"
+                  className="block p-3 bg-gray-50 dark:bg-gray-700 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition min-h-[80px]"
                 >
                   <div className="flex items-center gap-2 mb-2">
-                    <div className="w-10 h-10 rounded-full bg-secondary-100 dark:bg-secondary-800 flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-full bg-secondary-100 dark:bg-secondary-800 flex items-center justify-center flex-shrink-0">
                       <svg className="w-5 h-5 text-secondary-500" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v1c0 .55.45 1 1 1h14c.55 0 1-.45 1-1v-1c0-2.66-5.33-4-8-4z" />
                       </svg>
                     </div>
                     <div className="flex-1 min-w-0">
-                      <div className="font-medium text-gray-900 dark:text-white text-sm truncate">{p.name}</div>
-                      <div className="text-xs text-gray-500 dark:text-gray-400 truncate">{p.party}</div>
+                      <div className="font-medium text-gray-900 dark:text-white text-base truncate">{p.name}</div>
+                      <div className="text-sm text-gray-500 dark:text-gray-400 truncate">{p.party}</div>
                     </div>
                   </div>
                   <div className="text-right">
-                    <span className="text-sm font-bold text-secondary-600 dark:text-secondary-400">{p.score}점</span>
+                    <span className="text-base font-bold text-secondary-600 dark:text-secondary-400">{p.score}점</span>
                   </div>
                 </Link>
               ))}
@@ -1252,20 +1253,20 @@ export default function PoliticianDetailPage() {
         </div>
       )}
 
-      {/* 플로팅 액션 버튼 (스크롤 시 화면 따라다님) */}
-      <div className="fixed bottom-8 right-8 flex flex-col gap-3 z-40">
+      {/* 플로팅 액션 버튼 - 데스크탑에서만 표시 (모바일에서는 Hero 섹션의 버튼 사용) */}
+      <div className="hidden md:flex fixed bottom-8 right-8 flex-col gap-3 z-40">
         {/* 통합 검색 버튼 */}
         <div className="relative group">
           <button
             onClick={() => window.location.href = '/politicians'}
-            className="w-14 h-14 bg-white rounded-full shadow-lg hover:shadow-xl transition flex items-center justify-center border-2 border-primary-300"
+            className="w-12 h-12 bg-white rounded-full shadow-lg hover:shadow-xl transition flex items-center justify-center border-2 border-primary-300"
             title="통합 검색"
           >
-            <svg className="w-6 h-6 text-primary-600 group-hover:text-primary-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-5 h-5 text-primary-600 group-hover:text-primary-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
           </button>
-          <div className="absolute right-16 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
+          <div className="absolute right-14 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
             <div className="bg-gray-900 text-white text-sm px-3 py-2 rounded-lg shadow-lg">
               통합 검색
             </div>
@@ -1276,14 +1277,14 @@ export default function PoliticianDetailPage() {
         <div className="relative group">
           <button
             onClick={() => setShowRatingModal(true)}
-            className="w-14 h-14 bg-secondary-500 rounded-full shadow-lg hover:shadow-xl hover:bg-secondary-600 transition flex items-center justify-center"
+            className="w-12 h-12 bg-secondary-500 rounded-full shadow-lg hover:shadow-xl hover:bg-secondary-600 transition flex items-center justify-center"
             title="별점 평가"
           >
-            <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+            <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
               <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
             </svg>
           </button>
-          <div className="absolute right-16 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
+          <div className="absolute right-14 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
             <div className="bg-gray-900 text-white text-sm px-3 py-2 rounded-lg shadow-lg">
               별점 평가
             </div>
@@ -1295,7 +1296,7 @@ export default function PoliticianDetailPage() {
           <button
             onClick={handleToggleFavoriteFloating}
             disabled={loadingFavorite}
-            className={`w-14 h-14 rounded-full shadow-lg hover:shadow-xl transition flex items-center justify-center ${
+            className={`w-12 h-12 rounded-full shadow-lg hover:shadow-xl transition flex items-center justify-center ${
               isFavoriteFloating
                 ? 'bg-red-500 hover:bg-red-600'
                 : 'bg-primary-500 hover:bg-primary-600'
@@ -1303,16 +1304,16 @@ export default function PoliticianDetailPage() {
             title={isFavoriteFloating ? '관심 정치인 취소' : '관심 정치인 등록'}
           >
           {isFavoriteFloating ? (
-            <svg className="w-6 h-6 text-white fill-current" viewBox="0 0 24 24">
+            <svg className="w-5 h-5 text-white fill-current" viewBox="0 0 24 24">
               <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
             </svg>
           ) : (
-            <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
             </svg>
           )}
         </button>
-        <div className="absolute right-16 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
+        <div className="absolute right-14 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
           <div className="bg-gray-900 text-white text-sm px-3 py-2 rounded-lg shadow-lg">
             {isFavoriteFloating ? '관심 정치인 취소' : '관심 정치인 등록'}
           </div>

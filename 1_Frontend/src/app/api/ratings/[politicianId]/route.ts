@@ -4,10 +4,11 @@ import { createClient } from '@/lib/supabase/server';
 
 export async function POST(
   request: NextRequest,
-  { params }: { params: { politicianId: string } }
+  context: { params: Promise<{ politicianId: string }> }
 ) {
   try {
     const { rating } = await request.json();
+    const params = await context.params;
     const politicianId = params.politicianId;
 
     // 입력 검증

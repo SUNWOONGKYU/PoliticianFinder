@@ -119,25 +119,33 @@ export default function Header() {
           </div>
 
           {/* Mobile menu button & notification */}
-          <div className="md:hidden flex items-center space-x-3">
-            {/* 다크모드 토글 (모바일) */}
-            <ThemeToggle size="sm" />
+          <div className="md:hidden flex items-center space-x-1">
+            {/* 다크모드 토글 (모바일) - 44x44px 터치 타겟 */}
+            <div className="min-w-[44px] min-h-[44px] flex items-center justify-center">
+              <ThemeToggle size="sm" />
+            </div>
 
-            {/* 알림 아이콘 (모바일) */}
-            <Link href="/notifications" className="relative text-gray-900 dark:text-gray-100 hover:text-primary-600 dark:hover:text-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-300 rounded p-1">
+            {/* 알림 아이콘 (모바일) - 44x44px 터치 타겟 */}
+            <Link
+              href="/notifications"
+              className="relative text-gray-900 dark:text-gray-100 hover:text-primary-600 dark:hover:text-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-300 rounded min-w-[44px] min-h-[44px] flex items-center justify-center"
+              aria-label="알림"
+            >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
               </svg>
               {/* 알림 배지 (새 알림 있을 때) */}
               {unreadCount > 0 && (
-                <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full w-4 h-4 flex items-center justify-center text-xs">
+                <span className="absolute top-1 right-1 bg-red-500 text-white text-xs font-bold rounded-full w-4 h-4 flex items-center justify-center">
                   {unreadCount > 99 ? '99+' : unreadCount}
                 </span>
               )}
             </Link>
+            {/* 햄버거 메뉴 - 44x44px 터치 타겟 */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="text-gray-900 dark:text-gray-100 hover:text-primary-600 dark:hover:text-primary-400 focus:outline-none"
+              className="text-gray-900 dark:text-gray-100 hover:text-primary-600 dark:hover:text-primary-400 focus:outline-none min-w-[44px] min-h-[44px] flex items-center justify-center"
+              aria-label="메뉴 열기"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16"></path>
