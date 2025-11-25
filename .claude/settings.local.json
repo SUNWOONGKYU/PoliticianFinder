@@ -23,7 +23,8 @@
       "Bash(python:*)",
       "Bash(node test_favorite_api.js:*)",
       "Bash(node test_db_direct.js:*)",
-      "Bash(node:*)"
+      "Bash(node:*)",
+      "Bash(npm run build:*)"
     ],
     "deny": [],
     "ask": []

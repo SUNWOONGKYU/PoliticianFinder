@@ -1777,3 +1777,63 @@ posts.downvotes = 0
 - inbox 확인하여 새로운 작업 지시 확인
 
 ---
+
+---
+
+## 2025-11-25 (이어서)
+
+### 작업: 미구현 UI/UX 항목 구현 완료 ✅
+
+**작업 목표**:
+- 이전 리뷰 리포트에서 발견된 미구현 UI/UX 항목 10개 구현
+
+**완료 항목**:
+
+1. **P6F1: H15 - error.tsx (500 에러 페이지)** ✅
+   - 파일: `1_Frontend/src/app/error.tsx`
+   - 500 에러 페이지, 재시도 기능, 다크모드 지원
+
+2. **P6F2: H10 - 커뮤니티 글쓰기 FAB** ✅
+   - 파일: `1_Frontend/src/app/community/page.tsx`
+   - 하단 우측 FAB 버튼, 모바일 최적화
+
+3. **P6F3: MI6 - 스크롤 Top 버튼** ✅
+   - 파일: `1_Frontend/src/components/ui/ScrollToTop.tsx`, `layout.tsx`
+   - 전역 스크롤 Top 버튼, 스크롤 감지, 스무스 스크롤
+
+4. **P6F4: H13 - 정치인 상세 탭 네비게이션** ✅
+   - 파일: `1_Frontend/src/app/politicians/[id]/page.tsx`
+   - Sticky 탭 네비게이션 (기본 정보/AI 평가/커뮤니티/공식 정보)
+
+5. **P6F5: H9 - 차트 기간 선택** ✅
+   - 파일: `1_Frontend/src/app/politicians/[id]/page.tsx`
+   - 기간 선택 버튼 (3개월/6개월/12개월)
+
+6. **P6F6: MI5 - Pull to Refresh** ✅
+   - 파일: `1_Frontend/src/components/ui/PullToRefresh.tsx`, `community/page.tsx`
+   - 터치 기반 Pull to Refresh, 저항 효과
+
+7. **P6F7: MI7 - 댓글 입력 고정** ✅
+   - 파일: `1_Frontend/src/components/ui/FixedCommentInput.tsx`, `posts/[id]/page.tsx`
+   - 모바일 하단 고정 입력창, 높이 자동 조절
+
+8. **P6F8: M3 - 관련 정치인 추천** ✅
+   - 파일: `1_Frontend/src/app/politicians/[id]/page.tsx`
+   - 같은 정당/지역 기반 관련 정치인 표시
+
+9. **P6F9: M5 - 최근 활동 피드** ✅
+   - 파일: `1_Frontend/src/app/page.tsx`
+   - 홈페이지 최근 활동 피드 섹션 (6종 활동 카드)
+
+10. **P6F10: M6 - 비교하기 기능** ✅
+    - 파일: `1_Frontend/src/app/politicians/page.tsx`, `compare/page.tsx`
+    - 비교 모드 토글, 체크박스 선택, 하단 고정 바
+    - 비교 페이지 (최대 4명, 점수 하이라이트)
+
+**검증 결과**:
+- ✅ 빌드: 모든 페이지 성공적으로 빌드
+- ✅ Git: 모든 커밋 & 푸시 완료
+- ✅ Project Grid: P6F1~P6F10 기록 완료
+
+**다음 작업**:
+- 추가 요청 대기
