@@ -5,8 +5,26 @@
 
 'use client';
 
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import Image from 'next/image';
+
+/**
+ * URL이 유효한 이미지 URL인지 검증 (XSS 방지)
+ */
+const isValidImageUrl = (url: string): boolean => {
+  if (!url || typeof url !== 'string') return false;
+
+  // 허용되는 프로토콜만 허용
+  const allowedProtocols = ['http://', 'https://', '/'];
+  const isAllowedProtocol = allowedProtocols.some(protocol =>
+    url.startsWith(protocol)
+  );
+
+  // data: URL은 이미지 mime 타입만 허용
+  const isValidDataUrl = url.startsWith('data:image/');
+
+  return isAllowedProtocol || isValidDataUrl;
+};
 
 export interface ImageGalleryProps {
   /**
@@ -68,26 +86,37 @@ export const ImageGallery: React.FC<ImageGalleryProps> = ({
     return null;
   }
 
+  // 유효한 이미지 URL만 필터링 (XSS 방지)
+  const validImages = images.filter(isValidImageUrl);
+
+  // 유효한 이미지가 없으면 렌더링하지 않음
+  if (validImages.length === 0) {
+    return null;
+  }
+
+  // currentIndex가 유효 범위 내인지 확인
+  const safeCurrentIndex = Math.min(currentIndex, validImages.length - 1);
+
   // 자동 재생
   useEffect(() => {
-    if (!autoPlay || images.length <= 1) return;
+    if (!autoPlay || validImages.length <= 1) return;
 
     const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % images.length);
+      setCurrentIndex((prev) => (prev + 1) % validImages.length);
     }, autoPlayInterval);
 
     return () => clearInterval(interval);
-  }, [autoPlay, autoPlayInterval, images.length]);
+  }, [autoPlay, autoPlayInterval, validImages.length]);
 
   // 이전 이미지
-  const goToPrevious = React.useCallback(() => {
-    setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
-  }, [images.length]);
+  const goToPrevious = useCallback(() => {
+    setCurrentIndex((prev) => (prev === 0 ? validImages.length - 1 : prev - 1));
+  }, [validImages.length]);
 
   // 다음 이미지
-  const goToNext = React.useCallback(() => {
-    setCurrentIndex((prev) => (prev + 1) % images.length);
-  }, [images.length]);
+  const goToNext = useCallback(() => {
+    setCurrentIndex((prev) => (prev + 1) % validImages.length);
+  }, [validImages.length]);
 
   // 터치 시작
   const onTouchStart = (e: React.TouchEvent) => {
@@ -118,6 +147,10 @@ export const ImageGallery: React.FC<ImageGalleryProps> = ({
     setTouchEnd(null);
   };
 
+  // 모달 내 포커스 가능한 요소들의 ref
+  const modalRef = useRef<HTMLDivElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+
   // 키보드 네비게이션 및 Focus Trap
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -127,9 +160,27 @@ export const ImageGallery: React.FC<ImageGalleryProps> = ({
         goToNext();
       } else if (e.key === 'Escape' && isFullscreen) {
         setIsFullscreen(false);
-      } else if (e.key === 'Tab' && isFullscreen) {
-        // Focus trap: prevent tabbing outside modal
-        e.preventDefault();
+      } else if (e.key === 'Tab' && isFullscreen && modalRef.current) {
+        // Focus trap: 모달 내 요소들 사이에서만 탭 이동
+        const focusableElements = modalRef.current.querySelectorAll<HTMLElement>(
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        );
+        const firstElement = focusableElements[0];
+        const lastElement = focusableElements[focusableElements.length - 1];
+
+        if (e.shiftKey) {
+          // Shift+Tab: 첫 요소에서 마지막으로 이동
+          if (document.activeElement === firstElement) {
+            e.preventDefault();
+            lastElement?.focus();
+          }
+        } else {
+          // Tab: 마지막 요소에서 첫 요소로 이동
+          if (document.activeElement === lastElement) {
+            e.preventDefault();
+            firstElement?.focus();
+          }
+        }
       }
     };
 
@@ -137,6 +188,9 @@ export const ImageGallery: React.FC<ImageGalleryProps> = ({
       // 모달 열릴 때 body 스크롤 방지
       document.body.style.overflow = 'hidden';
       window.addEventListener('keydown', handleKeyDown);
+
+      // 모달 열릴 때 닫기 버튼에 포커스
+      closeButtonRef.current?.focus();
 
       return () => {
         document.body.style.overflow = '';
@@ -146,11 +200,11 @@ export const ImageGallery: React.FC<ImageGalleryProps> = ({
   }, [isFullscreen, goToPrevious, goToNext]);
 
   // 단일 이미지인 경우 간단한 표시
-  if (images.length === 1) {
+  if (validImages.length === 1) {
     return (
       <div className={`relative ${height} rounded-lg overflow-hidden ${className}`}>
         <img
-          src={images[0]}
+          src={validImages[0]}
           alt={alt}
           className="w-full h-full object-cover cursor-pointer"
           onClick={() => setIsFullscreen(true)}
@@ -173,8 +227,8 @@ export const ImageGallery: React.FC<ImageGalleryProps> = ({
           {/* 현재 이미지 */}
           <div className="w-full h-full">
             <img
-              src={images[currentIndex]}
-              alt={`${alt} ${currentIndex + 1}`}
+              src={validImages[safeCurrentIndex]}
+              alt={`${alt} ${safeCurrentIndex + 1}`}
               className="w-full h-full object-cover cursor-pointer transition-opacity duration-300"
               onClick={() => setIsFullscreen(true)}
             />
@@ -182,11 +236,11 @@ export const ImageGallery: React.FC<ImageGalleryProps> = ({
 
           {/* 이미지 카운터 */}
           <div className="absolute top-4 right-4 bg-black bg-opacity-60 text-white px-3 py-1 rounded-full text-sm font-medium">
-            {currentIndex + 1} / {images.length}
+            {safeCurrentIndex + 1} / {validImages.length}
           </div>
 
           {/* 네비게이션 버튼 - Desktop */}
-          {images.length > 1 && (
+          {validImages.length > 1 && (
             <>
               {/* 이전 버튼 */}
               <button
@@ -219,14 +273,14 @@ export const ImageGallery: React.FC<ImageGalleryProps> = ({
         </div>
 
         {/* 썸네일 - Desktop */}
-        {showThumbnails && images.length > 1 && (
+        {showThumbnails && validImages.length > 1 && (
           <div className="hidden md:flex gap-2 mt-3 overflow-x-auto pb-2">
-            {images.map((image, index) => (
+            {validImages.map((image, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index)}
                 className={`relative flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden transition-all ${
-                  index === currentIndex
+                  index === safeCurrentIndex
                     ? 'ring-2 ring-primary-500 ring-offset-2'
                     : 'opacity-60 hover:opacity-100'
                 }`}
@@ -243,14 +297,14 @@ export const ImageGallery: React.FC<ImageGalleryProps> = ({
         )}
 
         {/* 인디케이터 - Mobile */}
-        {images.length > 1 && (
+        {validImages.length > 1 && (
           <div className="md:hidden flex justify-center gap-2 mt-3">
-            {images.map((_, index) => (
+            {validImages.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index)}
                 className={`w-2.5 h-2.5 rounded-full transition-all ${
-                  index === currentIndex
+                  index === safeCurrentIndex
                     ? 'bg-primary-500 w-8'
                     : 'bg-gray-300'
                 }`}
@@ -264,11 +318,16 @@ export const ImageGallery: React.FC<ImageGalleryProps> = ({
       {/* 전체화면 모달 */}
       {isFullscreen && (
         <div
+          ref={modalRef}
           className="fixed inset-0 z-50 bg-black bg-opacity-95 flex items-center justify-center"
           onClick={() => setIsFullscreen(false)}
+          role="dialog"
+          aria-modal="true"
+          aria-label="이미지 전체화면 보기"
         >
           {/* 닫기 버튼 */}
           <button
+            ref={closeButtonRef}
             onClick={() => setIsFullscreen(false)}
             className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center bg-white bg-opacity-20 hover:bg-opacity-30 text-white rounded-full transition-all z-10"
             aria-label="전체화면 닫기"
@@ -284,13 +343,13 @@ export const ImageGallery: React.FC<ImageGalleryProps> = ({
             onClick={(e) => e.stopPropagation()}
           >
             <img
-              src={images[currentIndex]}
-              alt={`${alt} ${currentIndex + 1}`}
+              src={validImages[safeCurrentIndex]}
+              alt={`${alt} ${safeCurrentIndex + 1}`}
               className="max-w-full max-h-[90vh] object-contain"
             />
 
             {/* 전체화면 네비게이션 */}
-            {images.length > 1 && (
+            {validImages.length > 1 && (
               <>
                 <button
                   onClick={goToPrevious}
@@ -316,7 +375,7 @@ export const ImageGallery: React.FC<ImageGalleryProps> = ({
 
             {/* 전체화면 카운터 */}
             <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black bg-opacity-60 text-white px-4 py-2 rounded-full text-sm font-medium">
-              {currentIndex + 1} / {images.length}
+              {safeCurrentIndex + 1} / {validImages.length}
             </div>
           </div>
         </div>

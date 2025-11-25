@@ -57,13 +57,13 @@ describe('Button Component - Phase 3 Mobile Optimization', () => {
       const button = screen.getByRole('button', { name: /outline/i });
       expect(button).toHaveClass('border-2');
       expect(button).toHaveClass('border-primary-600');
-      expect(button).toHaveClass('text-primary-600');
+      expect(button).toHaveClass('text-primary-700');
     });
 
     it('should render ghost variant', () => {
       render(<Button variant="ghost">Ghost</Button>);
       const button = screen.getByRole('button', { name: /ghost/i });
-      expect(button).toHaveClass('text-primary-600');
+      expect(button).toHaveClass('text-primary-700');
       expect(button).toHaveClass('hover:bg-primary-50');
     });
 
