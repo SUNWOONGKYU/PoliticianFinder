@@ -15,7 +15,7 @@ export async function createSignedDownloadUrl(
   reportUrl: string,
   expiresIn: number = 3600
 ): Promise<string> {
-  const supabase = createClient();
+  const supabase = await createClient();
 
   try {
     // Extract file path from the public URL
@@ -117,7 +117,7 @@ export async function verifyReportExists(
   politicianId: string,
   evaluationId: string
 ): Promise<boolean> {
-  const supabase = createClient();
+  const supabase = await createClient();
 
   try {
     const fileName = `${politicianId}/${evaluationId}.pdf`;

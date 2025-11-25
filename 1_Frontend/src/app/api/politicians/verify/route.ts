@@ -18,7 +18,7 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     const validated = verifySchema.parse(body);
 
-    const supabase = createClient();
+    const supabase = await createClient();
 
     // DB에서 정치인 정보 검증
     const { data: politician, error } = await supabase

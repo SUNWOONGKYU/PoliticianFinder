@@ -85,7 +85,7 @@ export async function GET(request: NextRequest) {
     const limit = parseInt(request.nextUrl.searchParams.get("limit") || "10");
 
     const { createClient } = await import("@/lib/supabase/server");
-    const supabase = createClient();
+    const supabase = await createClient();
 
     // Build query for top-rated politicians
     let query = supabase

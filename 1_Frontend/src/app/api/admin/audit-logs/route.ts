@@ -50,7 +50,7 @@ const createAuditLogSchema = z.object({
  */
 async function checkAdminRole(userId: string): Promise<boolean> {
   try {
-    const supabase = createClient();
+    const supabase = await createClient();
 
     const { data: profile, error } = await supabase
       .from('users')
@@ -128,7 +128,7 @@ export async function GET(request: NextRequest) {
     const validated = getAuditLogsQuerySchema.parse(queryParams);
 
     // 4. Supabase 클라이언트 생성
-    const supabase = createClient();
+    const supabase = await createClient();
 
     // 5. 필터 옵션 구성
     const filters: AuditLogFilters = {

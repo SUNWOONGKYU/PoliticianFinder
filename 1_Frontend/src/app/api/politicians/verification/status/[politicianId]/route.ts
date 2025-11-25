@@ -30,7 +30,7 @@ export async function GET(
       )
     }
 
-    const supabase = createClient()
+    const supabase = await createClient()
 
     // 1. Get politician verification status
     const { data: politician, error: politicianError } = await supabase

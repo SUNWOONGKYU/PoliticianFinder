@@ -25,7 +25,7 @@ export async function GET(request: NextRequest) {
     // 2. Supabase 데이터베이스 연결 체크
     const dbStartTime = Date.now();
     try {
-      const supabase = createClient();
+      const supabase = await createClient();
 
       // 간단한 쿼리로 연결 확인 (users 테이블 카운트)
       const { count, error } = await supabase

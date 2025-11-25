@@ -235,7 +235,7 @@ async function createSingleEvaluation(
  */
 export async function POST(request: NextRequest) {
   try {
-    const supabase = createClient();
+    const supabase = await createClient();
 
     // 1. 관리자 권한 확인
     const { data: { user }, error: authError } = await supabase.auth.getUser();

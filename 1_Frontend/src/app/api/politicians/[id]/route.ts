@@ -22,7 +22,7 @@ export async function GET(
     }
 
     // Supabase 서버 클라이언트 생성 (RLS 적용)
-    const supabase = createClient();
+    const supabase = await createClient();
 
     // 정치인 상세 정보 조회
     const { data: politician, error: politicianError } = await supabase
@@ -138,7 +138,7 @@ export async function PATCH(
     const body = await request.json();
 
     // Supabase 서버 클라이언트 생성
-    const supabase = createClient();
+    const supabase = await createClient();
 
     // 업데이트 스키마 검증
     const updateSchema = z.object({
@@ -230,7 +230,7 @@ export async function DELETE(
     const id = params.id;
 
     // Supabase 서버 클라이언트 생성
-    const supabase = createClient();
+    const supabase = await createClient();
 
     // 정치인 삭제 (소프트 삭제: is_active = false로 설정)
     const { data: deletedPolitician, error } = await supabase

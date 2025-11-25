@@ -48,7 +48,7 @@ export class EvaluationEngine {
   async fetchPoliticianData(
     politicianId: string
   ): Promise<PoliticianEvaluationData | null> {
-    const supabase = createClient();
+    const supabase = await createClient();
 
     // Fetch politician basic info
     const { data: politician, error } = await supabase
@@ -255,7 +255,7 @@ export class EvaluationEngine {
     model: AIModel,
     result: AIEvaluationResult
   ): Promise<{ success: boolean; error?: string; data?: any }> {
-    const supabase = createClient();
+    const supabase = await createClient();
 
     // Get model version
     const modelVersion = this.clients[model].getModelVersion();

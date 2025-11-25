@@ -29,7 +29,7 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    const supabase = createClient();
+    const supabase = await createClient();
 
     // 2. Verify politician exists
     const { data: politician, error: politicianError } = await supabase

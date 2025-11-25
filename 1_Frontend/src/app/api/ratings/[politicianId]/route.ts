@@ -20,7 +20,7 @@ export async function POST(
     }
 
     // 사용자 인증 확인
-    const supabase = createClient();
+    const supabase = await createClient();
     const { data: { user }, error: authError } = await supabase.auth.getUser();
 
     if (authError || !user) {
@@ -32,22 +32,53 @@ export async function POST(
 
     const userId = user.id;
 
-    // 평가 데이터 삽입
-    const { data: ratingData, error: insertError } = await supabase
+    // 기존 평가 확인
+    const { data: existingRating } = await supabase
       .from('politician_ratings')
-      .insert([
-        {
-          politician_id: politicianId, // TEXT 타입이므로 parseInt 제거
-          user_id: userId,
-          rating: rating,
-          created_at: new Date().toISOString()
-        }
-      ])
-      .select()
+      .select('id')
+      .eq('politician_id', politicianId)
+      .eq('user_id', userId)
       .single();
 
+    let ratingData;
+    let insertError;
+
+    if (existingRating) {
+      // 기존 평가가 있으면 업데이트
+      const result = await supabase
+        .from('politician_ratings')
+        .update({
+          rating: rating,
+          updated_at: new Date().toISOString()
+        })
+        .eq('politician_id', politicianId)
+        .eq('user_id', userId)
+        .select()
+        .single();
+
+      ratingData = result.data;
+      insertError = result.error;
+    } else {
+      // 새 평가 삽입
+      const result = await supabase
+        .from('politician_ratings')
+        .insert([
+          {
+            politician_id: politicianId,
+            user_id: userId,
+            rating: rating,
+            created_at: new Date().toISOString()
+          }
+        ])
+        .select()
+        .single();
+
+      ratingData = result.data;
+      insertError = result.error;
+    }
+
     if (insertError) {
-      console.error('Rating insert error:', insertError);
+      console.error('Rating save error:', insertError);
       return NextResponse.json(
         { error: '평가 저장에 실패했습니다.' },
         { status: 500 }

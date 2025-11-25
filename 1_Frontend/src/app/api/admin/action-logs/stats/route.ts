@@ -28,7 +28,7 @@ const getStatsQuerySchema = z.object({
  */
 async function checkAdminRole(userId: string): Promise<boolean> {
   try {
-    const supabase = createClient();
+    const supabase = await createClient();
 
     const { data: profile, error } = await supabase
       .from('users')
@@ -218,7 +218,7 @@ export async function POST(request: NextRequest) {
     const validated = customStatsSchema.parse(body);
 
     // 4. Supabase 클라이언트 생성
-    const supabase = createClient();
+    const supabase = await createClient();
 
     // 5. 복잡한 필터 쿼리 구성
     let query = supabase.from('admin_actions').select('*');

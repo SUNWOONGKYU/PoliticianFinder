@@ -123,7 +123,7 @@ export async function POST(request: NextRequest) {
     }
 
     // 5. Supabase Client Connection (Real - Phase 3)
-    const supabase = createClient();
+    const supabase = await createClient();
 
     // 6. Authenticate with Supabase Auth (Real - Phase 3)
     const { data: authData, error: authError } =
@@ -221,7 +221,7 @@ export async function POST(request: NextRequest) {
     if (!userProfile) {
       console.log('[로그인 API] users 테이블에 프로필 없음, 생성 시도:', authData.user.id);
 
-      const adminClient = createClient();
+      const adminClient = await createClient();
       const { data: newProfile, error: insertError} = await adminClient
         .from('users')
         .insert({

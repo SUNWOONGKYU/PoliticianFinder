@@ -36,7 +36,7 @@ export async function POST(
   { params }: { params: { id: string } }
 ) {
   try {
-    const supabase = createClient();
+    const supabase = await createClient();
     const orderId = params.id;
 
     // 1. 사용자 인증 확인

@@ -34,7 +34,7 @@ export async function verifyPayment(
   userId: string,
   evaluationId: string
 ): Promise<PaymentVerificationResult> {
-  const supabase = createClient();
+  const supabase = await createClient();
 
   try {
     // 1. Fetch evaluation info to check politician_id and evaluator
@@ -135,7 +135,7 @@ export async function checkDownloadLimit(
   limitExceeded: boolean;
   remaining: number;
 }> {
-  const supabase = createClient();
+  const supabase = await createClient();
 
   try {
     const { count, error } = await supabase
@@ -180,7 +180,7 @@ export async function recordDownload(
   ipAddress?: string | null,
   userAgent?: string | null
 ): Promise<void> {
-  const supabase = createClient();
+  const supabase = await createClient();
 
   try {
     const { error } = await supabase.from('download_history').insert({

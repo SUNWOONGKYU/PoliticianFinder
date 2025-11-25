@@ -56,7 +56,7 @@ export async function POST(request: NextRequest) {
     const validated = createPostSchema.parse(body);
 
     // 4. Supabase 클라이언트 생성 (RLS 적용됨)
-    const supabase = createClient();
+    const supabase = await createClient();
 
     // 5. politician_id 존재 여부 확인 (선택적)
     if (validated.politician_id) {
@@ -163,7 +163,7 @@ export async function GET(request: NextRequest) {
     const query = getPostsQuerySchema.parse(queryParams);
 
     // 2. Supabase 클라이언트 생성 (RLS 적용됨)
-    const supabase = createClient();
+    const supabase = await createClient();
 
     // 3. 쿼리 빌더 시작 (RLS로 승인된 게시글만 조회)
     let queryBuilder = supabase

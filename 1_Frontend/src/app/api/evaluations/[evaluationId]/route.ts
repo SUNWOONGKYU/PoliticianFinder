@@ -17,7 +17,7 @@ export async function GET(
 ) {
   try {
     const evaluationId = params.evaluationId;
-    const supabase = createClient();
+    const supabase = await createClient();
 
     // 1. 평가 데이터 조회
     const { data: evaluation, error: evaluationError } = await supabase

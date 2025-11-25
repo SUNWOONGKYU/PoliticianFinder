@@ -44,7 +44,7 @@ type DeleteAccountRequest = z.infer<typeof deleteAccountSchema>;
 export async function DELETE(request: NextRequest) {
   try {
     // 1. Supabase Client Connection
-    const supabase = createClient();
+    const supabase = await createClient();
 
     // 2. Get authenticated user
     const {

@@ -129,7 +129,7 @@ export async function POST(request: NextRequest) {
     }
 
     // 5. Supabase Client Connection (Mock - Phase 1)
-    const supabase = createClient();
+    const supabase = await createClient();
     console.log('[Phase 1 Mock] Supabase client connected:', !!supabase);
     console.log('[Phase 1 Mock] Password reset requested for:', data.email);
 
@@ -268,7 +268,7 @@ export async function PUT(request: NextRequest) {
     }
 
     // 6. Supabase Client Connection (Mock - Phase 1)
-    const supabase = createClient();
+    const supabase = await createClient();
     console.log('[Phase 1 Mock] Supabase client connected:', !!supabase);
     console.log('[Phase 1 Mock] Password update confirmed for:', data.email);
 

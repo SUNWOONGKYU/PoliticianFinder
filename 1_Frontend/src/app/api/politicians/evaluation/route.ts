@@ -113,7 +113,7 @@ export async function GET(request: NextRequest) {
     }
 
     const { createClient } = await import("@/lib/supabase/server");
-    const supabase = createClient();
+    const supabase = await createClient();
 
     // DB에서 평가 결과 조회
     const { data: evaluation, error } = await supabase

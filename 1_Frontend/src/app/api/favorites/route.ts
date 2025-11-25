@@ -21,7 +21,7 @@ const addFavoriteSchema = z.object({
 export async function GET(request: NextRequest) {
   try {
     // Supabase 서버 클라이언트 생성 (인증된 사용자)
-    const supabase = createClient();
+    const supabase = await createClient();
 
     // 현재 사용자 확인
     const { data: { user }, error: authError } = await supabase.auth.getUser();
@@ -100,7 +100,7 @@ export async function POST(request: NextRequest) {
     const validated = addFavoriteSchema.parse(body);
 
     // Supabase 서버 클라이언트 생성 (인증된 사용자)
-    const supabase = createClient();
+    const supabase = await createClient();
 
     // 현재 사용자 확인
     const { data: { user }, error: authError } = await supabase.auth.getUser();
@@ -244,7 +244,7 @@ export async function DELETE(request: NextRequest) {
     }
 
     // Supabase 서버 클라이언트 생성 (인증된 사용자)
-    const supabase = createClient();
+    const supabase = await createClient();
 
     // 현재 사용자 확인
     const { data: { user }, error: authError } = await supabase.auth.getUser();

@@ -105,7 +105,7 @@ export class ActivityTracker {
    */
   public async track(params: TrackActionParams): Promise<AdminActionRecord | null> {
     try {
-      const supabase = createClient();
+      const supabase = await createClient();
 
       const actionEntry: Partial<AdminActionRecord> = {
         admin_id: params.adminId,
@@ -273,7 +273,7 @@ export class ActivityTracker {
    */
   public async getStatistics(options: StatsOptions): Promise<AdminActionStats | null> {
     try {
-      const supabase = createClient();
+      const supabase = await createClient();
 
       // 기본 필터 쿼리
       let baseQuery = supabase.from('admin_actions').select('*');
@@ -341,7 +341,7 @@ export class ActivityTracker {
   private async aggregateByAdmin(
     data: any[]
   ): Promise<Array<{ adminId: string; name: string; count: number }>> {
-    const supabase = createClient();
+    const supabase = await createClient();
 
     const adminCounts: Record<string, number> = {};
     data.forEach((action: any) => {
@@ -440,7 +440,7 @@ export class ActivityTracker {
     limit: number = 50
   ): Promise<AdminActionRecord[]> {
     try {
-      const supabase = createClient();
+      const supabase = await createClient();
 
       const { data, error } = await supabase
         .from('admin_actions')
@@ -468,7 +468,7 @@ export class ActivityTracker {
     limit: number = 100
   ): Promise<AdminActionRecord[]> {
     try {
-      const supabase = createClient();
+      const supabase = await createClient();
 
       const { data, error } = await supabase
         .from('admin_actions')

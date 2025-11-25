@@ -46,7 +46,7 @@ type UpdateProfileRequest = z.infer<typeof updateProfileSchema>;
 export async function PUT(request: NextRequest) {
   try {
     // 1. Supabase Client Connection
-    const supabase = createClient();
+    const supabase = await createClient();
 
     // 2. Get authenticated user
     const {

@@ -50,7 +50,7 @@ const trackActionSchema = z.object({
  */
 async function checkAdminRole(userId: string): Promise<boolean> {
   try {
-    const supabase = createClient();
+    const supabase = await createClient();
 
     const { data: profile, error } = await supabase
       .from('users')
@@ -126,7 +126,7 @@ export async function GET(request: NextRequest) {
     const validated = getActionLogsQuerySchema.parse(queryParams);
 
     // 4. Supabase 클라이언트 생성
-    const supabase = createClient();
+    const supabase = await createClient();
 
     // 5. 카운트 쿼리 (필터 적용)
     let countQuery = supabase

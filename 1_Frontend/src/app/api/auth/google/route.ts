@@ -64,7 +64,7 @@ export async function GET(request: NextRequest) {
     }
 
     // 2. Supabase Client Connection (Real - Phase 3)
-    const supabase = createClient();
+    const supabase = await createClient();
 
     // 3. Get current origin from request for dynamic redirect URL
     const { origin } = new URL(request.url);

@@ -117,7 +117,7 @@ export async function example4_LogCustomAction(
  * 최근 로그 조회
  */
 export async function example5_GetRecentLogs() {
-  const supabase = createClient();
+  const supabase = await createClient();
 
   // Get last 50 logs
   const recentLogs = await AuditLogQueryBuilder.getRecentLogs(supabase, 50);
@@ -137,7 +137,7 @@ export async function example5_GetRecentLogs() {
  * 특정 관리자의 로그 조회
  */
 export async function example6_GetLogsByAdmin(adminId: string) {
-  const supabase = createClient();
+  const supabase = await createClient();
 
   // Get last 100 logs for this admin
   const logs = await AuditLogQueryBuilder.getLogsByAdmin(supabase, adminId, 100);
@@ -155,7 +155,7 @@ export async function example7_GetLogsByTarget(
   targetType: string,
   targetId: string
 ) {
-  const supabase = createClient();
+  const supabase = await createClient();
 
   // Get all logs for this target (e.g., all actions on a specific post)
   const logs = await AuditLogQueryBuilder.getLogsByTarget(
@@ -174,7 +174,7 @@ export async function example7_GetLogsByTarget(
  * 필터링 및 페이지네이션 조회
  */
 export async function example8_FilteredQuery() {
-  const supabase = createClient();
+  const supabase = await createClient();
 
   const queryBuilder = createAuditLogQueryBuilder(supabase, {
     actionType: AuditActionType.USER_BAN,
@@ -207,7 +207,7 @@ export async function example9_ExportToCSV(
   startDate?: string,
   endDate?: string
 ) {
-  const supabase = createClient();
+  const supabase = await createClient();
 
   const queryBuilder = createAuditLogQueryBuilder(supabase, {
     startDate,
@@ -242,7 +242,7 @@ export async function example10_GetStatistics(
   startDate?: string,
   endDate?: string
 ) {
-  const supabase = createClient();
+  const supabase = await createClient();
 
   const queryBuilder = createAuditLogQueryBuilder(supabase, {
     startDate,
@@ -272,7 +272,7 @@ export async function example11_APIRouteWithLogging(request: NextRequest) {
     const { userId, reason } = await request.json();
 
     // Perform the actual admin action
-    const supabase = createClient();
+    const supabase = await createClient();
     const { error } = await supabase
       .from('users')
       .update({ is_banned: true })
@@ -315,7 +315,7 @@ export async function example12_MultipleActions(
   postId: string,
   userId: string
 ) {
-  const supabase = createClient();
+  const supabase = await createClient();
   const logger = getAuditLogger();
 
   try {
@@ -340,7 +340,7 @@ export async function example12_MultipleActions(
  * 대시보드 위젯 - 최근 활동
  */
 export async function example13_DashboardRecentActivity() {
-  const supabase = createClient();
+  const supabase = await createClient();
   const recentLogs = await AuditLogQueryBuilder.getRecentLogs(supabase, 10);
 
   // Format for display
@@ -363,7 +363,7 @@ export async function example14_SearchLogs(
   actionType: string,
   page: number = 1
 ) {
-  const supabase = createClient();
+  const supabase = await createClient();
 
   const queryBuilder = createAuditLogQueryBuilder(supabase, {
     adminId,
@@ -389,7 +389,7 @@ export async function example14_SearchLogs(
  * 월간 리포트 생성
  */
 export async function example15_MonthlyReport(year: number, month: number) {
-  const supabase = createClient();
+  const supabase = await createClient();
 
   // Calculate date range
   const startDate = new Date(year, month - 1, 1).toISOString();
@@ -429,7 +429,7 @@ export async function example16_CompareAdminActivity(
   startDate: string,
   endDate: string
 ) {
-  const supabase = createClient();
+  const supabase = await createClient();
 
   const results = await Promise.all(
     adminIds.map(async adminId => {
@@ -464,7 +464,7 @@ export async function example16_CompareAdminActivity(
  * 의심스러운 활동에 대한 알림
  */
 export async function example17_AlertSuspiciousActivity(adminId: string) {
-  const supabase = createClient();
+  const supabase = await createClient();
 
   // Get recent logs for this admin (last hour)
   const oneHourAgo = new Date(Date.now() - 3600000).toISOString();
@@ -499,7 +499,7 @@ export async function example18_ComplianceAuditTrail(
   targetType: string,
   targetId: string
 ) {
-  const supabase = createClient();
+  const supabase = await createClient();
 
   // Get complete history for this target
   const logs = await AuditLogQueryBuilder.getLogsByTarget(

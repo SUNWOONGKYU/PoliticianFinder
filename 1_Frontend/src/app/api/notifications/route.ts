@@ -21,7 +21,7 @@ export async function GET(request: NextRequest) {
     }
     const { user } = authResult;
 
-    const supabase = createClient();
+    const supabase = await createClient();
 
     const page = parseInt(request.nextUrl.searchParams.get('page') || '1');
     const limit = parseInt(request.nextUrl.searchParams.get('limit') || '20');
@@ -84,7 +84,7 @@ export async function POST(request: NextRequest) {
     }
     const { user } = authResult;
 
-    const supabase = createClient();
+    const supabase = await createClient();
     const body = await request.json();
 
     const validated = notificationSchema.parse({
@@ -136,7 +136,7 @@ export async function PATCH(request: NextRequest) {
     }
     const { user } = authResult;
 
-    const supabase = createClient();
+    const supabase = await createClient();
     const notificationId = request.nextUrl.searchParams.get('notificationId');
 
     if (!notificationId) {
@@ -180,7 +180,7 @@ export async function DELETE(request: NextRequest) {
     }
     const { user } = authResult;
 
-    const supabase = createClient();
+    const supabase = await createClient();
     const notificationId = request.nextUrl.searchParams.get('notificationId');
 
     if (!notificationId) {

@@ -20,7 +20,7 @@ export async function POST(request: NextRequest) {
     }
     const { user } = authResult;
 
-    const supabase = createClient();
+    const supabase = await createClient();
     const body = await request.json();
 
     const share = shareSchema.parse({
@@ -91,7 +91,7 @@ export async function POST(request: NextRequest) {
 
 export async function GET(request: NextRequest) {
   try {
-    const supabase = createClient();
+    const supabase = await createClient();
     const post_id = request.nextUrl.searchParams.get("post_id");
     const user_id = request.nextUrl.searchParams.get("user_id");
     const page = parseInt(request.nextUrl.searchParams.get('page') || '1');

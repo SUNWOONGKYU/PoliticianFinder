@@ -180,7 +180,7 @@ export async function POST(request: NextRequest) {
     }
 
     // 7. Supabase Client Connection (Real - Phase 3)
-    const supabase = createClient();
+    const supabase = await createClient();
 
     // 7.5. Check for duplicate email (Supabase doesn't throw error on duplicate)
     const { data: existingUsers, error: checkError } = await supabase.auth.admin.listUsers();

@@ -13,7 +13,7 @@ export async function GET(request: NextRequest) {
       return authResult;
     }
 
-    const supabase = createClient();
+    const supabase = await createClient();
 
     const page = parseInt(request.nextUrl.searchParams.get('page') || '1');
     const limit = parseInt(request.nextUrl.searchParams.get('limit') || '20');
@@ -82,7 +82,7 @@ export async function DELETE(request: NextRequest) {
     }
     const { user } = authResult;
 
-    const supabase = createClient();
+    const supabase = await createClient();
     const comment_id = request.nextUrl.searchParams.get('comment_id');
 
     if (!comment_id) {

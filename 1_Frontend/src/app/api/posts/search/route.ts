@@ -29,7 +29,7 @@ export async function GET(request: NextRequest) {
 
     const query = searchQuerySchema.parse(queryParams);
 
-    const supabase = createClient();
+    const supabase = await createClient();
 
     // 2. 전체 텍스트 검색 쿼리 (PostgreSQL to_tsvector)
     let queryBuilder = supabase

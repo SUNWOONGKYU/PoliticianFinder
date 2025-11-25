@@ -29,7 +29,7 @@ export async function POST(request: NextRequest) {
     });
 
     // 3. Supabase 클라이언트 생성
-    const supabase = createClient();
+    const supabase = await createClient();
 
     // 4. 게시물 존재 여부 확인
     const { data: post, error: postError } = await supabase
@@ -144,7 +144,7 @@ export async function POST(request: NextRequest) {
 
 export async function GET(request: NextRequest) {
   try {
-    const supabase = createClient();
+    const supabase = await createClient();
     const post_id = request.nextUrl.searchParams.get("post_id");
     const user_id = request.nextUrl.searchParams.get("user_id");
     const page = parseInt(request.nextUrl.searchParams.get('page') || '1');
@@ -218,7 +218,7 @@ export async function DELETE(request: NextRequest) {
     const { user } = authResult;
 
     // 2. Supabase 클라이언트 생성
-    const supabase = createClient();
+    const supabase = await createClient();
     const post_id = request.nextUrl.searchParams.get("post_id");
 
     if (!post_id) {

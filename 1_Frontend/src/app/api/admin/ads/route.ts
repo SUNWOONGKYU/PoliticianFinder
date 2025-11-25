@@ -65,7 +65,7 @@ export async function GET(request: NextRequest) {
     const query = getAdsQuerySchema.parse(queryParams);
 
     // 3. Supabase 클라이언트 생성
-    const supabase = createClient();
+    const supabase = await createClient();
 
     // 4. 쿼리 빌더 시작
     let queryBuilder = supabase
@@ -172,7 +172,7 @@ export async function POST(request: NextRequest) {
     const validated = createAdSchema.parse(body);
 
     // 3. Supabase 클라이언트 생성
-    const supabase = createClient();
+    const supabase = await createClient();
 
     // 4. 광고 삽입
     const { data: newAd, error } = await supabase

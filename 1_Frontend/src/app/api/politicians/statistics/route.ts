@@ -11,7 +11,7 @@ import { createClient } from "@/lib/supabase/server";
 export async function GET(request: NextRequest) {
   try {
     // Supabase 서버 클라이언트 생성 (RLS 적용)
-    const supabase = createClient();
+    const supabase = await createClient();
 
     // 활성 정치인 전체 수
     const { count: totalCount, error: totalError } = await supabase
