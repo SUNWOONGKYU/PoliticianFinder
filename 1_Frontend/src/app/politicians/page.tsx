@@ -111,12 +111,16 @@ export default function PoliticiansPage() {
         });
 
         if (!response.ok) {
-          console.error('API response not OK:', response.status, response.statusText);
+          if (process.env.NODE_ENV === 'development') {
+            console.error('API response not OK:', response.status, response.statusText);
+          }
           throw new Error('Failed to fetch politicians');
         }
 
         const data = await response.json();
-        console.log('API response:', data); // 디버깅용
+        if (process.env.NODE_ENV === 'development') {
+          console.log('API response:', data);
+        }
 
         if (data.success && data.data && data.data.length > 0) {
           // Pagination 정보 업데이트
@@ -153,14 +157,20 @@ export default function PoliticiansPage() {
               updatedAt: p.updatedAt || '',
             };
           });
-          console.log(`Loaded ${transformedData.length} politicians from API (Page ${currentPage}/${data.pagination?.totalPages || 1})`);
+          if (process.env.NODE_ENV === 'development') {
+            console.log(`Loaded ${transformedData.length} politicians from API (Page ${currentPage}/${data.pagination?.totalPages || 1})`);
+          }
           setPoliticians(transformedData);
         } else {
-          console.warn('No data from API');
+          if (process.env.NODE_ENV === 'development') {
+            console.warn('No data from API');
+          }
           setPoliticians([]);
         }
       } catch (err) {
-        console.error('Error fetching politicians:', err);
+        if (process.env.NODE_ENV === 'development') {
+          console.error('Error fetching politicians:', err);
+        }
         setError(err instanceof Error ? err.message : 'An error occurred');
         setPoliticians([]);
       } finally {

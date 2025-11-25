@@ -124,7 +124,9 @@ export default function Home() {
           setPoliticians(transformedData);
         }
       } catch (err) {
-        console.error('Error fetching politicians:', err);
+        if (process.env.NODE_ENV === 'development') {
+          console.error('Error fetching politicians:', err);
+        }
       } finally {
         setLoading(false);
       }
@@ -230,7 +232,9 @@ export default function Home() {
           }
         }
       } catch (err) {
-        console.error('Error fetching posts:', err);
+        if (process.env.NODE_ENV === 'development') {
+          console.error('Error fetching posts:', err);
+        }
       } finally {
         setPostsLoading(false);
       }
@@ -252,7 +256,9 @@ export default function Home() {
           }
         }
       } catch (err) {
-        console.error('Error fetching notices:', err);
+        if (process.env.NODE_ENV === 'development') {
+          console.error('Error fetching notices:', err);
+        }
       } finally {
         setNoticesLoading(false);
       }
@@ -496,7 +502,6 @@ export default function Home() {
 
   const handleSearch = () => {
     if (searchQuery.trim()) {
-      console.log('검색:', searchQuery);
     }
   };
 
