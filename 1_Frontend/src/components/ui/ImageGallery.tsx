@@ -239,13 +239,13 @@ export const ImageGallery: React.FC<ImageGalleryProps> = ({
             {safeCurrentIndex + 1} / {validImages.length}
           </div>
 
-          {/* 네비게이션 버튼 - Desktop */}
+          {/* 네비게이션 버튼 - 모바일/데스크톱 모두 표시 */}
           {validImages.length > 1 && (
             <>
               {/* 이전 버튼 */}
               <button
                 onClick={goToPrevious}
-                className="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 items-center justify-center bg-black bg-opacity-50 hover:bg-opacity-75 text-white rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-white"
+                className="flex absolute left-2 md:left-4 top-1/2 -translate-y-1/2 w-11 h-11 items-center justify-center bg-black bg-opacity-50 hover:bg-opacity-75 text-white rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-white"
                 aria-label="이전 이미지"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -256,7 +256,7 @@ export const ImageGallery: React.FC<ImageGalleryProps> = ({
               {/* 다음 버튼 */}
               <button
                 onClick={goToNext}
-                className="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 items-center justify-center bg-black bg-opacity-50 hover:bg-opacity-75 text-white rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-white"
+                className="flex absolute right-2 md:right-4 top-1/2 -translate-y-1/2 w-11 h-11 items-center justify-center bg-black bg-opacity-50 hover:bg-opacity-75 text-white rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-white"
                 aria-label="다음 이미지"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -266,10 +266,7 @@ export const ImageGallery: React.FC<ImageGalleryProps> = ({
             </>
           )}
 
-          {/* 스와이프 힌트 - Mobile */}
-          <div className="md:hidden absolute bottom-4 left-1/2 -translate-x-1/2 bg-black bg-opacity-60 text-white px-3 py-1 rounded-full text-xs">
-            ← 스와이프 →
-          </div>
+          {/* 스와이프 힌트 제거 - 네비게이션 버튼으로 대체됨 */}
         </div>
 
         {/* 썸네일 - Desktop */}
@@ -325,11 +322,11 @@ export const ImageGallery: React.FC<ImageGalleryProps> = ({
           aria-modal="true"
           aria-label="이미지 전체화면 보기"
         >
-          {/* 닫기 버튼 */}
+          {/* 닫기 버튼 - 안전영역 대응 (iPhone notch 등) */}
           <button
             ref={closeButtonRef}
             onClick={() => setIsFullscreen(false)}
-            className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center bg-white bg-opacity-20 hover:bg-opacity-30 text-white rounded-full transition-all z-10"
+            className="absolute top-6 right-4 w-12 h-12 flex items-center justify-center bg-white bg-opacity-20 hover:bg-opacity-30 text-white rounded-full transition-all z-10"
             aria-label="전체화면 닫기"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
