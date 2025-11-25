@@ -15,6 +15,7 @@ import './globals.css';
 import dynamic from 'next/dynamic';
 import Footer from './components/footer';
 import { ThemeProvider } from '@/contexts/ThemeContext';
+import ScrollToTop from '@/components/ui/ScrollToTop';
 
 // Header를 클라이언트 전용으로 로드 (Hydration 에러 방지)
 const Header = dynamic(() => import('./components/header'), { ssr: false });
@@ -60,6 +61,8 @@ export default function RootLayout({
             </main>
             <Footer />
           </div>
+          {/* 전역 스크롤 Top 버튼 */}
+          <ScrollToTop showAfter={400} bottomOffset={24} />
         </ThemeProvider>
       </body>
     </html>
