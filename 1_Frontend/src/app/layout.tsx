@@ -1,17 +1,20 @@
 /**
- * Project Grid Task ID: P1F1
- * 작업명: 전역 레이아웃 (Header, Footer, Navigation)
+ * Project Grid Task ID: P1F1, P5M9
+ * 작업명: 전역 레이아웃 (Header, Footer, Navigation) + 다크모드 지원
  * 생성시간: 2025-11-03
- * 생성자: ui-designer (1차 실행)
+ * 수정시간: 2025-11-25 (다크모드 추가)
+ * 생성자: ui-designer (1차 실행), Claude Code (다크모드)
  * 의존성: P1BI1
  * 설명: 모든 페이지에 공통적으로 적용되는 최상위 레이아웃입니다.
  *      Blue 테마 기반 헤더, 모바일 메뉴, 푸터를 포함합니다.
+ *      다크모드 지원 (ThemeProvider 적용)
  *      프로토타입: 0-2_UIUX_Design/prototypes/html/base-template.html
  */
 
 import './globals.css';
 import dynamic from 'next/dynamic';
 import Footer from './components/footer';
+import { ThemeProvider } from '@/contexts/ThemeContext';
 
 // Header를 클라이언트 전용으로 로드 (Hydration 에러 방지)
 const Header = dynamic(() => import('./components/header'), { ssr: false });
@@ -27,20 +30,37 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ko">
+    <html lang="ko" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+        {/* 다크모드 깜빡임 방지 스크립트 */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var theme = localStorage.getItem('politicianfinder-theme');
+                  if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                    document.documentElement.classList.add('dark');
+                  }
+                } catch (e) {}
+              })();
+            `,
+          }}
+        />
       </head>
-      <body className="bg-gray-50" style={{ fontFamily: "'Noto Sans KR', sans-serif" }}>
-        <div className="min-h-screen flex flex-col">
-          <Header />
-          <main className="flex-1">
-            {children}
-          </main>
-          <Footer />
-        </div>
+      <body className="bg-gray-50 dark:bg-slate-900 transition-colors duration-300" style={{ fontFamily: "'Noto Sans KR', sans-serif" }}>
+        <ThemeProvider defaultTheme="system">
+          <div className="min-h-screen flex flex-col">
+            <Header />
+            <main className="flex-1">
+              {children}
+            </main>
+            <Footer />
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );
