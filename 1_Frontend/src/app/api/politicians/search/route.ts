@@ -42,7 +42,7 @@ export async function GET(request: NextRequest) {
     const query = searchQuerySchema.parse(queryParams);
 
     // Supabase 서버 클라이언트 생성 (RLS 적용)
-    const supabase = createClient();
+    const supabase = await createClient();
 
     // Supabase 쿼리 빌더 시작
     let queryBuilder = supabase

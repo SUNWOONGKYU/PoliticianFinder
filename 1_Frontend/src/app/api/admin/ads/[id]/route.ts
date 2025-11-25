@@ -70,7 +70,7 @@ export async function GET(
     }
 
     // 3. Supabase 클라이언트 생성
-    const supabase = createClient();
+    const supabase = await createClient();
 
     // 4. 광고 조회
     const { data: ad, error } = await supabase
@@ -158,7 +158,7 @@ export async function PATCH(
     const validated = updateAdSchema.parse(body);
 
     // 4. Supabase 클라이언트 생성
-    const supabase = createClient();
+    const supabase = await createClient();
 
     // 5. 광고 존재 여부 확인
     const { data: existingAd, error: fetchError } = await supabase
@@ -275,7 +275,7 @@ export async function DELETE(
     }
 
     // 3. Supabase 클라이언트 생성
-    const supabase = createClient();
+    const supabase = await createClient();
 
     // 4. 광고 존재 여부 확인
     const { data: existingAd, error: fetchError } = await supabase

@@ -24,7 +24,7 @@ export async function GET(
     const { id } = params;
 
     // Supabase 클라이언트 생성
-    const supabase = createClient();
+    const supabase = await createClient();
 
     // 게시글 조회
     const { data: post, error } = await supabase
@@ -108,7 +108,7 @@ export async function PATCH(
     const validated = updatePostSchema.parse(body);
 
     // 2. Supabase 클라이언트 생성
-    const supabase = createClient();
+    const supabase = await createClient();
 
     // 3. 게시글 존재 여부 및 권한 확인
     const { data: existingPost, error: fetchError } = await supabase
@@ -220,7 +220,7 @@ export async function DELETE(
     const { id } = params;
 
     // 2. Supabase 클라이언트 생성
-    const supabase = createClient();
+    const supabase = await createClient();
 
     // 3. 게시글 존재 여부 및 권한 확인
     const { data: existingPost, error: fetchError } = await supabase

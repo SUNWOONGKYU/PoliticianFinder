@@ -27,7 +27,7 @@ export interface Advertisement {
 export async function getActiveAdsForPlacement(
   placement: AdPlacement
 ): Promise<Advertisement[]> {
-  const supabase = createClient();
+  const supabase = await createClient();
   const now = new Date().toISOString();
 
   const { data, error } = await supabase
@@ -69,7 +69,7 @@ export async function getRandomAdForPlacement(
  * Record an impression for an advertisement
  */
 export async function recordAdImpression(adId: string): Promise<void> {
-  const supabase = createClient();
+  const supabase = await createClient();
 
   const { error } = await supabase.rpc('increment_ad_impressions', {
     ad_id: adId,
@@ -84,7 +84,7 @@ export async function recordAdImpression(adId: string): Promise<void> {
  * Record a click for an advertisement
  */
 export async function recordAdClick(adId: string): Promise<void> {
-  const supabase = createClient();
+  const supabase = await createClient();
 
   const { error } = await supabase.rpc('increment_ad_clicks', {
     ad_id: adId,

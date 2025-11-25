@@ -40,7 +40,7 @@ export async function GET(
 ) {
   try {
     const id = params.id;
-    const supabase = createClient();
+    const supabase = await createClient();
 
     // 1. 정치인 존재 여부 확인
     const { data: politician, error: politicianError } = await supabase
@@ -201,7 +201,7 @@ export async function POST(
     const id = params.id;
     const body = await request.json();
     const validated = createEvaluationSchema.parse(body);
-    const supabase = createClient();
+    const supabase = await createClient();
 
     // 1. 정치인 존재 여부 확인
     const { data: politician, error: politicianError } = await supabase

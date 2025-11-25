@@ -31,7 +31,7 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    const supabase = createClient();
+    const supabase = await createClient();
 
     // 2. 정치인 존재 여부 확인
     const { data: politician, error: politicianError } = await supabase

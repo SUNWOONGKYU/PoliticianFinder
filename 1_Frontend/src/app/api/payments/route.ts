@@ -22,7 +22,7 @@ export async function POST(request: NextRequest) {
     }
     const { user } = authResult;
 
-    const supabase = createClient();
+    const supabase = await createClient();
     const body = await request.json();
 
     const payment = paymentSchema.parse({
@@ -108,7 +108,7 @@ export async function GET(request: NextRequest) {
     }
     const { user } = authResult;
 
-    const supabase = createClient();
+    const supabase = await createClient();
     const page = parseInt(request.nextUrl.searchParams.get('page') || '1');
     const limit = parseInt(request.nextUrl.searchParams.get('limit') || '20');
 

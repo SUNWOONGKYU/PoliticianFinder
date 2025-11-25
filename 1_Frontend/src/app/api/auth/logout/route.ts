@@ -29,7 +29,7 @@ import { createClient } from '@/lib/supabase/server';
 export async function POST(request: NextRequest) {
   try {
     // 1. Supabase Client Connection (Real - Phase 3)
-    const supabase = createClient();
+    const supabase = await createClient();
 
     // 2. Get current user to verify authentication
     const {

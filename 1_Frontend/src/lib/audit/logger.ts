@@ -76,7 +76,7 @@ export class AuditLogger {
    */
   public async log(params: CreateAuditLogParams): Promise<AuditLogRecord | null> {
     try {
-      const supabase = createClient();
+      const supabase = await createClient();
 
       const logEntry: Partial<AuditLogRecord> = {
         admin_id: params.adminId,

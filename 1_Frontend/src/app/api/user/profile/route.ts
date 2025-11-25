@@ -28,7 +28,7 @@ import { createClient } from '@/lib/supabase/server';
 export async function GET(request: NextRequest) {
   try {
     // 1. Supabase Client Connection
-    const supabase = createClient();
+    const supabase = await createClient();
 
     // 2. Get authenticated user
     const {

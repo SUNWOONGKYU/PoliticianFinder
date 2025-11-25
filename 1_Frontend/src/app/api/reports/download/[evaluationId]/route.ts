@@ -41,7 +41,7 @@ export async function GET(
   { params }: { params: { evaluationId: string } }
 ) {
   try {
-    const supabase = createClient();
+    const supabase = await createClient();
     const { evaluationId } = params;
 
     // 1. User authentication check

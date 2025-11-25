@@ -37,7 +37,7 @@ export async function POST(request: NextRequest) {
     const validated = createCommentSchema.parse(body);
 
     // 3. Supabase 클라이언트 생성
-    const supabase = createClient();
+    const supabase = await createClient();
 
     // 4. 게시글 존재 여부 확인
     const { data: post, error: postError } = await supabase
@@ -160,7 +160,7 @@ export async function GET(request: NextRequest) {
     const query = getCommentsQuerySchema.parse(queryParams);
 
     // 2. Supabase 클라이언트 생성
-    const supabase = createClient();
+    const supabase = await createClient();
 
     // 3. Supabase 쿼리 빌더 시작 (users와 posts 조인 추가)
     let queryBuilder = supabase

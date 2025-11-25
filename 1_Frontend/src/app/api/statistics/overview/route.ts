@@ -15,7 +15,7 @@ import { createClient } from '@/lib/supabase/server';
  */
 export async function GET(request: NextRequest) {
   try {
-    const supabase = createClient();
+    const supabase = await createClient();
 
     // 병렬로 모든 통계 데이터 가져오기
     const [

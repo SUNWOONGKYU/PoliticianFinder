@@ -14,7 +14,7 @@ export interface AuthUser {
  * Returns user object if authenticated, null otherwise
  */
 export async function getAuthenticatedUser(): Promise<AuthUser | null> {
-  const supabase = createClient();
+  const supabase = await createClient();
 
   const { data: { user }, error } = await supabase.auth.getUser();
 
@@ -65,7 +65,7 @@ export async function requireAuth(): Promise<{ user: AuthUser } | NextResponse> 
  * Check if user is banned or has restrictions
  */
 export async function checkUserRestrictions(userId: string): Promise<boolean> {
-  const supabase = createClient();
+  const supabase = await createClient();
 
   const { data: user, error } = await supabase
     .from('users')
@@ -84,7 +84,7 @@ export async function checkUserRestrictions(userId: string): Promise<boolean> {
  * Check if user is admin
  */
 export async function checkIsAdmin(userId: string): Promise<boolean> {
-  const supabase = createClient();
+  const supabase = await createClient();
 
   const { data: user, error } = await supabase
     .from('users')

@@ -33,7 +33,7 @@ export async function GET(request: NextRequest) {
     const politicianId = searchParams.get("politician_id");
     const limit = parseInt(searchParams.get("limit") || "10");
 
-    const supabase = createClient();
+    const supabase = await createClient();
 
     if (type === "timeseries") {
       // 시계열 데이터: evaluations 테이블에서 가져오기

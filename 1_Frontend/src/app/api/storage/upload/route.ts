@@ -18,7 +18,7 @@ export async function POST(request: NextRequest) {
     // ========================================================================
     // 1. 인증 확인
     // ========================================================================
-    const supabase = createClient();
+    const supabase = await createClient();
     const {
       data: { user },
       error: authError,
@@ -125,7 +125,7 @@ export async function DELETE(request: NextRequest) {
     // ========================================================================
     // 1. 인증 확인
     // ========================================================================
-    const supabase = createClient();
+    const supabase = await createClient();
     const {
       data: { user },
       error: authError,

@@ -14,7 +14,7 @@ import { createClient } from '@/lib/supabase/server';
  */
 export async function GET(request: NextRequest) {
   try {
-    const supabase = createClient();
+    const supabase = await createClient();
     const { searchParams } = request.nextUrl;
     const period = searchParams.get('period') || '30'; // 기본 30일
     const days = parseInt(period, 10);

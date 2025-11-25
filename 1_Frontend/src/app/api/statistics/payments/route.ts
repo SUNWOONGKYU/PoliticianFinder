@@ -6,7 +6,7 @@ import { createClient } from '@/lib/supabase/server';
 
 export async function GET(request: NextRequest) {
   try {
-    const supabase = createClient();
+    const supabase = await createClient();
 
     // 모든 결제 데이터 가져오기
     const { data: payments, error } = await supabase

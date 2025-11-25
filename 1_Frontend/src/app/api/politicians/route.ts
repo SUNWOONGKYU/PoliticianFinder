@@ -41,7 +41,7 @@ export async function GET(request: NextRequest) {
     const query = getPoliticiansQuerySchema.parse(queryParams);
 
     // Supabase 서버 클라이언트 생성 (RLS 적용)
-    const supabase = createClient();
+    const supabase = await createClient();
 
     // Supabase 쿼리 빌더 시작
     // P3F3: identity, title 필드 포함 (select * 사용)
@@ -145,7 +145,7 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
 
     // Supabase 서버 클라이언트 생성
-    const supabase = createClient();
+    const supabase = await createClient();
 
     // 입력 검증 스키마
     const insertSchema = z.object({

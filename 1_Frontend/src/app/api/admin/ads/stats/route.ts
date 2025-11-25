@@ -35,7 +35,7 @@ export async function GET(request: NextRequest) {
     const query = statsQuerySchema.parse(queryParams);
 
     // 3. Supabase 클라이언트 생성
-    const supabase = createClient();
+    const supabase = await createClient();
 
     // 4. 쿼리 빌더 시작
     let queryBuilder = supabase

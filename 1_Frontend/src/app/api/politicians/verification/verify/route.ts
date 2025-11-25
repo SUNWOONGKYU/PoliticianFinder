@@ -17,7 +17,7 @@ const verificationConfirmSchema = z.object({
 export async function POST(request: NextRequest) {
   try {
     // 1. User authentication check
-    const supabase = createClient()
+    const supabase = await createClient()
     const { data: { user }, error: authError } = await supabase.auth.getUser()
 
     if (authError || !user) {

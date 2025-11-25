@@ -23,7 +23,7 @@ import { createClient } from '@/lib/supabase/server';
  */
 export async function GET(request: NextRequest) {
   try {
-    const supabase = createClient();
+    const supabase = await createClient();
 
     // 1. 사용자 인증 확인
     const { data: { user }, error: authError } = await supabase.auth.getUser();

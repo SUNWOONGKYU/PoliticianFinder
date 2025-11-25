@@ -27,7 +27,7 @@ export async function GET(request: NextRequest) {
       limit: searchParams.get('limit'),
     });
 
-    const supabase = createClient();
+    const supabase = await createClient();
     const searchTerm = `%${query.q}%`;
 
     // Build query based on search type

@@ -23,7 +23,7 @@ export async function POST(
     }
     const { user } = authResult;
 
-    const supabase = createClient();
+    const supabase = await createClient();
 
     // 2. 게시글 존재 확인
     const { data: post, error: postError } = await supabase

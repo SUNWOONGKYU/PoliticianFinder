@@ -17,7 +17,7 @@ export async function uploadReportPDF(
   evaluationId: string,
   pdfBuffer: Buffer
 ): Promise<string> {
-  const supabase = createClient();
+  const supabase = await createClient();
 
   // Construct file path: reports/{politician_id}/{evaluation_id}.pdf
   const fileName = `${politicianId}/${evaluationId}.pdf`;
@@ -82,7 +82,7 @@ export async function deleteReportPDF(
   politicianId: string,
   evaluationId: string
 ): Promise<void> {
-  const supabase = createClient();
+  const supabase = await createClient();
 
   const fileName = `${politicianId}/${evaluationId}.pdf`;
 
@@ -105,7 +105,7 @@ export async function reportPDFExists(
   politicianId: string,
   evaluationId: string
 ): Promise<boolean> {
-  const supabase = createClient();
+  const supabase = await createClient();
 
   const fileName = `${politicianId}/${evaluationId}.pdf`;
 
@@ -132,7 +132,7 @@ export async function getReportPDFUrl(
   politicianId: string,
   evaluationId: string
 ): Promise<string | null> {
-  const supabase = createClient();
+  const supabase = await createClient();
 
   const exists = await reportPDFExists(politicianId, evaluationId);
   if (!exists) {
@@ -150,7 +150,7 @@ export async function getReportPDFUrl(
  * This should be run during setup/initialization
  */
 export async function ensureReportsBucketExists(): Promise<void> {
-  const supabase = createClient();
+  const supabase = await createClient();
 
   // Check if bucket exists
   const { data: buckets, error: listError } = await supabase.storage.listBuckets();

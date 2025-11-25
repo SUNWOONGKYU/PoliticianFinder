@@ -33,7 +33,7 @@ export async function POST(request: NextRequest) {
   const startTime = Date.now();
 
   try {
-    const supabase = createClient();
+    const supabase = await createClient();
 
     // 1. Authentication check
     const {
@@ -133,7 +133,7 @@ export async function POST(request: NextRequest) {
  */
 export async function GET(request: NextRequest) {
   try {
-    const supabase = createClient();
+    const supabase = await createClient();
 
     // Check authentication
     const {

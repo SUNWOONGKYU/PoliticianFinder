@@ -5,7 +5,7 @@ import { createClient } from '@/lib/supabase/server';
 
 export async function POST(request: NextRequest) {
   try {
-    const supabase = createClient();
+    const supabase = await createClient();
 
     // Get first 3 politicians
     const { data: politicians, error: politiciansError } = await supabase

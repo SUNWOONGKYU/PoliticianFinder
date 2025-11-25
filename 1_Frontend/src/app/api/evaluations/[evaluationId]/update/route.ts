@@ -31,7 +31,7 @@ export async function PATCH(
   { params }: { params: { evaluationId: string } }
 ) {
   try {
-    const supabase = createClient();
+    const supabase = await createClient();
     const evaluationId = params.evaluationId;
 
     // 1. 관리자 권한 확인
