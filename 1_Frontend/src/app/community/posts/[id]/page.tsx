@@ -1,7 +1,9 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import FixedCommentInput from '@/components/ui/FixedCommentInput';
 
 interface Comment {
   id: number;
@@ -20,6 +22,7 @@ interface Comment {
 }
 
 export default function PostDetailPage({ params }: { params: { id: string } }) {
+  const router = useRouter();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [shareModalOpen, setShareModalOpen] = useState(false);
   const [alertMessage, setAlertMessage] = useState('');
@@ -168,6 +171,61 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
     };
 
     fetchComments();
+  }, [params.id]);
+
+  // MI7: 고정 댓글 입력창 제출 핸들러
+  const handleCommentSubmit = useCallback(async (content: string) => {
+    try {
+      const response = await fetch(`/api/posts/${params.id}/comments`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ content })
+      });
+
+      if (!response.ok) {
+        const data = await response.json();
+        throw new Error(data.error || '댓글 등록에 실패했습니다.');
+      }
+
+      // 댓글 목록 새로고침
+      const commentsResponse = await fetch(`/api/posts/${params.id}/comments`);
+      if (commentsResponse.ok) {
+        const result = await commentsResponse.json();
+        if (result.success && result.data) {
+          const mappedComments: Comment[] = result.data.map((comment: any, index: number) => {
+            const userIdHash = comment.user_id ? comment.user_id.split('-')[0].charCodeAt(0) : index;
+            const nicknameIndex = userIdHash % 10;
+            const mlLevel = `ML${(userIdHash % 5) + 1}`;
+            const influenceLevels = ['IL1', 'IL2', 'IL3', 'IL4', 'IL5'];
+            const influenceLevel = influenceLevels[(userIdHash + 2) % 5];
+
+            return {
+              id: comment.id,
+              author: sampleNicknames[nicknameIndex],
+              userId: comment.user_id,
+              authorType: 'member' as const,
+              memberLevel: mlLevel,
+              influenceLevel: influenceLevel,
+              timestamp: formatDate(comment.created_at),
+              content: comment.content,
+              upvotes: comment.upvotes || 0,
+              downvotes: comment.downvotes || 0,
+              isFollowing: false
+            };
+          });
+          setComments(mappedComments);
+          setTotalComments(mappedComments.length);
+        }
+      }
+
+      setAlertMessage('댓글이 등록되었습니다.');
+      setAlertModalOpen(true);
+    } catch (error) {
+      console.error('Comment submit error:', error);
+      setAlertMessage(error instanceof Error ? error.message : '댓글 등록에 실패했습니다.');
+      setAlertModalOpen(true);
+      throw error;
+    }
   }, [params.id]);
 
   const handleUpvote = () => {
@@ -538,6 +596,17 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
           </div>
         </div>
       )}
+
+      {/* MI7: 모바일 고정 댓글 입력창 */}
+      <FixedCommentInput
+        onSubmit={handleCommentSubmit}
+        placeholder="의견을 남겨주세요..."
+        mobileOnly={true}
+        onLoginClick={() => router.push('/auth/login')}
+      />
+
+      {/* 하단 여백 (고정 댓글 입력창 공간 확보) */}
+      <div className="h-20 md:h-0" />
     </div>
   );
 }
