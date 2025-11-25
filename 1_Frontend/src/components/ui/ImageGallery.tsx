@@ -80,14 +80,14 @@ export const ImageGallery: React.FC<ImageGalleryProps> = ({
   }, [autoPlay, autoPlayInterval, images.length]);
 
   // 이전 이미지
-  const goToPrevious = () => {
+  const goToPrevious = React.useCallback(() => {
     setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
-  };
+  }, [images.length]);
 
   // 다음 이미지
-  const goToNext = () => {
+  const goToNext = React.useCallback(() => {
     setCurrentIndex((prev) => (prev + 1) % images.length);
-  };
+  }, [images.length]);
 
   // 터치 시작
   const onTouchStart = (e: React.TouchEvent) => {
@@ -118,7 +118,7 @@ export const ImageGallery: React.FC<ImageGalleryProps> = ({
     setTouchEnd(null);
   };
 
-  // 키보드 네비게이션
+  // 키보드 네비게이션 및 Focus Trap
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'ArrowLeft') {
@@ -127,14 +127,23 @@ export const ImageGallery: React.FC<ImageGalleryProps> = ({
         goToNext();
       } else if (e.key === 'Escape' && isFullscreen) {
         setIsFullscreen(false);
+      } else if (e.key === 'Tab' && isFullscreen) {
+        // Focus trap: prevent tabbing outside modal
+        e.preventDefault();
       }
     };
 
     if (isFullscreen) {
+      // 모달 열릴 때 body 스크롤 방지
+      document.body.style.overflow = 'hidden';
       window.addEventListener('keydown', handleKeyDown);
-      return () => window.removeEventListener('keydown', handleKeyDown);
+
+      return () => {
+        document.body.style.overflow = '';
+        window.removeEventListener('keydown', handleKeyDown);
+      };
     }
-  }, [isFullscreen, currentIndex]);
+  }, [isFullscreen, goToPrevious, goToNext]);
 
   // 단일 이미지인 경우 간단한 표시
   if (images.length === 1) {
@@ -240,9 +249,9 @@ export const ImageGallery: React.FC<ImageGalleryProps> = ({
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index)}
-                className={`w-2 h-2 rounded-full transition-all ${
+                className={`w-2.5 h-2.5 rounded-full transition-all ${
                   index === currentIndex
-                    ? 'bg-primary-500 w-6'
+                    ? 'bg-primary-500 w-8'
                     : 'bg-gray-300'
                 }`}
                 aria-label={`이미지 ${index + 1}로 이동`}

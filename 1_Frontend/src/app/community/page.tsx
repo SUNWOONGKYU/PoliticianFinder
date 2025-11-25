@@ -588,7 +588,7 @@ export default function CommunityPage() {
 
                 {/* Body: Content - Clickable Area */}
                 <div
-                  className="p-6 hover:bg-gray-50 transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500"
+                  className="p-6 hover:bg-gray-50 active:bg-gray-100 transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500"
                   onClick={() => router.push(`/community/posts/${post.id}`)}
                   onKeyDown={(e) => {
                     if (e.key === 'Enter' || e.key === ' ') {
