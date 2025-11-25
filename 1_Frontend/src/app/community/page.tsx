@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { LoadingPage } from '@/components/ui/Spinner';
@@ -44,6 +44,7 @@ export default function CommunityPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [totalCount, setTotalCount] = useState(0);
+  const [fabExpanded, setFabExpanded] = useState(false);
 
   // Sample user nicknames
   const sampleNicknames = [
@@ -725,25 +726,91 @@ export default function CommunityPage() {
         )}
       </div>
 
-      {/* Floating Action Button (FAB) for Writing */}
-      <button
-        onClick={() => {
-          if (currentCategory === 'all') {
-            setShowCategoryModal(true);
-          } else if (currentCategory === 'politician_post') {
-            router.push('/community/posts/create-politician');
-          } else {
-            router.push('/community/posts/create');
-          }
-        }}
-        className="fixed bottom-6 right-6 z-40 w-14 h-14 bg-gradient-to-r from-primary-600 to-secondary-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all hover:scale-110 flex items-center justify-center"
-        title="글쓰기"
-        aria-label="글쓰기"
-      >
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-        </svg>
-      </button>
+      {/* Enhanced Floating Action Button (FAB) with Expandable Menu */}
+      <div className="fixed bottom-6 right-6 z-40">
+        {/* Backdrop when FAB is expanded */}
+        {fabExpanded && (
+          <div
+            className="fixed inset-0 bg-black/20 dark:bg-black/40 z-30"
+            onClick={() => setFabExpanded(false)}
+          />
+        )}
+
+        {/* Expanded Menu */}
+        <div className={`absolute bottom-16 right-0 mb-2 transition-all duration-300 ${
+          fabExpanded ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-4 pointer-events-none'
+        }`}>
+          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-2xl p-3 w-64 border border-gray-200 dark:border-gray-700">
+            <div className="space-y-1">
+              {/* 정치인 게시판 글쓰기 */}
+              <Link
+                href="/community/posts/create-politician"
+                className="w-full text-left px-4 py-3 hover:bg-primary-50 dark:hover:bg-gray-700 rounded-lg flex items-center gap-3 transition-colors"
+                onClick={() => setFabExpanded(false)}
+              >
+                <div className="w-10 h-10 bg-primary-100 dark:bg-primary-900/30 rounded-full flex items-center justify-center flex-shrink-0">
+                  <svg className="w-5 h-5 text-primary-600 dark:text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                  </svg>
+                </div>
+                <div>
+                  <div className="font-semibold text-gray-900 dark:text-white text-sm">🏛️ 정치인 게시판</div>
+                  <div className="text-xs text-gray-500 dark:text-gray-400">정치인으로 글 작성</div>
+                </div>
+              </Link>
+
+              {/* 회원 자유게시판 글쓰기 */}
+              <Link
+                href="/community/posts/create"
+                className="w-full text-left px-4 py-3 hover:bg-secondary-50 dark:hover:bg-gray-700 rounded-lg flex items-center gap-3 transition-colors"
+                onClick={() => setFabExpanded(false)}
+              >
+                <div className="w-10 h-10 bg-secondary-100 dark:bg-secondary-900/30 rounded-full flex items-center justify-center flex-shrink-0">
+                  <svg className="w-5 h-5 text-secondary-600 dark:text-secondary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                  </svg>
+                </div>
+                <div>
+                  <div className="font-semibold text-gray-900 dark:text-white text-sm">💬 회원 자유게시판</div>
+                  <div className="text-xs text-gray-500 dark:text-gray-400">의견을 공유하세요</div>
+                </div>
+              </Link>
+
+              {/* 정치인 평가하기 */}
+              <Link
+                href="/politicians"
+                className="w-full text-left px-4 py-3 hover:bg-amber-50 dark:hover:bg-gray-700 rounded-lg flex items-center gap-3 transition-colors"
+                onClick={() => setFabExpanded(false)}
+              >
+                <div className="w-10 h-10 bg-amber-100 dark:bg-amber-900/30 rounded-full flex items-center justify-center flex-shrink-0">
+                  <svg className="w-5 h-5 text-amber-600 dark:text-amber-400" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                  </svg>
+                </div>
+                <div>
+                  <div className="font-semibold text-gray-900 dark:text-white text-sm">⭐ 정치인 평가</div>
+                  <div className="text-xs text-gray-500 dark:text-gray-400">평점 남기기</div>
+                </div>
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        {/* Main FAB Button */}
+        <button
+          onClick={() => setFabExpanded(!fabExpanded)}
+          className={`relative z-40 w-14 h-14 bg-gradient-to-r from-primary-600 to-secondary-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center ${
+            fabExpanded ? 'rotate-45' : 'hover:scale-110'
+          }`}
+          title={fabExpanded ? '닫기' : '글쓰기'}
+          aria-label={fabExpanded ? '메뉴 닫기' : '글쓰기 메뉴 열기'}
+          aria-expanded={fabExpanded}
+        >
+          <svg className="w-6 h-6 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+          </svg>
+        </button>
+      </div>
 
       {/* Category Modal */}
       {showCategoryModal && (
