@@ -173,23 +173,23 @@ export default function LoginPage() {
             </div>
 
             {/* Remember & Forgot Password */}
-            <div className="flex items-center justify-between">
-              <div className="flex items-center">
+            <div className="flex items-center justify-between min-h-[44px]">
+              <label htmlFor="remember" className="flex items-center min-h-[44px] cursor-pointer">
                 <input
                   id="remember"
                   name="remember"
                   type="checkbox"
                   checked={formData.remember}
                   onChange={handleInputChange}
-                  className="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded"
+                  className="h-5 w-5 text-primary-600 focus:ring-primary-500 border-gray-300 rounded"
                 />
-                <label htmlFor="remember" className="ml-2 block text-sm text-gray-700">
+                <span className="ml-3 text-sm text-gray-700">
                   로그인 유지
-                </label>
-              </div>
+                </span>
+              </label>
               <Link
                 href="/auth/password-reset"
-                className="text-sm text-primary-600 hover:text-primary-500"
+                className="text-sm text-primary-600 hover:text-primary-500 min-h-[44px] flex items-center px-2"
               >
                 비밀번호 찾기
               </Link>

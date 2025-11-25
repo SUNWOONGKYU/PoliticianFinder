@@ -187,66 +187,66 @@ export default function SignupPage() {
 
 
             {/* Terms Agreement */}
-            <div className="space-y-1.5 pt-2 border-t">
+            <div className="space-y-2 pt-2 border-t">
               {/* All Terms */}
-              <div className="flex items-center">
+              <label htmlFor="terms-all" className="flex items-center min-h-[44px] cursor-pointer">
                 <input
                   id="terms-all"
                   type="checkbox"
                   checked={termsAll}
                   onChange={handleTermsAll}
-                  className="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded"
+                  className="h-5 w-5 text-primary-600 focus:ring-primary-500 border-gray-300 rounded"
                 />
-                <label htmlFor="terms-all" className="ml-2 block text-sm font-medium text-gray-700">
+                <span className="ml-3 text-sm font-medium text-gray-700">
                   전체 동의
-                </label>
-              </div>
+                </span>
+              </label>
 
               {/* Individual Terms */}
-              <div className="border-t pt-1.5 space-y-1">
-                <div className="flex items-center">
+              <div className="border-t pt-2 space-y-1">
+                <label htmlFor="terms-agreed" className="flex items-center min-h-[44px] cursor-pointer">
                   <input
                     id="terms-agreed"
                     name="terms_agreed"
                     type="checkbox"
                     checked={formData.terms_agreed}
                     onChange={handleInputChange}
-                    className="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded"
+                    className="h-5 w-5 text-primary-600 focus:ring-primary-500 border-gray-300 rounded"
                     required
                   />
-                  <label htmlFor="terms-agreed" className="ml-2 block text-sm text-gray-700">
+                  <span className="ml-3 text-sm text-gray-700">
                     (필수) 이용약관 동의
-                  </label>
-                </div>
+                  </span>
+                </label>
 
-                <div className="flex items-center">
+                <label htmlFor="privacy-agreed" className="flex items-center min-h-[44px] cursor-pointer">
                   <input
                     id="privacy-agreed"
                     name="privacy_agreed"
                     type="checkbox"
                     checked={formData.privacy_agreed}
                     onChange={handleInputChange}
-                    className="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded"
+                    className="h-5 w-5 text-primary-600 focus:ring-primary-500 border-gray-300 rounded"
                     required
                   />
-                  <label htmlFor="privacy-agreed" className="ml-2 block text-sm text-gray-700">
+                  <span className="ml-3 text-sm text-gray-700">
                     (필수) 개인정보 수집 및 이용 동의
-                  </label>
-                </div>
+                  </span>
+                </label>
 
-                <div className="flex items-center">
+                <label htmlFor="marketing-agreed" className="flex items-center min-h-[44px] cursor-pointer">
                   <input
                     id="marketing-agreed"
                     name="marketing_agreed"
                     type="checkbox"
                     checked={formData.marketing_agreed}
                     onChange={handleInputChange}
-                    className="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded"
+                    className="h-5 w-5 text-primary-600 focus:ring-primary-500 border-gray-300 rounded"
                   />
-                  <label htmlFor="marketing-agreed" className="ml-2 block text-sm text-gray-700">
+                  <span className="ml-3 text-sm text-gray-700">
                     (선택) 마케팅 정보 수신 동의
-                  </label>
-                </div>
+                  </span>
+                </label>
               </div>
             </div>
 

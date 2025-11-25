@@ -404,14 +404,14 @@ export default function PoliticiansPage() {
             </div>
 
             {/* Filter Row */}
-            <div className={`flex-wrap gap-2 ${showMobileFilters ? 'flex' : 'hidden md:flex'}`}>
+            <div className={`flex-wrap gap-3 ${showMobileFilters ? 'flex' : 'hidden md:flex'}`}>
               {/* Identity Filter (신분) - P3F3 */}
               <div className="flex-1 min-w-[120px]">
                 <label className="block text-xs font-medium text-gray-700 mb-1">신분</label>
                 <select
                   value={identityFilter}
                   onChange={(e) => setIdentityFilter(e.target.value)}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-200 focus:border-primary-500 text-sm"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-200 focus:border-primary-500 text-sm"
                 >
                   <option value="">전체</option>
                   <option value="현직">현직</option>
@@ -427,7 +427,7 @@ export default function PoliticiansPage() {
                 <select
                   value={categoryFilter}
                   onChange={(e) => setCategoryFilter(e.target.value)}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-200 focus:border-primary-500 text-sm"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-200 focus:border-primary-500 text-sm"
                 >
                   <option value="">전체</option>
                   <option value="국회의원">국회의원</option>
@@ -444,7 +444,7 @@ export default function PoliticiansPage() {
                 <select
                   value={partyFilter}
                   onChange={(e) => setPartyFilter(e.target.value)}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-200 focus:border-primary-500 text-sm"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-200 focus:border-primary-500 text-sm"
                 >
                   <option value="">전체</option>
                   <option value="더불어민주당">더불어민주당</option>
@@ -462,7 +462,7 @@ export default function PoliticiansPage() {
                 <select
                   value={regionFilter}
                   onChange={(e) => setRegionFilter(e.target.value)}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-200 focus:border-primary-500 text-sm"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-200 focus:border-primary-500 text-sm"
                 >
                   <option value="">전체</option>
 
@@ -499,7 +499,7 @@ export default function PoliticiansPage() {
                 <select
                   value={gradeFilter}
                   onChange={(e) => setGradeFilter(e.target.value)}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-200 focus:border-primary-500 text-sm"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-200 focus:border-primary-500 text-sm"
                 >
                   <option value="">전체</option>
                   <option value="M">🌺 Mugunghwa (940-1000점)</option>
@@ -518,7 +518,7 @@ export default function PoliticiansPage() {
               {/* Filter Search Button */}
               <div className="flex-shrink-0">
                 <label className="block text-xs font-medium text-gray-700 mb-1 invisible">검색</label>
-                <button className="px-8 py-2 bg-primary-500 text-white rounded-md hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-300 font-medium text-sm shadow-sm whitespace-nowrap">
+                <button className="px-8 py-3 bg-primary-500 text-white rounded-md hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-300 font-medium text-sm shadow-sm whitespace-nowrap">
                   필터 검색
                 </button>
               </div>
@@ -528,7 +528,7 @@ export default function PoliticiansPage() {
                 <label className="block text-xs font-medium text-gray-700 mb-1 invisible">초기화</label>
                 <button
                   onClick={handleResetFilters}
-                  className="px-8 py-2 bg-primary-100 text-primary-700 border-2 border-primary-300 rounded-md hover:bg-primary-200 focus:outline-none focus:ring-2 focus:ring-primary-300 font-medium text-sm shadow-sm whitespace-nowrap"
+                  className="px-8 py-3 bg-primary-100 text-primary-700 border-2 border-primary-300 rounded-md hover:bg-primary-200 focus:outline-none focus:ring-2 focus:ring-primary-300 font-medium text-sm shadow-sm whitespace-nowrap"
                 >
                   초기화
                 </button>
@@ -540,7 +540,7 @@ export default function PoliticiansPage() {
         {/* Desktop: Table */}
         <div className="hidden md:block bg-white rounded-lg shadow-md overflow-hidden">
           <div className="overflow-x-auto">
-            <table className="w-full text-xs">
+            <table className="w-full text-sm">
               <thead className="bg-gray-100 border-b-2 border-primary-500">
                 <tr>
                   {/* M6: 비교 모드 체크박스 컬럼 */}
@@ -593,16 +593,18 @@ export default function PoliticiansPage() {
                   >
                     {/* M6: 비교 모드 체크박스 */}
                     {compareMode && (
-                      <td className="px-2 py-3 text-center">
-                        <input
-                          type="checkbox"
-                          checked={selectedForCompare.includes(String(p.id))}
-                          onChange={(e) => toggleCompareSelection(p.id, e)}
-                          onClick={(e) => e.stopPropagation()}
-                          disabled={!selectedForCompare.includes(String(p.id)) && selectedForCompare.length >= MAX_COMPARE_COUNT}
-                          className="w-5 h-5 text-primary-600 border-gray-300 rounded focus:ring-primary-500 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
-                          aria-label={`${p.name} 비교 선택`}
-                        />
+                      <td className="px-3 py-3 text-center">
+                        <label className="flex items-center justify-center min-w-[44px] min-h-[44px] cursor-pointer">
+                          <input
+                            type="checkbox"
+                            checked={selectedForCompare.includes(String(p.id))}
+                            onChange={(e) => toggleCompareSelection(p.id, e)}
+                            onClick={(e) => e.stopPropagation()}
+                            disabled={!selectedForCompare.includes(String(p.id)) && selectedForCompare.length >= MAX_COMPARE_COUNT}
+                            className="w-5 h-5 text-primary-600 border-gray-300 rounded focus:ring-primary-500 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+                            aria-label={`${p.name} 비교 선택`}
+                          />
+                        </label>
                       </td>
                     )}
                     <td className="px-2 py-3 text-center">
@@ -697,7 +699,7 @@ export default function PoliticiansPage() {
                   </div>
                   <div>
                     <h3 className="text-lg font-bold text-gray-900">{p.name}</h3>
-                    <p className="text-xs text-gray-600">{p.party}</p>
+                    <p className="text-sm text-gray-600">{p.party}</p>
                   </div>
                 </div>
                 <div className="text-right">
@@ -715,15 +717,15 @@ export default function PoliticiansPage() {
               <div className="p-4">
                 {/* Basic Info */}
                 <div className="flex flex-wrap gap-2 mb-4">
-                  <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-medium">
+                  <span className="px-3 py-1.5 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">
                     {p.identity}
                   </span>
                   {p.title && (
-                    <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">
+                    <span className="px-3 py-1.5 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">
                       {p.title}
                     </span>
                   )}
-                  <span className="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-xs font-medium">
+                  <span className="px-3 py-1.5 bg-purple-100 text-purple-700 rounded-full text-sm font-medium">
                     {p.category}
                   </span>
                 </div>
@@ -738,23 +740,23 @@ export default function PoliticiansPage() {
 
                 {/* Overall Score Highlight */}
                 <div className="bg-gradient-to-br from-accent-50 to-accent-100 rounded-lg p-4 mb-4 text-center">
-                  <div className="text-xs text-accent-700 font-medium mb-1">종합 AI 평점</div>
+                  <div className="text-sm text-accent-700 font-medium mb-1">종합 AI 평점</div>
                   <div className="text-3xl font-bold text-accent-600">{p.overallScore}</div>
-                  <div className="text-xs text-accent-600 mt-1">점</div>
+                  <div className="text-sm text-accent-600 mt-1">점</div>
                 </div>
 
                 {/* AI Scores Grid */}
                 <div className="grid grid-cols-3 gap-2 mb-4">
                   <div className="bg-gray-50 rounded-lg p-3 text-center">
-                    <div className="text-xs text-gray-500 mb-1">Claude</div>
+                    <div className="text-sm text-gray-500 mb-1">Claude</div>
                     <div className="text-lg font-bold text-gray-900">{p.claudeScore}</div>
                   </div>
                   <div className="bg-gray-50 rounded-lg p-3 text-center">
-                    <div className="text-xs text-gray-500 mb-1">ChatGPT</div>
+                    <div className="text-sm text-gray-500 mb-1">ChatGPT</div>
                     <div className="text-lg font-bold text-gray-900">{p.chatgptScore}</div>
                   </div>
                   <div className="bg-gray-50 rounded-lg p-3 text-center">
-                    <div className="text-xs text-gray-500 mb-1">Grok</div>
+                    <div className="text-sm text-gray-500 mb-1">Grok</div>
                     <div className="text-lg font-bold text-gray-900">{p.grokScore}</div>
                   </div>
                 </div>
@@ -765,14 +767,14 @@ export default function PoliticiansPage() {
                     <svg className="w-5 h-5 text-secondary-600" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
                     </svg>
-                    <span className="text-xs text-gray-600">회원 평가</span>
+                    <span className="text-sm text-gray-600">회원 평가</span>
                   </div>
                   <div className="text-right">
-                    <div className="text-secondary-600 font-bold text-sm">
+                    <div className="text-secondary-600 font-bold text-base">
                       {'★'.repeat(p.memberRating)}
                       {'☆'.repeat(5 - p.memberRating)}
                     </div>
-                    <div className="text-xs text-gray-500">{p.memberCount}명 참여</div>
+                    <div className="text-sm text-gray-500">{p.memberCount}명 참여</div>
                   </div>
                 </div>
               </div>

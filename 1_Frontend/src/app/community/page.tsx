@@ -439,7 +439,7 @@ export default function CommunityPage() {
             <div className="flex sm:hidden w-full rounded-lg border border-gray-300 overflow-hidden bg-white">
               <button
                 onClick={() => setSortBy('latest')}
-                className={`flex-1 px-3 py-2.5 text-sm font-medium transition-all ${
+                className={`flex-1 px-3 py-3 text-sm font-medium transition-all ${
                   sortBy === 'latest'
                     ? 'bg-primary-500 text-white shadow-sm'
                     : 'bg-white text-gray-700'
@@ -456,7 +456,7 @@ export default function CommunityPage() {
               </button>
               <button
                 onClick={() => setSortBy('popular')}
-                className={`flex-1 px-3 py-2.5 text-sm font-medium transition-all border-l border-gray-300 ${
+                className={`flex-1 px-3 py-3 text-sm font-medium transition-all border-l border-gray-300 ${
                   sortBy === 'popular'
                     ? 'bg-primary-500 text-white shadow-sm'
                     : 'bg-white text-gray-700'
@@ -473,7 +473,7 @@ export default function CommunityPage() {
               </button>
               <button
                 onClick={() => setSortBy('views')}
-                className={`flex-1 px-3 py-2.5 text-sm font-medium transition-all border-l border-gray-300 ${
+                className={`flex-1 px-3 py-3 text-sm font-medium transition-all border-l border-gray-300 ${
                   sortBy === 'views'
                     ? 'bg-primary-500 text-white shadow-sm'
                     : 'bg-white text-gray-700'
@@ -698,7 +698,7 @@ export default function CommunityPage() {
             <button
               onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
               disabled={currentPage === 1}
-              className={`px-4 py-2 rounded-lg font-medium transition ${
+              className={`px-4 py-3 rounded-lg font-medium transition ${
                 currentPage === 1
                   ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
                   : 'bg-gray-500 text-white hover:bg-gray-600'
@@ -710,7 +710,7 @@ export default function CommunityPage() {
               <button
                 key={pageNum}
                 onClick={() => setCurrentPage(pageNum)}
-                className={`px-4 py-2 rounded-lg font-medium transition ${
+                className={`px-4 py-3 rounded-lg font-medium transition ${
                   currentPage === pageNum
                     ? 'bg-primary-500 text-white'
                     : 'bg-white text-gray-700 border-2 border-gray-300 hover:bg-gray-50'
@@ -722,7 +722,7 @@ export default function CommunityPage() {
             <button
               onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 1))}
               disabled={currentPage >= totalPages}
-              className={`px-4 py-2 rounded-lg font-medium transition ${
+              className={`px-4 py-3 rounded-lg font-medium transition ${
                 currentPage >= totalPages
                   ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
                   : 'bg-gray-500 text-white hover:bg-gray-600'
