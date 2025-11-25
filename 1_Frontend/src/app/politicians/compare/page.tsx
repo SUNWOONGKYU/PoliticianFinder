@@ -244,7 +244,7 @@ function CompareContent() {
                     {/* User Rating */}
                     <div className={`p-3 rounded-lg ${isHighestUser ? 'bg-secondary-50 dark:bg-secondary-900/30 ring-2 ring-secondary-500' : 'bg-gray-50 dark:bg-gray-700'}`}>
                       <div className="flex justify-between items-center mb-1">
-                        <span className="text-sm font-medium text-gray-700 dark:text-gray-300">회원 평점</span>
+                        <span className="text-sm font-medium text-gray-700 dark:text-gray-300">회원 평가</span>
                         {isHighestUser && <span className="text-xs bg-secondary-500 text-white px-2 py-0.5 rounded-full">최고</span>}
                       </div>
                       <div className="flex items-center gap-2">
@@ -341,7 +341,7 @@ function CompareContent() {
                   ))}
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 text-sm text-gray-600 dark:text-gray-400">회원 평점</td>
+                  <td className="px-4 py-3 text-sm text-gray-600 dark:text-gray-400">회원 평가</td>
                   {politicians.map(p => (
                     <td key={p.id} className="px-4 py-3 text-center">
                       <span className={`text-sm font-bold ${

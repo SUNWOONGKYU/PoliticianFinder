@@ -559,7 +559,7 @@ export default function PoliticiansPage() {
                   <th className="px-2 py-3 text-center font-bold text-gray-900 w-16">Claude</th>
                   <th className="px-2 py-3 text-center font-bold text-gray-900 w-16">ChatGPT</th>
                   <th className="px-2 py-3 text-center font-bold text-gray-900 w-16">Grok</th>
-                  <th className="px-2 py-3 text-center font-bold text-gray-900 w-32">회원평점 (참여자수)</th>
+                  <th className="px-2 py-3 text-center font-bold text-gray-900 w-32">회원평가 (참여자수)</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">
