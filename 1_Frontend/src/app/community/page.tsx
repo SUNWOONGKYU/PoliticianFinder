@@ -4,6 +4,7 @@ import { useState, useMemo, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { LoadingPage } from '@/components/ui/Spinner';
+import PullToRefresh from '@/components/ui/PullToRefresh';
 
 interface CommunityPost {
   id: number;
@@ -52,87 +53,93 @@ export default function CommunityPage() {
     '민생이우선', '변화를원해', '미래세대', '깨어있는시민', '정책분석가'
   ];
 
-  // Fetch posts from API
-  useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        setLoading(true);
-        setError(null);
+  // MI5: Fetch posts function (extracted for Pull to Refresh)
+  const fetchPosts = useCallback(async (showLoading = true) => {
+    try {
+      if (showLoading) setLoading(true);
+      setError(null);
 
-        // Build API URL with filters
-        let apiUrl = `/api/community/posts?page=${currentPage}&limit=20`;
+      // Build API URL with filters
+      let apiUrl = `/api/community/posts?page=${currentPage}&limit=20`;
 
-        // Add category filter if not 'all'
-        if (currentCategory === 'politician_post') {
-          apiUrl += '&has_politician=true';
-        } else if (currentCategory === 'general') {
-          apiUrl += '&has_politician=false';
-        }
-
-        const response = await fetch(apiUrl);
-
-        if (!response.ok) {
-          throw new Error('게시글을 불러오는데 실패했습니다.');
-        }
-
-        const result = await response.json();
-
-        if (result.success && result.data) {
-          // Map API response to CommunityPost interface
-          const mappedPosts: CommunityPost[] = result.data.map((post: any, index: number) => {
-            // Generate consistent nickname based on user_id
-            const userIdHash = post.user_id ? post.user_id.split('-')[0].charCodeAt(0) : index;
-            const nicknameIndex = userIdHash % 10;
-
-            // Generate consistent member level (ML1-ML5) based on user_id
-            const mlLevel = post.politician_id ? undefined : `ML${(userIdHash % 5) + 1}`;
-
-            return {
-            id: post.id,
-            title: post.title,
-            content: post.content,
-            category: post.politician_id ? 'politician_post' : 'general',
-            author: post.politician_id && post.politicians ? post.politicians.name : sampleNicknames[nicknameIndex],
-            author_id: post.user_id,
-            author_type: post.politician_id ? 'politician' as const : 'user' as const,
-            politician_id: post.politician_id,
-            politician_tag: post.politicians?.name,
-            politician_status: post.politicians?.status,
-            politician_position: post.politicians?.position,
-            member_level: mlLevel,
-            upvotes: post.upvotes || 0,
-            downvotes: post.downvotes || 0,
-            score: (post.upvotes || 0) - (post.downvotes || 0),
-            views: post.view_count || 0,
-            comment_count: post.comment_count || 0,
-            tags: post.tags || [],
-            is_pinned: post.is_pinned || false,
-            is_best: false,
-            is_hot: (post.view_count || 0) > 100,
-            created_at: post.created_at,
-            share_count: post.share_count || 0,
-          };
-          });
-
-          setPosts(mappedPosts);
-
-          // Set total pages and count from pagination
-          if (result.pagination) {
-            setTotalPages(result.pagination.totalPages);
-            setTotalCount(result.pagination.total);
-          }
-        }
-      } catch (err) {
-        console.error('[커뮤니티 페이지] 게시글 조회 오류:', err);
-        setError(err instanceof Error ? err.message : '알 수 없는 오류가 발생했습니다.');
-        setPosts([]);
-      } finally {
-        setLoading(false);
+      // Add category filter if not 'all'
+      if (currentCategory === 'politician_post') {
+        apiUrl += '&has_politician=true';
+      } else if (currentCategory === 'general') {
+        apiUrl += '&has_politician=false';
       }
-    };
 
-    fetchPosts();
+      const response = await fetch(apiUrl);
+
+      if (!response.ok) {
+        throw new Error('게시글을 불러오는데 실패했습니다.');
+      }
+
+      const result = await response.json();
+
+      if (result.success && result.data) {
+        // Map API response to CommunityPost interface
+        const mappedPosts: CommunityPost[] = result.data.map((post: any, index: number) => {
+          // Generate consistent nickname based on user_id
+          const userIdHash = post.user_id ? post.user_id.split('-')[0].charCodeAt(0) : index;
+          const nicknameIndex = userIdHash % 10;
+
+          // Generate consistent member level (ML1-ML5) based on user_id
+          const mlLevel = post.politician_id ? undefined : `ML${(userIdHash % 5) + 1}`;
+
+          return {
+          id: post.id,
+          title: post.title,
+          content: post.content,
+          category: post.politician_id ? 'politician_post' : 'general',
+          author: post.politician_id && post.politicians ? post.politicians.name : sampleNicknames[nicknameIndex],
+          author_id: post.user_id,
+          author_type: post.politician_id ? 'politician' as const : 'user' as const,
+          politician_id: post.politician_id,
+          politician_tag: post.politicians?.name,
+          politician_status: post.politicians?.status,
+          politician_position: post.politicians?.position,
+          member_level: mlLevel,
+          upvotes: post.upvotes || 0,
+          downvotes: post.downvotes || 0,
+          score: (post.upvotes || 0) - (post.downvotes || 0),
+          views: post.view_count || 0,
+          comment_count: post.comment_count || 0,
+          tags: post.tags || [],
+          is_pinned: post.is_pinned || false,
+          is_best: false,
+          is_hot: (post.view_count || 0) > 100,
+          created_at: post.created_at,
+          share_count: post.share_count || 0,
+        };
+        });
+
+        setPosts(mappedPosts);
+
+        // Set total pages and count from pagination
+        if (result.pagination) {
+          setTotalPages(result.pagination.totalPages);
+          setTotalCount(result.pagination.total);
+        }
+      }
+    } catch (err) {
+      console.error('[커뮤니티 페이지] 게시글 조회 오류:', err);
+      setError(err instanceof Error ? err.message : '알 수 없는 오류가 발생했습니다.');
+      setPosts([]);
+    } finally {
+      setLoading(false);
+    }
   }, [currentPage, currentCategory]);
+
+  // Fetch posts on mount and when filters change
+  useEffect(() => {
+    fetchPosts();
+  }, [fetchPosts]);
+
+  // MI5: Pull to Refresh handler
+  const handleRefresh = useCallback(async () => {
+    await fetchPosts(false);
+  }, [fetchPosts]);
 
   // Filter and sort posts
   const filteredPosts = useMemo(() => {
@@ -182,7 +189,8 @@ export default function CommunityPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <PullToRefresh onRefresh={handleRefresh} disabled={loading}>
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Page Header */}
@@ -839,5 +847,6 @@ export default function CommunityPage() {
         </div>
       )}
     </div>
+    </PullToRefresh>
   );
 }
