@@ -52,9 +52,9 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="bg-gray-50 dark:bg-slate-900 transition-colors duration-300" style={{ fontFamily: "'Noto Sans KR', sans-serif" }}>
+      <body className="bg-gray-50 dark:bg-slate-900 transition-colors duration-300 overflow-x-hidden" style={{ fontFamily: "'Noto Sans KR', sans-serif" }}>
         <ThemeProvider defaultTheme="system">
-          <div className="min-h-screen flex flex-col">
+          <div className="min-h-screen flex flex-col overflow-x-hidden">
             <Header />
             <main className="flex-1">
               {children}
