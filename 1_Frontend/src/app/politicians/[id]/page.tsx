@@ -477,11 +477,11 @@ export default function PoliticianDetailPage() {
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                   </svg>
-                  별점 평가
+                  별점 평가하기
                 </button>
               </div>
 
-              {/* Score Cards */}
+              {/* Score Cards - 순서: AI 평점 → 등급 → 회원 평가 */}
               <div className="grid grid-cols-3 md:grid-cols-1 gap-3 w-full md:w-auto">
                 {/* AI Score */}
                 <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 text-center border border-white/20">
@@ -490,16 +490,7 @@ export default function PoliticianDetailPage() {
                   <div className="text-sm text-white/80 mt-1">/ 1000점</div>
                 </div>
 
-                {/* Member Rating */}
-                <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 text-center border border-white/20">
-                  <div className="text-sm text-white/80 mb-1">회원 평가</div>
-                  <div className="text-2xl md:text-3xl font-bold text-yellow-300">
-                    {politician.userRating > 0 ? `${politician.userRating.toFixed(1)}★` : '-'}
-                  </div>
-                  <div className="text-sm text-white/80 mt-1">{politician.ratingCount}명 참여</div>
-                </div>
-
-                {/* Grade Badge */}
+                {/* Grade Badge - AI 평점 바로 다음 */}
                 <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 text-center border border-white/20">
                   <div className="text-sm text-white/80 mb-1">등급</div>
                   <div className="text-xl md:text-2xl font-bold text-white">
@@ -509,6 +500,15 @@ export default function PoliticianDetailPage() {
                     {politician.grade === 'M' && '🌺 Mugunghwa'}
                     {politician.grade === 'G' && '🥇 Gold'}
                   </div>
+                </div>
+
+                {/* Member Rating - 숫자 없이 별만 표시 */}
+                <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 text-center border border-white/20">
+                  <div className="text-sm text-white/80 mb-1">회원 평가</div>
+                  <div className="text-2xl md:text-3xl font-bold text-yellow-300">
+                    {politician.userRating > 0 ? '★'.repeat(Math.round(politician.userRating)) : '-'}
+                  </div>
+                  <div className="text-sm text-white/80 mt-1">{politician.ratingCount}명 참여</div>
                 </div>
               </div>
             </div>
@@ -1286,7 +1286,7 @@ export default function PoliticianDetailPage() {
           </button>
           <div className="absolute right-14 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
             <div className="bg-gray-900 text-white text-sm px-3 py-2 rounded-lg shadow-lg">
-              별점 평가
+              별점 평가하기
             </div>
           </div>
         </div>

@@ -711,7 +711,7 @@ export default function Home() {
                         <th className="px-2 py-3 text-center font-bold text-gray-900 w-16">Claude</th>
                         <th className="px-2 py-3 text-center font-bold text-gray-900 w-16">ChatGPT</th>
                         <th className="px-2 py-3 text-center font-bold text-gray-900 w-16">Grok</th>
-                        <th className="px-2 py-3 text-center font-bold text-gray-900 w-20">회원평점</th>
+                        <th className="px-2 py-3 text-center font-bold text-gray-900 w-20">회원평가</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-200">
@@ -829,7 +829,7 @@ export default function Home() {
                       </div>
 
                       <div className="text-center pt-2 border-t">
-                        <div className="text-xs text-gray-600 mb-1">회원평점</div>
+                        <div className="text-xs text-gray-600 mb-1">회원평가</div>
                         <div className="font-bold text-secondary-600">
                           {politicians[0].userRating}
                         </div>
@@ -899,7 +899,7 @@ export default function Home() {
                         </div>
 
                         <div className="text-center pt-2 border-t">
-                          <div className="text-xs text-gray-600 mb-1">회원평점</div>
+                          <div className="text-xs text-gray-600 mb-1">회원평가</div>
                           <div className="font-bold text-secondary-600">{p.userRating}</div>
                           <div className="text-xs text-gray-600">({p.userCount}명)</div>
                         </div>
