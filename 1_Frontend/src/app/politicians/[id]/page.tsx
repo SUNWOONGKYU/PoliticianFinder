@@ -132,6 +132,9 @@ export default function PoliticianDetailPage() {
   const [isFavoriteFloating, setIsFavoriteFloating] = useState(false);
   const [loadingFavorite, setLoadingFavorite] = useState(false);
 
+  // 정치인 본인 인증 상태 (상세평가보고서 구매 섹션 표시 여부)
+  const [isVerifiedOwner, setIsVerifiedOwner] = useState(false);
+
   // H13: 탭 네비게이션용 상태
   const [activeTab, setActiveTab] = useState<string>('basic');
   const [showStickyNav, setShowStickyNav] = useState(false);
@@ -185,6 +188,33 @@ export default function PoliticianDetailPage() {
     } else {
       setLoading(false);
     }
+  }, [politicianId]);
+
+  // 정치인 본인 인증 상태 확인 (상세평가보고서 구매 섹션 표시 여부)
+  useEffect(() => {
+    const checkVerificationStatus = async () => {
+      if (!politicianId) return;
+
+      try {
+        const response = await fetch(`/api/politicians/verification/status/${politicianId}`);
+        if (response.ok) {
+          const data = await response.json();
+          // 현재 사용자가 이 정치인으로 인증된 경우에만 true
+          // verification_history가 있고 approved 상태인 경우
+          if (data.success && data.data?.verification_history) {
+            const hasApprovedVerification = data.data.verification_history.some(
+              (v: { status: string }) => v.status === 'approved'
+            );
+            setIsVerifiedOwner(hasApprovedVerification);
+          }
+        }
+      } catch (error) {
+        console.error('Verification status check failed:', error);
+        setIsVerifiedOwner(false);
+      }
+    };
+
+    checkVerificationStatus();
   }, [politicianId]);
 
   const handleReportToggle = useCallback((aiName: string) => {
@@ -706,7 +736,8 @@ export default function PoliticianDetailPage() {
             ))}
           </div>
 
-          {/* 상세평가보고서 구매 섹션 */}
+          {/* 상세평가보고서 구매 섹션 - 정치인 본인 인증 완료 시에만 표시 */}
+          {isVerifiedOwner && (
           <div className="bg-primary-50 rounded-lg p-6 border-2 border-primary-200">
             <h3 className="text-lg font-bold text-gray-900 mb-3">📊 상세평가보고서 구매</h3>
             <p className="text-base text-gray-900 mb-3">
@@ -785,6 +816,7 @@ export default function PoliticianDetailPage() {
               </ul>
             </div>
           </div>
+          )}
         </section>
 
         {/* [3] 커뮤니티 활동 정보 섹션 */}
@@ -1123,7 +1155,8 @@ export default function PoliticianDetailPage() {
         </div>
       )}
 
-      {/* 구매 확인 모달 */}
+      {/* 구매 확인 모달 - 정치인 본인 인증 시스템 구현 후 활성화 */}
+      {/* 현재 구매 섹션이 숨김 처리되어 있으므로 이 모달은 열리지 않음 */}
       {showPurchaseModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
           <div className="bg-white rounded-lg max-w-md w-full p-6">
