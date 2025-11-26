@@ -6,6 +6,17 @@
  */
 
 /**
+ * V24.0 Category Score for AI Evaluation
+ */
+export interface CategoryScore {
+  categoryId: number;
+  categoryName: string;
+  score: number;
+  dataCount: number;
+  calculationDate: string;
+}
+
+/**
  * Full Politician interface with all fields
  */
 export interface Politician {
@@ -30,11 +41,13 @@ export interface Politician {
   age: number;
   gender: string;
 
-  // AI evaluation
+  // AI evaluation (V24.0)
   claudeScore: number;
   totalScore: number;
-  grade: string;
+  grade: string;       // M/D/E/P/G/S/B/I/Tn/L (10단계 금속)
   gradeEmoji: string;
+  gradeName?: string;  // Mugunghwa/Diamond/Emerald/Platinum/Gold/Silver/Bronze/Iron/Tin/Lead
+  categoryScores?: CategoryScore[];
   lastUpdated: string;
 
   // Community activity (computed fields)

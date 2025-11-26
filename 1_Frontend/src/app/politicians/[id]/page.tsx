@@ -69,11 +69,9 @@ const SAMPLE_POLITICIAN: Politician = {
   ratingCount: 0
 };
 
-const AI_SCORES = [
-  { name: 'Claude', score: 970, color: '#f97316' },
-  { name: 'ChatGPT', score: 950, color: '#00a67e' },
-  { name: 'Grok', score: 960, color: '#000000' },
-];
+// P3BA35: AI_SCORES는 더 이상 하드코딩하지 않음
+// V24.0 시스템에서는 Claude AI만 평가를 수행하며, totalScore를 사용
+// 향후 다중 AI 평가 지원 시 API에서 동적으로 제공
 
 // H9: 확장된 차트 데이터 (12개월)
 const CHART_DATA_FULL = [
@@ -99,18 +97,20 @@ const CHART_PERIODS: { id: ChartPeriod; label: string }[] = [
   { id: '12m', label: '12개월' },
 ];
 
-const CATEGORY_SCORES = [
-  { category: '청렴성', score: 92 },
-  { category: '전문성', score: 88 },
-  { category: '소통능력', score: 85 },
-  { category: '리더십', score: 90 },
-  { category: '책임감', score: 87 },
-  { category: '투명성', score: 91 },
-  { category: '대응성', score: 83 },
-  { category: '비전', score: 89 },
-  { category: '공익추구', score: 93 },
-  { category: '윤리성', score: 90 },
-];
+// P3BA35: CATEGORY_SCORES는 하드코딩 제거 - API categoryScores 사용
+// V24.0 시스템에서 카테고리명은 DB에서 동적으로 가져옴
+const CATEGORY_NAMES: Record<number, string> = {
+  1: '청렴성',
+  2: '전문성',
+  3: '소통능력',
+  4: '정책능력',
+  5: '리더십',
+  6: '책임성',
+  7: '투명성',
+  8: '혁신성',
+  9: '포용성',
+  10: '효율성',
+};
 
 export default function PoliticianDetailPage() {
   const params = useParams();
@@ -223,18 +223,17 @@ export default function PoliticianDetailPage() {
     );
   }, []);
 
+  // P3BA35: V24.0에서는 Claude AI만 사용하므로 단순화
   const handleToggleAll = useCallback(() => {
-    if (selectedReports.length === AI_SCORES.length) {
+    if (selectedReports.length > 0) {
       setSelectedReports([]);
     } else {
-      setSelectedReports(AI_SCORES.map((ai) => ai.name));
+      setSelectedReports(['Claude']);
     }
   }, [selectedReports.length]);
 
+  // P3BA35: 상세평가보고서 가격 계산 (Claude 1개만 지원)
   const totalPrice = useMemo(() => {
-    if (selectedReports.length === AI_SCORES.length) {
-      return 2500000;
-    }
     return selectedReports.length * 500000;
   }, [selectedReports.length]);
 
@@ -524,11 +523,17 @@ export default function PoliticianDetailPage() {
                 <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 text-center border border-white/20">
                   <div className="text-sm text-white/80 mb-1">등급</div>
                   <div className="text-xl md:text-2xl font-bold text-white">
+                    {politician.grade === 'M' && '🌺 Mugunghwa'}
+                    {politician.grade === 'D' && '💎 Diamond'}
                     {politician.grade === 'E' && '💚 Emerald'}
                     {politician.grade === 'P' && '🥇 Platinum'}
-                    {politician.grade === 'D' && '💎 Diamond'}
-                    {politician.grade === 'M' && '🌺 Mugunghwa'}
                     {politician.grade === 'G' && '🥇 Gold'}
+                    {politician.grade === 'S' && '🥈 Silver'}
+                    {politician.grade === 'B' && '🥉 Bronze'}
+                    {politician.grade === 'I' && '⚫ Iron'}
+                    {politician.grade === 'Tn' && '⬜ Tin'}
+                    {politician.grade === 'L' && '⬛ Lead'}
+                    {!politician.grade && '-'}
                   </div>
                 </div>
 
@@ -622,118 +627,50 @@ export default function PoliticianDetailPage() {
             </div>
           </div>
 
-          {/* 시계열 그래프 - Mobile Optimized */}
+          {/* P3BA35: 시계열 그래프 - 준비 중 안내 (API 시계열 데이터 미지원) */}
           <div className="mb-6">
             <div className="bg-white dark:bg-gray-700 rounded-lg shadow-md p-4 md:p-6">
-              <div className="flex flex-col sm:flex-row items-center justify-between gap-3 mb-4">
-                <h3 className="font-bold text-base md:text-lg text-gray-900 dark:text-white">AI 평가 점수 추이 (월별)</h3>
-
-                {/* H9: 기간 선택 버튼 그룹 */}
-                <div className="flex bg-gray-100 dark:bg-gray-600 rounded-lg p-1">
-                  {CHART_PERIODS.map((period) => (
-                    <button
-                      key={period.id}
-                      onClick={() => setChartPeriod(period.id)}
-                      className={`px-3 py-1.5 text-sm font-medium rounded-md transition-all min-h-touch flex items-center justify-center ${
-                        chartPeriod === period.id
-                          ? 'bg-primary-500 text-white shadow-sm'
-                          : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white'
-                      }`}
-                    >
-                      {period.label}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              {/* Desktop Chart */}
-              <div className="hidden md:block">
-                <ResponsiveContainer width="100%" height={350}>
-                  <LineChart data={chartData} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-                    <XAxis
-                      dataKey="month"
-                      tick={{ fontSize: 12 }}
-                      stroke="#6b7280"
-                    />
-                    <YAxis
-                      domain={[800, 1000]}
-                      tick={{ fontSize: 12 }}
-                      stroke="#6b7280"
-                    />
-                    <Tooltip
-                      contentStyle={{
-                        backgroundColor: '#fff',
-                        border: '1px solid #e5e7eb',
-                        borderRadius: '8px',
-                        fontSize: '12px'
-                      }}
-                    />
-                    <Legend wrapperStyle={{ fontSize: '14px' }} />
-                    <Line type="monotone" dataKey="total" stroke="#dc2626" strokeWidth={3} name="종합평점" dot={{ r: 4 }} />
-                    <Line type="monotone" dataKey="claude" stroke="#f97316" strokeWidth={2} name="Claude" dot={{ r: 3 }} />
-                    <Line type="monotone" dataKey="chatgpt" stroke="#00a67e" strokeWidth={2} name="ChatGPT" dot={{ r: 3 }} />
-                    <Line type="monotone" dataKey="grok" stroke="#000000" strokeWidth={2} name="Grok" dot={{ r: 3 }} />
-                  </LineChart>
-                </ResponsiveContainer>
-              </div>
-
-              {/* Mobile Chart - Simplified */}
-              <div className="md:hidden">
-                <ResponsiveContainer width="100%" height={250}>
-                  <LineChart data={chartData} margin={{ top: 5, right: 10, left: -20, bottom: 5 }}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-                    <XAxis
-                      dataKey="month"
-                      tick={{ fontSize: 10 }}
-                      angle={-45}
-                      textAnchor="end"
-                      height={60}
-                    />
-                    <YAxis
-                      domain={[800, 1000]}
-                      tick={{ fontSize: 10 }}
-                      width={40}
-                    />
-                    <Tooltip
-                      contentStyle={{
-                        backgroundColor: '#fff',
-                        border: '1px solid #e5e7eb',
-                        borderRadius: '8px',
-                        fontSize: '11px',
-                        padding: '8px'
-                      }}
-                    />
-                    <Legend
-                      wrapperStyle={{ fontSize: '11px' }}
-                      iconSize={10}
-                    />
-                    <Line type="monotone" dataKey="total" stroke="#dc2626" strokeWidth={2.5} name="종합" dot={{ r: 3 }} />
-                    <Line type="monotone" dataKey="claude" stroke="#f97316" strokeWidth={1.5} name="Claude" dot={{ r: 2 }} />
-                    <Line type="monotone" dataKey="chatgpt" stroke="#00a67e" strokeWidth={1.5} name="ChatGPT" dot={{ r: 2 }} />
-                    <Line type="monotone" dataKey="grok" stroke="#000000" strokeWidth={1.5} name="Grok" dot={{ r: 2 }} />
-                  </LineChart>
-                </ResponsiveContainer>
+              <h3 className="font-bold text-base md:text-lg text-gray-900 dark:text-white mb-4">AI 평가 점수 추이</h3>
+              <div className="text-center py-8 text-gray-500">
+                <svg className="w-16 h-16 mx-auto mb-4 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                </svg>
+                <p className="text-lg font-medium mb-2">점수 추이 차트 준비 중</p>
+                <p className="text-sm">월별 평가 점수 변화를 추적하는 기능이 곧 제공될 예정입니다.</p>
               </div>
             </div>
           </div>
 
-          {/* AI별 현재 점수 및 평가내역보기 버튼 */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-            {AI_SCORES.map((ai) => (
-              <div key={ai.name} className="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
-                <div className="flex flex-col items-center gap-2 mb-3">
-                  <span className="font-medium text-gray-900 dark:text-white text-base">{ai.name}</span>
-                  <span className="text-xl font-bold text-accent-600 dark:text-accent-400">{ai.score}점</span>
-                </div>
-                <button
-                  onClick={() => openAIDetailModal(ai.name)}
-                  className="w-full px-3 py-2.5 bg-primary-500 text-white text-base font-medium rounded-lg hover:bg-primary-600 transition min-h-[44px]"
-                >
-                  평가내역보기
-                </button>
+          {/* P3BA35: V24.0 AI 종합 점수 표시 (하드코딩 제거) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+            {/* AI 종합 점수 카드 */}
+            <div className="bg-gradient-to-br from-primary-50 to-accent-50 dark:from-gray-700 dark:to-gray-600 rounded-lg p-6 border border-primary-100 dark:border-gray-600">
+              <div className="flex flex-col items-center gap-2 mb-3">
+                <span className="font-medium text-gray-900 dark:text-white text-base">Claude AI 평가</span>
+                <span className="text-3xl font-bold text-primary-600 dark:text-primary-400">{politician.totalScore || 0}점</span>
+                <span className="text-sm text-gray-500 dark:text-gray-400">/ 1000점 만점</span>
               </div>
-            ))}
+              <button
+                onClick={() => openAIDetailModal('Claude')}
+                className="w-full px-3 py-2.5 bg-primary-500 text-white text-base font-medium rounded-lg hover:bg-primary-600 transition min-h-[44px]"
+              >
+                카테고리별 상세 보기
+              </button>
+            </div>
+
+            {/* 등급 카드 */}
+            <div className="bg-gradient-to-br from-secondary-50 to-amber-50 dark:from-gray-700 dark:to-gray-600 rounded-lg p-6 border border-secondary-100 dark:border-gray-600">
+              <div className="flex flex-col items-center gap-2 mb-3">
+                <span className="font-medium text-gray-900 dark:text-white text-base">평가 등급</span>
+                <span className="text-4xl">{politician.gradeEmoji || '⬜'}</span>
+                <span className="text-xl font-bold text-gray-900 dark:text-white">
+                  {politician.gradeName || politician.grade || '미평가'}
+                </span>
+              </div>
+              <div className="text-center text-sm text-gray-600 dark:text-gray-400">
+                V24.0 10단계 금속 등급 체계
+              </div>
+            </div>
           </div>
 
           {/* 상세평가보고서 구매 섹션 - 정치인 본인 인증 완료 시에만 표시 */}
@@ -745,32 +682,19 @@ export default function PoliticianDetailPage() {
               10개 분야별, 세부 항목별 상세 평가 내역이 정리된 보고서(30,000자 분량)를 PDF로 제공해드립니다.
             </p>
 
-            {/* AI 선택 옵션 */}
+            {/* P3BA35: V24.0에서는 Claude AI만 사용 - 단순화된 UI */}
             <div className="bg-white rounded-lg p-4 mb-4">
-              <div className="text-base font-medium text-gray-900 mb-3">AI 선택 (개당 ₩500,000)</div>
+              <div className="text-base font-medium text-gray-900 mb-3">Claude AI 상세평가보고서 (₩500,000)</div>
               <div className="space-y-3">
-                {AI_SCORES.map((ai) => (
-                  <label key={ai.name} className="flex items-center gap-3 cursor-pointer min-h-[44px]">
-                    <input
-                      type="checkbox"
-                      checked={selectedReports.includes(ai.name)}
-                      onChange={() => handleReportToggle(ai.name)}
-                      className="w-5 h-5 text-primary-600 rounded focus:ring-2 focus:ring-primary-300"
-                    />
-                    <span className="text-base text-gray-700">{ai.name} 상세평가보고서</span>
-                  </label>
-                ))}
-                <div className="pt-3 border-t">
-                  <label className="flex items-center gap-3 cursor-pointer min-h-[44px]">
-                    <input
-                      type="checkbox"
-                      checked={selectedReports.length === AI_SCORES.length}
-                      onChange={handleToggleAll}
-                      className="w-5 h-5 text-primary-600 rounded focus:ring-2 focus:ring-primary-300"
-                    />
-                    <span className="text-base font-bold text-gray-900">전체 정치인 AI 상세평가보고서 (5개) - ₩2,500,000</span>
-                  </label>
-                </div>
+                <label className="flex items-center gap-3 cursor-pointer min-h-[44px]">
+                  <input
+                    type="checkbox"
+                    checked={selectedReports.includes('Claude')}
+                    onChange={() => handleReportToggle('Claude')}
+                    className="w-5 h-5 text-primary-600 rounded focus:ring-2 focus:ring-primary-300"
+                  />
+                  <span className="text-base text-gray-700">Claude AI 상세평가보고서</span>
+                </label>
               </div>
             </div>
 
@@ -1072,13 +996,13 @@ export default function PoliticianDetailPage() {
         </section>
       </div>
 
-      {/* AI 평가 상세 모달 */}
+      {/* P3BA35: AI 평가 상세 모달 - API categoryScores 사용 */}
       {showAIDetailModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
           <div className="bg-white rounded-lg max-w-3xl w-full max-h-[90vh] overflow-y-auto p-6">
             {/* 헤더 */}
             <div className="flex items-center justify-between mb-6 border-b pb-4">
-              <h3 className="text-2xl font-bold text-gray-900">{politician.name} 의원 - {selectedAI} 평가 내역</h3>
+              <h3 className="text-2xl font-bold text-gray-900">{politician.name} - V24.0 AI 평가 상세</h3>
               <button onClick={() => setShowAIDetailModal(false)} className="text-gray-500 hover:text-gray-700">
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12"></path>
@@ -1086,69 +1010,60 @@ export default function PoliticianDetailPage() {
               </button>
             </div>
 
-            {/* 10개 분야 점수 */}
-            <div className="mb-6">
-              <h4 className="text-lg font-bold text-gray-900 mb-4">10개 분야별 평가 점수</h4>
-              <div className="space-y-3">
-                {CATEGORY_SCORES.map((item, index) => (
-                  <div key={index}>
-                    <div className="flex items-center justify-between mb-1">
-                      <span className="text-sm text-gray-700">{index + 1}. {item.category}</span>
-                      <span className="text-sm font-bold text-accent-600">{item.score}점</span>
-                    </div>
-                    <div className="w-full bg-gray-200 rounded-full h-2">
-                      <div className="bg-accent-500 h-2 rounded-full" style={{ width: `${item.score}%` }}></div>
-                    </div>
-                  </div>
-                ))}
+            {/* 종합 점수 요약 */}
+            <div className="mb-6 p-4 bg-gradient-to-r from-primary-50 to-accent-50 rounded-lg border border-primary-100">
+              <div className="flex items-center justify-between">
+                <div>
+                  <div className="text-sm text-gray-600 mb-1">V24.0 종합 점수</div>
+                  <div className="text-3xl font-bold text-primary-600">{politician.totalScore || 0}점</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-4xl mb-1">{politician.gradeEmoji || '⬜'}</div>
+                  <div className="text-lg font-bold text-gray-900">{politician.gradeName || politician.grade || '미평가'}</div>
+                </div>
               </div>
             </div>
 
-            {/* 강점 */}
+            {/* 10개 분야 점수 - API categoryScores 사용 */}
             <div className="mb-6">
-              <h4 className="text-lg font-bold text-gray-900 mb-3">강점</h4>
-              <ul className="space-y-2">
-                <li className="flex items-start gap-2">
-                  <span className="text-green-600 font-bold">•</span>
-                  <span className="text-gray-700">재산공개 투명, 부패의혹 없음 (청렴성)</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-green-600 font-bold">•</span>
-                  <span className="text-gray-700">법안 통과율 높음, 전문성 우수 (전문성)</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-green-600 font-bold">•</span>
-                  <span className="text-gray-700">SNS 활발, 주민간담회 정기 개최 (소통능력)</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-green-600 font-bold">•</span>
-                  <span className="text-gray-700">공익 법안 다수 발의, 지역 현안 해결 (공익추구)</span>
-                </li>
-              </ul>
+              <h4 className="text-lg font-bold text-gray-900 mb-4">10개 분야별 평가 점수</h4>
+              {politician.categoryScores && politician.categoryScores.length > 0 ? (
+                <div className="space-y-3">
+                  {politician.categoryScores.map((item, index) => (
+                    <div key={item.categoryId || index}>
+                      <div className="flex items-center justify-between mb-1">
+                        <span className="text-sm text-gray-700">
+                          {item.categoryId}. {item.categoryName || CATEGORY_NAMES[item.categoryId] || `카테고리 ${item.categoryId}`}
+                        </span>
+                        <span className="text-sm font-bold text-accent-600">{item.score}점</span>
+                      </div>
+                      <div className="w-full bg-gray-200 rounded-full h-2">
+                        <div
+                          className="bg-accent-500 h-2 rounded-full transition-all"
+                          style={{ width: `${Math.min(item.score, 100)}%` }}
+                        ></div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="text-center py-8 text-gray-500">
+                  <svg className="w-12 h-12 mx-auto mb-3 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                  <p>카테고리별 상세 점수 데이터가 아직 없습니다.</p>
+                  <p className="text-sm mt-1">AI 평가가 진행되면 표시됩니다.</p>
+                </div>
+              )}
             </div>
 
-            {/* 개선점 */}
-            <div className="mb-6">
-              <h4 className="text-lg font-bold text-gray-900 mb-3">개선점</h4>
-              <ul className="space-y-2">
-                <li className="flex items-start gap-2">
-                  <span className="text-red-600 font-bold">•</span>
-                  <span className="text-gray-700">일부 공약 이행 지연 (책임감)</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-red-600 font-bold">•</span>
-                  <span className="text-gray-700">민원 처리 속도 개선 필요 (대응성)</span>
-                </li>
-              </ul>
-            </div>
-
-            {/* 종합 평가 */}
-            <div className="mb-6 p-4 bg-gray-50 rounded-lg">
-              <h4 className="text-lg font-bold text-gray-900 mb-3">종합 평가</h4>
-              <p className="text-gray-700 leading-relaxed">
-                전반적으로 우수한 평가를 받았으며, 특히 청렴성과 공익추구 분야에서 뛰어난 성과를 보였습니다.
-                법안 통과율이 높고 전문성이 우수하며, SNS와 주민간담회를 통한 활발한 소통으로 좋은 평가를 받았습니다.
-                다만, 일부 공약 이행 지연과 민원 처리 속도 개선이 필요한 것으로 나타났습니다.
+            {/* 평가 기준 안내 */}
+            <div className="p-4 bg-gray-50 rounded-lg">
+              <h4 className="text-sm font-bold text-gray-700 mb-2">V24.0 평가 기준</h4>
+              <p className="text-sm text-gray-600 leading-relaxed">
+                V24.0 평가 시스템은 10개 카테고리(청렴성, 전문성, 소통능력, 정책능력, 리더십, 책임성, 투명성, 혁신성, 포용성, 효율성)에 대해
+                Claude AI가 공개된 자료를 기반으로 객관적으로 평가합니다.
+                총점은 1000점 만점이며, 10단계 금속 등급(M~L)으로 표시됩니다.
               </p>
             </div>
           </div>
