@@ -1,0 +1,68 @@
+{
+  "task_id": "P3BA34",
+  "task_name": "V24.0 AI 점수 목록 API 통합",
+  "phase": 3,
+  "area": "BA",
+  "type": "create",
+  "created_date": "2025-11-27",
+  "status": "완료",
+  "progress": 100,
+
+  "task_description": "정치인 목록 API(/api/politicians)에서 V24.0 AI 평가 점수가 0으로 표시되는 문제 해결",
+
+  "background": {
+    "issue": "목록 API가 politicians 테이블만 조회하여 V24.0 점수(ai_final_scores 테이블)가 누락됨",
+    "impact": "정치인 목록 페이지에서 모든 정치인의 점수가 0으로 표시",
+    "severity": "high"
+  },
+
+  "implementation": {
+    "assigned_agent": "backend-developer",
+    "files_modified": [
+      "1_Frontend/src/app/api/politicians/route.ts",
+      "1_Frontend/src/utils/fieldMapper.ts"
+    ],
+    "technologies": [
+      "TypeScript",
+      "Next.js API Routes",
+      "Supabase Client"
+    ]
+  },
+
+  "changes": {
+    "route.ts": "ai_final_scores 테이블 조회 및 politician_id 기준 점수 매핑 추가",
+    "fieldMapper.ts": "calculateV24Grade(), mapPoliticianListFieldsWithScore() 함수 추가"
+  },
+
+  "v24_grade_system": {
+    "M": {"name": "Mugunghwa", "emoji": "🌺", "range": "920-1000"},
+    "D": {"name": "Diamond", "emoji": "💎", "range": "840-919"},
+    "E": {"name": "Emerald", "emoji": "💚", "range": "760-839"},
+    "P": {"name": "Platinum", "emoji": "🥇", "range": "680-759"},
+    "G": {"name": "Gold", "emoji": "🥇", "range": "600-679"},
+    "S": {"name": "Silver", "emoji": "🥈", "range": "520-599"},
+    "B": {"name": "Bronze", "emoji": "🥉", "range": "440-519"},
+    "I": {"name": "Iron", "emoji": "⚫", "range": "360-439"},
+    "Tn": {"name": "Tin", "emoji": "⬜", "range": "280-359"},
+    "L": {"name": "Lead", "emoji": "⬛", "range": "200-279"}
+  },
+
+  "test_results": {
+    "before": {"claudeScore": 0, "totalScore": 0, "grade": "", "gradeEmoji": "⬜"},
+    "after": {"claudeScore": 450, "totalScore": 450, "grade": "B", "gradeEmoji": "🥉", "gradeName": "Bronze"}
+  },
+
+  "git_info": {
+    "commit_hash": "d0b8fb9",
+    "commit_message": "feat: V24.0 AI 점수 목록 API 통합 (P3BA34)"
+  },
+
+  "related_tasks": ["P3BA33", "P3BA2", "P3F4"],
+  "dependencies": ["P3BA33 (V24.0 점수-등급 불일치 버그 수정)"],
+
+  "execution_info": {
+    "executor": "Claude Code",
+    "execution_date": "2025-11-27",
+    "duration_minutes": 15
+  }
+}
