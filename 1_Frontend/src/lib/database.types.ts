@@ -306,6 +306,163 @@ export interface Database {
           created_at?: string;
         };
       };
+      // V24.0 AI 평가 테이블 (실제 DB 스키마 반영)
+      ai_final_scores: {
+        Row: {
+          id: number;
+          politician_id: string;
+          ai_name: string;
+          total_score: number;
+          grade_code: string;        // M/D/E/P/G/S/B/I/Tn/L
+          grade_name: string;        // 무궁화/다이아몬드/에메랄드/플래티넘/골드/실버/브론즈/철/주석/납
+          grade_emoji: string | null;
+          categories_completed: number;
+          total_data_count: number;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          id?: number;
+          politician_id: string;
+          ai_name: string;
+          total_score: number;
+          grade_code: string;
+          grade_name: string;
+          grade_emoji?: string | null;
+          categories_completed?: number;
+          total_data_count?: number;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Update: {
+          id?: number;
+          politician_id?: string;
+          ai_name?: string;
+          total_score?: number;
+          grade_code?: string;
+          grade_name?: string;
+          grade_emoji?: string | null;
+          categories_completed?: number;
+          total_data_count?: number;
+          created_at?: string;
+          updated_at?: string;
+        };
+      };
+      ai_category_scores: {
+        Row: {
+          id: string;
+          politician_id: string;
+          ai_name: string;
+          category_id: number;
+          category_name: string;
+          score: number;
+          data_count: number;
+          calculation_date: string;
+          created_at: string;
+        };
+        Insert: {
+          id?: string;
+          politician_id: string;
+          ai_name: string;
+          category_id: number;
+          category_name: string;
+          score: number;
+          data_count?: number;
+          calculation_date?: string;
+          created_at?: string;
+        };
+        Update: {
+          id?: string;
+          politician_id?: string;
+          ai_name?: string;
+          category_id?: number;
+          category_name?: string;
+          score?: number;
+          data_count?: number;
+          calculation_date?: string;
+          created_at?: string;
+        };
+      };
+      collected_data: {
+        Row: {
+          collected_data_id: string;
+          politician_id: string;
+          ai_name: string;
+          category_name: string;
+          item_num: number;
+          data_title: string;
+          data_content: string;
+          data_source: string | null;
+          source_url: string | null;
+          collection_date: string;
+          rating: string;  // A~H 알파벳
+          rating_rationale: string | null;
+          source_type: string | null;  // OFFICIAL | PUBLIC
+        };
+        Insert: {
+          collected_data_id?: string;
+          politician_id: string;
+          ai_name: string;
+          category_name: string;
+          item_num: number;
+          data_title: string;
+          data_content: string;
+          data_source?: string | null;
+          source_url?: string | null;
+          collection_date?: string;
+          rating: string;
+          rating_rationale?: string | null;
+          source_type?: string | null;
+        };
+        Update: {
+          collected_data_id?: string;
+          politician_id?: string;
+          ai_name?: string;
+          category_name?: string;
+          item_num?: number;
+          data_title?: string;
+          data_content?: string;
+          data_source?: string | null;
+          source_url?: string | null;
+          collection_date?: string;
+          rating?: string;
+          rating_rationale?: string | null;
+          source_type?: string | null;
+        };
+      };
     };
   };
 }
+
+// V24.0 등급 시스템 타입
+export type V24Grade = 'M' | 'D' | 'E' | 'P' | 'G' | 'S' | 'B' | 'I' | 'Tn' | 'L';
+export type V24GradeName = 'Mugunghwa' | 'Diamond' | 'Emerald' | 'Platinum' | 'Gold' | 'Silver' | 'Bronze' | 'Iron' | 'Tin' | 'Lead';
+export type V24Rating = 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G' | 'H';
+
+// V24.0 등급 정보 인터페이스
+export interface V24GradeInfo {
+  grade: V24Grade;
+  gradeEmoji: string;
+  gradeName: V24GradeName;
+  minScore: number;
+  maxScore: number;
+}
+
+// V24.0 등급 체계 상수
+export const V24_GRADE_THRESHOLDS: V24GradeInfo[] = [
+  { grade: 'M', gradeEmoji: '🌺', gradeName: 'Mugunghwa', minScore: 920, maxScore: 1000 },
+  { grade: 'D', gradeEmoji: '💎', gradeName: 'Diamond', minScore: 840, maxScore: 919 },
+  { grade: 'E', gradeEmoji: '💚', gradeName: 'Emerald', minScore: 760, maxScore: 839 },
+  { grade: 'P', gradeEmoji: '🥇', gradeName: 'Platinum', minScore: 680, maxScore: 759 },
+  { grade: 'G', gradeEmoji: '🥇', gradeName: 'Gold', minScore: 600, maxScore: 679 },
+  { grade: 'S', gradeEmoji: '🥈', gradeName: 'Silver', minScore: 520, maxScore: 599 },
+  { grade: 'B', gradeEmoji: '🥉', gradeName: 'Bronze', minScore: 440, maxScore: 519 },
+  { grade: 'I', gradeEmoji: '⚫', gradeName: 'Iron', minScore: 360, maxScore: 439 },
+  { grade: 'Tn', gradeEmoji: '⬜', gradeName: 'Tin', minScore: 280, maxScore: 359 },
+  { grade: 'L', gradeEmoji: '⬛', gradeName: 'Lead', minScore: 200, maxScore: 279 },
+];
+
+// V24.0 Rating 값 매핑 (점수 계산용)
+export const V24_RATING_VALUES: Record<V24Rating, number> = {
+  'A': 8, 'B': 6, 'C': 4, 'D': 2, 'E': -2, 'F': -4, 'G': -6, 'H': -8
+};
