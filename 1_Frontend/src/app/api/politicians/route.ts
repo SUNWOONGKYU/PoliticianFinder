@@ -1,11 +1,12 @@
 // P3BA2: Real API - 정치인 목록 (Supabase + RLS)
 // Supabase 연동 및 Full-text Search 지원
 // P3F4: Field mapping for list view
+// P3BA34: V24.0 AI 점수 통합 - ai_final_scores 테이블 연동
 
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { createClient } from "@/lib/supabase/server";
-import { mapPoliticianListFields } from "@/utils/fieldMapper";
+import { mapPoliticianListFieldsWithScore } from "@/utils/fieldMapper";
 
 const getPoliticiansQuerySchema = z.object({
   page: z.string().nullable().optional().default("1").transform(Number),
@@ -104,8 +105,37 @@ export async function GET(request: NextRequest) {
     const total = count || 0;
     const totalPages = Math.ceil(total / query.limit);
 
-    // P3F4: Map fields for list view (snake_case → camelCase)
-    const mappedPoliticians = (politicians || []).map(mapPoliticianListFields);
+    // P3BA34: V24.0 AI 점수 조회 (ai_final_scores 테이블)
+    const politicianIds = (politicians || []).map((p: any) => p.id);
+    let scoresMap: Record<string, { total_score: number; updated_at: string }> = {};
+
+    if (politicianIds.length > 0) {
+      const { data: scores, error: scoresError } = await supabase
+        .from("ai_final_scores")
+        .select("politician_id, total_score, updated_at")
+        .in("politician_id", politicianIds);
+
+      if (scoresError) {
+        console.error("AI final scores query error:", scoresError);
+      } else if (scores) {
+        // politician_id별로 가장 최신 점수만 사용
+        scores.forEach((score: any) => {
+          const existing = scoresMap[score.politician_id];
+          if (!existing || new Date(score.updated_at) > new Date(existing.updated_at)) {
+            scoresMap[score.politician_id] = {
+              total_score: score.total_score,
+              updated_at: score.updated_at
+            };
+          }
+        });
+      }
+    }
+
+    // P3F4: Map fields for list view (snake_case → camelCase) with V24.0 scores
+    const mappedPoliticians = (politicians || []).map((p: any) => {
+      const scoreData = scoresMap[p.id];
+      return mapPoliticianListFieldsWithScore(p, scoreData?.total_score || 0);
+    });
 
     return NextResponse.json(
       {
