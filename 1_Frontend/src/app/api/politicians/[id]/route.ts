@@ -49,7 +49,7 @@ export async function GET(
       );
     }
 
-    // AI 평가 정보 조회 (ai_evaluations 테이블)
+    // AI 평가 정보 조회 (ai_evaluations 테이블 - legacy)
     const { data: aiEvaluations, error: evalError } = await supabase
       .from("ai_evaluations")
       .select("*")
@@ -58,6 +58,30 @@ export async function GET(
 
     if (evalError) {
       console.error("AI evaluations query error:", evalError);
+    }
+
+    // V24.0 AI 최종 점수 조회 (ai_final_scores 테이블 - 실제 DB 스키마 반영)
+    const { data: aiFinalScores, error: finalScoreError } = await supabase
+      .from("ai_final_scores")
+      .select("*")
+      .eq("politician_id", id)
+      .order("updated_at", { ascending: false })
+      .limit(1)
+      .single();
+
+    if (finalScoreError && finalScoreError.code !== "PGRST116") {
+      console.error("AI final scores query error:", finalScoreError);
+    }
+
+    // V24.0 카테고리별 점수 조회 (ai_category_scores 테이블)
+    const { data: categoryScores, error: categoryError } = await supabase
+      .from("ai_category_scores")
+      .select("*")
+      .eq("politician_id", id)
+      .order("category_id", { ascending: true });
+
+    if (categoryError) {
+      console.error("AI category scores query error:", categoryError);
     }
 
     // P3F4: Calculate community statistics
@@ -100,12 +124,62 @@ export async function GET(
       taggedCount: taggedCount || 0,
     });
 
+    // V24.0 등급 계산 함수
+    const calculateV24Grade = (score: number): { grade: string; gradeEmoji: string; gradeName: string } => {
+      if (score >= 920) return { grade: 'M', gradeEmoji: '🌺', gradeName: 'Mugunghwa' };
+      if (score >= 840) return { grade: 'D', gradeEmoji: '💎', gradeName: 'Diamond' };
+      if (score >= 760) return { grade: 'E', gradeEmoji: '💚', gradeName: 'Emerald' };
+      if (score >= 680) return { grade: 'P', gradeEmoji: '🥇', gradeName: 'Platinum' };
+      if (score >= 600) return { grade: 'G', gradeEmoji: '🥇', gradeName: 'Gold' };
+      if (score >= 520) return { grade: 'S', gradeEmoji: '🥈', gradeName: 'Silver' };
+      if (score >= 440) return { grade: 'B', gradeEmoji: '🥉', gradeName: 'Bronze' };
+      if (score >= 360) return { grade: 'I', gradeEmoji: '⚫', gradeName: 'Iron' };
+      if (score >= 280) return { grade: 'Tn', gradeEmoji: '⬜', gradeName: 'Tin' };
+      return { grade: 'L', gradeEmoji: '⬛', gradeName: 'Lead' };
+    };
+
+    // V24.0 점수 및 등급 정보 추가
+    let v24Score = null;
+    let v24Grade = null;
+    let v24GradeEmoji = null;
+    let v24GradeName = null;
+    let v24CategoryScores: any[] = [];
+
+    if (aiFinalScores) {
+      // 실제 DB 스키마: total_score, grade_code, grade_name, grade_emoji
+      v24Score = aiFinalScores.total_score;
+
+      // 점수 기반으로 등급 정보 계산 (항상 점수 기준으로 등급 결정 - DB 불일치 방지)
+      const gradeInfo = calculateV24Grade(v24Score);
+      v24Grade = gradeInfo.grade;
+      v24GradeName = gradeInfo.gradeName;
+      v24GradeEmoji = gradeInfo.gradeEmoji;
+    }
+
+    if (categoryScores && categoryScores.length > 0) {
+      v24CategoryScores = categoryScores.map((cs: any) => ({
+        categoryId: cs.category_id,
+        categoryName: cs.category_name,
+        score: cs.score,
+        dataCount: cs.data_count,
+        calculationDate: cs.calculation_date,
+      }));
+    }
+
     // Add AI evaluations to mapped data
     const responseData = {
       ...mappedData,
-      // AI 평가 정보
+      // V24.0 AI 평가 정보 (Primary)
+      claudeScore: v24Score,
+      totalScore: v24Score,
+      grade: v24Grade,
+      gradeEmoji: v24GradeEmoji,
+      gradeName: v24GradeName,
+      categoryScores: v24CategoryScores,
+      lastUpdated: aiFinalScores?.updated_at || null,
+      // Legacy AI 평가 정보 (ai_evaluations 테이블)
       ai_evaluations: evaluationsByModel,
-      has_evaluations: Object.keys(evaluationsByModel).length > 0,
+      has_evaluations: Object.keys(evaluationsByModel).length > 0 || v24Score !== null,
     };
 
     return NextResponse.json(
