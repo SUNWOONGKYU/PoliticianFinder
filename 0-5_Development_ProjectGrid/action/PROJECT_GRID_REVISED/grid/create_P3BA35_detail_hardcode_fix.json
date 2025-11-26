@@ -1,0 +1,68 @@
+{
+  "task_id": "P3BA35",
+  "task_name": "정치인 상세 페이지 하드코딩된 점수 제거",
+  "phase": 3,
+  "area": "BA",
+  "type": "create",
+  "created_date": "2025-11-27",
+  "status": "완료",
+  "progress": 100,
+
+  "task_description": "정치인 상세 페이지(/politicians/[id])에서 하드코딩된 AI 점수, 카테고리 점수, 차트 데이터를 실제 API 데이터로 교체",
+
+  "background": {
+    "issue": "상세 페이지에서 가짜 하드코딩된 데이터(Claude 970점 등)가 표시됨",
+    "impact": "사용자에게 잘못된 정보 표시, V24.0 실제 데이터 미반영",
+    "severity": "high"
+  },
+
+  "implementation": {
+    "assigned_agent": "frontend-developer",
+    "files_modified": [
+      "1_Frontend/src/app/politicians/[id]/page.tsx",
+      "1_Frontend/src/types/politician.ts"
+    ],
+    "technologies": [
+      "TypeScript",
+      "React",
+      "Next.js"
+    ]
+  },
+
+  "changes": {
+    "removed": [
+      "AI_SCORES 하드코딩 (Claude/ChatGPT/Grok 가짜 점수)",
+      "CATEGORY_SCORES 하드코딩 (10개 카테고리 가짜 점수)",
+      "CHART_DATA_FULL 하드코딩 (12개월 시계열 가짜 데이터)"
+    ],
+    "added": [
+      "CATEGORY_NAMES 룩업 테이블 (카테고리 ID → 이름 매핑)",
+      "실제 API 데이터 사용 (politician.totalScore, politician.categoryScores)",
+      "Claude AI 단일 선택 UI (V24.0은 Claude만 사용)"
+    ],
+    "simplified": [
+      "상세평가보고서 구매 UI (5개 AI → Claude 1개)",
+      "handleToggleAll, totalPrice 함수"
+    ]
+  },
+
+  "v24_notes": {
+    "ai_models": "V24.0 시스템은 Claude AI만 사용",
+    "score_source": "politician.totalScore 사용",
+    "chart_status": "시계열 데이터 미제공 → '점수 추이 차트 준비 중' 안내"
+  },
+
+  "git_info": {
+    "commit_hash": "e3b45ca",
+    "commit_message": "fix: 정치인 상세 페이지 하드코딩된 점수 제거 (P3BA35)"
+  },
+
+  "related_tasks": ["P3BA33", "P3BA34", "P3F4"],
+  "dependencies": ["P3BA33", "P3BA34"],
+
+  "execution_info": {
+    "executor": "Claude Code",
+    "execution_date": "2025-11-27",
+    "duration_minutes": 20
+  }
+}
