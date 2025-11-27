@@ -3,13 +3,15 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
+import { LoadingSection } from '@/components/ui/Spinner';
 
 // 정치인 데이터 타입 정의
 interface Politician {
   id: number;
   rank: number;
   name: string;
-  status: string;
+  identity: string;  // P3F3: 신분 (현직, 후보자 등)
+  title?: string;    // P3F3: 직책 (국회의원 (21대) 등)
   position: string;
   office: string;
   party: string;
@@ -19,9 +21,7 @@ interface Politician {
   gradeEmoji: string;
   claude: number;
   chatgpt: number;
-  gemini: number;
   grok: number;
-  perplexity: number;
   userRating: string;
   userCount: number;
 }
@@ -34,16 +34,26 @@ interface Post {
   category: string;
   author: string;
   author_id: string;
+  member_level?: string;
   politician_id?: number | null;
   politician_name?: string;
   politician_position?: string;
-  politician_status?: string;
+  politician_identity?: string;  // P3F3: 신분
+  politician_title?: string;     // P3F3: 직책
   view_count: number;
-  like_count: number;
+  upvotes: number;
+  downvotes: number;
   comment_count: number;
   created_at: string;
   is_hot?: boolean;
   is_best?: boolean;
+}
+
+// 공지사항 데이터 타입 정의
+interface Notice {
+  id: number;
+  title: string;
+  created_at: string;
 }
 
 export default function Home() {
@@ -53,6 +63,25 @@ export default function Home() {
   const [politicianPosts, setPoliticianPosts] = useState<Post[]>([]);
   const [popularPosts, setPopularPosts] = useState<Post[]>([]);
   const [postsLoading, setPostsLoading] = useState(true);
+  const [notices, setNotices] = useState<Notice[]>([]);
+  const [noticesLoading, setNoticesLoading] = useState(true);
+  const [statistics, setStatistics] = useState({
+    politicians: 0,
+    users: 0,
+    posts: 0,
+    ratings: 0,
+  });
+
+  // Google 로그인 성공 시 URL 파라미터 제거 및 새로고침
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('google_login') === 'success') {
+      // URL에서 파라미터 제거
+      window.history.replaceState({}, '', '/');
+      // 헤더가 세션을 다시 확인하도록 새로고침
+      window.location.reload();
+    }
+  }, []);
 
   // API에서 TOP 10 정치인 데이터 가져오기
   useEffect(() => {
@@ -75,30 +104,35 @@ export default function Home() {
 
         if (data.success && data.data && data.data.length > 0) {
           // API 데이터를 홈 페이지 형식으로 변환
-          const transformedData = data.data.map((p: any, index: number) => ({
-            id: p.id || index + 1,
-            rank: index + 1,
-            name: p.name,
-            status: p.status || '현직',
-            position: p.position || '-',
-            office: p.position || '국회의원',
-            party: p.party || '',
-            region: p.region || '',
-            totalScore: p.composite_score || 0,
-            grade: calculateGrade(p.composite_score || 0),
-            gradeEmoji: getGradeEmoji(calculateGrade(p.composite_score || 0)),
-            claude: p.composite_score || 0,
-            chatgpt: p.composite_score || 0,
-            gemini: p.composite_score || 0,
-            grok: p.composite_score || 0,
-            perplexity: p.composite_score || 0,
-            userRating: '★'.repeat(Math.round(p.avg_rating || 0)) + '☆'.repeat(5 - Math.round(p.avg_rating || 0)),
-            userCount: 0,
-          }));
+          const transformedData = data.data.map((p: any, index: number) => {
+            // fieldMapper에서 camelCase로 변환된 필드 사용
+            const aiScore = p.totalScore || p.claudeScore || 0;
+            return {
+              id: p.id || index + 1,
+              rank: index + 1,
+              name: p.name,
+              identity: p.identity || '현직',  // P3F3: 신분
+              title: p.title || '',           // P3F3: 직책
+              position: p.position || '-',
+              office: p.position || '국회의원',
+              party: p.party || '',
+              region: p.region || '',
+              totalScore: aiScore,
+              grade: p.grade || calculateGrade(aiScore),
+              gradeEmoji: p.gradeEmoji || getGradeEmoji(p.grade || calculateGrade(aiScore)),
+              claude: aiScore,
+              chatgpt: aiScore,
+              grok: aiScore,
+              userRating: '★'.repeat(Math.round(p.userRating || 0)) + '☆'.repeat(5 - Math.round(p.userRating || 0)),
+              userCount: p.ratingCount || 0,
+            };
+          });
           setPoliticians(transformedData);
         }
       } catch (err) {
-        console.error('Error fetching politicians:', err);
+        if (process.env.NODE_ENV === 'development') {
+          console.error('Error fetching politicians:', err);
+        }
       } finally {
         setLoading(false);
       }
@@ -119,39 +153,68 @@ export default function Home() {
       try {
         setPostsLoading(true);
 
-        // 정치인 최근 게시글 가져오기 (카테고리: politician_post, 최신순 3개)
-        const politicianPostsResponse = await fetch('/api/posts?category=politician_post&limit=3&page=1');
+        // 정치인 최근 게시글 가져오기 (has_politician=true, 최신순 3개)
+        const politicianPostsResponse = await fetch('/api/posts?has_politician=true&limit=3&page=1');
         if (politicianPostsResponse.ok) {
           const politicianPostsData = await politicianPostsResponse.json();
           if (politicianPostsData.success && politicianPostsData.data) {
-            const mappedPoliticianPosts = politicianPostsData.data.map((post: any) => ({
-              id: post.id,
-              title: post.title,
-              content: post.content,
-              category: post.category,
-              author: post.politician_name || '정치인',
-              author_id: post.user_id,
-              politician_id: post.politician_id,
-              politician_name: post.politician_name,
-              politician_position: post.politician_position || '국회의원',
-              politician_status: post.politician_status || '현직',
-              view_count: post.view_count || 0,
-              like_count: post.like_count || 0,
-              comment_count: post.comment_count || 0,
-              created_at: post.created_at,
-            }));
+            // Fetch politician names for posts with politician_id
+            const mappedPoliticianPosts = await Promise.all(
+              politicianPostsData.data.map(async (post: any) => {
+                let politicianName = post.politicians?.name || '정치인';
+                let politicianPosition = '국회의원';
+                let politicianIdentity = post.politicians?.identity;  // P3F3: 신분
+                let politicianTitle = post.politicians?.title;        // P3F3: 직책
+
+                if (post.politician_id && post.politicians) {
+                  // Position ID mapping (simple version)
+                  const positionMap: Record<number, string> = {
+                    1: '국회의원',
+                    2: '광역단체장',
+                    3: '광역의원',
+                    4: '기초단체장',
+                    5: '기초의원'
+                  };
+                  politicianPosition = post.politicians.position || positionMap[post.politicians.position_id] || '정치인';
+                  politicianIdentity = post.politicians.identity;
+                  politicianTitle = post.politicians.title;
+                  politicianName = post.politicians.name;
+                }
+
+                return {
+                  id: post.id,
+                  title: post.title,
+                  content: post.content,
+                  category: post.category,
+                  author: politicianName,
+                  author_id: post.user_id,
+                  politician_id: post.politician_id,
+                  politician_name: politicianName,
+                  politician_position: politicianPosition,
+                  politician_identity: politicianIdentity,  // P3F3
+                  politician_title: politicianTitle,        // P3F3
+                  view_count: post.view_count || 0,
+                  upvotes: post.upvotes || 0,
+                  downvotes: post.downvotes || 0,
+                  comment_count: post.comment_count || 0,
+                  created_at: post.created_at,
+                };
+              })
+            );
             setPoliticianPosts(mappedPoliticianPosts);
           }
         }
 
         // 커뮤니티 인기 게시글 가져오기 (전체, 조회수 순 3개)
-        const popularPostsResponse = await fetch('/api/posts?limit=3&page=1&sort=views');
+        const popularPostsResponse = await fetch('/api/posts?limit=3&page=1&sort=-view_count');
         if (popularPostsResponse.ok) {
           const popularPostsData = await popularPostsResponse.json();
           if (popularPostsData.success && popularPostsData.data) {
             const mappedPopularPosts = popularPostsData.data.map((post: any, index: number) => {
               const userIdHash = post.user_id ? post.user_id.split('-')[0].charCodeAt(0) : index;
               const nicknameIndex = userIdHash % 10;
+              // Generate member level based on user_id hash (ML1 ~ ML5)
+              const memberLevel = `ML${(userIdHash % 5) + 1}`;
 
               return {
                 id: post.id,
@@ -160,20 +223,24 @@ export default function Home() {
                 category: post.category,
                 author: sampleNicknames[nicknameIndex],
                 author_id: post.user_id,
+                member_level: memberLevel,
                 politician_id: post.politician_id,
                 view_count: post.view_count || 0,
-                like_count: post.like_count || 0,
+                upvotes: post.upvotes || 0,
+                downvotes: post.downvotes || 0,
                 comment_count: post.comment_count || 0,
                 created_at: post.created_at,
                 is_hot: (post.view_count || 0) > 100,
-                is_best: (post.like_count || 0) > 50,
+                is_best: (post.upvotes || 0) > 50,
               };
             });
             setPopularPosts(mappedPopularPosts);
           }
         }
       } catch (err) {
-        console.error('Error fetching posts:', err);
+        if (process.env.NODE_ENV === 'development') {
+          console.error('Error fetching posts:', err);
+        }
       } finally {
         setPostsLoading(false);
       }
@@ -182,12 +249,72 @@ export default function Home() {
     fetchPosts();
   }, []);
 
+  // API에서 통계 데이터 가져오기
+  useEffect(() => {
+    const fetchStatistics = async () => {
+      try {
+        const response = await fetch('/api/statistics/overview', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          cache: 'no-store',
+        });
+
+        if (!response.ok) {
+          throw new Error('Failed to fetch statistics');
+        }
+
+        const data = await response.json();
+
+        if (data.success && data.data) {
+          setStatistics({
+            politicians: data.data.total.politicians || 0,
+            users: data.data.total.users || 0,
+            posts: data.data.total.posts || 0,
+            ratings: data.data.total.ratings || 0,
+          });
+        }
+      } catch (err) {
+        if (process.env.NODE_ENV === 'development') {
+          console.error('Error fetching statistics:', err);
+        }
+      }
+    };
+
+    fetchStatistics();
+  }, []);
+
+  // API에서 공지사항 데이터 가져오기
+  useEffect(() => {
+    const fetchNotices = async () => {
+      try {
+        setNoticesLoading(true);
+        const response = await fetch('/api/notices?limit=3');
+        if (response.ok) {
+          const data = await response.json();
+          if (data.success && data.data) {
+            setNotices(data.data);
+          }
+        }
+      } catch (err) {
+        if (process.env.NODE_ENV === 'development') {
+          console.error('Error fetching notices:', err);
+        }
+      } finally {
+        setNoticesLoading(false);
+      }
+    };
+
+    fetchNotices();
+  }, []);
+
   // Grade calculation helper
   const calculateGrade = (score: number): string => {
-    if (score >= 90) return 'M';
-    if (score >= 85) return 'D';
-    if (score >= 80) return 'P';
-    if (score >= 75) return 'G';
+    if (score >= 900) return 'M';
+    if (score >= 850) return 'D';
+    if (score >= 800) return 'P';
+    if (score >= 750) return 'G';
     return 'E';
   };
 
@@ -220,7 +347,8 @@ export default function Home() {
       id: 1,
       rank: 1,
       name: '김민준',
-      status: '현직',
+      identity: '현직',
+      title: '',
       position: '-',
       office: '국회의원',
       party: '더불어민주당',
@@ -230,9 +358,7 @@ export default function Home() {
       gradeEmoji: '🌺',
       claude: 920,
       chatgpt: 900,
-      gemini: 880,
       grok: 910,
-      perplexity: 890,
       userRating: '★★★★★',
       userCount: 234,
     },
@@ -240,8 +366,9 @@ export default function Home() {
       id: 2,
       rank: 2,
       name: '이서연',
-      status: '현직',
-      position: '부산광역시장',
+      identity: '현직',
+      title: '부산광역시장',
+      position: '-',
       office: '광역단체장',
       party: '국민의힘',
       region: '부산광역시',
@@ -250,9 +377,7 @@ export default function Home() {
       gradeEmoji: '💎',
       claude: 900,
       chatgpt: 890,
-      gemini: 870,
       grok: 900,
-      perplexity: 880,
       userRating: '★★★★☆',
       userCount: 189,
     },
@@ -260,7 +385,8 @@ export default function Home() {
       id: 3,
       rank: 3,
       name: '박준서',
-      status: '현직',
+      identity: '현직',
+      title: '',
       position: '-',
       office: '국회의원',
       party: '더불어민주당',
@@ -270,9 +396,7 @@ export default function Home() {
       gradeEmoji: '💎',
       claude: 880,
       chatgpt: 870,
-      gemini: 860,
       grok: 880,
-      perplexity: 860,
       userRating: '★★★★☆',
       userCount: 156,
     },
@@ -280,7 +404,8 @@ export default function Home() {
       id: 4,
       rank: 4,
       name: '정하은',
-      status: '현직',
+      identity: '현직',
+      title: '',
       position: '-',
       office: '광역의원',
       party: '국민의힘',
@@ -290,9 +415,7 @@ export default function Home() {
       gradeEmoji: '💚',
       claude: 860,
       chatgpt: 850,
-      gemini: 840,
       grok: 860,
-      perplexity: 840,
       userRating: '★★★★☆',
       userCount: 143,
     },
@@ -300,8 +423,9 @@ export default function Home() {
       id: 5,
       rank: 5,
       name: '최지훈',
-      status: '현직',
-      position: '수원시장',
+      identity: '현직',
+      title: '수원시장',
+      position: '-',
       office: '기초단체장',
       party: '더불어민주당',
       region: '경기 수원시',
@@ -310,9 +434,7 @@ export default function Home() {
       gradeEmoji: '💚',
       claude: 850,
       chatgpt: 840,
-      gemini: 830,
       grok: 850,
-      perplexity: 830,
       userRating: '★★★★☆',
       userCount: 128,
     },
@@ -320,7 +442,8 @@ export default function Home() {
       id: 6,
       rank: 6,
       name: '강민서',
-      status: '현직',
+      identity: '현직',
+      title: '',
       position: '-',
       office: '국회의원',
       party: '국민의힘',
@@ -330,9 +453,7 @@ export default function Home() {
       gradeEmoji: '💚',
       claude: 840,
       chatgpt: 830,
-      gemini: 820,
       grok: 840,
-      perplexity: 820,
       userRating: '★★★★☆',
       userCount: 115,
     },
@@ -340,8 +461,9 @@ export default function Home() {
       id: 7,
       rank: 7,
       name: '윤서아',
-      status: '현직',
-      position: '광주광역시장',
+      identity: '현직',
+      title: '광주광역시장',
+      position: '-',
       office: '광역단체장',
       party: '더불어민주당',
       region: '광주광역시',
@@ -350,9 +472,7 @@ export default function Home() {
       gradeEmoji: '💚',
       claude: 830,
       chatgpt: 820,
-      gemini: 810,
       grok: 830,
-      perplexity: 810,
       userRating: '★★★☆☆',
       userCount: 102,
     },
@@ -360,7 +480,8 @@ export default function Home() {
       id: 8,
       rank: 8,
       name: '임도윤',
-      status: '현직',
+      identity: '현직',
+      title: '',
       position: '-',
       office: '광역의원',
       party: '국민의힘',
@@ -370,9 +491,7 @@ export default function Home() {
       gradeEmoji: '💚',
       claude: 820,
       chatgpt: 810,
-      gemini: 800,
       grok: 820,
-      perplexity: 800,
       userRating: '★★★☆☆',
       userCount: 95,
     },
@@ -380,7 +499,8 @@ export default function Home() {
       id: 9,
       rank: 9,
       name: '한예진',
-      status: '현직',
+      identity: '현직',
+      title: '',
       position: '-',
       office: '기초의원',
       party: '더불어민주당',
@@ -390,9 +510,7 @@ export default function Home() {
       gradeEmoji: '💚',
       claude: 810,
       chatgpt: 800,
-      gemini: 790,
       grok: 810,
-      perplexity: 790,
       userRating: '★★★☆☆',
       userCount: 87,
     },
@@ -400,8 +518,9 @@ export default function Home() {
       id: 10,
       rank: 10,
       name: '오시우',
-      status: '현직',
-      position: '용인시장',
+      identity: '현직',
+      title: '용인시장',
+      position: '-',
       office: '기초단체장',
       party: '국민의힘',
       region: '경기 용인시',
@@ -410,9 +529,7 @@ export default function Home() {
       gradeEmoji: '💚',
       claude: 800,
       chatgpt: 790,
-      gemini: 780,
       grok: 800,
-      perplexity: 780,
       userRating: '★★★☆☆',
       userCount: 76,
     },
@@ -422,16 +539,42 @@ export default function Home() {
   const aiLogos = {
     claude: 'https://cdn.brandfetch.io/idW5s392j1/w/338/h/338/theme/dark/icon.png?c=1bxid64Mup7aczewSAYMX&t=1738315794862',
     chatgpt: 'https://cdn.brandfetch.io/idR3duQxYl/theme/dark/symbol.svg?c=1bxid64Mup7aczewSAYMX',
-    gemini: 'https://cdn.simpleicons.org/googlegemini/4285F4',
     grok: 'https://cdn.simpleicons.org/x/000000',
-    perplexity: 'https://cdn.simpleicons.org/perplexity/1FB8CD',
   };
 
   const handleSearch = () => {
     if (searchQuery.trim()) {
-      console.log('검색:', searchQuery);
     }
   };
+
+  // Floating CTA Component
+  const FloatingCTA = () => (
+    <div className="fixed bottom-6 right-6 z-50 flex gap-3">
+      {/* 검색 버튼 */}
+      <button
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        className="bg-primary-500 text-white px-6 py-3 rounded-full shadow-lg hover:bg-primary-600 transition-all hover:scale-105 flex items-center gap-2"
+        aria-label="맨 위로 스크롤하여 검색"
+      >
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+        <span>검색</span>
+      </button>
+
+      {/* 평가하기 버튼 - 정치인 목록 페이지로 이동 */}
+      <button
+        onClick={() => window.location.href = '/politicians'}
+        className="bg-secondary-600 text-white p-3 rounded-full shadow-lg hover:bg-secondary-700 transition-all hover:scale-105"
+        title="정치인 평가하기"
+        aria-label="정치인 평가하기"
+      >
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+        </svg>
+      </button>
+    </div>
+  );
 
   return (
     <main className="bg-gray-50">
@@ -441,21 +584,16 @@ export default function Home() {
           {/* 메인 콘텐츠 (왼쪽) */}
           <div className="lg:col-span-9 space-y-6">
             {/* 검색 섹션 */}
-            <section className="bg-white rounded-lg shadow-lg p-4">
-              <div className="mb-3">
-                <h2 className="text-2xl font-bold text-gray-900 flex items-center gap-2">
-                  <span>🔍</span>
-                  <span>통합검색</span>
-                </h2>
-              </div>
+            <section className="bg-white rounded-lg shadow-lg p-3">
               <div className="space-y-4">
                 <div className="relative flex gap-2">
                   <div className="relative flex-1">
                     <input
-                      type="text"
+                      type="search"
+                      inputMode="search"
                       id="index-search-input"
-                      placeholder="정치인, 게시글을 통합검색 해보세요"
-                      className="w-full px-4 py-3 pl-12 border-2 border-primary-300 rounded-lg focus:outline-none focus:border-primary-500 text-gray-900 focus:ring-2 focus:ring-primary-200"
+                      placeholder="정치인과 게시글을 통합 검색하세요"
+                      className="w-full px-4 py-3 pl-12 border-2 border-primary-300 rounded-lg focus:outline-none focus:border-primary-500 text-gray-900 focus:ring-2 focus:ring-primary-200 text-base"
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
                       onKeyPress={(e) => {
@@ -486,6 +624,51 @@ export default function Home() {
               </div>
             </section>
 
+            {/* 통계 섹션 */}
+            <section className="bg-gradient-to-br from-primary-50 to-secondary-50 rounded-lg shadow-lg p-8">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                {/* 등록된 정치인 */}
+                <div className="text-center bg-white/70 backdrop-blur-sm rounded-lg p-6 hover:shadow-md transition-shadow">
+                  <div className="text-4xl md:text-5xl font-bold text-primary-600 mb-2">
+                    {statistics.politicians > 0 ? `${statistics.politicians.toLocaleString()}+` : '...'}
+                  </div>
+                  <div className="text-sm md:text-base text-gray-700 font-medium">
+                    등록된 정치인
+                  </div>
+                </div>
+
+                {/* 회원 */}
+                <div className="text-center bg-white/70 backdrop-blur-sm rounded-lg p-6 hover:shadow-md transition-shadow">
+                  <div className="text-4xl md:text-5xl font-bold text-secondary-600 mb-2">
+                    {statistics.users > 0 ? `${statistics.users.toLocaleString()}+` : '...'}
+                  </div>
+                  <div className="text-sm md:text-base text-gray-700 font-medium">
+                    회원
+                  </div>
+                </div>
+
+                {/* 커뮤니티 글 */}
+                <div className="text-center bg-white/70 backdrop-blur-sm rounded-lg p-6 hover:shadow-md transition-shadow">
+                  <div className="text-4xl md:text-5xl font-bold text-green-600 mb-2">
+                    {statistics.posts > 0 ? `${statistics.posts.toLocaleString()}+` : '...'}
+                  </div>
+                  <div className="text-sm md:text-base text-gray-700 font-medium">
+                    커뮤니티 글
+                  </div>
+                </div>
+
+                {/* 평가 참여자 */}
+                <div className="text-center bg-white/70 backdrop-blur-sm rounded-lg p-6 hover:shadow-md transition-shadow">
+                  <div className="text-4xl md:text-5xl font-bold text-blue-600 mb-2">
+                    {statistics.ratings > 0 ? `${statistics.ratings.toLocaleString()}+` : '...'}
+                  </div>
+                  <div className="text-sm md:text-base text-gray-700 font-medium">
+                    평가 참여자
+                  </div>
+                </div>
+              </div>
+            </section>
+
             {/* 정치인 순위 섹션 */}
             <section className="bg-white rounded-lg shadow">
               <div className="px-4 pt-4">
@@ -498,9 +681,7 @@ export default function Home() {
               <div className="p-4">
                 {/* Loading state */}
                 {loading && (
-                  <div className="text-center py-12">
-                    <p className="text-gray-500">데이터를 불러오는 중...</p>
-                  </div>
+                  <LoadingSection message="데이터를 불러오는 중..." height="h-48" />
                 )}
 
                 {/* Empty state */}
@@ -518,66 +699,19 @@ export default function Home() {
                   <table className="w-full text-xs">
                     <thead className="bg-gray-100 border-b-2 border-primary-500">
                       <tr>
-                        <th className="px-2 py-3 text-center font-bold text-gray-900">순위</th>
-                        <th className="px-3 py-3 text-left font-bold text-gray-900">이름</th>
-                        <th className="px-2 py-3 text-left font-bold text-gray-900">신분/직책</th>
-                        <th className="px-2 py-3 text-left font-bold text-gray-900">출마직종</th>
-                        <th className="px-2 py-3 text-left font-bold text-gray-900">정당/지역</th>
-                        <th className="px-2 py-3 text-center font-bold text-gray-900">
-                          종합평점
-                          <br />
-                          (평가등급)
-                        </th>
-                        <th className="px-2 py-3 text-center">
-                          <div className="flex flex-col items-center gap-1">
-                            <img
-                              src={aiLogos.claude}
-                              alt="Claude"
-                              className="h-6 w-6 object-contain rounded"
-                            />
-                            <span className="text-xs font-medium text-gray-900">Claude</span>
-                          </div>
-                        </th>
-                        <th className="px-2 py-3 text-center">
-                          <div className="flex flex-col items-center gap-1">
-                            <img
-                              src={aiLogos.chatgpt}
-                              alt="ChatGPT"
-                              className="h-6 w-6 object-contain"
-                            />
-                            <span className="text-xs font-medium text-gray-900">ChatGPT</span>
-                          </div>
-                        </th>
-                        <th className="px-2 py-3 text-center">
-                          <div className="flex flex-col items-center gap-1">
-                            <img
-                              src={aiLogos.gemini}
-                              alt="Gemini"
-                              className="h-6 w-6 object-contain"
-                            />
-                            <span className="text-xs font-medium text-gray-900">Gemini</span>
-                          </div>
-                        </th>
-                        <th className="px-2 py-3 text-center">
-                          <div className="flex flex-col items-center gap-1">
-                            <img src={aiLogos.grok} alt="Grok" className="h-6 w-6 object-contain" />
-                            <span className="text-xs font-medium text-gray-900">Grok</span>
-                          </div>
-                        </th>
-                        <th className="px-2 py-3 text-center">
-                          <div className="flex flex-col items-center gap-1">
-                            <img
-                              src={aiLogos.perplexity}
-                              alt="Perplexity"
-                              className="h-6 w-6 object-contain"
-                            />
-                            <span className="text-xs font-medium text-gray-900">Perplexity</span>
-                          </div>
-                        </th>
-                        <th className="px-2 py-3 text-center">
-                          <div className="font-bold text-gray-900">회원평점</div>
-                          <div className="text-gray-900 text-xs">(참여자수)</div>
-                        </th>
+                        <th className="px-2 py-3 text-center font-bold text-gray-900 w-12">순위</th>
+                        <th className="px-3 py-3 text-left font-bold text-gray-900 w-24">이름</th>
+                        <th className="px-2 py-3 text-left font-bold text-gray-900 w-16">신분</th>
+                        <th className="px-2 py-3 text-left font-bold text-gray-900 w-28">직책</th>
+                        <th className="px-2 py-3 text-left font-bold text-gray-900 w-24">출마직종</th>
+                        <th className="px-2 py-3 text-left font-bold text-gray-900 w-24">정당</th>
+                        <th className="px-2 py-3 text-left font-bold text-gray-900 w-28">지역</th>
+                        <th className="px-2 py-3 text-center font-bold text-gray-900 w-24">평가등급</th>
+                        <th className="px-2 py-3 text-center font-bold text-gray-900 w-20">종합평점</th>
+                        <th className="px-2 py-3 text-center font-bold text-gray-900 w-16">Claude</th>
+                        <th className="px-2 py-3 text-center font-bold text-gray-900 w-16">ChatGPT</th>
+                        <th className="px-2 py-3 text-center font-bold text-gray-900 w-16">Grok</th>
+                        <th className="px-2 py-3 text-center font-bold text-gray-900 w-20">회원평가</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-200">
@@ -593,21 +727,19 @@ export default function Home() {
                               </span>
                             </Link>
                           </td>
-                          <td className="px-2 py-3 text-gray-600">
-                            <div className="font-medium">{p.status}</div>
-                            <div className="text-xs">{p.position}</div>
+                          <td className="px-2 py-3 text-gray-600 text-xs">
+                            {p.identity}
+                          </td>
+                          <td className="px-2 py-3 text-gray-600 text-xs">
+                            {p.title || '-'}
                           </td>
                           <td className="px-2 py-3 text-gray-600 text-xs">{p.office}</td>
-                          <td className="px-2 py-3 text-gray-600">
-                            <div className="font-medium">{p.party}</div>
-                            <div className="text-xs">{p.region}</div>
+                          <td className="px-2 py-3 text-gray-600 text-xs">{p.party}</td>
+                          <td className="px-2 py-3 text-gray-600 text-xs">{p.region}</td>
+                          <td className="px-2 py-3 text-center text-xs font-semibold text-accent-600">
+                            {p.gradeEmoji} {p.grade}
                           </td>
-                          <td className="px-2 py-3 text-center">
-                            <div className="font-bold text-accent-600">{p.totalScore}</div>
-                            <div className="text-xs font-semibold text-accent-600 mt-0.5">
-                              {p.gradeEmoji} {p.grade}
-                            </div>
-                          </td>
+                          <td className="px-2 py-3 text-center font-bold text-accent-600">{p.totalScore}</td>
                           <td className="px-2 py-3 text-center font-bold text-accent-600">
                             {p.claude}
                           </td>
@@ -615,17 +747,10 @@ export default function Home() {
                             {p.chatgpt}
                           </td>
                           <td className="px-2 py-3 text-center font-bold text-accent-600">
-                            {p.gemini}
-                          </td>
-                          <td className="px-2 py-3 text-center font-bold text-accent-600">
                             {p.grok}
                           </td>
-                          <td className="px-2 py-3 text-center font-bold text-accent-600">
-                            {p.perplexity}
-                          </td>
-                          <td className="px-2 py-3 text-center">
-                            <div className="font-bold text-secondary-600">{p.userRating}</div>
-                            <div className="text-gray-900 text-xs">({p.userCount}명)</div>
+                          <td className="px-2 py-3 text-center text-xs">
+                            <span className="font-bold text-secondary-600">{p.userRating}</span>
                           </td>
                         </tr>
                       ))}
@@ -650,7 +775,7 @@ export default function Home() {
                         </div>
                         <div className="text-sm text-gray-600">
                           <span className="font-medium">
-                            {politicians[0].status} {politicians[0].office}
+                            {politicians[0].identity} {politicians[0].title && `• ${politicians[0].title}`}
                           </span>
                           <span className="mx-1">|</span>
                           <span>{politicians[0].party}</span>
@@ -695,38 +820,16 @@ export default function Home() {
                           </span>
                         </div>
                         <div className="flex items-center gap-2">
-                          <img
-                            src={aiLogos.gemini}
-                            alt="Gemini"
-                            className="h-5 w-5 object-contain"
-                          />
-                          <span className="text-xs text-gray-900">Gemini</span>
-                          <span className="ml-auto font-bold text-accent-600">
-                            {politicians[0].gemini}
-                          </span>
-                        </div>
-                        <div className="flex items-center gap-2">
                           <img src={aiLogos.grok} alt="Grok" className="h-5 w-5 object-contain" />
                           <span className="text-xs text-gray-900">Grok</span>
                           <span className="ml-auto font-bold text-accent-600">
                             {politicians[0].grok}
                           </span>
                         </div>
-                        <div className="flex items-center gap-2">
-                          <img
-                            src={aiLogos.perplexity}
-                            alt="Perplexity"
-                            className="h-5 w-5 object-contain"
-                          />
-                          <span className="text-xs text-gray-900">Perplexity</span>
-                          <span className="ml-auto font-bold text-accent-600">
-                            {politicians[0].perplexity}
-                          </span>
-                        </div>
                       </div>
 
                       <div className="text-center pt-2 border-t">
-                        <div className="text-xs text-gray-600 mb-1">회원평점</div>
+                        <div className="text-xs text-gray-600 mb-1">회원평가</div>
                         <div className="font-bold text-secondary-600">
                           {politicians[0].userRating}
                         </div>
@@ -751,7 +854,7 @@ export default function Home() {
                           </div>
                           <div className="text-sm text-gray-600">
                             <span className="font-medium">
-                              {p.status} {p.office}
+                              {p.identity} {p.title && `• ${p.title}`}
                             </span>
                             <span className="mx-1">|</span>
                             <span>{p.party}</span>
@@ -789,34 +892,14 @@ export default function Home() {
                             <span className="ml-auto font-bold text-accent-600">{p.chatgpt}</span>
                           </div>
                           <div className="flex items-center gap-2">
-                            <img
-                              src={aiLogos.gemini}
-                              alt="Gemini"
-                              className="h-5 w-5 object-contain"
-                            />
-                            <span className="text-xs text-gray-900">Gemini</span>
-                            <span className="ml-auto font-bold text-accent-600">{p.gemini}</span>
-                          </div>
-                          <div className="flex items-center gap-2">
                             <img src={aiLogos.grok} alt="Grok" className="h-5 w-5 object-contain" />
                             <span className="text-xs text-gray-900">Grok</span>
                             <span className="ml-auto font-bold text-accent-600">{p.grok}</span>
                           </div>
-                          <div className="flex items-center gap-2">
-                            <img
-                              src={aiLogos.perplexity}
-                              alt="Perplexity"
-                              className="h-5 w-5 object-contain"
-                            />
-                            <span className="text-xs text-gray-900">Perplexity</span>
-                            <span className="ml-auto font-bold text-accent-600">
-                              {p.perplexity}
-                            </span>
-                          </div>
                         </div>
 
                         <div className="text-center pt-2 border-t">
-                          <div className="text-xs text-gray-600 mb-1">회원평점</div>
+                          <div className="text-xs text-gray-600 mb-1">회원평가</div>
                           <div className="font-bold text-secondary-600">{p.userRating}</div>
                           <div className="text-xs text-gray-600">({p.userCount}명)</div>
                         </div>
@@ -841,7 +924,7 @@ export default function Home() {
                               {p.name}
                             </Link>
                             <div className="text-xs text-gray-600">
-                              {p.status} {p.office} | {p.party}
+                              {p.identity} {p.title && `• ${p.title}`} | {p.party}
                             </div>
                           </div>
                         </div>
@@ -904,7 +987,7 @@ export default function Home() {
                                   className="font-medium text-primary-600 hover:text-primary-700 hover:underline"
                                   onClick={(e) => e.stopPropagation()}
                                 >
-                                  {post.politician_name} | {post.politician_status} {post.politician_position}
+                                  {post.politician_name} | {post.politician_identity} {post.politician_title && `• ${post.politician_title}`}
                                 </Link>
                               ) : (
                                 <span className="font-medium text-primary-600">
@@ -913,7 +996,15 @@ export default function Home() {
                               )}
                               <span>{formatDate(post.created_at)}</span>
                               <span>조회 {post.view_count}</span>
+                              <span className="text-red-600">👍 {post.upvotes}</span>
+                              <span className="text-gray-400">👎 0</span>
                               <span>댓글 {post.comment_count}</span>
+                              <span className="flex items-center gap-1">
+                                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+                                </svg>
+                                공유 0
+                              </span>
                             </div>
                           </div>
                         </div>
@@ -960,144 +1051,49 @@ export default function Home() {
                                 {post.title}
                               </h3>
                             </div>
-                      <p className="text-sm text-gray-600 mb-2">
-                        최근 AI 평가 결과를 보니 생각보다 객관적인 것 같아요. 여러분 의견은...
-                      </p>
-                      <div className="flex items-center gap-3 text-xs text-gray-500">
-                        <a
-                          href="#"
-                          className="font-medium text-secondary-600 hover:text-secondary-700 hover:underline"
-                        >
-                          시민123 | Lv.4
-                        </a>
-                        <span>2025.10.26 15:30</span>
-                        <span>조회수 234</span>
-                        <span className="text-red-600">👍 45</span>
-                        <span className="text-gray-400">👎 8</span>
-                        <span>댓글 28</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="p-4 hover:bg-gray-50 cursor-pointer">
-                  <div className="flex items-start justify-between">
-                    <div className="flex-1">
-                      <div className="flex items-center gap-2 mb-1">
-                        <span className="px-2 py-0.5 bg-yellow-100 text-yellow-800 text-xs font-bold rounded">
-                          Best
-                        </span>
-                        <h3 className="font-bold text-gray-900">정치인 평가 시스템 정말 혁신적이네요</h3>
-                      </div>
-                      <p className="text-sm text-gray-600 mb-2">
-                        AI가 공약 이행률, 법안 발의 등을 종합 평가하니 훨씬 신뢰가 가는 것 같습니다...
-                      </p>
-                      <div className="flex items-center gap-3 text-xs text-gray-500">
-                        <a
-                          href="#"
-                          className="font-medium text-secondary-600 hover:text-secondary-700 hover:underline"
-                        >
-                          정치관심러 | Lv.3
-                        </a>
-                        <span>2025.10.25 10:15</span>
-                        <span>조회수 189</span>
-                        <span className="text-red-600">👍 32</span>
-                        <span className="text-gray-400">👎 5</span>
-                        <span>댓글 15</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="p-4 hover:bg-gray-50 cursor-pointer">
-                  <div className="flex items-start justify-between">
-                    <div className="flex-1">
-                      <h3 className="font-bold text-gray-900 mb-1">
-                        2025년 지역 발전 계획 공유드립니다
-                      </h3>
-                      <p className="text-sm text-gray-600 mb-2">
-                        우리 지역의 교통 인프라 개선과 청년 일자리 창출을 위한 구체적인 계획을
-                        공유합니다...
-                      </p>
-                      <div className="flex items-center gap-3 text-xs text-gray-500">
-                        <Link
-                          href="/politicians/1"
-                          className="font-medium text-primary-600 hover:text-primary-700 hover:underline"
-                        >
-                          김민준 | 현직 국회의원
-                        </Link>
-                        <span>2025.10.25 09:00</span>
-                        <span>조회수 512</span>
-                        <span className="text-red-600">👍 89</span>
-                        <span className="text-gray-400">👎 12</span>
-                        <span>댓글 45</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="p-4 hover:bg-gray-50 cursor-pointer">
-                  <div className="flex items-start justify-between">
-                    <div className="flex-1">
-                      <h3 className="font-bold text-gray-900 mb-1">
-                        커뮤니티 활동 포인트 제도 질문있어요
-                      </h3>
-                      <p className="text-sm text-gray-600 mb-2">
-                        글 작성하고 댓글 달면 포인트 쌓인다고 들었는데, 정확한 기준이 궁금합니다...
-                      </p>
-                      <div className="flex items-center gap-3 text-xs text-gray-500">
-                        <div className="flex items-center gap-2">
-                          <a
-                            href="#"
-                            className="font-medium text-secondary-600 hover:text-secondary-700 hover:underline"
-                          >
-                            새내기회원
-                          </a>
-                          <span className="text-xs text-gray-900 font-medium">ML1</span>
-                          <span className="text-xs text-emerald-900 font-medium">
-                            🚶 방랑자
-                          </span>
+                            <p className="text-sm text-gray-600 mb-2 line-clamp-2">
+                              {post.content}
+                            </p>
+                            <div className="flex items-center gap-3 text-xs text-gray-500">
+                              {post.politician_id ? (
+                                <Link
+                                  href={`/politicians/${post.politician_id}`}
+                                  className="font-medium text-primary-600 hover:text-primary-700 hover:underline"
+                                  onClick={(e) => e.stopPropagation()}
+                                >
+                                  {post.politician_name} | {post.politician_identity} {post.politician_title && `• ${post.politician_title}`}
+                                </Link>
+                              ) : (
+                                <>
+                                  <span className="font-medium text-secondary-600">
+                                    {post.author}
+                                  </span>
+                                  {post.member_level && (
+                                    <span className="text-xs text-gray-900 font-medium" title={`활동 등급: ${post.member_level}`}>
+                                      {post.member_level}
+                                    </span>
+                                  )}
+                                  <span className="text-xs text-emerald-900 font-medium">🏰 영주</span>
+                                </>
+                              )}
+                              <span>{formatDate(post.created_at)}</span>
+                              <span>조회 {post.view_count}</span>
+                              <span className="text-red-600">👍 {post.upvotes}</span>
+                              <span className="text-gray-400">👎 0</span>
+                              <span>댓글 {post.comment_count}</span>
+                              <span className="flex items-center gap-1">
+                                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+                                </svg>
+                                공유 0
+                              </span>
+                            </div>
+                          </div>
                         </div>
-                        <span>2025.10.24 14:20</span>
-                        <span>조회수 156</span>
-                        <span className="text-red-600">👍 18</span>
-                        <span className="text-gray-400">👎 3</span>
-                        <span>댓글 22</span>
                       </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="p-4 hover:bg-gray-50 cursor-pointer">
-                  <div className="flex items-start justify-between">
-                    <div className="flex-1">
-                      <h3 className="font-bold text-gray-900 mb-1">
-                        지역구 국회의원 공약 이행률 체크 방법
-                      </h3>
-                      <p className="text-sm text-gray-600 mb-2">
-                        우리 지역구 국회의원이 선거 때 한 공약들을 어떻게 확인할 수 있나요? 이행률
-                        확인하는 방법 알려주세요...
-                      </p>
-                      <div className="flex items-center gap-3 text-xs text-gray-500">
-                        <div className="flex items-center gap-2">
-                          <a
-                            href="#"
-                            className="font-medium text-secondary-600 hover:text-secondary-700 hover:underline"
-                          >
-                            투명정치
-                          </a>
-                          <span className="text-xs text-gray-900 font-medium">ML3</span>
-                          <span className="text-xs text-emerald-900 font-medium">⚔️ 기사</span>
-                        </div>
-                        <span>2025.10.23 14:20</span>
-                        <span>조회수 142</span>
-                        <span className="text-red-600">👍 24</span>
-                        <span className="text-gray-400">👎 3</span>
-                        <span>댓글 18</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                    </Link>
+                  ))
+                )}
               </div>
               <div className="p-4 text-center border-t">
                 <Link
@@ -1121,18 +1117,22 @@ export default function Home() {
                 </Link>
               </div>
               <div className="space-y-2 text-sm text-gray-600">
-                <Link href="/notices/1" className="block hover:text-primary-600 line-clamp-1">
-                  <span className="text-red-600 font-bold mr-1">📢</span>
-                  PoliticianFinder 정식 오픈!
-                </Link>
-                <Link href="/notices/2" className="block hover:text-primary-600 line-clamp-1">
-                  <span className="text-primary-600 mr-1">📢</span>
-                  AI 평가 시스템 업데이트 안내
-                </Link>
-                <Link href="/notices/3" className="block hover:text-primary-600 line-clamp-1">
-                  <span className="text-primary-600 mr-1">📢</span>
-                  커뮤니티 이용 가이드라인 안내
-                </Link>
+                {noticesLoading ? (
+                  <p className="text-center text-gray-500">로딩 중...</p>
+                ) : notices.length === 0 ? (
+                  <p className="text-center text-gray-500">공지사항이 없습니다</p>
+                ) : (
+                  notices.map((notice, index) => (
+                    <Link
+                      key={notice.id}
+                      href={`/notices/${notice.id}`}
+                      className="block hover:text-primary-600 line-clamp-1"
+                    >
+                      <span className={index === 0 ? "text-red-600 font-bold mr-1" : "text-primary-600 mr-1"}>📢</span>
+                      {notice.title}
+                    </Link>
+                  ))
+                )}
               </div>
             </div>
 
@@ -1294,32 +1294,32 @@ export default function Home() {
                 🔗 서비스 중개
               </h3>
               <div className="space-y-3 text-sm">
-                <a
-                  href="#"
+                <Link
+                  href="/relay"
                   className="block p-3 bg-gray-50 rounded-lg hover:bg-gray-100 cursor-pointer"
                 >
                   <div className="font-semibold text-gray-900 mb-1">⚖️ 법률자문</div>
                   <p className="text-xs text-gray-600">정치 활동 관련 법률자문 서비스</p>
-                </a>
-                <a
-                  href="#"
+                </Link>
+                <Link
+                  href="/relay"
                   className="block p-3 bg-gray-50 rounded-lg hover:bg-gray-100 cursor-pointer"
                 >
                   <div className="font-semibold text-gray-900 mb-1">💼 컨설팅</div>
                   <p className="text-xs text-gray-600">선거 전략, 공약 개발 관련 컨설팅</p>
-                </a>
-                <a
-                  href="#"
+                </Link>
+                <Link
+                  href="/relay"
                   className="block p-3 bg-gray-50 rounded-lg hover:bg-gray-100 cursor-pointer"
                 >
                   <div className="font-semibold text-gray-900 mb-1">🎯 홍보</div>
                   <p className="text-xs text-gray-600">SNS 관리, 미디어 홍보, 브랜딩</p>
-                </a>
+                </Link>
               </div>
               <div className="mt-3 pt-3 border-t text-center">
-                <a href="#" className="text-gray-700 hover:text-gray-900 font-medium text-sm">
+                <Link href="/relay" className="text-gray-700 hover:text-gray-900 font-medium text-sm">
                   전체 서비스 보기 →
-                </a>
+                </Link>
               </div>
             </div>
 
@@ -1429,6 +1429,121 @@ export default function Home() {
         </div>
       </div>
 
+      {/* M5: 최근 활동 피드 섹션 */}
+      <section className="bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 py-12 mt-8 overflow-x-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-hidden">
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">최근 활동</h2>
+            <Link
+              href="/community"
+              className="text-sm text-primary-600 dark:text-primary-400 hover:underline flex items-center gap-1"
+            >
+              더보기
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
+          </div>
+
+          {/* 활동 피드 카드 */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {/* 새 게시글 알림 */}
+            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700 p-4 hover:shadow-md transition">
+              <div className="flex items-start gap-3">
+                <div className="w-10 h-10 rounded-full bg-primary-100 dark:bg-primary-900 flex items-center justify-center flex-shrink-0">
+                  <svg className="w-5 h-5 text-primary-600 dark:text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                  </svg>
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="text-sm text-gray-600 dark:text-gray-400">새 게시글</p>
+                  <p className="font-medium text-gray-900 dark:text-white truncate">정치인 평가 시스템 도입 제안</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-500 mt-1">민주시민 · 5분 전</p>
+                </div>
+              </div>
+            </div>
+
+            {/* 새 댓글 알림 */}
+            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700 p-4 hover:shadow-md transition">
+              <div className="flex items-start gap-3">
+                <div className="w-10 h-10 rounded-full bg-secondary-100 dark:bg-secondary-900 flex items-center justify-center flex-shrink-0">
+                  <svg className="w-5 h-5 text-secondary-600 dark:text-secondary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                  </svg>
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="text-sm text-gray-600 dark:text-gray-400">새 댓글</p>
+                  <p className="font-medium text-gray-900 dark:text-white truncate">"좋은 의견이네요, 저도 동의합니다"</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-500 mt-1">투명한정치 · 12분 전</p>
+                </div>
+              </div>
+            </div>
+
+            {/* 정치인 평가 알림 */}
+            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700 p-4 hover:shadow-md transition">
+              <div className="flex items-start gap-3">
+                <div className="w-10 h-10 rounded-full bg-yellow-100 dark:bg-yellow-900 flex items-center justify-center flex-shrink-0">
+                  <svg className="w-5 h-5 text-yellow-600 dark:text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                  </svg>
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="text-sm text-gray-600 dark:text-gray-400">정치인 평가</p>
+                  <p className="font-medium text-gray-900 dark:text-white truncate">김민준 의원에게 ★★★★★ 평가</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-500 mt-1">시민참여자 · 18분 전</p>
+                </div>
+              </div>
+            </div>
+
+            {/* HOT 게시글 알림 */}
+            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700 p-4 hover:shadow-md transition">
+              <div className="flex items-start gap-3">
+                <div className="w-10 h-10 rounded-full bg-red-100 dark:bg-red-900 flex items-center justify-center flex-shrink-0">
+                  <span className="text-lg">🔥</span>
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="text-sm text-gray-600 dark:text-gray-400">HOT 게시글</p>
+                  <p className="font-medium text-gray-900 dark:text-white truncate">2025년 지방선거 전망</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-500 mt-1">조회 1,234 · 공감 89</p>
+                </div>
+              </div>
+            </div>
+
+            {/* 신규 회원 알림 */}
+            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700 p-4 hover:shadow-md transition">
+              <div className="flex items-start gap-3">
+                <div className="w-10 h-10 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center flex-shrink-0">
+                  <svg className="w-5 h-5 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
+                  </svg>
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="text-sm text-gray-600 dark:text-gray-400">신규 가입</p>
+                  <p className="font-medium text-gray-900 dark:text-white truncate">새로운 회원이 가입했습니다</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-500 mt-1">미래세대 · 25분 전</p>
+                </div>
+              </div>
+            </div>
+
+            {/* 관심 정치인 알림 */}
+            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700 p-4 hover:shadow-md transition">
+              <div className="flex items-start gap-3">
+                <div className="w-10 h-10 rounded-full bg-pink-100 dark:bg-pink-900 flex items-center justify-center flex-shrink-0">
+                  <svg className="w-5 h-5 text-pink-600 dark:text-pink-400" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                  </svg>
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="text-sm text-gray-600 dark:text-gray-400">관심 등록</p>
+                  <p className="font-medium text-gray-900 dark:text-white truncate">이서연 부산시장 관심 +5</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-500 mt-1">오늘 · 총 234명</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 이용 방법 섹션 */}
       <section className="bg-white py-16 mt-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1483,6 +1598,9 @@ export default function Home() {
           </Link>
         </div>
       </section>
+
+      {/* Floating CTA Buttons */}
+      <FloatingCTA />
     </main>
   );
 }

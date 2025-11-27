@@ -1,25 +1,14 @@
 // P3BA28: 관심 등록 버튼 추가
 // H13: 정치인 상세 탭 네비게이션 추가
-// 성능 최적화: Recharts 동적 import
 'use client';
 
 import { useState, useCallback, useMemo, useEffect, useRef } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
-import dynamic from 'next/dynamic';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { Politician } from '@/types/politician';
 import FavoriteButton from '@/components/FavoriteButton';
 import { LoadingPage } from '@/components/ui/Spinner';
-
-// 성능 최적화: Recharts 동적 로딩 (필요시에만 로드)
-const ScoreChart = dynamic(() => import('@/components/charts/ScoreChart'), {
-  ssr: false,
-  loading: () => (
-    <div className="h-[300px] flex items-center justify-center bg-gray-50 rounded-lg">
-      <div className="text-gray-500">차트 로딩 중...</div>
-    </div>
-  ),
-});
 
 const SAMPLE_POLITICIAN: Politician = {
   id: 'POL001',
