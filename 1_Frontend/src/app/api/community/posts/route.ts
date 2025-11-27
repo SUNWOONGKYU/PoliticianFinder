@@ -74,7 +74,12 @@ export async function GET(request: NextRequest) {
         politicians:politician_id (
           name,
           position,
-          status
+          identity,
+          title,
+          party
+        ),
+        profiles:user_id (
+          username
         )
       `, { count: "exact" })
       // 승인된 게시글만 조회
