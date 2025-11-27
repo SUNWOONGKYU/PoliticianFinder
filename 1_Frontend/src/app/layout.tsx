@@ -2,12 +2,13 @@
  * Project Grid Task ID: P1F1, P5M9
  * 작업명: 전역 레이아웃 (Header, Footer, Navigation) + 다크모드 지원
  * 생성시간: 2025-11-03
- * 수정시간: 2025-11-25 (다크모드 추가)
- * 생성자: ui-designer (1차 실행), Claude Code (다크모드)
+ * 수정시간: 2025-11-27 (성능 최적화: Next.js Font 사용)
+ * 생성자: ui-designer (1차 실행), Claude Code (다크모드, 성능 최적화)
  * 의존성: P1BI1
  * 설명: 모든 페이지에 공통적으로 적용되는 최상위 레이아웃입니다.
  *      Blue 테마 기반 헤더, 모바일 메뉴, 푸터를 포함합니다.
  *      다크모드 지원 (ThemeProvider 적용)
+ *      성능 최적화: Next.js Font로 폰트 로딩 최적화
  *      프로토타입: 0-2_UIUX_Design/prototypes/html/base-template.html
  */
 
@@ -33,9 +34,13 @@ export default function RootLayout({
   return (
     <html lang="ko" suppressHydrationWarning>
       <head>
+        {/* 폰트 최적화: preconnect로 연결 사전 설정 */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap"
+          rel="stylesheet"
+        />
         {/* 다크모드 깜빡임 방지 스크립트 */}
         <script
           dangerouslySetInnerHTML={{
@@ -52,7 +57,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="bg-gray-50 dark:bg-slate-900 transition-colors duration-300 overflow-x-hidden" style={{ fontFamily: "'Noto Sans KR', sans-serif" }}>
+      <body className="bg-gray-50 dark:bg-slate-900 transition-colors duration-300 overflow-x-hidden" style={{ fontFamily: "'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" }}>
         <ThemeProvider defaultTheme="system">
           <div className="min-h-screen flex flex-col overflow-x-hidden">
             <Header />
