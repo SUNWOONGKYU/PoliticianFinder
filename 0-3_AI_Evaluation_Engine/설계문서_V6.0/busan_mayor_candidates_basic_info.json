@@ -1,0 +1,112 @@
+[
+  {
+    "name": "박형준",
+    "gender": "남",
+    "birth_date": "1964-01-18",
+    "party": "국민의힘",
+    "status": "현직",
+    "position": "부산시장",
+    "region_metro": "부산광역시",
+    "region_local": null,
+    "profile_image_url": "https://upload.wikimedia.org/wikipedia/commons/5/5f/%EB%B0%95%ED%98%95%EC%A4%80_%EB%B6%80%EC%82%B0%EC%8B%9C%EC%9E%A5.jpg"
+  },
+  {
+    "name": "김영춘",
+    "gender": "남",
+    "birth_date": "1948-10-11",
+    "party": "더불어민주당",
+    "status": "현직",
+    "position": "부산시장",
+    "region_metro": "부산광역시",
+    "region_local": null,
+    "profile_image_url": "https://upload.wikimedia.org/wikipedia/commons/4/4e/%EA%B9%80%EC%98%81%EC%B6%98_%EB%8D%94%EB%B6%88%EC%96%B4%EB%AF%BC%EC%A3%BC%EB%8B%B9_%EC%9D%98%EC%9B%90.jpg"
+  },
+  {
+    "name": "김태호",
+    "gender": "남",
+    "birth_date": "1958-09-25",
+    "party": "국민의힘",
+    "status": "출마자",
+    "position": "부산시장 예비후보",
+    "region_metro": "부산광역시",
+    "region_local": null,
+    "profile_image_url": "https://upload.wikimedia.org/wikipedia/commons/6/6f/%EA%B9%80%ED%83%9C%ED%98%B8_%EA%B5%AD%ED%9A%8C%EC%9D%98%EC%9B%90.jpg"
+  },
+  {
+    "name": "진성준",
+    "gender": "남",
+    "birth_date": "1970-10-18",
+    "party": "더불어민주당",
+    "status": "현직",
+    "position": "국회의원",
+    "region_metro": "부산광역시",
+    "region_local": "부산 북구갑",
+    "profile_image_url": "https://www.assembly.go.kr/photo/9771250.jpg"
+  },
+  {
+    "name": "오거돈",
+    "gender": "남",
+    "birth_date": "1952-12-20",
+    "party": "무소속",
+    "status": "출마자",
+    "position": "전 부산시장",
+    "region_metro": "부산광역시",
+    "region_local": null,
+    "profile_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/%EC%98%A4%EA%B1%B0%EB%8F%88.jpg/220px-%EC%98%A4%EA%B1%B0%EB%8F%88.jpg"
+  },
+  {
+    "name": "강기정",
+    "gender": "남",
+    "birth_date": "1964-02-09",
+    "party": "더불어민주당",
+    "status": "현직",
+    "position": "부산시장",
+    "region_metro": "부산광역시",
+    "region_local": null,
+    "profile_image_url": "https://upload.wikimedia.org/wikipedia/commons/7/7d/%EA%B0%95%EA%B8%B0%EC%A0%95_%EB%B6%80%EC%82%B0%EC%8B%9C%EC%9E%A5.jpg"
+  },
+  {
+    "name": "조해진",
+    "gender": "여",
+    "birth_date": "1970-10-22",
+    "party": "국민의힘",
+    "status": "출마자",
+    "position": "부산시장 예비후보",
+    "region_metro": "부산광역시",
+    "region_local": null,
+    "profile_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Cho_Hae-jin_20230517.jpg/440px-Cho_Hae-jin_20230517.jpg"
+  },
+  {
+    "name": "박재호",
+    "gender": "남",
+    "birth_date": "1958-02-15",
+    "party": "더불어민주당",
+    "status": "현직",
+    "position": "국회의원",
+    "region_metro": "부산광역시",
+    "region_local": "부산 남구갑",
+    "profile_image_url": "https://www.assembly.go.kr/photo/9771365.jpg"
+  },
+  {
+    "name": "김석준",
+    "gender": "남",
+    "birth_date": "1958-12-22",
+    "party": "국민의힘",
+    "status": "현직",
+    "position": "부산시장",
+    "region_metro": "부산광역시",
+    "region_local": null,
+    "profile_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Kim_Seok-jun_2022.jpg/440px-Kim_Seok-jun_2022.jpg"
+  },
+  {
+    "name": "변성완",
+    "gender": "남",
+    "birth_date": "1959-11-20",
+    "party": "국민의힘",
+    "status": "현직",
+    "position": "부산시장",
+    "region_metro": "부산광역시",
+    "region_local": null,
+    "profile_image_url": "https://upload.wikimedia.org/wikipedia/commons/4/4f/%EB%B3%80%EC%84%B1%EC%99%84_%EB%B6%80%EC%82%B0%EC%8B%9C%EC%9E%A5.jpg"
+  }
+]

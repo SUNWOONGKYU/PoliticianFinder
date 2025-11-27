@@ -1,0 +1,112 @@
+[
+  {
+    "name": "김동연",
+    "gender": "남",
+    "birth_date": "1957-12-04",
+    "party": "더불어민주당",
+    "status": "현직",
+    "position": "경기도지사",
+    "region_metro": "경기도",
+    "region_local": null,
+    "profile_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Kim_Dong-yeon_2022.jpg/440px-Kim_Dong-yeon_2022.jpg"
+  },
+  {
+    "name": "추미애",
+    "gender": "여",
+    "birth_date": "1962-01-29",
+    "party": "더불어민주당",
+    "status": "현직",
+    "position": "국회의원",
+    "region_metro": "경기도",
+    "region_local": "서울 광진구을",
+    "profile_image_url": "https://upload.wikimedia.org/wikipedia/commons/7/7d/%EC%B6%94%EB%AF%B8%EC%95%A0_%EC%9D%98%EC%9B%90.jpg"
+  },
+  {
+    "name": "한준호",
+    "gender": "남",
+    "birth_date": "1968-02-12",
+    "party": "더불어민주당",
+    "status": "출마자",
+    "position": "경기도지사 예비후보",
+    "region_metro": "경기도",
+    "region_local": null,
+    "profile_image_url": "https://upload.wikimedia.org/wikipedia/commons/7/7c/%ED%95%9C%EC%A4%80%ED%98%B8_%EC%9D%98%EC%9B%90.jpg"
+  },
+  {
+    "name": "김병주",
+    "gender": "남",
+    "birth_date": "1965-03-15",
+    "party": "더불어민주당",
+    "status": "출마자",
+    "position": "경기도지사 예비후보",
+    "region_metro": "경기도",
+    "region_local": null,
+    "profile_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Kim_Byung-joo.jpg/220px-Kim_Byung-joo.jpg"
+  },
+  {
+    "name": "염태영",
+    "gender": "남",
+    "birth_date": "1964-02-07",
+    "party": "더불어민주당",
+    "status": "출마자",
+    "position": "경기도지사 후보",
+    "region_metro": "경기도",
+    "region_local": null,
+    "profile_image_url": "https://upload.wikimedia.org/wikipedia/commons/7/7b/%EC%97%BC%ED%83%9C%EC%98%81_%EC%88%98%EC%9B%90%EC%8B%9C%EC%9E%A5.jpg"
+  },
+  {
+    "name": "유승민",
+    "gender": "남",
+    "birth_date": "1962-03-05",
+    "party": "국민의힘",
+    "status": "출마자",
+    "position": "경기도지사 예비후보",
+    "region_metro": "경기도",
+    "region_local": null,
+    "profile_image_url": "https://upload.wikimedia.org/wikipedia/commons/7/7d/%EC%9C%A0%EC%8A%B9%EB%AF%BC_%ED%9B%84%EB%B3%B4.jpg"
+  },
+  {
+    "name": "원유철",
+    "gender": "남",
+    "birth_date": "1958-12-02",
+    "party": "국민의힘",
+    "status": "현직",
+    "position": "국회의원",
+    "region_metro": "경기도",
+    "region_local": "평택시갑",
+    "profile_image_url": "https://www.assembly.go.kr/photo/9770717.jpg"
+  },
+  {
+    "name": "김선교",
+    "gender": "남",
+    "birth_date": "1964-04-16",
+    "party": "국민의힘",
+    "status": "출마자",
+    "position": "경기도지사 예비후보",
+    "region_metro": "경기도",
+    "region_local": null,
+    "profile_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/%EA%B9%80%EC%84%A0%EA%B5%90_%EA%B5%AD%ED%9A%8C%EC%9D%98%EC%9B%90.jpg/220px-%EA%B9%80%EC%84%A0%EA%B5%90_%EA%B5%AD%ED%9A%8C%EC%9D%98%EC%9B%90.jpg"
+  },
+  {
+    "name": "송석준",
+    "gender": "남",
+    "birth_date": "1968-02-22",
+    "party": "국민의힘",
+    "status": "현직",
+    "position": "국회의원",
+    "region_metro": "경기도",
+    "region_local": "이천시",
+    "profile_image_url": "https://www.assembly.go.kr/photo/9771088.jpg"
+  },
+  {
+    "name": "김성원",
+    "gender": "남",
+    "birth_date": "1968-02-24",
+    "party": "국민의힘",
+    "status": "현직",
+    "position": "국회의원",
+    "region_metro": "경기도",
+    "region_local": "동해시·묵호항선거구",
+    "profile_image_url": "https://www.assembly.go.kr/photo/9771250.jpg"
+  }
+]
