@@ -1,41 +1,89 @@
-// Notices API - 공지사항 관리
+// Notices API - 공지사항 관리 (페이지네이션 지원)
 import { NextRequest, NextResponse } from "next/server";
-import { createClient } from "@supabase/supabase-js";
+import { createClient } from "@/lib/supabase/server";
+import { z } from "zod";
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
+const getNoticesQuerySchema = z.object({
+  page: z.string().nullable().optional().default("1").transform(Number),
+  limit: z.string().nullable().optional().default("10").transform(Number),
+  search: z.string().nullable().optional().default(""),
+});
 
-// GET /api/notices - 공지사항 목록 조회
+// GET /api/notices - 공지사항 목록 조회 (페이지네이션 지원)
 export async function GET(request: NextRequest) {
   try {
-    const supabase = createClient(supabaseUrl, supabaseServiceKey);
+    const supabase = await createClient();
     const searchParams = request.nextUrl.searchParams;
-    const search = searchParams.get("search");
 
-    let query = supabase
+    // 쿼리 파라미터 파싱
+    const queryParams = {
+      page: searchParams.get("page") || "1",
+      limit: searchParams.get("limit") || "10",
+      search: searchParams.get("search") || "",
+    };
+
+    const query = getNoticesQuerySchema.parse(queryParams);
+
+    // 쿼리 빌더 시작
+    let queryBuilder = supabase
       .from("notices")
-      .select("*")
+      .select("*", { count: "exact" })
       .order("created_at", { ascending: false });
 
-    if (search) {
-      query = query.or(`title.ilike.%${search}%,content.ilike.%${search}%`);
+    // 검색 필터
+    if (query.search) {
+      queryBuilder = queryBuilder.or(`title.ilike.%${query.search}%,content.ilike.%${query.search}%`);
     }
 
-    const { data, error } = await query;
+    // 페이지네이션 적용
+    const start = (query.page - 1) * query.limit;
+    const end = start + query.limit - 1;
+    queryBuilder = queryBuilder.range(start, end);
+
+    const { data, count, error } = await queryBuilder;
 
     if (error) {
       console.error("Error fetching notices:", error);
       return NextResponse.json(
-        { success: false, error: error.message },
+        {
+          success: false,
+          error: error.message
+        },
         { status: 500 }
       );
     }
 
-    return NextResponse.json({ success: true, data });
+    const total = count || 0;
+    const totalPages = Math.ceil(total / query.limit);
+
+    return NextResponse.json({
+      success: true,
+      data,
+      pagination: {
+        page: query.page,
+        limit: query.limit,
+        total,
+        totalPages,
+        hasMore: query.page < totalPages
+      },
+      timestamp: new Date().toISOString(),
+    });
   } catch (error) {
+    if (error instanceof z.ZodError) {
+      return NextResponse.json({
+        success: false,
+        error: "유효하지 않은 쿼리 파라미터입니다.",
+        details: error.errors
+      }, { status: 400 });
+    }
+
     console.error("GET /api/notices error:", error);
     return NextResponse.json(
-      { success: false, error: "Internal server error" },
+      {
+        success: false,
+        error: "Internal server error",
+        details: error instanceof Error ? error.message : String(error)
+      },
       { status: 500 }
     );
   }
@@ -44,7 +92,7 @@ export async function GET(request: NextRequest) {
 // POST /api/notices - 공지사항 작성
 export async function POST(request: NextRequest) {
   try {
-    const supabase = createClient(supabaseUrl, supabaseServiceKey);
+    const supabase = await createClient();
     const body = await request.json();
 
     const { title, content, author_id } = body;
@@ -74,11 +122,19 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    return NextResponse.json({ success: true, data }, { status: 201 });
+    return NextResponse.json({
+      success: true,
+      data,
+      timestamp: new Date().toISOString(),
+    }, { status: 201 });
   } catch (error) {
     console.error("POST /api/notices error:", error);
     return NextResponse.json(
-      { success: false, error: "Internal server error" },
+      {
+        success: false,
+        error: "Internal server error",
+        details: error instanceof Error ? error.message : String(error)
+      },
       { status: 500 }
     );
   }
@@ -87,7 +143,7 @@ export async function POST(request: NextRequest) {
 // DELETE /api/notices - 공지사항 삭제
 export async function DELETE(request: NextRequest) {
   try {
-    const supabase = createClient(supabaseUrl, supabaseServiceKey);
+    const supabase = await createClient();
     const searchParams = request.nextUrl.searchParams;
     const id = searchParams.get("id");
 
@@ -108,11 +164,18 @@ export async function DELETE(request: NextRequest) {
       );
     }
 
-    return NextResponse.json({ success: true });
+    return NextResponse.json({
+      success: true,
+      timestamp: new Date().toISOString(),
+    });
   } catch (error) {
     console.error("DELETE /api/notices error:", error);
     return NextResponse.json(
-      { success: false, error: "Internal server error" },
+      {
+        success: false,
+        error: "Internal server error",
+        details: error instanceof Error ? error.message : String(error)
+      },
       { status: 500 }
     );
   }
