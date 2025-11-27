@@ -50,7 +50,7 @@ export default async function HomePage() {
 
   // 병렬로 데이터 가져오기
   const [
-    politiciansResult,
+    politicianDetailsResult,
     politicianPostsResult,
     popularPostsResult,
     noticesResult,
@@ -59,30 +59,32 @@ export default async function HomePage() {
     totalPostsResult,
     totalCommentsResult,
   ] = await Promise.all([
-    // 정치인 순위 데이터 가져오기 (상위 10명)
+    // 정치인 순위 데이터 가져오기 (상위 10명) - politician_details에서 직접 조회
     supabase
-      .from('politicians')
+      .from('politician_details')
       .select(`
-        id,
-        name,
-        party,
-        region,
-        politician_details (
-          status,
-          position,
-          position_type,
-          avg_ai_score,
-          evaluation_grade,
-          user_rating,
-          rating_count,
-          claude_score,
-          chatgpt_score,
-          gemini_score,
-          grok_score,
-          perplexity_score
+        politician_id,
+        status,
+        position,
+        position_type,
+        avg_ai_score,
+        evaluation_grade,
+        user_rating,
+        rating_count,
+        claude_score,
+        chatgpt_score,
+        gemini_score,
+        grok_score,
+        perplexity_score,
+        politicians (
+          id,
+          name,
+          party,
+          region
         )
       `)
-      .order('politician_details(avg_ai_score)', { ascending: false, nullsFirst: false })
+      .not('avg_ai_score', 'is', null)
+      .order('avg_ai_score', { ascending: false })
       .limit(10),
     // 정치인 최근 게시글
     supabase
@@ -112,7 +114,28 @@ export default async function HomePage() {
     supabase.from('comments').select('*', { count: 'exact', head: true }),
   ]);
 
-  const politicians = politiciansResult.data;
+  // 정치인 데이터 매핑 (politician_details -> politicians 구조로 변환)
+  const politicians = politicianDetailsResult.data?.map((detail: any) => ({
+    id: detail.politicians?.id || detail.politician_id,
+    name: detail.politicians?.name || '-',
+    party: detail.politicians?.party || '-',
+    region: detail.politicians?.region || '-',
+    politician_details: [{
+      status: detail.status,
+      position: detail.position,
+      position_type: detail.position_type,
+      avg_ai_score: detail.avg_ai_score,
+      evaluation_grade: detail.evaluation_grade,
+      user_rating: detail.user_rating,
+      rating_count: detail.rating_count,
+      claude_score: detail.claude_score,
+      chatgpt_score: detail.chatgpt_score,
+      gemini_score: detail.gemini_score,
+      grok_score: detail.grok_score,
+      perplexity_score: detail.perplexity_score,
+    }],
+  })) || [];
+
   const politicianPosts = politicianPostsResult.data;
   const popularPosts = popularPostsResult.data;
   const notices = noticesResult.data;
