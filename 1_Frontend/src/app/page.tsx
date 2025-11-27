@@ -12,13 +12,11 @@ import GoogleLoginHandler from '@/components/home/GoogleLoginHandler';
 // 동적 렌더링 강제
 export const dynamic = 'force-dynamic';
 
-// AI 로고 URL (프로토타입과 동일)
+// AI 로고 URL (3개만 사용: Claude, ChatGPT, Grok)
 const AI_LOGOS = {
   claude: 'https://cdn.brandfetch.io/idW5s392j1/w/338/h/338/theme/dark/icon.png?c=1bxid64Mup7aczewSAYMX&t=1738315794862',
   chatgpt: 'https://cdn.brandfetch.io/idR3duQxYl/theme/dark/symbol.svg?c=1bxid64Mup7aczewSAYMX',
-  gemini: 'https://cdn.simpleicons.org/googlegemini/4285F4',
   grok: 'https://cdn.simpleicons.org/x/000000',
-  perplexity: 'https://cdn.simpleicons.org/perplexity/1FB8CD',
 };
 
 // 평가 등급 표시 (프로토타입과 동일)
@@ -103,7 +101,7 @@ export default async function HomePage() {
     supabase.from('comments').select('*', { count: 'exact', head: true }),
   ]);
 
-  // 정치인 데이터 매핑
+  // 정치인 데이터 매핑 (AI 3개만: Claude, ChatGPT, Grok)
   const politicians = politicianDetailsResult.data?.map((politician: any) => ({
     id: politician.id,
     name: politician.name || '-',
@@ -118,9 +116,7 @@ export default async function HomePage() {
     rating_count: 1234,
     claude_score: 850,
     chatgpt_score: 820,
-    gemini_score: 870,
     grok_score: 840,
-    perplexity_score: 860,
   })) || [];
 
   const politicianPosts = politicianPostsResult.data || [];
@@ -184,20 +180,8 @@ export default async function HomePage() {
                         </th>
                         <th className="px-2 py-3 text-center">
                           <div className="flex flex-col items-center gap-1">
-                            <img src={AI_LOGOS.gemini} alt="Gemini" className="h-6 w-6 object-contain" />
-                            <span className="text-xs font-medium text-gray-900">Gemini</span>
-                          </div>
-                        </th>
-                        <th className="px-2 py-3 text-center">
-                          <div className="flex flex-col items-center gap-1">
                             <img src={AI_LOGOS.grok} alt="Grok" className="h-6 w-6 object-contain" />
                             <span className="text-xs font-medium text-gray-900">Grok</span>
-                          </div>
-                        </th>
-                        <th className="px-2 py-3 text-center">
-                          <div className="flex flex-col items-center gap-1">
-                            <img src={AI_LOGOS.perplexity} alt="Perplexity" className="h-6 w-6 object-contain" />
-                            <span className="text-xs font-medium text-gray-900">Perplexity</span>
                           </div>
                         </th>
                         <th className="px-2 py-3 text-center">
@@ -209,7 +193,7 @@ export default async function HomePage() {
                     <tbody className="divide-y divide-gray-200">
                       {politicians.length === 0 ? (
                         <tr>
-                          <td colSpan={12} className="px-4 py-8 text-center text-gray-500">
+                          <td colSpan={10} className="px-4 py-8 text-center text-gray-500">
                             정치인 데이터를 불러오는 중입니다...
                           </td>
                         </tr>
@@ -241,9 +225,7 @@ export default async function HomePage() {
                               </td>
                               <td className="px-2 py-3 text-center font-bold text-accent-600">{politician.claude_score || '-'}</td>
                               <td className="px-2 py-3 text-center font-bold text-accent-600">{politician.chatgpt_score || '-'}</td>
-                              <td className="px-2 py-3 text-center font-bold text-accent-600">{politician.gemini_score || '-'}</td>
                               <td className="px-2 py-3 text-center font-bold text-accent-600">{politician.grok_score || '-'}</td>
-                              <td className="px-2 py-3 text-center font-bold text-accent-600">{politician.perplexity_score || '-'}</td>
                               <td className="px-2 py-3 text-center">
                                 <div className="font-bold text-secondary-600">{renderStars(politician.user_rating)}</div>
                                 <div className="text-gray-900 text-xs">({politician.rating_count}명)</div>
