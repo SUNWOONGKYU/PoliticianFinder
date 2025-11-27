@@ -106,7 +106,7 @@ function formatDate(dateString: string): string {
 // 서버에서 데이터 fetch (병렬)
 async function fetchHomeData() {
   // 요청 헤더에서 호스트 감지
-  const headersList = headers();
+  const headersList = await headers();
   const host = headersList.get('host') || '';
   const protocol = headersList.get('x-forwarded-proto') || 'http';
 
