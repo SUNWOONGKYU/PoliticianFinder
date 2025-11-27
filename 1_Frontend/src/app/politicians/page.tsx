@@ -22,20 +22,16 @@ interface Politician {
   totalScore: number; // 종합평점
   claudeScore: number;
   chatgptScore: number;
-  geminiScore: number;
   grokScore: number;
-  perplexityScore: number;
   userRating: number; // 회원평점 (별점 1-5)
   ratingCount: number; // 참여자수
 }
 
-// AI Logos (프로토타입과 동일)
+// AI Logos (3개만 사용: Claude, ChatGPT, Grok)
 const AI_LOGOS = {
   claude: 'https://cdn.brandfetch.io/idW5s392j1/w/338/h/338/theme/dark/icon.png?c=1bxid64Mup7aczewSAYMX&t=1738315794862',
   chatgpt: 'https://cdn.brandfetch.io/idR3duQxYl/theme/dark/symbol.svg?c=1bxid64Mup7aczewSAYMX',
-  gemini: 'https://cdn.simpleicons.org/googlegemini/000000',
   grok: 'https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/grok-icon.svg',
-  perplexity: 'https://cdn.simpleicons.org/perplexity/000000',
 };
 
 export default function PoliticiansPage() {
@@ -76,9 +72,7 @@ export default function PoliticiansPage() {
             totalScore: p.totalScore || 0,
             claudeScore: p.claudeScore || 0,
             chatgptScore: p.totalScore || 0,
-            geminiScore: p.totalScore || 0,
             grokScore: p.totalScore || 0,
-            perplexityScore: p.totalScore || 0,
             userRating: p.userRating || 0,
             ratingCount: p.ratingCount || 0,
           }));
@@ -313,20 +307,8 @@ export default function PoliticiansPage() {
                   </th>
                   <th className="px-2 py-3 text-center">
                     <div className="flex flex-col items-center gap-1">
-                      <img src={AI_LOGOS.gemini} alt="Gemini" className="h-6 w-6 object-contain" />
-                      <span className="text-xs font-medium text-gray-900">Gemini</span>
-                    </div>
-                  </th>
-                  <th className="px-2 py-3 text-center">
-                    <div className="flex flex-col items-center gap-1">
                       <img src={AI_LOGOS.grok} alt="Grok" className="h-6 w-6 object-contain" />
                       <span className="text-xs font-medium text-gray-900">Grok</span>
-                    </div>
-                  </th>
-                  <th className="px-2 py-3 text-center">
-                    <div className="flex flex-col items-center gap-1">
-                      <img src={AI_LOGOS.perplexity} alt="Perplexity" className="h-6 w-6 object-contain" />
-                      <span className="text-xs font-medium text-gray-900">Perplexity</span>
                     </div>
                   </th>
                   <th className="px-2 py-3 text-center font-bold text-gray-900">회원평점 (참여자수)</th>
@@ -335,13 +317,13 @@ export default function PoliticiansPage() {
               <tbody className="divide-y divide-gray-200">
                 {loading ? (
                   <tr>
-                    <td colSpan={15} className="px-4 py-8 text-center text-gray-500">
+                    <td colSpan={13} className="px-4 py-8 text-center text-gray-500">
                       데이터를 불러오는 중...
                     </td>
                   </tr>
                 ) : filteredPoliticians.length === 0 ? (
                   <tr>
-                    <td colSpan={15} className="px-4 py-8 text-center text-gray-500">
+                    <td colSpan={13} className="px-4 py-8 text-center text-gray-500">
                       검색 결과가 없습니다
                     </td>
                   </tr>
@@ -373,9 +355,7 @@ export default function PoliticiansPage() {
                       <td className="px-2 py-3 text-center font-bold text-accent-600">{p.totalScore}</td>
                       <td className="px-2 py-3 text-center font-bold text-accent-600">{p.claudeScore}</td>
                       <td className="px-2 py-3 text-center font-bold text-accent-600">{p.chatgptScore}</td>
-                      <td className="px-2 py-3 text-center font-bold text-accent-600">{p.geminiScore}</td>
                       <td className="px-2 py-3 text-center font-bold text-accent-600">{p.grokScore}</td>
-                      <td className="px-2 py-3 text-center font-bold text-accent-600">{p.perplexityScore}</td>
                       <td className="px-2 py-3 text-center text-xs">
                         <span className="font-bold text-secondary-600">
                           {renderStars(p.userRating)}
@@ -436,19 +416,9 @@ export default function PoliticiansPage() {
                       <span className="ml-auto font-bold text-accent-600">{p.chatgptScore}</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <img src={AI_LOGOS.gemini} alt="Gemini" className="h-5 w-5 object-contain" />
-                      <span className="text-xs text-gray-900">Gemini</span>
-                      <span className="ml-auto font-bold text-accent-600">{p.geminiScore}</span>
-                    </div>
-                    <div className="flex items-center gap-2">
                       <img src={AI_LOGOS.grok} alt="Grok" className="h-5 w-5 object-contain" />
                       <span className="text-xs text-gray-900">Grok</span>
                       <span className="ml-auto font-bold text-accent-600">{p.grokScore}</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <img src={AI_LOGOS.perplexity} alt="Perplexity" className="h-5 w-5 object-contain" />
-                      <span className="text-xs text-gray-900">Perplexity</span>
-                      <span className="ml-auto font-bold text-accent-600">{p.perplexityScore}</span>
                     </div>
                   </div>
 
