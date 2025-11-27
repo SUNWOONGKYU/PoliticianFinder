@@ -3,18 +3,19 @@
  *
  * 최적화 내용:
  * 1. 서버 컴포넌트로 전환 (SSR)
- * 2. ISR 적용 (60초마다 재검증)
+ * 2. 동적 렌더링 (빌드 시점이 아닌 요청 시점에 렌더링)
  * 3. API 호출 병렬화 (Promise.all)
  * 4. 클라이언트 컴포넌트 분리 (SearchBar, FloatingCTA, GoogleLoginHandler)
  */
 
 import Link from 'next/link';
+import { headers } from 'next/headers';
 import SearchBar from '@/components/home/SearchBar';
 import FloatingCTA from '@/components/home/FloatingCTA';
 import GoogleLoginHandler from '@/components/home/GoogleLoginHandler';
 
-// ISR: 60초마다 재검증
-export const revalidate = 60;
+// 동적 렌더링 강제 (빌드 시 API 호출 실패 방지)
+export const dynamic = 'force-dynamic';
 
 // 타입 정의
 interface Politician {
@@ -104,8 +105,15 @@ function formatDate(dateString: string): string {
 
 // 서버에서 데이터 fetch (병렬)
 async function fetchHomeData() {
-  // 프로덕션 URL 우선순위: NEXT_PUBLIC_BASE_URL > VERCEL_URL > localhost
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
+  // 요청 헤더에서 호스트 감지
+  const headersList = headers();
+  const host = headersList.get('host') || '';
+  const protocol = headersList.get('x-forwarded-proto') || 'http';
+
+  // 프로덕션 URL 우선순위: 헤더 기반 > NEXT_PUBLIC_BASE_URL > VERCEL_URL > localhost
+  const baseUrl = host
+    ? `${protocol}://${host}`
+    : process.env.NEXT_PUBLIC_BASE_URL
     || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : null)
     || 'http://localhost:3000';
 
@@ -117,24 +125,24 @@ async function fetchHomeData() {
   console.log('[Home] Fetching data from:', baseUrl);
 
   try {
-    // 모든 API 호출을 병렬로 실행
+    // 모든 API 호출을 병렬로 실행 (동적 렌더링 - 캐시 없음)
     const [politiciansRes, politicianPostsRes, popularPostsRes, statisticsRes, noticesRes] = await Promise.all([
       fetch(`${baseUrl}/api/politicians?limit=10&page=1`, {
-        next: { revalidate: 60 },
+        cache: 'no-store',
         headers: { 'Content-Type': 'application/json' }
       }),
       fetch(`${baseUrl}/api/posts?has_politician=true&limit=3&page=1`, {
-        next: { revalidate: 60 }
+        cache: 'no-store'
       }),
       fetch(`${baseUrl}/api/posts?limit=3&page=1&sort=-view_count`, {
-        next: { revalidate: 60 }
+        cache: 'no-store'
       }),
       fetch(`${baseUrl}/api/statistics/overview`, {
-        next: { revalidate: 60 },
+        cache: 'no-store',
         headers: { 'Content-Type': 'application/json' }
       }),
       fetch(`${baseUrl}/api/notices?limit=3`, {
-        next: { revalidate: 60 }
+        cache: 'no-store'
       }),
     ]);
 
