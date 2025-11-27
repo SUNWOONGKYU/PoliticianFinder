@@ -104,12 +104,17 @@ function formatDate(dateString: string): string {
 
 // 서버에서 데이터 fetch (병렬)
 async function fetchHomeData() {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
+  // 프로덕션 URL 우선순위: NEXT_PUBLIC_BASE_URL > VERCEL_URL > localhost
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
+    || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : null)
+    || 'http://localhost:3000';
 
   const sampleNicknames = [
     '정치는우리의것', '투명한정치', '민주시민', '시민참여자', '투표하는시민',
     '민생이우선', '변화를원해', '미래세대', '깨어있는시민', '정책분석가'
   ];
+
+  console.log('[Home] Fetching data from:', baseUrl);
 
   try {
     // 모든 API 호출을 병렬로 실행
@@ -132,6 +137,14 @@ async function fetchHomeData() {
         next: { revalidate: 60 }
       }),
     ]);
+
+    console.log('[Home] API responses:', {
+      politicians: politiciansRes.status,
+      politicianPosts: politicianPostsRes.status,
+      popularPosts: popularPostsRes.status,
+      statistics: statisticsRes.status,
+      notices: noticesRes.status,
+    });
 
     // 정치인 데이터 처리
     let politicians: Politician[] = [];
@@ -250,7 +263,8 @@ async function fetchHomeData() {
 
     return { politicians, politicianPosts, popularPosts, statistics, notices };
   } catch (error) {
-    console.error('Error fetching home data:', error);
+    console.error('[Home] Error fetching home data:', error);
+    console.error('[Home] baseUrl was:', baseUrl);
     return {
       politicians: [],
       politicianPosts: [],
