@@ -2,10 +2,11 @@
  * Task ID: P5M9
  * 작업명: M9 - 다크모드 글로벌 스타일
  * 작업일: 2025-11-25
+ * 수정일: 2025-11-27 (성능 최적화: @import 제거, Next.js Font 사용)
  * 설명: 다크모드 CSS 변수 및 전환 효과 정의
  */
 
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap');
+/* 폰트는 layout.tsx에서 Next.js Font로 로드 (렌더 블로킹 방지) */
 
 @tailwind base;
 @tailwind components;

@@ -139,12 +139,13 @@ export default function PoliticiansPage() {
       try {
         setLoading(true);
         // Pagination: 20개씩 가져오기
+        // 성능 최적화: cache 활성화 (60초간 캐싱)
         const response = await fetch(`/api/politicians?limit=${ITEMS_PER_PAGE}&page=${currentPage}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
           },
-          cache: 'no-store', // Disable caching to ensure fresh data
+          next: { revalidate: 60 }, // ISR: 60초마다 재검증
         });
 
         if (!response.ok) {
