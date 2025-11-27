@@ -226,62 +226,55 @@ export default function CommunityPage() {
             <p className="text-gray-500 text-lg">게시글이 없습니다</p>
           </div>
         ) : (
-          <div className="space-y-4">
+          <div className="divide-y">
             {filteredPosts.map((post) => (
-              <div
-                key={post.id}
-                onClick={() => router.push(`/community/posts/${post.id}`)}
-                className="bg-white rounded-lg shadow hover:shadow-md transition cursor-pointer"
-              >
-                <div className="p-4">
-                  {/* Header: Badges + Title */}
-                  <div className="flex items-start gap-2 mb-2">
-                    {post.is_pinned && (
-                      <span className="px-2 py-0.5 bg-red-100 text-red-600 text-xs font-bold rounded">공지</span>
-                    )}
-                    {post.is_hot && (
-                      <span className="px-2 py-0.5 bg-orange-100 text-orange-600 text-xs font-bold rounded">Hot</span>
-                    )}
-                    {post.is_best && (
-                      <span className="px-2 py-0.5 bg-yellow-100 text-yellow-800 text-xs font-bold rounded">Best</span>
-                    )}
-                    <h3 className="font-bold text-gray-900 flex-1">{post.title}</h3>
-                  </div>
-
-                  {/* Content Preview */}
-                  <p className="text-gray-600 text-sm mb-3 line-clamp-2">{post.content}</p>
-
-                  {/* Tags */}
-                  {post.tags && post.tags.length > 0 && (
-                    <div className="flex flex-wrap gap-1 mb-3">
-                      {post.tags.slice(0, 3).map((tag) => (
-                        <span key={tag} className="px-2 py-0.5 bg-gray-100 text-gray-600 text-xs rounded">
-                          #{tag}
-                        </span>
-                      ))}
-                    </div>
-                  )}
-
-                  {/* Footer: Meta Info */}
-                  <div className="flex items-center justify-between text-xs text-gray-500 pt-3 border-t border-gray-100">
-                    <div className="flex items-center gap-4">
-                      {post.author_type === 'politician' ? (
-                        <span className="font-medium text-primary-600">{post.author_name}</span>
-                      ) : (
-                        <span className="font-medium text-purple-600">{post.author_name}</span>
-                      )}
-                      <span>{formatDate(post.created_at)}</span>
-                    </div>
-                    <div className="flex items-center gap-4">
-                      <span>👍 {post.like_count}</span>
-                      <span>👎 {post.dislike_count}</span>
-                      <span>💬 {post.comment_count}</span>
-                      <span>👁 {post.views}</span>
-                      <span>🔗 {post.share_count}</span>
+              <Link key={post.id} href={`/community/posts/${post.id}`}>
+                <div className="p-4 hover:bg-gray-50 cursor-pointer">
+                  <div className="flex items-start justify-between">
+                    <div className="flex-1">
+                      <div className="flex items-center gap-2 mb-1">
+                        {post.is_pinned && (
+                          <span className="px-2 py-0.5 bg-red-100 text-red-600 text-xs font-bold rounded">
+                            공지
+                          </span>
+                        )}
+                        {post.is_hot && (
+                          <span className="px-2 py-0.5 bg-red-100 text-red-600 text-xs font-bold rounded">
+                            Hot
+                          </span>
+                        )}
+                        {post.is_best && (
+                          <span className="px-2 py-0.5 bg-yellow-100 text-yellow-800 text-xs font-bold rounded">
+                            Best
+                          </span>
+                        )}
+                        <h3 className="font-bold text-gray-900">
+                          {post.title}
+                        </h3>
+                      </div>
+                      <p className="text-sm text-gray-600 mb-2 line-clamp-2">
+                        {post.content}
+                      </p>
+                      <div className="flex items-center gap-3 text-xs text-gray-500">
+                        {post.author_type === 'politician' ? (
+                          <span className="font-medium text-primary-600">
+                            {post.author_name} {post.politician_name && `| ${post.politician_name}`}
+                          </span>
+                        ) : (
+                          <span className="font-medium text-purple-600">
+                            {post.author_name}
+                          </span>
+                        )}
+                        <span>{formatDate(post.created_at)}</span>
+                        <span>조회 {post.views}</span>
+                        <span className="text-red-600">👍 {post.like_count}</span>
+                        <span className="text-gray-400">👎 {post.dislike_count}</span>
+                        <span>댓글 {post.comment_count}</span>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         )}
