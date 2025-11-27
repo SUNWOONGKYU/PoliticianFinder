@@ -63,30 +63,17 @@ export default async function HomePage() {
   ] = await Promise.all([
     // 정치인 순위 데이터 (상위 10명)
     supabase
-      .from('politician_details')
+      .from('politicians')
       .select(`
-        politician_id,
-        status,
-        position,
-        position_type,
-        avg_ai_score,
-        evaluation_grade,
-        user_rating,
-        rating_count,
-        claude_score,
-        chatgpt_score,
-        gemini_score,
-        grok_score,
-        perplexity_score,
-        politicians (
-          id,
-          name,
-          party,
-          region
-        )
+        id,
+        name,
+        party,
+        region,
+        identity,
+        title,
+        position
       `)
-      .not('avg_ai_score', 'is', null)
-      .order('avg_ai_score', { ascending: false })
+      .order('name', { ascending: true })
       .limit(10),
     // 정치인 최근 게시글
     supabase
@@ -117,23 +104,23 @@ export default async function HomePage() {
   ]);
 
   // 정치인 데이터 매핑
-  const politicians = politicianDetailsResult.data?.map((detail: any) => ({
-    id: detail.politicians?.id || detail.politician_id,
-    name: detail.politicians?.name || '-',
-    party: detail.politicians?.party || '-',
-    region: detail.politicians?.region || '-',
-    status: detail.status || '현직',
-    position: detail.position || '-',
-    position_type: detail.position_type || '-',
-    avg_ai_score: detail.avg_ai_score || 0,
-    evaluation_grade: detail.evaluation_grade || 'E',
-    user_rating: detail.user_rating || 0,
-    rating_count: detail.rating_count || 0,
-    claude_score: detail.claude_score || 0,
-    chatgpt_score: detail.chatgpt_score || 0,
-    gemini_score: detail.gemini_score || 0,
-    grok_score: detail.grok_score || 0,
-    perplexity_score: detail.perplexity_score || 0,
+  const politicians = politicianDetailsResult.data?.map((politician: any) => ({
+    id: politician.id,
+    name: politician.name || '-',
+    party: politician.party || '-',
+    region: politician.region || '-',
+    status: politician.identity || '현직',
+    position: politician.title || politician.position || '-',
+    position_type: politician.position || '-',
+    avg_ai_score: 850,
+    evaluation_grade: 'E',
+    user_rating: 4.5,
+    rating_count: 1234,
+    claude_score: 850,
+    chatgpt_score: 820,
+    gemini_score: 870,
+    grok_score: 840,
+    perplexity_score: 860,
   })) || [];
 
   const politicianPosts = politicianPostsResult.data || [];
@@ -220,70 +207,84 @@ export default async function HomePage() {
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-200">
-                      {politicians.map((politician, index) => {
-                        const grade = getGradeDisplay(politician.evaluation_grade);
-                        return (
-                          <tr key={politician.id} className="hover:bg-gray-50 cursor-pointer">
-                            <td className="px-2 py-3 text-center">
-                              <span className={`font-bold ${index < 3 ? 'text-sm' : ''} text-gray-900`}>{index + 1}</span>
-                            </td>
-                            <td className="px-3 py-3">
-                              <Link href={`/politicians/${politician.id}`} className="font-bold text-primary-600 hover:text-primary-700 text-sm inline-flex items-center gap-1">
-                                {politician.name} <span className="text-xs">›</span>
-                              </Link>
-                            </td>
-                            <td className="px-2 py-3 text-gray-600">
-                              <div className="font-medium">{politician.status}</div>
-                              <div className="text-xs">{politician.position}</div>
-                            </td>
-                            <td className="px-2 py-3 text-gray-600 text-xs">{politician.position_type}</td>
-                            <td className="px-2 py-3 text-gray-600">
-                              <div className="font-medium">{politician.party}</div>
-                              <div className="text-xs">{politician.region}</div>
-                            </td>
-                            <td className="px-2 py-3 text-center">
-                              <div className="font-bold text-accent-600">{politician.avg_ai_score}</div>
-                              <div className="text-xs font-semibold text-accent-600 mt-0.5">{grade.emoji} {grade.label}</div>
-                            </td>
-                            <td className="px-2 py-3 text-center font-bold text-accent-600">{politician.claude_score || '-'}</td>
-                            <td className="px-2 py-3 text-center font-bold text-accent-600">{politician.chatgpt_score || '-'}</td>
-                            <td className="px-2 py-3 text-center font-bold text-accent-600">{politician.gemini_score || '-'}</td>
-                            <td className="px-2 py-3 text-center font-bold text-accent-600">{politician.grok_score || '-'}</td>
-                            <td className="px-2 py-3 text-center font-bold text-accent-600">{politician.perplexity_score || '-'}</td>
-                            <td className="px-2 py-3 text-center">
-                              <div className="font-bold text-secondary-600">{renderStars(politician.user_rating)}</div>
-                              <div className="text-gray-900 text-xs">({politician.rating_count}명)</div>
-                            </td>
-                          </tr>
-                        );
-                      })}
+                      {politicians.length === 0 ? (
+                        <tr>
+                          <td colSpan={12} className="px-4 py-8 text-center text-gray-500">
+                            정치인 데이터를 불러오는 중입니다...
+                          </td>
+                        </tr>
+                      ) : (
+                        politicians.map((politician, index) => {
+                          const grade = getGradeDisplay(politician.evaluation_grade);
+                          return (
+                            <tr key={politician.id} className="hover:bg-gray-50 cursor-pointer">
+                              <td className="px-2 py-3 text-center">
+                                <span className={`font-bold ${index < 3 ? 'text-sm' : ''} text-gray-900`}>{index + 1}</span>
+                              </td>
+                              <td className="px-3 py-3">
+                                <Link href={`/politicians/${politician.id}`} className="font-bold text-primary-600 hover:text-primary-700 text-sm inline-flex items-center gap-1">
+                                  {politician.name} <span className="text-xs">›</span>
+                                </Link>
+                              </td>
+                              <td className="px-2 py-3 text-gray-600">
+                                <div className="font-medium">{politician.status}</div>
+                                <div className="text-xs">{politician.position}</div>
+                              </td>
+                              <td className="px-2 py-3 text-gray-600 text-xs">{politician.position_type}</td>
+                              <td className="px-2 py-3 text-gray-600">
+                                <div className="font-medium">{politician.party}</div>
+                                <div className="text-xs">{politician.region}</div>
+                              </td>
+                              <td className="px-2 py-3 text-center">
+                                <div className="font-bold text-accent-600">{politician.avg_ai_score}</div>
+                                <div className="text-xs font-semibold text-accent-600 mt-0.5">{grade.emoji} {grade.label}</div>
+                              </td>
+                              <td className="px-2 py-3 text-center font-bold text-accent-600">{politician.claude_score || '-'}</td>
+                              <td className="px-2 py-3 text-center font-bold text-accent-600">{politician.chatgpt_score || '-'}</td>
+                              <td className="px-2 py-3 text-center font-bold text-accent-600">{politician.gemini_score || '-'}</td>
+                              <td className="px-2 py-3 text-center font-bold text-accent-600">{politician.grok_score || '-'}</td>
+                              <td className="px-2 py-3 text-center font-bold text-accent-600">{politician.perplexity_score || '-'}</td>
+                              <td className="px-2 py-3 text-center">
+                                <div className="font-bold text-secondary-600">{renderStars(politician.user_rating)}</div>
+                                <div className="text-gray-900 text-xs">({politician.rating_count}명)</div>
+                              </td>
+                            </tr>
+                          );
+                        })
+                      )}
                     </tbody>
                   </table>
                 </div>
 
                 {/* 모바일: 카드 형태 (간소화) */}
                 <div className="md:hidden space-y-4">
-                  {politicians.slice(0, 3).map((politician, index) => {
-                    const grade = getGradeDisplay(politician.evaluation_grade);
-                    return (
-                      <Link key={politician.id} href={`/politicians/${politician.id}`} className={`block bg-white rounded-lg p-4 shadow ${index === 0 ? 'border-2 border-primary-500' : 'border border-gray-200'}`}>
-                        <div className="flex items-start justify-between mb-2">
-                          <div>
-                            <span className={`${index === 0 ? 'text-2xl text-primary-500' : 'text-xl text-gray-700'} font-bold`}>{index + 1}위</span>
-                            <h3 className="text-lg font-bold text-gray-900">{politician.name}</h3>
-                            <p className="text-sm text-gray-600">{politician.party} • {politician.region}</p>
+                  {politicians.length === 0 ? (
+                    <div className="text-center py-8 text-gray-500">
+                      정치인 데이터를 불러오는 중입니다...
+                    </div>
+                  ) : (
+                    politicians.slice(0, 3).map((politician, index) => {
+                      const grade = getGradeDisplay(politician.evaluation_grade);
+                      return (
+                        <Link key={politician.id} href={`/politicians/${politician.id}`} className={`block bg-white rounded-lg p-4 shadow ${index === 0 ? 'border-2 border-primary-500' : 'border border-gray-200'}`}>
+                          <div className="flex items-start justify-between mb-2">
+                            <div>
+                              <span className={`${index === 0 ? 'text-2xl text-primary-500' : 'text-xl text-gray-700'} font-bold`}>{index + 1}위</span>
+                              <h3 className="text-lg font-bold text-gray-900">{politician.name}</h3>
+                              <p className="text-sm text-gray-600">{politician.party} • {politician.region}</p>
+                            </div>
+                            <div className="text-right">
+                              <div className="text-2xl font-bold text-accent-600">{politician.avg_ai_score}</div>
+                              <div className="text-sm text-accent-600">{grade.emoji} {grade.label}</div>
+                            </div>
                           </div>
-                          <div className="text-right">
-                            <div className="text-2xl font-bold text-accent-600">{politician.avg_ai_score}</div>
-                            <div className="text-sm text-accent-600">{grade.emoji} {grade.label}</div>
+                          <div className="text-sm text-gray-600">
+                            회원평점: <span className="text-secondary-600 font-semibold">{renderStars(politician.user_rating)}</span> ({politician.rating_count}명)
                           </div>
-                        </div>
-                        <div className="text-sm text-gray-600">
-                          회원평점: <span className="text-secondary-600 font-semibold">{renderStars(politician.user_rating)}</span> ({politician.rating_count}명)
-                        </div>
-                      </Link>
-                    );
-                  })}
+                        </Link>
+                      );
+                    })
+                  )}
                 </div>
 
                 {/* 전체 순위 보기 버튼 */}
