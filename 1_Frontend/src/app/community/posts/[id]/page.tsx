@@ -483,7 +483,7 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
                       </>
                     ) : (
                       <>
-                        <Link href={`/users/${comment.userId}/profile`} className="font-medium text-gray-700 hover:text-gray-900 hover:underline">
+                        <Link href={`/users/${comment.userId}/profile`} className="font-medium text-purple-600 hover:text-purple-700 hover:underline">
                           {comment.author}
                         </Link>
                         <span className="text-gray-900" aria-label={`활동 등급 ${comment.memberLevel}`} title={`활동 등급: ${comment.memberLevel}`}>{comment.memberLevel}</span>

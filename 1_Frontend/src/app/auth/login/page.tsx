@@ -96,7 +96,7 @@ export default function LoginPage() {
             {!error && !message && (
               <p className="mt-1 text-sm text-gray-600">
                 계정이 없으신가요?{' '}
-                <Link href="/auth/signup" className="text-primary-600 hover:text-primary-500 font-medium">
+                <Link href="/auth/signup" className="font-medium text-primary-600 hover:text-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-300 rounded px-1">
                   회원가입
                 </Link>
               </p>
@@ -184,12 +184,12 @@ export default function LoginPage() {
                   className="h-5 w-5 text-primary-600 focus:ring-primary-500 border-gray-300 rounded"
                 />
                 <span className="ml-3 text-sm text-gray-700">
-                  로그인 유지
+                  로그인 상태 유지
                 </span>
               </label>
               <Link
                 href="/auth/password-reset"
-                className="text-sm text-primary-600 hover:text-primary-500 min-h-[44px] flex items-center px-2"
+                className="text-sm font-medium text-primary-600 hover:text-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-300 rounded px-1 min-h-[44px] flex items-center"
               >
                 비밀번호 찾기
               </Link>
@@ -205,7 +205,7 @@ export default function LoginPage() {
             </button>
 
             {/* Social Login */}
-            <div className="relative">
+            <div className="pt-2 relative">
               <div className="absolute inset-0 flex items-center">
                 <div className="w-full border-t border-gray-300"></div>
               </div>
@@ -217,7 +217,7 @@ export default function LoginPage() {
             <button
               type="button"
               onClick={handleGoogleLogin}
-              className="w-full inline-flex justify-center items-center gap-2 py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-900 hover:bg-gray-50"
+              className="w-full inline-flex justify-center items-center gap-2 py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-900 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary-300"
             >
               <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
@@ -225,7 +225,7 @@ export default function LoginPage() {
                 <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
                 <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
               </svg>
-              Google로 로그인
+              구글로 계속하기
             </button>
           </form>
         </div>
