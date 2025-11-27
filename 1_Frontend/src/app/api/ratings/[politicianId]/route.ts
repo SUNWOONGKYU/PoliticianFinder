@@ -4,11 +4,10 @@ import { createClient } from '@/lib/supabase/server';
 
 export async function POST(
   request: NextRequest,
-  context: { params: Promise<{ politicianId: string }> }
+  { params }: { params: { politicianId: string } }
 ) {
   try {
     const { rating } = await request.json();
-    const params = await context.params;
     const politicianId = params.politicianId;
 
     // 입력 검증
@@ -32,53 +31,22 @@ export async function POST(
 
     const userId = user.id;
 
-    // 기존 평가 확인
-    const { data: existingRating } = await supabase
+    // 평가 데이터 삽입
+    const { data: ratingData, error: insertError } = await supabase
       .from('politician_ratings')
-      .select('id')
-      .eq('politician_id', politicianId)
-      .eq('user_id', userId)
+      .insert([
+        {
+          politician_id: politicianId, // TEXT 타입이므로 parseInt 제거
+          user_id: userId,
+          rating: rating,
+          created_at: new Date().toISOString()
+        }
+      ])
+      .select()
       .single();
 
-    let ratingData;
-    let insertError;
-
-    if (existingRating) {
-      // 기존 평가가 있으면 업데이트
-      const result = await supabase
-        .from('politician_ratings')
-        .update({
-          rating: rating,
-          updated_at: new Date().toISOString()
-        })
-        .eq('politician_id', politicianId)
-        .eq('user_id', userId)
-        .select()
-        .single();
-
-      ratingData = result.data;
-      insertError = result.error;
-    } else {
-      // 새 평가 삽입
-      const result = await supabase
-        .from('politician_ratings')
-        .insert([
-          {
-            politician_id: politicianId,
-            user_id: userId,
-            rating: rating,
-            created_at: new Date().toISOString()
-          }
-        ])
-        .select()
-        .single();
-
-      ratingData = result.data;
-      insertError = result.error;
-    }
-
     if (insertError) {
-      console.error('Rating save error:', insertError);
+      console.error('Rating insert error:', insertError);
       return NextResponse.json(
         { error: '평가 저장에 실패했습니다.' },
         { status: 500 }

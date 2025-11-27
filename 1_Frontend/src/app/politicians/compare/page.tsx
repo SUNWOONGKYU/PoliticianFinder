@@ -11,7 +11,6 @@
 import { useState, useEffect, useMemo, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
-import Image from 'next/image';
 
 interface PoliticianData {
   id: string;
@@ -193,9 +192,9 @@ function CompareContent() {
                 <div className={`${getPartyColor(p.party)} h-2`} />
                 <div className="p-4">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-16 h-16 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center overflow-hidden relative">
+                    <div className="w-16 h-16 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center overflow-hidden">
                       {p.profileImageUrl ? (
-                        <Image src={p.profileImageUrl} alt={p.name} fill className="object-cover" sizes="64px" />
+                        <img src={p.profileImageUrl} alt={p.name} className="w-full h-full object-cover" />
                       ) : (
                         <svg className="w-10 h-10 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
