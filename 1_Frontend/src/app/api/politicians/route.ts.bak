@@ -2,7 +2,6 @@
 // Supabase 연동 및 Full-text Search 지원
 // P3F4: Field mapping for list view
 // P3BA34: V24.0 AI 점수 통합 - ai_final_scores 테이블 연동
-// Extended filters: identity, position_type, grade
 
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
@@ -17,9 +16,6 @@ const getPoliticiansQuerySchema = z.object({
   position: z.string().nullable().optional(),
   region: z.string().nullable().optional(),
   district: z.string().nullable().optional(),
-  identity: z.string().nullable().optional(), // 신분: 현직/전직/후보자
-  position_type: z.string().nullable().optional(), // 출마직종: 국회의원/광역의원/기초의원
-  grade: z.string().nullable().optional(), // 평가등급: M/D/E/P/G/S/B/I/Tn/L
   verified_only: z.enum(["true", "false"]).nullable().optional().transform(val => val === "true"),
   sort: z.string().nullable().optional().default("name"),
   order: z.enum(["asc", "desc"]).nullable().optional().default("asc"),
@@ -38,9 +34,6 @@ export async function GET(request: NextRequest) {
       position: searchParams.get("position"),
       region: searchParams.get("region"),
       district: searchParams.get("district"),
-      identity: searchParams.get("identity"),
-      position_type: searchParams.get("position_type"),
-      grade: searchParams.get("grade"),
       verified_only: searchParams.get("verified_only"),
       sort: searchParams.get("sort") || "name",
       order: searchParams.get("order") || "asc",
@@ -81,16 +74,6 @@ export async function GET(request: NextRequest) {
       queryBuilder = queryBuilder.eq("district", query.district);
     }
 
-    // 신분 필터 (identity)
-    if (query.identity) {
-      queryBuilder = queryBuilder.eq("identity", query.identity);
-    }
-
-    // 출마직종 필터 (position_type)
-    if (query.position_type) {
-      queryBuilder = queryBuilder.eq("position_type", query.position_type);
-    }
-
     if (query.verified_only) {
       queryBuilder = queryBuilder.not("verified_at", "is", null);
     }
@@ -124,12 +107,12 @@ export async function GET(request: NextRequest) {
 
     // P3BA34: V24.0 AI 점수 조회 (ai_final_scores 테이블)
     const politicianIds = (politicians || []).map((p: any) => p.id);
-    let scoresMap: Record<string, { total_score: number; updated_at: string; grade?: string }> = {};
+    let scoresMap: Record<string, { total_score: number; updated_at: string }> = {};
 
     if (politicianIds.length > 0) {
       const { data: scores, error: scoresError } = await supabase
         .from("ai_final_scores")
-        .select("politician_id, total_score, grade, updated_at")
+        .select("politician_id, total_score, updated_at")
         .in("politician_id", politicianIds);
 
       if (scoresError) {
@@ -141,7 +124,6 @@ export async function GET(request: NextRequest) {
           if (!existing || new Date(score.updated_at) > new Date(existing.updated_at)) {
             scoresMap[score.politician_id] = {
               total_score: score.total_score,
-              grade: score.grade,
               updated_at: score.updated_at
             };
           }
@@ -150,18 +132,10 @@ export async function GET(request: NextRequest) {
     }
 
     // P3F4: Map fields for list view (snake_case → camelCase) with V24.0 scores
-    let mappedPoliticians = (politicians || []).map((p: any) => {
+    const mappedPoliticians = (politicians || []).map((p: any) => {
       const scoreData = scoresMap[p.id];
       return mapPoliticianListFieldsWithScore(p, scoreData?.total_score || 0);
     });
-
-    // 평가등급 필터 적용 (클라이언트 사이드 필터링)
-    if (query.grade) {
-      mappedPoliticians = mappedPoliticians.filter((p: any) => {
-        const scoreData = scoresMap[p.id];
-        return scoreData?.grade === query.grade;
-      });
-    }
 
     return NextResponse.json(
       {
@@ -170,9 +144,9 @@ export async function GET(request: NextRequest) {
         pagination: {
           page: query.page,
           limit: query.limit,
-          total: query.grade ? mappedPoliticians.length : total,
-          totalPages: query.grade ? Math.ceil(mappedPoliticians.length / query.limit) : totalPages,
-          hasMore: query.grade ? false : (query.page < totalPages)
+          total,
+          totalPages,
+          hasMore: query.page < totalPages
         },
         timestamp: new Date().toISOString(),
       },

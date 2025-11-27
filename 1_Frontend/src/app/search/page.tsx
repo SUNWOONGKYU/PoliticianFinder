@@ -1,29 +1,72 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
-interface SearchResult {
+interface Politician {
   id: string;
-  type: 'politician' | 'community';
   name: string;
-  subtext: string;
-  score?: number;
+  party: string;
+  position: string;
+  region: string;
+  claudeScore: number;
+  grade: string;
+  gradeEmoji: string;
+}
+
+interface Post {
+  id: number;
+  title: string;
+  content: string;
+  category: string;
+  author_name: string;
+  author_type: string;
+  politician_name?: string;
+  politician_party?: string;
+  view_count: number;
+  upvotes: number;
+  comment_count: number;
+  created_at: string;
+}
+
+interface SearchResults {
+  politicians: Politician[];
+  posts: Post[];
 }
 
 export default function SearchPage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [filterType, setFilterType] = useState('all');
-  const [results, setResults] = useState<SearchResult[]>([]);
+  const [results, setResults] = useState<SearchResults>({ politicians: [], posts: [] });
   const [isSearching, setIsSearching] = useState(false);
   const [hasSearched, setHasSearched] = useState(false);
 
   const handleSearch = async () => {
-    if (!searchTerm.trim()) return;
+    if (!searchTerm.trim() || searchTerm.trim().length < 2) {
+      alert('검색어는 최소 2자 이상 입력해주세요.');
+      return;
+    }
+
     setIsSearching(true);
     setHasSearched(true);
-    // TODO: API 구현 후 실제 검색 연동
-    setTimeout(() => setIsSearching(false), 500);
+
+    try {
+      const type = filterType === 'politician' ? 'politicians' : filterType === 'community' ? 'posts' : 'all';
+      const response = await fetch(`/api/search?q=${encodeURIComponent(searchTerm)}&type=${type}&limit=20`);
+      const data = await response.json();
+
+      if (data.success) {
+        setResults(data.data);
+      } else {
+        console.error('Search failed:', data.error);
+        setResults({ politicians: [], posts: [] });
+      }
+    } catch (error) {
+      console.error('Search error:', error);
+      setResults({ politicians: [], posts: [] });
+    } finally {
+      setIsSearching(false);
+    }
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
@@ -78,24 +121,78 @@ export default function SearchPage() {
           </div>
         </div>
 
-        <p className="text-gray-600 dark:text-gray-400 mb-4">검색 결과 {results.length}건</p>
+        <p className="text-gray-600 dark:text-gray-400 mb-4">
+          검색 결과 {results.politicians.length + results.posts.length}건
+          {results.politicians.length > 0 && ` (정치인 ${results.politicians.length}건)`}
+          {results.posts.length > 0 && ` (게시글 ${results.posts.length}건)`}
+        </p>
 
         {/* 검색 결과 */}
-        {results.length > 0 ? (
-          <div className="space-y-4">
-            {results.map((result) => (
-              <Link key={result.id} href={result.type === 'politician' ? `/politicians/${result.id}` : `/community/${result.id}`}>
-                <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-4 hover:shadow-lg cursor-pointer min-h-[60px] touch-manipulation">
-                  <div className="flex justify-between">
-                    <div>
-                      <h3 className="text-lg font-bold text-gray-900 dark:text-white">{result.name}</h3>
-                      <p className="text-gray-600 dark:text-gray-400">{result.subtext}</p>
-                    </div>
-                    {result.score && <div className="text-right"><div className="text-xl font-bold text-primary-600">{result.score}</div></div>}
-                  </div>
+        {(results.politicians.length > 0 || results.posts.length > 0) ? (
+          <div className="space-y-6">
+            {/* 정치인 결과 */}
+            {results.politicians.length > 0 && (
+              <div>
+                <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-3">정치인 ({results.politicians.length})</h2>
+                <div className="space-y-3">
+                  {results.politicians.map((politician) => (
+                    <Link key={politician.id} href={`/politicians/${politician.id}`}>
+                      <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-4 hover:shadow-lg cursor-pointer min-h-[60px] touch-manipulation transition">
+                        <div className="flex justify-between items-start">
+                          <div className="flex-1">
+                            <h3 className="text-lg font-bold text-gray-900 dark:text-white">{politician.name}</h3>
+                            <p className="text-sm text-gray-600 dark:text-gray-400">
+                              {politician.position} | {politician.party} | {politician.region}
+                            </p>
+                          </div>
+                          <div className="text-right">
+                            <div className="text-2xl">{politician.gradeEmoji}</div>
+                            <div className="text-sm font-bold text-primary-600">{politician.claudeScore}점</div>
+                          </div>
+                        </div>
+                      </div>
+                    </Link>
+                  ))}
                 </div>
-              </Link>
-            ))}
+              </div>
+            )}
+
+            {/* 게시글 결과 */}
+            {results.posts.length > 0 && (
+              <div>
+                <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-3">게시글 ({results.posts.length})</h2>
+                <div className="space-y-3">
+                  {results.posts.map((post) => (
+                    <Link key={post.id} href={`/community/posts/${post.id}`}>
+                      <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-4 hover:shadow-lg cursor-pointer min-h-[60px] touch-manipulation transition">
+                        <div className="flex items-center gap-2 mb-2">
+                          {post.category === 'politician_post' ? (
+                            <span className="px-2 py-1 bg-primary-100 text-primary-700 text-xs font-semibold rounded">
+                              정치인
+                            </span>
+                          ) : (
+                            <span className="px-2 py-1 bg-purple-100 text-purple-700 text-xs font-semibold rounded">
+                              일반
+                            </span>
+                          )}
+                          <span className="text-sm text-gray-600 dark:text-gray-400">
+                            {post.author_name}
+                            {post.politician_name && ` | ${post.politician_name}`}
+                          </span>
+                        </div>
+                        <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-1">{post.title}</h3>
+                        <p className="text-sm text-gray-600 dark:text-gray-400 line-clamp-2 mb-2">{post.content}</p>
+                        <div className="flex items-center gap-4 text-xs text-gray-500 dark:text-gray-400">
+                          <span>조회 {post.view_count}</span>
+                          <span>👍 {post.upvotes}</span>
+                          <span>💬 {post.comment_count}</span>
+                        </div>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         ) : (
           /* 빈 상태 안내 UI */
