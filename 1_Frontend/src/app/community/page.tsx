@@ -561,21 +561,26 @@ export default function CommunityPage() {
                           ) : (
                             <Link
                               href={`/users/${post.author_id}/profile`}
-                              className="font-semibold text-gray-900 hover:text-secondary-600"
+                              className="font-medium text-purple-600 hover:text-purple-700 hover:underline"
                               onClick={(e) => e.stopPropagation()}
                             >
                               {post.author}
                             </Link>
                           )}
+                          {/* 활동 등급 (ML1~ML5) */}
                           {post.member_level && (
-                            <span className="text-xs text-emerald-700 font-medium">🏰 {post.member_level}</span>
+                            <span className="text-[10px] text-gray-900 font-medium">{post.member_level}</span>
+                          )}
+                          {/* 영향력 등급 (🏰 영주 등) */}
+                          {post.author_type === 'user' && (
+                            <span className="text-[10px] text-emerald-900 font-medium">🏰 영주</span>
                           )}
                         </div>
                         <div className="text-xs text-gray-500">{formatDate(post.created_at)}</div>
                       </div>
                     </div>
 
-                    {/* Follow Button (회원 글만) */}
+                    {/* Follow Button (회원 글만) - 프로토타입 스타일 */}
                     {post.author_type === 'user' && (
                       <button
                         onClick={(e) => {
@@ -583,13 +588,13 @@ export default function CommunityPage() {
                           e.stopPropagation();
                           handleFollow(post.author_id);
                         }}
-                        className={`px-4 py-1.5 text-sm font-medium rounded-lg transition ${
+                        className={`ml-1 px-3 py-1 text-xs font-medium rounded-md transition ${
                           followedUsers.has(post.author_id)
-                            ? 'bg-primary-100 text-primary-700'
-                            : 'text-primary-600 hover:bg-primary-50'
+                            ? 'bg-gray-200 text-gray-600'
+                            : 'border-2 border-emerald-700 text-emerald-900 hover:bg-gray-50'
                         }`}
                       >
-                        {followedUsers.has(post.author_id) ? '팔로잉' : '팔로우'}
+                        {followedUsers.has(post.author_id) ? '✓ 팔로잉' : '+ 팔로우'}
                       </button>
                     )}
                   </div>
