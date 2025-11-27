@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>30명 정치인 평가 순위표 (V24.0)</title>
+    <style>
+        body {
+            font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+            padding: 30px;
+            margin: 0;
+        }
+        h1 {
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #ffd700, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .subtitle {
+            text-align: center;
+            color: #888;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .region-box {
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            padding: 20px;
+            min-width: 320px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        .region-title {
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        .seoul .region-title { background: linear-gradient(90deg, #ff6b6b, #ff8e8e); }
+        .gyeonggi .region-title { background: linear-gradient(90deg, #4ecdc4, #7be3db); }
+        .busan .region-title { background: linear-gradient(90deg, #a855f7, #c084fc); }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th {
+            background: rgba(255,255,255,0.1);
+            padding: 10px 5px;
+            font-size: 12px;
+            border-bottom: 2px solid rgba(255,255,255,0.2);
+        }
+        td {
+            padding: 8px 5px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-size: 13px;
+        }
+        .rank { font-weight: bold; color: #ffd700; }
+        .name { font-weight: bold; }
+        .party-dem { color: #4a90d9; }
+        .party-ppp { color: #e74c3c; }
+        .party-ref { color: #f39c12; }
+        .score { font-weight: bold; font-size: 15px; }
+
+        .grade-M { background: linear-gradient(90deg, #ffd700, #ffed4e); color: #000; font-weight: bold; }
+        .grade-D { background: linear-gradient(90deg, #b9f2ff, #e0f7ff); color: #000; font-weight: bold; }
+        .grade-E { background: linear-gradient(90deg, #50c878, #7dde94); color: #000; font-weight: bold; }
+        .grade-P { background: linear-gradient(90deg, #e5e4e2, #f5f5f5); color: #000; }
+        .grade-G { background: linear-gradient(90deg, #ffd700, #ffed4e); color: #000; }
+        .grade-S { background: linear-gradient(90deg, #c0c0c0, #d8d8d8); color: #000; }
+        .grade-B { background: linear-gradient(90deg, #cd7f32, #daa06d); color: #000; }
+        .grade-I { background: linear-gradient(90deg, #434343, #636363); color: #fff; }
+
+        .grade-cell {
+            padding: 4px 8px;
+            border-radius: 5px;
+            font-size: 11px;
+            display: inline-block;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #666;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <h1>30명 정치인 AI 평가 순위표</h1>
+    <div class="subtitle">V24.0 | Prior 6.0 | 2025-11-26 기준</div>
+
+    <div class="container">
+
+        <div class="region-box seoul">
+            <div class="region-title">서울시장 출마 거론자</div>
+            <table>
+                <tr>
+                    <th>순위</th>
+                    <th>성명</th>
+                    <th>정당</th>
+                    <th>점수</th>
+                    <th>등급</th>
+                </tr>
+
+                <tr>
+                    <td class="rank">1</td>
+                    <td class="name">정원오</td>
+                    <td class="party-dem">민주당</td>
+                    <td class="score">854</td>
+                    <td><span class="grade-cell grade-D">D (Diamond)</span></td>
+                </tr>
+
+                <tr>
+                    <td class="rank">2</td>
+                    <td class="name">박주민</td>
+                    <td class="party-dem">민주당</td>
+                    <td class="score">832</td>
+                    <td><span class="grade-cell grade-E">E (Emerald)</span></td>
+                </tr>
+
+                <tr>
+                    <td class="rank">3</td>
+                    <td class="name">오세훈</td>
+                    <td class="party-ppp">국민의힘</td>
+                    <td class="score">793</td>
+                    <td><span class="grade-cell grade-E">E (Emerald)</span></td>
+                </tr>
+
+                <tr>
+                    <td class="rank">4</td>
+                    <td class="name">조은희</td>
+                    <td class="party-ppp">국민의힘</td>
+                    <td class="score">764</td>
+                    <td><span class="grade-cell grade-E">E (Emerald)</span></td>
+                </tr>
+
+                <tr>
+                    <td class="rank">5</td>
+                    <td class="name">김민석</td>
+                    <td class="party-dem">민주당</td>
+                    <td class="score">758</td>
+                    <td><span class="grade-cell grade-P">P (Platinum)</span></td>
+                </tr>
+
+                <tr>
+                    <td class="rank">6</td>
+                    <td class="name">이준석</td>
+                    <td class="party-ref">개혁신당</td>
+                    <td class="score">744</td>
+                    <td><span class="grade-cell grade-P">P (Platinum)</span></td>
+                </tr>
+
+                <tr>
+                    <td class="rank">7</td>
+                    <td class="name">전현희</td>
+                    <td class="party-dem">민주당</td>
+                    <td class="score">739</td>
+                    <td><span class="grade-cell grade-P">P (Platinum)</span></td>
+                </tr>
+
+                <tr>
+                    <td class="rank">8</td>
+                    <td class="name">나경원</td>
+                    <td class="party-ppp">국민의힘</td>
+                    <td class="score">706</td>
+                    <td><span class="grade-cell grade-P">P (Platinum)</span></td>
+                </tr>
+
+                <tr>
+                    <td class="rank">9</td>
+                    <td class="name">한동훈</td>
+                    <td class="party-ppp">국민의힘</td>
+                    <td class="score">625</td>
+                    <td><span class="grade-cell grade-G">G (Gold)</span></td>
+                </tr>
+
+                <tr>
+                    <td class="rank">10</td>
+                    <td class="name">신동욱</td>
+                    <td class="party-ppp">국민의힘</td>
+                    <td class="score">604</td>
+                    <td><span class="grade-cell grade-G">G (Gold)</span></td>
+                </tr>
+
+            </table>
+        </div>
+
+        <div class="region-box gyeonggi">
+            <div class="region-title">경기도지사 출마 거론자</div>
+            <table>
+                <tr>
+                    <th>순위</th>
+                    <th>성명</th>
+                    <th>정당</th>
+                    <th>점수</th>
+                    <th>등급</th>
+                </tr>
+
+                <tr>
+                    <td class="rank">1</td>
+                    <td class="name">김동연</td>
+                    <td class="party-dem">민주당</td>
+                    <td class="score">853</td>
+                    <td><span class="grade-cell grade-D">D (Diamond)</span></td>
+                </tr>
+
+                <tr>
+                    <td class="rank">2</td>
+                    <td class="name">염태영</td>
+                    <td class="party-dem">민주당</td>
+                    <td class="score">808</td>
+                    <td><span class="grade-cell grade-E">E (Emerald)</span></td>
+                </tr>
+
+                <tr>
+                    <td class="rank">3</td>
+                    <td class="name">유승민</td>
+                    <td class="party-ppp">국민의힘</td>
+                    <td class="score">805</td>
+                    <td><span class="grade-cell grade-E">E (Emerald)</span></td>
+                </tr>
+
+                <tr>
+                    <td class="rank">4</td>
+                    <td class="name">김성원</td>
+                    <td class="party-ppp">국민의힘</td>
+                    <td class="score">804</td>
+                    <td><span class="grade-cell grade-E">E (Emerald)</span></td>
+                </tr>
+
+                <tr>
+                    <td class="rank">5</td>
+                    <td class="name">송석준</td>
+                    <td class="party-ppp">국민의힘</td>
+                    <td class="score">765</td>
+                    <td><span class="grade-cell grade-E">E (Emerald)</span></td>
+                </tr>
+
+                <tr>
+                    <td class="rank">6</td>
+                    <td class="name">한준호</td>
+                    <td class="party-dem">민주당</td>
+                    <td class="score">748</td>
+                    <td><span class="grade-cell grade-P">P (Platinum)</span></td>
+                </tr>
+
+                <tr>
+                    <td class="rank">7</td>
+                    <td class="name">원유철</td>
+                    <td class="party-ppp">국민의힘</td>
+                    <td class="score">721</td>
+                    <td><span class="grade-cell grade-P">P (Platinum)</span></td>
+                </tr>
+
+                <tr>
+                    <td class="rank">8</td>
+                    <td class="name">추미애</td>
+                    <td class="party-dem">민주당</td>
+                    <td class="score">710</td>
+                    <td><span class="grade-cell grade-P">P (Platinum)</span></td>
+                </tr>
+
+                <tr>
+                    <td class="rank">9</td>
+                    <td class="name">김병주</td>
+                    <td class="party-dem">민주당</td>
+                    <td class="score">648</td>
+                    <td><span class="grade-cell grade-G">G (Gold)</span></td>
+                </tr>
+
+                <tr>
+                    <td class="rank">10</td>
+                    <td class="name">김선교</td>
+                    <td class="party-ppp">국민의힘</td>
+                    <td class="score">592</td>
+                    <td><span class="grade-cell grade-S">S (Silver)</span></td>
+                </tr>
+
+            </table>
+        </div>
+
+        <div class="region-box busan">
+            <div class="region-title">부산시장 출마 거론자</div>
+            <table>
+                <tr>
+                    <th>순위</th>
+                    <th>성명</th>
+                    <th>정당</th>
+                    <th>점수</th>
+                    <th>등급</th>
+                </tr>
+
+                <tr>
+                    <td class="rank">1</td>
+                    <td class="name">최인호</td>
+                    <td class="party-dem">민주당</td>
+                    <td class="score">784</td>
+                    <td><span class="grade-cell grade-E">E (Emerald)</span></td>
+                </tr>
+
+                <tr>
+                    <td class="rank">2</td>
+                    <td class="name">이재성</td>
+                    <td class="party-dem">민주당</td>
+                    <td class="score">761</td>
+                    <td><span class="grade-cell grade-E">E (Emerald)</span></td>
+                </tr>
+
+                <tr>
+                    <td class="rank">3</td>
+                    <td class="name">김도읍</td>
+                    <td class="party-ppp">국민의힘</td>
+                    <td class="score">754</td>
+                    <td><span class="grade-cell grade-P">P (Platinum)</span></td>
+                </tr>
+
+                <tr>
+                    <td class="rank">4</td>
+                    <td class="name">박수영</td>
+                    <td class="party-dem">민주당</td>
+                    <td class="score">754</td>
+                    <td><span class="grade-cell grade-P">P (Platinum)</span></td>
+                </tr>
+
+                <tr>
+                    <td class="rank">5</td>
+                    <td class="name">전재수</td>
+                    <td class="party-dem">민주당</td>
+                    <td class="score">751</td>
+                    <td><span class="grade-cell grade-P">P (Platinum)</span></td>
+                </tr>
+
+                <tr>
+                    <td class="rank">6</td>
+                    <td class="name">조경태</td>
+                    <td class="party-ppp">국민의힘</td>
+                    <td class="score">742</td>
+                    <td><span class="grade-cell grade-P">P (Platinum)</span></td>
+                </tr>
+
+                <tr>
+                    <td class="rank">7</td>
+                    <td class="name">이진복</td>
+                    <td class="party-ppp">국민의힘</td>
+                    <td class="score">712</td>
+                    <td><span class="grade-cell grade-P">P (Platinum)</span></td>
+                </tr>
+
+                <tr>
+                    <td class="rank">8</td>
+                    <td class="name">홍순헌</td>
+                    <td class="party-ppp">국민의힘</td>
+                    <td class="score">704</td>
+                    <td><span class="grade-cell grade-P">P (Platinum)</span></td>
+                </tr>
+
+                <tr>
+                    <td class="rank">9</td>
+                    <td class="name">박형준</td>
+                    <td class="party-ppp">국민의힘</td>
+                    <td class="score">702</td>
+                    <td><span class="grade-cell grade-P">P (Platinum)</span></td>
+                </tr>
+
+                <tr>
+                    <td class="rank">10</td>
+                    <td class="name">차정인</td>
+                    <td class="party-dem">민주당</td>
+                    <td class="score">679</td>
+                    <td><span class="grade-cell grade-G">G (Gold)</span></td>
+                </tr>
+
+            </table>
+        </div>
+
+    </div>
+    <div class="footer">
+        PoliticianFinder AI Evaluation Engine V24.0<br>
+        등급체계: M(Master) > D(Diamond) > E(Emerald) > P(Platinum) > G(Gold) > S(Silver) > B(Bronze) > I(Iron)
+    </div>
+</body>
+</html>

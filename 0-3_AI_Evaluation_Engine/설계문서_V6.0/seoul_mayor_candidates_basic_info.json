@@ -1,0 +1,134 @@
+[
+  {
+    "name": "금태섭",
+    "gender": "남",
+    "birth_date": "1964-10-22",
+    "party": "무소속",
+    "status": "출마자",
+    "position": "전 국회의원",
+    "region_metro": "서울특별시",
+    "region_local": null,
+    "profile_image_url": "https://upload.wikimedia.org/wikipedia/commons/7/7c/%EA%B8%88%ED%83%9C%EC%84%AD_%EA%B5%AD%ED%9A%8C%EC%9D%98%EC%9B%90_%ED%94%84%EB%A1%9C%ED%95%84_%EC%82%AC%EC%A7%84.png"
+  },
+  {
+    "name": "나경원",
+    "gender": "여",
+    "birth_date": "1963-09-22",
+    "party": "국민의힘",
+    "status": "출마자",
+    "position": "국회의원",
+    "region_metro": "서울특별시",
+    "region_local": null,
+    "profile_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/%EB%82%98%EA%B2%BD%EC%9B%90_%EC%A0%9C21%EB%8C%80_%EA%B5%AD%ED%9A%8C%EC%9D%98%EC%9B%90.jpg/220px-%EB%82%98%EA%B2%BD%EC%9B%90_%EC%A0%9C21%EB%8C%80_%EA%B5%AD%ED%9A%8C%EC%9D%98%EC%9B%90.jpg"
+  },
+  {
+    "name": "박주민",
+    "gender": "남",
+    "birth_date": "1976-01-18",
+    "party": "더불어민주당",
+    "status": "출마자",
+    "position": "국회의원",
+    "region_metro": "서울특별시",
+    "region_local": null,
+    "profile_image_url": "https://upload.wikimedia.org/wikipedia/commons/8/8f/%EB%B0%95%EC%A3%BC%EB%AF%BC_%EA%B5%AD%ED%9A%8C%EC%9D%98%EC%9B%90.jpg"
+  },
+  {
+    "name": "박홍근",
+    "gender": "남",
+    "birth_date": "1964-12-22",
+    "party": "더불어민주당",
+    "status": "현직",
+    "position": "국회의원",
+    "region_metro": "서울특별시",
+    "region_local": null,
+    "profile_image_url": "https://upload.wikimedia.org/wikipedia/commons/5/5a/%EB%B0%95%ED%99%8D%EA%B7%BC_%EA%B5%AD%ED%9A%8C%EC%9D%98%EC%9B%90.jpg"
+  },
+  {
+    "name": "서영교",
+    "gender": "여",
+    "birth_date": "1964-12-23",
+    "party": "더불어민주당",
+    "status": "현직",
+    "position": "국회의원",
+    "region_metro": "서울특별시",
+    "region_local": null,
+    "profile_image_url": "https://upload.wikimedia.org/wikipedia/commons/7/7b/%EC%84%9C%EC%98%81%EA%B5%90_%EC%9D%98%EC%9B%90.jpg"
+  },
+  {
+    "name": "안철수",
+    "gender": "남",
+    "birth_date": "1962-02-21",
+    "party": "국민의힘",
+    "status": "출마자",
+    "position": "국회의원",
+    "region_metro": "서울특별시",
+    "region_local": null,
+    "profile_image_url": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Ahn_Cheol-soo_2022.jpg"
+  },
+  {
+    "name": "오세훈",
+    "gender": "남",
+    "birth_date": "1961-12-04",
+    "party": "국민의힘",
+    "status": "현직",
+    "position": "서울시장",
+    "region_metro": "서울특별시",
+    "region_local": null,
+    "profile_image_url": "https://upload.wikimedia.org/wikipedia/commons/6/6c/%EC%98%A4%EC%84%B8%ED%9B%88_%EC%84%9C%EC%9A%B8%EC%8B%9C%EC%9E%A5.jpg"
+  },
+  {
+    "name": "이준석",
+    "gender": "남",
+    "birth_date": "1984-02-11",
+    "party": "개혁신당",
+    "status": "출마자",
+    "position": "국회의원",
+    "region_metro": "서울특별시",
+    "region_local": null,
+    "profile_image_url": "https://upload.wikimedia.org/wikipedia/commons/8/8f/%EC%9D%B4%EC%A4%80%EC%84%9D_%EA%B5%AD%ED%9A%8C%EC%9D%98%EC%9B%90_%ED%94%84%EB%A1%9C%ED%95%84_%EC%82%AC%EC%A7%84.jpg"
+  },
+  {
+    "name": "정원오",
+    "gender": "남",
+    "birth_date": "1964-10-22",
+    "party": "더불어민주당",
+    "status": "현직",
+    "position": "서울시장",
+    "region_metro": "서울특별시",
+    "region_local": null,
+    "profile_image_url": "https://upload.wikimedia.org/wikipedia/commons/7/7b/%EC%A0%95%EC%9B%90%EC%98%A4_%EC%84%9C%EC%9A%B8%EC%8B%9C%EC%9E%A5.jpg"
+  },
+  {
+    "name": "정청래",
+    "gender": "남",
+    "birth_date": "1964-02-09",
+    "party": "더불어민주당",
+    "status": "출마자",
+    "position": "국회의원",
+    "region_metro": "서울특별시",
+    "region_local": null,
+    "profile_image_url": "https://upload.wikimedia.org/wikipedia/commons/4/4f/%EC%A0%95%EC%B2%AD%EB%9E%98_%EA%B5%AD%ED%9A%8C%EC%9D%98%EC%9B%90.jpg"
+  },
+  {
+    "name": "한동훈",
+    "gender": "남",
+    "birth_date": "1970-08-04",
+    "party": "국민의힘",
+    "status": "출마자",
+    "position": "서울시장 예비후보",
+    "region_metro": "서울특별시",
+    "region_local": null,
+    "profile_image_url": "https://upload.wikimedia.org/wikipedia/commons/7/7e/한동훈_프로필_사진.jpg"
+  },
+  {
+    "name": "홍익표",
+    "gender": "남",
+    "birth_date": "1964-12-23",
+    "party": "더불어민주당",
+    "status": "현직",
+    "position": "국회의원",
+    "region_metro": "서울특별시",
+    "region_local": null,
+    "profile_image_url": "https://upload.wikimedia.org/wikipedia/commons/7/7d/%ED%99%8D%EC%9D%B5%ED%91%9C_%EC%9D%98%EC%9B%90.jpg"
+  }
+]

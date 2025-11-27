@@ -1,0 +1,112 @@
+[
+  {
+    "name": "김은혜",
+    "gender": "여",
+    "birth_date": "1967-03-24",
+    "party": "국민의힘",
+    "status": "현직",
+    "position": "경기도지사",
+    "region_metro": "경기도",
+    "region_local": null,
+    "profile_image_url": "https://upload.wikimedia.org/wikipedia/commons/7/7d/%EA%B9%80%EC%9D%80%ED%98%9C_%EC%A0%9C%EC%9C%A8%EC%9E%90%EC%B2%B4%EC%A7%80%EC%82%AC.jpg"
+  },
+  {
+    "name": "박용진",
+    "gender": "남",
+    "birth_date": "1971-01-18",
+    "party": "더불어민주당",
+    "status": "현직",
+    "position": "국회의원",
+    "region_metro": "서울특별시",
+    "region_local": "서울 동대문구을",
+    "profile_image_url": "https://upload.wikimedia.org/wikipedia/commons/7/7c/%EB%B0%95%EC%9A%A9%EC%A7%84_%EA%B5%AD%ED%9A%8C%EC%9D%98%EC%9B%90_%ED%94%84%EB%A1%9C%ED%95%84_%EC%82%AC%EC%A7%84.png"
+  },
+  {
+    "name": "김동연",
+    "gender": "남",
+    "birth_date": "1957-12-04",
+    "party": "무소속",
+    "status": "현직",
+    "position": "경기도지사",
+    "region_metro": "경기도",
+    "region_local": null,
+    "profile_image_url": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Kim_Dong-yeon_in_2018.jpg"
+  },
+  {
+    "name": "최원영",
+    "gender": "남",
+    "birth_date": "1964-12-07",
+    "party": "개혁신당",
+    "status": "출마자",
+    "position": "국회의원",
+    "region_metro": "경기도",
+    "region_local": "수원병",
+    "profile_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/%EC%B5%9C%EC%9B%90%EC%98%81_%EA%B5%AD%ED%9A%8C%EC%9D%98%EC%9B%90.jpg/220px-%EC%B5%9C%EC%9B%90%EC%98%81_%EA%B5%AD%ED%9A%8C%EC%9D%98%EC%9B%90.jpg"
+  },
+  {
+    "name": "염태영",
+    "gender": "남",
+    "birth_date": "1964-02-07",
+    "party": "무소속",
+    "status": "현직",
+    "position": "경기도지사",
+    "region_metro": "경기도",
+    "region_local": null,
+    "profile_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/%EC%97%BC%ED%83%9C%EC%98%81_%EA%B2%BD%EA%B8%B0%EB%8F%84%EC%A7%80%EC%82%AC.jpg/220px-%EC%97%BC%ED%83%9C%EC%98%81_%EA%B2%BD%EA%B8%B0%EB%8F%84%EC%A7%80%EC%82%AC.jpg"
+  },
+  {
+    "name": "김경협",
+    "gender": "남",
+    "birth_date": "1960-12-04",
+    "party": "더불어민주당",
+    "status": "현직",
+    "position": "국회의원",
+    "region_metro": "경기도",
+    "region_local": "부천시갑",
+    "profile_image_url": "https://www.assembly.go.kr/photo/9771296.jpg"
+  },
+  {
+    "name": "김진표",
+    "gender": "남",
+    "birth_date": "1948-12-04",
+    "party": "더불어민주당",
+    "status": "현직",
+    "position": "전 국회의장",
+    "region_metro": "경기도",
+    "region_local": null,
+    "profile_image_url": "https://upload.wikimedia.org/wikipedia/commons/7/7f/%EA%B9%80%EC%A7%84%ED%91%9C_%EA%B5%AD%ED%9A%8C%EC%9D%98%EC%9B%90.jpg"
+  },
+  {
+    "name": "장경태",
+    "gender": "남",
+    "birth_date": "1970-12-05",
+    "party": "더불어민주당",
+    "status": "출마자",
+    "position": "국회의원",
+    "region_metro": "경기도",
+    "region_local": "성남시분당구을",
+    "profile_image_url": "https://www.assembly.go.kr/photo/9771250.jpg"
+  },
+  {
+    "name": "정성호",
+    "gender": "남",
+    "birth_date": "1964-12-03",
+    "party": "더불어민주당",
+    "status": "출마자",
+    "position": "국회의원",
+    "region_metro": "경기도",
+    "region_local": "원주시갑",
+    "profile_image_url": "https://www.assembly.go.kr/photo/9771365.jpg"
+  },
+  {
+    "name": "김한정",
+    "gender": "남",
+    "birth_date": "1970-02-07",
+    "party": "더불어민주당",
+    "status": "출마자",
+    "position": "국회의원",
+    "region_metro": "경기도",
+    "region_local": "안산시상록구을",
+    "profile_image_url": "https://www.assembly.go.kr/photo/9771250.jpg"
+  }
+]
