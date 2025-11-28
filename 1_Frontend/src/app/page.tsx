@@ -106,7 +106,8 @@ export default function Home() {
           // API 데이터를 홈 페이지 형식으로 변환
           const transformedData = data.data.map((p: any, index: number) => {
             // fieldMapper에서 camelCase로 변환된 필드 사용
-            const aiScore = p.totalScore || p.claudeScore || 0;
+            const totalScore = p.totalScore || p.claudeScore || 0;
+
             return {
               id: p.id || index + 1,
               rank: index + 1,
@@ -117,12 +118,13 @@ export default function Home() {
               office: p.position || '국회의원',
               party: p.party || '',
               region: p.region || '',
-              totalScore: aiScore,
-              grade: p.grade || calculateGrade(aiScore),
-              gradeEmoji: p.gradeEmoji || getGradeEmoji(p.grade || calculateGrade(aiScore)),
-              claude: aiScore,
-              chatgpt: aiScore,
-              grok: aiScore,
+              totalScore: totalScore,
+              grade: p.grade || calculateGrade(totalScore),
+              gradeEmoji: p.gradeEmoji || getGradeEmoji(p.grade || calculateGrade(totalScore)),
+              // API에서 온 개별 AI 점수 사용 (없으면 totalScore 사용)
+              claude: p.claude !== undefined ? p.claude : totalScore,
+              chatgpt: p.chatgpt !== undefined ? p.chatgpt : totalScore,
+              grok: p.grok !== undefined ? p.grok : totalScore,
               userRating: '★'.repeat(Math.round(p.userRating || 0)) + '☆'.repeat(5 - Math.round(p.userRating || 0)),
               userCount: p.ratingCount || 0,
             };
