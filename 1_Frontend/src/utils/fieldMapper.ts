@@ -165,8 +165,14 @@ export function calculateV24Grade(score: number): { grade: string; gradeEmoji: s
  * Map politician list fields with V24.0 score
  * P3BA34: ai_final_scores 테이블의 점수를 사용하여 등급 계산
  */
-export function mapPoliticianListFieldsWithScore(dbRecord: any, v24Score: number) {
-  const gradeInfo = calculateV24Grade(v24Score);
+export function mapPoliticianListFieldsWithScore(
+  dbRecord: any,
+  totalScore: number,
+  claudeScore?: number,
+  chatgptScore?: number,
+  grokScore?: number
+) {
+  const gradeInfo = calculateV24Grade(totalScore);
 
   return {
     id: dbRecord.id,
@@ -177,13 +183,12 @@ export function mapPoliticianListFieldsWithScore(dbRecord: any, v24Score: number
     party: dbRecord.party || '',
     region: dbRecord.region || '',
 
-    // V24.0 AI scores (점수 기반 등급 계산)
-    // V24.0에서는 Claude AI만 사용하므로 모든 AI 점수를 동일하게 설정
-    claudeScore: v24Score,
-    totalScore: v24Score,
-    claude: v24Score,      // 홈 화면 테이블용
-    chatgpt: v24Score,     // 홈 화면 테이블용
-    grok: v24Score,        // 홈 화면 테이블용
+    // V24.0 AI scores (개별 AI 점수 사용)
+    claudeScore: claudeScore || totalScore,
+    totalScore: totalScore,
+    claude: claudeScore || totalScore,       // 홈 화면 테이블용
+    chatgpt: chatgptScore || totalScore,     // 홈 화면 테이블용
+    grok: grokScore || totalScore,           // 홈 화면 테이블용
     grade: gradeInfo.grade,
     gradeEmoji: gradeInfo.gradeEmoji,
     gradeName: gradeInfo.gradeName,
