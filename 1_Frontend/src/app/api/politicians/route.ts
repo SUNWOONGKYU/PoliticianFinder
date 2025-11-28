@@ -95,13 +95,22 @@ export async function GET(request: NextRequest) {
       queryBuilder = queryBuilder.not("verified_at", "is", null);
     }
 
-    // 정렬 적용
-    const isDescending = query.order === "desc";
-    queryBuilder = queryBuilder.order(query.sort || "name", { ascending: !isDescending });
+    // 정렬 적용 (totalScore는 클라이언트 사이드에서 처리하므로 DB 정렬 스킵)
+    if (query.sort !== "totalScore") {
+      const isDescending = query.order === "desc";
+      queryBuilder = queryBuilder.order(query.sort || "name", { ascending: !isDescending });
+    }
 
-    // 페이지네이션 적용
-    const start = (query.page - 1) * query.limit;
-    const end = start + query.limit - 1;
+    // totalScore 정렬일 때는 더 많은 데이터를 가져와서 클라이언트에서 정렬 후 limit 적용
+    let start = (query.page - 1) * query.limit;
+    let end = start + query.limit - 1;
+
+    if (query.sort === "totalScore") {
+      // 전체 데이터를 가져와서 클라이언트에서 정렬
+      start = 0;
+      end = 999; // 충분히 큰 수
+    }
+
     queryBuilder = queryBuilder.range(start, end);
 
     // 데이터 가져오기
@@ -214,6 +223,11 @@ export async function GET(request: NextRequest) {
         const scoreB = b.totalScore || 0;
         return query.order === 'desc' ? scoreB - scoreA : scoreA - scoreB;
       });
+
+      // 정렬 후 페이지네이션 적용
+      const startIdx = (query.page - 1) * query.limit;
+      const endIdx = startIdx + query.limit;
+      mappedPoliticians = mappedPoliticians.slice(startIdx, endIdx);
     }
 
     return NextResponse.json(
@@ -223,9 +237,9 @@ export async function GET(request: NextRequest) {
         pagination: {
           page: query.page,
           limit: query.limit,
-          total: query.grade ? mappedPoliticians.length : total,
-          totalPages: query.grade ? Math.ceil(mappedPoliticians.length / query.limit) : totalPages,
-          hasMore: query.grade ? false : (query.page < totalPages)
+          total: query.grade || query.sort === 'totalScore' ? count || 0 : total,
+          totalPages: query.grade || query.sort === 'totalScore' ? Math.ceil((count || 0) / query.limit) : totalPages,
+          hasMore: query.grade || query.sort === 'totalScore' ? false : (query.page < totalPages)
         },
         timestamp: new Date().toISOString(),
       },
