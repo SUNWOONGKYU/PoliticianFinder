@@ -168,8 +168,10 @@ export async function GET(request: NextRequest) {
           } else if (score.ai_name === "Grok") {
             politicianScores.grok_score = score.total_score;
           }
+        });
 
-          // 평균 계산 (3개 AI의 평균)
+        // 모든 점수 저장 후 평균 계산
+        Object.values(scoresMap).forEach((politicianScores) => {
           const validScores = [
             politicianScores.claude_score,
             politicianScores.chatgpt_score,
