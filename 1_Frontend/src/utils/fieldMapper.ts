@@ -183,12 +183,12 @@ export function mapPoliticianListFieldsWithScore(
     party: dbRecord.party || '',
     region: dbRecord.region || '',
 
-    // V24.0 AI scores (개별 AI 점수 사용)
-    claudeScore: claudeScore || totalScore,
+    // V24.0 AI scores (개별 AI 점수 - 없으면 0으로 공란 표시)
+    claudeScore: claudeScore || 0,
     totalScore: totalScore,
-    claude: claudeScore || totalScore,       // 홈 화면 테이블용
-    chatgpt: chatgptScore || totalScore,     // 홈 화면 테이블용
-    grok: grokScore || totalScore,           // 홈 화면 테이블용
+    claude: claudeScore || 0,       // 홈 화면 테이블용 - 없으면 0
+    chatgpt: chatgptScore || 0,     // 홈 화면 테이블용 - 없으면 0
+    grok: grokScore || 0,           // 홈 화면 테이블용 - 없으면 0
     grade: gradeInfo.grade,
     gradeEmoji: gradeInfo.gradeEmoji,
     gradeName: gradeInfo.gradeName,
