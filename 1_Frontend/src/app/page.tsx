@@ -708,9 +708,15 @@ export default function Home() {
                         <th className="px-2 py-3 text-left font-bold text-gray-900 w-28">지역</th>
                         <th className="px-2 py-3 text-center font-bold text-gray-900 w-24">평가등급</th>
                         <th className="px-2 py-3 text-center font-bold text-gray-900 w-20">종합평점</th>
-                        <th className="px-2 py-3 text-center font-bold text-gray-900 w-16">Claude</th>
-                        <th className="px-2 py-3 text-center font-bold text-gray-900 w-16">ChatGPT</th>
-                        <th className="px-2 py-3 text-center font-bold text-gray-900 w-16">Grok</th>
+                        <th className="px-2 py-3 text-center font-bold text-gray-900 w-20">
+                          <img src={aiLogos.claude} alt="Claude" className="h-4 w-4 object-contain rounded inline-block" />
+                        </th>
+                        <th className="px-2 py-3 text-center font-bold text-gray-900 w-20">
+                          <img src={aiLogos.chatgpt} alt="ChatGPT" className="h-4 w-4 object-contain inline-block" />
+                        </th>
+                        <th className="px-2 py-3 text-center font-bold text-gray-900 w-20">
+                          <img src={aiLogos.grok} alt="Grok" className="h-4 w-4 object-contain inline-block" />
+                        </th>
                         <th className="px-2 py-3 text-center font-bold text-gray-900 w-20">회원평가</th>
                       </tr>
                     </thead>
