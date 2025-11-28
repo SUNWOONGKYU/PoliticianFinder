@@ -756,15 +756,17 @@ export default function Home() {
                           <td className="px-2 py-3 text-center text-xs font-semibold text-accent-600">
                             {p.gradeEmoji} {p.grade}
                           </td>
-                          <td className="px-2 py-3 text-center font-bold text-accent-600">{p.totalScore}</td>
                           <td className="px-2 py-3 text-center font-bold text-accent-600">
-                            {p.claude}
+                            {p.totalScore > 0 ? p.totalScore : '-'}
                           </td>
                           <td className="px-2 py-3 text-center font-bold text-accent-600">
-                            {p.chatgpt}
+                            {p.claude > 0 ? p.claude : '-'}
                           </td>
                           <td className="px-2 py-3 text-center font-bold text-accent-600">
-                            {p.grok}
+                            {p.chatgpt > 0 ? p.chatgpt : '-'}
+                          </td>
+                          <td className="px-2 py-3 text-center font-bold text-accent-600">
+                            {p.grok > 0 ? p.grok : '-'}
                           </td>
                           <td className="px-2 py-3 text-center text-xs">
                             <span className="font-bold text-secondary-600">{p.userRating}</span>
@@ -897,7 +899,7 @@ export default function Home() {
                               className="h-5 w-5 object-contain rounded"
                             />
                             <span className="text-xs text-gray-900">Claude</span>
-                            <span className="ml-auto font-bold text-accent-600">{p.claude}</span>
+                            <span className="ml-auto font-bold text-accent-600">{p.claude > 0 ? p.claude : '-'}</span>
                           </div>
                           <div className="flex items-center gap-2">
                             <img
@@ -906,12 +908,12 @@ export default function Home() {
                               className="h-5 w-5 object-contain"
                             />
                             <span className="text-xs text-gray-900">ChatGPT</span>
-                            <span className="ml-auto font-bold text-accent-600">{p.chatgpt}</span>
+                            <span className="ml-auto font-bold text-accent-600">{p.chatgpt > 0 ? p.chatgpt : '-'}</span>
                           </div>
                           <div className="flex items-center gap-2">
                             <img src={aiLogos.grok} alt="Grok" className="h-5 w-5 object-contain" />
                             <span className="text-xs text-gray-900">Grok</span>
-                            <span className="ml-auto font-bold text-accent-600">{p.grok}</span>
+                            <span className="ml-auto font-bold text-accent-600">{p.grok > 0 ? p.grok : '-'}</span>
                           </div>
                         </div>
 
