@@ -124,27 +124,62 @@ export async function GET(request: NextRequest) {
 
     // P3BA34: V24.0 AI 점수 조회 (ai_final_scores 테이블)
     const politicianIds = (politicians || []).map((p: any) => p.id);
-    let scoresMap: Record<string, { total_score: number; updated_at: string; grade?: string }> = {};
+    let scoresMap: Record<string, {
+      claude_score: number;
+      chatgpt_score: number;
+      grok_score: number;
+      total_score: number;
+      grade?: string;
+      updated_at: string;
+    }> = {};
 
     if (politicianIds.length > 0) {
       const { data: scores, error: scoresError } = await supabase
         .from("ai_final_scores")
-        .select("politician_id, total_score, grade_code, updated_at")
+        .select("politician_id, ai_name, total_score, grade_code, updated_at")
         .in("politician_id", politicianIds)
-        .eq("ai_name", "Claude");  // Claude AI 점수만 사용
+        .in("ai_name", ["Claude", "ChatGPT", "Grok"]);  // 3개 AI 점수 모두 가져오기
 
       if (scoresError) {
         console.error("AI final scores query error:", scoresError);
       } else if (scores) {
-        // politician_id별로 가장 최신 점수만 사용
+        // politician_id별로 AI별 점수 매핑
         scores.forEach((score: any) => {
-          const existing = scoresMap[score.politician_id];
-          if (!existing || new Date(score.updated_at) > new Date(existing.updated_at)) {
+          if (!scoresMap[score.politician_id]) {
             scoresMap[score.politician_id] = {
-              total_score: score.total_score,
-              grade: score.grade_code,  // grade_code 사용
+              claude_score: 0,
+              chatgpt_score: 0,
+              grok_score: 0,
+              total_score: 0,
+              grade: undefined,
               updated_at: score.updated_at
             };
+          }
+
+          const politicianScores = scoresMap[score.politician_id];
+
+          // AI별로 점수 저장
+          if (score.ai_name === "Claude") {
+            politicianScores.claude_score = score.total_score;
+            // Claude 점수를 기준으로 grade 설정
+            politicianScores.grade = score.grade_code;
+          } else if (score.ai_name === "ChatGPT") {
+            politicianScores.chatgpt_score = score.total_score;
+          } else if (score.ai_name === "Grok") {
+            politicianScores.grok_score = score.total_score;
+          }
+
+          // 평균 계산 (3개 AI의 평균)
+          const validScores = [
+            politicianScores.claude_score,
+            politicianScores.chatgpt_score,
+            politicianScores.grok_score
+          ].filter(s => s > 0);
+
+          if (validScores.length > 0) {
+            politicianScores.total_score = Math.round(
+              validScores.reduce((a, b) => a + b, 0) / validScores.length
+            );
           }
         });
       }
@@ -153,7 +188,13 @@ export async function GET(request: NextRequest) {
     // P3F4: Map fields for list view (snake_case → camelCase) with V24.0 scores
     let mappedPoliticians = (politicians || []).map((p: any) => {
       const scoreData = scoresMap[p.id];
-      return mapPoliticianListFieldsWithScore(p, scoreData?.total_score || 0);
+      return mapPoliticianListFieldsWithScore(
+        p,
+        scoreData?.total_score || 0,
+        scoreData?.claude_score || 0,
+        scoreData?.chatgpt_score || 0,
+        scoreData?.grok_score || 0
+      );
     });
 
     // 평가등급 필터 적용 (클라이언트 사이드 필터링)
