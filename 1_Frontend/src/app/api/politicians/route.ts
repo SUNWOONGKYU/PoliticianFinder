@@ -207,6 +207,15 @@ export async function GET(request: NextRequest) {
       });
     }
 
+    // totalScore 기준 정렬 (클라이언트 사이드)
+    if (query.sort === 'totalScore') {
+      mappedPoliticians = mappedPoliticians.sort((a: any, b: any) => {
+        const scoreA = a.totalScore || 0;
+        const scoreB = b.totalScore || 0;
+        return query.order === 'desc' ? scoreB - scoreA : scoreA - scoreB;
+      });
+    }
+
     return NextResponse.json(
       {
         success: true,

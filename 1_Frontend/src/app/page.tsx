@@ -88,7 +88,7 @@ export default function Home() {
     const fetchTopPoliticians = async () => {
       try {
         setLoading(true);
-        const response = await fetch('/api/politicians?limit=10&page=1', {
+        const response = await fetch('/api/politicians?limit=10&page=1&sort=totalScore&order=desc', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
