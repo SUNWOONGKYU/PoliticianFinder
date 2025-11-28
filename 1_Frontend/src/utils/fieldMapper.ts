@@ -178,8 +178,12 @@ export function mapPoliticianListFieldsWithScore(dbRecord: any, v24Score: number
     region: dbRecord.region || '',
 
     // V24.0 AI scores (점수 기반 등급 계산)
+    // V24.0에서는 Claude AI만 사용하므로 모든 AI 점수를 동일하게 설정
     claudeScore: v24Score,
     totalScore: v24Score,
+    claude: v24Score,      // 홈 화면 테이블용
+    chatgpt: v24Score,     // 홈 화면 테이블용
+    grok: v24Score,        // 홈 화면 테이블용
     grade: gradeInfo.grade,
     gradeEmoji: gradeInfo.gradeEmoji,
     gradeName: gradeInfo.gradeName,
