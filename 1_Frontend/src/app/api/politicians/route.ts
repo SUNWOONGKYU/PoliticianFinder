@@ -129,8 +129,9 @@ export async function GET(request: NextRequest) {
     if (politicianIds.length > 0) {
       const { data: scores, error: scoresError } = await supabase
         .from("ai_final_scores")
-        .select("politician_id, total_score, grade, updated_at")
-        .in("politician_id", politicianIds);
+        .select("politician_id, total_score, grade_code, updated_at")
+        .in("politician_id", politicianIds)
+        .eq("ai_name", "Claude");  // Claude AI 점수만 사용
 
       if (scoresError) {
         console.error("AI final scores query error:", scoresError);
@@ -141,7 +142,7 @@ export async function GET(request: NextRequest) {
           if (!existing || new Date(score.updated_at) > new Date(existing.updated_at)) {
             scoresMap[score.politician_id] = {
               total_score: score.total_score,
-              grade: score.grade,
+              grade: score.grade_code,  // grade_code 사용
               updated_at: score.updated_at
             };
           }
