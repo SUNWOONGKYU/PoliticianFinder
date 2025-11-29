@@ -138,8 +138,8 @@ export default function PoliticiansPage() {
     const fetchPoliticians = async () => {
       try {
         setLoading(true);
-        // Pagination: 20개씩 가져오기
-        const response = await fetch(`/api/politicians?limit=${ITEMS_PER_PAGE}&page=${currentPage}`, {
+        // Pagination: 20개씩 가져오기 (종합평점 기준 정렬)
+        const response = await fetch(`/api/politicians?limit=${ITEMS_PER_PAGE}&page=${currentPage}&sort=totalScore&order=desc`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -179,13 +179,13 @@ export default function PoliticiansPage() {
               party: p.party || '',
               region: p.region || '',
               district: '',
-              claudeScore: p.claudeScore || 0,
+              claudeScore: p.claudeScore || p.claude || 0,
               totalScore: p.totalScore || 0,
               grade: p.grade || 'E',
               gradeEmoji: p.gradeEmoji || '💚',
               overallScore: p.totalScore || 0,
-              chatgptScore: p.totalScore || 0,
-              grokScore: p.totalScore || 0,
+              chatgptScore: p.chatgpt || 0,
+              grokScore: p.grok || 0,
               userRating: p.userRating || 0,
               ratingCount: p.ratingCount || 0,
               memberRating: p.userRating || 0,
