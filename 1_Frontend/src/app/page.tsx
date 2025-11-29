@@ -10,12 +10,12 @@ interface Politician {
   id: number;
   rank: number;
   name: string;
-  identity: string;  // P3F3: 신분 (현직, 후보자 등)
-  title?: string;    // P3F3: 직책 (국회의원 (21대) 등)
-  position: string;
-  office: string;
+  identity: string;  // 신분 (현직/후보자/예비후보자/출마자)
+  title?: string;    // 직책 (성동구청장 등)
+  positionType: string;  // 출마직종 (국회의원/광역단체장/기초단체장/광역의원/기초의원/교육감)
   party: string;
   region: string;
+  district?: string;  // 지역구
   totalScore: number;
   grade: string;
   gradeEmoji: string;
@@ -112,12 +112,12 @@ export default function Home() {
               id: p.id || index + 1,
               rank: index + 1,
               name: p.name,
-              identity: p.identity || '현직',  // P3F3: 신분
-              title: p.title || '',           // P3F3: 직책
-              position: p.position || '-',
-              office: p.position || '국회의원',
+              identity: p.identity || '현직',  // 신분: 현직/후보자/예비후보자/출마자
+              title: p.title || '',           // 직책: 성동구청장 등
+              positionType: p.positionType || '',  // 출마직종: 국회의원/광역단체장/기초단체장/광역의원/기초의원/교육감
               party: p.party || '',
               region: p.region || '',
+              district: p.district || '',     // 지역구
               totalScore: totalScore,
               grade: p.grade || calculateGrade(totalScore),
               gradeEmoji: p.gradeEmoji || getGradeEmoji(p.grade || calculateGrade(totalScore)),
@@ -750,9 +750,11 @@ export default function Home() {
                           <td className="px-2 py-3 text-gray-600 text-xs">
                             {p.title || '-'}
                           </td>
-                          <td className="px-2 py-3 text-gray-600 text-xs">{p.office}</td>
+                          <td className="px-2 py-3 text-gray-600 text-xs">{p.positionType || '-'}</td>
                           <td className="px-2 py-3 text-gray-600 text-xs">{p.party}</td>
-                          <td className="px-2 py-3 text-gray-600 text-xs">{p.region}</td>
+                          <td className="px-2 py-3 text-gray-600 text-xs">
+                            {p.district ? `${p.region} ${p.district}` : p.region}
+                          </td>
                           <td className="px-2 py-3 text-center text-xs font-semibold text-accent-600">
                             {p.gradeEmoji} {p.grade}
                           </td>

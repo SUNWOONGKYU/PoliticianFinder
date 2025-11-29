@@ -177,11 +177,12 @@ export function mapPoliticianListFieldsWithScore(
   return {
     id: dbRecord.id,
     name: dbRecord.name,
-    identity: dbRecord.identity || '현직',
+    identity: dbRecord.status || dbRecord.identity || '현직',  // status 컬럼이 신분
     title: dbRecord.title || '',
-    position: dbRecord.position || '',
+    positionType: dbRecord.position || '',  // position 컬럼이 출마직종
     party: dbRecord.party || '',
     region: dbRecord.region || '',
+    district: dbRecord.district || '',
 
     // V24.0 AI scores (개별 AI 점수 - 없으면 0으로 공란 표시)
     claudeScore: claudeScore || 0,
