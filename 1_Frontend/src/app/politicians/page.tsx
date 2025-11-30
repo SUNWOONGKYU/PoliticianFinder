@@ -549,11 +549,12 @@ export default function PoliticiansPage() {
                   )}
                   <th className="px-2 py-3 text-center font-bold text-gray-900 w-12">순위</th>
                   <th className="px-3 py-3 text-left font-bold text-gray-900 w-24">이름</th>
-                  <th className="px-2 py-3 text-left font-bold text-gray-900 w-16">신분</th>
                   <th className="px-2 py-3 text-left font-bold text-gray-900 w-28">직책</th>
-                  <th className="px-2 py-3 text-left font-bold text-gray-900 w-24">출마직종</th>
                   <th className="px-2 py-3 text-left font-bold text-gray-900 w-24">정당</th>
-                  <th className="px-2 py-3 text-left font-bold text-gray-900 w-28">지역</th>
+                  <th className="px-2 py-3 text-left font-bold text-gray-900 w-16">신분</th>
+                  <th className="px-2 py-3 text-left font-bold text-gray-900 w-24">출마직종</th>
+                  <th className="px-2 py-3 text-left font-bold text-gray-900 w-20">지역</th>
+                  <th className="px-2 py-3 text-left font-bold text-gray-900 w-24">지역구</th>
                   <th className="px-2 py-3 text-center font-bold text-gray-900 w-24">평가등급</th>
                   <th className="px-2 py-3 text-center font-bold text-gray-900 w-20">종합평점</th>
                   <th className="px-2 py-3 text-center font-bold text-gray-900 w-16">Claude</th>
@@ -615,13 +616,12 @@ export default function PoliticiansPage() {
                         {p.name} <span className="text-xs">›</span>
                       </span>
                     </td>
-                    <td className="px-2 py-3 text-gray-600 text-xs">{p.identity}</td>
                     <td className="px-2 py-3 text-gray-600 text-xs">{p.title || '-'}</td>
-                    <td className="px-2 py-3 text-gray-600 text-xs">{p.category}</td>
                     <td className="px-2 py-3 text-gray-600 text-xs">{p.party}</td>
-                    <td className="px-2 py-3 text-gray-600 text-xs">
-                      {p.region} {p.district}
-                    </td>
+                    <td className="px-2 py-3 text-gray-600 text-xs">{p.identity}</td>
+                    <td className="px-2 py-3 text-gray-600 text-xs">{p.category}</td>
+                    <td className="px-2 py-3 text-gray-600 text-xs">{p.region}</td>
+                    <td className="px-2 py-3 text-gray-600 text-xs">{p.district || '-'}</td>
                     <td className="px-2 py-3 text-center text-xs font-semibold text-accent-600">
                       {p.grade === 'E' && '💚 Emerald'}
                       {p.grade === 'P' && '🥇 Platinum'}
