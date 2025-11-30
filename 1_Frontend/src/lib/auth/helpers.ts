@@ -33,16 +33,6 @@ export async function getAuthenticatedUser(): Promise<AuthUser | null> {
  * Use this at the start of protected routes
  */
 export async function requireAuth(): Promise<{ user: AuthUser } | NextResponse> {
-  // 개발 중 임시 비활성화 (테스트 용도)
-  if (process.env.NODE_ENV === 'development') {
-    return {
-      user: {
-        id: 'fd96b732-ea3c-4f4f-89dc-81654b8189bc',
-        email: 'test@politicianfinder.ai.kr',
-      },
-    };
-  }
-
   const user = await getAuthenticatedUser();
 
   if (!user) {
