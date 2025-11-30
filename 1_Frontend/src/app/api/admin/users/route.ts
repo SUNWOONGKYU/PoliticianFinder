@@ -2,8 +2,7 @@
 // Supabase 연동 - 관리자용 사용자 데이터 관리
 
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient, createAdminClient } from '@/lib/supabase/server';
-import { requireAuth, requireAdmin } from '@/lib/auth/helpers';
+import { createAdminClient } from '@/lib/supabase/server';
 import { z } from 'zod';
 
 const userUpdateSchema = z.object({
@@ -14,12 +13,8 @@ const userUpdateSchema = z.object({
 });
 
 export async function GET(request: NextRequest) {
+  // 🔥 NO AUTH CHECK - DIRECT ADMIN CLIENT 🔥
   try {
-    // PRODUCTION FIX: 관리자 권한 체크 생략 - SERVICE_ROLE_KEY 사용
-    // 브라우저 세션 쿠키를 서버 API에서 읽을 수 없으므로 Admin Client 직접 사용
-    console.log('⚠️  GET: Admin check bypassed - using SERVICE_ROLE_KEY');
-
-    // Admin client 사용 (RLS bypass)
     const supabase = createAdminClient();
 
     const page = parseInt(request.nextUrl.searchParams.get('page') || '1');
@@ -100,12 +95,8 @@ export async function GET(request: NextRequest) {
 }
 
 export async function PATCH(request: NextRequest) {
+  // 🔥 NO AUTH CHECK - DIRECT ADMIN CLIENT 🔥
   try {
-    // PRODUCTION FIX: 관리자 권한 체크 생략 - SERVICE_ROLE_KEY 사용
-    // 브라우저 세션 쿠키를 서버 API에서 읽을 수 없으므로 Admin Client 직접 사용
-    console.log('⚠️  PATCH: Admin check bypassed - using SERVICE_ROLE_KEY');
-
-    // Admin client 사용 (RLS bypass)
     const supabase = createAdminClient();
     const body = await request.json();
 
@@ -193,13 +184,8 @@ export async function PATCH(request: NextRequest) {
 }
 
 export async function DELETE(request: NextRequest) {
+  // 🔥 NO AUTH CHECK - DIRECT ADMIN CLIENT 🔥
   try {
-    // PRODUCTION FIX: 관리자 권한 체크 생략 - SERVICE_ROLE_KEY 사용
-    // 브라우저 세션 쿠키를 서버 API에서 읽을 수 없으므로 Admin Client 직접 사용
-    // TODO: Middleware에서 /api/admin/* 경로 보호 추가 고려
-    console.log('⚠️  DELETE: Admin check bypassed - using SERVICE_ROLE_KEY');
-
-    // Admin client 사용 (RLS bypass)
     const supabase = createAdminClient();
     const user_id = request.nextUrl.searchParams.get('user_id');
     console.log('🔍 DELETE: Requested user_id:', user_id);
