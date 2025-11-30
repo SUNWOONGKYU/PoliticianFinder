@@ -56,8 +56,8 @@ export function mapPoliticianFields(
     // Position and party
     position: dbRecord.position || '',
     party: dbRecord.party || '',
-    region: dbRecord.region || '',
-    district: dbRecord.district || '',
+    region: dbRecord.region || '',      // 출마지역 (광역)
+    district: dbRecord.district || '',  // 출마지구 (하위)
 
     // Personal info
     birthDate: dbRecord.birth_date || '',
@@ -181,8 +181,8 @@ export function mapPoliticianListFieldsWithScore(
     title: dbRecord.position || '',           // position 컬럼이 직책 (서울특별시장 등)
     positionType: dbRecord.title || '',       // title 컬럼이 출마직종 (국회의원/광역단체장 등)
     party: dbRecord.party || '',
-    region: dbRecord.region || '',
-    district: dbRecord.district || '',
+    region: dbRecord.region || '',      // 출마지역 (광역)
+    district: dbRecord.district || '',  // 출마지구 (하위)
 
     // V24.0 AI scores (개별 AI 점수 - 없으면 0으로 공란 표시)
     claudeScore: claudeScore || 0,

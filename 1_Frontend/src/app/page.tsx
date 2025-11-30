@@ -14,8 +14,8 @@ interface Politician {
   title?: string;    // 직책 (성동구청장 등)
   positionType: string;  // 출마직종 (국회의원/광역단체장/기초단체장/광역의원/기초의원/교육감)
   party: string;
-  region: string;
-  district?: string;  // 지역구
+  region: string;      // 출마지역
+  district?: string;   // 출마지구
   totalScore: number;
   grade: string;
   gradeEmoji: string;
@@ -116,8 +116,8 @@ export default function Home() {
               title: p.title || '',           // 직책: 성동구청장 등
               positionType: p.positionType || '',  // 출마직종: 국회의원/광역단체장/기초단체장/광역의원/기초의원/교육감
               party: p.party || '',
-              region: p.region || '',
-              district: p.district || '',     // 지역구
+              region: p.region || '',         // 출마지역
+              district: p.district || '',     // 출마지구
               totalScore: totalScore,
               grade: p.grade || calculateGrade(totalScore),
               gradeEmoji: p.gradeEmoji || getGradeEmoji(p.grade || calculateGrade(totalScore)),
@@ -513,8 +513,8 @@ export default function Home() {
                         <th className="px-2 py-3 text-left font-bold text-gray-900 w-24">정당</th>
                         <th className="px-2 py-3 text-left font-bold text-gray-900 w-16">신분</th>
                         <th className="px-2 py-3 text-left font-bold text-gray-900 w-24">출마직종</th>
-                        <th className="px-2 py-3 text-left font-bold text-gray-900 w-20">지역</th>
-                        <th className="px-2 py-3 text-left font-bold text-gray-900 w-24">지구</th>
+                        <th className="px-2 py-3 text-left font-bold text-gray-900 w-20">출마지역</th>
+                        <th className="px-2 py-3 text-left font-bold text-gray-900 w-24">출마지구</th>
                         <th className="px-2 py-3 text-center font-bold text-gray-900 w-24">평가등급</th>
                         <th className="px-2 py-3 text-center font-bold text-gray-900 w-20">종합평점</th>
                         <th className="px-2 py-3 text-center font-bold text-gray-900 w-24">
