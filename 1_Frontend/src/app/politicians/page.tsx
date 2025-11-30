@@ -454,10 +454,10 @@ export default function PoliticiansPage() {
                 </select>
               </div>
 
-              {/* Region/Constituency Filter - 국회의원이면 선거구, 아니면 지역 */}
+              {/* Region/Constituency Filter - 국회의원이면 지구, 아니면 지역 */}
               <div className="flex-1 min-w-[120px]">
                 <label className="block text-xs font-medium text-gray-700 mb-1">
-                  {categoryFilter === '국회의원' ? '지역구' : '지역'}
+                  {categoryFilter === '국회의원' ? '지구' : '지역'}
                 </label>
                 <select
                   value={regionFilter}
@@ -554,7 +554,7 @@ export default function PoliticiansPage() {
                   <th className="px-2 py-3 text-left font-bold text-gray-900 w-16">신분</th>
                   <th className="px-2 py-3 text-left font-bold text-gray-900 w-24">출마직종</th>
                   <th className="px-2 py-3 text-left font-bold text-gray-900 w-20">지역</th>
-                  <th className="px-2 py-3 text-left font-bold text-gray-900 w-24">지역구</th>
+                  <th className="px-2 py-3 text-left font-bold text-gray-900 w-24">지구</th>
                   <th className="px-2 py-3 text-center font-bold text-gray-900 w-24">평가등급</th>
                   <th className="px-2 py-3 text-center font-bold text-gray-900 w-20">종합평점</th>
                   <th className="px-2 py-3 text-center font-bold text-gray-900 w-16">Claude</th>
