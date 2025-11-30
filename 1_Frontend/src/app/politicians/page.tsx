@@ -175,7 +175,7 @@ export default function PoliticiansPage() {
               identity: p.identity || '현직',
               title: p.title || '',
               position: p.position || '',
-              category: p.position || '',
+              category: p.positionType || '',  // 출마직종 (국회의원/광역단체장 등)
               party: p.party || '',
               region: p.region || '',
               district: '',
