@@ -143,7 +143,7 @@ class MultiAIClient:
     def call_chatgpt(self, prompt: str) -> str:
         """ChatGPT API 호출"""
         response = self.chatgpt_client.chat.completions.create(
-            model="gpt-4o",
+            model="gpt-4o-mini",  # 경량 모델 (비용 효율)
             messages=[{"role": "user", "content": prompt}],
             temperature=0.7,
             max_tokens=4000

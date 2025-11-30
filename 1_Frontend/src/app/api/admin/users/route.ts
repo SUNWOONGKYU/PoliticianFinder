@@ -84,6 +84,7 @@ export async function GET(request: NextRequest) {
       data: sanitizedUsers,
       pagination: { page, limit, total, totalPages },
       timestamp: new Date().toISOString(),
+      _debug: '🔥 NO AUTH - Build 9d3a1e4 🔥',
     }, { status: 200 });
   } catch (error) {
     console.error('GET /api/admin/users error:', error);
