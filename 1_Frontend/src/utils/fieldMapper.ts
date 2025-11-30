@@ -178,8 +178,8 @@ export function mapPoliticianListFieldsWithScore(
     id: dbRecord.id,
     name: dbRecord.name,
     identity: dbRecord.status || dbRecord.identity || '현직',  // status 컬럼이 신분
-    title: dbRecord.title || '',
-    positionType: dbRecord.position || '',  // position 컬럼이 출마직종
+    title: dbRecord.position || '',           // position 컬럼이 직책 (서울특별시장 등)
+    positionType: dbRecord.title || '',       // title 컬럼이 출마직종 (국회의원/광역단체장 등)
     party: dbRecord.party || '',
     region: dbRecord.region || '',
     district: dbRecord.district || '',
