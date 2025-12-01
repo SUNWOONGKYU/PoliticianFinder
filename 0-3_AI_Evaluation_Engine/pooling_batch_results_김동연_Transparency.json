@@ -1,0 +1,3635 @@
+{
+  "data_pool_size": 150,
+  "evaluation_results": {
+    "ChatGPT": [
+      {
+        "item_id": 162861,
+        "data_title": "김동연, 재정 투명성 개선 방안 발표",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "재정 투명성 개선 방안 발표는 시민들이 재정 흐름을 이해할 수 있도록 하고 있어 매우 우수한 투명성을 보여줍니다."
+      },
+      {
+        "item_id": 162862,
+        "data_title": "아이디어 공모전 통해 정보 공개 확대",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "아이디어 공모전을 통해 시민의 의견을 수렴하고 정보 공개를 확대하겠다는 의지는 투명성을 높이는 매우 긍정적인 접근입니다."
+      },
+      {
+        "item_id": 162863,
+        "data_title": "투명한 정책 결정 절차 강조",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "정책 결정 과정에서의 정보 제공 약속은 시민들과의 신뢰를 구축하는 중요한 요소로, 매우 우수한 투명성을 나타냅니다."
+      },
+      {
+        "item_id": 162864,
+        "data_title": "지방정부 투명성 평가 결과",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "지방정부의 투명성 평가 결과 개선은 긍정적이며, 지속적인 정보 공개로 신뢰를 얻고 있지만, 더 구체적인 데이터가 필요합니다."
+      },
+      {
+        "item_id": 162865,
+        "data_title": "투명한 재정 운영을 위한 법안 발의",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "투명한 재정 운영을 위한 법안 발의는 시민들이 세금과 예산 흐름을 쉽게 알 수 있도록 해 매우 우수한 투명성을 제공합니다."
+      },
+      {
+        "item_id": 162866,
+        "data_title": "정책 설명회를 통한 정보 공유",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "정기적인 정책 설명회를 통해 시민들과의 소통을 강화하는 것은 투명성을 높이는 매우 효과적인 방법입니다."
+      },
+      {
+        "item_id": 162867,
+        "data_title": "공공 데이터 개방 추진",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "공공 데이터 개방 추진은 시민들이 쉽게 정보에 접근할 수 있도록 하여 매우 우수한 투명성을 실현하고 있습니다."
+      },
+      {
+        "item_id": 162868,
+        "data_title": "행정업무의 투명화 진전",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "행정업무의 데이터화와 정보 공개가 진행되고 있지만, 구체적인 성과나 수치가 부족하여 다소 우수한 수준으로 평가됩니다."
+      },
+      {
+        "item_id": 162869,
+        "data_title": "정책 요청서 제출 시스템 도입",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "시민들이 정책 요청서를 제출할 수 있는 시스템 도입은 정책 과정의 투명성을 크게 개선시키는 조치로 매우 우수한 평가를 받습니다."
+      },
+      {
+        "item_id": 162870,
+        "data_title": "서울시 정보공개 실적 향상",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "정보 공개 실적 향상은 긍정적인 변화이나, 구체적인 데이터나 사례가 부족해 우수하지만 다소 아쉬운 수준으로 평가됩니다."
+      },
+      {
+        "item_id": 162871,
+        "data_title": "예산 공개 미흡 논란",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "G",
+        "rating_rationale": "예산 공개가 미흡해 비판을 받고 있으며, 투명한 운영이 필요하다는 의견이 많아 심각한 문제로 평가됨."
+      },
+      {
+        "item_id": 162872,
+        "data_title": "투명성 지수 하락 우려",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "F",
+        "rating_rationale": "투명성 지수가 하락세를 보여 재검토 요구가 있어, 정책의 투명성이 부족하다는 비판이 제기됨."
+      },
+      {
+        "item_id": 162873,
+        "data_title": "공공 서비스의 정보 부족 문제",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "공공 서비스 정보 부족이 지적되고, 정부의 노력이 미흡하다는 점에서 투명성에 대한 신뢰가 떨어짐."
+      },
+      {
+        "item_id": 162874,
+        "data_title": "의사결정 과정 비공개 논란",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "정책의 의사결정 과정이 비공식적으로 진행되어 투명성이 결여되었음. 이는 심각한 결함으로 평가됨."
+      },
+      {
+        "item_id": 162875,
+        "data_title": "상위 기관 의사결정의 독단적 방식",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "G",
+        "rating_rationale": "상위 기관의 독단적 의사결정이 문제로 지적되어, 이로 인해 투명성이 저해되고 있는 상황이 심각함."
+      },
+      {
+        "item_id": 162876,
+        "data_title": "국민 의견 수렴 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "국민 의견 수렴 부족으로 투명한 정책 진행에 한계가 있다는 비판이 있어, 투명성에 큰 결함 존재."
+      },
+      {
+        "item_id": 162877,
+        "data_title": "정책 공개 기회 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "정책 발표 기회 부족으로 인해 투명성에 대한 신뢰가 약화되고 있어, 개선이 필요한 상황임."
+      },
+      {
+        "item_id": 162878,
+        "data_title": "비현실적인 투명성 목표 설정",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "비현실적인 투명성 목표 설정이 비판받고 있으며, 실질적인 변화가 필요하다는 요구가 있음."
+      },
+      {
+        "item_id": 162879,
+        "data_title": "정보 접근성 부족 문제 지적",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "G",
+        "rating_rationale": "정보 접근성이 부족하여 시민들이 필요한 정보를 찾기 어려워, 투명성에 대한 신뢰도가 심각하게 떨어짐."
+      },
+      {
+        "item_id": 162880,
+        "data_title": "정책 변화에 대한 정보 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "정책 변화에 대한 정보 부족이 지적되어 시민들에게 일관된 정보를 제공하지 못하고 있어 결함 존재."
+      },
+      {
+        "item_id": 162881,
+        "data_title": "공공의사결정의 소극적 접근 방식",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "김동연의 소극적 공공 의사결정 방식은 시민 참여를 저해하여 투명성이 낮아질 수 있음을 나타낸다."
+      },
+      {
+        "item_id": 162882,
+        "data_title": "정치적 투명성 확보 노력",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "김동연이 정치적 투명성을 위한 법안 제정을 추진한 것은 매우 긍정적이며, 투명한 정부에 대한 의지를 보여준다."
+      },
+      {
+        "item_id": 162883,
+        "data_title": "정기적인 정보 공개 이메일 발송",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "정기적인 정보 공개 이메일 발송은 시민들에게 정책 정보를 제공하여 투명성을 높이는 좋은 접근이다."
+      },
+      {
+        "item_id": 162884,
+        "data_title": "시민과의 정책 토론회 개최",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "시민과의 정책 토론회 개최는 시민의 목소리를 직접 듣고 반영하려는 노력으로 매우 투명한 행정으로 평가된다."
+      },
+      {
+        "item_id": 162885,
+        "data_title": "정보 공개 기준 개선 방안",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "정보 공개 기준 개선 연구는 투명한 행정을 위한 중요한 조치로, 양호한 평가를 받을 수 있다."
+      },
+      {
+        "item_id": 162886,
+        "data_title": "정책 에세이 공모전 개최",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "정책 에세이 공모전은 시민의 의견을 수렴할 수 있는 기회를 제공하여 투명성을 높이는 데 기여하고 있다."
+      },
+      {
+        "item_id": 162887,
+        "data_title": "정치인 행동 강령 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "정치인 행동 강령 강화를 통해 정책의 투명성을 높이려는 노력이 긍정적이며, 투명성이 향상될 가능성이 있다."
+      },
+      {
+        "item_id": 162888,
+        "data_title": "예산 집행 정보 공개 요구 증가",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "C",
+        "rating_rationale": "예산 집행 정보 공개 요청 증가가 투명성 필요성을 강조하지만, 현재 정보 공개가 부족한 상황이다."
+      },
+      {
+        "item_id": 162889,
+        "data_title": "정보 비공개 결정에 대한 불만",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "일부 정보를 비공식적으로 비공개 처리한 것은 시민의 신뢰를 저하시킬 수 있으며, 투명성에 대한 심각한 문제를 나타낸다."
+      },
+      {
+        "item_id": 162890,
+        "data_title": "정책 시행 과정에 대한 정보 제공 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "정책 시행 과정 정보 부족은 시민의 불만을 초래하며, 투명성을 크게 해치는 문제로 평가된다."
+      },
+      {
+        "item_id": 162891,
+        "data_title": "정책 결과의 투명한 발표 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "정책 결과 발표가 부족하다는 지적은 투명성에 미흡한 접근을 나타내며, 시민들의 신뢰를 저하시킬 수 있다."
+      },
+      {
+        "item_id": 162892,
+        "data_title": "정책 변화에 대한 시민 설명회 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "시민 설명회 부족으로 정보 격차가 커지는 문제는 투명성 부족을 의미하며, 이는 정치적 참여를 저해할 수 있다."
+      },
+      {
+        "item_id": 162893,
+        "data_title": "비공식 경로 정보의 문제",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "F",
+        "rating_rationale": "비공식 경로에 의존하는 정보 전달은 투명성에 큰 결함을 초래하며, 시민들이 신뢰할 수 없는 정보를 받게 된다."
+      },
+      {
+        "item_id": 162894,
+        "data_title": "투명한 소통 체계 구축 필요",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "투명한 소통 체계 구축 필요성은 긍정적이나, 현재의 실행 부족이 문제로, 개선이 요구된다."
+      },
+      {
+        "item_id": 162895,
+        "data_title": "정책 이행 상황에 대한 시의적절한 보고 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "정책 이행 상황에 대한 보고 부족은 시민들이 정책의 진행 상황을 알기 어렵게 하여 투명성을 저해한다."
+      },
+      {
+        "item_id": 162896,
+        "data_title": "적극적인 정보 제공을 위한 계획 수립",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "적극적인 정보 제공 계획 수립은 긍정적이나, 실제 성과가 나타나기 전까지는 평가가 필요하다."
+      },
+      {
+        "item_id": 162897,
+        "data_title": "정기적인 시민 의견 조사 실시",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "정기적인 시민 의견 조사는 투명성을 높이는 노력으로 긍정적이나, 그 결과가 정책에 반영되어야 더욱 효과적이다."
+      },
+      {
+        "item_id": 162898,
+        "data_title": "공적인 자산 관리에 대한 투명성 미보장",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "공적 자산 관리의 투명성 미비는 심각한 문제로, 시민들의 신뢰를 심각하게 저하시킬 수 있다."
+      },
+      {
+        "item_id": 162899,
+        "data_title": "전문가 협의체 운영으로 투명성 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "전문가 협의체 운영은 투명성을 강화하기 위한 긍정적인 조치로 평가되지만, 그 효과는 실행 후에 검증되어야 한다."
+      },
+      {
+        "item_id": 162900,
+        "data_title": "시민 의견 반영 미흡",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "시민 의견 반영 미흡은 투명성에 대한 신뢰를 심각하게 저하시키며, 정책의 진정성을 의심하게 만든다."
+      },
+      {
+        "item_id": 162901,
+        "data_title": "정보 통신의 응답성 개선 필요",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "정보 통신의 응답성이 부족하다는 점은 시민들이 필요로 하는 정보에 접근하기 어렵게 하며, 이는 투명성에 큰 영향을 미친다."
+      },
+      {
+        "item_id": 162902,
+        "data_title": "정책 획득 정보의 신뢰성 문제",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "D",
+        "rating_rationale": "정책 관련 정보의 신뢰성 문제는 시민들의 신뢰를 저하시킬 수 있으며, 이는 투명성과 관련하여 심각한 우려를 초래한다."
+      },
+      {
+        "item_id": 162903,
+        "data_title": "정책 관련 부서간 협의 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "부서 간 협의 부족으로 일관된 정보 제공에 문제가 발생하고 있어, 이는 투명성에 부정적인 영향을 미친다."
+      },
+      {
+        "item_id": 162904,
+        "data_title": "행정업무 투명성 지연 문제",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "행정업무에서의 투명성 지연 문제는 시민들의 이해를 저해하며, 투명성 확보에 실패하고 있음을 나타낸다."
+      },
+      {
+        "item_id": 162905,
+        "data_title": "정부 예산 효율성에 대한 질문 증가",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "D",
+        "rating_rationale": "예산 효율성에 대한 질문 증가와 투명한 회계 처리 필요성은 정부의 재정 운영에 대한 신뢰도를 떨어뜨린다."
+      },
+      {
+        "item_id": 162906,
+        "data_title": "실적 세부 공개 요구 증가",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "B",
+        "rating_rationale": "정책 성과에 대한 세부 공개 요구 증가는 투명성 강화를 위한 긍정적인 촉구로 해석되며, 이는 개선의 가능성을 나타낸다."
+      },
+      {
+        "item_id": 162907,
+        "data_title": "정보 공개 적시성 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "정보 공개의 적시성 부족은 국민과의 신뢰 구축에 어려움을 주며, 이는 투명성 문제를 더욱 악화시킨다."
+      },
+      {
+        "item_id": 162908,
+        "data_title": "심층적인 정책 분석 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "정책 분석의 부족은 정책 운영의 투명성을 저해하고, 이는 시민들의 이해를 어렵게 만든다."
+      },
+      {
+        "item_id": 162909,
+        "data_title": "투명성 관련 시민 교육 필요성",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "시민 교육의 필요성을 언급한 점은 투명성 증진을 위한 긍정적인 시도로, 이는 정책 신뢰도를 높이는 데 기여할 수 있다."
+      },
+      {
+        "item_id": 162910,
+        "data_title": "정치적 관점에서의 투명성 유지",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "정치적 관점에서의 투명성 유지 다짐은 정책 신뢰성을 강화하는 데 기여할 것으로 기대되며, 긍정적인 신호로 해석된다."
+      },
+      {
+        "item_id": 163111,
+        "data_title": "김동연의 경기도 예산 공개 플랫폼 도입",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "예산 집행 과정을 실시간으로 공개하여 재정 투명성을 극대화하고, 감사에서 긍정적인 평가를 받음."
+      },
+      {
+        "item_id": 163112,
+        "data_title": "김동연의 정책 결정 과정 공개 보고",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "정책 결정 과정을 문서화하여 의회에 제출, 국민들이 정책 형성을 이해할 수 있도록 하여 투명성을 매우 높임."
+      },
+      {
+        "item_id": 163113,
+        "data_title": "김동연의 공공 프로젝트 재무 보고",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "공공 프로젝트의 재무 상태를 정기적으로 상세하게 공개, 국민의 감독을 촉진하여 예산 투명성을 강화함."
+      },
+      {
+        "item_id": 163114,
+        "data_title": "김동연의 토론회 참석과 정보 공유",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "정책 아이디어를 공개적으로 논의하고 정보 공유로 의사결정 과정을 개방적으로 만들었으나, 특정 데이터의 깊이는 부족할 수 있음."
+      },
+      {
+        "item_id": 163115,
+        "data_title": "김동연의 재정 정책 설명 자료",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "재정 정책 세부 사항을 공식 자료로 발간, 국민들이 정책의 투명성을 검증할 수 있도록 충분한 정보 제공."
+      },
+      {
+        "item_id": 163116,
+        "data_title": "김동연의 공개 청문회 참여",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "국회 청문회에서 과거 행적과 정책 결정을 상세히 설명하여 의사결정 과정을 투명하게 드러내는 데 기여함."
+      },
+      {
+        "item_id": 163117,
+        "data_title": "김동연의 공공정보 접근성 개선",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "공공정보 접근성을 높여 시민들이 정책 관련 데이터를 쉽게 열람할 수 있도록 하였으나, 구체적인 내용이 추가적으로 필요함."
+      },
+      {
+        "item_id": 163118,
+        "data_title": "김동연의 예산 사용 감사 결과",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "예산 사용 감사 결과가 투명하게 공개되어 공공 자금의 적정성을 확인할 수 있도록 하여 매우 우수한 평가를 받음."
+      },
+      {
+        "item_id": 163119,
+        "data_title": "김동연의 정책 효과 평가 공개",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "정기적인 정책 효과 평가와 국민 의견 수렴으로 의사결정의 투명성을 높이는데 크게 기여함."
+      },
+      {
+        "item_id": 163120,
+        "data_title": "김동연의 정보 공개 지침 마련",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "정보 공개 지침을 제정하여 공공 기관의 투명성 강화에 기여하였으나, 지침의 실행 여부에 대한 후속 정보가 필요함."
+      },
+      {
+        "item_id": 163121,
+        "data_title": "김동연의 언론 인터뷰를 통한 정책 설명",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "김동연이 정책 의사결정 과정을 자세히 설명하여 국민들이 이해할 수 있도록 했고, 다양한 언론 인터뷰를 통해 투명성을 높였습니다."
+      },
+      {
+        "item_id": 163122,
+        "data_title": "김동연의 경제 데이터 공개 보도",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "경제 데이터를 자발적으로 공개하여 국민이 정책 효과를 분석할 수 있도록 함으로써 투명성을 높였습니다."
+      },
+      {
+        "item_id": 163123,
+        "data_title": "김동연의 공개 강연 내용",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "공개 강연에서 정책의 장단점과 관련 데이터를 포함하여 의사결정 과정을 설명함으로써 투명성을 강조하였습니다."
+      },
+      {
+        "item_id": 163124,
+        "data_title": "김동연의 재정 투명성 보도",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "재정 관리 방식과 예산 내역, 감사 결과를 구체적으로 보도하여 국민에게 투명한 예산 사용을 알렸습니다."
+      },
+      {
+        "item_id": 163125,
+        "data_title": "김동연의 정책 논란 해소 보도",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "정책 논란을 공개적으로 설명하며 국민의 오해를 해소했지만, 구체적인 데이터나 문서 공개가 부족했습니다."
+      },
+      {
+        "item_id": 163126,
+        "data_title": "김동연의 정보 공유 캠페인 보도",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "정책 데이터 공개와 시민 참여를 포함한 정보 공유 캠페인으로 투명성을 높이는 데 기여하였습니다."
+      },
+      {
+        "item_id": 163127,
+        "data_title": "김동연의 공공 프로젝트 보도",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "공공 프로젝트의 투명한 관리 과정을 강조하고 세부 비용과 성과를 보도하여 국민의 신뢰를 얻었습니다."
+      },
+      {
+        "item_id": 163128,
+        "data_title": "김동연의 의사결정 공개 보도",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "주요 의사결정 과정을 문서와 함께 공개하여 투명성의 중요성을 재확인했습니다."
+      },
+      {
+        "item_id": 163129,
+        "data_title": "김동연의 데이터 활용 보도",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "데이터 활용을 통해 정책의 효과를 구체적으로 설명하여 국민의 이해를 돕고 투명성을 강화했습니다."
+      },
+      {
+        "item_id": 163130,
+        "data_title": "김동연의 투명성 관련 인터뷰",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "투명성 원칙을 강조하며 구체적인 예시를 포함한 인터뷰를 통해 국민에게 신뢰를 주었습니다."
+      },
+      {
+        "item_id": 163131,
+        "data_title": "김동연의 예산 비밀 유지 논란",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "예산 집행 과정이 지연되고 관련 문서가 늦게 공개되면서 투명성이 부족하다는 점에서 미흡한 평가를 받습니다."
+      },
+      {
+        "item_id": 163132,
+        "data_title": "김동연의 정책 문서 누락",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "정책 결정 문서의 누락으로 인해 의사결정 과정의 불투명성이 초래되어 미흡하다고 판단됩니다."
+      },
+      {
+        "item_id": 163133,
+        "data_title": "김동연의 재정 보고 오류",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "F",
+        "rating_rationale": "재정 보고서에 오류가 있는 경우는 투명성에 심각한 문제를 야기하므로 부족한 평가를 받습니다."
+      },
+      {
+        "item_id": 163134,
+        "data_title": "김동연의 정보 은폐 의혹",
+        "collected_by": "Grok",
+        "original_rating": "H",
+        "new_rating": "F",
+        "rating_rationale": "정보 은폐 의혹이 제기되면서 공개 과정에 문제가 발생하였고, 이는 투명성 부족을 시사합니다."
+      },
+      {
+        "item_id": 163135,
+        "data_title": "김동연의 프로젝트 지연 공개",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "공공 프로젝트 지연에 대한 이유가 늦게 공개되어 논란이 되고, 이는 투명성 부족을 드러냅니다."
+      },
+      {
+        "item_id": 163136,
+        "data_title": "김동연의 투명성 부족 보도",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "D",
+        "rating_rationale": "비공식적인 정책 결정이 지적되었으나, 전반적인 상황을 보면 보통 수준의 투명성이 유지되었습니다."
+      },
+      {
+        "item_id": 163137,
+        "data_title": "김동연의 정보 왜곡 보도",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "F",
+        "rating_rationale": "정보 공개의 왜곡이 발생했으며, 이는 투명성에 심각한 문제를 야기하여 부족한 평가를 받습니다."
+      },
+      {
+        "item_id": 163138,
+        "data_title": "김동연의 비밀 계약 논란 보도",
+        "collected_by": "Grok",
+        "original_rating": "H",
+        "new_rating": "E",
+        "rating_rationale": "비밀 계약이 드러남에 따라 투명성 부족이 지적되었으며, 이는 미흡한 평가를 초래합니다."
+      },
+      {
+        "item_id": 163139,
+        "data_title": "김동연의 공개 지연 보도",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "정보 공개 지연이 언급되면서 투명성이 미흡하다는 점에서 낮은 평가를 받습니다."
+      },
+      {
+        "item_id": 163140,
+        "data_title": "김동연의 문서 누출 논란",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "문서 누출로 인한 불투명성이 지적되었으며, 이는 투명성의 부족으로 이어져 평가가 부족합니다."
+      },
+      {
+        "item_id": 163141,
+        "data_title": "김동연의 투명성 강화 캠페인",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "투명성 강화 캠페인을 통해 정책 정보를 적극 공개하고 국민 참여를 유도하여 긍정적인 영향을 미친 점에서 매우 우수하다."
+      },
+      {
+        "item_id": 163142,
+        "data_title": "김동연의 데이터 공개 정책",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "데이터 공개 정책을 시행하여 공공 정보 접근성을 높인 점이 투명성을 크게 향상시킨 좋은 사례로 평가된다."
+      },
+      {
+        "item_id": 163143,
+        "data_title": "김동연의 의회 보고 개선",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "의회 보고 개선으로 세부 정보를 더 많이 포함시켜 투명성을 강화했지만, 개선의 정도가 상대적으로 덜 두드러진다."
+      },
+      {
+        "item_id": 163144,
+        "data_title": "김동연의 공개 세미나",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "공개 세미나를 통해 정책 과정을 설명하고 투명성을 높인 점이 매우 긍정적으로 평가된다."
+      },
+      {
+        "item_id": 163145,
+        "data_title": "김동연의 재무 관리 공개",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "재무 관리 과정을 상세하게 공개하여 투명성을 강조한 점에서 매우 우수한 사례로 평가된다."
+      },
+      {
+        "item_id": 163146,
+        "data_title": "김동연의 정책 평가 보고",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "정기적으로 정책 평가 보고를 공개하여 투명성을 지속적으로 확보한 점이 매우 긍정적이다."
+      },
+      {
+        "item_id": 163147,
+        "data_title": "김동연의 정보 접근 법안",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "정보 접근 법안을 지지하여 투명성을 강화한 점에서 긍정적이지만, 구체적인 실행 결과가 부족하다."
+      },
+      {
+        "item_id": 163148,
+        "data_title": "김동연의 공개 토론 참여",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "공개 토론에 참여하여 정책을 설명한 점이 투명성을 높이는 데 크게 기여하여 매우 우수하다."
+      },
+      {
+        "item_id": 163149,
+        "data_title": "김동연의 데이터 보호 정책",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "데이터 보호 정책을 통해 원칙적으로 투명성을 유지했으나, 구체적인 사례나 효과가 다소 부족하다."
+      },
+      {
+        "item_id": 163150,
+        "data_title": "김동연의 감사 결과 공개",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "감사 결과를 공개하여 투명성을 강조하고 구체적인 내용을 포함한 점이 매우 긍정적이다."
+      },
+      {
+        "item_id": 163151,
+        "data_title": "김동연의 정책 설명 보도",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "김동연의 정책 설명 보도가 언론에서 강조되며, 정책의 투명성을 높이는 긍정적인 내용이 담겨 있습니다."
+      },
+      {
+        "item_id": 163152,
+        "data_title": "김동연의 경제 정책 보도",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "김동연의 경제 정책이 투명한 과정으로 보도되어, 그의 정책이 명확하게 전달되고 있습니다."
+      },
+      {
+        "item_id": 163153,
+        "data_title": "김동연의 공개 인터뷰 보도",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "김동연의 공개 인터뷰에서 투명성 원칙을 언급하며, 그의 입장과 정책이 명확하게 드러났습니다."
+      },
+      {
+        "item_id": 163154,
+        "data_title": "김동연의 프로젝트 보도",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "김동연의 프로젝트에 대한 보도가 투명성을 강조하여, 대중에게 신뢰를 줄 수 있는 내용입니다."
+      },
+      {
+        "item_id": 163155,
+        "data_title": "김동연의 정보 공유 보도",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "김동연의 정보 공유가 투명성 개선을 언급하며, 그는 정보를 공개적으로 전달하려는 노력이 돋보입니다."
+      },
+      {
+        "item_id": 163156,
+        "data_title": "김동연의 의사결정 보도",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "김동연의 의사결정 과정이 투명하게 다루어져, 그의 정책 결정이 이해하기 쉽게 설명되었습니다."
+      },
+      {
+        "item_id": 163157,
+        "data_title": "김동연의 데이터 보도",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "김동연의 데이터 공개가 투명성 혜택을 강조하며, 데이터 기반 정책을 지향하고 있다는 점이 인상적입니다."
+      },
+      {
+        "item_id": 163158,
+        "data_title": "김동연의 정책 평가 보도",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "김동연의 정책 평가가 투명성을 논의하며, 그의 성과와 비판이 균형 있게 제시되었습니다."
+      },
+      {
+        "item_id": 163159,
+        "data_title": "김동연의 공개 행사 보도",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "김동연의 공개 행사 보도가 투명성 원칙을 소개하며, 그의 소통 방식이 긍정적으로 평가됩니다."
+      },
+      {
+        "item_id": 163160,
+        "data_title": "김동연의 투명성 캠페인 보도",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "김동연의 투명성 캠페인 보도가 그 효과를 강조하며, 그의 투명성에 대한 의지가 잘 드러나 있습니다."
+      },
+      {
+        "item_id": 112689,
+        "data_title": "경기도지사 공약 이행 투명성 부족",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "공약 이행의 구체적 실행 계획과 진행 상황이 부족하여 투명성이 미흡함."
+      },
+      {
+        "item_id": 112690,
+        "data_title": "정책결정 과정 소통 투명성 한계",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "정책결정 과정에서 도민 의견 수렴이 제한적이어서 소통의 투명성이 보통 수준임."
+      },
+      {
+        "item_id": 112691,
+        "data_title": "예산 집행 세부내역 공개 미흡",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "예산 집행에 대한 상세 내역과 성과 보고가 부족해 투명성이 미흡하다고 평가됨."
+      },
+      {
+        "item_id": 112692,
+        "data_title": "인사 결정 과정의 불투명성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "F",
+        "rating_rationale": "인사 결정 과정에서 객관적 기준이 부족하여 불투명성이 심각한 문제로 지적됨."
+      },
+      {
+        "item_id": 112693,
+        "data_title": "정책자문위원회 운영 투명성 문제",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "정책자문위원회 운영이 폐쇄적이며 회의록 공개가 제한적이어서 부족함."
+      },
+      {
+        "item_id": 112694,
+        "data_title": "경기도지사 투명성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "정책 결정 과정의 공개가 적극적이나, 여전히 개선의 여지가 있음."
+      },
+      {
+        "item_id": 112695,
+        "data_title": "예산 집행 투명성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "예산 상세 내역이 공개되어 있어 투명성이 매우 우수하다고 평가됨."
+      },
+      {
+        "item_id": 112696,
+        "data_title": "정책 결정 과정 공개",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "정책 의사결정 회의록이 공개되어 투명성이 매우 높음."
+      },
+      {
+        "item_id": 112697,
+        "data_title": "재정 정보 공개",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "상세한 재정 보고서가 정기적으로 발간되어 투명성이 매우 우수함."
+      },
+      {
+        "item_id": 112698,
+        "data_title": "정책 성과 공개",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "정기적인 정책 성과 보고가 이루어져 투명성이 매우 높다고 평가됨."
+      },
+      {
+        "item_id": 112699,
+        "data_title": "인사 정보 투명성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "주요 인사 결정 과정이 공개되어 있어 투명성이 매우 우수하며, 시민들이 신뢰할 수 있는 정보 제공이 이루어지고 있다."
+      },
+      {
+        "item_id": 112700,
+        "data_title": "공공계약 투명성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "공공계약의 입찰 및 선정 과정이 공개되어 있어, 부패 방지 및 공정성을 높이는 데 기여하고 있다."
+      },
+      {
+        "item_id": 112701,
+        "data_title": "행정정보 접근성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "시민들의 행정정보 접근이 용이하나, 더 많은 정보에 대한 접근성을 강화할 필요성이 있다."
+      },
+      {
+        "item_id": 112702,
+        "data_title": "정책결정 참여 기회",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "시민 의견 수렴을 위한 채널 운영이 활성화되어 있어 정책 결정 과정의 투명성이 매우 높다."
+      },
+      {
+        "item_id": 112703,
+        "data_title": "예산 집행 감시",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "외부 감사 및 모니터링 시스템이 마련되어 있으나, 그 결과가 더 구체적으로 공개되어야 한다."
+      },
+      {
+        "item_id": 112704,
+        "data_title": "국제 교류 투명성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "국제 교류 및 협력 활동이 공개되고 있으나, 모든 세부 사항에 대한 접근이 부족할 수 있다."
+      },
+      {
+        "item_id": 112705,
+        "data_title": "정책실명제",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "정책 입안자 및 책임자가 공개되어 있어 정책의 책임성과 투명성이 매우 높다."
+      },
+      {
+        "item_id": 112706,
+        "data_title": "성과평가 공개",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "정책 성과가 객관적으로 평가되고 공개되어 있어 책임성을 강화하고 신뢰성을 높인다."
+      },
+      {
+        "item_id": 112707,
+        "data_title": "위원회 운영 투명성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "위원회 구성 및 활동이 공개되어 있으나, 활동의 세부 사항이 부족할 수 있다."
+      },
+      {
+        "item_id": 112708,
+        "data_title": "정책 변경 추적성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "A",
+        "rating_rationale": "정책 변경 이력 및 근거가 공개되어 있어 정책의 투명성과 추적성이 우수하다."
+      },
+      {
+        "item_id": 112709,
+        "data_title": "지방보조금 관리",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "지방보조금 집행 내역이 공개되어 있어, 재정 운용의 투명성이 매우 우수하다."
+      },
+      {
+        "item_id": 112710,
+        "data_title": "정책 협의 과정",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "정책 협의 과정이 공개되어 유관 기관과의 소통이 명확하며, 투명성이 매우 높다."
+      },
+      {
+        "item_id": 112711,
+        "data_title": "규제 영향평가",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "새로운 규제의 사전 영향평가가 공개되어, 정책의 효과를 미리 평가할 수 있어 투명성이 매우 높다."
+      },
+      {
+        "item_id": 112712,
+        "data_title": "윤리경영 공개",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "공직자 윤리 및 청렴도 정보가 공개되어 있어, 공직자의 행동 기준이 명확하고 투명성이 뛰어나다."
+      },
+      {
+        "item_id": 112713,
+        "data_title": "민원처리 투명성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "민원 처리 과정과 결과가 공개되어 있어, 시민의 알 권리가 충족되고 투명성이 높다."
+      },
+      {
+        "item_id": 112714,
+        "data_title": "경기도 재정정보 공개",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "경기도 재정현황이 상세하게 온라인 공개되어 재정 투명성이 매우 우수하다."
+      },
+      {
+        "item_id": 112715,
+        "data_title": "도정 운영 라이브 브리핑",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "주요 정책결정 과정을 실시간으로 공개하여, 시민의 참여와 감시가 가능해 투명성이 매우 높다."
+      },
+      {
+        "item_id": 112716,
+        "data_title": "예산 집행 내역 공개",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "분기별 상세 예산 집행 내역이 공개되어 있어, 예산 운영의 투명성이 매우 우수하다."
+      },
+      {
+        "item_id": 112717,
+        "data_title": "정책결정 회의록 공개",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "정책결정 회의의 공식 회의록이 공개되어, 정책 결정 과정의 투명성이 매우 높다."
+      },
+      {
+        "item_id": 112718,
+        "data_title": "지방보조금 내역 공개",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "경기도 지방보조금의 상세 내역이 투명하게 공개되어, 재정 운영에 대한 신뢰를 높인다."
+      },
+      {
+        "item_id": 112719,
+        "data_title": "도정 정보공개 청구 대응",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "정보공개 청구에 신속하고 상세하게 대응하여 투명성을 높이는 우수한 사례로, 시민의 접근성을 보장."
+      },
+      {
+        "item_id": 112720,
+        "data_title": "공공조달 과정 투명성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "공공조달 입찰 과정을 온라인으로 상세 공개함으로써 부패를 방지하고 신뢰를 구축, 투명성이 매우 우수함."
+      },
+      {
+        "item_id": 112721,
+        "data_title": "정책실명제 운영",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "정책실명제를 통해 주요 정책 입안자와 결정 과정을 명확히 공개하여 책임성을 높임, 투명성 매우 우수."
+      },
+      {
+        "item_id": 112722,
+        "data_title": "인사 정보 공개",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "주요 인사 결정 과정과 기준을 공개하여 투명성을 강화했으나, 구체적 사례나 세부 내용 부족으로 A 등급은 아쉬움."
+      },
+      {
+        "item_id": 112723,
+        "data_title": "도지사 업무추진비 공개",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "월별 업무추진비 상세 내역을 투명하게 공개하여 시민의 알 권리를 충족시키고 신뢰를 증진시킴, 매우 우수."
+      },
+      {
+        "item_id": 112724,
+        "data_title": "감사결과 공개",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "내부 및 외부 감사 결과를 종합적으로 공개하여 거버넌스의 투명성을 높이고, 시민의 신뢰를 강화하는 우수 사례."
+      },
+      {
+        "item_id": 112725,
+        "data_title": "정책 성과 보고",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "주요 정책 성과를 정기적으로 보고하여 시민과의 소통을 강화하였으나, 성과에 대한 구체적인 수치가 부족함."
+      },
+      {
+        "item_id": 112726,
+        "data_title": "예산 절감 내역 공개",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "예산 절감 내역을 상세히 공개하여 재정 운영의 투명성을 높이고 시민의 이해를 돕는 매우 우수한 접근."
+      },
+      {
+        "item_id": 112727,
+        "data_title": "도정 현장 소통",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "현장 방문 및 직접 소통을 통한 투명성 강화는 중요한 접근이나, 지속적인 방식이 부족할 경우 한계가 있을 수 있음."
+      },
+      {
+        "item_id": 112728,
+        "data_title": "정책 토론회 개최",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "주요 정책에 대한 공개 토론회를 정기적으로 개최하여 정책 결정 과정에 시민 참여를 유도, 투명성이 매우 높음."
+      },
+      {
+        "item_id": 112729,
+        "data_title": "국제교류 투명성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "국제교류 사업의 목적과 성과를 공개하여 투명성을 높이고, 시민들이 사업의 실효성을 판단할 수 있도록 돕는 매우 우수한 사례입니다."
+      },
+      {
+        "item_id": 112730,
+        "data_title": "긴급재난지원금 집행",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "코로나19 긴급재난지원금 집행 내역을 상세히 공개함으로써, 정부의 재정 집행 과정에 대한 신뢰를 강화하고 시민들에게 중요한 정보를 제공합니다."
+      },
+      {
+        "item_id": 112731,
+        "data_title": "정책자문단 구성 공개",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "정책자문단의 구성 과정과 멤버를 투명하게 공개하여 정책 결정 과정에 대한 신뢰를 구축하고, 참여를 촉진하는 매우 긍정적인 조치입니다."
+      },
+      {
+        "item_id": 112732,
+        "data_title": "성과평가 공개",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "부서별 정기적 성과평가 내용을 공개함으로써 공공기관의 성과에 대한 책임성을 높이고, 투명한 행정을 실현하는 우수한 사례입니다."
+      },
+      {
+        "item_id": 112733,
+        "data_title": "민원처리 과정 공개",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "주요 민원의 처리 과정과 결과를 투명하게 공개하여 시민들이 행정 서비스의 질을 평가할 수 있도록 한 점에서 매우 높은 투명성을 보여줍니다."
+      },
+      {
+        "item_id": 113121,
+        "data_title": "정책 성과 보고",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "정책별 성과를 측정하고 공개함으로써, 정책의 효과성을 평가할 수 있는 근거를 제공하여 매우 높은 투명성을 유지하고 있습니다."
+      },
+      {
+        "item_id": 113123,
+        "data_title": "행정정보 공개 신속성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "정보공개 청구에 대한 신속한 대응은 투명성을 높이는 중요한 요소이나, 구체적인 정보 공개의 범위가 더 확장될 필요가 있습니다."
+      },
+      {
+        "item_id": 113126,
+        "data_title": "도정 예산 집행 투명성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "예산 집행 과정의 상세 내역을 공개하여 재정 관리의 투명성을 높이고, 시민들이 예산 사용을 이해할 수 있도록 돕는 훌륭한 조치입니다."
+      },
+      {
+        "item_id": 113128,
+        "data_title": "재정 건전성 보고",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "경기도 재정 상태를 정기적으로 공개함으로써, 시민들이 재정 건전성을 평가하고 신뢰할 수 있는 정보를 제공하는 매우 우수한 사례입니다."
+      },
+      {
+        "item_id": 113130,
+        "data_title": "행정서비스 정보접근성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "온라인 플랫폼을 통해 행정서비스 정보를 제공하는 것은 접근성을 높이는 긍정적인 조치이나, 정보의 깊이와 범위에서 보완이 필요합니다."
+      }
+    ],
+    "Grok": [
+      {
+        "item_id": 162861,
+        "data_title": "김동연, 재정 투명성 개선 방안 발표",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "김동연이 재정 운영의 투명성을 높이기 위한 구체적인 개선 방안을 발표하고, 이를 통해 시민들이 공공 재정의 흐름을 쉽게 이해할 수 있도록 하겠다고 한 점이 매우 우수하다. 정부 공식 보도자료로 신뢰성이 높다."
+      },
+      {
+        "item_id": 162862,
+        "data_title": "아이디어 공모전 통해 정보 공개 확대",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "김동연이 시민 아이디어 공모전을 통해 정보 공개 및 투명성 관련 아이디어를 수집하고 이를 실질적으로 반영하겠다는 의지를 보인 점이 우수하다. 시민 참여를 통한 투명성 제고 노력이 돋보인다."
+      },
+      {
+        "item_id": 162863,
+        "data_title": "투명한 정책 결정 절차 강조",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "김동연이 정책 결정 과정에서 투명성을 강조하며 시민들에게 각 단계마다 정보를 제공하겠다고 약속한 점이 우수하다. 이러한 약속은 투명성 제고에 기여할 수 있다."
+      },
+      {
+        "item_id": 162864,
+        "data_title": "지방정부 투명성 평가 결과",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "김동연이 이끄는 지방정부의 투명성 평가가 과거보다 개선되었다는 평가를 받고 있으며, 지속적인 정보 공개로 시민들의 신뢰를 얻고 있는 점이 양호하다. 다만, 구체적인 개선 사항이 명확하지 않아 C 등급을 부여한다."
+      },
+      {
+        "item_id": 162865,
+        "data_title": "투명한 재정 운영을 위한 법안 발의",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "김동연이 투명한 재정 운영을 위한 법안을 발의하여, 모든 세금과 예산의 흐름을 시민들이 쉽게 알 수 있도록 하겠다고 한 점이 매우 우수하다. 법안 발의는 투명성 제고에 실질적인 기여를 할 수 있다."
+      },
+      {
+        "item_id": 162866,
+        "data_title": "정책 설명회를 통한 정보 공유",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "김동연이 정책 설명회를 정기적으로 개최하여 자신의 정책을 시민들과 공유하고, 의견을 수렴하는 등 투명한 소통을 시도하고 있는 점이 우수하다. 이러한 노력은 시민 참여와 투명성을 높이는 데 기여한다."
+      },
+      {
+        "item_id": 162867,
+        "data_title": "공공 데이터 개방 추진",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "김동연이 공공 데이터를 보다 투명하게 개방하겠다는 정책을 추진하고 있으며, 이를 통해 시민들이 정보에 쉽게 접근할 수 있도록 하고 있는 점이 우수하다. 공공 데이터 개방은 투명성 제고에 중요한 역할을 한다."
+      },
+      {
+        "item_id": 162868,
+        "data_title": "행정업무의 투명화 진전",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "김동연 정부 하에서 행정업무의 데이터화와 정보 공개가 진행되어 시민들이 신뢰할 수 있는 행정이 이루어지고 있는 점이 우수하다. 이러한 노력은 투명성 제고에 기여한다."
+      },
+      {
+        "item_id": 162869,
+        "data_title": "정책 요청서 제출 시스템 도입",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "김동연이 시민들이 정책 요청서를 제출할 수 있는 온라인 시스템을 도입하여, 정책 과정의 투명성을 높인 점이 우수하다. 시민 참여를 통한 투명성 제고 노력이 돋보인다."
+      },
+      {
+        "item_id": 162870,
+        "data_title": "서울시 정보공개 실적 향상",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "김동연이 서울시를 이끌며 정보 공개 실적이 개선되었다고 보고되었으며, 이는 시민들의 정책 참여를 장려하는 역할을 하고 있는 점이 양호하다. 다만, 구체적인 개선 사항이 명확하지 않아 C 등급을 부여한다."
+      },
+      {
+        "item_id": 162871,
+        "data_title": "예산 공개 미흡 논란",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "예산 공개가 미흡하다는 비판이 있어 투명성이 부족하다는 지적이 있음. 더 투명한 예산 운영이 필요하다는 의견이 많아 개선이 필요함."
+      },
+      {
+        "item_id": 162872,
+        "data_title": "투명성 지수 하락 우려",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "투명성 지수가 하락하고 있어 관련 정책의 재검토가 필요하다는 목소리가 나옴. 이는 투명성에 대한 신뢰가 떨어지고 있음을 의미함."
+      },
+      {
+        "item_id": 162873,
+        "data_title": "공공 서비스의 정보 부족 문제",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "공공 서비스와 관련된 정보가 부족하다는 지적이 있으며, 김동연 정부의 노력이 아직 미흡하다고 평가됨. 이는 투명성에 부정적인 영향을 미침."
+      },
+      {
+        "item_id": 162874,
+        "data_title": "의사결정 과정 비공개 논란",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "의사결정 과정이 비공식적으로 진행되어 투명하지 않다는 비판을 받고 있음. 이는 투명성에 큰 결함이 있음을 나타냄."
+      },
+      {
+        "item_id": 162875,
+        "data_title": "상위 기관 의사결정의 독단적 방식",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "F",
+        "rating_rationale": "상위 기관의 독단적인 의사결정 방식이 문제가 되어 투명성이 저해된다는 지적이 있음. 이는 투명성에 중대한 결함이 있음을 의미함."
+      },
+      {
+        "item_id": 162876,
+        "data_title": "국민 의견 수렴 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "국민 의견 수렴이 부족하다는 비판이 있어 투명한 정책 진행에 한계가 있음. 이는 투명성에 대한 신뢰를 떨어뜨림."
+      },
+      {
+        "item_id": 162877,
+        "data_title": "정책 공개 기회 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "정책 발표 기회가 부족하다는 비판을 받아 투명성에 대한 신뢰가 약화될 수 있음. 이는 투명성에 미흡한 점이 있음을 나타냄."
+      },
+      {
+        "item_id": 162878,
+        "data_title": "비현실적인 투명성 목표 설정",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "투명성 목표 설정이 비현실적이라는 비판이 있어 실질적인 변화가 필요하다는 목소리가 있음. 이는 투명성에 대한 신뢰를 떨어뜨림."
+      },
+      {
+        "item_id": 162879,
+        "data_title": "정보 접근성 부족 문제 지적",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "정보 접근성이 부족하다는 지적이 있어 시민들이 필요한 정보를 찾기 어려워 투명성에 대한 신뢰도가 떨어짐. 이는 투명성에 미흡한 점이 있음을 의미함."
+      },
+      {
+        "item_id": 162880,
+        "data_title": "정책 변화에 대한 정보 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "정책 변화에 대한 정보가 부족하다는 지적이 있어 시민들에게 일관된 정보를 제공하지 못하고 있음. 이는 투명성에 대한 신뢰를 떨어뜨림."
+      },
+      {
+        "item_id": 162881,
+        "data_title": "공공의사결정의 소극적 접근 방식",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "김동연의 공공 의사결정 방식이 소극적이라는 비판은 시민 참여를 저해할 수 있으며, 이는 투명성에 미흡한 것으로 평가됩니다."
+      },
+      {
+        "item_id": 162882,
+        "data_title": "정치적 투명성 확보 노력",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "김동연이 법안 제정을 통해 정치적 투명성을 확보하려는 노력은 우수한 것으로 평가됩니다. 이는 투명한 정부를 만들겠다는 의지를 보여줍니다."
+      },
+      {
+        "item_id": 162883,
+        "data_title": "정기적인 정보 공개 이메일 발송",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "정기적으로 시민들에게 정책 관련 정보를 이메일로 발송하는 것은 매우 우수한 투명성 제고 노력으로 평가됩니다."
+      },
+      {
+        "item_id": 162884,
+        "data_title": "시민과의 정책 토론회 개최",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "시민과의 정책 토론회를 정기적으로 개최하여 시민의 목소리를 듣고 정책에 반영하려는 노력은 매우 우수한 투명성 확보 행위입니다."
+      },
+      {
+        "item_id": 162885,
+        "data_title": "정보 공개 기준 개선 방안",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "정보 공개 기준을 개선하기 위한 연구 진행은 투명한 행정을 위한 우수한 노력으로 평가됩니다."
+      },
+      {
+        "item_id": 162886,
+        "data_title": "정책 에세이 공모전 개최",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "정책 관련 에세이 공모전을 통해 시민들의 의견을 제시할 수 있도록 하는 것은 투명성을 높이려는 우수한 노력입니다."
+      },
+      {
+        "item_id": 162887,
+        "data_title": "정치인 행동 강령 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "정치인들의 행동 강령을 강화하여 정책의 투명성을 높이려는 노력은 우수한 것으로 평가됩니다."
+      },
+      {
+        "item_id": 162888,
+        "data_title": "예산 집행 정보 공개 요구 증가",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "C",
+        "rating_rationale": "예산 집행 관련 정보 공개 요청이 증가하고 있으며, 철저한 정보 공개가 필요하다는 목소리가 높아지는 것은 양호한 수준의 투명성으로 평가됩니다."
+      },
+      {
+        "item_id": 162889,
+        "data_title": "정보 비공개 결정에 대한 불만",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "일부 정보를 비공식적으로 비공개 처리하여 불만이 제기되고 있다는 것은 투명성에 부족한 것으로 평가됩니다."
+      },
+      {
+        "item_id": 162890,
+        "data_title": "정책 시행 과정에 대한 정보 제공 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "정책 시행 과정에 대한 정보를 충분히 공개하지 않는 것은 투명성에 미흡한 것으로 평가됩니다."
+      },
+      {
+        "item_id": 162891,
+        "data_title": "정책 결과의 투명한 발표 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "정책 결과에 대한 투명한 발표가 부족하다는 지적이 있어, 투명성에 대한 신뢰가 낮아지고 있다. 이는 미흡한 수준으로 평가된다."
+      },
+      {
+        "item_id": 162892,
+        "data_title": "정책 변화에 대한 시민 설명회 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "정책 변화에 대한 시민 설명회가 부족하여 정보 격차가 커지고 있다는 비판이 있어, 투명성 측면에서 미흡하다."
+      },
+      {
+        "item_id": 162893,
+        "data_title": "비공식 경로 정보의 문제",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "F",
+        "rating_rationale": "비공식 경로에 의존한 정보 전달은 투명성에 대한 의구심을 증가시켜, 투명성 측면에서 부족하다."
+      },
+      {
+        "item_id": 162894,
+        "data_title": "투명한 소통 체계 구축 필요",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "D",
+        "rating_rationale": "투명한 소통 체계 구축이 필요하다는 언급이 있지만, 아직 구체적인 실행이 부족하여 보통 수준으로 평가된다."
+      },
+      {
+        "item_id": 162895,
+        "data_title": "정책 이행 상황에 대한 시의적절한 보고 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "정책 이행 상황에 대한 시의적절한 보고가 부족하여 시민들이 정책의 진전을 알기 어려운 상황은 미흡한 수준이다."
+      },
+      {
+        "item_id": 162896,
+        "data_title": "적극적인 정보 제공을 위한 계획 수립",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "적극적인 정보 제공 계획 수립을 밝혔다는 점에서 공공투명성 증진을 위한 노력이 보이지만, 아직 실행 결과를 확인할 수 없어 양호한 수준이다."
+      },
+      {
+        "item_id": 162897,
+        "data_title": "정기적인 시민 의견 조사 실시",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "정기적인 시민 의견 조사를 통해 정책의 투명성을 높이려는 노력이 있어, 우수한 수준으로 평가된다."
+      },
+      {
+        "item_id": 162898,
+        "data_title": "공적인 자산 관리에 대한 투명성 미보장",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "공적인 자산 관리에 대한 투명성이 미흡하다는 지적이 있어, 투명성 측면에서 미흡하다."
+      },
+      {
+        "item_id": 162899,
+        "data_title": "전문가 협의체 운영으로 투명성 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "전문가 협의체를 운영하여 투명성을 강화하려는 노력이 있어, 우수한 수준으로 평가된다."
+      },
+      {
+        "item_id": 162900,
+        "data_title": "시민 의견 반영 미흡",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "시민 의견이 정책에 반영되지 않는 경우가 많아, 투명성에 대한 신뢰가 저하되고 있어 미흡한 수준이다."
+      },
+      {
+        "item_id": 162901,
+        "data_title": "정보 통신의 응답성 개선 필요",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "정보 통신 구조의 응답성이 부족하여 시민들의 정보 접근이 어렵다는 점에서 투명성이 미흡하다. 시민들이 필요한 정보를 제때 얻지 못하면 투명성에 대한 신뢰가 떨어진다."
+      },
+      {
+        "item_id": 162902,
+        "data_title": "정책 획득 정보의 신뢰성 문제",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "정책 관련 정보의 신뢰성에 대한 비판이 있어 시민들의 신뢰를 저하시킬 수 있다는 점에서 투명성이 미흡하다. 신뢰성은 투명성의 중요한 요소이다."
+      },
+      {
+        "item_id": 162903,
+        "data_title": "정책 관련 부서간 협의 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "정책 관련 부서 간 협의가 부족하여 일관된 정보 제공에 문제가 있다는 점에서 투명성이 미흡하다. 부서 간 협의 부족은 정보의 일관성을 저해한다."
+      },
+      {
+        "item_id": 162904,
+        "data_title": "행정업무 투명성 지연 문제",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "행정업무에서 투명성이 지연되고 있다는 문제가 있어 개선이 시급하다는 점에서 투명성이 미흡하다. 행정업무의 투명성은 정부 운영의 핵심이다."
+      },
+      {
+        "item_id": 162905,
+        "data_title": "정부 예산 효율성에 대한 질문 증가",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "예산 효율성에 대한 질문이 증가하고 있으며, 투명한 회계 처리가 필요하다는 지적이 많다는 점에서 투명성이 미흡하다. 예산의 투명한 처리는 국민의 권리이다."
+      },
+      {
+        "item_id": 162906,
+        "data_title": "실적 세부 공개 요구 증가",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "정책 성과에 대한 세부 공개 요구가 증가하고 있으며, 이는 투명성 강화를 위한 촉구로 해석된다는 점에서 투명성이 미흡하다. 세부 공개는 투명성의 중요한 지표이다."
+      },
+      {
+        "item_id": 162907,
+        "data_title": "정보 공개 적시성 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "정보 공개가 적시성이 부족하다는 비판이 있으며, 국민과의 신뢰 구축에 어려움이 있다는 점에서 투명성이 미흡하다. 적시성은 투명성의 중요한 요소이다."
+      },
+      {
+        "item_id": 162908,
+        "data_title": "심층적인 정책 분석 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "심층적인 정책 분석이 부족하다는 비판을 받고 있으며, 이는 투명한 정책 운영에 저해 요소가 된다는 점에서 투명성이 미흡하다. 심층 분석은 투명성을 높이는 데 필수적이다."
+      },
+      {
+        "item_id": 162909,
+        "data_title": "투명성 관련 시민 교육 필요성",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "시민들에게 투명성 관련 교육의 필요성을 언급하고 있으며, 이는 정책 신뢰도를 높이는데 기여할 수 있다는 점에서 양호하다. 교육은 투명성 강화에 긍정적이다."
+      },
+      {
+        "item_id": 162910,
+        "data_title": "정치적 관점에서의 투명성 유지",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "정치적 관점에서도 투명성을 유지하겠다는 다짐을 하였으며, 이는 정책의 신뢰성을 강화하는데 기여할 것이라는 점에서 양호하다. 다짐은 투명성 향상에 긍정적이다."
+      },
+      {
+        "item_id": 163111,
+        "data_title": "김동연의 경기도 예산 공개 플랫폼 도입",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "김동연이 경기도 예산 집행 과정을 실시간으로 공개하는 플랫폼을 도입하여 재정 투명성을 강화하였고, 여러 감사에서 긍정적으로 평가받아 매우 우수한 투명성을 보여줌."
+      },
+      {
+        "item_id": 163112,
+        "data_title": "김동연의 정책 결정 과정 공개 보고",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "김동연이 부총리 시절 주요 정책 결정 과정을 문서화하여 의회에 제출하고, 국민들이 정책 형성을 이해할 수 있도록 하여 매우 우수한 투명성을 보여줌."
+      },
+      {
+        "item_id": 163113,
+        "data_title": "김동연의 공공 프로젝트 재무 보고",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "김동연이 공공 프로젝트의 재무 상태를 정기적으로 공개하여 예산 투명성을 강화하였고, 국민의 감독을 촉진하였기에 매우 우수한 투명성을 보여줌."
+      },
+      {
+        "item_id": 163114,
+        "data_title": "김동연의 토론회 참석과 정보 공유",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "김동연이 토론회에서 정책 아이디어와 관련 데이터를 공유하여 의사결정 과정을 개방적으로 만들었으나, 이는 부분적인 투명성 제고로 우수한 수준."
+      },
+      {
+        "item_id": 163115,
+        "data_title": "김동연의 재정 정책 설명 자료",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "김동연이 재정 정책의 세부 사항을 공식 자료로 발간하여 국민들이 정책의 투명성을 검증할 수 있게 하였으나, 이는 특정 정책에 국한된 것으로 우수한 수준."
+      },
+      {
+        "item_id": 163116,
+        "data_title": "김동연의 공개 청문회 참여",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "김동연이 국회 청문회에서 과거 행적과 정책 결정을 상세히 설명하여 의사결정 과정을 투명하게 드러냈으나, 이는 일회성 이벤트로 우수한 수준."
+      },
+      {
+        "item_id": 163117,
+        "data_title": "김동연의 공공정보 접근성 개선",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "김동연이 공공정보의 접근성을 높이기 위해 디지털 플랫폼을 강화하여 투명성을 향상시켰으나, 이는 접근성 개선에 국한된 것으로 우수한 수준."
+      },
+      {
+        "item_id": 163118,
+        "data_title": "김동연의 예산 사용 감사 결과",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "김동연의 예산 사용이 대부분 투명하게 관리된 것으로 나타났으나, 감사 보고서의 세부 항목이 공개되었을 뿐, 예산 사용 전 과정이 투명하게 공개되지 않아 양호한 수준."
+      },
+      {
+        "item_id": 163119,
+        "data_title": "김동연의 정책 효과 평가 공개",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "김동연이 시행한 정책의 효과를 정기적으로 평가하여 공개하고, 데이터 분석과 국민 의견을 수렴하여 의사결정의 투명성을 높였으나, 이는 특정 정책에 국한된 것으로 우수한 수준."
+      },
+      {
+        "item_id": 163120,
+        "data_title": "김동연의 정보 공개 지침 마련",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "김동연이 정보 공개 지침을 제정하여 공공 기관의 투명성을 강화하였으나, 이는 지침 제정에 국한된 것으로 우수한 수준."
+      },
+      {
+        "item_id": 163121,
+        "data_title": "김동연의 언론 인터뷰를 통한 정책 설명",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "김동연이 언론 인터뷰를 통해 정책 의사결정 과정을 자세히 설명함으로써 국민의 이해를 돕고, 투명성 논의를 활발히 한 점이 매우 우수함."
+      },
+      {
+        "item_id": 163122,
+        "data_title": "김동연의 경제 데이터 공개 보도",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "경제 정책 관련 데이터를 자발적으로 공개하여 정책 효과 분석에 기여하고, 국민의 이해를 돕는 데 매우 우수한 투명성을 보여줌."
+      },
+      {
+        "item_id": 163123,
+        "data_title": "김동연의 공개 강연 내용",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "공개 강연에서 정책의 장단점과 관련 데이터를 포함하여 투명성을 강조한 점이 매우 우수함. 이를 통해 국민이 정책을 이해할 수 있도록 함."
+      },
+      {
+        "item_id": 163124,
+        "data_title": "김동연의 재정 투명성 보도",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "재정 관리 방식을 투명하게 공개하고, 구체적인 예산 내역과 감사 결과를 포함한 점이 매우 우수함. 이는 투명한 예산 사용을 강조함."
+      },
+      {
+        "item_id": 163125,
+        "data_title": "김동연의 정책 논란 해소 보도",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "정책 논란을 공개적으로 논의하고, 본인이 직접 설명하여 투명성을 유지한 점이 매우 우수함. 이는 국민의 오해를 해소하는 데 기여함."
+      },
+      {
+        "item_id": 163126,
+        "data_title": "김동연의 정보 공유 캠페인 보도",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "정보 공유 캠페인을 통해 정책 데이터를 공개하고 시민 참여를 유도한 점이 매우 우수함. 이는 투명성을 높이는 데 기여함."
+      },
+      {
+        "item_id": 163127,
+        "data_title": "김동연의 공공 프로젝트 보도",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "공공 프로젝트의 투명한 관리 과정을 강조하고, 세부 비용과 성과를 포함한 점이 매우 우수함. 이는 투명성을 강조하는 좋은 사례임."
+      },
+      {
+        "item_id": 163128,
+        "data_title": "김동연의 의사결정 공개 보도",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "주요 의사결정 과정에서 관련 문서를 공개하여 투명성을 강조한 점이 매우 우수함. 이는 투명성의 중요성을 재확인함."
+      },
+      {
+        "item_id": 163129,
+        "data_title": "김동연의 데이터 활용 보도",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "데이터를 활용한 투명한 정책을 다루고, 정책의 효과를 구체적으로 설명한 점이 매우 우수함. 이는 국민의 이해를 돕는 데 기여함."
+      },
+      {
+        "item_id": 163130,
+        "data_title": "김동연의 투명성 관련 인터뷰",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "인터뷰를 통해 투명성 원칙을 강조하고, 구체적인 예시를 포함한 점이 매우 우수함. 이는 투명성을 실천하는 좋은 사례임."
+      },
+      {
+        "item_id": 163131,
+        "data_title": "김동연의 예산 비밀 유지 논란",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "예산 집행 과정이 지연되어 공개되지 않은 점은 투명성 부족을 나타내며, 관련 문서가 늦게 공개된 것이 문제로 지적됩니다."
+      },
+      {
+        "item_id": 163132,
+        "data_title": "김동연의 정책 문서 누락",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "정책 결정 문서가 누락되어 공개되지 않은 점은 의사결정 과정의 불투명성을 초래하며, 이는 투명성 미흡의 예입니다."
+      },
+      {
+        "item_id": 163133,
+        "data_title": "김동연의 재정 보고 오류",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "F",
+        "rating_rationale": "재정 보고서에 오류가 있어 실제 사용 내역과 차이가 난 점은 투명성의 심각한 문제를 야기하며, 부족하다고 평가됩니다."
+      },
+      {
+        "item_id": 163134,
+        "data_title": "김동연의 정보 은폐 의혹",
+        "collected_by": "Grok",
+        "original_rating": "H",
+        "new_rating": "F",
+        "rating_rationale": "정보가 은폐되었다고 의심되는 사례가 있어 공개 과정에 문제가 발생한 점은 투명성 저하의 심각한 예로 볼 수 있습니다."
+      },
+      {
+        "item_id": 163135,
+        "data_title": "김동연의 프로젝트 지연 공개",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "프로젝트 지연 이유가 늦게 공개된 점은 투명성 부족을 드러내며, 이는 미흡한 투명성의 예입니다."
+      },
+      {
+        "item_id": 163136,
+        "data_title": "김동연의 투명성 부족 보도",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "일부 정책 결정이 비공개로 진행된 점은 언론 보도를 통해 지적되었으며, 이는 투명성 문제를 강조하는 사례로 볼 수 있습니다."
+      },
+      {
+        "item_id": 163137,
+        "data_title": "김동연의 정보 왜곡 보도",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "F",
+        "rating_rationale": "정보 공개에 왜곡이 있었다는 보도는 투명성의 심각한 문제를 야기하며, 이는 부족한 투명성의 예입니다."
+      },
+      {
+        "item_id": 163138,
+        "data_title": "김동연의 비밀 계약 논란 보도",
+        "collected_by": "Grok",
+        "original_rating": "H",
+        "new_rating": "F",
+        "rating_rationale": "비밀 계약이 드러난 점은 투명성 부족을 지적하며, 정책 의사결정의 문제를 강조하는 사례로 볼 수 있습니다."
+      },
+      {
+        "item_id": 163139,
+        "data_title": "김동연의 공개 지연 보도",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "정보 공개가 지연되었다는 보도는 투명성의 미흡한 점을 드러내며, 이는 미흡한 투명성의 예입니다."
+      },
+      {
+        "item_id": 163140,
+        "data_title": "김동연의 문서 누출 논란",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "문서 누출로 인한 투명성 문제가 제기된 점은 의사결정 과정의 불투명성을 지적하며, 이는 미흡한 투명성의 예입니다."
+      },
+      {
+        "item_id": 163141,
+        "data_title": "김동연의 투명성 강화 캠페인",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "김동연이 투명성 강화 캠페인을 통해 정책 정보를 적극 공개하고 국민 참여를 유도한 점이 매우 우수함. 이는 투명성의 모범 사례로 평가됨."
+      },
+      {
+        "item_id": 163142,
+        "data_title": "김동연의 데이터 공개 정책",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "데이터 공개 정책을 시행하여 공공 정보의 접근성을 높인 점이 매우 우수함. 이는 투명성 향상에 큰 기여를 함."
+      },
+      {
+        "item_id": 163143,
+        "data_title": "김동연의 의회 보고 개선",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "의회 보고를 개선하여 더 많은 세부 정보를 포함한 점이 매우 우수함. 이는 투명성 강화에 중요한 역할을 함."
+      },
+      {
+        "item_id": 163144,
+        "data_title": "김동연의 공개 세미나",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "공개 세미나를 통해 정책 과정을 설명한 점이 매우 우수함. 이는 투명성을 높이는 데 큰 기여를 함."
+      },
+      {
+        "item_id": 163145,
+        "data_title": "김동연의 재무 관리 공개",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "재무 관리 과정을 공개하여 투명성을 강조한 점이 매우 우수함. 상세한 보고서가 포함되어 있어 투명성이 높게 평가됨."
+      },
+      {
+        "item_id": 163146,
+        "data_title": "김동연의 정책 평가 보고",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "정책 평가 보고를 정기적으로 공개한 점이 매우 우수함. 이는 투명성의 중요한 부분으로 평가됨."
+      },
+      {
+        "item_id": 163147,
+        "data_title": "김동연의 정보 접근 법안",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "정보 접근 법안을 지지하여 투명성을 강화한 점이 매우 우수함. 이는 공공 분야의 변화를 가져와 투명성 향상에 기여함."
+      },
+      {
+        "item_id": 163148,
+        "data_title": "김동연의 공개 토론 참여",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "공개 토론에 참여하여 정책을 설명한 점이 매우 우수함. 이는 투명성을 높이는 데 효과적임."
+      },
+      {
+        "item_id": 163149,
+        "data_title": "김동연의 데이터 보호 정책",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "데이터 보호 정책을 통해 투명성을 유지한 점이 매우 우수함. 정책에 공개 원칙이 포함되어 있어 투명성이 높게 평가됨."
+      },
+      {
+        "item_id": 163150,
+        "data_title": "김동연의 감사 결과 공개",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "감사 결과를 공개하여 투명성을 강조한 점이 매우 우수함. 구체적인 내용이 포함된 보고서가 투명성의 증거로 작용함."
+      },
+      {
+        "item_id": 163151,
+        "data_title": "김동연의 정책 설명 보도",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "김동연의 정책 설명이 언론에 강조되어 투명성을 높이는 내용이지만, 구체적인 정책 내용과 그 실행 과정이 얼마나 투명하게 공개되었는지는 명확하지 않다. 따라서 '우수' 등급을 부여한다."
+      },
+      {
+        "item_id": 163152,
+        "data_title": "김동연의 경제 정책 보도",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "김동연의 경제 정책이 언론에 보도되며 투명한 과정이 소개되었으나, 그 과정이 얼마나 구체적이고 상세하게 공개되었는지는 불분명하다. 따라서 '우수' 등급을 부여한다."
+      },
+      {
+        "item_id": 163153,
+        "data_title": "김동연의 공개 인터뷰 보도",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "김동연의 인터뷰가 보도되며 투명성 원칙이 언급되었으나, 인터뷰 내용이 얼마나 투명성을 실질적으로 증진시켰는지는 불분명하다. 따라서 '우수' 등급을 부여한다."
+      },
+      {
+        "item_id": 163154,
+        "data_title": "김동연의 프로젝트 보도",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "김동연의 프로젝트가 언론에 보도되며 투명성이 강조되었으나, 프로젝트의 세부 사항과 실행 과정이 얼마나 투명하게 공개되었는지는 명확하지 않다. 따라서 '우수' 등급을 부여한다."
+      },
+      {
+        "item_id": 163155,
+        "data_title": "김동연의 정보 공유 보도",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "김동연의 정보 공유가 보도되며 투명성 개선이 언급되었으나, 공유된 정보의 범위와 깊이가 얼마나 충분한지는 불분명하다. 따라서 '우수' 등급을 부여한다."
+      },
+      {
+        "item_id": 163156,
+        "data_title": "김동연의 의사결정 보도",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "김동연의 의사결정이 언론에 보도되며 투명성이 다루어졌으나, 의사결정 과정이 얼마나 구체적으로 공개되었는지는 불분명하다. 따라서 '우수' 등급을 부여한다."
+      },
+      {
+        "item_id": 163157,
+        "data_title": "김동연의 데이터 보도",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "김동연의 데이터 공개가 보도되며 투명성 혜택이 강조되었으나, 공개된 데이터의 양과 질이 얼마나 충분한지는 불분명하다. 따라서 '우수' 등급을 부여한다."
+      },
+      {
+        "item_id": 163158,
+        "data_title": "김동연의 정책 평가 보도",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "김동연의 정책 평가가 언론에 보도되며 투명성이 논의되었으나, 평가 과정과 결과가 얼마나 투명하게 공개되었는지는 불분명하다. 따라서 '우수' 등급을 부여한다."
+      },
+      {
+        "item_id": 163159,
+        "data_title": "김동연의 공개 행사 보도",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "김동연의 공개 행사가 보도되며 투명성 원칙이 소개되었으나, 행사의 내용과 결과가 얼마나 투명하게 공개되었는지는 불분명하다. 따라서 '우수' 등급을 부여한다."
+      },
+      {
+        "item_id": 163160,
+        "data_title": "김동연의 투명성 캠페인 보도",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "김동연의 투명성 캠페인이 언론에 보도되며 그 효과가 강조되었고, 캠페인의 목적과 실행 과정이 명확하게 설명되었다. 따라서 '매우 우수' 등급을 부여한다."
+      },
+      {
+        "item_id": 112689,
+        "data_title": "경기도지사 공약 이행 투명성 부족",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "선거 공약의 구체적 실행 계획과 진행 상황 공개가 미흡하다는 평가는 투명성 측면에서 부족함을 나타냄. 이는 투명성의 기본 요소인 정보 공개가 충분하지 않음을 의미함."
+      },
+      {
+        "item_id": 112690,
+        "data_title": "정책결정 과정 소통 투명성 한계",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "정책결정 과정에서 이해관계자 및 도민 의견 수렴 절차가 제한적이라는 비판은 투명성의 핵심인 소통과 참여가 부족함을 나타냄. 이는 투명성 측면에서 미흡한 것으로 평가됨."
+      },
+      {
+        "item_id": 112691,
+        "data_title": "예산 집행 세부내역 공개 미흡",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "예산 집행에 대한 상세 내역과 성과 보고가 충분하지 않다는 지적은 투명성의 중요한 요소인 재정 정보 공개가 미흡함을 의미함. 이는 투명성 측면에서 부족함을 나타냄."
+      },
+      {
+        "item_id": 112692,
+        "data_title": "인사 결정 과정의 불투명성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "인사 결정 과정에서 객관적 기준과 절차가 부족하다는 지적은 투명성의 중요한 부분인 인사 과정의 공정성과 투명성이 부족함을 나타냄. 이는 투명성 측면에서 미흡함을 의미함."
+      },
+      {
+        "item_id": 112693,
+        "data_title": "정책자문위원회 운영 투명성 문제",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "정책자문위원 선정 및 회의록 공개가 제한적이며 폐쇄적 운영이라는 지적은 투명성의 중요한 요소인 정보 공개와 참여가 부족함을 나타냄. 이는 투명성 측면에서 미흡함을 의미함."
+      },
+      {
+        "item_id": 112694,
+        "data_title": "경기도지사 투명성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "적극적인 정책 결정 과정 공개는 투명성 측면에서 긍정적인 요소임. 이는 투명성의 중요한 요소인 정보 공개가 어느 정도 충족되고 있음을 나타냄. 따라서 양호한 등급을 부여함."
+      },
+      {
+        "item_id": 112695,
+        "data_title": "예산 집행 투명성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "예산 상세 내역 공개는 투명성의 중요한 요소인 재정 정보 공개가 충족되고 있음을 나타냄. 이는 투명성 측면에서 양호한 수준임을 의미함."
+      },
+      {
+        "item_id": 112696,
+        "data_title": "정책 결정 과정 공개",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "주요 정책 의사결정 회의록 공개는 투명성의 중요한 요소인 정보 공개가 충족되고 있음을 나타냄. 이는 투명성 측면에서 양호한 수준임을 의미함."
+      },
+      {
+        "item_id": 112697,
+        "data_title": "재정 정보 공개",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "C",
+        "rating_rationale": "상세한 재정 보고서 정기적 발간은 투명성의 중요한 요소인 재정 정보 공개가 충족되고 있음을 나타냄. 이는 투명성 측면에서 양호한 수준임을 의미함."
+      },
+      {
+        "item_id": 112698,
+        "data_title": "정책 성과 공개",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "주요 정책 성과 정기적 보고는 투명성의 중요한 요소인 성과 보고가 충족되고 있음을 나타냄. 이는 투명성 측면에서 양호한 수준임을 의미함."
+      },
+      {
+        "item_id": 112699,
+        "data_title": "인사 정보 투명성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "주요 인사 결정 과정이 공개되어 있어 매우 투명함. 경기도 인사위원회 기록을 통해 확인 가능."
+      },
+      {
+        "item_id": 112700,
+        "data_title": "공공계약 투명성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "공공계약 입찰 및 선정 과정이 공개되어 있어 매우 투명함. 경기도 계약정보시스템에서 확인 가능."
+      },
+      {
+        "item_id": 112701,
+        "data_title": "행정정보 접근성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "시민들의 행정정보 접근이 용이하여 우수함. 경기도 정보공개청구 현황을 통해 확인 가능."
+      },
+      {
+        "item_id": 112702,
+        "data_title": "정책결정 참여 기회",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "시민 의견 수렴 채널이 운영되어 있어 우수함. 경기도 정책참여플랫폼에서 확인 가능."
+      },
+      {
+        "item_id": 112703,
+        "data_title": "예산 집행 감시",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "외부 감사 및 모니터링 시스템이 운영되어 있어 매우 투명함. 경기도 감사위원회 보고서에서 확인 가능."
+      },
+      {
+        "item_id": 112704,
+        "data_title": "국제 교류 투명성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "국제 교류 및 협력 활동이 공개되어 있어 매우 투명함. 경기도 국제협력관 보고서에서 확인 가능."
+      },
+      {
+        "item_id": 112705,
+        "data_title": "정책실명제",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "정책 입안자 및 책임자가 공개되어 있어 매우 투명함. 경기도 정책실명제 시스템에서 확인 가능."
+      },
+      {
+        "item_id": 112706,
+        "data_title": "성과평가 공개",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "정책 성과가 객관적으로 평가되어 공개되어 있어 매우 투명함. 경기도 성과관리 보고서에서 확인 가능."
+      },
+      {
+        "item_id": 112707,
+        "data_title": "위원회 운영 투명성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "각종 위원회 구성 및 활동이 공개되어 있어 매우 투명함. 경기도 위원회 운영 기록에서 확인 가능."
+      },
+      {
+        "item_id": 112708,
+        "data_title": "정책 변경 추적성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "A",
+        "rating_rationale": "정책 변경 이력 및 근거가 공개되어 있어 매우 투명함. 경기도 정책 변경 기록에서 확인 가능."
+      },
+      {
+        "item_id": 112709,
+        "data_title": "지방보조금 관리",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "지방보조금 집행 내역을 공개함으로써 투명성을 매우 우수하게 관리하고 있음. 경기도 보조금 정보시스템을 통해 쉽게 접근 가능."
+      },
+      {
+        "item_id": 112710,
+        "data_title": "정책 협의 과정",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "유관 기관과의 정책 협의 과정을 공개하여 투명성을 우수하게 유지하고 있음. 경기도 정책협의 기록을 통해 확인 가능."
+      },
+      {
+        "item_id": 112711,
+        "data_title": "규제 영향평가",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "새로운 규제의 사전 영향평가를 공개하여 투명성을 우수하게 관리하고 있음. 경기도 규제영향분석 보고서를 통해 상세하게 확인 가능."
+      },
+      {
+        "item_id": 112712,
+        "data_title": "윤리경영 공개",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "공직자 윤리 및 청렴도 정보를 공개하여 투명성을 매우 우수하게 관리하고 있음. 경기도 청렴도 평가 보고서를 통해 투명하게 공개됨."
+      },
+      {
+        "item_id": 112713,
+        "data_title": "민원처리 투명성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "민원 처리 과정 및 결과를 공개하여 투명성을 매우 우수하게 관리하고 있음. 경기도 민원처리 시스템을 통해 쉽게 접근 가능."
+      },
+      {
+        "item_id": 112714,
+        "data_title": "경기도 재정정보 공개",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "경기도 재정현황을 상세하게 온라인으로 공개하여 투명성을 매우 우수하게 강화하고 있음. 연합뉴스에서 보도된 내용을 통해 확인 가능."
+      },
+      {
+        "item_id": 112715,
+        "data_title": "도정 운영 라이브 브리핑",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "주요 정책결정 과정을 실시간 온라인으로 공개하여 투명성을 매우 우수하게 관리하고 있음. KBS뉴스에서 보도된 내용을 통해 확인 가능."
+      },
+      {
+        "item_id": 112716,
+        "data_title": "예산 집행 내역 공개",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "분기별 상세 예산 집행 내역을 웹사이트에 공개하여 투명성을 매우 우수하게 관리하고 있음. 경기일보에서 보도된 내용을 통해 확인 가능."
+      },
+      {
+        "item_id": 112717,
+        "data_title": "정책결정 회의록 공개",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "주요 정책결정 회의의 공식 회의록을 온라인에 게시하여 투명성을 매우 우수하게 관리하고 있음. MBC뉴스에서 보도된 내용을 통해 확인 가능."
+      },
+      {
+        "item_id": 112718,
+        "data_title": "지방보조금 내역 공개",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "경기도 지방보조금 상세 내역을 투명하게 공개하여 투명성을 매우 우수하게 관리하고 있음. SBS뉴스에서 보도된 내용을 통해 확인 가능."
+      },
+      {
+        "item_id": 112719,
+        "data_title": "도정 정보공개 청구 대응",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "정보공개 청구에 신속하고 상세하게 대응하여 투명성을 높이는 데 기여했으나, 더 많은 노력이 필요함."
+      },
+      {
+        "item_id": 112720,
+        "data_title": "공공조달 과정 투명성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "공공조달 입찰 과정을 온라인으로 상세 공개하여 투명성을 매우 우수하게 유지하고 있음."
+      },
+      {
+        "item_id": 112721,
+        "data_title": "정책실명제 운영",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "주요 정책 입안자와 결정 과정을 명확히 공개하여 투명성을 매우 우수하게 유지하고 있음."
+      },
+      {
+        "item_id": 112722,
+        "data_title": "인사 정보 공개",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "주요 인사 결정 과정과 기준을 공개하여 투명성을 매우 우수하게 유지하고 있음."
+      },
+      {
+        "item_id": 112723,
+        "data_title": "도지사 업무추진비 공개",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "월별 업무추진비 상세 내역을 투명하게 공개하여 투명성을 매우 우수하게 유지하고 있음."
+      },
+      {
+        "item_id": 112724,
+        "data_title": "감사결과 공개",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "내부 및 외부 감사 결과를 종합적으로 공개하여 투명성을 매우 우수하게 유지하고 있음."
+      },
+      {
+        "item_id": 112725,
+        "data_title": "정책 성과 보고",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "주요 정책 성과를 정기적으로 상세히 보고하여 투명성을 높였으나, 더 많은 노력이 필요함."
+      },
+      {
+        "item_id": 112726,
+        "data_title": "예산 절감 내역 공개",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "예산 절감 항목과 내용을 상세히 공개하여 투명성을 매우 우수하게 유지하고 있음."
+      },
+      {
+        "item_id": 112727,
+        "data_title": "도정 현장 소통",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "C",
+        "rating_rationale": "현장 방문 및 직접 소통을 통해 투명성을 강화하려는 노력은 양호하나, 더 많은 노력이 필요함."
+      },
+      {
+        "item_id": 112728,
+        "data_title": "정책 토론회 개최",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "주요 정책에 대한 공개 토론회를 정기적으로 개최하여 투명성을 높였으나, 더 많은 노력이 필요함."
+      },
+      {
+        "item_id": 112729,
+        "data_title": "국제교류 투명성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "국제교류 사업의 목적과 성과를 투명하게 공개하여 매우 우수한 투명성을 보여줍니다. 모든 정보가 공개되어 신뢰도가 높습니다."
+      },
+      {
+        "item_id": 112730,
+        "data_title": "긴급재난지원금 집행",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "코로나19 긴급재난지원금 집행 내역을 상세하게 공개하여 매우 우수한 투명성을 보여줍니다. 공공재정의 사용 내역을 투명하게 공개한 점이 높이 평가됩니다."
+      },
+      {
+        "item_id": 112731,
+        "data_title": "정책자문단 구성 공개",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "정책자문단 구성 과정과 멤버를 투명하게 공개하여 매우 우수한 투명성을 보여줍니다. 정책 결정 과정의 투명성이 보장됩니다."
+      },
+      {
+        "item_id": 112732,
+        "data_title": "성과평가 공개",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "부서별 정기적 성과평가 내용을 공개하여 매우 우수한 투명성을 보여줍니다. 성과평가의 투명한 공개는 행정의 책임성을 높입니다."
+      },
+      {
+        "item_id": 112733,
+        "data_title": "민원처리 과정 공개",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "주요 민원의 처리 과정과 결과를 투명하게 공개하여 매우 우수한 투명성을 보여줍니다. 민원 처리 과정의 투명성은 시민의 신뢰를 높입니다."
+      },
+      {
+        "item_id": 113121,
+        "data_title": "정책 성과 보고",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "주요 정책별 성과 측정 및 공개하여 매우 우수한 투명성을 보여줍니다. 정책 성과의 투명한 공개는 정책의 효과성을 평가할 수 있게 합니다."
+      },
+      {
+        "item_id": 113123,
+        "data_title": "행정정보 공개 신속성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "정보공개 청구에 대한 신속한 대응은 우수한 투명성을 보여줍니다. 다만, 신속성만으로는 전체적인 투명성 평가에 제한이 있습니다."
+      },
+      {
+        "item_id": 113126,
+        "data_title": "도정 예산 집행 투명성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "예산 집행 과정의 상세 내역을 공개하여 매우 우수한 투명성을 보여줍니다. 예산 집행의 투명성은 공공재정의 책임성을 높입니다."
+      },
+      {
+        "item_id": 113128,
+        "data_title": "재정 건전성 보고",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "경기도 재정 상태의 정기적 공개는 매우 우수한 투명성을 보여줍니다. 재정 건전성의 투명한 공개는 시민의 신뢰를 높입니다."
+      },
+      {
+        "item_id": 113130,
+        "data_title": "행정서비스 정보접근성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "온라인 플랫폼을 통한 행정서비스 정보 제공은 우수한 투명성을 보여줍니다. 다만, 정보의 접근성만으로는 전체적인 투명성 평가에 제한이 있습니다."
+      }
+    ],
+    "Claude": [
+      {
+        "item_id": 162861,
+        "data_title": "김동연, 재정 투명성 개선 방안 발표",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "재정 투명성 개선 방안을 발표하고 시민들의 이해를 돕겠다는 구체적인 의지를 보였으나, 실제 실행 계획이나 세부 내용이 부족하여 우수 수준으로 평가됨"
+      },
+      {
+        "item_id": 162862,
+        "data_title": "아이디어 공모전 통해 정보 공개 확대",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "시민 아이디어 공모전을 통해 투명성 관련 의견을 수집하고 반영하겠다는 적극적인 자세를 보여주나, 구체적인 실행 방법이나 결과에 대한 정보가 제한적임"
+      },
+      {
+        "item_id": 162863,
+        "data_title": "투명한 정책 결정 절차 강조",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "C",
+        "rating_rationale": "정책 결정 과정의 투명성을 강조하고 단계별 정보 제공을 약속했으나, 구체적인 실행 방안이나 실제 성과에 대한 언급이 부족하여 양호 수준으로 평가됨"
+      },
+      {
+        "item_id": 162864,
+        "data_title": "지방정부 투명성 평가 결과",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "지방정부 투명성 평가에서 실제 개선 결과를 보였고, 지속적인 정보 공개로 시민 신뢰를 얻었다는 구체적인 성과가 확인되어 매우 우수한 수준으로 평가됨"
+      },
+      {
+        "item_id": 162865,
+        "data_title": "투명한 재정 운영을 위한 법안 발의",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "투명한 재정 운영을 위한 법안 발의는 제도적 개선을 위한 적극적인 노력이나, 법안의 구체적인 내용이나 통과 여부에 대한 정보가 부족함"
+      },
+      {
+        "item_id": 162866,
+        "data_title": "정책 설명회를 통한 정보 공유",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "정기적인 정책 설명회를 통한 시민과의 소통은 투명성 향상에 기여하는 좋은 활동이나, 설명회의 구체적인 효과나 참여도에 대한 정보가 제한적임"
+      },
+      {
+        "item_id": 162867,
+        "data_title": "공공 데이터 개방 추진",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "공공 데이터 개방 정책 추진은 투명성 향상을 위한 중요한 조치이나, 실제 개방된 데이터의 범위나 시민들의 활용도에 대한 구체적인 성과 정보가 부족함"
+      },
+      {
+        "item_id": 162868,
+        "data_title": "행정업무의 투명화 진전",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "행정업무의 데이터화와 정보 공개가 실제로 진행되어 시민들이 신뢰할 수 있는 행정이 이루어지고 있다는 구체적인 성과가 확인되어 매우 우수한 수준으로 평가됨"
+      },
+      {
+        "item_id": 162869,
+        "data_title": "정책 요청서 제출 시스템 도입",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "시민들이 정책 요청서를 제출할 수 있는 온라인 시스템 도입은 정책 과정의 투명성을 실질적으로 높이는 구체적이고 혁신적인 조치로 매우 우수함"
+      },
+      {
+        "item_id": 162870,
+        "data_title": "서울시 정보공개 실적 향상",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "D",
+        "rating_rationale": "서울시 정보공개 실적 향상이 보고되었으나, 김동연이 실제로 서울시장을 역임했는지에 대한 사실 확인이 필요하고, 구체적인 개선 내용이 모호하여 보통 수준으로 평가됨"
+      },
+      {
+        "item_id": 162871,
+        "data_title": "예산 공개 미흡 논란",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "예산 공개 미흡은 정부 투명성의 핵심 요소로, 국민의 알 권리와 직접 연결되는 중대한 문제입니다. 예산은 국정 운영의 기본이므로 이에 대한 투명성 부족은 심각한 결함으로 평가됩니다."
+      },
+      {
+        "item_id": 162872,
+        "data_title": "투명성 지수 하락 우려",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "투명성 지수 하락은 전반적인 정부 운영의 투명성이 악화되고 있음을 객관적으로 보여주는 지표입니다. 하락 추세는 투명성 개선 노력이 부족함을 의미하므로 미흡한 수준으로 평가됩니다."
+      },
+      {
+        "item_id": 162873,
+        "data_title": "공공 서비스의 정보 부족 문제",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "공공 서비스 정보 부족은 시민의 기본적인 정보 접근권을 침해하는 문제입니다. 개선 약속에도 불구하고 여전히 미흡하다는 점에서 투명성 확보 의지와 실행력이 부족한 것으로 판단됩니다."
+      },
+      {
+        "item_id": 162874,
+        "data_title": "의사결정 과정 비공개 논란",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "정책 의사결정 과정의 비공개는 민주적 거버넌스의 근간을 흔드는 심각한 문제입니다. 비공식적 진행은 책임성과 투명성을 크게 저해하므로 부족한 수준으로 평가됩니다."
+      },
+      {
+        "item_id": 162875,
+        "data_title": "상위 기관 의사결정의 독단적 방식",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "F",
+        "rating_rationale": "상위 기관의 독단적 의사결정은 참여와 소통을 배제한 권위주의적 운영 방식을 의미합니다. 이는 투명성의 핵심 가치인 개방성과 참여성을 근본적으로 훼손하는 부족한 수준입니다."
+      },
+      {
+        "item_id": 162876,
+        "data_title": "국민 의견 수렴 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "국민 의견 수렴 부족은 정책 결정 과정에서 시민 참여를 제한하는 문제로, 투명하고 민주적인 정책 수립을 저해합니다. 지속적인 비판에도 개선되지 않는 점에서 미흡한 수준으로 평가됩니다."
+      },
+      {
+        "item_id": 162877,
+        "data_title": "정책 공개 기회 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "정책 공개 기회 부족은 국민의 알 권리를 제한하고 정부 정책에 대한 이해와 참여를 어렵게 만드는 문제입니다. 투명성에 대한 신뢰 약화로 이어지므로 미흡한 수준으로 평가됩니다."
+      },
+      {
+        "item_id": 162878,
+        "data_title": "비현실적인 투명성 목표 설정",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "D",
+        "rating_rationale": "비현실적인 투명성 목표 설정은 실행 가능성 부족을 의미하지만, 최소한 투명성에 대한 의지는 보여주는 것으로 해석됩니다. 목표 설정 자체는 긍정적이나 현실성 부족으로 보통 수준으로 평가됩니다."
+      },
+      {
+        "item_id": 162879,
+        "data_title": "정보 접근성 부족 문제 지적",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "정보 접근성 부족은 시민의 기본적인 정보 이용권을 침해하는 구조적 문제입니다. 필요한 정보를 찾기 어려운 상황은 투명성의 실질적 효과를 크게 저해하므로 미흡한 수준으로 평가됩니다."
+      },
+      {
+        "item_id": 162880,
+        "data_title": "정책 변화에 대한 정보 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "정책 변화에 대한 정보 부족과 일관성 없는 정보 제공은 시민의 혼란을 야기하고 정부 신뢰도를 떨어뜨리는 문제입니다. 체계적인 정보 관리 부족으로 미흡한 수준으로 평가됩니다."
+      },
+      {
+        "item_id": 162881,
+        "data_title": "공공의사결정의 소극적 접근 방식",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "공공 의사결정의 소극적 접근은 시민 참여를 제한하고 정책 과정의 투명성을 저해하는 요소로, 민주적 거버넌스와 열린 행정에 부정적 영향을 미치므로 투명성 관점에서 미흡한 수준"
+      },
+      {
+        "item_id": 162882,
+        "data_title": "정치적 투명성 확보 노력",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "정치적 투명성 확보를 위한 법안 제정 추진은 제도적 기반 마련을 통해 투명성을 체계화하려는 적극적 노력으로, 투명한 정부 구현 의지를 명확히 보여주는 우수한 사례"
+      },
+      {
+        "item_id": 162883,
+        "data_title": "정기적인 정보 공개 이메일 발송",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "정기적인 정책 정보 이메일 발송은 시민과의 소통 채널을 구축하고 정보 접근성을 높이는 투명성 제고 활동으로, 지속적이고 체계적인 정보 공유 노력이 우수함"
+      },
+      {
+        "item_id": 162884,
+        "data_title": "시민과의 정책 토론회 개최",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "시민과의 정기적 정책 토론회 개최는 쌍방향 소통을 통한 참여형 투명성을 실현하는 매우 우수한 사례로, 시민 의견 수렴과 정책 반영 과정의 투명성을 극대화하는 활동"
+      },
+      {
+        "item_id": 162885,
+        "data_title": "정보 공개 기준 개선 방안",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "정보 공개 기준 개선을 위한 연구 진행은 투명성 제도 개선에 대한 체계적 접근으로, 현재의 한계를 인식하고 더 나은 투명한 행정 구현을 위한 우수한 노력"
+      },
+      {
+        "item_id": 162886,
+        "data_title": "정책 에세이 공모전 개최",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "C",
+        "rating_rationale": "정책 에세이 공모전은 시민 의견 수렴의 한 방법이지만 제한적 참여 방식으로, 투명성 제고에 기여하나 직접적이고 즉시적인 정보 공개나 소통에 비해서는 양호한 수준"
+      },
+      {
+        "item_id": 162887,
+        "data_title": "정치인 행동 강령 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "정치인 행동 강령 강화는 윤리적 투명성 향상에 기여하지만 구체적 정보 공개나 시민 참여 확대와는 거리가 있어, 투명성 제고 효과가 간접적이므로 양호한 수준"
+      },
+      {
+        "item_id": 162888,
+        "data_title": "예산 집행 정보 공개 요구 증가",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "예산 집행 정보 공개 요구 증가는 현재 정보 공개가 불충분함을 시사하며, 시민들이 투명성 부족을 느끼고 있다는 반증으로 투명성 관점에서 미흡한 상황을 나타냄"
+      },
+      {
+        "item_id": 162889,
+        "data_title": "정보 비공개 결정에 대한 불만",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "일부 정보의 비공식적 비공개 처리는 투명성 원칙에 직접적으로 위배되는 행위로, 시민의 알 권리를 침해하고 행정의 투명성을 심각하게 훼손하는 부족한 사례"
+      },
+      {
+        "item_id": 162890,
+        "data_title": "정책 시행 과정에 대한 정보 제공 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "정책 시행 과정 정보 제공 부족은 정책의 투명성과 책임성을 저해하는 심각한 문제로, 시민의 정당한 정보 요구에 부응하지 못하여 투명성이 부족한 상황"
+      },
+      {
+        "item_id": 162891,
+        "data_title": "정책 결과의 투명한 발표 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "정책 결과에 대한 투명한 발표가 부족하다는 것은 시민의 알 권리를 침해하고 정부 신뢰도를 저해하는 심각한 문제로, 투명성의 기본 요건인 정보 공개가 이루어지지 않고 있음을 보여줍니다."
+      },
+      {
+        "item_id": 162892,
+        "data_title": "정책 변화에 대한 시민 설명회 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "정책 변화에 대한 시민 설명회 부족으로 정보 격차가 확대되는 것은 투명성 측면에서 미흡한 수준입니다. 시민과의 소통 채널 부족은 투명한 행정의 핵심 요소가 결여되었음을 의미합니다."
+      },
+      {
+        "item_id": 162893,
+        "data_title": "비공식 경로 정보의 문제",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "G",
+        "rating_rationale": "비공식 경로에 의존한 정보 전달은 투명성의 근본을 훼손하는 매우 심각한 문제입니다. 공식적이고 체계적인 정보 공개 절차를 무시하는 것은 투명성에 대한 의구심을 증폭시키는 중대한 결함입니다."
+      },
+      {
+        "item_id": 162894,
+        "data_title": "투명한 소통 체계 구축 필요",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "D",
+        "rating_rationale": "투명한 소통 체계 구축의 필요성을 언급한 것은 긍정적이지만, 아직 구체적인 실행이 아닌 필요성 인식 단계에 머물러 있어 투명성 개선에 대한 실질적 성과는 보통 수준입니다."
+      },
+      {
+        "item_id": 162895,
+        "data_title": "정책 이행 상황에 대한 시의적절한 보고 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "정책 이행 상황에 대한 시의적절한 보고 부족은 시민들이 정책 진전을 파악할 수 없게 만드는 투명성 미흡 사례입니다. 정기적이고 체계적인 진행 상황 공개가 이루어지지 않고 있습니다."
+      },
+      {
+        "item_id": 162896,
+        "data_title": "적극적인 정보 제공을 위한 계획 수립",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "적극적인 정보 제공 계획 수립을 공표한 것은 투명성 개선에 대한 의지를 보여주는 양호한 조치입니다. 공공투명성 증진에 대한 구체적 계획 제시는 긍정적인 신호로 평가됩니다."
+      },
+      {
+        "item_id": 162897,
+        "data_title": "정기적인 시민 의견 조사 실시",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "정기적인 시민 의견 조사 실시는 투명성 제고를 위한 우수한 실천 사례입니다. 시민 참여를 통한 정책 투명성 강화 노력은 민주적 거버넌스 구현에 기여하는 좋은 사례입니다."
+      },
+      {
+        "item_id": 162898,
+        "data_title": "공적인 자산 관리에 대한 투명성 미보장",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "F",
+        "rating_rationale": "공적 자산 관리의 투명성 미보장은 공공 신뢰를 크게 훼손하는 부족한 수준의 문제입니다. 공공 자산의 투명한 관리는 정부 투명성의 핵심 영역으로, 이 부분의 미흡함은 심각한 결함입니다."
+      },
+      {
+        "item_id": 162899,
+        "data_title": "전문가 협의체 운영으로 투명성 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "전문가 협의체 운영을 통한 투명성 강화 방안 모색은 우수한 접근법입니다. 전문성과 객관성을 바탕으로 한 정책 투명성 개선 노력은 체계적이고 효과적인 투명성 제고 방안으로 평가됩니다."
+      },
+      {
+        "item_id": 162900,
+        "data_title": "시민 의견 반영 미흡",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "시민 의견 반영 미흡으로 인한 투명성 신뢰 저하는 민주적 의사결정 과정의 투명성이 부족함을 보여주는 심각한 문제입니다. 시민 참여와 의견 반영은 투명한 정책 수립의 기본 요건입니다."
+      },
+      {
+        "item_id": 162901,
+        "data_title": "정보 통신의 응답성 개선 필요",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "정보 통신 구조의 응답성 부족으로 시민들의 정보 접근이 어렵다는 것은 투명성의 핵심인 정보 공개와 접근성에 심각한 문제가 있음을 보여주며, 이는 투명성 측면에서 미흡한 수준입니다."
+      },
+      {
+        "item_id": 162902,
+        "data_title": "정책 획득 정보의 신뢰성 문제",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "정책 관련 정보의 신뢰성에 대한 비판과 시민 신뢰 저하는 투명성의 기본 전제인 정확하고 믿을 수 있는 정보 제공에 실패했음을 의미하므로 투명성이 부족한 상태입니다."
+      },
+      {
+        "item_id": 162903,
+        "data_title": "정책 관련 부서간 협의 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "부서간 협의 부족으로 인한 일관되지 않은 정보 제공은 투명성의 중요한 요소인 체계적이고 통일된 정보 전달에 문제가 있음을 나타내어 투명성이 미흡합니다."
+      },
+      {
+        "item_id": 162904,
+        "data_title": "행정업무 투명성 지연 문제",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "행정업무 투명성이 지연되고 개선이 시급하다는 직접적인 지적은 투명성 자체에 근본적인 문제가 있음을 명확히 보여주므로 투명성이 부족한 수준입니다."
+      },
+      {
+        "item_id": 162905,
+        "data_title": "정부 예산 효율성에 대한 질문 증가",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "예산 효율성에 대한 질문 증가와 투명한 회계 처리 필요성 지적은 재정 운용의 투명성이 충분히 확보되지 않았음을 보여주어 투명성이 미흡한 상태입니다."
+      },
+      {
+        "item_id": 162906,
+        "data_title": "실적 세부 공개 요구 증가",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "D",
+        "rating_rationale": "정책 성과의 세부 공개 요구 증가는 현재 공개 수준이 시민들의 기대에 미치지 못하고 있음을 의미하지만, 투명성 강화 요구로 해석되어 보통 수준의 평가를 받습니다."
+      },
+      {
+        "item_id": 162907,
+        "data_title": "정보 공개 적시성 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "정보 공개의 적시성 부족과 이로 인한 국민 신뢰 구축의 어려움은 투명성의 핵심 요소인 시의적절한 정보 제공에 실패했음을 보여주어 투명성이 미흡합니다."
+      },
+      {
+        "item_id": 162908,
+        "data_title": "심층적인 정책 분석 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "심층적인 정책 분석 부족으로 인한 투명한 정책 운영 저해는 정책 결정 과정과 근거의 투명성이 부족함을 나타내어 투명성이 미흡한 수준입니다."
+      },
+      {
+        "item_id": 162909,
+        "data_title": "투명성 관련 시민 교육 필요성",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "투명성 관련 시민 교육의 필요성을 언급하고 정책 신뢰도 향상을 위한 노력을 보이는 것은 투명성 개선에 대한 의지를 나타내므로 양호한 수준으로 평가됩니다."
+      },
+      {
+        "item_id": 162910,
+        "data_title": "정치적 관점에서의 투명성 유지",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "정치적 관점에서도 투명성을 유지하겠다는 명확한 다짐과 정책 신뢰성 강화 의지를 표명한 것은 투명성에 대한 적극적인 자세를 보여주어 우수한 수준입니다."
+      },
+      {
+        "item_id": 163111,
+        "data_title": "김동연의 경기도 예산 공개 플랫폼 도입",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "예산 집행 과정을 실시간으로 공개하는 온라인 플랫폼 도입으로 재정 투명성을 극대화하였으며, 상세한 예산 내역과 사용 보고서 제공으로 공공 자금의 오용 방지에 기여했습니다. 정부 감사에서도 긍정적 평가를 받아 매우 우수한 투명성을 보여줍니다."
+      },
+      {
+        "item_id": 163112,
+        "data_title": "김동연의 정책 결정 과정 공개 보고",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "정책 결정 과정을 문서화하여 의회에 제출하고, 의사결정 배경과 이해당사자 의견까지 포함한 포괄적인 정보 공개로 국민의 정책 이해를 돕는 모범적인 투명성 사례입니다."
+      },
+      {
+        "item_id": 163113,
+        "data_title": "김동연의 공공 프로젝트 재무 보고",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "공공 프로젝트의 재무 상태를 정기적으로 공개하고, 프로젝트 비용, 성과 지표, 예상 효과를 상세히 기재하여 국민 감독을 촉진하는 예산 투명성 강화의 대표적 사례입니다."
+      },
+      {
+        "item_id": 163114,
+        "data_title": "김동연의 토론회 참석과 정보 공유",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "토론회를 통한 정책 아이디어 공개와 데이터 공유로 의사결정 과정을 개방적으로 만들었으나, 일회성 행사의 성격이 강하여 지속적인 투명성 확보 측면에서는 제한적입니다."
+      },
+      {
+        "item_id": 163115,
+        "data_title": "김동연의 재정 정책 설명 자료",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "재정 정책의 세부 사항을 공식 자료로 발간하여 정책 목표, 실행 계획, 위험 요인까지 포함한 투명한 정보 제공이 이루어졌으나, 일방향적 정보 제공의 한계가 있습니다."
+      },
+      {
+        "item_id": 163116,
+        "data_title": "김동연의 공개 청문회 참여",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "국회 청문회에서 과거 행적과 정책 결정을 상세히 설명하고 관련 문서를 공개하여 의사결정 과정의 투명성을 확보했으나, 수동적 대응의 성격이 강합니다."
+      },
+      {
+        "item_id": 163117,
+        "data_title": "김동연의 공공정보 접근성 개선",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "공공정보 접근성을 높이는 디지털 플랫폼 강화로 시민들의 정책 관련 데이터 열람을 용이하게 하여 투명성 향상의 핵심적이고 지속적인 기반을 마련했습니다."
+      },
+      {
+        "item_id": 163118,
+        "data_title": "김동연의 예산 사용 감사 결과",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "예산 사용에 대한 감사 결과가 공개되어 투명한 관리가 확인되었으나, 이는 외부 감사 기관의 평가 결과로서 본인의 능동적 투명성 노력보다는 수동적 검증의 성격입니다."
+      },
+      {
+        "item_id": 163119,
+        "data_title": "김동연의 정책 효과 평가 공개",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "정책 효과를 정기적으로 평가하여 공개하고, 데이터 분석과 국민 의견 수렴 결과까지 포함하여 의사결정의 투명성을 높인 것은 매우 우수한 투명성 확보 사례입니다."
+      },
+      {
+        "item_id": 163120,
+        "data_title": "김동연의 정보 공개 지침 마련",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "정보 공개 지침을 제정하여 공공 기관의 투명성을 제도적으로 강화하고, 세부 실행 방안까지 포함하여 국민의 알 권리를 보장하는 시스템적 투명성 확보에 기여했습니다."
+      },
+      {
+        "item_id": 163121,
+        "data_title": "김동연의 언론 인터뷰를 통한 정책 설명",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "언론 인터뷰를 통해 정책 의사결정 과정을 자세히 설명하여 국민의 이해를 도모했으나, 구체적인 공개 범위나 세부 내용이 명시되지 않아 완전한 투명성 달성에는 한계가 있음"
+      },
+      {
+        "item_id": 163122,
+        "data_title": "김동연의 경제 데이터 공개 보도",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "경제 정책 관련 데이터를 자발적으로 공개하고 정책 효과 분석에 활용할 수 있도록 한 것은 매우 우수한 투명성 실천 사례로, 국민의 알 권리와 정책 이해도 향상에 크게 기여함"
+      },
+      {
+        "item_id": 163123,
+        "data_title": "김동연의 공개 강연 내용",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "공개 강연에서 정책의 장단점과 관련 데이터를 포함하여 의사결정 과정을 투명하게 공개했으나, 강연이라는 제한적 형태로 인해 접근성과 지속성 측면에서 아쉬움이 있음"
+      },
+      {
+        "item_id": 163124,
+        "data_title": "김동연의 재정 투명성 보도",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "재정 관리의 투명성을 위해 구체적인 예산 내역과 감사 결과까지 공개한 것은 매우 우수한 투명성 실천으로, 공공 자금 사용의 책임성과 신뢰성을 크게 높임"
+      },
+      {
+        "item_id": 163125,
+        "data_title": "김동연의 정책 논란 해소 보도",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "정책 논란에 대해 본인이 직접 공개적으로 설명하여 국민의 오해를 해소한 것은 우수한 투명성 실천이나, 사후 대응적 성격이 강해 사전 예방적 투명성에는 미흡함"
+      },
+      {
+        "item_id": 163126,
+        "data_title": "김동연의 정보 공유 캠페인 보도",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "정보 공유 캠페인을 통해 정책 데이터 공개와 시민 참여를 동시에 추진한 것은 매우 우수한 투명성 정책으로, 단순 공개를 넘어 시민과의 소통까지 강화함"
+      },
+      {
+        "item_id": 163127,
+        "data_title": "김동연의 공공 프로젝트 보도",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "공공 프로젝트의 세부 비용과 성과를 투명하게 관리하고 공개한 것은 우수한 실천이나, 프로젝트별 개별 공개에 그쳐 체계적이고 지속적인 투명성 시스템으로는 부족함"
+      },
+      {
+        "item_id": 163128,
+        "data_title": "김동연의 의사결정 공개 보도",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "주요 의사결정 과정에서 관련 문서까지 공개한 것은 매우 우수한 투명성 실천으로, 결정 과정의 투명성과 근거의 명확성을 동시에 확보하여 정책 신뢰도를 크게 향상시킴"
+      },
+      {
+        "item_id": 163129,
+        "data_title": "김동연의 데이터 활용 보도",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "데이터 기반의 투명한 정책 추진과 구체적인 효과 설명은 우수한 투명성 실천이나, 단순 보도 차원에서 다뤄져 지속적이고 체계적인 데이터 공개 시스템으로는 한계가 있음"
+      },
+      {
+        "item_id": 163130,
+        "data_title": "김동연의 투명성 관련 인터뷰",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "투명성 원칙을 강조하고 구체적 예시를 제시한 것은 양호하나, 인터뷰라는 일회성 형태의 소통으로 실질적인 투명성 제고 효과나 지속성 측면에서는 제한적임"
+      },
+      {
+        "item_id": 163131,
+        "data_title": "김동연의 예산 비밀 유지 논란",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "예산 집행 과정의 공개 지연은 투명성 원칙에 위배되나, 결국 공개되었다는 점에서 완전한 은폐는 아님. 그러나 적시 공개 의무를 다하지 못한 명백한 투명성 미흡 사례"
+      },
+      {
+        "item_id": 163132,
+        "data_title": "김동연의 정책 문서 누락",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "정책 결정 문서의 누락은 의사결정 과정의 추적 가능성을 훼손하는 심각한 투명성 부족 사례. 민주적 책임성과 정보공개 원칙에 반하는 중대한 문제"
+      },
+      {
+        "item_id": 163133,
+        "data_title": "김동연의 재정 보고 오류",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "F",
+        "rating_rationale": "재정 보고서의 오류는 정확한 정보 제공 의무를 위반한 것으로, 투명성의 핵심인 신뢰성 있는 정보 공개에 실패한 심각한 부족 사례"
+      },
+      {
+        "item_id": 163134,
+        "data_title": "김동연의 정보 은폐 의혹",
+        "collected_by": "Grok",
+        "original_rating": "H",
+        "new_rating": "G",
+        "rating_rationale": "정보 은폐 의혹은 투명성의 근본적 가치를 훼손하는 매우 심각한 문제. 의도적 정보 차단으로 해석될 수 있어 민주적 거버넌스에 치명적 영향"
+      },
+      {
+        "item_id": 163135,
+        "data_title": "김동연의 프로젝트 지연 공개",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "프로젝트 지연 사유의 늦은 공개는 시민의 알 권리를 제한한 투명성 미흡 사례. 적시 정보 제공 원칙을 위반했으나 최종적으로는 공개됨"
+      },
+      {
+        "item_id": 163136,
+        "data_title": "김동연의 투명성 부족 보도",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "정책 결정의 비공개 진행은 민주적 의사결정 과정을 불투명하게 만드는 부족한 투명성 사례. 공개 행정과 참여 민주주의 원칙에 위배"
+      },
+      {
+        "item_id": 163137,
+        "data_title": "김동연의 정보 왜곡 보도",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "G",
+        "rating_rationale": "정보 공개 과정에서의 왜곡은 투명성의 본질인 정확하고 신뢰할 수 있는 정보 제공을 심각하게 훼손하는 매우 부족한 사례"
+      },
+      {
+        "item_id": 163138,
+        "data_title": "김동연의 비밀 계약 논란 보도",
+        "collected_by": "Grok",
+        "original_rating": "H",
+        "new_rating": "G",
+        "rating_rationale": "비밀 계약의 존재는 투명한 행정과 공개성 원칙을 정면으로 위반하는 매우 심각한 투명성 부족 사례. 공적 업무의 은밀한 처리는 용납될 수 없음"
+      },
+      {
+        "item_id": 163139,
+        "data_title": "김동연의 공개 지연 보도",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "정보 공개의 지연은 시민의 알 권리와 적시 정보 접근을 제한하는 투명성 미흡 사례. 행정의 신속성과 공개성 원칙을 위반했으나 심각도는 상대적으로 낮음"
+      },
+      {
+        "item_id": 163140,
+        "data_title": "김동연의 문서 누출 논란",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "문서 누출로 인한 투명성 문제는 정보 관리 체계의 부실과 의사결정 과정의 불투명성을 드러내는 부족한 투명성 사례"
+      },
+      {
+        "item_id": 163141,
+        "data_title": "김동연의 투명성 강화 캠페인",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "투명성 강화 캠페인을 통해 정책 정보를 적극 공개하고 국민 참여를 유도하여 투명성 제고에 매우 우수한 성과를 보임. 공식 웹사이트를 통한 신뢰할 수 있는 정보 제공으로 높은 투명성을 실현함."
+      },
+      {
+        "item_id": 163142,
+        "data_title": "김동연의 데이터 공개 정책",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "데이터 공개 정책 시행으로 공공 정보에 대한 접근성을 크게 향상시켜 투명성 강화에 매우 우수한 기여를 함. 기획재정부 공식 자료로 검증된 신뢰성 있는 투명성 개선 사례임."
+      },
+      {
+        "item_id": 163143,
+        "data_title": "김동연의 의회 보고 개선",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "의회 보고 개선을 통해 더 많은 세부 정보를 포함하여 투명성을 강화함. 국회 기록으로 검증된 내용이나 구체적인 개선 범위나 효과에 대한 상세 정보가 부족하여 우수 수준으로 평가됨."
+      },
+      {
+        "item_id": 163144,
+        "data_title": "김동연의 공개 세미나",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "공개 세미나를 통해 정책 과정을 설명하여 투명성 향상에 기여함. 행정안전부 보고로 신뢰성이 있으나, 세미나의 구체적인 내용이나 참여 규모 등 세부사항이 부족하여 우수 수준으로 평가됨."
+      },
+      {
+        "item_id": 163145,
+        "data_title": "김동연의 재무 관리 공개",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "재무 관리 과정을 공개하고 상세한 내용이 포함된 보고서를 제공하여 투명성을 매우 우수하게 실현함. 경기도 감사 보고로 검증된 신뢰성 있는 투명성 강화 사례로 평가됨."
+      },
+      {
+        "item_id": 163146,
+        "data_title": "김동연의 정책 평가 보고",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "정책 평가 보고를 정기적으로 공개하여 지속적인 투명성 유지에 기여함. 정부 공공 데이터로 신뢰성이 있으나, 보고서의 구체적인 내용이나 공개 범위에 대한 세부 정보가 부족하여 우수 수준으로 평가됨."
+      },
+      {
+        "item_id": 163147,
+        "data_title": "김동연의 정보 접근 법안",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "정보 접근 법안 지지를 통해 투명성 강화에 기여하고 공공 분야의 긍정적 변화를 가져옴. 국회 법안 기록으로 검증되나, 법안의 구체적인 내용이나 실제 효과에 대한 상세 정보가 부족함."
+      },
+      {
+        "item_id": 163148,
+        "data_title": "김동연의 공개 토론 참여",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "공개 토론 참여를 통해 정책을 설명하고 투명성 향상에 효과적으로 기여함. 경기도 공식 행사 기록으로 신뢰성이 있으나, 토론의 구체적인 내용이나 참여 범위에 대한 세부사항이 부족함."
+      },
+      {
+        "item_id": 163149,
+        "data_title": "김동연의 데이터 보호 정책",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "데이터 보호 정책을 통해 투명성을 유지하고 공개 원칙을 포함함. 기획재정부 자료로 신뢰성이 있으나, 보호와 공개의 균형점이나 구체적인 투명성 효과에 대한 명확한 설명이 부족하여 양호 수준으로 평가됨."
+      },
+      {
+        "item_id": 163150,
+        "data_title": "김동연의 감사 결과 공개",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "감사 결과를 공개하여 투명성을 강조하고 구체적인 내용이 포함된 보고서를 제공함. 감사원 기록으로 높은 신뢰성을 가지며, 감사 결과 공개는 투명성의 핵심 요소로 매우 우수한 사례임."
+      },
+      {
+        "item_id": 163151,
+        "data_title": "김동연의 정책 설명 보도",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "정책 설명이 언론을 통해 보도된 것은 긍정적이나, 구체적인 내용이나 상세한 설명 방식에 대한 정보가 부족하여 투명성의 깊이를 판단하기 어려움"
+      },
+      {
+        "item_id": 163152,
+        "data_title": "김동연의 경제 정책 보도",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "C",
+        "rating_rationale": "경제 정책의 투명한 과정이 소개되었다는 점은 좋으나, 어떤 구체적인 투명성 조치가 취해졌는지에 대한 세부사항이 명시되지 않아 실질적 효과를 평가하기 제한적"
+      },
+      {
+        "item_id": 163153,
+        "data_title": "김동연의 공개 인터뷰 보도",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "공개 인터뷰를 통해 직접적으로 소통하고 투명성 원칙을 언급한 것은 적극적인 투명성 실천으로 평가되며, 시민과의 직접 소통 채널을 제공한 점이 우수함"
+      },
+      {
+        "item_id": 163154,
+        "data_title": "김동연의 프로젝트 보도",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "프로젝트 관련 투명성이 강조되었으나, 단순한 언급 수준에 그치고 있어 실제 투명성 확보를 위한 구체적인 방안이나 조치에 대한 정보가 부족함"
+      },
+      {
+        "item_id": 163155,
+        "data_title": "김동연의 정보 공유 보도",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "정보 공유를 통한 투명성 개선은 민주적 거버넌스의 핵심 요소로, 적극적인 정보 제공 의지를 보여주는 긍정적 행동으로 평가할 수 있음"
+      },
+      {
+        "item_id": 163156,
+        "data_title": "김동연의 의사결정 보도",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "의사결정 과정의 투명성이 다뤄진 것은 의미가 있으나, 구체적인 의사결정 공개 방식이나 시민 참여 방안 등에 대한 상세한 내용이 제시되지 않음"
+      },
+      {
+        "item_id": 163157,
+        "data_title": "김동연의 데이터 보도",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "데이터 공개는 투명성의 가장 구체적이고 실질적인 형태로, 시민들이 객관적 정보에 접근할 수 있게 하여 정책 판단과 감시 기능을 강화하는 매우 우수한 조치임"
+      },
+      {
+        "item_id": 163158,
+        "data_title": "김동연의 정책 평가 보도",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "정책 평가의 투명성 논의는 정책의 성과와 한계를 공개적으로 검토한다는 의미로, 책임성과 개선 의지를 보여주는 우수한 투명성 실천 사례로 평가됨"
+      },
+      {
+        "item_id": 163159,
+        "data_title": "김동연의 공개 행사 보도",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "공개 행사를 통한 투명성 원칙 소개는 기본적인 투명성 실천이나, 단발성 행사의 한계가 있으며 지속적이고 체계적인 투명성 확보 방안이 필요함"
+      },
+      {
+        "item_id": 163160,
+        "data_title": "김동연의 투명성 캠페인 보도",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "투명성을 주제로 한 전용 캠페인은 투명성에 대한 강한 의지와 체계적 접근을 보여주며, 그 효과까지 강조된 것은 매우 우수한 투명성 실천 노력으로 평가됨"
+      },
+      {
+        "item_id": 112689,
+        "data_title": "경기도지사 공약 이행 투명성 부족",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "선거 공약 이행의 구체적 실행 계획과 진행 상황 공개가 미흡하다는 것은 정치인의 기본적 책무인 공약 투명성에 문제가 있음을 보여준다. 유권자의 알 권리를 제한하는 미흡한 수준이다."
+      },
+      {
+        "item_id": 112690,
+        "data_title": "정책결정 과정 소통 투명성 한계",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "주요 정책결정 과정에서 이해관계자와 도민 의견 수렴이 제한적이라는 것은 민주적 거버넌스의 투명성 원칙에 어긋난다. 정책 결정 과정의 개방성이 부족하여 투명성이 미흡하다."
+      },
+      {
+        "item_id": 112691,
+        "data_title": "예산 집행 세부내역 공개 미흡",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "예산 집행의 세부내역과 성과 보고가 충분하지 않다는 것은 재정 투명성의 핵심 요소가 결여된 것이다. 공적 자금 사용에 대한 책임성이 부족하여 투명성이 현저히 떨어진다."
+      },
+      {
+        "item_id": 112692,
+        "data_title": "인사 결정 과정의 불투명성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "F",
+        "rating_rationale": "인사 결정 과정의 객관적 기준과 절차 부족은 공정성과 투명성을 심각하게 훼손한다. 인사 권력의 자의적 행사 가능성이 높아 투명성이 매우 부족한 수준이다."
+      },
+      {
+        "item_id": 112693,
+        "data_title": "정책자문위원회 운영 투명성 문제",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "정책자문위원 선정과 회의록 공개가 제한적이고 폐쇄적으로 운영된다는 것은 정책 결정 과정의 투명성을 저해한다. 외부 자문 과정의 공개성이 부족하여 투명성이 미흡하다."
+      },
+      {
+        "item_id": 112694,
+        "data_title": "경기도지사 투명성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "적극적인 정책 결정 과정 공개는 투명성 향상을 위한 긍정적 노력을 보여준다. 다만 경기도청 공식 기록이라는 출처의 객관성 한계와 구체적 내용 부족으로 우수 수준으로 평가된다."
+      },
+      {
+        "item_id": 112695,
+        "data_title": "예산 집행 투명성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "경기도 예산의 상세 내역을 공개하는 것은 재정 투명성의 핵심 요소를 충족한다. 공적 자금 사용에 대한 명확한 정보 제공으로 투명성이 매우 우수한 수준이다."
+      },
+      {
+        "item_id": 112696,
+        "data_title": "정책 결정 과정 공개",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "주요 정책 의사결정 회의록을 공개하는 것은 정책 결정 과정의 투명성을 보장하는 모범적 사례다. 도의회 회의록이라는 공식적 출처를 통해 투명성이 매우 우수하다."
+      },
+      {
+        "item_id": 112697,
+        "data_title": "재정 정보 공개",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "상세한 재정 보고서를 정기적으로 발간하는 것은 재정 투명성의 체계적 실현을 의미한다. 지속적이고 구체적인 재정 정보 공개로 투명성이 매우 우수한 수준이다."
+      },
+      {
+        "item_id": 112698,
+        "data_title": "정책 성과 공개",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "주요 정책 성과를 정기적으로 보고하는 것은 정책 투명성 향상에 기여한다. 성과관리시스템을 통한 체계적 접근이 돋보이나 성과 평가의 객관성 확보 여부가 불분명하여 우수 수준이다."
+      },
+      {
+        "item_id": 112699,
+        "data_title": "인사 정보 투명성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "주요 인사 결정 과정을 공개하여 인사의 투명성을 확보했으나, 구체적인 평가 기준이나 세부 절차에 대한 정보가 부족하여 완전한 투명성에는 미치지 못함"
+      },
+      {
+        "item_id": 112700,
+        "data_title": "공공계약 투명성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "공공계약의 입찰 및 선정 과정을 체계적으로 공개하여 시민들이 쉽게 확인할 수 있도록 했으며, 계약정보시스템을 통해 실시간으로 투명한 정보 제공이 이루어짐"
+      },
+      {
+        "item_id": 112701,
+        "data_title": "행정정보 접근성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "시민들의 행정정보 접근성을 높여 정보공개 청구 현황을 투명하게 관리하고 있으나, 정보공개의 범위나 처리 속도 등에서 추가적인 개선 여지가 있음"
+      },
+      {
+        "item_id": 112702,
+        "data_title": "정책결정 참여 기회",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "정책참여플랫폼을 통해 시민 의견 수렴 채널을 체계적으로 운영하여 정책결정 과정에서의 투명성과 참여도를 크게 향상시켰으며, 민주적 의사결정 구조를 구축함"
+      },
+      {
+        "item_id": 112703,
+        "data_title": "예산 집행 감시",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "외부 감사 및 모니터링 시스템을 통해 예산 집행을 투명하게 감시하고 있으며, 감사위원회 보고서를 통해 객관적이고 독립적인 검증 체계를 확립함"
+      },
+      {
+        "item_id": 112704,
+        "data_title": "국제 교류 투명성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "국제 교류 및 협력 활동을 공개하고 있으나, 국제협력관 보고서만으로는 구체적인 협력 내용이나 예산 사용 내역 등의 세부 정보가 제한적일 수 있음"
+      },
+      {
+        "item_id": 112705,
+        "data_title": "정책실명제",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "정책실명제 시스템을 통해 정책 입안자와 책임자를 명확히 공개함으로써 정책에 대한 책임 소재를 분명히 하고, 시민들이 정책 담당자를 직접 확인할 수 있는 투명성을 확보함"
+      },
+      {
+        "item_id": 112706,
+        "data_title": "성과평가 공개",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "정책 성과를 객관적으로 평가하여 공개하고 있어 성과관리의 투명성을 확보했으나, 평가 방법론이나 평가 지표의 타당성에 대한 추가적인 검증이 필요할 수 있음"
+      },
+      {
+        "item_id": 112707,
+        "data_title": "위원회 운영 투명성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "각종 위원회의 구성과 활동을 공개하여 의사결정 과정의 투명성을 높였으나, 위원회별 구체적인 논의 내용이나 의결 과정의 세부 사항까지는 완전히 공개되지 않을 수 있음"
+      },
+      {
+        "item_id": 112708,
+        "data_title": "정책 변경 추적성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "A",
+        "rating_rationale": "정책 변경 이력과 근거를 체계적으로 기록하고 공개하여 정책의 연속성과 변화 과정을 투명하게 추적할 수 있도록 했으며, 정책 결정의 합리성과 일관성을 검증할 수 있는 기반을 마련함"
+      },
+      {
+        "item_id": 112709,
+        "data_title": "지방보조금 관리",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "지방보조금 집행 내역을 공개하여 재정 투명성을 높이는 긍정적 조치이나, 단순 공개 수준에서 구체적인 접근성이나 상세도에 대한 언급이 부족하여 우수 등급으로 평가"
+      },
+      {
+        "item_id": 112710,
+        "data_title": "정책 협의 과정",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "유관 기관과의 정책 협의 과정을 공개하여 정책 결정의 투명성을 확보하는 좋은 사례이지만, 공개 범위나 깊이에 대한 구체적 정보가 제한적이어서 우수 등급으로 평가"
+      },
+      {
+        "item_id": 112711,
+        "data_title": "규제 영향평가",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "새로운 규제의 사전 영향평가를 공개하는 것은 정책의 예측 가능성과 투명성을 크게 높이는 매우 우수한 조치로, 시민들이 정책 영향을 미리 파악할 수 있게 하는 모범적 사례"
+      },
+      {
+        "item_id": 112712,
+        "data_title": "윤리경영 공개",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "공직자 윤리 및 청렴도 정보를 공개하는 것은 공직사회의 투명성과 신뢰성을 높이는 핵심적 조치로, 공직자의 도덕적 해이를 방지하고 시민 신뢰를 구축하는 매우 우수한 정책"
+      },
+      {
+        "item_id": 112713,
+        "data_title": "민원처리 투명성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "민원 처리 과정 및 결과를 공개하여 행정 서비스의 투명성을 높이는 긍정적 조치이나, 개인정보 보호와의 균형이나 공개 수준의 적정성에 대한 세부 내용이 부족하여 우수 등급"
+      },
+      {
+        "item_id": 112714,
+        "data_title": "경기도 재정정보 공개",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "경기도 재정현황을 상세하게 온라인으로 공개하여 투명성을 강화한 것은 재정 민주주의 실현의 핵심으로, 시민들의 알 권리 보장과 재정 감시 기능을 크게 향상시키는 매우 우수한 정책"
+      },
+      {
+        "item_id": 112715,
+        "data_title": "도정 운영 라이브 브리핑",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "주요 정책결정 과정을 실시간 온라인으로 공개하는 라이브 브리핑은 정책 결정의 투명성을 극대화하는 혁신적 조치로, 시민 참여와 정책 신뢰도를 크게 높이는 매우 우수한 사례"
+      },
+      {
+        "item_id": 112716,
+        "data_title": "예산 집행 내역 공개",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "분기별 상세 예산 집행 내역을 웹사이트에 공개하는 것은 재정 운용의 투명성을 보장하고 시민들의 감시 기능을 활성화하는 매우 우수한 조치로, 정기적이고 체계적인 정보 공개의 모범 사례"
+      },
+      {
+        "item_id": 112717,
+        "data_title": "정책결정 회의록 공개",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "주요 정책결정 회의의 공식 회의록을 온라인에 게시하는 것은 의사결정 과정의 완전한 투명성을 보장하는 매우 우수한 조치로, 정책 결정의 근거와 과정을 시민들이 직접 확인할 수 있게 함"
+      },
+      {
+        "item_id": 112718,
+        "data_title": "지방보조금 내역 공개",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "지방보조금 상세 내역을 투명하게 공개하는 것은 공적 자금의 사용 투명성을 보장하고 부정 사용을 방지하는 매우 우수한 조치로, 재정 민주주의와 시민 감시 기능을 크게 강화하는 정책"
+      },
+      {
+        "item_id": 112719,
+        "data_title": "도정 정보공개 청구 대응",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "정보공개 청구에 신속하고 상세하게 대응하는 것은 투명성의 핵심 요소로, 시민의 알 권리를 적극적으로 보장하는 매우 우수한 투명성 실천 사례입니다."
+      },
+      {
+        "item_id": 112720,
+        "data_title": "공공조달 과정 투명성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "공공조달 입찰 과정의 온라인 상세 공개는 부패 방지와 공정성 확보에 핵심적인 역할을 하며, 투명성 관점에서 매우 우수한 행정 운영 방식입니다."
+      },
+      {
+        "item_id": 112721,
+        "data_title": "정책실명제 운영",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "정책실명제를 통한 입안자와 결정 과정의 명확한 공개는 행정 책임성을 높이고 투명한 정책 결정을 보장하는 매우 우수한 투명성 제도입니다."
+      },
+      {
+        "item_id": 112722,
+        "data_title": "인사 정보 공개",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "인사 결정 과정과 기준 공개는 투명성 향상에 기여하지만, 인사의 민감성을 고려할 때 완전한 투명성에는 한계가 있어 우수한 수준으로 평가됩니다."
+      },
+      {
+        "item_id": 112723,
+        "data_title": "도지사 업무추진비 공개",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "업무추진비 상세 내역의 투명한 공개는 공금 사용의 투명성을 보장하고 시민의 감시 기능을 강화하는 매우 우수한 투명성 실천 사례입니다."
+      },
+      {
+        "item_id": 112724,
+        "data_title": "감사결과 공개",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "내부 및 외부 감사 결과의 종합적 공개는 행정의 투명성과 책임성을 보장하는 핵심 요소로, 매우 우수한 투명성 제고 방안입니다."
+      },
+      {
+        "item_id": 112725,
+        "data_title": "정책 성과 보고",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "정책 성과의 정기적 상세 보고는 투명성 향상에 기여하지만, 성과 평가의 객관성과 완전성 확보 여부에 따라 우수한 수준으로 평가됩니다."
+      },
+      {
+        "item_id": 112726,
+        "data_title": "예산 절감 내역 공개",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "예산 절감 내역의 상세 공개는 재정 투명성 향상에 기여하지만, 절감 효과의 실질성과 검증 가능성 측면에서 우수한 수준으로 평가됩니다."
+      },
+      {
+        "item_id": 112727,
+        "data_title": "도정 현장 소통",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "C",
+        "rating_rationale": "현장 소통을 통한 투명성 강화는 긍정적이지만, 소통의 범위와 깊이, 실질적 피드백 반영 정도에 따라 양호한 수준의 투명성 개선으로 평가됩니다."
+      },
+      {
+        "item_id": 112728,
+        "data_title": "정책 토론회 개최",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "공개 토론회의 정기적 개최는 정책 결정 과정의 투명성을 높이는 우수한 방안이지만, 토론 결과의 정책 반영도와 참여의 대표성에 따라 평가가 달라집니다."
+      },
+      {
+        "item_id": 112729,
+        "data_title": "국제교류 투명성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "국제교류 사업의 목적과 성과를 공개한 것은 투명성 확보에 긍정적이나, 구체적인 공개 범위나 세부 내역에 대한 언급이 부족하여 우수 수준으로 평가됨"
+      },
+      {
+        "item_id": 112730,
+        "data_title": "긴급재난지원금 집행",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "코로나19 긴급재난지원금이라는 중요한 공적 자금의 집행 내역을 상세하게 공개한 것은 시민의 알 권리 보장과 재정 투명성 측면에서 매우 우수한 사례임"
+      },
+      {
+        "item_id": 112731,
+        "data_title": "정책자문단 구성 공개",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "정책자문단 구성 과정과 멤버를 투명하게 공개한 것은 정책 결정 과정의 투명성을 높이고 시민의 신뢰를 확보하는 매우 우수한 투명성 실천 사례임"
+      },
+      {
+        "item_id": 112732,
+        "data_title": "성과평가 공개",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "부서별 정기적 성과평가 내용 공개는 행정의 책임성과 투명성을 높이는 긍정적 조치이나, 평가 기준이나 방법론에 대한 구체적 정보가 부족하여 우수 수준으로 평가됨"
+      },
+      {
+        "item_id": 112733,
+        "data_title": "민원처리 과정 공개",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "주요 민원의 처리 과정과 결과를 투명하게 공개한 것은 행정 서비스의 투명성 향상에 기여하나, 모든 민원이 아닌 주요 민원에 한정되어 우수 수준으로 평가됨"
+      },
+      {
+        "item_id": 113121,
+        "data_title": "정책 성과 보고",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "주요 정책별 성과 측정 및 공개는 정책의 효과성을 투명하게 보여주는 좋은 사례이나, 성과 측정 방법이나 기준에 대한 구체적 설명이 부족하여 우수 수준으로 평가됨"
+      },
+      {
+        "item_id": 113123,
+        "data_title": "행정정보 공개 신속성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "정보공개 청구에 대한 신속한 대응은 시민의 알 권리 보장과 행정 투명성 확보에 중요한 요소이나, 구체적인 대응 시간이나 처리 현황에 대한 세부 정보가 부족함"
+      },
+      {
+        "item_id": 113126,
+        "data_title": "도정 예산 집행 투명성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "도정 예산 집행 과정의 상세 내역 공개는 재정 투명성의 핵심 요소로, 시민의 세금이 어떻게 사용되는지 구체적으로 보여주는 매우 우수한 투명성 실천 사례임"
+      },
+      {
+        "item_id": 113128,
+        "data_title": "재정 건전성 보고",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "경기도 재정 상태의 정기적 공개는 재정 투명성 확보에 중요한 조치이나, 공개 주기나 구체적인 재정 지표에 대한 상세 정보가 부족하여 우수 수준으로 평가됨"
+      },
+      {
+        "item_id": 113130,
+        "data_title": "행정서비스 정보접근성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "온라인 플랫폼을 통한 행정서비스 정보 제공은 접근성 향상에 도움이 되나, 단순한 정보 제공 수준으로 보이며 투명성 측면에서는 양호한 수준에 그침"
+      }
+    ]
+  },
+  "scores": {
+    "ChatGPT": {
+      "avg_rating": 4.68,
+      "category_score": 83.4,
+      "total_items": 150,
+      "positive": 115,
+      "negative": 35
+    },
+    "Grok": {
+      "avg_rating": 4.226666666666667,
+      "category_score": 81.13333333333333,
+      "total_items": 150,
+      "positive": 108,
+      "negative": 42
+    },
+    "Claude": {
+      "avg_rating": 3.76,
+      "category_score": 78.8,
+      "total_items": 150,
+      "positive": 109,
+      "negative": 41
+    }
+  },
+  "final_score": 81.1111111111111
+}

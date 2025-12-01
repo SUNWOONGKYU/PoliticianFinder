@@ -1,0 +1,3635 @@
+{
+  "data_pool_size": 150,
+  "evaluation_results": {
+    "ChatGPT": [
+      {
+        "item_id": 151482,
+        "data_title": "부동산 정책 실패",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "C",
+        "rating_rationale": "부동산 정책 실패에 대한 비판이 있지만, 구체적인 정책 개선 방향이나 대안이 제시되지 않아 전문성이 다소 부족하다."
+      },
+      {
+        "item_id": 151483,
+        "data_title": "공공기관 인사 논란",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "정치적 고려가 작용한 인사 문제는 전문성 결여를 보여주지만, 구체적인 영향력이나 결과가 명확하게 드러나지 않아 보통 수준으로 평가된다."
+      },
+      {
+        "item_id": 151484,
+        "data_title": "교통 정책 비판",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "교통 체증 문제 해결 정책이 실효성이 낮다는 비판이 있으나, 정책이 전혀 없는 것은 아니기 때문에 양호한 평가를 받는다."
+      },
+      {
+        "item_id": 151485,
+        "data_title": "환경 정책 논란",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "D",
+        "rating_rationale": "환경 정책 대응이 늦어졌다는 비판이 있으나, 정책 노력 자체는 존재하여 보통 수준으로 평가된다."
+      },
+      {
+        "item_id": 151486,
+        "data_title": "시민참여 활성화 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "시민참여 유도가 부족한 점이 드러나 정책 신뢰도가 떨어진 점에서 미흡하다고 평가된다."
+      },
+      {
+        "item_id": 151487,
+        "data_title": "부동산 정책 실패",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "C",
+        "rating_rationale": "부동산 정책 수정에 대한 비판이 있으나, 정책 방향을 제시하려는 노력이 보이므로 양호한 평가를 부여한다."
+      },
+      {
+        "item_id": 151488,
+        "data_title": "영세 상인 지원 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "영세 상인 지원 대책이 부족하다는 비판이 있으며, 코로나19 상황에서의 대응력 부족이 전문성 결여로 이어진 것으로 판단된다."
+      },
+      {
+        "item_id": 151489,
+        "data_title": "시민 Feedback 반영 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "시민 Feedback 반영 부족 문제로 인해 정책 신뢰도가 떨어진 점에서 미흡한 수준으로 평가된다."
+      },
+      {
+        "item_id": 151490,
+        "data_title": "환경 정책 논란",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "D",
+        "rating_rationale": "환경 정책이 비판받고 있지만, 환경 개선을 위한 노력은 여전히 존재하여 보통 수준으로 평가된다."
+      },
+      {
+        "item_id": 151491,
+        "data_title": "교통 개선 방안 미비",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "교통 개선 방안의 미비로 인해 전문성이 결여된 모습이 드러나며, 정책 대안 제시 부족이 문제로 지적된다."
+      },
+      {
+        "item_id": 151492,
+        "data_title": "서울시 도시 계획",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "오세훈의 도시 계획은 주거 안정성을 높이는 데 기여한 바가 크며, 정책의 구체성과 실행력에서 매우 우수하다."
+      },
+      {
+        "item_id": 151493,
+        "data_title": "COVID-19 방역 대응",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "COVID-19 방역 정책의 조정 및 예방접종 캠페인은 시민의 안전을 최우선으로 둔 점에서 매우 전문적이며 효과적이다."
+      },
+      {
+        "item_id": 151494,
+        "data_title": "교통 정책 개선",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "대중교통 효율성을 높이기 위한 프로젝트는 서울시 교통 문제 해결에 중요한 기여를 하였으며, 실행력이 뛰어나다."
+      },
+      {
+        "item_id": 151495,
+        "data_title": "친환경 정책 추진",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "친환경 정책 추진은 대기 질 개선과 기후 변화 대응에서 중요한 역할을 하며, 정책의 목표와 효과성이 명확하다."
+      },
+      {
+        "item_id": 151496,
+        "data_title": "문화예술 지원 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "문화예술 지원 정책은 예술 생태계 조성에 기여하지만, 정책의 구체적인 성과나 효과에 대한 정보가 부족하다."
+      },
+      {
+        "item_id": 151497,
+        "data_title": "재정 관리",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "재정 관리 방안은 예산 집행의 투명성을 높여 시민 신뢰를 향상시켰지만, 세부적인 성과 설명이 부족하다."
+      },
+      {
+        "item_id": 151498,
+        "data_title": "다문화 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "다문화 정책은 외국인 주민과의 소통을 증진시키려는 노력에서 긍정적이나, 정책의 구체적인 효과가 더 필요하다."
+      },
+      {
+        "item_id": 151499,
+        "data_title": "일자리 창출",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "일자리 창출을 위한 기업 유치 정책은 긍정적이나, 구체적인 일자리 수치나 성과가 제시되지 않아 아쉬움이 있다."
+      },
+      {
+        "item_id": 151500,
+        "data_title": "안전 정책 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "안전 정책 강화는 시민 안전을 보장하는 데 기여하며, 재난 대응 체계 개선이 구체적으로 이루어져 매우 우수하다."
+      },
+      {
+        "item_id": 151501,
+        "data_title": "스마트시티 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "스마트시티 정책은 혁신 기술 도입과 데이터 기반 운영을 통해 미래지향적인 도시 발전에 크게 기여하고 있다."
+      },
+      {
+        "item_id": 151502,
+        "data_title": "시민 소통 확대",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "오세훈의 시민 소통 확대 노력은 정책의 투명성과 참여를 높여 시민의 의견을 효과적으로 반영할 수 있는 기반을 제공하였으므로 매우 우수한 평가를 받는다."
+      },
+      {
+        "item_id": 151503,
+        "data_title": "지속가능한 발전 전략",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "지속 가능한 발전 전략을 위해 다양한 프로젝트를 시행한 점은 긍정적이나, 구체적인 성과나 사례가 부족해 우수하나 매우 우수는 아니다."
+      },
+      {
+        "item_id": 151504,
+        "data_title": "주거 불균형 해소",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "주거 불균형 해소를 위한 차별화된 주택 공급 방안은 사회적 필요에 부합하며, 정책의 전문성과 실효성을 보여주는 매우 우수한 접근이다."
+      },
+      {
+        "item_id": 151505,
+        "data_title": "정책 평가 및 피드백 시스템 구축",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "정책 평가 및 피드백 시스템 구축은 정책 개선을 위한 중요한 요소로, 체계적인 관리가 이루어지고 있다는 점에서 우수한 평가를 받는다."
+      },
+      {
+        "item_id": 151506,
+        "data_title": "지역 균형 발전",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "지역 균형 발전을 위한 정책 추진은 긍정적이나, 구체적인 실행 방안과 성과가 부족하여 우수하다고 평가된다."
+      },
+      {
+        "item_id": 151507,
+        "data_title": "사회적 기업 지원",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "사회적 기업 지원을 통한 경제 생태계 조성은 사회적 가치 실현에 기여하며, 정책의 전문성과 효과성을 잘 보여주는 매우 우수한 사례이다."
+      },
+      {
+        "item_id": 151508,
+        "data_title": "재활용 정책 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "재활용 정책 강화와 시민 참여 유도는 환경 문제 해결에 기여하지만, 성과 측정이 부족해 우수하나 매우 우수는 아니다."
+      },
+      {
+        "item_id": 151509,
+        "data_title": "스마트 행정 구현",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "스마트 행정 구현은 디지털 기술을 효과적으로 활용하여 행정 서비스 품질을 개선한 점에서 매우 우수한 평가를 받을 만하다."
+      },
+      {
+        "item_id": 151510,
+        "data_title": "공공 안전 인프라 개선",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "공공 안전 인프라 개선은 시민의 안전을 증진시키는 중요한 정책이나, 구체적인 성과가 부족해 우수하다고 평가된다."
+      },
+      {
+        "item_id": 151511,
+        "data_title": "서울시 브랜드 이미지 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "서울시 브랜드 이미지 강화를 위한 홍보 전략은 필요하지만, 효과성이나 구체적인 실행 방안이 부족하여 양호하다고 평가된다."
+      },
+      {
+        "item_id": 151512,
+        "data_title": "서울시장 재임 중 도시 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "도시 재생과 공공주택 공급 확대는 서울 시민의 주거 문제 해결에 매우 중요한 정책으로, 전문성이 높이 평가된다."
+      },
+      {
+        "item_id": 151513,
+        "data_title": "신규 공공시설 건립",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "신규 공공시설 건립은 지역 경제에 긍정적인 영향을 미쳤으나, 정책의 전반적인 전문성은 다소 부족할 수 있다."
+      },
+      {
+        "item_id": 151514,
+        "data_title": "교통 정책 개선",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "교통 정책 개선은 긍정적이나, 체증 문제 해결에는 한계가 있어 전문성은 양호하나 완벽하지 않다."
+      },
+      {
+        "item_id": 151515,
+        "data_title": "미세먼지 저감 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "미세먼지 저감 정책이 도입되었으나 시민 동참률이 낮아 실효성이 떨어져 전문성은 양호하다고 평가된다."
+      },
+      {
+        "item_id": 151516,
+        "data_title": "주택 정책의 효과성",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "D",
+        "rating_rationale": "주택 공급 확대의 한계가 드러났고, 시장 복잡성을 고려하지 못한 점이 아쉬워 보통 수준으로 평가된다."
+      },
+      {
+        "item_id": 151517,
+        "data_title": "사회적 갈등 해소 노력",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "D",
+        "rating_rationale": "사회적 갈등 해소를 위한 노력이 있었으나 실효성에 의문이 제기되어 보통 수준의 전문성을 보인다."
+      },
+      {
+        "item_id": 151518,
+        "data_title": "국제 행사 유치",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "국제 행사 유치에 기여했으나 지속적인 홍보 전략 부족이 아쉬워 우수한 수준으로 평가된다."
+      },
+      {
+        "item_id": 151519,
+        "data_title": "위기 관리 능력",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "코로나19 대응에서의 즉각적인 방역 조정은 전문성과 시민 안전을 모두 고려한 매우 우수한 접근이다."
+      },
+      {
+        "item_id": 151520,
+        "data_title": "재정 관리 능력",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "재정 관리 및 투명성 강화 노력은 긍정적이나, 상반된 의견이 존재해 약간의 전문성 부족을 드러낸다."
+      },
+      {
+        "item_id": 151521,
+        "data_title": "주민 참여 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "주민 참여 정책이 운영되었으나 참여율 저조로 인해 전문성은 양호하나 완벽하지 않다고 평가된다."
+      },
+      {
+        "item_id": 151522,
+        "data_title": "디지털 행정 추진",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "디지털 행정 추진은 긍정적이나 기술적 인프라 부족이 정책의 실효성을 저해할 수 있어 양호한 평가를 받음."
+      },
+      {
+        "item_id": 151523,
+        "data_title": "장애인 지원 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "장애인 지원 정책은 확대되고 있으나 비판이 있다는 점에서 우수하나 완전하지는 않음."
+      },
+      {
+        "item_id": 151524,
+        "data_title": "주말 농장 및 체험 프로그램",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "C",
+        "rating_rationale": "주말 농장 정책은 환경 보호에 기여하나 수요와 공급의 불균형이 문제로, 양호한 수준."
+      },
+      {
+        "item_id": 151525,
+        "data_title": "문화 예술 지원 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "문화 예술 지원은 재정 지원이 증가했으나 홍보 부족으로 인지도가 낮아 보통 수준의 평가."
+      },
+      {
+        "item_id": 151526,
+        "data_title": "홍보·커뮤니케이션 전략",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "D",
+        "rating_rationale": "홍보 전략은 존재하나 연속성 결여로 실효성이 떨어져 보통 수준으로 평가됨."
+      },
+      {
+        "item_id": 151527,
+        "data_title": "환경 관련 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "환경 정책은 기후 변화 대응을 목표로 하나 성과 부족으로 미흡한 평가를 받음."
+      },
+      {
+        "item_id": 151528,
+        "data_title": "보건 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "보건 정책은 코로나19에 집중되어 이후 소홀히 다뤄져 시민 불만이 높아 미흡한 평가."
+      },
+      {
+        "item_id": 151529,
+        "data_title": "범죄 예방과 안전 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "F",
+        "rating_rationale": "범죄 예방 정책은 CCTV 설치 등 노력에도 불구하고 범죄율 저하 효과가 미흡해 부족한 평가."
+      },
+      {
+        "item_id": 151530,
+        "data_title": "회복력 있는 도시 만들기 전략",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "E",
+        "rating_rationale": "회복력 있는 도시 만들기 정책은 공공 참여 부족으로 실현력이 떨어져 미흡한 평가를 받음."
+      },
+      {
+        "item_id": 151531,
+        "data_title": "지속 가능한 발전 목표",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "D",
+        "rating_rationale": "지속 가능한 발전 목표는 정책 추진이 있으나 방법론 모호로 보통 수준의 평가를 받음."
+      },
+      {
+        "item_id": 151432,
+        "data_title": "부동산 재개발 프로젝트 지연 논란",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "부동산 재개발 프로젝트의 지연과 예산 초과는 도시 계획 전문성이 부족함을 드러내며, 주민 불만이 증가했다."
+      },
+      {
+        "item_id": 151433,
+        "data_title": "코로나19 방역 대응의 미흡",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "코로나19 방역의 미흡은 공공 보건 시스템의 취약점을 드러내며, 행정적 오류로 인한 비판이 이어졌다."
+      },
+      {
+        "item_id": 151434,
+        "data_title": "공공 예산 관리의 비효율",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "E",
+        "rating_rationale": "예산 관리의 비효율과 재정 적자 확대는 공공 자원의 낭비를 초래하며 장기적인 재정 안정성에 문제를 야기했다."
+      },
+      {
+        "item_id": 151435,
+        "data_title": "환경 정책의 실패",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "도시 개발 정책이 환경 오염을 증가시켰으며, 이는 지속 가능한 도시 관리의 부재를 보여준다."
+      },
+      {
+        "item_id": 151436,
+        "data_title": "인사 임명 관련 논란",
+        "collected_by": "Grok",
+        "original_rating": "H",
+        "new_rating": "E",
+        "rating_rationale": "인사 임명에서 공정성 논란이 발생하며, 이는 직무 중립성 부족과 행정 효율성을 저하시킨 사례로 평가된다."
+      },
+      {
+        "item_id": 151437,
+        "data_title": "코로나19 방역 정책 실패",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "D",
+        "rating_rationale": "코로나19 방역 정책에서 여러 차례 비판을 받았으나, 일부 조치는 개선의 여지를 보였고 시민 불만이 높아졌다."
+      },
+      {
+        "item_id": 151438,
+        "data_title": "부동산 정책 관련 논란",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "E",
+        "rating_rationale": "부동산 정책이 집값 폭등을 유발하며, 저소득층 거주 안정성을 해친 것은 경제 전문성 결여로 평가된다."
+      },
+      {
+        "item_id": 151439,
+        "data_title": "도시 재개발 프로젝트 지연",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "도시 재개발 사업의 예산 초과와 지연은 기술적 오류와 환경 영향 평가 소홀을 드러내며, 관리 경험 부족이 문제다."
+      },
+      {
+        "item_id": 151440,
+        "data_title": "예산 관리 실패 사례",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "2023년 서울시 복지 예산 삭감은 사회복지 전문가들의 비판을 받으며, 저소득층 지원 프로그램 운영에 문제를 야기했다."
+      },
+      {
+        "item_id": 151441,
+        "data_title": "교통 정책 비판",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "E",
+        "rating_rationale": "서울시 교통 정책의 지하철 확장 사업에서 혼란과 비용 초과는 교통 전문성 부족으로 인한 설계 오류로 평가된다."
+      },
+      {
+        "item_id": 151442,
+        "data_title": "도시 개발 프로젝트 관리",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "한강 르네상스 프로젝트는 장기적인 도시 계획 경험을 바탕으로 시민 생활 환경을 개선한 성과가 크며, 높은 프로젝트 완료율이 이를 입증합니다."
+      },
+      {
+        "item_id": 151443,
+        "data_title": "교통 인프라 확충",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "교통 인프라 확충으로 일일 이용객이 크게 늘어난 것은 긍정적이나 초기 예산 초과 문제가 있어 완벽한 성과라 보기 어렵습니다."
+      },
+      {
+        "item_id": 151444,
+        "data_title": "환경 정책 실행",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "미세먼지 저감 정책의 시행으로 대기 질 개선 효과가 있었으나, 일부 목표 달성이 지연된 점은 아쉬움을 남깁니다."
+      },
+      {
+        "item_id": 151445,
+        "data_title": "코로나 대응 관리",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "코로나19 대응에서 대규모 검사소 설치와 지원 프로그램이 효과적이었으나 초기 대응 속도가 부족했던 점은 개선이 필요합니다."
+      },
+      {
+        "item_id": 151446,
+        "data_title": "경제 개발 촉진",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "스타트업 지원과 산업 클러스터 구축으로 일자리 창출 효과가 있었으나 글로벌 경제 변동에 대한 대응 미비는 아쉬운 점입니다."
+      },
+      {
+        "item_id": 151447,
+        "data_title": "교육 투자 확대",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "공교육 개선을 위한 예산 증가와 학생 만족도 상승은 긍정적이나, 균등한 배분 문제는 해결해야 할 과제로 남아있습니다."
+      },
+      {
+        "item_id": 151448,
+        "data_title": "주택 정책 수립",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "주택 공급 증가 정책은 신규 주택 건수 증가로 이어졌지만 부동산 가격 안정화에 실패한 점은 중요한 문제입니다."
+      },
+      {
+        "item_id": 151449,
+        "data_title": "문화 예술 지원",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "문화 예술 지원과 시민 참여 증가는 긍정적이나, 예술인 지원 부족은 여전히 해결해야 할 과제입니다."
+      },
+      {
+        "item_id": 151450,
+        "data_title": "재난 대비 시스템 구축",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "자연 재난 대비 시스템 강화는 중요하지만 실제 재난 시 대응 효율이 낮은 점은 심각한 문제로 보입니다."
+      },
+      {
+        "item_id": 151451,
+        "data_title": "행정 효율화 추진",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "행정 효율화를 위한 디지털화는 긍정적이나 시스템 오류 빈발 문제는 신뢰성에 영향을 미치는 요소입니다."
+      },
+      {
+        "item_id": 151452,
+        "data_title": "법률 개정 참여",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "법률 개정 참여는 긍정적이나 반대 의견이 많아 전문성이 다소 부족하다."
+      },
+      {
+        "item_id": 151453,
+        "data_title": "국제 협력 강화",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "국제 협력 강화 노력은 평가받지만, 글로벌 이슈 대응의 미비로 다소 낮은 평가를 받았다."
+      },
+      {
+        "item_id": 151454,
+        "data_title": "청년 정책 개발",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "청년 정책은 지원금 확대가 긍정적이나 고용률 향상이 미미해 전문성이 양호하다."
+      },
+      {
+        "item_id": 151455,
+        "data_title": "고령자 복지 강화",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "고령자 복지 정책은 의료 지원 강화가 긍정적이나 예산 관리 문제가 발생해 전문성이 양호하다."
+      },
+      {
+        "item_id": 151456,
+        "data_title": "여성 정책 지원",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "D",
+        "rating_rationale": "여성 정책은 참여율이 높았으나 포괄적이지 못해 전문성이 보통으로 평가된다."
+      },
+      {
+        "item_id": 151457,
+        "data_title": "소상공인 지원",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "소상공인 지원은 수혜자 수가 많으나 지속 가능성 문제가 있어 전문성이 양호하다."
+      },
+      {
+        "item_id": 151458,
+        "data_title": "지속 가능성 촉진",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "지속 가능성 촉진 노력은 탄소 배출 감소 효과가 있지만 목표 미달성으로 전문성이 양호하다."
+      },
+      {
+        "item_id": 151459,
+        "data_title": "IT 및 디지털 정책",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "IT 및 디지털 정책 주도는 성공적으로 진행되어 전문성이 매우 우수하다."
+      },
+      {
+        "item_id": 151460,
+        "data_title": "예산 관리",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "예산 관리의 효율성이 높지만 일부 과도한 지출이 있어 전문성이 우수하다."
+      },
+      {
+        "item_id": 151461,
+        "data_title": "리더십 및 커뮤니케이션",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "리더십과 소통은 긍정적이지만 일부 논란으로 인해 전문성이 우수하다고 평가된다."
+      },
+      {
+        "item_id": 151462,
+        "data_title": "코로나19 방역 정책 실행",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "오세훈의 코로나19 대응은 시민 건강과 경제 회복을 동시에 고려한 통합적 접근으로, 감염률을 낮추는 데 기여하여 매우 우수한 평가를 받는다."
+      },
+      {
+        "item_id": 151463,
+        "data_title": "도시 재개발 프로젝트 추진",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "재개발 추진은 도시 현대화에 기여했지만 주민 이주 문제로 논란이 있어 다소 아쉬운 점이 있다. 전반적으로 우수한 정책으로 평가된다."
+      },
+      {
+        "item_id": 151464,
+        "data_title": "교통 시스템 개선 노력",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "스마트 교통 기술 도입으로 교통 흐름을 개선했으나 예산 초과 문제가 발생하여 완벽하지는 않지만 우수한 평가를 받을 수 있다."
+      },
+      {
+        "item_id": 151465,
+        "data_title": "환경 보호 정책",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "환경 보호 정책은 국제 기준을 참고했으나 실행 속도가 느려 효과가 제한적이었기 때문에 양호한 수준으로 평가된다."
+      },
+      {
+        "item_id": 151466,
+        "data_title": "경제 활성화 정책",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "스타트업과 관광 활성화는 일자리 창출에 기여했으나 중소기업 지원 부족으로 비판을 받았으므로 양호하다고 평가된다."
+      },
+      {
+        "item_id": 151467,
+        "data_title": "주거 복지 확대",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "저소득층을 위한 공공주택 공급 증가는 긍정적이나 부동산 가격 상승으로 정책 효과가 약화되어 양호한 수준으로 평가된다."
+      },
+      {
+        "item_id": 151468,
+        "data_title": "교육 지원 프로그램",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "온라인 교육 인프라 확대는 긍정적이나 농어촌 지역 지원 미비로 인해 양호하다고 평가된다. 디지털 격차 해소는 중요하다."
+      },
+      {
+        "item_id": 151469,
+        "data_title": "문화 예술 진흥",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "문화 행사 확대는 도시 매력 증진에 기여했으나 코로나로 인한 행사 취소가 문제로, 양호한 수준으로 평가된다."
+      },
+      {
+        "item_id": 151470,
+        "data_title": "복지 확대 정책",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "고령자 복지 프로그램 강화는 긍정적이나 예산 부족으로 서비스 지연이 발생하여 양호한 평가에 그친다."
+      },
+      {
+        "item_id": 151471,
+        "data_title": "재난 관리 시스템",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "D",
+        "rating_rationale": "비상 대응 시스템 업그레이드는 긍정적이나 실전 훈련 부족으로 인해 보통 수준의 평가를 받는다."
+      },
+      {
+        "item_id": 151472,
+        "data_title": "국제 협력 강화",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "B",
+        "rating_rationale": "국제 행사 유치로 외교적 네트워크를 확장했으나, 정치적 이슈로 협력이 중단된 점이 아쉬움."
+      },
+      {
+        "item_id": 151473,
+        "data_title": "투명한 행정 운영",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "공공 데이터 공개로 행정 투명성을 높였으나, 내부 감사 부족으로 논란이 발생한 점에서 개선 여지가 있음."
+      },
+      {
+        "item_id": 151474,
+        "data_title": "반부패 노력",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "C",
+        "rating_rationale": "부패 예방을 위한 캠페인을 추진했으나, 고위 공무원 관련 의혹이 제기되어 지속적인 모니터링의 필요성이 있음."
+      },
+      {
+        "item_id": 151475,
+        "data_title": "과학 기술 투자",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "AI와 빅데이터 도입으로 혁신을 촉진했으나, 기술 전문가 부족으로 프로젝트 지연이 발생한 점이 단점."
+      },
+      {
+        "item_id": 151476,
+        "data_title": "청년 정책",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "청년 일자리 창출을 위한 프로그램 확대는 긍정적이나, 실업률 감소 효과가 미미하여 개선 필요."
+      },
+      {
+        "item_id": 151477,
+        "data_title": "고령자 복지 강화",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "C",
+        "rating_rationale": "노인 복지 시설 증설 추진은 긍정적이나, 서비스 질이 일관되지 않아 비판을 받은 점에서 보완이 필요."
+      },
+      {
+        "item_id": 151478,
+        "data_title": "여성 정책",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "여성 직장 복귀 지원 프로그램 도입은 좋은 시도이나, 낮은 참여율과 홍보 부족으로 효과가 제한적임."
+      },
+      {
+        "item_id": 151479,
+        "data_title": "소상공인 지원",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "코로나 피해 소상공인 지원은 필요했으나, 신청 과정의 복잡함으로 인해 일부 사업자가 혜택을 받지 못한 점이 아쉬움."
+      },
+      {
+        "item_id": 151480,
+        "data_title": "지속 가능 에너지 정책",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "태양광 에너지 도입으로 친환경 도시 추진은 긍정적이나, 초기 투자 비용 문제가 확대를 저해하고 있음."
+      },
+      {
+        "item_id": 151481,
+        "data_title": "공원 및 녹지 확대",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "도시 내 공원 조성을 통해 시민 휴식 공간을 늘린 점은 긍정적이나, 토지 확보 문제로 계획이 완전히 이행되지 않아 아쉬움."
+      },
+      {
+        "item_id": 107438,
+        "data_title": "서울시 무상 재난지원금 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "C",
+        "rating_rationale": "정확한 출처인 서울시 공식 기록을 바탕으로 무상 재난지원금 논란을 다루고 있지만, 정책 혼선의 원인과 구체적인 해결 방안에 대한 논의가 부족하다."
+      },
+      {
+        "item_id": 107439,
+        "data_title": "부동산 정책 실패",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "B",
+        "rating_rationale": "국토교통부 보고서를 인용하여 부동산 정책의 실패를 지적하고 있지만, 구체적인 대안 제시가 부족해 다소 아쉬운 평가다."
+      },
+      {
+        "item_id": 107440,
+        "data_title": "행정부 인사 운영 문제",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "B",
+        "rating_rationale": "서울시의회 회의록을 기반으로 인사 운영 문제를 지적하며 정책 추진 과정의 중요한 요소를 다루었으나, 보다 구체적인 사례가 필요하다."
+      },
+      {
+        "item_id": 107441,
+        "data_title": "청년 정책 실행력 부족",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "C",
+        "rating_rationale": "고용노동부 통계를 인용하여 청년 정책의 실행력 부족을 지적했으나, 정책의 구체적인 한계와 대안 제시가 부족하다."
+      },
+      {
+        "item_id": 107442,
+        "data_title": "코로나19 방역 정책 혼선",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "B",
+        "rating_rationale": "질병관리청 자료를 통해 방역 정책의 혼선을 지적했으나, 정책의 구체적 문제와 해결 방안에 대한 심층적인 분석이 필요하다."
+      },
+      {
+        "item_id": 107443,
+        "data_title": "서울시 부동산 정책 실패",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "A",
+        "rating_rationale": "주택 공급 계획의 목표 미달을 연합뉴스를 통해 명확하게 지적하며, 부동산 정책의 실패를 잘 설명하고 있다. 정책 수립의 필요성을 강조한다."
+      },
+      {
+        "item_id": 107444,
+        "data_title": "청년 정책 실효성 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "청년 정책의 실효성 문제를 한겨레에서 다루었으나, 비판의 근거와 구체적인 사례가 부족해 다소 아쉬운 점이 있다."
+      },
+      {
+        "item_id": 107445,
+        "data_title": "코로나19 방역 정책 혼선",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "A",
+        "rating_rationale": "KBS 뉴스에서 중앙정부와의 정책 충돌을 구체적으로 다루어, 방역 정책의 혼선 문제를 명확하게 분석하고 있다."
+      },
+      {
+        "item_id": 107446,
+        "data_title": "재난지원금 집행 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "재난지원금 지급 기준의 형평성 문제를 MBC 뉴스에서 다루었으나, 문제 해결을 위한 구체적인 대안 제시가 부족하다."
+      },
+      {
+        "item_id": 107447,
+        "data_title": "도시재생 사업 지연",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "B",
+        "rating_rationale": "조선일보에서 도시재생 사업의 지연 문제를 지적하였으나, 문제의 원인과 해결 방안에 대한 자세한 분석이 필요하다."
+      },
+      {
+        "item_id": 107448,
+        "data_title": "도시재생 전문성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "서울시 도시재생 및 도시계획 정책은 전문가의 심도 있는 지식과 경험을 바탕으로 추진되므로 매우 우수한 전문성을 보여줍니다."
+      },
+      {
+        "item_id": 107449,
+        "data_title": "행정 경험",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "전 서울시장 및 현 서울시장으로서의 경력은 행정 전문성을 강화하며, 풍부한 경험이 정책 결정에 기여합니다."
+      },
+      {
+        "item_id": 107450,
+        "data_title": "정책 기획력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "다양한 분야의 정책 수립이 가능하나, 구체적인 성과나 실행 사례가 부족해 우수 수준으로 평가합니다."
+      },
+      {
+        "item_id": 107451,
+        "data_title": "부동산 정책 전문성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "부동산 시장 안정화 정책은 서울시의 중요한 과제로, 해당 분야에 대한 깊은 이해와 전문성이 돋보입니다."
+      },
+      {
+        "item_id": 107452,
+        "data_title": "코로나19 대응 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "코로나19 대응 정책은 긴급하고 복잡한 상황에서의 효과적인 대응을 보여주지만, 장기적인 비전이 부족해 우수로 평가합니다."
+      },
+      {
+        "item_id": 107453,
+        "data_title": "행정 효율성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "스마트시티 및 디지털 행정 혁신은 현대 행정의 중요한 트렌드로, 전문성이 매우 높습니다."
+      },
+      {
+        "item_id": 107454,
+        "data_title": "복지 정책 이해도",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "취약계층 지원 정책은 필요성이 크지만, 구체적인 실행 방안이나 성과가 명시되지 않아 우수로 평가합니다."
+      },
+      {
+        "item_id": 107455,
+        "data_title": "환경 정책 전문성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "환경 정책은 지속 가능한 발전을 위한 필수 요소로, 전문성이 매우 높고 정책의 필요성이 잘 반영되어 있습니다."
+      },
+      {
+        "item_id": 107456,
+        "data_title": "경제 정책 이해",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "지역경제 활성화 및 소상공인 지원 정책은 중요하나, 세부 사항이 부족해 우수한 수준으로 평가합니다."
+      },
+      {
+        "item_id": 107457,
+        "data_title": "교통 정책 전문성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "대중교통 혁신 및 교통 인프라 개선 정책은 서울시의 교통 문제 해결에 중대한 기여를 하여 전문성이 높습니다."
+      },
+      {
+        "item_id": 107458,
+        "data_title": "디지털 정책 이해",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "디지털 정책에 대한 전문성과 스마트시티 구현 관련 자료가 과학기술정보통신부에서 제공되었고, 정책의 중요성이 강조되어 매우 우수하다."
+      },
+      {
+        "item_id": 107459,
+        "data_title": "문화정책 전문성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "문화도시 서울 조성 정책에 대한 내용이 문화체육관광부의 보도자료로 뒷받침되어 있으며, 전문성을 갖추고 있으나 다소 범위가 제한적이다."
+      },
+      {
+        "item_id": 107460,
+        "data_title": "재난관리 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "코로나19와 자연재해 대응 정책에 대한 행정안전부의 보고서는 재난 관리에 대한 전문성이 잘 드러나 있어 매우 높은 평가를 받는다."
+      },
+      {
+        "item_id": 107461,
+        "data_title": "국제 협력 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "국제 도시 교류 및 협력 정책이 외교부 자료를 기반으로 하여 신뢰성이 있지만, 실질적인 성과나 구체성이 부족해 우수 평가를 받았다."
+      },
+      {
+        "item_id": 107462,
+        "data_title": "주거정책 전문성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "공공주택 및 주거안정 정책의 내용이 국토교통부 자료로 충분히 검증되어 있으며, 매우 전문적이고 구체적인 정책 제안이 포함되어 있다."
+      },
+      {
+        "item_id": 107463,
+        "data_title": "일자리 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "청년 일자리 및 고용 정책이 고용노동부의 정책자료에 기반해 있어 전문성을 갖추고 있으나, 세부적인 대안 제시가 부족하다."
+      },
+      {
+        "item_id": 107464,
+        "data_title": "교육 정책 이해",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "서울시 교육 혁신 정책에 대한 내용이 교육부 자료에 기반하나, 다소 일반적인 내용으로 전문성이 약간 부족하다."
+      },
+      {
+        "item_id": 107465,
+        "data_title": "기후변화 대응",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "환경부 기후변화 대응 보고서에 기반한 탄소중립 및 환경 정책에 대한 전문성이 매우 높아 A 등급을 부여한다."
+      },
+      {
+        "item_id": 107466,
+        "data_title": "사회혁신 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "사회혁신 및 시민참여 정책이 서울시 혁신정책 보고서를 통해 제시되어 전문성을 갖추고 있으나, 구체적인 실행 방안이 부족하다."
+      },
+      {
+        "item_id": 107467,
+        "data_title": "위기관리 전문성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "행정안전부의 위기관리 자료는 다양한 사회적 위기에 대한 대응 능력을 잘 설명하고 있어 매우 우수한 평가를 받는다."
+      },
+      {
+        "item_id": 107468,
+        "data_title": "행정 경험의 깊이",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "오세훈은 서울시장으로서 2차례의 경험을 통해 행정 운영에 대한 깊은 전문성을 쌓았으며, 이는 강력한 리더십을 바탕으로 한 경험적 지식으로 평가된다."
+      },
+      {
+        "item_id": 107469,
+        "data_title": "정책 기획력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "서울형 뉴딜일자리 정책은 지역 경제 활성화를 위한 기획력의 일환으로, 정책의 필요성과 효과성 측면에서 우수한 평가를 받을 수 있다."
+      },
+      {
+        "item_id": 107470,
+        "data_title": "도시 정책 전문성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "스마트도시 정책은 현대 도시 문제를 해결하기 위한 혁신적 접근으로, 오세훈의 도시 정책 전문성을 잘 보여준다."
+      },
+      {
+        "item_id": 107471,
+        "data_title": "사회복지 이해도",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "청년수당과 1인 가구 지원 정책은 사회복지 분야에서의 이해도를 보여주며, 특정 집단의 필요를 반영한 정책으로 평가된다."
+      },
+      {
+        "item_id": 107472,
+        "data_title": "재난 대응 전문성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "코로나19 방역 정책 추진은 위기 상황에서의 신속한 대응력을 보여주며, 재난 대응 전문성을 입증하는 중요한 사례로 평가된다."
+      },
+      {
+        "item_id": 107473,
+        "data_title": "환경 정책 이해도",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "미세먼지 저감 정책 추진은 환경 문제에 대한 이해도를 보여주며, 정책의 실효성을 높이기 위한 노력이 엿보인다."
+      },
+      {
+        "item_id": 107474,
+        "data_title": "경제 정책 전문성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "소상공인 지원 정책 시행은 경제적 어려움을 겪는 계층을 위한 정책으로, 경제 정책에 대한 이해도를 나타낸다."
+      },
+      {
+        "item_id": 107475,
+        "data_title": "주거 정책 이해도",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "공공주택 공급 확대 정책은 주거 안정성을 높이기 위한 노력으로, 주거 정책 이해도를 잘 반영하고 있다."
+      },
+      {
+        "item_id": 107476,
+        "data_title": "교통 정책 전문성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "대중교통 개선 정책 추진은 교통 문제 해결을 위한 다양한 접근을 보여주며, 정책 전문성을 반영하고 있다."
+      },
+      {
+        "item_id": 107477,
+        "data_title": "문화정책 이해도",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "문화예술 지원 확대는 문화 정책에 대한 관심을 보여주지만, 구체적인 실행 계획이나 효과에 대한 정보가 부족하여 양호한 수준으로 평가된다."
+      },
+      {
+        "item_id": 107478,
+        "data_title": "디지털 전환 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "스마트시티 정책은 디지털 전환의 중요한 요소로, 정책 추진 능력에 대한 높은 이해도를 보여준다."
+      },
+      {
+        "item_id": 107479,
+        "data_title": "예산 운용 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "서울시 예산의 효율적 집행은 정책 실행의 전문성과 재정 관리 능력을 잘 나타내어 매우 우수한 평가를 받는다."
+      },
+      {
+        "item_id": 107480,
+        "data_title": "공동체 정책 이해도",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "마을공동체 지원 사업을 통해 공동체 정책에 대한 깊은 이해를 보여주어 우수한 평가를 받는다."
+      },
+      {
+        "item_id": 107481,
+        "data_title": "국제 교류 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "해외 도시와의 교류 협력은 국제적 감각을 보여주나, 구체적인 성과나 전략이 부족하여 양호한 평가를 받는다."
+      },
+      {
+        "item_id": 107482,
+        "data_title": "여성 정책 전문성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "여성 일자리 지원 정책은 사회적 이슈에 대한 높은 전문성을 나타내며, 매우 우수한 평가를 받을 만하다."
+      },
+      {
+        "item_id": 107483,
+        "data_title": "청년 정책 이해도",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "청년 지원 정책의 다각화는 청년 문제에 대한 깊은 이해를 보여 주며, 우수한 평가를 받는다."
+      },
+      {
+        "item_id": 107484,
+        "data_title": "중소기업 지원 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "중소기업 육성 정책 시행은 경제적 전문성과 실질적 지원을 통해 매우 우수한 평가를 받는다."
+      },
+      {
+        "item_id": 107485,
+        "data_title": "보건 정책 전문성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "공공의료 체계 강화는 보건 정책에 대한 전문성을 보여주며, 매우 우수한 평가를 받을 수 있다."
+      },
+      {
+        "item_id": 107486,
+        "data_title": "에너지 정책 이해도",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "신재생에너지 확대 정책은 에너지 정책에 대한 이해를 보여주며, 우수한 평가를 받을 수 있다."
+      },
+      {
+        "item_id": 107487,
+        "data_title": "행정 혁신 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "디지털 민주주의 추진은 행정 혁신에 대한 노력을 보여주나, 구체적인 실행 방안이 부족하여 양호한 평가를 받는다."
+      }
+    ],
+    "Grok": [
+      {
+        "item_id": 151482,
+        "data_title": "부동산 정책 실패",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "부동산 정책에 대한 비판이 많고, 공급 부족 문제를 해결하지 못한 점에서 전문성이 미흡함. 국회 회의록에서의 지적이 이를 뒷받침함."
+      },
+      {
+        "item_id": 151483,
+        "data_title": "공공기관 인사 논란",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "공공기관 인사에서 정치적 고려가 작용한 점과 특정 인사의 전문성에 대한 의심이 제기된 점에서 전문성이 미흡함. 서울시 보도자료에서의 비판이 이를 증명함."
+      },
+      {
+        "item_id": 151484,
+        "data_title": "교통 정책 비판",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "교통 체증 문제 해결을 위한 정책이 실효성이 낮다는 평가와 자전거 도로 확대 계획의 비효율성에서 전문성이 미흡함. 서울시 공식 홈페이지에서의 비판이 이를 뒷받침함."
+      },
+      {
+        "item_id": 151485,
+        "data_title": "환경 정책 논란",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "환경 정책에서 대기오염 문제 해결을 위한 대응이 미흡하고 공공기관의 대응이 늦어졌다는 지적에서 전문성이 미흡함. 환경부 보도자료에서의 비판이 이를 증명함."
+      },
+      {
+        "item_id": 151486,
+        "data_title": "시민참여 활성화 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "정책 수립 과정에서 시민참여를 제대로 유도하지 못해 정책의 신뢰성이 떨어졌다는 비판에서 전문성이 미흡함. 서울시 의회 기록에서의 지적이 이를 뒷받침함."
+      },
+      {
+        "item_id": 151487,
+        "data_title": "부동산 정책 실패",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "부동산 정책에서 '3040 청년층을 위한 주택 공급 방안'이 미비하고 구체성이 부족하다는 비판에서 전문성이 미흡함. 연합뉴스에서의 비판이 이를 증명함."
+      },
+      {
+        "item_id": 151488,
+        "data_title": "영세 상인 지원 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "코로나19 상황에서 영세 상인 지원 대책이 부족하고 대책이 늦어졌다는 비판에서 전문성이 미흡함. 조선일보에서의 비판이 이를 뒷받침함."
+      },
+      {
+        "item_id": 151489,
+        "data_title": "시민 Feedback 반영 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "민선 5기 동안 시민들의 의견을 충분히 반영하지 않아 정책 신뢰도에 부정적인 영향을 미쳤다는 비판에서 전문성이 미흡함. MBC에서의 비판이 이를 증명함."
+      },
+      {
+        "item_id": 151490,
+        "data_title": "환경 정책 논란",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "미세먼지 대책에서 환경단체 및 전문가들로부터 비판을 받고, 환경 개선에 대한 전문성이 부족하다는 지적에서 전문성이 미흡함. KBS에서의 비판이 이를 뒷받침함."
+      },
+      {
+        "item_id": 151491,
+        "data_title": "교통 개선 방안 미비",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "교통 정책에서 혼잡한 교통 문제 해결을 위한 대안 제시가 부족하다는 지적과 전문성 결여에서 전문성이 미흡함. 연합뉴스에서의 비판이 이를 증명함."
+      },
+      {
+        "item_id": 151492,
+        "data_title": "서울시 도시 계획",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "서울시 공식 웹사이트의 자료로 신뢰성이 매우 높고, 도시 계획 및 주택 정책에 대한 구체적인 성과가 명시되어 있어 전문성이 매우 우수함."
+      },
+      {
+        "item_id": 151493,
+        "data_title": "COVID-19 방역 대응",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "서울시의 공식 COVID-19 관련 자료로 신뢰성이 매우 높고, 방역 정책과 예방접종 캠페인에 대한 구체적인 내용이 포함되어 있어 전문성이 매우 우수함."
+      },
+      {
+        "item_id": 151494,
+        "data_title": "교통 정책 개선",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "서울교통공사의 연례 보고서로 신뢰성이 매우 높고, 교통 인프라 개선 프로젝트와 그 성과에 대한 구체적인 내용이 포함되어 있어 전문성이 매우 우수함."
+      },
+      {
+        "item_id": 151495,
+        "data_title": "친환경 정책 추진",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "서울환경공단의 자료로 신뢰성이 매우 높고, 친환경 정책과 관련된 구체적인 내용이 포함되어 있어 전문성이 매우 우수함."
+      },
+      {
+        "item_id": 151496,
+        "data_title": "문화예술 지원 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "서울문화재단의 자료로 신뢰성이 매우 높고, 문화예술 지원 정책에 대한 구체적인 내용이 포함되어 있어 전문성이 매우 우수함."
+      },
+      {
+        "item_id": 151497,
+        "data_title": "재정 관리",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "서울시의 공식 재정공지 자료로 신뢰성이 매우 높고, 재정 관리 방안과 그 성과에 대한 구체적인 내용이 포함되어 있어 전문성이 매우 우수함."
+      },
+      {
+        "item_id": 151498,
+        "data_title": "다문화 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "서울시 다문화가족 지원센터의 자료로 신뢰성이 매우 높고, 다문화 정책과 관련된 구체적인 내용이 포함되어 있어 전문성이 매우 우수함."
+      },
+      {
+        "item_id": 151499,
+        "data_title": "일자리 창출",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "서울시 기업지원센터의 자료로 신뢰성이 매우 높고, 일자리 창출 정책과 관련된 구체적인 내용이 포함되어 있어 전문성이 매우 우수함."
+      },
+      {
+        "item_id": 151500,
+        "data_title": "안전 정책 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "서울시 안전담당부서의 자료로 신뢰성이 매우 높고, 안전 정책과 관련된 구체적인 내용이 포함되어 있어 전문성이 매우 우수함."
+      },
+      {
+        "item_id": 151501,
+        "data_title": "스마트시티 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "서울스마트시티 추진위원회의 자료로 신뢰성이 매우 높고, 스마트시티 정책과 관련된 구체적인 내용이 포함되어 있어 전문성이 매우 우수함."
+      },
+      {
+        "item_id": 151502,
+        "data_title": "시민 소통 확대",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "시민 소통 강화는 중요한 정책이지만, 구체적인 성과나 수치가 제시되지 않아 우수한 수준으로 평가. 다양한 플랫폼 활성화는 긍정적이나, 실행의 효과성에 대한 평가가 필요함."
+      },
+      {
+        "item_id": 151503,
+        "data_title": "지속가능한 발전 전략",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "지속 가능한 발전 전략은 매우 우수한 정책으로, 다양한 프로젝트와 인프라 관리의 구체적인 사례가 포함되어 있음. 서울시 지속가능발전위원회의 공식 출처도 신뢰성을 높임."
+      },
+      {
+        "item_id": 151504,
+        "data_title": "주거 불균형 해소",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "주거 불균형 해소는 매우 중요한 사회적 이슈로, 다양한 주거 정책과 소득 수준에 따른 차별화된 공급 방안이 매우 우수함. 서울주택도시공사의 출처도 전문성을 보장함."
+      },
+      {
+        "item_id": 151505,
+        "data_title": "정책 평가 및 피드백 시스템 구축",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "정책 평가 및 피드백 시스템 구축은 정책의 효과성을 높이는 데 매우 중요한 요소로, 이를 적극적으로 시행한 것은 매우 우수함. 서울시 정책 연구소의 출처도 전문성을 보장함."
+      },
+      {
+        "item_id": 151506,
+        "data_title": "지역 균형 발전",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "지역 균형 발전은 중요한 정책이지만, 구체적인 성과나 수치가 제시되지 않아 우수한 수준으로 평가. 다양한 정책 추진은 긍정적이나, 실행의 효과성에 대한 평가가 필요함."
+      },
+      {
+        "item_id": 151507,
+        "data_title": "사회적 기업 지원",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "사회적 기업 지원은 중요한 사회적 경제 정책이지만, 구체적인 성과나 수치가 제시되지 않아 우수한 수준으로 평가. 다양한 지원 정책은 긍정적이나, 실행의 효과성에 대한 평가가 필요함."
+      },
+      {
+        "item_id": 151508,
+        "data_title": "재활용 정책 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "재활용 정책 강화는 중요한 환경 정책이지만, 구체적인 성과나 수치가 제시되지 않아 우수한 수준으로 평가. 다양한 캠페인 전개는 긍정적이나, 실행의 효과성에 대한 평가가 필요함."
+      },
+      {
+        "item_id": 151509,
+        "data_title": "스마트 행정 구현",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "스마트 행정 구현은 매우 우수한 정책으로, 디지털 기술을 활용한 행정 서비스 개선이 매우 긍정적. 서울특별시 스마트행정연구소의 출처도 전문성을 보장함."
+      },
+      {
+        "item_id": 151510,
+        "data_title": "공공 안전 인프라 개선",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "공공 안전 인프라 개선은 매우 우수한 정책으로, 시민의 안전 증진을 위한 전반적인 개선 작업이 매우 긍정적. 서울특별시 안전 추진 보고서의 출처도 전문성을 보장함."
+      },
+      {
+        "item_id": 151511,
+        "data_title": "서울시 브랜드 이미지 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "서울시 브랜드 이미지 강화는 양호한 정책으로, 다양한 홍보 전략 수립은 긍정적이나, 구체적인 성과나 수치가 제시되지 않아 전문성이 다소 부족함. 서울 PR 연구소의 출처도 신뢰성을 어느 정도 보장함."
+      },
+      {
+        "item_id": 151512,
+        "data_title": "서울시장 재임 중 도시 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "오세훈의 도시 재생 정책, 특히 공공주택 공급 확대는 주거 문제 해결에 기여한 것으로 보이며, 전문성이 우수한 것으로 평가됩니다. 다만, 구체적인 성과와 수치가 부족해 A 등급에는 미치지 못합니다."
+      },
+      {
+        "item_id": 151513,
+        "data_title": "신규 공공시설 건립",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "신규 공공시설 건립이 지역 경제 활성화와 청년 문화시설 확대에 기여한 점에서 전문성이 우수합니다. 그러나 구체적인 성과와 영향력에 대한 추가 정보가 필요합니다."
+      },
+      {
+        "item_id": 151514,
+        "data_title": "교통 정책 개선",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "교통 정책 개선에 대한 노력은 양호하지만, 교통 체증 문제 해결에 한계가 있다는 점에서 전문성은 다소 부족합니다. 추가적인 정책 개선이 필요합니다."
+      },
+      {
+        "item_id": 151515,
+        "data_title": "미세먼지 저감 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "미세먼지 저감 정책은 도입되었으나 시민 동참률이 낮아 실효성이 떨어지는 것으로 보입니다. 전문성은 보통 수준으로 평가됩니다."
+      },
+      {
+        "item_id": 151516,
+        "data_title": "주택 정책의 효과성",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "주택 정책이 추진되었으나 집값 상승세를 잡지 못한 점에서 전문성이 미흡합니다. 시장의 복잡성을 제대로 검토하지 못한 결과로 보입니다."
+      },
+      {
+        "item_id": 151517,
+        "data_title": "사회적 갈등 해소 노력",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "D",
+        "rating_rationale": "사회적 갈등 해소 노력은 있었으나 실효성에 의문이 제기되는 점에서 전문성은 보통 수준입니다. 강남과 강북 간의 불균형 문제에 대한 구체적인 해결책이 부족합니다."
+      },
+      {
+        "item_id": 151518,
+        "data_title": "국제 행사 유치",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "국제 행사 유치로 서울의 위상을 높인 점은 양호하지만, 지속적인 홍보 전략이 필요하다는 점에서 전문성은 다소 부족합니다."
+      },
+      {
+        "item_id": 151519,
+        "data_title": "위기 관리 능력",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "코로나19 대응을 위한 방역 정책을 시속 즉각적으로 조정하며 시민 안전을 최우선으로 한 접근 방식은 매우 우수한 전문성을 보여줍니다."
+      },
+      {
+        "item_id": 151520,
+        "data_title": "재정 관리 능력",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "서울시 재정 관리에 대한 철저한 노력과 투명성 제고는 양호하지만, 여전히 타 기관의 상반된 의견이 존재하는 점에서 전문성은 다소 부족합니다."
+      },
+      {
+        "item_id": 151521,
+        "data_title": "주민 참여 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "주민 참여 정책으로 여러 소통 프로그램을 운영했으나 참가율이 저조한 점에서 전문성은 보통 수준으로 평가됩니다. 추가적인 참여 유도 전략이 필요합니다."
+      },
+      {
+        "item_id": 151522,
+        "data_title": "디지털 행정 추진",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "디지털 행정 추진은 양호한 수준이나, 기술적 인프라 부족에 대한 반론이 있어 전문성에 한계가 있다."
+      },
+      {
+        "item_id": 151523,
+        "data_title": "장애인 지원 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "장애인 지원 정책은 양호하나, 일부 비판이 있어 전문성에 다소 제약이 있다."
+      },
+      {
+        "item_id": 151524,
+        "data_title": "주말 농장 및 체험 프로그램",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "D",
+        "rating_rationale": "주말 농장 및 체험 프로그램은 보통 수준이나, 수요에 비해 공급이 부족해 전문성이 다소 미흡하다."
+      },
+      {
+        "item_id": 151525,
+        "data_title": "문화 예술 지원 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "문화 예술 지원 정책은 보통 수준이나, 홍보 부족으로 인지도가 낮아 전문성이 다소 부족하다."
+      },
+      {
+        "item_id": 151526,
+        "data_title": "홍보·커뮤니케이션 전략",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "D",
+        "rating_rationale": "홍보·커뮤니케이션 전략은 보통 수준이나, 연속성 있는 커뮤니케이션에 한계가 있어 전문성이 다소 미흡하다."
+      },
+      {
+        "item_id": 151527,
+        "data_title": "환경 관련 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "환경 관련 정책은 미흡한 수준으로, 구체적인 성과가 제시되지 않아 전문성이 부족하다."
+      },
+      {
+        "item_id": 151528,
+        "data_title": "보건 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "보건 정책은 미흡한 수준으로, 코로나19 이후 소홀히 다루어져 시민 불만이 있어 전문성이 부족하다."
+      },
+      {
+        "item_id": 151529,
+        "data_title": "범죄 예방과 안전 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "범죄 예방과 안전 정책은 미흡한 수준으로, 범죄율 저하 효과가 미흡해 전문성이 부족하다."
+      },
+      {
+        "item_id": 151530,
+        "data_title": "회복력 있는 도시 만들기 전략",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "E",
+        "rating_rationale": "회복력 있는 도시 만들기 전략은 미흡한 수준으로, 공공의 참여 부족으로 실현력이 떨어져 전문성이 부족하다."
+      },
+      {
+        "item_id": 151531,
+        "data_title": "지속 가능한 발전 목표",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "지속 가능한 발전 목표는 미흡한 수준으로, 구체적인 방법론이 모호해 전문성이 부족하다."
+      },
+      {
+        "item_id": 151432,
+        "data_title": "부동산 재개발 프로젝트 지연 논란",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "재개발 프로젝트 지연과 예산 초과는 도시 계획 전문성 부족을 명확히 보여줍니다. 정부 감사 보고서에서 확인된 사항으로 신뢰성이 높습니다."
+      },
+      {
+        "item_id": 151433,
+        "data_title": "코로나19 방역 대응의 미흡",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "코로나19 방역 대응에서의 마스크 공급과 봉쇄 조치의 실패는 공공 보건 시스템 관리의 미흡을 드러냅니다. 국회 회의록에 기록된 사항으로 신뢰성이 있습니다."
+      },
+      {
+        "item_id": 151434,
+        "data_title": "공공 예산 관리의 비효율",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "E",
+        "rating_rationale": "공공 예산 관리에서 불필요한 지출과 재정 적자 확대는 예산 계획의 미흡을 보여줍니다. 감사원 보고서에 근거한 정보로 신뢰성이 높습니다."
+      },
+      {
+        "item_id": 151435,
+        "data_title": "환경 정책의 실패",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "환경 정책 실패로 인한 강남 지역 환경 오염 증가는 지속 가능한 도시 관리의 부재를 보여줍니다. 환경부 발표 자료에 근거한 정보로 신뢰성이 있습니다."
+      },
+      {
+        "item_id": 151436,
+        "data_title": "인사 임명 관련 논란",
+        "collected_by": "Grok",
+        "original_rating": "H",
+        "new_rating": "E",
+        "rating_rationale": "공정성 논란을 일으킨 측근 중심 인사 임명은 공공 인사 관리 원칙 위반으로 평가됩니다. 법원 판결문에 근거한 정보로 신뢰성이 높습니다."
+      },
+      {
+        "item_id": 151437,
+        "data_title": "코로나19 방역 정책 실패",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "코로나19 방역 정책 실패와 전문가 조언 무시는 공공 보건 관리의 미흡을 보여줍니다. 연합뉴스 보도로 신뢰성이 있습니다."
+      },
+      {
+        "item_id": 151438,
+        "data_title": "부동산 정책 관련 논란",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "E",
+        "rating_rationale": "부동산 정책으로 인한 집값 폭등과 저소득층 거주 안정성 해치는 것은 경제 전문성 결여를 보여줍니다. 조선일보 보도로 신뢰성이 있습니다."
+      },
+      {
+        "item_id": 151439,
+        "data_title": "도시 재개발 프로젝트 지연",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "도시 재개발 프로젝트 지연과 예산 초과는 프로젝트 관리 경험 부족을 보여줍니다. KBS 뉴스 보도로 신뢰성이 있습니다."
+      },
+      {
+        "item_id": 151440,
+        "data_title": "예산 관리 실패 사례",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "예산 관리 실패와 복지 예산 삭감은 예산 우선순위 설정의 문제점을 보여줍니다. MBC 뉴스 보도로 신뢰성이 있습니다."
+      },
+      {
+        "item_id": 151441,
+        "data_title": "교통 정책 비판",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "E",
+        "rating_rationale": "교통 정책에서의 지연과 비용 초과는 교통 전문성 부족을 보여줍니다. 경향신문 보도로 신뢰성이 있습니다."
+      },
+      {
+        "item_id": 151442,
+        "data_title": "도시 개발 프로젝트 관리",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "오세훈이 한강 르네상스 프로젝트를 성공적으로 추진하며 높은 완료율을 기록한 점이 매우 우수함. 장기적인 도시 계획 경험을 바탕으로 한 전문성이 돋보임."
+      },
+      {
+        "item_id": 151443,
+        "data_title": "교통 인프라 확충",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "교통 인프라 확장으로 일일 이용객이 증가한 점은 양호하나, 초기 예산 초과 문제가 발생한 점이 전문성에 부정적 영향을 미침."
+      },
+      {
+        "item_id": 151444,
+        "data_title": "환경 정책 실행",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "미세먼지 저감과 녹지 확대 정책으로 대기 질 개선 효과를 본 점이 우수하나, 일부 목표 달성이 지연된 점이 아쉬움."
+      },
+      {
+        "item_id": 151445,
+        "data_title": "코로나 대응 관리",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "코로나19 대응 시스템 강화와 백신 배포가 효과적이었으나, 초기 대응 속도가 부족해 양호한 수준에 머물렀음."
+      },
+      {
+        "item_id": 151446,
+        "data_title": "경제 개발 촉진",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "스타트업 지원과 산업 클러스터 구축으로 일자리 창출 효과가 있었으나, 글로벌 경제 변동에 대한 대응이 미진해 양호한 수준."
+      },
+      {
+        "item_id": 151447,
+        "data_title": "교육 투자 확대",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "공교육 개선을 위한 예산 증가와 학생 만족도 상승이 우수하나, 균등한 배분 문제가 제기되어 전문성에 다소 영향을 미침."
+      },
+      {
+        "item_id": 151448,
+        "data_title": "주택 정책 수립",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "주택 공급 증가와 공공 주택 건설 확대가 양호하나, 부동산 가격 안정화에 실패한 점이 전문성에 부정적 영향을 미침."
+      },
+      {
+        "item_id": 151449,
+        "data_title": "문화 예술 지원",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "문화 시설 확대와 예술 축제 후원으로 시민 참여가 높아진 점은 양호하나, 예술인 지원이 부족해 전문성에 제한이 있음."
+      },
+      {
+        "item_id": 151450,
+        "data_title": "재난 대비 시스템 구축",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "자연 재난 대비 시스템 강화와 홍수 방지 프로젝트가 보통 수준이나, 실제 재난 시 대응 효율이 낮아 전문성에 부정적 영향을 미침."
+      },
+      {
+        "item_id": 151451,
+        "data_title": "행정 효율화 추진",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "행정 절차 디지털화로 효율성이 높아진 점은 양호하나, 시스템 오류가 빈발해 전문성에 다소 영향을 미침."
+      },
+      {
+        "item_id": 151452,
+        "data_title": "법률 개정 참여",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "법률 개정 제안과 일부 법안 통과는 전문성을 보여주나, 반대 의견이 많아 완벽하지 않음. 법률 지식을 잘 활용한 점이 우수함."
+      },
+      {
+        "item_id": 151453,
+        "data_title": "국제 협력 강화",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "국제 협력 추진과 파트너십 증가는 양호하나, 글로벌 이슈 대응이 부족해 전문성에 한계가 있음."
+      },
+      {
+        "item_id": 151454,
+        "data_title": "청년 정책 개발",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "청년 일자리 창출 프로그램 도입과 지원금 확대는 양호하나, 고용률 향상이 미미해 전문성에 제한이 있음."
+      },
+      {
+        "item_id": 151455,
+        "data_title": "고령자 복지 강화",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "고령자 복지 센터 확대와 의료 지원 강화는 양호하나, 예산 관리 문제가 발생해 전문성에 영향을 미침."
+      },
+      {
+        "item_id": 151456,
+        "data_title": "여성 정책 지원",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "여성 직장 복귀 지원 프로그램 실시와 참여율 증가는 양호하나, 포괄적이지 못해 전문성에 한계가 있음."
+      },
+      {
+        "item_id": 151457,
+        "data_title": "소상공인 지원",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "소상공인 대출 지원 강화와 수혜자 증가는 양호하나, 지속 가능성 문제가 있어 전문성에 제한이 있음."
+      },
+      {
+        "item_id": 151458,
+        "data_title": "지속 가능성 촉진",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "에너지 절약 정책과 녹색 도시 프로젝트는 양호하나, 목표 미달성으로 전문성에 영향을 미침."
+      },
+      {
+        "item_id": 151459,
+        "data_title": "IT 및 디지털 정책",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "디지털 행정 시스템 도입과 스마트 시티 구축은 우수하며, 전문성을 잘 발휘한 사례로 평가됨."
+      },
+      {
+        "item_id": 151460,
+        "data_title": "예산 관리",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "서울시 예산 효율적 배분과 재정 건전성 유지는 우수하나, 일부 과도한 지출이 있어 전문성에 약간의 한계가 있음."
+      },
+      {
+        "item_id": 151461,
+        "data_title": "리더십 및 커뮤니케이션",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "시민과의 소통과 정책 방향 전달은 우수하며, 지지율 안정성은 전문성을 보여주나, 일부 논란이 있어 완벽하지 않음."
+      },
+      {
+        "item_id": 151462,
+        "data_title": "코로나19 방역 정책 실행",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "오세훈의 코로나19 방역 정책은 시민 건강과 경제 회복을 동시에 고려한 전략적 접근으로, 감염률 감소에 기여했다. 매우 우수한 전문성을 보여준다."
+      },
+      {
+        "item_id": 151463,
+        "data_title": "도시 재개발 프로젝트 추진",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "도시 재개발 프로젝트는 주거 환경 개선에 기여했으나, 주민 이주 문제로 논란이 있었다. 양호한 수준의 전문성을 보인다."
+      },
+      {
+        "item_id": 151464,
+        "data_title": "교통 시스템 개선 노력",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "교통 시스템 개선은 스마트 기술과 빅데이터를 활용해 출퇴근 시간을 단축시켰으나, 예산 초과 문제가 있었다. 우수한 전문성을 보여준다."
+      },
+      {
+        "item_id": 151465,
+        "data_title": "환경 보호 정책",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "D",
+        "rating_rationale": "환경 보호 정책은 국제 기준을 참고했으나, 실행 속도가 느려 효과가 제한적이었다. 보통 수준의 전문성을 보인다."
+      },
+      {
+        "item_id": 151466,
+        "data_title": "경제 활성화 정책",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "경제 활성화 정책은 일자리 창출에 기여했으나, 중소기업 지원이 부족하다는 비판을 받았다. 양호한 수준의 전문성을 보여준다."
+      },
+      {
+        "item_id": 151467,
+        "data_title": "주거 복지 확대",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "주거 복지 확대는 사회적 불평등 해소를 목표로 했으나, 부동산 가격 상승으로 정책 효과가 약화되었다. 양호한 수준의 전문성을 보인다."
+      },
+      {
+        "item_id": 151468,
+        "data_title": "교육 지원 프로그램",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "교육 지원 프로그램은 디지털 격차 해소를 목표로 했으나, 농어촌 지역 지원이 미비했다. 양호한 수준의 전문성을 보여준다."
+      },
+      {
+        "item_id": 151469,
+        "data_title": "문화 예술 진흥",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "문화 예술 진흥은 도시의 문화적 매력을 높였으나, 코로나로 인해 행사가 취소되는 문제가 있었다. 양호한 수준의 전문성을 보인다."
+      },
+      {
+        "item_id": 151470,
+        "data_title": "복지 확대 정책",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "복지 확대 정책은 인구 고령화 대응으로 평가되나, 예산 부족으로 일부 서비스가 지연되었다. 양호한 수준의 전문성을 보여준다."
+      },
+      {
+        "item_id": 151471,
+        "data_title": "재난 관리 시스템",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "D",
+        "rating_rationale": "재난 관리 시스템은 과거 경험을 바탕으로 했으나, 실전 훈련이 부족했다. 보통 수준의 전문성을 보인다."
+      },
+      {
+        "item_id": 151472,
+        "data_title": "국제 협력 강화",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "국제 협력을 통해 도시 브랜딩에 기여한 점은 긍정적이나, 정치적 이슈로 인한 협력 중단은 한계를 보여줌. 전반적으로 양호한 수준."
+      },
+      {
+        "item_id": 151473,
+        "data_title": "투명한 행정 운영",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "공공 데이터 공개와 부패 방지 시스템 도입은 투명성 강화에 기여했으나, 내부 감사 부족으로 인한 논란이 있음. 전반적으로 우수한 수준."
+      },
+      {
+        "item_id": 151474,
+        "data_title": "반부패 노력",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "C",
+        "rating_rationale": "공직자 윤리 강화 캠페인을 통해 부패 예방에 노력했으나, 고위 공무원 관련 의혹이 제기됨. 지속적인 모니터링의 필요성을 보여줌. 양호한 수준."
+      },
+      {
+        "item_id": 151475,
+        "data_title": "과학 기술 투자",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "AI와 빅데이터 기술 도입은 혁신적이고 미래 지향적이나, 기술 전문가 부족으로 인한 프로젝트 지연이 발생. 전반적으로 우수한 수준."
+      },
+      {
+        "item_id": 151476,
+        "data_title": "청년 정책",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "청년 일자리 창출을 위한 스타트업 육성 프로그램 확대는 긍정적이나, 실업률 감소 효과가 미미함. 경제 상황에 의존적임. 보통 수준."
+      },
+      {
+        "item_id": 151477,
+        "data_title": "고령자 복지 강화",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "D",
+        "rating_rationale": "노인 복지 시설 증설은 인구 구조 변화에 대한 대응이나, 서비스 질의 일관성이 부족해 비판을 받음. 보통 수준."
+      },
+      {
+        "item_id": 151478,
+        "data_title": "여성 정책",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "여성 직장 복귀 지원 프로그램 도입은 성평등 증진을 목적으로 했으나, 참여율이 낮아 효과가 제한적. 홍보 부족이 문제. 보통 수준."
+      },
+      {
+        "item_id": 151479,
+        "data_title": "소상공인 지원",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "코로나 피해 소상공인 지원을 위해 보조금 지급을 확대했으나, 신청 과정의 복잡함으로 일부 사업자가 혜택을 받지 못함. 양호한 수준."
+      },
+      {
+        "item_id": 151480,
+        "data_title": "지속 가능 에너지 정책",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "태양광 에너지 도입은 친환경 도시 추진에 기여했으나, 초기 투자 비용으로 확대가 어려움. 장기적인 비전을 보여줌. 양호한 수준."
+      },
+      {
+        "item_id": 151481,
+        "data_title": "공원 및 녹지 확대",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "공원 조성을 통해 시민 휴식 공간을 늘렸으나, 토지 확보 문제로 계획이 완전히 이행되지 않음. 환경 보전의 중요성을 강조함. 양호한 수준."
+      },
+      {
+        "item_id": 107438,
+        "data_title": "서울시 무상 재난지원금 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "서울시 공식 기록에 따른 심각한 정책 혼선으로 인해 전문성이 미흡함. 정책 실행의 일관성과 효율성이 부족함을 나타냄."
+      },
+      {
+        "item_id": 107439,
+        "data_title": "부동산 정책 실패",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "국토교통부 공식 보고서에서 부동산 가격 급등과 주택 공급 부족 문제에 대한 해결책이 미흡하다고 지적됨. 전문성 부족."
+      },
+      {
+        "item_id": 107440,
+        "data_title": "행정부 인사 운영 문제",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "서울시의회 회의록에 따르면, 주요 정책 추진 과정에서 인사 배치와 소통 부족이 지적됨. 전문성에서 미흡한 점이 드러남."
+      },
+      {
+        "item_id": 107441,
+        "data_title": "청년 정책 실행력 부족",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "고용노동부 청년 고용 통계에서 청년 정책의 구체적 실행 성과가 미흡하다고 평가됨. 전문성에서 부족함을 나타냄."
+      },
+      {
+        "item_id": 107442,
+        "data_title": "코로나19 방역 정책 혼선",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "질병관리청 공식 자료에서 일관성 없는 방역 정책 추진이 지적됨. 전문성에서 미흡함을 보여줌."
+      },
+      {
+        "item_id": 107443,
+        "data_title": "서울시 부동산 정책 실패",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "연합뉴스에서 2021-2022년 서울 주택 공급 계획이 목표치를 크게 미달하여 주택 가격 안정화에 실패했다고 평가됨. 전문성 부족."
+      },
+      {
+        "item_id": 107444,
+        "data_title": "청년 정책 실효성 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "한겨레에서 청년 주거 및 일자리 지원 정책의 구체성 부족과 실제 효과에 대한 비판이 제기됨. 전문성에서 미흡함."
+      },
+      {
+        "item_id": 107445,
+        "data_title": "코로나19 방역 정책 혼선",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "KBS 뉴스에서 서울시 코로나19 대응 과정에서 중앙정부와의 정책 충돌 및 혼란이 야기되었다고 보도됨. 전문성 미흡."
+      },
+      {
+        "item_id": 107446,
+        "data_title": "재난지원금 집행 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "MBC 뉴스에서 서울시 재난지원금 지급 기준과 방식에 대한 형평성 논란이 발생함. 전문성에서 미흡함을 나타냄."
+      },
+      {
+        "item_id": 107447,
+        "data_title": "도시재생 사업 지연",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "조선일보에서 서울시 주요 도시재생 프로젝트의 진행 지연 및 예산 집행 비효율성이 지적됨. 전문성에서 미흡함."
+      },
+      {
+        "item_id": 107448,
+        "data_title": "도시재생 전문성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "서울시 공식 보도자료로 도시재생 및 도시계획 정책 추진에 대한 전문성을 직접적으로 보여줌. 매우 우수한 전문성을 인정할 수 있음."
+      },
+      {
+        "item_id": 107449,
+        "data_title": "행정 경험",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "서울시 공식 기록으로 전 서울시장 및 현 서울시장 경력을 통해 행정 경험의 전문성을 매우 우수하게 평가할 수 있음."
+      },
+      {
+        "item_id": 107450,
+        "data_title": "정책 기획력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "국회 정책 자료로 다양한 정책 수립 능력을 보여주지만, 구체적인 성과나 세부사항이 부족해 우수한 수준으로 평가됨."
+      },
+      {
+        "item_id": 107451,
+        "data_title": "부동산 정책 전문성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "국토교통부 보도자료로 부동산 시장 안정화 정책을 추진한 전문성을 보여주나, 결과에 대한 평가가 필요해 우수한 수준으로 평가됨."
+      },
+      {
+        "item_id": 107452,
+        "data_title": "코로나19 대응 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "질병관리청 공식 보고서로 코로나19 대응 능력을 보여주나, 다양한 요소가 포함되어 있어 우수한 수준으로 평가됨."
+      },
+      {
+        "item_id": 107453,
+        "data_title": "행정 효율성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "서울시 행정혁신 보고서로 스마트시티 및 디지털 행정 혁신을 추진한 전문성을 보여주나, 구체적인 성과가 필요해 우수한 수준으로 평가됨."
+      },
+      {
+        "item_id": 107454,
+        "data_title": "복지 정책 이해도",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "보건복지부 정책자료로 복지 정책 추진에 대한 이해도를 보여주나, 전문성의 깊이가 부족해 양호한 수준으로 평가됨."
+      },
+      {
+        "item_id": 107455,
+        "data_title": "환경 정책 전문성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "환경부 보도자료로 녹색도시 및 친환경 정책을 추진한 전문성을 보여주나, 세부적인 전문성이 부족해 양호한 수준으로 평가됨."
+      },
+      {
+        "item_id": 107456,
+        "data_title": "경제 정책 이해",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "중소벤처기업부 자료로 경제 정책에 대한 이해를 보여주나, 전문성의 깊이가 부족해 양호한 수준으로 평가됨."
+      },
+      {
+        "item_id": 107457,
+        "data_title": "교통 정책 전문성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "국토교통부 보고서로 대중교통 혁신 및 교통 인프라 개선에 대한 전문성을 보여주나, 구체적인 성과가 필요해 우수한 수준으로 평가됨."
+      },
+      {
+        "item_id": 107458,
+        "data_title": "디지털 정책 이해",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "과학기술정보통신부 자료는 디지털 정책의 전문성을 충분히 입증하며, 스마트시티 및 디지털 전환 정책에 대한 깊은 이해를 보여준다."
+      },
+      {
+        "item_id": 107459,
+        "data_title": "문화정책 전문성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "문화체육관광부 보도자료는 문화정책의 전문성을 입증하며, 문화도시 서울 조성 정책에 대한 깊은 이해와 전문성을 보여준다."
+      },
+      {
+        "item_id": 107460,
+        "data_title": "재난관리 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "행정안전부 재난대응 보고서는 재난관리 능력을 충분히 입증하며, 코로나19 및 자연재해 대응 정책에 대한 전문성을 보여준다."
+      },
+      {
+        "item_id": 107461,
+        "data_title": "국제 협력 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "외교부 국제협력 자료는 국제 협력 능력을 충분히 입증하며, 국제 도시 교류 및 협력 정책에 대한 깊은 이해와 전문성을 보여준다."
+      },
+      {
+        "item_id": 107462,
+        "data_title": "주거정책 전문성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "국토교통부 주택정책 자료는 주거정책의 전문성을 충분히 입증하며, 공공주택 및 주거안정 정책에 대한 깊은 이해와 전문성을 보여준다."
+      },
+      {
+        "item_id": 107463,
+        "data_title": "일자리 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "고용노동부 정책자료는 일자리 정책의 전문성을 충분히 입증하며, 청년 일자리 및 고용 정책에 대한 깊은 이해와 전문성을 보여준다."
+      },
+      {
+        "item_id": 107464,
+        "data_title": "교육 정책 이해",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "교육부 정책자료는 교육 정책의 전문성을 충분히 입증하며, 서울시 교육 혁신 정책에 대한 깊은 이해와 전문성을 보여준다."
+      },
+      {
+        "item_id": 107465,
+        "data_title": "기후변화 대응",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "환경부 기후변화 대응 보고서는 기후변화 대응 능력을 충분히 입증하며, 탄소중립 및 환경 정책에 대한 깊은 이해와 전문성을 보여준다."
+      },
+      {
+        "item_id": 107466,
+        "data_title": "사회혁신 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "서울시 혁신정책 보고서는 사회혁신 능력을 충분히 입증하며, 사회혁신 및 시민참여 정책에 대한 깊은 이해와 전문성을 보여준다."
+      },
+      {
+        "item_id": 107467,
+        "data_title": "위기관리 전문성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "행정안전부 위기관리 자료는 위기관리 전문성을 충분히 입증하며, 다양한 사회적 위기 대응 능력에 대한 깊은 이해와 전문성을 보여준다."
+      },
+      {
+        "item_id": 107468,
+        "data_title": "행정 경험의 깊이",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "오세훈의 2차례 서울시장 경험은 매우 우수한 행정 경험을 증명하며, 그의 전문성을 입증하는 중요한 요소입니다."
+      },
+      {
+        "item_id": 107469,
+        "data_title": "정책 기획력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "서울형 뉴딜일자리 정책은 구체적이고 실질적인 정책 기획력을 보여주며, 이는 우수한 전문성을 나타냅니다."
+      },
+      {
+        "item_id": 107470,
+        "data_title": "도시 정책 전문성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "스마트도시 정책의 적극 추진은 도시 정책에 대한 깊은 이해와 전문성을 보여주며, 우수한 평가를 받을 수 있습니다."
+      },
+      {
+        "item_id": 107471,
+        "data_title": "사회복지 이해도",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "청년수당과 1인가구 지원 정책은 사회복지에 대한 이해를 나타내지만, 그 범위와 깊이가 다소 제한적이어서 양호한 수준입니다."
+      },
+      {
+        "item_id": 107472,
+        "data_title": "재난 대응 전문성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "코로나19 방역 정책 추진은 재난 대응에 대한 높은 전문성을 보여주며, 우수한 평가를 받을 수 있습니다."
+      },
+      {
+        "item_id": 107473,
+        "data_title": "환경 정책 이해도",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "미세먼지 저감 정책은 환경 정책에 대한 이해를 나타내지만, 그 효과와 범위가 다소 제한적이어서 양호한 수준입니다."
+      },
+      {
+        "item_id": 107474,
+        "data_title": "경제 정책 전문성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "소상공인 지원 정책은 경제 정책에 대한 이해를 보여주지만, 그 범위와 깊이가 다소 제한적이어서 양호한 수준입니다."
+      },
+      {
+        "item_id": 107475,
+        "data_title": "주거 정책 이해도",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "공공주택 공급 확대 정책은 주거 정책에 대한 이해를 나타내지만, 그 범위와 깊이가 다소 제한적이어서 양호한 수준입니다."
+      },
+      {
+        "item_id": 107476,
+        "data_title": "교통 정책 전문성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "대중교통 개선 정책 추진은 교통 정책에 대한 높은 전문성을 보여주며, 우수한 평가를 받을 수 있습니다."
+      },
+      {
+        "item_id": 107477,
+        "data_title": "문화정책 이해도",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "문화예술 지원 확대는 문화정책에 대한 이해를 나타내지만, 그 범위와 깊이가 다소 제한적이어서 양호한 수준입니다."
+      },
+      {
+        "item_id": 107478,
+        "data_title": "디지털 전환 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "디지털 전환과 스마트시티 정책 추진은 현대 도시 행정의 중요한 요소로, 오세훈 시장이 이 분야에서 우수한 성과를 내고 있음을 보여준다. 다만, 더 구체적인 성과와 전문성 입증이 필요하다."
+      },
+      {
+        "item_id": 107479,
+        "data_title": "예산 운용 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "서울시 예산의 효율적 집행은 행정의 핵심 역량 중 하나로, 오세훈 시장이 이 분야에서 우수한 성과를 내고 있음을 나타낸다. 구체적인 사례와 수치가 더해지면 더욱 설득력이 높아질 것이다."
+      },
+      {
+        "item_id": 107480,
+        "data_title": "공동체 정책 이해도",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "마을공동체 지원 사업은 지역사회 발전에 중요한 역할을 하지만, 이 분야의 전문성은 다른 분야에 비해 상대적으로 덜 부각된다. 그러나 양호한 수준의 이해도와 실천력을 보여준다."
+      },
+      {
+        "item_id": 107481,
+        "data_title": "국제 교류 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "해외 도시와의 교류 협력은 국제적 감각과 행정 능력을 요구하는 분야로, 오세훈 시장이 이 분야에서 우수한 성과를 내고 있음을 나타낸다. 구체적인 협력 사례가 더해지면 더욱 설득력이 높아질 것이다."
+      },
+      {
+        "item_id": 107482,
+        "data_title": "여성 정책 전문성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "여성 일자리 지원 정책은 사회적 이슈로 중요하지만, 이 분야의 전문성은 다른 분야에 비해 상대적으로 덜 부각된다. 그러나 양호한 수준의 이해도와 실천력을 보여준다."
+      },
+      {
+        "item_id": 107483,
+        "data_title": "청년 정책 이해도",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "청년 지원 정책 다각화는 사회적 이슈로 중요하지만, 이 분야의 전문성은 다른 분야에 비해 상대적으로 덜 부각된다. 그러나 양호한 수준의 이해도와 실천력을 보여준다."
+      },
+      {
+        "item_id": 107484,
+        "data_title": "중소기업 지원 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "중소기업 육성 정책 시행은 경제 발전에 중요한 역할을 하며, 오세훈 시장이 이 분야에서 우수한 성과를 내고 있음을 나타낸다. 구체적인 성과와 전문성 입증이 더해지면 더욱 설득력이 높아질 것이다."
+      },
+      {
+        "item_id": 107485,
+        "data_title": "보건 정책 전문성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "공공의료 체계 강화는 사회적 이슈로 중요하지만, 이 분야의 전문성은 다른 분야에 비해 상대적으로 덜 부각된다. 그러나 양호한 수준의 이해도와 실천력을 보여준다."
+      },
+      {
+        "item_id": 107486,
+        "data_title": "에너지 정책 이해도",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "신재생에너지 확대 정책은 환경 정책의 중요한 요소로, 오세훈 시장이 이 분야에서 우수한 성과를 내고 있음을 보여준다. 다만, 더 구체적인 성과와 전문성 입증이 필요하다."
+      },
+      {
+        "item_id": 107487,
+        "data_title": "행정 혁신 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "디지털 민주주의 추진은 현대 행정의 혁신을 나타내며, 오세훈 시장이 이 분야에서 우수한 성과를 내고 있음을 보여준다. 다만, 더 구체적인 성과와 전문성 입증이 필요하다."
+      }
+    ],
+    "Claude": [
+      {
+        "item_id": 151482,
+        "data_title": "부동산 정책 실패",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "부동산 매매가 급등이라는 심각한 사회문제에 대한 대처가 미흡했고, 공급 부족 문제 해결 실패로 전문성 부족이 드러남. 국회 회의록이라는 공신력 있는 출처의 비판은 신뢰할 만함."
+      },
+      {
+        "item_id": 151483,
+        "data_title": "공공기관 인사 논란",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "공공기관 인사에서 전문성보다 정치적 고려를 우선시한 것으로 보이며, 이는 행정 전문성의 핵심인 적재적소 인사배치 원칙을 위반한 것으로 평가됨."
+      },
+      {
+        "item_id": 151484,
+        "data_title": "교통 정책 비판",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "교통 체증이라는 서울시의 핵심 현안에 대한 정책의 실효성이 낮다는 평가를 받았으며, 자전거 도로 확대 등의 대안이 근본적 해결책이 되지 못한 것으로 나타남."
+      },
+      {
+        "item_id": 151485,
+        "data_title": "환경 정책 논란",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "대기오염이라는 시민 건강과 직결된 중요한 환경문제에 대한 대응이 미흡했고, 환경부 보도자료라는 전문기관의 지적은 심각한 전문성 결여를 시사함."
+      },
+      {
+        "item_id": 151486,
+        "data_title": "시민참여 활성화 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "민주적 거버넌스의 핵심인 시민참여를 제대로 유도하지 못했고, 이로 인해 정책의 신뢰성과 정당성이 훼손된 것은 현대 행정의 기본 원칙을 간과한 것으로 평가됨."
+      },
+      {
+        "item_id": 151487,
+        "data_title": "부동산 정책 실패",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "청년층 주택 문제라는 사회적 핵심 이슈에 대한 정책이 구체성과 실효성 모두 부족하다는 지적을 받았으며, 이는 정책 설계 및 실행 전문성의 심각한 결함을 보여줌."
+      },
+      {
+        "item_id": 151488,
+        "data_title": "영세 상인 지원 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "F",
+        "rating_rationale": "코로나19라는 국가적 위기 상황에서 영세 상인 지원이라는 긴급한 사안에 대한 대응이 늦어져 시민들의 생계를 위협했다는 것은 위기관리 전문성의 심각한 부족을 의미함."
+      },
+      {
+        "item_id": 151489,
+        "data_title": "시민 Feedback 반영 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "민선 5기 동안 지속적으로 시민 의견 반영이 부족했다는 것은 참여형 거버넌스에 대한 이해 부족을 보여주며, 일방적 정책 추진은 현대 행정학의 기본 원리를 무시한 것임."
+      },
+      {
+        "item_id": 151490,
+        "data_title": "환경 정책 논란",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "미세먼지 대책에 대해 환경단체와 전문가들로부터 직접적으로 전문성 부족 지적을 받았으며, KBS라는 공영방송의 보도로 신뢰성이 높고 환경 정책의 근본적 결함을 시사함."
+      },
+      {
+        "item_id": 151491,
+        "data_title": "교통 개선 방안 미비",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "서울시의 만성적 교통 문제에 대한 해결 대안 제시가 부족하다는 지적을 받았으며, 이는 도시 행정의 핵심 영역에서의 전문성 결여를 명확히 보여주는 사례임."
+      },
+      {
+        "item_id": 151492,
+        "data_title": "서울시 도시 계획",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "C",
+        "rating_rationale": "도시계획은 시장의 핵심 업무이나, 구체적인 성과나 전문적 접근법에 대한 세부사항이 부족하고 일반적인 수준의 정책 추진 내용만 제시되어 전문성 판단에 한계가 있음"
+      },
+      {
+        "item_id": 151493,
+        "data_title": "COVID-19 방역 대응",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "COVID-19 방역은 고도의 전문성과 신속한 판단이 요구되는 분야로, 예방접종 캠페인 강화와 행정지침 마련 등 적절한 대응을 보여주어 우수한 전문성을 나타냄"
+      },
+      {
+        "item_id": 151494,
+        "data_title": "교통 정책 개선",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "교통정책은 복잡한 도시 인프라 관리 전문성이 필요한 분야로, 지하철과 버스 노선 재편성 등 구체적 성과가 언급되어 우수한 전문적 역량을 보여줌"
+      },
+      {
+        "item_id": 151495,
+        "data_title": "친환경 정책 추진",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "친환경 정책은 현대 도시행정의 핵심 전문분야로, 대기질 개선, 기후변화 대응, 재생에너지 확대 등 다각적이고 전문적인 정책 접근을 보여주어 우수함"
+      },
+      {
+        "item_id": 151496,
+        "data_title": "문화예술 지원 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "문화예술 정책은 시정의 중요 분야이나, 구체적인 전문성이나 혁신적 접근보다는 일반적인 지원 정책 수준에 머물러 양호한 정도의 전문성을 보임"
+      },
+      {
+        "item_id": 151497,
+        "data_title": "재정 관리",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "재정관리는 시장의 핵심 전문역량 중 하나로, 예산 운영의 효율성과 투명성 향상은 고도의 행정 전문성을 요구하는 분야에서 우수한 성과를 나타냄"
+      },
+      {
+        "item_id": 151498,
+        "data_title": "다문화 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "다문화 정책은 현대 도시행정의 필요 분야이나, 외국인 주민과의 소통 증진이라는 기본적 수준의 접근에 그쳐 전문성 측면에서는 양호한 정도임"
+      },
+      {
+        "item_id": 151499,
+        "data_title": "일자리 창출",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "일자리 창출은 경제정책 전문성이 요구되는 분야로, 기업 유치와 스타트업·중소기업 지원 등 구체적이고 전략적인 접근을 보여 우수한 전문성을 나타냄"
+      },
+      {
+        "item_id": 151500,
+        "data_title": "안전 정책 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "C",
+        "rating_rationale": "안전정책은 시정의 기본 업무로, 재난 대응 체계 개선 등의 노력은 보이나 구체적인 전문적 혁신이나 차별화된 접근법에 대한 내용이 부족하여 양호한 수준"
+      },
+      {
+        "item_id": 151501,
+        "data_title": "스마트시티 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "스마트시티 정책은 최첨단 기술과 데이터 기반 행정이 요구되는 고도의 전문분야로, 혁신기술 도입과 미래지향적 도시 운영은 매우 우수한 전문성을 보여줌"
+      },
+      {
+        "item_id": 151502,
+        "data_title": "시민 소통 확대",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "시민 소통 강화는 민주적 거버넌스의 핵심 요소로, 공청회와 온라인 플랫폼 활용은 현대적 소통 방식을 보여준다. 다만 구체적인 성과 지표나 참여율 등의 정량적 데이터가 부족하여 실질적 효과성 판단이 제한적이다."
+      },
+      {
+        "item_id": 151503,
+        "data_title": "지속가능한 발전 전략",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "지속가능한 발전은 현대 도시행정의 필수 과제이나, 내용이 추상적이고 구체적인 프로젝트명이나 실행 방안, 예산 규모 등의 세부사항이 부족하다. 정책의 구체성과 실행력에 대한 정보가 미흡하여 전문성 평가에 한계가 있다."
+      },
+      {
+        "item_id": 151504,
+        "data_title": "주거 불균형 해소",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "서울의 주거 문제는 핵심 현안으로, 소득 수준별 차별화된 접근은 전문적 정책 설계를 보여준다. 서울주택도시공사라는 전문기관과의 협력도 긍정적이나, 구체적인 공급 물량이나 실행 일정 등의 세부 계획이 명시되지 않았다."
+      },
+      {
+        "item_id": 151505,
+        "data_title": "정책 평가 및 피드백 시스템 구축",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "정책 평가 및 피드백 시스템 구축은 고도의 행정 전문성을 요구하는 영역이다. 정책의 성과 측정과 지속적 개선 체계는 현대 공공행정의 핵심이며, 서울시 정책연구소와의 체계적 접근은 매우 전문적인 정책 운영 능력을 보여준다."
+      },
+      {
+        "item_id": 151506,
+        "data_title": "지역 균형 발전",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "지역 균형 발전은 중요한 정책 과제이지만, '다양한 정책'이라는 표현이 모호하고 구체적인 사업내용이나 투자 규모가 명시되지 않았다. 외곽 지역 발전에 대한 전략적 접근은 인정되나 실질적 전문성 판단을 위한 정보가 부족하다."
+      },
+      {
+        "item_id": 151507,
+        "data_title": "사회적 기업 지원",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "사회적 기업 지원은 현대적 사회정책의 중요 영역으로, 사회적 경제 생태계 조성은 전문적 정책 이해를 보여준다. 서울시 사회적경제지원센터와의 협력체계도 적절하나, 구체적인 지원 방식이나 성과 목표가 제시되지 않아 완전한 전문성 평가는 제한적이다."
+      },
+      {
+        "item_id": 151508,
+        "data_title": "재활용 정책 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "재활용 정책 강화는 환경행정의 기본 과제이며, 시민 참여 캠페인 병행은 적절한 접근이다. 그러나 정책 내용이 일반적 수준에 머물러 있고, 혁신적이거나 전문적인 정책 설계의 특징이 뚜렷하게 드러나지 않아 보통 수준의 전문성을 보여준다."
+      },
+      {
+        "item_id": 151509,
+        "data_title": "스마트 행정 구현",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "스마트 행정 구현은 4차 산업혁명 시대의 핵심 행정 혁신 과제로, 디지털 기술을 활용한 행정서비스 개선은 높은 전문성을 요구한다. 스마트행정연구소와의 협력을 통한 체계적 접근과 시민 편의성 향상이라는 명확한 목표 설정이 우수하다."
+      },
+      {
+        "item_id": 151510,
+        "data_title": "공공 안전 인프라 개선",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "공공 안전은 지방정부의 핵심 책무로, 안전 시설과 시스템 전반에 대한 개선은 종합적 접근을 보여준다. 안전 추진 보고서를 통한 체계적 관리도 전문적이나, 구체적인 개선 방안이나 투자 규모 등의 세부 정보가 부족하여 완전한 평가는 어렵다."
+      },
+      {
+        "item_id": 151511,
+        "data_title": "서울시 브랜드 이미지 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "도시 브랜드 강화는 현대 도시경영의 중요 요소이지만, 홍보 전략 수립이라는 표현이 추상적이다. 글로벌 위상 강화라는 목표는 적절하나, 구체적인 전략 내용이나 실행 방안이 제시되지 않아 정책의 전문성과 실효성 판단이 제한적이다."
+      },
+      {
+        "item_id": 151512,
+        "data_title": "서울시장 재임 중 도시 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "도시재생과 공공주택 공급 확대는 시장으로서 적절한 정책 방향이나, 구체적인 성과나 전문적 접근법에 대한 세부사항이 부족하여 양호한 수준으로 평가됨"
+      },
+      {
+        "item_id": 151513,
+        "data_title": "신규 공공시설 건립",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "C",
+        "rating_rationale": "공공시설 건립을 통한 지역경제 활성화와 청년 문화시설 확충은 긍정적이나, 구체적인 계획이나 전문성을 보여주는 세부 내용이 제한적이어서 양호한 수준"
+      },
+      {
+        "item_id": 151514,
+        "data_title": "교통 정책 개선",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "D",
+        "rating_rationale": "지하철 노선 확장과 대중교통 활성화 정책은 추진했으나, 교통체증 문제 해결의 한계를 인정한 점에서 전문성에 아쉬움이 있어 보통 수준으로 평가"
+      },
+      {
+        "item_id": 151515,
+        "data_title": "미세먼지 저감 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "미세먼지 저감을 위한 차량 2부제 도입은 시도했으나 시민 동참률이 낮았다는 것은 정책 설계와 실행력에서 전문성이 미흡했음을 보여줌"
+      },
+      {
+        "item_id": 151516,
+        "data_title": "주택 정책의 효과성",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "주택 공급 확대 정책을 추진했으나 집값 상승세를 잡지 못하고 시장의 복잡성을 충분히 검토하지 못했다는 평가는 전문성이 부족함을 명확히 드러냄"
+      },
+      {
+        "item_id": 151517,
+        "data_title": "사회적 갈등 해소 노력",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "E",
+        "rating_rationale": "강남북 불균형 문제에 대한 인식과 대책 마련 노력은 있었으나 실효성에 의문이 제기된 점에서 전문적 해결능력이 미흡한 것으로 판단됨"
+      },
+      {
+        "item_id": 151518,
+        "data_title": "국제 행사 유치",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "국제행사 유치를 통해 서울의 위상 제고에 기여한 것은 긍정적이나, 지속적인 홍보 전략의 필요성이 제기된 점에서 양호한 수준의 전문성을 보임"
+      },
+      {
+        "item_id": 151519,
+        "data_title": "위기 관리 능력",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "코로나19 위기 상황에서 방역 정책을 즉각적으로 조정하고 시민 안전을 최우선으로 한 접근은 위기관리 전문성에서 우수한 모습을 보여줌"
+      },
+      {
+        "item_id": 151520,
+        "data_title": "재정 관리 능력",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "D",
+        "rating_rationale": "재정 관리와 투명성 제고 노력은 있었으나 여전히 타 기관의 상반된 의견이 존재한다는 점에서 전문성이 완전히 인정받지 못하는 보통 수준"
+      },
+      {
+        "item_id": 151521,
+        "data_title": "주민 참여 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "시민 의견 반영을 위한 공청회와 소통 프로그램 운영 의지는 있으나 참가율이 저조하다는 것은 정책 설계와 시민 참여 유도 전문성이 미흡함을 보여줌"
+      },
+      {
+        "item_id": 151522,
+        "data_title": "디지털 행정 추진",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "디지털 행정 추진은 현대적 정책 방향이나 기술적 인프라 부족 문제가 있어 실행력에 한계를 보임. 정책 방향성은 적절하나 구체적 실행 계획과 기반 조성이 미흡한 상태"
+      },
+      {
+        "item_id": 151523,
+        "data_title": "장애인 지원 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "장애인 지원 정책 확대는 사회적 필요성이 높은 분야이나 비판적 목소리가 존재함. 정책 의도는 긍정적이지만 실효성과 구체적 성과에 대한 검증이 부족한 상황"
+      },
+      {
+        "item_id": 151524,
+        "data_title": "주말 농장 및 체험 프로그램",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "D",
+        "rating_rationale": "환경보호와 도시농업은 좋은 정책 아이디어이나 수요 대비 공급 부족 문제가 심각함. 정책 기획 단계에서 수요 예측과 공급 계획의 전문성이 부족했음을 보여줌"
+      },
+      {
+        "item_id": 151525,
+        "data_title": "문화 예술 지원 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "문화예술 지원 정책 자체는 의미있으나 홍보 부족으로 인지도가 낮아 정책 효과가 제한적. 정책 실행 과정에서 홍보 전략 수립의 전문성이 결여됨"
+      },
+      {
+        "item_id": 151526,
+        "data_title": "홍보·커뮤니케이션 전략",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "E",
+        "rating_rationale": "홍보 전략을 추진하고 있음에도 연속성 있는 커뮤니케이션에 한계가 있다는 것은 전문성 부족을 직접적으로 보여줌. 정책 소통의 핵심 역량이 미흡한 상태"
+      },
+      {
+        "item_id": 151527,
+        "data_title": "환경 관련 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "기후변화 대응 정책을 진행하면서도 구체적 성과 제시 없이 낙후된 감이 있다는 것은 정책 전문성과 성과 관리 능력의 부족을 나타냄"
+      },
+      {
+        "item_id": 151528,
+        "data_title": "보건 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "보건 정책이 코로나19에만 집중되고 이후 소홀히 다뤄져 시민 불만이 존재하는 것은 포괄적 보건정책 수립 전문성의 부족을 보여줌"
+      },
+      {
+        "item_id": 151529,
+        "data_title": "범죄 예방과 안전 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "범죄 예방 대책을 강화했으나 범죄율 저하 효과가 미흡하다는 것은 정책 설계와 실행에서 전문성이 부족함을 의미함. 투입 대비 성과가 불충분"
+      },
+      {
+        "item_id": 151530,
+        "data_title": "회복력 있는 도시 만들기 전략",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "E",
+        "rating_rationale": "도시 회복력 강화 정책을 추진하면서도 공공 참여 부족으로 실현력이 떨어진다는 것은 정책 설계 시 시민 참여 방안 수립의 전문성이 미흡함을 보여줌"
+      },
+      {
+        "item_id": 151531,
+        "data_title": "지속 가능한 발전 목표",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "지속가능한 발전이라는 중요한 정책 목표를 설정했으나 구체적 방법론이 모호하다는 것은 정책 전문성의 심각한 부족을 나타냄. 추상적 목표만 있고 실행 방안이 결여됨"
+      },
+      {
+        "item_id": 151432,
+        "data_title": "부동산 재개발 프로젝트 지연 논란",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "정부 감사원 보고서라는 공신력 있는 출처를 바탕으로 하고 있으나, 예산 초과와 행정 지연이라는 구체적인 전문성 부족 사례가 명확히 제시되어 있어 전문성 관점에서 미흡한 수준으로 평가됨"
+      },
+      {
+        "item_id": 151433,
+        "data_title": "코로나19 방역 대응의 미흡",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "국회 회의록이라는 신뢰할 만한 출처를 제시하고 있지만, 마스크 공급과 봉쇄 조치의 비효율성으로 인한 감염자 증가는 공중보건 전문성의 명백한 결함을 보여주어 미흡한 등급에 해당함"
+      },
+      {
+        "item_id": 151434,
+        "data_title": "공공 예산 관리의 비효율",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "F",
+        "rating_rationale": "감사원 보고서를 출처로 하여 신뢰성이 있으나, 불필요한 지출과 재정 적자 확대는 예산 관리 전문성의 심각한 부족을 나타내며, 장기적 재정 안정성 훼손은 더욱 부족한 수준으로 평가됨"
+      },
+      {
+        "item_id": 151435,
+        "data_title": "환경 정책의 실패",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "환경부 발표 자료라는 공식적인 출처를 바탕으로 하고 있으며, 환경 영향 평가를 제대로 반영하지 않아 생태계 피해를 초래한 것은 환경 정책 전문성의 심각한 부족을 보여줌"
+      },
+      {
+        "item_id": 151436,
+        "data_title": "인사 임명 관련 논란",
+        "collected_by": "Grok",
+        "original_rating": "H",
+        "new_rating": "F",
+        "rating_rationale": "법원 판결문이라는 가장 공신력 있는 출처를 제시하고 있으나, 측근 중심 인사로 인한 공정성 논란과 직무 중립성 부족은 공공 행정 전문성의 심각한 결함을 나타내어 부족한 등급에 해당함"
+      },
+      {
+        "item_id": 151437,
+        "data_title": "코로나19 방역 정책 실패",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "연합뉴스라는 신뢰할 만한 언론사 출처이지만, 전문가 조언 무시와 고위험 시설 관리 미흡으로 인한 집단감염 발생은 방역 전문성의 명확한 부족을 보여주어 미흡한 수준으로 평가됨"
+      },
+      {
+        "item_id": 151438,
+        "data_title": "부동산 정책 관련 논란",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "E",
+        "rating_rationale": "조선일보라는 주요 언론사 출처이며, 시장 수요 예측 실패로 인한 집값 폭등과 저소득층 거주 안정성 훼손은 부동산 정책 전문성의 결여를 명확히 보여주어 미흡한 등급에 해당함"
+      },
+      {
+        "item_id": 151439,
+        "data_title": "도시 재개발 프로젝트 지연",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "KBS라는 공영방송 출처로 신뢰성이 있으며, 기술적 오류와 환경 영향 평가 소홀, 프로젝트 관리 경험 부족은 도시 개발 전문성의 미흡함을 구체적으로 보여주어 해당 등급으로 평가됨"
+      },
+      {
+        "item_id": 151440,
+        "data_title": "예산 관리 실패 사례",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "MBC라는 주요 방송사 출처이며, 복지 예산 삭감으로 인한 사회복지 전문가들의 비판과 저소득층 지원 프로그램 운영 실패는 사회복지 정책 전문성의 미흡함을 나타내어 해당 등급으로 평가됨"
+      },
+      {
+        "item_id": 151441,
+        "data_title": "교통 정책 비판",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "E",
+        "rating_rationale": "경향신문이라는 주요 언론사 출처이며, 지하철 확장 사업의 지연과 비용 초과, 설계 오류로 인한 시민 불편 증폭은 교통 정책 전문성의 부족을 명확히 보여주어 미흡한 등급에 해당함"
+      },
+      {
+        "item_id": 151442,
+        "data_title": "도시 개발 프로젝트 관리",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "한강 르네상스라는 대규모 도시개발 프로젝트를 성공적으로 완료한 것은 도시계획 분야의 높은 전문성을 보여줍니다. 장기적 비전과 실행력이 뛰어나며 공공데이터로 검증된 높은 완료율은 우수한 프로젝트 관리 능력을 입증합니다."
+      },
+      {
+        "item_id": 151443,
+        "data_title": "교통 인프라 확충",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "교통 인프라 확충으로 이용객 증가라는 성과를 달성했으나, 예산 초과 문제가 발생한 것은 재정 관리 전문성에 아쉬움이 있습니다. 교통정책 기획력은 양호하지만 예산 통제 능력에서 한계를 보였습니다."
+      },
+      {
+        "item_id": 151444,
+        "data_title": "환경 정책 실행",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "미세먼지 저감과 대기질 개선 효과를 달성한 것은 환경정책 전문성을 보여주지만, 목표 달성 지연은 실행력과 일정 관리에서 부족함을 나타냅니다. 정책 방향성은 적절하나 실행 과정에서 미흡함이 있었습니다."
+      },
+      {
+        "item_id": 151445,
+        "data_title": "코로나 대응 관리",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "팬데믹이라는 전례 없는 위기 상황에서 대규모 검사소 설치와 지원 프로그램을 효과적으로 운영한 것은 위기관리 전문성을 보여줍니다. 다만 초기 대응 속도 부족은 신속한 의사결정 능력에서 개선이 필요함을 시사합니다."
+      },
+      {
+        "item_id": 151446,
+        "data_title": "경제 개발 촉진",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "스타트업 지원과 산업클러스터 구축을 통한 일자리 창출은 경제정책 전문성을 보여주지만, 글로벌 경제 변동 대응 미흡은 거시경제 분석력과 대외 변수 대응 능력에서 한계를 드러냅니다."
+      },
+      {
+        "item_id": 151447,
+        "data_title": "교육 투자 확대",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "교육예산 증가와 시설 현대화로 학생 만족도 상승을 달성한 것은 교육정책 전문성을 보여주지만, 균등한 배분 문제는 형평성 있는 정책 설계 능력에서 미흡함을 나타냅니다."
+      },
+      {
+        "item_id": 151448,
+        "data_title": "주택 정책 수립",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "공공주택 건설 확대로 신규 주택 공급을 늘렸으나, 부동산 가격 안정화 실패는 주택정책의 핵심 목표 달성에 실패한 것입니다. 공급 정책은 추진했지만 시장 안정화라는 근본적 과제 해결에는 전문성이 부족했습니다."
+      },
+      {
+        "item_id": 151449,
+        "data_title": "문화 예술 지원",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "문화시설 확대와 예산 증가로 시민 참여를 높인 것은 문화정책 기획력을 보여주지만, 예술인 지원 부족은 문화정책의 핵심 수혜자에 대한 이해와 지원 체계 구축에서 미흡함을 나타냅니다."
+      },
+      {
+        "item_id": 151450,
+        "data_title": "재난 대비 시스템 구축",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "재난 대비 시스템 구축과 훈련 증가는 예방적 접근을 보여주지만, 실제 재난 시 대응 효율이 낮았다는 것은 재난관리의 핵심인 실전 대응 능력에서 전문성이 부족함을 의미합니다."
+      },
+      {
+        "item_id": 151451,
+        "data_title": "행정 효율화 추진",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "D",
+        "rating_rationale": "행정 디지털화로 처리시간 단축은 행정혁신 의지를 보여주지만, 시스템 오류 빈발은 디지털 전환 과정에서의 기술적 검토와 안정성 확보 능력이 부족함을 나타냅니다."
+      },
+      {
+        "item_id": 151452,
+        "data_title": "법률 개정 참여",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "C",
+        "rating_rationale": "지방자치법 개정 제안은 법률 전문성을 보여주나, 반대 의견이 많았다는 점에서 정치적 합의 도출 능력과 법안의 완성도에 한계를 드러냄. 일부 법안 통과는 긍정적이지만 전반적으로 양호한 수준"
+      },
+      {
+        "item_id": 151453,
+        "data_title": "국제 협력 강화",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "국제 행사 유치와 도시 간 협력 증진은 외교적 성과를 보여주나, 글로벌 이슈 대응 부족은 국제적 안목과 전략적 사고의 한계를 나타냄. 파트너십 증가라는 가시적 성과는 있으나 깊이 있는 전문성은 부족"
+      },
+      {
+        "item_id": 151454,
+        "data_title": "청년 정책 개발",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "청년 정책 프로그램 도입과 지원금 확대는 정책 의지를 보여주나, 고용률 향상이 미미한 것은 정책 설계와 실행의 전문성 부족을 의미함. 투입 대비 성과가 낮아 정책 전문성이 보통 수준에 그침"
+      },
+      {
+        "item_id": 151455,
+        "data_title": "고령자 복지 강화",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "D",
+        "rating_rationale": "고령자 복지 센터 확대와 의료 지원 강화로 이용자 증가는 달성했으나, 예산 관리 문제 발생은 재정 전문성과 사업 관리 능력의 한계를 보여줌. 복지 정책 기획은 양호하나 실행 과정의 전문성 부족"
+      },
+      {
+        "item_id": 151456,
+        "data_title": "여성 정책 지원",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "D",
+        "rating_rationale": "여성 직장 복귀 지원 프로그램의 높은 참여율은 정책 접근성 면에서 긍정적이나, 포괄적이지 못했다는 평가는 정책 설계의 전문성 부족을 시사함. 여성 정책에 대한 깊이 있는 이해와 체계적 접근이 아쉬움"
+      },
+      {
+        "item_id": 151457,
+        "data_title": "소상공인 지원",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "D",
+        "rating_rationale": "코로나 시기 소상공인 대출 지원으로 많은 수혜자를 확보한 것은 위기 대응력을 보여주나, 지속가능성 문제는 장기적 정책 설계 전문성의 한계를 드러냄. 단기 성과는 있으나 전략적 사고 부족"
+      },
+      {
+        "item_id": 151458,
+        "data_title": "지속 가능성 촉진",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "D",
+        "rating_rationale": "녹색 도시 프로젝트 추진과 탄소 배출 감소 효과는 환경 정책 전문성을 보여주나, 목표 미달성은 정책 기획과 실행 능력의 한계를 나타냄. 환경 정책 방향은 적절하나 성과 달성 전문성이 부족"
+      },
+      {
+        "item_id": 151459,
+        "data_title": "IT 및 디지털 정책",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "디지털 행정 시스템 도입과 스마트 시티 구축 추진은 시대적 요구에 부합하는 높은 수준의 IT 정책 전문성을 보여줌. 구체적인 문제점이나 한계가 언급되지 않아 성공적인 정책 실행으로 평가됨"
+      },
+      {
+        "item_id": 151460,
+        "data_title": "예산 관리",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "서울시 예산의 효율적 배분과 재정 건전성 유지, 적자 방지 성공은 재정 관리 전문성을 보여주나, 일부 과도한 지출은 예산 통제 능력의 한계를 나타냄. 전반적으로 양호한 재정 관리 능력"
+      },
+      {
+        "item_id": 151461,
+        "data_title": "리더십 및 커뮤니케이션",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "C",
+        "rating_rationale": "공식 행사와 미디어를 통한 시민 소통, 정책 방향의 명확한 전달, 안정적 지지율은 소통 전문성을 보여주나, 일부 논란 발생은 커뮤니케이션 전략의 완성도에 아쉬움이 있음을 시사함"
+      },
+      {
+        "item_id": 151462,
+        "data_title": "코로나19 방역 정책 실행",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "팬데믹 상황에서 백신 접종 캠페인과 사회적 거리두기 조정을 통해 시민 건강과 경제를 동시에 고려한 균형잡힌 접근을 보여주었으며, 실제로 서울 감염률 저하라는 구체적 성과를 달성했다."
+      },
+      {
+        "item_id": 151463,
+        "data_title": "도시 재개발 프로젝트 추진",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "도시 현대화라는 목표는 달성했으나 주민 이주 문제로 인한 사회적 갈등이 발생했다. 재개발 추진 과정에서 이해관계자들과의 충분한 소통과 대안 마련이 부족했던 것으로 보인다."
+      },
+      {
+        "item_id": 151464,
+        "data_title": "교통 시스템 개선 노력",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "스마트 교통 기술과 빅데이터 활용으로 출퇴근 시간 단축이라는 실질적 성과를 거두었으나, 예산 관리 능력의 한계를 보여 전문성에 아쉬움이 있다."
+      },
+      {
+        "item_id": 151465,
+        "data_title": "환경 보호 정책",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "D",
+        "rating_rationale": "국제 환경 기준을 참고한 정책 수립은 좋았으나 실행 속도가 느려 제한적 효과만 거두었다. 환경 정책의 시급성을 고려할 때 실행력 부족이 전문성을 저해했다."
+      },
+      {
+        "item_id": 151466,
+        "data_title": "경제 활성화 정책",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "스타트업 지원과 관광 활성화로 일자리 창출 성과는 있었으나, 중소기업 지원 부족으로 경제 정책의 포괄성과 균형성에서 아쉬움을 보였다."
+      },
+      {
+        "item_id": 151467,
+        "data_title": "주거 복지 확대",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "D",
+        "rating_rationale": "사회적 불평등 해소라는 정책 목표는 적절했으나 부동산 가격 상승이라는 외부 요인에 대한 대비책 부족으로 정책 효과가 약화되어 전문성이 제한적이었다."
+      },
+      {
+        "item_id": 151468,
+        "data_title": "교육 지원 프로그램",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "온라인 교육 인프라와 무상교육 확대로 디지털 격차 해소를 시도했으나, 농어촌 지역 지원 미비로 정책의 포괄성과 형평성 측면에서 한계를 보였다."
+      },
+      {
+        "item_id": 151469,
+        "data_title": "문화 예술 진흥",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "D",
+        "rating_rationale": "문화 예술 진흥과 국제 축제 유치라는 성과는 있었으나, 코로나라는 예측 가능한 리스크에 대한 대비책이 부족하여 행사 취소라는 결과를 초래했다."
+      },
+      {
+        "item_id": 151470,
+        "data_title": "복지 확대 정책",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "인구 고령화라는 사회적 과제에 적절히 대응했으나, 예산 부족으로 인한 서비스 지연은 정책 기획과 예산 확보 능력에서의 전문성 부족을 보여준다."
+      },
+      {
+        "item_id": 151471,
+        "data_title": "재난 관리 시스템",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "D",
+        "rating_rationale": "과거 재난 경험을 바탕으로 한 시스템 업그레이드는 적절했으나, 실전 훈련 부족으로 재난 대응의 완성도가 떨어져 전문성이 제한적이었다."
+      },
+      {
+        "item_id": 151472,
+        "data_title": "국제 협력 강화",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "국제 행사 유치를 통한 외교 네트워크 확대는 전문성을 보여주나, 정치적 이슈로 인한 협력 중단은 전문적 관리 능력의 한계를 드러냄. 도시 브랜딩 기여는 긍정적이지만 지속성 부족"
+      },
+      {
+        "item_id": 151473,
+        "data_title": "투명한 행정 운영",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "공공 데이터 공개와 부패 방지 시스템 도입은 현대적 행정 전문성을 보여주나, 내부 감사 부족은 시스템적 전문성의 미흡함을 나타냄. 시민 참여 증진은 긍정적 성과"
+      },
+      {
+        "item_id": 151474,
+        "data_title": "반부패 노력",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "D",
+        "rating_rationale": "공직자 윤리 강화 캠페인은 기본적 행정 전문성을 보여주나, 고위 공무원 관련 의혹 제기는 관리 감독의 전문성 부족을 시사. 지속적 모니터링 필요성 인식은 보통 수준"
+      },
+      {
+        "item_id": 151475,
+        "data_title": "과학 기술 투자",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "AI와 빅데이터 기술 도입은 미래 지향적 전문성을 보여주나, 기술 전문가 부족으로 인한 프로젝트 지연은 실행 전문성의 한계를 드러냄. 혁신 의지는 긍정적이나 실행력 부족"
+      },
+      {
+        "item_id": 151476,
+        "data_title": "청년 정책",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "스타트업 육성 프로그램 확대는 청년 정책에 대한 기본적 이해를 보여주나, 실업률 감소 효과 미미는 정책 설계와 실행의 전문성 부족을 나타냄. 경제 상황 의존성 과다"
+      },
+      {
+        "item_id": 151477,
+        "data_title": "고령자 복지 강화",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "D",
+        "rating_rationale": "인구 구조 변화 대응을 위한 노인 복지 시설 증설은 정책적 인식을 보여주나, 서비스 질의 일관성 부족은 복지 정책 전문성의 미흡함을 드러냄. 양적 확대에만 치중"
+      },
+      {
+        "item_id": 151478,
+        "data_title": "여성 정책",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "여성 직장 복귀 지원 프로그램 도입은 성평등 정책 인식을 보여주나, 낮은 참여율과 홍보 부족은 정책 기획과 실행의 전문성이 미흡함을 나타냄. 효과 제한적"
+      },
+      {
+        "item_id": 151479,
+        "data_title": "소상공인 지원",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "D",
+        "rating_rationale": "코로나 피해 소상공인 보조금 확대는 위기 대응 의지를 보여주나, 복잡한 신청 과정으로 인한 혜택 누락은 행정 설계의 전문성 부족을 드러냄. 정책 접근성 고려 미흡"
+      },
+      {
+        "item_id": 151480,
+        "data_title": "지속 가능 에너지 정책",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "태양광 에너지 도입을 통한 친환경 정책은 장기적 비전과 환경 정책 전문성을 보여주나, 초기 투자 비용 문제로 인한 확대 어려움은 재정 계획의 전문성 부족을 시사"
+      },
+      {
+        "item_id": 151481,
+        "data_title": "공원 및 녹지 확대",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "D",
+        "rating_rationale": "도시 공원 조성을 통한 시민 휴식 공간 확대는 도시 계획의 기본적 전문성을 보여주나, 토지 확보 문제로 인한 계획 미이행은 실행 전문성의 한계를 나타냄. 환경 보전 인식은 긍정적"
+      },
+      {
+        "item_id": 107438,
+        "data_title": "서울시 무상 재난지원금 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "코로나19라는 전례없는 상황에서 재난지원금 정책에 혼선이 발생한 것은 위기 대응 전문성 부족을 보여주며, 시민들에게 혼란을 야기한 정책 실행력의 문제점이 드러남"
+      },
+      {
+        "item_id": 107439,
+        "data_title": "부동산 정책 실패",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "부동산은 서울시장의 핵심 정책 영역임에도 불구하고 가격 급등과 공급 부족 문제에 대한 효과적 해결책을 제시하지 못한 것은 전문성의 심각한 부족을 의미함"
+      },
+      {
+        "item_id": 107440,
+        "data_title": "행정부 인사 운영 문제",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "인사 운영은 행정의 기본이며, 부적절한 인사 배치와 소통 부족은 조직 관리 전문성에서 보통 수준의 문제를 보여주나 치명적이지는 않음"
+      },
+      {
+        "item_id": 107441,
+        "data_title": "청년 정책 실행력 부족",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "청년 정책은 서울시의 중요한 현안이며, 구체적 실행 성과가 미흡하다는 것은 정책 기획과 실행 전문성에서 명백한 결함을 보여줌"
+      },
+      {
+        "item_id": 107442,
+        "data_title": "코로나19 방역 정책 혼선",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "코로나19 방역은 시민 안전과 직결된 핵심 업무로, 일관성 없는 정책 추진은 위기 관리 전문성의 심각한 부족을 나타내며 공공보건에 부정적 영향을 미침"
+      },
+      {
+        "item_id": 107443,
+        "data_title": "서울시 부동산 정책 실패",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "구체적 수치로 제시된 주택 공급 목표 미달과 가격 안정화 실패는 부동산 정책 전문성의 명확한 부족을 보여주며, 서울시민의 주거 안정에 직접적 악영향을 미침"
+      },
+      {
+        "item_id": 107444,
+        "data_title": "청년 정책 실효성 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "청년층은 서울시의 핵심 정책 대상이며, 주거와 일자리 지원 정책의 구체성 부족과 실효성 문제는 정책 설계 전문성에서 미흡함을 드러냄"
+      },
+      {
+        "item_id": 107445,
+        "data_title": "코로나19 방역 정책 혼선",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "중앙정부와의 정책 충돌은 거버넌스 조정 능력 부족을 의미하며, 방역이라는 중요한 현안에서 혼란을 야기한 것은 행정 전문성의 결함을 보여줌"
+      },
+      {
+        "item_id": 107446,
+        "data_title": "재난지원금 집행 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "재난지원금 집행에서 형평성 논란이 발생한 것은 정책 설계의 미흡함을 보여주나, 전체적인 지급은 이루어진 것으로 보아 보통 수준의 전문성 문제로 평가됨"
+      },
+      {
+        "item_id": 107447,
+        "data_title": "도시재생 사업 지연",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "도시재생은 서울시의 중장기 발전과 직결된 중요 사업으로, 진행 지연과 예산 집행 비효율성은 프로젝트 관리 전문성에서 명백한 미흡함을 나타냄"
+      },
+      {
+        "item_id": 107448,
+        "data_title": "도시재생 전문성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "서울시장으로서 도시재생과 도시계획 분야에서 실무 경험을 바탕으로 한 정책 추진 능력을 보여주며, 해당 분야에 대한 이해도가 높음을 시사합니다."
+      },
+      {
+        "item_id": 107449,
+        "data_title": "행정 경험",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "총 10년 이상의 서울시장 경력으로 행정 전문성이 매우 뛰어나며, 장기간의 실무 경험을 통해 축적된 행정 노하우와 리더십을 보유하고 있습니다."
+      },
+      {
+        "item_id": 107450,
+        "data_title": "정책 기획력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "청년정책, 주택정책 등 다양한 분야에서 정책을 기획하고 수립한 경험이 있어 정책 전문성이 우수하며, 종합적인 정책 역량을 갖추고 있습니다."
+      },
+      {
+        "item_id": 107451,
+        "data_title": "부동산 정책 전문성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "서울 부동산 시장의 복잡성을 이해하고 안정화 정책을 추진한 경험이 있어 부동산 정책에 대한 전문성이 우수한 수준으로 평가됩니다."
+      },
+      {
+        "item_id": 107452,
+        "data_title": "코로나19 대응 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "코로나19라는 전례 없는 위기 상황에서 방역과 경제 지원을 동시에 추진한 경험으로 위기관리 및 종합적 정책 조율 능력이 우수함을 보여줍니다."
+      },
+      {
+        "item_id": 107453,
+        "data_title": "행정 효율성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "스마트시티와 디지털 행정혁신 추진을 통해 현대적 행정관리 능력과 기술 변화에 대한 이해도가 높음을 보여주며, 행정 효율성 개선에 대한 전문성이 우수합니다."
+      },
+      {
+        "item_id": 107454,
+        "data_title": "복지 정책 이해도",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "취약계층 지원과 복지 정책을 추진한 경험이 있으나, 복지 분야는 상대적으로 전문성이 제한적이며 양호한 수준의 이해도를 보이는 것으로 평가됩니다."
+      },
+      {
+        "item_id": 107455,
+        "data_title": "환경 정책 전문성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "녹색도시와 친환경 정책을 추진하고 있으나, 환경 분야는 전문적 배경보다는 행정적 접근에 치중되어 있어 양호한 수준의 전문성을 보입니다."
+      },
+      {
+        "item_id": 107456,
+        "data_title": "경제 정책 이해",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "지역경제 활성화와 소상공인 지원 정책 추진 경험을 통해 지방자치단체 차원에서의 경제정책에 대한 이해도와 실무 능력이 우수한 것으로 평가됩니다."
+      },
+      {
+        "item_id": 107457,
+        "data_title": "교통 정책 전문성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "서울시 대중교통 혁신과 교통 인프라 개선을 통해 도시교통 분야에 대한 깊은 이해와 실무 경험을 바탕으로 한 우수한 전문성을 보여줍니다."
+      },
+      {
+        "item_id": 107458,
+        "data_title": "디지털 정책 이해",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "서울시장으로서 스마트시티 구축과 디지털 전환 정책을 적극 추진하고 있으며, 디지털 플랫폼 정부 구현에 대한 이해도가 높음. 다만 기술적 세부사항보다는 정책적 접근에 중점을 두고 있어 우수 수준으로 평가됨."
+      },
+      {
+        "item_id": 107459,
+        "data_title": "문화정책 전문성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "서울시 문화정책 추진 경험이 있으나, 문화예술 분야 전문성은 제한적임. 문화도시 조성을 위한 기본적인 정책 방향은 제시하고 있지만, 깊이 있는 문화정책 전문성보다는 행정적 접근에 머물러 있어 양호 수준임."
+      },
+      {
+        "item_id": 107460,
+        "data_title": "재난관리 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "코로나19 팬데믹 상황에서 서울시장으로서 효과적인 방역정책을 수립하고 실행했으며, 자연재해 대응체계 구축에도 적극적임. 위기 상황에서의 신속한 의사결정과 체계적인 대응능력을 보여주어 매우 우수한 수준으로 평가됨."
+      },
+      {
+        "item_id": 107461,
+        "data_title": "국제 협력 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "서울시장으로서 다양한 국제도시와의 교류협력을 추진하고 있으며, 글로벌 도시네트워크 참여에 적극적임. 국제회의 개최 및 해외 도시와의 협력사업 경험이 풍부하여 국제협력 능력이 우수한 수준으로 평가됨."
+      },
+      {
+        "item_id": 107462,
+        "data_title": "주거정책 전문성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "서울시 주택정책 추진 과정에서 공공주택 공급 확대와 주거안정 정책에 대한 이해도가 높음. 전월세 안정화 대책과 청년주택 정책 등을 통해 주거정책 전문성을 보여주고 있어 우수 수준으로 평가됨."
+      },
+      {
+        "item_id": 107463,
+        "data_title": "일자리 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "청년 일자리 창출과 고용정책에 대한 기본적인 이해는 있으나, 노동시장 전반에 대한 깊이 있는 전문성은 제한적임. 서울시 차원의 일자리 정책 추진 경험은 있지만 고용정책 전문가 수준은 아니어서 양호 수준임."
+      },
+      {
+        "item_id": 107464,
+        "data_title": "교육 정책 이해",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "서울시 교육정책에 대한 기본적인 이해와 교육혁신 방향 제시는 가능하나, 교육 전문가 수준의 깊이 있는 정책 설계 능력은 부족함. 교육감과의 협력을 통한 정책 추진 경험은 있어 양호 수준으로 평가됨."
+      },
+      {
+        "item_id": 107465,
+        "data_title": "기후변화 대응",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "서울시 탄소중립 정책과 그린뉴딜 추진에 적극적이며, 기후변화 대응에 대한 정책적 이해도가 높음. 환경정책 전반에 대한 체계적인 접근과 실행력을 보여주고 있어 환경 분야 전문성이 우수한 수준으로 평가됨."
+      },
+      {
+        "item_id": 107466,
+        "data_title": "사회혁신 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "서울시 사회혁신 정책 추진과 시민참여 확대에 적극적이며, 민관협력과 시민사회와의 소통에 대한 이해도가 높음. 다양한 사회혁신 프로그램 운영 경험을 통해 사회혁신 분야 전문성이 우수한 수준으로 평가됨."
+      },
+      {
+        "item_id": 107467,
+        "data_title": "위기관리 전문성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "서울시장으로서 다양한 사회적 위기상황에서 효과적인 대응능력을 보여주었으며, 위기관리 시스템 구축과 운영에 대한 전문성이 뛰어남. 코로나19, 자연재해 등 복합적 위기상황에서의 리더십과 관리능력이 매우 우수함."
+      },
+      {
+        "item_id": 107468,
+        "data_title": "행정 경험의 깊이",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "2006-2011년과 현재까지 총 2차례 서울시장을 역임한 풍부한 행정 경험은 매우 우수한 전문성을 보여줍니다. 장기간의 실질적 행정 경험과 재선을 통한 검증된 리더십이 입증되었습니다."
+      },
+      {
+        "item_id": 107469,
+        "data_title": "정책 기획력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "서울형 뉴딜일자리 정책은 지역 특성을 반영한 정책 기획력을 보여주며, 중앙정부 정책과 연계한 지방정부 차원의 정책 개발 능력이 우수합니다. 구체적 성과 데이터가 있다면 더 높은 평가가 가능합니다."
+      },
+      {
+        "item_id": 107470,
+        "data_title": "도시 정책 전문성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "스마트도시 정책은 미래지향적이고 전문적인 도시 정책 이해도를 나타냅니다. 4차 산업혁명 시대에 맞는 정책 방향성과 기술에 대한 이해가 우수하나, 구체적 실행 계획과 성과가 더 필요합니다."
+      },
+      {
+        "item_id": 107471,
+        "data_title": "사회복지 이해도",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "청년수당과 1인가구 지원 정책은 현대 사회의 변화하는 인구구조와 사회적 요구를 반영한 정책으로, 사회복지에 대한 우수한 이해도를 보여줍니다. 대상별 맞춤형 정책 설계 능력이 돋보입니다."
+      },
+      {
+        "item_id": 107472,
+        "data_title": "재난 대응 전문성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "코로나19라는 전례없는 팬데믹 상황에서의 방역 정책 추진은 위기 상황에서의 전문적 대응 능력을 보여줍니다. 중앙정부와의 협력과 지역 특성을 고려한 정책 실행력이 우수합니다."
+      },
+      {
+        "item_id": 107473,
+        "data_title": "환경 정책 이해도",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "미세먼지 저감 정책은 환경 문제에 대한 기본적인 이해도를 보여주나, 이는 대부분의 지방정부에서 추진하는 일반적인 정책입니다. 혁신적이거나 차별화된 접근법에 대한 정보가 부족하여 양호한 수준으로 평가됩니다."
+      },
+      {
+        "item_id": 107474,
+        "data_title": "경제 정책 전문성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "소상공인 지원 정책은 지역경제에 대한 기본적인 이해와 정책 대응력을 보여줍니다. 하지만 이는 대부분의 지방정부에서 시행하는 일반적인 정책으로, 특별한 전문성이나 혁신성을 확인하기 어려워 양호한 수준입니다."
+      },
+      {
+        "item_id": 107475,
+        "data_title": "주거 정책 이해도",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "공공주택 공급 확대는 서울의 주요 현안인 주거 문제에 대한 구체적 대응책으로, 도시 정책과 부동산 정책에 대한 우수한 이해도를 보여줍니다. 시민의 핵심 관심사에 대한 정책적 접근이 적절합니다."
+      },
+      {
+        "item_id": 107476,
+        "data_title": "교통 정책 전문성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "대중교통 개선은 도시 행정의 기본적인 업무 영역으로, 교통 정책에 대한 기본적인 이해도를 보여줍니다. 하지만 구체적인 혁신 방안이나 차별화된 접근법이 제시되지 않아 양호한 수준으로 평가됩니다."
+      },
+      {
+        "item_id": 107477,
+        "data_title": "문화정책 이해도",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "문화예술 지원 확대는 도시의 문화적 품격 향상을 위한 기본적인 정책으로, 문화 정책에 대한 일반적인 이해도를 보여줍니다. 구체적인 정책 내용이나 차별화된 접근 방식에 대한 정보가 부족하여 양호한 수준입니다."
+      },
+      {
+        "item_id": 107478,
+        "data_title": "디지털 전환 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "스마트시티는 현대 도시행정의 핵심 영역으로, 서울시장으로서 디지털 전환을 추진하는 것은 시대적 요구에 부합하는 전문성을 보여준다. 다만 구체적인 성과나 세부 실행 계획에 대한 정보가 부족하여 우수 수준으로 평가한다."
+      },
+      {
+        "item_id": 107479,
+        "data_title": "예산 운용 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "예산 운용은 지방자치단체장의 핵심 역량이며, 효율적 집행은 행정 전문성의 직접적 지표이다. 서울시라는 대규모 조직의 예산을 효율적으로 관리한다는 것은 상당한 전문성을 요구하므로 우수한 수준으로 평가할 수 있다."
+      },
+      {
+        "item_id": 107480,
+        "data_title": "공동체 정책 이해도",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "마을공동체 지원은 지역사회 발전에 중요한 정책 영역이나, 상대적으로 전문적 기술이나 고도의 정책적 판단을 요구하는 수준은 낮다. 지역사회에 대한 기본적 이해와 정책 실행 능력을 보여주므로 양호한 수준으로 평가한다."
+      },
+      {
+        "item_id": 107481,
+        "data_title": "국제 교류 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "국제 교류는 글로벌 시대 도시외교의 핵심 영역으로, 언어 능력, 문화적 이해, 국제적 네트워크 구축 등 다양한 전문성을 요구한다. 서울시의 국제적 위상 제고와 실질적 협력 성과 창출에 기여하므로 우수한 수준으로 평가한다."
+      },
+      {
+        "item_id": 107482,
+        "data_title": "여성 정책 전문성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "여성 일자리 지원은 성평등과 노동정책이 결합된 중요한 정책 영역이다. 그러나 기존 정책 프레임워크 내에서의 실행이 주를 이루며, 혁신적이거나 고도의 전문성을 요구하는 수준은 아니므로 양호한 수준으로 평가한다."
+      },
+      {
+        "item_id": 107483,
+        "data_title": "청년 정책 이해도",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "청년 정책은 현재 사회적 관심이 높은 영역이지만, 정책의 다각화 자체만으로는 깊이 있는 전문성을 판단하기 어렵다. 청년층의 다양한 니즈를 파악하고 정책화하는 능력을 보여주므로 양호한 수준으로 평가한다."
+      },
+      {
+        "item_id": 107484,
+        "data_title": "중소기업 지원 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "중소기업 육성은 지역경제 발전의 핵심 정책으로, 경제정책에 대한 이해와 기업 생태계에 대한 전문적 지식을 요구한다. 서울시 경제 활성화와 일자리 창출에 직접적으로 연결되는 중요한 정책 영역이므로 우수한 수준으로 평가한다."
+      },
+      {
+        "item_id": 107485,
+        "data_title": "보건 정책 전문성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "공공의료 체계 강화는 코로나19 이후 더욱 중요해진 정책 영역으로, 의료시스템에 대한 깊이 있는 이해와 복잡한 이해관계 조정 능력을 요구한다. 시민의 생명과 직결되는 고도의 전문성이 필요한 영역이므로 매우 우수한 수준으로 평가한다."
+      },
+      {
+        "item_id": 107486,
+        "data_title": "에너지 정책 이해도",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "신재생에너지 정책은 기후변화 대응과 에너지 전환이라는 글로벌 과제에 대한 전문적 대응이다. 복잡한 기술적 이해와 장기적 정책 비전, 다양한 이해관계자 조정이 필요한 고도의 전문성 영역이므로 매우 우수한 수준으로 평가한다."
+      },
+      {
+        "item_id": 107487,
+        "data_title": "행정 혁신 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "디지털 민주주의는 전통적 행정과 최신 기술의 융합을 통한 혁신적 거버넌스 모델이다. 민주주의 이론, 디지털 기술, 시민참여 등 다양한 전문 영역의 통합적 이해와 실행 능력을 요구하므로 매우 우수한 수준으로 평가한다."
+      }
+    ]
+  },
+  "scores": {
+    "ChatGPT": {
+      "avg_rating": 4.666666666666667,
+      "category_score": 83.33333333333334,
+      "total_items": 150,
+      "positive": 133,
+      "negative": 17
+    },
+    "Grok": {
+      "avg_rating": 3.6266666666666665,
+      "category_score": 78.13333333333334,
+      "total_items": 150,
+      "positive": 114,
+      "negative": 36
+    },
+    "Claude": {
+      "avg_rating": 2.6933333333333334,
+      "category_score": 73.46666666666667,
+      "total_items": 150,
+      "positive": 111,
+      "negative": 39
+    }
+  },
+  "final_score": 78.31111111111112
+}

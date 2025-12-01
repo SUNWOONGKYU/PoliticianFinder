@@ -18,7 +18,7 @@
 6. **posts** - 정치인 게시글
 7. **inquiries** - 질의응답
 8. **shares** - 공유 데이터
-9. **politician_id_mapping** - ID 매핑 (UUID → TEXT)
+9. **politician_id_mapping** - ID 매핑 (더 이상 사용 안 함 - TEXT 타입 사용)
 
 ---
 
@@ -273,10 +273,10 @@ CREATE TABLE politician_id_mapping (
 
 **변경 내용**:
 - `politicians.id`: UUID(36자) → TEXT(8자)
-- `posts.politician_id`: UUID → TEXT
-- `inquiries.politician_id`: UUID → TEXT
-- `shares.politician_id`: UUID → TEXT
-- `politician_id_mapping.uuid_id`: UUID → TEXT
+- `posts.politician_id`: TEXT (8-char hex)
+- `inquiries.politician_id`: TEXT (8-char hex)
+- `shares.politician_id`: TEXT (8-char hex)
+- `politician_id_mapping`: 더 이상 사용 안 함
 
 **마이그레이션 스크립트**: `sql/migrate_all_tables_final.sql`
 
@@ -316,7 +316,7 @@ politician_id = "10001"  # 문자열
 politician_id = "cd8c0263"  # 8자 해시
 
 # ❌ UUID 타입 사용 금지
-politician_id = uuid.UUID("...")  # 더 이상 사용 안 함
+politician_id = "cd8c0263"  # TEXT 타입 (8-char hex) 사용
 ```
 
 ---

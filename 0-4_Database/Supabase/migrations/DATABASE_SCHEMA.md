@@ -139,7 +139,7 @@ Community posts and discussions
 |--------|------|-------------|
 | id | UUID | Primary key |
 | user_id | UUID | Author (FK to users) |
-| politician_id | UUID | Related politician (FK, nullable) |
+| politician_id | TEXT | Related politician (FK, nullable) - 8-char hex |
 | title | TEXT | Post title |
 | content | TEXT | Post content |
 | category | TEXT | general/question/debate/news |
@@ -210,7 +210,7 @@ Politician career history
 | Column | Type | Description |
 |--------|------|-------------|
 | id | UUID | Primary key |
-| politician_id | UUID | Related politician (FK) |
+| politician_id | TEXT | Related politician (FK) - 8-char hex |
 | title | TEXT | Position title |
 | organization | TEXT | Organization name |
 | start_date | DATE | Start date |
@@ -225,7 +225,7 @@ Campaign pledges and promises
 | Column | Type | Description |
 |--------|------|-------------|
 | id | UUID | Primary key |
-| politician_id | UUID | Related politician (FK) |
+| politician_id | TEXT | Related politician (FK) - 8-char hex |
 | title | TEXT | Pledge title |
 | description | TEXT | Pledge details |
 | category | TEXT | Pledge category |
@@ -242,7 +242,7 @@ AI-generated politician evaluations
 | Column | Type | Description |
 |--------|------|-------------|
 | id | UUID | Primary key |
-| politician_id | UUID | Related politician (FK) |
+| politician_id | TEXT | Related politician (FK) - 8-char hex |
 | evaluation_date | DATE | Evaluation date |
 | overall_score | INTEGER | Overall score (0-100) |
 | overall_grade | TEXT | Letter grade (A+, A, B+, etc.) |

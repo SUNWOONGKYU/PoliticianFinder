@@ -47,7 +47,7 @@ CREATE OR REPLACE FUNCTION search_politicians(
   limit_count INTEGER DEFAULT 20
 )
 RETURNS TABLE (
-  id UUID,
+  id TEXT,
   name TEXT,
   party TEXT,
   position TEXT,
@@ -112,7 +112,7 @@ RETURNS TABLE (
   id UUID,
   title TEXT,
   user_id UUID,
-  politician_id UUID,
+  politician_id TEXT,
   category TEXT,
   view_count INTEGER,
   like_count INTEGER,

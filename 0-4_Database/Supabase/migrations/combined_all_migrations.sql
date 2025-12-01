@@ -221,7 +221,7 @@ COMMENT ON COLUMN politicians.evaluation_grade IS 'Letter grade based on evaluat
 -- Careers table
 CREATE TABLE IF NOT EXISTS careers (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  politician_id UUID NOT NULL REFERENCES politicians(id) ON DELETE CASCADE,
+  politician_id TEXT NOT NULL REFERENCES politicians(id) ON DELETE CASCADE,
   title TEXT NOT NULL,
   organization TEXT,
   start_date DATE NOT NULL,
@@ -411,7 +411,7 @@ CREATE POLICY IF NOT EXISTS delete_own_follows
 -- Pledges table
 CREATE TABLE IF NOT EXISTS pledges (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  politician_id UUID NOT NULL REFERENCES politicians(id) ON DELETE CASCADE,
+  politician_id TEXT NOT NULL REFERENCES politicians(id) ON DELETE CASCADE,
   title TEXT NOT NULL,
   description TEXT NOT NULL,
   category TEXT,
@@ -450,7 +450,7 @@ COMMENT ON COLUMN pledges.verification_source IS 'Source of verification for ple
 CREATE TABLE IF NOT EXISTS posts (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
-  politician_id UUID REFERENCES politicians(id) ON DELETE SET NULL,
+  politician_id TEXT REFERENCES politicians(id) ON DELETE SET NULL,
   title TEXT NOT NULL,
   content TEXT NOT NULL,
   category TEXT CHECK (category IN ('general', 'question', 'debate', 'news')),
@@ -707,7 +707,7 @@ COMMENT ON COLUMN notifications.target_id IS 'ID of target object';
 CREATE TABLE IF NOT EXISTS user_favorites (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
-  politician_id UUID NOT NULL REFERENCES politicians(id) ON DELETE CASCADE,
+  politician_id TEXT NOT NULL REFERENCES politicians(id) ON DELETE CASCADE,
   created_at TIMESTAMPTZ DEFAULT NOW(),
   UNIQUE(user_id, politician_id)
 );
@@ -726,7 +726,7 @@ COMMENT ON TABLE user_favorites IS 'User favorite politicians tracking';
 -- AI evaluations table
 CREATE TABLE IF NOT EXISTS ai_evaluations (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  politician_id UUID NOT NULL REFERENCES politicians(id) ON DELETE CASCADE,
+  politician_id TEXT NOT NULL REFERENCES politicians(id) ON DELETE CASCADE,
   evaluation_date DATE NOT NULL,
   overall_score INTEGER CHECK (overall_score >= 0 AND overall_score <= 100),
   overall_grade TEXT,
@@ -831,7 +831,7 @@ COMMENT ON COLUMN shares.platform IS 'Share platform: facebook, twitter, kakao, 
 -- Politician verification table
 CREATE TABLE IF NOT EXISTS politician_verification (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  politician_id UUID NOT NULL REFERENCES politicians(id) ON DELETE CASCADE,
+  politician_id TEXT NOT NULL REFERENCES politicians(id) ON DELETE CASCADE,
   user_id UUID REFERENCES users(id) ON DELETE SET NULL,
   verification_method TEXT NOT NULL CHECK (verification_method IN ('email', 'document', 'phone', 'in_person', 'official_channel')),
   verification_token TEXT,
@@ -1095,7 +1095,7 @@ COMMENT ON COLUMN admin_actions.metadata IS 'Additional action metadata';
 -- Evaluation snapshots table
 CREATE TABLE IF NOT EXISTS evaluation_snapshots (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  politician_id UUID NOT NULL REFERENCES politicians(id) ON DELETE CASCADE,
+  politician_id TEXT NOT NULL REFERENCES politicians(id) ON DELETE CASCADE,
   snapshot_date DATE NOT NULL,
 
   -- Overall scores (averaged from 5 AI models)
@@ -1504,7 +1504,7 @@ RETURNS TABLE (
   id UUID,
   title TEXT,
   user_id UUID,
-  politician_id UUID,
+  politician_id TEXT,
   category TEXT,
   view_count INTEGER,
   like_count INTEGER,

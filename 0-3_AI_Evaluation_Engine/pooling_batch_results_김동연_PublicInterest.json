@@ -1,0 +1,3635 @@
+{
+  "data_pool_size": 150,
+  "evaluation_results": {
+    "ChatGPT": [
+      {
+        "item_id": 190243,
+        "data_title": "김동연의 공공복지 증진 노력",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "김동연의 저소득층 주거 지원 정책은 사회적 약자를 배려하며 국민의 삶의 질을 향상시키는 데 크게 기여하고 있어 매우 우수한 공익성을 지닌다."
+      },
+      {
+        "item_id": 190244,
+        "data_title": "사회적 약자 보호 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "장애인과 노인을 위한 복지 확대 정책은 사회적 약자의 권리를 보호하고 공공성을 높이는 데 기여하여 매우 우수한 평가를 받는다."
+      },
+      {
+        "item_id": 190245,
+        "data_title": "환경 보호 관련 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "기후 변화 대응 및 환경 보호 정책은 지속 가능한 발전을 위한 필수적인 노력으로, 공공의 이익을 위한 매우 중요한 조치로 평가된다."
+      },
+      {
+        "item_id": 190246,
+        "data_title": "사회적 약자 지원 예산 증대",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "사회적 약자 지원 예산 증대는 이들의 삶의 질 향상에 직접적으로 기여하며, 공공의 이익을 위한 중요한 결정으로 매우 우수하다."
+      },
+      {
+        "item_id": 190247,
+        "data_title": "청년 정책 시행",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "청년 정책을 통한 일자리 창출은 긍정적으로 평가되지만, 청년 지원의 실효성을 높이기 위한 추가적인 노력이 필요하다."
+      },
+      {
+        "item_id": 190248,
+        "data_title": "공공 교통 정책 개선",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "대중교통 접근성 개선은 주민의 삶의 질 향상에 기여하나, 여전히 많은 개선이 필요해 양호한 평가에 그친다."
+      },
+      {
+        "item_id": 190249,
+        "data_title": "복지 정책의 실효성 문제",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "복지 정책의 실효성 문제는 사회적 약자에게 도움이 되지 않는 경우가 있어 공익성 측면에서 미흡한 평가를 받는다."
+      },
+      {
+        "item_id": 190250,
+        "data_title": "정책의 일관성 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "D",
+        "rating_rationale": "정책의 일관성 부족은 공공의 이익을 위한 방향성이 명확하지 않아 보통 수준의 평가를 받는다."
+      },
+      {
+        "item_id": 190251,
+        "data_title": "공공 이익에 대한 관심 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "G",
+        "new_rating": "F",
+        "rating_rationale": "공공의 이익을 위한 소극적인 모습은 신뢰를 저하시키는 요소로 작용해 부족한 평가를 받는다."
+      },
+      {
+        "item_id": 190252,
+        "data_title": "사회적 약자 무시 문제",
+        "collected_by": "ChatGPT",
+        "original_rating": "H",
+        "new_rating": "G",
+        "rating_rationale": "사회적 약자의 목소리를 무시하는 경향은 이들의 권익을 보장하지 못하고 매우 부족한 공익성을 드러낸다."
+      },
+      {
+        "item_id": 190253,
+        "data_title": "사회적 약자 지원 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "김동연은 사회적 약자를 위한 효과적인 지원 정책을 추진하여 사회적 불평등 해소에 기여하고 있으며, 시민들의 긍정적 반응이 이를 뒷받침하고 있다."
+      },
+      {
+        "item_id": 190254,
+        "data_title": "환경 보호 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "환경 보호를 위한 강력한 정책 추진은 공공의 이익을 위해 지속 가능한 발전을 도모하며, 지역사회의 건강과 환경 개선에 기여한다."
+      },
+      {
+        "item_id": 190255,
+        "data_title": "소외계층 지원 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "소외계층을 위한 다양한 프로그램 운영은 그들의 삶의 질을 높이고, 사회적 혜택이 광범위하게 퍼지는 긍정적인 영향을 미치고 있다."
+      },
+      {
+        "item_id": 190256,
+        "data_title": "학교 급식 개선",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "학교 급식 개선 정책은 학생들의 건강 증진과 교육 기회의 평등을 도모하여, 공공의 이익을 우선시하는 매우 긍정적인 사례로 평가된다."
+      },
+      {
+        "item_id": 190257,
+        "data_title": "공공교통 개선 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "공공교통 시스템 개선 노력은 시민들의 이동 편의를 증진시키고, 공공의 이익을 고려한 정책으로 매우 우수하다고 할 수 있다."
+      },
+      {
+        "item_id": 190258,
+        "data_title": "청년 일자리 창출",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "청년 일자리 창출을 위한 노력은 있으나, 일부 정책에서 사익 우선 경향이 보이고 실행력이 부족하여 전체적인 공익성은 양호하다."
+      },
+      {
+        "item_id": 190259,
+        "data_title": "재난 대응 능력 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "D",
+        "rating_rationale": "재난 대응 능력 강화 정책의 구체성이 부족하여 공공의 이익을 보장하는 데 한계가 있지만, 노력 자체는 평가할 수 있다."
+      },
+      {
+        "item_id": 190260,
+        "data_title": "주거 안정 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "주거 안정 정책이 특정 지역이나 계층에만 국한되어 공공의 이익을 저해할 수 있다는 비판이 있어 미흡하다고 평가된다."
+      },
+      {
+        "item_id": 190261,
+        "data_title": "정책 투명성 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "G",
+        "new_rating": "F",
+        "rating_rationale": "정책 결정 과정에서 투명성이 부족하여 시민의 신뢰를 얻지 못하고 공공의 이익을 해치는 요소로 작용하고 있어 부족하다."
+      },
+      {
+        "item_id": 190262,
+        "data_title": "사회 통합 정책 미비",
+        "collected_by": "ChatGPT",
+        "original_rating": "H",
+        "new_rating": "G",
+        "rating_rationale": "사회 통합 정책의 미비는 사회적 갈등을 해소하지 못하고 공공의 이익을 우선시하지 못하는 치명적인 결함으로 비판받고 있다."
+      },
+      {
+        "item_id": 190263,
+        "data_title": "공공복지 지원 확대",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "김동연의 재정 지원으로 저소득층 가구가 직접적인 혜택을 받았으며, 이는 공공복지 증진에 매우 긍정적인 기여를 하였다."
+      },
+      {
+        "item_id": 190264,
+        "data_title": "소외 계층을 위한 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "장애인과 어르신을 위한 맞춤형 정책은 소외 계층의 삶의 질을 향상시키며 사회 통합을 이루는 데 크게 기여하였다."
+      },
+      {
+        "item_id": 190265,
+        "data_title": "환경 보호 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "환경 보호 정책은 지역 사회의 삶의 질을 증진시키고 지속 가능한 발전을 도모하여 공공의 이익을 확실히 고려하였다."
+      },
+      {
+        "item_id": 190266,
+        "data_title": "청년 일자리 창출",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "청년 일자리 창출 프로그램은 경제적 자립을 돕고 청년 실업 문제 해결에 기여하여 공공의 이익에 매우 긍정적인 영향을 미쳤다."
+      },
+      {
+        "item_id": 190267,
+        "data_title": "소득 불평등 해소 노력",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "소득 불평등 해소를 위한 정책 추진은 사회적 약자를 배려하고 공공의 이익을 우선시하는 방향으로 나아가 매우 긍정적이다."
+      },
+      {
+        "item_id": 190268,
+        "data_title": "주거 안정 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "주거 안정성을 위한 정책은 무주택자와 저소득 가구에 대한 지원을 확대하여 공공의 이익을 증진시키는 데 기여하였다."
+      },
+      {
+        "item_id": 190269,
+        "data_title": "공공 의료 서비스 개선",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "공공 의료 서비스 개선 정책은 저소득층과 사회적 약자가 더 나은 의료 서비스를 받을 수 있게 하여 공공의 이익을 우선시하였다."
+      },
+      {
+        "item_id": 190270,
+        "data_title": "문화 예술 지원 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "문화 예술 지원 정책은 사회적 약자도 문화 혜택을 누릴 수 있도록 하여 공공의 이익을 고려한 결정이다."
+      },
+      {
+        "item_id": 190271,
+        "data_title": "교통 복지 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "저소득층을 위한 교통 복지 정책은 이동의 자유를 보장하고 사회적 약자의 생활 향상에 기여하여 매우 긍정적인 효과를 가져왔다."
+      },
+      {
+        "item_id": 190272,
+        "data_title": "사회적 기업 지원",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "A",
+        "rating_rationale": "사회적 기업 지원 정책은 지역 경제와 사회적 약자에게 긍정적인 영향을 미치며 공공의 이익을 우선시한 결정으로 평가된다."
+      },
+      {
+        "item_id": 190273,
+        "data_title": "김동연의 복지 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "김동연의 복지 정책은 저소득층과 장애인을 위한 지원을 확대하며, 사회적 약자 보호에 기여하고 있어 매우 우수한 공익성을 보여줍니다."
+      },
+      {
+        "item_id": 190274,
+        "data_title": "환경 정책 추진",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "지속 가능한 발전을 위한 환경 정책 추진은 사회 전체의 이익을 도모하는 방향으로 매우 긍정적인 공익성을 가지고 있습니다."
+      },
+      {
+        "item_id": 190275,
+        "data_title": "공공 교통 개선",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "교통 혼잡 문제 해결을 위한 대중교통 개선 프로젝트는 시민의 이동 편의성을 향상시키며 공공의 이익을 극대화하고 있습니다."
+      },
+      {
+        "item_id": 190276,
+        "data_title": "정신 건강 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "정신 건강 정책은 사회적 인식 개선과 공공의 건강 증진을 목표로 하여 매우 우수한 공익적 가치를 가지고 있습니다."
+      },
+      {
+        "item_id": 190277,
+        "data_title": "주거 복지 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "저소득층의 주거 안정을 도모하는 주거 복지 정책은 공공의 이익을 위한 중요한 기여로 간주됩니다."
+      },
+      {
+        "item_id": 190278,
+        "data_title": "농민 지원 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "농민 지원 정책은 농촌 지역의 경제적 안정과 공공 복지 증진에 기여하여 매우 긍정적인 공익성을 보여줍니다."
+      },
+      {
+        "item_id": 190279,
+        "data_title": "사회적 기업 지원",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "사회적 기업 지원 정책은 공익성을 높이고 사회적 약자를 돕는 역할을 강화하여 매우 우수한 평가를 받을 수 있습니다."
+      },
+      {
+        "item_id": 190280,
+        "data_title": "문화 정책 개선",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "A",
+        "rating_rationale": "모든 시민이 문화 혜택을 누릴 수 있도록 하는 문화 정책은 공공복지 증진에 크게 기여하고 있어 매우 긍정적입니다."
+      },
+      {
+        "item_id": 190281,
+        "data_title": "디지털 격차 해소",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "디지털 격차 해소 정책은 사회적 약자에게 정보 접근성을 높여주는 중요한 조치로, 공익적 가치가 매우 높습니다."
+      },
+      {
+        "item_id": 190282,
+        "data_title": "사회적 약자에 대한 정책 미비",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "사회적 약자에 대한 정책 미비는 공공의 이익을 저해할 수 있는 요소로, 정책 개선이 필요함을 알리는 미흡한 점이 있습니다."
+      },
+      {
+        "item_id": 190283,
+        "data_title": "김동연의 공공복지 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "김동연의 저소득층과 사회적 약자를 위한 정책은 지역 주민의 생활 수준 향상에 큰 기여를 하고 있어 매우 우수한 평가를 받습니다."
+      },
+      {
+        "item_id": 190284,
+        "data_title": "김동연의 사회적 약자 지원 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "사회적 약자에 대한 지원 정책은 이들의 삶의 질을 높이는 데 중점을 두고 있어, 공익성 측면에서 매우 우수한 평가를 받을 수 있습니다."
+      },
+      {
+        "item_id": 190285,
+        "data_title": "환경 보호를 위한 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "환경 보호를 최우선으로 두고 지속 가능한 발전을 위한 정책을 시행함으로써 공공의 이익을 증진하는 데 기여하고 있어 매우 우수합니다."
+      },
+      {
+        "item_id": 190286,
+        "data_title": "주택 정책의 공공성",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "서민 주택 정책을 강화하고 공공임대주택 공급을 늘리는 노력은 저소득층에게 큰 도움이 되어 매우 긍정적인 평가를 받을 수 있습니다."
+      },
+      {
+        "item_id": 190287,
+        "data_title": "공공의료 정책 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "모든 시민이 의료 서비스를 받을 수 있도록 공공의료 시스템을 강화하는 정책은 공익성을 고려한 매우 우수한 사례입니다."
+      },
+      {
+        "item_id": 190288,
+        "data_title": "교통 정책의 접근성",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "대중교통 접근성 개선을 통해 사회적 약자를 고려한 정책은 공공의 이익 증진에 기여하고 있어 매우 우수한 평가를 받을 수 있습니다."
+      },
+      {
+        "item_id": 190289,
+        "data_title": "청년 정책과 공공성",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "청년을 위한 일자리 창출과 교육 기회 확대는 사회적 약자 계층을 배려하는 중요한 기여로 평가되며, 공익성 측면에서 매우 우수합니다."
+      },
+      {
+        "item_id": 190294,
+        "data_title": "김동연의 공익성 평가",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "김동연의 다양한 공공복지 정책은 지역 사회에서 긍정적으로 평가받고 있어 공익성에 대한 평가가 매우 높습니다."
+      },
+      {
+        "item_id": 190291,
+        "data_title": "김동연의 재정 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "복지 예산을 늘리는 것은 긍정적이지만 재정 효율성이 떨어지는 지적이 있어 우수하나 보완이 필요한 점이 있습니다."
+      },
+      {
+        "item_id": 190292,
+        "data_title": "공공사업 투명성",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "D",
+        "rating_rationale": "공공사업의 투명성 부족으로 비판을 받는 점은 신뢰에 악영향을 미칠 수 있으며, 보통 수준의 평가를 받습니다."
+      },
+      {
+        "item_id": 163311,
+        "data_title": "김동연의 공익 중심 예산 배분 정책",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "김동연의 예산 배분 정책은 국민 전체의 이익을 고려하여 교육과 복지 분야에 자금을 우선 배정함으로써 공익성을 극대화했다."
+      },
+      {
+        "item_id": 163312,
+        "data_title": "김동연의 환경 보호 공익 캠페인 참여",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "환경 보호 캠페인 참여는 개인 이익보다 국가적 공익을 강조하며 지속 가능한 발전을 추구하는 매우 긍정적인 사례이다."
+      },
+      {
+        "item_id": 163313,
+        "data_title": "김동연의 지역 복지 확대 노력",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "지역 복지 프로그램 확대를 위한 법안 발의는 저소득층 지원을 강화하고 공공의 이익을 위해 헌신한 점에서 매우 우수하다."
+      },
+      {
+        "item_id": 163314,
+        "data_title": "김동연의 공익 교육 정책 추진",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "공교육 개혁을 통해 학생들에게 균등한 교육 기회를 보장한 점은 사익 중심 교육 시스템에서 벗어나 공익을 우선시한 훌륭한 사례이다."
+      },
+      {
+        "item_id": 163315,
+        "data_title": "김동연의 공공 주택 공급 증가",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "공공 주택 공급 증가 정책은 저소득 가구의 주거 문제를 해결하며 사회적 공정성을 높이는 데 기여한 바가 크다."
+      },
+      {
+        "item_id": 163316,
+        "data_title": "김동연의 건강 보험 개혁",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "건강 보험 개혁을 통해 모든 국민의 의료 접근성을 높인 점은 공공의 이익을 위한 매우 중요한 정책으로 평가된다."
+      },
+      {
+        "item_id": 163317,
+        "data_title": "김동연의 재난 대비 공익 프로젝트",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "재난 대비 공익 프로젝트 추진은 국민 안전을 강화하고 공공 자원을 효과적으로 배분한 점에서 매우 긍정적이다."
+      },
+      {
+        "item_id": 163318,
+        "data_title": "김동연의 노인 복지 지원",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "노인 복지 정책 강화를 통해 고령화 사회 문제를 해결하려는 노력은 공익을 우선시한 매우 우수한 사례이다."
+      },
+      {
+        "item_id": 163319,
+        "data_title": "김동연의 청년 일자리 창출",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "청년 일자리 창출을 위한 공익 프로젝트 주도는 실업률 감소와 사회적 안정 도모에 기여한 점에서 매우 긍정적이다."
+      },
+      {
+        "item_id": 163320,
+        "data_title": "김동연의 문화 예술 공익 지원",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "문화 예술 분야에 대한 공익 지원 확대는 사회적 다양성을 촉진하고 공공 문화 접근성을 높이는 데 기여한 점에서 매우 우수하다."
+      },
+      {
+        "item_id": 163321,
+        "data_title": "김동연의 공익 뉴스 인터뷰",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "김동연이 공익을 우선하는 정치 철학을 강조하며, 국민 이익 중심의 정책을 설명한 점에서 매우 긍정적이다."
+      },
+      {
+        "item_id": 163322,
+        "data_title": "김동연의 사회적 기업 지원 보도",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "사회적 기업 지원을 통해 취약 계층의 고용을 촉진한 김동연의 행보는 공익을 중시하는 뛰어난 사례로 평가된다."
+      },
+      {
+        "item_id": 163323,
+        "data_title": "김동연의 공익 토론회 참석",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "공익 관련 토론회에서 사익 추구를 비판하고 공공 이익을 위한 제안을 한 점은 그의 정치적 신뢰성을 높였다."
+      },
+      {
+        "item_id": 163324,
+        "data_title": "김동연의 환경 캠페인 보도",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "환경 보호 캠페인을 통해 공익 우선의 노력을 강조한 점은 사회적 인식 개선에 기여하여 매우 긍정적이다."
+      },
+      {
+        "item_id": 163325,
+        "data_title": "김동연의 복지 정책 뉴스",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "복지 정책에서 공익을 중시하며 사익을 배제한 조치가 칭찬받은 점은 그의 정치적 가치가 잘 드러난다."
+      },
+      {
+        "item_id": 163326,
+        "data_title": "김동연의 교육 개혁 보도",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "교육 개혁에 대한 공익 중심 접근이 공평한 교육을 추진한 점에서 매우 우수한 공익적 의도를 보여준다."
+      },
+      {
+        "item_id": 163327,
+        "data_title": "김동연의 주거 정책 기사",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "주거 정책에서 공익을 우선시킨 결정이 사회적 찬사를 받은 점은 그의 정책이 국민에게 긍정적인 영향을 미친다."
+      },
+      {
+        "item_id": 163328,
+        "data_title": "김동연의 건강 정책 인터뷰",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "건강 보험 개혁에 대한 공익 중심의 노력이 강조된 점은 그의 정치 행보가 사회적 필요를 잘 반영하고 있다."
+      },
+      {
+        "item_id": 163329,
+        "data_title": "김동연의 재난 대비 뉴스",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "재난 대비 프로젝트에서 공공 안전을 우선시킨 점은 시민의 안전과 복지를 중시하는 훌륭한 접근이다."
+      },
+      {
+        "item_id": 163330,
+        "data_title": "김동연의 노인 복지 보도",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "노인 복지 지원에서 공익을 중시한 정책이 사회적 공감을 얻은 점은 그의 정치적 의도가 매우 긍정적임을 보여준다."
+      },
+      {
+        "item_id": 163331,
+        "data_title": "김동연의 일자리 창출 기사",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "김동연의 청년 일자리 창출 정책은 공익을 우선시하며, 사익 추구를 피한 점이 매우 긍정적이다."
+      },
+      {
+        "item_id": 163332,
+        "data_title": "김동연의 문화 지원 보도",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "문화 예술 지원을 통해 사회적 다양성을 증진시키는 공익적 접근이 매우 우수하다."
+      },
+      {
+        "item_id": 163333,
+        "data_title": "김동연의 공익 발언 인터뷰",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "공익 관련 발언을 통해 정치적 신뢰를 높인 점에서 매우 긍정적인 평가를 받을 수 있다."
+      },
+      {
+        "item_id": 163334,
+        "data_title": "김동연의 사회적 기업 뉴스",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "사회적 기업 지원을 통해 공익을 우선시킨 점이 강조되며, 사회적 가치를 높인 것이 매우 우수하다."
+      },
+      {
+        "item_id": 163335,
+        "data_title": "김동연의 환경 캠페인 기사",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "환경 캠페인을 통해 공익 중심의 노력이 두드러지며, 사익 추구를 피한 점이 긍정적이다."
+      },
+      {
+        "item_id": 163336,
+        "data_title": "김동연의 사익 관련 의혹 논란",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "H",
+        "rating_rationale": "사익 추구 혐의가 있는 경우는 공익을 우선하지 못한 결정으로 사회적 신뢰를 크게 훼손하고 있다."
+      },
+      {
+        "item_id": 163337,
+        "data_title": "김동연의 공익 무시 정책 비판",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "H",
+        "rating_rationale": "사익 우선 비판과 예산 부적절 사용은 공익 배제의 심각성을 드러내며, 치명적 결함을 나타낸다."
+      },
+      {
+        "item_id": 163338,
+        "data_title": "김동연의 부패 의혹 사건",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "H",
+        "rating_rationale": "부패 의혹은 공익보다 사익을 우선한 행위로 사회적 신뢰를 심각하게 훼손한 사례이다."
+      },
+      {
+        "item_id": 163339,
+        "data_title": "김동연의 공익 배제 결정",
+        "collected_by": "Grok",
+        "original_rating": "H",
+        "new_rating": "H",
+        "rating_rationale": "공익 프로젝트 배제는 사익 중심의 행보로, 정책 오류를 초래하고 부정적인 영향을 미쳤다."
+      },
+      {
+        "item_id": 163340,
+        "data_title": "김동연의 사익 우선 정책 논란",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "H",
+        "rating_rationale": "사익 우선 정책 논란은 공익을 고려하지 않은 결정으로, 정치적 신뢰에 심각한 타격을 준다."
+      },
+      {
+        "item_id": 163341,
+        "data_title": "김동연의 공익 무시 의혹 보도",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "H",
+        "rating_rationale": "김동연의 공익 무시 의혹이 보도되어 정치적 신뢰를 떨어뜨렸으며, 이는 공익을 심각하게 훼손한 사례로 평가된다."
+      },
+      {
+        "item_id": 163342,
+        "data_title": "김동연의 부패 스캔들 기사",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "H",
+        "rating_rationale": "부패 스캔들이 폭로되며 사익 추구가 공익을 훼손한 사례로 지적되었고, 이는 사회적 파장을 일으켰다."
+      },
+      {
+        "item_id": 163343,
+        "data_title": "김동연의 공익 배제 보도",
+        "collected_by": "Grok",
+        "original_rating": "H",
+        "new_rating": "H",
+        "rating_rationale": "김동연의 결정이 공익을 배제한 것으로 비판받고 있으며, 이는 심각한 공익적 결함을 의미한다."
+      },
+      {
+        "item_id": 163344,
+        "data_title": "김동연의 정책 실패 논란",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "H",
+        "rating_rationale": "정책 실패가 사익 중심으로 나타났으며, 공익 실현의 부족이 비판받아 공익적 가치가 심각하게 훼손되었다."
+      },
+      {
+        "item_id": 163345,
+        "data_title": "김동연의 사익 의혹 인터뷰",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "H",
+        "rating_rationale": "사익 의혹에 대한 인터뷰에서 공익 무시가 지적되었으며, 이는 사회적 논란을 일으켰다."
+      },
+      {
+        "item_id": 163346,
+        "data_title": "김동연의 부패 관련 기사",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "H",
+        "rating_rationale": "부패 관련 기사가 공개되며 사익 추구가 공익을 훼손한 사례로 드러났고, 이는 매우 심각한 문제이다."
+      },
+      {
+        "item_id": 163347,
+        "data_title": "김동연의 공익 배반 보도",
+        "collected_by": "Grok",
+        "original_rating": "H",
+        "new_rating": "H",
+        "rating_rationale": "공익 배반 의혹이 보도되었으며, 이는 김동연의 결정이 공익을 심각하게 해치는 것을 반영한다."
+      },
+      {
+        "item_id": 163348,
+        "data_title": "김동연의 사익 우선 뉴스",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "H",
+        "rating_rationale": "사익 우선 행보가 보도되며 공익 무시가 지적되었고, 이는 정치적 신뢰를 크게 해치는 결과를 초래한다."
+      },
+      {
+        "item_id": 163349,
+        "data_title": "김동연의 정책 논란 기사",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "H",
+        "rating_rationale": "정책 논란이 사익 중심으로 평가되었으며, 이는 공익을 훼손한 심각한 문제로 간주된다."
+      },
+      {
+        "item_id": 163350,
+        "data_title": "김동연의 부패 스캔들 보도",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "H",
+        "rating_rationale": "부패 스캔들이 보도되며 공익 무시가 심각하게 지적되었고, 이는 치명적인 결함으로 평가된다."
+      },
+      {
+        "item_id": 163351,
+        "data_title": "김동연의 공익 무시 사건",
+        "collected_by": "Grok",
+        "original_rating": "H",
+        "new_rating": "H",
+        "rating_rationale": "김동연이 공익을 무시하고 사익을 추구한 사건이 공식 기록에 확인되어, 심각한 결함으로 평가됨."
+      },
+      {
+        "item_id": 163352,
+        "data_title": "김동연의 사익 관련 문제",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "H",
+        "rating_rationale": "공공 데이터에서 드러난 사익 관련 문제는 김동연의 공익 실현 부족을 명확히 보여주며, 치명적 결함으로 간주됨."
+      },
+      {
+        "item_id": 163353,
+        "data_title": "김동연의 부패 의혹 기록",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "H",
+        "rating_rationale": "부패 의혹이 공식 기록에 남아 있는데, 이는 공익을 배제한 행보로 매우 심각한 평가를 받음."
+      },
+      {
+        "item_id": 163354,
+        "data_title": "김동연의 공익 배제 결정",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "H",
+        "rating_rationale": "공익을 배제한 결정이 공식 문서에 확인되어, 김동연의 사익 추구가 치명적 결함으로 간주됨."
+      },
+      {
+        "item_id": 163355,
+        "data_title": "김동연의 정책 비판 기록",
+        "collected_by": "Grok",
+        "original_rating": "H",
+        "new_rating": "H",
+        "rating_rationale": "김동연의 정책이 공익을 무시한 것으로 기록되어, 사익 중심의 문제로 매우 부정적 평가를 받음."
+      },
+      {
+        "item_id": 163356,
+        "data_title": "김동연의 사익 의혹 보도",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "H",
+        "rating_rationale": "사익 의혹 보도가 나오며, 공익 무시가 비판의 중심이 되어 치명적인 결함으로 평가됨."
+      },
+      {
+        "item_id": 163357,
+        "data_title": "김동연의 부패 뉴스",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "H",
+        "rating_rationale": "부패 뉴스가 공개되어 김동연의 사익 추구가 공익을 훼손한 것으로 평가됨, 매우 부정적임."
+      },
+      {
+        "item_id": 163358,
+        "data_title": "김동연의 공익 배반 기사",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "H",
+        "rating_rationale": "공익 배반 기사가 보도되어 김동연의 행보가 심각한 비판을 받으며, 치명적인 결함으로 평가됨."
+      },
+      {
+        "item_id": 163359,
+        "data_title": "김동연의 정책 실패 보도",
+        "collected_by": "Grok",
+        "original_rating": "H",
+        "new_rating": "H",
+        "rating_rationale": "정책 실패 보도가 사익 중심의 문제를 지적하며, 이는 공익을 무시한 것으로 매우 부정적 평가를 받음."
+      },
+      {
+        "item_id": 163360,
+        "data_title": "김동연의 사익 우선 논란",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "H",
+        "rating_rationale": "사익 우선 논란이 보도되어 공익 무시가 주요 이슈로 부각되어 치명적인 결함으로 평가됨."
+      },
+      {
+        "item_id": 112639,
+        "data_title": "경기도지사 취임 후 재정 건전성 우려",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "복지 예산 편성으로 재정 압박이 발생하며, 지속 가능한 재정 운영에 부정적인 영향을 주고 있어 공익성이 미흡하다."
+      },
+      {
+        "item_id": 112640,
+        "data_title": "전임 지사 시절 감사원 지적사항",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "H",
+        "rating_rationale": "예산 집행의 부적절성이 지적되어 신뢰성에 치명적인 결함이 있으며, 이는 공공의 이익을 해치는 심각한 문제이다."
+      },
+      {
+        "item_id": 112641,
+        "data_title": "공약 이행 지연",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "D",
+        "rating_rationale": "공약 이행 지연은 시민의 기대를 저버리며, 정책의 신뢰성을 떨어뜨리지만 큰 피해는 발생하지 않아 보통으로 평가된다."
+      },
+      {
+        "item_id": 112642,
+        "data_title": "정책 일관성 부족",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "정책 방향의 잦은 변경이 혼선을 초래하여 일관성이 부족하며, 이는 공공의 이해에 부정적인 영향을 미친다."
+      },
+      {
+        "item_id": 112643,
+        "data_title": "예산 배분의 형평성 문제",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "특정 지역과 산업에 대한 편중된 예산 배분은 형평성을 해치며, 이는 사회적 불평등을 심화시켜 공익성에 부족함을 드러낸다."
+      },
+      {
+        "item_id": 112644,
+        "data_title": "경기도 재정 적자 문제",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "H",
+        "rating_rationale": "재정 적자로 인한 운영 논란은 지방정부의 신뢰성을 크게 해치며, 공익에 대한 심각한 우려를 초래한다."
+      },
+      {
+        "item_id": 112645,
+        "data_title": "부동산 정책 일관성 부족",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "부동산 정책의 일관성 부족은 시민들에게 혼란을 주고, 정책의 효과성을 저하시키며, 공익성에 미흡한 영향을 미친다."
+      },
+      {
+        "item_id": 112646,
+        "data_title": "국정 운영 경험 부족",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "G",
+        "rating_rationale": "국정 운영 경험 부족은 지방정부 운영에 있어 치명적인 결함을 드러내고, 이는 시민의 이익을 심각하게 저해할 수 있다."
+      },
+      {
+        "item_id": 112647,
+        "data_title": "인건비 및 복지예산 증가 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "F",
+        "rating_rationale": "인건비와 복지예산의 급격한 증가는 재정 압박을 초래하고, 이는 공공 서비스의 지속 가능성에 부정적 영향을 미쳐 부족하다."
+      },
+      {
+        "item_id": 112648,
+        "data_title": "지역 균형발전 미흡",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "수도권 중심 정책으로 인해 타 지역의 발전 격차가 심화되고 있어, 이는 사회적 불균형을 초래하며 공익성이 미흡하다."
+      },
+      {
+        "item_id": 112649,
+        "data_title": "경기도 기본소득 정책 추진",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "사회적 약자를 직접 지원하는 정책으로, 기본소득은 경제적 안정성을 높여 공익성 기여도가 매우 높음."
+      },
+      {
+        "item_id": 112650,
+        "data_title": "코로나19 대응 지원",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "코로나19 대응으로 경기도민에게 재난기본소득을 지급한 것은 즉각적이고 실질적인 지원으로 공익성이 매우 우수함."
+      },
+      {
+        "item_id": 112651,
+        "data_title": "경기도형 일자리 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "청년 일자리 창출과 중소기업 지원은 경제 활성화에 기여하나, 다소 제한된 범위로 공익성에서 A보다는 낮음."
+      },
+      {
+        "item_id": 112652,
+        "data_title": "환경 정책 추진",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "탄소중립 및 친환경 에너지 정책은 지속 가능한 발전을 위한 필수적인 조치로, 공익성이 매우 높음."
+      },
+      {
+        "item_id": 112653,
+        "data_title": "사회적경제 활성화",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "사회적기업과 협동조합을 지원하는 정책은 사회적 경제 활성화에 기여하나, 상대적으로 직접적인 효과는 제한적임."
+      },
+      {
+        "item_id": 112654,
+        "data_title": "교통 복지 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "무상교통 확대와 대중교통 인프라 개선은 대중교통 이용자의 삶의 질을 향상시켜 공익성에서 높은 점수를 받음."
+      },
+      {
+        "item_id": 112655,
+        "data_title": "농업 지원 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "농민 기본소득과 농업 지원 정책은 농업인의 경제적 안정과 지역 경제에 긍정적 영향을 미쳐 공익성이 매우 높음."
+      },
+      {
+        "item_id": 112656,
+        "data_title": "문화 복지 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "문화예술 지원과 지역 문화 인프라 확충은 문화 향유 기회를 확대하나, 다른 정책에 비해 즉각적인 효과는 다소 낮음."
+      },
+      {
+        "item_id": 112657,
+        "data_title": "교육 지원 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "학생 교육비 지원과 평생교육 프로그램 운영은 교육 기회를 확대하여 사회 전반의 발전에 기여함으로 공익성이 매우 큼."
+      },
+      {
+        "item_id": 112658,
+        "data_title": "장애인 복지 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "장애인 고용 지원 및 복지 서비스 확대는 장애인의 삶의 질 향상에 기여하여 공익성이 매우 높음."
+      },
+      {
+        "item_id": 112659,
+        "data_title": "청년 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "청년 주거 및 일자리 지원 정책은 청년층의 경제적 안정과 사회적 지위 향상에 크게 기여할 수 있어 공익성이 매우 높음."
+      },
+      {
+        "item_id": 112660,
+        "data_title": "중소기업 지원",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "중소기업 금융 지원 및 성장 지원 정책은 지역 경제 활성화와 일자리 창출에 중요한 역할을 하므로 공익성이 매우 우수함."
+      },
+      {
+        "item_id": 112661,
+        "data_title": "여성 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "여성 일자리 지원 및 성평등 정책 추진은 사회적 약자인 여성의 권리 향상과 평등한 기회를 제공하여 공익성이 매우 높음."
+      },
+      {
+        "item_id": 112662,
+        "data_title": "보건 의료 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "지역 보건소 확충 및 의료 서비스 개선은 주민들의 건강 증진과 삶의 질 향상에 직접적으로 기여하므로 공익성이 매우 우수함."
+      },
+      {
+        "item_id": 112663,
+        "data_title": "공정 경제 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "지역 경제 불평등 해소를 위한 정책은 사회적 형평성을 높이고 지역 주민들의 생활 수준을 향상시켜 공익성이 매우 높음."
+      },
+      {
+        "item_id": 112664,
+        "data_title": "주거 복지 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "청년 주택 및 공공주택 공급 확대는 주거 문제 해결에 중요한 기여를 하여 특히 청년층의 생활 안정에 도움이 되어 공익성이 매우 우수함."
+      },
+      {
+        "item_id": 112665,
+        "data_title": "공동체 복지 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "지역 공동체 활성화 및 마을 만들기 지원은 사회적 연대감 및 공동체 의식을 증진시키지만, 상대적으로 개별적 영향력이 낮아 우수 등급 부여."
+      },
+      {
+        "item_id": 112666,
+        "data_title": "노인 복지 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "노인 일자리 및 복지 서비스 확대는 고령화 사회의 문제를 해결하고 노인의 삶의 질을 향상시켜 공익성이 매우 높음."
+      },
+      {
+        "item_id": 112667,
+        "data_title": "소상공인 지원",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "코로나19 피해 소상공인 지원 정책 실행은 경제적 위기를 겪고 있는 소상공인들을 돕는데 필수적이며 공익성이 매우 우수함."
+      },
+      {
+        "item_id": 112668,
+        "data_title": "지역 균형 발전",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "경기 북부 지역 개발 및 지원 정책은 지역 균형 발전을 도모하지만, 실행의 구체성에 따라 효과가 다를 수 있어 우수 등급 부여."
+      },
+      {
+        "item_id": 112669,
+        "data_title": "취약계층 지원 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "청년 기본소득 확대와 농어촌 지역 복지 정책은 취약계층의 삶의 질을 크게 향상시키고, 사회적 불평등을 줄이는 데 기여함."
+      },
+      {
+        "item_id": 112670,
+        "data_title": "코로나19 대응",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "코로나19 대응을 위한 재난기본소득 지급과 방역 지원은 국민의 건강과 경제적 안정을 동시에 도모하여 공익성이 매우 높음."
+      },
+      {
+        "item_id": 112671,
+        "data_title": "주거 복지 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "청년 주택 공급 확대와 임대주택 지원은 주거 불안 해소에 기여하여 청년층의 경제적 부담을 덜어주는 중요한 정책임."
+      },
+      {
+        "item_id": 112672,
+        "data_title": "환경 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "탄소중립 정책과 친환경 에너지 확대는 환경 보호에 기여하지만, 실행 가능성과 실효성에 대한 우려가 있음."
+      },
+      {
+        "item_id": 112673,
+        "data_title": "농어촌 지원 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "농어촌 소득 지원과 균형 발전 정책은 지역 경제 활성화에 기여하지만, 일부 지역에만 집중될 가능성이 있어 우수하나 한계가 있음."
+      },
+      {
+        "item_id": 112674,
+        "data_title": "장애인 복지 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "장애인 취업 지원 및 복지 서비스 확대는 사회적 약자를 보호하고 자립을 지원하여 공익성이 매우 높음."
+      },
+      {
+        "item_id": 112675,
+        "data_title": "교육 지원 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "저소득층 학생을 위한 교육 지원과 격차 해소 노력은 교육 평등을 실현하는 데 기여하여 사회적 공익성이 큼."
+      },
+      {
+        "item_id": 112676,
+        "data_title": "코로나19 백신 접종",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "신속하고 체계적인 백신 접종 지원은 공공 건강을 지키는 데 필수적이며, 사회적 안전망을 강화하는 데 기여함."
+      },
+      {
+        "item_id": 112677,
+        "data_title": "소상공인 지원",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "코로나19 피해 소상공인 지원은 경제적 어려움을 겪는 이들에게 실질적인 도움을 주어 사회적 안정에 기여함."
+      },
+      {
+        "item_id": 112678,
+        "data_title": "공공일자리 창출",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "청년 및 취약계층 대상 공공일자리 확대는 고용 창출과 사회적 안전망을 강화하여 공익성이 매우 높음."
+      },
+      {
+        "item_id": 112679,
+        "data_title": "보건의료 인프라",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "지역 의료 서비스 확충과 공공의료 강화는 시민의 건강을 직접적으로 보호하는 중요한 정책으로, 공익성이 매우 높습니다."
+      },
+      {
+        "item_id": 112680,
+        "data_title": "교통 인프라 개선",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "대중교통 접근성 개선은 모든 시민의 이동권과 삶의 질 향상에 기여하여 공익적 가치가 큽니다."
+      },
+      {
+        "item_id": 112681,
+        "data_title": "노인 복지 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "노인 복지 정책은 사회적 약자인 노인을 지원하여 공공의 이익을 증진시키는 매우 긍정적인 정책입니다."
+      },
+      {
+        "item_id": 112682,
+        "data_title": "성평등 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "여성의 일자리 지원 및 성차별 해소는 사회적 평등을 증진시키는 중요한 정책으로, 공공의 이익에 기여합니다."
+      },
+      {
+        "item_id": 112683,
+        "data_title": "다문화 가정 지원",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "다문화 가정 지원 정책은 사회적 통합과 차별 해소에 기여하여 공익성이 매우 높습니다."
+      },
+      {
+        "item_id": 112684,
+        "data_title": "에너지 복지",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "저소득층에 대한 에너지 바우처 지원 확대는 경제적 불평등 해소 및 기본 생활을 보장하는 중요한 공익적 조치입니다."
+      },
+      {
+        "item_id": 112685,
+        "data_title": "청년 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "청년 창업 지원 및 주거 안정 정책은 미래 세대를 위한 지속 가능한 발전에 기여하여 공익성이 높습니다."
+      },
+      {
+        "item_id": 112686,
+        "data_title": "재난 대응",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "재난 대응 시스템 구축은 국민의 안전을 지키기 위한 필수적인 정책으로, 공공의 이익에 크게 기여합니다."
+      },
+      {
+        "item_id": 112687,
+        "data_title": "정신건강 지원",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "정신건강 지원은 코로나19로 인한 심리적 어려움을 극복하는 데 중요한 역할을 하며, 사회적 공익을 증진시킵니다."
+      },
+      {
+        "item_id": 112688,
+        "data_title": "환경 보호",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "미세먼지 저감 및 생태계 보존 정책은 환경 보호와 국민 건강을 위해 필수적인 조치로, 공익성이 매우 높습니다."
+      }
+    ],
+    "Grok": [
+      {
+        "item_id": 190243,
+        "data_title": "김동연의 공공복지 증진 노력",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "김동연이 저소득층을 위한 주거 지원 정책을 통해 사회적 약자를 배려하고 국민의 삶의 질 향상에 기여한 점이 매우 우수하다. 공공의 이익을 우선시하는 정책 추진이 인상적이다."
+      },
+      {
+        "item_id": 190244,
+        "data_title": "사회적 약자 보호 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "장애인과 노인을 위한 복지 확대 정책을 통해 사회적 약자의 권익을 증진시키고 사회의 공공성을 높인 점이 매우 우수하다. 이러한 정책은 공공의 이익에 크게 기여한다."
+      },
+      {
+        "item_id": 190245,
+        "data_title": "환경 보호 관련 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "기후 변화 대응과 지속 가능한 발전을 위한 환경 보호 정책을 적극 추진한 점이 매우 우수하다. 이는 공공의 이익을 위한 중요한 노력으로 평가된다."
+      },
+      {
+        "item_id": 190246,
+        "data_title": "사회적 약자 지원 예산 증대",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "사회적 약자 지원 예산을 증대시켜 이들이 더 나은 삶을 누릴 수 있도록 한 정책이 매우 우수하다. 공공의 이익을 위한 중요한 결정으로 평가된다."
+      },
+      {
+        "item_id": 190247,
+        "data_title": "청년 정책 시행",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "청년을 위한 다양한 정책을 통해 일자리 창출 및 지원을 강화한 점이 매우 우수하다. 젊은 세대의 공공복지 증진에 기여하는 긍정적인 정책이다."
+      },
+      {
+        "item_id": 190248,
+        "data_title": "공공 교통 정책 개선",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "대중교통의 접근성을 높이기 위한 정책을 추진한 점은 양호하지만, 여전히 많은 개선이 필요하다는 점에서 공공의 이익에 대한 기여도가 제한적이다."
+      },
+      {
+        "item_id": 190249,
+        "data_title": "복지 정책의 실효성 문제",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "복지 정책의 일부가 사회적 약자에게 큰 도움이 되지 않는다는 실효성 문제가 제기된 점에서 공공의 이익을 위한 노력이 미흡하다. 개선이 필요하다."
+      },
+      {
+        "item_id": 190250,
+        "data_title": "정책의 일관성 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "정책의 일관성이 부족하여 공공의 이익을 위한 방향성이 명확하지 않은 점이 부족하다. 이는 사회적 약자에게 혼란을 초래할 수 있는 요소로 작용한다."
+      },
+      {
+        "item_id": 190251,
+        "data_title": "공공 이익에 대한 관심 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "G",
+        "new_rating": "G",
+        "rating_rationale": "공공의 이익을 위한 정책 추진에서 소극적인 모습을 보이고 사익에 대한 우려를 낳는 점이 매우 부족하다. 이는 공공의 신뢰를 저하시키는 요소로 작용할 수 있다."
+      },
+      {
+        "item_id": 190252,
+        "data_title": "사회적 약자 무시 문제",
+        "collected_by": "ChatGPT",
+        "original_rating": "H",
+        "new_rating": "G",
+        "rating_rationale": "사회적 약자의 목소리를 무시하거나 반영하지 않는 정책이 있어 이들의 권익을 보장하지 못하는 점이 매우 부족하다. 공공의 이익을 위한 노력이 부족하다."
+      },
+      {
+        "item_id": 190253,
+        "data_title": "사회적 약자 지원 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "김동연의 사회적 약자를 위한 지원 정책은 저소득층의 주거 및 의료 서비스 접근성을 높여 사회적 불평등 해소에 기여하고 있다. 많은 시민들이 긍정적으로 평가하고 있어 매우 우수한 공익성을 가진다."
+      },
+      {
+        "item_id": 190254,
+        "data_title": "환경 보호 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "환경 보호 정책은 지속 가능한 발전을 목표로 청정 에너지 사용을 장려하며, 지역사회의 환경 개선과 주민 건강 증진에 기여하고 있다. 이는 매우 우수한 공익성을 나타낸다."
+      },
+      {
+        "item_id": 190255,
+        "data_title": "소외계층 지원 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "소외계층을 위한 다양한 프로그램 운영과 복지 서비스 확대는 노인 및 장애인의 삶의 질을 높이고 많은 시민들에게 긍정적인 영향을 주고 있다. 이는 매우 우수한 공익성을 가진다."
+      },
+      {
+        "item_id": 190256,
+        "data_title": "학교 급식 개선",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "학교 급식 개선 정책은 학생들의 건강 증진과 교육 환경 개선에 기여하며, 교육 기회의 평등을 촉진하고 있다. 이는 매우 우수한 공익성을 가진다."
+      },
+      {
+        "item_id": 190257,
+        "data_title": "공공교통 개선 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "공공교통 시스템 개선은 시민들의 이동 편의를 증진시키고 교통 혼잡 문제를 해결하려는 노력으로, 공공의 이익을 우선시하는 매우 우수한 정책이다."
+      },
+      {
+        "item_id": 190258,
+        "data_title": "청년 일자리 창출",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "청년 일자리 창출 정책은 사익을 우선시하는 경향이 있고, 실행력이 부족하다는 비판이 있다. 이는 공익성을 보통 수준으로 평가할 수밖에 없다."
+      },
+      {
+        "item_id": 190259,
+        "data_title": "재난 대응 능력 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "재난 대응 능력 강화 정책의 구체성이 부족해 공공의 이익을 보장하는 데 한계가 있다. 이는 미흡한 공익성을 나타낸다."
+      },
+      {
+        "item_id": 190260,
+        "data_title": "주거 안정 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "주거 안정화 정책이 실제 효과를 거두지 못하고 있으며, 일부 계층에만 혜택을 주어 공공의 이익을 저해할 수 있다는 우려가 있다. 이는 미흡한 공익성을 가진다."
+      },
+      {
+        "item_id": 190261,
+        "data_title": "정책 투명성 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "G",
+        "new_rating": "F",
+        "rating_rationale": "정책 결정 과정에서 투명성이 부족해 공공의 이익을 해칠 수 있으며, 시민들의 신뢰를 잃고 있다. 이는 부족한 공익성을 나타낸다."
+      },
+      {
+        "item_id": 190262,
+        "data_title": "사회 통합 정책 미비",
+        "collected_by": "ChatGPT",
+        "original_rating": "H",
+        "new_rating": "F",
+        "rating_rationale": "사회 통합 정책이 미비해 다양한 사회적 갈등을 해소하지 못하고 있으며, 공공의 이익을 우선시하지 못하고 있다. 이는 부족한 공익성을 가진다."
+      },
+      {
+        "item_id": 190263,
+        "data_title": "공공복지 지원 확대",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "김동연의 저소득층 가구를 위한 복지 정책 강화는 경제적 어려움에 처한 가구에 실질적인 도움이 되었고, 공공복지 증진에 기여하였다. 이는 매우 우수한 공익성 정책으로 평가된다."
+      },
+      {
+        "item_id": 190264,
+        "data_title": "소외 계층을 위한 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "장애인과 어르신을 위한 맞춤형 정책은 그들의 삶의 질을 향상시키고 사회 통합을 이루기 위한 노력으로, 공공의 이익을 최우선으로 고려한 매우 우수한 정책이다."
+      },
+      {
+        "item_id": 190265,
+        "data_title": "환경 보호 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "환경 보호를 위한 정책은 지속 가능한 발전을 위한 다양한 프로젝트를 시행하여 공공의 이익을 고려한 것으로, 매우 우수한 공익성 정책이다."
+      },
+      {
+        "item_id": 190266,
+        "data_title": "청년 일자리 창출",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "청년 실업 문제 해결을 위한 일자리 창출 프로그램은 많은 청년들이 안정적인 일자리를 얻을 수 있게 하여 경제적 자립을 돕는 매우 우수한 공익성 정책이다."
+      },
+      {
+        "item_id": 190267,
+        "data_title": "소득 불평등 해소 노력",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "소득 불평등 해소를 위한 정책은 저소득층에 대한 지원을 강화하여 사회적 약자를 배려하고 공공의 이익을 우선시하는 매우 우수한 정책이다."
+      },
+      {
+        "item_id": 190268,
+        "data_title": "주거 안정 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "주거 안정성을 위한 정책은 무주택자와 저소득 가구에 대한 지원을 확대하여 공공의 이익을 증진시키고 사회적 약자를 보호하는 매우 우수한 정책이다."
+      },
+      {
+        "item_id": 190269,
+        "data_title": "공공 의료 서비스 개선",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "공공 의료 서비스 개선을 위한 정책은 저소득층과 사회적 약자들이 더 나은 의료 서비스를 받을 수 있도록 하여 공공의 이익을 우선시한 매우 우수한 정책이다."
+      },
+      {
+        "item_id": 190270,
+        "data_title": "문화 예술 지원 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "지역 문화 예술 활성화를 위한 정책은 사회적 약자도 문화 혜택을 누릴 수 있도록 하여 공공의 이익을 고려한 매우 우수한 정책이다."
+      },
+      {
+        "item_id": 190271,
+        "data_title": "교통 복지 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "저소득층을 위한 교통 복지 정책은 이동의 자유를 보장하고 사회적 약자의 생활 향상에 기여하여 공공의 이익을 우선시한 매우 우수한 정책이다."
+      },
+      {
+        "item_id": 190272,
+        "data_title": "사회적 기업 지원",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "A",
+        "rating_rationale": "사회적 기업 지원 정책은 지역 경제와 사회적 약자에게 긍정적인 영향을 미쳐 공공의 이익을 우선시한 매우 우수한 정책이다."
+      },
+      {
+        "item_id": 190273,
+        "data_title": "김동연의 복지 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "김동연의 복지 정책은 저소득층과 장애인을 위한 지원 프로그램을 확대함으로써 공공 복지 증진에 매우 기여하고 있음. 이는 매우 우수한 공익성 행보로 평가됨."
+      },
+      {
+        "item_id": 190274,
+        "data_title": "환경 정책 추진",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "환경 정책은 지속 가능한 발전과 에너지 전환을 통해 사회 전체의 이익을 도모하고 있으며, 이는 매우 우수한 공익성 행보로 평가됨."
+      },
+      {
+        "item_id": 190275,
+        "data_title": "공공 교통 개선",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "대중교통 개선 프로젝트는 시민들의 이동 편의성을 향상시켜 공공의 이익을 도모하고 있으며, 이는 매우 우수한 공익성 행보로 평가됨."
+      },
+      {
+        "item_id": 190276,
+        "data_title": "정신 건강 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "정신 건강 정책은 사회적 인식을 높이고 공공의 건강 증진에 기여하고 있으며, 이는 매우 우수한 공익성 행보로 평가됨."
+      },
+      {
+        "item_id": 190277,
+        "data_title": "주거 복지 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "주거 복지 정책은 저소득층의 주거 안정을 도모하여 공공의 이익을 증진시키고 있으며, 이는 매우 우수한 공익성 행보로 평가됨."
+      },
+      {
+        "item_id": 190278,
+        "data_title": "농민 지원 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "농민 지원 정책은 농촌 지역의 경제적 안정과 공공 복지 증진에 기여하고 있으며, 이는 매우 우수한 공익성 행보로 평가됨."
+      },
+      {
+        "item_id": 190279,
+        "data_title": "사회적 기업 지원",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "사회적 기업 지원 정책은 공익성을 높이고 사회적 약자를 돕는 역할을 함으로써 매우 우수한 공익성 행보로 평가됨."
+      },
+      {
+        "item_id": 190280,
+        "data_title": "문화 정책 개선",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "A",
+        "rating_rationale": "문화 정책은 모든 시민이 문화 혜택을 누릴 수 있도록 하여 공공복지 증진에 기여하고 있으며, 이는 매우 우수한 공익성 행보로 평가됨."
+      },
+      {
+        "item_id": 190281,
+        "data_title": "디지털 격차 해소",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "디지털 격차 해소 정책은 사회적 약자에게 정보 접근성을 높여주는 중요한 조치로, 매우 우수한 공익성 행보로 평가됨."
+      },
+      {
+        "item_id": 190282,
+        "data_title": "사회적 약자에 대한 정책 미비",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "사회적 약자에 대한 정책 미비는 공공의 이익을 저해하는 요소로, 이는 미흡한 공익성 행보로 평가됨."
+      },
+      {
+        "item_id": 190283,
+        "data_title": "김동연의 공공복지 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "김동연이 저소득층과 사회적 약자를 위한 지원 프로그램을 확대하여 지역 주민들의 생활 수준을 향상시키고 있으며, 이는 공공복지 증진에 매우 기여하는 것으로 평가됩니다."
+      },
+      {
+        "item_id": 190284,
+        "data_title": "김동연의 사회적 약자 지원 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "김동연이 장애인, 노인, 아동을 위한 복지 프로그램을 확대하여 사회적 약자의 삶의 질을 높이고 있으며, 이는 사회적 약자를 배려하는 매우 우수한 정책으로 평가됩니다."
+      },
+      {
+        "item_id": 190285,
+        "data_title": "환경 보호를 위한 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "김동연이 환경 보호를 최우선으로 두고 지속 가능한 발전을 위한 정책을 시행하고 있으며, 이는 지역 사회의 미래를 위한 매우 중요한 기여로 평가됩니다."
+      },
+      {
+        "item_id": 190286,
+        "data_title": "주택 정책의 공공성",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "김동연이 서민 주택 정책을 강화하고 공공임대주택 공급을 늘려 저소득층에게 큰 도움을 주고 있으며, 이는 주택 문제 해결에 매우 기여하는 것으로 평가됩니다."
+      },
+      {
+        "item_id": 190287,
+        "data_title": "공공의료 정책 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "김동연이 공공의료 시스템을 강화하고 저소득층을 위한 무료 진료 프로그램을 시행하여 모든 시민이 의료 서비스를 받을 수 있도록 하고 있으며, 이는 매우 우수한 공익성 정책입니다."
+      },
+      {
+        "item_id": 190288,
+        "data_title": "교통 정책의 접근성",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "김동연이 대중교통의 접근성을 높이고 사회적 약자를 고려한 교통편의 개선에 힘쓰고 있으며, 이는 공공의 이익을 증진하는 매우 우수한 정책입니다."
+      },
+      {
+        "item_id": 190289,
+        "data_title": "청년 정책과 공공성",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "김동연이 청년들을 위한 일자리 창출과 교육 기회를 확대하여 사회적 약자 계층의 청년들을 배려하고 있으며, 이는 공공의 이익을 위한 매우 중요한 기여로 평가됩니다."
+      },
+      {
+        "item_id": 190294,
+        "data_title": "김동연의 공익성 평가",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "김동연이 공공의 이익을 우선시하며 사회적 약자를 위한 다양한 정책을 추진하여 공공복지 증진에 크게 기여하고 있으며, 이는 매우 우수한 공익성으로 평가받습니다."
+      },
+      {
+        "item_id": 190291,
+        "data_title": "김동연의 재정 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "김동연이 공공 재정 운영에서 복지 예산을 늘려 사회적 약자에게 혜택을 제공하고 있으나, 재정 효율성이 떨어진다는 지적이 있어 양호한 수준으로 평가됩니다."
+      },
+      {
+        "item_id": 190292,
+        "data_title": "공공사업 투명성",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "김동연이 공공사업의 투명성을 높이기 위해 노력하고 있으나, 일부 프로젝트의 투명성 부족으로 비판을 받고 있어 공공의 신뢰에 악영향을 미칠 수 있어 미흡한 수준으로 평가됩니다."
+      },
+      {
+        "item_id": 163311,
+        "data_title": "김동연의 공익 중심 예산 배분 정책",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "김동연이 예산 배분에서 공익 프로젝트에 우선순위를 두어 교육과 복지 분야에 더 많은 자금을 할당한 것은 매우 우수한 공익성 행위로 평가됩니다. 이는 사익을 배제하고 국민 전체의 이익을 고려한 결정으로, 지역 불균형 해소에도 기여했습니다."
+      },
+      {
+        "item_id": 163312,
+        "data_title": "김동연의 환경 보호 공익 캠페인 참여",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "환경 보호 캠페인에 적극 참여하고 공공 자원을 활용한 오염 방지 프로젝트를 추진한 것은 개인 이익보다 국가적 공익을 우선시킨 매우 우수한 행위입니다. 지속 가능한 발전을 강조한 점도 높이 평가됩니다."
+      },
+      {
+        "item_id": 163313,
+        "data_title": "김동연의 지역 복지 확대 노력",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "지역 사회의 복지 프로그램을 확대하기 위해 공익을 중시한 법안 발의를 주도한 것은 저소득층 지원을 강화하고 공공의 이익을 실현한 매우 우수한 행위입니다. 사익 추구를 배제한 점도 높이 평가됩니다."
+      },
+      {
+        "item_id": 163314,
+        "data_title": "김동연의 공익 교육 정책 추진",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "공교육 개혁을 통해 공익을 우선시킨 정책을 도입하고 학생들의 균등한 교육 기회를 보장한 것은 매우 우수한 공익성 행위입니다. 사익 중심의 교육 시스템을 탈피한 점도 높이 평가됩니다."
+      },
+      {
+        "item_id": 163315,
+        "data_title": "김동연의 공공 주택 공급 증가",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "주거 안정성을 위한 공공 주택 공급을 늘린 정책은 사익보다는 공익을 중시하며 저소득 가구의 주거 문제를 해결한 매우 우수한 행위입니다. 사회적 공정성 향상에 기여한 점도 높이 평가됩니다."
+      },
+      {
+        "item_id": 163316,
+        "data_title": "김동연의 건강 보험 개혁",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "건강 보험 시스템을 개혁하며 공익을 우선하고 모든 국민의 의료 접근성을 높인 것은 사익 추구를 배제하고 공공의 이익을 실현한 매우 우수한 행위입니다. 이는 사회적 공익에 크게 기여했습니다."
+      },
+      {
+        "item_id": 163317,
+        "data_title": "김동연의 재난 대비 공익 프로젝트",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "자연 재난 대비를 위한 공익 프로젝트를 추진하고 공공 자원을 효과적으로 배분한 것은 국민 안전을 강화한 매우 우수한 행위입니다. 사익보다 공익을 중시한 정치 행보로 높이 평가됩니다."
+      },
+      {
+        "item_id": 163318,
+        "data_title": "김동연의 노인 복지 지원",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "노인 복지 정책을 강화하며 공익을 우선하고 연금 제도 개선과 의료 지원을 통해 고령화 사회 문제를 해결한 것은 사익 배제를 강조한 매우 우수한 행위입니다. 이는 사회적 공익에 크게 기여했습니다."
+      },
+      {
+        "item_id": 163319,
+        "data_title": "김동연의 청년 일자리 창출",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "청년 일자리 창출을 위한 공익 프로젝트를 주도하고 사익보다는 공공의 이익을 위해 정책을 설계한 것은 실업률 감소와 사회적 안정에 기여한 매우 우수한 행위입니다. 이는 공익성을 매우 잘 실현한 사례로 평가됩니다."
+      },
+      {
+        "item_id": 163320,
+        "data_title": "김동연의 문화 예술 공익 지원",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "문화 예술 분야의 공익 지원을 확대하고 사익 추구를 피해 공공 문화 접근성을 높인 것은 사회적 다양성을 촉진한 매우 우수한 행위입니다. 이는 공익성을 매우 잘 실현한 사례로 평가됩니다."
+      },
+      {
+        "item_id": 163321,
+        "data_title": "김동연의 공익 뉴스 인터뷰",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "김동연이 공익을 우선하는 철학을 강조한 인터뷰는 그의 공익 지향성을 대중에게 명확히 알린 기회로, 매우 우수한 공익성 평가를 받을 수 있다."
+      },
+      {
+        "item_id": 163322,
+        "data_title": "김동연의 사회적 기업 지원 보도",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "사회적 기업 지원 활동은 취약 계층의 고용을 촉진하며 사익을 배제한 공익 중심의 행보로, 매우 우수한 공익성 평가를 받을 수 있다."
+      },
+      {
+        "item_id": 163323,
+        "data_title": "김동연의 공익 토론회 참석",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "공익 관련 토론회 참석과 사익 추구 비판은 그의 정치적 신뢰성을 높이는 매우 우수한 공익성 활동으로 평가된다."
+      },
+      {
+        "item_id": 163324,
+        "data_title": "김동연의 환경 캠페인 보도",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "환경 보호 캠페인은 사익 배제된 프로젝트로 사회적 인식을 높였으며, 매우 우수한 공익성 활동으로 평가된다."
+      },
+      {
+        "item_id": 163325,
+        "data_title": "김동연의 복지 정책 뉴스",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "복지 정책은 공공 이익을 위한 조치로, 사익이 아닌 공익을 중시한 점에서 매우 우수한 공익성 평가를 받을 수 있다."
+      },
+      {
+        "item_id": 163326,
+        "data_title": "김동연의 교육 개혁 보도",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "교육 개혁 정책은 공익 중심의 접근으로 공평한 교육을 추진하였으며, 매우 우수한 공익성 평가를 받을 수 있다."
+      },
+      {
+        "item_id": 163327,
+        "data_title": "김동연의 주거 정책 기사",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "주거 정책은 공익을 우선시킨 내용으로 사익 추구를 피한 결정으로 사회적 찬사를 받았으며, 매우 우수한 공익성 평가를 받을 수 있다."
+      },
+      {
+        "item_id": 163328,
+        "data_title": "김동연의 건강 정책 인터뷰",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "건강 보험 개혁 인터뷰는 공익 중심의 노력을 강조한 사례로, 사익 배제된 정치 행보로 매우 우수한 공익성 평가를 받을 수 있다."
+      },
+      {
+        "item_id": 163329,
+        "data_title": "김동연의 재난 대비 뉴스",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "재난 대비 프로젝트는 공공 안전을 우선시한 점에서 매우 우수한 공익성 활동으로 평가된다."
+      },
+      {
+        "item_id": 163330,
+        "data_title": "김동연의 노인 복지 보도",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "노인 복지 지원은 공익을 중시한 정책으로 사익 배제된 접근이 사회적 공감을 얻었으며, 매우 우수한 공익성 평가를 받을 수 있다."
+      },
+      {
+        "item_id": 163331,
+        "data_title": "김동연의 일자리 창출 기사",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "김동연의 청년 일자리 창출 정책이 공익 중심으로 평가받으며, 사익 추구를 피한 노력이 강조되었으므로 매우 우수한 등급을 부여함."
+      },
+      {
+        "item_id": 163332,
+        "data_title": "김동연의 문화 지원 보도",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "문화 예술 지원에 대한 김동연의 공익 접근이 사회적 다양성을 촉진하였고, 사익 배제가 강조되었으므로 매우 우수한 등급을 부여함."
+      },
+      {
+        "item_id": 163333,
+        "data_title": "김동연의 공익 발언 인터뷰",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "김동연의 공익 관련 발언이 사익보다 공익을 우선하는 태도로 평가받으며 정치적 신뢰를 높였으므로 매우 우수한 등급을 부여함."
+      },
+      {
+        "item_id": 163334,
+        "data_title": "김동연의 사회적 기업 뉴스",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "사회적 기업 지원 활동에서 김동연의 공익 우선 태도가 강조되었고, 사익 배제된 정책이 사회적 가치를 더했으므로 매우 우수한 등급을 부여함."
+      },
+      {
+        "item_id": 163335,
+        "data_title": "김동연의 환경 캠페인 기사",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "김동연의 환경 캠페인이 공익 중심의 노력으로 부각되었고, 사익 추구를 피한 행보가 칭찬받았으므로 매우 우수한 등급을 부여함."
+      },
+      {
+        "item_id": 163336,
+        "data_title": "김동연의 사익 관련 의혹 논란",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "김동연이 특정 사업에서 사익을 추구한 혐의로 공익을 우선하지 못한 결정이 비판받았고, 공공 자원 남용 의혹으로 이어졌으므로 부족한 등급을 부여함."
+      },
+      {
+        "item_id": 163337,
+        "data_title": "김동연의 공익 무시 정책 비판",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "김동연의 정책이 사익을 우선시한 것으로 비판받았고, 공익 프로젝트의 예산이 부적절하게 사용된 사례가 드러났으므로 부족한 등급을 부여함."
+      },
+      {
+        "item_id": 163338,
+        "data_title": "김동연의 부패 의혹 사건",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "G",
+        "rating_rationale": "김동연이 관련된 부패 의혹이 공식 문서에서 확인되었고, 공익보다는 사익을 우선한 행위가 사회적 신뢰를 훼손하였으므로 매우 부족한 등급을 부여함."
+      },
+      {
+        "item_id": 163339,
+        "data_title": "김동연의 공익 배제 결정",
+        "collected_by": "Grok",
+        "original_rating": "H",
+        "new_rating": "F",
+        "rating_rationale": "김동연의 결정으로 인해 공익 프로젝트가 배제되었고, 사익 중심의 행보가 비판받아 정책 오류를 초래하였으므로 부족한 등급을 부여함."
+      },
+      {
+        "item_id": 163340,
+        "data_title": "김동연의 사익 우선 정책 논란",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "김동연의 사익 우선 정책이 논란이 되었고, 행정안전부 감사 기록에서 이를 확인할 수 있었으므로 부족한 등급을 부여함."
+      },
+      {
+        "item_id": 163341,
+        "data_title": "김동연의 공익 무시 의혹 보도",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "김동연의 사익 관련 의혹이 공익을 무시한 것으로 보도되어 신뢰를 떨어뜨림. 이는 공익성에 매우 부정적인 영향을 미침."
+      },
+      {
+        "item_id": 163342,
+        "data_title": "김동연의 부패 스캔들 기사",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "F",
+        "rating_rationale": "부패 스캔들이 공개되어 사익 추구가 공익을 훼손한 사례로 지적됨. 이는 사회적 파장을 일으켜 공익성에 부정적."
+      },
+      {
+        "item_id": 163343,
+        "data_title": "김동연의 공익 배제 보도",
+        "collected_by": "Grok",
+        "original_rating": "H",
+        "new_rating": "F",
+        "rating_rationale": "김동연의 결정이 공익을 배제한 것으로 보도되어 사익 우선의 문제가 제기됨. 이는 공익성에 매우 부족한 행위."
+      },
+      {
+        "item_id": 163344,
+        "data_title": "김동연의 정책 실패 논란",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "정책 실패가 사익 중심으로 보도되어 공익 실현이 부족하다고 비판받음. 이는 공익성에 미흡한 수준."
+      },
+      {
+        "item_id": 163345,
+        "data_title": "김동연의 사익 의혹 인터뷰",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "사익 의혹 인터뷰가 보도되어 공익 무시가 지적됨. 이는 사회적 논란을 야기해 공익성에 부족함."
+      },
+      {
+        "item_id": 163346,
+        "data_title": "김동연의 부패 관련 기사",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "F",
+        "rating_rationale": "부패 관련 기사가 공개되어 사익 추구가 공익을 훼손한 사례로 드러남. 이는 공익성에 매우 부정적."
+      },
+      {
+        "item_id": 163347,
+        "data_title": "김동연의 공익 배반 보도",
+        "collected_by": "Grok",
+        "original_rating": "H",
+        "new_rating": "F",
+        "rating_rationale": "공익 배반 의혹이 보도되어 김동연의 결정이 비판받음. 이는 공익성에 매우 부족한 행위."
+      },
+      {
+        "item_id": 163348,
+        "data_title": "김동연의 사익 우선 뉴스",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "사익 우선 행보가 보도되어 공익 무시가 지적됨. 이는 공익성에 매우 부족한 수준."
+      },
+      {
+        "item_id": 163349,
+        "data_title": "김동연의 정책 논란 기사",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "정책 논란이 보도되어 사익 중심의 문제가 공익을 훼손한 것으로 평가됨. 이는 공익성에 미흡한 수준."
+      },
+      {
+        "item_id": 163350,
+        "data_title": "김동연의 부패 스캔들 보도",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "F",
+        "rating_rationale": "부패 스캔들이 보도되어 공익 무시가 심각하게 지적됨. 이는 공익성에 매우 부족한 행위."
+      },
+      {
+        "item_id": 163351,
+        "data_title": "김동연의 공익 무시 사건",
+        "collected_by": "Grok",
+        "original_rating": "H",
+        "new_rating": "G",
+        "rating_rationale": "김동연의 공익 무시 사건이 공식 기록에서 확인되었으며, 사익 추구가 비판받고 있어 매우 부족한 공익성을 보임."
+      },
+      {
+        "item_id": 163352,
+        "data_title": "김동연의 사익 관련 문제",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "G",
+        "rating_rationale": "김동연의 사익 관련 문제가 공공 데이터에서 드러나며, 공익 실현이 부족하다고 감사원에서 보고되어 매우 부족한 공익성을 보임."
+      },
+      {
+        "item_id": 163353,
+        "data_title": "김동연의 부패 의혹 기록",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "G",
+        "rating_rationale": "부패 의혹이 공식 기록에 남아 있으며, 공익을 배제한 행보가 법무부 데이터에서 지적되어 매우 부족한 공익성을 보임."
+      },
+      {
+        "item_id": 163354,
+        "data_title": "김동연의 공익 배제 결정",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "G",
+        "rating_rationale": "공익 배제 결정이 공식 문서에서 확인되며, 사익 추구가 문제된 것으로 정부 보고서에서 확인되어 매우 부족한 공익성을 보임."
+      },
+      {
+        "item_id": 163355,
+        "data_title": "김동연의 정책 비판 기록",
+        "collected_by": "Grok",
+        "original_rating": "H",
+        "new_rating": "G",
+        "rating_rationale": "김동연의 정책이 공익을 무시한 것으로 국회 위원회 문서에 기록되어 있으며, 사익 중심이 지적되어 매우 부족한 공익성을 보임."
+      },
+      {
+        "item_id": 163356,
+        "data_title": "김동연의 사익 의혹 보도",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "G",
+        "rating_rationale": "사익 의혹 보도가 나오며, 김동연의 공익 무시가 언론 보도 자료에서 비판받고 있어 매우 부족한 공익성을 보임."
+      },
+      {
+        "item_id": 163357,
+        "data_title": "김동연의 부패 뉴스",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "G",
+        "rating_rationale": "부패 뉴스가 공개되며, 김동연의 사익 추구가 공익을 훼손한 것으로 뉴스 기사에서 평가되어 매우 부족한 공익성을 보임."
+      },
+      {
+        "item_id": 163358,
+        "data_title": "김동연의 공익 배반 기사",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "G",
+        "rating_rationale": "공익 배반 기사가 보도되며, 김동연의 행보가 언론 자료에서 비판의 대상이 되어 매우 부족한 공익성을 보임."
+      },
+      {
+        "item_id": 163359,
+        "data_title": "김동연의 정책 실패 보도",
+        "collected_by": "Grok",
+        "original_rating": "H",
+        "new_rating": "G",
+        "rating_rationale": "정책 실패 보도가 나오며, 사익 중심의 문제가 공익을 무시한 것으로 뉴스 보고에서 지적되어 매우 부족한 공익성을 보임."
+      },
+      {
+        "item_id": 163360,
+        "data_title": "김동연의 사익 우선 논란",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "G",
+        "rating_rationale": "김동연의 사익 우선 논란이 보도되며, 공익 무시가 공개 뉴스에서 주요 이슈로 부각되어 매우 부족한 공익성을 보임."
+      },
+      {
+        "item_id": 112639,
+        "data_title": "경기도지사 취임 후 재정 건전성 우려",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "과도한 복지 예산 편성으로 인해 지방재정에 부담을 주는 것은 공익성 측면에서 미흡하다. 재정 건전성이 훼손되면 장기적으로 지역 발전에 악영향을 미칠 수 있다."
+      },
+      {
+        "item_id": 112640,
+        "data_title": "전임 지사 시절 감사원 지적사항",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "경제부지사 재직 중 예산 집행의 부적절성으로 감사원에 지적받은 것은 공익성에 부정적인 영향을 미친다. 부적절한 예산 집행은 신뢰성을 떨어뜨리고, 공공 자원의 효율적 사용을 저해한다."
+      },
+      {
+        "item_id": 112641,
+        "data_title": "공약 이행 지연",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "D",
+        "rating_rationale": "공약 이행이 지연된 것은 공익성 측면에서 보통 수준이다. 공약 이행 지연은 주민들의 기대를 저버리는 행위로, 공공의 이익을 위해 신속한 이행이 필요하다."
+      },
+      {
+        "item_id": 112642,
+        "data_title": "정책 일관성 부족",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "정책 방향의 잦은 변경은 공익성에 미흡하다. 일관성 부족은 혼란을 초래하고, 주민들의 신뢰를 잃게 하며, 정책의 효과성을 떨어뜨린다."
+      },
+      {
+        "item_id": 112643,
+        "data_title": "예산 배분의 형평성 문제",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "특정 지역 및 산업에 편중된 예산 배분은 공익성 측면에서 미흡하다. 형평성 문제는 사회적 불평등을 심화시키고, 전체적인 지역 발전을 저해한다."
+      },
+      {
+        "item_id": 112644,
+        "data_title": "경기도 재정 적자 문제",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "심각한 재정 적자는 공익성에 부정적인 영향을 미친다. 재정 운영의 문제는 지방정부의 안정성을 해치고, 장기적으로 주민들에게 부담을 줄 수 있다."
+      },
+      {
+        "item_id": 112645,
+        "data_title": "부동산 정책 일관성 부족",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "부동산 정책의 일관성 부족은 공익성 측면에서 미흡하다. 잦은 변경과 혼란은 주민들의 불안을 증가시키고, 부동산 시장의 안정성을 해친다."
+      },
+      {
+        "item_id": 112646,
+        "data_title": "국정 운영 경험 부족",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "D",
+        "rating_rationale": "국정 운영 경험 부족은 공익성 측면에서 보통 수준이다. 지방정부 운영에서 실무 능력의 한계가 드러나는 것은 개선이 필요하지만, 경험 부족 자체는 공익성에 치명적이지 않다."
+      },
+      {
+        "item_id": 112647,
+        "data_title": "인건비 및 복지예산 증가 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "인건비 및 복지예산의 급격한 증가는 공익성 측면에서 미흡하다. 재정 압박을 초래할 수 있으며, 지속 가능한 재정 운영을 어렵게 한다."
+      },
+      {
+        "item_id": 112648,
+        "data_title": "지역 균형발전 미흡",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "지역 균형발전이 미흡한 것은 공익성 측면에서 미흡하다. 수도권 중심 정책은 지역 간 격차를 심화시키고, 전체적인 국가 발전에 부정적인 영향을 미친다."
+      },
+      {
+        "item_id": 112649,
+        "data_title": "경기도 기본소득 정책 추진",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "청년 및 농민 등 사회적 약자를 위한 기본소득 정책은 사회적 불평등을 완화하고 공익을 증진시키는 데 매우 기여함. 경기도청 공식 보도자료로 신뢰성도 높음."
+      },
+      {
+        "item_id": 112650,
+        "data_title": "코로나19 대응 지원",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "코로나19 대응을 위한 재난기본소득 지급과 방역 정책은 경기도민의 안전과 생활 안정을 도모하는 데 큰 기여를 함. 경기도 재난안전대책본부의 공식 자료로 신뢰성도 높음."
+      },
+      {
+        "item_id": 112651,
+        "data_title": "경기도형 일자리 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "청년 일자리 창출과 중소기업 지원 정책은 고용 안정과 경제 활성화에 기여함. 경기도 일자리재단의 정책으로 공익성을 인정할 수 있으나, 구체적인 성과가 더 필요함."
+      },
+      {
+        "item_id": 112652,
+        "data_title": "환경 정책 추진",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "탄소중립과 친환경 에너지 정책은 미래 세대를 위한 환경 보호에 기여함. 경기도 기후변화대응과의 정책으로 공익성을 인정할 수 있으나, 실제 효과는 지속적인 모니터링이 필요함."
+      },
+      {
+        "item_id": 112653,
+        "data_title": "사회적경제 활성화",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "사회적기업 및 협동조합 지원 정책은 사회적경제 활성화에 기여함. 경기도 사회적경제과의 정책으로 공익성을 인정할 수 있으나, 영향력이 상대적으로 제한적일 수 있음."
+      },
+      {
+        "item_id": 112654,
+        "data_title": "교통 복지 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "무상교통 확대와 대중교통 인프라 개선은 교통 복지 향상에 기여함. 경기도 교통정책과의 정책으로 공익성을 인정할 수 있으며, 대중의 생활 편의를 증진시킴."
+      },
+      {
+        "item_id": 112655,
+        "data_title": "농업 지원 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "농민 기본소득 도입과 농업 지원 정책은 농업 종사자의 생활 안정과 농업 발전에 매우 기여함. 경기도 농정해양국의 정책으로 신뢰성도 높음."
+      },
+      {
+        "item_id": 112656,
+        "data_title": "문화 복지 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "문화예술 지원 및 지역 문화 인프라 확충은 문화 복지 향상에 기여함. 경기도 문화체육관광국의 정책으로 공익성을 인정할 수 있으나, 영향력이 상대적으로 제한적일 수 있음."
+      },
+      {
+        "item_id": 112657,
+        "data_title": "교육 지원 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "학생 교육비 지원 및 평생교육 프로그램 운영은 교육 기회 확대와 평생학습에 기여함. 경기도교육청의 정책으로 공익성을 인정할 수 있으며, 교육의 질 향상에 기여함."
+      },
+      {
+        "item_id": 112658,
+        "data_title": "장애인 복지 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "장애인 고용 지원 및 복지 서비스 확대는 장애인의 사회 참여와 생활 안정을 도모하는 데 매우 기여함. 경기도 복지국의 정책으로 신뢰성도 높음."
+      },
+      {
+        "item_id": 112659,
+        "data_title": "청년 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "청년 주거 및 일자리 지원은 사회적 약자를 지원하는 중요한 정책으로, 공익성 측면에서 매우 우수하다. 청년층의 사회적 안정을 도모하여 사회 전반의 발전에 기여할 수 있다."
+      },
+      {
+        "item_id": 112660,
+        "data_title": "중소기업 지원",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "중소기업은 경제의 중요한 축으로, 이들을 지원하는 정책은 경제 활성화와 고용 창출에 기여하여 공익성 측면에서 매우 우수하다. 금융 및 성장 지원은 지속 가능한 경제 발전을 도모한다."
+      },
+      {
+        "item_id": 112661,
+        "data_title": "여성 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "여성의 사회적 지위 향상과 성평등 실현은 사회 정의와 공정성을 증진시키는 중요한 요소로, 공익성 측면에서 매우 우수하다. 여성 일자리 지원은 사회 전반의 성평등을 도모한다."
+      },
+      {
+        "item_id": 112662,
+        "data_title": "보건 의료 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "보건소 확충과 의료 서비스 개선은 국민의 건강과 직결되는 중요한 정책으로, 공익성 측면에서 매우 우수하다. 지역 주민의 건강 증진에 직접적인 기여를 한다."
+      },
+      {
+        "item_id": 112663,
+        "data_title": "공정 경제 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "경제 불평등 해소는 사회 안정과 공정성을 증진시키는 중요한 정책으로, 공익성 측면에서 매우 우수하다. 지역 경제의 균형 발전을 도모하여 사회 전반의 복지를 증진한다."
+      },
+      {
+        "item_id": 112664,
+        "data_title": "주거 복지 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "주거 복지는 사회적 안정과 직결되는 중요한 요소로, 청년 주택 및 공공주택 공급 확대는 공익성 측면에서 매우 우수하다. 주거 안정은 사회 전반의 복지를 증진시킨다."
+      },
+      {
+        "item_id": 112665,
+        "data_title": "공동체 복지 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "지역 공동체 활성화와 마을 만들기 지원은 지역 사회의 결속력을 강화하고, 지역 주민의 삶의 질을 향상시키는 중요한 정책으로, 공익성 측면에서 매우 우수하다."
+      },
+      {
+        "item_id": 112666,
+        "data_title": "노인 복지 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "노인 일자리 및 복지 서비스 확대는 고령화 사회에서 중요한 사회적 지원 정책으로, 공익성 측면에서 매우 우수하다. 노인의 사회적 안정과 건강 증진에 기여한다."
+      },
+      {
+        "item_id": 112667,
+        "data_title": "소상공인 지원",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "코로나19 피해 소상공인 지원은 경제적 약자를 지원하는 중요한 정책으로, 공익성 측면에서 매우 우수하다. 소상공인의 생존과 경제 활성화에 기여한다."
+      },
+      {
+        "item_id": 112668,
+        "data_title": "지역 균형 발전",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "지역 균형 발전은 사회적 불균형 해소와 지역 발전을 도모하는 중요한 정책으로, 공익성 측면에서 매우 우수하다. 경기 북부 지역의 발전을 통해 전반적인 사회 복지를 증진시킨다."
+      },
+      {
+        "item_id": 112669,
+        "data_title": "취약계층 지원 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "취약계층인 청년과 농어촌 지역 주민을 위한 기본소득 및 복지 정책은 사회적 불평등 해소에 기여하며, 공익적 가치가 매우 높다."
+      },
+      {
+        "item_id": 112670,
+        "data_title": "코로나19 대응",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "코로나19 대응을 위한 재난기본소득과 방역 지원은 공공의 안전과 건강을 보호하는 데 매우 중요한 역할을 하여 공익성이 매우 우수하다."
+      },
+      {
+        "item_id": 112671,
+        "data_title": "주거 복지 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "청년 주택 공급 및 임대주택 지원 확대는 주거 안정성을 높여 사회적 안전망을 강화하며, 공익적 가치가 매우 높다."
+      },
+      {
+        "item_id": 112672,
+        "data_title": "환경 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "탄소중립 및 친환경 에너지 확대는 미래 세대를 위한 지속 가능한 환경을 조성하는 데 기여하며, 공익성이 매우 우수하다."
+      },
+      {
+        "item_id": 112673,
+        "data_title": "농어촌 지원 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "농어촌 지역 소득 지원 및 지역 균형 발전 정책은 지역 간 격차 해소에 기여하며, 공익적 가치가 매우 높다."
+      },
+      {
+        "item_id": 112674,
+        "data_title": "장애인 복지 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "장애인 취업 지원 및 복지 서비스 확대는 장애인의 사회적 참여와 삶의 질 향상에 기여하며, 공익성이 매우 우수하다."
+      },
+      {
+        "item_id": 112675,
+        "data_title": "교육 지원 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "저소득층 학생 교육 지원 및 교육 격차 해소는 교육 기회의 평등을 증진하며, 공익적 가치가 매우 높다."
+      },
+      {
+        "item_id": 112676,
+        "data_title": "코로나19 백신 접종",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "신속하고 체계적인 백신 접종 지원은 공공의 건강과 안전을 보호하는 데 매우 중요한 역할을 하여 공익성이 매우 우수하다."
+      },
+      {
+        "item_id": 112677,
+        "data_title": "소상공인 지원",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "코로나19 피해 소상공인 지원금 및 경영 지원은 경제적 약자를 보호하고 지역 경제를 활성화하는 데 기여하며, 공익적 가치가 매우 높다."
+      },
+      {
+        "item_id": 112678,
+        "data_title": "공공일자리 창출",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "청년 및 취약계층을 위한 공공일자리 확대는 고용 안정성과 사회적 안전망을 강화하며, 공익성이 매우 우수하다."
+      },
+      {
+        "item_id": 112679,
+        "data_title": "보건의료 인프라",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "지역 의료 서비스 확충과 공공의료 강화는 국민 건강과 직결되는 중요한 공익적 가치를 지니며, 특히 취약 계층의 의료 접근성을 높이는 데 기여한다."
+      },
+      {
+        "item_id": 112680,
+        "data_title": "교통 인프라 개선",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "광역버스 노선 확대와 대중교통 접근성 개선은 대중교통 이용자의 편의를 증진시키며, 교통 혼잡 완화와 환경 보호에 기여하는 공익적 가치가 있다."
+      },
+      {
+        "item_id": 112681,
+        "data_title": "노인 복지 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "노인 일자리 지원과 돌봄 서비스 확대는 고령화 사회에서 노인들의 삶의 질을 향상시키며, 사회적 비용 절감과 경제 활성화에 기여하는 중요한 공익적 가치를 지닌다."
+      },
+      {
+        "item_id": 112682,
+        "data_title": "성평등 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "여성 일자리 지원과 성차별 해소 노력은 성평등을 실현하고 여성의 사회 참여를 촉진하며, 사회 전반의 공정성을 높이는 데 기여하는 매우 우수한 공익적 가치를 지닌다."
+      },
+      {
+        "item_id": 112683,
+        "data_title": "다문화 가정 지원",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "다문화 가정 정착 지원과 차별 해소 정책은 사회 통합과 다문화 가정의 안정적인 생활을 지원하며, 사회적 포용성을 높이는 데 기여하는 매우 우수한 공익적 가치를 지닌다."
+      },
+      {
+        "item_id": 112684,
+        "data_title": "에너지 복지",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "저소득층 에너지 바우처 지원 확대는 경제적 취약 계층의 생활 안정을 도모하며, 에너지 복지를 증진시키는 데 기여하는 우수한 공익적 가치를 지닌다."
+      },
+      {
+        "item_id": 112685,
+        "data_title": "청년 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "청년 창업 지원과 주거 안정 정책은 청년층의 경제적 자립과 사회 참여를 촉진하며, 사회적 안정성과 경제 활성화에 기여하는 우수한 공익적 가치를 지닌다."
+      },
+      {
+        "item_id": 112686,
+        "data_title": "재난 대응",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "자연재해 및 사회재난 대비 시스템 구축은 국민의 생명과 재산을 보호하며, 재난 발생 시 신속한 대응을 가능하게 하는 매우 우수한 공익적 가치를 지닌다."
+      },
+      {
+        "item_id": 112687,
+        "data_title": "정신건강 지원",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "코로나19 심리방역과 정신건강 프로그램은 국민의 정신 건강을 지원하며, 특히 팬데믹 상황에서 심리적 안정과 사회적 회복에 기여하는 매우 우수한 공익적 가치를 지닌다."
+      },
+      {
+        "item_id": 112688,
+        "data_title": "환경 보호",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "미세먼지 저감과 생태계 보존 정책은 환경 보호와 국민 건강 증진에 직접적으로 기여하며, 지속 가능한 발전을 위한 중요한 공익적 가치를 지닌다."
+      }
+    ],
+    "Claude": [
+      {
+        "item_id": 190243,
+        "data_title": "김동연의 공공복지 증진 노력",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "저소득층 주거 지원 등 사회적 약자를 위한 구체적 복지 정책 추진으로 공공의 이익을 직접적으로 증진시키고 있으며, 국민 삶의 질 향상에 실질적으로 기여하고 있어 공익성이 매우 우수함"
+      },
+      {
+        "item_id": 190244,
+        "data_title": "사회적 약자 보호 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "장애인과 노인 등 사회적 약자의 권익 보호를 위한 복지 확대 정책을 시행하여 사회의 공공성을 높이고 있으며, 취약계층의 권리 보장에 적극적으로 기여하고 있어 공익성이 매우 우수함"
+      },
+      {
+        "item_id": 190245,
+        "data_title": "환경 보호 관련 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "기후 변화 대응과 지속 가능한 발전을 위한 환경 보호 정책을 적극 추진하여 현재와 미래 세대의 공공 이익을 동시에 고려하고 있으며, 장기적 관점에서 공익성이 매우 우수함"
+      },
+      {
+        "item_id": 190246,
+        "data_title": "사회적 약자 지원 예산 증대",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "사회적 약자 지원 예산 증대를 통해 공공의 이익을 추구하는 의지를 보여주고 있으나, 구체적인 정책 내용이나 실행 방안에 대한 세부 정보가 부족하여 우수한 수준의 공익성을 보임"
+      },
+      {
+        "item_id": 190247,
+        "data_title": "청년 정책 시행",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "청년층을 위한 일자리 창출 및 지원 정책을 통해 젊은 세대의 복지 증진에 기여하고 있으나, 전체 사회적 약자를 포괄하는 범위가 제한적이어서 우수한 수준의 공익성을 보임"
+      },
+      {
+        "item_id": 190248,
+        "data_title": "공공 교통 정책 개선",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "대중교통 접근성 향상을 통해 주민 삶의 질 개선에 기여하고 있으나, 여전히 많은 개선이 필요하다는 한계가 언급되어 있어 양호한 수준의 공익성을 보임"
+      },
+      {
+        "item_id": 190249,
+        "data_title": "복지 정책의 실효성 문제",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "복지 정책의 실효성 문제로 인해 사회적 약자에게 실질적 도움이 되지 않는 경우가 발생하고 있어, 공익성 추구 의도는 있으나 실제 성과가 미흡한 수준임"
+      },
+      {
+        "item_id": 190250,
+        "data_title": "정책의 일관성 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "정책의 일관성 부족으로 공공 이익을 위한 명확한 방향성이 결여되어 있고, 사회적 약자에게 혼란을 초래할 수 있어 공익성이 부족한 수준임"
+      },
+      {
+        "item_id": 190251,
+        "data_title": "공공 이익에 대한 관심 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "G",
+        "new_rating": "F",
+        "rating_rationale": "공공 이익 추진에 소극적인 모습을 보이며 사익에 대한 우려를 낳고 있어, 공공의 신뢰를 저하시키고 있어 공익성이 부족한 수준임"
+      },
+      {
+        "item_id": 190252,
+        "data_title": "사회적 약자 무시 문제",
+        "collected_by": "ChatGPT",
+        "original_rating": "H",
+        "new_rating": "G",
+        "rating_rationale": "사회적 약자의 목소리를 무시하거나 반영하지 않는 정책을 추진하여 이들의 권익을 보장하지 못하고 있어, 공익성이 매우 부족한 수준임"
+      },
+      {
+        "item_id": 190253,
+        "data_title": "사회적 약자 지원 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "저소득층 주거 지원과 의료 서비스 접근성 향상 등 사회적 약자를 위한 포괄적 정책으로 사회 불평등 해소에 직접적으로 기여하며, 시민들의 긍정적 반응을 얻어 매우 높은 공익성을 보여줍니다."
+      },
+      {
+        "item_id": 190254,
+        "data_title": "환경 보호 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "지속 가능한 발전과 청정 에너지 정책을 통해 환경 보호와 주민 건강 증진을 동시에 추구하는 정책으로, 현재와 미래 세대 모두의 공익을 고려한 매우 우수한 접근입니다."
+      },
+      {
+        "item_id": 190255,
+        "data_title": "소외계층 지원 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "노인과 장애인 등 소외계층을 위한 복지 서비스 확대로 사회적 약자의 삶의 질 향상에 직접적으로 기여하며, 사회 전체의 복지 수준 향상이라는 공익 실현에 매우 우수한 성과를 보입니다."
+      },
+      {
+        "item_id": 190256,
+        "data_title": "학교 급식 개선",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "학교 급식 개선을 통한 학생 건강 증진과 교육 환경 개선은 미래 세대를 위한 중요한 공익 정책이며, 교육 기회 평등에도 기여하여 우수한 공익성을 나타냅니다."
+      },
+      {
+        "item_id": 190257,
+        "data_title": "공공교통 개선 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "대중교통 접근성 향상과 교통 혼잡 해결을 통해 시민들의 이동권 보장과 생활 편의 증진에 기여하며, 환경적 효과도 기대할 수 있어 우수한 공익성을 보여줍니다."
+      },
+      {
+        "item_id": 190258,
+        "data_title": "청년 일자리 창출",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "청년 일자리 창출이라는 중요한 공익 목표를 추구하고 있으나, 일부 정책에서 사익 우선 경향과 실행력 부족이 지적되어 공익 실현에 한계가 있어 보통 수준입니다."
+      },
+      {
+        "item_id": 190259,
+        "data_title": "재난 대응 능력 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "D",
+        "rating_rationale": "재난 대응 능력 강화는 중요한 공익 과제이나, 정책의 구체성 부족과 효과적인 대응 체계 구축 미흡으로 실질적인 공익 보장에 한계가 있어 보통 수준입니다."
+      },
+      {
+        "item_id": 190260,
+        "data_title": "주거 안정 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "주거 안정화라는 중요한 공익 목표를 추구하고 있으나, 실제 효과 부족과 특정 지역·계층에만 혜택이 집중되어 오히려 공익을 저해할 우려가 있어 미흡한 수준입니다."
+      },
+      {
+        "item_id": 190261,
+        "data_title": "정책 투명성 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "G",
+        "new_rating": "F",
+        "rating_rationale": "정책 결정 과정의 투명성 부족은 민주적 거버넌스의 핵심 원칙을 위배하며, 시민 신뢰 저하를 초래하여 공익 실현의 기반 자체를 훼손하는 부족한 수준입니다."
+      },
+      {
+        "item_id": 190262,
+        "data_title": "사회 통합 정책 미비",
+        "collected_by": "ChatGPT",
+        "original_rating": "H",
+        "new_rating": "F",
+        "rating_rationale": "사회 통합 정책 미비로 사회적 갈등 해소에 실패하고 있으며, 이는 사회 안정과 통합이라는 기본적인 공익 가치 실현에 부족함을 보여주는 사례입니다."
+      },
+      {
+        "item_id": 190263,
+        "data_title": "공공복지 지원 확대",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "저소득층 복지 정책 강화로 사회적 약자에게 직접적 혜택을 제공하여 사회 안전망 구축과 공공복지 증진에 크게 기여했습니다. 경제적 어려움 해소를 통한 높은 공익성을 보여줍니다."
+      },
+      {
+        "item_id": 190264,
+        "data_title": "소외 계층을 위한 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "장애인과 어르신을 위한 맞춤형 정책으로 사회적 약자의 삶의 질 향상과 사회 통합을 도모했습니다. 소외계층에 대한 배려와 포용적 사회 구현으로 매우 높은 공익성을 달성했습니다."
+      },
+      {
+        "item_id": 190265,
+        "data_title": "환경 보호 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "환경 보호와 지속가능한 발전을 위한 정책으로 현재와 미래 세대의 공공이익을 고려했습니다. 지역사회 삶의 질 개선에 기여했으나 구체적 성과와 영향 범위가 명확하지 않아 우수 등급입니다."
+      },
+      {
+        "item_id": 190266,
+        "data_title": "청년 일자리 창출",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "청년 실업 문제 해결을 위한 일자리 창출로 사회적 문제 해결에 직접 기여했습니다. 청년층의 경제적 자립 지원을 통해 개인과 사회 전체의 발전을 도모하여 매우 높은 공익성을 보여줍니다."
+      },
+      {
+        "item_id": 190267,
+        "data_title": "소득 불평등 해소 노력",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "소득 불평등 해소를 위한 정책으로 사회적 약자 보호와 사회 형평성 증진에 기여했습니다. 구조적 사회 문제 해결을 통한 공정한 사회 구현으로 매우 높은 공익적 가치를 실현했습니다."
+      },
+      {
+        "item_id": 190268,
+        "data_title": "주거 안정 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "주거 안정성 확보를 통해 기본적 생활권을 보장하고 사회적 약자를 보호했습니다. 주거권이라는 기본권 보장을 통해 사회 안전망을 강화하여 매우 높은 공익성을 달성했습니다."
+      },
+      {
+        "item_id": 190269,
+        "data_title": "공공 의료 서비스 개선",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "공공 의료 서비스 개선으로 건강권이라는 기본권을 보장하고 의료 접근성을 향상시켰습니다. 저소득층과 사회적 약자의 의료 서비스 접근성 개선으로 매우 높은 공익성을 보여줍니다."
+      },
+      {
+        "item_id": 190270,
+        "data_title": "문화 예술 지원 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "문화 예술 지원을 통해 사회적 약자의 문화 접근성을 향상시키고 삶의 질을 개선했습니다. 문화적 권리 보장과 지역 발전에 기여했으나 생존권 관련 정책 대비 상대적으로 우수 등급입니다."
+      },
+      {
+        "item_id": 190271,
+        "data_title": "교통 복지 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "교통 복지 정책으로 이동권을 보장하고 사회적 약자의 사회 참여 기회를 확대했습니다. 기본적 이동권 보장을 통한 사회 통합과 생활 향상으로 매우 높은 공익성을 달성했습니다."
+      },
+      {
+        "item_id": 190272,
+        "data_title": "사회적 기업 지원",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "B",
+        "rating_rationale": "사회적 기업 지원을 통해 지역 경제 활성화와 사회적 약자 지원이라는 이중 효과를 달성했습니다. 지속가능한 사회적 가치 창출에 기여했으나 직접적 복지 정책 대비 상대적으로 우수 등급입니다."
+      },
+      {
+        "item_id": 190273,
+        "data_title": "김동연의 복지 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "저소득층과 장애인 등 사회적 약자를 위한 복지 정책 강화는 사회 전체의 공익성 증진에 직접적으로 기여하며, 공공복지 향상이라는 명확한 공익적 목표를 달성하고 있어 매우 우수한 평가를 받을 수 있습니다."
+      },
+      {
+        "item_id": 190274,
+        "data_title": "환경 정책 추진",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "지속가능한 발전을 위한 환경 정책과 에너지 전환 계획은 현재와 미래 세대 모두의 공익을 고려한 정책으로, 사회 전체의 장기적 이익을 도모하는 매우 공익적인 정책 추진으로 평가됩니다."
+      },
+      {
+        "item_id": 190275,
+        "data_title": "공공 교통 개선",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "대중교통 개선을 통한 교통 혼잡 해결과 시민 이동 편의성 향상은 다수의 시민에게 직접적 혜택을 제공하는 공익적 정책이나, 구체적인 실행 계획이나 성과에 대한 세부 내용이 부족하여 우수 등급으로 평가됩니다."
+      },
+      {
+        "item_id": 190276,
+        "data_title": "정신 건강 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "정신건강 문제에 대한 사회적 인식 개선과 관련 정책 수립은 공공보건 증진이라는 중요한 공익적 가치를 추구하고 있으나, 정책의 구체성과 실효성에 대한 정보가 제한적이어서 우수 등급으로 평가됩니다."
+      },
+      {
+        "item_id": 190277,
+        "data_title": "주거 복지 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "저소득층의 주거 안정을 위한 주거복지 정책은 기본적 생활권 보장이라는 핵심적 공익을 실현하는 정책으로, 사회적 약자 보호와 공공복지 증진에 직접적으로 기여하여 매우 우수한 공익성을 보여줍니다."
+      },
+      {
+        "item_id": 190278,
+        "data_title": "농민 지원 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "농민 지원 정책을 통한 농촌 지역 경제 안정과 공공복지 증진은 특정 계층과 지역의 공익을 도모하는 정책으로, 전체 사회의 균형 발전에 기여하고 있으나 전국민 대상의 포괄성에서는 제한적이어서 우수 등급입니다."
+      },
+      {
+        "item_id": 190279,
+        "data_title": "사회적 기업 지원",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "사회적 기업 지원을 통해 사회적 약자를 돕는 생태계 조성은 간접적이지만 지속가능한 공익 실현 방안으로, 민간 부문과의 협력을 통한 공익성 확산이라는 점에서 우수하나 직접적 효과는 제한적입니다."
+      },
+      {
+        "item_id": 190280,
+        "data_title": "문화 정책 개선",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "모든 시민의 문화 혜택 접근성 향상을 위한 문화 정책은 공공복지의 한 영역으로서 의미가 있으나, 생존권이나 기본권에 비해 상대적으로 우선순위가 낮고 구체적 방안이 모호하여 양호 등급으로 평가됩니다."
+      },
+      {
+        "item_id": 190281,
+        "data_title": "디지털 격차 해소",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "디지털 격차 해소를 통한 사회적 약자의 정보 접근성 향상은 현대 사회에서 중요한 공익적 가치로, 정보 불평등 해소와 사회 통합에 기여하는 의미있는 정책이나 실행 방안의 구체성이 부족하여 우수 등급입니다."
+      },
+      {
+        "item_id": 190282,
+        "data_title": "사회적 약자에 대한 정책 미비",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "사회적 약자에 대한 배려 부족으로 공공의 이익을 저해한다는 비판은 정치인의 핵심적 공익 추구 의무를 제대로 수행하지 못하고 있음을 보여주며, 공익성 관점에서 명백한 결함이 있어 부족 등급으로 평가됩니다."
+      },
+      {
+        "item_id": 190283,
+        "data_title": "김동연의 공공복지 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "저소득층과 사회적 약자를 위한 공공복지 정책 추진으로 지역 주민 생활 수준 향상에 직접적으로 기여하고 있어 공익성이 매우 우수함. 포용적 복지 정책의 모범 사례로 평가됨."
+      },
+      {
+        "item_id": 190284,
+        "data_title": "김동연의 사회적 약자 지원 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "장애인, 노인, 아동 등 사회적 약자를 위한 복지 프로그램 확대로 사회적 포용성을 높이고 있음. 취약계층의 삶의 질 향상에 직접적으로 기여하는 매우 우수한 공익적 정책임."
+      },
+      {
+        "item_id": 190285,
+        "data_title": "환경 보호를 위한 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "환경 보호와 지속 가능한 발전 정책은 현재와 미래 세대 모두의 공공이익에 기여하는 매우 중요한 정책임. 장기적 관점에서 공익성이 매우 우수한 정책 방향으로 평가됨."
+      },
+      {
+        "item_id": 190286,
+        "data_title": "주택 정책의 공공성",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "공공임대주택 공급 확대를 통한 서민 주택 정책은 주거권 보장이라는 기본적 공공이익에 직접적으로 기여함. 저소득층의 주거 안정성 향상에 매우 우수한 공익적 효과를 보임."
+      },
+      {
+        "item_id": 190287,
+        "data_title": "공공의료 정책 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "공공의료 시스템 강화와 저소득층 무료 진료 프로그램은 의료 접근권이라는 기본적 공익을 실현하는 매우 우수한 정책임. 건강권 보장을 통한 사회적 형평성 증진에 크게 기여함."
+      },
+      {
+        "item_id": 190288,
+        "data_title": "교통 정책의 접근성",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "대중교통 접근성 향상과 사회적 약자를 고려한 교통편의 개선은 공공의 이동권 증진에 기여하는 우수한 정책임. 다만 구체적 성과나 효과에 대한 세부 정보가 부족하여 A등급보다는 낮게 평가됨."
+      },
+      {
+        "item_id": 190289,
+        "data_title": "청년 정책과 공공성",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "청년 일자리 창출과 교육 기회 확대는 미래 사회 발전을 위한 우수한 공익적 정책임. 사회적 약자 계층 청년 배려는 긍정적이나, 정책의 구체적 효과나 성과 측정이 명확하지 않아 우수 등급으로 평가됨."
+      },
+      {
+        "item_id": 190294,
+        "data_title": "김동연의 공익성 평가",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "공공이익 우선과 사회적 약자 정책 추진, 저소득층 복지 정책과 교육 기회 확대 등 종합적인 공익성 기여가 지역사회에서 긍정적으로 평가받고 있어 매우 우수한 공익성을 보임."
+      },
+      {
+        "item_id": 190291,
+        "data_title": "김동연의 재정 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "복지 예산 증액을 통한 사회적 약자 지원은 공익적이나, 재정 효율성 부족 지적이 있어 공익성 실현의 지속가능성에 우려가 있음. 공익적 의도는 좋으나 실행 방식에서 개선이 필요한 양호 수준임."
+      },
+      {
+        "item_id": 190292,
+        "data_title": "공공사업 투명성",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "D",
+        "rating_rationale": "공공사업 정보 공개 노력은 긍정적이나, 일부 프로젝트의 투명성 부족으로 공공 신뢰 저하 우려가 있음. 투명성은 공익성의 핵심 요소이므로 이러한 문제는 공익성을 크게 저해하여 보통 등급으로 평가됨."
+      },
+      {
+        "item_id": 163311,
+        "data_title": "김동연의 공익 중심 예산 배분 정책",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "교육과 복지 분야 예산 우선 배분으로 지역 불균형 해소를 추진한 정책은 사익을 배제하고 국민 전체 이익을 고려한 매우 우수한 공익성을 보여줌. 사회적 형평성 증진에 직접적으로 기여하는 정책임."
+      },
+      {
+        "item_id": 163312,
+        "data_title": "김동연의 환경 보호 공익 캠페인 참여",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "환경 보호 캠페인 참여와 오염 방지 프로젝트 추진은 현재와 미래 세대 모두를 위한 지속 가능한 발전을 추구하는 매우 우수한 공익 활동임. 장기적 국가 이익과 환경 보전에 기여하는 정책임."
+      },
+      {
+        "item_id": 163313,
+        "data_title": "김동연의 지역 복지 확대 노력",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "저소득층 지원 강화를 위한 지역 복지 프로그램 확대는 사회적 약자 보호와 복지 사각지대 해소에 직접 기여하는 매우 우수한 공익성을 보임. 사회적 안전망 구축에 실질적 도움을 제공함."
+      },
+      {
+        "item_id": 163314,
+        "data_title": "김동연의 공익 교육 정책 추진",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "공교육 개혁을 통한 균등한 교육 기회 보장은 교육 불평등 해소와 사회 이동성 증진에 기여하는 매우 우수한 공익 정책임. 미래 세대의 공정한 기회 제공이라는 근본적 가치를 실현함."
+      },
+      {
+        "item_id": 163315,
+        "data_title": "김동연의 공공 주택 공급 증가",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "공공 주택 공급 증가 정책은 주거권 보장과 저소득 가구의 주거 안정성 확보에 직접 기여하는 매우 우수한 공익성을 보임. 사회적 공정성과 기본권 보장에 실질적으로 도움을 제공함."
+      },
+      {
+        "item_id": 163316,
+        "data_title": "김동연의 건강 보험 개혁",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "건강 보험 시스템 개혁을 통한 의료 접근성 향상은 국민의 기본적 건강권 보장과 의료 불평등 해소에 기여하는 매우 우수한 공익 정책임. 전 국민의 건강한 삶을 위한 필수적 개혁임."
+      },
+      {
+        "item_id": 163317,
+        "data_title": "김동연의 재난 대비 공익 프로젝트",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "자연 재난 대비 프로젝트 추진은 국민 안전 확보와 재해 예방을 통한 생명 보호에 직접 기여하는 매우 우수한 공익성을 보임. 공공 안전과 위기 관리 체계 강화에 필수적인 정책임."
+      },
+      {
+        "item_id": 163318,
+        "data_title": "김동연의 노인 복지 지원",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "노인 복지 정책 강화와 연금 제도 개선은 고령화 사회 문제 해결과 노인층 삶의 질 향상에 기여하는 매우 우수한 공익성을 보임. 사회적 약자 보호와 세대 간 형평성 실현에 중요한 정책임."
+      },
+      {
+        "item_id": 163319,
+        "data_title": "김동연의 청년 일자리 창출",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "청년 일자리 창출 프로젝트는 청년 실업 문제 해결과 사회적 안정 도모에 기여하는 매우 우수한 공익성을 보임. 미래 경제 활력과 사회 통합에 필수적인 정책으로 평가됨."
+      },
+      {
+        "item_id": 163320,
+        "data_title": "김동연의 문화 예술 공익 지원",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "문화 예술 분야 공익 지원 확대는 문화 접근성 향상과 사회적 다양성 촉진에 기여하는 우수한 공익성을 보임. 다만 다른 기본권 관련 정책들에 비해 상대적으로 우선순위가 낮아 B등급으로 평가함."
+      },
+      {
+        "item_id": 163321,
+        "data_title": "김동연의 공익 뉴스 인터뷰",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "C",
+        "rating_rationale": "공익 우선 정치철학을 강조한 것은 긍정적이나, 단순한 인터뷰 수준으로 구체적인 정책이나 실행방안이 부족하여 실질적 공익 기여도가 제한적임"
+      },
+      {
+        "item_id": 163322,
+        "data_title": "김동연의 사회적 기업 지원 보도",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "사회적 기업 지원을 통한 취약계층 고용 촉진은 실질적인 공익 실현으로 평가되며, 사회적 가치 창출과 경제적 효과를 동시에 달성한 우수한 정책적 성과"
+      },
+      {
+        "item_id": 163323,
+        "data_title": "김동연의 공익 토론회 참석",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "C",
+        "rating_rationale": "공익 토론회 참석으로 사회적 담론 형성에 기여했으나, 토론 참석 자체는 상징적 의미가 강하고 구체적인 정책 실행이나 변화로 이어지지 않아 제한적"
+      },
+      {
+        "item_id": 163324,
+        "data_title": "김동연의 환경 캠페인 보도",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "환경보호 캠페인은 미래세대를 위한 중요한 공익활동이며, 사회적 인식 개선에 기여하여 장기적인 공공이익 실현에 긍정적 영향을 미치는 의미있는 활동"
+      },
+      {
+        "item_id": 163325,
+        "data_title": "김동연의 복지 정책 뉴스",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "복지정책은 사회적 약자 보호와 사회안전망 구축이라는 핵심적 공익을 직접적으로 실현하며, 국민 전체의 삶의 질 향상에 기여하는 매우 우수한 공익활동"
+      },
+      {
+        "item_id": 163326,
+        "data_title": "김동연의 교육 개혁 보도",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "교육개혁을 통한 공평한 교육 기회 제공은 사회 전체의 발전과 개인의 성장 기회 확대라는 근본적 공익을 실현하며, 장기적 사회발전에 핵심적 기여"
+      },
+      {
+        "item_id": 163327,
+        "data_title": "김동연의 주거 정책 기사",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "주거정책은 국민의 기본적 생활권 보장이라는 필수적 공익 영역으로, 사회적 안정과 삶의 질 향상에 직접적으로 기여하는 매우 중요한 공공정책"
+      },
+      {
+        "item_id": 163328,
+        "data_title": "김동연의 건강 정책 인터뷰",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "건강보험 개혁은 국민의 생명과 건강이라는 최우선 공익을 보장하는 정책으로, 의료접근성 향상과 사회보장 강화를 통해 공공복리 증진에 핵심적 역할"
+      },
+      {
+        "item_id": 163329,
+        "data_title": "김동연의 재난 대비 뉴스",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "재난대비 프로젝트는 국민의 생명과 안전을 보호하는 국가의 기본 책무를 수행하는 것으로, 공공안전 확보라는 최우선 공익을 실현하는 필수적 정책"
+      },
+      {
+        "item_id": 163330,
+        "data_title": "김동연의 노인 복지 보도",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "노인복지 지원은 고령화 사회에서 중요한 사회적 과제 해결에 기여하며, 세대간 연대와 사회적 돌봄 체계 구축이라는 공익을 실현하는 의미있는 정책"
+      },
+      {
+        "item_id": 163331,
+        "data_title": "김동연의 일자리 창출 기사",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "청년 일자리 창출은 중요한 공익 사안이며, 사익 추구를 배제한 정책 추진은 공익성 측면에서 긍정적이나, 구체적 성과나 실행 방안에 대한 세부 내용이 부족하여 우수 등급으로 평가"
+      },
+      {
+        "item_id": 163332,
+        "data_title": "김동연의 문화 지원 보도",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "문화예술 지원과 사회적 다양성 촉진은 공익적 가치가 높은 활동이며, 사익 배제를 통한 정책 추진이 사회 전반에 긍정적 영향을 미쳤다고 평가되어 우수 등급 부여"
+      },
+      {
+        "item_id": 163333,
+        "data_title": "김동연의 공익 발언 인터뷰",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "C",
+        "rating_rationale": "공익 우선 태도 표명과 정치적 신뢰 향상은 긍정적이나, 단순 발언 수준에 그치고 구체적 실행이나 성과가 명시되지 않아 양호 등급으로 평가"
+      },
+      {
+        "item_id": 163334,
+        "data_title": "김동연의 사회적 기업 뉴스",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "사회적 기업 지원은 사회적 가치 창출과 공익 실현에 직접적으로 기여하는 정책으로, 사익 배제를 통한 공익 우선 접근이 명확히 나타나 우수 등급으로 평가"
+      },
+      {
+        "item_id": 163335,
+        "data_title": "김동연의 환경 캠페인 기사",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "환경 캠페인은 현세대와 미래세대 모두에게 중요한 공익적 가치를 지니며, 사익 추구 없이 공익 중심으로 추진한 점이 높이 평가되어 우수 등급 부여"
+      },
+      {
+        "item_id": 163336,
+        "data_title": "김동연의 사익 관련 의혹 논란",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "특정 사업에서의 사익 추구 혐의와 공공 자원 남용 의혹은 공익성을 심각하게 훼손하는 행위로, 공직자의 기본 윤리를 위반한 것으로 판단되어 부족 등급으로 평가"
+      },
+      {
+        "item_id": 163337,
+        "data_title": "김동연의 공익 무시 정책 비판",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "공익 프로젝트 예산의 부적절한 사용과 사익 우선 정책은 공공의 이익을 직접적으로 해치는 행위로, 공익성 관점에서 매우 부정적이어서 부족 등급으로 평가"
+      },
+      {
+        "item_id": 163338,
+        "data_title": "김동연의 부패 의혹 사건",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "G",
+        "rating_rationale": "부패 의혹과 사익 우선 행위로 인한 사회적 신뢰 훼손은 공익성을 심각하게 저해하는 치명적 문제로, 공직자로서의 기본 자질에 대한 의문을 제기하여 매우 부족 등급으로 평가"
+      },
+      {
+        "item_id": 163339,
+        "data_title": "김동연의 공익 배제 결정",
+        "collected_by": "Grok",
+        "original_rating": "H",
+        "new_rating": "F",
+        "rating_rationale": "공익 프로젝트 배제와 사익 중심 행보로 인한 정책 오류는 공공의 이익을 직접적으로 해치고 정책의 공정성을 훼손하는 행위로 부족 등급으로 평가"
+      },
+      {
+        "item_id": 163340,
+        "data_title": "김동연의 사익 우선 정책 논란",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "D",
+        "rating_rationale": "뉴스 내용이 제목만 있고 구체적 내용이 없어 정확한 평가가 어려우나, 제목에서 사익 우선 정책 논란이 언급되어 공익성 측면에서 부정적 요소가 있어 보통 등급으로 평가"
+      },
+      {
+        "item_id": 163341,
+        "data_title": "김동연의 공익 무시 의혹 보도",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "사익 관련 의혹과 공익 무시 행보로 정치적 신뢰를 떨어뜨린 것은 공익성 관점에서 명백한 부족을 보여주며, 공직자로서의 기본적 책무를 저버린 행위로 평가됨"
+      },
+      {
+        "item_id": 163342,
+        "data_title": "김동연의 부패 스캔들 기사",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "G",
+        "rating_rationale": "부패 스캔들과 사익 추구로 공익을 훼손하고 사회적 파장을 일으킨 것은 공익성 관점에서 매우 부족한 수준이며, 공직자의 윤리적 기준을 심각하게 위반한 사안으로 판단됨"
+      },
+      {
+        "item_id": 163343,
+        "data_title": "김동연의 공익 배제 보도",
+        "collected_by": "Grok",
+        "original_rating": "H",
+        "new_rating": "F",
+        "rating_rationale": "공익을 배제하고 사익을 우선시한 결정은 공익성 측면에서 부족함을 드러내며, 공직자가 추구해야 할 공공의 이익보다 개인적 이익을 앞세운 문제적 행위로 평가됨"
+      },
+      {
+        "item_id": 163344,
+        "data_title": "김동연의 정책 실패 논란",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "사익 중심의 정책 실패와 공익 실현 부족은 공익성 관점에서 부족한 수준을 보여주며, 정책 입안자로서의 기본적 역할과 책임을 제대로 수행하지 못한 것으로 판단됨"
+      },
+      {
+        "item_id": 163345,
+        "data_title": "김동연의 사익 의혹 인터뷰",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "사익 의혹과 공익 무시로 사회적 논란을 야기한 것은 공익성 측면에서 부족함을 나타내며, 공직자로서 사회적 신뢰와 공공성을 훼손한 심각한 문제로 평가됨"
+      },
+      {
+        "item_id": 163346,
+        "data_title": "김동연의 부패 관련 기사",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "G",
+        "rating_rationale": "부패 관련 사안과 사익 추구로 인한 공익 훼손은 공익성 관점에서 매우 부족한 수준이며, 공직자의 기본적 윤리와 도덕성을 크게 벗어난 행위로 판단됨"
+      },
+      {
+        "item_id": 163347,
+        "data_title": "김동연의 공익 배반 보도",
+        "collected_by": "Grok",
+        "original_rating": "H",
+        "new_rating": "G",
+        "rating_rationale": "공익 배반 의혹은 공익성 측면에서 매우 부족한 수준을 보여주며, 공직자가 지켜야 할 가장 기본적인 원칙인 공익 우선을 정면으로 위배한 심각한 사안으로 평가됨"
+      },
+      {
+        "item_id": 163348,
+        "data_title": "김동연의 사익 우선 뉴스",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "사익 우선 행보와 공익 무시는 공익성 관점에서 부족함을 드러내며, 공직자로서 추구해야 할 공공의 이익보다 개인적 이익을 앞세운 부적절한 행위로 판단됨"
+      },
+      {
+        "item_id": 163349,
+        "data_title": "김동연의 정책 논란 기사",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "사익 중심의 정책으로 공익을 훼손한 것은 공익성 측면에서 부족한 수준이며, 정책 결정 과정에서 공공의 이익보다 사적 이익을 우선시한 문제적 행위로 평가됨"
+      },
+      {
+        "item_id": 163350,
+        "data_title": "김동연의 부패 스캔들 보도",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "H",
+        "rating_rationale": "부패 스캔들과 공익 무시가 심각하게 지적된 것은 공익성 관점에서 치명적 결함을 보여주며, 공직자로서의 기본적 자질과 윤리를 완전히 상실한 극도로 심각한 사안으로 판단됨"
+      },
+      {
+        "item_id": 163351,
+        "data_title": "김동연의 공익 무시 사건",
+        "collected_by": "Grok",
+        "original_rating": "H",
+        "new_rating": "G",
+        "rating_rationale": "공식 기록에 의해 확인된 공익 무시 사건으로, 정치인의 기본 책무인 공익 추구를 명백히 위반한 매우 심각한 사안이며, 사익 추구로 인한 공익성 훼손이 명확히 드러남"
+      },
+      {
+        "item_id": 163352,
+        "data_title": "김동연의 사익 관련 문제",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "G",
+        "rating_rationale": "감사원이라는 공신력 있는 기관의 공공 데이터에서 드러난 사익 관련 문제로, 공익 실현 부족이 객관적으로 입증되어 공익성 관점에서 매우 부족한 수준을 보임"
+      },
+      {
+        "item_id": 163353,
+        "data_title": "김동연의 부패 의혹 기록",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "H",
+        "rating_rationale": "법무부 데이터에 기록된 부패 의혹은 정치인으로서 치명적 결함이며, 공익을 배제한 행보는 민주주의와 공공성의 근간을 흔드는 가장 심각한 공익성 훼손 사안임"
+      },
+      {
+        "item_id": 163354,
+        "data_title": "김동연의 공익 배제 결정",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "G",
+        "rating_rationale": "정부 보고서에 명시된 공익 배제 결정은 정치인의 존재 이유와 정면으로 배치되는 행위로, 의도적인 사익 추구를 통한 공익성 무시가 공식 문서로 확인됨"
+      },
+      {
+        "item_id": 163355,
+        "data_title": "김동연의 정책 비판 기록",
+        "collected_by": "Grok",
+        "original_rating": "H",
+        "new_rating": "F",
+        "rating_rationale": "국회 위원회 문서에 기록된 공익 무시 정책은 입법부 차원에서 확인된 사안이나, 정책 자체의 문제로 개인 부패보다는 상대적으로 덜 심각하지만 여전히 공익성이 부족함"
+      },
+      {
+        "item_id": 163356,
+        "data_title": "김동연의 사익 의혹 보도",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "언론 보도를 통한 사익 의혹으로 공식 확정은 아니지만, 공익 무시에 대한 비판이 제기된 상황으로 공익성 관점에서 미흡한 수준이며 해명과 개선이 필요한 상태임"
+      },
+      {
+        "item_id": 163357,
+        "data_title": "김동연의 부패 뉴스",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "부패 관련 뉴스로 공익 훼손이 평가된 상황이며, 사익 추구를 통한 공공성 침해가 언론을 통해 공개되어 공익성이 부족한 것으로 판단되나 공식 확정 전 단계임"
+      },
+      {
+        "item_id": 163358,
+        "data_title": "김동연의 공익 배반 기사",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "F",
+        "rating_rationale": "공익 배반이라는 심각한 표현으로 보도된 사안으로, 정치인의 기본 의무 위반에 해당하는 행보가 언론을 통해 비판받고 있어 공익성이 현저히 부족한 상태를 보임"
+      },
+      {
+        "item_id": 163359,
+        "data_title": "김동연의 정책 실패 보도",
+        "collected_by": "Grok",
+        "original_rating": "H",
+        "new_rating": "E",
+        "rating_rationale": "정책 실패와 사익 중심 문제로 공익 무시가 지적된 사안으로, 정책 수행 능력 부족과 공익성 결여가 동시에 나타나 미흡한 수준이며 정치인으로서 개선이 시급함"
+      },
+      {
+        "item_id": 163360,
+        "data_title": "김동연의 사익 우선 논란",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "사익 우선 논란과 공익 무시가 주요 이슈로 부각된 상황으로, 정치인의 기본 가치관과 우선순위에 문제가 있음이 드러나 공익성 관점에서 미흡한 평가를 받을 수밖에 없음"
+      },
+      {
+        "item_id": 112639,
+        "data_title": "경기도지사 취임 후 재정 건전성 우려",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "과도한 복지 예산으로 인한 재정 압박은 지방정부의 지속가능성을 해치고, 향후 도민들의 세금 부담 증가나 다른 필수 공공서비스 축소로 이어질 수 있어 공익에 부정적 영향을 미침"
+      },
+      {
+        "item_id": 112640,
+        "data_title": "전임 지사 시절 감사원 지적사항",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "F",
+        "rating_rationale": "감사원의 공식적인 예산 집행 부적절성 지적은 공적 자금의 투명성과 효율성을 해치는 중대한 문제로, 국민의 세금이 적절히 사용되지 않았음을 의미하여 공익에 상당한 손해를 끼침"
+      },
+      {
+        "item_id": 112641,
+        "data_title": "공약 이행 지연",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "공약 이행 지연은 도민과의 약속 불이행으로 정치적 신뢰를 훼손하고, 특히 지역개발과 복지공약의 지연은 해당 지역 주민들의 삶의 질 향상을 저해하여 공익 실현에 미흡함"
+      },
+      {
+        "item_id": 112642,
+        "data_title": "정책 일관성 부족",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "정책 방향의 잦은 변경은 행정의 일관성과 예측가능성을 해치며, 이는 도민들과 기업들의 계획 수립을 어렵게 하고 행정 효율성을 저하시켜 공익에 부정적 영향을 미침"
+      },
+      {
+        "item_id": 112643,
+        "data_title": "예산 배분의 형평성 문제",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "특정 지역과 산업에 편중된 예산 배분은 지역 간 불균형을 심화시키고 공평한 공공서비스 제공 원칙에 위배되어, 소외 지역 주민들의 권익을 침해하는 심각한 공익 저해 요소임"
+      },
+      {
+        "item_id": 112644,
+        "data_title": "경기도 재정 적자 문제",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "심각한 재정 적자는 지방정부의 재정건전성을 크게 훼손하며, 이는 향후 공공서비스 질 저하, 채무 증가, 차세대 부담 전가 등으로 이어져 장기적 공익에 상당한 손해를 끼침"
+      },
+      {
+        "item_id": 112645,
+        "data_title": "부동산 정책 일관성 부족",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "부동산 정책의 잦은 변경과 혼재된 신호는 주택시장의 불안정을 야기하고 도민들의 주거 계획 수립을 어렵게 하여, 안정적인 주거권 보장이라는 공익 목표 달성에 미흡함"
+      },
+      {
+        "item_id": 112646,
+        "data_title": "국정 운영 경험 부족",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "D",
+        "rating_rationale": "국정 경험에도 불구한 지방정부 운영 능력 한계는 행정 효율성을 저해하지만, 이는 경험 부족으로 인한 일시적 문제일 가능성이 있어 공익에 보통 수준의 영향을 미침"
+      },
+      {
+        "item_id": 112647,
+        "data_title": "인건비 및 복지예산 증가 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "인건비와 복지예산의 급격한 증가로 인한 재정 압박은 재정 운영의 지속가능성을 위협하고, 다른 필수 공공사업 예산 부족을 야기하여 전반적인 공익 실현에 부정적 영향을 미침"
+      },
+      {
+        "item_id": 112648,
+        "data_title": "지역 균형발전 미흡",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "수도권 중심 정책으로 인한 지역 발전 격차 심화는 균형발전이라는 중요한 공익 목표에 정면으로 위배되며, 지역 간 불평등을 가중시켜 사회 통합과 공정성을 크게 저해함"
+      },
+      {
+        "item_id": 112649,
+        "data_title": "경기도 기본소득 정책 추진",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "기본소득 정책은 사회적 약자를 직접 지원하여 불평등 해소와 사회안전망 구축에 기여하는 혁신적인 공익정책으로, 광범위한 도민의 복리증진에 매우 우수한 효과를 가져다줌"
+      },
+      {
+        "item_id": 112650,
+        "data_title": "코로나19 대응 지원",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "코로나19라는 국가적 재난 상황에서 도민의 생명과 안전을 보호하고 경제적 피해를 최소화하는 선제적 대응으로, 공공의 안전과 복리에 매우 우수한 기여를 함"
+      },
+      {
+        "item_id": 112651,
+        "data_title": "경기도형 일자리 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "청년층의 고용문제 해결과 지역경제 활성화를 통해 도민의 경제적 안정과 지역발전에 기여하는 우수한 정책이나, 직접적 공익효과는 특정 계층에 한정됨"
+      },
+      {
+        "item_id": 112652,
+        "data_title": "환경 정책 추진",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "기후변화 대응과 탄소중립은 현재와 미래 세대 모두의 생존권과 직결된 전 지구적 과제로, 환경보전을 통한 공익실현에 매우 우수한 기여를 함"
+      },
+      {
+        "item_id": 112653,
+        "data_title": "사회적경제 활성화",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "사회적경제 활성화는 지역공동체 발전과 상생경제 구현을 통해 공익에 기여하지만, 그 효과와 범위가 상대적으로 제한적이어서 우수한 수준임"
+      },
+      {
+        "item_id": 112654,
+        "data_title": "교통 복지 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "무상교통과 대중교통 인프라 개선은 모든 도민의 이동권 보장과 교통복지 실현을 통해 사회적 형평성 제고에 매우 우수한 기여를 함"
+      },
+      {
+        "item_id": 112655,
+        "data_title": "농업 지원 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "농민 기본소득과 농업지원은 농업의 공익적 기능 보전과 농민의 생활안정에 기여하지만, 수혜대상이 특정 직업군에 한정되어 우수한 수준임"
+      },
+      {
+        "item_id": 112656,
+        "data_title": "문화 복지 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "문화예술 지원과 문화인프라 확충은 도민의 문화향유권 증진과 삶의 질 향상에 기여하나, 기본적 생활권에 비해 상대적으로 우선순위가 낮아 양호한 수준임"
+      },
+      {
+        "item_id": 112657,
+        "data_title": "교육 지원 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "교육비 지원과 평생교육은 교육기회 균등과 인재양성을 통해 개인의 성장과 사회발전에 기여하는 핵심적 공익정책으로 매우 우수한 효과를 가져다줌"
+      },
+      {
+        "item_id": 112658,
+        "data_title": "장애인 복지 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "장애인 고용지원과 복지서비스 확대는 사회적 약자 보호와 사회통합 실현을 통해 인권보장과 사회정의 구현에 매우 우수한 기여를 함"
+      },
+      {
+        "item_id": 112659,
+        "data_title": "청년 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "청년층의 주거와 일자리는 사회 전반의 지속가능성과 직결되는 핵심 공익 이슈로, 사회적 약자 보호와 미래세대 지원이라는 높은 공익적 가치를 가지고 있음"
+      },
+      {
+        "item_id": 112660,
+        "data_title": "중소기업 지원",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "중소기업은 지역경제의 근간이자 고용창출의 핵심 주체로, 이들에 대한 금융 및 성장 지원은 경제 생태계 전반의 건전성과 지역 발전에 매우 높은 공익성을 제공함"
+      },
+      {
+        "item_id": 112661,
+        "data_title": "여성 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "성평등과 여성의 경제활동 참여 확대는 사회 정의 실현과 인적자원 활용 극대화를 통한 사회 전체의 발전에 기여하는 핵심적인 공익 정책임"
+      },
+      {
+        "item_id": 112662,
+        "data_title": "보건 의료 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "보건의료 서비스는 국민의 기본권이자 생명과 직결되는 영역으로, 지역 보건소 확충과 의료 서비스 개선은 공공보건 향상이라는 최고 수준의 공익성을 가짐"
+      },
+      {
+        "item_id": 112663,
+        "data_title": "공정 경제 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "경제 불평등 해소는 사회 통합과 지속가능한 발전의 핵심 요소로, 공정한 경제 생태계 구축을 통해 사회 전체의 안정성과 발전에 기여하는 매우 높은 공익적 가치를 가짐"
+      },
+      {
+        "item_id": 112664,
+        "data_title": "주거 복지 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "주거는 기본적인 인간의 권리이자 사회 안정의 기초로, 청년층과 서민을 위한 공공주택 공급 확대는 사회적 약자 보호와 주거권 실현이라는 높은 공익성을 가짐"
+      },
+      {
+        "item_id": 112665,
+        "data_title": "공동체 복지 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "지역 공동체 활성화는 사회 결속력 강화와 주민 삶의 질 향상에 기여하는 중요한 공익 정책이나, 직접적인 사회문제 해결보다는 간접적 효과에 중점을 둔 정책임"
+      },
+      {
+        "item_id": 112666,
+        "data_title": "노인 복지 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "고령화 사회에서 노인 복지는 사회적 약자 보호의 핵심 영역이며, 노인 일자리와 복지 서비스 확대는 사회 통합과 세대간 상생을 위한 매우 중요한 공익 정책임"
+      },
+      {
+        "item_id": 112667,
+        "data_title": "소상공인 지원",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "코로나19로 피해를 입은 소상공인 지원은 경제적 약자 보호와 지역경제 회복이라는 시급한 사회적 요구에 부응하는 매우 높은 공익적 가치를 가진 정책임"
+      },
+      {
+        "item_id": 112668,
+        "data_title": "지역 균형 발전",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "지역 균형 발전은 수도권 집중 완화와 지역간 격차 해소를 통해 국가 전체의 지속가능한 발전을 도모하는 핵심적인 공익 정책으로 매우 높은 가치를 가짐"
+      },
+      {
+        "item_id": 112669,
+        "data_title": "취약계층 지원 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "청년 기본소득과 농어촌 복지 정책은 사회적 취약계층의 경제적 안정과 지역 간 격차 해소에 직접적으로 기여하는 매우 우수한 공익 정책으로, 사회 전반의 복지 향상과 형평성 제고에 큰 의미가 있음"
+      },
+      {
+        "item_id": 112670,
+        "data_title": "코로나19 대응",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "코로나19라는 국가적 위기 상황에서 재난기본소득과 방역 지원은 시민의 생명과 안전, 경제적 생존을 직접 보호하는 핵심적인 공익 활동으로 사회 전체의 안전망 역할을 수행함"
+      },
+      {
+        "item_id": 112671,
+        "data_title": "주거 복지 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "주거는 기본권으로서 청년층과 저소득층의 주거 안정성 확보는 사회 통합과 계층 이동 기회 보장에 필수적이며, 주택 공급 확대는 장기적인 사회 안정에 매우 중요한 공익적 가치를 지님"
+      },
+      {
+        "item_id": 112672,
+        "data_title": "환경 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "탄소중립과 친환경 에너지 정책은 기후변화 대응과 지속가능한 미래를 위한 필수적 정책으로, 현재와 미래 세대의 생존과 직결되는 전 지구적 공익 실현에 매우 중요한 역할을 함"
+      },
+      {
+        "item_id": 112673,
+        "data_title": "농어촌 지원 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "농어촌 지역의 소득 지원과 균형 발전 정책은 지역 간 격차 해소와 농업의 지속가능성 확보에 중요하나, 직접적 수혜 범위가 상대적으로 제한적이어서 우수한 수준의 공익성을 보임"
+      },
+      {
+        "item_id": 112674,
+        "data_title": "장애인 복지 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "장애인 취업 지원과 복지 서비스 확대는 사회적 약자 보호와 포용적 사회 구현의 핵심으로, 인권 보장과 사회 통합에 직접적으로 기여하는 매우 우수한 공익 정책임"
+      },
+      {
+        "item_id": 112675,
+        "data_title": "교육 지원 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "교육은 사회 이동성과 기회 균등의 핵심 수단으로, 저소득층 교육 지원과 교육 격차 해소는 사회 정의 실현과 미래 세대의 발전 가능성 확보에 매우 중요한 공익적 가치를 지님"
+      },
+      {
+        "item_id": 112676,
+        "data_title": "코로나19 백신 접종",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "코로나19 백신 접종의 신속하고 체계적인 지원은 시민의 생명과 건강을 직접 보호하고 집단 면역 형성을 통한 사회 전체의 안전 확보에 필수적인 매우 우수한 공익 활동임"
+      },
+      {
+        "item_id": 112677,
+        "data_title": "소상공인 지원",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "코로나19로 피해를 받은 소상공인 지원은 경제적 약자 보호와 지역 경제 안정에 중요한 역할을 하나, 특정 계층 대상의 경제 지원 정책으로 전체 사회 대비 공익 범위가 상대적으로 제한적임"
+      },
+      {
+        "item_id": 112678,
+        "data_title": "공공일자리 창출",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "청년과 취약계층 대상 공공일자리 창출은 고용 안정과 사회적 약자 지원에 중요하나, 근본적인 일자리 창출보다는 임시적 해결책 성격이 강해 우수한 수준의 공익성을 보임"
+      },
+      {
+        "item_id": 112679,
+        "data_title": "보건의료 인프라",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "지역 의료 서비스 확충과 공공의료 강화는 국민의 기본적 건강권 보장에 직결되는 핵심 공익사업으로, 특히 의료 접근성이 떨어지는 지역주민들에게 실질적 혜택을 제공하여 사회 전체의 복지 증진에 크게 기여함"
+      },
+      {
+        "item_id": 112680,
+        "data_title": "교통 인프라 개선",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "광역버스 노선 확대와 대중교통 접근성 개선은 시민들의 이동권 보장과 교통비 부담 경감에 기여하며, 환경 보호 효과도 있어 공익성이 우수하나 의료나 주거 등 기본권에 비해서는 상대적으로 우선순위가 낮음"
+      },
+      {
+        "item_id": 112681,
+        "data_title": "노인 복지 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "고령화 사회에서 노인 일자리 지원과 돌봄 서비스 확대는 사회적 약자 보호와 지속가능한 사회 구축에 필수적이며, 노인의 존엄성과 자립성을 보장하는 동시에 사회 전체의 안정성에 기여하는 매우 중요한 공익정책임"
+      },
+      {
+        "item_id": 112682,
+        "data_title": "성평등 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "성평등 정책과 여성 일자리 지원은 사회 정의 실현과 인권 보장 측면에서 중요한 공익적 가치를 가지며, 경제 활동 참여 확대를 통해 사회 전체의 생산성 향상에도 기여하나 직접적 생존권과는 거리가 있어 우수 등급으로 평가"
+      },
+      {
+        "item_id": 112683,
+        "data_title": "다문화 가정 지원",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "다문화 가정 정착 지원과 차별 해소는 사회 통합과 인권 보호 측면에서 중요한 공익적 가치를 지니며, 다양성을 존중하는 포용적 사회 구축에 기여하나 전체 인구 대비 수혜 대상이 상대적으로 제한적이어서 우수 등급으로 평가"
+      },
+      {
+        "item_id": 112684,
+        "data_title": "에너지 복지",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "저소득층 에너지 바우처 지원은 기본적 생활권 보장과 직결되는 정책으로, 사회적 약자의 최소한의 인간다운 생활을 보장하고 에너지 빈곤 해소를 통해 사회 안전망을 강화하는 매우 중요한 공익정책으로 평가됨"
+      },
+      {
+        "item_id": 112685,
+        "data_title": "청년 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "청년 창업 지원과 주거 안정 정책은 미래 사회의 지속가능성과 청년층의 사회 진입 지원에 중요한 역할을 하며, 경제 활성화와 사회 안정에 기여하나 전 연령층을 아우르는 보편적 복지에 비해서는 상대적으로 우수 등급으로 평가"
+      },
+      {
+        "item_id": 112686,
+        "data_title": "재난 대응",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "재난 대응 시스템 구축은 국민의 생명과 안전을 직접적으로 보호하는 국가의 기본 책무로서, 예방적 차원에서 사회 전체의 안전을 보장하고 위기 상황에서의 피해를 최소화하는 매우 중요한 공익정책임"
+      },
+      {
+        "item_id": 112687,
+        "data_title": "정신건강 지원",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "코로나19 상황에서 정신건강 지원과 심리방역은 국민의 정신적 웰빙과 사회 안정에 필수적이며, 팬데믹으로 인한 사회적 트라우마 해소와 국민 건강권 보장에 직접적으로 기여하는 매우 시의적절하고 중요한 공익정책임"
+      },
+      {
+        "item_id": 112688,
+        "data_title": "환경 보호",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "미세먼지 저감과 생태계 보존은 현재와 미래 세대의 건강권과 환경권을 보장하는 핵심 정책으로, 기후변화 대응과 지속가능한 발전을 위해 필수적이며 전 국민의 삶의 질 향상에 직접적으로 기여하는 매우 중요한 공익정책임"
+      }
+    ]
+  },
+  "scores": {
+    "ChatGPT": {
+      "avg_rating": 3.72,
+      "category_score": 78.60000000000001,
+      "total_items": 150,
+      "positive": 109,
+      "negative": 41
+    },
+    "Grok": {
+      "avg_rating": 4.266666666666667,
+      "category_score": 81.33333333333333,
+      "total_items": 150,
+      "positive": 107,
+      "negative": 43
+    },
+    "Claude": {
+      "avg_rating": 3.8666666666666667,
+      "category_score": 79.33333333333334,
+      "total_items": 150,
+      "positive": 109,
+      "negative": 41
+    }
+  },
+  "final_score": 79.75555555555556
+}

@@ -1,0 +1,45 @@
+================================================================================
+ì˜¤ì„¸í›ˆ, í•œë™í›ˆ ì „ì²´ 10ê°œ ì¹´í…Œê³ ë¦¬ í’€ë§ ì‹œìŠ¤í…œ
+================================================================================
+ì •ì¹˜ì¸: ì˜¤ì„¸í›ˆ, í•œë™í›ˆ
+ì¹´í…Œê³ ë¦¬: 10ê°œ ì „ì²´
+================================================================================
+
+================================================================================
+ì •ì¹˜ì¸: ì˜¤ì„¸í›ˆ (ID: 62e7b453)
+================================================================================
+
+  [Expertise (ì „ë¬¸ì„±)]
+    ë°ì´í„°: 150ê°œ
+    ChatGPT: 81.0 | Grok: 75.1 | Claude: 73.7 â†’ ìµœì¢…: 76.6 (ì°¨ì´: 7.3)
+
+  [Leadership (ë¦¬ë”ì‹­)]
+    ë°ì´í„°: 150ê°œ
+    ChatGPT: 79.9 | Grok: 80.2 | Claude: 76.1 â†’ ìµœì¢…: 78.8 (ì°¨ì´: 4.1)
+
+  [Vision (ë¹„ì „)]
+    ë°ì´í„°: 150ê°œ
+    ChatGPT: 81.1 | Grok: 82.3 | Claude: 80.8 â†’ ìµœì¢…: 81.4 (ì°¨ì´: 1.5)
+
+  [Integrity (ì²­ë ´ì„±)]
+    ë°ì´í„°: 150ê°œ
+    ChatGPT: 77.3 | Grok: 75.9 | Claude: 74.9 â†’ ìµœì¢…: 76.0 (ì°¨ì´: 2.3)
+
+  [Ethics (ìœ¤ë¦¬ì„±)]
+    ë°ì´í„°: 150ê°œ
+    ChatGPT: 78.4 | Grok: 77.1 | Claude: 75.8 â†’ ìµœì¢…: 77.1 (ì°¨ì´: 2.6)
+
+  [Accountability (ì±…ì„ì„±)]
+    ë°ì´í„°: 150ê°œ
+Traceback (most recent call last):
+  File "C:\Development_PoliticianFinder_com\Developement_Real_PoliticianFinder\0-3_AI_Evaluation_Engine\pooling_¿À¼¼ÈÆ_ÇÑµ¿ÈÆ_ÀüÃ¼Ä«Å×°í¸®.py", line 305, in <module>
+    main()
+    ~~~~^^
+  File "C:\Development_PoliticianFinder_com\Developement_Real_PoliticianFinder\0-3_AI_Evaluation_Engine\pooling_¿À¼¼ÈÆ_ÇÑµ¿ÈÆ_ÀüÃ¼Ä«Å×°í¸®.py", line 272, in main
+    result = evaluate_politician(politician['id'], politician['name'])
+  File "C:\Development_PoliticianFinder_com\Developement_Real_PoliticianFinder\0-3_AI_Evaluation_Engine\pooling_¿À¼¼ÈÆ_ÇÑµ¿ÈÆ_ÀüÃ¼Ä«Å×°í¸®.py", line 223, in evaluate_politician
+    result = evaluate_category(politician_id, politician_name, category_eng, category_kor)
+  File "C:\Development_PoliticianFinder_com\Developement_Real_PoliticianFinder\0-3_AI_Evaluation_Engine\pooling_¿À¼¼ÈÆ_ÇÑµ¿ÈÆ_ÀüÃ¼Ä«Å×°í¸®.py", line 195, in evaluate_category
+    ratings = [ALPHABET_GRADES[item['new_rating']] for item in results[ai_name]]
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+KeyError: 'ÁÖ°Å ¾ÈÁ¤ Á¤Ã¥ÀÌ Àú¼ÒµæÃş°ú Ã»³âÀ» ´ë»óÀ¸·Î ÇÑ´Ù´Â Á¡¿¡¼­ Ã¥ÀÓ ÀÖ´Â Á¤Ã¥ÀÌ´Ù. ¼­¿ïÀÇ ÁÖ°Å ¹®Á¦ ÇØ°áÀ» À§ÇÑ ±âÃÊ¸¦ ¸¶·ÃÇÏ·Á´Â ³ë·ÂÀº ±àÁ¤ÀûÀÌ¸ç, Áö¼ÓÀûÀÎ Á¤Ã¥ ÃßÁøÀÌ ±â´ëµÈ´Ù.'
