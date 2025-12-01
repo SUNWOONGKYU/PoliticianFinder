@@ -460,6 +460,8 @@ export default function AdminPostsPage() {
                       )}
                     </tbody>
                   </table>
+                  <Pagination currentPage={postsPage} totalPages={postsTotalPages} onPageChange={setPostsPage} />
+                  </>
                 )}
               </div>
             )}
