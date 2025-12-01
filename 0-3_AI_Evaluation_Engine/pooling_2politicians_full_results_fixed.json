@@ -1,0 +1,248 @@
+[
+  {
+    "politician_id": "62e7b453",
+    "politician_name": "Oh Se-hoon",
+    "category_results": [
+      {
+        "category_eng": "Expertise",
+        "category_kor": "Expertise",
+        "scores": {
+          "ChatGPT": 86.20000000000002,
+          "Grok": 78.26666666666667,
+          "Claude": 61.0
+        },
+        "final_score": 75.15555555555557,
+        "max_diff": 25.200000000000017
+      },
+      {
+        "category_eng": "Leadership",
+        "category_kor": "Leadership",
+        "scores": {
+          "ChatGPT": 76.86666666666666,
+          "Grok": 78.8,
+          "Claude": 72.93333333333334
+        },
+        "final_score": 76.2,
+        "max_diff": 5.86666666666666
+      },
+      {
+        "category_eng": "Vision",
+        "category_kor": "Vision",
+        "scores": {
+          "ChatGPT": 81.33333333333333,
+          "Grok": 81.13333333333333,
+          "Claude": 77.13333333333333
+        },
+        "final_score": 79.86666666666666,
+        "max_diff": 4.200000000000003
+      },
+      {
+        "category_eng": "Integrity",
+        "category_kor": "Integrity",
+        "scores": {
+          "ChatGPT": 78.2,
+          "Grok": 76.2,
+          "Claude": 72.46666666666667
+        },
+        "final_score": 75.62222222222222,
+        "max_diff": 5.733333333333334
+      },
+      {
+        "category_eng": "Ethics",
+        "category_kor": "Ethics",
+        "scores": {
+          "ChatGPT": 82.6,
+          "Grok": 77.8,
+          "Claude": 75.33333333333333
+        },
+        "final_score": 78.57777777777777,
+        "max_diff": 7.266666666666666
+      },
+      {
+        "category_eng": "Accountability",
+        "category_kor": "Accountability",
+        "scores": {
+          "ChatGPT": 84.80000000000001,
+          "Grok": 75.93333333333334,
+          "Claude": 67.33333333333333
+        },
+        "final_score": 76.02222222222223,
+        "max_diff": 17.466666666666683
+      },
+      {
+        "category_eng": "Transparency",
+        "category_kor": "Transparency",
+        "scores": {
+          "ChatGPT": 78.26666666666667,
+          "Grok": 72.93333333333334,
+          "Claude": 68.60000000000001
+        },
+        "final_score": 73.26666666666667,
+        "max_diff": 9.666666666666657
+      },
+      {
+        "category_eng": "Communication",
+        "category_kor": "Communication",
+        "scores": {
+          "ChatGPT": 82.2,
+          "Grok": 79.93333333333334,
+          "Claude": 74.39999999999999
+        },
+        "final_score": 78.84444444444445,
+        "max_diff": 7.800000000000011
+      },
+      {
+        "category_eng": "Responsiveness",
+        "category_kor": "Responsiveness",
+        "scores": {
+          "ChatGPT": 83.06666666666666,
+          "Grok": 82.73333333333333,
+          "Claude": 77.46666666666667
+        },
+        "final_score": 81.08888888888889,
+        "max_diff": 5.599999999999994
+      },
+      {
+        "category_eng": "PublicInterest",
+        "category_kor": "Public Interest",
+        "scores": {
+          "ChatGPT": 91.13333333333333,
+          "Grok": 86.06666666666666,
+          "Claude": 83.2
+        },
+        "final_score": 86.8,
+        "max_diff": 7.933333333333323
+      }
+    ],
+    "overall_scores": {
+      "chatgpt": 82.46666666666667,
+      "grok": 78.97999999999999,
+      "claude": 72.98666666666666,
+      "final": 78.14444444444445
+    },
+    "duration_minutes": 78.41203958333334
+  },
+  {
+    "politician_id": "7abadf92",
+    "politician_name": "Han Dong-hoon",
+    "category_results": [
+      {
+        "category_eng": "Expertise",
+        "category_kor": "Expertise",
+        "scores": {
+          "ChatGPT": 82.4,
+          "Grok": 80.19999999999999,
+          "Claude": 70.33333333333333
+        },
+        "final_score": 77.64444444444445,
+        "max_diff": 12.066666666666677
+      },
+      {
+        "category_eng": "Leadership",
+        "category_kor": "Leadership",
+        "scores": {
+          "ChatGPT": 79.53333333333333,
+          "Grok": 80.60000000000001,
+          "Claude": 75.8
+        },
+        "final_score": 78.64444444444445,
+        "max_diff": 4.800000000000011
+      },
+      {
+        "category_eng": "Vision",
+        "category_kor": "Vision",
+        "scores": {
+          "ChatGPT": 80.39999999999999,
+          "Grok": 78.73333333333333,
+          "Claude": 74.6
+        },
+        "final_score": 77.91111111111111,
+        "max_diff": 5.799999999999997
+      },
+      {
+        "category_eng": "Integrity",
+        "category_kor": "Integrity",
+        "scores": {
+          "ChatGPT": 78.66666666666667,
+          "Grok": 77.73333333333333,
+          "Claude": 72.33333333333333
+        },
+        "final_score": 76.24444444444445,
+        "max_diff": 6.333333333333343
+      },
+      {
+        "category_eng": "Ethics",
+        "category_kor": "Ethics",
+        "scores": {
+          "ChatGPT": 69.53333333333333,
+          "Grok": 71.6,
+          "Claude": 66.0
+        },
+        "final_score": 69.04444444444444,
+        "max_diff": 5.599999999999994
+      },
+      {
+        "category_eng": "Accountability",
+        "category_kor": "Accountability",
+        "scores": {
+          "ChatGPT": 85.19999999999999,
+          "Grok": 78.8,
+          "Claude": 65.93333333333334
+        },
+        "final_score": 76.64444444444445,
+        "max_diff": 19.26666666666665
+      },
+      {
+        "category_eng": "Transparency",
+        "category_kor": "Transparency",
+        "scores": {
+          "ChatGPT": 74.5,
+          "Grok": 70.4,
+          "Claude": 60.099999999999994
+        },
+        "final_score": 68.33333333333333,
+        "max_diff": 14.400000000000006
+      },
+      {
+        "category_eng": "Communication",
+        "category_kor": "Communication",
+        "scores": {
+          "ChatGPT": 79.26666666666667,
+          "Grok": 74.2,
+          "Claude": 71.06666666666666
+        },
+        "final_score": 74.84444444444445,
+        "max_diff": 8.200000000000003
+      },
+      {
+        "category_eng": "Responsiveness",
+        "category_kor": "Responsiveness",
+        "scores": {
+          "ChatGPT": 83.79999999999998,
+          "Grok": 73.0,
+          "Claude": 65.5
+        },
+        "final_score": 74.1,
+        "max_diff": 18.299999999999983
+      },
+      {
+        "category_eng": "PublicInterest",
+        "category_kor": "Public Interest",
+        "scores": {
+          "ChatGPT": 75.9,
+          "Grok": 73.2,
+          "Claude": 77.2
+        },
+        "final_score": 75.43333333333334,
+        "max_diff": 4.0
+      }
+    ],
+    "overall_scores": {
+      "chatgpt": 78.91999999999999,
+      "grok": 75.84666666666666,
+      "claude": 69.88666666666667,
+      "final": 74.88444444444444
+    },
+    "duration_minutes": 70.14338458333333
+  }
+]

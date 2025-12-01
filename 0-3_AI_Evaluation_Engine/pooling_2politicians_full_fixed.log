@@ -1,0 +1,153 @@
+================================================================================
+Oh Se-hoon, Han Dong-hoon Full 10-Category Pooling System (Fixed)
+================================================================================
+Politicians: Oh Se-hoon, Han Dong-hoon
+Categories: All 10
+================================================================================
+
+================================================================================
+Politician: Oh Se-hoon (ID: 62e7b453)
+================================================================================
+
+  [Expertise (Expertise)]
+    Data: 150 items
+    ChatGPT: 86.1 | Grok: 78.1 | Claude: 61.9 -> Final: 75.4 (Diff: 24.2)
+
+  [Leadership (Leadership)]
+    Data: 150 items
+    ChatGPT: 77.5 | Grok: 77.0 | Claude: 72.7 -> Final: 75.7 (Diff: 4.8)
+
+  [Vision (Vision)]
+    Data: 150 items
+    ChatGPT: 87.7 | Grok: 81.4 | Claude: 76.3 -> Final: 81.8 (Diff: 11.4)
+
+  [Integrity (Integrity)]
+    Data: 150 items
+    ChatGPT: 77.9 | Grok: 76.1 | Claude: 73.0 -> Final: 75.6 (Diff: 4.9)
+
+  [Ethics (Ethics)]
+    Data: 150 items
+    ChatGPT: 80.5 | Grok: 77.9 | Claude: 75.9 -> Final: 78.1 (Diff: 4.6)
+
+  [Accountability (Accountability)]
+    Data: 150 items
+    ChatGPT: 82.9 | Grok: 74.6 | Claude: 68.0 -> Final: 75.2 (Diff: 14.9)
+
+  [Transparency (Transparency)]
+    Data: 150 items
+    ChatGPT: 77.9 | Grok: 72.9 | Claude: 69.3 -> Final: 73.4 (Diff: 8.5)
+
+  [Communication (Communication)]
+    Data: 150 items
+    ChatGPT: 83.7 | Grok: 79.7 | Claude: 74.1 -> Final: 79.2 (Diff: 9.7)
+
+  [Responsiveness (Responsiveness)]
+    Data: 150 items
+    ChatGPT: 83.3 | Grok: 82.2 | Claude: 77.3 -> Final: 80.9 (Diff: 5.9)
+
+  [PublicInterest (Public Interest)]
+    Data: 150 items
+    ChatGPT: 91.8 | Grok: 84.1 | Claude: 82.3 -> Final: 86.1 (Diff: 9.5)
+
+  [Overall Scores]
+    ChatGPT: 82.9 points
+    Grok:    78.4 points
+    Claude:  73.1 points
+    Final:   78.1 points
+    Duration: 79.3 minutes
+
+================================================================================
+Politician: Han Dong-hoon (ID: 7abadf92)
+================================================================================
+
+  [Expertise (Expertise)]
+    Data: 150 items
+    ChatGPT: 82.2 | Grok: 80.1 | Claude: 69.9 -> Final: 77.4 (Diff: 12.3)
+
+  [Leadership (Leadership)]
+    Data: 150 items
+    ChatGPT: 80.1 | Grok: 80.4 | Claude: 75.8 -> Final: 78.8 (Diff: 4.6)
+
+  [Vision (Vision)]
+    Data: 150 items
+    ChatGPT: 80.2 | Grok: 79.7 | Claude: 74.7 -> Final: 78.2 (Diff: 5.5)
+
+  [Integrity (Integrity)]
+    Data: 150 items
+    ChatGPT: 81.0 | Grok: 77.7 | Claude: 72.6 -> Final: 77.1 (Diff: 8.4)
+
+  [Ethics (Ethics)]
+    Data: 150 items
+    ChatGPT: 68.5 | Grok: 71.9 | Claude: 67.4 -> Final: 69.3 (Diff: 4.5)
+
+  [Accountability (Accountability)]
+    Data: 150 items
+    ChatGPT: 86.8 | Grok: 78.6 | Claude: 64.9 -> Final: 76.8 (Diff: 21.9)
+
+  [Transparency (Transparency)]
+    Data: 100 items
+    ChatGPT: 74.0 | Grok: 68.6 | Claude: 59.6 -> Final: 67.4 (Diff: 14.4)
+
+  [Communication (Communication)]
+    Data: 150 items
+    ChatGPT: 75.2 | Grok: 73.6 | Claude: 71.3 -> Final: 73.4 (Diff: 3.9)
+
+  [Responsiveness (Responsiveness)]
+    Data: 100 items
+    ChatGPT: 80.4 | Grok: 73.5 | Claude: 66.1 -> Final: 73.3 (Diff: 14.3)
+
+  [PublicInterest (Public Interest)]
+    Data: 100 items
+    ChatGPT: 79.2 | Grok: 72.8 | Claude: 75.3 -> Final: 75.8 (Diff: 6.4)
+
+  [Overall Scores]
+    ChatGPT: 78.8 points
+    Grok:    75.7 points
+    Claude:  69.8 points
+    Final:   74.7 points
+    Duration: 69.0 minutes
+
+================================================================================
+Final Results Summary
+================================================================================
+
+Oh Se-hoon:
+  ChatGPT avg: 82.9 points
+  Grok avg:    78.4 points
+  Claude avg:  73.1 points
+  Final avg:   78.1 points
+
+  Category details:
+    Expertise      : ChatGPT 86.1 | Grok 78.1 | Claude 61.9 (Diff: 24.2)
+    Leadership     : ChatGPT 77.5 | Grok 77.0 | Claude 72.7 (Diff: 4.8)
+    Vision         : ChatGPT 87.7 | Grok 81.4 | Claude 76.3 (Diff: 11.4)
+    Integrity      : ChatGPT 77.9 | Grok 76.1 | Claude 73.0 (Diff: 4.9)
+    Ethics         : ChatGPT 80.5 | Grok 77.9 | Claude 75.9 (Diff: 4.6)
+    Accountability : ChatGPT 82.9 | Grok 74.6 | Claude 68.0 (Diff: 14.9)
+    Transparency   : ChatGPT 77.9 | Grok 72.9 | Claude 69.3 (Diff: 8.5)
+    Communication  : ChatGPT 83.7 | Grok 79.7 | Claude 74.1 (Diff: 9.7)
+    Responsiveness : ChatGPT 83.3 | Grok 82.2 | Claude 77.3 (Diff: 5.9)
+    PublicInterest : ChatGPT 91.8 | Grok 84.1 | Claude 82.3 (Diff: 9.5)
+
+Han Dong-hoon:
+  ChatGPT avg: 78.8 points
+  Grok avg:    75.7 points
+  Claude avg:  69.8 points
+  Final avg:   74.7 points
+
+  Category details:
+    Expertise      : ChatGPT 82.2 | Grok 80.1 | Claude 69.9 (Diff: 12.3)
+    Leadership     : ChatGPT 80.1 | Grok 80.4 | Claude 75.8 (Diff: 4.6)
+    Vision         : ChatGPT 80.2 | Grok 79.7 | Claude 74.7 (Diff: 5.5)
+    Integrity      : ChatGPT 81.0 | Grok 77.7 | Claude 72.6 (Diff: 8.4)
+    Ethics         : ChatGPT 68.5 | Grok 71.9 | Claude 67.4 (Diff: 4.5)
+    Accountability : ChatGPT 86.8 | Grok 78.6 | Claude 64.9 (Diff: 21.9)
+    Transparency   : ChatGPT 74.0 | Grok 68.6 | Claude 59.6 (Diff: 14.4)
+    Communication  : ChatGPT 75.2 | Grok 73.6 | Claude 71.3 (Diff: 3.9)
+    Responsiveness : ChatGPT 80.4 | Grok 73.5 | Claude 66.1 (Diff: 14.3)
+    PublicInterest : ChatGPT 79.2 | Grok 72.8 | Claude 75.3 (Diff: 6.4)
+
+Total duration: 148.3 minutes (2.5 hours)
+================================================================================
+
+Results saved: pooling_2politicians_full_results_fixed.json

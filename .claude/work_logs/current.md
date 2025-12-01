@@ -7,7 +7,111 @@
 
 ---
 
-## ✅ 2025-12-01 완료: 보고서 판매 관리 기능 기획 (v2.0)
+## ✅ 2025-12-01 완료 (3): politician_id 타입 문서 일괄 수정
+
+### 작업 개요
+**전체 프로젝트에서 politician_id 타입을 TEXT (8-char hex)로 통일**
+- 사용자 요청: "폴리티션 아이디가 텍스트 타입인데 UUID라고 표시되어 있는 문서들 다 수정해"
+- 17개 .md 파일 + 3개 .sql 파일에서 `politician_id UUID` → `politician_id TEXT` 수정
+
+### 📂 수정된 파일 (총 20개)
+
+#### 1. AI Evaluation Engine 문서 (2개)
+- `0-3_AI_Evaluation_Engine/설계문서_V6.0/Database/DB_SCHEMA.md` (3곳)
+- `0-3_AI_Evaluation_Engine/설계문서_V6.0/Database/create_politician_id_mapping.sql`
+  - `uuid_id UUID` → `uuid_id TEXT`
+  - 코멘트: "UUID ↔ INT 매핑" → "TEXT ↔ INT 매핑"
+
+#### 2. Database Migrations (3개)
+- `0-4_Database/Supabase/migrations/DATABASE_SCHEMA.md` (4곳)
+- `0-4_Database/Supabase/migrations/031_create_functions.sql` (함수 반환 타입 2곳)
+  - `search_politicians()`: `id UUID` → `id TEXT`
+  - `get_trending_posts()`: `politician_id UUID` → `politician_id TEXT`
+- `0-4_Database/Supabase/migrations/combined_all_migrations.sql` (일괄 sed 수정)
+  - `careers.politician_id`
+  - `pledges.politician_id`
+  - `posts.politician_id`
+  - `user_favorites.politician_id`
+  - `ai_evaluations.politician_id`
+  - `politician_verification.politician_id`
+  - `evaluation_snapshots.politician_id`
+
+#### 3. Project Grid Tasks (4개)
+- `project-grid/tasks/P2D1.md`
+- `project-grid/tasks/P3BA11.md`
+- `project-grid/tasks/P4BA18.md`
+- `project-grid/tasks/P4BA19.md`
+
+### 🔍 검색 및 수정 프로세스
+
+**1단계: 전체 검색**
+```bash
+grep -r "politician_id.*UUID" --include="*.md" .
+grep -r "politician_id.*uuid" --include="*.sql" .
+```
+- 17개 .md 파일 발견
+- 3개 .sql 파일 발견
+
+**2단계: Markdown 일괄 수정**
+```bash
+sed -i 's/politician_id UUID/politician_id TEXT (8-char hex)/g' [파일들]
+```
+
+**3단계: SQL 파일 개별 수정**
+- `create_politician_id_mapping.sql`: `uuid_id UUID` → `uuid_id TEXT`
+- `031_create_functions.sql`: 함수 반환 타입 2곳 수정
+- `combined_all_migrations.sql`: sed로 FK 정의 일괄 변경
+
+### ✅ Git 커밋 및 Push
+**Commit**: `b6c5c80`
+```
+docs: politician_id 타입 문서 일괄 수정 (UUID → TEXT)
+
+전체 프로젝트에서 politician_id 타입을 TEXT (8-char hex)로 통일
+- 20개 파일 수정
+- 모든 FK 제약조건 TEXT 타입으로 통일
+- 이유: politicians.id가 TEXT (8-char hex) 타입이므로
+```
+
+**Push**: ✅ 성공 (`442ad16..b6c5c80`)
+
+---
+
+## ✅ 2025-12-01 완료 (2): 페이지네이션 리밋 조정
+
+### 작업 개요
+**관리자 페이지 페이지네이션 리밋을 100 → 20으로 축소**
+- 사용자 피드백: "리밋 100은 너무 과도한데 축소해야 할 것 같아"
+
+### 📂 수정된 파일
+**파일**: `1_Frontend/src/app/admin/posts/page.tsx`
+
+**변경 내용**:
+```typescript
+// Before
+const postsPerPage = 30;
+const commentsPerPage = 50;
+const noticesPerPage = 20;
+
+// After
+const postsPerPage = 20;
+const commentsPerPage = 20;
+const noticesPerPage = 20;  // 유지
+```
+
+### ✅ Git 커밋 및 Push
+**Commit**: `442ad16`
+```
+fix: 관리자 페이지 페이지네이션 리밋 조정 (30/50 → 20)
+
+더 나은 UX를 위해 한 페이지에 표시되는 항목 수 감소
+```
+
+**Push**: ✅ 성공
+
+---
+
+## ✅ 2025-12-01 완료 (1): 보고서 판매 관리 기능 기획 (v2.0)
 
 ### 작업 개요
 **상세 평가 보고서 판매 관리 시스템 기획서 작성**
