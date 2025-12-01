@@ -7,120 +7,120 @@
         "category_eng": "Expertise",
         "category_kor": "Expertise",
         "scores": {
-          "ChatGPT": 86.20000000000002,
-          "Grok": 78.26666666666667,
-          "Claude": 61.0
+          "ChatGPT": 85.8,
+          "Grok": 81.66666666666666,
+          "Claude": 61.266666666666666
         },
-        "final_score": 75.15555555555557,
-        "max_diff": 25.200000000000017
+        "final_score": 76.24444444444444,
+        "max_diff": 24.53333333333333
       },
       {
         "category_eng": "Leadership",
         "category_kor": "Leadership",
         "scores": {
-          "ChatGPT": 76.86666666666666,
-          "Grok": 78.8,
+          "ChatGPT": 78.60000000000001,
+          "Grok": 76.26666666666667,
           "Claude": 72.93333333333334
         },
-        "final_score": 76.2,
-        "max_diff": 5.86666666666666
+        "final_score": 75.93333333333334,
+        "max_diff": 5.666666666666671
       },
       {
         "category_eng": "Vision",
         "category_kor": "Vision",
         "scores": {
-          "ChatGPT": 81.33333333333333,
-          "Grok": 81.13333333333333,
-          "Claude": 77.13333333333333
+          "ChatGPT": 87.86666666666667,
+          "Grok": 81.53333333333333,
+          "Claude": 77.6
         },
-        "final_score": 79.86666666666666,
-        "max_diff": 4.200000000000003
+        "final_score": 82.33333333333333,
+        "max_diff": 10.26666666666668
       },
       {
         "category_eng": "Integrity",
         "category_kor": "Integrity",
         "scores": {
-          "ChatGPT": 78.2,
-          "Grok": 76.2,
-          "Claude": 72.46666666666667
+          "ChatGPT": 76.39999999999999,
+          "Grok": 73.60000000000001,
+          "Claude": 73.06666666666666
         },
-        "final_score": 75.62222222222222,
-        "max_diff": 5.733333333333334
+        "final_score": 74.35555555555555,
+        "max_diff": 3.3333333333333286
       },
       {
         "category_eng": "Ethics",
         "category_kor": "Ethics",
         "scores": {
-          "ChatGPT": 82.6,
-          "Grok": 77.8,
-          "Claude": 75.33333333333333
+          "ChatGPT": 82.33333333333334,
+          "Grok": 76.86666666666666,
+          "Claude": 75.73333333333333
         },
-        "final_score": 78.57777777777777,
-        "max_diff": 7.266666666666666
+        "final_score": 78.31111111111112,
+        "max_diff": 6.6000000000000085
       },
       {
         "category_eng": "Accountability",
         "category_kor": "Accountability",
         "scores": {
-          "ChatGPT": 84.80000000000001,
-          "Grok": 75.93333333333334,
-          "Claude": 67.33333333333333
+          "ChatGPT": 84.13333333333334,
+          "Grok": 75.33333333333333,
+          "Claude": 68.06666666666666
         },
-        "final_score": 76.02222222222223,
-        "max_diff": 17.466666666666683
+        "final_score": 75.84444444444445,
+        "max_diff": 16.066666666666677
       },
       {
         "category_eng": "Transparency",
         "category_kor": "Transparency",
         "scores": {
-          "ChatGPT": 78.26666666666667,
-          "Grok": 72.93333333333334,
-          "Claude": 68.60000000000001
+          "ChatGPT": 73.46666666666667,
+          "Grok": 73.46666666666667,
+          "Claude": 69.39999999999999
         },
-        "final_score": 73.26666666666667,
-        "max_diff": 9.666666666666657
+        "final_score": 72.1111111111111,
+        "max_diff": 4.066666666666677
       },
       {
         "category_eng": "Communication",
         "category_kor": "Communication",
         "scores": {
-          "ChatGPT": 82.2,
-          "Grok": 79.93333333333334,
-          "Claude": 74.39999999999999
+          "ChatGPT": 86.46666666666667,
+          "Grok": 79.80000000000001,
+          "Claude": 74.66666666666667
         },
-        "final_score": 78.84444444444445,
-        "max_diff": 7.800000000000011
+        "final_score": 80.31111111111112,
+        "max_diff": 11.799999999999997
       },
       {
         "category_eng": "Responsiveness",
         "category_kor": "Responsiveness",
         "scores": {
-          "ChatGPT": 83.06666666666666,
-          "Grok": 82.73333333333333,
-          "Claude": 77.46666666666667
+          "ChatGPT": 85.19999999999999,
+          "Grok": 82.66666666666666,
+          "Claude": 76.66666666666667
         },
-        "final_score": 81.08888888888889,
-        "max_diff": 5.599999999999994
+        "final_score": 81.5111111111111,
+        "max_diff": 8.533333333333317
       },
       {
         "category_eng": "PublicInterest",
         "category_kor": "Public Interest",
         "scores": {
-          "ChatGPT": 91.13333333333333,
-          "Grok": 86.06666666666666,
-          "Claude": 83.2
+          "ChatGPT": 91.06666666666666,
+          "Grok": 83.86666666666667,
+          "Claude": 82.93333333333334
         },
-        "final_score": 86.8,
-        "max_diff": 7.933333333333323
+        "final_score": 85.95555555555556,
+        "max_diff": 8.133333333333326
       }
     ],
     "overall_scores": {
-      "chatgpt": 82.46666666666667,
-      "grok": 78.97999999999999,
-      "claude": 72.98666666666666,
-      "final": 78.14444444444445
+      "chatgpt": 83.13333333333334,
+      "grok": 78.50666666666666,
+      "claude": 73.23333333333333,
+      "final": 78.2911111111111
     },
-    "duration_minutes": 78.41203958333334
+    "duration_minutes": 78.3226573
   },
   {
     "politician_id": "7abadf92",
@@ -130,119 +130,119 @@
         "category_eng": "Expertise",
         "category_kor": "Expertise",
         "scores": {
-          "ChatGPT": 82.4,
-          "Grok": 80.19999999999999,
-          "Claude": 70.33333333333333
+          "ChatGPT": 83.53333333333333,
+          "Grok": 80.06666666666668,
+          "Claude": 70.8
         },
-        "final_score": 77.64444444444445,
-        "max_diff": 12.066666666666677
+        "final_score": 78.13333333333334,
+        "max_diff": 12.733333333333334
       },
       {
         "category_eng": "Leadership",
         "category_kor": "Leadership",
         "scores": {
-          "ChatGPT": 79.53333333333333,
+          "ChatGPT": 79.66666666666667,
           "Grok": 80.60000000000001,
-          "Claude": 75.8
+          "Claude": 76.39999999999999
         },
-        "final_score": 78.64444444444445,
-        "max_diff": 4.800000000000011
+        "final_score": 78.8888888888889,
+        "max_diff": 4.200000000000017
       },
       {
         "category_eng": "Vision",
         "category_kor": "Vision",
         "scores": {
-          "ChatGPT": 80.39999999999999,
-          "Grok": 78.73333333333333,
-          "Claude": 74.6
+          "ChatGPT": 80.19999999999999,
+          "Grok": 79.46666666666667,
+          "Claude": 75.26666666666667
         },
-        "final_score": 77.91111111111111,
-        "max_diff": 5.799999999999997
+        "final_score": 78.31111111111112,
+        "max_diff": 4.933333333333323
       },
       {
         "category_eng": "Integrity",
         "category_kor": "Integrity",
         "scores": {
-          "ChatGPT": 78.66666666666667,
-          "Grok": 77.73333333333333,
-          "Claude": 72.33333333333333
+          "ChatGPT": 81.13333333333333,
+          "Grok": 77.2,
+          "Claude": 72.66666666666667
         },
-        "final_score": 76.24444444444445,
-        "max_diff": 6.333333333333343
+        "final_score": 77.0,
+        "max_diff": 8.466666666666654
       },
       {
         "category_eng": "Ethics",
         "category_kor": "Ethics",
         "scores": {
-          "ChatGPT": 69.53333333333333,
-          "Grok": 71.6,
-          "Claude": 66.0
+          "ChatGPT": 70.19999999999999,
+          "Grok": 72.86666666666667,
+          "Claude": 66.8
         },
-        "final_score": 69.04444444444444,
-        "max_diff": 5.599999999999994
+        "final_score": 69.95555555555556,
+        "max_diff": 6.066666666666677
       },
       {
         "category_eng": "Accountability",
         "category_kor": "Accountability",
         "scores": {
-          "ChatGPT": 85.19999999999999,
-          "Grok": 78.8,
-          "Claude": 65.93333333333334
+          "ChatGPT": 87.2,
+          "Grok": 78.06666666666666,
+          "Claude": 66.66666666666667
         },
-        "final_score": 76.64444444444445,
-        "max_diff": 19.26666666666665
+        "final_score": 77.31111111111112,
+        "max_diff": 20.53333333333333
       },
       {
         "category_eng": "Transparency",
         "category_kor": "Transparency",
         "scores": {
-          "ChatGPT": 74.5,
-          "Grok": 70.4,
-          "Claude": 60.099999999999994
+          "ChatGPT": 74.0,
+          "Grok": 69.0,
+          "Claude": 59.800000000000004
         },
-        "final_score": 68.33333333333333,
-        "max_diff": 14.400000000000006
+        "final_score": 67.60000000000001,
+        "max_diff": 14.199999999999996
       },
       {
         "category_eng": "Communication",
         "category_kor": "Communication",
         "scores": {
-          "ChatGPT": 79.26666666666667,
-          "Grok": 74.2,
-          "Claude": 71.06666666666666
+          "ChatGPT": 77.46666666666667,
+          "Grok": 72.73333333333333,
+          "Claude": 70.73333333333333
         },
-        "final_score": 74.84444444444445,
-        "max_diff": 8.200000000000003
+        "final_score": 73.64444444444445,
+        "max_diff": 6.733333333333334
       },
       {
         "category_eng": "Responsiveness",
         "category_kor": "Responsiveness",
         "scores": {
-          "ChatGPT": 83.79999999999998,
-          "Grok": 73.0,
-          "Claude": 65.5
+          "ChatGPT": 82.10000000000001,
+          "Grok": 74.3,
+          "Claude": 63.6
         },
-        "final_score": 74.1,
-        "max_diff": 18.299999999999983
+        "final_score": 73.33333333333333,
+        "max_diff": 18.500000000000007
       },
       {
         "category_eng": "PublicInterest",
         "category_kor": "Public Interest",
         "scores": {
-          "ChatGPT": 75.9,
-          "Grok": 73.2,
-          "Claude": 77.2
+          "ChatGPT": 81.6,
+          "Grok": 73.3,
+          "Claude": 82.5
         },
-        "final_score": 75.43333333333334,
-        "max_diff": 4.0
+        "final_score": 79.13333333333333,
+        "max_diff": 9.200000000000003
       }
     ],
     "overall_scores": {
-      "chatgpt": 78.91999999999999,
-      "grok": 75.84666666666666,
-      "claude": 69.88666666666667,
-      "final": 74.88444444444444
+      "chatgpt": 79.71000000000001,
+      "grok": 75.76,
+      "claude": 70.52333333333334,
+      "final": 75.33111111111113
     },
-    "duration_minutes": 70.14338458333333
+    "duration_minutes": 68.60126601666666
   }
 ]

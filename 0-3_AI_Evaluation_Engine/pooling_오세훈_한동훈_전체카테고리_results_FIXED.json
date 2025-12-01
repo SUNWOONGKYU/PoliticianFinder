@@ -1,0 +1,248 @@
+[
+  {
+    "politician_id": "62e7b453",
+    "politician_name": "오세훈",
+    "category_results": [
+      {
+        "category_eng": "Expertise",
+        "category_kor": "전문성",
+        "scores": {
+          "ChatGPT": 87.33333333333334,
+          "Grok": 78.33333333333333,
+          "Claude": 74.0
+        },
+        "final_score": 79.8888888888889,
+        "max_diff": 13.333333333333343
+      },
+      {
+        "category_eng": "Leadership",
+        "category_kor": "리더십",
+        "scores": {
+          "ChatGPT": 81.26666666666667,
+          "Grok": 79.80000000000001,
+          "Claude": 75.60000000000001
+        },
+        "final_score": 78.8888888888889,
+        "max_diff": 5.666666666666657
+      },
+      {
+        "category_eng": "Vision",
+        "category_kor": "비전",
+        "scores": {
+          "ChatGPT": 81.46666666666667,
+          "Grok": 81.4,
+          "Claude": 80.39999999999999
+        },
+        "final_score": 81.08888888888889,
+        "max_diff": 1.066666666666677
+      },
+      {
+        "category_eng": "Integrity",
+        "category_kor": "청렴성",
+        "scores": {
+          "ChatGPT": 78.93333333333334,
+          "Grok": 76.66666666666667,
+          "Claude": 74.0
+        },
+        "final_score": 76.53333333333335,
+        "max_diff": 4.933333333333337
+      },
+      {
+        "category_eng": "Ethics",
+        "category_kor": "윤리성",
+        "scores": {
+          "ChatGPT": 78.8,
+          "Grok": 77.26666666666667,
+          "Claude": 75.8
+        },
+        "final_score": 77.28888888888889,
+        "max_diff": 3.0
+      },
+      {
+        "category_eng": "Accountability",
+        "category_kor": "책임성",
+        "scores": {
+          "ChatGPT": 80.0,
+          "Grok": 77.4,
+          "Claude": 75.4
+        },
+        "final_score": 77.60000000000001,
+        "max_diff": 4.599999999999994
+      },
+      {
+        "category_eng": "Transparency",
+        "category_kor": "투명성",
+        "scores": {
+          "ChatGPT": 73.06666666666666,
+          "Grok": 72.46666666666667,
+          "Claude": 72.33333333333333
+        },
+        "final_score": 72.62222222222222,
+        "max_diff": 0.7333333333333343
+      },
+      {
+        "category_eng": "Communication",
+        "category_kor": "소통능력",
+        "scores": {
+          "ChatGPT": 79.26666666666667,
+          "Grok": 80.39999999999999,
+          "Claude": 78.0
+        },
+        "final_score": 79.22222222222221,
+        "max_diff": 2.3999999999999915
+      },
+      {
+        "category_eng": "Responsiveness",
+        "category_kor": "대응성",
+        "scores": {
+          "ChatGPT": 83.26666666666667,
+          "Grok": 82.26666666666667,
+          "Claude": 80.46666666666667
+        },
+        "final_score": 82.0,
+        "max_diff": 2.799999999999997
+      },
+      {
+        "category_eng": "PublicInterest",
+        "category_kor": "공익성",
+        "scores": {
+          "ChatGPT": 82.46666666666667,
+          "Grok": 82.8,
+          "Claude": 81.46666666666667
+        },
+        "final_score": 82.24444444444445,
+        "max_diff": 1.3333333333333286
+      }
+    ],
+    "overall_scores": {
+      "chatgpt": 80.58666666666667,
+      "grok": 78.88,
+      "claude": 76.74666666666667,
+      "final": 78.73777777777778
+    },
+    "duration_minutes": 112.49388183333333
+  },
+  {
+    "politician_id": "7abadf92",
+    "politician_name": "한동훈",
+    "category_results": [
+      {
+        "category_eng": "Expertise",
+        "category_kor": "전문성",
+        "scores": {
+          "ChatGPT": 84.33333333333334,
+          "Grok": 79.86666666666666,
+          "Claude": 78.8
+        },
+        "final_score": 81.0,
+        "max_diff": 5.533333333333346
+      },
+      {
+        "category_eng": "Leadership",
+        "category_kor": "리더십",
+        "scores": {
+          "ChatGPT": 82.6,
+          "Grok": 82.06666666666666,
+          "Claude": 78.93333333333334
+        },
+        "final_score": 81.2,
+        "max_diff": 3.666666666666657
+      },
+      {
+        "category_eng": "Vision",
+        "category_kor": "비전",
+        "scores": {
+          "ChatGPT": 82.13333333333333,
+          "Grok": 79.86666666666666,
+          "Claude": 77.66666666666667
+        },
+        "final_score": 79.88888888888889,
+        "max_diff": 4.466666666666654
+      },
+      {
+        "category_eng": "Integrity",
+        "category_kor": "청렴성",
+        "scores": {
+          "ChatGPT": 79.66666666666667,
+          "Grok": 77.46666666666667,
+          "Claude": 75.26666666666667
+        },
+        "final_score": 77.46666666666667,
+        "max_diff": 4.400000000000006
+      },
+      {
+        "category_eng": "Ethics",
+        "category_kor": "윤리성",
+        "scores": {
+          "ChatGPT": 68.73333333333333,
+          "Grok": 71.13333333333333,
+          "Claude": 69.0
+        },
+        "final_score": 69.62222222222222,
+        "max_diff": 2.3999999999999915
+      },
+      {
+        "category_eng": "Accountability",
+        "category_kor": "책임성",
+        "scores": {
+          "ChatGPT": 80.93333333333334,
+          "Grok": 77.53333333333333,
+          "Claude": 73.33333333333333
+        },
+        "final_score": 77.26666666666667,
+        "max_diff": 7.6000000000000085
+      },
+      {
+        "category_eng": "Transparency",
+        "category_kor": "투명성",
+        "scores": {
+          "ChatGPT": 70.1,
+          "Grok": 69.1,
+          "Claude": 64.80000000000001
+        },
+        "final_score": 68.0,
+        "max_diff": 5.299999999999983
+      },
+      {
+        "category_eng": "Communication",
+        "category_kor": "소통능력",
+        "scores": {
+          "ChatGPT": 72.66666666666667,
+          "Grok": 73.53333333333333,
+          "Claude": 71.66666666666667
+        },
+        "final_score": 72.62222222222222,
+        "max_diff": 1.86666666666666
+      },
+      {
+        "category_eng": "Responsiveness",
+        "category_kor": "대응성",
+        "scores": {
+          "ChatGPT": 81.29999999999998,
+          "Grok": 73.60000000000001,
+          "Claude": 72.8
+        },
+        "final_score": 75.89999999999999,
+        "max_diff": 8.499999999999986
+      },
+      {
+        "category_eng": "PublicInterest",
+        "category_kor": "공익성",
+        "scores": {
+          "ChatGPT": 72.5,
+          "Grok": 73.0,
+          "Claude": 71.89999999999999
+        },
+        "final_score": 72.46666666666665,
+        "max_diff": 1.1000000000000085
+      }
+    ],
+    "overall_scores": {
+      "chatgpt": 77.49666666666667,
+      "grok": 75.71666666666667,
+      "claude": 73.41666666666666,
+      "final": 75.54333333333334
+    },
+    "duration_minutes": 100.34122550000001
+  }
+]

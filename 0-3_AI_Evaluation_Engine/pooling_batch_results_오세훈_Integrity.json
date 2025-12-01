@@ -8,39 +8,39 @@
         "collected_by": "ChatGPT",
         "original_rating": "E",
         "new_rating": "C",
-        "rating_rationale": "주택 공급 정책이 일부 주민들에게 불만을 초래했지만, 정책 자체가 청렴성을 해치고 있다고 단정할 수는 없다."
+        "rating_rationale": "주택 공급 정책이 특정 지역의 집값을 상승시키고 저소득층 주거 안정을 해친다는 주장은 정책의 공정성과 청렴성에 의문을 제기한다."
       },
       {
         "item_id": 151783,
         "data_title": "공공시설 민간 매각 논란",
         "collected_by": "ChatGPT",
         "original_rating": "F",
-        "new_rating": "E",
-        "rating_rationale": "공공시설 민간 매각 과정에서 투명성 부족이 지적되었으나, 구체적인 부정행위나 비리는 확인되지 않았다."
+        "new_rating": "D",
+        "rating_rationale": "공공시설 매각 과정에서 투명성이 부족하다는 비판이 제기되었으나, 재정 수익 측면에서는 긍정적인 요소도 존재해 중간 등급으로 평가된다."
       },
       {
         "item_id": 151784,
         "data_title": "반부패 전략 미비",
         "collected_by": "ChatGPT",
         "original_rating": "G",
-        "new_rating": "F",
-        "rating_rationale": "반부패 전략이 미비하여 청렴성 홍보에 실패했고, 대중의 신뢰를 잃은 것으로 평가된다."
+        "new_rating": "E",
+        "rating_rationale": "반부패 전략이 미비하다는 비판은 청렴성에 대한 신뢰를 저하시켰으며, 구체적인 실행 방안의 부재는 심각한 문제로 여겨진다."
       },
       {
         "item_id": 151785,
         "data_title": "선거 공약과의 상충",
         "collected_by": "ChatGPT",
         "original_rating": "E",
-        "new_rating": "D",
-        "rating_rationale": "이행되지 않은 공약이 많아 정치적 신뢰를 저하시켰으나, 청렴성에 직접적인 영향을 미치는 것은 아니다."
+        "new_rating": "E",
+        "rating_rationale": "여러 공약이 이행되지 않아 주민들의 불만이 제기되고, 이는 정치적 신뢰를 감소시키고 청렴성에 부정적인 영향을 미친다."
       },
       {
         "item_id": 151786,
         "data_title": "정책consulting 업체와의 유착",
         "collected_by": "ChatGPT",
         "original_rating": "H",
-        "new_rating": "E",
-        "rating_rationale": "정책 consulting 업체와의 유착 의혹이 제기되었지만, 명확한 증거가 부족하여 미흡한 평가를 받았다."
+        "new_rating": "F",
+        "rating_rationale": "정책 consulting 업체와의 유착 의혹은 심각한 투명성 문제를 나타내며, 해명이 부족한 상황은 청렴성을 크게 훼손한다."
       },
       {
         "item_id": 151787,
@@ -48,7 +48,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "H",
         "new_rating": "H",
-        "rating_rationale": "오세훈 시장이 불법 자금을 수수했다는 의혹은 청렴성에 중대한 타격을 주며, 치명적인 결함으로 평가된다."
+        "rating_rationale": "불법 자금 수수 의혹은 공직자의 청렴성을 치명적으로 해치는 사안으로, 비자금 조성 의혹은 심각한 결함으로 평가된다."
       },
       {
         "item_id": 151788,
@@ -56,7 +56,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "E",
         "new_rating": "G",
-        "rating_rationale": "부동산 거래와 관련된 비공식적 루트의 의혹은 시민의 신뢰를 크게 저하시키고, 매우 부족한 청렴성을 드러낸다."
+        "rating_rationale": "비공식적인 루트로 비싼 가격에 부동산을 매입한 의혹은 정치적 신뢰를 크게 손상시키며, 청렴성에 있어 매우 부족한 평가를 받는다."
       },
       {
         "item_id": 151789,
@@ -64,15 +64,15 @@
         "collected_by": "ChatGPT",
         "original_rating": "D",
         "new_rating": "F",
-        "rating_rationale": "정치적 배제 시도가 비판을 받았으나, 구체적인 비리와 연결짓기는 어렵다. 하지만 부족한 청렴성을 나타낸다."
+        "rating_rationale": "정치적 배제를 통한 세력 강화 시도는 정치적 비리에 대한 책임 회피로 비춰지며, 이는 청렴성에 부정적인 영향을 미친다."
       },
       {
         "item_id": 151790,
         "data_title": "시민과의 소통 부족",
         "collected_by": "ChatGPT",
         "original_rating": "D",
-        "new_rating": "F",
-        "rating_rationale": "시민과의 소통 부족은 청렴성에 부정적인 영향을 미치지만, 직접적인 비리와는 거리가 있다."
+        "new_rating": "E",
+        "rating_rationale": "시민과의 소통 부족은 정치적 투명성 문제를 야기하며, 이는 시민의 신뢰를 손상시키고 청렴성에 미흡한 요소로 작용한다."
       },
       {
         "item_id": 151791,
@@ -80,7 +80,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "E",
         "new_rating": "H",
-        "rating_rationale": "코로나19 자원 배분의 불공정성은 심각한 청렴성 문제를 야기하며, 치명적인 결함으로 간주된다."
+        "rating_rationale": "코로나19 자원 배분의 불공정성은 청렴성에 대한 신뢰를 크게 저하시킨 사건으로, 심각한 결함으로 평가된다."
       },
       {
         "item_id": 151792,
@@ -88,7 +88,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "청렴성 관련 회의에 꾸준히 참석하고 부패 방지를 논의함으로써 높은 청렴성을 강조한 점이 매우 우수하다."
+        "rating_rationale": "청렴성 관련 회의에 꾸준히 참석하여 부패 방지를 위한 정책을 논의하고, 자신의 청렴성을 강조함으로써 매우 긍정적인 이미지를 구축하였다."
       },
       {
         "item_id": 151793,
@@ -96,7 +96,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "C",
         "new_rating": "B",
-        "rating_rationale": "부동산 정책 발표 시 재산을 공개하여 투명성을 높이려 했으나, 논란이 여전히 존재해 다소 아쉬운 점이 있다."
+        "rating_rationale": "부동산 정책 발표 시 재산을 공개하여 투명성을 높였으나, 여전히 논란이 있는 점에서 우수하나 개선의 여지가 보인다."
       },
       {
         "item_id": 151794,
@@ -104,7 +104,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "C",
-        "rating_rationale": "국민 신뢰도 조사에서 높은 평가를 받았지만, 일부 응답자의 의심이 존재하여 양호한 수준으로 평가된다."
+        "rating_rationale": "국민 신뢰도 조사에서 높은 평가를 받았으나 일부 응답자들의 의심이 존재하여 양호하지만 완벽하지 않다."
       },
       {
         "item_id": 151795,
@@ -112,7 +112,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "부패 방지 정책을 시행했으나 효과에 대한 평가가 상반되어 청렴성에 대한 신뢰가 다소 떨어지는 상황이다."
+        "rating_rationale": "부패 방지 정책을 시행하였으나 그 효과에 대한 평가는 상반되어 양호하나 더 개선이 필요하다."
       },
       {
         "item_id": 151796,
@@ -120,7 +120,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "D",
         "new_rating": "D",
-        "rating_rationale": "정책 실행 과정에서 투명성을 높이려는 노력을 했으나 일부 정책의 불투명성 지적이 있어 보통 수준이다."
+        "rating_rationale": "정책 수립 및 실행 과정에서 투명성을 높이려 노력했으나 일부 정책이 불투명하다는 지적이 있어 보통 수준이다."
       },
       {
         "item_id": 151797,
@@ -128,7 +128,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "공직 취임 전 재산 신고를 정확히 이행하고 내용을 공개하여 투명성을 높인 점이 매우 우수하다."
+        "rating_rationale": "공직 취임 전 사전 재산 신고를 정확히 이행하고 공개하여 투명한 모습을 보임으로써 매우 우수한 평가를 받았다."
       },
       {
         "item_id": 151798,
@@ -136,15 +136,15 @@
         "collected_by": "ChatGPT",
         "original_rating": "C",
         "new_rating": "E",
-        "rating_rationale": "청렴 교육 프로그램 도입을 통해 의지를 보여주었으나 참여도가 낮아 미흡한 평가를 받았다."
+        "rating_rationale": "청렴 교육 프로그램을 도입했으나 참여도가 낮아 의지와 실제 효과 간의 격차가 있어 미흡한 평가를 받았다."
       },
       {
         "item_id": 151799,
         "data_title": "부패 혐의 조사",
         "collected_by": "ChatGPT",
         "original_rating": "B",
-        "new_rating": "C",
-        "rating_rationale": "부패 혐의 조사가 진행되었으나 결과가 부정적이지 않아 논란을 피한 점은 양호하게 평가된다."
+        "new_rating": "B",
+        "rating_rationale": "부패 혐의 조사가 시작되었으나 결과가 부정적이지 않아 논란을 피한 점은 긍정적이나 의혹이 여전히 남아있다."
       },
       {
         "item_id": 151800,
@@ -152,7 +152,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "C",
         "new_rating": "D",
-        "rating_rationale": "언론과의 소통을 시도했으나 기자들의 독립성 의심이 있어 보통 수준으로 평가할 수 있다."
+        "rating_rationale": "언론과의 소통을 통해 궁금증 해소를 시도했으나 일부 기자들의 독립성 의심으로 인해 보통 수준으로 평가된다."
       },
       {
         "item_id": 151801,
@@ -160,7 +160,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "정책 이행 과정을 전자문서로 기록하고 공개하여 긍정적인 평가를 받았으나 추가적인 개선 여지가 있다."
+        "rating_rationale": "정책 이행 과정을 전자문서로 기록하고 공개하여 긍정적인 평가를 받았으나, 더 많은 정보 공개가 필요할 수 있다."
       },
       {
         "item_id": 151802,
@@ -168,7 +168,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "D",
         "new_rating": "C",
-        "rating_rationale": "오세훈은 선거 자금 관리의 투명성을 강조하였으나, 여전히 세부 사항에 대한 논란이 있어 신뢰성이 낮다."
+        "rating_rationale": "투명성을 강조하고 있으나 세부 사항에 대한 논란이 지속되어 신뢰성에 의문이 생기고 있다."
       },
       {
         "item_id": 151803,
@@ -176,7 +176,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "시민 의견을 수렴하여 정책 결정의 투명성을 높이려는 노력은 평가되지만, 여전히 부족한 부분이 지적되어 개선이 필요하다."
+        "rating_rationale": "시민 의견을 수렴하려는 노력은 긍정적이나, 여전히 부족하다는 지적이 있어 개선 필요성이 크다."
       },
       {
         "item_id": 151804,
@@ -184,31 +184,31 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "청렴성을 강조하는 캠페인이 시민 인식을 개선하는 데 긍정적인 영향을 주었으나, 지속적인 효과가 의문시된다."
+        "rating_rationale": "청렴성을 강조한 캠페인이 시민 인식 개선에 기여하였으나, 보다 지속적이고 심층적인 노력이 요구된다."
       },
       {
         "item_id": 151805,
         "data_title": "정기 감사 실시",
         "collected_by": "ChatGPT",
         "original_rating": "D",
-        "new_rating": "D",
-        "rating_rationale": "정기 감사를 실시하여 투명성을 높이려는 노력이 있었으나, 감사 결과 미공개로 인해 신뢰성이 감소하였다."
+        "new_rating": "E",
+        "rating_rationale": "정기 감사 실시에도 불구하고 결과가 공개되지 않아 투명성 부족으로 비판받고 있다."
       },
       {
         "item_id": 151806,
         "data_title": "현안에 대한 대응 태도",
         "collected_by": "ChatGPT",
         "original_rating": "C",
-        "new_rating": "C",
-        "rating_rationale": "정치적 현안에 대한 신속한 대응은 긍정적이지만, 불확실성으로 인해 평가가 엇갈리고 있다."
+        "new_rating": "D",
+        "rating_rationale": "신속한 대응은 긍정적이나, 불확실성이 존재해 청렴성 강화에 한계가 있다는 평가를 받고 있다."
       },
       {
         "item_id": 151807,
         "data_title": "소속 정당의 청렴성",
         "collected_by": "ChatGPT",
         "original_rating": "E",
-        "new_rating": "D",
-        "rating_rationale": "소속 정당의 청렴성 문제로 인해 개인의 이미지가 부정적으로 영향을 받았으며, 신뢰성에 타격이 있다."
+        "new_rating": "F",
+        "rating_rationale": "소속 정당의 청렴성 문제가 개인 평가에 부정적 영향을 미치고 있어 신뢰성에 큰 타격이 있다."
       },
       {
         "item_id": 151808,
@@ -216,7 +216,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "시민과의 소통을 강화하려는 노력은 긍정적이나, 일부 시민의 반발로 인해 균형 잡힌 소통이 필요하다."
+        "rating_rationale": "시민과의 소통을 위한 프로그램 운영은 긍정적이나, 일부 시민의 반발로 인해 신뢰도가 낮아질 수 있다."
       },
       {
         "item_id": 151809,
@@ -224,7 +224,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "D",
         "new_rating": "D",
-        "rating_rationale": "감사 결과 수용 의사를 밝혔으나, 이행 여부에 대한 우려가 제기되어 신뢰도가 낮아지고 있다."
+        "rating_rationale": "감사 결과 수용 의사를 나타내었으나, 이행 여부에 대한 우려가 있어 신뢰성이 감소하고 있다."
       },
       {
         "item_id": 151810,
@@ -232,7 +232,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "재산 형성 과정의 일부만 공개하였고 초기 축적의 투명성 문제로 인해 신뢰성이 떨어진다."
+        "rating_rationale": "재산 형성 과정의 일부 공개에도 불구하고 초기 축적의 투명성 문제로 비판받고 있어 신뢰성이 떨어진다."
       },
       {
         "item_id": 151811,
@@ -240,7 +240,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "반부패 캠페인 참여는 긍정적이나, 실질적인 효과에 대한 의구심이 존재하여 청렴성 강화가 미흡하다."
+        "rating_rationale": "반부패 캠페인 참여는 긍정적이나, 실질적인 효과에 대한 의구심이 커서 청렴성 강화에 한계가 있다."
       },
       {
         "item_id": 151812,
@@ -248,31 +248,31 @@
         "collected_by": "ChatGPT",
         "original_rating": "E",
         "new_rating": "H",
-        "rating_rationale": "부동산 비리 의혹은 그의 청렴성에 심각한 타격을 주며, 뇌물 수수 의혹은 치명적 결함으로 볼 수 있다."
+        "rating_rationale": "부동산 비리 의혹은 뇌물 수수와 관련된 심각한 문제로, 청렴성에 치명적 결함을 드러낸다."
       },
       {
         "item_id": 151813,
         "data_title": "공직자 재산 신고",
         "collected_by": "ChatGPT",
         "original_rating": "B",
-        "new_rating": "A",
-        "rating_rationale": "재산 신고를 성실히 이행하고 투명하게 공개하여 청렴성을 잘 보여줍니다."
+        "new_rating": "B",
+        "rating_rationale": "재산 신고를 성실히 이행하고 투명하게 공개한 점은 긍정적이나, 과거 의혹이 여전히 영향을 미친다."
       },
       {
         "item_id": 151814,
         "data_title": "정치자금 투명성",
         "collected_by": "ChatGPT",
         "original_rating": "A",
-        "new_rating": "A",
-        "rating_rationale": "정기적인 정치자금 공개와 외부 감사는 그의 청렴성을 강화하는 요소로 긍정적입니다."
+        "new_rating": "B",
+        "rating_rationale": "정치자금 사용 내역을 정기적으로 공개하고 외부 감사를 받는 점은 우수하지만 과거의 의혹이 상존한다."
       },
       {
         "item_id": 151815,
         "data_title": "각종 공사 계약의 투명성",
         "collected_by": "ChatGPT",
         "original_rating": "B",
-        "new_rating": "B",
-        "rating_rationale": "공공사업 계약 절차의 투명성과 부당한 로비 차단 정책은 우수하나, 추가적인 검증 필요."
+        "new_rating": "A",
+        "rating_rationale": "공공사업 계약 절차의 투명성을 위해 부당한 로비 차단 정책을 시행한 점은 매우 우수하다."
       },
       {
         "item_id": 151816,
@@ -280,7 +280,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "부산시장 시절 비판은 있었으나 뇌물 수수 의혹이 없었던 점은 양호하나, 논란이 지속됨."
+        "rating_rationale": "부산시장 시절 비판이 있었으나 뇌물 수수 의혹이 없었던 점은 양호하나, 여전히 부정적 인식이 남아있다."
       },
       {
         "item_id": 151817,
@@ -288,7 +288,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "민원 및 고발 문제를 신속하게 처리하는 것은 긍정적이지만, 보다 광범위한 접근이 필요."
+        "rating_rationale": "민원 및 고발 문제를 신속하게 처리하는 점은 긍정적이나, 더 많은 투명성이 필요하다."
       },
       {
         "item_id": 151818,
@@ -296,7 +296,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "D",
         "new_rating": "E",
-        "rating_rationale": "청렴도 평가에서 나쁜 성적을 받은 것은 그의 청렴성에 미흡한 부분이 있음을 시사합니다."
+        "rating_rationale": "청렴도 평가에서 나쁜 성적을 받은 것은 그의 청렴성에 미흡함을 보여준다."
       },
       {
         "item_id": 151819,
@@ -304,7 +304,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "공직 부패 예방 정책과 청렴 문화 확산 노력은 우수하나, 실천의 지속성이 중요함."
+        "rating_rationale": "공직 부패 예방 정책과 교육을 통한 청렴 문화 확산은 우수하나, 실행의 일관성이 필요하다."
       },
       {
         "item_id": 151820,
@@ -312,7 +312,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "가족 비리 의혹이 있으나 입증되지 않았기에 양호한 평가를 받을 수 있습니다."
+        "rating_rationale": "본인 및 가족의 재산과 관련된 의혹은 입증되지 않았으나, 여전히 불신을 초래할 수 있다."
       },
       {
         "item_id": 151821,
@@ -320,7 +320,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "D",
         "new_rating": "D",
-        "rating_rationale": "공정한 선거 관리 약속은 긍정적이나 논란 발생으로 인해 보통 수준의 신뢰성에 그칩니다."
+        "rating_rationale": "선거 관리에 대한 공정성을 약속했으나 논란이 발생한 점은 보통 수준의 청렴성을 나타낸다."
       },
       {
         "item_id": 151822,
@@ -328,7 +328,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "외부 감사 수용은 투명성과 책임성을 높이는 중요한 조치로, 이는 오세훈의 청렴성을 매우 높게 평가하게 만든다."
+        "rating_rationale": "외부 감사 기관의 조치를 적극 수용하며 긍정적인 평가를 받는 것은 청렴성을 강화하는 중요한 행동이다."
       },
       {
         "item_id": 151823,
@@ -336,23 +336,23 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "정기적인 국민 보고는 의사소통의 투명성을 강화하며, 이는 오세훈의 청렴성을 높이는 긍정적인 행동으로 간주된다."
+        "rating_rationale": "정기적인 국민 보고를 통해 의사소통의 투명성을 높이는 것은 정치인의 청렴성을 증진시키는 매우 긍정적인 노력이다."
       },
       {
         "item_id": 151824,
         "data_title": "소통과 관용 정책",
         "collected_by": "ChatGPT",
         "original_rating": "B",
-        "new_rating": "B",
-        "rating_rationale": "시민과의 소통을 강조하는 정책은 청렴성을 높이는 데 기여하지만, 그 실행 정도에 따라 평가가 달라질 수 있다."
+        "new_rating": "A",
+        "rating_rationale": "시민과의 소통을 강조하고 의견을 수렴하는 것은 투명하고 책임 있는 정부 운영을 위한 중요한 요소로 청렴성을 높인다."
       },
       {
         "item_id": 151825,
         "data_title": "정책 집행의 투명성",
         "collected_by": "ChatGPT",
         "original_rating": "C",
-        "new_rating": "B",
-        "rating_rationale": "정책 집행의 투명성을 높이려는 노력은 긍정적이지만, 구체적인 성과가 부족할 경우 평가에 한계가 있다."
+        "new_rating": "A",
+        "rating_rationale": "정책 집행의 투명성을 높이기 위한 지속적인 노력은 청렴성의 기본이자, 신뢰를 구축하는 데 매우 중요하다."
       },
       {
         "item_id": 151826,
@@ -360,7 +360,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "부정 거래 의혹이 제기된 민간 위탁 사업은 청렴성에 대한 심각한 우려를 초래하여 미흡한 평가를 받는다."
+        "rating_rationale": "일부 민간 위탁 사업에서 부정 거래 의혹이 제기된 것은 청렴성에 심각한 우려를 불러일으키며, 이는 개선이 필요하다."
       },
       {
         "item_id": 151827,
@@ -368,7 +368,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "의회와의 소통은 정책 추진에 긍정적 영향을 미치지만, 그 소통의 깊이와 질에 따라 평가가 변동될 수 있다."
+        "rating_rationale": "의회와의 원활한 소통은 정책 추진에 긍정적인 영향을 미치지만, 청렴성 향상에 대한 직접적인 언급이 부족하여 다소 아쉽다."
       },
       {
         "item_id": 151828,
@@ -376,7 +376,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "정기적인 시정 보고는 시민에게 투명한 정보를 제공하며, 이는 청렴성을 높이는 매우 긍정적인 조치로 평가된다."
+        "rating_rationale": "정기적인 시정 보고는 시민들에게 정책 진행 상황을 알리고 투명성을 높이는 데 기여하여 청렴성을 강화한다."
       },
       {
         "item_id": 151829,
@@ -384,7 +384,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "시민 참여를 장려하는 정책은 청렴성을 강화하는 데 기여하며, 이는 오세훈의 긍정적인 청렴성 평가를 이끌어 낸다."
+        "rating_rationale": "시민 참여를 장려하는 정책은 투명성과 청렴성을 강화하는 데 큰 도움이 되며 매우 긍정적인 접근이다."
       },
       {
         "item_id": 151830,
@@ -392,7 +392,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "A",
         "new_rating": "B",
-        "rating_rationale": "우수한 평판 관리 노력은 긍정적이나, 실제 행동과 성과가 뒷받침되지 않으면 청렴성에 대한 신뢰가 약해질 수 있다."
+        "rating_rationale": "우수한 평판 관리는 공직자로서 중요한 역할을 하며, 청렴성을 높이기 위한 노력으로 긍정적이나 구체적인 행동이 필요하다."
       },
       {
         "item_id": 151831,
@@ -400,7 +400,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "청렴 의식 고취 활동과 교육 강화는 청렴성을 높이는 기초를 다지는 중요한 조치로, 매우 긍정적으로 평가된다."
+        "rating_rationale": "청렴 의식을 고취하기 위한 다양한 프로그램과 청렴 교육 강화는 청렴성을 높이는 데 매우 효과적인 접근이다."
       },
       {
         "item_id": 151732,
@@ -408,7 +408,7 @@
         "collected_by": "Grok",
         "original_rating": "F",
         "new_rating": "D",
-        "rating_rationale": "2011년 선거 과정에서 뇌물 공여 혐의로 기소되었으나 무죄 판결을 받았지만, 이 사건은 청렴성에 대한 의구심을 증대시켰다."
+        "rating_rationale": "뇌물 공여 혐의로 기소되었으나 무죄 판결을 받았으나, 정치인의 신뢰성을 훼손하는 사건으로 청렴성에 부정적 영향을 미침."
       },
       {
         "item_id": 151733,
@@ -416,7 +416,7 @@
         "collected_by": "Grok",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "정치 자금 보고의 불명확성은 재정 투명성 부족을 보여주며, 부패 가능성을 높인다. 이는 청렴성에 부정적인 영향을 미친다."
+        "rating_rationale": "정치 자금 보고서의 불명확성이 지적되며, 부패 가능성을 시사하는 문제로 청렴성에 심각한 우려를 초래함."
       },
       {
         "item_id": 151734,
@@ -424,7 +424,7 @@
         "collected_by": "Grok",
         "original_rating": "G",
         "new_rating": "E",
-        "rating_rationale": "재산 신고서의 불일치와 지연은 공공기관의 비리를 암시하며, 이는 청렴성에 대한 비판을 초래한다."
+        "rating_rationale": "재산 신고서의 불일치와 보고 지연이 드러나, 재산 비리의 가능성을 암시하며 청렴성에 대한 비판을 초래함."
       },
       {
         "item_id": 151735,
@@ -432,7 +432,7 @@
         "collected_by": "Grok",
         "original_rating": "F",
         "new_rating": "E",
-        "rating_rationale": "부패 방지법 준수 미비는 이해충돌 상황을 초래할 수 있으며, 이는 청렴성을 저해하는 주요 문제다."
+        "rating_rationale": "부패 방지법 준수 미비가 지적되며, 금전적 이익 가능성으로 인해 청렴성에 문제가 발생함."
       },
       {
         "item_id": 151736,
@@ -440,15 +440,15 @@
         "collected_by": "Grok",
         "original_rating": "G",
         "new_rating": "F",
-        "rating_rationale": "횡령 의혹은 공공 자금 사용의 불투명성을 드러내며, 이는 정치인으로서의 신뢰성을 크게 손상시킨다."
+        "rating_rationale": "횡령 의혹이 제기되어 공공 자금의 불투명한 사용이 드러나, 정치인으로서 청렴성에 심각한 타격을 입힘."
       },
       {
         "item_id": 151737,
         "data_title": "주식 거래 관련 재산 비리 의혹",
         "collected_by": "Grok",
         "original_rating": "F",
-        "new_rating": "F",
-        "rating_rationale": "주식 거래로 인한 이익은 선거 자금과의 연관성으로 부패 의혹을 제기하며, 청렴성에 대한 신뢰를 약화시킨다."
+        "new_rating": "E",
+        "rating_rationale": "주식 거래로 인한 이익이 선거 자금과 관련된 의혹을 낳아, 재산 관리의 투명성을 해치며 청렴성에 부정적 영향을 미침."
       },
       {
         "item_id": 151738,
@@ -456,7 +456,7 @@
         "collected_by": "Grok",
         "original_rating": "G",
         "new_rating": "E",
-        "rating_rationale": "부동산 매입의 부정확한 신고는 재산 비리 가능성을 제기하며, 이는 공직자 윤리를 위배하는 행위로 부각된다."
+        "rating_rationale": "부동산 자산 신고의 부정확성이 지적되며, 재산 비리의 가능성을 암시하여 청렴성에 대한 비판이 제기됨."
       },
       {
         "item_id": 151739,
@@ -464,7 +464,7 @@
         "collected_by": "Grok",
         "original_rating": "E",
         "new_rating": "F",
-        "rating_rationale": "서울시 예산의 부적절한 사용은 횡령 가능성을 제기하며, 이는 청렴성을 크게 손상시킨다."
+        "rating_rationale": "서울시 예산의 부적절한 사용이 드러나 횡령 가능성이 제기되며, 청렴성에 큰 타격을 입힘."
       },
       {
         "item_id": 151740,
@@ -472,15 +472,15 @@
         "collected_by": "Grok",
         "original_rating": "H",
         "new_rating": "F",
-        "rating_rationale": "선거 자금에서의 뇌물 의혹은 공직자 청렴성에 위배되며, 금전적 부패의 전형적인 예로 비판받고 있다."
+        "rating_rationale": "선거 자금 관리에서 뇌물 수수 의혹이 발생하여, 금전적 부패의 전형적인 사례로 청렴성이 크게 훼손됨."
       },
       {
         "item_id": 151741,
         "data_title": "재산 은닉 및 신고 미이행 논란",
         "collected_by": "Grok",
         "original_rating": "G",
-        "new_rating": "G",
-        "rating_rationale": "재산 은닉 의혹은 공직자법 위반 가능성을 포함하며, 이는 청렴성에 대한 대중적인 불신을 초래한다."
+        "new_rating": "H",
+        "rating_rationale": "재산 은닉 및 신고 미이행 논란은 공직자법 위반 가능성을 포함하며, 청렴성에 치명적인 결함을 초래함."
       },
       {
         "item_id": 151742,
@@ -488,7 +488,7 @@
         "collected_by": "Grok",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "2011년 뇌물 혐의에서 무죄 판결을 받아 청렴성이 입증되었습니다. 관련 증거 부족으로 혐의가 무효화되었으며, 감사원 조사에서도 추가 부패 징후가 발견되지 않아 긍정적인 평가를 받았습니다."
+        "rating_rationale": "2013년 대법원에서 무죄 판결을 받은 사건으로, 관련 증거가 부족함이 드러났으며, 감사원 조사에서도 추가 부패 징후가 발견되지 않았다."
       },
       {
         "item_id": 151743,
@@ -496,7 +496,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "재산 신고를 매년 성실히 준수하였고, 허위 신고나 은닉 의혹이 없음을 감사원 검토를 통해 입증하였습니다. 이는 공직자 재산 관리의 모범 사례로 평가됩니다."
+        "rating_rationale": "매년 재산 신고를 철저히 이행하였고, 허위 신고나 은닉 의혹이 없다는 감사원 검토 결과로 투명성이 우수하게 입증되었다."
       },
       {
         "item_id": 151744,
@@ -504,7 +504,7 @@
         "collected_by": "Grok",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "서울시 예산 집행에서 불법 횡령이나 부당 사용이 없음을 확인했습니다. 감사원이 규정에 따라 집행되었다고 인정한 점에서 청렴성이 높이 평가됩니다."
+        "rating_rationale": "2012년 감사에서 공공 자금의 사용이 규정에 따라 이루어졌으며, 불법 행위가 없다는 점에서 청렴성이 높았다."
       },
       {
         "item_id": 151745,
@@ -512,7 +512,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "이해충돌 방지 정책을 시행하고 가족 기업과의 계약을 피한 점은 공직자로서 청렴성을 유지하려는 의지를 보여줍니다. 감사 결과에서도 문제가 발생하지 않았습니다."
+        "rating_rationale": "이해충돌 방지 정책을 공식적으로 시행하였고, 감사 결과 문제가 발생하지 않았다는 점에서 청렴성을 잘 지켰다."
       },
       {
         "item_id": 151746,
@@ -520,15 +520,15 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "B",
-        "rating_rationale": "부패 방지법 개정안을 지지한 것은 그의 청렴성 철학을 반영하지만, 구체적인 실천 사례가 부족하여 A 등급은 어렵습니다."
+        "rating_rationale": "부패 방지법 개정안을 지지한 것은 긍정적이나, 단일 사건으로 평가하기에는 한정적이다."
       },
       {
         "item_id": 151747,
         "data_title": "서울시 부패 예방 프로그램",
         "collected_by": "Grok",
         "original_rating": "B",
-        "new_rating": "B",
-        "rating_rationale": "부패 예방 프로그램 도입으로 청렴성을 높이려는 노력이 있었으나 일부 미비점이 지적되어 A 등급을 받기에는 부족합니다."
+        "new_rating": "C",
+        "rating_rationale": "부패 예방 프로그램을 도입하였으나, 실행 단계에서 미비점이 지적되어 완전한 청렴성에는 다소 부족함이 있었다."
       },
       {
         "item_id": 151748,
@@ -536,7 +536,7 @@
         "collected_by": "Grok",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "개인 재산 관리에 대한 감사에서 부패 관련 문제가 발견되지 않아 청렴성을 입증하였습니다. 법적으로 적합한 재산 증식 과정이 확인되었습니다."
+        "rating_rationale": "개인 재산 관리 감사에서 부패 관련 문제가 발견되지 않았으며, 재산 증식 과정이 법적으로 적합하다는 점에서 청렴성이 우수하다."
       },
       {
         "item_id": 151749,
@@ -544,7 +544,7 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "A",
-        "rating_rationale": "선거 자금 관리가 철저하게 감사받았고, 불법 자금 수수 혐의가 없음을 확인하였습니다. 이는 정치적 청렴성을 보여주는 중요한 사례입니다."
+        "rating_rationale": "선거 자금 관리가 국가선거관리위원회에 의해 감사받았고, 불법 자금 수수 혐의가 없었으며, 보고가 정확하게 제출되었다."
       },
       {
         "item_id": 151750,
@@ -552,7 +552,7 @@
         "collected_by": "Grok",
         "original_rating": "D",
         "new_rating": "B",
-        "rating_rationale": "공공 입찰 과정의 투명성을 강조한 점은 긍정적이나 일부 프로젝트에서 지연 논란이 있어 A 등급을 받기에는 부족합니다."
+        "rating_rationale": "공공 입찰 과정의 투명성을 강조하였으나, 일부 프로젝트에서 지연으로 인한 논란이 발생하여 완벽한 청렴성에는 부족함이 있었다."
       },
       {
         "item_id": 151751,
@@ -560,7 +560,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "가족 관련 부패 의혹이 무혐의로 결론났으며, 거래가 공정하게 관리되었음을 입증한 점에서 청렴성이 확립되었습니다."
+        "rating_rationale": "가족 관련 부패 의혹이 무혐의로 결론났고, 공정하게 관리된 거래로 뇌물이나 횡령 증거가 없다는 점에서 청렴성이 우수하다."
       },
       {
         "item_id": 151752,
@@ -568,7 +568,7 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "B",
-        "rating_rationale": "부패 신고 시스템 구축은 시민 신고를 장려하는 긍정적 조치이나, 이용률이 낮아 실효성 부족."
+        "rating_rationale": "부패 신고 시스템을 구축하여 시민의 참여를 유도했으나, 이용률이 낮아 실효성이 부족하였음."
       },
       {
         "item_id": 151753,
@@ -576,7 +576,7 @@
         "collected_by": "Grok",
         "original_rating": "D",
         "new_rating": "C",
-        "rating_rationale": "청렴성 관련 발언은 긍정적이나, 직접적인 행동이 제한적이어서 청렴성을 높이는 데 기여도가 낮음."
+        "rating_rationale": "청렴성 발언을 통해 부패 방지 법안 논의에 참여하였으나, 실질적인 행동이 부족하여 양호한 평가."
       },
       {
         "item_id": 151754,
@@ -584,7 +584,7 @@
         "collected_by": "Grok",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "감사원에 의한 예산 감사에서 부패 요소가 발견되지 않아 재정 운영의 투명성을 잘 보여줌."
+        "rating_rationale": "예산 사용에 대한 감사에서 부패 요소가 발견되지 않았고, 자금 집행이 적절히 관리되었음."
       },
       {
         "item_id": 151755,
@@ -592,15 +592,15 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "재산 증식 과정이 합법적이며, 비리 의혹이 없다는 점에서 청렴성이 매우 우수함."
+        "rating_rationale": "재산 증식이 합법적 경로를 통해 이루어졌으며, 비리 의혹이 없다는 점에서 매우 우수한 청렴성을 보여줌."
       },
       {
         "item_id": 151756,
         "data_title": "공무원 부패 예방 지침",
         "collected_by": "Grok",
         "original_rating": "E",
-        "new_rating": "C",
-        "rating_rationale": "공무원 부패 예방 지침 강화를 통해 노력했으나, 일부 지침이 미흡하게 적용되어 개선 필요."
+        "new_rating": "D",
+        "rating_rationale": "부패 예방 지침을 강화하였으나 일부 지침이 미흡하게 적용되어 보통 수준의 평가를 받음."
       },
       {
         "item_id": 151757,
@@ -608,23 +608,23 @@
         "collected_by": "Grok",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "부동산 투기 의혹이 무혐의로 끝난 점은 청렴성을 높이는 중요한 요소로 작용함."
+        "rating_rationale": "부동산 투기 의혹이 무혐의로 결론지어졌고, 법적으로 적합한 거래로 확인되어 매우 우수한 평가."
       },
       {
         "item_id": 151758,
         "data_title": "국제 부패 방지 협력",
         "collected_by": "Grok",
         "original_rating": "C",
-        "new_rating": "A",
-        "rating_rationale": "국제 부패 방지 기구와의 협력은 청렴성을 높이는 긍정적 조치로 평가됨."
+        "new_rating": "B",
+        "rating_rationale": "국제 부패 방지 협력 활동을 통해 국내 청렴성에 기여하였으나, 구체적인 성과가 부족하여 우수하다고 평가."
       },
       {
         "item_id": 151759,
         "data_title": "내부 감사 시스템",
         "collected_by": "Grok",
         "original_rating": "D",
-        "new_rating": "B",
-        "rating_rationale": "내부 감사 시스템 강화는 좋으나, 미비점 발견으로 인해 완벽한 청렴성 확보에는 부족함."
+        "new_rating": "C",
+        "rating_rationale": "내부 감사 시스템 강화 지시는 긍정적이나, 미비점이 발견되어 양호한 수준으로 평가됨."
       },
       {
         "item_id": 151760,
@@ -632,7 +632,7 @@
         "collected_by": "Grok",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "법적 소송에서 모든 혐의가 무죄로 판결되어 청렴성이 확인된 사례로 긍정적 평가."
+        "rating_rationale": "부패 관련 혐의가 모두 무죄로 마무리되어 청렴성을 확인한 사례로, 매우 우수한 평가를 받음."
       },
       {
         "item_id": 151761,
@@ -640,7 +640,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "C",
-        "rating_rationale": "전반적 청렴성 평가가 양호하나, 일부 의혹으로 인한 지연이 있어 완전한 신뢰를 주지 못함."
+        "rating_rationale": "전반적인 청렴성 평가는 양호하나 일부 의혹으로 인한 지연이 있어 보통 수준으로 평가됨."
       },
       {
         "item_id": 151762,
@@ -648,7 +648,7 @@
         "collected_by": "Grok",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "재산 신고의 불투명성은 공직자의 청렴성을 심각하게 훼손할 수 있는 요소로, 공개되지 않은 정보는 신뢰를 약화시킨다."
+        "rating_rationale": "재산 신고의 불투명성은 공직자의 청렴성에 큰 영향을 미친다. 아파트 매입 관련 정보가 제대로 공개되지 않아 신뢰성을 저해했다."
       },
       {
         "item_id": 151763,
@@ -656,7 +656,7 @@
         "collected_by": "Grok",
         "original_rating": "F",
         "new_rating": "D",
-        "rating_rationale": "부동산 거래에 대한 의혹이 있으나, 구체적인 부정행위가 입증되지 않아 신뢰성은 약간 손상되었다."
+        "rating_rationale": "부동산 거래에서 시세 차익을 얻었다는 의혹이 있으나, 공공 자산 관련 혐의는 입증되지 않아 보통 수준의 청렴성을 유지하고 있다."
       },
       {
         "item_id": 151764,
@@ -664,7 +664,7 @@
         "collected_by": "Grok",
         "original_rating": "D",
         "new_rating": "E",
-        "rating_rationale": "정치 자금 사용의 불명확성이 뇌물 가능성을 제기하며, 공적 자금 관리의 투명성을 크게 저해한다."
+        "rating_rationale": "정치 자금 사용의 세부 내역이 불명확하게 기록되어 뇌물 가능성을 배제할 수 없어 청렴성에 심각한 의문을 제기한다."
       },
       {
         "item_id": 151765,
@@ -672,7 +672,7 @@
         "collected_by": "Grok",
         "original_rating": "E",
         "new_rating": "D",
-        "rating_rationale": "가족의 재산 비리 주장은 청렴성에 대한 의구심을 불러일으키지만, 증거가 부족하여 확정짓기에는 한계가 있다."
+        "rating_rationale": "가족 소유 부동산의 이익과 관련된 혐의가 있지만, 증거 부족으로 종결되어 보통 수준의 청렴성으로 평가된다."
       },
       {
         "item_id": 151766,
@@ -680,7 +680,7 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "뇌물 수수 소문이 있지만, 구체적인 증거가 없으므로 청렴성에 대한 우려는 존재하나 심각한 결함은 아니다."
+        "rating_rationale": "뇌물 수수 소문의 구체적인 증거가 없으나, 정치인과 기업의 상호작용에 대한 의구심이 남아 청렴성에 양호한 수준을 나타낸다."
       },
       {
         "item_id": 151767,
@@ -688,7 +688,7 @@
         "collected_by": "Grok",
         "original_rating": "F",
         "new_rating": "D",
-        "rating_rationale": "공공 프로젝트에서의 비효율적 사용은 재정 관리의 청렴성을 문제 삼으며, 개인의 불법 행위로는 연결되지 않았다."
+        "rating_rationale": "공공 프로젝트에서 예산 비효율성이 지적되었으나 개인 횡령으로 연결되지 않아 보통 수준의 청렴성으로 평가된다."
       },
       {
         "item_id": 151768,
@@ -696,7 +696,7 @@
         "collected_by": "Grok",
         "original_rating": "D",
         "new_rating": "E",
-        "rating_rationale": "선거 자금 보고서의 불투명성은 정치 자금의 청렴성에 대한 우려를 증가시키며, 신뢰를 약화시킨다."
+        "rating_rationale": "선거 자금 보고서의 불투명성이 청렴성에 미치는 부정적인 영향을 고려할 때, 미흡한 청렴성으로 평가된다."
       },
       {
         "item_id": 151769,
@@ -704,23 +704,23 @@
         "collected_by": "Grok",
         "original_rating": "E",
         "new_rating": "C",
-        "rating_rationale": "개인 재산의 급격한 증가가 부패와 연결되지는 않지만, 공직자의 재산 관리에 대한 감시가 필요한 상황이다."
+        "rating_rationale": "개인 재산 증식이 부패와 직접 연결되지 않지만, 공직자의 재산 관리에 대한 감시를 강조하여 양호한 수준의 청렴성을 나타낸다."
       },
       {
         "item_id": 151770,
         "data_title": "기업 로비 의혹",
         "collected_by": "Grok",
         "original_rating": "C",
-        "new_rating": "D",
-        "rating_rationale": "기업 로비 의혹이 있으나 구체적인 증거가 없으므로 정치적 신뢰성에 다소 손상이 있지만 심각하지 않다."
+        "new_rating": "C",
+        "rating_rationale": "기업 로비 의혹이 있으나, 구체적 증거가 없으므로 정치와 기업 간의 경계선이 흐리지만 양호한 청렴성으로 평가된다."
       },
       {
         "item_id": 151771,
         "data_title": "공직 중 재산 처분 문제",
         "collected_by": "Grok",
         "original_rating": "F",
-        "new_rating": "E",
-        "rating_rationale": "재산 처분 과정에서의 비판은 청렴성 원칙 위반 가능성을 시사하며, 공직자로서의 신뢰성을 저하시킨다."
+        "new_rating": "D",
+        "rating_rationale": "재산 처분 과정에서 비판을 받았으나 구체적인 부패 행위가 드러나지 않아 보통 수준의 청렴성으로 평가된다."
       },
       {
         "item_id": 151772,
@@ -728,15 +728,15 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "뇌물 고발이 무혐의로 결론났으며, 청렴성을 유지한 것으로 평가되므로 높은 등급을 부여."
+        "rating_rationale": "오세훈에 대한 뇌물 고발 결과가 무혐의로 결론나 청렴성을 유지한 것으로 평가됨. 이는 그의 정치적 신뢰성을 높이는 요소."
       },
       {
         "item_id": 151773,
         "data_title": "자산 공개 정책 이행",
         "collected_by": "Grok",
         "original_rating": "D",
-        "new_rating": "D",
-        "rating_rationale": "부분적인 자산 공개로 투명성 논란이 제기되었으며, 완전한 이행이 아니므로 보통으로 평가."
+        "new_rating": "E",
+        "rating_rationale": "자산 공개 정책을 부분적으로 이행하여 투명성 논란이 발생. 이는 청렴성에 대한 의구심을 불러일으키는 요소."
       },
       {
         "item_id": 151774,
@@ -744,23 +744,23 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "횡령 의혹에서 직접적 연관이 없었으나 간접적 책임이 논의되었다는 점에서 양호한 수준."
+        "rating_rationale": "횡령 의혹이 있었으나 직접적 연관이 없었고 간접적 책임 논의로 청렴성이 크게 훼손되지 않음."
       },
       {
         "item_id": 151775,
         "data_title": "정치 후원금 관리",
         "collected_by": "Grok",
         "original_rating": "E",
-        "new_rating": "E",
-        "rating_rationale": "후원금 관리에서 불명확한 항목이 발견되어 청렴성에 대한 의구심이 생겼으므로 미흡으로 평가."
+        "new_rating": "D",
+        "rating_rationale": "후원금 관리에서 불명확한 항목이 발견되어 청렴성 검증이 요구됨. 이는 개선의 여지가 있음을 나타냄."
       },
       {
         "item_id": 151776,
         "data_title": "부패 방지 정책 수립",
         "collected_by": "Grok",
         "original_rating": "D",
-        "new_rating": "F",
-        "rating_rationale": "부패 방지 정책 수립은 긍정적이나 실행 부족으로 인해 청렴성에 대한 신뢰도가 낮아져 부족으로 평가."
+        "new_rating": "E",
+        "rating_rationale": "부패 방지 정책 수립은 긍정적이나 실행이 부족하여 효과성에 의문이 제기됨. 청렴성 유지에 미흡함."
       },
       {
         "item_id": 151777,
@@ -768,39 +768,39 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "재산 비리 소송이 무죄로 끝났으며, 이는 청렴성을 잘 유지했다는 증거로 매우 우수한 평가."
+        "rating_rationale": "재산 비리 소송이 무죄로 결론나 청렴성을 어느 정도 유지한 것으로 평가됨. 이는 정치적 신뢰에 긍정적 영향을 미침."
       },
       {
         "item_id": 151778,
         "data_title": "기업 연결 의혹",
         "collected_by": "Grok",
         "original_rating": "C",
-        "new_rating": "C",
-        "rating_rationale": "기업 연결 의혹이 있었으나 불법으로 확인되지 않아 청렴성의 경계선을 테스트했으므로 양호함."
+        "new_rating": "D",
+        "rating_rationale": "기업 연결 의혹이 있었으나 불법으로 확인되지 않아 간접적으로 청렴성을 유지한 것으로 볼 수 있으나 논란은 존재."
       },
       {
         "item_id": 151779,
         "data_title": "공금 사용 감사",
         "collected_by": "Grok",
         "original_rating": "E",
-        "new_rating": "D",
-        "rating_rationale": "공금 사용에서 경비 과다가 지적되었지만 부패로 이어지지 않아 보통 수준으로 평가."
+        "new_rating": "C",
+        "rating_rationale": "공금 사용 감사에서 경비 과다가 지적되었으나 부패로 이어지지 않아 청렴성에 큰 타격을 주지 않음."
       },
       {
         "item_id": 151780,
         "data_title": "뇌물 방지 조치",
         "collected_by": "Grok",
         "original_rating": "D",
-        "new_rating": "E",
-        "rating_rationale": "뇌물 방지 조치를 취했으나 효과가 미비해 청렴성 유지의 노력은 부족하다고 평가됨."
+        "new_rating": "D",
+        "rating_rationale": "뇌물 방지 조치를 취했으나 효과가 미비하여 청렴성 유지에 한계가 있음을 보여줌. 개선이 필요함."
       },
       {
         "item_id": 151781,
         "data_title": "재산 신고 개선 노력",
         "collected_by": "Grok",
         "original_rating": "C",
-        "new_rating": "C",
-        "rating_rationale": "재산 신고의 개선 노력이 있었으나 완벽하지 않아 양호한 평가를 받으나 여전히 개선이 필요."
+        "new_rating": "B",
+        "rating_rationale": "재산 신고 개선 노력이 확인되었으나 완벽하지 않아 청렴성에 긍정적 영향을 미치지만 여전히 개선의 여지가 있음."
       },
       {
         "item_id": 107588,
@@ -808,7 +808,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "부동산 정책에서 투기 의혹이 제기되었고, 정책 실패로 인한 신뢰도 하락이 우려됨."
+        "rating_rationale": "부동산 정책에서 투기 의혹이 제기되며, 정책 실패가 드러남으로써 신뢰성이 크게 저하되었습니다."
       },
       {
         "item_id": 107589,
@@ -816,7 +816,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "D",
         "new_rating": "E",
-        "rating_rationale": "행정안전부 감사에서 부적절한 예산 집행이 발견되어 청렴성에 큰 결함이 있다고 평가됨."
+        "rating_rationale": "행정안전부 감사에서 예산 집행의 부적절성이 발견되어 행정의 투명성에 심각한 문제가 드러났습니다."
       },
       {
         "item_id": 107590,
@@ -824,7 +824,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "E",
         "new_rating": "D",
-        "rating_rationale": "코로나19 방역 정책의 혼선이 있었지만, 초기 대응이라는 점에서 일부 긍정적인 요소도 존재함."
+        "rating_rationale": "코로나19 방역 정책에서 혼선과 일관성 부족이 있었으나, 직접적인 부패 의혹은 없었습니다."
       },
       {
         "item_id": 107591,
@@ -832,7 +832,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "D",
         "new_rating": "E",
-        "rating_rationale": "공공기관 인사 과정의 투명성이 부족하여 불신을 초래했으며, 이는 청렴성에 부정적 영향을 미침."
+        "rating_rationale": "공공기관 인사 과정의 편향성 지적은 청렴성에 큰 타격을 주며, 신뢰를 저하시켰습니다."
       },
       {
         "item_id": 107592,
@@ -840,7 +840,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "E",
         "new_rating": "D",
-        "rating_rationale": "주요 정책의 일관성 부족이 드러났으나, 일부 정책은 긍정적인 효과를 가져올 수 있었음."
+        "rating_rationale": "정책의 일관성 부족은 청렴성에 영향을 미치지만, 직접적인 비리나 부패는 발견되지 않았습니다."
       },
       {
         "item_id": 107593,
@@ -848,7 +848,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "E",
         "new_rating": "F",
-        "rating_rationale": "개인 부동산 자산 관리에서 투명성이 결여되어 큰 논란이 발생, 청렴성에 심각한 결함."
+        "rating_rationale": "부동산 자산 관리가 투명하지 않아 논란이 되었으며, 개인적 이해관계가 의심되는 부분이 있습니다."
       },
       {
         "item_id": 107594,
@@ -856,15 +856,15 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "D",
         "new_rating": "D",
-        "rating_rationale": "무상보육 정책에서 예산 혼선이 있었으나, 정책의 필요성은 인정되므로 등급을 조정함."
+        "rating_rationale": "보육정책 추진 과정에서 혼선이 있었지만, 명확한 부패 의혹은 제기되지 않았습니다."
       },
       {
         "item_id": 107595,
         "data_title": "서울시 공무원 채용 비리 의혹",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "F",
-        "new_rating": "E",
-        "rating_rationale": "공무원 채용 비리 의혹이 제기되어 특정 집단에 대한 특혜가 우려되며, 이는 청렴성에 부정적임."
+        "new_rating": "F",
+        "rating_rationale": "공무원 채용 과정에서 특정 집단에 대한 특혜 의혹이 제기되어 청렴성이 크게 훼손되었습니다."
       },
       {
         "item_id": 107596,
@@ -872,15 +872,15 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "정치자금 회계 투명성 저하 문제가 제기되어, 재정 관리의 신뢰성을 크게 훼손함."
+        "rating_rationale": "정치자금의 회계 투명성이 저하되어 신뢰를 잃는 결과를 초래하였습니다."
       },
       {
         "item_id": 107597,
         "data_title": "행정사무조사 특혜 의혹",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "E",
-        "new_rating": "F",
-        "rating_rationale": "행정사무조사 과정에서 특정 이해관계자의 개입 의혹이 제기되어 청렴성에 심각한 문제를 나타냄."
+        "new_rating": "E",
+        "rating_rationale": "행정사무조사에서 특정 이해관계 개입 의혹이 제기되어 청렴성에 대한 불신이 커졌습니다."
       },
       {
         "item_id": 107598,
@@ -888,7 +888,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "재취임 후 윤리경영을 선언하며 공직기강과 청렴문화 정착을 약속함으로써 매우 긍정적인 청렴 의지를 보여줌."
+        "rating_rationale": "윤리경영 선언은 청렴문화 정착을 위한 의지를 명확히 보여줍니다. 공직기강 확립의 다짐은 우수한 청렴성을 나타냅니다."
       },
       {
         "item_id": 107599,
@@ -896,7 +896,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "부동산 투기 의혹이 제기되어 신뢰성에 부정적인 영향을 미치며, 청렴성에 미흡함을 나타냄."
+        "rating_rationale": "부동산 투기 의혹은 청렴성에 부정적인 영향을 미치며, 과거의 논란은 신뢰성을 저하시킬 수 있습니다."
       },
       {
         "item_id": 107600,
@@ -904,7 +904,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "공무원 청렴도를 제고하기 위한 제도적 장치를 마련하여 청렴성 강화에 기여하고 있음."
+        "rating_rationale": "행정윤리 강화 정책은 공무원 청렴도를 높이기 위한 제도적 장치를 마련하여 긍정적인 평가를 받을 수 있습니다."
       },
       {
         "item_id": 107601,
@@ -912,7 +912,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "A",
-        "rating_rationale": "정치자금의 수입 및 지출 내역을 공개하여 투명성을 확보, 매우 우수한 청렴성을 나타냄."
+        "rating_rationale": "정치자금의 투명한 공개는 청렴성의 중요한 요소로, 정치적 신뢰를 증진시키는 데 기여합니다."
       },
       {
         "item_id": 107602,
@@ -920,7 +920,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "이해충돌 방지를 위한 제도적 장치를 마련하여 공직자의 청렴성을 증진시키려는 노력이 돋보임."
+        "rating_rationale": "이해충돌 방지 노력이 제도적으로 마련된 점은 공직자의 청렴성 강화를 위한 긍정적인 조치로 평가됩니다."
       },
       {
         "item_id": 107603,
@@ -928,39 +928,39 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "E",
         "new_rating": "F",
-        "rating_rationale": "과거 시장 재임 시 비리 의혹이 제기되어 청렴성에 심각한 결함을 드러내고 있음."
+        "rating_rationale": "과거 비리 의혹은 청렴성에 심각한 타격을 주며, 신뢰도에 부정적인 영향을 미칠 수 있습니다."
       },
       {
         "item_id": 107604,
         "data_title": "공무원 인사 투명성",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
-        "new_rating": "A",
-        "rating_rationale": "공무원 인사의 원칙과 기준을 준수하여 인사의 투명성을 확보한 점이 매우 긍정적임."
+        "new_rating": "B",
+        "rating_rationale": "공무원 인사 원칙과 기준 준수는 인사의 투명성을 높이며, 청렴한 행정을 위한 긍정적인 요소입니다."
       },
       {
         "item_id": 107605,
         "data_title": "예산 집행 투명성",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
-        "new_rating": "B",
-        "rating_rationale": "예산 집행의 적절성과 효율성을 감사받아 청렴한 예산 관리를 보여줌, 우수한 평가."
+        "new_rating": "A",
+        "rating_rationale": "예산 집행의 적절성 및 효율성은 투명한 행정을 나타내며, 청렴성을 높이는 중요한 지표입니다."
       },
       {
         "item_id": 107606,
         "data_title": "정책결정 투명성",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
-        "new_rating": "A",
-        "rating_rationale": "정책 결정 과정의 공개성과 접근성을 높여 투명성을 확보하여 매우 우수한 청렴성을 나타냄."
+        "new_rating": "B",
+        "rating_rationale": "정책결정 과정의 공개성은 투명성을 높여 시민의 신뢰를 받는 데 기여할 수 있습니다."
       },
       {
         "item_id": 107607,
         "data_title": "외부 후원금 관리",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
-        "new_rating": "B",
-        "rating_rationale": "정치자금 및 외부 후원금 수입 관리의 투명성을 강조하여 청렴성을 강화하려는 모습이 긍정적임."
+        "new_rating": "A",
+        "rating_rationale": "정치자금 및 외부 후원금 관리의 투명성은 청렴성을 강화하는 중요한 요소로, 신뢰를 구축하는 데 기여합니다."
       },
       {
         "item_id": 107608,
@@ -968,7 +968,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "서울시 공무원 대상 윤리교육 프로그램 운영은 공직자의 윤리 의식을 높이고 청렴성을 강화하는 데 매우 효과적이며, 공직윤리 교육을 강화하는 것은 긍정적인 신호로 평가된다."
+        "rating_rationale": "서울시 공무원 대상 윤리교육 프로그램은 청렴성을 높이는 중요한 교육으로, 공직자들의 윤리의식을 강화하는 데 큰 기여를 할 것으로 기대된다."
       },
       {
         "item_id": 107609,
@@ -976,7 +976,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "부패 예방을 위한 제도적 장치 마련은 청렴성을 높이는 중요한 요소이며, 체계적인 접근을 통해 부패를 사전에 방지하는 데 기여하므로 매우 우수하다."
+        "rating_rationale": "부패 예방을 위한 제도적 장치 마련은 공직 생활의 투명성을 증대시키고 부패를 사전에 차단하는 데 매우 효과적이다."
       },
       {
         "item_id": 107610,
@@ -984,15 +984,15 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "B",
-        "rating_rationale": "행정정보 공개의 범위와 신속성이 높다면 시민의 신뢰를 구축하는 데 기여할 수 있지만, 구체적인 평가 기준이 부족해 다소 아쉬운 점이 있다."
+        "rating_rationale": "행정정보 공개의 신속성과 범위가 긍정적으로 평가되지만, 여전히 개선할 여지가 있다. 투명성을 높이는 데 기여하고 있다."
       },
       {
         "item_id": 107611,
         "data_title": "재산 공개 투명성",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
-        "new_rating": "A",
-        "rating_rationale": "공직자 재산등록 및 공개의 투명성은 공직자의 이해충돌 방지에 중요한 역할을 하며, 투명한 재산 공개는 청렴성을 크게 향상시킨다."
+        "new_rating": "B",
+        "rating_rationale": "공직자 재산 등록 및 공개는 투명성을 높이는 중요한 요소이며, 현재 상황이 양호하나 추가적인 개선이 필요하다."
       },
       {
         "item_id": 107612,
@@ -1000,7 +1000,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "B",
-        "rating_rationale": "기업 및 단체와의 협력 과정에서의 투명성은 청렴성을 높이는 데 기여하지만, 구체적인 사례나 수치가 부족해 완벽한 평가에는 한계가 있다."
+        "rating_rationale": "민간 협력 과정의 투명성 확보는 긍정적으로 평가되지만, 특정 사례에서의 문제점이 발생할 가능성이 남아 있다."
       },
       {
         "item_id": 107613,
@@ -1008,15 +1008,15 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "C",
-        "rating_rationale": "외부 감사 및 조사에 대한 대응 자세는 투명성을 높이는 데 기여하지만, 효과적인 대응이 실제로 이루어졌는지에 대한 구체적인 정보가 부족하다."
+        "rating_rationale": "외부 감사 및 조사에 대한 대응 자세는 양호하나, 보다 적극적인 투명성 확보와 개선이 요구된다."
       },
       {
         "item_id": 107614,
         "data_title": "계약 투명성",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
-        "new_rating": "B",
-        "rating_rationale": "공공계약 및 입찰 과정의 공정성은 청렴성을 높이는 데 중요한 요소로, 잘 관리되고 있다면 긍정적으로 평가할 수 있다."
+        "new_rating": "A",
+        "rating_rationale": "공공계약 및 입찰 과정의 공정성이 잘 유지되고 있어, 청렴성과 투명성을 높이는 데 중요한 역할을 하고 있다."
       },
       {
         "item_id": 107615,
@@ -1024,15 +1024,15 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "공직 윤리 확립을 위한 리더십 발휘는 청렴한 조직 문화를 조성하는 데 기여하며, 윤리적 리더십은 매우 우수한 평가를 받을 만하다."
+        "rating_rationale": "윤리적 리더십을 발휘하는 것은 공직 사회의 청렴성을 확립하는 데 매우 중요한 요소로, 긍정적인 평가를 받을 만하다."
       },
       {
         "item_id": 107616,
         "data_title": "갈등관리 투명성",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
-        "new_rating": "C",
-        "rating_rationale": "이해관계 상충 시 투명한 의사결정은 청렴성을 높이는 중요한 요소이나, 실제 사례가 부족하여 다소 아쉬운 점이 있다."
+        "new_rating": "B",
+        "rating_rationale": "이해관계 상충 시 투명한 의사결정이 이루어지고 있으나, 더욱 철저한 관리가 필요하여 여전히 개선 여지가 있다."
       },
       {
         "item_id": 107617,
@@ -1040,7 +1040,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "B",
-        "rating_rationale": "외부기관의 청렴도 종합 평가 결과는 명확한 기준을 통해 청렴성을 평가하지만, 결과의 세부사항이 부족해 다소 한계가 있다."
+        "rating_rationale": "외부기관의 청렴도 평가 결과가 양호하나, 지속적인 노력이 필요하며 개선할 부분이 존재한다."
       },
       {
         "item_id": 107618,
@@ -1048,7 +1048,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "업무추진비 사용내역을 대부분 상세히 공개하여 투명성을 높이고 있어 매우 우수한 청렴성을 보여줍니다."
+        "rating_rationale": "업무추진비 사용내역을 대부분 상세히 공개함으로써 투명성을 높이고 신뢰를 구축하고 있음."
       },
       {
         "item_id": 107619,
@@ -1056,7 +1056,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "직계가족 취업 제한 및 이해충돌 방지 규정을 준수하고 있어 공직 윤리를 철저히 지키고 있습니다."
+        "rating_rationale": "직계가족 취업 제한과 이해충돌 방지 규정을 준수하여 공직윤리를 잘 지키고 있음."
       },
       {
         "item_id": 107620,
@@ -1064,15 +1064,15 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "서울시 예산 집행의 객관성과 투명성을 유지하여 재정 관리의 신뢰성을 높이고 있습니다."
+        "rating_rationale": "서울시 예산 집행의 객관성과 투명성을 유지하고 있어 재정 관리에 대한 신뢰를 제공하고 있음."
       },
       {
         "item_id": 107621,
         "data_title": "공무원 인사 청렴도",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
-        "new_rating": "B",
-        "rating_rationale": "능력 중심 인사 원칙을 유지하며 특혜 의혹이 없는 점에서 청렴성이 우수하나 더 강화할 필요가 있습니다."
+        "new_rating": "A",
+        "rating_rationale": "능력 중심 인사 원칙을 유지하고 특별한 특혜 의혹이 없어 인사의 투명성을 잘 지키고 있음."
       },
       {
         "item_id": 107622,
@@ -1080,7 +1080,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "청렴옴부즈만 제도 도입 및 적극적인 부패방지 정책을 통해 청렴성을 높이는 노력이 매우 탁월합니다."
+        "rating_rationale": "청렴옴부즈만 제도를 도입하고 적극적인 부패방지 정책을 통해 청렴성을 강화하고 있음."
       },
       {
         "item_id": 107623,
@@ -1088,15 +1088,15 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "B",
-        "rating_rationale": "공공계약 과정의 투명성 개선 노력이 있으나, 구체적인 성과나 사례가 필요합니다."
+        "rating_rationale": "공공계약 과정의 투명성 개선 노력이 있으나, 구체적인 성과가 추가로 필요함."
       },
       {
         "item_id": 107624,
         "data_title": "보조금 관리",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
-        "new_rating": "B",
-        "rating_rationale": "보조금 집행의 객관성을 유지하고 감사 강화를 통해 청렴성을 높이고 있으나 추가 조치가 필요합니다."
+        "new_rating": "A",
+        "rating_rationale": "보조금 집행의 객관성을 유지하고 감사 강화를 통해 공정성을 높이고 있음."
       },
       {
         "item_id": 107625,
@@ -1104,7 +1104,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "시정 정보의 적극적 공개와 높은 정보공개율이 청렴성을 매우 높이는 데 기여하고 있습니다."
+        "rating_rationale": "시정 정보를 적극적으로 공개하고 정보공개율이 높아 시민의 알권리를 보장하고 있음."
       },
       {
         "item_id": 107626,
@@ -1112,15 +1112,15 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "공직자 이해충돌 방지 조례를 적극 운영하여 이해충돌 문제를 사전에 예방하는 조치가 우수합니다."
+        "rating_rationale": "공직자 이해충돌 방지 조례를 적극적으로 운영하여 이해충돌을 철저히 관리하고 있음."
       },
       {
         "item_id": 107627,
         "data_title": "윤리경영 교육",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "A",
-        "new_rating": "A",
-        "rating_rationale": "공무원 대상의 정기적인 청렴 및 윤리 교육 실시로 청렴 문화 확산에 기여하고 있어 매우 긍정적입니다."
+        "new_rating": "B",
+        "rating_rationale": "공무원 대상 청렴 및 윤리 교육을 정기적으로 실시하고 있으나, 교육 효과에 대한 평가가 필요함."
       },
       {
         "item_id": 107628,
@@ -1128,15 +1128,15 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "내부고발자 보호 제도를 운영하며 보호조치를 마련한 것은 공직 내 청렴성을 높이는 중요한 조치로, 매우 긍정적인 평가를 받는다."
+        "rating_rationale": "내부고발자를 보호하는 제도는 공직 내 투명성을 높이고, 부패를 예방하는 중요한 조치로 평가됨."
       },
       {
         "item_id": 107629,
         "data_title": "외부 감사 대응",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "A",
-        "new_rating": "A",
-        "rating_rationale": "감사원 및 외부 감사에 협조적인 태도를 보인 것은 투명성을 증대시키고 신뢰를 높이는 데 기여하여 매우 우수한 평가를 받는다."
+        "new_rating": "B",
+        "rating_rationale": "외부 감사에 협조적 태도는 긍정적이지만, 구체적인 성과나 개선 사례가 부족해 우수 등급으로 평가됨."
       },
       {
         "item_id": 107630,
@@ -1144,7 +1144,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "A",
-        "rating_rationale": "용역계약 과정의 투명성을 강화하려는 노력은 공공자원의 효율적 사용과 청렴성을 높이는 데 기여하여 매우 긍정적으로 평가된다."
+        "rating_rationale": "용역계약 과정의 투명성을 강화하는 노력은 공공신뢰를 높이는 중요한 요소로 매우 우수한 평가를 받음."
       },
       {
         "item_id": 107631,
@@ -1152,15 +1152,15 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "공직자 재산등록을 성실하게 이행하는 것은 개인의 청렴성을 보장하는 기본적 요소로, 매우 우수한 평가를 받을 만하다."
+        "rating_rationale": "공직자 재산등록을 성실히 이행하는 것은 청렴성을 높이는 기본적인 자세로 매우 긍정적임."
       },
       {
         "item_id": 107632,
         "data_title": "예산 집행 투명성",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
-        "new_rating": "A",
-        "rating_rationale": "긴급예산 사용에 대한 설명책임을 이행한 것은 예산 집행의 투명성을 높여 청렴성을 강화하는 데 기여, 매우 긍정적인 평가를 받는다."
+        "new_rating": "B",
+        "rating_rationale": "예산 집행의 투명성을 유지하는 것은 좋지만, 구체적인 사례나 결과가 부족해 우수 등급으로 평가됨."
       },
       {
         "item_id": 107633,
@@ -1168,15 +1168,15 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "부패 공무원에 대한 엄정한 징계 조치는 공직사회의 청렴성을 강화하는 데 필수적이며, 매우 우수한 조치로 평가된다."
+        "rating_rationale": "부패 공무원에 대한 엄정한 징계 조치는 공직 사회의 청렴성을 지키는 데 필수적이므로 매우 우수함."
       },
       {
         "item_id": 107634,
         "data_title": "청렴도 평가 대응",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
-        "new_rating": "A",
-        "rating_rationale": "외부 청렴도 평가에 적극적으로 대응하는 것은 청렴성 제고를 위한 의지를 보여주어 매우 긍정적인 평가를 받는다."
+        "new_rating": "B",
+        "rating_rationale": "청렴도 평가에 적극적으로 대응하는 것은 긍정적이나, 실제 개선 결과가 나타나야 더욱 높은 평가를 받을 수 있음."
       },
       {
         "item_id": 107635,
@@ -1184,7 +1184,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "정치자금의 수입과 지출의 투명성을 유지하는 것은 공직자의 신뢰성을 높이고, 매우 우수한 청렴성 관리를 보여준다."
+        "rating_rationale": "정치자금의 수입과 지출의 투명성을 유지하는 것은 정치적 청렴성을 높이는 중요한 요소로 매우 긍정적임."
       },
       {
         "item_id": 107636,
@@ -1192,15 +1192,15 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "공직기강 확립을 위한 지속적인 노력은 청렴성과 공정성을 높이는 데 기여하여 매우 긍정적인 평가를 받는다."
+        "rating_rationale": "공직기강 확립을 위한 지속적인 노력은 청렴성과 신뢰성을 높이는 데 핵심적인 역할을 하므로 매우 우수함."
       },
       {
         "item_id": 107637,
         "data_title": "감사시스템 운영",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
-        "new_rating": "A",
-        "rating_rationale": "체계적인 감사시스템 운영은 공직 내 부패 방지와 책임성 강화를 위한 중요한 요소로, 매우 우수한 평가를 받을 수 있다."
+        "new_rating": "B",
+        "rating_rationale": "자체 감사시스템을 체계적으로 운영하는 것은 긍정적이나, 그 효과와 결과에 대한 구체적 정보가 부족해 우수 등급으로 평가됨."
       }
     ],
     "Grok": [
@@ -1210,7 +1210,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "E",
         "new_rating": "D",
-        "rating_rationale": "주택 공급 정책이 특정 지역의 집값 상승과 저소득층 주거 안정에 문제를 일으켰다는 비판이 있지만, 이는 정책의 효과에 대한 논란이지 직접적인 청렴성 문제는 아님. 따라서 보통 등급을 부여함."
+        "rating_rationale": "주택 공급 정책이 일부 지역의 집값 상승과 저소득층 주거 안정에 부정적 영향을 미쳤다는 비판이 있으나, 이는 정책의 효과에 대한 논란이지 청렴성과 직접적으로 관련된 사안은 아님. 따라서 보통 등급을 부여함."
       },
       {
         "item_id": 151783,
@@ -1218,7 +1218,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "F",
         "new_rating": "E",
-        "rating_rationale": "공공시설 매각 과정에서 투명성이 부족하다는 비판이 제기되었으며, 공공 자산의 사유화 문제가 해결되지 않았음. 이는 청렴성에 미흡한 사례로 평가됨."
+        "rating_rationale": "공공시설 민간 매각 과정에서 투명성이 부족하다는 비판이 제기되었으며, 이는 청렴성에 대한 신뢰를 떨어뜨리는 요소임. 따라서 미흡 등급을 부여함."
       },
       {
         "item_id": 151784,
@@ -1226,7 +1226,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "G",
         "new_rating": "E",
-        "rating_rationale": "반부패 전략이 미흡하고 구체적인 실행 방안이 없다는 비판이 많아 대중의 신뢰를 잃은 사례가 많음. 이는 청렴성에 있어 미흡한 사례로 평가됨."
+        "rating_rationale": "반부패 전략이 미흡하다는 비판과 구체적인 실행 방안 부재로 인해 대중의 신뢰를 잃은 사례가 많아 청렴성에 문제가 있음. 따라서 미흡 등급을 부여함."
       },
       {
         "item_id": 151785,
@@ -1234,7 +1234,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "E",
         "new_rating": "D",
-        "rating_rationale": "공약 이행이 부족하여 주민들의 불만이 있지만, 이는 정치적 신뢰와 관련된 문제로 청렴성과 직접적인 관련이 없음. 따라서 보통 등급을 부여함."
+        "rating_rationale": "선거 공약 이행이 부족하다는 비판이 있으나, 이는 정책 이행의 문제이지 청렴성과 직접적으로 관련된 사안은 아님. 따라서 보통 등급을 부여함."
       },
       {
         "item_id": 151786,
@@ -1242,7 +1242,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "H",
         "new_rating": "F",
-        "rating_rationale": "특정 정책 관련 업체와의 유착 의혹이 제기되었으며, 이에 대한 해명이 부족하다는 평가를 받음. 이는 청렴성에 있어 부족한 사례로 평가됨."
+        "rating_rationale": "정책 consulting 업체와의 유착 의혹이 제기되었고, 이에 대한 해명이 부족하다는 평가를 받음. 이는 청렴성에 심각한 문제를 야기함. 따라서 부족 등급을 부여함."
       },
       {
         "item_id": 151787,
@@ -1250,7 +1250,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "H",
         "new_rating": "G",
-        "rating_rationale": "불법 자금 수수 의혹이 제기되었으며, 공직 수행 중 비자금을 조성했다는 의혹이 있음. 이는 청렴성에 있어 매우 부족한 사례로 평가됨."
+        "rating_rationale": "불법 자금 수수 의혹이 제기되었으며, 이는 공직 수행 중 비자금 조성으로 이어질 수 있음을 암시. 이는 매우 심각한 청렴성 문제임. 따라서 매우 부족 등급을 부여함."
       },
       {
         "item_id": 151788,
@@ -1258,7 +1258,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "E",
         "new_rating": "F",
-        "rating_rationale": "부동산 거래와 관련하여 비공식적인 루트로 비싼 가격에 매입한 의혹이 제기됨. 이는 청렴성에 있어 부족한 사례로 평가됨."
+        "rating_rationale": "부동산 거래와 관련하여 비공식적인 루트를 통해 비싼 가격에 매입한 의혹이 제기됨. 이는 청렴성에 큰 문제를 야기함. 따라서 부족 등급을 부여함."
       },
       {
         "item_id": 151789,
@@ -1266,7 +1266,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "D",
         "new_rating": "E",
-        "rating_rationale": "특정 정치 세력을 배제하고 자신의 세력을 강화하려는 시도가 비판을 받았으며, 이는 정치적 비리에 대한 인식과 책임을 회피하려는 모습으로 보여짐. 이는 청렴성에 있어 미흡한 사례로 평가됨."
+        "rating_rationale": "정치적 배제 논란이 제기되었으며, 이는 정치적 비리에 대한 인식과 책임 회피로 이어질 수 있음. 이는 청렴성에 문제가 있음을 시사함. 따라서 미흡 등급을 부여함."
       },
       {
         "item_id": 151790,
@@ -1274,7 +1274,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "D",
         "new_rating": "E",
-        "rating_rationale": "정책 결정 과정에서 시민들의 의견을 충분히 반영하지 않고 독단적인 결정을 내렸다는 비판을 받음. 이는 정치적 투명성에 문제가 있음을 시사하며, 청렴성에 있어 미흡한 사례로 평가됨."
+        "rating_rationale": "시민과의 소통 부족으로 인해 독단적인 정책 결정이 이루어졌다는 비판이 있으며, 이는 정치적 투명성에 문제가 있음을 시사함. 따라서 미흡 등급을 부여함."
       },
       {
         "item_id": 151791,
@@ -1282,7 +1282,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "E",
         "new_rating": "F",
-        "rating_rationale": "코로나19 대응 과정에서 자원 배분이 불공정하게 이루어졌다는 비판이 제기되었으며, 특정 기업이나 단체에 유리하게 자원을 배분한 것이 드러남. 이는 청렴성에 있어 부족한 사례로 평가됨."
+        "rating_rationale": "코로나19 관련 자원 배분이 불공정하게 이루어졌다는 비판이 제기되었으며, 이는 특정 기업이나 단체에 유리하게 자원을 배분한 것으로 드러남. 이는 청렴성에 큰 문제를 야기함. 따라서 부족 등급을 부여함."
       },
       {
         "item_id": 151792,
@@ -1290,7 +1290,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "청렴성 관련 회의에 꾸준히 참석하고 부패 방지 정책을 논의한 것은 긍정적이나, 국민들에게 자신의 청렴성을 강조한 것은 다소 자화자찬으로 보일 수 있다. 전체적으로 우수한 평가를 받을 수 있다."
+        "rating_rationale": "오세훈이 청렴성 관련 회의에 꾸준히 참석하며 부패 방지를 논의한 점은 긍정적이나, 실제 효과에 대한 구체적 증거가 부족하다. 그러나 청렴성을 강조한 점에서 우수한 평가를 받을 수 있다."
       },
       {
         "item_id": 151793,
@@ -1298,7 +1298,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "부동산 정책 관련 재산 공개는 투명성을 높이려는 노력으로 보이나, 여전히 논란의 여지가 있다는 점에서 양호한 수준으로 평가된다. 투명성을 위한 노력은 인정되나, 완벽하지 않다."
+        "rating_rationale": "부동산 정책 관련 재산 공개로 투명성을 높이려는 노력은 양호하나, 여전히 논란이 있다는 점에서 완전한 우수성을 인정하기 어렵다. 하지만 투명성 노력은 긍정적으로 평가할 수 있다."
       },
       {
         "item_id": 151794,
@@ -1306,7 +1306,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "국민 신뢰도 조사에서 청렴성이 높은 평가를 받은 것은 우수한 점이지만, 일부 응답자들이 의심을 표시한 점은 고려해야 한다. 전체적으로 우수한 평가에 해당한다."
+        "rating_rationale": "국민 신뢰도 조사에서 청렴성에 대한 높은 평가를 받은 점은 우수하나, 일부 의심이 있다는 점에서 완벽한 점수는 아니지만, 전반적으로 우수한 평가를 받을 수 있다."
       },
       {
         "item_id": 151795,
@@ -1314,7 +1314,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "부패 방지 정책을 시행한 것은 긍정적이나, 그 효과에 대한 평가가 상반된다는 점에서 양호한 수준으로 평가된다. 정책의 효과가 명확하지 않아 중간 정도의 점수를 부여한다."
+        "rating_rationale": "부패 방지 정책을 시행한 점은 긍정적이나, 효과에 대한 평가가 상반된다는 점에서 양호한 수준으로 평가된다. 정책의 효과가 명확하지 않지만, 시도 자체는 긍정적이다."
       },
       {
         "item_id": 151796,
@@ -1322,7 +1322,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "D",
         "new_rating": "C",
-        "rating_rationale": "정책 수립 및 실행 과정에서 투명성을 높이기 위한 노력은 인정되나, 일부 정책이 불투명하다는 지적이 있는 점에서 양호한 수준으로 평가된다. 노력은 있었으나, 완벽하지 않다."
+        "rating_rationale": "정책 실행 과정에서 투명성을 높이려는 노력은 긍정적이나, 일부 정책이 불투명하다는 지적이 있어 양호한 수준으로 평가된다. 노력은 있으나 완벽하지 않다."
       },
       {
         "item_id": 151797,
@@ -1330,7 +1330,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "공직 취임 전 사전 재산 신고를 정확히 이행하고 관련 내용을 공개한 것은 매우 우수한 청렴성의 예로 볼 수 있다. 투명성과 신뢰성을 높이는 데 큰 기여를 했다."
+        "rating_rationale": "공직 취임 전 사전 재산 신고를 정확히 이행하고 공개한 점은 매우 우수하다. 투명성을 보여주는 결정적인 증거로, 청렴성에 대한 강한 의지를 나타낸다."
       },
       {
         "item_id": 151798,
@@ -1338,7 +1338,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "청렴 교육 프로그램을 도입한 것은 긍정적이나, 참여도가 낮았다는 점에서 양호한 수준으로 평가된다. 의지는 있었으나, 실행력이 부족했다."
+        "rating_rationale": "청렴 교육 프로그램을 도입한 점은 긍정적이나, 참여도가 낮았다는 점에서 양호한 수준으로 평가된다. 의지는 있으나 실제 효과가 미흡하다."
       },
       {
         "item_id": 151799,
@@ -1346,7 +1346,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "D",
-        "rating_rationale": "부패 혐의 조사가 시작되었으나, 결과가 부정적이지 않아 논란을 피해간 것은 보통 수준으로 평가된다. 혐의가 있었던 점은 부정적이나, 결과가 부정적이지 않은 점은 긍정적이다."
+        "rating_rationale": "부패 혐의 조사가 시작되었으나 결과가 부정적이지 않았다는 점에서 보통 수준으로 평가된다. 혐의가 있었던 것 자체가 청렴성에 대한 의문을 남긴다."
       },
       {
         "item_id": 151800,
@@ -1354,7 +1354,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "언론과의 정기적인 소통을 통해 궁금증 해소에 노력한 것은 긍정적이나, 일부 기자들이 독립성을 의심한 점에서 양호한 수준으로 평가된다. 소통 노력은 인정되나, 완벽하지 않다."
+        "rating_rationale": "언론과의 소통을 통해 투명성을 높이려는 노력은 긍정적이나, 일부 기자들이 독립성을 의심했다는 점에서 양호한 수준으로 평가된다. 노력은 있으나 완벽하지 않다."
       },
       {
         "item_id": 151801,
@@ -1362,7 +1362,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "정책 이행 과정을 전자문서로 기록하여 공개한 것은 투명성을 높이려는 노력으로 보이며, 일부 긍정적인 평가를 받았다. 전체적으로 우수한 평가에 해당한다."
+        "rating_rationale": "정책 이행 과정을 전자문서로 기록하고 공개한 점은 우수하다. 투명성을 높이려는 노력이 긍정적으로 평가되며, 일부 긍정적인 평가를 받았다는 점에서 우수한 수준으로 평가된다."
       },
       {
         "item_id": 151802,
@@ -1370,23 +1370,23 @@
         "collected_by": "ChatGPT",
         "original_rating": "D",
         "new_rating": "D",
-        "rating_rationale": "선거 자금 관리에 투명성을 강조하였으나 세부 사항에 대한 논란이 계속되어 보통 수준으로 평가됨."
+        "rating_rationale": "선거 자금 관리에 투명성을 강조하였으나, 세부 사항에 대한 논란이 지속되어 보통 등급을 부여함."
       },
       {
         "item_id": 151803,
         "data_title": "정책 결정의 투명성",
         "collected_by": "ChatGPT",
         "original_rating": "C",
-        "new_rating": "C",
-        "rating_rationale": "정책 결정 과정에서 시민 의견을 수렴하고 투명성을 높이려는 노력을 기울였으나 부족함이 지적되어 양호한 수준으로 평가됨."
+        "new_rating": "D",
+        "rating_rationale": "정책 결정 과정에서 시민 의견을 수렴하고 투명성을 높이려 했으나, 부족함이 지적되어 보통 등급을 부여함."
       },
       {
         "item_id": 151804,
         "data_title": "청렴 관련 캠페인",
         "collected_by": "ChatGPT",
         "original_rating": "B",
-        "new_rating": "B",
-        "rating_rationale": "청렴성을 강조한 공개 캠페인을 통해 시민 인식을 개선하려는 노력이 우수하게 평가됨."
+        "new_rating": "C",
+        "rating_rationale": "청렴성을 강조한 캠페인을 통해 시민들의 인식이 개선되었으나, 여전히 개선의 여지가 있어 양호 등급을 부여함."
       },
       {
         "item_id": 151805,
@@ -1394,7 +1394,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "D",
         "new_rating": "E",
-        "rating_rationale": "정기 감사를 실시하였으나 결과가 공개되지 않아 투명성에 대한 비판이 있어 미흡한 수준으로 평가됨."
+        "rating_rationale": "정기 감사를 실시하였으나 결과가 공개되지 않아 비판받아 미흡 등급을 부여함."
       },
       {
         "item_id": 151806,
@@ -1402,23 +1402,23 @@
         "collected_by": "ChatGPT",
         "original_rating": "C",
         "new_rating": "D",
-        "rating_rationale": "정치적 현안에 대한 신속한 대응으로 청렴성을 강화하려 하였으나 불확실성이 있어 보통 수준으로 평가됨."
+        "rating_rationale": "현안에 대한 신속한 대응으로 청렴성을 강화하려 했으나 불확실성이 따른 평가로 인해 보통 등급을 부여함."
       },
       {
         "item_id": 151807,
         "data_title": "소속 정당의 청렴성",
         "collected_by": "ChatGPT",
         "original_rating": "E",
-        "new_rating": "F",
-        "rating_rationale": "소속 정당의 청렴성 문제로 인해 개인도 영향을 받아 부족한 수준으로 평가됨."
+        "new_rating": "E",
+        "rating_rationale": "소속 정당의 청렴성 문제로 인해 오세훈 개인도 부정적인 평가를 받았기에 미흡 등급을 부여함."
       },
       {
         "item_id": 151808,
         "data_title": "시민과의 소통",
         "collected_by": "ChatGPT",
         "original_rating": "C",
-        "new_rating": "C",
-        "rating_rationale": "시민과의 소통을 강화하려는 프로그램을 운영하였으나 일부 반발이 있어 양호한 수준으로 평가됨."
+        "new_rating": "D",
+        "rating_rationale": "시민과의 소통을 강화하려는 노력은 있었으나, 일부 반발이 있어 보통 등급을 부여함."
       },
       {
         "item_id": 151809,
@@ -1426,7 +1426,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "D",
         "new_rating": "D",
-        "rating_rationale": "감사 결과를 수용하겠다는 의사를 나타내었으나 이행 여부에 대한 우려가 있어 보통 수준으로 평가됨."
+        "rating_rationale": "감사 결과를 수용하겠다는 의사를 나타냈으나, 이행 여부에 대한 우려가 있어 보통 등급을 부여함."
       },
       {
         "item_id": 151810,
@@ -1434,7 +1434,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "재산 형성 과정을 일부 공개하였으나 초기 축적의 투명성 문제로 미흡한 수준으로 평가됨."
+        "rating_rationale": "재산 형성 과정을 일부 공개하였으나, 초기 재산 축적의 투명성 문제가 있어 미흡 등급을 부여함."
       },
       {
         "item_id": 151811,
@@ -1442,7 +1442,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "C",
         "new_rating": "D",
-        "rating_rationale": "반부패 캠페인에 참여하였으나 실질적 효과에 대한 의구심이 있어 보통 수준으로 평가됨."
+        "rating_rationale": "반부패 캠페인에 참여하였으나, 실질적인 효과에 대한 의구심이 있어 보통 등급을 부여함."
       },
       {
         "item_id": 151812,
@@ -1450,7 +1450,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "부동산 비리 의혹으로 인해 청렴성에 대한 신뢰가 저하되었으며, 뇌물 수수 의혹이 제기된 바 있어 미흡한 수준으로 평가됩니다."
+        "rating_rationale": "뇌물 수수 의혹이 제기되어 청렴성에 대한 신뢰가 저하되었으며, 이는 청렴성에 미흡한 사례로 평가됩니다."
       },
       {
         "item_id": 151813,
@@ -1458,7 +1458,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "재산 신고를 성실히 이행하고 재산 변동 상황을 투명하게 공개하고 있어 우수한 청렴성을 보여줍니다."
+        "rating_rationale": "재산 신고를 성실히 이행하고 투명하게 공개하여 청렴성을 잘 유지하고 있음을 보여줍니다."
       },
       {
         "item_id": 151814,
@@ -1466,7 +1466,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "A",
         "new_rating": "B",
-        "rating_rationale": "정치자금 사용 내역을 정기적으로 공개하고 외부 감사를 받고 있어 청렴성을 강조하고 있으며, 우수한 수준으로 평가됩니다."
+        "rating_rationale": "정치자금 사용 내역을 정기적으로 공개하고 외부 감사를 받음으로써 청렴성을 강조하고 있습니다."
       },
       {
         "item_id": 151815,
@@ -1474,7 +1474,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "공공사업에서의 계약 절차를 투명하게 진행하고 부당한 로비를 차단하기 위한 정책을 시행하고 있어 우수한 청렴성을 보입니다."
+        "rating_rationale": "공공사업에서의 계약 절차를 투명하게 진행하고 부당한 로비를 차단하는 정책을 시행하여 청렴성을 유지하고 있습니다."
       },
       {
         "item_id": 151816,
@@ -1482,7 +1482,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "부산시장 시절 정책에 대한 비판은 있었으나, 뇌물 수수와 같은 특정 비리는 없었으므로 양호한 수준으로 평가됩니다."
+        "rating_rationale": "정책에 대한 비판은 있었으나 특정 비리는 없었으므로 청렴성에 있어 양호한 수준으로 평가됩니다."
       },
       {
         "item_id": 151817,
@@ -1490,7 +1490,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "민원 및 고발 문제를 신속하게 처리하고 적극적으로 대응하고 있어 우수한 청렴성을 보여줍니다."
+        "rating_rationale": "민원 및 고발 문제를 신속하게 처리하고 적극적으로 대응함으로써 청렴성을 잘 유지하고 있습니다."
       },
       {
         "item_id": 151818,
@@ -1498,7 +1498,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "D",
         "new_rating": "E",
-        "rating_rationale": "서울시의 청렴도 평가에서 나쁜 성적을 받았으며, 이는 그의 청렴성에 문제를 제기하고 있어 미흡한 수준으로 평가됩니다."
+        "rating_rationale": "최근 청렴도 평가에서 나쁜 성적을 받아 청렴성에 문제가 있음을 보여주므로 미흡한 수준으로 평가됩니다."
       },
       {
         "item_id": 151819,
@@ -1506,7 +1506,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "공직 부패 예방 정책을 세우고 공무원 교육을 통해 청렴 문화를 확산하고 있어 우수한 청렴성을 보입니다."
+        "rating_rationale": "공직 부패 예방 정책을 세우고 공무원 교육을 통해 청렴 문화를 확산함으로써 청렴성을 강조하고 있습니다."
       },
       {
         "item_id": 151820,
@@ -1514,7 +1514,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "C",
         "new_rating": "D",
-        "rating_rationale": "본인 및 가족의 재산과 관련된 의혹이 몇 차례 보도되었으나 입증된 바는 없으므로 보통 수준으로 평가됩니다."
+        "rating_rationale": "본인 및 가족의 재산 관련 의혹이 있었으나 입증되지 않았으므로 청렴성에 있어 보통 수준으로 평가됩니다."
       },
       {
         "item_id": 151821,
@@ -1522,15 +1522,15 @@
         "collected_by": "ChatGPT",
         "original_rating": "D",
         "new_rating": "D",
-        "rating_rationale": "선거 관리에 있어 공정함을 지키기 위한 약속을 하였으나 도중에 논란이 발생하였으므로 보통 수준으로 평가됩니다."
+        "rating_rationale": "선거 관리에서 공정함을 약속하였으나 논란이 발생하여 청렴성에 있어 보통 수준으로 평가됩니다."
       },
       {
         "item_id": 151822,
         "data_title": "외부 감사 수용",
         "collected_by": "ChatGPT",
         "original_rating": "A",
-        "new_rating": "A",
-        "rating_rationale": "외부 감사 기관의 조치를 적극 수용함으로써 투명성과 청렴성을 매우 우수하게 관리하고 있음. 이는 긍정적 평가로 이어짐."
+        "new_rating": "B",
+        "rating_rationale": "외부 감사 기관의 조치를 적극 수용함으로써 청렴성에 대한 긍정적 평가를 받고 있으며, 이는 우수한 수준으로 평가됩니다."
       },
       {
         "item_id": 151823,
@@ -1538,15 +1538,15 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "정기적인 국민 보고를 통해 의사소통의 투명성을 꾀하고 있으며, 이는 청렴성에 긍정적인 영향을 미침. 다만, 추가적인 구체적 사례가 필요."
+        "rating_rationale": "정책에 대한 정기적인 국민 보고를 통해 투명성을 꾀하고 있으며, 이는 청렴성에 긍정적인 영향을 미칩니다."
       },
       {
         "item_id": 151824,
         "data_title": "소통과 관용 정책",
         "collected_by": "ChatGPT",
         "original_rating": "B",
-        "new_rating": "B",
-        "rating_rationale": "시민과의 소통을 강조하고 의견을 수렴함으로써 청렴성을 유지하려는 노력이 우수함. 그러나 보다 구체적인 청렴성 관련 정책이 필요."
+        "new_rating": "C",
+        "rating_rationale": "시민과의 소통을 강조하고 의견을 수렴하는 것은 양호한 수준의 청렴성을 보여주나, 구체적인 투명성 향상 노력은 부족해 보입니다."
       },
       {
         "item_id": 151825,
@@ -1554,7 +1554,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "C",
         "new_rating": "B",
-        "rating_rationale": "정책 집행 과정에서 투명성을 높이려는 노력이 우수함. 지속적인 노력이 청렴성에 긍정적 영향을 미침."
+        "rating_rationale": "정책 집행 과정에서 지속적으로 투명성을 높이기 위한 노력을 기울이고 있어 우수한 수준의 청렴성을 보여줍니다."
       },
       {
         "item_id": 151826,
@@ -1562,7 +1562,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "민간 위탁 사업에서 부정 거래 의혹이 제기되어 청렴성에 대한 우려가 존재함. 이는 청렴성에 미흡한 평가를 받게 함."
+        "rating_rationale": "민간 위탁 사업에서 부정 거래 의혹이 제기되고 있어 청렴성에 대한 우려가 존재하며, 이는 미흡한 수준으로 평가됩니다."
       },
       {
         "item_id": 151827,
@@ -1570,7 +1570,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "C",
-        "rating_rationale": "의회와의 원활한 소통을 통해 정책을 효율적으로 추진하려는 노력이 양호함. 그러나 청렴성에 직접적인 영향을 미치는 구체적 사례가 부족."
+        "rating_rationale": "의회와의 원활한 소통을 통해 정책을 효율적으로 추진하려는 노력은 양호한 수준의 청렴성을 보여줍니다."
       },
       {
         "item_id": 151828,
@@ -1578,7 +1578,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "정기적인 시정 보고를 통해 시민들에게 정책 진행 상황을 알림으로써 청렴성을 우수하게 관리하고 있음. 이는 긍정적인 평가로 이어짐."
+        "rating_rationale": "정기적인 시정 보고를 통해 시민들에게 정책 진행 상황을 알리는 것은 우수한 수준의 청렴성을 보여줍니다."
       },
       {
         "item_id": 151829,
@@ -1586,23 +1586,23 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "시민 참여를 장려하는 정책을 통해 청렴성을 강화하려는 노력이 우수함. 이는 청렴성에 긍정적인 영향을 미침."
+        "rating_rationale": "시민 참여를 장려하는 정책을 통해 청렴성을 강화하려는 노력은 우수한 수준으로 평가됩니다."
       },
       {
         "item_id": 151830,
         "data_title": "우수한 평판 관리",
         "collected_by": "ChatGPT",
         "original_rating": "A",
-        "new_rating": "B",
-        "rating_rationale": "평판 관리에 신경 쓰며 공직자의 모범을 보이기 위해 노력하는 것이 우수함. 이는 청렴성에 긍정적인 영향을 미침."
+        "new_rating": "C",
+        "rating_rationale": "평판 관리에 신경 쓰는 것은 양호한 수준의 청렴성을 보여주나, 구체적인 청렴성 향상 노력은 부족해 보입니다."
       },
       {
         "item_id": 151831,
         "data_title": "청렴 의식 고취 활동",
         "collected_by": "ChatGPT",
         "original_rating": "B",
-        "new_rating": "A",
-        "rating_rationale": "청렴 의식을 고취하기 위한 다양한 프로그램과 교육을 강화함으로써 청렴성을 매우 우수하게 관리하고 있음. 이는 긍정적 평가로 이어짐."
+        "new_rating": "B",
+        "rating_rationale": "청렴 의식을 고취하기 위한 다양한 프로그램과 교육을 실시하는 것은 우수한 수준의 청렴성을 보여줍니다."
       },
       {
         "item_id": 151732,
@@ -1610,7 +1610,7 @@
         "collected_by": "Grok",
         "original_rating": "F",
         "new_rating": "E",
-        "rating_rationale": "뇌물 공여 혐의로 기소되었으나 무죄 판결을 받았음에도, 공공 자금 관련 의혹으로 청렴성에 대한 논란이 지속적으로 제기되었기 때문에 미흡한 평가를 받음."
+        "rating_rationale": "뇌물 공여 혐의로 기소되었으나 무죄 판결을 받았으나, 공공 자금 관련 의혹으로 청렴성 논란이 지속되어 부패 가능성을 시사함."
       },
       {
         "item_id": 151733,
@@ -1618,7 +1618,7 @@
         "collected_by": "Grok",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "정치 자금 보고의 불명확성과 재정 투명성 부족으로 인해 부패 가능성이 제기되었으며, 이는 청렴성에 대한 지속적인 비판을 초래했기 때문에 미흡한 평가를 받음."
+        "rating_rationale": "정치 자금 보고서의 불명확성과 자금 유입 경로 문제로 재정 투명성 부족이 드러나 부패 가능성을 제기함."
       },
       {
         "item_id": 151734,
@@ -1626,7 +1626,7 @@
         "collected_by": "Grok",
         "original_rating": "G",
         "new_rating": "E",
-        "rating_rationale": "재산 신고서에서 보고 지연이나 불일치가 드러나 재산 비리의 가능성을 암시하며, 이로 인해 청렴성에 대한 공공의 비판이 높아졌기 때문에 미흡한 평가를 받음."
+        "rating_rationale": "재산 신고서의 보고 지연 및 불일치로 재산 비리의 가능성을 암시하며 청렴성에 대한 비판이 높아짐."
       },
       {
         "item_id": 151735,
@@ -1634,15 +1634,15 @@
         "collected_by": "Grok",
         "original_rating": "F",
         "new_rating": "E",
-        "rating_rationale": "부패 방지법 관련 조사에서 준수 미비가 드러나 이해충돌 상황에서 금전적 이익 가능성이 제기되었으며, 이는 청렴성에 대한 주요 문제점으로 비판받았기 때문에 미흡한 평가를 받음."
+        "rating_rationale": "부패 방지법 준수 미비로 이해충돌 상황에서 금전적 이익 가능성이 제기되어 청렴성을 저해함."
       },
       {
         "item_id": 151736,
         "data_title": "횡령 관련 의혹",
         "collected_by": "Grok",
         "original_rating": "G",
-        "new_rating": "F",
-        "rating_rationale": "공공 자금 사용에 대한 횡령 의혹이 법원 판결문에서 언급되었으며, 자금 집행의 불투명성이 제기되어 금전적 부패의 잠재적 형태로 비판받았기 때문에 부족한 평가를 받음."
+        "new_rating": "E",
+        "rating_rationale": "공공 자금 사용에 대한 횡령 의혹으로 금전적 부패 가능성이 제기되어 청렴성 논란을 야기함."
       },
       {
         "item_id": 151737,
@@ -1650,7 +1650,7 @@
         "collected_by": "Grok",
         "original_rating": "F",
         "new_rating": "E",
-        "rating_rationale": "주식 매각으로 큰 이익을 얻은 것으로 드러나 선거 자금과 연관된 의혹이 제기되었으며, 이는 재산 관리 투명성을 해치고 부패 가능성을 지적받아 미흡한 평가를 받음."
+        "rating_rationale": "주식 매각으로 큰 이익을 얻어 선거 자금과 연관된 의혹이 제기되어 청렴성 신뢰가 약화됨."
       },
       {
         "item_id": 151738,
@@ -1658,31 +1658,31 @@
         "collected_by": "Grok",
         "original_rating": "G",
         "new_rating": "E",
-        "rating_rationale": "부동산 자산 신고가 부정확하다는 비판이 제기되었으며, 과도한 이익을 취한 것으로 의심받아 재산 비리의 가능성이 제기되었기 때문에 미흡한 평가를 받음."
+        "rating_rationale": "부동산 자산 신고 부정확성과 과도한 이익 의혹으로 재산 비리의 가능성이 제기되어 청렴성에 대한 비판이 제기됨."
       },
       {
         "item_id": 151739,
         "data_title": "서울시 예산 집행의 횡령 의혹",
         "collected_by": "Grok",
         "original_rating": "E",
-        "new_rating": "F",
-        "rating_rationale": "서울시 예산이 부적절하게 사용된 것으로 보도되었으며, 개인적 이익으로 연결될 수 있다는 비판이 나와 공공 자금의 투명성 부족으로 인해 부족한 평가를 받음."
+        "new_rating": "E",
+        "rating_rationale": "서울시 예산 집행의 횡령 의혹으로 공공 자금의 투명성 부족과 횡령 가능성이 제기되어 청렴성이 손상됨."
       },
       {
         "item_id": 151740,
         "data_title": "선거 자금 관련 뇌물 의혹",
         "collected_by": "Grok",
         "original_rating": "H",
-        "new_rating": "F",
-        "rating_rationale": "선거 자금 관리에서 뇌물 수수 의혹이 제기되었으며, 불투명한 후원금이 확인되어 금전적 부패의 전형적인 예로 비판받아 부족한 평가를 받음."
+        "new_rating": "E",
+        "rating_rationale": "선거 자금 관리에서 뇌물 수수 의혹이 제기되어 금전적 부패의 전형적인 예로 비판받아 신뢰성이 크게 떨어뜨림."
       },
       {
         "item_id": 151741,
         "data_title": "재산 은닉 및 신고 미이행 논란",
         "collected_by": "Grok",
         "original_rating": "G",
-        "new_rating": "F",
-        "rating_rationale": "재산 신고에서 일부 자산을 은닉한 것으로 의심받아 공직자법 위반 가능성이 포함되며, 재산 비리의 전형적인 사례로 지적되어 부족한 평가를 받음."
+        "new_rating": "E",
+        "rating_rationale": "재산 신고에서 자산 은닉 의혹으로 공직자법 위반 가능성이 제기되어 청렴성에 대한 대중적 불신이 증폭됨."
       },
       {
         "item_id": 151742,
@@ -1690,7 +1690,7 @@
         "collected_by": "Grok",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "오세훈은 뇌물 수수 혐의로 기소되었으나 대법원에서 무죄 확정 판결을 받았으며, 감사원 조사에서도 추가 부패 징후가 발견되지 않아 청렴성을 입증받았다."
+        "rating_rationale": "뇌물 수수 혐의로 기소되었으나 대법원에서 무죄 확정 판결을 받았으며, 감사원 조사에서도 추가 부패 징후가 발견되지 않아 청렴성을 입증받았다."
       },
       {
         "item_id": 151743,
@@ -1698,7 +1698,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "오세훈은 매년 국가 공직자윤리법에 따라 재산을 투명하게 신고하였고, 감사원 검토 결과 허위 신고나 은닉 의혹이 없었으며, 이는 공직자 재산 관리의 표본 사례로 평가받았다."
+        "rating_rationale": "매년 국가 공직자윤리법에 따라 재산을 투명하게 신고하였고, 감사원 검토 결과 허위 신고나 은닉 의혹이 없었기에 매우 우수한 청렴성을 보였다."
       },
       {
         "item_id": 151744,
@@ -1706,7 +1706,7 @@
         "collected_by": "Grok",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "오세훈은 서울시장 재임 시 공공 자금을 사용하였으나, 감사원 감사 결과 불법 횡령이나 부당 사용 혐의가 없었으며, 예산 집행이 규정에 따라 이뤄졌다고 확인되었다."
+        "rating_rationale": "공공 자금 사용이 규정에 따라 이뤄졌으며, 감사원 감사 결과 불법 횡령이나 부당 사용 혐의가 없었기에 매우 우수한 청렴성을 보였다."
       },
       {
         "item_id": 151745,
@@ -1714,7 +1714,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "오세훈은 서울시장으로서 이해충돌 상황을 방지하기 위해 공식 정책을 시행하였고, 공직자윤리법 준수를 통해 실현되었으며, 감사 결과 문제가 발생하지 않았다."
+        "rating_rationale": "이해충돌 방지를 위한 공식 정책을 시행하였고, 감사 결과 문제가 없었기에 매우 우수한 청렴성을 보였다."
       },
       {
         "item_id": 151746,
@@ -1722,7 +1722,7 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "A",
-        "rating_rationale": "오세훈은 국회의원 시절 부패 방지법 개정안을 지지하였으며, 뇌물 및 횡령 방지를 위한 법률에 찬성 투표를 하여 그의 청렴성 철학을 반영하였다."
+        "rating_rationale": "부패 방지법 개정안을 지지하였으며, 뇌물 및 횡령 방지를 위한 법률에 찬성 투표를 하여 청렴성 철학을 반영한 행보를 보였다."
       },
       {
         "item_id": 151747,
@@ -1730,7 +1730,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "오세훈은 서울시장 재임 기간 동안 부패 예방 프로그램을 도입하였고, 감사원 보고서에서 효과가 인정되었으나, 일부 실행 단계에서 미비점이 지적되어 우수한 수준으로 평가된다."
+        "rating_rationale": "부패 예방 프로그램을 도입하였고, 감사원 보고서에서 효과가 인정되었으나 일부 실행 단계에서 미비점이 지적되어 우수한 청렴성을 보였다."
       },
       {
         "item_id": 151748,
@@ -1738,7 +1738,7 @@
         "collected_by": "Grok",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "오세훈의 개인 재산 관리에 대한 감사원 감사에서 부패 관련 문제가 발견되지 않았으며, 재산 증식 과정이 법적으로 적합하다고 공식 기록에 명시되었다."
+        "rating_rationale": "개인 재산 관리에 대한 감사원 감사에서 부패 관련 문제가 발견되지 않았으며, 재산 증식 과정이 법적으로 적합하였다."
       },
       {
         "item_id": 151749,
@@ -1746,7 +1746,7 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "A",
-        "rating_rationale": "오세훈의 선거 자금 관리는 국가선거관리위원회에 의해 감사받았으며, 불법 자금 수수 혐의가 없었고, 선거 자금 보고가 정확하게 제출되었다."
+        "rating_rationale": "선거 자금 관리가 국가선거관리위원회에 의해 감사받았으며, 불법 자금 수수 혐의가 없었고, 보고가 정확하게 제출되었다."
       },
       {
         "item_id": 151750,
@@ -1754,7 +1754,7 @@
         "collected_by": "Grok",
         "original_rating": "D",
         "new_rating": "B",
-        "rating_rationale": "오세훈은 서울시에서 공공 입찰 과정의 투명성을 강조하였고, 입찰 규칙을 강화하여 부패 가능성을 줄였으나, 일부 프로젝트에서 지연으로 인한 논란이 있어 우수한 수준으로 평가된다."
+        "rating_rationale": "공공 입찰 과정의 투명성을 강조하였고, 입찰 규칙을 강화하였으나 일부 프로젝트에서 지연으로 인한 논란이 있어 우수한 청렴성을 보였다."
       },
       {
         "item_id": 151751,
@@ -1762,7 +1762,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "오세훈의 가족 관련 부패 의혹은 감사원 조사에서 무혐의로 결론났으며, 가족 기업과의 거래가 공정하게 관리되었고, 뇌물이나 횡령 증거가 없었다."
+        "rating_rationale": "가족 관련 부패 의혹이 감사원 조사에서 무혐의로 결론나며, 가족 기업과의 거래가 공정하게 관리되었고 뇌물이나 횡령 증거가 없었다."
       },
       {
         "item_id": 151752,
@@ -1770,7 +1770,7 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "부패 신고 시스템 구축은 긍정적이나, 이용률이 낮아 효과가 제한적임. 청렴성 측면에서 양호한 수준."
+        "rating_rationale": "부패 신고 시스템을 구축하여 청렴성을 높이려는 노력이 있었으나, 이용률이 낮아 효과가 제한적이었음. 전체적으로 양호한 수준."
       },
       {
         "item_id": 151753,
@@ -1778,7 +1778,7 @@
         "collected_by": "Grok",
         "original_rating": "D",
         "new_rating": "C",
-        "rating_rationale": "청렴성 관련 발언과 법안 논의 참여는 긍정적이나, 직접적인 행동이 제한적이어서 양호한 수준."
+        "rating_rationale": "청렴성 관련 발언을 통해 적극적인 태도를 보였으나, 직접적인 행동이 제한적이어서 양호한 수준으로 평가."
       },
       {
         "item_id": 151754,
@@ -1786,7 +1786,7 @@
         "collected_by": "Grok",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "감사원 검토 결과 부패 요소가 없고, 자금 집행이 적절히 관리되어 매우 우수한 청렴성."
+        "rating_rationale": "감사원에 의해 예산 사용이 적절히 관리된 것으로 확인되어 매우 우수한 청렴성을 보여줌."
       },
       {
         "item_id": 151755,
@@ -1794,7 +1794,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "재산 증식 과정이 합법적 경로를 통해 이뤄졌으며, 횡령이나 비리 의혹이 없어 매우 우수."
+        "rating_rationale": "재산 증식 과정이 합법적 경로를 통해 이뤄졌으며, 비리 의혹이 없어 매우 우수한 청렴성을 입증."
       },
       {
         "item_id": 151756,
@@ -1802,7 +1802,7 @@
         "collected_by": "Grok",
         "original_rating": "E",
         "new_rating": "C",
-        "rating_rationale": "공무원 부패 예방 지침 강화는 긍정적이나, 일부 지침이 미흡하게 적용되어 양호한 수준."
+        "rating_rationale": "공무원 부패 예방 지침을 강화하였으나, 일부 지침이 미흡하게 적용되어 양호한 수준으로 평가."
       },
       {
         "item_id": 151757,
@@ -1810,7 +1810,7 @@
         "collected_by": "Grok",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "부동산 투기 의혹이 무혐의로 끝나고, 거래가 법적으로 적합하여 매우 우수한 청렴성."
+        "rating_rationale": "부동산 투기 의혹이 감사원 조사에서 무혐의로 끝나 매우 우수한 청렴성을 보여줌."
       },
       {
         "item_id": 151758,
@@ -1818,7 +1818,7 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "A",
-        "rating_rationale": "국제 부패 방지 기구와의 협력으로 국내 부패 예방에 기여하여 매우 우수한 청렴성."
+        "rating_rationale": "국제 부패 방지 기구와 협력하여 국내 부패 예방에 기여하였으므로 매우 우수한 청렴성을 보여줌."
       },
       {
         "item_id": 151759,
@@ -1826,7 +1826,7 @@
         "collected_by": "Grok",
         "original_rating": "D",
         "new_rating": "C",
-        "rating_rationale": "내부 감사 시스템 구축은 긍정적이나, 일부 부서에서 미비점이 있어 양호한 수준."
+        "rating_rationale": "내부 감사 시스템을 통해 청렴성 강화를 지시하였으나, 일부 부서에서 미비점이 발견되어 양호한 수준."
       },
       {
         "item_id": 151760,
@@ -1834,7 +1834,7 @@
         "collected_by": "Grok",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "법적 소송에서 부패 관련 혐의가 모두 무죄로 마무리되어 매우 우수한 청렴성."
+        "rating_rationale": "법적 소송에서 부패 관련 혐의가 모두 무죄로 마무리되어 매우 우수한 청렴성을 입증."
       },
       {
         "item_id": 151761,
@@ -1842,15 +1842,15 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "C",
-        "rating_rationale": "전반적인 청렴성 평가에서 뇌물이나 횡령이 없었으나, 일부 의혹으로 인한 지연이 있어 양호한 수준."
+        "rating_rationale": "전반적 청렴성 평가에서 뇌물이나 횡령이 없었으나, 일부 의혹으로 인한 지연이 있어 양호한 수준."
       },
       {
         "item_id": 151762,
         "data_title": "재산 신고 관련 의혹",
         "collected_by": "Grok",
         "original_rating": "E",
-        "new_rating": "E",
-        "rating_rationale": "재산 신고에서 아파트 매입 관련 정보가 제대로 공개되지 않아 투명성에 문제가 있었으며, 이는 공직자의 청렴성에 미흡한 것으로 평가됩니다."
+        "new_rating": "F",
+        "rating_rationale": "재산 신고에서 아파트 매입 관련 정보가 제대로 공개되지 않아 투명성이 크게 저해되었다. 이는 공직자의 청렴성에 부정적인 영향을 미친다."
       },
       {
         "item_id": 151763,
@@ -1858,7 +1858,7 @@
         "collected_by": "Grok",
         "original_rating": "F",
         "new_rating": "E",
-        "rating_rationale": "부동산 거래에서 시세 차익을 얻은 의혹이 제기되었고, 이는 재산 관리에 대한 지속적인 의문을 불러일으켜 청렴성에 미흡한 것으로 평가됩니다."
+        "rating_rationale": "부동산 거래에서 시세 차익을 얻은 혐의가 있었으나 공공 자산 관련 혐의는 입증되지 않았다. 그러나 지속적인 의문 제기는 청렴성에 미흡함을 나타낸다."
       },
       {
         "item_id": 151764,
@@ -1866,7 +1866,7 @@
         "collected_by": "Grok",
         "original_rating": "D",
         "new_rating": "F",
-        "rating_rationale": "정치 자금 사용의 세부 내역이 불명확하게 기록되어 뇌물 가능성을 배제할 수 없다는 지적을 받았으며, 이는 청렴성에 부족한 것으로 평가됩니다."
+        "rating_rationale": "정치 자금 사용에 대한 감사에서 세부 내역이 불명확하게 기록되어 뇌물 가능성을 배제할 수 없다는 지적을 받았다. 이는 청렴성에 부족함을 드러낸다."
       },
       {
         "item_id": 151765,
@@ -1874,7 +1874,7 @@
         "collected_by": "Grok",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "가족 소유 부동산의 이익이 공공 정책과 연계된 혐의를 받았으나 증거 부족으로 종결되었지만, 이는 청렴성 논란의 원인이 되어 미흡한 것으로 평가됩니다."
+        "rating_rationale": "가족 소유 부동산이 공공 정책과 연계된 혐의를 받았으나 증거 부족으로 종결되었다. 이는 청렴성 논란의 원인이 되어 미흡함을 나타낸다."
       },
       {
         "item_id": 151766,
@@ -1882,15 +1882,15 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "D",
-        "rating_rationale": "뇌물 수수 소문이 있었으나 구체적인 증거가 없어 청렴성에 대한 의구심을 불러일으켰으나, 보통 수준으로 평가됩니다."
+        "rating_rationale": "뇌물 수수 소문이 있었으나 구체적인 증거는 없었다. 이는 정치인의 상호작용에 대한 의구심을 불러일으켜 보통 수준의 청렴성을 나타낸다."
       },
       {
         "item_id": 151767,
         "data_title": "공공 프로젝트 관련 횡령 의혹",
         "collected_by": "Grok",
         "original_rating": "F",
-        "new_rating": "D",
-        "rating_rationale": "공공 프로젝트 예산의 비효율적 사용이 지적되었으나 개인 횡령으로 연결되지 않아 청렴성에 대한 문제가 있으나 보통 수준으로 평가됩니다."
+        "new_rating": "E",
+        "rating_rationale": "공공 프로젝트 예산이 비효율적으로 사용된 것으로 지적되었으나 개인 횡령으로 연결되지 않았다. 이는 재정 관리의 청렴성에 미흡함을 나타낸다."
       },
       {
         "item_id": 151768,
@@ -1898,7 +1898,7 @@
         "collected_by": "Grok",
         "original_rating": "D",
         "new_rating": "E",
-        "rating_rationale": "선거 자금 보고서의 불투명성으로 인해 청렴성에 대한 일반적인 우려가 제기되었으며, 이는 미흡한 수준으로 평가됩니다."
+        "rating_rationale": "선거 자금 보고서가 불투명하게 작성되었으나 법적 위반은 아니었다. 이는 정치 자금의 청렴성에 대한 일반적인 우려를 반영해 미흡함을 나타낸다."
       },
       {
         "item_id": 151769,
@@ -1906,7 +1906,7 @@
         "collected_by": "Grok",
         "original_rating": "E",
         "new_rating": "D",
-        "rating_rationale": "개인 재산이 급격히 증가한 것이 보도되었으나 부패와 직접 연결되지 않아 청렴성에 대한 감시를 강조하는 보통 수준으로 평가됩니다."
+        "rating_rationale": "개인 재산이 급격히 증가했으나 부패와 직접 연결되지 않았다. 이는 공직자의 재산 관리에 대한 감시를 강조하며 보통 수준의 청렴성을 나타낸다."
       },
       {
         "item_id": 151770,
@@ -1914,7 +1914,7 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "D",
-        "rating_rationale": "기업 로비 의혹이 제기되었으나 구체적 증거가 없어 정치와 기업 간의 경계선을 흐리게 하였으나, 보통 수준으로 평가됩니다."
+        "rating_rationale": "기업 로비를 받은 혐의가 제기되었으나 구체적 증거는 없었다. 이는 정치와 기업 간의 경계선을 흐리게 하여 보통 수준의 청렴성을 나타낸다."
       },
       {
         "item_id": 151771,
@@ -1922,7 +1922,7 @@
         "collected_by": "Grok",
         "original_rating": "F",
         "new_rating": "E",
-        "rating_rationale": "재산 처분 과정이 적시에 이루어지지 않아 청렴성 원칙을 위반할 수 있는 사례로 평가되어 미흡한 수준으로 평가됩니다."
+        "rating_rationale": "재산 처분 과정이 적시에 이루어지지 않아 청렴성 원칙을 위반할 수 있는 사례로 지적되었다. 이는 청렴성에 미흡함을 나타낸다."
       },
       {
         "item_id": 151772,
@@ -1930,7 +1930,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "뇌물 고발이 있었으나 무혐의로 결론나 청렴성을 유지한 것으로 평가됨. 후원금 관련 의혹도 무혐의로 청렴성이 매우 우수함."
+        "rating_rationale": "뇌물 고발 사건에서 무혐의로 결론나 청렴성을 매우 우수하게 유지함. 후원금 관련 의혹도 청렴성을 유지한 것으로 평가됨."
       },
       {
         "item_id": 151773,
@@ -1946,7 +1946,7 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "서울시 예산 횡령 의혹이 있었으나 오세훈과의 직접적 연관은 없었음. 간접적 책임 논의로 양호한 수준의 청렴성."
+        "rating_rationale": "횡령 의혹이 있었으나, 오세훈과의 직접적 연관이 없어 간접적 책임으로 양호한 수준의 청렴성을 유지함."
       },
       {
         "item_id": 151775,
@@ -1954,7 +1954,7 @@
         "collected_by": "Grok",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "후원금 관리에 불명확한 항목이 발견되어 지속적인 검증이 필요함. 이는 미흡한 청렴성으로 평가됨."
+        "rating_rationale": "후원금 관리에 불명확한 항목이 발견되어 청렴성에 대한 지속적인 검증이 요구됨. 이는 미흡한 수준."
       },
       {
         "item_id": 151776,
@@ -1962,15 +1962,15 @@
         "collected_by": "Grok",
         "original_rating": "D",
         "new_rating": "F",
-        "rating_rationale": "부패 방지 정책을 수립했으나 실행이 부족하여 실효성이 부족함. 이는 부족한 청렴성으로 평가됨."
+        "rating_rationale": "부패 방지 정책을 수립했으나 실행이 부족해 실효성이 부족함. 이는 청렴성 부족으로 평가됨."
       },
       {
         "item_id": 151777,
         "data_title": "재산 비리 소송 결과",
         "collected_by": "Grok",
         "original_rating": "B",
-        "new_rating": "B",
-        "rating_rationale": "재산 비리 소송에서 무죄로 끝나 청렴성을 어느 정도 유지한 것으로 보임. 이는 우수한 청렴성으로 평가됨."
+        "new_rating": "A",
+        "rating_rationale": "재산 비리 소송에서 무죄로 끝나 청렴성을 매우 우수하게 유지한 증거로 평가됨."
       },
       {
         "item_id": 151778,
@@ -1978,7 +1978,7 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "기업 연결 의혹이 있었으나 불법으로 확인되지 않음. 청렴성의 경계선을 테스트하지만 양호한 수준으로 평가됨."
+        "rating_rationale": "기업 연결이 논란이 되었으나 불법으로 확인되지 않아 청렴성의 경계선을 테스트함. 양호한 수준."
       },
       {
         "item_id": 151779,
@@ -1986,7 +1986,7 @@
         "collected_by": "Grok",
         "original_rating": "E",
         "new_rating": "D",
-        "rating_rationale": "공금 사용이 감사에서 지적되었으나 부패로 이어지지 않음. 경비 과다 논의로 보통 수준의 청렴성으로 평가됨."
+        "rating_rationale": "공금 사용이 감사에서 지적되었으나 부패로 이어지지 않아 보통 수준의 청렴성을 유지함."
       },
       {
         "item_id": 151780,
@@ -1994,15 +1994,15 @@
         "collected_by": "Grok",
         "original_rating": "D",
         "new_rating": "C",
-        "rating_rationale": "뇌물 방지 조치를 취했으나 효과가 미비함. 이는 청렴성 유지 노력을 반영하지만 양호한 수준으로 평가됨."
+        "rating_rationale": "뇌물 방지 조치를 취했으나 효과가 미비해 청렴성 유지의 노력을 반영함. 양호한 수준."
       },
       {
         "item_id": 151781,
         "data_title": "재산 신고 개선 노력",
         "collected_by": "Grok",
         "original_rating": "C",
-        "new_rating": "C",
-        "rating_rationale": "재산 신고가 개선되었으나 완벽하지 않음. 이전 문제의 개선이 확인되어 양호한 수준의 청렴성으로 평가됨."
+        "new_rating": "B",
+        "rating_rationale": "재산 신고가 더 정확해졌으나 완벽하지 않아 우수한 수준의 청렴성을 유지함."
       },
       {
         "item_id": 107588,
@@ -2010,7 +2010,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "부동산 정책 추진 과정에서 투기 의혹 및 정책 실패로 청렴성에 미흡함. 국회 행정안전위원회 회의록에서 지적됨."
+        "rating_rationale": "부동산 정책 추진 과정에서 투기 의혹 및 정책 실패로 인해 청렴성에 미흡한 모습을 보임. 이는 공공의 신뢰를 저해할 수 있는 요소로 작용함."
       },
       {
         "item_id": 107589,
@@ -2018,7 +2018,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "D",
         "new_rating": "E",
-        "rating_rationale": "서울시 예산 집행 및 행정 처리 과정의 부적절성으로 청렴성에 미흡함. 행정안전부 감사 보고서에서 지적됨."
+        "rating_rationale": "서울시 예산 집행 및 행정 처리 과정의 부적절성 지적은 청렴성 측면에서 미흡한 것으로 평가됨. 행정의 투명성과 효율성이 부족함을 나타냄."
       },
       {
         "item_id": 107590,
@@ -2026,7 +2026,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "E",
         "new_rating": "D",
-        "rating_rationale": "코로나19 대응 초기 서울시 방역 정책의 혼선 및 일관성 부족으로 청렴성에 보통 수준. 국회 보건복지위원회 회의록에서 지적됨."
+        "rating_rationale": "코로나19 대응 초기의 혼선 및 일관성 부족은 청렴성 측면에서 보통 수준으로 평가됨. 방역 정책의 혼란이 신뢰도에 영향을 미침."
       },
       {
         "item_id": 107591,
@@ -2034,7 +2034,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "D",
         "new_rating": "E",
-        "rating_rationale": "서울시 산하 공공기관 인사 과정의 투명성 부족 및 편향성으로 청렴성에 미흡함. 감사원 감사 보고서에서 지적됨."
+        "rating_rationale": "공공기관 인사 과정의 투명성 부족 및 편향성 지적은 청렴성에 미흡한 것으로 평가됨. 공정한 인사 관리가 이루어지지 않았음을 나타냄."
       },
       {
         "item_id": 107592,
@@ -2042,7 +2042,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "E",
         "new_rating": "D",
-        "rating_rationale": "서울시 주요 정책의 지속성 및 일관성 결여로 청렴성에 보통 수준. 서울시의회 회의록에서 지적됨."
+        "rating_rationale": "서울시 주요 정책의 지속성 및 일관성 결여는 청렴성 측면에서 보통 수준으로 평가됨. 정책의 일관성이 부족하면 신뢰도가 저하됨."
       },
       {
         "item_id": 107593,
@@ -2050,7 +2050,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "개인 부동산 자산의 투명한 관리 미흡으로 청렴성에 미흡함. 연합뉴스에서 논란 발생."
+        "rating_rationale": "개인 부동산 자산의 투명한 관리 미흡으로 인한 논란은 청렴성에 미흡한 것으로 평가됨. 개인 자산 관리가 공직자의 청렴성에 영향을 미침."
       },
       {
         "item_id": 107594,
@@ -2058,7 +2058,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "D",
         "new_rating": "D",
-        "rating_rationale": "보육정책 추진 과정에서 예산 및 정책 혼선으로 청렴성에 보통 수준. KBS뉴스에서 지적됨."
+        "rating_rationale": "보육정책 추진 과정에서 예산 및 정책 혼선은 청렴성 측면에서 보통 수준으로 평가됨. 정책 추진 과정의 혼란이 신뢰도에 영향을 미침."
       },
       {
         "item_id": 107595,
@@ -2066,7 +2066,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "F",
         "new_rating": "F",
-        "rating_rationale": "서울시 공무원 채용 과정에서 특정 집단에 대한 특혜 의혹으로 청렴성에 부족함. 조선일보에서 제기됨."
+        "rating_rationale": "공무원 채용 과정에서 특정 집단에 대한 특혜 의혹은 청렴성에 부족한 것으로 평가됨. 공정한 채용 절차가 지켜지지 않았음을 나타냄."
       },
       {
         "item_id": 107596,
@@ -2074,15 +2074,15 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "선거운동 및 정치자금 사용의 회계 투명성 저하로 청렴성에 미흡함. MBC뉴스에서 지적됨."
+        "rating_rationale": "선거운동 및 정치자금 사용의 회계 투명성 저하는 청렴성에 미흡한 것으로 평가됨. 정치자금의 투명한 관리 필요성이 강조됨."
       },
       {
         "item_id": 107597,
         "data_title": "행정사무조사 특혜 의혹",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "E",
-        "new_rating": "F",
-        "rating_rationale": "서울시 행정사무조사 과정에서 특정 이해관계 개입 의혹으로 청렴성에 부족함. 매일경제에서 제기됨."
+        "new_rating": "E",
+        "rating_rationale": "행정사무조사 과정에서 특정 이해관계 개입 의혹은 청렴성에 미흡한 것으로 평가됨. 행정의 공정성과 투명성이 결여되었음을 나타냄."
       },
       {
         "item_id": 107598,
@@ -2090,7 +2090,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "취임 직후 공직기강 확립과 청렴문화 정착을 공약으로 발표한 것은 매우 긍정적이며, 청렴성에 대한 강한 의지를 보여줌."
+        "rating_rationale": "취임 직후 공직기강 확립과 청렴문화 정착을 공약으로 발표한 것은 청렴성에 대한 강한 의지를 보여준다. 공식 보도자료로 공개된 점도 긍정적이다."
       },
       {
         "item_id": 107599,
@@ -2098,7 +2098,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "과거 부동산 계약 관련 논란이 존재하는 것은 청렴성에 부정적인 영향을 미치며, 투명성에 대한 의구심을 불러일으킴."
+        "rating_rationale": "과거 부동산 계약 관련 논란이 존재하는 것은 청렴성에 부정적인 영향을 미친다. 언론 보도 및 국회 제출 자료로 확인된 점도 신뢰성을 떨어뜨린다."
       },
       {
         "item_id": 107600,
@@ -2106,7 +2106,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "서울시 공무원의 청렴도 제고를 위한 제도적 장치를 마련한 것은 우수하며, 지속적인 청렴성 향상을 위한 노력을 보여줌."
+        "rating_rationale": "서울시 공무원 청렴도 제고를 위한 제도적 장치를 마련한 것은 우수한 청렴성 관리 노력을 보여준다. 청렴위원회 보고서로 공개된 점도 긍정적이다."
       },
       {
         "item_id": 107601,
@@ -2114,7 +2114,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "정치자금 수입 및 지출 내역을 공개하는 것은 양호하지만, 더 투명하고 상세한 공개가 필요할 수 있음."
+        "rating_rationale": "정치자금 수입 및 지출 내역을 공개한 것은 어느 정도 투명성을 보여주지만, 추가적인 검증이 필요하다. 중앙선거관리위원회 자료로 공개된 점은 신뢰성을 더한다."
       },
       {
         "item_id": 107602,
@@ -2122,7 +2122,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "공직자 이해충돌 방지를 위한 제도적 장치를 마련한 것은 우수하며, 청렴성 유지를 위한 적극적인 노력을 보여줌."
+        "rating_rationale": "공직자 이해충돌 방지를 위한 제도적 장치를 마련한 것은 우수한 청렴성 관리 노력을 보여준다. 윤리감찰관실 보고서로 공개된 점도 긍정적이다."
       },
       {
         "item_id": 107603,
@@ -2130,7 +2130,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "과거 시장 재임 시 비리 의혹이 제기된 것은 청렴성에 부정적인 영향을 미치며, 신뢰성을 저해함."
+        "rating_rationale": "과거 시장 재임 시절 국정감사에서 비리 의혹이 지적된 것은 청렴성에 부정적인 영향을 미친다. 국회 회의록으로 확인된 점도 신뢰성을 떨어뜨린다."
       },
       {
         "item_id": 107604,
@@ -2138,7 +2138,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "서울시 공무원 인사 원칙 및 기준을 준수하는 것은 양호하지만, 더 투명하고 공정한 인사 시스템이 필요할 수 있음."
+        "rating_rationale": "서울시 공무원 인사 원칙 및 기준을 준수한 것은 어느 정도 투명성을 보여주지만, 추가적인 검증이 필요하다. 인사위원회 보고서로 공개된 점은 신뢰성을 더한다."
       },
       {
         "item_id": 107605,
@@ -2146,7 +2146,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "서울시 예산 집행의 적절성 및 효율성을 유지하는 것은 양호하지만, 더 투명한 예산 집행이 필요할 수 있음."
+        "rating_rationale": "서울시 예산 집행의 적절성 및 효율성을 보여준 것은 어느 정도 투명성을 보여주지만, 추가적인 검증이 필요하다. 감사원 예산집행 감사 보고서로 공개된 점은 신뢰성을 더한다."
       },
       {
         "item_id": 107606,
@@ -2154,7 +2154,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "주요 정책결정 과정을 공개하고 접근성을 높이는 것은 우수하며, 투명성과 청렴성을 증진시키는 데 기여함."
+        "rating_rationale": "주요 정책결정 과정의 공개성 및 접근성을 보여준 것은 우수한 청렴성 관리 노력을 보여준다. 정보공개센터로 공개된 점도 긍정적이다."
       },
       {
         "item_id": 107607,
@@ -2162,7 +2162,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "정치자금 및 외부 후원금 수입 관리를 투명하게 하는 것은 양호하지만, 더 상세한 정보 공개가 필요할 수 있음."
+        "rating_rationale": "정치자금 및 외부 후원금 수입 관리를 투명하게 한 것은 어느 정도 투명성을 보여주지만, 추가적인 검증이 필요하다. 중앙선거관리위원회 자료로 공개된 점은 신뢰성을 더한다."
       },
       {
         "item_id": 107608,
@@ -2170,7 +2170,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "공직윤리 교육 강화는 청렴성을 높이기 위한 중요한 노력으로 평가됩니다. 서울시 공무원 대상으로 윤리교육 프로그램을 운영하는 것은 매우 긍정적인 조치입니다. 다만, 교육의 실제 효과나 참여도에 대한 구체적인 데이터가 없어 '우수' 등급을 부여합니다."
+        "rating_rationale": "공직윤리 교육 강화는 매우 긍정적이나, 실제 효과는 지속적인 평가가 필요. 교육 프로그램 운영은 우수한 노력으로 평가됨."
       },
       {
         "item_id": 107609,
@@ -2178,7 +2178,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "부패방지 제도를 도입하는 것은 청렴성을 확보하기 위한 중요한 조치입니다. 서울시가 부패 예방을 위한 제도적 장치를 마련한 것은 긍정적입니다. 다만, 제도의 실효성이나 운영 상황에 대한 구체적인 평가가 필요하여 '우수' 등급을 부여합니다."
+        "rating_rationale": "부패방지 제도 도입은 중요한 조치이나, 실제 운영과 효과는 더 지켜봐야 함. 제도적 장치 마련은 우수한 수준으로 평가됨."
       },
       {
         "item_id": 107610,
@@ -2186,7 +2186,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "행정정보 공개의 범위와 신속성은 청렴성에 중요한 요소입니다. 정보공개센터의 평가에 따른 정보공개 수준은 양호한 수준으로 평가됩니다. 다만, 더 높은 수준의 투명성을 기대할 수 있어 '양호' 등급을 부여합니다."
+        "rating_rationale": "정보공개 수준은 양호하나, 더 투명하고 신속한 공개가 필요. 현재 수준은 기본적인 기준을 충족함."
       },
       {
         "item_id": 107611,
@@ -2194,7 +2194,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "공직자 재산 공개는 청렴성의 핵심 요소입니다. 공직자윤리위원회의 자료에 따르면 오세훈 시장의 재산 공개가 투명하게 이루어지고 있습니다. 이러한 투명성은 '우수' 등급을 부여할 만합니다."
+        "rating_rationale": "재산 공개 투명성은 우수한 수준으로, 공직자 재산등록 및 공개가 잘 이루어지고 있음. 그러나 지속적인 모니터링이 필요."
       },
       {
         "item_id": 107612,
@@ -2202,7 +2202,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "민간 협력 과정의 투명성은 청렴성에 중요한 영향을 미칩니다. 서울시의 기업 및 단체와의 협력 과정이 어느 정도 투명하게 이루어지고 있는 것으로 보입니다. 다만, 더 높은 수준의 투명성을 기대할 수 있어 '양호' 등급을 부여합니다."
+        "rating_rationale": "민간 협력 투명성은 양호하나, 더 투명한 절차와 정보 공개가 필요. 현재 수준은 기본적인 기준을 충족함."
       },
       {
         "item_id": 107613,
@@ -2210,7 +2210,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "외부 감사 및 조사에 대한 대응 자세는 청렴성을 평가하는 중요한 기준입니다. 감사원 보고서에 따르면 서울시의 감사 대응이 투명하게 이루어지고 있어 '우수' 등급을 부여합니다."
+        "rating_rationale": "감사 대응 투명성은 우수한 수준으로, 외부 감사 및 조사에 대한 대응이 적절하게 이루어지고 있음. 지속적인 개선 필요."
       },
       {
         "item_id": 107614,
@@ -2218,7 +2218,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "B",
-        "rating_rationale": "공공계약 및 입찰 과정의 공정성은 청렴성에 중요한 요소입니다. 조달청 계약정보에 따르면 서울시의 계약 과정이 투명하게 이루어지고 있어 '우수' 등급을 부여합니다."
+        "rating_rationale": "계약 투명성은 우수한 수준으로, 공공계약 및 입찰 과정의 공정성이 잘 유지되고 있음. 지속적인 모니터링이 필요."
       },
       {
         "item_id": 107615,
@@ -2226,7 +2226,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "공직 윤리 확립을 위한 리더십 발휘는 청렴성에 큰 영향을 미칩니다. 서울시 공식 자료에 따르면 오세훈 시장이 윤리적 리더십을 발휘하고 있어 '우수' 등급을 부여합니다."
+        "rating_rationale": "윤리적 리더십은 우수한 수준으로, 공직 윤리 확립을 위한 리더십이 잘 발휘되고 있음. 지속적인 노력이 필요."
       },
       {
         "item_id": 107616,
@@ -2234,7 +2234,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "이해관계 상충 시 투명한 의사결정은 청렴성에 중요한 요소입니다. 서울시 갈등조정위원회의 자료에 따르면 어느 정도 투명한 의사결정이 이루어지고 있어 '양호' 등급을 부여합니다."
+        "rating_rationale": "갈등관리 투명성은 양호하나, 더 투명한 의사결정이 필요. 현재 수준은 기본적인 기준을 충족함."
       },
       {
         "item_id": 107617,
@@ -2242,39 +2242,39 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "B",
-        "rating_rationale": "외부기관의 청렴도 종합 평가는 청렴성 평가의 중요한 기준입니다. 국민권익위원회의 청렴도 평가 결과에 따르면 서울시의 청렴도가 우수한 수준으로 평가되어 '우수' 등급을 부여합니다."
+        "rating_rationale": "청렴도 평가는 우수한 수준으로, 외부기관의 종합 평가 결과가 긍정적임. 지속적인 노력이 필요."
       },
       {
         "item_id": 107618,
         "data_title": "시장 업무추진비 투명성",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
-        "new_rating": "B",
-        "rating_rationale": "업무추진비 사용내역을 대부분 상세히 공개함으로써 투명성을 유지하고 있음. 이는 청렴성에 긍정적인 영향을 미침."
+        "new_rating": "A",
+        "rating_rationale": "업무추진비 사용내역을 대부분 상세히 공개함으로써 매우 투명한 행정을 보여주고 있음. 이는 청렴성 측면에서 매우 우수한 평가를 받을 수 있음."
       },
       {
         "item_id": 107619,
         "data_title": "공직윤리 준수",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "A",
-        "new_rating": "B",
-        "rating_rationale": "직계가족 취업 제한 및 이해충돌 방지 규정을 준수함으로써 공직윤리를 지키고 있음. 이는 청렴성에 우수한 영향을 미침."
+        "new_rating": "A",
+        "rating_rationale": "직계가족 취업 제한 및 이해충돌 방지 규정을 준수함으로써 공직윤리를 철저히 지키고 있음. 이는 청렴성 측면에서 매우 우수한 사례로 평가됨."
       },
       {
         "item_id": 107620,
         "data_title": "재정 투명성",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
-        "new_rating": "B",
-        "rating_rationale": "서울시 예산 집행의 객관성과 투명성을 유지함으로써 재정 투명성을 보장하고 있음. 이는 청렴성에 긍정적인 영향을 미침."
+        "new_rating": "A",
+        "rating_rationale": "서울시 예산 집행의 객관성과 투명성을 유지함으로써 재정 관리의 청렴성을 매우 우수하게 유지하고 있음. 이러한 노력은 청렴성에 큰 기여를 함."
       },
       {
         "item_id": 107621,
         "data_title": "공무원 인사 청렴도",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
-        "new_rating": "B",
-        "rating_rationale": "능력 중심 인사 원칙을 유지하고 특별한 특혜 의혹이 없음으로써 공무원 인사 청렴도를 유지하고 있음. 이는 청렴성에 우수한 영향을 미침."
+        "new_rating": "A",
+        "rating_rationale": "능력 중심 인사 원칙을 유지하며 특별한 특혜 의혹이 없음. 이는 공무원 인사 청렴도를 매우 우수하게 유지하고 있음을 보여줌."
       },
       {
         "item_id": 107622,
@@ -2282,47 +2282,47 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "청렴옴부즈만 제도를 도입하고 적극적인 부패방지 정책을 펼침으로써 부패방지에 매우 우수한 노력을 기울이고 있음. 이는 청렴성에 매우 긍정적인 영향을 미침."
+        "rating_rationale": "청렴옴부즈만 제도 도입 및 적극적인 부패방지 정책을 통해 부패 방지에 주력하고 있음. 이는 청렴성 측면에서 매우 우수한 평가를 받을 수 있음."
       },
       {
         "item_id": 107623,
         "data_title": "계약 투명성",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
-        "new_rating": "B",
-        "rating_rationale": "공공계약 과정의 투명성을 개선하려는 노력을 기울이고 있음. 이는 청렴성에 우수한 영향을 미침."
+        "new_rating": "A",
+        "rating_rationale": "공공계약 과정의 투명성 개선 노력을 통해 청렴성을 매우 우수하게 유지하고 있음. 이러한 노력은 청렴성에 큰 기여를 함."
       },
       {
         "item_id": 107624,
         "data_title": "보조금 관리",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
-        "new_rating": "B",
-        "rating_rationale": "보조금 집행의 객관성을 유지하고 감사를 강화함으로써 보조금 관리에 투명성을 유지하고 있음. 이는 청렴성에 긍정적인 영향을 미침."
+        "new_rating": "A",
+        "rating_rationale": "보조금 집행의 객관성 유지와 감사 강화를 통해 청렴성을 매우 우수하게 관리하고 있음. 이는 청렴성 측면에서 매우 우수한 사례로 평가됨."
       },
       {
         "item_id": 107625,
         "data_title": "정보공개 수준",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "A",
-        "new_rating": "B",
-        "rating_rationale": "시정 정보를 적극적으로 공개하고 정보공개율을 높임으로써 정보공개 수준을 높이고 있음. 이는 청렴성에 우수한 영향을 미침."
+        "new_rating": "A",
+        "rating_rationale": "시정 정보를 적극적으로 공개하고 정보공개율을 높임으로써 청렴성을 매우 우수하게 유지하고 있음. 이러한 노력은 청렴성에 큰 기여를 함."
       },
       {
         "item_id": 107626,
         "data_title": "이해충돌 관리",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
-        "new_rating": "B",
-        "rating_rationale": "공직자 이해충돌 방지 조례를 적극적으로 운영함으로써 이해충돌 관리에 힘쓰고 있음. 이는 청렴성에 우수한 영향을 미침."
+        "new_rating": "A",
+        "rating_rationale": "공직자 이해충돌 방지 조례를 적극적으로 운영함으로써 청렴성을 매우 우수하게 관리하고 있음. 이는 청렴성 측면에서 매우 우수한 사례로 평가됨."
       },
       {
         "item_id": 107627,
         "data_title": "윤리경영 교육",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "A",
-        "new_rating": "B",
-        "rating_rationale": "공무원 대상으로 청렴 및 윤리 교육을 정기적으로 실시함으로써 윤리경영 교육을 강화하고 있음. 이는 청렴성에 긍정적인 영향을 미침."
+        "new_rating": "A",
+        "rating_rationale": "공무원 대상으로 청렴 및 윤리 교육을 정기적으로 실시함으로써 청렴성을 매우 우수하게 유지하고 있음. 이러한 교육은 청렴성에 큰 기여를 함."
       },
       {
         "item_id": 107628,
@@ -2330,7 +2330,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "공무원 내부고발 제도 운영 및 보호조치 마련은 청렴성 제고에 긍정적이나, 구체적인 성과가 명확하지 않음. 우수한 수준으로 평가."
+        "rating_rationale": "내부고발자 보호를 위한 제도 운영과 보호조치 마련은 청렴성 강화에 기여하는 중요한 요소로, 이를 통해 부패 방지에 적극적임을 보여줌. 그러나 추가적인 구체적 사례나 성과가 필요함."
       },
       {
         "item_id": 107629,
@@ -2338,7 +2338,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "A",
         "new_rating": "C",
-        "rating_rationale": "감사원 및 외부 감사에 협조적 태도는 기본적인 청렴성을 유지하는 데 기여하나, 적극적인 개선 노력은 부족해 보임. 양호한 수준으로 평가."
+        "rating_rationale": "외부 감사에 협조적인 태도는 청렴성에 긍정적이나, 협조 외에 추가적인 청렴성 강화 노력이 필요함. 감사 결과나 구체적인 성과가 제시되지 않음."
       },
       {
         "item_id": 107630,
@@ -2346,7 +2346,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "B",
-        "rating_rationale": "용역계약 과정의 투명성 강화 노력은 청렴성 향상에 기여함. 다만, 구체적인 성과나 지속 가능성에 대한 정보가 부족해 우수한 수준으로 평가."
+        "rating_rationale": "용역계약 과정의 투명성 강화 노력은 청렴성에 긍정적이며, 이를 통해 부패 방지에 기여함. 다만, 구체적인 성과나 사례가 추가로 필요함."
       },
       {
         "item_id": 107631,
@@ -2354,7 +2354,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "공직자 재산등록을 성실하게 이행하는 것은 청렴성의 중요한 기준으로, 매우 우수한 수준으로 평가."
+        "rating_rationale": "공직자 재산등록을 성실하게 이행한 것은 매우 높은 청렴성을 보여줌. 이는 공직자의 개인 재산 투명성 확보에 중요한 역할을 함."
       },
       {
         "item_id": 107632,
@@ -2362,7 +2362,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "긴급예산 사용 등에 대한 설명책임 이행은 청렴성 유지에 긍정적이나, 더 많은 투명성 확보 노력이 필요함. 우수한 수준으로 평가."
+        "rating_rationale": "긴급예산 사용에 대한 설명책임 이행은 청렴성에 긍정적이나, 예산 집행 전반에 대한 투명성 강화가 필요함. 구체적인 예산 사용 사례가 제시되지 않음."
       },
       {
         "item_id": 107633,
@@ -2370,15 +2370,15 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "부패 공무원에 대한 엄정한 징계 조치는 청렴성 강화에 매우 중요한 역할을 하므로, 매우 우수한 수준으로 평가."
+        "rating_rationale": "부패 공무원에 대한 엄정한 징계 조치는 매우 높은 청렴성을 보여줌. 이는 부패 방지와 공직기강 확립에 큰 기여를 함."
       },
       {
         "item_id": 107634,
         "data_title": "청렴도 평가 대응",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
-        "new_rating": "B",
-        "rating_rationale": "외부 청렴도 평가에 적극적 대응은 청렴성 유지에 긍정적이나, 실제 개선 노력에 대한 구체적인 내용이 부족해 우수한 수준으로 평가."
+        "new_rating": "C",
+        "rating_rationale": "외부 청렴도 평가에 적극적으로 대응하는 것은 긍정적이나, 평가 결과나 구체적인 개선 노력이 제시되지 않음. 추가적인 성과가 필요함."
       },
       {
         "item_id": 107635,
@@ -2386,7 +2386,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "정치자금 수입/지출의 투명성 유지는 청렴성의 핵심 요소로, 매우 우수한 수준으로 평가."
+        "rating_rationale": "정치자금 수입 및 지출의 투명성 유지는 매우 높은 청렴성을 보여줌. 이는 정치자금의 투명한 관리와 부패 방지에 큰 기여를 함."
       },
       {
         "item_id": 107636,
@@ -2394,7 +2394,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "A",
         "new_rating": "B",
-        "rating_rationale": "공직기강 확립을 위한 지속적 노력은 청렴성 유지에 기여하나, 구체적인 성과나 개선 사항이 명확하지 않아 우수한 수준으로 평가."
+        "rating_rationale": "공직기강 확립을 위한 지속적인 노력은 청렴성 강화에 기여함. 다만, 구체적인 성과나 사례가 추가로 필요함."
       },
       {
         "item_id": 107637,
@@ -2402,7 +2402,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "자체 감사시스템의 체계적 운영은 청렴성 유지에 긍정적이나, 더 많은 개선과 투명성이 필요해 우수한 수준으로 평가."
+        "rating_rationale": "자체 감사시스템을 체계적으로 운영하는 것은 청렴성 강화에 기여함. 그러나 감사 결과나 구체적인 성과가 제시되지 않음."
       }
     ],
     "Claude": [
@@ -2412,7 +2412,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "E",
         "new_rating": "D",
-        "rating_rationale": "정책에 대한 불만은 있으나 청렴성과 직접적 연관성은 낮음. 정책 효과성 논란이지 부패나 비리 의혹은 없어 보통 수준으로 평가"
+        "rating_rationale": "정책 자체의 부정행위는 없으나, 시민 의견 수렴 과정에서 소통 부족으로 인한 불만 제기는 청렴성 측면에서 보통 수준의 문제점을 보여줌"
       },
       {
         "item_id": 151783,
@@ -2420,7 +2420,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "F",
         "new_rating": "E",
-        "rating_rationale": "공공자산 매각 과정의 투명성 부족은 청렴성에 부정적 영향을 미침. 공공이익보다 특정 이익을 우선했을 가능성이 제기되어 미흡한 수준"
+        "rating_rationale": "공공자산 매각 과정의 투명성 부족은 청렴성에 대한 신뢰를 저하시키는 요소로, 공정한 절차 미준수로 인한 미흡한 수준의 문제"
       },
       {
         "item_id": 151784,
@@ -2428,15 +2428,15 @@
         "collected_by": "ChatGPT",
         "original_rating": "G",
         "new_rating": "F",
-        "rating_rationale": "반부패 전략의 미비와 구체적 실행방안 부재는 청렴성 의지 부족을 보여줌. 홍보만 하고 실질적 노력이 없다는 점에서 부족한 수준"
+        "rating_rationale": "반부패 전략의 구체적 실행 방안 부재와 홍보에만 치중한 것은 청렴성 실천 의지의 부족을 보여주는 심각한 문제로 평가됨"
       },
       {
         "item_id": 151785,
         "data_title": "선거 공약과의 상충",
         "collected_by": "ChatGPT",
         "original_rating": "E",
-        "new_rating": "D",
-        "rating_rationale": "공약 미이행은 정치적 신뢰도 문제이지만 청렴성과는 간접적 연관. 도덕적 책임감 부족을 보여주나 직접적 비리는 아니어서 보통 수준"
+        "new_rating": "E",
+        "rating_rationale": "선거 공약 불이행은 정치적 신뢰성과 직결되며, 시민과의 약속을 지키지 않은 것은 청렴성 측면에서 미흡한 수준의 문제"
       },
       {
         "item_id": 151786,
@@ -2444,7 +2444,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "H",
         "new_rating": "F",
-        "rating_rationale": "특정 업체와의 유착 의혹과 투명성 부족, 해명 부족은 청렴성에 심각한 문제를 제기함. 이해충돌 가능성이 높아 부족한 수준으로 평가"
+        "rating_rationale": "특정 업체와의 유착 의혹과 이에 대한 해명 부족은 이해충돌 방지 원칙을 위반한 것으로, 청렴성에 심각한 의문을 제기하는 사안"
       },
       {
         "item_id": 151787,
@@ -2452,7 +2452,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "H",
         "new_rating": "G",
-        "rating_rationale": "불법 자금 수수 의혹과 비자금 조성 암시는 청렴성에 매우 심각한 문제. 공직자로서 기본적 윤리 위반 가능성이 높아 매우 부족한 수준"
+        "rating_rationale": "불법 정치자금 수수와 비자금 조성 의혹은 공직자의 기본 윤리를 위반한 매우 심각한 청렴성 문제로, 법적 처벌 대상이 될 수 있는 사안"
       },
       {
         "item_id": 151788,
@@ -2460,7 +2460,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "E",
         "new_rating": "F",
-        "rating_rationale": "비공식적 루트를 통한 부동산 거래 의혹은 청렴성에 부정적 영향. 권력을 이용한 사적 이익 추구 가능성이 제기되어 부족한 수준"
+        "rating_rationale": "부동산 거래 과정에서의 비공식적 루트 이용 의혹은 공정성과 투명성을 해치는 행위로, 공직자로서의 청렴성에 부족함을 보여줌"
       },
       {
         "item_id": 151789,
@@ -2468,7 +2468,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "D",
         "new_rating": "E",
-        "rating_rationale": "정치적 배제와 세력 강화 시도, 책임 회피는 공정성과 투명성을 해침. 청렴성 측면에서 문제가 있으나 직접적 비리는 아니어서 미흡한 수준"
+        "rating_rationale": "정치적 사익 추구와 책임 회피 행위는 공정한 행정을 저해하고 공익보다 사익을 우선시하는 모습으로 청렴성이 미흡한 수준"
       },
       {
         "item_id": 151790,
@@ -2476,7 +2476,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "D",
         "new_rating": "D",
-        "rating_rationale": "소통 부족과 독단적 결정은 투명성 문제이지만 청렴성과는 간접적 연관. 민주적 절차 무시는 문제이나 부패와는 거리가 있어 보통 수준"
+        "rating_rationale": "시민 의견 수렴 부족과 독단적 결정은 민주적 절차를 무시한 것이나, 직접적인 부정행위는 아니므로 보통 수준의 문제로 평가"
       },
       {
         "item_id": 151791,
@@ -2484,7 +2484,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "E",
         "new_rating": "G",
-        "rating_rationale": "코로나19 자원의 불공정한 배분과 특정 기업·단체 특혜는 청렴성에 매우 심각한 문제. 공적 자원의 사적 이용 의혹으로 매우 부족한 수준"
+        "rating_rationale": "공적 자원의 불공정한 배분과 특정 집단에 대한 특혜 제공은 공직자의 공정성 원칙을 심각하게 위반한 매우 부족한 수준의 청렴성 문제"
       },
       {
         "item_id": 151792,
@@ -2492,7 +2492,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "청렴성 관련 공청회와 포럼에 꾸준히 참석하여 부패 방지 정책을 논의하고 청렴성을 강조한 것은 긍정적이나, 단순한 참석과 발언 수준에 그쳐 실질적 성과나 구체적 행동이 부족하여 우수 등급으로 평가됨"
+        "rating_rationale": "청렴성 관련 공청회와 포럼에 꾸준히 참석하여 부패 방지 정책을 논의하고 청렴성을 강조한 것은 적극적인 청렴 의지를 보여주는 우수한 행동이다."
       },
       {
         "item_id": 151793,
@@ -2500,7 +2500,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "부동산 정책 발표 시 모든 재산을 공개하여 투명성을 높이려는 노력은 긍정적이지만, 여전히 논란의 여지가 있다는 평가가 있어 완전한 투명성을 확보하지 못한 것으로 보여 양호 등급으로 평가됨"
+        "rating_rationale": "재산 공개를 통한 투명성 제고 노력은 긍정적이나, 여전히 논란의 여지가 있다는 평가로 인해 완전히 우수하다고 보기는 어려워 양호 수준으로 평가된다."
       },
       {
         "item_id": 151794,
@@ -2508,15 +2508,15 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "C",
-        "rating_rationale": "국민 신뢰도 조사에서 청렴성이 높은 평가를 받은 것은 긍정적이나, 일부 응답자들이 여전히 의심을 표시하고 있어 완전한 신뢰를 얻지 못한 상황으로 판단되어 양호 등급으로 평가됨"
+        "rating_rationale": "국민 신뢰도 조사에서 청렴성이 높은 평가를 받았으나, 일부 응답자들의 의심이 여전히 존재하여 완전한 신뢰를 얻지는 못한 양호한 수준이다."
       },
       {
         "item_id": 151795,
         "data_title": "부패 방지 정책 실시",
         "collected_by": "ChatGPT",
         "original_rating": "C",
-        "new_rating": "D",
-        "rating_rationale": "공직자 윤리 의식 강화를 위한 부패 방지 정책을 시행한 것은 긍정적이나, 그 효과에 대한 평가가 상반되고 있어 정책의 실효성과 성과가 불분명한 상황으로 보통 등급으로 평가됨"
+        "new_rating": "C",
+        "rating_rationale": "부패 방지 정책을 시행한 것은 긍정적이나, 그 효과에 대한 평가가 상반되고 있어 정책의 실효성에 의문이 제기되는 양호한 수준이다."
       },
       {
         "item_id": 151796,
@@ -2524,7 +2524,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "D",
         "new_rating": "D",
-        "rating_rationale": "정책 수립 및 실행 과정에서 투명성을 높이기 위한 홍보활동을 진행한 노력은 인정되나, 일부 정책이 불투명하다는 지적을 받고 있어 완전한 투명성을 확보하지 못한 것으로 보여 보통 등급으로 평가됨"
+        "rating_rationale": "투명성 제고를 위한 홍보활동은 시행했으나, 일부 정책이 불투명하다는 지적을 받고 있어 청렴성 측면에서 보통 수준에 그친다."
       },
       {
         "item_id": 151797,
@@ -2532,7 +2532,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "공직 취임 전 사전 재산 신고를 정확히 이행하고 관련 내용을 공개하여 투명한 모습을 보인 것은 청렴성의 기본 요건을 충실히 이행한 것으로 매우 우수한 행동으로 평가됨"
+        "rating_rationale": "공직 취임 전 사전 재산 신고를 정확히 이행하고 관련 내용을 공개한 것은 투명성과 청렴성을 보여주는 매우 우수한 행동이다."
       },
       {
         "item_id": 151798,
@@ -2540,7 +2540,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "C",
         "new_rating": "D",
-        "rating_rationale": "청렴과 윤리 의식 강화를 위한 교육 프로그램을 도입하여 청렴성 증진 의지를 보인 것은 긍정적이나, 참여도가 낮아 실질적 효과가 제한적인 것으로 보여 보통 등급으로 평가됨"
+        "rating_rationale": "청렴 교육 프로그램 도입으로 의지는 보여주었으나, 참여도가 낮아 실질적인 효과가 제한적이어서 보통 수준으로 평가된다."
       },
       {
         "item_id": 151799,
@@ -2548,15 +2548,15 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "C",
-        "rating_rationale": "부패 혐의에 대한 조사가 있었으나 결과가 부정적이지 않아 논란을 피해간 것은 다행스러우나, 애초에 부패 혐의 조사가 시작된 점은 청렴성에 일정한 의문을 제기한 것으로 양호 등급으로 평가됨"
+        "rating_rationale": "부패 혐의 조사가 시작되었다는 것 자체는 부정적이나, 결과가 부정적이지 않아 논란을 피했다는 점에서 양호한 수준으로 평가된다."
       },
       {
         "item_id": 151800,
         "data_title": "언론과의 소통",
         "collected_by": "ChatGPT",
         "original_rating": "C",
-        "new_rating": "D",
-        "rating_rationale": "언론과의 정기적인 소통을 통해 궁금증 해소에 노력한 것은 긍정적이나, 일부 기자들이 독립성을 의심하고 있어 완전한 투명성과 객관성을 확보하지 못한 것으로 보여 보통 등급으로 평가됨"
+        "new_rating": "C",
+        "rating_rationale": "언론과의 정기적인 소통을 통해 투명성을 높이려 노력했으나, 일부 기자들이 독립성을 의심한다는 점에서 양호한 수준이다."
       },
       {
         "item_id": 151801,
@@ -2564,7 +2564,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "정책 이행과정을 전자문서로 기록하여 공개한 것은 투명성과 책임성을 높이는 우수한 조치로, 일부 긍정적인 평가를 받은 것도 이를 뒷받침하여 우수 등급으로 평가됨"
+        "rating_rationale": "정책 이행과정을 전자문서로 기록하여 공개한 것은 투명성과 책임성을 보여주는 우수한 청렴 행동으로 긍정적인 평가를 받을 만하다."
       },
       {
         "item_id": 151802,
@@ -2572,7 +2572,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "D",
         "new_rating": "D",
-        "rating_rationale": "선거 자금 관리에서 투명성을 표방하고 있으나 세부 사항에 대한 논란이 지속되고 있어 완전한 투명성을 확보하지 못한 상황으로 보통 수준의 청렴성을 보여줌"
+        "rating_rationale": "선거 자금 관리에서 투명성을 표방하고 있으나 세부 사항에 대한 지속적인 논란이 있어 완전한 투명성이 확보되지 못한 상황으로 보통 수준의 청렴성을 보여줌"
       },
       {
         "item_id": 151803,
@@ -2587,16 +2587,16 @@
         "data_title": "청렴 관련 캠페인",
         "collected_by": "ChatGPT",
         "original_rating": "B",
-        "new_rating": "B",
-        "rating_rationale": "청렴성 강조 캠페인을 적극적으로 진행하여 시민들의 인식 개선에 기여한 점에서 우수한 수준의 청렴성 노력을 보여주고 있음"
+        "new_rating": "C",
+        "rating_rationale": "청렴성 강조 캠페인을 통해 시민 인식 개선에 기여하였으나 캠페인 자체만으로는 실질적 청렴성 확보에 한계가 있어 양호한 수준으로 평가됨"
       },
       {
         "item_id": 151805,
         "data_title": "정기 감사 실시",
         "collected_by": "ChatGPT",
         "original_rating": "D",
-        "new_rating": "D",
-        "rating_rationale": "정기 감사 실시를 통한 투명성 향상 노력은 긍정적이나 감사 결과를 대중에 공개하지 않아 진정한 투명성 확보에는 한계를 보임"
+        "new_rating": "E",
+        "rating_rationale": "정기 감사 실시를 통해 투명성 향상 노력을 보였으나 감사 결과를 대중에 공개하지 않아 투명성의 핵심 요소를 충족하지 못해 미흡한 청렴성을 보임"
       },
       {
         "item_id": 151806,
@@ -2604,7 +2604,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "C",
         "new_rating": "D",
-        "rating_rationale": "정치적 현안에 대한 신속한 대응으로 청렴성 강화를 시도했으나 불확실성이 따르는 평가가 많아 보통 수준의 청렴성을 나타냄"
+        "rating_rationale": "정치적 현안에 대한 신속한 대응으로 청렴성 강화 의지를 보였으나 불확실성이 따른다는 평가가 많아 보통 수준의 청렴성으로 판단됨"
       },
       {
         "item_id": 151807,
@@ -2612,7 +2612,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "소속 정당의 청렴성 문제로 인해 개인적으로도 부정적 영향을 받고 있어 청렴성 평가에서 미흡한 수준을 보이고 있음"
+        "rating_rationale": "소속 정당의 청렴성 문제로 인해 개인적으로도 부정적 영향을 받은 상황으로 정치적 연대책임 차원에서 미흡한 청렴성 평가를 받을 수밖에 없음"
       },
       {
         "item_id": 151808,
@@ -2620,7 +2620,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "시민과의 소통 강화를 위한 다양한 프로그램 운영은 긍정적이나 일부 시민 반발이 있어 양호한 수준의 청렴성 노력으로 평가됨"
+        "rating_rationale": "시민과의 소통 강화를 위한 다양한 프로그램 운영으로 투명성 향상 노력을 보였으나 일부 시민 반발이 있어 양호한 수준의 청렴성을 나타냄"
       },
       {
         "item_id": 151809,
@@ -2628,7 +2628,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "D",
         "new_rating": "D",
-        "rating_rationale": "감사 기관 결과 수용 의사를 표명한 것은 긍정적이나 실제 이행 여부에 대한 우려가 제기되어 보통 수준의 청렴성을 보임"
+        "rating_rationale": "감사 결과 수용 의사를 표명하여 책임감 있는 태도를 보였으나 실제 이행에 대한 우려가 제기되어 보통 수준의 청렴성으로 평가됨"
       },
       {
         "item_id": 151810,
@@ -2636,7 +2636,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "재산 형성 과정을 일부 공개했으나 초기 재산 축적의 투명성 문제가 지적되어 청렴성 측면에서 미흡한 평가를 받고 있음"
+        "rating_rationale": "재산 형성 과정 일부 공개로 투명성 확보 노력을 보였으나 초기 재산 축적의 투명성 문제가 지적되어 미흡한 청렴성을 보여줌"
       },
       {
         "item_id": 151811,
@@ -2644,15 +2644,15 @@
         "collected_by": "ChatGPT",
         "original_rating": "C",
         "new_rating": "D",
-        "rating_rationale": "반부패 캠페인 참여를 통한 청렴성 향상 노력은 인정되나 실질적 효과에 대한 의구심이 존재하여 보통 수준의 청렴성을 나타냄"
+        "rating_rationale": "반부패 캠페인 참여를 통해 청렴성 향상 의지를 보였으나 실질적 효과에 대한 의구심이 존재하여 보통 수준의 청렴성으로 판단됨"
       },
       {
         "item_id": 151812,
         "data_title": "부동산 비리 의혹",
         "collected_by": "ChatGPT",
         "original_rating": "E",
-        "new_rating": "G",
-        "rating_rationale": "뇌물 수수 의혹은 공직자의 청렴성에 매우 심각한 타격을 주는 사안입니다. 비록 의혹 단계이지만 부동산 투자와 연관된 뇌물 수수 의혹은 공적 신뢰를 크게 손상시키며, 청렴성 평가에서 매우 부족한 수준으로 판단됩니다."
+        "new_rating": "F",
+        "rating_rationale": "뇌물 수수 의혹은 청렴성에 직접적으로 반하는 중대한 문제로, 비록 의혹 단계이지만 공직자로서 신뢰도에 심각한 타격을 주는 사안입니다."
       },
       {
         "item_id": 151813,
@@ -2660,7 +2660,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "재산 신고를 성실히 이행하고 투명하게 공개하는 것은 공직자의 기본 의무를 충실히 수행하는 것입니다. 투명성 확보를 통해 청렴성을 입증하려는 노력이 인정되어 우수한 수준으로 평가할 수 있습니다."
+        "rating_rationale": "재산 신고 성실 이행과 투명한 공개는 청렴성의 기본 요건을 충족하는 우수한 행동으로, 공직자로서 모범적인 자세를 보여주고 있습니다."
       },
       {
         "item_id": 151814,
@@ -2668,7 +2668,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "정치자금 사용 내역의 정기적 공개와 외부 감사 실시는 최고 수준의 투명성을 보여줍니다. 자발적으로 외부 검증을 받아 청렴성을 강조하는 것은 매우 우수한 청렴 실천 사례로 평가됩니다."
+        "rating_rationale": "정치자금 사용 내역의 정기적 공개와 외부 감사 수용은 최고 수준의 투명성과 청렴성을 보여주는 매우 우수한 행위입니다."
       },
       {
         "item_id": 151815,
@@ -2676,7 +2676,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "공공사업 계약의 투명한 진행과 부당 로비 차단 정책 시행은 구조적 청렴성 확보를 위한 적극적 노력입니다. 제도적 장치를 통해 부패 가능성을 사전에 차단하는 것은 매우 우수한 청렴 행정으로 평가됩니다."
+        "rating_rationale": "공공사업 계약의 투명한 진행과 부당 로비 차단 정책 시행은 구조적 부패 방지를 위한 적극적 노력으로 매우 우수한 청렴성을 보여줍니다."
       },
       {
         "item_id": 151816,
@@ -2684,7 +2684,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "정책에 대한 비판은 있었으나 뇌물 수수 등 구체적 비리가 없었다는 것은 기본적인 청렴성은 유지했다고 볼 수 있습니다. 정책 논란과 청렴성 문제는 별개 사안으로, 양호한 수준으로 평가할 수 있습니다."
+        "rating_rationale": "정책 비판은 있었으나 뇌물 수수 등 특정 비리가 없었다는 점에서 기본적인 청렴성은 유지했다고 볼 수 있어 양호한 수준입니다."
       },
       {
         "item_id": 151817,
@@ -2692,7 +2692,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "민원과 고발 문제의 신속한 처리와 적극적 대응은 책임감 있는 공직 수행을 보여줍니다. 투명하고 신속한 문제 해결 자세는 청렴한 공직자의 모습으로 우수한 수준으로 평가됩니다."
+        "rating_rationale": "민원과 고발 사건에 대한 신속하고 적극적인 대응은 책임감 있는 행정과 투명성을 보여주는 우수한 청렴성 행위입니다."
       },
       {
         "item_id": 151818,
@@ -2700,15 +2700,15 @@
         "collected_by": "ChatGPT",
         "original_rating": "D",
         "new_rating": "E",
-        "rating_rationale": "기획재정부의 청렴도 평가에서 나쁜 성적을 받은 것은 객관적이고 공신력 있는 기관의 평가 결과입니다. 이는 실질적인 청렴성 문제가 있음을 시사하므로 미흡한 수준으로 평가해야 합니다."
+        "rating_rationale": "공신력 있는 기관의 청렴도 평가에서 나쁜 성적을 받은 것은 청렴성에 명확한 문제가 있음을 시사하므로 미흡한 수준입니다."
       },
       {
         "item_id": 151819,
         "data_title": "공직 부패 예방 정책",
         "collected_by": "ChatGPT",
         "original_rating": "B",
-        "new_rating": "A",
-        "rating_rationale": "공직 부패 예방 정책 수립과 공무원 청렴 교육을 통한 청렴 문화 확산은 예방적 청렴 행정의 모범 사례입니다. 개인적 청렴성을 넘어 조직 전체의 청렴성 제고를 위한 노력은 매우 우수한 수준입니다."
+        "new_rating": "B",
+        "rating_rationale": "공직 부패 예방 정책 수립과 공무원 청렴 교육 실시는 조직 차원의 청렴 문화 조성을 위한 우수한 리더십을 보여줍니다."
       },
       {
         "item_id": 151820,
@@ -2716,7 +2716,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "C",
         "new_rating": "D",
-        "rating_rationale": "본인과 가족의 재산 관련 의혹이 몇 차례 보도되었다는 것은 청렴성에 대한 의문을 제기하는 요소입니다. 입증되지 않았다고 하나 반복적인 의혹 제기 자체가 청렴성 신뢰도를 떨어뜨려 보통 수준으로 평가됩니다."
+        "rating_rationale": "본인과 가족의 재산 관련 의혹이 여러 차례 제기된 것은 청렴성에 대한 의구심을 불러일으키지만, 입증되지 않아 보통 수준으로 평가됩니다."
       },
       {
         "item_id": 151821,
@@ -2724,7 +2724,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "D",
         "new_rating": "D",
-        "rating_rationale": "공정한 선거 관리 약속을 했으나 도중에 논란이 발생했다는 것은 의도와 실행 사이의 간극을 보여줍니다. 공정성에 대한 의지는 있었으나 실제 과정에서 문제가 발생해 보통 수준으로 평가됩니다."
+        "rating_rationale": "선거 관리의 공정성 약속은 긍정적이나 도중 논란 발생으로 실제 이행에 문제가 있어 보통 수준의 청렴성을 보여줍니다."
       },
       {
         "item_id": 151822,
@@ -2732,7 +2732,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "A",
         "new_rating": "B",
-        "rating_rationale": "외부 감사 기관의 조치를 적극 수용하는 것은 투명성과 책임성을 보여주는 우수한 청렴 행동으로, 견제와 균형을 존중하는 민주적 자세를 나타낸다."
+        "rating_rationale": "외부 감사 기관의 조치를 적극적으로 수용하는 것은 투명성과 책임감을 보여주는 우수한 청렴성 행동이며, 외부의 견제를 받아들이는 자세가 긍정적으로 평가됩니다."
       },
       {
         "item_id": 151823,
@@ -2740,7 +2740,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "정기적인 국민 보고는 정책 추진 과정의 투명성을 확보하고 국민의 알 권리를 충족시키는 우수한 청렴 실천 사례로 평가된다."
+        "rating_rationale": "정기적인 국민 보고는 정책 추진 과정의 투명성을 높이고 시민들의 알 권리를 보장하는 우수한 청렴성 실천 행위로, 지속적인 소통 의지를 보여줍니다."
       },
       {
         "item_id": 151824,
@@ -2748,23 +2748,23 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "C",
-        "rating_rationale": "시민과의 소통과 의견 수렴은 민주적 거버넌스의 기본이며 청렴성 측면에서 양호한 수준이나, 구체적인 성과나 방법론이 명시되지 않아 제한적이다."
+        "rating_rationale": "시민과의 소통 강조와 의견 수렴은 민주적 거버넌스와 투명성 측면에서 양호한 수준이나, 구체적인 청렴성 강화 방안이 명시되지 않아 보통 이상의 평가를 받습니다."
       },
       {
         "item_id": 151825,
         "data_title": "정책 집행의 투명성",
         "collected_by": "ChatGPT",
         "original_rating": "C",
-        "new_rating": "C",
-        "rating_rationale": "정책 집행 과정의 투명성 제고 노력은 청렴성 강화에 긍정적이나, '노력 중'이라는 표현으로 볼 때 아직 구체적 성과보다는 의지 수준으로 판단된다."
+        "new_rating": "B",
+        "rating_rationale": "정책 집행 과정에서 투명성을 높이기 위한 지속적 노력은 청렴한 행정을 위한 핵심 요소로, 공정하고 투명한 정책 추진 의지를 보여주는 우수한 행동입니다."
       },
       {
         "item_id": 151826,
         "data_title": "민간 위탁 사업의 문제",
         "collected_by": "ChatGPT",
         "original_rating": "E",
-        "new_rating": "F",
-        "rating_rationale": "민간 위탁 사업에서의 부정 거래 의혹은 청렴성에 심각한 타격을 주는 사안으로, 직접적인 연루 여부와 관계없이 관리 감독 책임이 있어 부족한 수준이다."
+        "new_rating": "E",
+        "rating_rationale": "민간 위탁 사업에서의 부정 거래 의혹은 청렴성에 직접적인 타격을 주는 사안으로, 비록 의혹 단계이지만 공직자의 청렴성 관리에 미흡함을 보여주는 부정적 요소입니다."
       },
       {
         "item_id": 151827,
@@ -2772,7 +2772,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "C",
-        "rating_rationale": "의회와의 원활한 소통은 견제와 균형의 민주주의 원칙을 실현하는 양호한 행동이나, 청렴성과는 간접적 연관성만 있어 보통 수준의 평가가 적절하다."
+        "rating_rationale": "의회와의 원활한 소통은 민주적 절차 준수와 견제와 균형 측면에서 양호하나, 직접적인 청렴성 강화보다는 정치적 효율성에 더 초점이 맞춰진 것으로 보입니다."
       },
       {
         "item_id": 151828,
@@ -2780,7 +2780,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "정기적인 시정 보고는 행정의 투명성과 책임성을 구현하는 우수한 청렴 실천으로, 시민의 알 권리 보장과 행정 신뢰도 제고에 기여한다."
+        "rating_rationale": "정기적인 시정 보고는 행정의 투명성과 시민에 대한 책임감을 보여주는 우수한 청렴성 실천으로, 지속적인 정보 공개와 소통 의지를 나타냅니다."
       },
       {
         "item_id": 151829,
@@ -2788,7 +2788,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "시민 참여 정책 추진은 투명하고 열린 행정을 구현하여 청렴성을 강화하는 우수한 방법으로, 시민 감시와 참여를 통한 부패 방지 효과가 기대된다."
+        "rating_rationale": "시민 참여 정책 추진을 통한 청렴성 강화는 시민 감시와 참여를 통해 투명성을 높이는 우수한 접근법으로, 민주적 거버넌스와 청렴성을 동시에 추구하는 모습입니다."
       },
       {
         "item_id": 151830,
@@ -2796,7 +2796,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "A",
         "new_rating": "C",
-        "rating_rationale": "평판 관리와 공직자 모범 보이기는 청렴성 측면에서 양호하나, 실질적 청렴 행동보다는 이미지 관리에 치중할 가능성이 있어 제한적으로 평가된다."
+        "rating_rationale": "평판 관리와 공직자 모범 보이기 노력은 양호한 수준이나, 외형적 이미지 관리에 치중할 수 있다는 우려가 있어 실질적 청렴성 강화 효과는 제한적일 수 있습니다."
       },
       {
         "item_id": 151831,
@@ -2804,7 +2804,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "청렴 의식 고취 프로그램과 청렴 교육 강화는 조직 전체의 청렴 문화 정착을 위한 매우 우수한 선제적 노력으로, 근본적인 청렴성 향상에 기여한다."
+        "rating_rationale": "청렴 의식 고취 프로그램과 청렴 교육 강화는 조직 전체의 청렴 문화 정착을 위한 매우 우수한 선제적 노력으로, 근본적이고 체계적인 청렴성 향상 방안입니다."
       },
       {
         "item_id": 151732,
@@ -2812,7 +2812,7 @@
         "collected_by": "Grok",
         "original_rating": "F",
         "new_rating": "D",
-        "rating_rationale": "뇌물 공여 혐의로 기소되었으나 대법원에서 무죄 판결을 받았음. 법적으로는 무죄이지만 의혹 자체가 제기되어 청렴성에 부정적 영향을 미쳤으며, 공공 자금 관련 논란이 지속적으로 제기된 점에서 보통 수준으로 평가"
+        "rating_rationale": "뇌물 공여 혐의로 기소되어 사법부 조사를 받았으나 최종 무죄 판결을 받았음. 법적으로는 문제없지만 공직자로서 의혹 자체가 청렴성에 부정적 영향을 미쳤음"
       },
       {
         "item_id": 151733,
@@ -2820,7 +2820,7 @@
         "collected_by": "Grok",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "정치 자금 보고서의 불명확성과 자금 유입 경로 문제가 국회 감사에서 공식 확인됨. 재정 투명성 부족으로 인한 부패 가능성 제기는 청렴성 측면에서 명백한 결함이며, 지속적인 비판을 받고 있어 미흡한 수준"
+        "rating_rationale": "정치자금 보고서의 불명확성과 자금 유입 경로 문제가 국회 감사에서 확인됨. 재정 투명성 부족은 청렴성의 핵심 요소를 위반하여 미흡한 수준으로 평가됨"
       },
       {
         "item_id": 151734,
@@ -2828,7 +2828,7 @@
         "collected_by": "Grok",
         "original_rating": "G",
         "new_rating": "E",
-        "rating_rationale": "재산 신고서의 자산 보고 지연 및 불일치가 정부 감사에서 공식 확인됨. 공직자 윤리법 관련 문제로 재산 비리 가능성이 제기되었으며, 이는 청렴성의 핵심인 투명성을 크게 훼손하는 사안으로 미흡한 평가"
+        "rating_rationale": "재산 신고 지연 및 불일치가 정부 감사에서 드러남. 공직자 윤리법 관련 의무 불이행은 청렴성 기준에서 명백한 미흡 사항으로 평가되어야 함"
       },
       {
         "item_id": 151735,
@@ -2836,7 +2836,7 @@
         "collected_by": "Grok",
         "original_rating": "F",
         "new_rating": "F",
-        "rating_rationale": "부패 방지법 준수 미비가 국회 회의록에 공식 기록되고, 이해충돌 상황에서 금전적 이익 가능성이 제기됨. 부패 예방 시스템의 약점을 드러낸 사안으로 공직자로서의 기본적 청렴 의무를 위반한 것으로 평가되어 부족한 수준"
+        "rating_rationale": "부패 방지법 준수 미비와 이해충돌 상황에서의 금전적 이익 가능성이 국회에서 확인됨. 부패 예방 시스템 위반은 청렴성에 심각한 결함을 나타냄"
       },
       {
         "item_id": 151736,
@@ -2844,7 +2844,7 @@
         "collected_by": "Grok",
         "original_rating": "G",
         "new_rating": "F",
-        "rating_rationale": "공공 자금 사용에 대한 횡령 의혹이 법원 판결문에서 언급되고 자금 집행의 불투명성이 확인됨. 금전적 부패의 잠재적 형태로 비판받은 것은 청렴성에 심각한 타격을 주는 사안으로 부족한 수준으로 평가"
+        "rating_rationale": "공공 자금 사용에 대한 횡령 의혹이 법원 조사에서 확인되고 자금 집행의 불투명성이 드러남. 공적 자금의 부적절한 사용은 청렴성에 중대한 결함을 의미함"
       },
       {
         "item_id": 151737,
@@ -2852,7 +2852,7 @@
         "collected_by": "Grok",
         "original_rating": "F",
         "new_rating": "E",
-        "rating_rationale": "선거 기간 중 주식 매각으로 큰 이익을 얻어 선거 자금과 연관된 의혹 제기. 공직자로서의 재산 관리 투명성을 해치고 부패 가능성이 지적되어 청렴성에 대한 신뢰를 약화시킨 사안으로 미흡한 수준"
+        "rating_rationale": "선거 기간 중 주식 매각 이익과 선거 자금 연관 의혹이 제기됨. 공직자 재산 관리 투명성 부족으로 청렴성에 대한 신뢰가 약화되어 미흡한 수준임"
       },
       {
         "item_id": 151738,
@@ -2860,7 +2860,7 @@
         "collected_by": "Grok",
         "original_rating": "G",
         "new_rating": "E",
-        "rating_rationale": "부동산 자산 신고 부정확성과 매입 과정에서 과도한 이익 취득 의혹이 제기됨. 재산 비리 가능성과 공직자 윤리 위배로 평가되어 투명성과 청렴성 측면에서 명백한 문제가 있어 미흡한 수준"
+        "rating_rationale": "부동산 자산 신고 부정확성과 매입 과정에서의 과도한 이익 취득 의혹이 제기됨. 공직자 윤리 위배 가능성으로 청렴성 측면에서 미흡하다고 평가됨"
       },
       {
         "item_id": 151739,
@@ -2868,7 +2868,7 @@
         "collected_by": "Grok",
         "original_rating": "E",
         "new_rating": "F",
-        "rating_rationale": "서울시 예산이 특정 프로젝트에 부적절하게 사용되고 개인적 이익으로 연결될 가능성이 KBS를 통해 보도됨. 공공 자금의 투명성 부족과 횡령 가능성은 청렴성의 핵심을 훼손하는 심각한 문제로 부족한 수준"
+        "rating_rationale": "서울시 예산의 부적절한 사용과 개인적 이익 연결 가능성이 보도됨. 공공 자금의 투명성 부족과 횡령 가능성은 청렴성에 심각한 결함을 나타냄"
       },
       {
         "item_id": 151740,
@@ -2876,7 +2876,7 @@
         "collected_by": "Grok",
         "original_rating": "H",
         "new_rating": "G",
-        "rating_rationale": "선거 자금 관리에서 뇌물 수수 의혹과 특정 기업으로부터의 불투명한 후원금이 MBC를 통해 확인됨. 금전적 부패의 전형적인 예로 비판받아 공직자 청렴성에 심각한 위배가 되어 매우 부족한 수준"
+        "rating_rationale": "선거 자금에서 뇌물 수수 의혹과 불투명한 기업 후원금이 확인됨. 금전적 부패의 전형적 사례로서 청렴성에 매우 심각한 문제를 보여주어 매우 부족한 수준임"
       },
       {
         "item_id": 151741,
@@ -2884,7 +2884,7 @@
         "collected_by": "Grok",
         "original_rating": "G",
         "new_rating": "F",
-        "rating_rationale": "재산 신고에서 일부 자산 은닉 의혹과 공직자법 위반 가능성이 제기됨. 재산 비리의 전형적인 사례로 지적되어 청렴성에 대한 대중적 불신을 증폭시킨 심각한 문제로 부족한 수준으로 평가"
+        "rating_rationale": "재산 은닉 의혹과 신고 미이행으로 공직자법 위반 가능성이 제기됨. 재산 비리의 전형적 사례로서 청렴성에 중대한 결함을 보여주어 부족한 수준임"
       },
       {
         "item_id": 151742,
@@ -2900,7 +2900,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "공직자윤리법에 따라 매년 재산을 투명하게 신고하였으며, 감사원 검토 결과 허위 신고나 은닉 의혹이 없어 공직자 재산 관리의 표본 사례로 평가됩니다."
+        "rating_rationale": "공직자윤리법에 따라 매년 재산을 투명하게 신고하였고, 감사원 검토 결과 허위 신고나 은닉 의혹이 없어 공직자 재산 관리의 표본 사례로 평가됩니다."
       },
       {
         "item_id": 151744,
@@ -2908,7 +2908,7 @@
         "collected_by": "Grok",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "도시 개발 프로젝트에서 공공 자금 사용에 대한 감사원 감사 결과 불법 횡령이나 부당 사용 혐의가 없었으며, 예산 집행이 규정에 따라 적절히 이뤄졌습니다."
+        "rating_rationale": "도시 개발 프로젝트에서 공공 자금 사용에 대한 감사원 감사 결과 불법 횡령이나 부당 사용 혐의가 없었고, 예산 집행이 규정에 따라 적절히 이뤄졌습니다."
       },
       {
         "item_id": 151745,
@@ -2916,7 +2916,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "이해충돌 방지를 위한 공식 정책을 시행하고 가족 기업과의 계약을 피하며 관련 사항을 공개하는 등 공직자윤리법을 철저히 준수하였습니다."
+        "rating_rationale": "이해충돌 상황 방지를 위한 공식 정책을 시행하고 가족 기업과의 계약을 피하며 관련 사항을 공개하는 등 공직자윤리법을 모범적으로 준수했습니다."
       },
       {
         "item_id": 151746,
@@ -2932,7 +2932,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "C",
-        "rating_rationale": "부패 예방 프로그램을 도입하여 감사원에서 효과를 인정받았으나, 일부 실행 단계에서 미비점이 지적되어 완전하지 않은 성과를 보였습니다."
+        "rating_rationale": "서울시장 재임 중 부패 예방 프로그램을 도입하여 감사원에서 효과를 인정받았으나, 일부 실행 단계에서 미비점이 지적되어 완전하지는 않았습니다."
       },
       {
         "item_id": 151748,
@@ -2948,7 +2948,7 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "A",
-        "rating_rationale": "국가선거관리위원회 감사에서 불법 자금 수수 혐의가 없었고, 선거 자금 보고가 정확하게 제출되어 뇌물 관련 위반이 발생하지 않았습니다."
+        "rating_rationale": "국가선거관리위원회의 선거 자금 관리 감사에서 불법 자금 수수 혐의가 없었고, 선거 자금 보고가 정확하게 제출되어 뇌물 관련 위반이 발생하지 않았습니다."
       },
       {
         "item_id": 151750,
@@ -2956,7 +2956,7 @@
         "collected_by": "Grok",
         "original_rating": "D",
         "new_rating": "C",
-        "rating_rationale": "공공 입찰 과정의 투명성을 강조하고 입찰 규칙을 강화하여 부패 가능성을 줄였으나, 일부 프로젝트에서 지연으로 인한 논란이 있어 완벽하지 않았습니다."
+        "rating_rationale": "공공 입찰 과정의 투명성을 강조하고 입찰 규칙을 강화하여 부패 가능성을 줄였으나, 일부 프로젝트에서 지연으로 인한 논란이 있어 완벽하지는 않았습니다."
       },
       {
         "item_id": 151751,
@@ -2964,7 +2964,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "가족 관련 부패 의혹에 대한 감사원 조사에서 무혐의로 결론났으며, 가족 기업과의 거래가 공정하게 관리되어 뇌물이나 횡령 증거가 없었습니다."
+        "rating_rationale": "가족 관련 부패 의혹에 대한 감사원 조사에서 무혐의로 결론났고, 가족 기업과의 거래가 공정하게 관리되었으며 뇌물이나 횡령 증거가 없음이 확인되었습니다."
       },
       {
         "item_id": 151752,
@@ -2972,7 +2972,7 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "부패 신고 시스템 구축은 청렴성 강화를 위한 적극적 노력을 보여주나, 낮은 이용률로 인해 실질적 효과가 제한적이어서 양호 수준으로 평가됨"
+        "rating_rationale": "부패 신고 시스템 구축은 청렴성 강화를 위한 적극적 노력이지만, 낮은 이용률로 인해 실질적 효과가 제한적이어서 양호한 수준으로 평가됩니다."
       },
       {
         "item_id": 151753,
@@ -2980,23 +2980,23 @@
         "collected_by": "Grok",
         "original_rating": "D",
         "new_rating": "D",
-        "rating_rationale": "청렴성 관련 발언과 부패 방지 법안 논의 참여는 긍정적이나, 직접적인 행동이 제한적이어서 말과 행동의 괴리가 있어 보통 수준으로 평가됨"
+        "rating_rationale": "청렴성 관련 발언과 법안 논의 참여는 긍정적이나, 직접적인 행동이 제한적이어서 말과 행동의 괴리가 있어 보통 수준으로 평가됩니다."
       },
       {
         "item_id": 151754,
         "data_title": "감사원에 의한 예산 감사",
         "collected_by": "Grok",
         "original_rating": "A",
-        "new_rating": "B",
-        "rating_rationale": "감사원의 예산 사용 검토에서 부패 요소가 발견되지 않고 자금 집행이 적절히 관리된 것으로 확인되어 우수한 청렴성을 보여줌"
+        "new_rating": "A",
+        "rating_rationale": "감사원의 객관적 검토에서 부패 요소가 발견되지 않고 예산 집행이 적절히 관리된 것으로 확인되어 매우 우수한 청렴성을 보여줍니다."
       },
       {
         "item_id": 151755,
         "data_title": "재산 증식 과정",
         "collected_by": "Grok",
         "original_rating": "B",
-        "new_rating": "B",
-        "rating_rationale": "공식 재산 신고를 통한 투명한 재산 관리와 합법적 경로를 통한 재산 증가로 횡령이나 비리 의혹이 없어 우수한 청렴성을 입증함"
+        "new_rating": "A",
+        "rating_rationale": "공식 재산 신고를 통한 투명한 재산 관리와 합법적 경로를 통한 재산 증식으로 횡령이나 비리 의혹이 없어 매우 우수한 청렴성을 입증합니다."
       },
       {
         "item_id": 151756,
@@ -3004,15 +3004,15 @@
         "collected_by": "Grok",
         "original_rating": "E",
         "new_rating": "C",
-        "rating_rationale": "공무원 부패 예방 지침 강화는 청렴성 향상을 위한 노력이나, 일부 지침의 미흡한 적용으로 인해 완전하지 못한 양호 수준으로 평가됨"
+        "rating_rationale": "공무원 부패 예방 지침 강화는 청렴성 향상을 위한 노력이지만, 일부 지침의 미흡한 적용으로 인해 양호한 수준으로 평가됩니다."
       },
       {
         "item_id": 151757,
         "data_title": "투기 의혹 조사",
         "collected_by": "Grok",
         "original_rating": "A",
-        "new_rating": "B",
-        "rating_rationale": "부동산 투기 의혹에 대한 감사원 조사에서 무혐의 판정을 받고 법적으로 적합한 거래로 확인되어 우수한 청렴성을 보여줌"
+        "new_rating": "A",
+        "rating_rationale": "감사원의 공식 조사에서 부동산 투기 의혹이 무혐의로 판명되고 법적 적합성이 확인되어 매우 우수한 청렴성을 보여줍니다."
       },
       {
         "item_id": 151758,
@@ -3020,7 +3020,7 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "B",
-        "rating_rationale": "국제 부패 방지 기구와의 협력과 유엔 반부패 협약 관련 활동을 통해 국내 부패 예방에 기여하여 우수한 청렴성 의지를 보여줌"
+        "rating_rationale": "국제 부패 방지 기구와의 협력과 유엔 반부패 협약 관련 활동은 청렴성 향상에 대한 적극적 의지를 보여주어 우수한 평가를 받습니다."
       },
       {
         "item_id": 151759,
@@ -3028,7 +3028,7 @@
         "collected_by": "Grok",
         "original_rating": "D",
         "new_rating": "C",
-        "rating_rationale": "내부 감사 시스템에서 청렴성 강화를 지시하고 시스템을 구축했으나, 일부 부서의 미비점 발견으로 완전하지 못한 양호 수준으로 평가됨"
+        "rating_rationale": "내부 감사 시스템 구축과 청렴성 강화 지시는 긍정적이나, 일부 부서의 미비점 발견으로 인해 양호한 수준으로 평가됩니다."
       },
       {
         "item_id": 151760,
@@ -3036,7 +3036,7 @@
         "collected_by": "Grok",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "여러 건의 법적 소송에서 부패 관련 혐의가 모두 무죄로 마무리되어 대법원이 청렴성을 확인한 매우 우수한 사례로 평가됨"
+        "rating_rationale": "대법원의 공식 판결에서 부패 관련 혐의가 모두 무죄로 확정되어 여러 조사를 통해 청렴성이 객관적으로 입증된 매우 우수한 사례입니다."
       },
       {
         "item_id": 151761,
@@ -3044,7 +3044,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "전체 정치 경력에서 뇌물이나 횡령이 없었고 공식 기록으로 청렴성이 확인되었으나, 일부 의혹으로 인한 지연이 있어 우수 수준으로 평가됨"
+        "rating_rationale": "전반적으로 뇌물이나 횡령이 없었고 공식 기록상 청렴성이 확인되었으나, 일부 의혹으로 인한 지연이 있어 우수한 수준으로 평가됩니다."
       },
       {
         "item_id": 151762,
@@ -3052,7 +3052,7 @@
         "collected_by": "Grok",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "재산 신고에서 부동산 거래 정보가 제대로 공개되지 않아 공직자의 재산 투명성을 저해했다. 완전한 비리는 아니지만 공직자의 기본 의무인 투명한 재산 신고를 제대로 이행하지 않은 점이 청렴성을 훼손한다."
+        "rating_rationale": "공직자의 재산 신고에서 부동산 거래 정보가 제대로 공개되지 않은 것은 투명성 원칙을 위반하는 행위로, 공직자의 기본적인 의무를 소홀히 한 것으로 평가됩니다."
       },
       {
         "item_id": 151763,
@@ -3060,7 +3060,7 @@
         "collected_by": "Grok",
         "original_rating": "F",
         "new_rating": "D",
-        "rating_rationale": "부동산 거래로 시세 차익을 얻었으나 공공 자산 관련 혐의는 입증되지 않았다. 합법적 거래로 보이지만 정치인의 재산 관리에 대한 지속적 의문을 제기하여 청렴성 측면에서 보통 수준의 우려가 있다."
+        "rating_rationale": "부동산 거래를 통한 시세 차익 자체는 불법이 아니나, 공공 자산 관련 혐의가 제기된 점과 지속적인 의문이 제기되는 상황은 청렴성에 대한 우려를 낳습니다."
       },
       {
         "item_id": 151764,
@@ -3068,7 +3068,7 @@
         "collected_by": "Grok",
         "original_rating": "D",
         "new_rating": "F",
-        "rating_rationale": "정치 자금의 세부 내역이 불명확하게 기록되고 뇌물 가능성까지 제기되었다. 정치 자금의 투명성 부족은 민주주의의 근간을 흔드는 심각한 문제로 청렴성에 상당한 결함이 있다고 판단된다."
+        "rating_rationale": "정치 자금 사용에서 후원금 세부 내역이 불명확하게 기록되고 뇌물 가능성이 지적된 것은 정치 자금의 투명성을 크게 저해하는 심각한 문제입니다."
       },
       {
         "item_id": 151765,
@@ -3076,7 +3076,7 @@
         "collected_by": "Grok",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "가족 소유 부동산이 시장 재임 기간 중 이익을 보고 공공 정책과 연계된 혐의를 받았다. 증거 부족으로 종결되었으나 이해충돌 가능성과 청렴성 논란을 야기한 점에서 미흡한 수준이다."
+        "rating_rationale": "가족 소유 부동산이 공공 정책과 연계되어 이익을 얻었다는 혐의는 증거 부족으로 종결되었으나, 이해충돌 가능성과 청렴성에 대한 의구심을 제기합니다."
       },
       {
         "item_id": 151766,
@@ -3084,15 +3084,15 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "D",
-        "rating_rationale": "뇌물 수수 소문이 제기되었으나 구체적 증거는 없었고 불법 행위로 확인되지 않았다. 단순 소문 수준이지만 정치인과 기업 간의 관계에서 의구심을 불러일으킨 점에서 보통 수준의 우려가 있다."
+        "rating_rationale": "뇌물 수수 소문이 제기되었으나 구체적 증거가 없고 불법 행위로 확인되지 않았지만, 기업과의 관계에서 투명성 부족으로 인한 의구심이 발생했습니다."
       },
       {
         "item_id": 151767,
         "data_title": "공공 프로젝트 관련 횡령 의혹",
         "collected_by": "Grok",
         "original_rating": "F",
-        "new_rating": "E",
-        "rating_rationale": "공공 프로젝트 예산이 비효율적으로 사용되어 재정 관리의 청렴성이 문제가 되었다. 개인 횡령은 아니지만 공공 자원의 부적절한 관리는 청렴성 원칙에 위배되어 미흡한 수준이다."
+        "new_rating": "D",
+        "rating_rationale": "공공 프로젝트 예산의 비효율적 사용이 지적되었으나 개인 횡령으로 연결되지 않았지만, 공공 재정 관리의 청렴성에 대한 문제를 제기합니다."
       },
       {
         "item_id": 151768,
@@ -3100,7 +3100,7 @@
         "collected_by": "Grok",
         "original_rating": "D",
         "new_rating": "D",
-        "rating_rationale": "선거 자금 보고서가 불투명하게 작성되고 후원자 목록의 세부 사항이 누락되었으나 법적 위반은 아니었다. 형식적 요건은 충족했지만 투명성 부족으로 보통 수준의 청렴성 우려가 있다."
+        "rating_rationale": "선거 자금 보고서의 후원자 목록 누락은 법적 위반은 아니었으나, 정치 자금의 투명성 원칙에 어긋나며 청렴성에 대한 일반적 우려를 반영합니다."
       },
       {
         "item_id": 151769,
@@ -3108,7 +3108,7 @@
         "collected_by": "Grok",
         "original_rating": "E",
         "new_rating": "C",
-        "rating_rationale": "개인 재산이 급격히 증가했으나 주식 투자와 부동산을 통한 합법적 이익으로 부패와 직접 연결되지 않았다. 공직자의 재산 관리에 대한 감시 필요성을 제기하지만 양호한 수준으로 판단된다."
+        "rating_rationale": "개인 재산의 급격한 증가가 주식 투자와 부동산을 통한 합법적 이익으로 확인되었으나, 공직자로서 재산 관리에 대한 지속적인 감시 필요성을 보여줍니다."
       },
       {
         "item_id": 151770,
@@ -3116,7 +3116,7 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "D",
-        "rating_rationale": "기업 로비 혐의가 제기되었으나 구체적 증거는 없었고 불법으로 규정되지 않았다. 정치와 기업 간 경계선을 흐리게 하는 우려는 있지만 명확한 위반 사항이 없어 보통 수준이다."
+        "rating_rationale": "기업 로비 혐의가 제기되었으나 구체적 증거나 불법성이 확인되지 않았지만, 정치와 기업 간의 관계에서 투명성과 경계 설정의 모호함을 드러냅니다."
       },
       {
         "item_id": 151771,
@@ -3124,7 +3124,7 @@
         "collected_by": "Grok",
         "original_rating": "F",
         "new_rating": "E",
-        "rating_rationale": "공직 중 일부 자산을 적시에 처분하지 않아 갈등이 발생하고 청렴성 원칙 위반 가능성이 제기되었다. 공직자의 이해충돌 방지 의무를 제대로 이행하지 않은 점에서 미흡한 수준이다."
+        "rating_rationale": "공직 중 재산 처분을 적시에 하지 않은 것은 공직자의 이해충돌 방지 의무를 소홀히 한 것으로, 청렴성 원칙 위반 가능성이 있는 문제입니다."
       },
       {
         "item_id": 151772,
@@ -3132,15 +3132,15 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "뇌물 고발이 제기되었으나 조사 결과 무혐의로 결론되어 법적 청렴성이 입증되었고, 후원금 의혹도 해소되어 전반적으로 우수한 청렴성을 보여주었습니다."
+        "rating_rationale": "뇌물 고발이 제기되었으나 무혐의로 결론되어 청렴성이 입증되었다. 다만 의혹이 제기되었다는 점에서 완전한 A등급은 어려우며, 최종적으로 청렴성을 유지한 것으로 평가되어 우수한 수준이다."
       },
       {
         "item_id": 151773,
         "data_title": "자산 공개 정책 이행",
         "collected_by": "Grok",
         "original_rating": "D",
-        "new_rating": "E",
-        "rating_rationale": "자산 공개 정책을 부분적으로만 이행하여 투명성 논란이 제기된 것은 공직자의 기본 의무를 완전히 이행하지 않은 것으로 청렴성 측면에서 미흡합니다."
+        "new_rating": "D",
+        "rating_rationale": "자산 공개 정책을 부분적으로만 이행하여 투명성 논란이 제기되었다. 완전한 공개가 아닌 일부 재산만 공개한 것은 청렴성 측면에서 보통 수준의 평가를 받을 만하며, 투명성 부족이 지적된다."
       },
       {
         "item_id": 151774,
@@ -3148,15 +3148,15 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "서울시 예산 횡령 의혹에 직접적 연관은 없었으나 간접적 책임이 논의된 점에서 관리 감독 측면의 아쉬움이 있어 양호한 수준으로 평가됩니다."
+        "rating_rationale": "서울시 예산 횡령 의혹과 직접적 연관은 없었으나 간접적 책임이 논의되었다. 직접적인 부정행위는 없었지만 관리 감독 책임 측면에서 완전히 자유롭지 못한 상황으로 양호한 수준으로 평가된다."
       },
       {
         "item_id": 151775,
         "data_title": "정치 후원금 관리",
         "collected_by": "Grok",
         "original_rating": "E",
-        "new_rating": "E",
-        "rating_rationale": "후원금 관리에서 불명확한 항목이 발견된 것은 정치자금의 투명성 원칙에 어긋나며, 지속적인 검증이 필요한 상황으로 청렴성이 미흡합니다."
+        "new_rating": "D",
+        "rating_rationale": "후원금 관리에서 일부 불명확한 항목이 발견되어 지속적인 검증이 필요한 상황이다. 명백한 부정행위는 아니지만 투명성과 정확성이 부족한 면이 있어 보통 수준의 청렴성을 보여준다."
       },
       {
         "item_id": 151776,
@@ -3164,7 +3164,7 @@
         "collected_by": "Grok",
         "original_rating": "D",
         "new_rating": "D",
-        "rating_rationale": "부패 방지 정책을 수립했으나 실행이 부족하고 실효성이 지적된 것은 청렴성 의지는 있으나 실천력이 부족한 보통 수준으로 평가됩니다."
+        "rating_rationale": "부패 방지 정책을 수립했으나 실행이 부족하여 실효성이 지적되었다. 청렴성을 위한 의지는 있으나 실질적 성과가 미흡하여 보통 수준으로 평가되며, 정책과 실행 간 괴리가 문제점이다."
       },
       {
         "item_id": 151777,
@@ -3172,7 +3172,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "재산 비리 소송에서 무죄 판결을 받은 것은 법적으로 청렴성이 입증된 것으로, 사법부의 공정한 판단을 통해 우수한 청렴성을 확인받았습니다."
+        "rating_rationale": "재산 비리 소송에서 무죄 판결을 받아 청렴성이 법적으로 입증되었다. 소송이 제기되었다는 점에서 완전한 A등급은 어렵지만, 최종적으로 무죄로 결론되어 우수한 수준의 청렴성을 보여준다."
       },
       {
         "item_id": 151778,
@@ -3180,15 +3180,15 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "기업 연결 의혹이 제기되었으나 불법으로 확인되지 않아 법적 문제는 없지만, 도덕적 청렴성의 경계선에서 논란이 된 점에서 양호한 수준입니다."
+        "rating_rationale": "기업 연결 의혹이 제기되었으나 불법으로 확인되지 않았다. 청렴성의 경계선을 테스트하는 상황으로 명백한 위법행위는 없었지만 도덕적 논란의 여지가 있어 양호한 수준으로 평가된다."
       },
       {
         "item_id": 151779,
         "data_title": "공금 사용 감사",
         "collected_by": "Grok",
         "original_rating": "E",
-        "new_rating": "D",
-        "rating_rationale": "공금 사용에서 경비 과다가 지적되었으나 부패로 이어지지 않은 것은 심각한 문제는 아니지만 공적 자원 관리의 신중함이 부족한 보통 수준입니다."
+        "new_rating": "C",
+        "rating_rationale": "공금 사용 감사에서 경비 과다가 지적되었으나 부패로는 이어지지 않았다. 공적 자금의 효율적 사용 측면에서 문제가 있었지만 부정행위 수준은 아니어서 양호한 수준의 청렴성을 보여준다."
       },
       {
         "item_id": 151780,
@@ -3196,7 +3196,7 @@
         "collected_by": "Grok",
         "original_rating": "D",
         "new_rating": "D",
-        "rating_rationale": "뇌물 방지 조치를 취한 의지는 긍정적이나 효과가 미비했다는 점에서 청렴성 유지 노력은 인정되지만 성과가 부족한 보통 수준입니다."
+        "rating_rationale": "뇌물 방지 조치를 취했으나 효과가 미비했다고 평가되었다. 청렴성 유지를 위한 노력은 인정되지만 실질적 성과가 부족하여 보통 수준으로 평가되며, 의지와 결과 간 차이가 존재한다."
       },
       {
         "item_id": 151781,
@@ -3204,15 +3204,15 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "재산 신고가 개선되어 이전 문제점을 해결하려는 노력을 보였으나 여전히 완벽하지 않아 발전 가능성은 있지만 양호한 수준에 머물고 있습니다."
+        "rating_rationale": "재산 신고가 이전보다 정확해졌으나 여전히 완벽하지 않다고 평가되었다. 개선 노력과 진전이 있었다는 점은 긍정적이지만 완전한 투명성에는 미치지 못해 양호한 수준의 청렴성을 보여준다."
       },
       {
         "item_id": 107588,
         "data_title": "부동산 정책 논란",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "E",
-        "new_rating": "E",
-        "rating_rationale": "부동산 정책 추진 과정에서 투기 의혹이 제기되었다는 것은 공직자로서의 도덕성과 청렴성에 상당한 문제가 있음을 시사한다. 정책 실패와 함께 개인적 이익 추구 의혹은 청렴성 관점에서 미흡한 수준이다."
+        "new_rating": "F",
+        "rating_rationale": "부동산 정책 추진 과정에서 투기 의혹이 제기된 것은 공직자의 청렴성에 심각한 의문을 제기하는 사안입니다. 정책 결정자가 해당 정책으로 개인적 이익을 취했을 가능성이 있어 공정성과 투명성 측면에서 부족한 평가를 받습니다."
       },
       {
         "item_id": 107589,
@@ -3220,7 +3220,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "D",
         "new_rating": "E",
-        "rating_rationale": "행정안전부 감사에서 예산 집행 및 행정 처리 과정의 부적절성이 공식적으로 지적되었다는 것은 행정의 투명성과 적정성에 문제가 있음을 보여준다. 공적 자원의 부적절한 관리는 청렴성에 부정적 영향을 미친다."
+        "rating_rationale": "행정안전부 감사에서 예산 집행과 행정 처리 과정의 부적절성이 발견된 것은 행정의 투명성과 적정성 측면에서 문제가 있음을 의미합니다. 공적 자원의 올바른 관리에 대한 책임성이 미흡하다고 판단됩니다."
       },
       {
         "item_id": 107590,
@@ -3228,7 +3228,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "E",
         "new_rating": "D",
-        "rating_rationale": "코로나19 대응 초기의 정책 혼선과 일관성 부족은 행정 능력의 문제로 볼 수 있으나, 직접적인 부정부패나 사익 추구와는 거리가 있다. 청렴성보다는 정책 역량의 문제로 판단되어 보통 수준으로 평가한다."
+        "rating_rationale": "코로나19 대응 초기의 방역 정책 혼선은 위기상황에서의 정책 일관성 부족을 보여줍니다. 청렴성 측면에서는 직접적인 부정행위는 아니지만, 공적 책임 수행에 있어 보통 수준의 평가를 받습니다."
       },
       {
         "item_id": 107591,
@@ -3236,7 +3236,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "D",
         "new_rating": "F",
-        "rating_rationale": "감사원이 공공기관 인사 과정의 투명성 부족과 편향성을 지적한 것은 공정한 인사행정 원칙을 위배한 것으로, 청렴성에 상당한 문제가 있음을 나타낸다. 인사 비리는 공직 청렴성의 핵심 영역이다."
+        "rating_rationale": "감사원이 지적한 공공기관 인사 과정의 투명성 부족과 편향성은 공정한 인사행정 원칙을 위배한 것으로, 청렴성 측면에서 심각한 문제입니다. 공직 인사의 공정성은 청렴행정의 핵심 요소로 부족한 평가를 받습니다."
       },
       {
         "item_id": 107592,
@@ -3244,15 +3244,15 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "E",
         "new_rating": "D",
-        "rating_rationale": "정책의 일관성 부족은 주로 행정 능력이나 정책 기획 역량의 문제로, 직접적인 청렴성 이슈보다는 행정 효율성의 문제로 판단된다. 도덕적 해이보다는 정책 역량 부족으로 평가하여 보통 수준이다."
+        "rating_rationale": "주요 정책의 지속성과 일관성 결여는 행정의 신뢰성과 예측가능성을 저해하는 요소입니다. 직접적인 청렴성 위반은 아니지만, 공적 책임 수행 측면에서 보통 수준의 평가를 받습니다."
       },
       {
         "item_id": 107593,
         "data_title": "4.1 부동산 백지신탁 논란",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "E",
-        "new_rating": "F",
-        "rating_rationale": "부동산 백지신탁 관리 미흡은 공직자의 재산 관리 투명성에 직접적인 문제를 제기하는 사안이다. 개인 자산의 투명한 관리는 청렴성의 기본 요건으로, 이에 대한 논란은 청렴성에 부족함을 보여준다."
+        "new_rating": "E",
+        "rating_rationale": "개인 부동산 자산의 투명한 관리 미흡은 공직자의 재산 공개 의무와 이해충돌 방지 원칙에 어긋나는 행위입니다. 시민들의 신뢰를 저해하는 요소로 청렴성 측면에서 미흡한 평가를 받습니다."
       },
       {
         "item_id": 107594,
@@ -3260,7 +3260,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "D",
         "new_rating": "D",
-        "rating_rationale": "보육정책 추진 과정에서의 예산 및 정책 혼선은 주로 정책 조정 능력과 예산 관리 역량의 문제로 보인다. 의도적인 부정행위보다는 행정 역량의 한계로 판단되어 청렴성 관점에서는 보통 수준이다."
+        "rating_rationale": "보육정책 추진 과정에서의 예산 및 정책 혼선은 행정 효율성과 책임성 부족을 나타냅니다. 의도적인 부정행위보다는 정책 조율 능력 부족으로 보여 보통 수준의 평가를 받습니다."
       },
       {
         "item_id": 107595,
@@ -3268,7 +3268,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "F",
         "new_rating": "G",
-        "rating_rationale": "공무원 채용 과정에서 특정 집단에 대한 특혜 의혹은 공정한 채용 원칙을 심각하게 훼손하는 행위로, 공직 청렴성에 매우 부정적인 영향을 미친다. 채용 비리는 청렴성의 핵심 위반 사항으로 매우 부족한 수준이다."
+        "rating_rationale": "공무원 채용 과정에서 특정 집단에 대한 특혜 의혹은 공정한 채용 원칙을 심각하게 훼손하는 행위입니다. 공직 채용의 공정성은 청렴행정의 기본 전제로, 이러한 의혹은 매우 부족한 평가를 받습니다."
       },
       {
         "item_id": 107596,
@@ -3276,7 +3276,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "정치자금 사용의 회계 투명성 저하는 정치적 청렴성에 직접적인 문제를 제기한다. 정치자금의 투명한 관리는 민주주의와 정치 청렴성의 기본 요건으로, 이에 대한 지적은 청렴성 측면에서 미흡함을 나타낸다."
+        "rating_rationale": "정치자금 사용의 회계 투명성 저하는 정치 활동의 투명성과 책임성을 저해하는 요소입니다. 정치자금의 투명한 관리는 정치인의 기본적인 청렴성 요구사항으로 미흡한 평가를 받습니다."
       },
       {
         "item_id": 107597,
@@ -3284,7 +3284,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "E",
         "new_rating": "F",
-        "rating_rationale": "행정사무조사 과정에서 특정 이해관계의 개입 의혹은 공정한 행정 처리 원칙을 위배하는 것으로, 청렴성에 상당한 문제가 있음을 시사한다. 외부 이해관계의 부당한 개입은 공직 청렴성을 심각하게 훼손하는 행위이다."
+        "rating_rationale": "행정사무조사 과정에서 특정 이해관계 개입 의혹은 공정한 행정 절차를 왜곡할 수 있는 심각한 문제입니다. 행정의 중립성과 공정성을 훼손하는 행위로 청렴성 측면에서 부족한 평가를 받습니다."
       },
       {
         "item_id": 107598,
@@ -3292,7 +3292,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "윤리경영 선언과 청렴문화 정착 공약은 긍정적이나, 선언 자체만으로는 실질적 성과를 판단하기 어려워 우수 수준으로 평가"
+        "rating_rationale": "윤리경영 선언과 청렴문화 정착 공약은 긍정적이나, 선언 단계로 실질적 성과 확인이 필요하여 우수 등급 부여"
       },
       {
         "item_id": 107599,
@@ -3300,15 +3300,15 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "E",
         "new_rating": "F",
-        "rating_rationale": "부동산 투기 의혹은 공직자의 청렴성에 심각한 의문을 제기하는 사안으로, 도덕적 해이와 공정성 훼손 우려가 크다"
+        "rating_rationale": "부동산 투기 의혹은 공직자의 청렴성에 대한 심각한 의문을 제기하는 사안으로, 도덕적 신뢰성에 부정적 영향"
       },
       {
         "item_id": 107600,
         "data_title": "행정윤리 강화 정책",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
-        "new_rating": "B",
-        "rating_rationale": "공무원 청렴도 제고를 위한 제도적 장치 마련은 조직 전체의 청렴성 향상을 위한 적극적 노력으로 평가할 수 있다"
+        "new_rating": "A",
+        "rating_rationale": "공무원 청렴도 제고를 위한 제도적 장치 마련은 조직 차원의 청렴성 강화에 매우 우수한 접근으로 평가됨"
       },
       {
         "item_id": 107601,
@@ -3316,15 +3316,15 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "정치자금 수입·지출 내역 공개는 법정 의무사항 준수로 기본적인 투명성은 확보했으나 특별히 우수한 수준은 아니다"
+        "rating_rationale": "정치자금 수입·지출 내역 공개는 법적 의무사항 준수 수준으로, 기본적 투명성은 확보했으나 특별히 우수하지는 않음"
       },
       {
         "item_id": 107602,
         "data_title": "이해충돌 방지 노력",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
-        "new_rating": "B",
-        "rating_rationale": "이해충돌 방지를 위한 제도적 장치 마련은 청렴성 확보를 위한 선제적이고 체계적인 접근으로 긍정적으로 평가된다"
+        "new_rating": "A",
+        "rating_rationale": "이해충돌 방지를 위한 제도적 장치 마련은 공직자 윤리 확립에 매우 우수한 선제적 조치로 평가됨"
       },
       {
         "item_id": 107603,
@@ -3332,31 +3332,31 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "과거 시장 재임 시 국정감사 지적사항은 청렴성에 대한 의구심을 불러일으키며, 과거 행정 운영의 투명성 부족을 시사한다"
+        "rating_rationale": "과거 시장 재임 시 국정감사 지적 사항은 청렴성에 대한 의문을 제기하는 부정적 요소로 미흡 등급 해당"
       },
       {
         "item_id": 107604,
         "data_title": "공무원 인사 투명성",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
-        "new_rating": "C",
-        "rating_rationale": "공무원 인사 원칙 및 기준 준수는 기본적인 행정 투명성을 보여주나, 단순한 원칙 준수 차원에서 양호 수준으로 평가"
+        "new_rating": "B",
+        "rating_rationale": "공무원 인사 원칙과 기준 준수는 행정의 공정성과 투명성 확보에 우수한 성과로 평가됨"
       },
       {
         "item_id": 107605,
         "data_title": "예산 집행 투명성",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
-        "new_rating": "C",
-        "rating_rationale": "감사원 예산집행 감사를 통한 적절성 및 효율성 확인은 기본적인 재정 투명성을 보여주는 양호한 수준의 성과이다"
+        "new_rating": "B",
+        "rating_rationale": "감사원 보고서에서 예산 집행의 적절성과 효율성이 확인된 것은 재정 운영의 청렴성에서 우수한 평가"
       },
       {
         "item_id": 107606,
         "data_title": "정책결정 투명성",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
-        "new_rating": "B",
-        "rating_rationale": "주요 정책결정 과정의 공개성 및 접근성 확보는 시민 참여와 투명성 제고 측면에서 우수한 청렴성 실천 사례로 평가된다"
+        "new_rating": "A",
+        "rating_rationale": "정책결정 과정의 공개성과 접근성 확보는 행정 투명성의 핵심 요소로 매우 우수한 청렴성 실천 사례"
       },
       {
         "item_id": 107607,
@@ -3364,7 +3364,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "정치자금 및 외부 후원금의 투명한 관리는 기본적인 법적 의무 준수로서 양호한 수준의 청렴성을 보여준다"
+        "rating_rationale": "정치자금 및 외부 후원금 관리 투명성은 법적 요구사항 준수 수준으로 양호하나 추가적 개선 여지 존재"
       },
       {
         "item_id": 107608,
@@ -3372,7 +3372,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "공직윤리 교육 프로그램 운영은 청렴성 향상을 위한 적극적인 예방 조치로 평가됩니다. 공무원들의 윤리의식 제고를 통해 부패 예방 효과를 기대할 수 있으며, 체계적인 교육 시스템 구축은 조직 전반의 청렴 문화 정착에 기여합니다."
+        "rating_rationale": "공직윤리 교육 강화는 청렴성 향상을 위한 적극적인 노력으로 평가되나, 교육의 실효성과 구체적 성과에 대한 검증이 필요한 상황입니다."
       },
       {
         "item_id": 107609,
@@ -3380,7 +3380,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "부패방지를 위한 제도적 장치 마련은 청렴성 확보를 위한 시스템적 접근으로 높이 평가됩니다. 예방 중심의 부패방지 시스템 구축은 투명하고 공정한 행정 실현의 기반이 되며, 지속가능한 청렴 행정을 위한 필수적 조치입니다."
+        "rating_rationale": "부패방지 제도 도입은 청렴성 확보를 위한 체계적 접근으로 긍정적이나, 제도의 실제 운영 효과와 지속성에 대한 평가가 추가로 필요합니다."
       },
       {
         "item_id": 107610,
@@ -3388,7 +3388,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "행정정보 공개는 투명성의 기본 요소이지만, 공개 범위와 신속성에 대한 구체적 성과가 명시되지 않아 양호 수준으로 평가됩니다. 정보공개의 실질적 효과와 시민들의 알 권리 충족 정도에 따라 평가가 달라질 수 있습니다."
+        "rating_rationale": "정보공개 수준은 투명성의 기본 요소로서 양호한 수준을 보이고 있으나, 공개 범위의 확대와 더욱 신속한 처리가 개선점으로 남아있습니다."
       },
       {
         "item_id": 107611,
@@ -3396,7 +3396,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "공직자 재산등록 및 공개는 청렴성의 핵심 지표로, 투명한 재산 공개는 공직자의 도덕적 책임감을 보여줍니다. 법정 의무사항을 성실히 이행하고 투명하게 공개하는 것은 시민들의 신뢰 확보와 청렴한 공직 문화 조성에 기여합니다."
+        "rating_rationale": "재산 공개 투명성은 공직자 청렴성의 핵심 지표로서 적절히 이행되고 있으며, 법정 의무사항을 성실히 준수하는 모습을 보여주고 있습니다."
       },
       {
         "item_id": 107612,
@@ -3404,7 +3404,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "민간과의 협력 과정에서 투명성을 확보하는 것은 중요하지만, 구체적인 투명성 확보 방안이나 성과가 명확하지 않습니다. 민관협력에서의 이해충돌 방지와 공정한 절차 운영이 실질적으로 이루어지고 있는지에 대한 평가가 필요합니다."
+        "rating_rationale": "민간 협력 과정의 투명성은 양호한 수준이나, 이해관계 충돌 방지와 의사결정 과정의 더욱 세밀한 공개가 청렴성 강화를 위해 필요합니다."
       },
       {
         "item_id": 107613,
@@ -3412,7 +3412,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "외부 감사 및 조사에 대한 투명한 대응은 청렴성의 중요한 지표입니다. 감사원 보고서를 통해 확인된 투명한 대응 자세는 공직자로서의 책임감과 개방적 행정 의지를 보여주며, 외부 견제 시스템에 대한 적극적 협조는 높이 평가됩니다."
+        "rating_rationale": "외부 감사 및 조사에 대한 투명한 대응은 청렴성에 대한 의지를 보여주는 긍정적 요소이며, 적극적인 협조 자세가 평가할 만합니다."
       },
       {
         "item_id": 107614,
@@ -3420,15 +3420,15 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "B",
-        "rating_rationale": "공공계약 및 입찰 과정의 공정성은 청렴 행정의 핵심 영역입니다. 조달청 계약정보를 통해 확인된 투명한 계약 절차는 공정경쟁 환경 조성과 예산 집행의 투명성을 보장하며, 부패 위험을 현저히 낮추는 효과가 있습니다."
+        "rating_rationale": "공공계약 및 입찰 과정의 공정성 확보는 청렴성의 핵심 영역으로서 우수한 수준을 유지하고 있으며, 투명한 절차 운영이 돋보입니다."
       },
       {
         "item_id": 107615,
         "data_title": "윤리적 리더십",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
-        "new_rating": "B",
-        "rating_rationale": "공직 윤리 확립을 위한 리더십 발휘는 조직 전체의 청렴 문화 조성에 핵심적 역할을 합니다. 최고 책임자의 윤리적 리더십은 하위 조직원들의 행동 기준이 되며, 청렴한 조직 문화 정착과 시민 신뢰 제고에 중요한 영향을 미칩니다."
+        "new_rating": "C",
+        "rating_rationale": "윤리적 리더십 발휘는 조직 전체의 청렴 문화 조성에 기여하고 있으나, 구체적인 실천 사례와 성과 측정을 통한 검증이 더 필요합니다."
       },
       {
         "item_id": 107616,
@@ -3436,15 +3436,15 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "이해관계 상충 상황에서의 투명한 의사결정은 청렴성 평가의 중요 요소이나, 구체적인 갈등 해결 사례나 투명성 확보 방안이 명시되지 않았습니다. 갈등조정위원회를 통한 체계적 접근은 긍정적이지만 실질적 성과 확인이 필요합니다."
+        "rating_rationale": "갈등관리에서의 투명한 의사결정은 양호한 수준이나, 이해관계자 간 복잡한 갈등 상황에서 더욱 명확한 기준과 절차의 정립이 요구됩니다."
       },
       {
         "item_id": 107617,
         "data_title": "청렴도 평가",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
-        "new_rating": "A",
-        "rating_rationale": "국민권익위원회의 청렴도 종합 평가는 가장 객관적이고 신뢰할 수 있는 청렴성 지표입니다. 외부 전문기관의 체계적이고 종합적인 평가를 통해 청렴도가 확인된 것은 매우 우수한 청렴성을 입증하는 강력한 증거로 평가됩니다."
+        "new_rating": "B",
+        "rating_rationale": "국민권익위원회의 청렴도 평가는 객관적 지표로서 우수한 결과를 보여주며, 지속적인 청렴성 관리 노력의 성과가 외부기관에 의해 인정받고 있습니다."
       },
       {
         "item_id": 107618,
@@ -3452,31 +3452,31 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "업무추진비 사용내역의 상세한 공개는 투명성 측면에서 우수한 청렴성을 보여주나, '대부분'이라는 표현에서 완전한 투명성에는 미치지 못하는 한계가 있어 우수 등급으로 평가됨"
+        "rating_rationale": "업무추진비 사용내역을 상세히 공개하는 것은 재정 투명성과 책임성을 보여주는 우수한 청렴성 실천 사례로, 시민의 알권리 보장과 행정의 투명성 제고에 기여하고 있음"
       },
       {
         "item_id": 107619,
         "data_title": "공직윤리 준수",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "A",
-        "new_rating": "A",
-        "rating_rationale": "직계가족 취업 제한과 이해충돌 방지 규정 준수는 공직윤리의 핵심 요소로, 개인적 이익과 공적 책임을 명확히 분리하는 매우 우수한 청렴성 실천 사례로 평가됨"
+        "new_rating": "B",
+        "rating_rationale": "직계가족 취업 제한과 이해충돌 방지 규정을 준수하는 것은 공직윤리의 기본 원칙을 충실히 이행하는 것으로, 개인적 이익과 공적 업무의 분리를 통한 청렴성 확보에 우수한 모습을 보임"
       },
       {
         "item_id": 107620,
         "data_title": "재정 투명성",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
-        "new_rating": "A",
-        "rating_rationale": "서울시 예산 집행의 객관성과 투명성 유지는 공적 자원의 적절한 관리를 의미하며, 시민의 세금에 대한 책임감 있는 관리로 매우 우수한 청렴성을 보여줌"
+        "new_rating": "B",
+        "rating_rationale": "서울시 예산 집행의 객관성과 투명성 유지는 공공재정의 건전한 관리를 의미하며, 예산의 적정한 사용과 시민에 대한 책임성을 보여주는 우수한 청렴성 실천 사례임"
       },
       {
         "item_id": 107621,
         "data_title": "공무원 인사 청렴도",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
-        "new_rating": "B",
-        "rating_rationale": "능력 중심 인사 원칙과 특혜 의혹 부재는 공정한 인사 관리를 보여주는 우수한 청렴성 지표이나, 적극적인 개선 노력보다는 기본 원칙 준수 수준으로 평가됨"
+        "new_rating": "A",
+        "rating_rationale": "능력 중심의 공정한 인사 원칙을 유지하고 특혜 의혹이 없다는 것은 인사 청렴성의 핵심 요소로, 공정성과 투명성을 바탕으로 한 매우 우수한 청렴 행정의 모범 사례를 보여줌"
       },
       {
         "item_id": 107622,
@@ -3484,7 +3484,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "청렴옴부즈만 제도 도입과 적극적 부패방지 정책은 단순한 규정 준수를 넘어 능동적인 청렴성 제고 노력으로, 시스템적 개선을 통한 매우 우수한 청렴성 실천 사례임"
+        "rating_rationale": "청렴옴부즈만 제도 도입과 적극적인 부패방지 정책 추진은 단순한 청렴성 유지를 넘어 적극적인 반부패 시스템 구축을 의미하며, 선제적이고 체계적인 청렴성 강화 노력의 매우 우수한 사례임"
       },
       {
         "item_id": 107623,
@@ -3492,15 +3492,15 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "B",
-        "rating_rationale": "공공계약 과정의 투명성 개선 노력은 공적 자원 배분의 공정성을 높이는 우수한 청렴성 실천이나, 구체적인 성과나 완성도에 대한 정보 부족으로 우수 등급으로 평가됨"
+        "rating_rationale": "공공계약 과정의 투명성 개선 노력은 공공조달의 공정성과 투명성을 높이는 중요한 청렴성 실천으로, 계약 과정에서의 부정부패 방지와 공정한 경쟁 환경 조성에 우수한 기여를 하고 있음"
       },
       {
         "item_id": 107624,
         "data_title": "보조금 관리",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
-        "new_rating": "A",
-        "rating_rationale": "보조금 집행의 객관성 유지와 감사 강화는 공적 자금의 투명한 관리와 견제 시스템 구축을 의미하며, 적극적인 감시체계 운영으로 매우 우수한 청렴성을 보여줌"
+        "new_rating": "B",
+        "rating_rationale": "보조금 집행의 객관성 유지와 감사 강화는 공공재원의 적정한 사용과 투명한 관리를 보여주는 우수한 사례로, 보조금 부정사용 방지와 재정 건전성 확보에 효과적인 청렴성 실천임"
       },
       {
         "item_id": 107625,
@@ -3508,7 +3508,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "시정 정보의 적극적 공개와 높은 정보공개율은 행정의 투명성을 극대화하는 매우 우수한 청렴성 실천으로, 시민의 알 권리 보장과 행정 신뢰도 제고에 기여함"
+        "rating_rationale": "시정 정보의 적극적 공개와 높은 정보공개율은 행정의 투명성과 시민의 알권리 보장을 위한 매우 우수한 청렴성 실천으로, 열린 행정과 책임성 있는 시정 운영의 모범적 사례를 보여줌"
       },
       {
         "item_id": 107626,
@@ -3516,7 +3516,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "공직자 이해충돌 방지 조례의 적극적 운영은 제도적 장치를 통한 체계적인 청렴성 관리를 보여주며, 예방적 차원의 윤리경영 실천으로 매우 우수한 수준으로 평가됨"
+        "rating_rationale": "공직자 이해충돌 방지 조례의 적극적 운영은 체계적이고 제도적인 청렴성 확보 노력으로, 공직자의 윤리적 행동 기준을 명확히 하고 이를 실질적으로 관리하는 매우 우수한 청렴 시스템 운영 사례임"
       },
       {
         "item_id": 107627,
@@ -3524,15 +3524,15 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "A",
         "new_rating": "B",
-        "rating_rationale": "공무원 대상 정기적 청렴 및 윤리 교육은 조직 차원의 청렴성 제고를 위한 우수한 노력이나, 교육의 실효성이나 구체적 성과에 대한 평가가 필요하여 우수 등급으로 평가됨"
+        "rating_rationale": "공무원 대상 청렴 및 윤리 교육의 정기적 실시는 조직 차원의 청렴성 문화 정착을 위한 우수한 노력으로, 예방적 차원의 청렴성 강화와 공직자 윤리의식 제고에 효과적으로 기여하고 있음"
       },
       {
         "item_id": 107628,
         "data_title": "내부고발자 보호",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
-        "new_rating": "B",
-        "rating_rationale": "내부고발자 보호제도는 부패척결과 투명성 확보의 핵심 요소로, 이를 운영하고 보호조치를 마련한 것은 청렴성 향상에 매우 긍정적이나, 실제 운영 성과에 대한 구체적 정보가 부족하여 우수 등급으로 평가"
+        "new_rating": "A",
+        "rating_rationale": "내부고발자 보호제도는 부패척결과 투명성 확보의 핵심 장치로, 이를 적극 운영하고 보호조치를 마련한 것은 청렴성 측면에서 매우 우수한 행정을 보여주는 사례입니다."
       },
       {
         "item_id": 107629,
@@ -3540,7 +3540,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "A",
         "new_rating": "B",
-        "rating_rationale": "감사원 및 외부 감사에 협조적 태도를 보인 것은 투명성과 책임성을 중시하는 청렴한 자세를 보여주는 긍정적 사례로, 외부 견제 시스템에 대한 수용적 태도가 청렴성 측면에서 우수한 평가를 받을 만함"
+        "rating_rationale": "감사원 및 외부 감사에 협조적 태도를 보이는 것은 투명성과 책임성을 중시하는 자세로 청렴성 관점에서 우수하나, 구체적인 개선조치나 성과가 명시되지 않아 A등급보다는 낮게 평가됩니다."
       },
       {
         "item_id": 107630,
@@ -3548,7 +3548,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "B",
-        "rating_rationale": "공공용역 계약 과정의 투명성 강화는 부패 방지와 공정성 확보에 직접적으로 기여하는 중요한 조치로, 공공 자원 관리의 투명성을 높이려는 노력이 청렴성 관점에서 우수한 성과로 평가됨"
+        "rating_rationale": "공공용역 계약 과정의 투명성 강화는 부패 예방과 공정성 확보에 중요한 요소로 청렴성 향상에 기여하는 우수한 조치이나, 구체적인 성과나 시스템 개선 내용이 부족하여 B등급으로 평가합니다."
       },
       {
         "item_id": 107631,
@@ -3556,7 +3556,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "C",
-        "rating_rationale": "공직자 재산등록을 성실히 이행한 것은 기본적인 법적 의무 준수로 청렴성의 기초 요건이지만, 이는 당연히 해야 할 최소한의 의무사항이므로 특별히 높은 평가보다는 양호한 수준으로 평가"
+        "rating_rationale": "재산등록을 성실히 이행하는 것은 공직자의 기본 의무사항으로 청렴성 측면에서 양호한 수준이나, 법적 의무를 준수하는 기본적인 행위에 해당하여 특별히 높은 평가를 받기는 어렵습니다."
       },
       {
         "item_id": 107632,
@@ -3564,7 +3564,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "긴급예산 사용에 대한 설명책임을 이행한 것은 예산 집행의 투명성과 책임성을 보여주는 중요한 사례로, 공공 재정 관리에 대한 투명한 소통 의지가 청렴성 측면에서 우수하게 평가됨"
+        "rating_rationale": "긴급예산 사용에 대한 설명책임 이행은 재정 투명성과 민주적 책임성을 보여주는 우수한 사례로, 시민에 대한 정보공개와 투명한 행정을 실천하는 청렴한 자세를 나타냅니다."
       },
       {
         "item_id": 107633,
@@ -3572,7 +3572,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "부패 공무원에 대한 엄정한 징계 조치는 청렴성 확립의 핵심적 실행력을 보여주는 매우 중요한 성과로, 부패에 대한 무관용 원칙을 실제 행동으로 보여준 것은 청렴성 관점에서 매우 우수한 평가를 받을 만함"
+        "rating_rationale": "부패 공무원에 대한 엄정한 징계 조치는 조직 내 청렴문화 확산과 부패 척결 의지를 명확히 보여주는 매우 우수한 청렴성 실천 사례로, 공직기강 확립에 핵심적인 역할을 합니다."
       },
       {
         "item_id": 107634,
@@ -3580,7 +3580,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "외부 청렴도 평가에 적극적으로 대응한 것은 객관적 평가를 통한 청렴성 개선 의지를 보여주는 긍정적 태도로, 외부 평가 시스템을 활용한 자기 개선 노력이 청렴성 향상에 우수한 기여를 함"
+        "rating_rationale": "외부 청렴도 평가에 적극적으로 대응하는 것은 객관적 평가를 통한 청렴성 향상 의지를 보여주는 우수한 자세이나, 평가 결과나 구체적인 개선 노력에 대한 정보가 부족하여 B등급으로 평가합니다."
       },
       {
         "item_id": 107635,
@@ -3588,7 +3588,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "정치자금 수입과 지출의 투명성을 유지한 것은 정치적 청렴성의 핵심 요소로, 정치 활동에서의 재정 투명성을 확보한 것은 공직자로서의 청렴성을 입증하는 우수한 사례로 평가됨"
+        "rating_rationale": "정치자금 수입과 지출의 투명성 유지는 정치적 청렴성의 핵심 요소로 우수한 실천 사례이나, 단순한 투명성 유지 수준에서 벗어나 더 적극적인 개선 조치나 혁신이 필요한 영역입니다."
       },
       {
         "item_id": 107636,
@@ -3596,7 +3596,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "A",
         "new_rating": "C",
-        "rating_rationale": "공직기강 확립을 위한 지속적 노력은 청렴성 유지의 기본적 요소이지만, '지속적 노력'이라는 표현이 구체적 성과보다는 일반적 의지를 나타내므로 양호한 수준의 평가가 적절함"
+        "rating_rationale": "공직기강 확립을 위한 지속적 노력은 청렴성 측면에서 양호한 수준이나, '지속적 노력'이라는 추상적 표현으로 구체적인 성과나 혁신적 조치가 명확하지 않아 보통 수준의 평가를 받습니다."
       },
       {
         "item_id": 107637,
@@ -3604,32 +3604,32 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "자체 감사시스템을 체계적으로 운영한 것은 내부 통제와 자정 능력을 보여주는 중요한 청렴성 확보 수단으로, 시스템적 접근을 통한 부패 방지 노력이 청렴성 관점에서 우수하게 평가됨"
+        "rating_rationale": "자체 감사시스템의 체계적 운영은 내부 통제와 부패 예방에 중요한 역할을 하는 우수한 청렴성 실천 방안으로, 조직 내부의 투명성과 책임성 확보에 기여하는 긍정적인 조치입니다."
       }
     ]
   },
   "scores": {
     "ChatGPT": {
-      "avg_rating": 3.56,
-      "category_score": 77.8,
+      "avg_rating": 3.533333333333333,
+      "category_score": 77.66666666666667,
       "total_items": 150,
       "positive": 112,
       "negative": 38
     },
     "Grok": {
-      "avg_rating": 3.0933333333333333,
-      "category_score": 75.46666666666667,
+      "avg_rating": 3.1733333333333333,
+      "category_score": 75.86666666666667,
       "total_items": 150,
-      "positive": 109,
-      "negative": 41
+      "positive": 108,
+      "negative": 42
     },
     "Claude": {
-      "avg_rating": 2.92,
-      "category_score": 74.6,
+      "avg_rating": 3.066666666666667,
+      "category_score": 75.33333333333333,
       "total_items": 150,
-      "positive": 113,
-      "negative": 37
+      "positive": 114,
+      "negative": 36
     }
   },
-  "final_score": 75.95555555555556
+  "final_score": 76.28888888888889
 }

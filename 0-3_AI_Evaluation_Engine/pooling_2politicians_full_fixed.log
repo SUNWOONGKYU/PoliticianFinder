@@ -11,50 +11,50 @@ Politician: Oh Se-hoon (ID: 62e7b453)
 
   [Expertise (Expertise)]
     Data: 150 items
-    ChatGPT: 86.1 | Grok: 78.1 | Claude: 61.9 -> Final: 75.4 (Diff: 24.2)
+    ChatGPT: 85.8 | Grok: 81.7 | Claude: 61.3 -> Final: 76.2 (Diff: 24.5)
 
   [Leadership (Leadership)]
     Data: 150 items
-    ChatGPT: 77.5 | Grok: 77.0 | Claude: 72.7 -> Final: 75.7 (Diff: 4.8)
+    ChatGPT: 78.6 | Grok: 76.3 | Claude: 72.9 -> Final: 75.9 (Diff: 5.7)
 
   [Vision (Vision)]
     Data: 150 items
-    ChatGPT: 87.7 | Grok: 81.4 | Claude: 76.3 -> Final: 81.8 (Diff: 11.4)
+    ChatGPT: 87.9 | Grok: 81.5 | Claude: 77.6 -> Final: 82.3 (Diff: 10.3)
 
   [Integrity (Integrity)]
     Data: 150 items
-    ChatGPT: 77.9 | Grok: 76.1 | Claude: 73.0 -> Final: 75.6 (Diff: 4.9)
+    ChatGPT: 76.4 | Grok: 73.6 | Claude: 73.1 -> Final: 74.4 (Diff: 3.3)
 
   [Ethics (Ethics)]
     Data: 150 items
-    ChatGPT: 80.5 | Grok: 77.9 | Claude: 75.9 -> Final: 78.1 (Diff: 4.6)
+    ChatGPT: 82.3 | Grok: 76.9 | Claude: 75.7 -> Final: 78.3 (Diff: 6.6)
 
   [Accountability (Accountability)]
     Data: 150 items
-    ChatGPT: 82.9 | Grok: 74.6 | Claude: 68.0 -> Final: 75.2 (Diff: 14.9)
+    ChatGPT: 84.1 | Grok: 75.3 | Claude: 68.1 -> Final: 75.8 (Diff: 16.1)
 
   [Transparency (Transparency)]
     Data: 150 items
-    ChatGPT: 77.9 | Grok: 72.9 | Claude: 69.3 -> Final: 73.4 (Diff: 8.5)
+    ChatGPT: 73.5 | Grok: 73.5 | Claude: 69.4 -> Final: 72.1 (Diff: 4.1)
 
   [Communication (Communication)]
     Data: 150 items
-    ChatGPT: 83.7 | Grok: 79.7 | Claude: 74.1 -> Final: 79.2 (Diff: 9.7)
+    ChatGPT: 86.5 | Grok: 79.8 | Claude: 74.7 -> Final: 80.3 (Diff: 11.8)
 
   [Responsiveness (Responsiveness)]
     Data: 150 items
-    ChatGPT: 83.3 | Grok: 82.2 | Claude: 77.3 -> Final: 80.9 (Diff: 5.9)
+    ChatGPT: 85.2 | Grok: 82.7 | Claude: 76.7 -> Final: 81.5 (Diff: 8.5)
 
   [PublicInterest (Public Interest)]
     Data: 150 items
-    ChatGPT: 91.8 | Grok: 84.1 | Claude: 82.3 -> Final: 86.1 (Diff: 9.5)
+    ChatGPT: 91.1 | Grok: 83.9 | Claude: 82.9 -> Final: 86.0 (Diff: 8.1)
 
   [Overall Scores]
-    ChatGPT: 82.9 points
-    Grok:    78.4 points
-    Claude:  73.1 points
-    Final:   78.1 points
-    Duration: 79.3 minutes
+    ChatGPT: 83.1 points
+    Grok:    78.5 points
+    Claude:  73.2 points
+    Final:   78.3 points
+    Duration: 78.3 minutes
 
 ================================================================================
 Politician: Han Dong-hoon (ID: 7abadf92)
@@ -62,92 +62,92 @@ Politician: Han Dong-hoon (ID: 7abadf92)
 
   [Expertise (Expertise)]
     Data: 150 items
-    ChatGPT: 82.2 | Grok: 80.1 | Claude: 69.9 -> Final: 77.4 (Diff: 12.3)
+    ChatGPT: 83.5 | Grok: 80.1 | Claude: 70.8 -> Final: 78.1 (Diff: 12.7)
 
   [Leadership (Leadership)]
     Data: 150 items
-    ChatGPT: 80.1 | Grok: 80.4 | Claude: 75.8 -> Final: 78.8 (Diff: 4.6)
+    ChatGPT: 79.7 | Grok: 80.6 | Claude: 76.4 -> Final: 78.9 (Diff: 4.2)
 
   [Vision (Vision)]
     Data: 150 items
-    ChatGPT: 80.2 | Grok: 79.7 | Claude: 74.7 -> Final: 78.2 (Diff: 5.5)
+    ChatGPT: 80.2 | Grok: 79.5 | Claude: 75.3 -> Final: 78.3 (Diff: 4.9)
 
   [Integrity (Integrity)]
     Data: 150 items
-    ChatGPT: 81.0 | Grok: 77.7 | Claude: 72.6 -> Final: 77.1 (Diff: 8.4)
+    ChatGPT: 81.1 | Grok: 77.2 | Claude: 72.7 -> Final: 77.0 (Diff: 8.5)
 
   [Ethics (Ethics)]
     Data: 150 items
-    ChatGPT: 68.5 | Grok: 71.9 | Claude: 67.4 -> Final: 69.3 (Diff: 4.5)
+    ChatGPT: 70.2 | Grok: 72.9 | Claude: 66.8 -> Final: 70.0 (Diff: 6.1)
 
   [Accountability (Accountability)]
     Data: 150 items
-    ChatGPT: 86.8 | Grok: 78.6 | Claude: 64.9 -> Final: 76.8 (Diff: 21.9)
+    ChatGPT: 87.2 | Grok: 78.1 | Claude: 66.7 -> Final: 77.3 (Diff: 20.5)
 
   [Transparency (Transparency)]
     Data: 100 items
-    ChatGPT: 74.0 | Grok: 68.6 | Claude: 59.6 -> Final: 67.4 (Diff: 14.4)
+    ChatGPT: 74.0 | Grok: 69.0 | Claude: 59.8 -> Final: 67.6 (Diff: 14.2)
 
   [Communication (Communication)]
     Data: 150 items
-    ChatGPT: 75.2 | Grok: 73.6 | Claude: 71.3 -> Final: 73.4 (Diff: 3.9)
+    ChatGPT: 77.5 | Grok: 72.7 | Claude: 70.7 -> Final: 73.6 (Diff: 6.7)
 
   [Responsiveness (Responsiveness)]
     Data: 100 items
-    ChatGPT: 80.4 | Grok: 73.5 | Claude: 66.1 -> Final: 73.3 (Diff: 14.3)
+    ChatGPT: 82.1 | Grok: 74.3 | Claude: 63.6 -> Final: 73.3 (Diff: 18.5)
 
   [PublicInterest (Public Interest)]
     Data: 100 items
-    ChatGPT: 79.2 | Grok: 72.8 | Claude: 75.3 -> Final: 75.8 (Diff: 6.4)
+    ChatGPT: 81.6 | Grok: 73.3 | Claude: 82.5 -> Final: 79.1 (Diff: 9.2)
 
   [Overall Scores]
-    ChatGPT: 78.8 points
-    Grok:    75.7 points
-    Claude:  69.8 points
-    Final:   74.7 points
-    Duration: 69.0 minutes
+    ChatGPT: 79.7 points
+    Grok:    75.8 points
+    Claude:  70.5 points
+    Final:   75.3 points
+    Duration: 68.6 minutes
 
 ================================================================================
 Final Results Summary
 ================================================================================
 
 Oh Se-hoon:
-  ChatGPT avg: 82.9 points
-  Grok avg:    78.4 points
-  Claude avg:  73.1 points
-  Final avg:   78.1 points
+  ChatGPT avg: 83.1 points
+  Grok avg:    78.5 points
+  Claude avg:  73.2 points
+  Final avg:   78.3 points
 
   Category details:
-    Expertise      : ChatGPT 86.1 | Grok 78.1 | Claude 61.9 (Diff: 24.2)
-    Leadership     : ChatGPT 77.5 | Grok 77.0 | Claude 72.7 (Diff: 4.8)
-    Vision         : ChatGPT 87.7 | Grok 81.4 | Claude 76.3 (Diff: 11.4)
-    Integrity      : ChatGPT 77.9 | Grok 76.1 | Claude 73.0 (Diff: 4.9)
-    Ethics         : ChatGPT 80.5 | Grok 77.9 | Claude 75.9 (Diff: 4.6)
-    Accountability : ChatGPT 82.9 | Grok 74.6 | Claude 68.0 (Diff: 14.9)
-    Transparency   : ChatGPT 77.9 | Grok 72.9 | Claude 69.3 (Diff: 8.5)
-    Communication  : ChatGPT 83.7 | Grok 79.7 | Claude 74.1 (Diff: 9.7)
-    Responsiveness : ChatGPT 83.3 | Grok 82.2 | Claude 77.3 (Diff: 5.9)
-    PublicInterest : ChatGPT 91.8 | Grok 84.1 | Claude 82.3 (Diff: 9.5)
+    Expertise      : ChatGPT 85.8 | Grok 81.7 | Claude 61.3 (Diff: 24.5)
+    Leadership     : ChatGPT 78.6 | Grok 76.3 | Claude 72.9 (Diff: 5.7)
+    Vision         : ChatGPT 87.9 | Grok 81.5 | Claude 77.6 (Diff: 10.3)
+    Integrity      : ChatGPT 76.4 | Grok 73.6 | Claude 73.1 (Diff: 3.3)
+    Ethics         : ChatGPT 82.3 | Grok 76.9 | Claude 75.7 (Diff: 6.6)
+    Accountability : ChatGPT 84.1 | Grok 75.3 | Claude 68.1 (Diff: 16.1)
+    Transparency   : ChatGPT 73.5 | Grok 73.5 | Claude 69.4 (Diff: 4.1)
+    Communication  : ChatGPT 86.5 | Grok 79.8 | Claude 74.7 (Diff: 11.8)
+    Responsiveness : ChatGPT 85.2 | Grok 82.7 | Claude 76.7 (Diff: 8.5)
+    PublicInterest : ChatGPT 91.1 | Grok 83.9 | Claude 82.9 (Diff: 8.1)
 
 Han Dong-hoon:
-  ChatGPT avg: 78.8 points
-  Grok avg:    75.7 points
-  Claude avg:  69.8 points
-  Final avg:   74.7 points
+  ChatGPT avg: 79.7 points
+  Grok avg:    75.8 points
+  Claude avg:  70.5 points
+  Final avg:   75.3 points
 
   Category details:
-    Expertise      : ChatGPT 82.2 | Grok 80.1 | Claude 69.9 (Diff: 12.3)
-    Leadership     : ChatGPT 80.1 | Grok 80.4 | Claude 75.8 (Diff: 4.6)
-    Vision         : ChatGPT 80.2 | Grok 79.7 | Claude 74.7 (Diff: 5.5)
-    Integrity      : ChatGPT 81.0 | Grok 77.7 | Claude 72.6 (Diff: 8.4)
-    Ethics         : ChatGPT 68.5 | Grok 71.9 | Claude 67.4 (Diff: 4.5)
-    Accountability : ChatGPT 86.8 | Grok 78.6 | Claude 64.9 (Diff: 21.9)
-    Transparency   : ChatGPT 74.0 | Grok 68.6 | Claude 59.6 (Diff: 14.4)
-    Communication  : ChatGPT 75.2 | Grok 73.6 | Claude 71.3 (Diff: 3.9)
-    Responsiveness : ChatGPT 80.4 | Grok 73.5 | Claude 66.1 (Diff: 14.3)
-    PublicInterest : ChatGPT 79.2 | Grok 72.8 | Claude 75.3 (Diff: 6.4)
+    Expertise      : ChatGPT 83.5 | Grok 80.1 | Claude 70.8 (Diff: 12.7)
+    Leadership     : ChatGPT 79.7 | Grok 80.6 | Claude 76.4 (Diff: 4.2)
+    Vision         : ChatGPT 80.2 | Grok 79.5 | Claude 75.3 (Diff: 4.9)
+    Integrity      : ChatGPT 81.1 | Grok 77.2 | Claude 72.7 (Diff: 8.5)
+    Ethics         : ChatGPT 70.2 | Grok 72.9 | Claude 66.8 (Diff: 6.1)
+    Accountability : ChatGPT 87.2 | Grok 78.1 | Claude 66.7 (Diff: 20.5)
+    Transparency   : ChatGPT 74.0 | Grok 69.0 | Claude 59.8 (Diff: 14.2)
+    Communication  : ChatGPT 77.5 | Grok 72.7 | Claude 70.7 (Diff: 6.7)
+    Responsiveness : ChatGPT 82.1 | Grok 74.3 | Claude 63.6 (Diff: 18.5)
+    PublicInterest : ChatGPT 81.6 | Grok 73.3 | Claude 82.5 (Diff: 9.2)
 
-Total duration: 148.3 minutes (2.5 hours)
+Total duration: 146.9 minutes (2.4 hours)
 ================================================================================
 
 Results saved: pooling_2politicians_full_results_fixed.json
