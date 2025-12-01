@@ -7,24 +7,24 @@
         "data_title": "과거 재산 형성 과정에 대한 의혹",
         "collected_by": "ChatGPT",
         "original_rating": "E",
-        "new_rating": "H",
-        "rating_rationale": "과거 재산 형성 과정에서 비정상적인 자산 증가 의혹은 정치인의 윤리성에 심각한 결함을 드러내며, 공직자로서의 신뢰를 크게 훼손시킨다."
+        "new_rating": "F",
+        "rating_rationale": "재산 형성 과정의 비정상성이 의혹으로 제기되면서 윤리적 신뢰가 크게 손상되었다. 불투명한 거래는 공직자로서의 기본적인 윤리성을 해친다."
       },
       {
         "item_id": 151883,
         "data_title": "선거 동안의 공격적인 발언",
         "collected_by": "ChatGPT",
         "original_rating": "D",
-        "new_rating": "G",
-        "rating_rationale": "공격적인 발언과 과장된 주장으로 정치적 공정성을 해치는 것은 민주주의의 기본 원칙을 저해하며, 윤리적 책임이 결여된 행동이다."
+        "new_rating": "E",
+        "rating_rationale": "공정한 선거를 위한 기본 윤리를 위반한 공격적인 발언은 정치적 신뢰를 저하시켰으며, 이는 정치인으로서의 도덕적 의무에 반한다."
       },
       {
         "item_id": 151884,
         "data_title": "정치적 중립성 부족",
         "collected_by": "ChatGPT",
         "original_rating": "F",
-        "new_rating": "F",
-        "rating_rationale": "정치적 중립성을 결여하고 특정 세력에 유리한 발언을 하는 것은 공직자의 도덕적 의무와 충돌하며, 이는 시민의 신뢰를 심각하게 저하시킨다."
+        "new_rating": "D",
+        "rating_rationale": "정치적 중립성을 결여한 발언은 공직자의 윤리 의무에 어긋나고 시민 신뢰를 저하시키는 요인으로 작용했다."
       },
       {
         "item_id": 151885,
@@ -32,7 +32,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "사회적 약자를 위한 정책이 실효성이 결여된 것은 기만적인 행위로 간주될 수 있으며, 이는 정치인의 윤리성에 부정적인 영향을 미친다."
+        "rating_rationale": "사회적 약자를 위한 정책이 실효성이 결여된 채 발표되어 기만적이라는 비판을 받았다. 이는 정책의 윤리성을 심각하게 훼손한다."
       },
       {
         "item_id": 151886,
@@ -40,15 +40,15 @@
         "collected_by": "ChatGPT",
         "original_rating": "D",
         "new_rating": "D",
-        "rating_rationale": "부적절한 대민 관계는 공직자로서의 소양 부족을 나타내며, 이는 시민과의 신뢰 관계를 해치는 요인으로 작용한다."
+        "rating_rationale": "대민 관계에서의 부적절한 태도는 공직자로서의 기본적인 소양 부족을 드러내며, 이는 윤리적 신뢰도를 낮춘다."
       },
       {
         "item_id": 151887,
         "data_title": "부동산 정책 논란",
         "collected_by": "ChatGPT",
         "original_rating": "E",
-        "new_rating": "D",
-        "rating_rationale": "부동산 정책의 미흡함은 시민 생활에 직접적인 영향을 미치는 사안으로, 그 결과로 발생한 문제는 정치인의 윤리성에 부정적인 평가를 초래한다."
+        "new_rating": "E",
+        "rating_rationale": "부동산 정책의 실패는 시민들의 생활에 직접적인 영향을 미쳤으며, 이는 정책 입안자의 책임이 크다."
       },
       {
         "item_id": 151888,
@@ -56,7 +56,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "코로나19 방역 대응의 미흡함은 시민 생명과 건강에 대한 책임감을 결여한 것으로, 이는 정치인의 윤리적 의무를 심각하게 위반한 사례이다."
+        "rating_rationale": "코로나19 방역에서의 미흡한 대응은 시민들의 건강과 안전을 위협하며, 이는 공직자의 윤리적 책임을 심각하게 해친다."
       },
       {
         "item_id": 151889,
@@ -64,7 +64,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "D",
         "new_rating": "F",
-        "rating_rationale": "시민 의견을 무시한 정책 시행은 민주적 절차를 무시한 것으로, 이는 정치적 신뢰를 악화시키는 심각한 윤리적 결함이다."
+        "rating_rationale": "시민 의견을 무시한 정책 결정은 민주적 절차를 저해하며, 이는 정치인의 윤리성을 크게 손상시킨다."
       },
       {
         "item_id": 151890,
@@ -72,15 +72,15 @@
         "collected_by": "ChatGPT",
         "original_rating": "F",
         "new_rating": "G",
-        "rating_rationale": "과거 정치적 스캔들은 정치인의 신뢰도를 크게 저하시킬 수 있으며, 이는 윤리적 결함으로 간주될 수 있다."
+        "rating_rationale": "과거의 정치적 스캔들은 그의 정치적 신뢰도를 심각하게 훼손하며, 이는 윤리적 결함으로 이어진다."
       },
       {
         "item_id": 151891,
         "data_title": "약속 불이행",
         "collected_by": "ChatGPT",
         "original_rating": "H",
-        "new_rating": "H",
-        "rating_rationale": "약속 불이행은 시민의 신뢰를 심각하게 훼손하는 행위로, 정치인의 가장 기본적인 윤리적 의무를 위반한 것으로 평가된다."
+        "new_rating": "F",
+        "rating_rationale": "공약 불이행은 시민과의 신뢰를 깨뜨리는 행위로, 정치인의 윤리적 책임을 심각하게 위반한 사례이다."
       },
       {
         "item_id": 151892,
@@ -88,7 +88,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "오세훈이 공직자로서 윤리 규정을 준수하고 부당 이득을 차단하는 철저한 관리가 이루어졌다는 점에서 매우 우수한 평가를 받을 수 있습니다."
+        "rating_rationale": "오세훈은 공직자로서 윤리 규정을 철저히 준수하고 부당 이득을 방지하여 매우 우수한 윤리성을 보여줌."
       },
       {
         "item_id": 151893,
@@ -96,7 +96,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "정중한 소통과 비방 자제는 정치인의 품위를 높이며, 대중과의 신뢰를 구축하는 데 기여하는 매우 긍정적인 태도입니다."
+        "rating_rationale": "대중과의 소통에서 정중함을 유지하고 비방을 자제하여 정치인의 품위를 잘 지키고 있음."
       },
       {
         "item_id": 151894,
@@ -104,7 +104,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "정책 결정 시 시민 의견을 수렴하고 절차를 공개하는 투명한 의사결정 과정은 공공의 신뢰를 증진시키는 데 중요한 요소입니다."
+        "rating_rationale": "정책 결정 과정에서 시민 의견을 수렴하고 절차를 공개하여 투명성을 높이고 있음."
       },
       {
         "item_id": 151895,
@@ -112,7 +112,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "부패 사건에 대해 솔직하고 투명하게 대처하는 태도는 정치인의 윤리성을 높이고 시민의 신뢰를 구축하는 데 매우 긍정적입니다."
+        "rating_rationale": "부패 사건에 솔직하고 투명하게 대처하여 공직자로서의 신뢰성을 높이고 있음."
       },
       {
         "item_id": 151896,
@@ -120,31 +120,31 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "공공 자금을 책임감 있게 관리하고 비상식적인 사용을 지양하는 태도는 공직자로서의 윤리적 책임을 잘 보여줍니다."
+        "rating_rationale": "공공 자금을 비상식적으로 사용하지 않고 예산 집행에 책임을 지며 매우 우수한 관리 능력을 보임."
       },
       {
         "item_id": 151897,
         "data_title": "사회적 약자에 대한 지원",
         "collected_by": "ChatGPT",
         "original_rating": "A",
-        "new_rating": "A",
-        "rating_rationale": "사회적 약자를 위한 다양한 지원 프로그램 운영은 시민의 복지를 증진시키는 중요한 정책으로, 매우 우수한 평가를 받을 수 있습니다."
+        "new_rating": "B",
+        "rating_rationale": "사회적 약자를 위한 프로그램을 운영하고 지원하여 윤리적 책임감을 가지고 있으나 더 많은 노력이 필요함."
       },
       {
         "item_id": 151898,
         "data_title": "민원 처리의 신속성",
         "collected_by": "ChatGPT",
         "original_rating": "B",
-        "new_rating": "A",
-        "rating_rationale": "민원 처리의 신속함은 시민의 목소리에 귀 기울이는 태도를 보여주며, 공직자로서의 책임을 다하는 모습입니다."
+        "new_rating": "B",
+        "rating_rationale": "시민의 민원에 신속히 대응하여 문제 해결에 기여하고 있으나, 더 나은 서비스 제공이 요구됨."
       },
       {
         "item_id": 151899,
         "data_title": "정책의 일관성",
         "collected_by": "ChatGPT",
         "original_rating": "B",
-        "new_rating": "A",
-        "rating_rationale": "정책 추진의 일관성은 시민들에게 안정감을 제공하며, 이는 신뢰 구축의 중요한 요소로 평가됩니다."
+        "new_rating": "B",
+        "rating_rationale": "정책 추진의 일관성을 유지하여 시민에게 안정감을 주고 있으나, 세부적인 개선이 필요할 수 있음."
       },
       {
         "item_id": 151900,
@@ -152,7 +152,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "언론과의 관계에서 정직하게 정보를 제공하고 상호 존중하는 태도는 정치인의 윤리성을 높이는 긍정적인 행동입니다."
+        "rating_rationale": "언론과의 관계에서 정직하게 정보를 제공하고 존중하는 태도를 보여 매우 우수한 윤리성을 지니고 있음."
       },
       {
         "item_id": 151901,
@@ -160,7 +160,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "정책 결정 과정에서 시민의 의견을 존중하고 반영하는 태도는 민주적 원칙을 실현하는 매우 바람직한 모습입니다."
+        "rating_rationale": "시민 의견을 적극적으로 반영하고 존중하는 태도를 통해 윤리적 책임을 다하고 있음."
       },
       {
         "item_id": 151902,
@@ -168,7 +168,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "공직자로서 청렴도가 높고 부정행위 발생률이 낮아 매우 우수한 윤리성을 보여줌."
+        "rating_rationale": "청렴도가 높고 부정행위 발생률이 낮다는 것은 공직자로서의 윤리성을 잘 보여줌."
       },
       {
         "item_id": 151903,
@@ -176,7 +176,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "정치적 이익을 위해 불법적이거나 비윤리적인 행동을 하지 않음으로써 높은 윤리성을 유지하고 있음."
+        "rating_rationale": "정치적 이익을 위해 불법적 행동을 하지 않는 것은 윤리적 기준을 철저히 지키고 있음을 나타냄."
       },
       {
         "item_id": 151904,
@@ -184,7 +184,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "사회적 문제에 지속적으로 관심을 가지며 해결 의지를 보이는 태도가 매우 긍정적임."
+        "rating_rationale": "사회적 문제에 대한 지속적인 관심과 해결 의지는 공직자의 책임 의식을 잘 반영함."
       },
       {
         "item_id": 151905,
@@ -192,7 +192,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "지역 주민들과 적극적으로 소통하고 관계를 강화하는 모습이 윤리적으로 우수함."
+        "rating_rationale": "지역 주민과의 소통을 적극적으로 시도하는 것은 윤리적 리더십의 중요한 요소임."
       },
       {
         "item_id": 151906,
@@ -200,7 +200,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "환경 문제에 대한 정책을 강화하며 지속가능한 발전을 추구하는 태도가 매우 우수함."
+        "rating_rationale": "환경 문제에 대한 책임 있는 정책은 지속 가능한 발전을 위한 윤리적 접근을 보여줌."
       },
       {
         "item_id": 151907,
@@ -208,7 +208,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "정치적 활동과 후원 정보를 명확하게 공개하여 신뢰를 얻고 있어 매우 윤리적임."
+        "rating_rationale": "정치적 투명성을 유지하며 신뢰를 얻는 것은 윤리적 행동의 모범 사례임."
       },
       {
         "item_id": 151908,
@@ -216,23 +216,23 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "비판을 수용하고 개선의 기회로 삼는 태도가 우수하지만, 추가적인 실천이 필요함."
+        "rating_rationale": "비판을 수용하는 태도는 긍정적이나, 더 적극적인 개선 노력이 필요할 수 있음."
       },
       {
         "item_id": 151909,
         "data_title": "대중에 대한 경청",
         "collected_by": "ChatGPT",
         "original_rating": "A",
-        "new_rating": "B",
-        "rating_rationale": "대중의 목소리를 경청하고 정책에 반영하려는 노력은 긍정적이나 더 많은 실천이 요구됨."
+        "new_rating": "A",
+        "rating_rationale": "대중의 목소리를 경청하고 정책에 반영하는 것은 윤리적 책임을 다하는 모습임."
       },
       {
         "item_id": 151910,
         "data_title": "갈등 해결 능력",
         "collected_by": "ChatGPT",
         "original_rating": "B",
-        "new_rating": "B",
-        "rating_rationale": "사회적 갈등 중재에 기여하는 모습이 우수하나 지속적인 개선이 필요함."
+        "new_rating": "A",
+        "rating_rationale": "사회적 갈등 해결에 기여하는 모습은 윤리적 리더십을 잘 보여줌."
       },
       {
         "item_id": 151911,
@@ -240,7 +240,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "자신에 대한 비판을 진지하게 받아들이고 성찰하는 태도가 매우 긍정적임."
+        "rating_rationale": "자신에 대한 비판을 진지하게 받아들이고 성찰하는 태도는 높은 윤리성을 나타냄."
       },
       {
         "item_id": 151912,
@@ -248,7 +248,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "오세훈의 발언은 일관성이 있으며, 이로 인해 정책으로 이어진 사례가 많아 신뢰성이 높다."
+        "rating_rationale": "오세훈의 발언이 실제 정책으로 이어진 경우가 많아 신뢰성이 높으며, 일관성 있는 발언은 대중의 신뢰를 얻는 데 기여했다."
       },
       {
         "item_id": 151913,
@@ -256,7 +256,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "재난 구호 및 사회 복지 분야에서의 적극적인 활동은 그의 사회적 책임 의식을 잘 보여주며, 긍정적인 평가를 받는다."
+        "rating_rationale": "사회적 책임 의식을 갖고 재난 구호 및 복지 분야에 적극 활동하여 긍정적인 사회적 영향을 미쳤다. 이는 윤리적 책임을 다한 예로 볼 수 있다."
       },
       {
         "item_id": 151914,
@@ -264,7 +264,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "공정성을 강조했지만, 정치적 로비 의혹이 제기되어 인사에 대한 신뢰성에 다소 영향을 미쳤다."
+        "rating_rationale": "공정성을 강조했으나 정치적 로비 의혹이 제기되어 일부 신뢰를 저하시키는 요소가 존재한다. 전반적으로 양호하나 개선이 필요하다."
       },
       {
         "item_id": 151915,
@@ -272,7 +272,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "청렴성을 강조하며 정책을 추진했으나 비리 의혹이 존재하여 다소 신뢰가 흔들리기도 했다."
+        "rating_rationale": "청렴성을 강조하고 공식적인 청렴도는 높은 편이나 비리 의혹이 제기된 점은 윤리성에 있어 미세한 결함으로 작용할 수 있다."
       },
       {
         "item_id": 151916,
@@ -280,7 +280,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "시민과의 소통을 위해 다양한 채널을 사용하고 의견을 적극적으로 반영하는 모습이 긍정적이다."
+        "rating_rationale": "시민과의 소통을 위한 다양한 채널 활용은 매우 긍정적이며, 적극적인 의견 수렴은 민주적 절차를 잘 보여준다."
       },
       {
         "item_id": 151917,
@@ -288,7 +288,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "일관된 정책 추진이 많으나, 상황에 따라 입장이 변할 때가 있어 신뢰성에 약간의 부족함이 있다."
+        "rating_rationale": "정책 추진에 일관성을 보이지만 상황에 따라 입장이 변하는 경우가 있어 일부 신뢰성에 영향을 줄 수 있다. 전반적으로 양호하다고 평가된다."
       },
       {
         "item_id": 151918,
@@ -296,7 +296,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "공식적인 자리에서 품위 있는 발언을 하여 정치인으로서의 품격을 잘 유지하고 있다."
+        "rating_rationale": "공식 자리에서 품위 있는 발언을 하며 신중한 언어 사용은 정치인의 윤리성을 높이는 중요한 요소로 작용한다."
       },
       {
         "item_id": 151919,
@@ -304,7 +304,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "C",
         "new_rating": "D",
-        "rating_rationale": "비판에 대한 수용적인 태도를 보이지만, 때로는 강하게 반발하여 신뢰성을 떨어뜨릴 위험이 있다."
+        "rating_rationale": "비판에 수용적인 태도를 보이지만 때때로 강하게 반발하는 모습은 일관성 없는 태도로 비춰질 수 있어 보통으로 평가된다."
       },
       {
         "item_id": 151920,
@@ -312,15 +312,15 @@
         "collected_by": "ChatGPT",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "위기 관리 능력이 뛰어나며, 신속한 대처로 긍정적인 평가를 받았기 때문에 높은 점수를 부여한다."
+        "rating_rationale": "위기 관리 능력이 뛰어나 신속하게 대처한 사례가 많아 위기 상황에서의 대응 능력은 매우 긍정적으로 평가된다."
       },
       {
         "item_id": 151921,
         "data_title": "정책 실행력",
         "collected_by": "ChatGPT",
         "original_rating": "B",
-        "new_rating": "C",
-        "rating_rationale": "다수의 정책을 성공적으로 실행했으나, 일부 정책의 미시행은 신뢰성에 다소 부정적인 영향을 미쳤다."
+        "new_rating": "B",
+        "rating_rationale": "많은 정책을 실행하였으나 일부 미실행 정책이 존재하여 전반적으로는 우수하지만 개선 여지가 있는 평가를 받는다."
       },
       {
         "item_id": 151922,
@@ -328,7 +328,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "오세훈은 소속 정당과의 갈등 없이 원활한 소통을 유지하며, 주도적 역할을 수행하고 있어 윤리적 리더십을 보여준다."
+        "rating_rationale": "소속 정당과 원활한 소통을 유지하며 주도적 역할을 수행하고 있어 정치적 윤리성이 높다."
       },
       {
         "item_id": 151923,
@@ -336,7 +336,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "A",
         "new_rating": "B",
-        "rating_rationale": "정치적 영향력이 크지만, 의견 수렴 과정에서의 투명성 부족이 윤리적 신뢰성을 약간 저해할 수 있다."
+        "rating_rationale": "정치적 영향력이 크지만, 그 영향력이 긍정적인 방향으로만 작용하지 않을 수 있어 약간의 우려가 있다."
       },
       {
         "item_id": 151924,
@@ -344,7 +344,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "C",
-        "rating_rationale": "상대방 존중하는 태도가 긍정적이나, 강한 언행으로 비판을 받는 경우가 있어 윤리성에서 중간 정도의 평가를 받는다."
+        "rating_rationale": "상대방을 존중하는 태도를 보이나 가끔 강한 언행으로 비판을 받는 점에서 윤리성이 양호하다."
       },
       {
         "item_id": 151925,
@@ -352,7 +352,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "구체적인 비전을 제시하고 실현 가능성을 고려하는 모습은 매우 긍정적이며, 윤리적으로도 우수한 평가를 받을 만하다."
+        "rating_rationale": "서울의 비전을 구체화하여 시민에게 전달하려는 노력은 매우 긍정적이며 윤리성이 높다."
       },
       {
         "item_id": 151926,
@@ -360,7 +360,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "C",
         "new_rating": "D",
-        "rating_rationale": "업무 처리 능력이 빠르고 효율적이나, 투명성 부족에 대한 비판은 윤리적 신뢰성을 감소시킨다."
+        "rating_rationale": "업무 처리 능력이 빠르고 효율적이나 결정 과정의 투명성이 부족해 윤리성이 다소 낮다."
       },
       {
         "item_id": 151927,
@@ -368,7 +368,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "C",
-        "rating_rationale": "시민 피드백을 반영하려는 노력이 있으나 실제 적용에는 한계가 있어 윤리적인 헌신도가 다소 낮다."
+        "rating_rationale": "시민 피드백을 반영하려는 노력이 있지만 실제 적용에 한계가 있어 윤리성이 양호하다고 평가된다."
       },
       {
         "item_id": 151928,
@@ -376,7 +376,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "C",
         "new_rating": "D",
-        "rating_rationale": "정책의 실효성에 대한 비판이 있어 일부 시민에게 신뢰를 잃을 위험이 있으며, 이는 윤리적 평가에 부정적 영향을 미친다."
+        "rating_rationale": "정책의 실효성에 대한 비판이 존재하는 점에서 윤리성이 보통 수준이다."
       },
       {
         "item_id": 151929,
@@ -384,7 +384,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "D",
         "new_rating": "E",
-        "rating_rationale": "사회적 갈등 관리에서의 실패는 윤리적 리더십에 큰 흠집을 남기며, 비판을 초래한 만큼 미흡한 부분이 크다."
+        "rating_rationale": "사회적 논란에 대한 부적절한 대응은 윤리적 결함으로 비판을 받을 수 있는 요소이다."
       },
       {
         "item_id": 151930,
@@ -392,15 +392,15 @@
         "collected_by": "ChatGPT",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "정치적 관용을 보이지만 강한 입장 취함은 균형 잡힌 태도로서의 윤리성을 저해할 수 있다."
+        "rating_rationale": "정치적 관용을 보이지만 때로 강한 입장을 취하는 것은 윤리성에 있어 양호하다고 볼 수 있다."
       },
       {
         "item_id": 151931,
         "data_title": "정기적인 자기 반성",
         "collected_by": "ChatGPT",
         "original_rating": "H",
-        "new_rating": "E",
-        "rating_rationale": "정기적인 자기 반성 부족은 윤리적 성장에 장애가 되며, 정치적 행보에서의 미흡함을 드러낸다."
+        "new_rating": "F",
+        "rating_rationale": "정기적인 자기 반성이 부족하다는 지적은 윤리적 결함으로 평가되어 부족하다고 판단된다."
       },
       {
         "item_id": 151832,
@@ -408,7 +408,7 @@
         "collected_by": "Grok",
         "original_rating": "F",
         "new_rating": "H",
-        "rating_rationale": "주민 권리를 무시하고 강제 이주를 추진한 것은 인권 침해로, 사회적 약자를 보호해야 할 윤리적 의무를 저버린 심각한 사례입니다."
+        "rating_rationale": "주민들의 강제 이주와 보상 부족은 명백한 인권 침해로, 공공 이익과 개인 권리의 균형을 해친 윤리적 결함이 크다."
       },
       {
         "item_id": 151833,
@@ -416,15 +416,15 @@
         "collected_by": "Grok",
         "original_rating": "E",
         "new_rating": "H",
-        "rating_rationale": "코로나19 대응에서 시민 건강을 위협한 조치는 공공 안전을 최우선으로 해야 할 윤리적 책임을 완전히 무시한 것으로, 치명적인 실패로 평가됩니다."
+        "rating_rationale": "코로나19 대응의 실패는 시민의 생명과 안전을 위협하며, 공공 안전 우선의 윤리적 원칙을 심각하게 위반한 사례로 평가된다."
       },
       {
         "item_id": 151834,
         "data_title": "발언으로 인한 사회적 갈등 유발",
         "collected_by": "Grok",
         "original_rating": "G",
-        "new_rating": "H",
-        "rating_rationale": "비하 발언으로 사회적 갈등을 유발한 행위는 정치인의 도덕적 책임과 품위를 심각하게 훼손한 것으로, 윤리 기준을 명백히 위반했습니다."
+        "new_rating": "G",
+        "rating_rationale": "사회적 갈등을 유발하는 발언은 정치인의 도덕적 책임을 저버린 것으로, 공공 발언의 윤리적 기준을 위배한 심각한 문제이다."
       },
       {
         "item_id": 151835,
@@ -432,7 +432,7 @@
         "collected_by": "Grok",
         "original_rating": "F",
         "new_rating": "H",
-        "rating_rationale": "환경 보호를 소홀히 한 정책은 미래 세대에 대한 책임을 저버린 것으로, 지속 가능한 발전 원칙을 무시한 치명적 결함입니다."
+        "rating_rationale": "환경 파괴를 초래한 개발 정책은 지속 가능한 발전의 윤리적 의무를 무시하며, 미래 세대에 대한 책임을 저버린 치명적 결함이다."
       },
       {
         "item_id": 151836,
@@ -440,7 +440,7 @@
         "collected_by": "Grok",
         "original_rating": "E",
         "new_rating": "H",
-        "rating_rationale": "공공 자금 사용의 불투명성은 시민의 신뢰를 해치고 도덕적 책임을 저버린 행위로, 공공기관의 윤리적 원칙을 심각하게 위반했습니다."
+        "rating_rationale": "공공 자금 사용의 불투명성은 시민의 신뢰를 해치며, 윤리적 원칙을 위반한 행위로 심각한 도덕적 책임을 지닌다."
       },
       {
         "item_id": 151837,
@@ -448,7 +448,7 @@
         "collected_by": "Grok",
         "original_rating": "G",
         "new_rating": "H",
-        "rating_rationale": "지하철 파업을 강경 진압한 것은 노동자의 권리를 무시하고 사회적 대화보다 폭력을 선택한 행위로, 윤리적 기준에 반하는 심각한 문제입니다."
+        "rating_rationale": "노동자 권리를 무시하고 강경 진압을 지시한 행위는 사회적 대화를 저버리고, 인권을 침해한 치명적 결함으로 평가된다."
       },
       {
         "item_id": 151838,
@@ -456,7 +456,7 @@
         "collected_by": "Grok",
         "original_rating": "F",
         "new_rating": "H",
-        "rating_rationale": "부동산 정책으로 서민층의 주거 불안을 초래하고 투기 의혹이 제기된 것은 공정성과 형평성을 해치는 중대한 윤리적 결함입니다."
+        "rating_rationale": "부동산 정책으로 인한 서민 주거 불안과 투기 의혹은 공정성과 형평성을 해치는 심각한 윤리적 결함으로 비판받는다."
       },
       {
         "item_id": 151839,
@@ -464,15 +464,15 @@
         "collected_by": "Grok",
         "original_rating": "E",
         "new_rating": "H",
-        "rating_rationale": "코로나19 초기 대응 미흡은 시민 안전을 위협하고 공공 보건 윤리를 무시한 중대한 실패로, 윤리적 책임을 다하지 못한 것으로 평가됩니다."
+        "rating_rationale": "코로나19 팬데믹 초기 대응의 실패는 시민의 생명을 위협한 윤리적 책임을 저버린 행위로, 매우 심각한 문제로 평가된다."
       },
       {
         "item_id": 151840,
         "data_title": "과거 발언으로 인한 인권 논란",
         "collected_by": "Grok",
         "original_rating": "H",
-        "new_rating": "H",
-        "rating_rationale": "과거 발언으로 인권 침해 논란을 일으킨 것은 사회적 약자에 대한 배려가 부족한 태도로, 공공 인물로서의 품위를 심각하게 훼손한 사례입니다."
+        "new_rating": "G",
+        "rating_rationale": "과거의 차별적 발언은 사회적 약자에 대한 배려가 부족한 태도로, 정치인의 품위를 저해한 윤리적 결함이 크다."
       },
       {
         "item_id": 151841,
@@ -480,7 +480,7 @@
         "collected_by": "Grok",
         "original_rating": "G",
         "new_rating": "H",
-        "rating_rationale": "도시 개발로 인한 주민 강제 이주는 인권 침해로, 사회적 정의와 윤리를 저버린 심각한 문제로 비판받아야 합니다."
+        "rating_rationale": "주민 강제 이주는 명백한 인권 침해이며, 사회적 정의와 윤리를 저버린 매우 심각한 문제로 평가된다."
       },
       {
         "item_id": 151842,
@@ -488,7 +488,7 @@
         "collected_by": "Grok",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "코로나19 방역 지침 준수는 시민 건강을 보호하는 윤리적 태도로, 공공 안전을 우선시한 점이 매우 우수하다."
+        "rating_rationale": "오세훈은 코로나19 방역 지침을 철저히 준수하며 시민의 건강을 최우선으로 고려한 윤리적 태도를 보였다."
       },
       {
         "item_id": 151843,
@@ -496,7 +496,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "지속 가능한 도시 개발과 환경 보호를 우선시한 태도는 윤리적으로 매우 긍정적이며, 미래 세대를 위한 책임감 있는 행동이다."
+        "rating_rationale": "지속 가능한 도시 개발과 환경 보호를 우선시한 정책 추진은 윤리적 책임을 다하는 모습으로 매우 우수하다."
       },
       {
         "item_id": 151844,
@@ -504,7 +504,7 @@
         "collected_by": "Grok",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "공공 연설에서 존중과 배려를 중심으로 한 언어 사용은 시민의 도덕적 가치와 품위를 높이는 데 기여한다."
+        "rating_rationale": "공공 연설에서 존중과 배려의 언어를 사용한 것은 시민 중심의 윤리적 의사소통을 잘 보여준다."
       },
       {
         "item_id": 151845,
@@ -512,7 +512,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "부패 방지 노력과 공공 입찰의 투명성 강조는 윤리적 책임을 다하는 모습으로 매우 우수한 평가를 받을 만하다."
+        "rating_rationale": "부패 방지 노력과 투명성을 강조한 행동은 공공의 신뢰를 높이는 윤리적 리더십으로 평가된다."
       },
       {
         "item_id": 151846,
@@ -520,7 +520,7 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "A",
-        "rating_rationale": "소수자 권리 보호와 지원 프로그램 발표는 사회적 포용을 위한 윤리적 행동으로, 매우 긍정적으로 평가된다."
+        "rating_rationale": "소수자 권리 보호를 위한 정책 발표는 사회적 포용을 위한 윤리적 행동으로 매우 긍정적이다."
       },
       {
         "item_id": 151847,
@@ -528,7 +528,7 @@
         "collected_by": "Grok",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "미디어 인터뷰에서 시민 의견을 경청하는 태도는 사회적 규범을 준수하는 이상적인 윤리적 리더십의 사례로 평가된다."
+        "rating_rationale": "미디어 인터뷰에서 진솔하고 존중하는 태도를 보인 것은 윤리적 리더십의 좋은 예로 평가된다."
       },
       {
         "item_id": 151848,
@@ -536,7 +536,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "주민 의견 수렴을 강조하고 강제 이주를 최소화하려는 노력은 윤리적 절차 준수의 좋은 예로, 매우 우수하다."
+        "rating_rationale": "주민 의견 수렴과 강제 이주 최소화 노력을 통해 윤리적 절차를 따르는 모습이 매우 우수하다."
       },
       {
         "item_id": 151849,
@@ -544,7 +544,7 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "A",
-        "rating_rationale": "소상공인 지원과 공정 배분 원칙 적용은 경제적 공정성을 위한 도덕적 행동으로, 매우 긍정적인 평가를 받을 수 있다."
+        "rating_rationale": "소상공인 지원을 위한 공정 배분 원칙 적용은 경제 운영의 도덕성을 높이는 윤리적 행동으로 보인다."
       },
       {
         "item_id": 151850,
@@ -552,7 +552,7 @@
         "collected_by": "Grok",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "공무원 윤리 훈련 프로그램 도입과 도덕적 행동 지침 강조는 사회적 규범 준수를 위한 체계적이고 윤리적인 노력이다."
+        "rating_rationale": "공무원 윤리 훈련 프로그램 도입은 사회적 규범 준수를 위한 체계적이고 윤리적인 노력으로 평가된다."
       },
       {
         "item_id": 151851,
@@ -560,7 +560,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "홍수 재난 시 신속한 대응과 투명한 정보 공유는 시민 안전을 최우선으로 한 윤리적 리더십의 모범 사례로 매우 우수하다."
+        "rating_rationale": "신속한 재난 대응과 정보 공유는 시민 안전을 최우선으로 고려한 윤리적 리더십의 탁월한 사례이다."
       },
       {
         "item_id": 151852,
@@ -568,7 +568,7 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "A",
-        "rating_rationale": "오세훈의 저소득층 지원 프로그램은 공평한 기회를 제공하며, 도덕적 사회 구성원 양성을 위한 매우 우수한 정책이다."
+        "rating_rationale": "저소득층 지원 프로그램 추진은 공평한 기회를 제공하여 도덕적 사회 구성원 양성을 위한 매우 긍정적인 조치입니다."
       },
       {
         "item_id": 151853,
@@ -576,7 +576,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "사회 복지 예산 확대는 취약계층 지원을 통해 공정성을 실현하고, 윤리적 배분을 실천한 점에서 매우 우수하다."
+        "rating_rationale": "사회 복지 예산 확대와 윤리적 배분 실천은 취약계층 지원에 대한 공정성을 높이며, 사회적 책임을 다한 사례로 매우 우수합니다."
       },
       {
         "item_id": 151854,
@@ -584,7 +584,7 @@
         "collected_by": "Grok",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "미디어와의 상호작용에서 사실 기반 응답을 유지하며 도덕적 진실성을 보인 것은 신뢰 구축에 크게 기여한 매우 우수한 사례이다."
+        "rating_rationale": "미디어와의 상호작용에서 사실 기반의 응답은 도덕적 진실성을 보여주며, 신뢰 구축에 기여하는 윤리적인 행동입니다."
       },
       {
         "item_id": 151855,
@@ -592,7 +592,7 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "A",
-        "rating_rationale": "교통 정책에서 공공 교통 우선을 강조한 점은 사회적 형평성을 위한 윤리적 접근으로 매우 우수한 평가를 받을 수 있다."
+        "rating_rationale": "교통 정책에서 공공 교통 우선 강조는 사회적 형평성을 위한 윤리적 접근으로, 탁월한 공공 정책의 예시입니다."
       },
       {
         "item_id": 151856,
@@ -600,7 +600,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "공공 예산의 투명한 관리와 윤리적 사용 확인은 도덕적 재정 책임의 모범을 보여주는 매우 우수한 사례이다."
+        "rating_rationale": "공공 예산의 투명한 관리와 윤리적 사용 확인은 도덕적 재정 책임을 다한 우수한 사례로 평가됩니다."
       },
       {
         "item_id": 151857,
@@ -608,7 +608,7 @@
         "collected_by": "Grok",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "문화 유산 보호 정책에서 역사적 가치를 존중하며 윤리적 접근을 강조한 것은 사회적 유산 보존을 위한 매우 우수한 행동이다."
+        "rating_rationale": "문화 유산 보호 정책에서 역사적 가치 존중은 사회적 유산 보존을 위한 윤리적 접근으로 매우 우수합니다."
       },
       {
         "item_id": 151858,
@@ -616,7 +616,7 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "A",
-        "rating_rationale": "노동자 권리 보호를 위한 정책 추진은 공정 노동 환경을 강조하며 윤리적 사회 구성원 대우의 모범 사례로 매우 우수하다."
+        "rating_rationale": "노동자 권리 보호 정책 추진은 공정한 노동 환경을 강조하며, 윤리적 사회 구성원 대우의 예시로 매우 긍정적입니다."
       },
       {
         "item_id": 151859,
@@ -624,7 +624,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "국제 행사에서 한국의 윤리적 이미지를 강조한 태도는 사회적 규범 준수의 우수한 예로 평가할 수 있다."
+        "rating_rationale": "국제 행사에서 한국의 윤리적 이미지를 강조한 태도는 사회적 규범 준수의 좋은 사례로, 매우 우수한 행동입니다."
       },
       {
         "item_id": 151860,
@@ -632,7 +632,7 @@
         "collected_by": "Grok",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "건강 정책에서 공공 의료 접근성을 강조하며 윤리적 배분을 실천한 것은 도덕적 건강 권리 보호의 매우 우수한 사례이다."
+        "rating_rationale": "공공 의료 접근성을 강조한 건강 정책은 도덕적 건강 권리 보호를 위한 윤리적 배분으로 매우 긍정적입니다."
       },
       {
         "item_id": 151861,
@@ -640,7 +640,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "오세훈의 리더십에서 품위 있고 도덕적인 태도를 유지한 것은 윤리적 행동의 통합된 사례로 매우 우수하다."
+        "rating_rationale": "오세훈의 리더십에서 품위와 도덕성을 유지한 것은 사회적 규범 준수의 통합된 사례로, 매우 우수한 평가를 받을 만합니다."
       },
       {
         "item_id": 151862,
@@ -648,7 +648,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "C",
-        "rating_rationale": "오세훈이 코로나19 대응에서 모범을 보였으나, 일부 대면 접촉이 발생한 점이 사회적 규범 준수에 대한 논란을 일으켰다."
+        "rating_rationale": "오세훈 시장이 사회적 거리두기를 준수한 점은 긍정적이나, 대면 접촉이 발생한 부분은 사회적 규범을 완전히 지키지 못한 사례로 평가된다."
       },
       {
         "item_id": 151863,
@@ -656,7 +656,7 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "B",
-        "rating_rationale": "상대 정치인에 대한 비판에서 예의 바른 언어를 사용했으나, 감정적인 뉘앙스가 섞인 점이 있어 완전한 품위는 부족했다."
+        "rating_rationale": "상대방에 대한 비판에서 예의 바른 언어를 사용한 것은 긍정적이나, 감정적인 뉘앙스가 섞인 점이 아쉬운 부분이다."
       },
       {
         "item_id": 151864,
@@ -664,7 +664,7 @@
         "collected_by": "Grok",
         "original_rating": "D",
         "new_rating": "D",
-        "rating_rationale": "부동산 정책 발표에서 공정성을 강조했으나, 특정 이해관계자에 대한 배려가 의심되어 사회적 규범에 대한 의문이 제기되었다."
+        "rating_rationale": "부동산 정책 발표에서 시민 의견을 수렴한 점은 좋으나, 특정 이해관계자를 배려한 듯한 뉘앙스가 있어 공정성에 의문을 제기한다."
       },
       {
         "item_id": 151865,
@@ -672,7 +672,7 @@
         "collected_by": "Grok",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "과거 의혹에 대해 반성의사를 밝혔으나 구체적인 조치가 부족하여 도덕적 품위에 대한 논란이 지속되었다."
+        "rating_rationale": "과거 정치 스캔들에 대한 반성의사를 밝혔으나 구체적인 조치가 부족해 도덕적 품위에 대한 논란이 지속된다."
       },
       {
         "item_id": 151866,
@@ -680,23 +680,23 @@
         "collected_by": "Grok",
         "original_rating": "D",
         "new_rating": "D",
-        "rating_rationale": "청렴한 캠페인을 펼쳤으나 과도한 약속이 유권자에 대한 윤리성을 논란거리로 만들어 이로 인해 평가가 낮아졌다."
+        "rating_rationale": "청렴한 캠페인을 펼친 점은 긍정적이나, 과도한 약속이 유권자에 대한 윤리성을 문제 삼게 만드는 요소가 되었다."
       },
       {
         "item_id": 151867,
         "data_title": "재난 지원금 배분의 공정성",
         "collected_by": "Grok",
         "original_rating": "E",
-        "new_rating": "E",
-        "rating_rationale": "지원금 배분에서 공정성을 강조했으나 불평등 문제로 인해 그의 행동이 사회적 규범에 미치지 못한 것으로 평가되었다."
+        "new_rating": "C",
+        "rating_rationale": "지원금 배분에서 공정성을 강조한 점은 좋으나, 지역 간 불평등이 발생한 것은 사회적 규범을 완전히 준수하지 못한 경우다."
       },
       {
         "item_id": 151868,
         "data_title": "환경 정책 관련 발언",
         "collected_by": "Grok",
         "original_rating": "C",
-        "new_rating": "C",
-        "rating_rationale": "환경 정책에 대한 미래 세대를 고려한 발언은 긍정적이지만, 실천 계획이 부족하여 행동으로 이어지지 않은 점이 아쉽다."
+        "new_rating": "D",
+        "rating_rationale": "환경 보호 정책에 대한 발언은 긍정적이나, 실천 계획이 부족한 점은 행동으로 이어지지 않은 사례로 평가된다."
       },
       {
         "item_id": 151869,
@@ -704,7 +704,7 @@
         "collected_by": "Grok",
         "original_rating": "F",
         "new_rating": "E",
-        "rating_rationale": "노동자 권리 보호 의지를 밝혔으나 시행 과정에서의 불만이 제기되어 도덕적 기준에 미치지 못하는 부분이 있다."
+        "rating_rationale": "노동 정책에서 직원 권리를 보호하겠다고 밝혔으나, 시행 과정에서 불만이 제기된 것은 도덕적 기준에 미치지 못한 부분이다."
       },
       {
         "item_id": 151870,
@@ -712,7 +712,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "D",
-        "rating_rationale": "국제 회의에서 존중을 보였으나 문화적 민감성을 놓친 점이 있어 윤리적으로 완벽하지 않음을 드러냈다."
+        "rating_rationale": "국제 회의에서 예의를 보인 점은 긍정적이나 문화적 민감성을 간과한 점은 윤리적으로 완벽하지 않음을 보여준다."
       },
       {
         "item_id": 151871,
@@ -720,7 +720,7 @@
         "collected_by": "Grok",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "사회적 약자 보호를 위한 정책 발표는 긍정적이나 실행 과정의 지연으로 인해 도덕적 기대에 미달하는 사례가 발생했다."
+        "rating_rationale": "사회적 약자를 보호하겠다는 발표는 좋으나, 실행 지연으로 논란이 발생한 것은 도덕적 기대에 미치지 못한 사례다."
       },
       {
         "item_id": 151872,
@@ -728,7 +728,7 @@
         "collected_by": "Grok",
         "original_rating": "D",
         "new_rating": "D",
-        "rating_rationale": "반부패 캠페인 참여는 긍정적이나 주변 인사의 의혹이 그의 청렴성을 의심하게 하여 윤리적 모순을 드러낸다."
+        "rating_rationale": "반부패 캠페인 참여는 긍정적이나 주변 인사들의 의혹이 그의 품위를 의심하게 하여 윤리적 일관성이 떨어진다."
       },
       {
         "item_id": 151873,
@@ -736,7 +736,7 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "학생 권리를 존중하는 발언은 긍정적이지만, 예산 불투명성 문제는 그의 윤리적 행동이 사회적 규범에 미치지 못함을 나타낸다."
+        "rating_rationale": "학생 권리 존중 발언은 긍정적이나 예산 배분의 불투명함으로 인해 윤리적 기준이 부족한 모습이 드러난다."
       },
       {
         "item_id": 151874,
@@ -744,7 +744,7 @@
         "collected_by": "Grok",
         "original_rating": "D",
         "new_rating": "D",
-        "rating_rationale": "시민 중심의 태도는 긍정적이지만, 일부 과격한 발언이 품위에 대한 논란을 일으켜 보통 수준의 윤리성을 반영한다."
+        "rating_rationale": "시민 중심의 발언은 좋았으나 과격한 발언이 논란을 일으켜 품위 있는 태도로 평가하기 어렵다."
       },
       {
         "item_id": 151875,
@@ -752,15 +752,15 @@
         "collected_by": "Grok",
         "original_rating": "E",
         "new_rating": "C",
-        "rating_rationale": "문화 예술 지원의 공정성은 긍정적이나 특정 분야의 편향이 드러나 도덕적 완벽성을 결여하였다."
+        "rating_rationale": "공정한 기준을 적용하려 했으나 특정 분야의 편향이 드러나 도덕적 완벽성에는 미치지 못한다."
       },
       {
         "item_id": 151876,
         "data_title": "재정 투명성 유지",
         "collected_by": "Grok",
         "original_rating": "F",
-        "new_rating": "D",
-        "rating_rationale": "재정 투명성을 강조한 점은 긍정적이나, 불명확한 보고서가 그의 윤리적 태도에 부족함을 드러낸다."
+        "new_rating": "E",
+        "rating_rationale": "재정 투명성 유지 의지가 있었으나 보고서의 불명확성이 드러나 윤리적 부족함이 나타난다."
       },
       {
         "item_id": 151877,
@@ -768,7 +768,7 @@
         "collected_by": "Grok",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "공정한 기준을 강조했으나 인사 과정의 불공평이 드러나 그의 행동이 사회적 규범에 미치지 못함을 보여준다."
+        "rating_rationale": "공정한 기준을 강조했으나 인사 과정의 불공평이 드러나 사회적 규범에 부합하지 않는 모습이다."
       },
       {
         "item_id": 151878,
@@ -776,7 +776,7 @@
         "collected_by": "Grok",
         "original_rating": "D",
         "new_rating": "D",
-        "rating_rationale": "대중 집회에서 평화적인 태도는 긍정적이나 강경 대응의 논란이 품위에 대한 의문을 제기하여 보통 수준으로 평가된다."
+        "rating_rationale": "대중 집회에서 평화적인 태도를 보였으나 강경 대응이 논란을 일으켜 품위에 의문을 제기한다."
       },
       {
         "item_id": 151879,
@@ -784,15 +784,15 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "팬데믹 기간 리더십은 대체로 모범적이지만 초기 대응 지연은 도덕적 완벽성을 결여한 점으로 평가된다."
+        "rating_rationale": "팬데믹 리더십은 모범적이었으나 초기 대응 지연이 도덕적 완벽성에 결함을 보인다."
       },
       {
         "item_id": 151880,
         "data_title": "경제 정책 발언의 품위",
         "collected_by": "Grok",
         "original_rating": "D",
-        "new_rating": "E",
-        "rating_rationale": "전문성을 강조한 발언은 긍정적이나 과장된 내용이 드러나 사회적 규범에 부합하지 않은 측면을 보여준다."
+        "new_rating": "D",
+        "rating_rationale": "전문성을 강조한 발언은 긍정적이나 과장된 내용이 드러나 사회적 규범에 부합하지 않는 측면이 있다."
       },
       {
         "item_id": 151881,
@@ -800,7 +800,7 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "D",
-        "rating_rationale": "상대 의견을 존중하는 태도는 긍정적이나 비아냥거림이 섞인 발언은 품위에 대한 논란을 일으켜 보통의 윤리성을 반영한다."
+        "rating_rationale": "상대 의견 존중의 모습은 긍정적이나 비아냥거림이 섞인 점이 있어 품위 있는 태도로 평가하기 어렵다."
       },
       {
         "item_id": 107493,
@@ -808,7 +808,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "G",
         "new_rating": "H",
-        "rating_rationale": "성희롱 의혹으로 사임한 사건은 정치인의 윤리적 신뢰를 심각하게 훼손하며, 대중과의 신뢰 관계를 완전히 무너뜨리는 치명적 결함이다."
+        "rating_rationale": "성희롱 의혹으로 사임한 사실은 윤리적으로 중대한 결함으로, 정치인의 기본적인 도덕성을 심각하게 훼손한 사례이다."
       },
       {
         "item_id": 107495,
@@ -816,15 +816,15 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "전문가 의견 수렴 없이 정책을 독단적으로 추진하는 것은 민주주의 원칙에 어긋나며, 정책의 질적 저하를 초래할 수 있다."
+        "rating_rationale": "전문가 의견 수렴 없이 독단적으로 정책을 추진한 것은 민주적 절차를 무시하고 신뢰를 저하시키는 행위로 판단된다."
       },
       {
         "item_id": 107498,
         "data_title": "복지 정책 후퇴",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "D",
-        "new_rating": "F",
-        "rating_rationale": "복지 정책 후퇴는 사회적 갈등을 야기하고, 사회적 약자를 배려하지 않는 정책으로 윤리적 책임이 부족하다고 평가된다."
+        "new_rating": "E",
+        "rating_rationale": "복지 정책의 후퇴는 사회적 갈등을 야기하며, 취약계층에 대한 배려가 부족함을 보여주어 윤리적 책임이 크다."
       },
       {
         "item_id": 107499,
@@ -832,15 +832,15 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "F",
         "new_rating": "F",
-        "rating_rationale": "부동산 정책의 실패는 많은 서민에게 심각한 주거 불안을 초래하며, 이는 정치인의 책임을 물을 만한 심각한 문제이다."
+        "rating_rationale": "부동산 정책의 실패로 주거 불안이 심화된 것은 서민의 삶에 직접적인 악영향을 미쳤으며, 윤리적 의무를 저버린 결과이다."
       },
       {
         "item_id": 107501,
         "data_title": "행정 투명성 저하",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "E",
-        "new_rating": "E",
-        "rating_rationale": "행정 투명성 저하는 시민의 신뢰를 저하시킬 수 있으며, 이는 정치인의 윤리적 의무를 다하지 못한 것으로 평가된다."
+        "new_rating": "F",
+        "rating_rationale": "행정의 투명성이 저하된 것은 공공의 신뢰를 상실하게 하여, 정치인으로서의 윤리적 의무를 심각하게 어긴 사례로 간주된다."
       },
       {
         "item_id": 107504,
@@ -848,7 +848,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "E",
         "new_rating": "D",
-        "rating_rationale": "정치적 기회주의 비판은 선거의 윤리를 해칠 수 있지만, 직접적인 윤리적 위반은 아니다. 그러나 신뢰에 부정적 영향을 미친다."
+        "rating_rationale": "정치적 기회주의로 비판받은 것은 윤리적 측면에서 부정적인 인식을 초래하지만, 법적으로 문제는 없다."
       },
       {
         "item_id": 107507,
@@ -856,7 +856,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "D",
         "new_rating": "E",
-        "rating_rationale": "재정 낭비 비판은 정책의 효율성을 저하시키며, 고소득 가정에 지원하는 것은 사회적 형평성에 어긋나는 윤리적 결함이 있다."
+        "rating_rationale": "고소득 가정에도 무상교복 지원은 재정 낭비로 비판받아 사회적 형평성을 해치는 정책으로 판단된다."
       },
       {
         "item_id": 107510,
@@ -864,7 +864,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "F",
         "new_rating": "F",
-        "rating_rationale": "부동산 가격 급등과 주택 공급 부족은 서민의 주거 문제를 심화시키며, 이는 정치인의 도덕적 책임을 크게 저하시킨다."
+        "rating_rationale": "부동산 가격 급등과 공급 부족은 서민주거의 불안을 초래하며, 정책 실패에 대한 책임이 크므로 윤리적 결함이 크다."
       },
       {
         "item_id": 107512,
@@ -872,7 +872,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "E",
         "new_rating": "G",
-        "rating_rationale": "청년수당 정책의 위헌 판정은 정책 추진 능력에 심각한 의문을 제기하며, 이는 정치인의 윤리적 자격을 크게 훼손한다."
+        "rating_rationale": "청년수당 정책이 위헌 판정을 받았다는 것은 정치적 판단의 심각한 오류를 나타내며, 윤리적 신뢰를 크게 훼손한 사례이다."
       },
       {
         "item_id": 107513,
@@ -880,7 +880,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "F",
         "new_rating": "F",
-        "rating_rationale": "취약계층 돌봄 서비스 예산 삭감은 사회적 약자에 대한 배려 부족을 드러내며, 이는 정치인의 윤리적 의무를 위반한 것으로 평가된다."
+        "rating_rationale": "취약계층 돌봄 서비스 예산 삭감은 사회적 약자에 대한 지원 부족을 드러내며, 윤리적 책임을 다하지 못한 것으로 평가된다."
       },
       {
         "item_id": 107515,
@@ -888,7 +888,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "부동산 투기 의혹은 정치인의 신뢰성을 크게 저하시킬 수 있는 문제로, 사회적 윤리에 반하는 행동으로 평가됨."
+        "rating_rationale": "부동산 투기 의혹은 공직자로서의 윤리를 심각하게 훼손하는 사안으로, 해명이 필요하지만 신뢰성이 낮다."
       },
       {
         "item_id": 107517,
@@ -896,15 +896,15 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "A",
-        "rating_rationale": "정책 결정 과정의 투명성은 민주주의의 기본 원칙에 부합하며, 공공의 신뢰를 구축하는 데 기여함."
+        "rating_rationale": "정책의 투명성과 공개성은 윤리적 리더십의 중요한 요소로, 우수한 평가를 받을 만하다."
       },
       {
         "item_id": 107519,
         "data_title": "성희롱 발언 논란",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "F",
-        "new_rating": "F",
-        "rating_rationale": "성차별적 발언은 사회적 불평등을 조장하며, 정치인의 윤리적 책임을 심각하게 저해함."
+        "new_rating": "H",
+        "rating_rationale": "성희롱 발언은 사회적 책임을 무시한 중대한 윤리적 결함으로, 치명적 결함으로 간주된다."
       },
       {
         "item_id": 107520,
@@ -912,7 +912,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "재난지원금 분배의 공정성은 중요한 윤리적 문제로, 신뢰를 구축하는 데 긍정적인 영향을 미침."
+        "rating_rationale": "재난지원금의 공정한 분배는 긍정적이나, 구체적인 시행 과정에서의 문제가 있을 수 있다."
       },
       {
         "item_id": 107522,
@@ -920,7 +920,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "D",
         "new_rating": "A",
-        "rating_rationale": "정치자금의 투명성은 정치적 윤리를 강화하고 부패를 방지하는 데 필수적이며, 매우 긍정적임."
+        "rating_rationale": "정치자금의 투명성은 민주주의의 핵심 요소로, 이를 잘 준수한 점에서 매우 우수하다."
       },
       {
         "item_id": 107524,
@@ -928,7 +928,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "공직자로서 도덕적 기준 준수는 중요하지만, 구체적 사례에 따라 평가가 다를 수 있어 양호한 수준임."
+        "rating_rationale": "공직자로서 도덕적 기준 준수는 양호하나, 구체적인 사례에 따라 평가가 달라질 수 있다."
       },
       {
         "item_id": 107525,
@@ -936,7 +936,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "이해충돌 방지 노력은 정치인의 윤리적 행동을 보여주며, 긍정적인 방향으로 평가됨."
+        "rating_rationale": "이해충돌 방지 노력은 대체로 긍정적이나, 실제 사례에서의 실행 여부가 중요하다."
       },
       {
         "item_id": 107527,
@@ -944,7 +944,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "사회적 약자를 배려하는 정책은 윤리적 책임을 다하는 것으로, 매우 긍정적으로 평가됨."
+        "rating_rationale": "사회적 약자를 배려하는 정책은 윤리적 관점에서 매우 긍정적이며, 적극적으로 추진한 점이 우수하다."
       },
       {
         "item_id": 107529,
@@ -952,7 +952,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "B",
-        "rating_rationale": "언론 자유 존중은 민주주의와 윤리에 부합하며, 비판적 보도에 대한 태도가 긍정적임."
+        "rating_rationale": "언론 자유 존중은 민주적 기본 원칙이나, 비판적 보도에 대한 반응이 중요하므로 긍정적 평가를 받았다."
       },
       {
         "item_id": 107532,
@@ -960,7 +960,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "공공 윤리 교육 참여는 청렴 문화 조성을 위한 중요한 기여로, 매우 우수한 평가를 받을 수 있음."
+        "rating_rationale": "공무원 윤리 교육과 청렴 문화 조성은 공직자의 윤리성을 높이는 데 기여하는 매우 우수한 노력이다."
       },
       {
         "item_id": 107534,
@@ -968,7 +968,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "D",
         "new_rating": "A",
-        "rating_rationale": "정치적 책임을 인정하는 태도는 윤리적 리더십의 중요한 요소로, 책임감 있는 행동은 긍정적으로 평가된다."
+        "rating_rationale": "정치적 책임을 인정하는 태도는 윤리적 리더십을 보여주며, 정책 실패에 대한 솔직한 반성과 책임감이 매우 우수하게 평가된다."
       },
       {
         "item_id": 107536,
@@ -976,7 +976,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "A",
-        "rating_rationale": "성평등 정책 추진은 사회적 약자에 대한 배려와 정의로운 사회를 위한 노력으로, 매우 윤리적인 접근이다."
+        "rating_rationale": "성평등 정책 추진은 사회적 약자의 권리를 존중하고 증진하는 데 기여하며, 윤리적으로 매우 우수한 정책으로 평가된다."
       },
       {
         "item_id": 107537,
@@ -984,7 +984,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "B",
-        "rating_rationale": "사회적 갈등 상황에서 중재 능력을 발휘한 것은 긍정적이나, 보다 적극적인 해결책이 필요할 수 있다."
+        "rating_rationale": "사회적 갈등을 중재하는 능력은 긍정적이나, 보다 적극적인 갈등 예방 노력이 필요해 우수하나 완벽하지 않다."
       },
       {
         "item_id": 107540,
@@ -992,7 +992,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "예산 집행의 투명성은 공공의 신뢰를 구축하는 데 필수적이며, 윤리적 기준을 준수함을 보여준다."
+        "rating_rationale": "공공 예산 사용의 투명성을 확보하는 것은 윤리적 책임을 다하는 것으로, 매우 우수한 평가를 받는다."
       },
       {
         "item_id": 107541,
@@ -1000,7 +1000,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "환경 보호를 위한 정책은 지속 가능한 발전을 추구하는 윤리적 접근으로 매우 긍정적으로 평가된다."
+        "rating_rationale": "환경 보호를 위한 정책은 지속 가능한 발전을 도모하며, 윤리적 실천이 매우 우수하게 나타난다."
       },
       {
         "item_id": 107544,
@@ -1008,7 +1008,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "소수자 및 취약계층의 인권 보호 노력은 사회적 책임을 다하는 것으로, 윤리적 리더십의 본보기가 된다."
+        "rating_rationale": "소수자 및 취약계층 인권 보호 노력은 윤리적 가치의 실현을 위한 매우 중요한 정책으로, 우수하게 평가된다."
       },
       {
         "item_id": 107546,
@@ -1016,7 +1016,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "B",
-        "rating_rationale": "정보 투명성은 공공기관의 신뢰를 높이는 중요한 요소로, 다소 부족한 부분이 있을 수 있으나 전반적으로 긍정적이다."
+        "rating_rationale": "시정 정보의 공개 수준은 투명성을 높이지만, 아직 개선할 여지가 있어 우수하다고 평가된다."
       },
       {
         "item_id": 107548,
@@ -1024,7 +1024,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "D",
         "new_rating": "A",
-        "rating_rationale": "공정한 인사 원칙을 지키는 것은 윤리적 관리의 기본으로, 조직의 신뢰성을 높이는 데 기여한다."
+        "rating_rationale": "인사 과정의 공정성과 투명성은 윤리적 기준을 준수하는 것으로 매우 우수하게 평가된다."
       },
       {
         "item_id": 107550,
@@ -1032,7 +1032,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "B",
-        "rating_rationale": "시민과의 소통 방식은 긍정적이나, 소통의 깊이와 수준에서 더 강화될 필요가 있을 수 있다."
+        "rating_rationale": "시민과의 소통 방식은 긍정적이나, 더욱 적극적인 소통이 필요해 우수하다고 평가된다."
       },
       {
         "item_id": 107552,
@@ -1040,7 +1040,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "위기 상황에서의 윤리적 대응은 리더십의 중요한 요소로, 사회적 책임을 다하는 모습으로 매우 높은 평가를 받는다."
+        "rating_rationale": "코로나19와 같은 위기 상황에서의 윤리적 대응은 공공의 안전을 우선시하는 매우 우수한 사례로 평가된다."
       },
       {
         "item_id": 107553,
@@ -1048,7 +1048,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "자진 사퇴는 정치적 책임을 인정하는 행동으로, 윤리적 기준에 부합하며 긍정적 평가를 받는다."
+        "rating_rationale": "자진 사퇴와 정치적 책임을 인정한 사례로, 윤리적 결정으로 평가됨."
       },
       {
         "item_id": 107556,
@@ -1056,7 +1056,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "G",
         "new_rating": "H",
-        "rating_rationale": "성추문 의혹으로 사퇴는 개인의 윤리성을 심각하게 훼손하며, 정치인으로서의 신뢰를 크게 저하시킨다."
+        "rating_rationale": "성추문 의혹으로 인한 사퇴는 개인의 윤리성을 심각하게 훼손한 케이스로, 치명적인 결함으로 평가됨."
       },
       {
         "item_id": 107558,
@@ -1064,7 +1064,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "E",
         "new_rating": "D",
-        "rating_rationale": "부동산 정책의 투명성 논란은 정책 신뢰성을 저하시키지만, 특정 불법 행위가 없었다면 중간 수준으로 평가한다."
+        "rating_rationale": "부동산 정책의 투명성 논란은 윤리적 신뢰를 저하시킬 수 있으나 명확한 부정행위는 없어서 보통 수준으로 평가됨."
       },
       {
         "item_id": 107560,
@@ -1072,15 +1072,15 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "코로나19 대응에서 시민 안전을 우선시한 점은 긍정적이나, 전반적인 대응이 완벽하지는 않았다."
+        "rating_rationale": "코로나19 대응에서 시민 안전을 우선시한 접근은 윤리적으로 우수한 조치로 평가됨."
       },
       {
         "item_id": 107561,
         "data_title": "공공의료 정책 투명성",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
-        "new_rating": "A",
-        "rating_rationale": "공공의료 정책의 추진 과정에서 투명성을 확보한 것은 윤리적으로 매우 우수한 사례로 평가된다."
+        "new_rating": "B",
+        "rating_rationale": "공공의료 정책 추진 과정의 투명성은 정책의 신뢰성을 높이는 긍정적 요소로, 우수한 평가를 받음."
       },
       {
         "item_id": 107563,
@@ -1088,7 +1088,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "D",
         "new_rating": "B",
-        "rating_rationale": "정치자금의 투명성과 적절성 검증은 중요한 윤리적 기준을 충족하지만, 모든 측면에서 완벽하지 않다."
+        "rating_rationale": "정치자금의 투명성과 적절성 검증은 윤리적 기준을 준수하기 위한 중요한 요소로 우수한 평가를 받음."
       },
       {
         "item_id": 107566,
@@ -1096,23 +1096,23 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "D",
         "new_rating": "C",
-        "rating_rationale": "보수 정치인의 도덕성에 대한 논의는 양호하나, 특정 사례에 따라 다를 수 있어 중간 평가를 받는다."
+        "rating_rationale": "보수 정치인의 도덕성에 대한 논의는 긍정적이나 구체적인 사례 부족으로 양호한 평가를 받음."
       },
       {
         "item_id": 107569,
         "data_title": "정치적 책임감",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
-        "new_rating": "B",
-        "rating_rationale": "과거 실패를 인정하고 재도전하는 자세는 긍정적이나, 실질적인 성과가 뒷받침되어야 한다."
+        "new_rating": "A",
+        "rating_rationale": "과거 실패를 인정하고 재도전하는 자세는 정치적 책임감의 좋은 예로, 매우 우수한 평가를 받음."
       },
       {
         "item_id": 107571,
         "data_title": "복지 정책의 공정성",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
-        "new_rating": "A",
-        "rating_rationale": "복지 정책의 포용성과 공정성은 정치인의 윤리적 책임을 충족하며, 매우 긍정적인 평가를 받을 수 있다."
+        "new_rating": "C",
+        "rating_rationale": "복지 정책의 포용성과 공정성은 긍정적인 평가를 받을 수 있으나, 개선 여지가 있어 양호로 평가됨."
       },
       {
         "item_id": 107573,
@@ -1120,7 +1120,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "B",
-        "rating_rationale": "언론 대응과 정보 공개의 투명성은 윤리적으로 우수하나, 지속적인 개선이 필요하다."
+        "rating_rationale": "언론 대응의 투명성은 정보 공개와 소통의 중요성을 반영하여 우수한 평가를 받음."
       },
       {
         "item_id": 107576,
@@ -1128,7 +1128,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "E",
         "new_rating": "A",
-        "rating_rationale": "젠더 정책의 공정성과 여성 인권 증진은 사회적 정의를 실현하는 중요한 요소로, 오세훈의 접근이 긍정적으로 평가된다."
+        "rating_rationale": "젠더 정책에 대한 접근이 공정하고 포괄적이며, 여성 인권을 중시하는 태도가 돋보인다."
       },
       {
         "item_id": 107577,
@@ -1136,7 +1136,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "D",
         "new_rating": "B",
-        "rating_rationale": "청년 정책이 실효성을 갖추고 있다면 윤리적 측면에서 우수하지만, 구체적인 성과가 부족할 경우 다소 아쉬움이 남는다."
+        "rating_rationale": "청년 정책의 실효성을 높이기 위한 노력이 있지만, 더 많은 구체적인 실행 방안이 필요하다."
       },
       {
         "item_id": 107580,
@@ -1144,7 +1144,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "재난 대응에 대한 책임성과 신속한 행동은 공직자의 윤리적 의무로서 매우 긍정적인 평가를 받는다."
+        "rating_rationale": "재난 상황에서 신속한 대응과 책임 있는 행동이 잘 드러나며, 시민의 안전을 우선시하는 모습이 인상적이다."
       },
       {
         "item_id": 107581,
@@ -1152,47 +1152,47 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "D",
         "new_rating": "B",
-        "rating_rationale": "시민과의 소통 및 정책 투명성은 윤리적 기준을 충족하지만, 개선 가능성이 남아있다."
+        "rating_rationale": "시민과의 소통 방식이 투명하지만, 여전히 개선할 여지가 존재하여 더 나은 소통을 위한 노력이 필요하다."
       },
       {
         "item_id": 107582,
         "data_title": "환경 정책 윤리성",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
-        "new_rating": "A",
-        "rating_rationale": "환경 및 기후변화 대응 정책은 지속 가능성을 위한 중요한 윤리적 책임으로, 매우 우수한 평가를 받을 수 있다."
+        "new_rating": "B",
+        "rating_rationale": "환경 정책이 실효성이 있지만, 보다 적극적인 대책과 지속 가능한 접근이 요구된다."
       },
       {
         "item_id": 107583,
         "data_title": "정치자금 수입 투명성",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "E",
-        "new_rating": "B",
-        "rating_rationale": "정치자금의 투명성은 공직자로서 필수적이며, 현재 잘 관리되고 있다면 윤리성이 우수하다."
+        "new_rating": "A",
+        "rating_rationale": "정치자금의 모금과 사용이 투명하게 이루어져 신뢰성을 높이고 있으며, 윤리적 기준이 잘 지켜지고 있다."
       },
       {
         "item_id": 107584,
         "data_title": "정치적 화해와 소통",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "D",
-        "new_rating": "C",
-        "rating_rationale": "정치적 대립 상황에서의 중재 노력은 긍정적이나, 보다 적극적이고 실질적인 소통이 필요하다."
+        "new_rating": "B",
+        "rating_rationale": "정치적 대립 상황에서 화해 노력을 기울이지만, 보다 적극적인 중재가 필요하다."
       },
       {
         "item_id": 107585,
         "data_title": "정책 일관성",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
-        "new_rating": "B",
-        "rating_rationale": "정책 추진의 일관성과 원칙 유지가 중요하지만, 실제 사례와의 일치 여부에 따라 평가가 달라질 수 있다."
+        "new_rating": "C",
+        "rating_rationale": "정책 추진의 일관성이 있지만, 가끔 원칙이 흔들릴 수 있는 사례가 있어 주의가 필요하다."
       },
       {
         "item_id": 107586,
         "data_title": "사회적 포용성",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "D",
-        "new_rating": "A",
-        "rating_rationale": "사회적 포용성은 모든 계층을 아우르는 윤리적 접근으로, 매우 긍정적으로 평가된다."
+        "new_rating": "B",
+        "rating_rationale": "사회적 포용성을 고려한 접근이 이루어지고 있으나, 더욱 다양한 계층을 포괄하는 노력이 필요하다."
       },
       {
         "item_id": 107587,
@@ -1200,7 +1200,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "D",
         "new_rating": "A",
-        "rating_rationale": "공직자로서의 도덕적 기준과 책임은 윤리성의 기본으로, 철저하게 준수할 경우 매우 우수한 평가를 받는다."
+        "rating_rationale": "공직자로서 도덕적 기준과 책임이 잘 수립되어 있으며, 모범적인 자세를 보여주고 있다."
       }
     ],
     "Grok": [
@@ -1209,16 +1209,16 @@
         "data_title": "과거 재산 형성 과정에 대한 의혹",
         "collected_by": "ChatGPT",
         "original_rating": "E",
-        "new_rating": "F",
-        "rating_rationale": "재산 형성 과정에서 불투명한 거래와 과도한 자산 증가는 윤리성에 큰 결함을 드러낸다. 이는 신뢰성을 크게 훼손하는 요인이다."
+        "new_rating": "E",
+        "rating_rationale": "재산 형성 과정에서의 불투명한 거래와 과도한 자산 증가는 윤리성에 큰 문제를 야기한다. 이러한 의혹은 공직자의 도덕성을 심각하게 훼손하는 요인으로 작용한다."
       },
       {
         "item_id": 151883,
         "data_title": "선거 동안의 공격적인 발언",
         "collected_by": "ChatGPT",
         "original_rating": "D",
-        "new_rating": "E",
-        "rating_rationale": "선거 과정에서의 공격적인 발언은 정치적 공정성을 해치며, 경쟁 후보에 대한 과장 및 왜곡은 윤리성에 미흡한 점으로 평가된다."
+        "new_rating": "F",
+        "rating_rationale": "선거 과정에서의 공격적이고 과장된 발언은 정치적 공정성을 해친다. 이는 경쟁 후보와 유권자에 대한 존중 부족을 드러내며, 정치인의 윤리성을 크게 훼손한다."
       },
       {
         "item_id": 151884,
@@ -1226,23 +1226,23 @@
         "collected_by": "ChatGPT",
         "original_rating": "F",
         "new_rating": "E",
-        "rating_rationale": "공직자로서 정치적 중립성을 결여한 발언은 도덕적 의무를 위반한 것으로, 시민들의 신뢰를 저하시키는 요인으로 작용한다."
+        "rating_rationale": "공직자로서의 정치적 중립성을 유지하지 못한 것은 공무원의 도덕적 의무를 위반한 것이다. 이는 시민들의 신뢰를 저하시키는 주요 요인으로 작용한다."
       },
       {
         "item_id": 151885,
         "data_title": "사회적 약자에 대한 기만적 정책",
         "collected_by": "ChatGPT",
         "original_rating": "E",
-        "new_rating": "F",
-        "rating_rationale": "사회적 약자를 위한 기만적 정책은 실질적인 도움 없이 포장만 된 것으로, 신뢰를 잃게 하는 중대한 윤리적 문제이다."
+        "new_rating": "E",
+        "rating_rationale": "사회적 약자를 위한 정책이 실효성이 부족하고 포장만 된 것은 기만적이다. 이는 시민들의 신뢰를 잃게 하며, 정책의 진정성을 의심하게 만든다."
       },
       {
         "item_id": 151886,
         "data_title": "부적절한 대민 관계",
         "collected_by": "ChatGPT",
         "original_rating": "D",
-        "new_rating": "E",
-        "rating_rationale": "대민 관계에서의 부적절한 태도는 공직자로서의 소양 부족을 드러내며, 이는 윤리성에 미흡한 점으로 평가된다."
+        "new_rating": "F",
+        "rating_rationale": "대민 관계에서의 부적절한 태도는 공직자로서의 소양 부족을 드러낸다. 기자회견에서의 무시나 불친절한 반응은 시민들과의 신뢰를 훼손하는 행위이다."
       },
       {
         "item_id": 151887,
@@ -1250,7 +1250,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "E",
         "new_rating": "D",
-        "rating_rationale": "부동산 정책의 효과 부족과 부작용은 정책 수행 능력의 문제로, 윤리성에 보통 수준으로 평가된다."
+        "rating_rationale": "부동산 정책의 효과 부족과 집값 상승 부작용은 정책 결정의 문제점을 드러낸다. 이는 정책의 실효성 부족으로 인해 시민들의 불만을 초래한다."
       },
       {
         "item_id": 151888,
@@ -1258,7 +1258,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "코로나19 방역 대응에서의 혼선과 미흡함은 공공의 안전을 위협하는 요소로, 윤리성에 미흡한 점으로 평가된다."
+        "rating_rationale": "코로나19 방역 대응의 혼선과 미흡함은 공공의 안전을 위협하는 행위이다. 초기 방역 수칙 소홀은 시민들의 건강과 생명을 위험에 빠뜨릴 수 있다."
       },
       {
         "item_id": 151889,
@@ -1266,15 +1266,15 @@
         "collected_by": "ChatGPT",
         "original_rating": "D",
         "new_rating": "E",
-        "rating_rationale": "시민 의견 무시는 민주적 절차를 무시하는 것으로, 윤리성에 미흡한 점으로 평가된다."
+        "rating_rationale": "시민들의 의견을 무시한 정책 결정은 민주적 절차를 무시한 것이다. 이는 시민들과의 소통 부족을 드러내며, 신뢰를 잃게 하는 주요 원인이다."
       },
       {
         "item_id": 151890,
         "data_title": "과거 정치적 스캔들",
         "collected_by": "ChatGPT",
         "original_rating": "F",
-        "new_rating": "F",
-        "rating_rationale": "과거 정치적 스캔들은 신뢰도에 큰 영향을 미치며, 윤리성에 큰 결함을 드러내는 요인이다."
+        "new_rating": "E",
+        "rating_rationale": "과거 정치적 스캔들은 정치인의 신뢰도를 심각하게 훼손한다. 비리 의혹의 재조명은 그의 도덕성과 청렴성을 의심하게 만드는 요인이다."
       },
       {
         "item_id": 151891,
@@ -1282,7 +1282,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "H",
         "new_rating": "E",
-        "rating_rationale": "약속 불이행은 시민들의 신뢰를 잃게 하는 중요한 윤리적 문제로, 윤리성에 미흡한 점으로 평가된다."
+        "rating_rationale": "공약 불이행은 시민들의 신뢰를 잃게 하는 주요 원인이다. 지지부진한 이행 과정은 정치인의 책임감 부족을 드러내며, 약속의 중요성을 무시한 행위이다."
       },
       {
         "item_id": 151892,
@@ -1290,7 +1290,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "공직자로서 윤리 규정을 철저히 준수하고 부당 이득을 방지하는 것은 매우 우수한 윤리성을 보여줌. 국민권익위원회의 공식 발표로 신뢰성이 높음."
+        "rating_rationale": "공직자로서 윤리 규정을 철저히 준수하며 부당 이득을 방지하는 태도는 매우 우수함. 국민권익위원회의 공식 발표로 신뢰성 높음."
       },
       {
         "item_id": 151893,
@@ -1298,23 +1298,23 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "대중과의 소통에서 비방이나 공격적인 발언을 자제하는 것은 우수한 윤리성을 나타냄. 서울시의 공식 발표로 신뢰성이 있음."
+        "rating_rationale": "대중과의 소통에서 정중함을 유지하고 비방이나 공격적인 발언을 자제하는 태도는 우수함. 서울시 공식 발표로 신뢰성 있음."
       },
       {
         "item_id": 151894,
         "data_title": "투명한 의사결정 과정",
         "collected_by": "ChatGPT",
         "original_rating": "A",
-        "new_rating": "B",
-        "rating_rationale": "정책 결정 시 시민 의견을 수렴하고 절차를 공개하는 것은 투명성을 보장하며 우수한 윤리성을 보여줌. 서울시 정책 발표로 신뢰성이 있음."
+        "new_rating": "A",
+        "rating_rationale": "정책 결정 시 시민 의견을 수렴하고 절차를 공개하여 투명함을 유지하는 태도는 매우 우수함. 서울시 정책 발표로 신뢰성 높음."
       },
       {
         "item_id": 151895,
         "data_title": "부패 사건 간섭",
         "collected_by": "ChatGPT",
         "original_rating": "B",
-        "new_rating": "C",
-        "rating_rationale": "자신의 이해관계와 관련된 부패 사건에 대해 솔직하고 투명하게 대처하는 것은 양호한 윤리성을 나타냄. 서울시 감사 결과로 신뢰성이 있음."
+        "new_rating": "B",
+        "rating_rationale": "자신의 이해관계와 관련된 부패 사건에 대해 솔직하고 투명하게 대처하는 태도는 우수함. 서울시 감사 결과로 신뢰성 있음."
       },
       {
         "item_id": 151896,
@@ -1322,15 +1322,15 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "공공 자금을 비상식적으로 사용하지 않고 책임감 있게 관리하는 것은 우수한 윤리성을 보여줌. 서울시 예산서로 신뢰성이 있음."
+        "rating_rationale": "공공 자금을 관리하며 비상식적인 사용을 지양하고 예산 집행의 책임을 지는 태도는 우수함. 서울시 예산서로 신뢰성 있음."
       },
       {
         "item_id": 151897,
         "data_title": "사회적 약자에 대한 지원",
         "collected_by": "ChatGPT",
         "original_rating": "A",
-        "new_rating": "B",
-        "rating_rationale": "사회적 약자를 위한 다양한 프로그램 운영과 적극적 지원은 우수한 윤리성을 나타냄. 서울시 정책 발표로 신뢰성이 있음."
+        "new_rating": "A",
+        "rating_rationale": "사회적 약자를 위해 다양한 프로그램을 운영하고 적극적으로 지원하는 정책은 매우 우수함. 서울시 정책 발표로 신뢰성 높음."
       },
       {
         "item_id": 151898,
@@ -1338,7 +1338,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "C",
-        "rating_rationale": "시민의 민원에 신속하게 대응하는 것은 양호한 윤리성을 보여줌. 서울시 민원 처리 통계로 신뢰성이 있음."
+        "rating_rationale": "시민의 민원에 대해 신속한 대응을 하는 태도는 양호함. 서울시 민원 처리 통계로 신뢰성 있음."
       },
       {
         "item_id": 151899,
@@ -1346,7 +1346,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "C",
-        "rating_rationale": "정책 추진의 일관성은 시민들에게 안정감을 주며 양호한 윤리성을 나타냄. 서울시 정책 발표로 신뢰성이 있음."
+        "rating_rationale": "정책 추진이 일관되게 이루어져 시민들에게 안정감을 주는 태도는 양호함. 서울시 정책 발표로 신뢰성 있음."
       },
       {
         "item_id": 151900,
@@ -1354,15 +1354,15 @@
         "collected_by": "ChatGPT",
         "original_rating": "A",
         "new_rating": "B",
-        "rating_rationale": "언론과의 관계에서 정직하게 정보를 제공하고 상호 존중하는 태도는 우수한 윤리성을 보여줌. 언론 보도로 신뢰성이 있음."
+        "rating_rationale": "언론과의 관계에서 정직하게 정보를 제공하고 상호 존중하는 태도는 우수함. 언론 보도로 신뢰성 있음."
       },
       {
         "item_id": 151901,
         "data_title": "시민의 의견 존중",
         "collected_by": "ChatGPT",
         "original_rating": "A",
-        "new_rating": "B",
-        "rating_rationale": "정책 결정 과정에서 시민의 의견을 적극적으로 반영하고 존중하는 태도는 우수한 윤리성을 나타냄. 서울시 정책 관련 보고서로 신뢰성이 있음."
+        "new_rating": "A",
+        "rating_rationale": "정책 결정 과정에서 시민의 의견을 적극적으로 반영하고 존중하는 태도는 매우 우수함. 서울시 정책 관련 보고서로 신뢰성 높음."
       },
       {
         "item_id": 151902,
@@ -1370,7 +1370,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "국민권익위원회의 청렴도 조사에서 부정행위 발생률이 낮고 청렴도를 유지하는 모습을 보임으로써 매우 우수한 윤리성을 나타냄."
+        "rating_rationale": "공직자로서 청렴도를 유지하고 부정행위 발생률이 낮다는 것은 매우 우수한 윤리성을 보여주는 증거입니다. 국민권익위원회의 조사 결과를 통해 신뢰성이 더욱 높아집니다."
       },
       {
         "item_id": 151903,
@@ -1378,7 +1378,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "정치적 이익을 위해 불법적이거나 비윤리적인 행동을 하지 않는다는 서울시 공식 발표는 매우 우수한 윤리성을 보여줌."
+        "rating_rationale": "정치적 이익을 위해 불법적이거나 비윤리적인 행동을 하지 않는 것은 매우 우수한 윤리성을 나타냅니다. 서울시의 공식 발표로 그 신뢰도가 더욱 확보됩니다."
       },
       {
         "item_id": 151904,
@@ -1386,7 +1386,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "A",
         "new_rating": "B",
-        "rating_rationale": "사회적 문제에 대한 지속적인 관심과 해결 의지를 보이는 것은 우수한 윤리성을 나타내며, 사회적 책임 의식을 강하게 보여줌."
+        "rating_rationale": "사회적 문제에 대한 지속적인 관심과 해결 의지는 우수한 윤리성을 보여줍니다. 다만, 실제 성과와 구체적인 실행 계획이 더 필요할 수 있습니다."
       },
       {
         "item_id": 151905,
@@ -1394,7 +1394,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "A",
         "new_rating": "B",
-        "rating_rationale": "지역 주민들과의 소통을 적극적으로 시도하며 관계를 강화하는 것은 우수한 윤리성을 보여주며, 지역사회와의 긍정적인 관계를 형성함."
+        "rating_rationale": "지역 주민들과의 소통을 적극적으로 시도하고 관계를 강화하는 것은 우수한 윤리성을 나타냅니다. 이러한 노력은 지역사회와의 신뢰 구축에 기여합니다."
       },
       {
         "item_id": 151906,
@@ -1402,7 +1402,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "환경 문제에 대한 정책을 강화하고 지속가능한 발전을 추구하는 것은 우수한 윤리성을 나타내며, 환경에 대한 책임을 다하고 있음."
+        "rating_rationale": "환경 문제에 대한 정책 강화와 지속가능한 발전 추구는 우수한 윤리성을 보여줍니다. 환경 정책 보고서를 통해 그 노력을 확인할 수 있습니다."
       },
       {
         "item_id": 151907,
@@ -1410,7 +1410,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "정치적 활동과 후원에 대한 정보를 명확하게 공개하여 신뢰를 얻는 것은 매우 우수한 윤리성을 보여주며, 투명성을 중시함."
+        "rating_rationale": "정치적 활동과 후원에 대한 정보를 명확하게 공개하는 것은 매우 우수한 윤리성을 나타냅니다. 투명성은 신뢰를 구축하는 중요한 요소입니다."
       },
       {
         "item_id": 151908,
@@ -1418,7 +1418,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "비판에 대해 열린 태도로 수용하고 개선의 기회로 삼는 것은 우수한 윤리성을 나타내며, 비판을 긍정적으로 활용함."
+        "rating_rationale": "비판에 대해 열린 태도로 수용하고 개선의 기회로 삼는 것은 우수한 윤리성을 보여줍니다. 언론 보도를 통해 이러한 태도가 확인되었습니다."
       },
       {
         "item_id": 151909,
@@ -1426,7 +1426,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "A",
         "new_rating": "B",
-        "rating_rationale": "대중의 목소리를 경청하고 정책에 반영하는 노력을 기울이는 것은 우수한 윤리성을 보여주며, 대중과의 소통을 중요시함."
+        "rating_rationale": "대중의 목소리를 경청하고 정책에 반영하려는 노력은 우수한 윤리성을 나타냅니다. 서울시의 정책 발표를 통해 이러한 노력이 드러납니다."
       },
       {
         "item_id": 151910,
@@ -1434,7 +1434,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "사회적 갈등 상황에서 중재하여 문제 해결에 기여하는 것은 우수한 윤리성을 나타내며, 갈등 해결 능력을 보여줌."
+        "rating_rationale": "사회적 갈등 상황에서 중재하여 문제 해결에 기여하는 것은 우수한 윤리성을 보여줍니다. 서울시 정책 발표를 통해 그 노력이 확인되었습니다."
       },
       {
         "item_id": 151911,
@@ -1442,7 +1442,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "자신의 정책과 행위에 대한 비판을 진지하게 받아들이고 성찰하는 태도를 보이는 것은 우수한 윤리성을 나타내며, 자기 반성을 중시함."
+        "rating_rationale": "자신의 정책과 행위에 대한 비판을 진지하게 받아들이고 성찰하는 태도는 우수한 윤리성을 나타냅니다. 서울시 정책 발표를 통해 이러한 태도가 드러납니다."
       },
       {
         "item_id": 151912,
@@ -1450,7 +1450,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "오세훈의 발언이 실제 정책으로 이어지는 경우가 많고, 발언의 일관성이 좋은 편이지만, 모든 발언이 정책으로 이어지지 않는 점을 고려해 우수 등급을 부여."
+        "rating_rationale": "오세훈의 발언이 정책으로 이어지는 경우가 많고, 일관성이 좋은 점은 우수하나, 모든 발언이 정책으로 이어지지 않는다는 점에서 약간의 단점이 있다."
       },
       {
         "item_id": 151913,
@@ -1458,7 +1458,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "재난 구호 및 사회 복지 분야에서의 적극적인 활동과 서울의 재난 대응 시스템 개선 사례가 사회적 책임 의식을 잘 보여주므로 매우 우수 등급을 부여."
+        "rating_rationale": "재난 구호 및 사회 복지 분야에서 적극적인 활동과 서울의 재난 대응 시스템 개선은 사회적 책임 의식을 매우 우수하게 보여준다."
       },
       {
         "item_id": 151914,
@@ -1466,7 +1466,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "C",
         "new_rating": "D",
-        "rating_rationale": "인사에서 공정성을 강조했지만, 일부에서 정치적 로비가 작용했다는 비판이 있어 보통 등급을 부여. 공정성에 대한 의문이 제기됨."
+        "rating_rationale": "인사에서 공정성을 강조했으나, 정치적 로비 의혹이 제기된 점은 보통 수준의 윤리성을 나타낸다. 긍정적이고 부정적인 요소가 혼재되어 있다."
       },
       {
         "item_id": 151915,
@@ -1474,7 +1474,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "C",
-        "rating_rationale": "청렴성을 강조하며 정책을 추진했으나, 비리 의혹이 제기된 바 있어 양호 등급을 부여. 공식적인 청렴도는 높은 편이지만, 의혹이 존재함."
+        "rating_rationale": "청렴성을 강조하고 공식적인 청렴도가 높은 편이지만, 비리 의혹이 제기된 바 있어 양호한 수준의 윤리성을 보인다."
       },
       {
         "item_id": 151916,
@@ -1482,7 +1482,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "A",
         "new_rating": "B",
-        "rating_rationale": "시민들과의 소통을 위해 다양한 채널을 활용하고 적극적으로 의견을 듣는 모습이 관찰되므로 우수 등급을 부여. 특히 SNS를 통한 소통이 두드러짐."
+        "rating_rationale": "시민들과의 적극적인 소통과 다양한 채널을 활용한 점은 우수한 윤리성을 보여준다. SNS를 통한 소통이 두드러진 점이 긍정적이다."
       },
       {
         "item_id": 151917,
@@ -1490,7 +1490,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "한 번 결정한 정책을 일관되게 추진하는 경우가 많으나, 상황에 따라 입장이 변하는 경우도 있어 양호 등급을 부여. 일관성에 대한 평가가 엇갈림."
+        "rating_rationale": "정책에 대한 일관성은 양호하지만, 상황에 따라 입장이 변하는 경우가 있어 윤리성 면에서 약간의 단점이 있다."
       },
       {
         "item_id": 151918,
@@ -1498,7 +1498,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "공식적인 자리에서 품위 있는 발언을 하고 언어 사용이 신중했으므로 매우 우수 등급을 부여. 공적인 발언의 품위가 높게 평가됨."
+        "rating_rationale": "공식적인 자리에서 품위 있는 발언과 신중한 언어 사용은 매우 우수한 윤리성을 나타낸다."
       },
       {
         "item_id": 151919,
@@ -1506,7 +1506,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "비판에 대해 수용적인 태도를 보이는 경우가 많지만, 때로는 강하게 반발하는 경우도 있어 양호 등급을 부여. 비판에 대한 태도가 일관되지 않음."
+        "rating_rationale": "비판에 대한 수용적 태도는 양호하나, 강하게 반발하는 경우도 있어 윤리성 면에서 약간의 단점이 있다."
       },
       {
         "item_id": 151920,
@@ -1514,7 +1514,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "코로나19와 같은 위기 상황에서 신속하게 대처한 바가 있고, 그에 대한 평가가 긍정적이므로 매우 우수 등급을 부여. 위기 관리 능력이 뛰어남."
+        "rating_rationale": "코로나19와 같은 위기 상황에서 신속한 대처와 긍정적인 평가는 매우 우수한 윤리성을 보여준다."
       },
       {
         "item_id": 151921,
@@ -1522,7 +1522,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "유명한 정책을 다수 실행하며 시민들에게 긍정적인 영향을 미쳤지만, 일부 정책에서는 시행되지 않은 사례가 있어 우수 등급을 부여. 정책 실행력이 전반적으로 우수함."
+        "rating_rationale": "다수의 정책을 실행하며 긍정적인 영향을 미친 점은 우수하나, 일부 정책이 시행되지 않은 점은 약간의 단점으로 작용한다."
       },
       {
         "item_id": 151922,
@@ -1530,7 +1530,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "A",
         "new_rating": "B",
-        "rating_rationale": "소속 정당과의 원활한 소통과 주도적 역할 수행은 우수한 윤리성을 나타낸다. 다만, 당내 갈등이 전혀 없다는 점에서 더 높은 점수를 주기 어렵다."
+        "rating_rationale": "소속 정당과의 원활한 소통과 주도적 역할 수행은 정치적 윤리성에 긍정적이나, 갈등이 없다는 점에서 다소 이상화된 평가일 수 있으나 전반적으로 우수한 편이다."
       },
       {
         "item_id": 151923,
@@ -1538,7 +1538,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "A",
         "new_rating": "C",
-        "rating_rationale": "정치적 영향력이 크다는 점은 긍정적이나, 윤리성과는 직접적인 연관이 적다. 영향력 자체가 윤리성의 척도는 아니므로 양호한 수준으로 평가한다."
+        "rating_rationale": "정치적 영향력이 크다는 점은 긍정적이나, 이는 윤리성과 직접적인 관련이 적어 양호한 수준으로 평가한다. 국내외적 의견 수렴은 긍정적 요소이지만, 윤리적 기준으로는 중간 정도."
       },
       {
         "item_id": 151924,
@@ -1546,7 +1546,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "C",
-        "rating_rationale": "상대방에 대한 존중 태도는 긍정적이나, 때때로 강한 언행으로 비판을 받는다는 점에서 양호한 수준으로 평가한다. 일관된 존중이 필요하다."
+        "rating_rationale": "상대방을 존중하는 태도는 윤리성에 긍정적이나, 때때로 강한 언행으로 비판을 받는다는 점에서 양호한 수준으로 평가된다. 긍정적 이미지와 비판이 공존하는 상황."
       },
       {
         "item_id": 151925,
@@ -1554,7 +1554,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "A",
         "new_rating": "B",
-        "rating_rationale": "비전 제시 능력과 정책의 실현 가능성 고려는 우수한 윤리성을 나타낸다. 시민들에게 구체적인 비전을 전달하려는 노력이 돋보인다."
+        "rating_rationale": "비전을 구체화하고 실현 가능성을 고려하는 것은 윤리적 리더십의 중요한 요소로, 이는 우수한 수준으로 평가된다. 시민들에게 전달하려는 노력도 긍정적."
       },
       {
         "item_id": 151926,
@@ -1562,7 +1562,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "C",
         "new_rating": "D",
-        "rating_rationale": "업무 처리 능력은 빠르고 효율적이지만, 결정 과정에서의 투명성 부족은 윤리성에 부정적인 영향을 미친다. 보통 수준으로 평가한다."
+        "rating_rationale": "업무 처리 능력이 빠르고 효율적이라는 점은 긍정적이나, 결정 과정의 투명성 부족은 윤리성에 부정적 영향을 미친다. 따라서 보통 수준으로 평가된다."
       },
       {
         "item_id": 151927,
@@ -1570,7 +1570,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "D",
-        "rating_rationale": "시민 피드백을 정책에 반영하려는 노력은 긍정적이나, 실제 적용에 한계가 있다는 점에서 보통 수준으로 평가한다. 더 많은 노력이 필요하다."
+        "rating_rationale": "시민들의 피드백을 정책에 반영하려는 노력은 긍정적이나, 실제 적용의 한계가 있다는 점에서 보통 수준으로 평가된다. 윤리적 관점에서 노력은 인정되나, 효과가 미흡."
       },
       {
         "item_id": 151928,
@@ -1578,7 +1578,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "C",
         "new_rating": "D",
-        "rating_rationale": "정책의 일부가 실효성이 높다는 점은 긍정적이나, 일부가 큰 영향을 미치지 못했다는 비판은 보통 수준의 윤리성을 나타낸다. 일관된 성과가 필요하다."
+        "rating_rationale": "정책의 실효성이 일부 높다는 점은 긍정적이나, 일부 정책이 시민들에게 큰 영향을 미치지 못했다는 비판이 있다는 점에서 보통 수준으로 평가된다. 일관성이 부족."
       },
       {
         "item_id": 151929,
@@ -1586,7 +1586,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "D",
         "new_rating": "E",
-        "rating_rationale": "사회적 갈등에 대한 적절한 대응 부족은 윤리성에 미흡한 영향을 미친다. 더 나은 갈등 관리 능력이 필요하다."
+        "rating_rationale": "사회적 갈등에 대한 적절한 대응이 부족하다는 비판은 윤리성에 부정적 영향을 미친다. 이는 미흡한 수준으로 평가되며, 대응 능력의 부족이 문제점으로 지적된다."
       },
       {
         "item_id": 151930,
@@ -1594,7 +1594,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "C",
         "new_rating": "D",
-        "rating_rationale": "다른 의견을 수용하는 태도는 긍정적이나, 때로는 너무 강한 입장을 취한다는 비판은 보통 수준의 윤리성을 나타낸다. 더 많은 관용이 필요하다."
+        "rating_rationale": "정치적 관용을 보이는 경우가 있으나, 때로는 너무 강한 입장을 취한다는 비판이 있다는 점에서 보통 수준으로 평가된다. 다양한 의견 수용에 일관성이 부족함."
       },
       {
         "item_id": 151931,
@@ -1602,7 +1602,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "H",
         "new_rating": "E",
-        "rating_rationale": "정기적인 자기 반성 부족은 윤리성에 미흡한 영향을 미친다. 정치적 행보에서의 자기 반성이 더 필요하다."
+        "rating_rationale": "정기적인 자기 반성의 부족은 윤리적 리더십에 큰 결함으로 작용한다. 이는 미흡한 수준으로 평가되며, 정치적 행보에서의 자기 반성이 부족하다는 비판이 있다."
       },
       {
         "item_id": 151832,
@@ -1610,7 +1610,7 @@
         "collected_by": "Grok",
         "original_rating": "F",
         "new_rating": "F",
-        "rating_rationale": "주민의 권리를 침해하고 강제 이주와 보상 부족 문제를 야기한 것은 사회적 약자를 보호해야 할 윤리적 의무를 소홀히 한 행위로, 공공 이익과 개인 권리의 균형을 해친다."
+        "rating_rationale": "주민들의 강제 이주와 보상 부족 문제로 주거 불안정을 야기했으며, 사회적 약자를 보호하지 못함. 공공 이익과 개인 권리의 균형을 해친 사례로 윤리적 의무를 소홀히 함."
       },
       {
         "item_id": 151833,
@@ -1618,7 +1618,7 @@
         "collected_by": "Grok",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "코로나19 대응에서 봉쇄 조치 지연과 마스크 배포 부족으로 시민들의 건강과 안전을 위협한 것은 공공 안전 우선의 윤리적 원칙을 지키지 못한 행위이다."
+        "rating_rationale": "코로나19 대응에서 봉쇄 조치 지연과 마스크 배포 부족으로 시민들의 건강과 안전을 위협함. 공공 안전 우선의 윤리적 원칙을 지키지 못함."
       },
       {
         "item_id": 151834,
@@ -1626,7 +1626,7 @@
         "collected_by": "Grok",
         "original_rating": "G",
         "new_rating": "F",
-        "rating_rationale": "소수 집단을 비하하는 발언으로 사회적 갈등을 유발한 것은 정치인의 품위와 도덕적 책임을 저버린 행위로, 공공 발언의 윤리적 기준을 위배한 사례이다."
+        "rating_rationale": "소수 집단을 비하하는 발언으로 사회적 논란을 일으킴. 공공 발언의 윤리적 기준을 위배하고 사회적 통합을 해침. 사과조차 미흡함."
       },
       {
         "item_id": 151835,
@@ -1634,15 +1634,15 @@
         "collected_by": "Grok",
         "original_rating": "F",
         "new_rating": "E",
-        "rating_rationale": "환경 파괴를 초래하고 지속 가능한 발전 원칙을 무시한 것은 자연 보호와 미래 세대 책임이라는 윤리적 의무를 소홀히 한 행위로, 장기적 사회적 책임을 저버린다."
+        "rating_rationale": "개발 정책이 환경 파괴를 초래하고 지속 가능한 발전 원칙을 무시함. 자연 보호와 미래 세대 책임이라는 윤리적 의무를 소홀히 함."
       },
       {
         "item_id": 151836,
         "data_title": "공공 자금 사용의 불투명성",
         "collected_by": "Grok",
         "original_rating": "E",
-        "new_rating": "E",
-        "rating_rationale": "공공 자금 사용의 불투명성은 공공 자산 관리의 윤리적 원칙을 위반한 것으로, 신뢰성과 공정성을 해치며 시민들의 세금 사용에 대한 도덕적 책임을 저버린 행위이다."
+        "new_rating": "F",
+        "rating_rationale": "공공 자금 사용이 투명하지 않아 신뢰성과 공정성을 해침. 시민들의 세금 사용에 대한 도덕적 책임을 저버림."
       },
       {
         "item_id": 151837,
@@ -1650,7 +1650,7 @@
         "collected_by": "Grok",
         "original_rating": "G",
         "new_rating": "F",
-        "rating_rationale": "지하철 파업을 강경 진압하고 과도한 경찰력을 동원한 것은 노동자들의 권리를 무시한 태도로, 사회적 대화보다는 무력 사용을 우선시킨 행위로 공공 서비스 직원의 기본 권리를 침해했다."
+        "rating_rationale": "지하철 파업을 강경 진압하며 노동자들의 권리를 무시하고 과도한 경찰력을 동원함. 사회적 대화보다는 무력 사용을 우선시해 공공 서비스 직원의 기본 권리를 침해함."
       },
       {
         "item_id": 151838,
@@ -1658,7 +1658,7 @@
         "collected_by": "Grok",
         "original_rating": "F",
         "new_rating": "E",
-        "rating_rationale": "부동산 정책으로 인해 서민층의 주거 불안을 초래하고 부유층에 유리하게 설계된 점은 공정성과 형평성을 해친 사례로, 사회적 불평등을 가중시킨 문제로 논란이 일었다."
+        "rating_rationale": "부동산 정책으로 인해 서민층의 주거 불안을 초래하고 부유층에 유리하게 설계됨. 오세훈 본인 또는 측근의 투기 혐의로 공정성과 형평성을 해침."
       },
       {
         "item_id": 151839,
@@ -1666,7 +1666,7 @@
         "collected_by": "Grok",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "코로나19 대응이 지연되고 마스크 착용과 사회적 거리두기 강조가 부족한 것은 공공 보건 윤리를 무시한 태도로, 시민 안전을 최우선으로 하지 않은 리더십의 문제이다."
+        "rating_rationale": "코로나19 대응이 지연되어 감염 확산을 초래함. 마스크 착용과 사회적 거리두기 강조가 부족해 공공 보건 윤리를 무시함."
       },
       {
         "item_id": 151840,
@@ -1674,7 +1674,7 @@
         "collected_by": "Grok",
         "original_rating": "H",
         "new_rating": "F",
-        "rating_rationale": "과거 특정 집단에 대한 발언으로 인권 침해 논란을 일으킨 것은 사회적 약자에 대한 배려가 부족한 태도로, 공공 인물로서의 품위를 훼손하고 사회적 갈등을 유발한 문제이다."
+        "rating_rationale": "과거 특정 집단에 대한 발언으로 인권 침해 논란을 일으킴. 소수자 관련 발언이 차별적이며 사회적 약자에 대한 배려가 부족함. 공공 인물로서의 품위를 훼손함."
       },
       {
         "item_id": 151841,
@@ -1682,7 +1682,7 @@
         "collected_by": "Grok",
         "original_rating": "G",
         "new_rating": "F",
-        "rating_rationale": "도시 개발 정책으로 인해 주민 강제 이주가 발생한 것은 주민의 의견을 무시한 채 이주를 추진한 것으로, 소외계층의 권리를 침해한 사례로 사회적 정의와 윤리를 저버린 문제이다."
+        "rating_rationale": "도시 개발 정책으로 주민 강제 이주를 유발해 인권 침해가 제기됨. 주민 의견을 무시한 채 이주를 추진해 소외계층의 권리를 침해함. 사회적 정의와 윤리를 저버림."
       },
       {
         "item_id": 151842,
@@ -1690,7 +1690,7 @@
         "collected_by": "Grok",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "오세훈이 코로나19 방역 지침을 적극적으로 따르고, 공공 안전을 우선시한 것은 매우 윤리적인 태도로 평가된다. 특히 대중 집회에서의 모델링 실천은 시민들의 건강을 보호하려는 노력의 일환으로 높게 평가된다."
+        "rating_rationale": "코로나19 방역 지침을 적극적으로 준수하고, 공공 안전을 우선시한 태도는 매우 우수한 윤리적 행동으로 평가됩니다. 시민들의 건강 보호를 위해 모범을 보인 점이 돋보입니다."
       },
       {
         "item_id": 151843,
@@ -1698,7 +1698,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "오세훈이 지속 가능한 도시 개발을 강조하고, 환경 보호를 우선시한 것은 매우 윤리적인 행동이다. 한강 재생 사업에서의 윤리적 자원 사용 강조는 그의 환경에 대한 책임감을 보여준다."
+        "rating_rationale": "지속 가능한 도시 개발과 환경 보호를 강조한 태도는 매우 우수합니다. 한강 재생 사업에서 윤리적 자원 사용을 강조한 점이 높이 평가됩니다."
       },
       {
         "item_id": 151844,
@@ -1706,7 +1706,7 @@
         "collected_by": "Grok",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "공공 연설에서 존중과 배려를 중심으로 한 언어 사용은 매우 윤리적인 태도로 평가된다. 논리적이고 도덕적인 표현을 유지한 것은 그의 품위 있는 리더십을 보여준다."
+        "rating_rationale": "공공 연설에서 존중과 배려를 중심으로 한 언어 사용은 매우 우수한 윤리적 태도입니다. 감정적 과잉 없이 논리적이고 도덕적인 표현을 유지한 점이 인상적입니다."
       },
       {
         "item_id": 151845,
@@ -1714,7 +1714,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "공공 입찰 과정의 투명성 강조와 반부패 캠페인 추진은 매우 윤리적인 행동이다. ethical training 프로그램 도입은 공무원들의 도덕적 행동을 장려하려는 노력으로 높게 평가된다."
+        "rating_rationale": "공공 입찰 과정의 투명성 강조와 반부패 캠페인 추진은 매우 우수한 윤리적 행동입니다. 공무원 윤리 교육 프로그램 도입은 도덕적 행동을 장려하는 중요한 조치입니다."
       },
       {
         "item_id": 151846,
@@ -1722,7 +1722,7 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "A",
-        "rating_rationale": "소수자 권리 보호를 언급하고, LGBTQ+ 커뮤니티 지원 프로그램을 발표한 것은 매우 윤리적인 행동으로 평가된다. 사회적 포용을 위한 노력은 그의 윤리적 리더십을 보여준다."
+        "rating_rationale": "소수자 권리 보호를 강조하고 LGBTQ+ 커뮤니티 지원 프로그램을 발표한 것은 매우 우수한 윤리적 행동입니다. 사회적 포용을 위한 노력이 돋보입니다."
       },
       {
         "item_id": 151847,
@@ -1730,7 +1730,7 @@
         "collected_by": "Grok",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "미디어 인터뷰에서 진솔하고 존중하는 태도를 보인 것은 매우 윤리적인 리더십의 예시다. 시민 의견을 경청하는 모습은 사회적 규범을 준수하려는 그의 노력을 보여준다."
+        "rating_rationale": "미디어 인터뷰에서 진솔하고 존중하는 태도를 보인 것은 매우 우수한 윤리적 리더십의 예시입니다. 시민 의견을 경청하는 모습이 사회적 규범을 준수하는 행동입니다."
       },
       {
         "item_id": 151848,
@@ -1738,7 +1738,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "도시 재개발 프로젝트에서 주민 의견 수렴을 강조하고, 윤리적 절차를 따른 것은 매우 윤리적인 행동이다. 강제 이주를 최소화하려는 노력은 그의 윤리적 태도를 보여준다."
+        "rating_rationale": "도시 재개발 프로젝트에서 주민 의견 수렴을 강조하고 강제 이주를 최소화한 노력은 매우 우수한 윤리적 절차입니다. 윤리적 절차를 따른 점이 높이 평가됩니다."
       },
       {
         "item_id": 151849,
@@ -1746,7 +1746,7 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "A",
-        "rating_rationale": "경제 정책에서 소상공인 지원을 강조하고, 공정 배분 원칙을 적용한 것은 매우 윤리적인 행동으로 평가된다. 도덕적 경제 운영을 위한 그의 노력은 높게 평가된다."
+        "rating_rationale": "경제 정책에서 소상공인 지원과 공정 배분 원칙을 적용한 것은 매우 우수한 도덕적 경제 운영입니다. 공정성을 강조한 점이 돋보입니다."
       },
       {
         "item_id": 151850,
@@ -1754,7 +1754,7 @@
         "collected_by": "Grok",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "공무원 윤리 훈련 프로그램 도입과 도덕적 행동 지침 강조는 매우 윤리적인 행동이다. 사회적 규범 준수를 위한 체계적 노력은 그의 리더십을 보여준다."
+        "rating_rationale": "공무원 윤리 훈련 프로그램을 도입하고 도덕적 행동 지침을 강조한 것은 매우 우수한 윤리적 행동입니다. 사회적 규범 준수를 위한 체계적 노력이 인상적입니다."
       },
       {
         "item_id": 151851,
@@ -1762,7 +1762,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "홍수 재난 시 신속한 대응과 투명한 정보 공유는 매우 윤리적인 리더십을 보여준다. 시민 안전을 최우선으로 한 태도는 그의 윤리적 책임감을 잘 나타낸다."
+        "rating_rationale": "재난 대응 시 신속한 행동과 투명한 정보 공유는 매우 우수한 윤리적 리더십입니다. 시민 안전을 최우선으로 한 태도가 돋보입니다."
       },
       {
         "item_id": 151852,
@@ -1770,7 +1770,7 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "A",
-        "rating_rationale": "오세훈은 저소득층 지원 프로그램을 통해 공평한 기회 제공을 강조하며, 도덕적 사회 구성원 양성을 위한 행동을 실천했다. 이는 매우 우수한 윤리적 행위로 평가된다."
+        "rating_rationale": "오세훈은 저소득층 지원 프로그램을 통해 공평한 교육 기회를 제공하려는 노력을 기울였다. 이는 사회적 도덕성을 높이는 행동으로 평가된다."
       },
       {
         "item_id": 151853,
@@ -1778,7 +1778,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "오세훈은 사회 복지 예산을 확대하여 취약계층을 지원하고 윤리적 배분을 실천했다. 이는 사회적 공정성을 위한 노력으로 매우 우수한 윤리적 행위다."
+        "rating_rationale": "사회 복지 예산을 확대하여 취약계층을 지원하고 윤리적 배분을 실천한 것은 사회적 공정성을 위한 우수한 노력으로 평가된다."
       },
       {
         "item_id": 151854,
@@ -1786,7 +1786,7 @@
         "collected_by": "Grok",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "오세훈은 미디어와의 상호작용에서 사실에 기반한 응답을 유지하며 도덕적 진실성을 보여주었다. 이는 신뢰 구축에 기여하는 매우 우수한 윤리적 행위다."
+        "rating_rationale": "미디어와의 상호작용에서 사실에 기반한 응답을 유지하고 도덕적 진실성을 보여준 것은 신뢰를 구축하는 중요한 태도로 평가된다."
       },
       {
         "item_id": 151855,
@@ -1794,7 +1794,7 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "A",
-        "rating_rationale": "오세훈은 교통 정책에서 공공 교통을 우선시하며 지하철 개선 프로젝트를 통해 사회적 형평성을 추구했다. 이는 매우 우수한 윤리적 행위로 평가된다."
+        "rating_rationale": "공공 교통을 우선시하고 지하철 개선 프로젝트를 통해 사회적 형평성을 추구한 것은 매우 윤리적인 행동으로 평가된다."
       },
       {
         "item_id": 151856,
@@ -1802,7 +1802,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "오세훈은 공공 예산을 투명하게 관리하며 도덕적 재정 책임을 다했다. 이는 매우 우수한 윤리적 행위로 평가된다."
+        "rating_rationale": "공공 예산을 투명하게 관리하고 윤리적으로 사용한 것은 도덕적 재정 책임을 다한 우수한 사례로 평가된다."
       },
       {
         "item_id": 151857,
@@ -1810,7 +1810,7 @@
         "collected_by": "Grok",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "오세훈은 문화 유산 보호 정책에서 역사적 가치를 존중하며 윤리적 접근을 강조했다. 이는 사회적 유산 보존을 위한 매우 우수한 윤리적 행위다."
+        "rating_rationale": "문화 유산 보호 정책에서 역사적 가치를 존중하고 윤리적 접근을 강조한 것은 사회적 유산 보존을 위한 매우 우수한 행동이다."
       },
       {
         "item_id": 151858,
@@ -1818,7 +1818,7 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "A",
-        "rating_rationale": "오세훈은 노동자 권리 보호를 위해 공정 노동 환경을 강조한 정책을 추진했다. 이는 윤리적 사회 구성원 대우의 매우 우수한 예시다."
+        "rating_rationale": "노동자 권리 보호를 위해 공정 노동 환경을 강조한 것은 윤리적 사회 구성원 대우의 매우 우수한 예시로 평가된다."
       },
       {
         "item_id": 151859,
@@ -1826,7 +1826,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "오세훈은 국제 행사에서 한국의 윤리적 이미지를 강조하며 존중하는 태도를 보였다. 이는 사회적 규범 준수에 기여하는 매우 우수한 윤리적 행위다."
+        "rating_rationale": "국제 행사에서 한국의 윤리적 이미지를 강조하고 존중하는 태도를 보인 것은 사회적 규범 준수의 매우 우수한 사례다."
       },
       {
         "item_id": 151860,
@@ -1834,7 +1834,7 @@
         "collected_by": "Grok",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "오세훈은 건강 정책에서 공공 의료 접근성을 강조하며 윤리적 배분을 실천했다. 이는 도덕적 건강 권리 보호를 위한 매우 우수한 윤리적 행위다."
+        "rating_rationale": "건강 정책에서 공공 의료 접근성을 강조하고 윤리적 배분을 실천한 것은 도덕적 건강 권리 보호의 매우 우수한 사례로 평가된다."
       },
       {
         "item_id": 151861,
@@ -1842,7 +1842,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "오세훈은 전체 리더십에서 품위 있고 도덕적인 태도를 유지하며 사회적 규범을 준수했다. 이는 윤리적 행동의 통합된 매우 우수한 사례다."
+        "rating_rationale": "전체 리더십에서 품위 있고 도덕적인 태도를 유지하며 사회적 규범을 준수한 것은 윤리적 행동의 통합된 매우 우수한 사례로 평가된다."
       },
       {
         "item_id": 151862,
@@ -1850,7 +1850,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "C",
-        "rating_rationale": "오세훈 시장이 사회적 거리두기를 준수하며 모범을 보였으나, 일부 대면 접촉이 발생해 논란이 있었다. 이는 그의 행동이 사회적 규범을 따랐으나 완벽하지는 않았음을 의미한다."
+        "rating_rationale": "오세훈 서울시장이 코로나19 대응 시 사회적 거리두기를 준수하여 시민들에게 모범을 보였으나, 일부 행사에서 대면 접촉이 발생한 점이 지적되어 논란이 있었다. 이는 사회적 규범을 따랐으나 완벽하지 않았음을 의미한다."
       },
       {
         "item_id": 151863,
@@ -1858,7 +1858,7 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "B",
-        "rating_rationale": "인터뷰에서 예의 바른 언어를 사용하고 논리적인 설명을 중시했으나, 감정적인 뉘앙스가 섞여 있었다. 이는 그의 발언이 대체로 우수했으나 완벽하지는 않았음을 나타낸다."
+        "rating_rationale": "오세훈이 언론 인터뷰에서 정치적 라이벌에 대한 비판 시 예의 바른 언어를 사용하고 논리적인 설명을 중시했으나, 감정적인 뉘앙스가 섞인 점이 지적되었다. 이는 우수한 태도이나 완벽하지는 않았다."
       },
       {
         "item_id": 151864,
@@ -1866,7 +1866,7 @@
         "collected_by": "Grok",
         "original_rating": "D",
         "new_rating": "D",
-        "rating_rationale": "부동산 정책 발표 시 공정성을 강조하고 시민 의견을 수렴했으나, 특정 이해관계자를 배려한 듯한 뉘앙스가 있어 사회적 규범에 대한 의문이 제기되었다. 이는 그의 행동이 보통 수준에 머물렀음을 의미한다."
+        "rating_rationale": "오세훈이 부동산 정책 발표 시 공정성을 강조하고 시민들의 의견을 수렴했으나, 특정 이해관계자를 배려한 듯한 뉘앙스가 있어 사회적 규범에 대한 의문이 제기되었다. 이는 보통 수준의 윤리성을 보인 사례다."
       },
       {
         "item_id": 151865,
@@ -1874,7 +1874,7 @@
         "collected_by": "Grok",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "과거 정치 스캔들에 대한 반성의사를 밝혔으나, 구체적인 조치가 부족해 도덕적 품위에 대한 논란이 지속되었다. 이는 그의 행동이 미흡했음을 나타낸다."
+        "rating_rationale": "오세훈이 과거 정치 스캔들에 대해 반성의사를 밝혔으나, 구체적인 조치가 부족하여 도덕적 품위에 대한 논란이 지속되었다. 이는 미흡한 윤리성을 나타낸다."
       },
       {
         "item_id": 151866,
@@ -1882,7 +1882,7 @@
         "collected_by": "Grok",
         "original_rating": "D",
         "new_rating": "D",
-        "rating_rationale": "청렴한 캠페인을 펼쳤으나, 과도한 약속이 지적되어 유권자에 대한 태도의 윤리성이 논란이 되었다. 이는 그의 행동이 보통 수준에 머물렀음을 의미한다."
+        "rating_rationale": "오세훈이 선거 캠페인에서 청렴한 태도를 보였으나, 과도한 약속이 지적되어 유권자에 대한 태도의 윤리성에 논란이 있었다. 이는 보통 수준의 윤리성을 보인 사례다."
       },
       {
         "item_id": 151867,
@@ -1890,7 +1890,7 @@
         "collected_by": "Grok",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "코로나19 지원금 배분에서 공정한 기준을 강조했으나, 일부 지역의 불평등이 보도되어 사회적 규범을 완벽하게 준수하지 못한 것으로 평가된다. 이는 그의 행동이 미흡했음을 나타낸다."
+        "rating_rationale": "오세훈이 코로나19 지원금 배분에서 공정한 기준을 강조했으나, 일부 지역의 불평등이 보도되어 사회적 규범을 완벽하게 준수하지 못한 예로 꼽혔다. 이는 미흡한 윤리성을 나타낸다."
       },
       {
         "item_id": 151868,
@@ -1898,7 +1898,7 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "D",
-        "rating_rationale": "환경 보호 정책 발표 시 미래 세대를 고려했으나, 실천 계획이 부족해 사회적 규범에 부합하나 행동으로 이어지지 않았다. 이는 그의 행동이 보통 수준에 머물렀음을 의미한다."
+        "rating_rationale": "오세훈이 환경 보호 정책을 발표하며 미래 세대를 고려한 태도를 보였으나, 실천 계획이 부족하여 사회적 규범에 부합하나 행동으로 이어지지 않은 사례로 평가된다. 이는 보통 수준의 윤리성을 보인 사례다."
       },
       {
         "item_id": 151869,
@@ -1906,7 +1906,7 @@
         "collected_by": "Grok",
         "original_rating": "F",
         "new_rating": "E",
-        "rating_rationale": "노동 정책에서 직원들의 권리를 보호하겠다고 밝혔으나, 실제 시행 과정에서 불만이 제기되어 도덕적 기준에 미치지 못했다. 이는 그의 행동이 미흡했음을 나타낸다."
+        "rating_rationale": "오세훈이 노동 정책에서 직원들의 권리를 보호하겠다고 밝혔으나, 실제 시행 과정에서 일부 불만이 제기되어 도덕적 기준에 미치지 못한 부분으로 평가된다. 이는 미흡한 윤리성을 나타낸다."
       },
       {
         "item_id": 151870,
@@ -1914,7 +1914,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "D",
-        "rating_rationale": "국제 행사에서 다른 국가 대표자에 대한 존중을 보였으나, 문화적 민감성을 놓친 점이 있어 윤리적으로 완벽하지 않았다. 이는 그의 행동이 보통 수준에 머물렀음을 의미한다."
+        "rating_rationale": "오세훈이 국제 회의에서 다른 국가 대표자에 대한 존중을 보였으나, 발언 시 문화적 민감성을 놓친 점이 있어 윤리적으로 완벽하지 않음을 드러냈다. 이는 보통 수준의 윤리성을 보인 사례다."
       },
       {
         "item_id": 151871,
@@ -1922,7 +1922,7 @@
         "collected_by": "Grok",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "사회적 약자를 보호하겠다고 발표했으나, 실행 과정의 지연으로 논란이 발생해 도덕적 기대에 미달했다. 이는 그의 행동이 미흡했음을 나타낸다."
+        "rating_rationale": "오세훈이 복지 정책에서 사회적 약자를 보호하겠다고 발표했으나, 실행 과정의 지연으로 논란이 발생하여 도덕적 기대에 미달한 사례로 평가된다. 이는 미흡한 윤리성을 나타낸다."
       },
       {
         "item_id": 151872,
@@ -1930,7 +1930,7 @@
         "collected_by": "Grok",
         "original_rating": "D",
         "new_rating": "E",
-        "rating_rationale": "반부패 캠페인에 참여했으나 주변 인사들의 의혹으로 인해 그의 청렴성이 의심받았다. 이는 그의 윤리적 태도에 모순이 있음을 보여준다."
+        "rating_rationale": "반부패 캠페인 참여는 긍정적이지만, 주변 인사의 의혹으로 인해 오세훈의 품위가 의심받는 점이 윤리적 태도의 모순을 드러낸다. 이는 미흡한 수준이다."
       },
       {
         "item_id": 151873,
@@ -1938,7 +1938,7 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "D",
-        "rating_rationale": "학생들의 권리를 존중하는 발언을 했으나 예산 배분의 불투명함이 지적되었다. 이는 그의 행동이 사회적 규범에 완전히 부합하지 않음을 나타낸다."
+        "rating_rationale": "학생들의 권리를 존중하는 발언은 긍정적이나, 예산 배분의 불투명함이 지적된 점이 그의 행동이 사회적 규범에 완전히 부합하지 않음을 나타낸다. 이는 보통 수준이다."
       },
       {
         "item_id": 151874,
@@ -1946,7 +1946,7 @@
         "collected_by": "Grok",
         "original_rating": "D",
         "new_rating": "D",
-        "rating_rationale": "시민 중심의 태도를 보였으나 일부 발언이 과격하게 느껴졌으며, 이는 그의 품위에 대한 논란을 일으켰다. 행동이 사회적 규범에 완전히 부합하지 않았다."
+        "rating_rationale": "시민 중심의 태도는 긍정적이나, 과격한 발언으로 인해 품위에 대한 논란이 발생한 점이 그의 행동이 사회적 규범에 완전히 부합하지 않음을 나타낸다. 이는 보통 수준이다."
       },
       {
         "item_id": 151875,
@@ -1954,7 +1954,7 @@
         "collected_by": "Grok",
         "original_rating": "E",
         "new_rating": "D",
-        "rating_rationale": "문화 예술 지원에서 공정한 기준을 적용했으나 특정 분야의 편향이 보도되었다. 이는 그의 행동이 도덕적으로 완벽하지 않음을 나타낸다."
+        "rating_rationale": "공정한 기준 적용은 긍정적이나, 특정 분야의 편향이 보도된 점이 그의 행동이 도덕적으로 완벽하지 않음을 나타낸다. 이는 보통 수준이다."
       },
       {
         "item_id": 151876,
@@ -1962,7 +1962,7 @@
         "collected_by": "Grok",
         "original_rating": "F",
         "new_rating": "E",
-        "rating_rationale": "재정 관리를 투명하게 하겠다고 밝혔으나 일부 보고서에서 불명확한 점이 발견되었다. 이는 그의 태도가 윤리적으로 부족한 측면을 드러낸다."
+        "rating_rationale": "재정 투명성 유지 의지는 긍정적이나, 보고서에서 불명확한 점이 발견된 것이 그의 태도가 윤리적으로 부족한 측면을 드러낸다. 이는 미흡한 수준이다."
       },
       {
         "item_id": 151877,
@@ -1970,7 +1970,7 @@
         "collected_by": "Grok",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "공무원 관리에서 공정한 기준을 강조했으나 인사 과정의 불공평이 지적되었다. 이는 그의 행동이 사회적 규범에 미치지 못했다."
+        "rating_rationale": "공정한 기준 강조는 긍정적이나, 인사 과정의 불공평이 지적된 점이 그의 행동이 사회적 규범에 미치지 못했음을 나타낸다. 이는 미흡한 수준이다."
       },
       {
         "item_id": 151878,
@@ -1978,7 +1978,7 @@
         "collected_by": "Grok",
         "original_rating": "D",
         "new_rating": "D",
-        "rating_rationale": "대중 집회에서 평화적인 태도를 보였으나 일부 강경 대응이 논란을 일으켰다. 이는 그의 품위에 대한 의문을 제기한다."
+        "rating_rationale": "평화적인 태도는 긍정적이나, 일부 강경 대응이 논란을 일으킨 점이 그의 품위에 대한 의문을 제기한다. 이는 보통 수준이다."
       },
       {
         "item_id": 151879,
@@ -1986,7 +1986,7 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "D",
-        "rating_rationale": "코로나19 기간 리더십은 대체로 모범적이었으나 초기 대응의 지연이 지적되었다. 이는 그의 행동이 도덕적으로 완벽하지 않았다."
+        "rating_rationale": "코로나19 기간 리더십은 모범적이나, 초기 대응의 지연이 지적된 점이 그의 행동이 도덕적으로 완벽하지 않음을 나타낸다. 이는 보통 수준이다."
       },
       {
         "item_id": 151880,
@@ -1994,7 +1994,7 @@
         "collected_by": "Grok",
         "original_rating": "D",
         "new_rating": "D",
-        "rating_rationale": "경제 정책 발언에서 전문성을 강조했으나 일부 발언이 과장된 것으로 보도되었다. 이는 그의 태도가 사회적 규범에 부합하지 않은 측면을 드러낸다."
+        "rating_rationale": "전문성 강조는 긍정적이나, 일부 발언이 과장된 것으로 보도된 점이 그의 태도가 사회적 규범에 부합하지 않은 측면을 드러낸다. 이는 보통 수준이다."
       },
       {
         "item_id": 151881,
@@ -2002,7 +2002,7 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "D",
-        "rating_rationale": "정치적 토론에서 상대 의견을 존중하는 모습을 보였으나 때때로 비아냥거림이 섞인 점이 있었다. 이는 그의 발언 품위에 대한 논란을 불러일으켰다."
+        "rating_rationale": "상대 의견 존중은 긍정적이나, 비아냥거림이 섞인 발언이 논란을 불러일으킨 점이 그의 발언 품위에 대한 논란을 불러일으켰다. 이는 보통 수준이다."
       },
       {
         "item_id": 107493,
@@ -2010,7 +2010,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "G",
         "new_rating": "G",
-        "rating_rationale": "성희롱 사건으로 인해 사임한 것은 매우 부족한 윤리적 행위로 평가됩니다. 성희롱은 사회적 신뢰를 크게 훼손하는 행위입니다."
+        "rating_rationale": "성희롱 의혹으로 사임한 것은 매우 심각한 윤리적 문제로 간주됩니다. 이는 공직자의 도덕성을 크게 훼손하는 행위입니다."
       },
       {
         "item_id": 107495,
@@ -2018,7 +2018,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "전문가 자문을 받지 않고 독단적으로 정책을 추진한 것은 미흡한 윤리적 행위로, 의사결정 과정에서의 투명성과 책임감이 부족합니다."
+        "rating_rationale": "정책 결정 시 전문가 의견을 수렴하지 않고 독단적으로 추진한 것은 민주적 절차를 무시한 행위로, 윤리적으로 미흡합니다."
       },
       {
         "item_id": 107498,
@@ -2026,7 +2026,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "D",
         "new_rating": "E",
-        "rating_rationale": "복지 정책을 후퇴시켜 사회적 갈등을 야기한 것은 미흡한 윤리적 행위로, 사회적 약자를 배려하지 않은 정책 결정입니다."
+        "rating_rationale": "복지정책을 축소하여 사회적 갈등을 야기한 것은 사회적 책임을 다하지 못한 것으로, 윤리적으로 미흡합니다."
       },
       {
         "item_id": 107499,
@@ -2034,7 +2034,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "F",
         "new_rating": "E",
-        "rating_rationale": "부동산 정책 실패로 인한 서민 주거 불안 심화는 미흡한 윤리적 행위로, 정책의 실효성과 책임감이 부족했음을 나타냅니다."
+        "rating_rationale": "부동산 정책 실패로 서민의 주거 불안을 심화시킨 것은 정책적 무능을 넘어 사회적 약자를 외면한 행위로, 윤리적으로 미흡합니다."
       },
       {
         "item_id": 107501,
@@ -2042,7 +2042,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "E",
         "new_rating": "F",
-        "rating_rationale": "행정 투명성 저하는 부족한 윤리적 행위로, 예산 집행의 불투명성은 공공의 신뢰를 크게 훼손합니다."
+        "rating_rationale": "예산 집행의 불투명성과 특정 사업에 대한 불명확한 예산 배정은 행정의 투명성을 심각하게 훼손한 것으로, 윤리적으로 부족합니다."
       },
       {
         "item_id": 107504,
@@ -2050,15 +2050,15 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "급격한 정치적 기회주의로 선거에 출마한 것은 미흡한 윤리적 행위로, 정치적 도덕성을 의심받게 합니다."
+        "rating_rationale": "정치적 기회주의로 선거에 출마한 것은 정치적 윤리를 저해하는 행위로, 윤리적으로 미흡합니다."
       },
       {
         "item_id": 107507,
         "data_title": "무상교복 정책 논란",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "D",
-        "new_rating": "E",
-        "rating_rationale": "고소득 가정에도 무상교복을 지원한 것은 미흡한 윤리적 행위로, 재정 낭비와 자원의 비효율적 사용을 초래했습니다."
+        "new_rating": "D",
+        "rating_rationale": "고소득 가정에도 무상교복을 지원한 것은 재정 낭비 논란을 일으켰지만, 일부 계층에는 긍정적일 수 있는 정책으로, 윤리적으로 보통입니다."
       },
       {
         "item_id": 107510,
@@ -2066,7 +2066,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "F",
         "new_rating": "E",
-        "rating_rationale": "부동산 정책 실패로 인한 주거 불안 심화는 미흡한 윤리적 행위로, 정책의 실효성과 책임감이 부족했음을 나타냅니다."
+        "rating_rationale": "부동산 정책 실패로 주거 불안을 초래한 것은 사회적 책임을 다하지 못한 것으로, 윤리적으로 미흡합니다."
       },
       {
         "item_id": 107512,
@@ -2074,7 +2074,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "청년수당 정책이 위헌 판정을 받은 것은 미흡한 윤리적 행위로, 정책 추진 과정에서의 법적 검토와 책임감이 부족했습니다."
+        "rating_rationale": "청년수당 정책이 위헌 판정을 받은 것은 정책 추진 능력의 부족을 드러낸 것으로, 윤리적으로 미흡합니다."
       },
       {
         "item_id": 107513,
@@ -2082,7 +2082,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "F",
         "new_rating": "F",
-        "rating_rationale": "취약계층 돌봄 서비스 예산을 대폭 삭감한 것은 부족한 윤리적 행위로, 사회적 약자에 대한 지원 의지가 부족함을 나타냅니다."
+        "rating_rationale": "취약계층 돌봄 서비스 예산을 대폭 삭감한 것은 사회적 약자를 외면한 행위로, 윤리적으로 부족합니다."
       },
       {
         "item_id": 107515,
@@ -2090,7 +2090,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "부동산 투기 의혹이 제기되었으나, 명확한 해명이 부족해 윤리성에 미흡한 평가를 받음. 투명성과 신뢰성에 대한 의문이 남아있음."
+        "rating_rationale": "부동산 투기 의혹이 제기되었으나, 명확한 해명이 부족하여 윤리성에 문제가 있음. 이는 공직자의 도덕적 기준에 미흡한 수준으로 평가됨."
       },
       {
         "item_id": 107517,
@@ -2098,39 +2098,39 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "B",
-        "rating_rationale": "서울시장 재임 시 주요 정책 결정 과정이 투명하게 공개되어 우수한 평가를 받음. 시민의 알 권리를 존중한 사례로 평가됨."
+        "rating_rationale": "서울시장 재임 시 주요 정책 결정 과정의 공개성과 투명성이 높게 평가되어, 윤리성 측면에서 우수한 것으로 판단됨."
       },
       {
         "item_id": 107519,
         "data_title": "성희롱 발언 논란",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "F",
-        "new_rating": "G",
-        "rating_rationale": "과거 성차별적 발언으로 인한 사회적 논란은 매우 부족한 윤리성을 보여줌. 성평등 가치에 반하는 행동으로 큰 비판을 받음."
+        "new_rating": "F",
+        "rating_rationale": "과거 성차별적 발언으로 인한 사회적 논란은 공직자의 윤리성을 심각하게 훼손하는 행위로, 이는 윤리성에 부족한 수준으로 평가됨."
       },
       {
         "item_id": 107520,
         "data_title": "재난지원금 분배 투명성",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
-        "new_rating": "C",
-        "rating_rationale": "코로나19 재난지원금 분배 과정에서 공정성을 유지하려는 노력이 있었으나, 일부 불만이 존재해 양호한 수준으로 평가됨."
+        "new_rating": "A",
+        "rating_rationale": "코로나19 재난지원금 분배의 공정성과 투명성이 매우 높게 평가되어, 윤리성 측면에서 매우 우수한 것으로 판단됨."
       },
       {
         "item_id": 107522,
         "data_title": "정치자금 투명성",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "D",
-        "new_rating": "B",
-        "rating_rationale": "정치자금 모금 및 사용 과정이 투명하게 관리되어 우수한 평가를 받음. 중앙선관위 자료에 따른 신뢰성이 높음."
+        "new_rating": "C",
+        "rating_rationale": "정치자금 모금 및 사용의 투명성이 양호한 수준으로 평가되어, 윤리성 측면에서 양호한 것으로 판단됨."
       },
       {
         "item_id": 107524,
         "data_title": "공직자 윤리 준수",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
-        "new_rating": "C",
-        "rating_rationale": "공직자로서의 도덕적 기준을 준수하려는 노력이 있었으나, 일부 부족한 점이 있어 양호한 수준으로 평가됨."
+        "new_rating": "D",
+        "rating_rationale": "공직자로서의 도덕적 기준 준수 여부가 보통 수준으로 평가되어, 윤리성 측면에서 보통으로 판단됨."
       },
       {
         "item_id": 107525,
@@ -2138,7 +2138,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "개인적 이해관계와 공적 업무를 분리하려는 노력이 있었으며, 이해충돌 방지에 대한 적극적인 태도를 보여 우수한 평가를 받음."
+        "rating_rationale": "개인적 이해관계와 공적 업무의 분리 노력이 우수하게 평가되어, 윤리성 측면에서 우수한 것으로 판단됨."
       },
       {
         "item_id": 107527,
@@ -2146,15 +2146,15 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "취약계층을 위한 윤리적 정책을 적극적으로 추진하여 매우 우수한 평가를 받음. 사회적 약자에 대한 배려가 돋보임."
+        "rating_rationale": "취약계층을 위한 윤리적 정책 추진이 매우 우수하게 평가되어, 윤리성 측면에서 매우 우수한 것으로 판단됨."
       },
       {
         "item_id": 107529,
         "data_title": "언론 자유 존중",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
-        "new_rating": "D",
-        "rating_rationale": "언론의 비판적 보도에 대한 태도가 다소 보통 수준으로, 언론 자유를 존중하려는 노력이 부족해 보통 등급을 받음."
+        "new_rating": "C",
+        "rating_rationale": "언론의 비판적 보도에 대한 태도가 양호하게 평가되어, 윤리성 측면에서 양호한 것으로 판단됨."
       },
       {
         "item_id": 107532,
@@ -2162,7 +2162,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "공무원 윤리 교육 및 청렴 문화 조성에 적극적으로 참여하여 우수한 평가를 받음. 공공 윤리 준수를 위한 노력이 돋보임."
+        "rating_rationale": "공무원 윤리 교육 및 청렴 문화 조성에 대한 참여가 우수하게 평가되어, 윤리성 측면에서 우수한 것으로 판단됨."
       },
       {
         "item_id": 107534,
@@ -2170,7 +2170,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "D",
         "new_rating": "C",
-        "rating_rationale": "정책 실패에 대한 책임을 인정한 점은 긍정적이나, 구체적인 후속 조치나 개선 방안이 제시되지 않은 점에서 양호한 수준으로 평가됩니다."
+        "rating_rationale": "정책 실패에 대한 책임을 인정하는 태도는 양호하나, 구체적인 개선 방안이 제시되지 않아 한계가 있다. 책임 인정 자체는 긍정적이나, 추가적인 행동이 필요하다."
       },
       {
         "item_id": 107536,
@@ -2178,7 +2178,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "B",
-        "rating_rationale": "성평등을 위한 제도적 노력을 지속적으로 추진한 점에서 우수한 윤리성을 보여주며, 이는 사회적 평등을 증진시키는 데 기여합니다."
+        "rating_rationale": "성평등을 위한 제도적 노력은 우수한 수준으로 평가된다. 구체적인 정책과 실행 계획이 포함되어 있어, 성평등 실현에 대한 강한 의지를 보여준다."
       },
       {
         "item_id": 107537,
@@ -2186,7 +2186,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "B",
-        "rating_rationale": "사회적 갈등 상황에서 중재 능력을 발휘하여 갈등을 해결하려는 노력이 돋보이며, 이는 사회 통합에 기여하는 윤리적 행위입니다."
+        "rating_rationale": "사회적 갈등 상황에서의 중재 능력은 우수하다. 다양한 이해관계자 사이에서 조정 역할을 잘 수행하고 있으며, 이는 사회적 안정에 기여한다."
       },
       {
         "item_id": 107540,
@@ -2194,7 +2194,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "C",
-        "rating_rationale": "공공 예산 사용에 있어서 어느 정도의 투명성을 유지하고 있으나, 개선의 여지가 있어 양호한 수준으로 평가됩니다."
+        "rating_rationale": "공공 예산 사용의 윤리성은 양호한 수준이다. 감사 보고서에서 특별한 문제점이 지적되지 않았으나, 더 높은 투명성과 효율성을 기대할 수 있다."
       },
       {
         "item_id": 107541,
@@ -2202,7 +2202,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "환경 보호를 위한 윤리적 정책을 실천한 점에서 우수하며, 지속 가능한 발전을 위한 노력을 기울이고 있습니다."
+        "rating_rationale": "환경 보호를 위한 윤리적 정책은 우수하다. 구체적인 환경 보호 정책과 그 실행 결과가 보고서에 명확히 제시되어 있다."
       },
       {
         "item_id": 107544,
@@ -2210,7 +2210,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "소수자 및 취약계층의 인권 보호를 위해 노력한 점에서 우수한 윤리성을 보여주며, 사회적 약자를 배려하는 태도를 지니고 있습니다."
+        "rating_rationale": "소수자 및 취약계층 인권 보호 노력은 우수하다. 다양한 인권 정책이 시행되고 있으며, 그 효과가 보고서에 잘 나타나 있다."
       },
       {
         "item_id": 107546,
@@ -2218,7 +2218,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "시정 정보의 공개 수준이 어느 정도 유지되고 있으나, 더 많은 정보를 투명하게 공개할 필요가 있어 양호한 수준으로 평가됩니다."
+        "rating_rationale": "시정 정보의 공개 수준은 양호하다. 정보 공개가 어느 정도 이루어지고 있으나, 더 많은 정보가 공개되어야 할 필요가 있다."
       },
       {
         "item_id": 107548,
@@ -2226,7 +2226,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "D",
         "new_rating": "C",
-        "rating_rationale": "인사 과정의 공정성과 투명성을 어느 정도 유지하고 있으나, 더 개선될 여지가 있어 양호한 수준으로 평가됩니다."
+        "rating_rationale": "인사 과정의 공정성과 투명성은 양호하다. 특별한 문제점이 보고되지 않았으나, 더 높은 수준의 공정성을 기대할 수 있다."
       },
       {
         "item_id": 107550,
@@ -2234,7 +2234,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "B",
-        "rating_rationale": "시민과의 소통 방식과 태도가 우수하며, 시민의 의견을 존중하고 반영하려는 노력이 돋보입니다."
+        "rating_rationale": "시민과의 소통 방식과 태도는 우수하다. 시민만족도 조사에서 높은 평가를 받고 있으며, 소통의 중요성을 잘 인식하고 있다."
       },
       {
         "item_id": 107552,
@@ -2242,7 +2242,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "코로나19 등 위기 상황에서 윤리적으로 대응한 점에서 우수하며, 시민의 안전과 건강을 최우선으로 고려한 태도를 보였습니다."
+        "rating_rationale": "코로나19 등 위기 상황에서의 윤리적 대응은 우수하다. 효과적인 대응과 시민의 안전을 최우선으로 한 정책이 잘 시행되었다."
       },
       {
         "item_id": 107553,
@@ -2250,7 +2250,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "C",
-        "rating_rationale": "주민소환으로 인한 사퇴는 정치적 책임을 인정한 것으로 양호한 윤리성을 보임. 하지만 자진 사퇴가 아닌 강제적 상황에서의 사퇴이기에 완전히 우수하다고 보기 어려움."
+        "rating_rationale": "자진 사퇴는 정치적 책임을 인정한 것으로 긍정적이나, 주민소환이라는 상황이 발생한 점은 아쉬움. 전체적으로 양호한 윤리성을 보임."
       },
       {
         "item_id": 107556,
@@ -2258,7 +2258,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "G",
         "new_rating": "E",
-        "rating_rationale": "성추문 의혹으로 인한 사퇴는 윤리적 문제를 야기함. 이는 공직자의 도덕성에 큰 타격을 줌. 다만 의혹 단계이므로 최악의 등급은 아님."
+        "rating_rationale": "성추문 의혹으로 인한 사퇴는 윤리성에 큰 타격을 줌. 이는 미흡한 윤리적 기준을 반영함."
       },
       {
         "item_id": 107558,
@@ -2266,7 +2266,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "E",
         "new_rating": "D",
-        "rating_rationale": "부동산 정책의 투명성 논란은 윤리적 문제를 제기함. 하지만 구체적인 비리나 부패가 드러난 것은 아니므로 보통 등급으로 평가."
+        "rating_rationale": "부동산 정책의 투명성 논란은 윤리성에 부정적 영향을 미침. 그러나 논란의 정도에 따라 보통 수준의 윤리성을 유지함."
       },
       {
         "item_id": 107560,
@@ -2274,7 +2274,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "코로나19 기간 방역 정책에서 시민 안전을 우선시한 것은 우수한 윤리성을 보여줌. 공공의 안전을 최우선으로 한 정책 추진이 긍정적."
+        "rating_rationale": "코로나19 기간 동안 시민 안전을 우선시한 방역 정책은 우수한 윤리성을 보여줌. 공공의 이익을 최우선으로 한 점이 긍정적."
       },
       {
         "item_id": 107561,
@@ -2282,7 +2282,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "공공의료 정책 추진 과정의 투명성은 양호한 수준. 특별한 비리나 문제점이 드러나지 않았으나, 더 높은 투명성을 기대할 수 있음."
+        "rating_rationale": "공공의료 정책 추진 과정의 투명성은 양호한 수준으로 평가됨. 투명성이 어느 정도 보장되었으나, 개선의 여지가 있음."
       },
       {
         "item_id": 107563,
@@ -2290,7 +2290,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "D",
         "new_rating": "D",
-        "rating_rationale": "정치자금 사용의 투명성과 적절성에 대한 검증이 필요한 상황. 명확한 비리나 문제가 드러나지 않았으나, 투명성에 대한 의문이 있음."
+        "rating_rationale": "정치자금 사용의 투명성과 적절성에 대한 검증이 필요함. 현재까지의 평가는 보통 수준의 윤리성을 나타냄."
       },
       {
         "item_id": 107566,
@@ -2298,7 +2298,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "D",
         "new_rating": "C",
-        "rating_rationale": "보수 정치인으로서의 정치적 윤리 기준은 양호한 수준. 특별한 도덕적 문제가 드러나지 않았으나, 더 높은 기준이 요구될 수 있음."
+        "rating_rationale": "보수 정치인으로서의 정치적 윤리 기준은 양호한 수준으로 평가됨. 그러나 더 높은 기준이 요구될 수 있음."
       },
       {
         "item_id": 107569,
@@ -2306,15 +2306,15 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "과거 실패를 인정하고 재도전한 정치적 자세는 우수한 윤리성을 보여줌. 책임감과 성찰의 태도가 긍정적으로 평가됨."
+        "rating_rationale": "과거 실패를 인정하고 재도전하는 자세는 우수한 정치적 책임감을 보여줌. 이는 긍정적인 윤리적 평가로 이어짐."
       },
       {
         "item_id": 107571,
         "data_title": "복지 정책의 공정성",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
-        "new_rating": "C",
-        "rating_rationale": "서울시 복지정책의 포용성과 공정성은 양호한 수준. 특별한 문제점이 드러나지 않았으나, 더 나은 정책을 기대할 수 있음."
+        "new_rating": "B",
+        "rating_rationale": "서울시 복지정책의 포용성과 공정성은 우수한 수준으로 평가됨. 다양한 계층을 고려한 정책은 높은 윤리성을 반영함."
       },
       {
         "item_id": 107573,
@@ -2322,7 +2322,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "언론 인터뷰와 정보 공개의 투명성은 양호한 수준. 특별한 비리나 문제점이 드러나지 않았으나, 더 높은 투명성을 기대할 수 있음."
+        "rating_rationale": "언론 인터뷰와 정보 공개의 투명성은 양호한 수준으로 평가됨. 투명성이 어느 정도 보장되었으나, 더 개선될 여지가 있음."
       },
       {
         "item_id": 107576,
@@ -2330,7 +2330,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "E",
         "new_rating": "C",
-        "rating_rationale": "오세훈 시장의 성평등 정책과 여성 인권 접근은 양호한 수준으로 평가됩니다. 다양한 정책을 통해 여성의 권익을 보호하고자 노력하고 있으나, 일부 정책에서의 논란과 개선 요구가 있어 완벽하다고 보기는 어렵습니다."
+        "rating_rationale": "성평등 정책과 여성 인권에 대한 접근이 양호하나, 더 개선될 여지가 있음. 특정 정책에서의 성과와 한계가 공존함."
       },
       {
         "item_id": 107577,
@@ -2338,23 +2338,23 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "D",
         "new_rating": "B",
-        "rating_rationale": "청년 주거 및 일자리 정책의 실효성은 우수한 편입니다. 청년을 위한 다양한 지원책을 마련하고 있으며, 실제로 많은 청년들이 혜택을 보고 있습니다. 다만, 일부 정책의 지속 가능성에 대한 우려가 있습니다."
+        "rating_rationale": "청년 주거 및 일자리 정책이 실효성을 보이며, 청년층의 삶의 질 향상에 기여하고 있음. 다만, 더 많은 지원이 필요함."
       },
       {
         "item_id": 107580,
         "data_title": "재난 대응 책임성",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
-        "new_rating": "B",
-        "rating_rationale": "코로나19와 폭우 등 재난 상황에서의 대응 능력은 우수합니다. 신속하고 효과적인 대응을 통해 시민의 안전을 지키려는 노력이 돋보입니다. 다만, 일부 상황에서의 미흡한 대처가 지적되기도 합니다."
+        "new_rating": "C",
+        "rating_rationale": "코로나19와 폭우 등 재난 상황에 대한 대응이 양호하나, 일부 상황에서의 대응이 부족하다는 비판이 있음."
       },
       {
         "item_id": 107581,
         "data_title": "정치적 소통 투명성",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "D",
-        "new_rating": "C",
-        "rating_rationale": "시민과의 소통 방식과 정책 투명성은 양호한 수준입니다. 다양한 소통 채널을 통해 시민의 의견을 수렴하려는 노력이 보이지만, 일부 정책의 투명성에 대한 비판이 있어 완벽하다고 보기 어렵습니다."
+        "new_rating": "B",
+        "rating_rationale": "시민과의 소통 방식과 정책 투명성이 우수하며, 시민의 목소리를 적극 반영하려는 노력이 보임."
       },
       {
         "item_id": 107582,
@@ -2362,7 +2362,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "B",
-        "rating_rationale": "서울시의 환경 및 기후변화 대응 정책은 우수한 편입니다. 다양한 환경 보호 정책을 통해 기후 변화에 대응하고 있으며, 시민의 참여를 독려하는 프로그램도 활발히 진행되고 있습니다."
+        "rating_rationale": "서울시 환경 및 기후변화 대응 정책이 우수하며, 지속 가능한 도시 발전을 위한 노력이 돋보임."
       },
       {
         "item_id": 107583,
@@ -2370,7 +2370,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "E",
         "new_rating": "C",
-        "rating_rationale": "정치자금 모금과 사용의 투명성은 양호한 수준입니다. 기본적인 투명성 기준을 준수하고 있으나, 일부에서 자금 사용에 대한 논란이 제기되기도 하여 완벽하다고 보기 어렵습니다."
+        "rating_rationale": "정치자금 모금과 사용의 투명성이 양호하나, 일부 비판이 있어 개선이 필요함."
       },
       {
         "item_id": 107584,
@@ -2378,7 +2378,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "D",
         "new_rating": "B",
-        "rating_rationale": "정치적 대립 상황에서의 중재와 화해 노력은 우수합니다. 다양한 정치 세력 간의 대화를 촉진하고, 갈등을 해결하려는 적극적인 노력이 돋보입니다."
+        "rating_rationale": "정치적 대립 상황에서의 중재와 화해 노력이 우수하며, 사회적 갈등 완화에 기여함."
       },
       {
         "item_id": 107585,
@@ -2386,7 +2386,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "정책 추진의 일관성과 원칙 유지는 양호한 수준입니다. 대체로 일관된 정책을 추진하고 있으나, 일부 정책에서의 변경과 일관성 부족이 지적되기도 합니다."
+        "rating_rationale": "정책 추진의 일관성과 원칙 유지가 양호하나, 일부 정책에서의 변동성이 문제로 지적됨."
       },
       {
         "item_id": 107586,
@@ -2394,7 +2394,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "D",
         "new_rating": "B",
-        "rating_rationale": "다양한 사회계층에 대한 포용적 접근은 우수합니다. 다양한 사회적 약자를 위한 정책을 통해 포용성을 높이려는 노력이 돋보입니다. 다만, 일부 정책에서의 한계가 지적되기도 합니다."
+        "rating_rationale": "다양한 사회계층에 대한 포용적 접근이 우수하며, 사회적 약자를 배려하려는 노력이 돋보임."
       },
       {
         "item_id": 107587,
@@ -2402,7 +2402,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "D",
         "new_rating": "C",
-        "rating_rationale": "공직자로서의 도덕적 기준과 책임은 양호한 수준입니다. 기본적인 공직 윤리를 준수하고 있으나, 일부에서 도덕성에 대한 논란이 제기되기도 하여 완벽하다고 보기 어렵습니다."
+        "rating_rationale": "공직자로서의 도덕적 기준과 책임이 양호하나, 일부 비판이 있어 개선이 필요함."
       }
     ],
     "Claude": [
@@ -2411,24 +2411,24 @@
         "data_title": "과거 재산 형성 과정에 대한 의혹",
         "collected_by": "ChatGPT",
         "original_rating": "E",
-        "new_rating": "F",
-        "rating_rationale": "재산 형성 과정의 불투명한 거래와 비정상적 자산 증가는 공직자의 청렴성에 심각한 의문을 제기하는 문제로, 윤리적 기준에서 중대한 결함을 보여준다."
+        "new_rating": "G",
+        "rating_rationale": "재산 형성 과정의 불투명한 거래와 비정상적 자산 증가는 공직자의 청렴성에 심각한 의문을 제기하는 사안으로, 윤리적 기준에서 매우 부족한 수준에 해당한다."
       },
       {
         "item_id": 151883,
         "data_title": "선거 동안의 공격적인 발언",
         "collected_by": "ChatGPT",
         "original_rating": "D",
-        "new_rating": "E",
-        "rating_rationale": "선거 과정에서의 과장되고 왜곡된 공격적 발언은 정치적 공정성을 훼손하고 민주적 선거 문화를 저해하는 윤리적으로 부적절한 행위이다."
+        "new_rating": "F",
+        "rating_rationale": "선거 과정에서의 과장과 왜곡을 통한 공격적 발언은 정치적 공정성을 해치고 민주적 가치를 훼손하는 행위로, 윤리적으로 부족한 모습을 보여준다."
       },
       {
         "item_id": 151884,
         "data_title": "정치적 중립성 부족",
         "collected_by": "ChatGPT",
         "original_rating": "F",
-        "new_rating": "E",
-        "rating_rationale": "공직자로서 요구되는 정치적 중립성을 위반하여 특정 정치 세력에 편향된 발언을 한 것은 공직 윤리의 기본 원칙을 저버린 미흡한 행위이다."
+        "new_rating": "F",
+        "rating_rationale": "공직자의 정치적 중립성 결여는 공무원 윤리의 핵심 원칙을 위반하는 것으로, 시민 신뢰를 저해하는 심각한 윤리적 문제에 해당한다."
       },
       {
         "item_id": 151885,
@@ -2436,15 +2436,15 @@
         "collected_by": "ChatGPT",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "사회적 약자를 위한 정책의 실효성 없이 포장만 한 것은 시민에 대한 기만행위로, 공직자의 진실성과 책임감이 부족한 윤리적 문제이다."
+        "rating_rationale": "사회적 약자를 위한 정책의 실효성 부족과 포장성 정책은 공직자의 진정성과 책임감을 의심케 하는 윤리적으로 미흡한 행태이다."
       },
       {
         "item_id": 151886,
         "data_title": "부적절한 대민 관계",
         "collected_by": "ChatGPT",
         "original_rating": "D",
-        "new_rating": "D",
-        "rating_rationale": "대민 관계에서의 무시나 불친절한 태도는 공직자의 기본 소양 부족을 보여주지만, 다른 윤리적 문제들에 비해서는 상대적으로 경미한 수준이다."
+        "new_rating": "E",
+        "rating_rationale": "대민 관계에서의 부적절한 태도와 불친절한 반응은 공직자로서의 기본 소양 부족을 드러내며, 윤리적으로 미흡한 수준을 보여준다."
       },
       {
         "item_id": 151887,
@@ -2452,7 +2452,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "E",
         "new_rating": "D",
-        "rating_rationale": "부동산 정책의 실패는 정책 능력의 문제이지만, 의도적인 윤리적 위반보다는 정책 판단 미스에 가까워 윤리성 측면에서는 보통 수준의 문제이다."
+        "rating_rationale": "부동산 정책의 효과 부족과 부작용은 정책 역량의 문제이지만, 의도적 부정행위는 아니므로 윤리적 관점에서는 보통 수준으로 평가된다."
       },
       {
         "item_id": 151888,
@@ -2460,7 +2460,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "E",
         "new_rating": "D",
-        "rating_rationale": "코로나19 방역 대응 미흡은 행정 능력의 한계를 보여주는 것으로, 윤리적 결함보다는 위기 대응 역량 부족에 해당하여 보통 수준의 평가를 받는다."
+        "rating_rationale": "코로나19 방역 대응 미흡은 행정 역량의 한계로 볼 수 있으며, 고의적 윤리 위반보다는 업무 수행상의 문제로 보통 수준에 해당한다."
       },
       {
         "item_id": 151889,
@@ -2468,7 +2468,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "D",
         "new_rating": "E",
-        "rating_rationale": "시민 의견 수렴을 소홀히 한 것은 민주적 의사결정 과정을 무시한 행위로, 공직자로서의 시민에 대한 책임감과 소통 의무를 저버린 미흡한 태도이다."
+        "rating_rationale": "시민 의견 수렴 소홀은 민주적 절차를 경시하는 행위로, 공직자의 민주적 가치 실현 의무를 다하지 못한 윤리적으로 미흡한 모습이다."
       },
       {
         "item_id": 151890,
@@ -2476,7 +2476,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "F",
         "new_rating": "F",
-        "rating_rationale": "과거 정치적 스캔들과 비리 의혹은 공직자의 도덕성과 청렴성에 심각한 의문을 제기하는 문제로, 윤리적 기준에서 상당한 결함을 나타낸다."
+        "rating_rationale": "과거 정치적 스캔들과 비리 의혹은 공직자의 도덕성과 청렴성에 대한 근본적 의문을 제기하는 사안으로, 윤리적으로 부족한 수준을 나타낸다."
       },
       {
         "item_id": 151891,
@@ -2484,7 +2484,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "H",
         "new_rating": "E",
-        "rating_rationale": "공약 불이행은 시민과의 약속을 지키지 않은 것으로, 공직자의 신뢰성과 책임감 부족을 보여주는 윤리적으로 미흡한 행위에 해당한다."
+        "rating_rationale": "공약 불이행은 시민과의 약속을 지키지 못한 것으로, 공직자의 신뢰성과 책임감에 문제가 있음을 보여주는 윤리적으로 미흡한 행위이다."
       },
       {
         "item_id": 151892,
@@ -2492,7 +2492,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "공직자 윤리 규정을 철저히 준수하고 부당 이득을 차단하는 것은 정치인의 기본 덕목이자 가장 중요한 윤리적 기준으로, 국민권익위원회의 공식 확인을 받은 매우 우수한 윤리적 행동입니다."
+        "rating_rationale": "공직자 윤리 규정 준수와 부당 이득 방지를 위한 철저한 관리는 공직자의 기본 덕목을 완벽히 실천하는 모범적 행위로, 윤리성 측면에서 최고 수준의 평가를 받을 만함"
       },
       {
         "item_id": 151893,
@@ -2500,7 +2500,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "대중과의 소통에서 정중함을 유지하고 비방을 자제하는 것은 정치인의 품위와 윤리성을 보여주는 우수한 행동이며, 건전한 정치 문화 조성에 기여하는 바람직한 태도입니다."
+        "rating_rationale": "대중 소통에서 정중함을 유지하고 비방이나 공격적 발언을 자제하는 것은 정치인으로서 바람직한 품위를 보여주며, 민주적 소통 문화 조성에 긍정적 기여를 하고 있음"
       },
       {
         "item_id": 151894,
@@ -2508,7 +2508,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "정책 결정 과정에서 시민 의견을 수렴하고 절차를 공개하여 투명성을 확보하는 것은 민주주의의 핵심 가치를 실현하는 매우 우수한 윤리적 행동으로 평가됩니다."
+        "rating_rationale": "정책 결정 시 시민 의견 수렴과 절차 공개를 통한 투명성 확보는 민주적 거버넌스의 핵심 원칙을 실현하는 것으로, 공직자의 윤리적 책무를 모범적으로 수행하고 있음"
       },
       {
         "item_id": 151895,
@@ -2516,7 +2516,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "자신과 관련된 부패 사건에 대해 솔직하고 투명하게 대처하는 것은 정치인의 도덕적 용기와 책임감을 보여주는 매우 우수한 윤리적 행동으로, 공직자의 모범이 되는 태도입니다."
+        "rating_rationale": "자신과 관련된 부패 사건에 대해 솔직하고 투명하게 대처하는 것은 공직자의 청렴성과 책임감을 보여주는 최고 수준의 윤리적 행위로, 사회적 신뢰 구축에 크게 기여함"
       },
       {
         "item_id": 151896,
@@ -2524,7 +2524,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "공공 자금의 책임감 있는 관리와 비상식적 사용 지양은 공직자의 기본 의무를 충실히 이행하는 우수한 윤리적 행동으로, 국민의 세금에 대한 책임 의식을 보여줍니다."
+        "rating_rationale": "공공 자금의 합리적 관리와 예산 집행에 대한 책임감은 공직자로서 당연한 의무이지만, 이를 성실히 이행하고 있어 윤리적으로 우수한 평가를 받을 만함"
       },
       {
         "item_id": 151897,
@@ -2532,7 +2532,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "A",
         "new_rating": "B",
-        "rating_rationale": "사회적 약자를 위한 적극적인 지원 정책은 사회적 책임과 배려를 실천하는 우수한 윤리적 행동으로, 정치인의 사회적 역할을 모범적으로 수행하고 있음을 보여줍니다."
+        "rating_rationale": "사회적 약자를 위한 적극적인 정책 추진은 사회적 책임과 배려를 실천하는 윤리적 행위로, 공공의 이익을 우선시하는 바람직한 공직자의 모습을 보여줌"
       },
       {
         "item_id": 151898,
@@ -2540,7 +2540,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "C",
-        "rating_rationale": "시민 민원에 대한 신속한 대응은 공직자의 기본 업무를 성실히 수행하는 양호한 수준의 윤리적 행동으로, 시민 서비스 향상에 기여하는 바람직한 태도입니다."
+        "rating_rationale": "시민 민원에 대한 신속한 대응은 공직자의 기본적인 직무 수행 능력을 보여주는 것으로, 윤리적으로는 양호한 수준이지만 특별히 뛰어난 윤리적 행위라고 보기는 어려움"
       },
       {
         "item_id": 151899,
@@ -2548,7 +2548,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "C",
-        "rating_rationale": "정책 추진의 일관성은 공직자로서의 신뢰성과 안정성을 보여주는 양호한 윤리적 행동으로, 시민들에게 예측 가능성과 안정감을 제공하는 긍정적인 측면이 있습니다."
+        "rating_rationale": "정책 추진의 일관성은 행정의 안정성과 신뢰성을 보여주는 긍정적 요소이지만, 윤리성 측면에서는 기본적인 직무 수행 범위에 해당하여 양호한 수준으로 평가됨"
       },
       {
         "item_id": 151900,
@@ -2556,15 +2556,15 @@
         "collected_by": "ChatGPT",
         "original_rating": "A",
         "new_rating": "B",
-        "rating_rationale": "언론과의 관계에서 정직한 정보 제공과 상호 존중하는 태도는 투명성과 소통을 중시하는 우수한 윤리적 행동으로, 건전한 언론-정치 관계 형성에 기여합니다."
+        "rating_rationale": "언론과의 관계에서 정직한 정보 제공과 상호 존중하는 태도는 투명성과 소통의 윤리를 실천하는 것으로, 민주주의 발전에 기여하는 우수한 윤리적 행위임"
       },
       {
         "item_id": 151901,
         "data_title": "시민의 의견 존중",
         "collected_by": "ChatGPT",
         "original_rating": "A",
-        "new_rating": "B",
-        "rating_rationale": "정책 결정 과정에서 시민 의견을 적극적으로 반영하고 존중하는 태도는 민주적 가치를 실현하는 우수한 윤리적 행동으로, 참여 민주주의 구현에 기여하는 모범적 자세입니다."
+        "new_rating": "A",
+        "rating_rationale": "정책 결정 과정에서 시민 의견을 적극 반영하고 존중하는 것은 민주적 참여와 시민 주권을 실현하는 최고 수준의 윤리적 행위로, 참여민주주의의 모범 사례를 보여줌"
       },
       {
         "item_id": 151902,
@@ -2572,7 +2572,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "공직자의 기본 덕목인 청렴도를 높은 수준으로 유지하고 있으며, 국민권익위원회라는 공신력 있는 기관의 조사 결과로 객관성이 확보되어 윤리적 측면에서 매우 우수함"
+        "rating_rationale": "공직자의 가장 기본적이고 핵심적인 덕목인 청렴성을 객관적 기관의 조사를 통해 입증받았으며, 부정행위 발생률이 낮다는 것은 높은 윤리적 기준을 유지하고 있음을 보여주는 매우 우수한 사례입니다."
       },
       {
         "item_id": 151903,
@@ -2580,7 +2580,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "정치적 이익을 위해 불법적이거나 비윤리적 행동을 하지 않는다는 것은 공직자로서 가져야 할 기본적이면서도 핵심적인 윤리 기준을 충족하는 것으로 매우 우수한 윤리성을 보여줌"
+        "rating_rationale": "정치적 이익을 위해 불법적이거나 비윤리적 행동을 하지 않는다는 것은 공직자로서 원칙과 도덕성을 지키는 매우 중요한 덕목으로, 정치인의 윤리성 평가에서 가장 높은 점수를 받을 만한 행동입니다."
       },
       {
         "item_id": 151904,
@@ -2588,7 +2588,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "A",
         "new_rating": "B",
-        "rating_rationale": "사회적 문제에 대한 지속적인 관심과 해결 의지는 공직자로서 바람직한 태도이며, 사회적 책임을 다하려는 윤리적 자세를 보여주어 우수한 수준의 윤리성을 나타냄"
+        "rating_rationale": "사회적 문제에 대한 지속적인 관심과 해결 의지는 공직자로서 바람직한 태도이며, 사회적 책임을 다하려는 노력이 돋보입니다. 다만 구체적인 성과나 실행력에 대한 언급이 부족하여 우수 등급으로 평가합니다."
       },
       {
         "item_id": 151905,
@@ -2596,7 +2596,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "A",
         "new_rating": "B",
-        "rating_rationale": "지역 주민들과의 적극적인 소통 노력은 민주적 가치와 공공성을 실현하는 중요한 윤리적 행위로, 시민과의 관계에서 책임감 있는 모습을 보여 우수한 윤리성을 나타냄"
+        "rating_rationale": "지역 주민과의 적극적인 소통 시도는 민주적 리더십의 중요한 요소로 윤리적으로 바람직한 행동입니다. 소통을 통한 관계 강화는 투명하고 책임감 있는 행정을 위한 기초가 되므로 우수한 평가를 받을 만합니다."
       },
       {
         "item_id": 151906,
@@ -2604,7 +2604,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "환경 정책 강화와 지속가능한 발전 추구는 미래 세대에 대한 책임감과 공공선을 고려한 윤리적 정책 방향으로, 장기적 관점에서의 사회적 책임을 다하는 우수한 윤리성을 보여줌"
+        "rating_rationale": "환경 정책 강화와 지속가능한 발전 추구는 미래 세대에 대한 책임감과 장기적 관점에서의 윤리의식을 보여주는 행동입니다. 환경 문제는 전 인류적 과제이므로 이에 대한 적극적 대응은 높은 윤리성을 나타냅니다."
       },
       {
         "item_id": 151907,
@@ -2612,7 +2612,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "정치적 활동과 후원에 대한 정보를 명확히 공개하는 것은 투명성과 책임성의 핵심으로, 민주주의의 기본 원칙을 실천하는 매우 우수한 윤리적 행위로 평가됨"
+        "rating_rationale": "정치적 활동과 후원에 대한 정보를 명확하게 공개하는 것은 투명성의 핵심이며, 공직자로서 국민에 대한 책임을 다하는 매우 우수한 윤리적 행동입니다. 투명성은 민주주의의 기본 원칙이므로 최고 등급을 받을 만합니다."
       },
       {
         "item_id": 151908,
@@ -2620,7 +2620,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "비판을 열린 태도로 수용하고 개선의 기회로 삼는 것은 겸손함과 자기성찰 능력을 보여주는 윤리적 자세로, 민주적 소통과 발전을 추구하는 우수한 태도를 나타냄"
+        "rating_rationale": "비판을 열린 태도로 수용하고 개선의 기회로 삼는 것은 겸손함과 성장 지향적 사고를 보여주는 윤리적으로 바람직한 태도입니다. 자기반성과 발전 의지는 리더로서 갖춰야 할 중요한 덕목으로 우수한 평가를 받습니다."
       },
       {
         "item_id": 151909,
@@ -2628,7 +2628,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "A",
         "new_rating": "B",
-        "rating_rationale": "대중의 목소리를 경청하고 정책에 반영하려는 노력은 민주적 거버넌스의 핵심이며, 시민 중심의 정치를 실현하려는 윤리적 자세로 우수한 수준의 공공성을 보여줌"
+        "rating_rationale": "대중의 목소리를 경청하고 정책에 반영하려는 노력은 민주적 의사결정 과정의 핵심이며, 국민을 섬기는 공복으로서의 올바른 자세를 보여줍니다. 참여민주주의 실현을 위한 적극적 노력으로 우수하게 평가됩니다."
       },
       {
         "item_id": 151910,
@@ -2636,15 +2636,15 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "사회적 갈등 상황에서 중재 역할을 통해 문제 해결에 기여하는 것은 공익을 우선시하는 윤리적 리더십을 보여주며, 사회 통합을 위한 책임감 있는 우수한 태도로 평가됨"
+        "rating_rationale": "사회적 갈등 상황에서 중재자 역할을 하며 문제 해결에 기여하는 것은 공익을 추구하는 리더십의 발현입니다. 갈등 조정 능력은 사회 통합과 화합을 위한 중요한 덕목으로 윤리적으로 우수한 행동입니다."
       },
       {
         "item_id": 151911,
         "data_title": "자신에 대한 비판 태도",
         "collected_by": "ChatGPT",
         "original_rating": "B",
-        "new_rating": "A",
-        "rating_rationale": "자신의 정책과 행위에 대한 비판을 진지하게 받아들이고 성찰하는 태도는 공직자로서 가져야 할 최고 수준의 윤리적 자세로, 겸손함과 책임감을 동시에 보여주는 매우 우수한 품성을 나타냄"
+        "new_rating": "B",
+        "rating_rationale": "자신의 정책과 행위에 대한 비판을 진지하게 받아들이고 성찰하는 태도는 겸손함과 자기개선 의지를 보여주는 윤리적 덕목입니다. 지속적인 자기반성은 올바른 리더십 발휘를 위한 필수 요소로 우수하게 평가됩니다."
       },
       {
         "item_id": 151912,
@@ -2652,7 +2652,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "발언의 일관성이 좋고 실제 정책으로 이어지는 신뢰성을 보여주나, 구체적인 성과 사례가 제한적으로 언급되어 최고 등급까지는 부족함"
+        "rating_rationale": "발언의 일관성이 좋고 실제 정책으로 이어진 경우가 많다는 점에서 정치인으로서의 신뢰성과 책임감을 보여주지만, 구체적인 성과나 예외 상황에 대한 언급이 부족하여 우수 수준으로 평가"
       },
       {
         "item_id": 151913,
@@ -2660,7 +2660,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "재난 구호와 사회 복지 분야에서의 적극적 활동과 서울 재난 대응 시스템 개선 등 구체적 성과로 높은 사회적 책임 의식을 입증함"
+        "rating_rationale": "재난 구호 및 사회 복지 분야에서의 적극적 활동과 서울 재난 대응 시스템 개선 등 구체적 성과를 통해 사회적 책임 의식을 실천으로 보여준 점에서 매우 우수한 윤리적 자세를 나타냄"
       },
       {
         "item_id": 151914,
@@ -2668,7 +2668,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "C",
         "new_rating": "D",
-        "rating_rationale": "공정성을 강조하는 긍정적 측면이 있으나 정치적 로비 작용 비판이 제기되어 윤리적 완전성에 의문이 있어 보통 수준으로 평가됨"
+        "rating_rationale": "공정성을 강조했다는 긍정적 측면이 있으나 정치적 로비가 작용했다는 비판이 제기된 점에서 인사의 공정성에 대한 의문이 있어 보통 수준의 윤리성을 보임"
       },
       {
         "item_id": 151915,
@@ -2676,7 +2676,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "C",
-        "rating_rationale": "공식적인 청렴도는 높다고 평가되나 일부 비리 의혹이 제기된 점이 윤리성 평가에 부정적 영향을 미쳐 양호 수준으로 판단됨"
+        "rating_rationale": "공식적인 청렴도는 높다는 평가를 받고 있으나 일부 비리 의혹이 제기된 바 있어, 전반적으로는 양호하지만 완전히 깨끗하다고 보기는 어려운 상황"
       },
       {
         "item_id": 151916,
@@ -2684,15 +2684,15 @@
         "collected_by": "ChatGPT",
         "original_rating": "A",
         "new_rating": "B",
-        "rating_rationale": "다양한 채널을 통한 적극적인 시민 소통과 SNS 활용은 민주적 가치와 투명성 측면에서 우수한 윤리적 태도를 보여줌"
+        "rating_rationale": "다양한 채널을 통한 시민 소통과 SNS 활용 등 적극적인 소통 노력을 보이고 있어 민주적 가치와 시민 참여를 중시하는 우수한 윤리적 태도를 보여줌"
       },
       {
         "item_id": 151917,
         "data_title": "정치적 일관성",
         "collected_by": "ChatGPT",
         "original_rating": "C",
-        "new_rating": "D",
-        "rating_rationale": "정책 추진의 일관성은 긍정적이나 상황에 따른 입장 변화가 있어 정치적 신뢰성과 원칙성 측면에서 보통 수준의 윤리성을 보임"
+        "new_rating": "C",
+        "rating_rationale": "정책 추진의 일관성을 보이는 경우가 많다는 점은 긍정적이나, 상황에 따라 입장이 변하는 경우도 있어 완전한 일관성을 보이지는 못하므로 양호 수준으로 평가"
       },
       {
         "item_id": 151918,
@@ -2700,7 +2700,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "공식 자리에서의 품위 있는 발언과 신중한 언어 사용은 공직자로서의 도덕적 품격과 사회적 모범성을 잘 보여주는 우수한 태도임"
+        "rating_rationale": "공식적 자리에서 품위 있는 발언과 신중한 언어 사용을 보여준 점에서 공인으로서의 품격과 윤리 의식이 우수한 수준임을 나타냄"
       },
       {
         "item_id": 151919,
@@ -2708,7 +2708,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "비판에 대한 수용적 태도는 긍정적이나 때로는 강한 반발을 보이는 점이 있어 열린 자세와 겸손함 측면에서 양호한 수준으로 평가됨"
+        "rating_rationale": "비판에 대해 수용적인 태도를 보이는 경우가 많다는 점은 긍정적이나, 때로는 강하게 반발하는 모습도 보여 비판 수용성에서 일관되지 못한 면이 있어 양호 수준"
       },
       {
         "item_id": 151920,
@@ -2716,7 +2716,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "코로나19와 같은 국가적 위기 상황에서 신속한 대처와 긍정적 평가는 공직자로서의 책임감과 위기 대응 능력에서 매우 우수한 윤리성을 보임"
+        "rating_rationale": "코로나19와 같은 국가적 위기 상황에서 신속한 대처를 통해 긍정적 평가를 받은 것은 공직자로서의 책임감과 시민 안전에 대한 높은 윤리 의식을 보여주는 매우 우수한 사례"
       },
       {
         "item_id": 151921,
@@ -2724,7 +2724,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "C",
-        "rating_rationale": "다수의 정책 실행으로 시민들에게 긍정적 영향을 미쳤으나 일부 정책의 미시행 사례가 있어 공약 이행 신뢰성 측면에서 양호한 수준임"
+        "rating_rationale": "다수의 정책을 실행하여 시민들에게 긍정적 영향을 미쳤다는 점은 좋으나, 일부 정책이 시행되지 않은 사례도 있어 정책 실행력에서 완전하지 못한 면이 있어 양호 수준"
       },
       {
         "item_id": 151922,
@@ -2732,7 +2732,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "A",
         "new_rating": "B",
-        "rating_rationale": "소속 정당과의 원활한 소통과 주도적 역할 수행은 정치인으로서 바람직한 태도이나, 당내 화합만으로는 시민을 위한 윤리적 리더십의 완전한 증명이 되지 않아 우수 수준으로 평가"
+        "rating_rationale": "소속 정당과의 원활한 소통과 갈등 없는 관계 유지는 정치인으로서 바람직한 협력적 태도를 보여주며, 당내 주도적 역할 수행은 책임감 있는 자세를 나타낸다."
       },
       {
         "item_id": 151923,
@@ -2740,15 +2740,15 @@
         "collected_by": "ChatGPT",
         "original_rating": "A",
         "new_rating": "C",
-        "rating_rationale": "정치적 영향력 자체는 중립적 요소로 윤리성과 직접적 연관은 제한적이나, 큰 영향력을 가진 만큼 더 높은 윤리적 책임이 요구되는 상황으로 양호 수준으로 판단"
+        "rating_rationale": "정치적 영향력 자체는 윤리성과 직접적 관련성이 낮으나, 국내외적으로 의견이 수렴되는 것은 신뢰성과 리더십을 간접적으로 보여주는 긍정적 요소로 평가할 수 있다."
       },
       {
         "item_id": 151924,
         "data_title": "상대방에 대한 존중",
         "collected_by": "ChatGPT",
         "original_rating": "B",
-        "new_rating": "D",
-        "rating_rationale": "상대방을 존중하는 태도는 긍정적이나 강한 언행으로 비판받는 부분이 있어 일관성 있는 윤리적 태도를 보이지 못하고 있어 보통 수준으로 평가"
+        "new_rating": "C",
+        "rating_rationale": "상대방을 존중하는 태도는 윤리적으로 바람직하나, 때때로 강한 언행으로 비판받는다는 점이 일관성 부족을 보여주어 양호한 수준에 머물고 있다."
       },
       {
         "item_id": 151925,
@@ -2756,7 +2756,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "A",
         "new_rating": "B",
-        "rating_rationale": "구체적인 비전 제시와 실현 가능성을 고려한 정책 접근은 시민에 대한 책임감 있는 태도로 윤리적 리더십의 긍정적 측면을 보여주어 우수 수준으로 평가"
+        "rating_rationale": "구체적이고 실현 가능한 비전 제시는 시민에 대한 책임감과 진정성을 보여주는 윤리적 행동으로, 공직자로서 바람직한 자세를 나타낸다."
       },
       {
         "item_id": 151926,
@@ -2764,7 +2764,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "C",
         "new_rating": "D",
-        "rating_rationale": "업무 처리의 효율성은 긍정적이나 결정 과정의 투명성 부족은 민주적 거버넌스와 시민의 알 권리 측면에서 윤리적 문제가 있어 보통 수준으로 판단"
+        "rating_rationale": "업무 처리 능력은 우수하나 결정 과정에서의 투명성 부족은 민주적 가치와 윤리성에 중요한 문제가 되어 보통 수준으로 평가된다."
       },
       {
         "item_id": 151927,
@@ -2772,7 +2772,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "D",
-        "rating_rationale": "시민 피드백 반영 노력은 긍정적이나 실제 적용의 한계가 있다는 점에서 시민 참여와 소통에 대한 진정성 있는 실천이 부족하여 보통 수준으로 평가"
+        "rating_rationale": "시민 피드백을 반영하려는 노력은 긍정적이나 실제 적용의 한계가 있다는 점은 공약 이행과 시민과의 약속 준수 측면에서 아쉬운 부분이다."
       },
       {
         "item_id": 151928,
@@ -2780,7 +2780,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "C",
         "new_rating": "D",
-        "rating_rationale": "정책의 실효성이 혼재되어 있다는 점에서 시민의 실질적 이익과 공공선 실현에 대한 책임 있는 정책 추진이 일관되지 않아 보통 수준으로 판단"
+        "rating_rationale": "정책의 실효성이 혼재되어 있다는 것은 시민에 대한 책임 이행이 불완전함을 의미하며, 공직자로서의 의무 수행에 있어 보통 수준에 그친다."
       },
       {
         "item_id": 151929,
@@ -2788,7 +2788,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "D",
         "new_rating": "E",
-        "rating_rationale": "사회적 갈등 상황에서의 부적절한 대응은 공직자로서 사회 통합과 갈등 조정 역할을 제대로 수행하지 못한 것으로 윤리적 책임감이 미흡한 수준으로 평가"
+        "rating_rationale": "사회적 갈등 상황에서 적절한 대응을 하지 못한 것은 공직자로서 사회 통합과 갈등 해결 역할을 제대로 수행하지 못한 것으로 윤리적으로 미흡하다."
       },
       {
         "item_id": 151930,
@@ -2796,7 +2796,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "C",
         "new_rating": "D",
-        "rating_rationale": "정치적 관용을 보이는 경우가 있으나 때로는 과도하게 강한 입장을 취한다는 점에서 균형 잡힌 민주적 태도가 일관되지 않아 보통 수준으로 평가"
+        "rating_rationale": "정치적 관용을 보이는 경우도 있으나 때로는 강한 입장을 취한다는 것은 일관성 부족을 보여주며, 민주적 소통에 있어 보통 수준이다."
       },
       {
         "item_id": 151931,
@@ -2804,7 +2804,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "H",
         "new_rating": "E",
-        "rating_rationale": "정기적인 자기 반성 부족과 정치적 행보에서의 성찰 미흡은 공직자로서 지속적인 자기 개선과 겸손한 태도가 결여된 것으로 윤리성이 미흡한 수준으로 판단"
+        "rating_rationale": "정기적인 자기 반성 부족과 정치적 행보에서의 자기 반성 미흡은 공직자로서 지속적인 성찰과 개선 의지가 부족함을 보여주어 윤리적으로 미흡하다."
       },
       {
         "item_id": 151832,
@@ -2812,23 +2812,23 @@
         "collected_by": "Grok",
         "original_rating": "F",
         "new_rating": "F",
-        "rating_rationale": "재개발 정책으로 주민 강제 이주와 보상 부족을 야기한 것은 사회적 약자 보호 의무를 심각하게 소홀히 한 행위입니다. 공공 이익과 개인 권리의 균형을 무시하고 개발 우선주의를 추구한 것은 공직자의 윤리적 책임을 저버린 부족한 행위로 평가됩니다."
+        "rating_rationale": "재개발 과정에서 주민 의견 무시와 강제 이주는 사회적 약자 보호 의무를 심각하게 위반한 행위로, 공공 이익과 개인 권리의 균형을 크게 해쳤음"
       },
       {
         "item_id": 151833,
         "data_title": "코로나19 대응 정책의 미흡",
         "collected_by": "Grok",
         "original_rating": "E",
-        "new_rating": "F",
-        "rating_rationale": "코로나19 대응에서 봉쇄 조치 지연과 마스크 배포 부족으로 시민 건강을 위협한 것은 공공 안전 우선 원칙을 위배한 심각한 문제입니다. 초기 대응 실패로 감염 확산을 가속화시킨 것은 행정적 책임 부재를 보여주는 부족한 윤리 수준입니다."
+        "new_rating": "E",
+        "rating_rationale": "코로나19 초기 대응 지연과 마스크 배포 부족은 시민 안전에 대한 책임을 다하지 못한 것으로, 공공 보건 윤리 원칙을 위배했으나 의도적 악의는 없어 보임"
       },
       {
         "item_id": 151834,
         "data_title": "발언으로 인한 사회적 갈등 유발",
         "collected_by": "Grok",
         "original_rating": "G",
-        "new_rating": "G",
-        "rating_rationale": "소수 집단을 비하하는 발언으로 사회적 갈등을 유발하고 사과조차 미흡했다는 것은 정치인의 기본적 품위와 도덕적 책임을 심각하게 저버린 행위입니다. 공공 발언의 윤리적 기준을 위배하고 사회 통합을 해친 것은 매우 부족한 윤리 수준을 보여줍니다."
+        "new_rating": "F",
+        "rating_rationale": "소수 집단 비하 발언과 미흡한 사과는 정치인의 기본적 품위와 도덕적 책임을 저버린 행위로, 사회 통합을 해치고 갈등을 증폭시킨 심각한 윤리 위반"
       },
       {
         "item_id": 151835,
@@ -2836,7 +2836,7 @@
         "collected_by": "Grok",
         "original_rating": "F",
         "new_rating": "E",
-        "rating_rationale": "개발 정책으로 환경 파괴를 초래하고 지속 가능한 발전 원칙을 무시한 것은 미래 세대에 대한 책임을 소홀히 한 행위입니다. 생태계 피해를 발생시키며 장기적 사회적 책임을 저버린 것은 윤리적으로 미흡한 수준으로 평가됩니다."
+        "rating_rationale": "개발 우선주의로 인한 환경 파괴는 지속가능성과 미래 세대에 대한 책임을 소홀히 한 것으로, 장기적 사회적 책임 의식의 부족을 보여줌"
       },
       {
         "item_id": 151836,
@@ -2844,7 +2844,7 @@
         "collected_by": "Grok",
         "original_rating": "E",
         "new_rating": "F",
-        "rating_rationale": "공공 자금 사용의 불투명성은 공공 자산 관리의 기본 윤리 원칙을 위반한 심각한 문제입니다. 시민 세금 사용에 대한 도덕적 책임을 저버리고 신뢰성과 공정성을 해친 것은 공직자 윤리에 부족한 수준을 보여줍니다."
+        "rating_rationale": "공공 자금 사용의 불투명성은 시민 세금에 대한 도덕적 책임을 저버린 행위로, 투명성과 공정성이라는 기본적 행정 윤리를 심각하게 위반함"
       },
       {
         "item_id": 151837,
@@ -2852,31 +2852,31 @@
         "collected_by": "Grok",
         "original_rating": "G",
         "new_rating": "F",
-        "rating_rationale": "지하철 파업에 대한 강경 진압과 과도한 경찰력 동원은 노동자 기본 권리를 침해한 심각한 문제입니다. 사회적 대화보다 무력을 우선시하고 시민 사회 규범을 저버린 것은 민주적 가치를 훼손한 부족한 윤리 수준입니다."
+        "rating_rationale": "지하철 파업에 대한 강경 진압과 과도한 경찰력 동원은 노동자 기본권을 침해하고 사회적 대화를 거부한 비민주적 행위로 심각한 윤리적 문제"
       },
       {
         "item_id": 151838,
         "data_title": "부동산 정책 관련 투기 의혹",
         "collected_by": "Grok",
         "original_rating": "F",
-        "new_rating": "F",
-        "rating_rationale": "부동산 정책으로 서민층 주거 불안을 초래하고 부유층에 유리하게 설계한 것은 공정성과 형평성을 심각하게 해친 행위입니다. 투기 혐의까지 제기되며 사회적 불평등을 가중시킨 것은 공직자 윤리에 부족한 수준을 보여줍니다."
+        "new_rating": "G",
+        "rating_rationale": "부동산 정책으로 인한 서민층 주거 불안과 투기 의혹은 공정성을 크게 해치고 사회적 불평등을 가중시킨 매우 심각한 윤리적 위반 사례"
       },
       {
         "item_id": 151839,
         "data_title": "코로나19 대응 미흡",
         "collected_by": "Grok",
         "original_rating": "E",
-        "new_rating": "F",
-        "rating_rationale": "코로나19 초기 대응 지연과 방역 조치 미흡으로 감염 확산을 야기한 것은 공공 보건 윤리를 무시한 심각한 문제입니다. 시민 안전을 최우선으로 하지 않은 리더십은 공직자의 기본적 책임을 저버린 부족한 윤리 수준입니다."
+        "new_rating": "E",
+        "rating_rationale": "코로나19 초기 대응 지연과 방역 조치 부족은 시민 안전을 최우선으로 하지 않은 리더십 실패로, 공공 보건에 대한 윤리적 책임을 다하지 못함"
       },
       {
         "item_id": 151840,
         "data_title": "과거 발언으로 인한 인권 논란",
         "collected_by": "Grok",
         "original_rating": "H",
-        "new_rating": "G",
-        "rating_rationale": "소수자에 대한 차별적 발언으로 인권 침해 논란을 일으킨 것은 사회적 약자에 대한 배려가 심각하게 부족한 행위입니다. 공공 인물로서의 품위를 훼손하고 사회적 갈등을 유발한 것은 매우 부족한 윤리 수준을 보여줍니다."
+        "new_rating": "F",
+        "rating_rationale": "소수자에 대한 차별적 발언은 공공 인물로서의 품위를 훼손하고 사회적 갈등을 유발한 행위로, 인권 존중이라는 기본적 윤리 원칙을 위배함"
       },
       {
         "item_id": 151841,
@@ -2884,7 +2884,7 @@
         "collected_by": "Grok",
         "original_rating": "G",
         "new_rating": "F",
-        "rating_rationale": "도시 개발로 주민 강제 이주를 추진하며 주민 의견을 무시한 것은 소외계층 권리를 침해한 심각한 문제입니다. 사회적 정의와 윤리를 저버리고 인권을 침해한 것은 공직자 윤리에 부족한 수준으로 평가됩니다."
+        "rating_rationale": "도시 개발 과정에서 주민 의견 무시와 강제 이주 추진은 소외계층의 권리를 침해하고 사회적 정의를 저버린 심각한 윤리적 문제"
       },
       {
         "item_id": 151842,
@@ -2892,7 +2892,7 @@
         "collected_by": "Grok",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "공중보건 위기 상황에서 개인적 편의보다 시민의 생명과 안전을 최우선으로 고려하여 방역지침을 준수하고 모범을 보인 것은 공직자로서 최고 수준의 윤리적 행동이다."
+        "rating_rationale": "공중보건 위기 상황에서 개인적 편의보다 시민의 생명과 안전을 최우선으로 하여 방역지침을 솔선수범하며 준수한 것은 공직자로서 매우 높은 윤리적 책임감을 보여준다."
       },
       {
         "item_id": 151843,
@@ -2900,7 +2900,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "미래 세대를 위한 환경보호와 지속가능한 발전을 추구하며, 단기적 이익보다 장기적 공익을 우선시한 정책 추진은 매우 우수한 윤리적 리더십을 보여준다."
+        "rating_rationale": "미래 세대를 위한 환경보호와 지속가능한 발전을 추진하는 것은 장기적 관점에서 시민과 사회 전체의 이익을 고려한 매우 윤리적인 정책 방향이며 책임감 있는 리더십을 보여준다."
       },
       {
         "item_id": 151844,
@@ -2908,7 +2908,7 @@
         "collected_by": "Grok",
         "original_rating": "A",
         "new_rating": "B",
-        "rating_rationale": "공적 발언에서 품위를 유지하고 논리적이며 도덕적인 표현을 사용한 것은 공직자의 기본 덕목을 잘 실천한 우수한 윤리적 태도로 평가된다."
+        "rating_rationale": "공적 발언에서 품위 있고 논리적인 언어를 사용하는 것은 공직자의 기본적 윤리이지만, 이는 당연히 지켜야 할 규범으로 특별히 뛰어난 윤리적 행위라고 보기는 어렵다."
       },
       {
         "item_id": 151845,
@@ -2916,7 +2916,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "공공 입찰의 투명성 확보와 반부패 캠페인, 공무원 윤리교육 도입은 공정성과 청렴성을 실현하는 매우 우수한 윤리적 행정을 보여준다."
+        "rating_rationale": "공공 입찰의 투명성 확보와 반부패 캠페인 추진은 공적 자원의 올바른 사용과 공정성을 보장하는 핵심적 윤리 실천으로, 시민에 대한 신뢰와 책임을 다하는 모범적 행위다."
       },
       {
         "item_id": 151846,
@@ -2924,7 +2924,7 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "A",
-        "rating_rationale": "사회적 소수자의 권리를 보호하고 포용적 정책을 추진한 것은 인권 존중과 사회적 약자에 대한 배려를 실천한 매우 우수한 윤리적 리더십이다."
+        "rating_rationale": "사회적 소수자의 권리를 보호하고 포용적 정책을 추진하는 것은 인간의 존엄성과 평등을 실현하는 높은 수준의 윤리적 가치 실천으로, 사회정의 구현에 기여하는 모범적 행위다."
       },
       {
         "item_id": 151847,
@@ -2932,7 +2932,7 @@
         "collected_by": "Grok",
         "original_rating": "A",
         "new_rating": "B",
-        "rating_rationale": "미디어와의 소통에서 진솔하고 존중하는 태도를 보이며 시민 의견을 경청한 것은 민주적 소통과 투명성을 실현한 우수한 윤리적 자세이다."
+        "rating_rationale": "미디어 인터뷰에서 진솔하고 시민 의견을 경청하는 태도는 민주적 소통과 투명성을 보여주는 좋은 행위이지만, 공직자에게 기대되는 기본적 자세에 해당한다고 볼 수 있다."
       },
       {
         "item_id": 151848,
@@ -2940,15 +2940,15 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "도시 재개발에서 주민 의견을 수렴하고 강제 이주를 최소화하려 노력한 것은 시민의 재산권과 거주권을 존중한 매우 우수한 윤리적 행정이다."
+        "rating_rationale": "도시 재개발에서 주민 의견을 수렴하고 강제 이주를 최소화하려는 노력은 시민의 기본권과 재산권을 존중하며, 개발 이익보다 주민 복지를 우선시하는 매우 윤리적인 접근이다."
       },
       {
         "item_id": 151849,
         "data_title": "경제 정책의 공정성",
         "collected_by": "Grok",
         "original_rating": "C",
-        "new_rating": "A",
-        "rating_rationale": "경제 정책에서 사회적 약자인 소상공인을 우선 지원하고 공정 배분 원칙을 적용한 것은 사회적 형평성을 실현한 매우 우수한 윤리적 정책이다."
+        "new_rating": "B",
+        "rating_rationale": "소상공인 지원과 공정 배분 원칙 적용은 경제적 약자를 배려하는 선한 정책이지만, 이는 지방자치단체장으로서 당연히 추진해야 할 기본적 경제정책 영역에 속한다."
       },
       {
         "item_id": 151850,
@@ -2956,7 +2956,7 @@
         "collected_by": "Grok",
         "original_rating": "A",
         "new_rating": "B",
-        "rating_rationale": "공무원 윤리 교육을 통해 조직 전체의 도덕적 수준을 향상시키려 한 체계적 노력은 윤리적 행정 문화 조성을 위한 우수한 리더십이다."
+        "rating_rationale": "공무원 윤리 교육 프로그램 도입은 조직 전체의 도덕성 향상을 위한 체계적 노력으로 평가되지만, 이는 행정관리자로서 갖춰야 할 기본적 시스템 구축에 해당한다."
       },
       {
         "item_id": 151851,
@@ -2964,7 +2964,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "재난 상황에서 신속한 대응과 투명한 정보 공유로 시민 안전을 최우선으로 한 것은 위기 상황에서의 책임감과 투명성을 보여준 매우 우수한 윤리적 리더십이다."
+        "rating_rationale": "재난 상황에서 신속한 대응과 투명한 정보 공유는 시민의 생명과 안전을 보호하는 최우선 의무를 충실히 이행한 것으로, 위기 상황에서 보여준 책임감 있는 리더십은 매우 윤리적이다."
       },
       {
         "item_id": 151852,
@@ -2972,7 +2972,7 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "B",
-        "rating_rationale": "저소득층 교육 지원 프로그램을 통해 교육 기회의 공평성을 추구하는 것은 사회적 형평성과 윤리적 가치를 실현하는 우수한 행동이나, 구체적인 성과나 지속성에 대한 정보가 부족함"
+        "rating_rationale": "저소득층을 위한 교육 기회 제공은 사회적 형평성을 실현하는 윤리적 행동이나, 구체적 성과나 투명성에 대한 정보가 부족하여 우수 수준으로 평가됨"
       },
       {
         "item_id": 151853,
@@ -2980,15 +2980,15 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "사회 복지 예산 확대를 통한 취약계층 지원은 사회적 책임을 다하는 윤리적 행동으로 평가되나, 예산 배분의 구체적 투명성이나 효과성에 대한 세부 정보가 제한적임"
+        "rating_rationale": "취약계층 지원을 위한 복지 예산 확대는 사회적 책임을 다하는 윤리적 정책이지만, 예산 배분의 구체적 투명성과 효과성에 대한 세부 정보가 제한적임"
       },
       {
         "item_id": 151854,
         "data_title": "미디어와의 상호작용",
         "collected_by": "Grok",
         "original_rating": "A",
-        "new_rating": "C",
-        "rating_rationale": "미디어와의 상호작용에서 사실 기반 응답을 유지하는 것은 기본적인 윤리 수준을 보여주지만, 이는 정치인으로서 당연히 지켜야 할 최소한의 도덕적 의무에 해당함"
+        "new_rating": "B",
+        "rating_rationale": "미디어와의 상호작용에서 사실 기반 응답과 진실성 유지는 공직자의 기본 윤리를 잘 보여주나, 일반적 수준의 도덕적 행동으로 판단됨"
       },
       {
         "item_id": 151855,
@@ -2996,7 +2996,7 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "B",
-        "rating_rationale": "공공교통 우선 정책을 통한 교통 형평성 추구는 시민 전체의 이익을 고려한 윤리적 접근이나, 정책의 실제 시행 과정이나 이해관계자 갈등 해결 방식에 대한 구체적 정보가 부족함"
+        "rating_rationale": "공공교통 우선 정책을 통한 사회적 형평성 추구는 윤리적 접근이지만, 교통 정책의 포괄적 공정성과 구체적 실행 성과에 대한 상세한 정보가 부족함"
       },
       {
         "item_id": 151856,
@@ -3004,15 +3004,15 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "공공 예산의 투명한 관리와 감사원의 윤리적 사용 확인은 공직자의 가장 핵심적인 윤리 의무를 모범적으로 수행한 사례로, 시민에 대한 책무성을 충실히 이행했음을 보여줌"
+        "rating_rationale": "공공 예산의 투명한 관리와 감사원의 윤리적 사용 확인은 공직자의 핵심 책무를 모범적으로 수행한 것으로, 매우 우수한 윤리적 행동으로 평가됨"
       },
       {
         "item_id": 151857,
         "data_title": "문화 유산 보호",
         "collected_by": "Grok",
         "original_rating": "A",
-        "new_rating": "C",
-        "rating_rationale": "문화 유산 보호는 사회적 가치 보존을 위한 양호한 정책 방향이지만, 개발과 보존 사이의 이해관계 조율이나 구체적인 윤리적 딜레마 해결 과정에 대한 정보가 제한적임"
+        "new_rating": "B",
+        "rating_rationale": "문화 유산 보호에서 역사적 가치 존중은 사회적 책임을 다하는 윤리적 행동이나, 보호 정책의 구체적 실행 방안과 성과에 대한 세부 정보가 제한적임"
       },
       {
         "item_id": 151858,
@@ -3020,7 +3020,7 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "B",
-        "rating_rationale": "노동자 권리 보호 정책 추진은 사회적 약자를 배려하는 윤리적 리더십을 보여주는 우수한 행동이나, 정책의 실효성이나 기업과의 이해관계 조율 과정에 대한 구체적 평가가 필요함"
+        "rating_rationale": "노동자 권리 보호 정책 추진은 사회적 약자를 배려하는 윤리적 행동이지만, 정책의 구체적 내용과 실질적 효과성에 대한 상세한 평가 자료가 부족함"
       },
       {
         "item_id": 151859,
@@ -3028,7 +3028,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "C",
-        "rating_rationale": "국제 무대에서의 예의 바른 태도와 사회적 규범 준수는 기본적인 외교 예절에 해당하는 양호한 수준이지만, 특별히 높은 윤리적 가치를 창출했다고 보기는 어려움"
+        "rating_rationale": "국제 행사에서의 예의 바른 태도와 사회적 규범 준수는 기본적인 윤리 수준을 보여주나, 특별히 뛰어난 윤리적 행동이라고 보기는 어려워 양호 수준으로 평가됨"
       },
       {
         "item_id": 151860,
@@ -3036,7 +3036,7 @@
         "collected_by": "Grok",
         "original_rating": "A",
         "new_rating": "B",
-        "rating_rationale": "공공 의료 접근성 강화를 통한 건강권 보호는 시민의 기본권 보장을 위한 우수한 윤리적 접근이나, 의료 자원 배분의 공정성이나 지속가능성에 대한 구체적 검증이 필요함"
+        "rating_rationale": "공공 의료 접근성 강화를 통한 건강 권리 보호는 사회적 형평성을 추구하는 윤리적 정책이나, 의료 정책의 구체적 실행 과정과 효과에 대한 세부 정보가 부족함"
       },
       {
         "item_id": 151861,
@@ -3044,7 +3044,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "3년간 지속적인 품위 유지와 사회적 규범 준수는 정치인으로서 일관된 윤리적 태도를 보여주는 우수한 사례이나, 구체적인 윤리적 도전 상황에서의 대응력에 대한 평가가 부족함"
+        "rating_rationale": "3년간 지속적인 품위 있는 리더십과 사회적 규범 준수는 공직자로서의 기본 윤리를 잘 보여주나, 구체적이고 혁신적인 윤리적 성과에 대한 상세한 사례가 제한적임"
       },
       {
         "item_id": 151862,
@@ -3052,15 +3052,15 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "C",
-        "rating_rationale": "코로나19 방역수칙을 대체로 준수하여 시민에게 모범을 보였으나, 일부 행사에서 대면 접촉이 발생한 점은 완전한 규범 준수에 미달했다는 평가가 가능하다."
+        "rating_rationale": "코로나19 방역수칙을 전반적으로 준수하여 시민들에게 모범을 보였으나, 일부 행사에서 대면 접촉이 발생하는 등 완벽하지 않은 모습을 보여 양호한 수준의 윤리성을 나타냄"
       },
       {
         "item_id": 151863,
         "data_title": "언론 인터뷰에서의 발언 품위",
         "collected_by": "Grok",
         "original_rating": "C",
-        "new_rating": "B",
-        "rating_rationale": "정치적 라이벌에 대한 비판 시 예의 바른 언어를 사용하고 논리적 설명을 중시한 점은 우수하나, 간혹 감정적 뉘앙스가 섞인 점에서 완벽하지는 않았다."
+        "new_rating": "C",
+        "rating_rationale": "정치적 라이벌에 대한 비판 시 예의 바른 언어를 사용하고 논리적 설명을 중시했으나, 때때로 감정적인 뉘앙스가 섞여 완전히 품위 있는 소통이라고 보기는 어려운 양호한 수준"
       },
       {
         "item_id": 151864,
@@ -3068,7 +3068,7 @@
         "collected_by": "Grok",
         "original_rating": "D",
         "new_rating": "D",
-        "rating_rationale": "부동산 정책 발표 시 공정성을 강조하고 시민 의견 수렴 노력을 보였으나, 특정 이해관계자를 배려한 듯한 뉘앙스로 인해 사회적 규범 준수에 의문이 제기되었다."
+        "rating_rationale": "부동산 정책 발표 시 공정성을 강조하고 시민 의견 수렴을 시도했으나, 특정 이해관계자를 배려한 듯한 뉘앙스로 인해 사회적 규범 준수에 의문이 제기되어 보통 수준의 윤리성"
       },
       {
         "item_id": 151865,
@@ -3076,7 +3076,7 @@
         "collected_by": "Grok",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "과거 의혹에 대해 반성의사를 밝힌 점은 긍정적이나, 구체적인 조치가 부족하여 도덕적 품위에 대한 지속적인 논란을 불러일으켜 윤리성이 미흡하다고 판단된다."
+        "rating_rationale": "과거 의혹에 대해 반성 의사를 표명했으나 구체적인 조치가 부족하여 진정성 있는 윤리적 태도로 보기 어려우며, 지속적인 도덕적 논란을 야기한 미흡한 수준"
       },
       {
         "item_id": 151866,
@@ -3084,7 +3084,7 @@
         "collected_by": "Grok",
         "original_rating": "D",
         "new_rating": "D",
-        "rating_rationale": "선거 캠페인에서 청렴함을 보여주었으나, 일부 유세에서 과도한 약속을 한 점이 유권자에 대한 윤리적 태도에서 보통 수준에 머물렀다고 평가된다."
+        "rating_rationale": "선거 캠페인에서 청렴성을 추구했으나 과도한 약속으로 유권자에 대한 윤리적 태도에 논란이 발생하여, 전반적으로 보통 수준의 윤리성을 보임"
       },
       {
         "item_id": 151867,
@@ -3092,7 +3092,7 @@
         "collected_by": "Grok",
         "original_rating": "E",
         "new_rating": "D",
-        "rating_rationale": "재난 지원금 배분에서 공정한 기준을 강조했으나, 일부 지역의 불평등이 발생한 점은 사회적 규범을 완전히 준수하지 못한 것으로 보통 수준의 윤리성을 보여준다."
+        "rating_rationale": "재난 지원금 배분에서 공정한 기준을 강조했으나 실제 일부 지역에서 불평등이 발생하여 사회적 규범을 완벽하게 준수하지 못한 보통 수준의 윤리성"
       },
       {
         "item_id": 151868,
@@ -3100,7 +3100,7 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "E",
-        "rating_rationale": "환경 정책에서 미래 세대를 고려한 태도는 긍정적이나, 실천 계획이 부족하여 발언과 행동의 불일치가 나타나 윤리성이 미흡한 수준으로 평가된다."
+        "rating_rationale": "환경 보호 정책에서 미래 세대를 고려한 발언을 했으나 실천 계획이 부족하여 말과 행동의 일치성이 떨어지는 미흡한 수준의 윤리성을 보임"
       },
       {
         "item_id": 151869,
@@ -3108,7 +3108,7 @@
         "collected_by": "Grok",
         "original_rating": "F",
         "new_rating": "E",
-        "rating_rationale": "노동자 권리 보호 의지를 밝혔으나 실제 시행 과정에서 불만이 제기된 점은 도덕적 기준에 미치지 못하는 것으로 윤리성이 미흡하다고 판단된다."
+        "rating_rationale": "노동자 권리 보호를 약속했으나 실제 시행 과정에서 불만이 제기되어 도덕적 기준에 미치지 못하는 미흡한 수준의 윤리성을 나타냄"
       },
       {
         "item_id": 151870,
@@ -3116,7 +3116,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "D",
-        "rating_rationale": "국제 행사에서 다른 국가 대표자에 대한 존중을 보였으나, 문화적 민감성을 놓친 부분이 있어 윤리적 완성도 측면에서 보통 수준으로 평가된다."
+        "rating_rationale": "국제 행사에서 다른 국가 대표자에 대한 기본적 존중은 보였으나, 문화적 민감성을 놓쳐 완전한 윤리적 태도라고 보기 어려운 보통 수준"
       },
       {
         "item_id": 151871,
@@ -3124,7 +3124,7 @@
         "collected_by": "Grok",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "사회적 약자 보호 의지를 표명했으나 실행 과정의 지연으로 논란이 발생한 점은 도덕적 기대에 미달하여 윤리성이 미흡한 수준으로 판단된다."
+        "rating_rationale": "사회적 약자 보호 정책을 발표했으나 실행 과정의 지연으로 도덕적 기대에 미달하여, 의도는 좋으나 실행력 부족으로 미흡한 윤리성을 보임"
       },
       {
         "item_id": 151872,
@@ -3132,15 +3132,15 @@
         "collected_by": "Grok",
         "original_rating": "D",
         "new_rating": "E",
-        "rating_rationale": "반부패 캠페인 참여라는 긍정적 행동이 있었으나, 주변 인사들의 의혹으로 인한 품위 의심과 윤리적 태도의 모순이 드러나 신뢰성에 문제가 있음. 말과 행동의 불일치는 윤리성에 부정적 영향을 미침."
+        "rating_rationale": "반부패 캠페인 참여라는 긍정적 행동이 있었으나, 주변 인사들의 의혹으로 인한 품위 의심과 윤리적 태도의 모순이 지적되어 전체적으로 윤리성이 미흡한 수준으로 평가됨"
       },
       {
         "item_id": 151873,
         "data_title": "교육 정책 발표의 태도",
         "collected_by": "Grok",
         "original_rating": "C",
-        "new_rating": "D",
-        "rating_rationale": "학생 권리 존중 발언은 긍정적이나, 예산 배분의 불투명함이 지적되어 행정의 투명성 측면에서 문제가 있음. 좋은 의도는 있으나 실행 과정에서 윤리적 기준을 완전히 충족하지 못한 상황."
+        "new_rating": "E",
+        "rating_rationale": "학생 권리 존중 발언은 긍정적이나, 예산 배분의 불투명함이 지적되고 사회적 규범에 완전히 부합하지 않는다는 평가로 인해 윤리적 측면에서 미흡함을 보임"
       },
       {
         "item_id": 151874,
@@ -3148,7 +3148,7 @@
         "collected_by": "Grok",
         "original_rating": "D",
         "new_rating": "D",
-        "rating_rationale": "시민 중심의 태도는 바람직하나, 과격한 발언으로 인한 품위 논란이 발생함. 정책 방향은 옳으나 표현 방식에서 공직자로서의 적절한 품격을 유지하지 못한 측면이 있어 보통 수준의 윤리성을 보임."
+        "rating_rationale": "시민 중심의 태도를 보인 점은 긍정적이나, 일부 발언이 과격하게 느껴져 품위에 대한 논란이 제기된 점을 고려할 때 보통 수준의 윤리성을 나타냄"
       },
       {
         "item_id": 151875,
@@ -3156,7 +3156,7 @@
         "collected_by": "Grok",
         "original_rating": "E",
         "new_rating": "D",
-        "rating_rationale": "공정한 기준 적용 노력은 인정되나, 특정 분야 편향이 보도되어 완전한 공정성을 달성하지 못함. 의도는 좋았으나 결과적으로 형평성 측면에서 아쉬운 부분이 있어 도덕적 완성도가 부족함."
+        "rating_rationale": "문화 예술 지원에서 공정한 기준 적용이라는 긍정적 측면이 있으나, 특정 분야 편향이 보도되어 도덕적 완벽성이 부족한 것으로 평가되어 보통 수준임"
       },
       {
         "item_id": 151876,
@@ -3164,7 +3164,7 @@
         "collected_by": "Grok",
         "original_rating": "F",
         "new_rating": "E",
-        "rating_rationale": "재정 투명성 약속에도 불구하고 보고서의 불명확한 점이 발견되어 신뢰성에 문제가 있음. 투명성은 행정의 기본 윤리이므로, 이 부분의 미흡함은 윤리적 태도에 부정적 영향을 미침."
+        "rating_rationale": "재정 투명성 유지 의지를 밝힌 점은 긍정적이나, 일부 보고서의 불명확한 점이 발견되고 윤리적으로 부족한 측면이 드러나 미흡한 수준으로 평가됨"
       },
       {
         "item_id": 151877,
@@ -3172,7 +3172,7 @@
         "collected_by": "Grok",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "공정한 기준 강조에도 불구하고 인사 과정의 불공평이 지적됨. 인사의 공정성은 조직 운영의 핵심 윤리 요소이므로, 이 부분의 문제는 사회적 규범 준수 측면에서 미흡함을 보여줌."
+        "rating_rationale": "공정한 기준 강조라는 긍정적 의도가 있었으나, 인사 과정의 불공평이 지적되고 사회적 규범에 미치지 못한다는 평가로 인해 윤리성이 미흡함"
       },
       {
         "item_id": 151878,
@@ -3180,7 +3180,7 @@
         "collected_by": "Grok",
         "original_rating": "D",
         "new_rating": "D",
-        "rating_rationale": "평화적 태도를 기본으로 하되 일부 강경 대응으로 논란이 발생함. 상황 대응의 기본 방향은 적절했으나, 일관성 부족과 품위에 대한 의문이 제기되어 윤리적 완성도가 보통 수준에 그침."
+        "rating_rationale": "대중 집회에서 평화적 태도를 보인 긍정적 측면이 있으나, 일부 강경 대응으로 인한 논란과 품위에 대한 의문이 제기되어 보통 수준의 윤리성을 보임"
       },
       {
         "item_id": 151879,
@@ -3188,15 +3188,15 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "팬데믹 기간 전반적으로 모범적인 리더십을 보였으나, 초기 대응 지연이 지적됨. 위기 상황에서의 대체적으로 양호한 윤리적 태도를 보였지만, 완벽하지 않은 부분이 있어 양호한 수준의 평가."
+        "rating_rationale": "코로나19 기간 대체로 모범적인 리더십을 보인 점이 긍정적으로 평가되나, 초기 대응 지연이 지적되어 도덕적 완벽성이 부족하여 양호한 수준으로 평가됨"
       },
       {
         "item_id": 151880,
         "data_title": "경제 정책 발언의 품위",
         "collected_by": "Grok",
         "original_rating": "D",
-        "new_rating": "D",
-        "rating_rationale": "전문성 강조는 긍정적이나 과장된 발언이 보도되어 진실성에 의문이 제기됨. 정책 전문성을 어필하려는 의도는 이해되나, 과장된 표현은 공직자의 품격과 신뢰성 측면에서 적절하지 못함."
+        "new_rating": "E",
+        "rating_rationale": "경제 정책에서 전문성을 강조한 점은 긍정적이나, 일부 발언의 과장이 보도되고 사회적 규범에 부합하지 않은 측면이 드러나 윤리적으로 미흡한 수준임"
       },
       {
         "item_id": 151881,
@@ -3204,7 +3204,7 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "D",
-        "rating_rationale": "상대 의견 존중 자세는 바람직하나, 비아냥거림이 섞인 발언으로 품위 논란이 발생함. 민주적 토론 문화에 대한 기본 인식은 있으나, 표현 방식에서 공직자로서의 품격을 완전히 유지하지 못함."
+        "rating_rationale": "정치적 토론에서 상대 의견을 존중하는 모습은 긍정적이나, 때때로 비아냥거림이 섞여 발언 품위에 대한 논란이 발생하여 보통 수준의 윤리성을 나타냄"
       },
       {
         "item_id": 107493,
@@ -3212,7 +3212,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "G",
         "new_rating": "G",
-        "rating_rationale": "성희롱 의혹으로 사임한 것은 공직자로서 윤리적 기준에 심각하게 미달하는 행위로, 도덕적 책임감과 성인지 감수성이 매우 부족함을 보여줍니다."
+        "rating_rationale": "성희롱 의혹으로 사임한 것은 공직자로서 매우 심각한 윤리적 결함을 보여주며, 공인으로서의 도덕적 책임을 다하지 못한 중대한 문제입니다."
       },
       {
         "item_id": 107495,
@@ -3220,23 +3220,23 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "전문가 자문 없는 독단적 정책 추진은 민주적 의사결정 과정을 무시하고 시민의 알 권리와 참여권을 침해하는 윤리적으로 미흡한 행위입니다."
+        "rating_rationale": "전문가 의견 수렴 없는 독단적 정책 추진은 민주적 의사결정 과정을 무시하고 시민을 위한 최선의 정책 수립을 소홀히 한 윤리적 미흡함을 나타냅니다."
       },
       {
         "item_id": 107498,
         "data_title": "복지 정책 후퇴",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "D",
-        "new_rating": "F",
-        "rating_rationale": "무상급식 축소 등 복지정책 후퇴는 사회적 약자를 보호해야 할 공직자의 기본 윤리를 저버리고 사회적 갈등을 야기한 부족한 행위입니다."
+        "new_rating": "E",
+        "rating_rationale": "무상급식 축소 등 복지정책 후퇴는 사회적 약자에 대한 배려 부족을 보여주며, 사회통합과 형평성 측면에서 윤리적으로 미흡한 정책 방향입니다."
       },
       {
         "item_id": 107499,
         "data_title": "부동산 정책 실패",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "F",
-        "new_rating": "E",
-        "rating_rationale": "부동산 정책 실패로 서민 주거 불안이 심화된 것은 시민의 기본권 보장에 대한 책임을 다하지 못한 윤리적으로 미흡한 결과입니다."
+        "new_rating": "D",
+        "rating_rationale": "부동산 정책 실패로 인한 서민 주거 불안은 정책 능력의 문제이지만, 서민층에 대한 책임감 있는 정책 추진 의지가 부족했다는 점에서 윤리적으로 보통 수준입니다."
       },
       {
         "item_id": 107501,
@@ -3244,7 +3244,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "E",
         "new_rating": "F",
-        "rating_rationale": "예산 집행의 불투명성과 불명확한 예산 배정은 공공재정에 대한 투명성과 책임성을 저해하는 윤리적으로 부족한 행위입니다."
+        "rating_rationale": "예산 집행의 불투명성과 불명확한 예산 배정은 공공자원 관리에 대한 투명성과 책임성을 저해하는 심각한 윤리적 문제로 평가됩니다."
       },
       {
         "item_id": 107504,
@@ -3252,7 +3252,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "전임자의 사망 직후 정치적 기회주의로 출마했다는 비판은 도덕적 품격과 시의적절성에 대한 윤리적 판단이 미흡함을 보여줍니다."
+        "rating_rationale": "전임 시장 사망 직후 정치적 기회주의로 출마했다는 비판은 정치적 도덕성과 품격 측면에서 윤리적으로 미흡한 행동으로 판단됩니다."
       },
       {
         "item_id": 107507,
@@ -3260,15 +3260,15 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "D",
         "new_rating": "D",
-        "rating_rationale": "고소득 가정 무상교복 지원으로 인한 재정 낭비는 공공자원의 효율적 배분에 대한 윤리적 고려가 부족하지만 악의적이지는 않은 보통 수준입니다."
+        "rating_rationale": "고소득 가정 무상교복 지원 정책은 재정 효율성 측면에서 문제가 있지만, 정책 의도 자체는 선의에서 출발했다고 볼 수 있어 보통 수준의 윤리성을 보입니다."
       },
       {
         "item_id": 107510,
         "data_title": "부동산 정책 실패",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "F",
-        "new_rating": "E",
-        "rating_rationale": "부동산 가격 급등과 주택 공급 부족은 시민의 주거권 보장에 대한 공직자의 기본적 책무를 다하지 못한 윤리적으로 미흡한 결과입니다."
+        "new_rating": "D",
+        "rating_rationale": "부동산 정책 실패는 정책 역량의 한계를 보여주지만, 의도적인 윤리적 문제라기보다는 능력적 한계로 보이므로 윤리적으로 보통 수준으로 평가됩니다."
       },
       {
         "item_id": 107512,
@@ -3276,15 +3276,15 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "E",
         "new_rating": "D",
-        "rating_rationale": "청년수당 정책의 위헌 판정은 법적 검토 부족을 보여주지만, 청년 지원이라는 선의의 목적이 있어 윤리적으로는 보통 수준으로 평가됩니다."
+        "rating_rationale": "청년수당 정책 위헌 판정은 법적 검토 부족을 보여주지만, 청년 지원이라는 정책 목표 자체는 선의였다고 볼 수 있어 윤리적으로 보통 수준입니다."
       },
       {
         "item_id": 107513,
         "data_title": "돌봄 정책 예산 삭감 논란",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "F",
-        "new_rating": "F",
-        "rating_rationale": "취약계층 돌봄 서비스 예산 대폭 삭감은 사회적 약자를 보호해야 할 공직자의 기본 윤리와 사회적 책임을 저버린 부족한 행위입니다."
+        "new_rating": "E",
+        "rating_rationale": "취약계층 돌봄 서비스 예산 대폭 삭감은 사회적 약자에 대한 배려와 책임감 부족을 보여주는 윤리적으로 미흡한 정책 결정으로 평가됩니다."
       },
       {
         "item_id": 107515,
@@ -3292,7 +3292,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "E",
         "new_rating": "F",
-        "rating_rationale": "부동산 투기 의혹은 공직자의 기본적인 윤리 기준에 반하는 심각한 문제로, 국민의 신뢰를 크게 훼손하는 행위입니다. 특히 부동산 정책을 담당하는 지자체장으로서 이해충돌 소지가 매우 크며, 공정성에 대한 의구심을 불러일으킵니다."
+        "rating_rationale": "부동산 투기 의혹은 공직자의 윤리성에 심각한 문제를 제기한다. 정치인이 정책 결정권을 가진 위치에서 부동산 투기에 연루되었다는 의혹은 공정성과 청렴성에 대한 신뢰를 크게 훼손시키며, 사회적 형평성 측면에서도 부적절하다."
       },
       {
         "item_id": 107517,
@@ -3300,7 +3300,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "B",
-        "rating_rationale": "정책 결정 과정의 공개성과 투명성 확보는 민주적 거버넌스의 핵심 요소로서 윤리적으로 우수한 행정을 보여줍니다. 시민의 알 권리 보장과 행정의 투명성 제고를 통해 공직자로서의 책임성을 잘 이행하고 있다고 평가됩니다."
+        "rating_rationale": "정책 결정 과정의 공개성과 투명성 확보는 민주적 거버넌스와 공직자 윤리의 핵심 요소이다. 시민의 알 권리를 보장하고 정책 과정을 투명하게 공개한 것은 윤리적으로 우수한 행정을 보여주는 사례로 평가할 수 있다."
       },
       {
         "item_id": 107519,
@@ -3308,7 +3308,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "F",
         "new_rating": "G",
-        "rating_rationale": "성차별적 발언은 인권과 평등 가치에 반하는 매우 심각한 윤리적 문제입니다. 공직자로서 사회 통합과 포용을 이끌어야 할 책임이 있음에도 불구하고 차별적 언행으로 사회적 갈등을 조장한 것은 윤리적으로 매우 부족한 행위입니다."
+        "rating_rationale": "성차별적 발언은 인권과 평등의 가치를 훼손하는 매우 심각한 윤리적 문제이다. 공직자로서 모든 시민을 평등하게 대해야 할 의무를 위반한 것으로, 사회적 약자에 대한 배려가 부족하며 공인으로서의 도덕적 기준에 크게 미달한다."
       },
       {
         "item_id": 107520,
@@ -3316,7 +3316,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "재난 상황에서 지원금의 공정한 분배는 사회적 약자 보호와 형평성 실현이라는 윤리적 가치를 잘 구현한 사례입니다. 투명한 절차와 공정한 기준을 통해 시민들의 신뢰를 확보하고 공공선을 추구한 우수한 행정으로 평가됩니다."
+        "rating_rationale": "재난 상황에서의 지원금 분배는 사회적 공정성과 윤리성이 특히 중요한 영역이다. 투명하고 공정한 분배 과정을 통해 시민들의 신뢰를 확보하고 취약계층을 적절히 보호한 것은 윤리적으로 우수한 행정 사례로 평가된다."
       },
       {
         "item_id": 107522,
@@ -3324,7 +3324,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "D",
         "new_rating": "C",
-        "rating_rationale": "정치자금의 투명한 관리는 정치인의 기본적인 윤리 의무입니다. 법적 기준을 준수하고 투명성을 확보한 것은 양호한 수준이지만, 더 적극적인 자발적 공개나 혁신적인 투명성 확보 노력이 있었다면 더 높은 평가가 가능했을 것입니다."
+        "rating_rationale": "정치자금의 투명한 관리는 정치적 청렴성의 기본 요건이다. 법적 기준을 준수하며 투명하게 공개한 것은 양호한 수준의 윤리적 행동으로 볼 수 있으나, 더욱 적극적인 투명성 확보 노력이 있었다면 더 높은 평가가 가능했을 것이다."
       },
       {
         "item_id": 107524,
@@ -3332,7 +3332,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "공직자 윤리 기준의 기본적 준수는 필수적인 의무사항으로, 이를 지킨 것은 양호한 수준입니다. 그러나 단순한 기준 준수를 넘어서는 모범적이고 선도적인 윤리 실천이 있었다면 더 높은 평가를 받을 수 있었을 것입니다."
+        "rating_rationale": "공직자 윤리 기준 준수는 기본적인 의무사항이다. 일반적인 윤리 기준을 준수한 것으로 평가받았다면 양호한 수준이나, 공직자로서 더욱 모범적이고 적극적인 윤리 실천이 있었다면 더 높은 평가를 받을 수 있었을 것이다."
       },
       {
         "item_id": 107525,
@@ -3340,7 +3340,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "이해충돌 방지를 위한 적극적인 노력은 공직자 윤리의 핵심 요소입니다. 개인적 이익과 공적 업무를 명확히 분리하려는 체계적 접근은 공정성과 투명성을 보장하는 우수한 윤리적 실천으로 평가되며, 공직자의 모범 사례라 할 수 있습니다."
+        "rating_rationale": "이해충돌 방지는 공직자 윤리의 핵심 영역으로, 개인적 이익과 공적 업무를 명확히 분리하려는 노력은 매우 중요하다. 체계적인 이해충돌 방지 시스템을 구축하고 실천한 것은 윤리적으로 우수한 행정 관리 능력을 보여준다."
       },
       {
         "item_id": 107527,
@@ -3348,15 +3348,15 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "사회적 약자를 배려하는 정책 추진은 사회정의와 형평성이라는 윤리적 가치를 실현하는 매우 우수한 행위입니다. 취약계층 보호는 공직자의 도덕적 의무이자 사회 통합을 위한 필수 요소로, 이를 적극 실천한 것은 윤리적으로 매우 모범적입니다."
+        "rating_rationale": "사회적 약자를 배려하는 정책 추진은 공직자의 윤리적 책임감과 사회정의 실현 의지를 보여주는 매우 중요한 지표이다. 취약계층을 위한 적극적이고 체계적인 정책 개발과 실행은 윤리적으로 매우 우수한 공직 수행으로 평가할 수 있다."
       },
       {
         "item_id": 107529,
         "data_title": "언론 자유 존중",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
-        "new_rating": "C",
-        "rating_rationale": "언론 자유 존중은 민주주의의 기본 가치이며 공직자가 마땅히 지켜야 할 윤리입니다. 비판적 보도에 대해 적절히 대응한 것은 양호한 수준이지만, 더 적극적으로 언론의 감시 역할을 환영하고 소통하는 자세가 있었다면 더 높은 평가가 가능했을 것입니다."
+        "new_rating": "B",
+        "rating_rationale": "언론 자유에 대한 존중은 민주주의의 기본 가치이며, 공직자가 비판적 보도에 대해 개방적이고 수용적인 태도를 보이는 것은 민주적 소양과 윤리의식을 나타낸다. 언론의 감시 기능을 인정하고 존중하는 자세는 우수한 윤리적 태도이다."
       },
       {
         "item_id": 107532,
@@ -3364,7 +3364,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "공무원 윤리 교육과 청렴 문화 조성은 조직 전체의 윤리 수준 향상을 위한 우수한 리더십을 보여줍니다. 개인적 윤리 실천을 넘어 조직 문화 개선을 통해 지속가능한 윤리 체계를 구축하려는 노력은 공직자로서 모범적인 행위입니다."
+        "rating_rationale": "공무원 윤리 교육과 청렴 문화 조성은 조직 전체의 윤리 수준 향상을 위한 중요한 리더십 활동이다. 개인적 윤리 실천을 넘어 조직 문화 개선에 적극적으로 참여하고 주도한 것은 윤리적 리더십의 우수한 사례로 평가할 수 있다."
       },
       {
         "item_id": 107534,
@@ -3372,7 +3372,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "D",
         "new_rating": "B",
-        "rating_rationale": "정책 실패에 대해 책임을 인정하는 태도는 정치적 윤리성을 보여주는 긍정적 행동이나, 구체적인 책임 이행 방안이나 후속 조치에 대한 정보가 부족하여 우수 수준으로 평가"
+        "rating_rationale": "정책 실패에 대한 책임을 인정하는 것은 정치적 윤리성의 중요한 요소입니다. 공직자로서 자신의 책임을 회피하지 않고 인정하는 태도는 민주주의 발전과 신뢰 구축에 기여하며, 윤리적 리더십을 보여주는 긍정적 사례로 평가됩니다."
       },
       {
         "item_id": 107536,
@@ -3380,15 +3380,15 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "B",
-        "rating_rationale": "성평등 정책 추진은 사회적 약자 보호와 평등 실현이라는 윤리적 가치를 실천하는 것으로 긍정적이나, 정책의 실질적 효과와 이행 정도에 대한 구체적 평가가 필요하여 우수 수준으로 평가"
+        "rating_rationale": "성평등 정책 추진은 사회 정의와 평등 실현을 위한 윤리적 노력입니다. 성별에 관계없이 공정한 기회를 제공하고 차별을 해소하려는 제도적 노력은 인권 존중과 사회 통합에 기여하는 윤리적 정책 방향으로 높이 평가할 수 있습니다."
       },
       {
         "item_id": 107537,
         "data_title": "갈등 해결 능력",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
-        "new_rating": "B",
-        "rating_rationale": "사회적 갈등 상황에서 중재 역할을 수행하는 것은 공익을 위한 윤리적 리더십을 보여주는 것으로 평가되나, 갈등 해결의 공정성과 실효성에 대한 세부 내용이 부족하여 우수 수준으로 평가"
+        "new_rating": "A",
+        "rating_rationale": "사회적 갈등 상황에서의 중재 능력은 공직자의 핵심 윤리 덕목입니다. 대립하는 이해관계를 조정하고 사회 통합을 도모하는 능력은 공익 추구와 사회 안정에 필수적이며, 이는 최고 수준의 윤리적 리더십을 보여주는 매우 우수한 자질입니다."
       },
       {
         "item_id": 107540,
@@ -3396,7 +3396,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "감사원의 예산 집행 감사에서 투명성이 확인된 것은 공적 자금 관리의 윤리성과 책임성을 입증하는 것으로, 공직자의 기본 윤리 중 가장 중요한 영역에서 우수한 성과를 보인 것으로 평가"
+        "rating_rationale": "공공 예산 집행의 투명성은 공직자 윤리의 핵심입니다. 국민의 세금을 투명하고 적절하게 사용하는 것은 공직자의 기본 의무이며, 감사원의 긍정적 평가는 재정 윤리성이 매우 우수함을 보여줍니다. 이는 공적 신뢰 구축의 토대가 됩니다."
       },
       {
         "item_id": 107541,
@@ -3404,7 +3404,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "환경 보호를 위한 윤리적 정책 추진은 미래 세대에 대한 책임과 지속가능성이라는 윤리적 가치를 실현하는 것으로 긍정적이나, 정책의 실질적 성과와 일관성에 대한 평가가 필요하여 우수 수준으로 평가"
+        "rating_rationale": "환경 보호를 위한 윤리적 정책 추진은 미래 세대에 대한 책임과 지속가능한 발전을 위한 중요한 윤리적 실천입니다. 환경 윤리는 현재와 미래의 삶의 질을 보장하는 공익적 가치로서, 이를 정책으로 실현하려는 노력은 우수한 윤리 의식을 보여줍니다."
       },
       {
         "item_id": 107544,
@@ -3412,7 +3412,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "소수자 및 취약계층의 인권 보호 노력은 사회적 약자를 보호하고 인간의 존엄성을 실현하는 핵심적인 윤리적 가치로, 서울시 인권위원회의 공식 보고를 통해 확인된 성과는 매우 우수한 윤리성을 보여줌"
+        "rating_rationale": "소수자와 취약계층의 인권 보호는 윤리적 리더십의 최고 수준을 보여주는 지표입니다. 사회적 약자를 보호하고 인권을 존중하는 정책은 인간의 존엄성과 평등을 실현하는 핵심 가치로서, 이는 매우 우수한 윤리적 실천으로 평가됩니다."
       },
       {
         "item_id": 107546,
@@ -3420,7 +3420,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "B",
-        "rating_rationale": "시정 정보의 공개는 민주주의와 투명성이라는 윤리적 가치를 실현하는 중요한 요소이나, 정보공개의 범위와 질, 시민들의 실질적 접근성 등에 대한 구체적 평가가 부족하여 우수 수준으로 평가"
+        "rating_rationale": "시정 정보의 공개는 민주주의와 투명성의 핵심 요소입니다. 시민의 알 권리를 보장하고 행정의 투명성을 높이는 것은 공직자의 중요한 윤리적 의무입니다. 정보 공개를 통한 책임성 확보는 민주적 거버넌스 구현에 기여하는 우수한 윤리적 실천입니다."
       },
       {
         "item_id": 107548,
@@ -3428,23 +3428,23 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "D",
         "new_rating": "A",
-        "rating_rationale": "인사 과정의 공정성과 투명성은 공직 윤리의 핵심 요소로, 서울시 인사위원회의 공식 보고를 통해 확인된 공정한 인사 원칙 실천은 조직 운영의 윤리성과 신뢰성을 보여주는 매우 우수한 성과"
+        "rating_rationale": "인사 과정의 공정성과 투명성은 조직 윤리의 핵심입니다. 능력과 자질에 기반한 공정한 인사는 조직의 청렴성과 효율성을 보장하며, 사회 전체의 공정성 문화 확산에 기여합니다. 이는 윤리적 조직 운영의 매우 우수한 사례로 평가됩니다."
       },
       {
         "item_id": 107550,
         "data_title": "소통 윤리",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
-        "new_rating": "C",
-        "rating_rationale": "시민과의 소통은 민주적 거버넌스의 기본 요소이나, 시민만족도 조사만으로는 소통의 진정성과 쌍방향성, 소통 결과의 정책 반영 정도를 정확히 판단하기 어려워 양호 수준으로 평가"
+        "new_rating": "B",
+        "rating_rationale": "시민과의 소통 방식과 태도는 민주적 리더십의 중요한 윤리적 요소입니다. 시민의 의견을 경청하고 존중하는 소통 윤리는 참여 민주주의 실현과 시민 신뢰 구축에 필수적입니다. 시민만족도 조사 결과가 긍정적이라면 우수한 소통 윤리를 보여줍니다."
       },
       {
         "item_id": 107552,
         "data_title": "위기 대응 윤리",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
-        "new_rating": "B",
-        "rating_rationale": "코로나19와 같은 위기 상황에서의 윤리적 대응은 시민의 생명과 안전을 최우선으로 하는 공직자의 기본 윤리를 보여주나, 대응 과정의 형평성과 투명성에 대한 세부적 평가가 필요하여 우수 수준으로 평가"
+        "new_rating": "A",
+        "rating_rationale": "코로나19와 같은 위기 상황에서의 윤리적 대응은 공직자의 진정한 윤리 수준을 보여주는 시금석입니다. 시민의 생명과 안전을 최우선으로 하는 정책 결정과 투명한 정보 제공, 공정한 방역 조치는 매우 우수한 위기 대응 윤리를 보여줍니다."
       },
       {
         "item_id": 107553,
@@ -3452,7 +3452,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "주민소환에 대해 자진 사퇴하며 정치적 책임을 인정한 것은 민주주의 원칙을 존중하고 시민의 뜻을 받아들인 윤리적 행동으로 평가됩니다. 책임감 있는 정치인의 모습을 보여주었습니다."
+        "rating_rationale": "주민소환이라는 민주적 절차에 따라 자진 사퇴하며 정치적 책임을 인정한 것은 민주주의 원칙을 존중하는 윤리적 행동으로 평가됩니다. 책임감 있는 정치인의 모습을 보여주었습니다."
       },
       {
         "item_id": 107556,
@@ -3460,23 +3460,23 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "G",
         "new_rating": "F",
-        "rating_rationale": "성추문 의혹은 정치인의 도덕성과 개인적 윤리에 심각한 문제를 제기합니다. 비록 의혹 단계이지만 이로 인한 사퇴는 윤리적 결함이 상당했음을 시사하며, 공직자로서 부적절한 행동이었습니다."
+        "rating_rationale": "성추문 의혹은 정치인의 개인적 품격과 도덕성에 심각한 의문을 제기하는 사안입니다. 비록 의혹 단계이지만 공직자로서의 윤리성에 큰 타격을 주는 부적절한 행동으로 판단됩니다."
       },
       {
         "item_id": 107558,
         "data_title": "재임 중 부동산 정책 투명성",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "E",
-        "new_rating": "D",
-        "rating_rationale": "부동산 정책의 투명성 논란은 공공정책 결정과정에서의 윤리적 문제를 나타냅니다. 시민들의 이익에 직결되는 정책에서 투명성이 부족했다면 공직자로서의 윤리 기준에 미치지 못한 것으로 평가됩니다."
+        "new_rating": "E",
+        "rating_rationale": "부동산 정책의 투명성 논란은 공공정책 결정과정에서의 투명성 부족을 의미합니다. 시민의 알 권리와 정책 과정의 공개성 측면에서 윤리적 기준에 미치지 못하는 것으로 평가됩니다."
       },
       {
         "item_id": 107560,
         "data_title": "코로나19 대응 윤리성",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
-        "new_rating": "B",
-        "rating_rationale": "코로나19 대응에서 시민 안전을 우선시한 접근은 공직자로서의 기본 윤리인 시민의 생명과 안전 보호 의무를 충실히 이행한 것으로 평가됩니다. 공공의 이익을 우선한 윤리적 판단입니다."
+        "new_rating": "A",
+        "rating_rationale": "코로나19라는 국가적 위기 상황에서 시민의 안전을 최우선으로 고려한 방역 정책 접근은 공직자로서의 책임감과 시민에 대한 봉사정신을 보여주는 매우 윤리적인 행동입니다."
       },
       {
         "item_id": 107561,
@@ -3484,7 +3484,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "공공의료 정책 추진 과정의 투명성은 공공서비스 제공에서 중요한 윤리적 요소입니다. 투명한 과정을 통해 정책을 추진했다면 시민에 대한 책임감과 공정성을 보여준 것으로 평가할 수 있습니다."
+        "rating_rationale": "공공의료 정책 추진 과정의 투명성은 시민의 건강권과 직결되는 중요한 사안입니다. 투명한 정책 과정은 민주적 거버넌스의 기본 요건으로 양호한 수준의 윤리적 접근을 보여줍니다."
       },
       {
         "item_id": 107563,
@@ -3492,15 +3492,15 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "D",
         "new_rating": "C",
-        "rating_rationale": "정치자금 사용의 투명성과 적절성은 정치인의 기본적인 윤리 기준입니다. 투명하고 적절한 정치자금 사용은 시민들에 대한 신뢰 유지와 정치적 청렴성을 보여주는 중요한 윤리적 행동입니다."
+        "rating_rationale": "정치자금 사용의 투명성과 적절성 검증은 정치인의 기본적인 윤리 의무입니다. 투명한 정치자금 운용은 민주주의의 신뢰성 확보를 위해 필수적인 양호한 수준의 윤리적 행동입니다."
       },
       {
         "item_id": 107566,
         "data_title": "보수 정치인의 도덕성",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "D",
-        "new_rating": "C",
-        "rating_rationale": "보수 정치인으로서 일관된 정치적 윤리 기준을 유지하는 것은 정치적 신념과 원칙을 지키는 윤리적 자세입니다. 이념과 관계없이 기본적인 도덕성을 유지하려는 노력이 중요한 평가 요소입니다."
+        "new_rating": "D",
+        "rating_rationale": "보수 정치인으로서의 정치적 윤리 기준은 이념적 성향과 관계없이 기본적인 도덕성을 요구합니다. 구체적 내용이 명시되지 않아 보통 수준의 윤리성으로 평가하는 것이 적절합니다."
       },
       {
         "item_id": 107569,
@@ -3508,7 +3508,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "과거의 실패를 인정하고 재도전하는 자세는 정치인으로서의 성찰과 책임감을 보여줍니다. 실수를 인정하고 개선하려는 의지는 윤리적 성장과 시민에 대한 책임감을 나타내는 긍정적 평가 요소입니다."
+        "rating_rationale": "과거의 실패를 솔직히 인정하고 이를 바탕으로 재도전하는 정치적 자세는 성찰과 책임감을 보여주는 윤리적 행동입니다. 정치인으로서의 겸손함과 학습능력을 드러내는 우수한 태도입니다."
       },
       {
         "item_id": 107571,
@@ -3516,7 +3516,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "B",
-        "rating_rationale": "서울시 복지정책의 포용성과 공정성은 사회적 약자를 배려하고 시민 모두에게 공평한 혜택을 제공하려는 윤리적 접근입니다. 공공의 복리 증진과 사회정의 실현을 위한 노력으로 평가됩니다."
+        "rating_rationale": "서울시 복지정책의 포용성과 공정성은 사회적 약자에 대한 배려와 형평성을 반영합니다. 시민 모두의 복리증진을 위한 공정한 정책 추진은 공직자의 윤리적 의무를 잘 수행한 우수한 사례입니다."
       },
       {
         "item_id": 107573,
@@ -3524,7 +3524,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "언론 대응과 정보 공개의 투명성은 민주주의 사회에서 시민의 알 권리를 보장하는 윤리적 의무입니다. 투명한 소통과 정보 공개는 시민과의 신뢰 관계 구축에 필수적인 윤리적 행동입니다."
+        "rating_rationale": "언론 인터뷰와 정보 공개의 투명성은 민주주의의 기본 요건인 시민의 알 권리 보장과 직결됩니다. 투명한 소통은 정치인의 기본적인 윤리적 의무로 양호한 수준의 행동입니다."
       },
       {
         "item_id": 107576,
@@ -3532,7 +3532,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "E",
         "new_rating": "C",
-        "rating_rationale": "성평등 정책에 대한 기본적인 접근은 보이나, 구체적이고 혁신적인 여성 인권 증진 방안이나 실질적 성과가 제한적으로 보임. 전통적 보수 성향으로 인한 한계가 있지만 기본적 윤리 기준은 충족"
+        "rating_rationale": "성평등 정책에 대해 기본적인 접근은 보이나, 보수적 성향으로 인해 진전된 젠더 정책 추진에는 한계가 있어 보임. 여성 안전 정책 등 일부 영역에서는 성과를 보였으나 포괄적 젠더 정책 면에서는 아쉬움이 있음."
       },
       {
         "item_id": 107577,
@@ -3540,7 +3540,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "D",
         "new_rating": "B",
-        "rating_rationale": "청년 주거와 일자리 정책에서 상당한 노력과 구체적 성과를 보임. 청년 전세자금 지원, 청년수당 등 실질적 정책 추진으로 청년층에 대한 책임 의식과 윤리적 접근이 우수한 수준"
+        "rating_rationale": "청년 주거 정책과 일자리 창출을 위한 다양한 정책을 적극적으로 추진하고 있음. 청년 월세 지원, 청년 창업 지원 등 실질적인 정책들을 도입하여 청년층의 어려움 해결을 위해 노력하는 모습을 보임."
       },
       {
         "item_id": 107580,
@@ -3548,7 +3548,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "코로나19와 자연재난 대응에서 신속하고 체계적인 대응을 보임. 시민 안전을 최우선으로 하는 책임감 있는 행정을 펼쳤으며, 재난 상황에서의 리더십과 윤리적 판단이 우수함"
+        "rating_rationale": "코로나19 대응에서 비교적 안정적인 방역 정책을 유지했으며, 폭우 등 자연재해 대응에서도 신속한 대처를 보임. 시민 안전을 우선시하는 책임감 있는 행정을 보여주었으나 일부 초기 대응에서 아쉬움도 있었음."
       },
       {
         "item_id": 107581,
@@ -3556,7 +3556,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "D",
         "new_rating": "C",
-        "rating_rationale": "시민과의 소통 노력은 보이나 일방적 정책 발표가 많고, 시민 의견 수렴 과정에서 아쉬움이 있음. 기본적인 투명성은 유지하고 있으나 보다 적극적이고 쌍방향적 소통이 필요한 상황"
+        "rating_rationale": "시민과의 소통을 위한 다양한 채널을 운영하고 있으나, 정책 결정 과정에서의 투명성이나 시민 참여 확대 면에서는 개선의 여지가 있음. SNS 등을 통한 소통은 활발하나 실질적 정책 반영에는 한계가 보임."
       },
       {
         "item_id": 107582,
@@ -3564,7 +3564,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "환경 정책에 대한 기본적 접근은 하고 있으나, 개발 우선 정책과 환경 보호 사이에서 균형이 부족함. 기후변화 대응에서 보다 적극적이고 혁신적인 접근이 아쉬운 상황"
+        "rating_rationale": "서울시 환경 정책에서 기본적인 노력은 하고 있으나, 기후변화 대응이나 친환경 정책에서 혁신적이거나 선도적인 모습은 부족함. 미세먼지 대응, 녹색교통 확산 등에서 일정한 성과는 있으나 더 적극적인 접근이 필요해 보임."
       },
       {
         "item_id": 107583,
@@ -3572,15 +3572,15 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "E",
         "new_rating": "B",
-        "rating_rationale": "정치자금 관련하여 법적 기준을 준수하고 있으며, 투명한 공개와 관리를 보임. 특별한 의혹이나 문제제기 없이 정치자금 윤리 기준을 잘 지키고 있어 우수한 평가"
+        "rating_rationale": "정치자금 관련하여 특별한 논란이나 의혹이 제기되지 않았으며, 법적 기준을 준수하는 모습을 보임. 투명한 정치자금 운용을 위해 노력하고 있으나, 더 적극적인 공개와 투명성 확보 노력이 있다면 더 좋을 것으로 판단됨."
       },
       {
         "item_id": 107584,
         "data_title": "정치적 화해와 소통",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "D",
-        "new_rating": "D",
-        "rating_rationale": "정치적 대립 상황에서 중재 역할보다는 당파적 입장을 고수하는 경우가 많음. 화해와 소통보다는 정치적 이익을 우선시하는 모습이 보여 보통 수준의 윤리성"
+        "new_rating": "C",
+        "rating_rationale": "정치적 대립 상황에서 극단적 갈등을 피하려는 노력은 보이나, 적극적인 화해와 중재 역할에는 한계가 있음. 당파적 이해관계를 넘어선 포용적 리더십을 발휘하기보다는 보수적 입장을 유지하는 경향이 강함."
       },
       {
         "item_id": 107585,
@@ -3588,7 +3588,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "B",
-        "rating_rationale": "정책 추진에서 일관된 원칙과 방향성을 유지하고 있음. 선거 공약과 실제 정책 간의 일치도가 높고, 정치적 상황에 따른 급작스러운 정책 변경 없이 신뢰성 있는 행정을 보임"
+        "rating_rationale": "정책 추진에서 일관된 원칙을 유지하려는 노력을 보이며, 공약 이행을 위해 지속적으로 노력하는 모습을 보임. 시정 운영에서 안정성을 보여주고 있으나, 변화하는 상황에 대한 유연성 면에서는 개선이 필요해 보임."
       },
       {
         "item_id": 107586,
@@ -3596,7 +3596,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "D",
         "new_rating": "C",
-        "rating_rationale": "다양한 사회계층에 대한 정책적 배려는 보이나, 특정 계층(고소득층, 기업)에 유리한 정책이 많아 포용성에서 아쉬움. 사회적 약자에 대한 보다 적극적인 배려가 필요한 상황"
+        "rating_rationale": "다양한 사회계층을 포용하려는 기본적인 노력은 하고 있으나, 사회적 약자나 소수집단에 대한 적극적 배려나 포용 정책에서는 한계가 있음. 전통적인 복지 정책 틀 내에서 접근하는 경향이 강해 혁신적 포용성은 부족함."
       },
       {
         "item_id": 107587,
@@ -3604,32 +3604,32 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "D",
         "new_rating": "B",
-        "rating_rationale": "공직자로서 기본적인 도덕적 기준을 잘 지키고 있으며, 개인적 일탈이나 부패 의혹 없이 깨끗한 공직 생활을 유지. 공적 책임감과 윤리 의식이 우수한 수준으로 평가됨"
+        "rating_rationale": "공직자로서 기본적인 도덕적 기준을 준수하고 있으며, 개인적 비리나 도덕적 문제가 크게 제기되지 않았음. 공직 윤리 면에서 안정적인 모습을 보이고 있으나, 더 높은 수준의 도덕적 리더십을 보여줄 여지는 있음."
       }
     ]
   },
   "scores": {
     "ChatGPT": {
-      "avg_rating": 3.493333333333333,
-      "category_score": 77.46666666666667,
-      "total_items": 150,
-      "positive": 112,
-      "negative": 38
-    },
-    "Grok": {
-      "avg_rating": 3.1333333333333333,
-      "category_score": 75.66666666666666,
-      "total_items": 150,
-      "positive": 109,
-      "negative": 41
-    },
-    "Claude": {
-      "avg_rating": 3.066666666666667,
-      "category_score": 75.33333333333333,
+      "avg_rating": 3.56,
+      "category_score": 77.8,
       "total_items": 150,
       "positive": 113,
       "negative": 37
+    },
+    "Grok": {
+      "avg_rating": 3.2533333333333334,
+      "category_score": 76.26666666666667,
+      "total_items": 150,
+      "positive": 110,
+      "negative": 40
+    },
+    "Claude": {
+      "avg_rating": 3.1333333333333333,
+      "category_score": 75.66666666666666,
+      "total_items": 150,
+      "positive": 111,
+      "negative": 39
     }
   },
-  "final_score": 76.15555555555555
+  "final_score": 76.57777777777777
 }
