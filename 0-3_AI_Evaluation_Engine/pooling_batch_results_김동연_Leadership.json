@@ -1,0 +1,3635 @@
+{
+  "data_pool_size": 150,
+  "evaluation_results": {
+    "ChatGPT": [
+      {
+        "item_id": 162361,
+        "data_title": "조직 내 갈등 해결 능력",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "조직 내 갈등을 효과적으로 해결하고 청년층과의 소통을 강조하여 팀워크를 강화하는 모습이 매우 우수한 리더십을 보여준다."
+      },
+      {
+        "item_id": 162362,
+        "data_title": "비전 제시",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "명확한 비전 제시는 시민의 신뢰를 얻고 정책 방향성을 제시하는 데 중요한 역할을 하며, 이는 매우 우수한 리더십을 나타낸다."
+      },
+      {
+        "item_id": 162363,
+        "data_title": "결단력",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "위기 상황에서도 빠르게 결단을 내리는 능력은 조직의 목표 달성과 위기 극복에 필수적이며, 매우 효과적인 리더십을 보여준다."
+      },
+      {
+        "item_id": 162364,
+        "data_title": "소통 능력",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "다양한 채널로 시민과 소통하며 정책 개발에 의견을 반영하는 것은 리더십을 강화하는 매우 중요한 요소로 평가된다."
+      },
+      {
+        "item_id": 162365,
+        "data_title": "위기 관리 능력",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "재난 상황에서 시민의 안전을 최우선으로 고려하는 위기 관리 능력은 매우 우수한 리더십을 나타내며 신뢰를 증대시킨다."
+      },
+      {
+        "item_id": 162366,
+        "data_title": "정책 개발 과정의 참여",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "정책 개발에 국민 참여를 강조하며 다양한 의견을 수렴하는 것은 민주적이며 효과적인 리더십의 중요한 특징이다."
+      },
+      {
+        "item_id": 162367,
+        "data_title": "네트워킹 능력",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "다양한 이해관계자와의 관계를 적극적으로 맺고 정책 실행을 위한 지지 기반을 넓히는 노력은 긍정적이나 더 발전할 여지가 있다."
+      },
+      {
+        "item_id": 162368,
+        "data_title": "청소년 참여 프로그램 추진",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "청소년의 목소리를 정책에 반영하려는 노력은 젊은 세대와의 소통을 중시하는 매우 우수한 리더십을 보여준다."
+      },
+      {
+        "item_id": 162369,
+        "data_title": "정책의 투명성",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "정책 결정 과정의 투명성을 강화하여 시민의 신뢰를 얻는 모습은 매우 우수한 리더십의 한 예로 평가된다."
+      },
+      {
+        "item_id": 162370,
+        "data_title": "자율성과 책임감",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "조직 내부에서 자율성과 책임감을 강조하여 구성원들이 주도적으로 일할 수 있는 환경을 조성하는 것은 매우 효과적인 리더십이다."
+      },
+      {
+        "item_id": 162371,
+        "data_title": "의사 결정 과정의 불투명성",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "정책 결정 과정의 불투명성은 시민 신뢰를 저하시켜 리더십에 큰 타격을 주며, 불만이 증가하는 상황은 심각한 문제를 나타낸다."
+      },
+      {
+        "item_id": 162372,
+        "data_title": "조직 관리의 어려움",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "조직 관리의 어려움과 내부 갈등은 리더십의 부정적인 인식을 초래하며, 이는 조직의 안정성을 해치는 요소로 작용한다."
+      },
+      {
+        "item_id": 162373,
+        "data_title": "비판에 대한 대응 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "D",
+        "rating_rationale": "비판에 대한 대응 부족은 여론 악화를 초래하지만, 리더십의 신뢰 회복 가능성은 남아있어 다소 낮은 등급을 부여한다."
+      },
+      {
+        "item_id": 162374,
+        "data_title": "의사소통 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "의사소통 부족은 조직의 효율성을 저하시키며, 이는 리더십의 신뢰를 크게 해치는 중요한 요소로 작용한다."
+      },
+      {
+        "item_id": 162375,
+        "data_title": "정책 전략의 모호함",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "D",
+        "rating_rationale": "정책 전략의 모호함은 정책 이행 지연을 초래할 수 있으나, 개선 가능성이 존재하여 중간 등급을 부여한다."
+      },
+      {
+        "item_id": 162376,
+        "data_title": "인재 관리 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "인재 관리 부족은 조직의 지속 가능성을 위협하며, 이는 리더십의 큰 결함으로 간주된다."
+      },
+      {
+        "item_id": 162377,
+        "data_title": "자원 배분의 비효율성",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "자원 배분의 비효율성은 정책 실행에 어려움을 초래하며, 성과 저하를 야기하는 중요한 문제로 평가된다."
+      },
+      {
+        "item_id": 162378,
+        "data_title": "정치적 안전 장치 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "정치적 안전 장치 부족은 외부 압력에 취약하게 만들며, 이는 리더십의 신뢰에 심각한 부정적 영향을 미친다."
+      },
+      {
+        "item_id": 162379,
+        "data_title": "외부 의견 수용 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "D",
+        "rating_rationale": "외부 의견 수용 부족은 정책 개선 기회를 놓치게 하지만, 이는 리더십의 개선 가능성도 여전히 존재한다."
+      },
+      {
+        "item_id": 162380,
+        "data_title": "정책 추진의 일관성 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "정책 추진의 일관성 부족은 외부 갈등을 초래하며, 이는 리더십의 신뢰도를 낮추는 심각한 문제로 평가된다."
+      },
+      {
+        "item_id": 162381,
+        "data_title": "혁신적 접근법",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "김동연의 혁신적 접근법은 조직 발전에 실질적인 기여를 하며, 새로운 아이디어를 발굴하는 데 큰 도움을 주고 있다."
+      },
+      {
+        "item_id": 162382,
+        "data_title": "팀워크 구축 노력",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "팀워크 구축을 통한 협력 강조는 조직의 성과를 높이는 데 매우 긍정적인 영향을 미치고 있어 우수한 리더십을 보여준다."
+      },
+      {
+        "item_id": 162383,
+        "data_title": "다양성 존중",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "다양성을 존중하는 노력은 조직 문화를 풍요롭게 하고 창의성을 높이는 데 기여하며, 이는 뛰어난 리더십을 나타낸다."
+      },
+      {
+        "item_id": 162384,
+        "data_title": "사회적 책임 의식",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "사회적 책임을 다하는 활동은 시민의 신뢰를 얻고, 그의 리더십을 강화하는 중요한 요소로 작용하고 있다."
+      },
+      {
+        "item_id": 162385,
+        "data_title": "리더십 훈련과 발전",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "지속적인 리더십 훈련과 발전은 그의 능력을 향상시키며 조직 목표 달성에 기여하고 있어 매우 긍정적이다."
+      },
+      {
+        "item_id": 162386,
+        "data_title": "신뢰 구축의 실패",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "신뢰 구축의 실패로 조직 내 갈등이 발생하고 있으며, 이는 리더십에 심각한 타격을 줄 수 있는 미흡한 상황이다."
+      },
+      {
+        "item_id": 162387,
+        "data_title": "질 낮은 정책 실행",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "질 낮은 정책 실행은 시민들에게 실망을 주고 있으며, 이는 그의 리더십에 부정적인 영향을 미치는 미흡한 평가다."
+      },
+      {
+        "item_id": 162388,
+        "data_title": "정보 공유의 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "D",
+        "rating_rationale": "정보 공유 부족으로 부서 간 협력이 원활하지 않아 정책 추진에 차질을 초래할 수 있으며, 이는 보통 수준의 리더십이다."
+      },
+      {
+        "item_id": 162389,
+        "data_title": "영향력 있는 소통 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "영향력 있는 소통 부족은 리더십에 대한 의문을 불러일으키며, 이는 미흡한 소통 능력을 나타내고 있다."
+      },
+      {
+        "item_id": 162390,
+        "data_title": "사람 중심의 리더십",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "사람 중심의 리더십은 구성원들의 의견을 존중하고 능동적인 환경을 조성하여 매우 우수한 리더십을 나타낸다."
+      },
+      {
+        "item_id": 162391,
+        "data_title": "정치적 압박 대처",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "정치적 압박 속에서도 신념을 지키며 정책을 추진하는 모습은 강력한 리더십을 보여준다."
+      },
+      {
+        "item_id": 162392,
+        "data_title": "정책 접근의 유연성",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "정책 접근의 유연성은 비상 상황에서 조직의 적응력을 높여 리더십에 긍정적인 영향을 미친다."
+      },
+      {
+        "item_id": 162393,
+        "data_title": "생산적인 비판 수용",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "생산적인 비판을 수용하고 개선하는 노력은 리더십의 성장에 기여하며, 긍정적인 변화를 이끌어낸다."
+      },
+      {
+        "item_id": 162394,
+        "data_title": "정책 연속성 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "D",
+        "rating_rationale": "정책 연속성이 부족하여 혼란을 초래하는 것은 리더십의 일관성을 해치는 문제로 평가된다."
+      },
+      {
+        "item_id": 162395,
+        "data_title": "적극적인 피드백 제공",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "직원들에게 적극적인 피드백을 제공하는 것은 구성원의 성장과 동기 부여에 긍정적인 영향을 미친다."
+      },
+      {
+        "item_id": 162396,
+        "data_title": "멘토링 문화 조성",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "멘토링 문화를 조성하여 젊은 직원들의 발전을 지원하는 것은 지속 가능한 조직을 만드는 데 기여한다."
+      },
+      {
+        "item_id": 162397,
+        "data_title": "타 부서와의 협력 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "타 부서와의 협력이 부족하다는 비판은 조직의 효율성을 저해하며 리더십의 약점을 드러낸다."
+      },
+      {
+        "item_id": 162398,
+        "data_title": "정치적 비전 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "D",
+        "rating_rationale": "정치적 비전 부족은 정책 실행에 방향성을 잃게 할 우려가 있어 리더십의 신뢰성을 감소시킨다."
+      },
+      {
+        "item_id": 162399,
+        "data_title": "도전적인 목표 설정",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "도전적인 목표 설정은 구성원들이 더 높은 성과를 달성하도록 유도하며, 조직 성장에 크게 기여한다."
+      },
+      {
+        "item_id": 162400,
+        "data_title": "직원 복지 강화 노력",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "직원 복지 강화 노력은 조직 내 만족도를 높여 구성원들이 자발적으로 일에 몰입하게 만든다."
+      },
+      {
+        "item_id": 162401,
+        "data_title": "공급망 관리 문제",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "D",
+        "rating_rationale": "김동연의 공급망 관리 문제는 정책 실행에 장애물로 작용하고 있어 리더십에 부정적인 영향을 미친다."
+      },
+      {
+        "item_id": 162402,
+        "data_title": "신속한 대응 능력",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "위기 관리에서 신속한 대응 체계를 구축한 것은 리더십의 신뢰성을 높이고 조직 안전에 기여하는 매우 긍정적인 요소이다."
+      },
+      {
+        "item_id": 162403,
+        "data_title": "환경 지속 가능성 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "환경 지속 가능성 정책을 적극적으로 추진함으로써 미래 세대를 위한 문제 해결에 기여하고 있어 우수한 리더십을 보여준다."
+      },
+      {
+        "item_id": 162404,
+        "data_title": "정책의 상황적 접근",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "상황에 맞춰 유연하게 정책을 조정하는 능력은 다양한 이해관계를 고려하는 리더십을 잘 보여준다."
+      },
+      {
+        "item_id": 162405,
+        "data_title": "전문가와의 협력 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "전문가와의 협력 부족은 정책의 질을 낮추고 있어 리더십에 미흡한 부분이 존재한다."
+      },
+      {
+        "item_id": 162406,
+        "data_title": "정치적 신뢰성 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "정치적 신뢰성 부족은 여론 악화로 이어져 정책 추진에 부정적인 영향을 미치므로 리더십에 심각한 결함이 있다."
+      },
+      {
+        "item_id": 162407,
+        "data_title": "정책 이행 지연 사례",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "정책 이행 지연 사례는 시민 불만을 초래하고 있어 리더십에 미흡한 점이 드러난다."
+      },
+      {
+        "item_id": 162408,
+        "data_title": "리더십의 모범 사례",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "모범적인 리더십 사례를 지속적으로 보여준 것은 긍정적인 영향을 미치고 있으며 매우 우수한 리더십을 나타낸다."
+      },
+      {
+        "item_id": 162409,
+        "data_title": "팀원들의 동기 부여",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "팀원들에게 긍정적인 동기를 부여하는 노력은 팀 성과 향상으로 이어져 우수한 리더십을 보여준다."
+      },
+      {
+        "item_id": 162410,
+        "data_title": "정치는 변화해야 한다는 인식",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "정치 변화의 필요성을 강조하며 혁신적인 정책을 추진하려는 태도가 그의 리더십에 긍정적인 영향을 미치고 있다."
+      },
+      {
+        "item_id": 162611,
+        "data_title": "김동연의 경제 위기 대응 리더십",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "김동연은 경제 위기 시 빠른 의사결정과 부처 간 협력을 통해 국가 경제 안정에 기여했습니다. 이는 뛰어난 리더십의 사례입니다."
+      },
+      {
+        "item_id": 162612,
+        "data_title": "김동연의 공공기관 개혁 추진",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "공공기관 개혁을 통해 비효율성을 개선하고, 포용적 태도로 직원 의견을 반영한 점이 긍정적입니다. 리더십이 우수합니다."
+      },
+      {
+        "item_id": 162613,
+        "data_title": "김동연의 정책 발표 리더십",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "정확한 비전 제시와 동기부여를 통해 팀원들을 효과적으로 이끌어 정책 실행률을 높였습니다. 매우 우수한 리더십입니다."
+      },
+      {
+        "item_id": 162614,
+        "data_title": "김동연의 국제 협력 리더십",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "국제 회의에서 강력한 입장을 주장하며 동맹국들의 지지를 이끌어낸 것은 협상력과 네트워킹 능력을 보여줍니다."
+      },
+      {
+        "item_id": 162615,
+        "data_title": "김동연의 지역 개발 프로젝트 리더십",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "지역 개발 프로젝트에서 주민과 공무원을 통합적으로 이끌며 적응력과 결단력을 발휘한 점이 매우 우수합니다."
+      },
+      {
+        "item_id": 162616,
+        "data_title": "김동연의 팀 빌딩 리더십",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "팀 빌딩을 통해 조직의 역량을 강화하고 정책 효과를 증대시킨 점이 긍정적입니다. 우수한 리더십으로 평가됩니다."
+      },
+      {
+        "item_id": 162617,
+        "data_title": "김동연의 위기 관리 리더십",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "코로나 팬데믹 초기 빠른 대응 시스템 구축은 조직 내의 의견 수렴을 바탕으로 한 매우 효과적인 리더십의 예입니다."
+      },
+      {
+        "item_id": 162618,
+        "data_title": "김동연의 전략적 리더십",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "장기 경제 전략 수립 시 데이터 기반 의사결정을 강조하며, 사람들의 참여를 높인 점이 우수한 리더십을 보여줍니다."
+      },
+      {
+        "item_id": 162619,
+        "data_title": "김동연의 커뮤니케이션 리더십",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "명확한 커뮤니케이션으로 조직 내 오해를 최소화하고 직원들의 질문을 수용한 점이 긍정적이며, 신뢰를 쌓았습니다."
+      },
+      {
+        "item_id": 162620,
+        "data_title": "김동연의 조직 혁신 리더십",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "디지털 혁신을 통해 정부 조직을 현대화하고 직원 교육을 강화한 점이 리더십의 좋은 예로, 매우 우수합니다."
+      },
+      {
+        "item_id": 162621,
+        "data_title": "김동연의 윤리적 리더십",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "김동연의 윤리적 리더십은 조직의 투명성을 높이고 신뢰를 구축하여 매우 긍정적인 영향을 미쳤습니다. 윤리 규정 강화는 리더십의 우수성을 보여줍니다."
+      },
+      {
+        "item_id": 162622,
+        "data_title": "김동연의 결단력 리더십",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "김동연의 신속한 결단력은 어려운 상황에서 조직을 안정화시켰습니다. 반대 의견을 극복하고 정책을 추진한 점에서 매우 효과적인 리더십을 보여줍니다."
+      },
+      {
+        "item_id": 162623,
+        "data_title": "김동연의 교육 리더십",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "김동연의 교육 리더십은 직원 역량 강화를 통해 조직 발전에 기여했습니다. 리더로서의 역할을 강조한 점에서 우수하나, 실질적인 성과에 대한 구체적인 언급이 부족합니다."
+      },
+      {
+        "item_id": 162624,
+        "data_title": "김동연의 글로벌 리더십",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "김동연은 국제 포럼에서 한국의 입지를 강화하는 데 기여했습니다. 조직을 효과적으로 대표한 점에서 우수하나, 구체적인 성과가 부족합니다."
+      },
+      {
+        "item_id": 162625,
+        "data_title": "김동연의 환경 리더십",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "김동연은 환경 정책을 통해 지속 가능한 조직을 이끌었습니다. 사람들의 참여를 유도한 점은 긍정적이나, 정책의 구체적인 효과가 더 필요합니다."
+      },
+      {
+        "item_id": 162626,
+        "data_title": "김동연의 리더십 실패 예",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "김동연은 조직 내 의견 충돌을 해결하지 못해 지연을 초래했습니다. 이는 리더십의 미흡함을 드러내며 팀원들의 불만을 유발한 점에서 부정적입니다."
+      },
+      {
+        "item_id": 162627,
+        "data_title": "김동연의 의사결정 문제",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "김동연은 신속한 의사결정을 하지 못해 기회를 놓쳤습니다. 이는 조직 내 혼란을 초래한 리더십의 부족한 점으로 평가됩니다."
+      },
+      {
+        "item_id": 162628,
+        "data_title": "김동연의 소통 부족",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "F",
+        "rating_rationale": "김동연은 팀원들과의 소통을 소홀히 해 오해를 발생시켰습니다. 이는 효과적인 리더십 부재를 보여주는 심각한 문제입니다."
+      },
+      {
+        "item_id": 162629,
+        "data_title": "김동연의 전략 오류",
+        "collected_by": "Grok",
+        "original_rating": "H",
+        "new_rating": "E",
+        "rating_rationale": "김동연은 전략 오류로 조직 자원을 낭비했습니다. 이는 리더십의 심각한 문제를 드러내며, 더 나은 의사결정이 필요합니다."
+      },
+      {
+        "item_id": 162630,
+        "data_title": "김동연의 팀 관리 실패",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "김동연은 팀 관리에서 직원 이탈을 막지 못했습니다. 이는 리더십의 미흡함을 보여주며, 팀원들의 사기를 저하시킨 원인입니다."
+      },
+      {
+        "item_id": 162631,
+        "data_title": "김동연의 미디어 리더십",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "김동연의 비전이 언론에 긍정적으로 보도되어 대중에게 잘 전달된 사례로, 미디어 리더십이 매우 우수하게 나타남."
+      },
+      {
+        "item_id": 162632,
+        "data_title": "김동연의 공약 이행 리더십",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "선거 공약 이행으로 대중의 지지를 얻으며 조직을 효과적으로 이끈 점에서 강력한 리더십이 드러남."
+      },
+      {
+        "item_id": 162633,
+        "data_title": "김동연의 커뮤니티 리더십",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "지역 커뮤니티와의 소통을 통해 지지를 이끌어낸 점에서 우수한 리더십을 보여주지만, 구체적인 성과는 부족함."
+      },
+      {
+        "item_id": 162634,
+        "data_title": "김동연의 혁신 리더십 보도",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "혁신 리더십이 언론에서 높게 평가되어 조직 변화에 기여한 점이 매우 긍정적으로 작용함."
+      },
+      {
+        "item_id": 162635,
+        "data_title": "김동연의 경제 리더십 뉴스",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "경제 리더십이 성공 사례로 다루어졌으나, 효과의 구체성이 부족해 약간의 우수성에 그침."
+      },
+      {
+        "item_id": 162636,
+        "data_title": "김동연의 비전 리더십",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "장기 비전이 긍정적으로 평가되어 미래 지향적인 리더십을 보여준 점에서 매우 우수함."
+      },
+      {
+        "item_id": 162637,
+        "data_title": "김동연의 사회 리더십",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "사회 정책에서 사람들을 모아 성과를 낸 점에서 우수한 리더십이지만, 구체적인 내용이 더 필요함."
+      },
+      {
+        "item_id": 162638,
+        "data_title": "김동연의 협력 리더십",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "협력을 통해 리더십을 발휘한 점이 잘 드러나며, 타인과의 관계에서 긍정적인 결과를 이끌어냄."
+      },
+      {
+        "item_id": 162639,
+        "data_title": "김동연의 변화 관리",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "변화 관리 리더십이 긍정적으로 다루어지며 조직 변화에 대한 성공적 평가가 매우 우수함."
+      },
+      {
+        "item_id": 162640,
+        "data_title": "김동연의 지지율 리더십",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "지지율 상승으로 리더십이 강조된 점은 긍정적이나, 그 원인에 대한 분석이 부족해 우수성에 그침."
+      },
+      {
+        "item_id": 162641,
+        "data_title": "김동연의 공정 리더십",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "김동연의 공정성 강조는 조직 내 균형을 이루며 긍정적인 평가를 받았습니다. 리더십에서 공정성은 매우 중요한 요소입니다."
+      },
+      {
+        "item_id": 162642,
+        "data_title": "김동연의 혁신 추진",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "김동연의 혁신 리더십은 조직 강화에 기여한 것으로 칭송받아, 혁신을 통해 조직을 발전시키는 능력이 뛰어남을 보여줍니다."
+      },
+      {
+        "item_id": 162643,
+        "data_title": "김동연의 위기 리더십 보도",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "위기 대응 리더십이 긍정적으로 평가되며, 김동연의 결정이 상황을 잘 관리한 사례로 언급되어 리더십의 중요성을 잘 보여줍니다."
+      },
+      {
+        "item_id": 162644,
+        "data_title": "김동연의 전략 리더십 뉴스",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "전략적 리더십이 성공 사례로 다루어져, 김동연이 명확한 비전과 전략으로 조직을 이끌어가는 능력이 뛰어남을 입증합니다."
+      },
+      {
+        "item_id": 162645,
+        "data_title": "김동연의 소통 리더십",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "김동연의 소통 리더십은 보통 수준으로 평가되었으나, 더 나은 소통을 통해 조직의 효율성을 높일 필요가 있음을 시사합니다."
+      },
+      {
+        "item_id": 162646,
+        "data_title": "김동연의 조직 리더십",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "조직 관리 리더십이 긍정적으로 보도되어, 능력에 대한 신뢰를 구축했지만, 지속적인 개선이 필요합니다."
+      },
+      {
+        "item_id": 162647,
+        "data_title": "김동연의 비판 리더십",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "D",
+        "rating_rationale": "결정 지연 문제가 지적되었으나, 전반적으로 리더십의 다른 측면이 긍정적이어서 보통 수준으로 평가합니다."
+      },
+      {
+        "item_id": 162648,
+        "data_title": "김동연의 실패 사례",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "리더십 실패가 보도되어 부정적인 인상을 주며, 이러한 실패는 신뢰를 저하시킬 수 있습니다."
+      },
+      {
+        "item_id": 162649,
+        "data_title": "김동연의 소통 문제",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "E",
+        "rating_rationale": "소통 부족이 비판받아 조직 내 혼란을 초래했으며, 이는 리더십의 핵심 요소인 소통에 심각한 결함을 드러냅니다."
+      },
+      {
+        "item_id": 162650,
+        "data_title": "김동연의 전략 오류 보도",
+        "collected_by": "Grok",
+        "original_rating": "H",
+        "new_rating": "H",
+        "rating_rationale": "전략 오류가 심각하게 다루어져 손실이 강조되었으며, 이는 리더십의 기초적인 측면에서 치명적 결함을 나타냅니다."
+      },
+      {
+        "item_id": 162651,
+        "data_title": "김동연의 팀 관리 비판",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "G",
+        "rating_rationale": "팀 관리 실패가 언론에 비판받았으며, 직원 불만이 드러난 것은 리더십의 큰 결함을 나타냅니다."
+      },
+      {
+        "item_id": 162652,
+        "data_title": "김동연의 정책 비판",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "G",
+        "rating_rationale": "정책 리더십이 비판받고 효과 부족이 지적된 것은 정책 추진의 신뢰성을 저하시킵니다."
+      },
+      {
+        "item_id": 162653,
+        "data_title": "김동연의 대중 리더십",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "대중 소통 리더십이 긍정적으로 평가되었으며, 대중의 매력을 강조한 점에서 우수한 평가를 받을 만합니다."
+      },
+      {
+        "item_id": 162654,
+        "data_title": "김동연의 성과 리더십",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "성과 중심 리더십이 인정받은 점은 긍정적이지만, 전반적인 평가가 아닌 특정 사례에 한정된 점에서 다소 제한적입니다."
+      },
+      {
+        "item_id": 162655,
+        "data_title": "김동연의 비전 제시",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "비전 리더십이 높게 평가되었고, 아이디어가 칭송된 점에서 매우 우수한 리더십을 보여줍니다."
+      },
+      {
+        "item_id": 162656,
+        "data_title": "김동연의 협력 강조",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "협력 리더십이 긍정적으로 보도되었으나, 구체적인 성과가 부족한 점에서 우수한 평가를 받았습니다."
+      },
+      {
+        "item_id": 162657,
+        "data_title": "김동연의 혁신 리더십 뉴스",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "혁신 리더십이 성공적으로 다루어졌고, 성과가 평가된 점에서 매우 긍정적인 평가를 받습니다."
+      },
+      {
+        "item_id": 162658,
+        "data_title": "김동연의 지속성 리더십",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "지속성 있는 리더십이 높은 평가를 받았으며, 장기 계획이 칭송된 점에서 매우 우수합니다."
+      },
+      {
+        "item_id": 162659,
+        "data_title": "김동연의 윤리 리더십",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "윤리 리더십이 긍정적으로 보도되었으나, 구체적인 행동 사례가 부족해 우수한 평가를 받습니다."
+      },
+      {
+        "item_id": 162660,
+        "data_title": "김동연의 전체 리더십 평가",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "D",
+        "rating_rationale": "전반적인 리더십이 보통으로 평가되었으며, 강점과 약점이 모두 다루어진 점에서 중립적인 평가입니다."
+      },
+      {
+        "item_id": 112426,
+        "data_title": "경기도지사 취임 후 조직 개편 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "조직 개편 과정에서 직원들의 반발이 발생한 것은 리더십의 소통 부족을 보여줌."
+      },
+      {
+        "item_id": 112427,
+        "data_title": "전임 지사 시절 재정 운영 비판",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "C",
+        "rating_rationale": "재정 운영의 비판적 평가가 존재하지만, 이는 전임 지사의 정책 연속성과 관련이 있어 개인의 책임으로 한정하기 어려움."
+      },
+      {
+        "item_id": 112428,
+        "data_title": "위기 대응력 한계",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "코로나19 대응에서 초기 대응의 일관성 부족은 위기 관리에서의 리더십 부족을 반영함."
+      },
+      {
+        "item_id": 112429,
+        "data_title": "당내 갈등 관리 부족",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "당내 갈등 조정 능력이 미흡하여 정책 노선에 대한 이견을 해결하지 못한 점이 문제로 평가됨."
+      },
+      {
+        "item_id": 112430,
+        "data_title": "정책 일관성 부족",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "정책의 일관성이 부족하여 신뢰도 하락을 초래한 것은 리더십의 전략적 비전 부족을 나타냄."
+      },
+      {
+        "item_id": 112431,
+        "data_title": "경기도지사 시절 성과 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "F",
+        "rating_rationale": "정치적 성과가 부족한 논란은 리더십의 방향성과 실행력이 결여된 것으로 해석됨."
+      },
+      {
+        "item_id": 112432,
+        "data_title": "당내 갈등 관리 미흡",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "당내 갈등 관리 미흡은 조직 내 리더십의 한계를 드러내며, 이는 정치적 안정성을 저해함."
+      },
+      {
+        "item_id": 112433,
+        "data_title": "위기 대응력 한계",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "정치적 위기에 대한 신속한 대응 부족은 리더로서 신뢰를 구축하는 데 실패했음을 의미함."
+      },
+      {
+        "item_id": 112434,
+        "data_title": "정치적 입지 약화",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "F",
+        "rating_rationale": "정치적 영향력 감소와 인지도 하락은 리더십의 효과성과 국민과의 소통 부족을 나타냄."
+      },
+      {
+        "item_id": 112435,
+        "data_title": "조직 관리 능력 부족",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "조직 관리 능력 부족은 효과적인 팀 운영과 인력 배치에서의 실패를 보여주며, 리더십의 기본 요소가 결여됨."
+      },
+      {
+        "item_id": 112436,
+        "data_title": "경기도 위기대응 리더십",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "신속하고 체계적인 방역정책을 통해 코로나19 대응에서 높은 성과를 보였으며, 이는 위기 상황에서의 리더십을 잘 나타냄."
+      },
+      {
+        "item_id": 112437,
+        "data_title": "당정 갈등 조정 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "당내 다양한 계파의 의견을 조율하며 화합을 이끌어내는 능력을 보여줌, 그러나 갈등 조정에 있어 좀 더 강력한 리더십이 필요."
+      },
+      {
+        "item_id": 112438,
+        "data_title": "조직 관리 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "조직 쇄신과 효율적 운영을 추진하여 경기도청의 행정 역량을 크게 개선시킨 점에서 매우 우수한 리더십을 발휘하였음."
+      },
+      {
+        "item_id": 112439,
+        "data_title": "위기 대응 리더십",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "신속한 의사결정과 재난 대응 시스템 강화를 통해 위기 상황에서의 리더십을 잘 보여주었음."
+      },
+      {
+        "item_id": 112440,
+        "data_title": "정치적 협상력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "중앙정부와의 협력적 관계를 구축하여 정치적 협상력을 발휘했으나, 보다 적극적인 접근이 필요할 수 있음."
+      },
+      {
+        "item_id": 112441,
+        "data_title": "당내 영향력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "당내 중요 정책 결정 과정에서의 입지 확보는 긍정적이나, 더 많은 당원과의 소통이 필요함."
+      },
+      {
+        "item_id": 112442,
+        "data_title": "갈등 관리 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "지역사회 내 다양한 이해관계 조정과 중재에 성공하여 갈등 관리 능력을 보여주었으나, 지속적인 노력 필요."
+      },
+      {
+        "item_id": 112443,
+        "data_title": "조직 내 의사결정",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "신속하고 합리적인 의사결정 프로세스를 구축하여 조직 내 효율성을 높인 점에서 매우 우수한 평가를 받을 만함."
+      },
+      {
+        "item_id": 112444,
+        "data_title": "정치적 리더십 강도",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "지방정부 대표로서 강력한 리더십을 발휘하여 시민의 신뢰를 얻은 점에서 높은 평가를 받음."
+      },
+      {
+        "item_id": 112445,
+        "data_title": "위기 소통 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "코로나19 대응 과정에서 투명한 정보 전달로 시민과의 신뢰를 구축한 점에서 매우 우수한 소통 능력을 보여줌."
+      },
+      {
+        "item_id": 112446,
+        "data_title": "팀 구성 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "전문성 높은 행정팀을 구성하고 운영한 것은 리더십의 핵심 요소인 팀 구성 능력을 매우 잘 보여주며, 이는 조직의 효율성을 극대화하는 데 기여함."
+      },
+      {
+        "item_id": 112447,
+        "data_title": "정치적 네트워크",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "광범위한 정치적 네트워크는 정치인으로서의 영향력을 강화하며, 다양한 이해관계자와의 소통을 통해 정책 추진에 유리하게 작용할 수 있음."
+      },
+      {
+        "item_id": 112448,
+        "data_title": "위기관리 대응력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "자연재해 및 사회적 위기에 대한 대응 능력은 리더십의 중요한 측면으로, 위기 상황에서의 신속하고 효과적인 판단과 조치가 매우 우수함."
+      },
+      {
+        "item_id": 112449,
+        "data_title": "조직문화 혁신",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "혁신적이고 개방적인 조직문화를 조성한 것은 조직의 창의성과 효율성을 높이는 데 기여하며, 리더로서의 비전과 추진력이 뛰어남."
+      },
+      {
+        "item_id": 112450,
+        "data_title": "정치적 영향력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "지방정부 대표로서의 정치적 영향력 확보는 효과적인 정책 시행 및 지역 발전에 긍정적인 영향을 줄 수 있어 우수한 평가를 받음."
+      },
+      {
+        "item_id": 112451,
+        "data_title": "변화 대응력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "급변하는 환경에 대한 적응력은 리더십에서 중요한 요소로, 변화에 능동적으로 대응할 수 있는 능력을 잘 보여줌."
+      },
+      {
+        "item_id": 112452,
+        "data_title": "의사결정 일관성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "정책 결정의 일관성과 신뢰성은 리더십의 신뢰도를 높이고, 조직의 목표를 달성하는 데 필수적인 요소로 매우 우수함."
+      },
+      {
+        "item_id": 112453,
+        "data_title": "리더십 유연성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "다양한 상황에 대응하는 유연한 리더십은 변동성이 큰 정치 환경에서 중요한 자산으로, 효과적인 리더십을 잘 보여줌."
+      },
+      {
+        "item_id": 112454,
+        "data_title": "위기 예측 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "잠재적 위기에 대한 사전 대응 능력은 리더십의 예측력을 나타내며, 이는 위기 상황에서의 효과적인 대처로 이어질 수 있어 매우 우수함."
+      },
+      {
+        "item_id": 112455,
+        "data_title": "팀워크 촉진",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "조직 내 협력적 팀워크 문화를 조성한 것은 팀의 결속력을 높이고, 공동의 목표를 달성하는 데 필수적인 요소로 매우 긍정적임."
+      },
+      {
+        "item_id": 112456,
+        "data_title": "경기도 조직 개편 리더십",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "조직 개편을 신속하고 체계적으로 추진함으로써 효율적인 행정 운영을 이끌어내고, 리더십을 발휘한 점에서 매우 우수하다고 평가됨."
+      },
+      {
+        "item_id": 112457,
+        "data_title": "코로나19 대응 위기관리",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "코로나19에 대한 주도적인 방역 정책 추진은 위기 상황에서의 리더십을 잘 보여주며, 시민의 안전을 최우선으로 고려한 점이 높이 평가됨."
+      },
+      {
+        "item_id": 112458,
+        "data_title": "당정 간 소통 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "당정 간의 협력적 관계 유지로 안정적인 정치적 기반을 마련했으나, 보다 적극적인 소통이 필요해 보임. 전반적으로 우수한 평가."
+      },
+      {
+        "item_id": 112459,
+        "data_title": "의사결정 신속성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "주요 정책 결정 시 신속한 판단력을 발휘한 것은 리더로서 매우 중요한 자질이며, 효과적인 의사결정을 통해 긍정적인 결과를 이끌어냈음."
+      },
+      {
+        "item_id": 112460,
+        "data_title": "위기 대응 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "재난 대응 시스템의 강화는 위기 관리 능력을 잘 보여주며, 리더십을 통해 지역 주민의 안전을 상당히 높였다는 점에서 매우 긍정적."
+      },
+      {
+        "item_id": 112461,
+        "data_title": "정치적 네트워킹",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "중앙정부와 지방정부 간의 협력 관계 구축은 전략적 리더십을 보여주지만, 보다 적극적인 정치적 네트워킹이 필요할 것으로 보임."
+      },
+      {
+        "item_id": 112462,
+        "data_title": "팀 운영 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "경기도청 주요 팀의 구성 및 관리 능력은 팀 운영에 대한 리더십을 잘 보여주지만, 더 많은 성과를 필요로 할 수 있음."
+      },
+      {
+        "item_id": 112463,
+        "data_title": "갈등 조정 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "지역 내 다양한 이해관계 조정 능력은 리더십의 중요한 요소이나, 갈등 조정 과정에서의 더 많은 사례가 필요함."
+      },
+      {
+        "item_id": 112464,
+        "data_title": "변화 주도성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "정책 혁신을 주도함으로써 변화에 대한 적극적 대응력을 보여주었으며, 이는 리더로서의 강력한 비전과 추진력을 반영함."
+      },
+      {
+        "item_id": 112465,
+        "data_title": "소통 리더십",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "도민과의 적극적 소통 노력은 신뢰를 구축하는 데 중요한 역할을 하며, 이는 리더십의 핵심 요소로 매우 긍정적으로 평가됨."
+      },
+      {
+        "item_id": 112466,
+        "data_title": "정책 일관성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "정책 일관성을 통해 신뢰를 구축하고, 장기적인 비전을 보여주어 매우 우수한 리더십을 발휘하고 있습니다."
+      },
+      {
+        "item_id": 112467,
+        "data_title": "예산 관리 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "재정 건전성을 유지함으로써 조직의 안정성을 확보하고 효과적인 자원 관리를 통해 리더십을 높이고 있습니다."
+      },
+      {
+        "item_id": 112468,
+        "data_title": "위기 소통 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "위기 소통 능력이 뛰어나지만, 더 적극적인 소통 전략이 필요할 수 있습니다. 전반적으로 우수한 능력을 보여주고 있습니다."
+      },
+      {
+        "item_id": 112469,
+        "data_title": "정치적 영향력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "정치적 영향력이 존재하지만, 당 내 경쟁이 치열하여 리더십이 다소 불안정할 수 있습니다. 양호한 수준입니다."
+      },
+      {
+        "item_id": 112470,
+        "data_title": "혁신 마인드",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "혁신 마인드를 통해 새로운 시도를 하고 있으며, 이는 리더십의 우수성을 잘 보여줍니다."
+      },
+      {
+        "item_id": 112471,
+        "data_title": "위기 예측 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "위기 예측 능력을 갖추고 있으나, 실제 위기 발생 시 대응력이 더 중요하므로 우수한 평가를 내렸습니다."
+      },
+      {
+        "item_id": 112472,
+        "data_title": "팀워크 촉진",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "팀워크 촉진을 통해 조직 내 협업 문화를 조성하며, 이는 리더십의 큰 장점으로 작용합니다."
+      },
+      {
+        "item_id": 112473,
+        "data_title": "리더십 스타일",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "민주적이고 개방적인 리더십 스타일을 통해 구성원들의 참여를 유도하고 있으며, 이는 매우 긍정적인 요소입니다."
+      },
+      {
+        "item_id": 112474,
+        "data_title": "외부 위기 관리",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "대외적 위기 상황에 대한 대응 능력이 좋지만, 더욱 체계적인 관리가 필요할 수 있어 우수하다고 판단합니다."
+      },
+      {
+        "item_id": 112475,
+        "data_title": "조직 문화 개선",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "조직 문화 개선을 통해 경기도청의 전반적인 효율성을 높이고, 리더십을 강화하는 긍정적인 변화입니다."
+      }
+    ],
+    "Grok": [
+      {
+        "item_id": 162361,
+        "data_title": "조직 내 갈등 해결 능력",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "김동연은 조직 내 갈등을 효과적으로 해결하며 팀워크를 강화하고, 청년층과의 소통을 중시하는 모습을 보임. 이러한 리더십은 우수한 수준으로 평가됨."
+      },
+      {
+        "item_id": 162362,
+        "data_title": "비전 제시",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "명확한 비전 제시와 이를 통한 시민들의 신뢰 획득, 장기적인 지역 발전 기여 등 매우 우수한 리더십을 보여줌."
+      },
+      {
+        "item_id": 162363,
+        "data_title": "결단력",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "위험 상황에서도 빠른 결단력으로 위기 극복에 기여하며, 조직 목표 달성에 중요한 역할을 하는 매우 우수한 리더십을 발휘함."
+      },
+      {
+        "item_id": 162364,
+        "data_title": "소통 능력",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "다양한 채널을 통해 시민과 소통하고 정책에 시민 의견을 반영하는 능력은 우수한 리더십의 중요한 요소로 작용함."
+      },
+      {
+        "item_id": 162365,
+        "data_title": "위기 관리 능력",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "재난 상황에서 효과적인 해결 방안을 모색하고 시민 안전을 우선시하는 위기 관리 능력은 매우 우수한 리더십을 보여줌."
+      },
+      {
+        "item_id": 162366,
+        "data_title": "정책 개발 과정의 참여",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "정책 개발 과정에 국민의 참여를 강조하고 다양한 의견을 수렴하는 민주적 리더십은 우수한 수준으로 평가됨."
+      },
+      {
+        "item_id": 162367,
+        "data_title": "네트워킹 능력",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "지역 사회의 다양한 이해관계자와의 네트워킹을 통해 정책 실행의 지지 기반을 넓히는 능력은 우수한 리더십의 요소임."
+      },
+      {
+        "item_id": 162368,
+        "data_title": "청소년 참여 프로그램 추진",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "청소년의 목소리를 정책에 반영하기 위한 프로그램을 추진하는 것은 젊은 세대와의 소통을 강조하는 우수한 리더십을 보여줌."
+      },
+      {
+        "item_id": 162369,
+        "data_title": "정책의 투명성",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "정책 결정 과정의 투명성을 강화하고 시민의 신뢰를 얻는 것은 우수한 리더십의 중요한 요소로 작용함."
+      },
+      {
+        "item_id": 162370,
+        "data_title": "자율성과 책임감",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "조직 내 자율성과 책임감을 강조하며 구성원의 주도성을 높이는 것은 우수한 리더십의 중요한 요소로 평가됨."
+      },
+      {
+        "item_id": 162371,
+        "data_title": "의사 결정 과정의 불투명성",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "김동연의 정책 결정 과정이 불투명하다는 비판은 리더십의 신뢰성을 크게 떨어뜨린다. 이는 시민들의 불만을 초래하며 정책 신뢰도 저하로 이어져 매우 미흡한 리더십을 나타낸다."
+      },
+      {
+        "item_id": 162372,
+        "data_title": "조직 관리의 어려움",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "조직 내 관리 문제와 내부 갈등은 리더십의 부정적인 인식을 초래한다. 이는 김동연의 조직 관리 능력이 미흡함을 보여주며, 리더십이 부족함을 나타낸다."
+      },
+      {
+        "item_id": 162373,
+        "data_title": "비판에 대한 대응 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "비판에 대한 대응이 부족할 경우 여론이 악화될 수 있으며, 이는 리더십에 심각한 타격을 준다. 김동연의 대응 부족은 리더십이 미흡함을 보여준다."
+      },
+      {
+        "item_id": 162374,
+        "data_title": "의사소통 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "내부 직원들과의 의사소통 부족은 조직의 효율성을 저하시키며, 이는 리더십의 중요한 부분이 부족함을 나타낸다. 김동연의 의사소통 부족은 매우 미흡한 리더십을 보여준다."
+      },
+      {
+        "item_id": 162375,
+        "data_title": "정책 전략의 모호함",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "D",
+        "rating_rationale": "정책 전략의 모호함은 정책 이행의 지연을 초래할 수 있다. 이는 보통 수준의 리더십을 나타내며, 시민의 이해를 돕기 위한 노력이 필요하다."
+      },
+      {
+        "item_id": 162376,
+        "data_title": "인재 관리 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "인재 관리에 있어 부족함은 능력 있는 인재의 유출을 초래하며, 이는 조직의 지속 가능성에 영향을 준다. 김동연의 인재 관리 부족은 리더십이 미흡함을 보여준다."
+      },
+      {
+        "item_id": 162377,
+        "data_title": "자원 배분의 비효율성",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "자원 배분의 비효율성은 정책 실행에 어려움을 초래하며 성과 저하를 우려하게 한다. 이는 김동연의 리더십이 미흡함을 나타낸다."
+      },
+      {
+        "item_id": 162378,
+        "data_title": "정치적 안전 장치 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "정치적 안전 장치 부족은 외부 압력에 휘둘릴 위험을 증가시킨다. 이는 리더십의 신뢰도에 부정적인 영향을 미치며, 김동연의 리더십이 미흡함을 보여준다."
+      },
+      {
+        "item_id": 162379,
+        "data_title": "외부 의견 수용 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "외부 의견을 적극적으로 수용하지 못하는 것은 정책 개선의 기회를 놓치게 한다. 이는 정책의 질 저하로 이어지며, 김동연의 리더십이 미흡함을 나타낸다."
+      },
+      {
+        "item_id": 162380,
+        "data_title": "정책 추진의 일관성 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "정책 추진의 일관성 부족은 외부와의 갈등을 초래하며 정책 효과성을 저해한다. 이는 시민의 신뢰를 낮추며, 김동연의 리더십이 미흡함을 보여준다."
+      },
+      {
+        "item_id": 162381,
+        "data_title": "혁신적 접근법",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "김동연의 혁신적 접근법은 조직 발전에 큰 기여를 하고 있으며, 새로운 아이디어 발굴과 진행에 매우 우수한 리더십을 보여주고 있다."
+      },
+      {
+        "item_id": 162382,
+        "data_title": "팀워크 구축 노력",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "팀워크 구축을 위해 많은 노력을 기울이고 있으며, 이는 각 팀의 성과를 높이는 데 기여하고 있어 우수한 리더십을 나타낸다."
+      },
+      {
+        "item_id": 162383,
+        "data_title": "다양성 존중",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "조직 내 다양성을 존중하고 포괄적인 문화를 조성하려는 노력은 창의성 향상에 기여하고 있어 우수한 리더십을 보여준다."
+      },
+      {
+        "item_id": 162384,
+        "data_title": "사회적 책임 의식",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "사회적 책임을 다하기 위한 활동을 통해 시민의 신뢰를 얻고 있으며, 이는 그의 리더십을 더욱 견고하게 하는 우수한 행위이다."
+      },
+      {
+        "item_id": 162385,
+        "data_title": "리더십 훈련과 발전",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "자신의 리더십 능력을 발전시키기 위한 지속적인 교육과 훈련 참여는 조직의 목표 달성에 기여하고 있어 우수한 리더십을 나타낸다."
+      },
+      {
+        "item_id": 162386,
+        "data_title": "신뢰 구축의 실패",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "신뢰 구축 실패로 인한 조직 내 갈등과 퇴사율 증가는 그의 리더십에 큰 타격을 주고 있어 미흡한 리더십을 보여준다."
+      },
+      {
+        "item_id": 162387,
+        "data_title": "질 낮은 정책 실행",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "질 낮은 정책 실행으로 인한 시민들의 실망감은 그의 리더십 신뢰도에 부정적인 영향을 미치고 있어 미흡한 리더십을 나타낸다."
+      },
+      {
+        "item_id": 162388,
+        "data_title": "정보 공유의 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "정보 공유의 부족으로 인한 부서 간 협력 부족은 정책 추진에 차질을 초래할 수 있어 부족한 리더십을 보여준다."
+      },
+      {
+        "item_id": 162389,
+        "data_title": "영향력 있는 소통 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "영향력 있는 소통 부족으로 인한 리더십에 대한 의문은 정책 성공에 중요한 소통을 간과하고 있어 부족한 리더십을 나타낸다."
+      },
+      {
+        "item_id": 162390,
+        "data_title": "사람 중심의 리더십",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "사람 중심의 리더십으로 구성원을 소중히 여기고 그들의 의견을 존중하는 모습은 매우 우수한 리더십을 보여준다."
+      },
+      {
+        "item_id": 162391,
+        "data_title": "정치적 압박 대처",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "김동연이 정치적 압박 상황에서도 자신의 신념을 지키며 정책을 추진하는 것은 매우 우수한 리더십을 보여준다. 이는 그의 강한 의지와 신념을 바탕으로 한 리더십으로, 조직 내외부에 긍정적인 영향을 미친다."
+      },
+      {
+        "item_id": 162392,
+        "data_title": "정책 접근의 유연성",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "김동연의 유연한 정책 접근 방식은 비상 상황에서 조직의 유연성을 높여주는 우수한 리더십을 나타낸다. 상황에 맞춰 변화하는 능력은 리더로서 중요한 자질 중 하나이다."
+      },
+      {
+        "item_id": 162393,
+        "data_title": "생산적인 비판 수용",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "김동연이 자신의 정책에 대한 비판을 생산적으로 수용하고 개선하려는 노력은 우수한 리더십을 보여준다. 이는 성장 가능성을 높이고, 조직 내에서 긍정적인 변화를 이끌어낸다."
+      },
+      {
+        "item_id": 162394,
+        "data_title": "정책 연속성 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "김동연의 정책 연속성 부족은 혼란을 초래하고 정책의 일관성을 해치는 문제를 낳고 있어, 리더십 측면에서 미흡하다. 이는 조직의 신뢰성을 떨어뜨릴 수 있는 요소이다."
+      },
+      {
+        "item_id": 162395,
+        "data_title": "적극적인 피드백 제공",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "김동연이 직원들에게 적극적인 피드백을 제공하는 것은 매우 우수한 리더십을 나타낸다. 이는 구성원들의 성장과 동기를 높이는 데 큰 기여를 하며, 긍정적인 조직 문화를 조성한다."
+      },
+      {
+        "item_id": 162396,
+        "data_title": "멘토링 문화 조성",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "김동연이 조직 내 멘토링 문화를 조성하는 것은 매우 우수한 리더십을 보여준다. 이는 젊은 직원들의 발전을 도와 지속 가능한 조직을 만드는 데 기여한다."
+      },
+      {
+        "item_id": 162397,
+        "data_title": "타 부서와의 협력 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "김동연이 타 부서 간 협력이 부족하다는 비판을 받는 것은 리더십 측면에서 미흡하다. 협력의 중요성을 간과하는 것은 조직의 효율성을 저해할 수 있다."
+      },
+      {
+        "item_id": 162398,
+        "data_title": "정치적 비전 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "김동연이 경제적 성장을 위한 구체적인 정치적 비전이 부족하다는 비판을 받는 것은 리더십 측면에서 미흡하다. 이는 정책 실행에 있어 방향성을 잃게 할 우려가 있다."
+      },
+      {
+        "item_id": 162399,
+        "data_title": "도전적인 목표 설정",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "김동연이 도전적인 목표를 설정하여 구성원들이 더 높은 성과를 달성하도록 유도하는 것은 우수한 리더십을 보여준다. 이러한 목표는 조직의 성장에 기여한다."
+      },
+      {
+        "item_id": 162400,
+        "data_title": "직원 복지 강화 노력",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "김동연이 직원 복지를 강화하기 위한 다양한 프로그램을 도입하는 것은 매우 우수한 리더십을 나타낸다. 이는 조직 내 만족도를 높이고, 구성원들이 자발적으로 일에 몰입할 수 있게 만든다."
+      },
+      {
+        "item_id": 162401,
+        "data_title": "공급망 관리 문제",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "공급망 관리 문제로 인해 조직의 원활한 운영이 방해받고 있다는 지적이 있어 리더십이 미흡하다고 평가됩니다. 이는 정책 실행에 장애물로 작용할 수 있어 부정적 영향이 큽니다."
+      },
+      {
+        "item_id": 162402,
+        "data_title": "신속한 대응 능력",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "응급 상황에서 신속한 대응 체계를 구축하여 위기 관리의 신뢰성을 높이고 조직의 안전에 기여하고 있다는 점에서 우수한 리더십을 보이고 있습니다."
+      },
+      {
+        "item_id": 162403,
+        "data_title": "환경 지속 가능성 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "환경 지속 가능성을 위한 정책을 적극적으로 추진하며 미래 세대를 위한 문제 해결에 기여하고 있어 매우 우수한 리더십을 보여줍니다."
+      },
+      {
+        "item_id": 162404,
+        "data_title": "정책의 상황적 접근",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "다양한 상황에 맞춰 정책을 유연하게 조정하는 능력을 보여주어 다양한 이해관계자를 고려한 접근이 가능하다는 점에서 우수한 리더십을 발휘하고 있습니다."
+      },
+      {
+        "item_id": 162405,
+        "data_title": "전문가와의 협력 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "전문가와의 협력이 부족하여 정책의 질이 떨어진다는 비판이 있어 리더십이 미흡하다고 평가됩니다. 전문가의 조언이 부족하면 정책의 효율성이 낮아질 수 있습니다."
+      },
+      {
+        "item_id": 162406,
+        "data_title": "정치적 신뢰성 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "정치적 신뢰성이 낮아 여론이 악화되고 있다는 점에서 리더십이 부족하다고 평가됩니다. 이는 정책 추진에 부정적 영향을 미칠 수 있어 심각한 문제입니다."
+      },
+      {
+        "item_id": 162407,
+        "data_title": "정책 이행 지연 사례",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "정책 이행 지연으로 인해 시민들의 불만이 초래되고 있다는 점에서 리더십이 미흡하다고 평가됩니다. 정책 추진의 지연은 리더십에 부정적 영향을 미칩니다."
+      },
+      {
+        "item_id": 162408,
+        "data_title": "리더십의 모범 사례",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "여러 차례 모범적인 리더십 사례를 보여주어 조직의 다른 구성원들에게 긍정적인 영향을 주고 있다는 점에서 매우 우수한 리더십을 발휘하고 있습니다."
+      },
+      {
+        "item_id": 162409,
+        "data_title": "팀원들의 동기 부여",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "팀원들에게 긍정적인 동기를 부여하는 여러 방법을 모색하여 팀 전체의 성과 향상에 기여하고 있다는 점에서 우수한 리더십을 보여줍니다."
+      },
+      {
+        "item_id": 162410,
+        "data_title": "정치는 변화해야 한다는 인식",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "정치는 변화해야 한다는 인식을 강조하며 혁신적인 정책 추진을 위해 노력하고 있어 리더십에 긍정적인 영향을 미치고 있다는 점에서 우수한 리더십을 발휘하고 있습니다."
+      },
+      {
+        "item_id": 162611,
+        "data_title": "김동연의 경제 위기 대응 리더십",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "김동연은 경제 위기 상황에서 신속한 의사결정을 이끌어냈으며, 부처 간 협력을 강화해 국가 경제 안정에 기여했습니다. 이는 매우 우수한 리더십의 사례로, 팀원들의 신뢰와 효과적인 커뮤니케이션을 바탕으로 한 결과입니다."
+      },
+      {
+        "item_id": 162612,
+        "data_title": "김동연의 공공기관 개혁 추진",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "김동연은 공공기관의 비효율을 개선하고, 직원들의 역량을 최대화했습니다. 하부 조직의 의견을 수렴하는 포용적 리더십을 통해 예산 절감과 서비스 개선을 달성했으며, 이는 매우 우수한 리더십입니다."
+      },
+      {
+        "item_id": 162613,
+        "data_title": "김동연의 정책 발표 리더십",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "김동연은 정책 발표에서 명확한 비전을 제시하며 팀원들을 동기부여했습니다. 조직 내 협력을 강조한 그의 리더십은 정책 실행률을 높이는 데 성공적이었으며, 매우 우수한 리더십의 예입니다."
+      },
+      {
+        "item_id": 162614,
+        "data_title": "김동연의 국제 협력 리더십",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "김동연은 국제 회의에서 한국의 입장을 강력히 주장하며 다국적 조직을 효과적으로 이끌었습니다. G20 회의에서 동맹국들의 지지를 얻어 공동 정책을 수립한 그의 리더십은 매우 우수합니다."
+      },
+      {
+        "item_id": 162615,
+        "data_title": "김동연의 지역 개발 프로젝트 리더십",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "김동연은 지역 개발 프로젝트에서 주민과 공무원을 통합적으로 이끌었습니다. 커뮤니티 피드백을 반영해 계획을 수정하고 성공적으로 마무리한 그의 리더십은 적응력과 결단력을 보여주며 매우 우수합니다."
+      },
+      {
+        "item_id": 162616,
+        "data_title": "김동연의 팀 빌딩 리더십",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "김동연은 다각도 인재를 선발해 경제팀을 재편하며 조직 역량을 강화했습니다. 사람들의 잠재력을 이끌어낸 그의 리더십은 정책 효과를 증대시켰으며, 매우 우수한 리더십의 사례입니다."
+      },
+      {
+        "item_id": 162617,
+        "data_title": "김동연의 위기 관리 리더십",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "김동연은 코로나 팬데믹 초기, 공무원들의 의견을 수렴해 빠른 대응 시스템을 구축했습니다. 그의 리더십은 국가적 안정을 도모했으며, 매우 우수한 리더십의 사례로 평가됩니다."
+      },
+      {
+        "item_id": 162618,
+        "data_title": "김동연의 전략적 리더십",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "김동연은 장기 경제 전략을 세우며 조직을 미래 지향적으로 이끌었습니다. 데이터 기반 의사결정을 강조한 그의 리더십은 사람들의 참여를 높여 성공적으로 작용했으며, 매우 우수합니다."
+      },
+      {
+        "item_id": 162619,
+        "data_title": "김동연의 커뮤니케이션 리더십",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "김동연은 정책 설명 시 명확한 커뮤니케이션으로 조직 내 오해를 최소화했습니다. 직원들의 질문을 적극 수용하며 신뢰를 쌓은 그의 리더십은 매우 우수한 사례로 평가됩니다."
+      },
+      {
+        "item_id": 162620,
+        "data_title": "김동연의 조직 혁신 리더십",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "김동연은 디지털 혁신을 통해 정부 조직을 현대화했습니다. 직원 교육을 강화해 효과적인 변화를 이끈 그의 리더십은 매우 우수하며, 좋은 예로 평가됩니다."
+      },
+      {
+        "item_id": 162621,
+        "data_title": "김동연의 윤리적 리더십",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "김동연의 윤리적 리더십이 조직 내 투명성을 높이고 신뢰를 구축한 사례로, 매우 우수한 리더십을 발휘한 것으로 평가됩니다."
+      },
+      {
+        "item_id": 162622,
+        "data_title": "김동연의 결단력 리더십",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "김동연이 어려운 결정 시 신속하게 행동하며 조직을 안정화하고 반대 의견을 극복한 것은 매우 우수한 리더십의 증거입니다."
+      },
+      {
+        "item_id": 162623,
+        "data_title": "김동연의 교육 리더십",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "김동연이 공공부문 교육 프로그램을 통해 직원들의 역량을 강화하고 조직 발전을 이끈 것은 매우 우수한 리더십을 보여줍니다."
+      },
+      {
+        "item_id": 162624,
+        "data_title": "김동연의 글로벌 리더십",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "김동연이 국제 포럼에서 한국의 입지를 강화하고 조직을 효과적으로 대표한 것은 매우 우수한 글로벌 리더십의 사례입니다."
+      },
+      {
+        "item_id": 162625,
+        "data_title": "김동연의 환경 리더십",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "김동연이 환경 정책을 통해 조직을 지속가능하게 이끌고 사람들의 참여를 유도한 것은 매우 우수한 환경 리더십을 보여줍니다."
+      },
+      {
+        "item_id": 162626,
+        "data_title": "김동연의 리더십 실패 예",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "김동연이 조직 내 의견 충돌을 제대로 해결하지 못해 프로젝트 지연을 초래한 것은 리더십의 미흡함을 나타냅니다."
+      },
+      {
+        "item_id": 162627,
+        "data_title": "김동연의 의사결정 문제",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "김동연이 신속한 의사결정을 하지 못해 기회를 놓친 것은 리더십의 부족한 점으로, 조직 내 혼란을 불러일으켰습니다."
+      },
+      {
+        "item_id": 162628,
+        "data_title": "김동연의 소통 부족",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "E",
+        "rating_rationale": "김동연이 팀원들과의 소통을 소홀히 해 오해를 발생시킨 것은 효과적인 리더십의 부재로 평가됩니다."
+      },
+      {
+        "item_id": 162629,
+        "data_title": "김동연의 전략 오류",
+        "collected_by": "Grok",
+        "original_rating": "H",
+        "new_rating": "F",
+        "rating_rationale": "김동연이 전략에서 오류를 범해 조직의 자원을 낭비한 것은 리더십의 심각한 문제를 드러내는 사례로, 부족한 리더십입니다."
+      },
+      {
+        "item_id": 162630,
+        "data_title": "김동연의 팀 관리 실패",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "김동연이 팀 관리에서 직원 이탈을 막지 못한 것은 리더십의 미흡함으로 인해 발생한 문제로 평가됩니다."
+      },
+      {
+        "item_id": 162631,
+        "data_title": "김동연의 미디어 리더십",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "김동연의 정책이 언론을 통해 긍정적으로 보도되었으며, 그의 비전이 강조되었기에 매우 우수한 리더십을 보여준다."
+      },
+      {
+        "item_id": 162632,
+        "data_title": "김동연의 공약 이행 리더십",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "김동연의 선거 공약 이행이 대중의 지지를 얻었고, 조직을 효과적으로 이끌었기에 매우 우수한 리더십을 발휘했다."
+      },
+      {
+        "item_id": 162633,
+        "data_title": "김동연의 커뮤니티 리더십",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "김동연이 지역 커뮤니티와의 소통으로 주민들의 지지를 이끌었기에 매우 우수한 리더십을 보여준다."
+      },
+      {
+        "item_id": 162634,
+        "data_title": "김동연의 혁신 리더십 보도",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "언론이 김동연의 혁신 리더십을 높게 평가하고, 그의 정책이 조직 변화를 이끌었다고 보도했기에 매우 우수하다."
+      },
+      {
+        "item_id": 162635,
+        "data_title": "김동연의 경제 리더십 뉴스",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "김동연의 경제 리더십이 성공 사례로 다루어졌고, 그의 결정이 조직을 강화했다고 평가되었기에 매우 우수하다."
+      },
+      {
+        "item_id": 162636,
+        "data_title": "김동연의 비전 리더십",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "김동연의 장기 비전이 언론에서 긍정적으로 평가받았고, 미래 지향적이라고 보도되었기에 매우 우수한 리더십이다."
+      },
+      {
+        "item_id": 162637,
+        "data_title": "김동연의 사회 리더십",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "김동연의 사회 정책 리더십이 효과적이라고 여겨졌고, 사람들을 모아 성과를 냈기에 매우 우수하다."
+      },
+      {
+        "item_id": 162638,
+        "data_title": "김동연의 협력 리더십",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "김동연이 협력을 통해 리더십을 발휘했고, 그의 능력이 강조되었기에 매우 우수한 리더십을 보여준다."
+      },
+      {
+        "item_id": 162639,
+        "data_title": "김동연의 변화 관리",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "김동연의 변화 관리 리더십이 언론에서 긍정적으로 다루어졌고, 조직 변화가 성공했다고 평가되었기에 매우 우수하다."
+      },
+      {
+        "item_id": 162640,
+        "data_title": "김동연의 지지율 리더십",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "김동연의 리더십이 지지율 상승으로 보도되었고, 그의 능력이 강조되었기에 매우 우수한 리더십을 발휘했다."
+      },
+      {
+        "item_id": 162641,
+        "data_title": "김동연의 공정 리더십",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "김동연의 공정성 강조가 뉴스에서 좋은 평가를 받았으며, 조직 내 균형을 이뤄 매우 우수한 리더십을 보여줌."
+      },
+      {
+        "item_id": 162642,
+        "data_title": "김동연의 혁신 추진",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "김동연의 혁신 리더십이 언론에 의해 칭송되었고, 그의 노력이 조직을 강화했다는 점에서 매우 우수함."
+      },
+      {
+        "item_id": 162643,
+        "data_title": "김동연의 위기 리더십 보도",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "김동연의 위기 대응 리더십이 뉴스에서 긍정적으로 평가되었고, 그의 결정이 강조된 점에서 매우 우수함."
+      },
+      {
+        "item_id": 162644,
+        "data_title": "김동연의 전략 리더십 뉴스",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "김동연의 전략적 리더십이 언론에서 성공 사례로 다루어졌고, 그의 비전이 칭송된 점에서 매우 우수함."
+      },
+      {
+        "item_id": 162645,
+        "data_title": "김동연의 소통 리더십",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "D",
+        "rating_rationale": "김동연의 소통 리더십이 뉴스에서 보통 수준으로 평가되었고, 그의 노력이 다루어졌으나 특별히 우수하지 않음."
+      },
+      {
+        "item_id": 162646,
+        "data_title": "김동연의 조직 리더십",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "김동연의 조직 관리 리더십이 언론에 긍정적으로 보도되었고, 그의 능력이 강조된 점에서 매우 우수함."
+      },
+      {
+        "item_id": 162647,
+        "data_title": "김동연의 비판 리더십",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "김동연의 리더십이 일부 뉴스에서 비판받았고, 결정 지연이 문제로 지적된 점에서 미흡함."
+      },
+      {
+        "item_id": 162648,
+        "data_title": "김동연의 실패 사례",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "김동연의 리더십 실패가 뉴스에 보도되었고, 프로젝트 실패가 드러난 점에서 부족함."
+      },
+      {
+        "item_id": 162649,
+        "data_title": "김동연의 소통 문제",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "E",
+        "rating_rationale": "김동연의 소통 부족이 언론에서 비판받았고, 조직 내 혼란이 지적된 점에서 미흡함."
+      },
+      {
+        "item_id": 162650,
+        "data_title": "김동연의 전략 오류 보도",
+        "collected_by": "Grok",
+        "original_rating": "H",
+        "new_rating": "F",
+        "rating_rationale": "김동연의 전략 오류가 뉴스에서 심각하게 다루어졌고, 손실이 강조된 점에서 부족함."
+      },
+      {
+        "item_id": 162651,
+        "data_title": "김동연의 팀 관리 비판",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "김동연의 팀 관리 실패가 언론에 비판받았으며, 2019년 기사에서 직원 불만이 드러났다는 점에서 리더십이 미흡하다고 평가됩니다."
+      },
+      {
+        "item_id": 162652,
+        "data_title": "김동연의 정책 비판",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "김동연의 정책 리더십이 뉴스에서 비판받았고, 2022년 기사에서 효과 부족이 지적되었기 때문에 리더십이 미흡하다고 판단됩니다."
+      },
+      {
+        "item_id": 162653,
+        "data_title": "김동연의 대중 리더십",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "김동연의 대중 소통 리더십이 뉴스에서 긍정적으로 평가되었고, 2021년 보도에서 그의 매력이 강조된 점에서 우수한 리더십으로 평가됩니다."
+      },
+      {
+        "item_id": 162654,
+        "data_title": "김동연의 성과 리더십",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "김동연의 성과 중심 리더십이 언론에 의해 인정되었고, 2018년 기사에서 성공 사례가 다루어졌기 때문에 매우 우수한 리더십으로 평가됩니다."
+      },
+      {
+        "item_id": 162655,
+        "data_title": "김동연의 비전 제시",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "김동연의 비전 리더십이 뉴스에서 높게 평가되었고, 2020년 기사에서 그의 아이디어가 칭송되었기 때문에 매우 우수한 리더십으로 평가됩니다."
+      },
+      {
+        "item_id": 162656,
+        "data_title": "김동연의 협력 강조",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "김동연의 협력 리더십이 언론에서 긍정적으로 보도되었고, 2019년 기사에서 그의 노력이 강조된 점에서 우수한 리더십으로 평가됩니다."
+      },
+      {
+        "item_id": 162657,
+        "data_title": "김동연의 혁신 리더십 뉴스",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "김동연의 혁신 리더십이 뉴스에서 성공적으로 다루어졌고, 2022년 기사에서 그의 성과가 평가되었기 때문에 매우 우수한 리더십으로 평가됩니다."
+      },
+      {
+        "item_id": 162658,
+        "data_title": "김동연의 지속성 리더십",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "김동연의 지속성 있는 리더십이 언론에 의해 높게 평가되었고, 2021년 기사에서 그의 장기 계획이 칭송되었기 때문에 매우 우수한 리더십으로 평가됩니다."
+      },
+      {
+        "item_id": 162659,
+        "data_title": "김동연의 윤리 리더십",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "김동연의 윤리 리더십이 뉴스에서 긍정적으로 보도되었고, 2018년 기사에서 그의 태도가 강조된 점에서 우수한 리더십으로 평가됩니다."
+      },
+      {
+        "item_id": 162660,
+        "data_title": "김동연의 전체 리더십 평가",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "D",
+        "rating_rationale": "김동연의 전반적인 리더십이 언론에서 보통으로 평가되었고, 2020년 기사에서 그의 강점과 약점이 다루어졌기 때문에 보통 수준의 리더십으로 평가됩니다."
+      },
+      {
+        "item_id": 112426,
+        "data_title": "경기도지사 취임 후 조직 개편 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "취임 초기 대규모 조직 개편 과정에서 직원들의 반발과 저항이 발생한 점은 리더십이 미흡함을 나타냄. 조직 내 소통과 합의 과정이 부족했음을 시사."
+      },
+      {
+        "item_id": 112427,
+        "data_title": "전임 지사 시절 재정 운영 비판",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "D",
+        "rating_rationale": "기획재정부 장관 재직 시절 재정 건전성 관리에 대한 비판이 존재하는 점은 리더십이 보통 수준임을 나타냄. 정책 실행에 있어서 일정 수준의 책임을 다하지 못한 것으로 보임."
+      },
+      {
+        "item_id": 112428,
+        "data_title": "위기 대응력 한계",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "코로나19 초기 대응에서 일관성이 부족했던 점은 위기 대응 능력이 미흡함을 나타냄. 리더십이 위기 상황에서 신속하고 일관된 결정을 내리지 못한 것으로 평가됨."
+      },
+      {
+        "item_id": 112429,
+        "data_title": "당내 갈등 관리 부족",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "당내 정책 노선 이견 조정에 미흡했던 점은 갈등 관리 능력이 부족함을 나타냄. 리더십이 내부 갈등을 효과적으로 해결하지 못한 것으로 보임."
+      },
+      {
+        "item_id": 112430,
+        "data_title": "정책 일관성 부족",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "정책의 중간 변경 및 번복으로 인한 신뢰도 하락은 정책 일관성이 부족함을 나타냄. 리더십이 정책의 지속성과 신뢰성을 유지하지 못한 것으로 평가됨."
+      },
+      {
+        "item_id": 112431,
+        "data_title": "경기도지사 시절 성과 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "경기도지사 재임 시 일부 정책에서 성과가 부족했던 점은 리더십이 보통 수준임을 나타냄. 일부 성과를 내지 못한 점이 있지만, 전체적으로 보통 수준의 리더십을 발휘한 것으로 보임."
+      },
+      {
+        "item_id": 112432,
+        "data_title": "당내 갈등 관리 미흡",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "당내 내부 분열과 갈등 조정 능력이 부족했던 점은 리더십이 미흡함을 나타냄. 정당 내 갈등을 효과적으로 관리하지 못한 것으로 평가됨."
+      },
+      {
+        "item_id": 112433,
+        "data_title": "위기 대응력 한계",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "정치적 위기 상황에서 신속하고 효과적인 대응이 부족했던 점은 위기 대응력이 미흡함을 나타냄. 리더십이 위기 상황에서 적절한 대응을 하지 못한 것으로 보임."
+      },
+      {
+        "item_id": 112434,
+        "data_title": "정치적 입지 약화",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "F",
+        "rating_rationale": "정치적 영향력 감소와 리더십 인지도 하락은 리더십이 부족함을 나타냄. 정치적 입지 약화는 리더십의 부족을 명확히 보여줌."
+      },
+      {
+        "item_id": 112435,
+        "data_title": "조직 관리 능력 부족",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "정치 조직 내 효율적인 인력 배치와 관리 미흡은 조직 관리 능력이 부족함을 나타냄. 리더십이 조직 내 자원을 효과적으로 활용하지 못한 것으로 평가됨."
+      },
+      {
+        "item_id": 112436,
+        "data_title": "경기도 위기대응 리더십",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "코로나19 대응에서 신속하고 체계적인 방역정책 추진은 매우 우수한 리더십을 보여줌. 위기 상황에서의 빠른 대응과 체계적인 관리 능력이 돋보임."
+      },
+      {
+        "item_id": 112437,
+        "data_title": "당정 갈등 조정 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "더불어민주당 내 다양한 계파 의견을 조율하고 화합을 노력한 것은 우수한 리더십을 나타냄. 정치적 갈등을 잘 관리하고 조정한 점이 긍정적."
+      },
+      {
+        "item_id": 112438,
+        "data_title": "조직 관리 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "경기도청 조직 쇄신 및 효율적 운영을 추진한 것은 우수한 리더십을 보여줌. 조직 관리를 통해 행정 효율성을 높인 점이 높이 평가됨."
+      },
+      {
+        "item_id": 112439,
+        "data_title": "위기 대응 리더십",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "경기도 재난 대응 시스템 강화와 신속한 의사결정은 매우 우수한 리더십을 나타냄. 위기 상황에서의 빠른 대응과 시스템 강화가 돋보임."
+      },
+      {
+        "item_id": 112440,
+        "data_title": "정치적 협상력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "중앙정부와 지방정부 간 협력적 관계 구축은 우수한 리더십을 보여줌. 정치적 협상력을 통해 원활한 협력을 이끌어낸 점이 긍정적."
+      },
+      {
+        "item_id": 112441,
+        "data_title": "당내 영향력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "더불어민주당 내 중요 정책 결정 과정에서 입지를 확보한 것은 우수한 리더십을 나타냄. 당내에서의 영향력을 잘 발휘한 점이 높이 평가됨."
+      },
+      {
+        "item_id": 112442,
+        "data_title": "갈등 관리 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "지역사회 내 다양한 이해관계를 조정하고 중재한 것은 우수한 리더십을 보여줌. 갈등 관리를 통해 지역사회의 화합을 이끌어낸 점이 긍정적."
+      },
+      {
+        "item_id": 112443,
+        "data_title": "조직 내 의사결정",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "신속하고 합리적인 행정 의사결정 프로세스를 구축한 것은 매우 우수한 리더십을 나타냄. 행정 효율성을 높이는 데 큰 기여를 한 점이 돋보임."
+      },
+      {
+        "item_id": 112444,
+        "data_title": "정치적 리더십 강도",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "지방정부 대표로서의 강력한 리더십 발휘는 매우 우수한 리더십을 보여줌. 강력한 리더십을 통해 지방정부의 역할을 잘 수행한 점이 높이 평가됨."
+      },
+      {
+        "item_id": 112445,
+        "data_title": "위기 소통 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "코로나19 대응 과정에서의 투명한 정보 전달은 매우 우수한 리더십을 나타냄. 위기 상황에서의 소통 능력이 돋보이며, 투명성을 유지한 점이 높이 평가됨."
+      },
+      {
+        "item_id": 112446,
+        "data_title": "팀 구성 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "전문성 높은 행정팀을 구성하고 운영함으로써 조직의 효율성을 극대화한 점에서 매우 우수한 리더십을 보여줌."
+      },
+      {
+        "item_id": 112447,
+        "data_title": "정치적 네트워크",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "중앙 및 지방 정치인들과의 광범위한 네트워크를 통해 정치적 영향력을 확보한 점에서 우수한 리더십을 발휘함."
+      },
+      {
+        "item_id": 112448,
+        "data_title": "위기관리 대응력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "자연재해 및 사회적 위기 상황에 효과적으로 대응한 능력에서 우수한 리더십을 보여줌."
+      },
+      {
+        "item_id": 112449,
+        "data_title": "조직문화 혁신",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "경기도청 내 혁신적이고 개방적인 조직문화를 조성함으로써 매우 우수한 리더십을 발휘함."
+      },
+      {
+        "item_id": 112450,
+        "data_title": "정치적 영향력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "지방정부 대표로서의 정치적 영향력을 확보한 점에서 우수한 리더십을 보여줌."
+      },
+      {
+        "item_id": 112451,
+        "data_title": "변화 대응력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "급변하는 정치·행정 환경에 적응하는 능력을 보임으로써 우수한 리더십을 발휘함."
+      },
+      {
+        "item_id": 112452,
+        "data_title": "의사결정 일관성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "정책 결정의 일관성 및 신뢰성을 유지한 점에서 양호한 리더십을 보여줌."
+      },
+      {
+        "item_id": 112453,
+        "data_title": "리더십 유연성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "다양한 상황에 대응하는 유연한 리더십을 보여줌으로써 우수한 리더십을 발휘함."
+      },
+      {
+        "item_id": 112454,
+        "data_title": "위기 예측 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "잠재적 위기 상황에 대한 사전 대응 능력을 보임으로써 우수한 리더십을 발휘함."
+      },
+      {
+        "item_id": 112455,
+        "data_title": "팀워크 촉진",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "조직 내 협력적 팀워크 문화를 조성함으로써 매우 우수한 리더십을 보여줌."
+      },
+      {
+        "item_id": 112456,
+        "data_title": "경기도 조직 개편 리더십",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "취임 후 신속하고 체계적인 조직 개편을 추진한 것은 매우 우수한 리더십을 보여준다. 조직 개편은 리더십의 핵심 요소 중 하나로, 이를 신속하고 체계적으로 실행한 것은 높은 점수를 받을 만하다."
+      },
+      {
+        "item_id": 112457,
+        "data_title": "코로나19 대응 위기관리",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "코로나19 대응에서 경기도 방역 정책을 주도적으로 추진한 것은 매우 우수한 리더십을 나타낸다. 위기 상황에서 주도적인 역할을 한 것은 리더로서의 능력을 잘 보여준다."
+      },
+      {
+        "item_id": 112458,
+        "data_title": "당정 간 소통 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "더불어민주당 내 협력적 관계를 유지한 것은 우수한 리더십을 보여준다. 정치적 소통 능력은 리더십에서 중요한 요소로, 이를 잘 수행한 것은 높은 평가를 받을 만하다."
+      },
+      {
+        "item_id": 112459,
+        "data_title": "의사결정 신속성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "주요 정책 결정 시 신속한 판단력을 발휘한 것은 매우 우수한 리더십을 나타낸다. 의사결정의 신속성은 리더십의 핵심 요소 중 하나로, 이를 잘 수행한 것은 높은 점수를 받을 만하다."
+      },
+      {
+        "item_id": 112460,
+        "data_title": "위기 대응 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "경기도 재난 대응 시스템을 강화한 것은 매우 우수한 리더십을 보여준다. 위기 대응 능력은 리더십에서 중요한 요소로, 이를 잘 수행한 것은 높은 평가를 받을 만하다."
+      },
+      {
+        "item_id": 112461,
+        "data_title": "정치적 네트워킹",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "중앙정부와 지방정부 간 협력 관계를 구축한 것은 우수한 리더십을 나타낸다. 정치적 네트워킹은 리더십에서 중요한 요소로, 이를 잘 수행한 것은 높은 점수를 받을 만하다."
+      },
+      {
+        "item_id": 112462,
+        "data_title": "팀 운영 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "경기도청 주요 팀을 구성 및 관리한 것은 우수한 리더십을 보여준다. 팀 운영 능력은 리더십에서 중요한 요소로, 이를 잘 수행한 것은 높은 평가를 받을 만하다."
+      },
+      {
+        "item_id": 112463,
+        "data_title": "갈등 조정 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "지역 내 다양한 이해관계를 조정한 것은 우수한 리더십을 나타낸다. 갈등 조정 능력은 리더십에서 중요한 요소로, 이를 잘 수행한 것은 높은 점수를 받을 만하다."
+      },
+      {
+        "item_id": 112464,
+        "data_title": "변화 주도성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "경기도 정책 혁신을 추진한 것은 매우 우수한 리더십을 보여준다. 변화 주도성은 리더십의 핵심 요소 중 하나로, 이를 잘 수행한 것은 높은 평가를 받을 만하다."
+      },
+      {
+        "item_id": 112465,
+        "data_title": "소통 리더십",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "도민과의 적극적 소통 노력을 한 것은 우수한 리더십을 나타낸다. 소통 리더십은 리더십에서 중요한 요소로, 이를 잘 수행한 것은 높은 점수를 받을 만하다."
+      },
+      {
+        "item_id": 112466,
+        "data_title": "정책 일관성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "경기도 주요 정책의 일관된 추진은 리더십의 핵심 요소인 비전과 전략의 지속성을 보여준다. 이는 매우 우수한 리더십의 증거다."
+      },
+      {
+        "item_id": 112467,
+        "data_title": "예산 관리 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "경기도 재정 건전성을 유지하는 것은 리더십의 책임감과 관리 능력을 보여준다. 이는 우수한 리더십의 증거다."
+      },
+      {
+        "item_id": 112468,
+        "data_title": "위기 소통 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "주요 위기 상황 시 대외 소통은 리더십의 중요한 부분이지만, 더 많은 정보가 필요하다. 현재까지는 양호한 수준으로 평가된다."
+      },
+      {
+        "item_id": 112469,
+        "data_title": "정치적 영향력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "더불어민주당 내 입지는 리더십의 한 측면이지만, 정치적 영향력만으로는 리더십을 전반적으로 평가하기 어렵다. 보통 수준으로 평가된다."
+      },
+      {
+        "item_id": 112470,
+        "data_title": "혁신 마인드",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "경기도 행정 혁신 시도는 리더십의 혁신성과 창의성을 보여준다. 이는 매우 우수한 리더십의 증거다."
+      },
+      {
+        "item_id": 112471,
+        "data_title": "위기 예측 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "잠재적 위기 사전 대응은 리더십의 예측력과 선제적 대응 능력을 보여준다. 이는 우수한 리더십의 증거다."
+      },
+      {
+        "item_id": 112472,
+        "data_title": "팀워크 촉진",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "조직 내 협업 문화 조성은 리더십의 팀워크 촉진 능력을 보여주지만, 더 많은 정보가 필요하다. 현재까지는 양호한 수준으로 평가된다."
+      },
+      {
+        "item_id": 112473,
+        "data_title": "리더십 스타일",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "민주적이고 개방적인 리더십은 현대 리더십의 이상적인 형태로, 매우 우수한 리더십의 증거다."
+      },
+      {
+        "item_id": 112474,
+        "data_title": "외부 위기 관리",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "대외적 위기 상황 대응은 리더십의 중요한 부분이지만, 더 많은 정보가 필요하다. 현재까지는 양호한 수준으로 평가된다."
+      },
+      {
+        "item_id": 112475,
+        "data_title": "조직 문화 개선",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "경기도청 조직 문화 혁신은 리더십의 조직 관리 능력과 변화 유도 능력을 보여준다. 이는 매우 우수한 리더십의 증거다."
+      }
+    ],
+    "Claude": [
+      {
+        "item_id": 162361,
+        "data_title": "조직 내 갈등 해결 능력",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "조직 내 갈등 해결과 청년층과의 소통 강화는 우수한 리더십을 보여주나, 구체적인 성과나 방법론에 대한 세부 내용이 부족하여 매우 우수 단계까지는 미치지 못함"
+      },
+      {
+        "item_id": 162362,
+        "data_title": "비전 제시",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "명확한 비전 제시와 장기적 지역 발전 기여는 우수한 리더십 특성이나, 비전의 구체성이나 실현 가능성에 대한 검증된 결과가 제시되지 않아 한 단계 아쉬움"
+      },
+      {
+        "item_id": 162363,
+        "data_title": "결단력",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "위기 상황에서의 신속한 의사결정과 결단력은 리더십의 핵심 요소로, 여러 모범 사례를 통해 입증되었다는 점에서 매우 우수한 리더십 역량을 보여줌"
+      },
+      {
+        "item_id": 162364,
+        "data_title": "소통 능력",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "다양한 채널을 통한 시민 소통과 정책 개발 과정에의 의견 반영은 우수한 소통 리더십을 보여주나, 소통의 효과성이나 구체적 성과에 대한 측정 결과가 부족함"
+      },
+      {
+        "item_id": 162365,
+        "data_title": "위기 관리 능력",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "재난 상황에서 시민 안전을 최우선으로 한 효과적인 위기 관리와 조직 신뢰도 향상은 리더십의 가장 중요한 덕목 중 하나로, 매우 우수한 역량을 입증함"
+      },
+      {
+        "item_id": 162366,
+        "data_title": "정책 개발 과정의 참여",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "정책 개발 과정에서 국민 참여 강조와 다양한 의견 수렴은 민주적 리더십의 우수한 사례이나, 참여의 실질적 효과나 정책 반영률에 대한 구체적 데이터가 부족함"
+      },
+      {
+        "item_id": 162367,
+        "data_title": "네트워킹 능력",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "지역 이해관계자와의 적극적 관계 구축과 정책 실행을 위한 지지 기반 확대는 우수한 네트워킹 리더십을 보여주나, 관계의 질적 수준이나 성과에 대한 구체적 평가가 제한적임"
+      },
+      {
+        "item_id": 162368,
+        "data_title": "청소년 참여 프로그램 추진",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "청소년 참여 프로그램 추진과 젊은 세대와의 소통 강화는 포용적 리더십의 우수한 사례이나, 프로그램의 실질적 효과나 청소년 만족도에 대한 측정 결과가 부족함"
+      },
+      {
+        "item_id": 162369,
+        "data_title": "정책의 투명성",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "정책 결정 과정의 투명성 강화와 다양한 자료 공표를 통한 시민 신뢰 획득은 현대 리더십에서 매우 중요한 요소로, 책임감 있는 리더십의 매우 우수한 사례임"
+      },
+      {
+        "item_id": 162370,
+        "data_title": "자율성과 책임감",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "조직 내 자율성과 책임감 강조를 통한 주도적 업무 환경 조성과 직원 만족도 및 성과 향상은 현대적 리더십의 핵심으로, 매우 우수한 조직 관리 능력을 보여줌"
+      },
+      {
+        "item_id": 162371,
+        "data_title": "의사 결정 과정의 불투명성",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "의사결정 과정의 불투명성은 민주적 리더십의 핵심 요소인 투명성과 책임성을 심각하게 훼손하며, 시민 신뢰도 저하로 이어져 리더십에 상당한 부정적 영향을 미치고 있다."
+      },
+      {
+        "item_id": 162372,
+        "data_title": "조직 관리의 어려움",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "조직 내 관리 문제와 내부 갈등 발생은 리더의 기본 역량인 조직 관리 능력 부족을 보여주며, 이는 리더십 전반에 대한 부정적 인식을 초래하는 심각한 문제이다."
+      },
+      {
+        "item_id": 162373,
+        "data_title": "비판에 대한 대응 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "비판에 대한 효과적 대응 부족은 리더의 소통 능력과 위기 관리 능력의 미흡함을 나타내며, 여론 악화로 이어져 리더십 행사에 부정적 영향을 주고 있다."
+      },
+      {
+        "item_id": 162374,
+        "data_title": "의사소통 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "내부 직원과의 의사소통 부족은 조직 운영의 기본 요소를 결여한 것으로, 조직 효율성 저하와 직결되어 리더십의 핵심 역량에 심각한 문제가 있음을 보여준다."
+      },
+      {
+        "item_id": 162375,
+        "data_title": "정책 전략의 모호함",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "정책 전략의 모호함은 리더의 비전 제시 능력과 정책 기획력의 미흡함을 나타내며, 정책 이행 지연 위험성과 시민 이해도 저하를 초래하는 문제이다."
+      },
+      {
+        "item_id": 162376,
+        "data_title": "인재 관리 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "인재 관리 부족으로 인한 능력 있는 인재 유출은 조직의 지속가능성을 위협하는 심각한 문제로, 리더의 인적자원 관리 역량에 상당한 결함이 있음을 보여준다."
+      },
+      {
+        "item_id": 162377,
+        "data_title": "자원 배분의 비효율성",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "자원 배분의 비효율성은 리더의 전략적 판단력과 자원 관리 능력의 미흡함을 나타내며, 정책 실행 어려움과 성과 저하로 이어져 리더십 효과성을 저해하고 있다."
+      },
+      {
+        "item_id": 162378,
+        "data_title": "정치적 안전 장치 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "정치적 안전장치 부족으로 외부 압력에 휘둘릴 위험이 크다는 것은 리더의 정치적 역량과 조직 보호 능력의 미흡함을 보여주며, 리더십 신뢰도에 부정적 영향을 미치고 있다."
+      },
+      {
+        "item_id": 162379,
+        "data_title": "외부 의견 수용 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "외부 의견 수용 부족은 리더의 개방적 자세와 학습 능력의 미흡함을 나타내며, 정책 개선 기회 상실로 이어져 정책 품질 저하와 혁신 역량 부족을 보여준다."
+      },
+      {
+        "item_id": 162380,
+        "data_title": "정책 추진의 일관성 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "정책 추진의 일관성 부족은 리더의 신뢰성과 정책 실행 능력에 심각한 문제가 있음을 보여주며, 외부 갈등 발생과 시민 신뢰 저하로 이어져 리더십의 근본적 결함을 나타낸다."
+      },
+      {
+        "item_id": 162381,
+        "data_title": "혁신적 접근법",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "혁신적 접근법을 통한 조직 발전 추구는 우수한 리더십 자질을 보여주며, 새로운 아이디어 발굴과 진행에 실질적 기여를 하고 있어 긍정적 평가가 가능하다."
+      },
+      {
+        "item_id": 162382,
+        "data_title": "팀워크 구축 노력",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "팀워크 구축을 위한 적극적 노력과 각 팀의 성과 향상에 기여하는 것은 협력적 리더십의 우수한 사례로, 조직 전체의 효율성 증대에 긍정적 영향을 미치고 있다."
+      },
+      {
+        "item_id": 162383,
+        "data_title": "다양성 존중",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "다양성을 존중하고 포괄적 조직문화 조성을 통해 창의성을 높이는 것은 현대적 리더십의 핵심 요소로, 조직의 지속가능한 발전을 위한 우수한 접근법이다."
+      },
+      {
+        "item_id": 162384,
+        "data_title": "사회적 책임 의식",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "사회적 책임 의식을 바탕으로 한 공헌 활동과 시민 신뢰 확보는 매우 우수한 리더십 자질이며, 공직자로서 모범적인 행동으로 리더십의 견고함을 보여준다."
+      },
+      {
+        "item_id": 162385,
+        "data_title": "리더십 훈련과 발전",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "지속적인 자기계발과 리더십 교육 참여는 성장하는 리더의 전형적 모습으로, 조직 목표 달성에 실질적 기여를 하는 매우 우수한 리더십 역량을 보여준다."
+      },
+      {
+        "item_id": 162386,
+        "data_title": "신뢰 구축의 실패",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "신뢰 구축 실패로 인한 조직 갈등과 퇴사율 증가는 리더십의 핵심 기능인 인적자원 관리에서 심각한 문제를 드러내며, 조직 운영에 부정적 영향을 미치고 있다."
+      },
+      {
+        "item_id": 162387,
+        "data_title": "질 낮은 정책 실행",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "정책 실행의 질적 저하와 시민들의 실망은 리더로서의 핵심 역량인 실행력 부족을 보여주며, 공직자로서의 신뢰도에 심각한 타격을 주는 부족한 리더십이다."
+      },
+      {
+        "item_id": 162388,
+        "data_title": "정보 공유의 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "정보 공유 부족으로 인한 부서 간 협력 저해는 조직 운영의 기본적 요소를 놓친 것으로, 정책 추진 과정에서의 차질을 야기하는 미흡한 리더십을 보여준다."
+      },
+      {
+        "item_id": 162389,
+        "data_title": "영향력 있는 소통 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "영향력 있는 소통 부족은 리더십의 핵심 요소인 커뮤니케이션 능력의 결여를 보여주며, 정책 성공을 위한 필수 요소를 간과하는 미흡한 리더십이다."
+      },
+      {
+        "item_id": 162390,
+        "data_title": "사람 중심의 리더십",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "사람 중심의 리더십으로 구성원을 소중히 여기고 의견을 존중하여 능동적 업무 환경을 조성하는 것은 현대 리더십의 이상적 모델로 매우 우수한 자질이다."
+      },
+      {
+        "item_id": 162391,
+        "data_title": "정치적 압박 대처",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "정치적 압박 상황에서도 신념을 지키며 정책을 추진하는 모습은 원칙적 리더십의 핵심 요소로, 일관성과 신뢰성을 보여주는 우수한 리더십 특성이다."
+      },
+      {
+        "item_id": 162392,
+        "data_title": "정책 접근의 유연성",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "변화하는 상황에 따른 유연한 정책 조정 능력은 적응적 리더십의 중요한 특성으로, 조직의 민첩성과 대응력을 높이는 우수한 리더십 역량을 보여준다."
+      },
+      {
+        "item_id": 162393,
+        "data_title": "생산적인 비판 수용",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "비판을 생산적으로 수용하고 개선하려는 노력은 성장형 리더십의 핵심으로, 지속적인 학습과 발전을 추구하는 매우 우수한 리더십 자질을 보여준다."
+      },
+      {
+        "item_id": 162394,
+        "data_title": "정책 연속성 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "정책 연속성 부족으로 인한 혼란 초래는 일관성 있는 리더십의 부재를 나타내며, 조직의 안정성과 신뢰성을 해치는 미흡한 리더십 특성이다."
+      },
+      {
+        "item_id": 162395,
+        "data_title": "적극적인 피드백 제공",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "조직 내 적극적인 피드백 제공은 구성원 개발과 동기 부여에 핵심적인 역할을 하는 우수한 리더십 특성으로, 조직 성장에 긍정적 영향을 미친다."
+      },
+      {
+        "item_id": 162396,
+        "data_title": "멘토링 문화 조성",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "멘토링 문화 조성을 통한 인재 육성은 지속가능한 조직 발전의 핵심이며, 장기적 비전과 인재 개발에 집중하는 매우 우수한 리더십을 보여준다."
+      },
+      {
+        "item_id": 162397,
+        "data_title": "타 부서와의 협력 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "타 부서와의 협력 부족은 협업적 리더십의 부재를 나타내며, 조직 전반의 효율성과 시너지 창출을 저해하는 미흡한 리더십 특성이다."
+      },
+      {
+        "item_id": 162398,
+        "data_title": "정치적 비전 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "구체적인 정치적 비전 부족은 비전 리더십의 핵심 결함으로, 조직의 방향성과 목표 달성에 심각한 영향을 미치는 부족한 리더십 특성이다."
+      },
+      {
+        "item_id": 162399,
+        "data_title": "도전적인 목표 설정",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "도전적인 목표 설정을 통한 성과 유도는 변혁적 리더십의 중요한 요소로, 조직의 성장과 구성원들의 잠재력 발휘를 촉진하는 우수한 리더십이다."
+      },
+      {
+        "item_id": 162400,
+        "data_title": "직원 복지 강화 노력",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "직원 복지 강화를 통한 만족도 향상은 서번트 리더십의 특성으로, 구성원의 자발적 몰입과 조직 충성도를 높이는 우수한 리더십 접근법이다."
+      },
+      {
+        "item_id": 162401,
+        "data_title": "공급망 관리 문제",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "공급망 관리 문제는 조직 운영의 핵심 기능에 대한 심각한 결함을 보여주며, 정책 실행을 방해하는 구조적 문제로 리더십 역량의 부족을 명확히 드러내고 있다."
+      },
+      {
+        "item_id": 162402,
+        "data_title": "신속한 대응 능력",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "위기 상황에서의 신속한 대응 체계 구축은 우수한 리더십의 핵심 요소이며, 조직의 안전과 신뢰성 향상에 직접적으로 기여하는 뛰어난 역량을 보여준다."
+      },
+      {
+        "item_id": 162403,
+        "data_title": "환경 지속 가능성 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "환경 지속가능성 정책의 적극적 추진은 미래 지향적 비전과 장기적 관점을 가진 매우 우수한 리더십을 보여주며, 사회적 책임을 다하는 모범적 사례이다."
+      },
+      {
+        "item_id": 162404,
+        "data_title": "정책의 상황적 접근",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "다양한 상황에 맞춘 정책의 유연한 조정 능력은 적응력과 포용성을 갖춘 우수한 리더십을 보여주며, 이해관계자를 고려한 균형 잡힌 접근법이다."
+      },
+      {
+        "item_id": 162405,
+        "data_title": "전문가와의 협력 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "전문가와의 협력 부족은 정책의 질 저하를 초래하는 미흡한 리더십을 나타내며, 전문성 활용 능력의 부재는 효과적인 정책 수립에 장애가 된다."
+      },
+      {
+        "item_id": 162406,
+        "data_title": "정치적 신뢰성 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "정치적 신뢰성 부족으로 인한 여론 악화는 리더십의 근본적 결함을 보여주며, 신뢰는 리더십의 핵심 요소로서 이의 부족은 심각한 문제이다."
+      },
+      {
+        "item_id": 162407,
+        "data_title": "정책 이행 지연 사례",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "정책 이행 지연은 실행력 부족을 보여주는 미흡한 리더십의 사례이며, 시민 불만 초래는 공공 리더로서의 책임감 부족을 나타낸다."
+      },
+      {
+        "item_id": 162408,
+        "data_title": "리더십의 모범 사례",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "모범적인 리더십 사례를 지속적으로 보여주며 조직 구성원들에게 긍정적 영향과 동기를 부여하는 것은 매우 우수한 리더십의 전형적인 모습이다."
+      },
+      {
+        "item_id": 162409,
+        "data_title": "팀원들의 동기 부여",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "팀원들에게 긍정적 동기를 부여하여 전체 성과 향상을 이끌어내는 것은 인적 자원 관리와 조직 운영에서 우수한 리더십 역량을 보여준다."
+      },
+      {
+        "item_id": 162410,
+        "data_title": "정치는 변화해야 한다는 인식",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "정치 변화의 필요성을 인식하고 혁신적 정책 추진을 위해 노력하는 것은 개혁 의지와 미래 지향적 사고를 가진 우수한 리더십을 보여준다."
+      },
+      {
+        "item_id": 162611,
+        "data_title": "김동연의 경제 위기 대응 리더십",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "경제 위기 상황에서 조직 재편을 통한 신속한 의사결정, 부처 간 협력 강화, 효과적인 커뮤니케이션으로 국가 경제 안정에 기여한 탁월한 위기 관리 리더십을 보여줌"
+      },
+      {
+        "item_id": 162612,
+        "data_title": "김동연의 공공기관 개혁 추진",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "공공기관 비효율성 개선을 위한 조직 재조정과 하부 조직 의견 수렴을 통한 포용적 리더십으로 예산 절감과 서비스 개선을 달성한 우수한 개혁 리더십을 발휘함"
+      },
+      {
+        "item_id": 162613,
+        "data_title": "김동연의 정책 발표 리더십",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "명확한 비전 제시와 팀원 동기부여를 통해 조직 내 협력을 강화하고 정책 실행률을 높인 우수한 비전 제시 및 동기부여 리더십을 보여줌"
+      },
+      {
+        "item_id": 162614,
+        "data_title": "김동연의 국제 협력 리더십",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "국제 회의에서 한국의 입장을 강력히 주장하며 동맹국들의 지지를 얻어 공동 정책 수립에 성공한 탁월한 국제적 리더십과 네트워킹 능력을 입증함"
+      },
+      {
+        "item_id": 162615,
+        "data_title": "김동연의 지역 개발 프로젝트 리더십",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "지역 개발 프로젝트에서 주민과 공무원을 통합적으로 이끌고 커뮤니티 피드백을 반영한 계획 수정으로 프로젝트를 성공시킨 우수한 적응력과 결단력을 보여줌"
+      },
+      {
+        "item_id": 162616,
+        "data_title": "김동연의 팀 빌딩 리더십",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "다각도 인재 선발을 통한 조직 역량 강화와 구성원들의 잠재력을 이끌어내어 정책 효과를 증대시킨 우수한 인재 관리 및 팀 빌딩 리더십을 발휘함"
+      },
+      {
+        "item_id": 162617,
+        "data_title": "김동연의 위기 관리 리더십",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "코로나 팬데믹이라는 국가적 위기 상황에서 공무원 의견 수렴을 통한 신속한 대응 시스템 구축으로 국가 안정을 도모한 매우 우수한 위기 관리 리더십을 보여줌"
+      },
+      {
+        "item_id": 162618,
+        "data_title": "김동연의 전략적 리더십",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "장기 경제 전략 수립과 데이터 기반 의사결정 강조를 통해 조직을 미래 지향적으로 이끌고 구성원 참여를 높인 우수한 전략적 리더십을 발휘함"
+      },
+      {
+        "item_id": 162619,
+        "data_title": "김동연의 커뮤니케이션 리더십",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "명확한 커뮤니케이션으로 조직 내 오해를 최소화하고 직원 질문을 적극 수용하여 신뢰를 구축한 양호한 수준의 소통 리더십을 보여주나 특별한 성과는 언급되지 않음"
+      },
+      {
+        "item_id": 162620,
+        "data_title": "김동연의 조직 혁신 리더십",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "디지털 혁신을 통한 정부 조직 현대화와 직원 교육 강화로 효과적인 변화를 이끈 우수한 혁신 리더십을 발휘하여 조직의 디지털 전환을 성공적으로 추진함"
+      },
+      {
+        "item_id": 162621,
+        "data_title": "김동연의 윤리적 리더십",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "윤리 규정 강화와 투명성 향상을 통해 조직원들의 신뢰를 구축한 것은 매우 우수한 리더십을 보여준다. 공정한 조직 운영과 감사원의 객관적 평가가 이를 뒷받침한다."
+      },
+      {
+        "item_id": 162622,
+        "data_title": "김동연의 결단력 리더십",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "반대 의견을 극복하고 신속한 의사결정으로 조직을 안정화시킨 것은 우수한 결단력을 보여준다. 다만 반대 의견에 대한 충분한 소통 과정이 언급되지 않아 완벽하지는 않다."
+      },
+      {
+        "item_id": 162623,
+        "data_title": "김동연의 교육 리더십",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "직원 역량 강화를 통한 조직 발전은 우수한 리더십의 증거이다. 교육 프로그램을 통해 장기적 관점에서 조직을 발전시키려는 노력이 인정되나, 구체적 성과가 부족하다."
+      },
+      {
+        "item_id": 162624,
+        "data_title": "김동연의 글로벌 리더십",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "국제 무대에서 한국의 입지를 강화한 것은 우수한 대외 리더십을 보여준다. 글로벌 환경에서 조직을 효과적으로 대표했으나, 구체적인 성과나 결과에 대한 설명이 부족하다."
+      },
+      {
+        "item_id": 162625,
+        "data_title": "김동연의 환경 리더십",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "환경 정책을 통한 지속가능한 조직 운영과 구성원 참여 유도는 양호한 리더십이다. 다만 구체적인 성과나 참여도에 대한 세부 정보가 부족하여 평가에 한계가 있다."
+      },
+      {
+        "item_id": 162626,
+        "data_title": "김동연의 리더십 실패 예",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "조직 내 의견 충돌을 해결하지 못해 프로젝트 지연과 팀원 불만을 초래한 것은 리더십의 미흡함을 보여준다. 갈등 관리 능력 부족으로 조직 성과에 부정적 영향을 미쳤다."
+      },
+      {
+        "item_id": 162627,
+        "data_title": "김동연의 의사결정 문제",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "신속한 의사결정 실패로 기회를 놓치고 조직 혼란을 야기한 것은 리더십의 부족함을 명확히 보여준다. 타이밍을 놓친 의사결정은 리더의 핵심 역량 부족을 의미한다."
+      },
+      {
+        "item_id": 162628,
+        "data_title": "김동연의 소통 부족",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "E",
+        "rating_rationale": "팀원들과의 소통 소홀로 인한 오해 발생은 리더십의 기본 요소인 커뮤니케이션 능력의 미흡함을 보여준다. 효과적인 소통은 리더십의 핵심이므로 이는 중요한 결함이다."
+      },
+      {
+        "item_id": 162629,
+        "data_title": "김동연의 전략 오류",
+        "collected_by": "Grok",
+        "original_rating": "H",
+        "new_rating": "F",
+        "rating_rationale": "전략적 오류로 인한 조직 자원 낭비는 리더십의 부족함을 나타낸다. 전략 수립과 실행 능력의 결함으로 조직에 실질적 손해를 끼친 것은 심각한 리더십 문제이다."
+      },
+      {
+        "item_id": 162630,
+        "data_title": "김동연의 팀 관리 실패",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "직원 이탈을 막지 못한 팀 관리 실패는 리더십의 미흡함을 보여준다. 인재 유지는 리더의 중요한 책임이며, 이를 실패한 것은 조직 관리 능력의 부족을 의미한다."
+      },
+      {
+        "item_id": 162631,
+        "data_title": "김동연의 미디어 리더십",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "언론을 통한 긍정적 보도와 비전 전달은 효과적인 소통 리더십을 보여주나, 구체적인 성과나 실행력에 대한 언급이 부족하여 우수 수준으로 평가됩니다."
+      },
+      {
+        "item_id": 162632,
+        "data_title": "김동연의 공약 이행 리더십",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "선거 공약을 실제로 이행하여 대중의 지지를 얻은 것은 약속 이행력과 실행 리더십의 우수한 사례로, 신뢰성 있는 리더십을 보여주어 매우 우수합니다."
+      },
+      {
+        "item_id": 162633,
+        "data_title": "김동연의 커뮤니티 리더십",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "지역 커뮤니티와의 소통을 통해 주민 지지를 이끌어낸 것은 현장 중심의 소통 리더십을 보여주지만, 구체적인 성과 측면이 명확하지 않아 우수 수준입니다."
+      },
+      {
+        "item_id": 162634,
+        "data_title": "김동연의 혁신 리더십 보도",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "혁신 리더십을 통해 실제 조직 변화를 이끌어낸 것은 변화 관리와 혁신 추진력에서 탁월한 성과를 보여주어 매우 우수한 리더십으로 평가됩니다."
+      },
+      {
+        "item_id": 162635,
+        "data_title": "김동연의 경제 리더십 뉴스",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "경제 분야에서의 리더십이 조직 강화라는 구체적 성과로 이어진 것은 전문성과 실행력을 겸비한 매우 우수한 리더십의 사례입니다."
+      },
+      {
+        "item_id": 162636,
+        "data_title": "김동연의 비전 리더십",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "장기 비전을 제시하고 미래 지향적 리더십을 보인 것은 전략적 사고력을 보여주나, 실제 실행 결과에 대한 언급이 부족하여 우수 수준으로 평가됩니다."
+      },
+      {
+        "item_id": 162637,
+        "data_title": "김동연의 사회 리더십",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "사회 정책 분야에서 사람들을 모아 성과를 낸 것은 팀워크와 결과 지향적 리더십을 보여주지만, 성과의 구체적 내용이 명확하지 않아 우수 수준입니다."
+      },
+      {
+        "item_id": 162638,
+        "data_title": "김동연의 협력 리더십",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "C",
+        "rating_rationale": "협력을 통한 리더십 발휘는 긍정적이나, 구체적인 협력 내용이나 성과에 대한 세부 정보가 부족하여 양호한 수준의 리더십으로 평가됩니다."
+      },
+      {
+        "item_id": 162639,
+        "data_title": "김동연의 변화 관리",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "변화 관리 리더십을 통해 조직 변화를 성공적으로 이끌어낸 것은 변화 관리 능력과 실행력에서 탁월한 성과를 보여주어 매우 우수합니다."
+      },
+      {
+        "item_id": 162640,
+        "data_title": "김동연의 지지율 리더십",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "지지율 상승으로 나타난 리더십은 대중적 신뢰와 지지 확보 능력을 보여주지만, 지지율 상승의 구체적 원인과 지속성이 명확하지 않아 우수 수준입니다."
+      },
+      {
+        "item_id": 162641,
+        "data_title": "김동연의 공정 리더십",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "공정성은 리더십의 핵심 덕목으로, 조직 내 균형을 이루었다는 평가는 우수한 리더십을 보여줍니다. 다만 구체적 성과나 임팩트에 대한 언급이 부족하여 B등급으로 평가합니다."
+      },
+      {
+        "item_id": 162642,
+        "data_title": "김동연의 혁신 추진",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "혁신 리더십으로 조직을 강화했다는 것은 변화 관리와 미래 지향적 사고를 보여주는 우수한 리더십입니다. 언론의 칭송을 받았다는 점에서 긍정적이나 세부 성과 미흡으로 B등급입니다."
+      },
+      {
+        "item_id": 162643,
+        "data_title": "김동연의 위기 리더십 보도",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "위기 상황에서의 리더십은 매우 중요한 능력으로, 위기 대응에서 긍정적 평가를 받았다는 것은 우수한 판단력과 결단력을 의미합니다. 구체적 결과 부족으로 B등급으로 평가합니다."
+      },
+      {
+        "item_id": 162644,
+        "data_title": "김동연의 전략 리더십 뉴스",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "전략적 비전과 리더십이 성공 사례로 다루어진 것은 장기적 관점과 계획 수립 능력을 보여줍니다. 언론의 칭송을 받았으나 구체적 성과 지표가 부족하여 B등급으로 평가합니다."
+      },
+      {
+        "item_id": 162645,
+        "data_title": "김동연의 소통 리더십",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "D",
+        "rating_rationale": "소통 리더십이 보통 수준으로 평가되었다는 것은 리더로서 핵심 역량인 커뮤니케이션 능력에서 아쉬움을 보여줍니다. 노력은 인정되나 성과가 미흡하여 D등급으로 평가합니다."
+      },
+      {
+        "item_id": 162646,
+        "data_title": "김동연의 조직 리더십",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "조직 관리 능력은 리더십의 기본 요소로, 언론의 긍정적 보도와 능력 강조는 우수한 조직 운영 역량을 의미합니다. 다만 구체적 개선 사례가 부족하여 B등급으로 평가합니다."
+      },
+      {
+        "item_id": 162647,
+        "data_title": "김동연의 비판 리더십",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "결정 지연은 리더십의 치명적 약점으로, 신속한 의사결정이 요구되는 리더 역할에서 부정적 평가를 받은 것은 리더십 역량의 미흡함을 보여주어 E등급으로 평가합니다."
+      },
+      {
+        "item_id": 162648,
+        "data_title": "김동연의 실패 사례",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "프로젝트 실패는 리더의 계획 수립, 실행 관리, 위험 관리 능력 부족을 의미합니다. 실패 사례가 언론에 보도될 정도라면 상당한 리더십 결함을 보여주어 F등급으로 평가합니다."
+      },
+      {
+        "item_id": 162649,
+        "data_title": "김동연의 소통 문제",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "F",
+        "rating_rationale": "소통 부족으로 인한 조직 내 혼란은 리더십의 기본 요소인 커뮤니케이션 실패를 의미합니다. 조직의 혼란을 초래했다는 것은 심각한 리더십 결함으로 F등급으로 평가합니다."
+      },
+      {
+        "item_id": 162650,
+        "data_title": "김동연의 전략 오류 보도",
+        "collected_by": "Grok",
+        "original_rating": "H",
+        "new_rating": "G",
+        "rating_rationale": "전략 오류로 인한 손실은 리더의 핵심 역할인 전략적 사고와 의사결정에서 중대한 실패를 의미합니다. 실질적 손실을 초래한 심각한 전략 오류로 G등급으로 평가합니다."
+      },
+      {
+        "item_id": 162651,
+        "data_title": "김동연의 팀 관리 비판",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "팀 관리 실패와 직원 불만은 리더십의 핵심 역량인 인적자원 관리 능력의 부족을 보여주며, 조직 내부 갈등 해결 및 구성원 동기부여에 실패한 것으로 평가됨"
+      },
+      {
+        "item_id": 162652,
+        "data_title": "김동연의 정책 비판",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "정책 리더십의 효과 부족은 실행력과 정책 설계 능력의 미흡함을 나타내며, 리더로서 구체적 성과 창출에 한계를 보인 것으로 판단됨"
+      },
+      {
+        "item_id": 162653,
+        "data_title": "김동연의 대중 리더십",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "대중 소통 리더십의 긍정적 평가는 커뮤니케이션 능력과 대외 이미지 관리 역량이 우수함을 보여주며, 리더십의 중요한 요소인 소통력이 검증된 것으로 평가됨"
+      },
+      {
+        "item_id": 162654,
+        "data_title": "김동연의 성과 리더십",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "성과 중심 리더십의 인정과 성공 사례는 목표 지향적 경영과 결과 도출 능력이 우수함을 입증하며, 실질적 성과 창출을 통한 리더십 역량을 보여줌"
+      },
+      {
+        "item_id": 162655,
+        "data_title": "김동연의 비전 제시",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "비전 리더십의 높은 평가와 아이디어 칭송은 미래 지향적 사고와 전략적 비전 제시 능력이 매우 우수함을 보여주며, 조직과 사회의 방향성을 제시하는 핵심 리더십 역량을 입증함"
+      },
+      {
+        "item_id": 162656,
+        "data_title": "김동연의 협력 강조",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "협력 리더십의 긍정적 보도는 팀워크 구축과 상호 협력 촉진 능력이 우수함을 나타내며, 다양한 이해관계자와의 협업을 통한 시너지 창출 역량을 보여줌"
+      },
+      {
+        "item_id": 162657,
+        "data_title": "김동연의 혁신 리더십 뉴스",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "혁신 리더십의 성공적 평가는 변화 주도 능력과 창의적 문제해결 역량이 매우 우수함을 보여주며, 시대적 요구에 부응하는 혁신적 리더십을 성공적으로 발휘한 것으로 평가됨"
+      },
+      {
+        "item_id": 162658,
+        "data_title": "김동연의 지속성 리더십",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "지속성 있는 리더십의 높은 평가와 장기 계획 칭송은 일관성 있는 정책 추진과 장기적 관점의 전략 수립 능력이 매우 우수함을 보여주는 핵심 리더십 역량임"
+      },
+      {
+        "item_id": 162659,
+        "data_title": "김동연의 윤리 리더십",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "윤리 리더십의 긍정적 보도는 도덕적 리더십과 윤리적 의사결정 능력이 우수함을 나타내며, 리더로서 신뢰성과 정당성을 확보하는 중요한 덕목을 보여줌"
+      },
+      {
+        "item_id": 162660,
+        "data_title": "김동연의 전체 리더십 평가",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "D",
+        "rating_rationale": "전반적 리더십의 보통 평가는 강점과 약점이 혼재하여 균형잡힌 발전이 필요함을 시사하며, 리더십 역량의 전체적 완성도 측면에서 개선 여지가 있는 것으로 판단됨"
+      },
+      {
+        "item_id": 112426,
+        "data_title": "경기도지사 취임 후 조직 개편 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "조직 개편은 리더의 중요한 역할이나, 직원들의 반발과 저항이 발생한 것은 소통과 변화관리 능력이 부족했음을 보여준다. 하지만 개편 자체는 리더십의 의지를 나타내므로 보통 수준으로 평가한다."
+      },
+      {
+        "item_id": 112427,
+        "data_title": "전임 지사 시절 재정 운영 비판",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "기획재정부 장관이라는 핵심 경제부처 수장으로서 재정 건전성 관리에 대한 비판적 평가는 전문성과 실행력 부족을 의미한다. 국가 재정 운영은 매우 중요한 리더십 영역으로 미흡한 평가를 받을 만하다."
+      },
+      {
+        "item_id": 112428,
+        "data_title": "위기 대응력 한계",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "코로나19와 같은 국가적 위기 상황에서 초기 대응의 일관성 부족은 위기관리 리더십의 핵심 역량 부족을 보여준다. 도민의 안전과 직결되는 사안에서 일관성 없는 대응은 리더십 신뢰도를 크게 훼손한다."
+      },
+      {
+        "item_id": 112429,
+        "data_title": "당내 갈등 관리 부족",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "정당 내부의 갈등 조정과 이견 관리는 정치 리더의 핵심 역량 중 하나이다. 당내 정책 노선을 둘러싼 이견을 조정하지 못한 것은 소통능력과 조정능력의 부족을 나타내며, 정치적 리더십의 미흡함을 보여준다."
+      },
+      {
+        "item_id": 112430,
+        "data_title": "정책 일관성 부족",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "F",
+        "rating_rationale": "정책의 일관성은 리더십의 가장 기본적인 요소 중 하나이다. 주요 정책의 중간 변경과 번복은 비전과 추진력의 부족을 의미하며, 이로 인한 신뢰도 하락은 리더십에 심각한 타격을 준다."
+      },
+      {
+        "item_id": 112431,
+        "data_title": "경기도지사 시절 성과 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "경기도지사로서 실질적인 성과 부족은 실행력과 성과 창출 능력의 한계를 보여준다. 도민을 위한 가시적 성과를 만들어내지 못한 것은 리더로서의 역량 부족을 나타내며, 리더십 평가에서 미흡한 수준이다."
+      },
+      {
+        "item_id": 112432,
+        "data_title": "당내 갈등 관리 미흡",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "정당 내 갈등 관리는 정치 리더의 필수 역량이다. 내부 분열과 갈등을 조정하지 못하고 오히려 확산시킨 것은 통합 리더십의 부재를 의미한다. 조직 내 화합을 이끌어내지 못한 것은 리더십 역량의 미흡함을 보여준다."
+      },
+      {
+        "item_id": 112433,
+        "data_title": "위기 대응력 한계",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "정치적 위기 상황에서의 신속하고 효과적인 대응 능력은 리더십의 핵심 요소이다. 위기 대응력 부족은 판단력, 결단력, 실행력 모든 면에서 리더로서의 자질 부족을 나타내며, 이는 심각한 리더십 결함이다."
+      },
+      {
+        "item_id": 112434,
+        "data_title": "정치적 입지 약화",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "F",
+        "rating_rationale": "정치적 영향력과 리더십 인지도는 정치 리더의 핵심 자산이다. 이러한 요소들의 감소와 하락은 리더로서의 존재감과 추진력 상실을 의미한다. 정치적 입지 약화는 리더십 전반의 부족함을 보여주는 종합적 지표이다."
+      },
+      {
+        "item_id": 112435,
+        "data_title": "조직 관리 능력 부족",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "조직 관리 능력은 리더십의 기본 역량이다. 효율적인 인력 배치와 관리 미흡은 조직 운영 능력의 부족을 나타내며, 이는 팀을 이끌고 성과를 창출하는 리더의 핵심 역할을 제대로 수행하지 못했음을 의미한다."
+      },
+      {
+        "item_id": 112436,
+        "data_title": "경기도 위기대응 리더십",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "코로나19라는 전국적 위기상황에서 신속하고 체계적인 방역정책을 추진한 것은 위기대응 리더십의 모범사례로, 도민의 안전을 최우선으로 한 탁월한 리더십을 보여줌"
+      },
+      {
+        "item_id": 112437,
+        "data_title": "당정 갈등 조정 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "당내 다양한 계파 간 의견 조율과 화합을 추진한 것은 정치적 리더십의 핵심 역량으로, 갈등 해결과 통합 리더십을 발휘했으나 구체적 성과에 대한 정보가 제한적임"
+      },
+      {
+        "item_id": 112438,
+        "data_title": "조직 관리 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "경기도청 조직 쇄신과 효율적 운영 추진은 행정 리더십의 중요한 요소로, 조직 혁신을 통한 변화관리 능력을 보여주었으나 구체적 성과 지표가 부족함"
+      },
+      {
+        "item_id": 112439,
+        "data_title": "위기 대응 리더십",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "재난 대응 시스템 강화와 신속한 의사결정은 위기상황에서 도민의 생명과 안전을 보호하는 핵심 리더십으로, 체계적이고 선제적인 대응 능력을 입증함"
+      },
+      {
+        "item_id": 112440,
+        "data_title": "정치적 협상력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "중앙정부와 지방정부 간 협력적 관계 구축은 정치적 협상력과 소통 리더십을 보여주는 사례로, 상호 협력을 통한 정책 추진력을 발휘했으나 구체적 성과가 명확하지 않음"
+      },
+      {
+        "item_id": 112441,
+        "data_title": "당내 영향력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "당내 중요 정책 결정 과정에서 입지를 확보한 것은 정치적 영향력을 보여주지만, 단순히 입지 확보에 그친 것으로 보이며 구체적인 정책 기여도나 리더십 발휘 정도가 불분명함"
+      },
+      {
+        "item_id": 112442,
+        "data_title": "갈등 관리 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "지역사회 내 다양한 이해관계 조정과 중재는 갈등관리 리더십의 핵심으로, 사회통합과 화합을 위한 조정자 역할을 성공적으로 수행했으나 구체적 사례와 성과가 제한적임"
+      },
+      {
+        "item_id": 112443,
+        "data_title": "조직 내 의사결정",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "신속하고 합리적인 행정 의사결정 프로세스 구축은 행정 효율성과 투명성을 높이는 리더십의 핵심으로, 체계적이고 과학적인 의사결정 시스템을 통해 탁월한 행정 리더십을 보여줌"
+      },
+      {
+        "item_id": 112444,
+        "data_title": "정치적 리더십 강도",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "지방정부 대표로서 강력한 리더십을 발휘한 것이 공식 평가에서 인정받은 것은 종합적 리더십 역량의 우수성을 객관적으로 입증하는 매우 긍정적인 평가임"
+      },
+      {
+        "item_id": 112445,
+        "data_title": "위기 소통 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "코로나19 위기상황에서 투명한 정보 전달을 통한 소통 리더십은 도민의 신뢰 확보와 효과적인 방역정책 추진의 핵심으로, 위기소통 리더십의 모범사례를 보여줌"
+      },
+      {
+        "item_id": 112446,
+        "data_title": "팀 구성 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "전문성 높은 행정팀 구성은 효과적인 리더십의 핵심 요소로, 적재적소 인재 배치와 조직 운영 능력을 보여주는 우수한 성과입니다."
+      },
+      {
+        "item_id": 112447,
+        "data_title": "정치적 네트워크",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "중앙과 지방을 아우르는 광범위한 정치적 네트워크는 정책 추진력과 협력 기반 확보에 필수적인 리더십 역량을 나타냅니다."
+      },
+      {
+        "item_id": 112448,
+        "data_title": "위기관리 대응력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "자연재해와 사회적 위기 상황에서의 대응 능력은 리더의 핵심 역량으로, 도민의 생명과 안전을 책임지는 최고 수준의 리더십을 보여줍니다."
+      },
+      {
+        "item_id": 112449,
+        "data_title": "조직문화 혁신",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "조직문화 혁신을 통한 개방적이고 혁신적인 문화 조성은 변화를 주도하는 탁월한 변혁적 리더십의 전형적인 사례입니다."
+      },
+      {
+        "item_id": 112450,
+        "data_title": "정치적 영향력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "지방정부 대표로서 확보한 정치적 영향력은 정책 추진과 지역 발전을 위한 중요한 리더십 자원으로 평가됩니다."
+      },
+      {
+        "item_id": 112451,
+        "data_title": "변화 대응력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "급변하는 정치·행정 환경에 대한 뛰어난 적응력은 현대 리더에게 요구되는 가장 중요한 역량 중 하나로 매우 우수한 평가를 받습니다."
+      },
+      {
+        "item_id": 112452,
+        "data_title": "의사결정 일관성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "정책 결정의 일관성과 신뢰성은 리더의 신뢰도와 예측가능성을 보장하는 핵심 요소로, 조직과 도민의 신뢰 확보에 매우 중요합니다."
+      },
+      {
+        "item_id": 112453,
+        "data_title": "리더십 유연성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "다양한 상황에 맞는 유연한 리더십 발휘는 상황적 리더십의 우수한 사례로, 복잡한 행정 환경에서 필요한 역량입니다."
+      },
+      {
+        "item_id": 112454,
+        "data_title": "위기 예측 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "위기 예측 및 사전 대응 능력은 선제적 리더십의 핵심으로, 문제 발생 전 미리 대비하는 뛰어난 통찰력과 전략적 사고를 보여줍니다."
+      },
+      {
+        "item_id": 112455,
+        "data_title": "팀워크 촉진",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "조직 내 협력적 팀워크 문화 조성은 집단 성과 향상과 조직 효율성 증대에 기여하는 우수한 관계지향적 리더십을 나타냅니다."
+      },
+      {
+        "item_id": 112456,
+        "data_title": "경기도 조직 개편 리더십",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "취임 후 신속하고 체계적인 조직 개편은 효율적인 행정 기반 구축을 위한 중요한 리더십 역량을 보여주며, 변화 관리 능력과 실행력을 입증하는 우수한 사례로 평가됩니다."
+      },
+      {
+        "item_id": 112457,
+        "data_title": "코로나19 대응 위기관리",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "코로나19라는 전례 없는 위기 상황에서 경기도 방역 정책을 주도적으로 추진한 것은 위기 리더십의 핵심 요소인 선제적 대응과 책임감을 보여주는 매우 우수한 리더십 사례입니다."
+      },
+      {
+        "item_id": 112458,
+        "data_title": "당정 간 소통 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "당정 간 협력적 관계 유지는 정치적 리더십에서 필수적인 요소로, 다양한 정치적 이해관계를 조율하고 협력을 이끌어내는 능력을 보여주는 우수한 리더십 역량입니다."
+      },
+      {
+        "item_id": 112459,
+        "data_title": "의사결정 신속성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "주요 정책 결정에서의 신속한 판단력은 효과적인 리더십의 핵심 요소로, 복잡한 상황에서 빠른 의사결정을 통해 조직의 효율성을 높이는 우수한 리더십 특성을 보여줍니다."
+      },
+      {
+        "item_id": 112460,
+        "data_title": "위기 대응 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "재난 대응 시스템 강화는 도민의 안전과 직결되는 중요한 정책으로, 선제적 위기관리와 시스템적 사고를 통한 근본적 해결책 마련은 매우 우수한 리더십을 보여줍니다."
+      },
+      {
+        "item_id": 112461,
+        "data_title": "정치적 네트워킹",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "중앙정부와 지방정부 간 협력 관계 구축은 정책 실효성 확보와 지역 발전을 위한 중요한 리더십 역량으로, 상호 협력을 통한 시너지 창출 능력을 보여주는 우수한 사례입니다."
+      },
+      {
+        "item_id": 112462,
+        "data_title": "팀 운영 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "팀 구성 및 관리는 기본적인 리더십 역량이지만, 구체적인 성과나 혁신적 접근 방식에 대한 정보가 부족하여 일반적인 조직 관리 수준으로 평가되어 양호한 등급을 부여합니다."
+      },
+      {
+        "item_id": 112463,
+        "data_title": "갈등 조정 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "지역 내 다양한 이해관계 조정은 고도의 정치적 감각과 협상 능력이 필요한 영역으로, 갈등을 해결하고 합의를 이끌어내는 조정 리더십은 우수한 역량을 보여줍니다."
+      },
+      {
+        "item_id": 112464,
+        "data_title": "변화 주도성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "정책 혁신 추진은 변화를 주도하고 새로운 가치를 창출하는 혁신적 리더십의 핵심으로, 기존 관행을 개선하고 미래지향적 정책을 추진하는 매우 우수한 리더십 역량입니다."
+      },
+      {
+        "item_id": 112465,
+        "data_title": "소통 리더십",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "도민과의 적극적 소통은 민주적 리더십의 기본 요소로, 투명성과 참여를 통한 신뢰 구축과 정책 수용성 제고는 현대 리더십에서 매우 중요한 우수한 역량입니다."
+      },
+      {
+        "item_id": 112466,
+        "data_title": "정책 일관성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "정책의 일관된 추진은 리더의 신뢰성과 예측 가능성을 보여주는 중요한 리더십 요소입니다. 경기도의 주요 정책을 흔들림 없이 추진하는 것은 조직 구성원들에게 명확한 방향성을 제시하고 도민들에게 안정감을 주는 우수한 리더십 특성입니다."
+      },
+      {
+        "item_id": 112467,
+        "data_title": "예산 관리 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "재정 건전성 유지는 책임감 있는 리더십의 핵심 지표입니다. 경기도라는 대규모 조직의 예산을 효율적으로 관리하여 건전성을 유지하는 것은 미래 지향적 사고와 실무 능력을 겸비한 우수한 행정 리더십을 보여줍니다."
+      },
+      {
+        "item_id": 112468,
+        "data_title": "위기 소통 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "위기 상황에서의 소통 능력은 리더십의 진가가 드러나는 순간입니다. 대외 소통을 통해 투명성을 확보하고 신뢰를 구축하는 것은 현대적 리더십의 필수 요소로, 위기 관리 역량과 소통 리더십이 잘 결합된 우수한 사례입니다."
+      },
+      {
+        "item_id": 112469,
+        "data_title": "정치적 영향력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "정당 내 입지는 정치적 영향력을 나타내지만, 리더십 관점에서는 양호한 수준입니다. 더불어민주당 내에서의 위치는 정치적 네트워킹 능력을 보여주나, 실질적인 리더십 역량보다는 정치적 포지셔닝에 더 가까운 측면이 있어 보통 이상의 평가를 받습니다."
+      },
+      {
+        "item_id": 112470,
+        "data_title": "혁신 마인드",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "행정 혁신 시도는 변화를 주도하는 탁월한 리더십의 표현입니다. 기존 관행을 개선하고 새로운 방식을 도입하려는 혁신 마인드는 조직을 발전시키는 핵심 리더십 역량으로, 미래 지향적이고 진취적인 사고를 보여주는 매우 우수한 리더십 특성입니다."
+      },
+      {
+        "item_id": 112471,
+        "data_title": "위기 예측 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "위기를 사전에 예측하고 대응하는 능력은 최고 수준의 리더십 역량입니다. 선제적 대응은 조직을 보호하고 피해를 최소화하는 전략적 사고력과 통찰력을 보여주며, 이는 탁월한 리더만이 갖출 수 있는 매우 우수한 위기 관리 리더십입니다."
+      },
+      {
+        "item_id": 112472,
+        "data_title": "팀워크 촉진",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "조직 내 협업 문화 조성은 팀 리더십의 핵심 요소입니다. 구성원들 간의 시너지를 창출하고 협력적 업무 환경을 만드는 것은 조직 성과 향상과 직결되는 중요한 리더십 역량으로, 인적 자원 관리와 조직 운영 능력이 우수함을 보여줍니다."
+      },
+      {
+        "item_id": 112473,
+        "data_title": "리더십 스타일",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "민주적이고 개방적인 리더십 스타일은 현대 조직 관리의 이상적 모델입니다. 구성원들의 참여를 유도하고 의견을 수렴하는 포용적 리더십은 조직의 창의성과 몰입도를 높이는 우수한 리더십 접근법으로, 지속 가능한 조직 발전을 가능하게 합니다."
+      },
+      {
+        "item_id": 112474,
+        "data_title": "외부 위기 관리",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "대외적 위기 상황에 대한 적절한 대응은 리더의 위기 관리 능력을 보여주는 중요한 지표입니다. 외부 환경 변화에 신속하고 효과적으로 대응하는 것은 조직을 보호하고 안정성을 확보하는 우수한 리더십 역량을 나타냅니다."
+      },
+      {
+        "item_id": 112475,
+        "data_title": "조직 문화 개선",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "조직 문화 혁신은 리더십의 궁극적 목표 중 하나입니다. 경기도청이라는 대규모 공공조직의 문화를 개선한다는 것은 강력한 변화 관리 능력과 비전 제시 역량을 보여주는 매우 우수한 리더십 성과로, 조직의 근본적 변화를 이끌어내는 탁월한 능력입니다."
+      }
+    ]
+  },
+  "scores": {
+    "ChatGPT": {
+      "avg_rating": 4.706666666666667,
+      "category_score": 83.53333333333333,
+      "total_items": 150,
+      "positive": 119,
+      "negative": 31
+    },
+    "Grok": {
+      "avg_rating": 4.44,
+      "category_score": 82.2,
+      "total_items": 150,
+      "positive": 111,
+      "negative": 39
+    },
+    "Claude": {
+      "avg_rating": 3.8933333333333335,
+      "category_score": 79.46666666666667,
+      "total_items": 150,
+      "positive": 109,
+      "negative": 41
+    }
+  },
+  "final_score": 81.73333333333333
+}

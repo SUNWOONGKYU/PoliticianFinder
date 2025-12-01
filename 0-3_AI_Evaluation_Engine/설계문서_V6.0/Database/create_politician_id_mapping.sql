@@ -18,7 +18,7 @@ CREATE TABLE politician_id_mapping (
   position VARCHAR(100),                   -- 직위
 
   -- UUID 매핑 (FK to politicians.id)
-  uuid_id UUID REFERENCES politicians(id), -- politicians 테이블의 UUID
+  uuid_id TEXT REFERENCES politicians(id), -- politicians 테이블의 TEXT ID (8-char hex)
 
   -- 메타 정보
   created_at TIMESTAMP DEFAULT NOW(),      -- 생성 일시
@@ -35,21 +35,21 @@ CREATE INDEX idx_politician_id_mapping_uuid_id ON politician_id_mapping(uuid_id)
 CREATE INDEX idx_politician_id_mapping_name ON politician_id_mapping(name);
 
 -- 코멘트 추가
-COMMENT ON TABLE politician_id_mapping IS 'V15.0 정치인 ID 매핑 테이블 (UUID ↔ INT 브릿지)';
+COMMENT ON TABLE politician_id_mapping IS 'V15.0 정치인 ID 매핑 테이블 (TEXT ↔ INT 브릿지)';
 COMMENT ON COLUMN politician_id_mapping.integer_id IS '정수 ID (1~11, collected_data와 매칭)';
-COMMENT ON COLUMN politician_id_mapping.uuid_id IS 'UUID (politicians 테이블 FK)';
+COMMENT ON COLUMN politician_id_mapping.uuid_id IS 'TEXT ID (8-char hex, politicians 테이블 FK)';
 
 -- ============================================================================
 -- 사용 목적
 -- ============================================================================
 --
 -- 문제점:
--- - politicians.id: UUID (cd8c0263-500b-4af8-9301-174b487038a2)
+-- - politicians.id: TEXT (8-char hex, 예: 'cd8c0263')
 -- - collected_data.politician_id: INT (1, 2, 3, ...)
 -- - politician_scores.politician_id: INT (1, 2, 3, ...)
 --
 -- 해결책:
--- - politician_id_mapping 테이블로 UUID ↔ INT 매핑
+-- - politician_id_mapping 테이블로 TEXT ↔ INT 매핑
 -- - 3-way JOIN 쿼리에서 중간 브릿지로 사용
 --
 -- ============================================================================

@@ -1,0 +1,3635 @@
+{
+  "data_pool_size": 150,
+  "evaluation_results": {
+    "ChatGPT": [
+      {
+        "item_id": 151682,
+        "data_title": "부동산 정책 실패",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "H",
+        "rating_rationale": "부동산 정책의 실패는 시민들의 기대를 충족시키지 못한 명백한 사례로, 이는 오세훈의 비전이 현실과 동떨어져 있음을 보여줍니다."
+      },
+      {
+        "item_id": 151683,
+        "data_title": "교통 정책 논란",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "H",
+        "rating_rationale": "교통 정책의 구체성이 결여되어 있어 시민들의 불만을 초래하였으며, 이는 오세훈의 비전이 실체를 갖추지 못했음을 나타냅니다."
+      },
+      {
+        "item_id": 151684,
+        "data_title": "환경 정책에 대한 비판",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "H",
+        "rating_rationale": "환경 정책에서의 소극적 태도와 미세먼지 대책의 부족은 지속 가능한 발전에 대한 비전이 전혀 부족하다는 것을 암시합니다."
+      },
+      {
+        "item_id": 151685,
+        "data_title": "재정 운영 논란",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "H",
+        "rating_rationale": "재정 운영의 투명성 부족과 대규모 프로젝트의 부담은 시민들의 신뢰를 저하시키며, 이는 장기적인 비전 부재를 드러냅니다."
+      },
+      {
+        "item_id": 151686,
+        "data_title": "정부 간 협력 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "G",
+        "new_rating": "H",
+        "rating_rationale": "정부 간 협력 부족은 정책 실행 지연으로 이어졌으며, 이는 오세훈의 비전이 실현 가능성이 낮다는 것을 보여줍니다."
+      },
+      {
+        "item_id": 151687,
+        "data_title": "오세훈의 부동산 정책 비판",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "H",
+        "rating_rationale": "부동산 정책의 갈등 초래와 투기억제 미비는 시민들의 신뢰를 저하시키며, 정책적 비전이 결여되어 있음을 나타냅니다."
+      },
+      {
+        "item_id": 151688,
+        "data_title": "서울시 코로나19 방역 정책 논란",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "H",
+        "rating_rationale": "코로나19 방역 정책의 일관성 부족은 시민의 신뢰를 깨뜨렸으며, 이는 오세훈의 비전이 실효성이 없음을 보여줍니다."
+      },
+      {
+        "item_id": 151689,
+        "data_title": "대중교통 정책 부재",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "H",
+        "rating_rationale": "대중교통 정책의 부재는 시민들의 불만을 초래하고, 이는 오세훈의 비전이 부족하다는 것을 드러냅니다."
+      },
+      {
+        "item_id": 151690,
+        "data_title": "시민 소통 부족 문제",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "H",
+        "rating_rationale": "시민 소통 부족은 정책 수립 과정에서 주민의 의견을 반영하지 못하게 하여, 비전의 실현 가능성을 저해하고 있습니다."
+      },
+      {
+        "item_id": 151691,
+        "data_title": "가덕도 신공항 관련 발언 논란",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "H",
+        "rating_rationale": "가덕도 신공항에 대한 회의적 입장은 정치적 대립을 심화시키고, 서울시의 장기적 비전과의 불일치를 보여줍니다."
+      },
+      {
+        "item_id": 151692,
+        "data_title": "스마트시티 추진",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "스마트시티 추진은 첨단 기술을 활용하여 도시 문제를 해결할 수 있는 매우 혁신적인 접근으로, 서울의 미래를 위한 비전이 잘 드러나 있다."
+      },
+      {
+        "item_id": 151693,
+        "data_title": "서울시 재정 건전성 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "재정 건전성을 강화하는 정책은 서울시의 지속 가능한 발전을 위한 중요한 기초를 마련하며, 체계적인 예산 운영이 긍정적인 평가를 받는다."
+      },
+      {
+        "item_id": 151694,
+        "data_title": "주거 안정 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "주거 안정 정책은 시민의 기본적인 생활을 보장하는 중요한 요소로, 공공주택 공급 확대는 매우 긍정적인 방향으로 평가된다."
+      },
+      {
+        "item_id": 151695,
+        "data_title": "기후 변화 대응 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "기후 변화 대응 정책은 환경 보호와 지속 가능한 발전을 동시에 추구하는 매우 중요한 비전으로, 재생 가능 에너지 사용 확대는 필수적이다."
+      },
+      {
+        "item_id": 151696,
+        "data_title": "교통 체계 혁신",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "교통 체계 혁신은 대중교통과 자전거 도로 확충을 통해 대기질 개선에 기여할 수 있어 우수하지만, 추가적인 세부 계획이 필요하다."
+      },
+      {
+        "item_id": 151697,
+        "data_title": "수돗물 품질 향상",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "수돗물 품질 향상은 시민의 건강을 위한 중요한 정책으로, 관리체계 개선은 긍정적이나 실행 계획의 구체성이 부족할 수 있다."
+      },
+      {
+        "item_id": 151698,
+        "data_title": "문화예술 지원 확대",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "문화예술 지원 확대는 지역 사회의 문화적 풍요를 도모하는 좋은 정책으로, 시민 참여를 강조한 점이 긍정적이다."
+      },
+      {
+        "item_id": 151699,
+        "data_title": "여성 안전 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "여성 안전 정책은 중요한 사회적 이슈를 반영한 정책으로, 안전 디바이스 설치와 범죄 예방 프로그램은 매우 효과적인 접근이다."
+      },
+      {
+        "item_id": 151700,
+        "data_title": "청년 일자리 창출",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "청년 일자리 창출을 위한 다양한 지원 정책은 청년 경제를 활성화하는 중요한 비전으로, 지속 가능한 고용 창출이 잘 드러나 있다."
+      },
+      {
+        "item_id": 151701,
+        "data_title": "도시재생 프로젝트",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "도시재생 프로젝트는 지역 경제와 주민 생활 수준 향상에 기여하며, 지속 가능한 도시 발전을 위한 필수적인 비전으로 평가된다."
+      },
+      {
+        "item_id": 151702,
+        "data_title": "지역 균형 발전",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "지역 간 불균형 해소를 위한 정책 추진은 지역 균형 발전에 기여하며, 소외된 지역 지원은 사회적 평등을 증진하는 매우 우수한 비전이다."
+      },
+      {
+        "item_id": 151703,
+        "data_title": "대기질 개선 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "대기질 개선을 위한 정책은 시민의 건강과 환경 보호에 직접적으로 기여하며, 지속 가능한 도시 발전을 위한 매우 우수한 비전이다."
+      },
+      {
+        "item_id": 151704,
+        "data_title": "어린이 공원 확대",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "어린이 공원 확대는 안전한 놀이 환경을 제공하여 어린이의 행복한 성장을 지원하며, 미래 세대를 위한 매우 긍정적인 비전으로 평가된다."
+      },
+      {
+        "item_id": 151705,
+        "data_title": "퇴직연금 활성화",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "퇴직연금 활성화 정책은 시민들의 노후 안정성을 높이기 위한 우수한 노력이나, 구체적인 실행 방안이 부족하여 A 등급에는 미치지 못한다."
+      },
+      {
+        "item_id": 151706,
+        "data_title": "지역사회 복지 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "지역사회 복지 강화를 위한 노력은 취약 계층의 존엄성을 증진시키며, 포용적인 사회를 위한 매우 우수한 비전으로 평가된다."
+      },
+      {
+        "item_id": 151707,
+        "data_title": "공공 교통시설 현대화",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "공공 교통시설 현대화는 시민 이동 편의를 높이는 중요한 정책으로, 기본적인 교통 문제 해결에 기여하지만 더 혁신적인 접근이 필요하다."
+      },
+      {
+        "item_id": 151708,
+        "data_title": "환경 교육 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "환경 교육 강화는 시민의 환경 의식을 높여 지속 가능한 사회를 만드는 데 기여하며, 매우 긍정적인 비전으로 평가된다."
+      },
+      {
+        "item_id": 151709,
+        "data_title": "외국인 친화 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "외국인 친화 정책은 다문화 사회 조성을 통해 다양한 문화를 인정하고 존중하는 방향으로 우수하지만, 실행의 구체성이 부족하다."
+      },
+      {
+        "item_id": 151710,
+        "data_title": "재난 대응 체계 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "재난 대응 체계 강화는 시민의 안전을 위한 필수적인 조치로, 매우 우수한 비전으로 평가된다. 재난 대응의 효율성 증대는 중요하다."
+      },
+      {
+        "item_id": 151711,
+        "data_title": "전통 보전 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "전통 보전 정책은 문화유산 보호에 기여하지만, 현대 사회와의 연계 방안이 부족하여 전반적으로 우수하나 A 등급에는 못 미친다."
+      },
+      {
+        "item_id": 151712,
+        "data_title": "서울 주요 도시 개발 계획",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "주거 복합시설 및 스마트 시티 개발을 통해 주거 안정성 향상을 목표로 하는 계획은 서울 시민의 삶의 질을 높이는 데 매우 긍정적이다."
+      },
+      {
+        "item_id": 151713,
+        "data_title": "탄소 중립 도시 비전",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "2050년 탄소 중립 목표는 지속 가능한 발전을 위한 강력한 비전으로, 생태 도시로서의 서울을 구체화하는 데 큰 기여를 할 것으로 기대된다."
+      },
+      {
+        "item_id": 151714,
+        "data_title": "교통 혼잡 해소 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "교통 혼잡 해소를 위한 정책은 대중교통 이용 장려와 자전거 도로 확장을 포함하여 실질적인 개선을 도모하고 있어 우수한 접근이다."
+      },
+      {
+        "item_id": 151715,
+        "data_title": "문화 예술 도시 조성",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "서울을 세계적인 문화 예술 도시로 만들겠다는 비전은 지역 예술인 지원을 통해 문화적 가치를 높이려는 노력으로 긍정적이다."
+      },
+      {
+        "item_id": 151716,
+        "data_title": "기후 변화 대응 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "기후 변화 대응 정책은 시민 참여를 유도하면서 도시의 지속 가능성을 높이는 데 기여할 수 있어 매우 우수한 방향성이다."
+      },
+      {
+        "item_id": 151717,
+        "data_title": "청년 일자리 창출 방안",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "청년 일자리 창출을 위한 정책 제안은 지역 경제에 긍정적인 영향을 미칠 수 있으며, 청년층의 고용 문제 해결에 실질적인 도움이 될 수 있다."
+      },
+      {
+        "item_id": 151718,
+        "data_title": "주거 복지 정책 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "주거 복지 정책 강화는 사회적 약자를 지원하고 주택 공급 확대를 통해 주거 문제 해결에 기여할 수 있어 매우 긍정적이다."
+      },
+      {
+        "item_id": 151719,
+        "data_title": "스마트 시티 구축",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "스마트 시티 구축은 도시 관리의 효율성을 높이고 시민의 삶의 질 향상에 기여하는 비전으로 매우 우수하다."
+      },
+      {
+        "item_id": 151720,
+        "data_title": "시민 참여 확대 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "시민 참여 확대는 민주적이고 투명한 정책 결정 과정을 도모하는 방향으로, 시민들의 목소리를 반영할 수 있는 좋은 기회를 제공한다."
+      },
+      {
+        "item_id": 151721,
+        "data_title": "재난 예방 및 대응 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "재난 예방 및 대응 정책은 시민 안전을 최우선으로 하여 공공 안전을 확보하려는 노력으로 매우 중요한 비전을 제시하고 있다."
+      },
+      {
+        "item_id": 151722,
+        "data_title": "디지털 전환 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "디지털 전환 정책은 행정 서비스의 효율성을 높이고 시민 편의를 증대시켜 매우 긍정적인 비전으로 평가된다."
+      },
+      {
+        "item_id": 151723,
+        "data_title": "국제 도시 교류 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "국제 도시 교류 강화는 서울의 글로벌 이미지를 높이는 중요한 전략이나 구체적인 실행 방안이 부족하다."
+      },
+      {
+        "item_id": 151724,
+        "data_title": "서울시 고령자 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "고령자를 위한 정책은 사회적 책임을 다하는 중요한 비전이나, 세부 내용이 미흡하여 개선의 여지가 있다."
+      },
+      {
+        "item_id": 151725,
+        "data_title": "재개발 및 재건축 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "재개발 및 재건축 정책은 주택 공급 문제 해결을 목표로 하나, 환경적 지속 가능성에 대한 고려가 부족하다."
+      },
+      {
+        "item_id": 151726,
+        "data_title": "사회적 약자 지원 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "사회적 약자 지원 정책은 포용적인 도시를 만드는 데 기여하며, 매우 긍정적인 비전으로 평가된다."
+      },
+      {
+        "item_id": 151727,
+        "data_title": "소통 채널 확대",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "소통 채널 확대는 시민과의 관계를 강화하는 좋은 전략이나, 실제 효과와 범위에 대한 구체적인 데이터가 부족하다."
+      },
+      {
+        "item_id": 151728,
+        "data_title": "조세 정책 개선",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "조세 정책 개선은 시민의 세금 부담을 줄이는 긍정적인 접근이나, 세부 방안이 명확하지 않아 다소 아쉽다."
+      },
+      {
+        "item_id": 151729,
+        "data_title": "관광 활성화 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "관광 활성화 정책은 경제적 효과를 기대할 수 있으나, 지속 가능성에 대한 고려가 부족하다."
+      },
+      {
+        "item_id": 151730,
+        "data_title": "스포츠 도시 비전",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "스포츠 도시 비전은 시민의 건강 증진에 기여할 수 있으나, 구체적인 실행 계획이 부족하여 평범한 수준이다."
+      },
+      {
+        "item_id": 151731,
+        "data_title": "지속 가능한 발전 프로그램",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "지속 가능한 발전 프로그램은 미래 지향적인 비전으로 매우 긍정적이며, 서울의 지속 가능성을 고려한 우수한 정책이다."
+      },
+      {
+        "item_id": 151632,
+        "data_title": "부동산 정책의 장기적 비전 부족",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "H",
+        "rating_rationale": "부동산 정책이 장기적 안정성을 고려하지 않고 단기 개발에 치중하여 주거 불안을 초래, 지속 가능한 도시 발전 비전을 저해."
+      },
+      {
+        "item_id": 151633,
+        "data_title": "도시 재개발 계획의 미래 예측 실패",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "H",
+        "rating_rationale": "환경 영향 평가를 소홀히 한 도시 재개발 계획이 시민 반발과 장기적 지속 가능성 문제를 야기, 미래 도시 생활 질 저하."
+      },
+      {
+        "item_id": 151634,
+        "data_title": "기후 변화 대응 비전의 미흡",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "H",
+        "rating_rationale": "기후 변화 정책에서 장기적 온실가스 감축 목표를 명확히 제시하지 못하고 도시 숲 조성 사업의 실패로 지속 가능한 에너지 전환 비전 약화."
+      },
+      {
+        "item_id": 151635,
+        "data_title": "교통 인프라 장기 계획의 논란",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "H",
+        "rating_rationale": "장기적 인구 이동 패턴 예측을 무시한 교통 정책이 교통 체증과 공기 질 악화를 초래, 미래 도시 이동성 비전 훼손."
+      },
+      {
+        "item_id": 151636,
+        "data_title": "청년 일자리 비전의 실패",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "H",
+        "rating_rationale": "청년 일자리 창출 정책의 산업 다각화 예측 부족으로 고용 불안정 초래, 미래 세대 경제 안정성 위협."
+      },
+      {
+        "item_id": 151637,
+        "data_title": "부동산 정책의 장기적 비전 부족",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "H",
+        "rating_rationale": "부동산 가격 폭등과 저소득층 주거 불안을 초래한 정책의 장기적 비전 결여, 사회적 불평등 심화 우려."
+      },
+      {
+        "item_id": 151638,
+        "data_title": "코로나19 대응의 미래 예측 실패",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "H",
+        "rating_rationale": "코로나19 대응의 장기적 추이를 예측하지 못하고 단기 대응에만 치중하여 공공 보건 시스템의 취약성 드러남."
+      },
+      {
+        "item_id": 151639,
+        "data_title": "도시 재생 프로젝트의 지속 가능성 문제",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "H",
+        "rating_rationale": "도시 재생 프로젝트가 장기적 환경과 사회적 영향을 고려하지 않아 지속 가능한 발전 목표 미달성."
+      },
+      {
+        "item_id": 151640,
+        "data_title": "경제 정책의 장기 성장 비전 결여",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "H",
+        "rating_rationale": "경제 정책이 장기 성장 비전 결여로 중소기업 지원 부족, 청년 실업률 증가 초래, 정책 근본적 한계 드러남."
+      },
+      {
+        "item_id": 151641,
+        "data_title": "기후 변화 대응의 미래 전략 부재",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "H",
+        "rating_rationale": "기후 변화 정책에서 탄소 감축 목표와 지속 가능한 에너지 전환 비전 결여, 미래 환경 피해 초래 가능성 지적."
+      },
+      {
+        "item_id": 151642,
+        "data_title": "서울 2030 지속 가능한 도시 비전",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "지속 가능한 도시 비전은 미래 세대의 삶의 질 향상에 중점을 두며, 환경과 경제를 동시에 고려한 목표가 매우 우수합니다."
+      },
+      {
+        "item_id": 151643,
+        "data_title": "디지털 트윈 시티 프로젝트 비전",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "디지털 트윈 기술을 활용한 스마트 도시 계획은 혁신적이며 데이터 기반의 문제 해결을 목표로 해 매우 긍정적입니다."
+      },
+      {
+        "item_id": 151644,
+        "data_title": "그린 뉴딜 정책의 장기 목표",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "그린 뉴딜 정책은 기후 중립과 경제 성장을 균형 있게 다루며, 장기적 지속 가능성을 위해 매우 우수한 비전입니다."
+      },
+      {
+        "item_id": 151645,
+        "data_title": "교통 인프라 혁신 비전",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "교통 인프라 혁신 비전은 도시 이동의 효율성을 강조하지만, 구체적인 실행 방안이 부족해 다소 아쉬운 점이 있습니다."
+      },
+      {
+        "item_id": 151646,
+        "data_title": "주거 및 주택 공급 장기 전략",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "주거 및 주택 공급 전략은 인구 변화와 고령화 사회에 대한 예측을 반영하여 젊은 세대의 주거 문제를 해결하는 데 매우 우수합니다."
+      },
+      {
+        "item_id": 151647,
+        "data_title": "교육 혁신 및 디지털 학습 비전",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "교육 혁신과 디지털 학습 비전은 청소년의 경쟁력 강화를 목표로 하지만, 실질적인 구체성이 부족한 점이 있습니다."
+      },
+      {
+        "item_id": 151648,
+        "data_title": "경제 활성화 장기 계획",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "경제 활성화 계획은 포괄적인 전략이지만, 구체적인 실행 방안과 성과 측정 기준이 부족해 다소 아쉬운 점이 있습니다."
+      },
+      {
+        "item_id": 151649,
+        "data_title": "사회 복지 강화 장기 목표",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "A",
+        "rating_rationale": "사회 복지 강화 비전은 고령화 사회에 대한 잘 예측된 대응으로 취약 계층 보호를 중점으로 두고 있어 매우 우수합니다."
+      },
+      {
+        "item_id": 151650,
+        "data_title": "문화 예술 진흥 장기 비전",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "문화 예술 진흥 비전은 아시아 문화 중심지로의 발전을 목표로 하지만, 구체적인 실행 계획이 부족해 아쉬움이 있습니다."
+      },
+      {
+        "item_id": 151651,
+        "data_title": "재난 관리 강화 비전",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "재난 관리 강화 비전은 시민 안전을 최우선으로 하는 혁신적 접근으로, 기후 변화에 대한 적절한 대응 전략을 포함하고 있습니다."
+      },
+      {
+        "item_id": 151652,
+        "data_title": "청년 일자리 창출 장기 전략",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "청년 실업 문제 해결을 위한 장기 비전은 시대적 필요에 부합하며, IT 산업과 취업 지원 확대는 실질적인 효과를 기대할 수 있어 매우 우수한 평가를 받습니다."
+      },
+      {
+        "item_id": 151653,
+        "data_title": "관광 산업 발전 비전",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "지속 가능한 관광 모델 제시는 글로벌 트렌드에 적합하지만, 구체적인 실행 방안이 부족해 다소 우수하나 개선의 여지가 있습니다."
+      },
+      {
+        "item_id": 151654,
+        "data_title": "에너지 전환 장기 계획",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "2050년 탄소 중립 목표는 환경과 경제를 균형 있게 고려한 비전으로, 명확한 목표 설정이 매우 우수합니다."
+      },
+      {
+        "item_id": 151655,
+        "data_title": "공공 보건 강화 비전",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "감염병 대응 시스템 강화 계획은 미래 보건 위협에 대한 선제적 대응을 보여주며, 장기적인 공공 의료 인프라 개선이 매우 우수합니다."
+      },
+      {
+        "item_id": 151656,
+        "data_title": "인프라 투자 장기 목표",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "B",
+        "rating_rationale": "교량과 도로 확장 계획은 도시 발전을 위한 필요성을 잘 반영하고 있으나, 구체적인 투자 방안이 부족해 우수한 평가를 받습니다."
+      },
+      {
+        "item_id": 151657,
+        "data_title": "국제 협력 비전",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "아시아 국가와의 협력 확대는 긍정적인 비전이지만, 효과적인 실행 방안과 세부 목표가 부족해 양호한 평가를 받습니다."
+      },
+      {
+        "item_id": 151658,
+        "data_title": "지능형 도시 개발 비전",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "AI 도시화를 통한 혁신 목표는 미래지향적이며, 스마트 기술 활용이 매우 우수한 비전으로 평가됩니다."
+      },
+      {
+        "item_id": 151659,
+        "data_title": "고령화 사회 대응 비전",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "노인 전용 시설과 커뮤니티 프로그램 확대는 고령화 사회에 대한 적절한 대응이지만, 실행 계획의 구체성이 부족해 우수한 평가를 받습니다."
+      },
+      {
+        "item_id": 151660,
+        "data_title": "환경 보호 장기 목표",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "환경 오염 문제에 대한 생태계 복원 목표는 매우 중요한 비전이며, 장기적인 환경 보호 의지가 확고하여 매우 우수합니다."
+      },
+      {
+        "item_id": 151661,
+        "data_title": "코로나 후 사회 회복 비전",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "A",
+        "rating_rationale": "팬데믹 이후 경제 회복과 사회 안전망 강화 비전은 시의적절한 대응으로, 지속 가능한 성장 목표 설정이 매우 우수합니다."
+      },
+      {
+        "item_id": 151662,
+        "data_title": "한강 르네상스 프로젝트 비전",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "한강 르네상스 프로젝트는 관광 중심지로의 비전이 우수하나, 재정 문제로 지연될 우려가 있어 실행 가능성이 낮아 평가를 B로 내림."
+      },
+      {
+        "item_id": 151663,
+        "data_title": "지속 가능한 도시 개발 비전",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "2050년 탄소 중립 목표는 매우 중요하지만, 실행 속도가 느려 비판을 받고 있어 비전의 우수성은 반감됨."
+      },
+      {
+        "item_id": 151664,
+        "data_title": "코로나19 후 회복 비전",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "디지털 경제 전환은 필요하지만, 초기 실행이 미흡하여 중장기적 효과에 의문을 남기므로 양호한 평가."
+      },
+      {
+        "item_id": 151665,
+        "data_title": "교통 인프라 혁신 비전",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "C",
+        "rating_rationale": "교통 체계 혁신은 지속 가능성을 강조하지만, 예산 문제로 계획이 지연되고 있어 양호한 평가를 받음."
+      },
+      {
+        "item_id": 151666,
+        "data_title": "환경 보호 장기 목표",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "D",
+        "rating_rationale": "미세먼지 저감 목표는 중요하나, 지역 주민의 반대로 실행이 지연되고 있어 보통으로 평가됨."
+      },
+      {
+        "item_id": 151667,
+        "data_title": "경제 활성화 비전",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "스타트업 중심 경제 모델 구축은 매우 혁신적이며, 일자리 창출과 글로벌 트렌드를 반영하여 매우 우수한 평가."
+      },
+      {
+        "item_id": 151668,
+        "data_title": "교육 혁신 비전",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "교육 시스템 디지털화는 미래 지향적이나, 예산 배분 문제로 실행에 난항을 겪고 있어 양호한 평가."
+      },
+      {
+        "item_id": 151669,
+        "data_title": "주택 정책 장기 계획",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "고령화 사회 대비 주택 재개발 비전은 필요하지만, 토지 활용 문제로 논란이 있어 보통 평가."
+      },
+      {
+        "item_id": 151670,
+        "data_title": "디지털 혁신 비전",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "C",
+        "rating_rationale": "스마트 시티 전환은 기술적 혁신을 포함하나, 데이터 보안 문제가 있어 양호하게 평가됨."
+      },
+      {
+        "item_id": 151671,
+        "data_title": "문화 예술 지원 비전",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "D",
+        "rating_rationale": "문화 예술 지원비전은 중요한 목표이나, 예산 부족으로 프로그램 축소가 우려되어 보통으로 평가됨."
+      },
+      {
+        "item_id": 151672,
+        "data_title": "노인 복지 장기 목표",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "2050년까지 노인 전용 시설 확대는 장기적인 비전으로 긍정적이나 초기 투자 부족이 문제로 작용하고 있습니다."
+      },
+      {
+        "item_id": 151673,
+        "data_title": "청년 일자리 창출 비전",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "청년 일자리 50% 증가 목표는 긍정적이지만 실업률 감소 효과가 미흡해 비전의 실현 가능성에 의문이 생깁니다."
+      },
+      {
+        "item_id": 151674,
+        "data_title": "재난 관리 비전",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "D",
+        "rating_rationale": "AI 기반 재난 관리 시스템 도입은 혁신적이지만 초기 테스트 문제로 비전의 신뢰성이 낮아 보입니다."
+      },
+      {
+        "item_id": 151675,
+        "data_title": "국제 협력 비전",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "서울을 글로벌 협력 허브로 만들겠다는 비전은 국제 관계 강화에 기여할 수 있으나 정치적 변수로 지연될 위험이 있습니다."
+      },
+      {
+        "item_id": 151676,
+        "data_title": "관광 산업 발전 비전",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "관광 수익 2배 증가는 중요한 목표지만 팬데믹 영향으로 실행이 지연되어 비전 성취에 부정적 영향을 미칩니다."
+      },
+      {
+        "item_id": 151677,
+        "data_title": "에너지 전환 비전",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "2050년까지 재생 에너지 비율 80% 목표는 기후 변화 대응에 필수적이나 기술 도입 속도가 느린 점이 우려됩니다."
+      },
+      {
+        "item_id": 151678,
+        "data_title": "공원 확대 비전",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "도시 공원 면적 확대는 시민 건강을 위한 중요한 비전이지만 토지 확보 문제로 실행에 어려움이 예상됩니다."
+      },
+      {
+        "item_id": 151679,
+        "data_title": "스마트 시티 구축 비전",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "스마트 시티 구축 비전은 도시 효율성을 높이지만 프라이버시 문제로 인한 시민의 반발이 우려됩니다."
+      },
+      {
+        "item_id": 151680,
+        "data_title": "인구 고령화 대응 비전",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "고령화에 대비한 노인 복지 시스템 강화는 필요하지만 재정 부담 문제로 현실성이 떨어질 수 있습니다."
+      },
+      {
+        "item_id": 151681,
+        "data_title": "포스트 코로나 경제 비전",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "D",
+        "rating_rationale": "포스트 코로나 경제 재구축 비전은 미래 불확실성을 잘 반영하나 초기 성과 부족으로 비전의 실행 가능성이 낮습니다."
+      },
+      {
+        "item_id": 107638,
+        "data_title": "서울시 재정 위기 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "서울시 재정 위기 논란은 코로나19 대응 과정에서 재정 건전성이 심각하게 악화되었음을 보여준다. 이는 오세훈의 비전 실현에 큰 장애가 될 것으로 판단된다."
+      },
+      {
+        "item_id": 107639,
+        "data_title": "서울시 도시정비 정책 비판",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "도시정비 정책의 일관성 부족으로 인해 부동산 시장의 혼선이 발생하고 있다. 이는 시민의 신뢰를 떨어트리고 비전 실행에 부정적인 영향을 미친다."
+      },
+      {
+        "item_id": 107640,
+        "data_title": "청년 주거 정책 실패",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "청년 주거 정책의 실패는 오세훈의 정책 비전에 대한 심각한 의문을 제기하며, 주거 불평등을 심화시키고 있어 매우 부족한 평가를 받을 수밖에 없다."
+      },
+      {
+        "item_id": 107641,
+        "data_title": "코로나19 방역 정책 혼선",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "코로나19 방역 정책의 혼선은 오세훈의 대응 능력에 의문을 제기하며, 국민 건강과 안전을 위협하는 요소로 작용하고 있다."
+      },
+      {
+        "item_id": 107642,
+        "data_title": "서울시 복지 예산 배분 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "복지 예산 배분의 형평성 문제는 취약계층에 대한 지원이 불균형하게 이루어졌음을 나타내며, 이는 비전의 실현에 심각한 결함을 드러낸다."
+      },
+      {
+        "item_id": 107643,
+        "data_title": "청년 주택 공약 실효성 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "청년 주택 공약의 실효성 논란은 공약과 실제 성과 간의 괴리를 보여주며, 이는 오세훈의 정책 비전이 실현되지 않고 있다는 것을 의미한다."
+      },
+      {
+        "item_id": 107644,
+        "data_title": "서울시 재정 압박 우려",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "대규모 복지 및 개발 사업으로 인한 재정 압박 우려는 오세훈의 비전이 지속 가능하지 않음을 시사하며, 이는 치명적인 결함으로 작용할 수 있다."
+      },
+      {
+        "item_id": 107645,
+        "data_title": "코로나19 방역 정책 비판",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "감염병 대응 초기 소극적 대응과 방역 정책의 일관성 부족은 오세훈의 정책적인 결단력이 부족함을 보여주고 있다."
+      },
+      {
+        "item_id": 107646,
+        "data_title": "강남 개발 편중 비판",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "강남 개발 편중 비판은 지역 불균형 문제를 드러내지만, 전반적으로 개선 가능성을 내포하고 있어 상대적으로 보통 수준의 평가를 받는다."
+      },
+      {
+        "item_id": 107647,
+        "data_title": "일회용품 규제 정책 후퇴",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "일회용품 규제 정책의 후퇴는 환경 정책의 일관성을 해치며, 이는 오세훈의 환경 비전에 심각한 결함이 있음을 나타낸다."
+      },
+      {
+        "item_id": 107648,
+        "data_title": "서울형 뉴딜 정책 추진",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "서울형 뉴딜 정책은 경제 회복을 위한 통합적인 접근으로 매우 중요하며, 효과적인 정책으로 평가됩니다."
+      },
+      {
+        "item_id": 107649,
+        "data_title": "스마트 도시 혁신 전략",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "스마트 도시 혁신 전략은 디지털 기술을 활용한 미래 지향적인 도시 관리로, 혁신적인 비전을 제시합니다."
+      },
+      {
+        "item_id": 107650,
+        "data_title": "청년 정책 종합 대책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "청년 정책 종합 대책은 청년의 주거와 일자리를 통합적으로 지원하여 긍정적인 영향을 미칠 것으로 보입니다."
+      },
+      {
+        "item_id": 107651,
+        "data_title": "기후변화 대응 전략",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "기후변화 대응 전략은 탄소중립을 목표로 한 중장기 정책으로, 환경 문제에 대한 비전이 뚜렷합니다."
+      },
+      {
+        "item_id": 107652,
+        "data_title": "도시 재생 프로젝트",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "도시 재생 프로젝트는 노후 지역 재개발을 통해 지역 사회 revitalization을 목표로 하며, 긍정적인 영향을 미칠 것입니다."
+      },
+      {
+        "item_id": 107653,
+        "data_title": "공공 주택 공급 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "공공 주택 공급 정책은 청년 및 신혼부부를 위한 주거 안정성을 강화하는 중요한 정책입니다."
+      },
+      {
+        "item_id": 107654,
+        "data_title": "혁신 창업 생태계 조성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "혁신 창업 생태계 조성은 스타트업을 지원하여 경제 성장에 기여할 것으로 기대됩니다."
+      },
+      {
+        "item_id": 107655,
+        "data_title": "디지털 포용 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "디지털 포용 정책은 정보 격차 해소를 위해 필요한 프로그램으로, 사회적 형평성을 높이는 데 기여합니다."
+      },
+      {
+        "item_id": 107656,
+        "data_title": "교통 혁신 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "교통 혁신 정책은 친환경 대중교통 확대와 보행자 중심의 정책으로, 지속 가능한 도시를 위한 중요한 비전입니다."
+      },
+      {
+        "item_id": 107657,
+        "data_title": "사회적 경제 생태계 지원",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "사회적 경제 생태계 지원은 사회적 기업과 협동조합을 통해 경제적 포용성을 높이고, 사회적 가치를 창출합니다."
+      },
+      {
+        "item_id": 107658,
+        "data_title": "문화예술 생태계 조성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "문화예술 생태계 조성은 창작자 지원과 인프라 확충을 통해 사회적 가치와 문화적 다양성을 높이는 매우 우수한 정책이다."
+      },
+      {
+        "item_id": 107659,
+        "data_title": "포용적 복지 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "포용적 복지 정책은 사회적 취약계층을 지원하고 복지를 확대하는 전략으로, 사회적 연대와 책임을 강조해 매우 우수한 비전을 갖는다."
+      },
+      {
+        "item_id": 107660,
+        "data_title": "보건의료 대응 전략",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "코로나19 대응과 공공 보건의료 체계 강화는 시민의 생명과 건강을 보호하는 중요한 정책으로, 매우 우수한 비전을 갖추고 있다."
+      },
+      {
+        "item_id": 107661,
+        "data_title": "생태환경 보존 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "도시 생태계 보존 및 친환경 정책은 지속 가능한 발전을 위한 필수 요소로, 매우 긍정적인 미래 비전을 제시하고 있다."
+      },
+      {
+        "item_id": 107662,
+        "data_title": "디지털 민주주의 추진",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "시민 참여형 디지털 플랫폼 구축은 민주적 참여를 촉진하나, 구체적인 실행 방안이 부족해 우수한 수준으로 평가된다."
+      },
+      {
+        "item_id": 107663,
+        "data_title": "스마트 안전도시 전략",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "스마트 안전도시 전략은 도시 안전과 재난 대응을 위한 혁신적인 접근이지만, 실행 가능성에 대한 상세한 계획이 필요해 우수하다."
+      },
+      {
+        "item_id": 107664,
+        "data_title": "성평등 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "여성 권리 보호와 성평등 정책 추진은 사회 정의와 평등을 증진시키는 중요한 비전으로, 매우 우수한 정책으로 평가된다."
+      },
+      {
+        "item_id": 107665,
+        "data_title": "과학기술 혁신 전략",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "과학기술 기반 도시 혁신 정책은 미래 지향적이나, 구체적인 실행 계획과 시민 참여 방안이 부족하여 우수한 수준으로 평가된다."
+      },
+      {
+        "item_id": 107666,
+        "data_title": "중소기업 지원 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "지역 중소기업 경쟁력 강화 지원 전략은 경제 활성화와 일자리 창출에 기여하는 매우 우수한 정책이다."
+      },
+      {
+        "item_id": 107667,
+        "data_title": "국제 교류 및 협력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "글로벌 도시 네트워크 구축 및 국제 협력 전략은 국제적인 입지를 강화하나, 구체적인 성과 목표가 부족하여 우수하다."
+      },
+      {
+        "item_id": 107668,
+        "data_title": "서울시 스마트시티 전략",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "디지털 혁신을 통한 도시 운영 시스템 구축은 서울의 미래 지향적인 발전을 도모하며, 스마트시티 전략은 시민의 삶의 질 향상에 크게 기여할 것으로 기대됩니다."
+      },
+      {
+        "item_id": 107669,
+        "data_title": "청년 주거 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "청년 주거 정책은 사회적 문제 해결을 위한 중요한 접근으로, 청년층의 주거 안정을 촉진하며 긍정적인 영향을 미칠 것으로 보입니다."
+      },
+      {
+        "item_id": 107670,
+        "data_title": "탄소중립 도시 전략",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "2050 탄소중립 목표를 위한 친환경 정책은 지속 가능한 발전을 위한 필수적 접근으로, 글로벌 환경 문제 해결에 기여할 수 있습니다."
+      },
+      {
+        "item_id": 107671,
+        "data_title": "디지털 행정 혁신",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "디지털 행정 혁신은 시민의 편의를 증진시키며 행정 효율성을 높이는 데 기여하지만, 구체적인 성과가 더 필요할 수 있습니다."
+      },
+      {
+        "item_id": 107672,
+        "data_title": "스타트업 생태계 육성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "스타트업 생태계 육성은 경제 활성화에 기여하고, 혁신적인 기업의 성장을 지원하여 서울의 경쟁력을 높이는 데 중요한 역할을 합니다."
+      },
+      {
+        "item_id": 107673,
+        "data_title": "공공 안전 인프라",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "공공 안전 인프라 구축은 시민의 안전을 강화하는 중요한 정책으로, 범죄 예방에 효과적일 것으로 기대되지만, 추가적인 세부 계획이 필요합니다."
+      },
+      {
+        "item_id": 107674,
+        "data_title": "도시 재생 프로젝트",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "도시 재생 프로젝트는 노후 지역의 활성화를 통해 지역 경제를 증진시키는 긍정적인 효과가 있을 것으로 보이나, 실행력에 대한 검토가 필요합니다."
+      },
+      {
+        "item_id": 107675,
+        "data_title": "문화 다양성 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "문화 다양성 증진을 위한 정책은 포용성을 높이고 사회 통합에 기여하지만, 실제 효과를 평가할 수 있는 구체적인 지표가 부족합니다."
+      },
+      {
+        "item_id": 107676,
+        "data_title": "교통 인프라 혁신",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "친환경 대중교통 확대와 스마트 모빌리티 도입은 지속 가능한 교통 체계를 구축하는 데 중요한 기여를 하며, 시민들의 편의성을 높일 것으로 기대됩니다."
+      },
+      {
+        "item_id": 107677,
+        "data_title": "디지털 복지 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "취약계층 디지털 접근성 개선 프로그램은 디지털 격차 해소에 기여할 수 있는 중요한 정책으로, 사회적 형평성을 높이는 긍정적인 영향을 미칠 것입니다."
+      },
+      {
+        "item_id": 107678,
+        "data_title": "데이터 기반 정책 결정",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "데이터 기반 정책 결정은 과학적 접근을 통해 효과적인 의사결정을 도모하여 시민의 삶의 질 향상에 기여할 수 있어 매우 우수한 비전으로 평가된다."
+      },
+      {
+        "item_id": 107679,
+        "data_title": "코로나19 대응 전략",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "A",
+        "rating_rationale": "코로나19 대응 전략은 감염병에 대한 체계적이고 신속한 대응을 통해 공공 안전을 보장하며, 사회적 신뢰를 구축하는 데 중요한 요소로 작용할 수 있어 매우 우수하다."
+      },
+      {
+        "item_id": 107680,
+        "data_title": "기후변화 대응 계획",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "기후변화 대응 계획은 지속 가능한 발전을 위한 필수 요소로, 장기적인 도시 환경 개선에 기여하는 매우 중요한 비전으로 평가된다."
+      },
+      {
+        "item_id": 107681,
+        "data_title": "사회적 경제 생태계",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "사회적 경제 생태계 지원 정책은 포용적 경제 발전을 위한 기초를 마련하지만, 보다 구체적인 실행 방안이 필요하여 우수한 비전으로 평가된다."
+      },
+      {
+        "item_id": 107682,
+        "data_title": "주거 복지 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "주거 복지 정책은 시민의 기본적인 생활 안정에 기여하며, 사회적 불평등 해소를 위한 중요한 비전으로 매우 우수하다."
+      },
+      {
+        "item_id": 107683,
+        "data_title": "디지털 교육 인프라",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "디지털 교육 인프라는 현대 사회에서 필수적인 요소로, 교육의 기회를 확대하지만, 지역 간 격차 해소를 위한 추가적인 노력이 필요하여 우수한 비전으로 평가된다."
+      },
+      {
+        "item_id": 107684,
+        "data_title": "산업 생태계 혁신",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "산업 생태계 혁신 전략은 4차 산업혁명에 대비한 미래 지향적인 접근으로, 경제 성장을 이끌 가능성이 높아 매우 우수한 비전으로 평가된다."
+      },
+      {
+        "item_id": 107685,
+        "data_title": "사회 안전망 확충",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "A",
+        "rating_rationale": "사회 안전망 확충은 사회적 약자를 보호하고 사회적 안정성을 높이는 중요한 정책으로, 매우 우수한 비전으로 평가된다."
+      },
+      {
+        "item_id": 107686,
+        "data_title": "국제 도시 경쟁력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "국제 도시 경쟁력 제고는 글로벌화에 대응하는 중요한 전략이나, 실행 가능성을 높이기 위한 구체적인 계획이 필요하여 우수한 비전으로 평가된다."
+      },
+      {
+        "item_id": 107687,
+        "data_title": "미래 도시 혁신 전략",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "미래 도시 혁신 전략은 장기적인 도시 발전을 위한 혁신적 접근으로, 시민의 삶의 질을 높이는 데 기여할 수 있어 매우 우수하다."
+      }
+    ],
+    "Grok": [
+      {
+        "item_id": 151682,
+        "data_title": "부동산 정책 실패",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "오세훈의 부동산 정책이 집값 상승 문제를 해결하지 못해 시민들의 불만이 쌓였다는 점에서 그의 비전이 현실적으로 대중의 기대를 충족시키지 못했다고 평가된다. 이는 비전의 효과성과 실현 가능성 측면에서 미흡한 것으로 보인다."
+      },
+      {
+        "item_id": 151683,
+        "data_title": "교통 정책 논란",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "교통 정책에서 지하철 1호선 연장 계획이 실현되지 않고, 전반적인 도시 교통 체계에 대한 비전이 구체적이지 않다는 지적을 받았다. 이는 비전의 구체성과 실현 가능성 면에서 미흡한 것으로 평가된다."
+      },
+      {
+        "item_id": 151684,
+        "data_title": "환경 정책에 대한 비판",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "환경 정책에서 소극적인 태도를 보였다는 비판과 미세먼지 저감 대책이 미흡했으며, 지속 가능한 도시 개발에 대한 비전이 부족하다는 지적이 있었다. 이는 비전의 효과성과 장기적 관점에서 미흡한 것으로 평가된다."
+      },
+      {
+        "item_id": 151685,
+        "data_title": "재정 운영 논란",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "재정 운영 방식에 대한 비판이 존재하며, 예산 사용의 투명성 부족과 대규모 프로젝트의 재정적 부담이 커져 시민들의 신뢰를 저하시켰다. 이는 비전의 투명성과 신뢰성 측면에서 부족한 것으로 평가된다."
+      },
+      {
+        "item_id": 151686,
+        "data_title": "정부 간 협력 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "G",
+        "new_rating": "E",
+        "rating_rationale": "정부 간 협력에 소홀하여 여러 정책의 실행이 지연되었고, 이는 서울시의 발전에 필수적인 타 기관과의 협력이 부족했던 결과로, 장기적인 비전 제시가 결여되어 있음을 드러낸다. 이는 비전의 협력성과 실행 가능성 면에서 미흡한 것으로 평가된다."
+      },
+      {
+        "item_id": 151687,
+        "data_title": "오세훈의 부동산 정책 비판",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "부동산 정책이 서울시민의 갈등을 초래하고, 투기억제의 효과가 미미하다는 비판을 받았다. 특히 재개발 및 재건축 관련 정책이 주민의 반발을 불러일으켰다. 이는 비전의 효과성과 대중의 수용성 측면에서 미흡한 것으로 평가된다."
+      },
+      {
+        "item_id": 151688,
+        "data_title": "서울시 코로나19 방역 정책 논란",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "코로나19 방역 정책이 상황에 따른 일관성 부족과 시민의 불만을 초래했으며, 재난지원금 지급 결정이 늦어 시민적 신뢰를 깨뜨렸다. 이는 비전의 일관성과 신뢰성 측면에서 미흡한 것으로 평가된다."
+      },
+      {
+        "item_id": 151689,
+        "data_title": "대중교통 정책 부재",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "대중교통 정책이 부족하다는 비판을 받았으며, 지하철 및 버스 요금 인상이 시민들의 불만을 초래하여 대중교통 이용 활성화에 실패했다. 이는 비전의 효과성과 실현 가능성 측면에서 미흡한 것으로 평가된다."
+      },
+      {
+        "item_id": 151690,
+        "data_title": "시민 소통 부족 문제",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "시민과의 소통이 부족하다는 비판을 받았으며, 기자회견이나 공청회에서 주민들의 의견을 충분히 반영하지 않아 정책 수립 과정에 시민 참여를 제한하고 있다는 지적이 많다. 이는 비전의 대중 참여성과 수용성 측면에서 미흡한 것으로 평가된다."
+      },
+      {
+        "item_id": 151691,
+        "data_title": "가덕도 신공항 관련 발언 논란",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "가덕도 신공항 건설에 대해 회의적인 입장을 보이며 여론의 비판을 받았고, 이러한 발언은 정치적 대립 구도를 심화시키고, 서울시의 장기적 비전에 부합하지 않는다는 비판을 받았다. 이는 비전의 장기적 관점과 대중의 수용성 측면에서 미흡한 것으로 평가된다."
+      },
+      {
+        "item_id": 151692,
+        "data_title": "스마트시티 추진",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "스마트시티 구축은 도시 문제 해결에 매우 혁신적이며, IoT 기술 도입은 도시 관리를 최적화할 수 있는 비전을 제시함. 이는 매우 우수한 비전으로 평가됨."
+      },
+      {
+        "item_id": 151693,
+        "data_title": "서울시 재정 건전성 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "재정 건전성 강화는 도시 운영의 기초가 되며, 체계적인 예산 운영과 금융 계획은 우수한 비전을 보여줌. 다만, 보다 혁신적인 요소가 부족하여 우수 등급을 부여함."
+      },
+      {
+        "item_id": 151694,
+        "data_title": "주거 안정 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "주거 안정 정책은 시민의 삶에 직접적인 영향을 미치며, 공공주택 공급 확대와 부동산 투명성 제고는 매우 우수한 비전을 제시함. 이는 서울의 주거 문제 해결에 큰 기여를 할 것임."
+      },
+      {
+        "item_id": 151695,
+        "data_title": "기후 변화 대응 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "기후 변화 대응 정책은 지속 가능한 도시의 비전을 제시하며, 온실가스 감축 및 재생 가능 에너지 사용 확대는 매우 우수한 비전으로 평가됨. 이는 미래 세대를 위한 중요한 정책임."
+      },
+      {
+        "item_id": 151696,
+        "data_title": "교통 체계 혁신",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "교통 체계 혁신은 도시의 효율성을 높이며, 대중교통 강화와 자전거 도로 확충은 도로 혼잡 감소와 대기질 개선에 기여하는 매우 우수한 비전을 제시함."
+      },
+      {
+        "item_id": 151697,
+        "data_title": "수돗물 품질 향상",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "수돗물 품질 향상은 시민의 건강과 안전에 중요한 영향을 미치며, 정수시설 현대화와 관리체계 개선은 우수한 비전을 보여줌. 다만, 보다 혁신적인 접근이 필요함."
+      },
+      {
+        "item_id": 151698,
+        "data_title": "문화예술 지원 확대",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "문화예술 지원 확대는 도시의 문화적 풍요를 증진시키지만, 구체적인 혁신적 비전이 부족하여 양호 등급을 부여함. 다양한 프로그램 운영은 긍정적이나, 보다 구체적인 목표가 필요함."
+      },
+      {
+        "item_id": 151699,
+        "data_title": "여성 안전 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "여성 안전 정책은 여성 인권을 중요시하는 우수한 비전을 제시함. 공공장소의 안전 디바이스 설치와 범죄 예방 프로그램 강화는 도시의 안전성을 높이는 데 기여함."
+      },
+      {
+        "item_id": 151700,
+        "data_title": "청년 일자리 창출",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "청년 일자리 창출은 사회적 문제 해결에 매우 중요한 역할을 하며, 다양한 창업 지원 프로그램과 직업 교육 제공은 매우 우수한 비전을 제시함. 이는 청년층의 미래를 위한 중요한 정책임."
+      },
+      {
+        "item_id": 151701,
+        "data_title": "도시재생 프로젝트",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "도시재생 프로젝트는 낙후된 지역의 활성화를 통해 주민 생활 수준 향상과 지역 경제의 활성화를 목표로 하는 매우 우수한 비전을 제시함. 이는 도시 전반의 발전에 기여할 것임."
+      },
+      {
+        "item_id": 151702,
+        "data_title": "지역 균형 발전",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "지역 간 불균형 해소와 소외 지역 발전을 위한 다양한 지원 방안이 매우 우수한 비전을 제시함. 서울시의 균형 발전을 위한 구체적인 정책이 포함되어 있음."
+      },
+      {
+        "item_id": 151703,
+        "data_title": "대기질 개선 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "대기질 개선을 위한 대중교통 이용 장려와 저공해 차량 확대 정책이 우수한 비전을 제시함. 환경 문제 해결을 위한 실질적인 접근이 포함되어 있음."
+      },
+      {
+        "item_id": 151704,
+        "data_title": "어린이 공원 확대",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "어린이 공원 확대와 관련 프로그램 개발이 우수한 비전을 제시함. 어린이들의 안전과 행복한 성장을 위한 구체적인 정책이 포함되어 있음."
+      },
+      {
+        "item_id": 151705,
+        "data_title": "퇴직연금 활성화",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "퇴직연금 제도 개선과 홍보 강화가 양호한 비전을 제시함. 모든 시민의 안정적인 노후를 위한 지원이 포함되어 있지만, 더 구체적인 실행 계획이 필요함."
+      },
+      {
+        "item_id": 151706,
+        "data_title": "지역사회 복지 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "복지 시스템 강화와 지역사회 참여를 통한 취약 계층 지원이 우수한 비전을 제시함. 사회적 약자를 위한 구체적인 정책이 포함되어 있음."
+      },
+      {
+        "item_id": 151707,
+        "data_title": "공공 교통시설 현대화",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "공공 교통시설 현대화와 시민의 이동 편의를 높이는 정책이 우수한 비전을 제시함. 교통 인프라 개선을 위한 구체적인 계획이 포함되어 있음."
+      },
+      {
+        "item_id": 151708,
+        "data_title": "환경 교육 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "환경 교육 프로그램 운영과 지속 가능한 생활 인식 증진이 양호한 비전을 제시함. 환경 의식 향상을 위한 노력이 포함되어 있지만, 더 많은 실행 사례가 필요함."
+      },
+      {
+        "item_id": 151709,
+        "data_title": "외국인 친화 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "다문화 사회를 위한 외국인 친화 정책이 우수한 비전을 제시함. 다양한 문화가 공존하는 도시 환경 조성을 위한 구체적인 정책이 포함되어 있음."
+      },
+      {
+        "item_id": 151710,
+        "data_title": "재난 대응 체계 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "자연 재난 대비를 위한 재난 대응 체계 전면 개선과 응급 구조 시스템 구축이 매우 우수한 비전을 제시함. 시민의 안전을 위한 구체적이고 실질적인 정책이 포함되어 있음."
+      },
+      {
+        "item_id": 151711,
+        "data_title": "전통 보전 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "전통 문화 보전을 위한 역사적 유적 보호와 전통 문화 프로그램 활성화가 양호한 비전을 제시함. 문화유산 보호를 위한 정책이 포함되어 있지만, 더 많은 실행 계획이 필요함."
+      },
+      {
+        "item_id": 151712,
+        "data_title": "서울 주요 도시 개발 계획",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "주거 안정성을 높이기 위한 주거 복합시설 및 스마트 시티 개발 계획은 우수한 비전을 제시하지만, 구체적인 실행 계획이 더 필요함."
+      },
+      {
+        "item_id": 151713,
+        "data_title": "탄소 중립 도시 비전",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "2050년까지 탄소 중립 달성이라는 장기적이고 구체적인 목표를 제시하며, 생태 도시로의 전환을 위한 비전이 매우 우수함."
+      },
+      {
+        "item_id": 151714,
+        "data_title": "교통 혼잡 해소 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "교통 혼잡 해소를 위한 대중교통 및 자전거 도로 확장 정책은 우수한 비전을 제시하며, 시민들의 삶의 질 향상에 기여할 것으로 기대됨."
+      },
+      {
+        "item_id": 151715,
+        "data_title": "문화 예술 도시 조성",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "문화 예술 도시로의 비전을 제시하며, 지역 예술인의 지원 확대는 우수한 정책으로 평가되나, 구체적인 실행 계획이 더 필요함."
+      },
+      {
+        "item_id": 151716,
+        "data_title": "기후 변화 대응 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "기후 변화 대응을 위한 다양한 정책과 시민 참여 유도는 우수한 비전을 제시하지만, 구체적인 실행 방안이 더 필요함."
+      },
+      {
+        "item_id": 151717,
+        "data_title": "청년 일자리 창출 방안",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "청년층을 위한 일자리 창출 정책은 우수한 비전을 제시하며, 지역 경제 성장에 기여할 것으로 기대됨."
+      },
+      {
+        "item_id": 151718,
+        "data_title": "주거 복지 정책 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "주거 빈곤층을 위한 복지 정책 강화와 민간 협력을 통한 주택 공급 확대는 우수한 비전을 제시하지만, 구체적인 실행 계획이 더 필요함."
+      },
+      {
+        "item_id": 151719,
+        "data_title": "스마트 시티 구축",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "스마트 시티 프로젝트를 통해 효율적인 도시 관리와 시민 삶의 질 향상을 목표로 하는 비전은 매우 우수하며, 기술적 미래를 제시함."
+      },
+      {
+        "item_id": 151720,
+        "data_title": "시민 참여 확대 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "시민 참여를 확대하기 위한 다양한 채널 마련은 우수한 비전을 제시하며, 정책 결정 과정에 실질적인 참여를 유도함."
+      },
+      {
+        "item_id": 151721,
+        "data_title": "재난 예방 및 대응 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "재난 예방 및 대응 체계 강화와 시민 안전을 최우선으로 하는 비전은 우수하지만, 구체적인 실행 방안이 더 필요함."
+      },
+      {
+        "item_id": 151722,
+        "data_title": "디지털 전환 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "디지털 전환 정책은 현대 사회에서 필수적이며, 행정 서비스의 효율성을 높이는 것은 매우 우수한 비전으로 평가됩니다. 이는 서울의 미래를 위한 중요한 전략입니다."
+      },
+      {
+        "item_id": 151723,
+        "data_title": "국제 도시 교류 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "국제 도시 교류 강화는 글로벌 이미지 제고에 기여하지만, 구체적인 성과와 계획이 더 필요합니다. 그러나 이는 우수한 비전으로 평가됩니다."
+      },
+      {
+        "item_id": 151724,
+        "data_title": "서울시 고령자 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "고령자 정책은 양호한 수준이며, 고령자를 위한 편리한 도시 환경 조성은 중요한 비전이지만, 더 구체적인 계획이 필요합니다."
+      },
+      {
+        "item_id": 151725,
+        "data_title": "재개발 및 재건축 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "재개발 및 재건축 정책은 서울의 주택 문제 해결에 기여할 수 있으며, 이는 우수한 비전으로 평가됩니다. 다만, 실행 과정에서의 문제가 있을 수 있습니다."
+      },
+      {
+        "item_id": 151726,
+        "data_title": "사회적 약자 지원 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "사회적 약자 지원 정책은 포용적인 도시 만들기에 기여하며, 매우 우수한 비전으로 평가됩니다. 다양한 지원 정책은 사회적 가치를 높이는 중요한 요소입니다."
+      },
+      {
+        "item_id": 151727,
+        "data_title": "소통 채널 확대",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "소통 채널 확대는 양호한 수준이며, 시민과의 소통 강화는 중요하지만, 그 효과와 지속 가능성에 대한 검증이 필요합니다."
+      },
+      {
+        "item_id": 151728,
+        "data_title": "조세 정책 개선",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "조세 정책 개선은 서울시민의 부담을 줄이는 중요한 비전으로 평가됩니다. 다양한 세제 개선 방안은 우수한 전략입니다."
+      },
+      {
+        "item_id": 151729,
+        "data_title": "관광 활성화 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "관광 활성화 정책은 서울의 경제 활성화에 기여할 수 있으며, 외국인 관광객 유치는 우수한 비전으로 평가됩니다. 다만, 구체적인 실행 계획이 필요합니다."
+      },
+      {
+        "item_id": 151730,
+        "data_title": "스포츠 도시 비전",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "스포츠 도시 비전은 스포츠 행사 유치 및 생활 스포츠 활성화를 통해 서울의 이미지를 제고할 수 있는 우수한 비전입니다."
+      },
+      {
+        "item_id": 151731,
+        "data_title": "지속 가능한 발전 프로그램",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "지속 가능한 발전 프로그램은 서울의 미래를 위한 중요한 비전으로, 매우 우수한 전략입니다. 지속 가능성은 장기적인 도시 발전에 필수적입니다."
+      },
+      {
+        "item_id": 151632,
+        "data_title": "부동산 정책의 장기적 비전 부족",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "오세훈의 부동산 정책이 단기적 개발에 치중하고 장기적 가격 안정성을 예측하지 못해 주거 불안정을 야기했으며, 미래 세대의 주택 접근성을 위협했다. 이는 서울의 지속 가능한 도시 발전 비전을 저해하는 것으로 매우 미흡한 수준이다."
+      },
+      {
+        "item_id": 151633,
+        "data_title": "도시 재개발 계획의 미래 예측 실패",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "E",
+        "rating_rationale": "오세훈의 도시 재개발 계획이 환경 영향 평가를 소홀히 하여 교통 혼잡과 환경 오염을 증가시켰다. 이는 장기적 지속 가능성을 무시한 것으로, 미래 도시 생활의 질을 저하시키는 문제점으로 매우 미흡하다."
+      },
+      {
+        "item_id": 151634,
+        "data_title": "기후 변화 대응 비전의 미흡",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "오세훈의 기후 변화 정책이 장기적 온실가스 감축 목표를 명확히 제시하지 못하고, 도시 숲 조성 사업이 실패하면서 미래 기후 위기에 대한 예측 불능을 드러냈다. 이는 지속 가능한 에너지 전환 비전을 약화시켜 매우 미흡하다."
+      },
+      {
+        "item_id": 151635,
+        "data_title": "교통 인프라 장기 계획의 논란",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "오세훈의 교통 정책이 장기적 인구 이동 패턴 예측을 무시하고 기존 시스템 과부하를 초래해 교통 체증과 공기 질 악화를 야기했다. 이는 미래 도시 이동성 비전을 훼손하는 것으로 매우 미흡한 수준이다."
+      },
+      {
+        "item_id": 151636,
+        "data_title": "청년 일자리 비전의 실패",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "E",
+        "rating_rationale": "오세훈의 청년 정책이 장기적 산업 다각화 예측이 부족해 고용 불안정을 초래했고, 디지털 전환 지원 사업이 예산 낭비로 끝났다. 이는 미래 세대 경제 안정성을 위협하는 비전의 실현 불능을 드러내 매우 미흡하다."
+      },
+      {
+        "item_id": 151637,
+        "data_title": "부동산 정책의 장기적 비전 부족",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "오세훈의 부동산 정책이 장기적 계획이 미흡해 부동산 가격 폭등과 저소득층의 주거 불안을 초래했다. 미래 인구 변화와 주택 공급 예측이 부족해 사회적 불평등을 심화시킬 수 있는 것으로 매우 미흡하다."
+      },
+      {
+        "item_id": 151638,
+        "data_title": "코로나19 대응의 미래 예측 실패",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "E",
+        "rating_rationale": "오세훈의 코로나19 대응 전략이 장기적 추이를 예측하지 못해 초기 봉쇄 조치와 백신 배분 지연 문제가 발생했다. 이는 공공 보건 시스템의 취약성을 드러내는 단기 대응에 치중한 것으로 매우 미흡하다."
+      },
+      {
+        "item_id": 151639,
+        "data_title": "도시 재생 프로젝트의 지속 가능성 문제",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "오세훈의 도시 재생 프로젝트가 장기적 환경과 사회적 영향을 고려하지 않고 추진되어 주민 이주 문제와 교통 혼란을 야기했다. 기후 변화 대응 비전이 미흡해 지속 가능한 발전 목표를 제시하지 못한 점이 매우 미흡하다."
+      },
+      {
+        "item_id": 151640,
+        "data_title": "경제 정책의 장기 성장 비전 결여",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "오세훈의 경제 정책이 서울의 산업 구조 변화와 미래 일자리 창출을 위한 장기적 비전을 제시하지 못해 중소기업 지원 부족과 불평등 해소 전략이 부재했다. 이는 경제 회복 과정에서 드러난 근본적 한계로 매우 미흡하다."
+      },
+      {
+        "item_id": 151641,
+        "data_title": "기후 변화 대응의 미래 전략 부재",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "E",
+        "rating_rationale": "오세훈의 기후 변화 정책이 장기적 탄소 감축 목표와 지속 가능한 에너지 전환 비전이 부족해 미세먼지 문제와 온실가스 배출 증가를 방치했다. 이는 미래 세대의 환경 피해를 초래할 수 있어 매우 미흡하다."
+      },
+      {
+        "item_id": 151642,
+        "data_title": "서울 2030 지속 가능한 도시 비전",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "오세훈 시장의 2030 비전은 지속 가능성에 중점을 두고 있으며, 녹지 확대, 에너지 효율 개선, 기후 변화 대응 등을 포함해 미래 세대의 삶의 질을 높이는 데 기여할 것으로 보입니다. 매우 우수한 비전입니다."
+      },
+      {
+        "item_id": 151643,
+        "data_title": "디지털 트윈 시티 프로젝트 비전",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "디지털 트윈 기술을 활용한 스마트 도시 구축 비전은 AI와 빅데이터를 기반으로 한 미래 지향적 도시 관리 방안으로, 매우 우수한 비전입니다. 실시간 데이터 분석을 통한 문제 해결은 혁신적입니다."
+      },
+      {
+        "item_id": 151644,
+        "data_title": "그린 뉴딜 정책의 장기 목표",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "그린 뉴딜 정책의 장기 비전은 기후 중립과 재생 에너지 확대, 친환경 교통 시스템을 포함해 환경 보호와 경제 성장을 균형 있게 다루는 계획으로, 매우 우수한 비전입니다."
+      },
+      {
+        "item_id": 151645,
+        "data_title": "교통 인프라 혁신 비전",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "교통 인프라 혁신 비전은 지하철 확장과 자율주행 버스 도입 등을 통해 교통 혼잡을 감소시키려는 목표를 제시하며, 우수한 비전입니다. 다만, 실행 가능성에 대한 구체적인 계획이 더 필요할 수 있습니다."
+      },
+      {
+        "item_id": 151646,
+        "data_title": "주거 및 주택 공급 장기 전략",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "주거 및 주택 공급 장기 전략은 인구 증가와 고령화에 대비한 공공 주택 공급과 재개발을 비전으로 제시하며, 우수한 비전입니다. 젊은 세대의 주거 문제 해결에 기여할 것으로 보입니다."
+      },
+      {
+        "item_id": 151647,
+        "data_title": "교육 혁신 및 디지털 학습 비전",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "교육 혁신 및 디지털 학습 비전은 온라인 학습 플랫폼 확대와 AI 기반 교육 시스템을 통해 청소년의 미래 경쟁력을 강화하려는 목표로, 우수한 비전입니다. 다만, 교육 현장 적용에 대한 구체적인 계획이 더 필요할 수 있습니다."
+      },
+      {
+        "item_id": 151648,
+        "data_title": "경제 활성화 장기 계획",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "경제 활성화 장기 계획은 팬데믹 후의 경제 변화를 예측하며 스타트업 지원과 산업 다각화를 통해 고용 창출을 목표로 하는 포괄적 전략으로, 우수한 비전입니다. 실행 가능성에 대한 추가 검토가 필요할 수 있습니다."
+      },
+      {
+        "item_id": 151649,
+        "data_title": "사회 복지 강화 장기 목표",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "B",
+        "rating_rationale": "사회 복지 강화 장기 목표는 고령화 사회에 대비한 노인 복지 확대와 사회 안전망 강화를 비전으로 제시하며, 우수한 비전입니다. 취약 계층 보호에 중점을 두고 있습니다."
+      },
+      {
+        "item_id": 151650,
+        "data_title": "문화 예술 진흥 장기 비전",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "문화 예술 진흥 장기 비전은 서울을 아시아 문화 중심지로 만드는 목표를 제시하며, 양호한 비전입니다. 다만, 예술 시설 확대와 국제 페스티벌 유치에 대한 구체적인 계획이 더 필요할 수 있습니다."
+      },
+      {
+        "item_id": 151651,
+        "data_title": "재난 관리 강화 비전",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "재난 관리 강화 비전은 기후 변화와 자연 재해 증가에 대비한 스마트 재난 대응 시스템을 장기 비전으로 추진하며, 우수한 비전입니다. 시민 안전을 최우선으로 하는 계획입니다."
+      },
+      {
+        "item_id": 151652,
+        "data_title": "청년 일자리 창출 장기 전략",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "청년 실업 문제에 대한 장기 비전을 구체적으로 제시하며, IT 산업 육성과 취업 지원 프로그램의 확대 계획이 매우 우수함. 2030년까지의 구체적인 목표 설정이 인상적."
+      },
+      {
+        "item_id": 151653,
+        "data_title": "관광 산업 발전 비전",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "글로벌 관광 변화를 예측하고 지속 가능한 에코 투어리즘 모델을 장기 비전으로 제시한 점이 매우 우수함. 2040년까지의 목표가 명확하고 실현 가능성 높음."
+      },
+      {
+        "item_id": 151654,
+        "data_title": "에너지 전환 장기 계획",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "에너지 수요 증가를 예측하고 재생 에너지 전환을 비전으로 제시한 점이 매우 우수함. 2050년까지의 탄소 중립 목표가 환경과 경제의 균형을 잘 반영함."
+      },
+      {
+        "item_id": 151655,
+        "data_title": "공공 보건 강화 비전",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "미래 보건 위협을 예측하고 감염병 대응 시스템을 장기 비전으로 확대한 점이 매우 우수함. 2030년까지의 공공 의료 인프라 개선 목표가 구체적이고 실질적."
+      },
+      {
+        "item_id": 151656,
+        "data_title": "인프라 투자 장기 목표",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "A",
+        "rating_rationale": "도시화와 기술 발전을 예측하고 교량과 도로 확장을 포함한 인프라 비전을 제시한 점이 매우 우수함. 2040년까지의 투자 계획이 명확하고 실현 가능성 높음."
+      },
+      {
+        "item_id": 151657,
+        "data_title": "국제 협력 비전",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "글로벌 변화를 예측하고 아시아 국가와의 협력을 장기 비전으로 제시한 점이 매우 우수함. 2030년까지의 무역 및 문화 교류 확대 목표가 구체적이고 실질적."
+      },
+      {
+        "item_id": 151658,
+        "data_title": "지능형 도시 개발 비전",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "AI 도시화를 예측하고 스마트 그리드와 IoT 시스템을 장기 비전으로 추진한 점이 매우 우수함. 2040년까지의 도시 혁신 목표가 명확하고 혁신적."
+      },
+      {
+        "item_id": 151659,
+        "data_title": "고령화 사회 대응 비전",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "인구 고령화를 예측하고 노인 전용 시설과 커뮤니티 프로그램을 장기 비전으로 확대한 점이 매우 우수함. 2035년까지의 사회 통합 목표가 구체적이고 실질적."
+      },
+      {
+        "item_id": 151660,
+        "data_title": "환경 보호 장기 목표",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "환경 오염 증가를 예측하고 강과 공원의 보전 프로젝트를 비전으로 제시한 점이 매우 우수함. 2050년까지의 생태계 복원 목표가 명확하고 실현 가능성 높음."
+      },
+      {
+        "item_id": 151661,
+        "data_title": "코로나 후 사회 회복 비전",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "A",
+        "rating_rationale": "팬데믹의 장기 영향을 예측하고 경제 회복과 사회 안전망 강화 비전을 제시한 점이 매우 우수함. 2030년까지의 지속 가능한 성장 목표가 구체적이고 실질적."
+      },
+      {
+        "item_id": 151662,
+        "data_title": "한강 르네상스 프로젝트 비전",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "한강 르네상스 프로젝트는 서울을 세계적인 관광 중심지로 만드는 장기 비전을 제시하며, 생태 복원과 문화 시설 건설을 포함해 미래 세대의 삶의 질 향상을 목표로 합니다. 다만, 재정 문제로 지연될 우려가 있어 실행 가능성에 대한 우려가 있습니다."
+      },
+      {
+        "item_id": 151663,
+        "data_title": "지속 가능한 도시 개발 비전",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "지속 가능한 도시 개발 비전은 기후 변화 대응과 탄소 중립 목표를 설정하며, 친환경 건축과 공원 확대를 통해 미래 세대의 환경 문제 예방에 초점을 맞췄습니다. 그러나 실행 속도가 느려 비판을 받고 있어 실행력에 대한 우려가 있습니다."
+      },
+      {
+        "item_id": 151664,
+        "data_title": "코로나19 후 회복 비전",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "코로나19 후 경제 회복 비전은 디지털 경제 전환과 원격 근무 인프라 구축을 통해 서울을 글로벌 비즈니스 허브로 만드는 것을 목표로 합니다. 장기적 경기 부양을 강조하지만, 초기 실행이 미흡해 양호한 수준으로 평가됩니다."
+      },
+      {
+        "item_id": 151665,
+        "data_title": "교통 인프라 혁신 비전",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "C",
+        "rating_rationale": "교통 인프라 혁신 비전은 지하철 확장과 자율 주행 기술 도입을 통해 교통 혼잡을 줄이고 지속 가능한 이동 수단을 장려하는 데 초점을 맞췄습니다. 그러나 예산 문제로 일부 계획이 지연되어 양호한 수준으로 평가됩니다."
+      },
+      {
+        "item_id": 151666,
+        "data_title": "환경 보호 장기 목표",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "환경 보호 장기 목표는 미세먼지 저감과 녹지 면적 확대를 통해 지속 가능한 도시 개발을 강조합니다. 그러나 지역 주민의 반대로 실행이 느려 양호한 수준으로 평가됩니다."
+      },
+      {
+        "item_id": 151667,
+        "data_title": "경제 활성화 비전",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "경제 활성화 비전은 스타트업 중심의 경제 모델을 구축하여 일자리 창출과 혁신 산업 유치를 목표로 하며, 글로벌 트렌드를 반영해 매우 우수한 비전으로 평가됩니다."
+      },
+      {
+        "item_id": 151668,
+        "data_title": "교육 혁신 비전",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "교육 혁신 비전은 서울의 교육 시스템을 디지털화하여 세계 최고 수준으로 만드는 것을 목표로 합니다. 온라인 학습 인프라 확대와 AI 교육 도입을 포함하지만, 예산 배분 문제가 있어 양호한 수준으로 평가됩니다."
+      },
+      {
+        "item_id": 151669,
+        "data_title": "주택 정책 장기 계획",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "주택 정책 장기 계획은 고령화 사회 대비 주택 재개발을 통해 주거 안정성을 강조합니다. 스마트 주택 보급을 목표로 하지만, 토지 활용 문제로 논란이 있어 양호한 수준으로 평가됩니다."
+      },
+      {
+        "item_id": 151670,
+        "data_title": "디지털 혁신 비전",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "C",
+        "rating_rationale": "디지털 혁신 비전은 서울을 스마트 시티로 전환하기 위해 빅데이터와 AI를 활용한 도시 관리를 목표로 합니다. 미래 기술 예측을 바탕으로 하지만, 데이터 보안 문제가 제기되어 양호한 수준으로 평가됩니다."
+      },
+      {
+        "item_id": 151671,
+        "data_title": "문화 예술 지원 비전",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "문화 예술 지원 비전은 서울을 아시아 문화 중심지로 만드는 것을 목표로 하며, 예술 축제 확대와 창작자 지원을 포함합니다. 그러나 예산 부족으로 일부 프로그램이 축소되어 양호한 수준으로 평가됩니다."
+      },
+      {
+        "item_id": 151672,
+        "data_title": "노인 복지 장기 목표",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "오세훈의 노인 복지 비전은 미래 인구 구조 예측을 반영하여 양호하나, 초기 투자 부족으로 인해 실행 가능성이 낮아 보입니다."
+      },
+      {
+        "item_id": 151673,
+        "data_title": "청년 일자리 창출 비전",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "청년 일자리 창출 비전은 스타트업 육성과 직업 훈련을 통해 미래 노동 시장을 대비하나, 실업률 감소 효과가 크지 않아 양호한 수준입니다."
+      },
+      {
+        "item_id": 151674,
+        "data_title": "재난 관리 비전",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "D",
+        "rating_rationale": "재난 관리 비전은 AI 기반 시스템 도입으로 미래를 대비하나, 초기 테스트에서 문제가 발생하여 보통 수준으로 평가됩니다."
+      },
+      {
+        "item_id": 151675,
+        "data_title": "국제 협력 비전",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "국제 협력 비전은 글로벌 협력 허브로의 발전을 목표로 하며 양호하나, 정치적 변수로 인해 지연될 가능성이 있습니다."
+      },
+      {
+        "item_id": 151676,
+        "data_title": "관광 산업 발전 비전",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "D",
+        "rating_rationale": "관광 산업 발전 비전은 문화 유산과 에코 투어리즘을 통해 미래를 대비하나, 팬데믹 영향으로 실행이 지연되어 보통 수준입니다."
+      },
+      {
+        "item_id": 151677,
+        "data_title": "에너지 전환 비전",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "C",
+        "rating_rationale": "에너지 전환 비전은 기후 변화 예측을 반영하여 양호하나, 기술 도입 속도가 느려 실행 가능성이 낮아 보입니다."
+      },
+      {
+        "item_id": 151678,
+        "data_title": "공원 확대 비전",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "공원 확대 비전은 시민 건강과 생태 보전을 위해 양호하나, 토지 확보 문제로 인해 실행에 어려움이 있을 수 있습니다."
+      },
+      {
+        "item_id": 151679,
+        "data_title": "스마트 시티 구축 비전",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "스마트 시티 구축 비전은 도시 효율성을 높이기 위해 양호하나, 프라이버시 문제로 인해 논란이 있습니다."
+      },
+      {
+        "item_id": 151680,
+        "data_title": "인구 고령화 대응 비전",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "인구 고령화 대응 비전은 의료 인프라 확대를 포함하여 양호하나, 재정 부담으로 인해 논란이 있습니다."
+      },
+      {
+        "item_id": 151681,
+        "data_title": "포스트 코로나 경제 비전",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "D",
+        "rating_rationale": "포스트 코로나 경제 비전은 디지털 경제를 중심으로 미래를 대비하나, 초기 성과가 부족하여 보통 수준입니다."
+      },
+      {
+        "item_id": 107638,
+        "data_title": "서울시 재정 위기 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "대규모 재정 지출로 인한 재정 건전성 악화는 비전이 부족함을 나타냄. 코로나19 대응 과정에서 재정 관리가 제대로 되지 않았음을 보여줌."
+      },
+      {
+        "item_id": 107639,
+        "data_title": "서울시 도시정비 정책 비판",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "재개발/재건축 정책의 일관성 부족과 부동산 정책의 혼선은 비전의 미흡함을 드러냄. 정책의 일관성이 없으면 장기적인 계획 수립이 어려움."
+      },
+      {
+        "item_id": 107640,
+        "data_title": "청년 주거 정책 실패",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "청년 주거 지원 공약 대비 실제 성과가 미흡하고 주거 불평등이 심화된 점은 비전이 미흡함을 보여줌. 청년층에 대한 지원이 제대로 이루어지지 않았음을 의미함."
+      },
+      {
+        "item_id": 107641,
+        "data_title": "코로나19 방역 정책 혼선",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "사회적 거리두기 정책의 일관성 부족과 잦은 정책 변경은 비전의 미흡함을 드러냄. 방역 정책의 일관성이 없으면 신뢰를 잃게 됨."
+      },
+      {
+        "item_id": 107642,
+        "data_title": "서울시 복지 예산 배분 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "취약계층 지원 예산 배분의 형평성 문제는 비전의 미흡함을 나타냄. 예산 배분이 제대로 이루어지지 않으면 취약계층 지원에 문제가 생김."
+      },
+      {
+        "item_id": 107643,
+        "data_title": "청년 주택 공약 실효성 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "청년 주택 정책의 실제 공급 물량과 실행력에 대한 비판적 평가는 비전의 미흡함을 보여줌. 공약과 실제 성과 간의 괴리가 크면 신뢰가 떨어짐."
+      },
+      {
+        "item_id": 107644,
+        "data_title": "서울시 재정 압박 우려",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "대규모 복지 및 개발 사업으로 인한 재정 건전성 악화 가능성은 비전이 부족함을 나타냄. 재정 관리가 제대로 되지 않으면 장기적인 계획 수립이 어려움."
+      },
+      {
+        "item_id": 107645,
+        "data_title": "코로나19 방역 정책 비판",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "감염병 대응 초기 소극적 대응과 방역 정책의 일관성 부족은 비전의 미흡함을 드러냄. 초기 대응이 제대로 되지 않으면 방역에 큰 문제가 생김."
+      },
+      {
+        "item_id": 107646,
+        "data_title": "강남 개발 편중 비판",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "서울시 개발 정책의 강남 중심 편중으로 인한 지역 불균형 논란은 비전의 미흡함을 보여줌. 지역 간 균형 발전이 이루어지지 않으면 사회적 불평등이 심화됨."
+      },
+      {
+        "item_id": 107647,
+        "data_title": "일회용품 규제 정책 후퇴",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "환경 정책의 일관성 부족과 일회용품 규제 완화 결정은 비전의 미흡함을 나타냄. 환경 정책의 일관성이 없으면 장기적인 환경 보호가 어려워짐."
+      },
+      {
+        "item_id": 107648,
+        "data_title": "서울형 뉴딜 정책 추진",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "코로나19 이후 경제 회복을 위한 종합적인 뉴딜 정책은 매우 포괄적이며, 경제 회복에 대한 비전을 명확히 제시하고 있다. 다만, 구체적인 실행 계획이 더 필요할 수 있다."
+      },
+      {
+        "item_id": 107649,
+        "data_title": "스마트 도시 혁신 전략",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "디지털 기술 기반의 도시 관리 및 스마트 인프라 구축은 미래 지향적인 비전을 제시하며, 도시의 효율성을 극대화할 수 있는 전략이다. 매우 우수한 비전을 가지고 있다."
+      },
+      {
+        "item_id": 107650,
+        "data_title": "청년 정책 종합 대책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "청년 주거, 일자리, 창업 지원을 통합한 정책은 청년층의 다양한 문제를 해결하려는 포괄적인 비전을 보여준다. 다만, 실행 가능성과 효과에 대한 추가 검증이 필요하다."
+      },
+      {
+        "item_id": 107651,
+        "data_title": "기후변화 대응 전략",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "탄소중립 도시 실현을 위한 중장기 환경 정책은 지속 가능성을 강조하며, 장기적인 비전을 명확히 제시하고 있다. 매우 우수한 비전을 가지고 있다."
+      },
+      {
+        "item_id": 107652,
+        "data_title": "도시 재생 프로젝트",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "노후 도시 지역 재개발 및 커뮤니티 중심 도시 재생 전략은 도시의 지속 가능성을 위해 필요한 정책이지만, 비전의 혁신성과 구체성이 다소 부족할 수 있다."
+      },
+      {
+        "item_id": 107653,
+        "data_title": "공공 주택 공급 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "청년, 신혼부부 대상 공공 주택 확대 정책은 주거 문제 해결을 위한 명확한 비전을 제시하며, 사회적 필요성을 잘 반영하고 있다. 다만, 공급량과 품질에 대한 추가 검토가 필요하다."
+      },
+      {
+        "item_id": 107654,
+        "data_title": "혁신 창업 생태계 조성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "스타트업 지원 및 혁신 생태계 구축 전략은 창업 생태계 활성화를 위한 비전을 제시하고 있으며, 경제 발전에 기여할 수 있는 우수한 정책이다. 다만, 지속 가능성에 대한 추가 검토가 필요하다."
+      },
+      {
+        "item_id": 107655,
+        "data_title": "디지털 포용 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "정보 격차 해소를 위한 디지털 포용 프로그램은 사회적 포용성을 강조하는 비전을 가지고 있지만, 효과성과 지속 가능성에 대한 추가 검증이 필요하다."
+      },
+      {
+        "item_id": 107656,
+        "data_title": "교통 혁신 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "친환경 대중교통 확대 및 보행자 중심 교통 정책은 환경 보호와 도시의 이동성을 동시에 고려한 매우 우수한 비전을 제시하고 있다."
+      },
+      {
+        "item_id": 107657,
+        "data_title": "사회적 경제 생태계 지원",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "사회적 기업 및 협동조합 지원 정책은 사회적 경제 생태계를 강화하려는 비전을 가지고 있지만, 구체적인 실행 계획과 효과에 대한 추가 검토가 필요하다."
+      },
+      {
+        "item_id": 107658,
+        "data_title": "문화예술 생태계 조성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "문화예술 생태계 조성은 창작자 지원과 인프라 확충을 통해 도시의 문화적 가치를 높이는 정책으로, 매우 우수한 비전을 제시한다. 다만, 실행 가능성과 구체적인 성과에 대한 평가는 더 필요하다."
+      },
+      {
+        "item_id": 107659,
+        "data_title": "포용적 복지 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "포용적 복지 정책은 사회적 취약계층을 지원하고 복지를 확대하는 전략으로, 사회적 약자를 배려하는 매우 우수한 비전을 보여준다. 이는 사회적 통합과 공정성을 증진하는 데 기여할 것이다."
+      },
+      {
+        "item_id": 107660,
+        "data_title": "보건의료 대응 전략",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "보건의료 대응 전략은 코로나19와 같은 위기 상황에 대응하고 공공 보건의료 체계를 강화하는 매우 우수한 비전을 제시한다. 이는 시민의 건강과 안전을 최우선으로 하는 정책이다."
+      },
+      {
+        "item_id": 107661,
+        "data_title": "생태환경 보존 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "생태환경 보존 정책은 도시 생태계 보존과 친환경 정책을 추진하는 우수한 비전을 보여준다. 그러나 구체적인 실행 계획과 효과에 대한 평가는 더 필요하다."
+      },
+      {
+        "item_id": 107662,
+        "data_title": "디지털 민주주의 추진",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "디지털 민주주의 추진은 시민 참여형 디지털 플랫폼 구축을 통해 민주주의를 강화하는 우수한 비전을 제시한다. 다만, 기술적 구현과 시민 참여의 실효성에 대한 평가가 필요하다."
+      },
+      {
+        "item_id": 107663,
+        "data_title": "스마트 안전도시 전략",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "스마트 안전도시 전략은 도시 안전과 재난 대응을 위한 스마트 기술 도입으로 우수한 비전을 보여준다. 그러나 기술의 실효성과 구현 가능성에 대한 평가가 필요하다."
+      },
+      {
+        "item_id": 107664,
+        "data_title": "성평등 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "성평등 정책은 여성 권리 보호와 성평등을 추진하는 매우 우수한 비전을 제시한다. 이는 사회적 평등과 인권을 증진하는 데 기여할 것이다."
+      },
+      {
+        "item_id": 107665,
+        "data_title": "과학기술 혁신 전략",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "과학기술 혁신 전략은 과학기술 기반의 도시 혁신을 추진하는 우수한 비전을 보여준다. 다만, 구체적인 실행 계획과 혁신의 실효성에 대한 평가가 필요하다."
+      },
+      {
+        "item_id": 107666,
+        "data_title": "중소기업 지원 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "중소기업 지원 정책은 지역 중소기업의 경쟁력을 강화하는 우수한 비전을 제시한다. 그러나 지원의 실효성과 중소기업의 실제 성과에 대한 평가가 필요하다."
+      },
+      {
+        "item_id": 107667,
+        "data_title": "국제 교류 및 협력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "국제 교류 및 협력은 글로벌 도시 네트워크 구축과 국제 협력을 추진하는 우수한 비전을 보여준다. 다만, 구체적인 협력 성과와 네트워크의 실효성에 대한 평가가 필요하다."
+      },
+      {
+        "item_id": 107668,
+        "data_title": "서울시 스마트시티 전략",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "디지털 혁신을 통해 도시 운영 시스템을 구축하려는 전략은 매우 우수한 비전을 제시한다. 이는 도시의 효율성을 높이고 시민의 삶의 질을 향상시키는 데 기여할 수 있다."
+      },
+      {
+        "item_id": 107669,
+        "data_title": "청년 주거 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "청년 주거 문제를 해결하기 위한 주택 공급 확대와 임대료 지원 정책은 우수한 비전을 보여준다. 청년층의 주거 안정을 도모하는 것은 중요한 사회적 과제다."
+      },
+      {
+        "item_id": 107670,
+        "data_title": "탄소중립 도시 전략",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "2050년 탄소중립을 목표로 하는 친환경 정책은 매우 우수한 비전을 제시한다. 지속 가능한 도시 발전을 위한 장기적인 계획이 포함되어 있다."
+      },
+      {
+        "item_id": 107671,
+        "data_title": "디지털 행정 혁신",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "온라인 민원 시스템 고도화와 디지털 플랫폼 구축은 매우 우수한 비전을 보여준다. 행정의 효율성을 높이고 시민의 편의를 증대시키는 데 기여할 것이다."
+      },
+      {
+        "item_id": 107672,
+        "data_title": "스타트업 생태계 육성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "스타트업 생태계를 육성하기 위한 지원 프로그램은 우수한 비전을 제시한다. 혁신과 창업을 촉진하여 경제 발전에 기여할 수 있는 중요한 정책이다."
+      },
+      {
+        "item_id": 107673,
+        "data_title": "공공 안전 인프라",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "CCTV 확대와 범죄 예방 시스템 구축은 양호한 비전을 보여준다. 공공 안전을 강화하는 것은 중요하지만, 더 혁신적인 접근이 필요할 수 있다."
+      },
+      {
+        "item_id": 107674,
+        "data_title": "도시 재생 프로젝트",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "노후 도시 지역의 리모델링 및 활성화 계획은 우수한 비전을 제시한다. 도시 재생을 통해 지역 경제를 활성화하고 주거 환경을 개선할 수 있다."
+      },
+      {
+        "item_id": 107675,
+        "data_title": "문화 다양성 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "문화 다양성을 증진하기 위한 포용적 프로그램 개발은 양호한 비전을 보여준다. 다양성을 존중하는 것은 중요하지만, 더 구체적인 실행 계획이 필요하다."
+      },
+      {
+        "item_id": 107676,
+        "data_title": "교통 인프라 혁신",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "친환경 대중교통 확대와 스마트 모빌리티 도입은 매우 우수한 비전을 제시한다. 교통 인프라 혁신은 환경 보호와 시민의 이동 편의를 동시에 달성할 수 있다."
+      },
+      {
+        "item_id": 107677,
+        "data_title": "디지털 복지 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "취약계층의 디지털 접근성을 개선하려는 프로그램은 우수한 비전을 보여준다. 디지털 격차 해소는 사회적 포용성을 높이는 중요한 정책이다."
+      },
+      {
+        "item_id": 107678,
+        "data_title": "데이터 기반 정책 결정",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "빅데이터를 활용한 정책 수립은 매우 혁신적이며, 데이터 기반 의사결정은 정책의 효율성을 극대화할 수 있는 비전을 제시함."
+      },
+      {
+        "item_id": 107679,
+        "data_title": "코로나19 대응 전략",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "B",
+        "rating_rationale": "코로나19 대응 전략은 우수하지만, 장기적인 감염병 대응 시스템 구축이 필요하다는 점에서 약간의 한계가 있음."
+      },
+      {
+        "item_id": 107680,
+        "data_title": "기후변화 대응 계획",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "기후변화 대응 계획은 녹색 도시 전환을 위한 장기 로드맵을 제시하여, 지속 가능한 도시 발전의 비전을 매우 우수하게 제시함."
+      },
+      {
+        "item_id": 107681,
+        "data_title": "사회적 경제 생태계",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "사회적 경제 생태계는 양호하지만, 사회적 기업 및 협동조합 지원 정책이 더 구체적이고 확장될 필요가 있음."
+      },
+      {
+        "item_id": 107682,
+        "data_title": "주거 복지 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "주거 복지 정책은 공공 임대주택 확대와 주거 안정성 개선을 통해 우수한 비전을 제시하지만, 더 많은 지원이 필요함."
+      },
+      {
+        "item_id": 107683,
+        "data_title": "디지털 교육 인프라",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "디지털 교육 인프라는 온라인 교육 플랫폼과 디지털 리터러시 교육을 통해 매우 우수한 비전을 제시함."
+      },
+      {
+        "item_id": 107684,
+        "data_title": "산업 생태계 혁신",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "산업 생태계 혁신은 4차 산업혁명 대비 산업 육성 전략을 통해 매우 우수한 비전을 제시함."
+      },
+      {
+        "item_id": 107685,
+        "data_title": "사회 안전망 확충",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "B",
+        "rating_rationale": "사회 안전망 확충은 취약계층 지원 및 복지 정책 강화를 통해 우수한 비전을 제시하지만, 더 많은 지원이 필요함."
+      },
+      {
+        "item_id": 107686,
+        "data_title": "국제 도시 경쟁력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "국제 도시 경쟁력은 글로벌 도시 위상 제고 및 국제 협력을 통해 우수한 비전을 제시하지만, 더 많은 국제적 협력이 필요함."
+      },
+      {
+        "item_id": 107687,
+        "data_title": "미래 도시 혁신 전략",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "미래 도시 혁신 전략은 장기적 도시 발전을 위한 혁신적 접근을 통해 매우 우수한 비전을 제시함."
+      }
+    ],
+    "Claude": [
+      {
+        "item_id": 151682,
+        "data_title": "부동산 정책 실패",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "부동산 정책 실패는 서울시장으로서 핵심 현안 해결 능력 부족을 보여주며, 시민 기대를 충족하지 못한 비전의 실효성 문제를 드러냄. 주거 안정이라는 기본적 시정 목표 달성 실패로 평가"
+      },
+      {
+        "item_id": 151683,
+        "data_title": "교통 정책 논란",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "지하철 연장 계획 미실현과 교통 체계 비전 부족은 도시 인프라 발전에 대한 구체적 실행력 결여를 보여줌. 시민 불편 가중과 공약 이행 실패로 비전 실현 능력에 의문 제기"
+      },
+      {
+        "item_id": 151684,
+        "data_title": "환경 정책에 대한 비판",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "미세먼지 대책 미흡과 지속가능한 도시개발 비전 부족은 현재와 미래 세대를 위한 환경 리더십 결여를 의미함. 글로벌 환경 트렌드에 대한 선제적 대응 능력 부족으로 평가"
+      },
+      {
+        "item_id": 151685,
+        "data_title": "재정 운영 논란",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "예산 투명성 부족과 대규모 프로젝트의 재정 부담은 시정 운영의 지속가능성을 위협하며, 시민 신뢰 저하로 이어짐. 재정 건전성 확보라는 기본적 시정 관리 능력에 문제 노출"
+      },
+      {
+        "item_id": 151686,
+        "data_title": "정부 간 협력 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "G",
+        "new_rating": "E",
+        "rating_rationale": "정부 간 협력 소홀로 인한 정책 지연은 광역 거버넌스 역량 부족을 보여주며, 서울시 발전을 위한 네트워크 구축 능력 결여를 의미함. 협치 리더십의 한계 노출"
+      },
+      {
+        "item_id": 151687,
+        "data_title": "오세훈의 부동산 정책 비판",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "재개발·재건축 정책으로 인한 주민 반발과 투기억제 효과 미미는 부동산 정책의 근본적 방향성 오류를 시사함. 시민 갈등 해결보다는 심화시키는 정책 추진으로 사회 통합 비전 부재"
+      },
+      {
+        "item_id": 151688,
+        "data_title": "서울시 코로나19 방역 정책 논란",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "코로나19 방역 정책의 일관성 부족과 재난지원금 지급 지연은 위기 상황에서의 리더십과 신속한 의사결정 능력 부족을 보여줌. 시민 안전과 복지에 대한 선제적 대응 능력 미흡"
+      },
+      {
+        "item_id": 151689,
+        "data_title": "대중교통 정책 부재",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "대중교통 요금 인상과 이용 활성화 실패는 시민 편익 증진이라는 기본적 시정 목표와 상충되며, 교통 정책의 방향성 혼재를 보여줌. 시민 부담 가중으로 이어지는 정책 추진의 문제점 노출"
+      },
+      {
+        "item_id": 151690,
+        "data_title": "시민 소통 부족 문제",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "시민 소통 부족과 의견 반영 제한은 민주적 시정 운영의 근본 원칙 위배를 의미함. 참여형 거버넌스 구축이라는 현대적 행정 패러다임에 역행하며, 시민과의 신뢰 관계 구축 실패"
+      },
+      {
+        "item_id": 151691,
+        "data_title": "가덕도 신공항 관련 발언 논란",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "가덕도 신공항 관련 회의적 입장은 지역 간 정치적 대립을 심화시키지만, 서울시장으로서 서울 중심의 관점에서는 일정 부분 이해 가능한 측면이 있음. 다만 국가적 차원의 협력적 비전 부족"
+      },
+      {
+        "item_id": 151692,
+        "data_title": "스마트시티 추진",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "스마트시티는 4차 산업혁명 시대의 핵심 미래 비전으로, IoT 기반 시스템을 통한 도시 문제 해결은 매우 혁신적이고 구체적인 미래 지향적 정책입니다. 기술과 도시 관리의 융합을 통해 시민 삶의 질 향상과 효율성 증대를 동시에 추구하는 탁월한 비전을 보여줍니다."
+      },
+      {
+        "item_id": 151693,
+        "data_title": "서울시 재정 건전성 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "재정 건전성 강화는 안정적인 시정 운영의 기본이지만, 혁신적이거나 미래 지향적인 비전보다는 기본적인 행정 관리에 가깝습니다. 체계적 예산 운영과 불필요한 지출 절감은 양호한 수준의 관리 비전이지만 창의성이나 혁신성은 제한적입니다."
+      },
+      {
+        "item_id": 151694,
+        "data_title": "주거 안정 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "주거 안정은 서울시의 핵심 현안으로, 공공주택 공급 확대와 부동산 시장 투명성 제고는 실질적이고 중요한 정책 비전입니다. 시민 삶의 질 향상에 직접적으로 기여하는 우수한 정책 방향이지만, 기존 정책의 연장선상에 있어 혁신성은 상대적으로 제한적입니다."
+      },
+      {
+        "item_id": 151695,
+        "data_title": "기후 변화 대응 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "기후변화 대응은 전 지구적 과제이자 미래 세대를 위한 필수적 비전입니다. 온실가스 감축, 재생에너지 확대, 대중교통 증진을 통한 지속가능한 도시 구축은 매우 포괄적이고 장기적인 관점에서 탁월한 미래 비전을 제시하고 있습니다."
+      },
+      {
+        "item_id": 151696,
+        "data_title": "교통 체계 혁신",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "교통 체계 혁신은 대도시의 핵심 과제로, 대중교통 강화와 자전거 도로 확충을 통한 도로 혼잡 감소와 대기질 개선은 우수한 정책 비전입니다. 환경과 편의성을 동시에 고려한 종합적 접근이지만, 상대적으로 기존 정책의 개선 수준에 머물러 있습니다."
+      },
+      {
+        "item_id": 151697,
+        "data_title": "수돗물 품질 향상",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "C",
+        "rating_rationale": "수돗물 품질 향상은 시민 건강과 안전을 위한 기본적이고 중요한 정책입니다. 정수시설 현대화와 관리체계 개선은 양호한 수준의 정책이지만, 혁신적이거나 창의적인 비전보다는 기본적인 인프라 개선에 해당하여 비전의 차별성이 제한적입니다."
+      },
+      {
+        "item_id": 151698,
+        "data_title": "문화예술 지원 확대",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "문화예술 지원 확대는 서울의 문화 도시로서의 정체성 강화와 시민 삶의 질 향상에 기여하는 우수한 비전입니다. 예술인과 시민을 연결하는 플랫폼 구축은 창의적 접근이지만, 구체적인 혁신 방안이나 차별화된 전략의 명확성이 다소 부족합니다."
+      },
+      {
+        "item_id": 151699,
+        "data_title": "여성 안전 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "여성 안전 정책은 성평등과 인권 보장이라는 중요한 사회적 가치를 반영한 우수한 정책 비전입니다. 공공장소 안전 디바이스 설치와 범죄 예방 프로그램 강화는 실질적이고 구체적인 접근이지만, 보다 혁신적인 기술 활용이나 포괄적 접근이 보완될 여지가 있습니다."
+      },
+      {
+        "item_id": 151700,
+        "data_title": "청년 일자리 창출",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "청년 일자리 창출은 미래 인재 육성과 사회 지속가능성을 위한 핵심 정책입니다. 창업 지원과 직업 교육을 통한 지속가능한 일자리 창출은 우수한 정책 방향이지만, 4차 산업혁명 시대에 맞는 더욱 혁신적이고 차별화된 접근 방안이 보완되면 더욱 효과적일 것입니다."
+      },
+      {
+        "item_id": 151701,
+        "data_title": "도시재생 프로젝트",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "도시재생 프로젝트는 균형 발전과 지역 활성화를 위한 중요한 정책 비전입니다. 낙후 지역 활성화를 통한 주민 생활 수준 향상과 지역 경제 활성화는 우수한 정책 목표이지만, 구체적인 혁신 방안이나 차별화된 재생 모델에 대한 명확한 제시가 보완될 필요가 있습니다."
+      },
+      {
+        "item_id": 151702,
+        "data_title": "지역 균형 발전",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "지역 균형 발전은 서울시의 장기적 발전을 위한 중요한 비전이다. 소외 지역 지원을 통해 도시 전체의 조화로운 성장을 추구하는 포괄적 접근이 우수하며, 지속가능한 도시 발전 모델을 제시한다."
+      },
+      {
+        "item_id": 151703,
+        "data_title": "대기질 개선 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "대기질 개선은 미래 도시의 핵심 과제로서 매우 중요한 비전이다. 대중교통 활성화와 저공해 차량 확대는 환경과 시민 건강을 동시에 고려한 전략적 접근으로, 글로벌 환경 트렌드에 부합하는 선도적 정책이다."
+      },
+      {
+        "item_id": 151704,
+        "data_title": "어린이 공원 확대",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "어린이 공원 확대는 미래 세대를 위한 투자로서 중요한 비전이다. 어린이의 안전한 성장 환경 조성은 도시의 지속가능성과 직결되며, 가족 친화적 도시 환경 구축이라는 명확한 방향성을 제시한다."
+      },
+      {
+        "item_id": 151705,
+        "data_title": "퇴직연금 활성화",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "퇴직연금 활성화는 시민의 노후 안정성 확보를 위한 필요한 정책이다. 고령화 사회 대비라는 점에서 의미가 있으나, 시정부 차원의 독창적 비전보다는 기존 제도 개선에 가까워 양호한 수준이다."
+      },
+      {
+        "item_id": 151706,
+        "data_title": "지역사회 복지 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "지역사회 복지 강화는 포용적 도시를 만드는 핵심 비전이다. 취약계층 지원과 지역사회 참여를 통한 사회 통합은 지속가능한 도시 발전의 중요한 축으로, 사회적 가치를 중시하는 우수한 접근이다."
+      },
+      {
+        "item_id": 151707,
+        "data_title": "공공 교통시설 현대화",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "공공교통시설 현대화는 스마트시티 구축의 핵심 요소로서 우수한 비전이다. 시민 이동 편의성 향상과 교통 효율성 증대는 도시 경쟁력 강화와 직결되며, 미래 지향적 도시 인프라 구축 방향을 제시한다."
+      },
+      {
+        "item_id": 151708,
+        "data_title": "환경 교육 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "환경 교육 강화는 지속가능한 도시를 위한 근본적 접근으로 우수한 비전이다. 시민 의식 개선을 통한 환경 보호는 장기적 관점에서 매우 중요하며, 교육을 통한 사회 변화라는 체계적 접근이 돋보인다."
+      },
+      {
+        "item_id": 151709,
+        "data_title": "외국인 친화 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "외국인 친화 정책은 글로벌 도시로서의 서울 발전에 필수적인 비전이다. 다문화 공존 사회 조성은 도시의 국제 경쟁력과 포용성을 동시에 높이는 전략으로, 미래 지향적이고 포괄적인 접근이다."
+      },
+      {
+        "item_id": 151710,
+        "data_title": "재난 대응 체계 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "재난 대응 체계 강화는 기후변화 시대의 핵심 비전이다. 시민 안전을 최우선으로 하는 선제적 재난 대비는 도시 회복력 강화의 핵심이며, 예방적 관점에서 시스템을 구축하는 매우 우수한 접근이다."
+      },
+      {
+        "item_id": 151711,
+        "data_title": "전통 보전 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "전통 보전 정책은 도시 정체성 유지를 위한 중요한 비전이다. 역사적 유적 보호와 전통 문화 활성화는 문화적 가치 보존에 기여하나, 현대적 도시 발전과의 균형 측면에서 양호한 수준의 정책이다."
+      },
+      {
+        "item_id": 151712,
+        "data_title": "서울 주요 도시 개발 계획",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "주택 난제 해결을 위한 주거 복합시설과 스마트시티 개발은 구체적이고 실현 가능한 비전을 제시하고 있으며, 시민들의 실질적 삶의 질 향상에 직결되는 우수한 정책 방향성을 보여준다."
+      },
+      {
+        "item_id": 151713,
+        "data_title": "탄소 중립 도시 비전",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "2050년 탄소중립이라는 명확한 목표 설정과 생태도시 비전은 글로벌 트렌드에 부합하며, 장기적이고 포괄적인 미래 비전을 구체화한 매우 우수한 정책적 접근이다."
+      },
+      {
+        "item_id": 151714,
+        "data_title": "교통 혼잡 해소 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "교통 혼잡 해소를 위한 대중교통 장려와 자전거 도로 확장은 지속가능한 도시 발전 비전과 일치하며, 시민 편의성과 환경을 동시에 고려한 우수한 정책 방향이다."
+      },
+      {
+        "item_id": 151715,
+        "data_title": "문화 예술 도시 조성",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "서울을 세계적 문화예술 도시로 만드는 비전은 도시 브랜드 가치 향상과 소프트파워 강화를 통한 장기적 발전 전략으로서 우수한 비전 제시라 평가된다."
+      },
+      {
+        "item_id": 151716,
+        "data_title": "기후 변화 대응 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "기후변화 대응 정책과 시민 참여 유도는 중요한 방향이나, 구체적인 실행 방안이나 목표가 명확하지 않아 양호한 수준의 비전 제시에 그치고 있다."
+      },
+      {
+        "item_id": 151717,
+        "data_title": "청년 일자리 창출 방안",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "청년층 일자리 창출은 미래 세대를 위한 핵심 정책 영역으로, 지역 경제 성장과 연계한 종합적 접근을 통해 지속가능한 도시 발전 비전을 제시하고 있어 우수하다."
+      },
+      {
+        "item_id": 151718,
+        "data_title": "주거 복지 정책 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "주거 빈곤층을 위한 복지 정책 강화와 민관 협력을 통한 주택 공급 확대는 사회적 포용성을 고려한 균형 잡힌 도시 발전 비전으로서 우수한 정책 방향이다."
+      },
+      {
+        "item_id": 151719,
+        "data_title": "스마트 시티 구축",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "스마트시티 프로젝트를 통한 효율적 도시 관리와 시민 삶의 질 향상은 4차 산업혁명 시대에 부합하는 혁신적이고 구체적인 미래 비전으로서 매우 우수하다."
+      },
+      {
+        "item_id": 151720,
+        "data_title": "시민 참여 확대 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "시민 참여 확대는 민주적 거버넌스 구축에 중요하나, 구체적인 참여 메커니즘이나 실행 방안에 대한 세부 계획이 부족하여 양호한 수준의 비전 제시로 평가된다."
+      },
+      {
+        "item_id": 151721,
+        "data_title": "재난 예방 및 대응 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "재난 예방 및 대응 체계 강화는 시민 안전을 최우선으로 하는 책임감 있는 도시 운영 비전을 보여주며, 안전한 도시 구축이라는 명확한 목표를 제시하여 우수하다."
+      },
+      {
+        "item_id": 151722,
+        "data_title": "디지털 전환 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "디지털 전환은 미래지향적이고 행정효율성 향상이라는 구체적 목표가 있으나, 단순한 정책 수립 단계로 실행력과 차별화된 비전이 부족함"
+      },
+      {
+        "item_id": 151723,
+        "data_title": "국제 도시 교류 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "글로벌 도시로서의 비전은 적절하나 교류 확대라는 일반적 접근법으로 구체성과 차별화된 전략이 미흡하여 평범한 수준의 비전임"
+      },
+      {
+        "item_id": 151724,
+        "data_title": "서울시 고령자 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "고령화 사회 대응은 필요한 정책이지만 편리한 도시환경 조성이라는 포괄적 표현으로 혁신적이고 구체적인 비전이 부족함"
+      },
+      {
+        "item_id": 151725,
+        "data_title": "재개발 및 재건축 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "주택공급 확대는 서울의 핵심 현안 해결을 위한 명확한 비전이나, 재개발/재건축이라는 기존 방식으로 혁신성이 제한적임"
+      },
+      {
+        "item_id": 151726,
+        "data_title": "사회적 약자 지원 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "포용적 도시 만들기는 사회통합적 비전으로 우수하나, 사회적 약자 지원이라는 일반적 접근으로 구체적 실행방안이 불분명함"
+      },
+      {
+        "item_id": 151727,
+        "data_title": "소통 채널 확대",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "시민소통 강화는 민주적 거버넌스 측면에서 의미있으나, 소통 채널 확대라는 수단적 접근으로 비전의 깊이와 혁신성이 부족함"
+      },
+      {
+        "item_id": 151728,
+        "data_title": "조세 정책 개선",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "세금부담 경감은 시민편익 증진 비전이지만 세제개선이라는 일반적 방안으로 서울시 차원의 한계와 구체성 부족이 아쉬움"
+      },
+      {
+        "item_id": 151729,
+        "data_title": "관광 활성화 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "관광중심지 조성은 경제활성화와 도시브랜딩 측면에서 우수한 비전이며, 외국인 관광객 유치라는 구체적 목표가 있어 실현가능성이 높음"
+      },
+      {
+        "item_id": 151730,
+        "data_title": "스포츠 도시 비전",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "스포츠 도시 비전은 시민 삶의 질 향상과 도시활력 증진에 기여하나, 멀티스포츠라는 포괄적 개념으로 차별화된 전략이 미흡함"
+      },
+      {
+        "item_id": 151731,
+        "data_title": "지속 가능한 발전 프로그램",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "지속가능발전을 핵심으로 한 미래비전은 환경, 경제, 사회적 지속가능성을 통합한 포괄적이고 미래지향적인 우수한 비전 제시"
+      },
+      {
+        "item_id": 151632,
+        "data_title": "부동산 정책의 장기적 비전 부족",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "부동산 정책에서 장기적 가격 안정성 예측 실패와 단기적 개발 치중으로 미래 세대 주택 접근성을 위협하며, 지속 가능한 도시 발전 비전을 저해한 것으로 평가됨. 주민 이주 문제 무시는 비전 수립의 근본적 결함을 보여줌."
+      },
+      {
+        "item_id": 151633,
+        "data_title": "도시 재개발 계획의 미래 예측 실패",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "F",
+        "rating_rationale": "도시 재개발에서 환경 영향 평가 소홀과 장기적 지속 가능성 무시로 교통 혼잡과 환경 오염을 증가시킴. 미래 도시 생활의 질 저하를 초래하여 포괄적이고 지속 가능한 도시 발전 비전의 부재를 명확히 드러냄."
+      },
+      {
+        "item_id": 151634,
+        "data_title": "기후 변화 대응 비전의 미흡",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "기후 변화 대응에서 녹지 확대 의지는 있으나 장기적 온실가스 감축 목표가 불명확하고, 도시 숲 조성 사업의 예산 초과와 지연으로 실행력이 부족함. 지속 가능한 에너지 전환에 대한 구체적 비전이 미흡한 상태."
+      },
+      {
+        "item_id": 151635,
+        "data_title": "교통 인프라 장기 계획의 논란",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "교통 정책에서 지하철 확장 추진은 했으나 장기적 인구 이동 패턴 예측을 무시하여 기존 시스템 과부하와 도심 교통 체증 악화를 초래함. 미래 도시 이동성에 대한 통합적 비전 부족으로 오히려 역효과를 발생시킴."
+      },
+      {
+        "item_id": 151636,
+        "data_title": "청년 일자리 비전의 실패",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "F",
+        "rating_rationale": "청년 정책에서 일자리 창출 강조에도 불구하고 장기적 산업 다각화 예측 부족으로 고용 불안정을 초래함. 디지털 전환 지원 사업의 예산 낭비와 청년 실업률 지속 증가는 미래 세대에 대한 비전의 실현 불능을 보여줌."
+      },
+      {
+        "item_id": 151637,
+        "data_title": "부동산 정책의 장기적 비전 부족",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "부동산 정책의 장기적 계획 미흡으로 재임 중 부동산 가격 폭등과 저소득층 주거 불안을 초래함. 미래 인구 변화와 주택 공급 예측 실패는 장기적 도시 발전 비전의 결여를 보여주며, 사회적 불평등 심화 우려를 낳음."
+      },
+      {
+        "item_id": 151638,
+        "data_title": "코로나19 대응의 미래 예측 실패",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "E",
+        "rating_rationale": "코로나19 대응에서 팬데믹의 장기적 추이 예측 실패와 초기 봉쇄 조치 부족, 백신 배분 지연이 발생함. 미래 감염병 위협에 대한 포괄적 비전 부재로 단기 대응에만 치중하여 공공 보건 시스템의 취약성을 드러냄."
+      },
+      {
+        "item_id": 151639,
+        "data_title": "도시 재생 프로젝트의 지속 가능성 문제",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "용산 개발 등 도시 재생 프로젝트에서 장기적 환경과 사회적 영향을 고려하지 않아 주민 이주 문제와 교통 혼란을 발생시킴. 기후 변화 대응을 위한 녹지 확대 비전 미흡으로 미래 지향적 도시 계획의 부재를 상징적으로 보여줌."
+      },
+      {
+        "item_id": 151640,
+        "data_title": "경제 정책의 장기 성장 비전 결여",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "경제 정책에서 서울의 산업 구조 변화와 미래 일자리 창출을 위한 장기적 비전 부재가 지적됨. 중소기업 지원 부족과 불평등 해소 전략의 부재로 청년 실업률 증가를 초래할 수 있어 정책의 근본적 한계를 드러냄."
+      },
+      {
+        "item_id": 151641,
+        "data_title": "기후 변화 대응의 미래 전략 부재",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "F",
+        "rating_rationale": "기후 변화 정책에서 장기적 탄소 감축 목표와 지속 가능한 에너지 전환 비전이 부족함. 미세먼지 문제와 온실가스 배출 증가 방치로 미래 세대의 환경 피해를 초래할 수 있으며, 국제 기후 목표 준수를 위협하는 장기적 비전 미비를 보여줌."
+      },
+      {
+        "item_id": 151642,
+        "data_title": "서울 2030 지속 가능한 도시 비전",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "2030년까지의 구체적 목표와 녹지 확대, 에너지 효율, 기후변화 대응이라는 포괄적이고 미래지향적인 비전을 제시하여 지속가능한 도시발전의 명확한 방향성을 보여줌"
+      },
+      {
+        "item_id": 151643,
+        "data_title": "디지털 트윈 시티 프로젝트 비전",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "디지털 트윈과 AI, 빅데이터를 활용한 혁신적이고 미래지향적인 스마트시티 비전으로, 실시간 데이터 분석을 통한 예측적 도시관리라는 구체적 방법론을 제시하여 매우 우수함"
+      },
+      {
+        "item_id": 151644,
+        "data_title": "그린 뉴딜 정책의 장기 목표",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "2050년까지의 장기적 목표와 기후중립이라는 명확한 비전, 재생에너지와 친환경 교통시스템이라는 구체적 실행방안을 통해 환경과 경제의 균형잡힌 발전방향을 제시함"
+      },
+      {
+        "item_id": 151645,
+        "data_title": "교통 인프라 혁신 비전",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "2040년까지의 장기비전과 지하철 확장, 자율주행 버스 도입 등 구체적 방안을 제시하였으나, 교통 분야 단일 영역에 한정된 비전으로 포괄성 면에서 다소 제한적임"
+      },
+      {
+        "item_id": 151646,
+        "data_title": "주거 및 주택 공급 장기 전략",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "인구 증가와 고령화라는 미래 변화를 예측하고 2030년까지의 주거 안정성 목표를 제시하였으나, 주택 공급이라는 전통적 접근방식으로 혁신성이 다소 부족함"
+      },
+      {
+        "item_id": 151647,
+        "data_title": "교육 혁신 및 디지털 학습 비전",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "AI 기반 교육시스템과 온라인 플랫폼 확대라는 미래지향적 접근을 보이나, 2025년이라는 상대적으로 단기적 목표와 교육 분야 한정이라는 한계가 있음"
+      },
+      {
+        "item_id": 151648,
+        "data_title": "경제 활성화 장기 계획",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "팬데믹 후 경제변화 예측과 2040년까지의 장기목표를 설정하였으나, 스타트업 지원과 산업 다각화라는 일반적 접근방식으로 구체성과 혁신성이 부족함"
+      },
+      {
+        "item_id": 151649,
+        "data_title": "사회 복지 강화 장기 목표",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "고령화 사회라는 미래 변화를 예측하고 2030년까지의 목표를 제시하였으나, 노인복지 확대와 예산 증가라는 전통적 복지정책 접근으로 혁신적 비전이 부족함"
+      },
+      {
+        "item_id": 151650,
+        "data_title": "문화 예술 진흥 장기 비전",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "아시아 문화 중심지라는 비전과 2030년까지의 목표를 제시하였으나, 시설 확대와 페스티벌 유치라는 기존 방식의 접근으로 차별화된 혁신적 비전이 미흡함"
+      },
+      {
+        "item_id": 151651,
+        "data_title": "재난 관리 강화 비전",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "기후변화와 자연재해 증가라는 미래 위험요소를 예측하고 스마트 재난대응시스템이라는 혁신적 접근을 보이나, 2025년이라는 단기목표와 단일 분야 한정이라는 제약이 있음"
+      },
+      {
+        "item_id": 151652,
+        "data_title": "청년 일자리 창출 장기 전략",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "인구 구조 변화를 예측하고 청년 실업이라는 핵심 사회 문제에 대해 IT 산업 육성과 취업 지원이라는 구체적 방안을 2030년까지 장기 계획으로 제시한 매우 우수한 비전"
+      },
+      {
+        "item_id": 151653,
+        "data_title": "관광 산업 발전 비전",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "글로벌 관광 트렌드 변화를 예측하고 지속가능한 관광 모델이라는 미래지향적 비전을 제시하며, 2040년까지의 에코 투어리즘 확대라는 구체적이고 장기적인 목표를 설정한 매우 우수한 비전"
+      },
+      {
+        "item_id": 151654,
+        "data_title": "에너지 전환 장기 계획",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "에너지 수요 증가를 예측하고 2050년 탄소중립이라는 글로벌 트렌드에 부합하는 재생에너지 전환 비전을 제시하며, 환경과 경제의 균형까지 고려한 매우 우수한 장기 비전"
+      },
+      {
+        "item_id": 151655,
+        "data_title": "공공 보건 강화 비전",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "미래 보건 위협을 예측하고 감염병 대응 시스템 구축이라는 시의적절한 비전을 제시했으나, 2030년까지의 공공 의료 인프라 개선이라는 상대적으로 단순한 접근으로 우수 수준"
+      },
+      {
+        "item_id": 151656,
+        "data_title": "인프라 투자 장기 목표",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "도시화와 기술 발전을 예측한 인프라 투자 계획은 필요하지만, 교량과 도로 확장이라는 전통적 접근 방식으로 혁신성이 부족하여 양호 수준의 비전"
+      },
+      {
+        "item_id": 151657,
+        "data_title": "국제 협력 비전",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "글로벌 변화를 예측하고 아시아 국가와의 협력이라는 지역적 특성을 살린 국제협력 비전을 제시했으나, 무역과 문화 교류라는 일반적 접근으로 우수 수준"
+      },
+      {
+        "item_id": 151658,
+        "data_title": "지능형 도시 개발 비전",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "AI 도시화라는 미래 트렌드를 예측하고 스마트 그리드와 IoT 시스템을 활용한 지능형 도시 개발이라는 혁신적이고 구체적인 비전을 2040년까지 장기 계획으로 제시한 매우 우수한 비전"
+      },
+      {
+        "item_id": 151659,
+        "data_title": "고령화 사회 대응 비전",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "인구 고령화라는 중요한 사회 변화를 예측하고 노인 전용 시설과 커뮤니티 프로그램을 통한 사회 통합 비전을 제시했으나, 접근 방식이 다소 전통적이어서 우수 수준"
+      },
+      {
+        "item_id": 151660,
+        "data_title": "환경 보호 장기 목표",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "환경 오염 증가를 예측하고 2050년까지의 생태계 복원이라는 장기적이고 포괄적인 환경 보호 비전을 제시하며, 강과 공원 보전이라는 구체적 실행 계획을 포함한 매우 우수한 비전"
+      },
+      {
+        "item_id": 151661,
+        "data_title": "코로나 후 사회 회복 비전",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "B",
+        "rating_rationale": "팬데믹의 장기 영향을 예측하고 경제 회복과 사회 안전망 강화라는 포괄적 비전을 제시했으나, 2030년까지의 지속가능한 성장이라는 다소 일반적인 목표로 우수 수준"
+      },
+      {
+        "item_id": 151662,
+        "data_title": "한강 르네상스 프로젝트 비전",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "한강 르네상스 프로젝트는 서울을 세계적 관광도시로 만드는 명확한 장기 비전을 제시했으며, 생태복원과 문화시설 건설을 통한 지속가능한 도시환경 조성이라는 구체적 목표를 담고 있어 우수한 비전으로 평가됩니다."
+      },
+      {
+        "item_id": 151663,
+        "data_title": "지속 가능한 도시 개발 비전",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "2050년 탄소중립이라는 명확한 목표와 함께 기후변화 대응을 핵심으로 한 지속가능한 도시개발 비전은 글로벌 트렌드를 반영하고 미래세대를 고려한 매우 우수한 장기 비전입니다."
+      },
+      {
+        "item_id": 151664,
+        "data_title": "코로나19 후 회복 비전",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "팬데믹 이후 디지털 경제 전환과 원격근무 인프라 구축을 통해 2030년까지 글로벌 비즈니스 허브로 만든다는 뉴노멀 비전은 시대적 변화를 잘 반영한 우수한 미래 비전입니다."
+      },
+      {
+        "item_id": 151665,
+        "data_title": "교통 인프라 혁신 비전",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "지하철 확장과 자율주행 기술 도입을 통한 2040년 교통 혁신 비전은 미래 기술과 지속가능한 이동수단을 고려한 장기적이고 혁신적인 우수한 비전으로 평가됩니다."
+      },
+      {
+        "item_id": 151666,
+        "data_title": "환경 보호 장기 목표",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "2035년까지 녹지면적 2배 확대라는 구체적 목표를 제시한 환경보호 비전은 양호하나, 지역주민 반대로 인한 실행 지연 등 현실적 제약이 있어 실현가능성에 한계가 보입니다."
+      },
+      {
+        "item_id": 151667,
+        "data_title": "경제 활성화 비전",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "2030년까지 스타트업 중심 경제모델 구축이라는 비전은 4차 산업혁명 시대의 글로벌 트렌드를 정확히 반영하고 일자리 창출과 혁신산업 유치라는 명확한 목표를 제시한 매우 우수한 비전입니다."
+      },
+      {
+        "item_id": 151668,
+        "data_title": "교육 혁신 비전",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "2040년까지 교육시스템 디지털화를 통해 세계 최고 수준 달성이라는 비전은 미래 교육 트렌드를 반영한 혁신적이고 장기적인 우수한 비전이지만 예산 배분 문제가 있습니다."
+      },
+      {
+        "item_id": 151669,
+        "data_title": "주택 정책 장기 계획",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "고령화 사회 대비 2050년 스마트 주택 보급 비전은 인구구조 변화를 고려한 장기적 관점이 양호하나, 토지 활용 문제로 인한 논란과 실행상의 어려움이 있어 실현가능성이 제한적입니다."
+      },
+      {
+        "item_id": 151670,
+        "data_title": "디지털 혁신 비전",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "2030년까지 빅데이터와 AI를 활용한 스마트시티 구축 비전은 4차 산업혁명 시대의 핵심 기술을 반영한 혁신적이고 미래지향적인 우수한 비전이나 데이터 보안 문제가 제기됩니다."
+      },
+      {
+        "item_id": 151671,
+        "data_title": "문화 예술 지원 비전",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "2040년까지 서울을 아시아 문화중심지로 만드는 비전은 문화예술 발전에 대한 장기적 목표를 제시한 점에서 양호하나, 예산 부족으로 프로그램 축소 등 실행력에 한계가 있습니다."
+      },
+      {
+        "item_id": 151672,
+        "data_title": "노인 복지 장기 목표",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "2050년까지의 장기적 노인복지 비전은 미래 인구구조 변화를 고려한 선견지명이 있으나, 초기 투자 부족으로 실현 가능성에 한계가 있어 양호한 수준의 비전으로 평가됩니다."
+      },
+      {
+        "item_id": 151673,
+        "data_title": "청년 일자리 창출 비전",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "D",
+        "rating_rationale": "2035년까지 청년 일자리 50% 증가라는 구체적 목표와 스타트업 육성 방안은 있으나, 실업률 감소 효과가 크지 않다는 점에서 실효성이 제한적이어서 보통 수준입니다."
+      },
+      {
+        "item_id": 151674,
+        "data_title": "재난 관리 비전",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "D",
+        "rating_rationale": "AI 기반 재난 대응 시스템이라는 미래지향적 비전을 제시했으나, 초기 테스트에서 문제가 발생하여 기술적 완성도와 실현 가능성에 의문이 있어 보통 수준으로 평가됩니다."
+      },
+      {
+        "item_id": 151675,
+        "data_title": "국제 협력 비전",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "D",
+        "rating_rationale": "서울을 글로벌 협력 허브로 만드는 비전은 국제적 안목을 보여주나, 정치적 변수로 인한 지연이 발생하고 있어 실행력 측면에서 한계를 보여 보통 수준입니다."
+      },
+      {
+        "item_id": 151676,
+        "data_title": "관광 산업 발전 비전",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "E",
+        "rating_rationale": "관광 수익 2배 증대라는 목표는 있으나 팬데믹이라는 외부 요인에 대한 대응책이 부족하고 실행이 지연되고 있어 환경 변화에 대한 적응력이 미흡합니다."
+      },
+      {
+        "item_id": 151677,
+        "data_title": "에너지 전환 비전",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "C",
+        "rating_rationale": "2050년 재생에너지 80% 목표는 기후변화 대응이라는 글로벌 트렌드에 부합하는 장기 비전이나, 기술 도입 속도가 느려 실행력에서 아쉬움이 있어 양호한 수준입니다."
+      },
+      {
+        "item_id": 151678,
+        "data_title": "공원 확대 비전",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "도시 공원 확대를 통한 시민 건강과 생태 보전이라는 미래지향적 가치는 좋으나, 토지 확보라는 현실적 제약이 있어 실현 가능성에 한계가 있어 보통 수준입니다."
+      },
+      {
+        "item_id": 151679,
+        "data_title": "스마트 시티 구축 비전",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "D",
+        "rating_rationale": "스마트 시티 구축이라는 4차 산업혁명 시대에 맞는 비전을 제시했으나, 프라이버시 문제라는 부작용에 대한 해결책이 부족하여 완성도 측면에서 보통 수준입니다."
+      },
+      {
+        "item_id": 151680,
+        "data_title": "인구 고령화 대응 비전",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "D",
+        "rating_rationale": "고령화 사회에 대비한 노인복지 시스템 강화는 필요한 비전이나, 재정 부담으로 인한 논란과 지속가능성 문제로 실현 가능성에 제약이 있어 보통 수준입니다."
+      },
+      {
+        "item_id": 151681,
+        "data_title": "포스트 코로나 경제 비전",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "D",
+        "rating_rationale": "포스트 코로나 시대 디지털 경제 전환이라는 시의적절한 비전을 제시했으나, 초기 성과 부족과 미래 불확실성에 대한 구체적 대응 방안이 미흡하여 보통 수준입니다."
+      },
+      {
+        "item_id": 107638,
+        "data_title": "서울시 재정 위기 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "코로나19 대응 과정에서 재정 건전성 악화는 장기적 비전 실현을 위한 재정 기반을 훼손하는 결과로, 미래 세대를 위한 지속가능한 발전 비전이 부족함을 보여준다."
+      },
+      {
+        "item_id": 107639,
+        "data_title": "서울시 도시정비 정책 비판",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "F",
+        "rating_rationale": "도시정비 정책의 일관성 부족은 서울의 장기적 도시 발전 비전의 부재를 의미하며, 부동산 정책 혼선은 시민들의 미래 주거 안정성에 대한 예측 가능성을 크게 저해한다."
+      },
+      {
+        "item_id": 107640,
+        "data_title": "청년 주거 정책 실패",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "청년 주거 정책 실패는 미래 세대를 위한 비전의 핵심 영역에서의 실패를 의미하며, 주거 불평등 심화는 포용적 도시 발전 비전의 부재를 보여준다."
+      },
+      {
+        "item_id": 107641,
+        "data_title": "코로나19 방역 정책 혼선",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "코로나19 방역 정책의 일관성 부족과 잦은 변경은 위기 상황에서의 명확한 비전과 원칙의 부재를 보여주며, 시민들의 신뢰와 안정성을 훼손하는 결과를 초래했다."
+      },
+      {
+        "item_id": 107642,
+        "data_title": "서울시 복지 예산 배분 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "복지 예산 배분의 형평성 문제는 사회적 약자를 보호하고 포용하는 도시 비전의 실현에 실패했음을 의미하며, 공정하고 균형잡힌 발전 비전이 미흡하다."
+      },
+      {
+        "item_id": 107643,
+        "data_title": "청년 주택 공약 실효성 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "청년 주택 공약의 실효성 논란은 미래 세대를 위한 핵심 정책에서의 비전 실행력 부족을 보여주며, 공약과 실제 성과 간의 격차는 정책 비전의 신뢰성을 크게 손상시킨다."
+      },
+      {
+        "item_id": 107644,
+        "data_title": "서울시 재정 압박 우려",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "대규모 사업으로 인한 재정 건전성 악화 우려는 지속가능한 발전을 위한 장기적 비전의 부재를 나타내며, 현재 성과를 위해 미래 재정 여력을 과도하게 소모하는 근시안적 접근이다."
+      },
+      {
+        "item_id": 107645,
+        "data_title": "코로나19 방역 정책 비판",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "감염병 대응 초기 소극적 대응과 일관성 부족은 위기 상황에서의 선제적이고 체계적인 대응 비전의 부재를 보여주며, 시민 안전을 위한 명확한 방향성이 미흡했다."
+      },
+      {
+        "item_id": 107646,
+        "data_title": "강남 개발 편중 비판",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "F",
+        "rating_rationale": "강남 개발 편중은 서울 전체의 균형발전이라는 기본적인 도시 비전을 저해하며, 지역 간 불균형 심화는 포용적이고 지속가능한 도시 발전 비전의 부족을 명확히 보여준다."
+      },
+      {
+        "item_id": 107647,
+        "data_title": "일회용품 규제 정책 후퇴",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "환경 정책의 일관성 부족과 일회용품 규제 완화는 지속가능한 친환경 도시라는 미래 비전에 역행하는 결정으로, 기후변화 대응과 환경보호에 대한 장기적 비전이 미흡하다."
+      },
+      {
+        "item_id": 107648,
+        "data_title": "서울형 뉴딜 정책 추진",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "코로나19 위기 상황에 대응한 종합적 경제회복 정책으로 미래지향적 비전을 제시했으나, 구체적 실행방안과 차별화된 혁신요소가 다소 부족하여 우수한 수준으로 평가됨"
+      },
+      {
+        "item_id": 107649,
+        "data_title": "스마트 도시 혁신 전략",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "4차 산업혁명 시대에 부합하는 스마트 도시 구축은 서울의 미래 경쟁력을 크게 향상시킬 수 있는 매우 혁신적이고 포괄적인 비전으로, 디지털 전환 시대의 도시 모델을 제시한 점에서 매우 우수함"
+      },
+      {
+        "item_id": 107650,
+        "data_title": "청년 정책 종합 대책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "청년층의 핵심 문제인 주거, 일자리, 창업을 통합적으로 접근한 정책으로 미래 세대를 위한 명확한 비전을 제시했으나, 기존 정책과의 차별화와 혁신성 측면에서 한계가 있어 우수한 수준"
+      },
+      {
+        "item_id": 107651,
+        "data_title": "기후변화 대응 전략",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "글로벌 기후변화 대응과 탄소중립이라는 시대적 과제에 대한 중장기 전략으로, 지속가능한 미래도시 비전을 명확히 제시하고 있어 매우 우수한 정책 비전으로 평가됨"
+      },
+      {
+        "item_id": 107652,
+        "data_title": "도시 재생 프로젝트",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "노후 지역 재생을 통한 도시 발전 비전은 필요하고 적절한 정책이나, 기존의 전통적인 도시재생 접근법에서 크게 벗어나지 못한 양호한 수준의 비전으로 평가됨"
+      },
+      {
+        "item_id": 107653,
+        "data_title": "공공 주택 공급 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "주거 문제 해결을 위한 공공주택 공급 확대는 사회적으로 필요한 정책이나, 혁신적 접근보다는 기존 정책의 연장선상에 있어 양호한 수준의 비전으로 평가됨"
+      },
+      {
+        "item_id": 107654,
+        "data_title": "혁신 창업 생태계 조성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "혁신 창업 생태계 조성은 미래 경제 성장동력 확보를 위한 중요한 비전이며, 스타트업 중심의 경제 패러다임 변화에 적절히 대응한 우수한 정책 방향으로 평가됨"
+      },
+      {
+        "item_id": 107655,
+        "data_title": "디지털 포용 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "디지털 전환 시대의 정보격차 해소는 포용적 성장을 위한 중요한 비전으로, 디지털 포용 사회 구현이라는 미래지향적 목표를 제시한 우수한 정책으로 평가됨"
+      },
+      {
+        "item_id": 107656,
+        "data_title": "교통 혁신 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "친환경 교통체계와 보행자 중심 정책은 지속가능한 도시 발전과 시민 삶의 질 향상을 위한 명확한 비전을 제시하여 우수한 수준의 정책 방향으로 평가됨"
+      },
+      {
+        "item_id": 107657,
+        "data_title": "사회적 경제 생태계 지원",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "사회적 경제 생태계 지원은 포용적 성장을 위한 의미있는 정책이나, 전체적인 도시 발전 비전에서의 파급효과와 혁신성이 제한적이어서 양호한 수준으로 평가됨"
+      },
+      {
+        "item_id": 107658,
+        "data_title": "문화예술 생태계 조성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "문화예술 생태계 조성은 도시의 창조적 비전을 제시하며, 창작자 지원과 인프라 확충을 통해 서울을 문화도시로 발전시키려는 명확한 방향성을 보여줍니다. 다만 구체적인 실행 계획과 성과 지표가 부족해 보입니다."
+      },
+      {
+        "item_id": 107659,
+        "data_title": "포용적 복지 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "포용적 복지 정책은 사회 통합과 형평성을 추구하는 진보적 비전을 담고 있으며, 취약계층 지원을 통한 포용 도시 구현 의지를 보여줍니다. 복지 확대 전략이 지속가능한 도시 발전에 기여할 것으로 평가됩니다."
+      },
+      {
+        "item_id": 107660,
+        "data_title": "보건의료 대응 전략",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "보건의료 대응 전략은 팬데믹 시대의 필수적 비전으로, 공공 보건의료 체계 강화를 통해 시민 안전과 건강을 보장하려는 선제적이고 포괄적인 접근을 보여줍니다. 미래 위기 대응 능력 강화에 탁월한 비전을 제시합니다."
+      },
+      {
+        "item_id": 107661,
+        "data_title": "생태환경 보존 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "생태환경 보존 정책은 기후변화 시대의 핵심적 비전으로, 도시 생태계 보존과 친환경 정책을 통해 지속가능한 미래 도시를 구현하려는 명확하고 시급한 비전을 제시합니다. 환경과 개발의 균형을 추구하는 혁신적 접근입니다."
+      },
+      {
+        "item_id": 107662,
+        "data_title": "디지털 민주주의 추진",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "디지털 민주주의 추진은 4차 산업혁명 시대에 맞는 혁신적 비전으로, 시민 참여형 플랫폼 구축을 통해 민주주의 발전을 도모합니다. 다만 디지털 격차 해소와 실질적 참여 보장 방안이 더 구체화되어야 합니다."
+      },
+      {
+        "item_id": 107663,
+        "data_title": "스마트 안전도시 전략",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "스마트 안전도시 전략은 기술과 안전을 결합한 미래지향적 비전을 제시하며, 재난 대응 능력 강화를 통해 시민 안전을 보장하려는 체계적 접근을 보여줍니다. 스마트시티 구현에 대한 명확한 방향성이 있습니다."
+      },
+      {
+        "item_id": 107664,
+        "data_title": "성평등 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "성평등 정책은 사회 정의 실현을 위한 중요한 비전이지만, 여성 권리 보호에 한정된 접근으로 보입니다. 성평등 사회 구현을 위한 더 포괄적이고 구체적인 비전과 실행 전략이 필요해 보입니다."
+      },
+      {
+        "item_id": 107665,
+        "data_title": "과학기술 혁신 전략",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "과학기술 혁신 전략은 4차 산업혁명 시대의 핵심 비전으로, 기술 기반 도시 혁신을 통해 서울을 글로벌 혁신 허브로 발전시키려는 야심찬 목표를 제시합니다. 미래 경쟁력 확보에 매우 중요한 전략적 비전입니다."
+      },
+      {
+        "item_id": 107666,
+        "data_title": "중소기업 지원 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "중소기업 지원 정책은 경제 생태계 활성화를 위한 기본적 비전을 담고 있으나, 단순한 지원 정책 수준에 머물러 있습니다. 혁신 생태계 구축과 글로벌 경쟁력 강화를 위한 더 전략적이고 차별화된 비전이 필요합니다."
+      },
+      {
+        "item_id": 107667,
+        "data_title": "국제 교류 및 협력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "국제 교류 및 협력은 글로벌 도시로서의 위상 강화를 위한 중요한 비전을 제시하며, 도시 외교와 국제 네트워크 구축을 통해 서울의 국제적 영향력 확대를 도모합니다. 구체적인 협력 분야와 성과 목표가 더 명확해야 합니다."
+      },
+      {
+        "item_id": 107668,
+        "data_title": "서울시 스마트시티 전략",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "스마트시티 전략은 미래 도시 발전의 핵심 비전을 제시하고 있으며, 디지털 혁신을 통한 체계적 접근이 돋보인다. 다만 구체적 실행 방안과 시민 체감도 측면에서 보완이 필요하다."
+      },
+      {
+        "item_id": 107669,
+        "data_title": "청년 주거 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "청년 주거 문제는 서울의 핵심 현안이며, 주택 공급과 임대료 지원을 동시에 추진하는 포괄적 비전을 제시했다. 미래 세대를 위한 실질적이고 지속가능한 정책 방향이 매우 우수하다."
+      },
+      {
+        "item_id": 107670,
+        "data_title": "탄소중립 도시 전략",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "2050 탄소중립은 글로벌 트렌드에 부합하는 장기 비전으로, 환경과 경제를 동시에 고려한 미래지향적 정책이다. 지속가능한 도시 발전을 위한 명확한 목표와 방향성이 탁월하다."
+      },
+      {
+        "item_id": 107671,
+        "data_title": "디지털 행정 혁신",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "디지털 행정 혁신은 시민 편의성 향상과 행정 효율성을 동시에 추구하는 바람직한 비전이다. 디지털 전환 시대에 적합한 정책이나, 디지털 격차 해소 방안이 함께 고려되어야 한다."
+      },
+      {
+        "item_id": 107672,
+        "data_title": "스타트업 생태계 육성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "스타트업 생태계 육성은 서울의 경쟁력 강화와 일자리 창출에 기여하는 미래지향적 비전이다. 혁신 경제로의 전환을 위한 적절한 정책 방향이지만, 기존 산업과의 연계성 강화가 필요하다."
+      },
+      {
+        "item_id": 107673,
+        "data_title": "공공 안전 인프라",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "공공 안전 인프라 구축은 시민 안전을 위한 기본적이고 필요한 정책이다. 하지만 CCTV 확대 중심의 접근은 다소 전통적이며, 개인정보 보호와 균형잡힌 안전 정책 비전이 보완되어야 한다."
+      },
+      {
+        "item_id": 107674,
+        "data_title": "도시 재생 프로젝트",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "도시 재생 프로젝트는 서울의 지속가능한 발전을 위한 중요한 비전이다. 노후 지역 활성화를 통한 도시 균형 발전과 주거 환경 개선이 기대되나, 젠트리피케이션 방지 대책이 함께 필요하다."
+      },
+      {
+        "item_id": 107675,
+        "data_title": "문화 다양성 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "문화 다양성 정책은 포용적 도시를 위한 의미있는 비전이다. 다문화 사회로의 전환에 대응하는 적절한 정책 방향이지만, 구체적 실행 방안과 사회 통합 효과에 대한 보다 명확한 전략이 필요하다."
+      },
+      {
+        "item_id": 107676,
+        "data_title": "교통 인프라 혁신",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "친환경 대중교통과 스마트 모빌리티 도입은 탄소중립과 교통 혁신을 동시에 추구하는 탁월한 비전이다. 미래 교통 패러다임 변화에 선제적으로 대응하며 시민 편의성도 크게 향상시킬 수 있다."
+      },
+      {
+        "item_id": 107677,
+        "data_title": "디지털 복지 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "디지털 복지 정책은 디지털 전환 시대의 사회적 포용을 위한 중요한 비전이다. 취약계층의 디지털 격차 해소를 통해 공정한 디지털 사회 구현을 목표로 하는 바람직한 정책 방향이다."
+      },
+      {
+        "item_id": 107678,
+        "data_title": "데이터 기반 정책 결정",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "데이터 기반 정책 결정은 현대적이고 효율적인 행정 비전을 제시하나, 구체적인 활용 방안과 시민 참여 요소가 부족하여 완전한 미래 비전으로는 한계가 있음"
+      },
+      {
+        "item_id": 107679,
+        "data_title": "코로나19 대응 전략",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "코로나19 대응은 현재 상황에 대한 적절한 대처이지만, 장기적 비전보다는 단기적 위기 관리에 초점이 맞춰져 있어 미래 지향적 비전으로는 제한적임"
+      },
+      {
+        "item_id": 107680,
+        "data_title": "기후변화 대응 계획",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "기후변화 대응과 녹색 도시 전환은 글로벌 트렌드에 부합하는 장기적이고 지속가능한 비전으로, 미래 세대를 위한 명확한 방향성과 구체적 로드맵을 제시함"
+      },
+      {
+        "item_id": 107681,
+        "data_title": "사회적 경제 생태계",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "사회적 경제 생태계 구축은 포용적 성장과 지속가능한 경제 모델을 제시하는 진보적 비전이나, 실현 가능성과 구체적 실행 계획에서 보완이 필요함"
+      },
+      {
+        "item_id": 107682,
+        "data_title": "주거 복지 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "주거 복지 정책은 시민 삶의 질 향상을 위한 중요한 비전이며 사회적 필요에 부응하나, 혁신적 접근보다는 전통적 복지 확대에 그치는 한계가 있음"
+      },
+      {
+        "item_id": 107683,
+        "data_title": "디지털 교육 인프라",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "디지털 교육 인프라 구축은 포스트 코로나 시대와 디지털 전환에 대비한 미래 지향적 비전으로, 교육의 패러다임 변화를 선도하는 혁신적 접근임"
+      },
+      {
+        "item_id": 107684,
+        "data_title": "산업 생태계 혁신",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "4차 산업혁명 대비 산업 육성은 미래 경쟁력 확보를 위한 핵심적 비전으로, 기술 변화에 선제적으로 대응하며 장기적 경제 발전 전략을 제시함"
+      },
+      {
+        "item_id": 107685,
+        "data_title": "사회 안전망 확충",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "사회 안전망 확충은 필수적인 정책이지만 기존 복지 정책의 연장선상에 있어 혁신적 비전으로는 부족하며, 근본적 사회 구조 개선에 대한 관점이 제한적임"
+      },
+      {
+        "item_id": 107686,
+        "data_title": "국제 도시 경쟁력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "국제 도시 경쟁력 제고는 글로벌 시대에 부합하는 원대한 비전으로, 서울의 위상을 세계적 수준으로 끌어올리려는 야심찬 목표와 국제적 관점을 보여줌"
+      },
+      {
+        "item_id": 107687,
+        "data_title": "미래 도시 혁신 전략",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "미래 도시 혁신 전략은 장기적 발전을 위한 포괄적 비전을 제시하나, 구체적인 혁신 내용과 차별화된 접근 방식에 대한 세부사항이 부족하여 완전한 평가에 한계가 있음"
+      }
+    ]
+  },
+  "scores": {
+    "ChatGPT": {
+      "avg_rating": 4.026666666666666,
+      "category_score": 80.13333333333334,
+      "total_items": 150,
+      "positive": 121,
+      "negative": 29
+    },
+    "Grok": {
+      "avg_rating": 4.506666666666667,
+      "category_score": 82.53333333333333,
+      "total_items": 150,
+      "positive": 120,
+      "negative": 30
+    },
+    "Claude": {
+      "avg_rating": 3.973333333333333,
+      "category_score": 79.86666666666666,
+      "total_items": 150,
+      "positive": 120,
+      "negative": 30
+    }
+  },
+  "final_score": 80.84444444444445
+}

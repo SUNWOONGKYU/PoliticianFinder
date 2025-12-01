@@ -1,18 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-데이터 풀링 시스템 (Data Pooling System)
-
-원리:
-1. 3개 AI가 각자 수집한 뉴스를 모두 합침 (중복 제거)
-2. 합쳐진 뉴스를 3개 AI가 모두 평가
-3. 같은 데이터에 대한 평가 차이만 비교
-
-예시:
-- ChatGPT가 수집한 "김동연 경제부총리 시절 GDP 3% 성장"
-- Grok이 수집한 "김동연, 경기도지사 시절 재정 건전성 악화"
-- Claude가 수집한 "김동연의 청년배당 정책 논란"
-→ 이 3개 뉴스를 3개 AI가 모두 평가
+데이터 풀링 시스템 (올바른 버전)
+- 150개 전체를 3개 AI가 각각 평가
 """
 import os
 import sys
@@ -37,6 +27,8 @@ claude_client = Anthropic(api_key=os.getenv('ANTHROPIC_API_KEY'))
 
 POLITICIAN_ID = "0756ec15"
 POLITICIAN_NAME = "김동연"
+CATEGORY_ENG = "Expertise"
+CATEGORY_KOR = "전문성"
 
 # 등급 매핑
 ALPHABET_GRADES = {
@@ -44,31 +36,10 @@ ALPHABET_GRADES = {
     'E': -2, 'F': -4, 'G': -6, 'H': -8
 }
 
-CATEGORIES = [
-    ('Expertise', '전문성'),
-    ('Leadership', '리더십'),
-    ('Vision', '비전'),
-    ('Integrity', '청렴성'),
-    ('Ethics', '윤리성'),
-    ('Accountability', '책임성'),
-    ('Transparency', '투명성'),
-    ('Communication', '소통능력'),
-    ('Responsiveness', '대응성'),
-    ('PublicInterest', '공익성')
-]
-
-# ============================================
-# Step 1: 공통 데이터 풀 생성
-# ============================================
-
-def create_data_pool(politician_id, category_eng):
-    """
-    3개 AI가 수집한 데이터를 모두 합쳐서 공통 풀 생성
-    중복은 제목 유사도로 제거
-    """
+def get_all_150_items(politician_id, category_eng):
+    """150개 데이터 풀 생성 (중복 제거 없음)"""
     print(f"\n[Step 1] {category_eng} 카테고리 데이터 풀 생성 중...")
 
-    # 3개 AI가 수집한 데이터 모두 가져오기
     all_items = []
 
     for ai_name in ["ChatGPT", "Grok", "claude-3-5-haiku-20241022"]:
@@ -84,43 +55,19 @@ def create_data_pool(politician_id, category_eng):
                     'data_content': item['data_content'],
                     'data_source': item['data_source'],
                     'source_type': item['source_type'],
-                    'category_name': item['category_name'],
                     'collected_by': ai_name,
                     'original_rating': item.get('rating', '')
                 })
 
-    print(f"  총 수집된 데이터: {len(all_items)}개")
+    print(f"  총 데이터 풀: {len(all_items)}개")
+    print(f"    - ChatGPT 수집: {sum(1 for x in all_items if x['collected_by'] == 'ChatGPT')}개")
+    print(f"    - Grok 수집: {sum(1 for x in all_items if x['collected_by'] == 'Grok')}개")
+    print(f"    - Claude 수집: {sum(1 for x in all_items if x['collected_by'] == 'claude-3-5-haiku-20241022')}개")
 
-    # 중복 제거 (제목 완전 일치 기준)
-    unique_items = []
-    seen_titles = set()
-
-    for item in all_items:
-        title_normalized = item['data_title'].strip().lower()
-        if title_normalized not in seen_titles:
-            seen_titles.add(title_normalized)
-            unique_items.append(item)
-
-    print(f"  중복 제거 후: {len(unique_items)}개")
-
-    # 50개로 제한 (OFFICIAL 25 + PUBLIC 25)
-    official_items = [item for item in unique_items if item['source_type'] == 'OFFICIAL'][:25]
-    public_items = [item for item in unique_items if item['source_type'] == 'PUBLIC'][:25]
-
-    data_pool = official_items + public_items
-
-    print(f"  최종 데이터 풀: {len(data_pool)}개 (OFFICIAL: {len(official_items)}, PUBLIC: {len(public_items)})")
-
-    return data_pool
-
-# ============================================
-# Step 2: AI별 평가 (같은 데이터 풀 사용)
-# ============================================
+    return all_items
 
 def evaluate_with_ai(ai_name, item, category_kor):
-    """
-    특정 AI에게 데이터 평가 요청 (수집 없이 평가만)
-    """
+    """특정 AI에게 데이터 평가 요청"""
     prompt = f"""
 다음은 정치인 "{POLITICIAN_NAME}"에 대한 뉴스 자료입니다.
 "{category_kor}" 관점에서 A~H 등급을 부여하고 근거를 작성해주세요.
@@ -191,11 +138,11 @@ JSON 형식으로 답변:
         print(f"    ❌ {ai_name} 평가 오류: {e}")
         return None
 
-def evaluate_data_pool(data_pool, category_eng, category_kor):
-    """
-    데이터 풀의 모든 항목을 3개 AI로 평가
-    """
-    print(f"\n[Step 2] {category_kor} 데이터 풀 평가 중...")
+def evaluate_all_150_items(data_pool, category_kor):
+    """150개를 3개 AI가 각각 평가"""
+    print(f"\n[Step 2] {category_kor} 데이터 풀 150개 평가 시작...")
+    print(f"  예상 API 호출: {len(data_pool)} × 3 = {len(data_pool) * 3}회")
+    print(f"  예상 소요 시간: 약 {len(data_pool) * 3 * 3 // 60}분")
 
     results = {
         'ChatGPT': [],
@@ -203,12 +150,17 @@ def evaluate_data_pool(data_pool, category_eng, category_kor):
         'Claude': []
     }
 
+    total_calls = len(data_pool) * 3
+    current_call = 0
+
     for idx, item in enumerate(data_pool, 1):
         print(f"\n  [{idx}/{len(data_pool)}] {item['data_title'][:50]}...")
+        print(f"    수집자: {item['collected_by']}")
 
         # 3개 AI로 평가
         for ai_name in ['ChatGPT', 'Grok', 'Claude']:
-            print(f"    - {ai_name} 평가 중...", end=' ')
+            current_call += 1
+            print(f"    - {ai_name} 평가 중 ({current_call}/{total_calls})...", end=' ')
 
             evaluation = evaluate_with_ai(ai_name, item, category_kor)
 
@@ -229,87 +181,79 @@ def evaluate_data_pool(data_pool, category_eng, category_kor):
 
     return results
 
-# ============================================
-# Step 3: 결과 분석 및 비교
-# ============================================
-
-def analyze_pooling_results(results):
-    """
-    풀링 시스템 결과 분석
-    """
+def calculate_final_scores(results):
+    """3개 AI의 점수 계산 및 평균"""
     print(f"\n{'='*80}")
-    print("데이터 풀링 결과 분석")
+    print("최종 점수 계산")
     print(f"{'='*80}")
 
-    # 각 AI의 평균 등급
+    scores = {}
+
     for ai_name in ['ChatGPT', 'Grok', 'Claude']:
         ratings = [ALPHABET_GRADES[item['new_rating']] for item in results[ai_name]]
-        avg_rating = sum(ratings) / len(ratings) if ratings else 0
 
-        # 긍정/부정 비율
-        positive = sum(1 for r in ratings if r >= 2)
-        negative = sum(1 for r in ratings if r < 2)
+        # V24 알고리즘: (6.0 + 평균 등급 * 0.5) * 10
+        avg_rating = sum(ratings) / len(ratings) if ratings else 0
+        category_score = (6.0 + avg_rating * 0.5) * 10
+
+        scores[ai_name] = {
+            'avg_rating': avg_rating,
+            'category_score': category_score,
+            'total_items': len(ratings),
+            'positive': sum(1 for r in ratings if r >= 2),
+            'negative': sum(1 for r in ratings if r < 2)
+        }
 
         print(f"\n[{ai_name}]")
         print(f"  평균 등급: {avg_rating:+.2f}")
-        print(f"  긍정(A~D): {positive}개 ({positive*100//len(ratings) if ratings else 0}%)")
-        print(f"  부정(E~H): {negative}개 ({negative*100//len(ratings) if ratings else 0}%)")
+        print(f"  카테고리 점수: {category_score:.1f}점")
+        print(f"  긍정(A~D): {scores[ai_name]['positive']}개 ({scores[ai_name]['positive']*100//len(ratings)}%)")
+        print(f"  부정(E~H): {scores[ai_name]['negative']}개 ({scores[ai_name]['negative']*100//len(ratings)}%)")
 
-        # 등급 분포
-        from collections import Counter
-        rating_dist = Counter([item['new_rating'] for item in results[ai_name]])
-        print(f"  등급 분포: {dict(rating_dist)}")
+    # 최종 평균 점수
+    avg_score = sum(s['category_score'] for s in scores.values()) / 3
 
-    # 같은 뉴스에 대한 평가 차이 분석
     print(f"\n{'='*80}")
-    print("같은 뉴스에 대한 AI별 평가 차이 (상위 10개)")
+    print("📊 최종 점수 요약")
+    print(f"{'='*80}")
+    print(f"  ChatGPT 점수: {scores['ChatGPT']['category_score']:.1f}점")
+    print(f"  Grok 점수:    {scores['Grok']['category_score']:.1f}점")
+    print(f"  Claude 점수:  {scores['Claude']['category_score']:.1f}점")
+    print(f"  ─────────────────────────────")
+    print(f"  ✅ 최종 통합 점수: {avg_score:.1f}점 (3개 AI 평균)")
     print(f"{'='*80}")
 
-    # 첫 10개 뉴스에 대해 비교
-    for i in range(min(10, len(results['ChatGPT']))):
-        chatgpt_item = results['ChatGPT'][i]
-        grok_item = results['Grok'][i]
-        claude_item = results['Claude'][i]
-
-        print(f"\n{i+1}. {chatgpt_item['data_title'][:60]}...")
-        print(f"   수집자: {chatgpt_item['collected_by']}")
-        print(f"   ChatGPT: {chatgpt_item['new_rating']} | Grok: {grok_item['new_rating']} | Claude: {claude_item['new_rating']}")
-
-        # 평가 차이
-        chatgpt_score = ALPHABET_GRADES[chatgpt_item['new_rating']]
-        grok_score = ALPHABET_GRADES[grok_item['new_rating']]
-        claude_score = ALPHABET_GRADES[claude_item['new_rating']]
-
-        max_diff = max(chatgpt_score, grok_score, claude_score) - min(chatgpt_score, grok_score, claude_score)
-        print(f"   점수 차이: 최대 {max_diff}점")
+    return scores, avg_score
 
 def main():
     print("="*80)
-    print("데이터 풀링 시스템 - 테스트 실행")
+    print("데이터 풀링 시스템 - 150개 전체 평가")
     print("="*80)
     print(f"정치인: {POLITICIAN_NAME}")
-    print(f"테스트 카테고리: Expertise (전문성)")
+    print(f"카테고리: {CATEGORY_ENG} ({CATEGORY_KOR})")
     print("="*80)
 
-    # Step 1: 데이터 풀 생성
-    data_pool = create_data_pool(POLITICIAN_ID, 'Expertise')
+    # Step 1: 150개 데이터 풀 생성
+    data_pool = get_all_150_items(POLITICIAN_ID, CATEGORY_ENG)
 
     if len(data_pool) == 0:
         print("❌ 데이터 풀이 비어있습니다!")
         return
 
-    # Step 2: 3개 AI로 평가
-    results = evaluate_data_pool(data_pool, 'Expertise', '전문성')
+    # Step 2: 3개 AI로 150개 모두 평가
+    results = evaluate_all_150_items(data_pool, CATEGORY_KOR)
 
-    # Step 3: 결과 분석
-    analyze_pooling_results(results)
+    # Step 3: 최종 점수 계산
+    scores, final_score = calculate_final_scores(results)
 
     # 결과 저장
-    output_file = f"data_pooling_results_{POLITICIAN_NAME}_Expertise.json"
+    output_file = f"pooling_150_results_{POLITICIAN_NAME}_{CATEGORY_ENG}.json"
     with open(output_file, 'w', encoding='utf-8') as f:
         json.dump({
-            'data_pool': data_pool,
-            'evaluation_results': results
+            'data_pool_size': len(data_pool),
+            'evaluation_results': results,
+            'scores': scores,
+            'final_score': final_score
         }, f, ensure_ascii=False, indent=2)
 
     print(f"\n{'='*80}")
