@@ -35,16 +35,22 @@ export default function AdminPostsPage() {
   const [posts, setPosts] = useState<Post[]>([]);
   const [postsLoading, setPostsLoading] = useState(false);
   const [postsError, setPostsError] = useState<string | null>(null);
+  const [postsPage, setPostsPage] = useState(1);
+  const postsPerPage = 30; // 게시글: 30개씩
 
   // Comments state
   const [comments, setComments] = useState<Comment[]>([]);
   const [commentsLoading, setCommentsLoading] = useState(false);
   const [commentsError, setCommentsError] = useState<string | null>(null);
+  const [commentsPage, setCommentsPage] = useState(1);
+  const commentsPerPage = 50; // 댓글: 50개씩
 
   // Notices state
   const [notices, setNotices] = useState<Notice[]>([]);
   const [noticesLoading, setNoticesLoading] = useState(false);
   const [noticesError, setNoticesError] = useState<string | null>(null);
+  const [noticesPage, setNoticesPage] = useState(1);
+  const noticesPerPage = 20; // 공지사항: 20개씩
 
   // Fetch posts from API
   const fetchPosts = async (search?: string) => {
@@ -52,10 +58,10 @@ export default function AdminPostsPage() {
     setPostsError(null);
 
     try {
-      // Admin page: request more items (100) to show all posts
+      // Fetch all posts for client-side pagination
       const url = search
-        ? `/api/admin/content?search=${encodeURIComponent(search)}&limit=100`
-        : '/api/admin/content?limit=100';
+        ? `/api/admin/content?search=${encodeURIComponent(search)}&limit=1000`
+        : '/api/admin/content?limit=1000';
 
       const response = await fetch(url);
 
@@ -89,10 +95,10 @@ export default function AdminPostsPage() {
     setCommentsError(null);
 
     try {
-      // Admin page: request more items (100) to show all comments
+      // Fetch all comments for client-side pagination
       const url = search
-        ? `/api/comments?search=${encodeURIComponent(search)}&limit=100`
-        : '/api/comments?limit=100';
+        ? `/api/comments?search=${encodeURIComponent(search)}&limit=1000`
+        : '/api/comments?limit=1000';
 
       const response = await fetch(url);
 
@@ -127,10 +133,10 @@ export default function AdminPostsPage() {
     setNoticesError(null);
 
     try {
-      // Admin page: request more items (100) to show all notices
+      // Fetch all notices for client-side pagination
       const url = search
-        ? `/api/notices?search=${encodeURIComponent(search)}&limit=100`
-        : '/api/notices?limit=100';
+        ? `/api/notices?search=${encodeURIComponent(search)}&limit=1000`
+        : '/api/notices?limit=1000';
 
       const response = await fetch(url);
 
@@ -241,16 +247,96 @@ export default function AdminPostsPage() {
     }
   };
 
+  // Pagination calculations
+  const postsTotalPages = Math.ceil(posts.length / postsPerPage);
+  const currentPosts = posts.slice((postsPage - 1) * postsPerPage, postsPage * postsPerPage);
+
+  const commentsTotalPages = Math.ceil(comments.length / commentsPerPage);
+  const currentComments = comments.slice((commentsPage - 1) * commentsPerPage, commentsPage * commentsPerPage);
+
+  const noticesTotalPages = Math.ceil(notices.length / noticesPerPage);
+  const currentNotices = notices.slice((noticesPage - 1) * noticesPerPage, noticesPage * noticesPerPage);
+
+  // Pagination component
+  const Pagination = ({ currentPage, totalPages, onPageChange }: { currentPage: number; totalPages: number; onPageChange: (page: number) => void }) => {
+    if (totalPages <= 1) return null;
+
+    return (
+      <div className="mt-4 flex justify-center items-center gap-2">
+        <button
+          onClick={() => onPageChange(1)}
+          disabled={currentPage === 1}
+          className="px-3 py-1 border rounded hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed text-sm"
+        >
+          처음
+        </button>
+        <button
+          onClick={() => onPageChange(currentPage - 1)}
+          disabled={currentPage === 1}
+          className="px-3 py-1 border rounded hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed text-sm"
+        >
+          이전
+        </button>
+
+        <div className="flex gap-1">
+          {Array.from({ length: Math.min(5, totalPages) }, (_, i) => {
+            let pageNum;
+            if (totalPages <= 5) {
+              pageNum = i + 1;
+            } else if (currentPage <= 3) {
+              pageNum = i + 1;
+            } else if (currentPage >= totalPages - 2) {
+              pageNum = totalPages - 4 + i;
+            } else {
+              pageNum = currentPage - 2 + i;
+            }
+            return (
+              <button
+                key={pageNum}
+                onClick={() => onPageChange(pageNum)}
+                className={`px-3 py-1 border rounded text-sm ${
+                  currentPage === pageNum
+                    ? 'bg-blue-500 text-white'
+                    : 'hover:bg-gray-100'
+                }`}
+              >
+                {pageNum}
+              </button>
+            );
+          })}
+        </div>
+
+        <button
+          onClick={() => onPageChange(currentPage + 1)}
+          disabled={currentPage === totalPages}
+          className="px-3 py-1 border rounded hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed text-sm"
+        >
+          다음
+        </button>
+        <button
+          onClick={() => onPageChange(totalPages)}
+          disabled={currentPage === totalPages}
+          className="px-3 py-1 border rounded hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed text-sm"
+        >
+          마지막
+        </button>
+      </div>
+    );
+  };
+
   // Load data when tab changes
   useEffect(() => {
     setSearchText(''); // Clear search when switching tabs
 
     if (activeTab === 'posts') {
       fetchPosts();
+      setPostsPage(1);
     } else if (activeTab === 'comments') {
       fetchComments();
+      setCommentsPage(1);
     } else if (activeTab === 'notices') {
       fetchNotices();
+      setNoticesPage(1);
     }
   }, [activeTab]);
 
@@ -332,25 +418,30 @@ export default function AdminPostsPage() {
                 )}
 
                 {!postsLoading && !postsError && (
-                  <table className="w-full text-sm text-left">
-                    <thead className="bg-gray-100">
-                      <tr>
-                        <th className="p-3">ID</th>
-                        <th className="p-3">제목</th>
-                        <th className="p-3">작성자</th>
-                        <th className="p-3">작성일</th>
-                        <th className="p-3">관리</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {posts.length === 0 ? (
+                  <>
+                    <div className="mb-2 flex justify-between items-center text-sm text-gray-600">
+                      <span>총 {posts.length}개 (페이지당 {postsPerPage}개)</span>
+                      {postsTotalPages > 1 && <span>페이지: {postsPage} / {postsTotalPages}</span>}
+                    </div>
+                    <table className="w-full text-sm text-left">
+                      <thead className="bg-gray-100">
                         <tr>
-                          <td colSpan={5} className="p-3 text-center text-gray-500">
-                            게시글이 없습니다.
-                          </td>
+                          <th className="p-3">ID</th>
+                          <th className="p-3">제목</th>
+                          <th className="p-3">작성자</th>
+                          <th className="p-3">작성일</th>
+                          <th className="p-3">관리</th>
                         </tr>
-                      ) : (
-                        posts.map((post) => (
+                      </thead>
+                      <tbody>
+                        {currentPosts.length === 0 ? (
+                          <tr>
+                            <td colSpan={5} className="p-3 text-center text-gray-500">
+                              게시글이 없습니다.
+                            </td>
+                          </tr>
+                        ) : (
+                          currentPosts.map((post) => (
                           <tr key={post.id} className="border-b hover:bg-gray-50">
                             <td className="p-3">{post.id}</td>
                             <td className="p-3 font-semibold">{post.title}</td>
@@ -406,26 +497,31 @@ export default function AdminPostsPage() {
                 )}
 
                 {!commentsLoading && !commentsError && (
-                  <table className="w-full text-sm text-left">
-                    <thead className="bg-gray-100">
-                      <tr>
-                        <th className="p-3">ID</th>
-                        <th className="p-3">내용</th>
-                        <th className="p-3">작성자</th>
-                        <th className="p-3">게시글</th>
-                        <th className="p-3">작성일</th>
-                        <th className="p-3">관리</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {comments.length === 0 ? (
+                  <>
+                    <div className="mb-2 flex justify-between items-center text-sm text-gray-600">
+                      <span>총 {comments.length}개 (페이지당 {commentsPerPage}개)</span>
+                      {commentsTotalPages > 1 && <span>페이지: {commentsPage} / {commentsTotalPages}</span>}
+                    </div>
+                    <table className="w-full text-sm text-left">
+                      <thead className="bg-gray-100">
                         <tr>
-                          <td colSpan={6} className="p-3 text-center text-gray-500">
-                            댓글이 없습니다.
-                          </td>
+                          <th className="p-3">ID</th>
+                          <th className="p-3">내용</th>
+                          <th className="p-3">작성자</th>
+                          <th className="p-3">게시글</th>
+                          <th className="p-3">작성일</th>
+                          <th className="p-3">관리</th>
                         </tr>
-                      ) : (
-                        comments.map((comment) => (
+                      </thead>
+                      <tbody>
+                        {currentComments.length === 0 ? (
+                          <tr>
+                            <td colSpan={6} className="p-3 text-center text-gray-500">
+                              댓글이 없습니다.
+                            </td>
+                          </tr>
+                        ) : (
+                          currentComments.map((comment) => (
                           <tr key={comment.id} className="border-b hover:bg-gray-50">
                             <td className="p-3">{comment.id}</td>
                             <td className="p-3">{comment.content}</td>
@@ -441,10 +537,12 @@ export default function AdminPostsPage() {
                               </button>
                             </td>
                           </tr>
-                        ))
-                      )}
-                    </tbody>
-                  </table>
+                          ))
+                        )}
+                      </tbody>
+                    </table>
+                    <Pagination currentPage={commentsPage} totalPages={commentsTotalPages} onPageChange={setCommentsPage} />
+                  </>
                 )}
               </div>
             )}
@@ -487,25 +585,30 @@ export default function AdminPostsPage() {
                 )}
 
                 {!noticesLoading && !noticesError && (
-                  <table className="w-full text-sm text-left">
-                    <thead className="bg-gray-100">
-                      <tr>
-                        <th className="p-3">ID</th>
-                        <th className="p-3">제목</th>
-                        <th className="p-3">작성자</th>
-                        <th className="p-3">작성일</th>
-                        <th className="p-3">관리</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {notices.length === 0 ? (
+                  <>
+                    <div className="mb-2 flex justify-between items-center text-sm text-gray-600">
+                      <span>총 {notices.length}개 (페이지당 {noticesPerPage}개)</span>
+                      {noticesTotalPages > 1 && <span>페이지: {noticesPage} / {noticesTotalPages}</span>}
+                    </div>
+                    <table className="w-full text-sm text-left">
+                      <thead className="bg-gray-100">
                         <tr>
-                          <td colSpan={5} className="p-3 text-center text-gray-500">
-                            공지사항이 없습니다.
-                          </td>
+                          <th className="p-3">ID</th>
+                          <th className="p-3">제목</th>
+                          <th className="p-3">작성자</th>
+                          <th className="p-3">작성일</th>
+                          <th className="p-3">관리</th>
                         </tr>
-                      ) : (
-                        notices.map((notice) => (
+                      </thead>
+                      <tbody>
+                        {currentNotices.length === 0 ? (
+                          <tr>
+                            <td colSpan={5} className="p-3 text-center text-gray-500">
+                              공지사항이 없습니다.
+                            </td>
+                          </tr>
+                        ) : (
+                          currentNotices.map((notice) => (
                           <tr key={notice.id} className="border-b hover:bg-gray-50">
                             <td className="p-3">{notice.id}</td>
                             <td className="p-3 font-semibold">{notice.title}</td>
@@ -521,10 +624,12 @@ export default function AdminPostsPage() {
                               </button>
                             </td>
                           </tr>
-                        ))
-                      )}
-                    </tbody>
-                  </table>
+                          ))
+                        )}
+                      </tbody>
+                    </table>
+                    <Pagination currentPage={noticesPage} totalPages={noticesTotalPages} onPageChange={setNoticesPage} />
+                  </>
                 )}
               </div>
             )}
