@@ -36,14 +36,14 @@ export default function AdminPostsPage() {
   const [postsLoading, setPostsLoading] = useState(false);
   const [postsError, setPostsError] = useState<string | null>(null);
   const [postsPage, setPostsPage] = useState(1);
-  const postsPerPage = 30; // 게시글: 30개씩
+  const postsPerPage = 20; // 게시글: 20개씩
 
   // Comments state
   const [comments, setComments] = useState<Comment[]>([]);
   const [commentsLoading, setCommentsLoading] = useState(false);
   const [commentsError, setCommentsError] = useState<string | null>(null);
   const [commentsPage, setCommentsPage] = useState(1);
-  const commentsPerPage = 50; // 댓글: 50개씩
+  const commentsPerPage = 20; // 댓글: 20개씩
 
   // Notices state
   const [notices, setNotices] = useState<Notice[]>([]);
