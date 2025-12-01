@@ -23,6 +23,10 @@ export default function AdminPoliticiansPage() {
   const [partyFilter, setPartyFilter] = useState('all');
   const [verifiedFilter, setVerifiedFilter] = useState('all');
   const [showAddModal, setShowAddModal] = useState(false);
+
+  // Pagination state
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 20;
   const [addFormData, setAddFormData] = useState({
     name: '',
     name_en: '',
@@ -46,8 +50,8 @@ export default function AdminPoliticiansPage() {
     try {
       setLoading(true);
       setError(null);
-      // Admin page: request more items (100) to show all politicians
-      const response = await fetch('/api/politicians?limit=100');
+      // Fetch all politicians for client-side pagination and filtering
+      const response = await fetch('/api/politicians?limit=1000');
 
       if (!response.ok) {
         throw new Error('정치인 목록을 불러오는데 실패했습니다.');
@@ -95,7 +99,19 @@ export default function AdminPoliticiansPage() {
     }
 
     setFilteredPoliticians(filtered);
+    setCurrentPage(1); // Reset to first page when filters change
   }, [searchTerm, partyFilter, verifiedFilter, politicians]);
+
+  // Calculate pagination
+  const totalPages = Math.ceil(filteredPoliticians.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const currentPoliticians = filteredPoliticians.slice(startIndex, endIndex);
+
+  // Pagination handlers
+  const goToPage = (page: number) => {
+    setCurrentPage(Math.max(1, Math.min(page, totalPages)));
+  };
 
   // Get unique parties for filter dropdown
   const uniqueParties = Array.from(new Set(politicians.map(p => p.party)));
@@ -337,8 +353,9 @@ export default function AdminPoliticiansPage() {
             {/* Politician Table */}
             {!loading && !error && filteredPoliticians.length > 0 && (
               <div className="overflow-x-auto">
-                <div className="mb-2 text-sm text-gray-600">
-                  총 {filteredPoliticians.length}명의 정치인
+                <div className="mb-2 flex justify-between items-center text-sm text-gray-600">
+                  <span>총 {filteredPoliticians.length}명의 정치인 (페이지당 {itemsPerPage}개)</span>
+                  <span>현재 페이지: {currentPage} / {totalPages}</span>
                 </div>
                 <table className="w-full text-sm text-left">
                   <thead className="bg-gray-100">
@@ -353,7 +370,7 @@ export default function AdminPoliticiansPage() {
                     </tr>
                   </thead>
                   <tbody>
-                    {filteredPoliticians.map((politician) => (
+                    {currentPoliticians.map((politician) => (
                       <tr key={politician.id} className="border-b hover:bg-gray-50">
                         <td className="p-3">{politician.id}</td>
                         <td className="p-3 font-semibold">{politician.name}</td>
@@ -385,6 +402,70 @@ export default function AdminPoliticiansPage() {
                     ))}
                   </tbody>
                 </table>
+
+                {/* Pagination */}
+                {totalPages > 1 && (
+                  <div className="mt-4 flex justify-center items-center gap-2">
+                    <button
+                      onClick={() => goToPage(1)}
+                      disabled={currentPage === 1}
+                      className="px-3 py-1 border rounded hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      처음
+                    </button>
+                    <button
+                      onClick={() => goToPage(currentPage - 1)}
+                      disabled={currentPage === 1}
+                      className="px-3 py-1 border rounded hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      이전
+                    </button>
+
+                    {/* Page numbers */}
+                    <div className="flex gap-1">
+                      {Array.from({ length: Math.min(5, totalPages) }, (_, i) => {
+                        let pageNum;
+                        if (totalPages <= 5) {
+                          pageNum = i + 1;
+                        } else if (currentPage <= 3) {
+                          pageNum = i + 1;
+                        } else if (currentPage >= totalPages - 2) {
+                          pageNum = totalPages - 4 + i;
+                        } else {
+                          pageNum = currentPage - 2 + i;
+                        }
+                        return (
+                          <button
+                            key={pageNum}
+                            onClick={() => goToPage(pageNum)}
+                            className={`px-3 py-1 border rounded ${
+                              currentPage === pageNum
+                                ? 'bg-blue-500 text-white'
+                                : 'hover:bg-gray-100'
+                            }`}
+                          >
+                            {pageNum}
+                          </button>
+                        );
+                      })}
+                    </div>
+
+                    <button
+                      onClick={() => goToPage(currentPage + 1)}
+                      disabled={currentPage === totalPages}
+                      className="px-3 py-1 border rounded hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      다음
+                    </button>
+                    <button
+                      onClick={() => goToPage(totalPages)}
+                      disabled={currentPage === totalPages}
+                      className="px-3 py-1 border rounded hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      마지막
+                    </button>
+                  </div>
+                )}
               </div>
             )}
           </div>
