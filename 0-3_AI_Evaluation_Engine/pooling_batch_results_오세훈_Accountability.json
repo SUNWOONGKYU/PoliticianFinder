@@ -7,8 +7,8 @@
         "data_title": "공약 미이행",
         "collected_by": "ChatGPT",
         "original_rating": "E",
-        "new_rating": "E",
-        "rating_rationale": "주요 공약이 미이행되고 있어 유권자와의 신뢰 관계가 약화되고 있으며, 이는 책임성을 심각하게 저해한다."
+        "new_rating": "F",
+        "rating_rationale": "주요 공약의 미이행은 유권자와의 신뢰를 심각하게 훼손하며, 이는 시장의 책임성 부족을 나타낸다."
       },
       {
         "item_id": 151983,
@@ -16,7 +16,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "D",
         "new_rating": "E",
-        "rating_rationale": "예산 초과 및 일정 지연이 빈번히 발생하고 있어 관리 미숙과 책임성 부족이 드러난다."
+        "rating_rationale": "프로젝트 관리에서 예산 초과와 일정 지연은 명백한 책임성 결여를 보여주며, 시민의 세금이 낭비되고 있다."
       },
       {
         "item_id": 151984,
@@ -24,7 +24,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "E",
         "new_rating": "F",
-        "rating_rationale": "시민 소통 체계 부족으로 정책 결정의 투명성이 떨어지며, 이는 정치적 책임성을 약화시킨다."
+        "rating_rationale": "시민 소통 부족은 정책 투명성을 저해하며, 이는 시장이 시민의 목소리를 무시하고 있다는 인상을 주고 있다."
       },
       {
         "item_id": 151985,
@@ -32,15 +32,15 @@
         "collected_by": "ChatGPT",
         "original_rating": "D",
         "new_rating": "D",
-        "rating_rationale": "중앙정부와 갈등이 지속되면서 정책의 일관성이 떨어지고 있지만, 이는 전체적인 책임성에 비해 보통 수준이다."
+        "rating_rationale": "중앙정부와의 갈등은 정책 일관성을 해치며, 이는 지역 발전에 부정적인 영향을 미치고 있다. 하지만 갈등의 정도에 따라 다를 수 있다."
       },
       {
         "item_id": 151986,
         "data_title": "감사 결과 부실",
         "collected_by": "ChatGPT",
         "original_rating": "F",
-        "new_rating": "E",
-        "rating_rationale": "부패 방지 감사에서 성과를 내지 못해 공공기관의 책임성이 약화되고 있다는 점에서 미흡한 평가를 받는다."
+        "new_rating": "G",
+        "rating_rationale": "부패 방지 감사에서 성과를 내지 못한 것은 공공기관의 책임성을 심각하게 약화시키는 요소로, 시장의 의지 부족을 시사한다."
       },
       {
         "item_id": 151987,
@@ -48,7 +48,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "E",
         "new_rating": "F",
-        "rating_rationale": "소통 부족으로 정책 시행에 실패한 사례가 있으며, 이는 시민의 목소리를 반영하지 못한 책임이 크다."
+        "rating_rationale": "소통 부족으로 인한 정책 시행 실패는 시민의 불만을 초래하며, 이는 시장의 책임성이 결여된 명백한 사례다."
       },
       {
         "item_id": 151988,
@@ -56,31 +56,31 @@
         "collected_by": "ChatGPT",
         "original_rating": "D",
         "new_rating": "E",
-        "rating_rationale": "주거 정책의 구체적인 변화 없이 저소득층의 주거 불안정을 초래하고 있어 책임성이 미흡하다."
+        "rating_rationale": "주거 정책의 구체화 부족은 저소득층의 주거 불안정을 심화시키고 있으며, 이는 시장의 책임성을 약화시키는 요소다."
       },
       {
         "item_id": 151989,
         "data_title": "정치적 공격과 논란",
         "collected_by": "ChatGPT",
         "original_rating": "F",
-        "new_rating": "F",
-        "rating_rationale": "정치적 공격과 논란에 휘말리면서 정치적 이미지가 손상되었고, 이는 책임성 부족을 드러낸다."
+        "new_rating": "H",
+        "rating_rationale": "정치적 공격과 논란은 시장의 이미지와 신뢰를 심각하게 훼손하며, 이는 리더십의 결여를 드러낸다."
       },
       {
         "item_id": 151990,
         "data_title": "코로나 대응 비판",
         "collected_by": "ChatGPT",
         "original_rating": "E",
-        "new_rating": "E",
-        "rating_rationale": "코로나19 대응의 늦음과 혼란을 초래한 점은 리더십과 책임성을 심각하게 의심하게 만든다."
+        "new_rating": "G",
+        "rating_rationale": "코로나19 대응의 지연은 공공 안전에 직접적인 영향을 미치며, 이는 리더로서의 책임성을 심각하게 저하시킨다."
       },
       {
         "item_id": 151991,
         "data_title": "공약 이행 미비",
         "collected_by": "ChatGPT",
         "original_rating": "H",
-        "new_rating": "E",
-        "rating_rationale": "공약 이행 미비와 시의회와의 협의 결렬로 인해 유권자와의 신뢰가 약화되고 있어 책임성 평가가 미흡하다."
+        "new_rating": "F",
+        "rating_rationale": "공약 이행 미비는 유권자와의 신뢰 관계를 약화시키며, 이는 시장의 기본적인 책임성을 결여한 상태를 나타낸다."
       },
       {
         "item_id": 151992,
@@ -88,7 +88,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "공공임대주택 확충은 주거 안정에 기여하며, 정책 실현을 위한 기초자료 구축이 잘 이루어지고 있어 매우 우수한 책임성을 보인다."
+        "rating_rationale": "공공임대주택 확충은 주거복지 향상에 기여하며, 기초자료 구축과 순조로운 입주자 모집이 긍정적이다."
       },
       {
         "item_id": 151993,
@@ -96,7 +96,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "95%의 높은 출석률은 의회의 운영과 정책 결정 과정에 적극 참여하는 모습을 보여주며, 책임성 있는 정치인으로서의 역할을 잘 수행하고 있다."
+        "rating_rationale": "95%의 높은 출석률은 정책 결정 과정에 적극 참여하고 있음을 보여주며, 의회의 신뢰성을 높인다."
       },
       {
         "item_id": 151994,
@@ -104,7 +104,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "성 평등 정책 강화 약속은 사회적 약자에 대한 책임성을 명확히 하여 매우 긍정적인 평가를 받을 수 있다."
+        "rating_rationale": "성 평등 정책 강화를 약속한 것은 사회적 책임을 다하는 모습으로, 약자 보호에 대한 의지를 나타낸다."
       },
       {
         "item_id": 151995,
@@ -112,7 +112,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "C",
         "new_rating": "B",
-        "rating_rationale": "도시 재생 정책을 추진하고 있으나, 구체적인 시행 일정과 성과가 부족하여 다소 아쉬운 점이 있다."
+        "rating_rationale": "도시 재생 프로젝트는 긍정적이지만 구체적인 시행 계획이 필요하다. 현재 추진 중인 상황이 주효할지 지켜봐야 한다."
       },
       {
         "item_id": 151996,
@@ -120,15 +120,15 @@
         "collected_by": "ChatGPT",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "민의를 직접 수렴할 수 있는 플랫폼 도입은 시민 참여를 증진시키며, 투명한 소통을 통해 책임성을 높이는 좋은 사례이다."
+        "rating_rationale": "온라인 플랫폼 도입은 민의를 수렴하고 소통을 강화하는 훌륭한 방법으로, 시민 참여를 증진시킨다."
       },
       {
         "item_id": 151997,
         "data_title": "대기오염 개선 노력",
         "collected_by": "ChatGPT",
         "original_rating": "B",
-        "new_rating": "B",
-        "rating_rationale": "대기오염 개선을 위한 정책 추진은 긍정적이나, 구체적인 성과와 지속적인 노력이 필요하다."
+        "new_rating": "A",
+        "rating_rationale": "대기오염 개선을 위한 전기차 전환 정책은 실질적인 환경 개선에 기여하며, 시민 건강을 우선시하는 책임 있는 행동이다."
       },
       {
         "item_id": 151998,
@@ -136,7 +136,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "C",
         "new_rating": "B",
-        "rating_rationale": "관광 활성화를 위한 계획 발표는 긍정적이나, 실질적인 성과와 실행 방안이 명확하지 않다."
+        "rating_rationale": "관광 활성화 계획은 긍정적이나, 구체적인 실행 방안과 기대 효과에 대한 명확한 정보가 필요하다."
       },
       {
         "item_id": 151999,
@@ -144,7 +144,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "공약 실천 계획 수립과 정기적인 진척 보고는 투명성과 책임성을 높이는 매우 우수한 사례이다."
+        "rating_rationale": "구체적인 실행 계획과 정기적인 보고는 공약 이행에 대한 책임을 다하는 모습으로, 투명성을 높인다."
       },
       {
         "item_id": 152000,
@@ -152,7 +152,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "시민 안전 대책 제시는 긍정적이나, 구체적인 실행 계획과 효과에 대한 정보가 부족하다."
+        "rating_rationale": "범죄 예방 정책은 시민 안전에 기여하나, 정책 효과에 대한 구체적인 자료와 검증이 필요하다."
       },
       {
         "item_id": 152001,
@@ -160,7 +160,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "A",
         "new_rating": "B",
-        "rating_rationale": "소상공인 지원 정책 마련은 긍정적이지만, 코로나19 상황에 대한 보다 구체적인 대응 및 성과가 필요하다."
+        "rating_rationale": "소상공인 지원 정책은 경제 회복에 기여할 수 있으나, 장기적인 효과와 지속 가능성에 대한 검토가 필요하다."
       },
       {
         "item_id": 152002,
@@ -168,15 +168,15 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "청년 정책 강화는 실업 문제 해결에 기여할 것으로 기대되며, 청년층의 삶의 질을 향상시키려는 의지가 뚜렷하게 드러나 있어 매우 우수한 책임성을 보여준다."
+        "rating_rationale": "청년 정책 강화는 실업률 개선을 위한 명확한 목표를 가지고 있으며, 청년층의 사회적 안정에 기여할 가능성이 높다."
       },
       {
         "item_id": 152003,
         "data_title": "서울시 비용 효율성",
         "collected_by": "ChatGPT",
         "original_rating": "A",
-        "new_rating": "B",
-        "rating_rationale": "예산의 효율적 운영은 낭비를 줄이는 중요한 정책이나, 구체적인 실행 결과나 성과가 부족해 다소 우수한 정도로 평가된다."
+        "new_rating": "A",
+        "rating_rationale": "서울시 예산의 효율적 운영 제안은 재정 책임성을 높이고, 시민의 세금이 낭비되지 않도록 하는 매우 중요한 조치이다."
       },
       {
         "item_id": 152004,
@@ -184,7 +184,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "기후 변화 대응 정책은 사회적 책임을 다하고 있으며, 서울의 지속 가능성을 높이려는 의도가 분명해 매우 우수한 책임성을 나타낸다."
+        "rating_rationale": "기후 변화 대응 정책은 지속 가능성을 위한 필수적인 노력이며, 서울의 환경 문제 해결에 기여할 것으로 기대된다."
       },
       {
         "item_id": 152005,
@@ -192,7 +192,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "C",
         "new_rating": "B",
-        "rating_rationale": "부동산 정책의 이행은 시장 안정성을 목표로 하지만, 구체적인 성과나 진행 상황에 대한 정보가 부족해 우수한 평가를 받는다."
+        "rating_rationale": "부동산 정책 이행은 시장 안정성을 위한 긍정적인 접근이지만, 구체적인 성과에 대한 추가 정보가 필요하다."
       },
       {
         "item_id": 152006,
@@ -200,7 +200,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "사회적 약자를 위한 복지 정책 강화는 시민의 기본적인 권리를 보장하려는 노력으로 매우 우수한 책임성을 나타낸다."
+        "rating_rationale": "사회적 약자를 위한 복지 정책 강화는 인권과 사회적 형평성을 증진시키는 중요한 노력으로 평가된다."
       },
       {
         "item_id": 152007,
@@ -208,7 +208,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "C",
         "new_rating": "A",
-        "rating_rationale": "저소득층과 청년을 위한 주거 안정 정책은 사회적 약자의 주거 문제 해결을 위해 중요한 기초를 마련하고 있어 매우 우수하다."
+        "rating_rationale": "저소득층과 청년을 위한 주거 안정 정책은 주거 문제 해결에 대한 실질적인 기여를 하고 있어 매우 긍정적이다."
       },
       {
         "item_id": 152008,
@@ -216,7 +216,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "협치 강화 방안은 다양한 이해관계자의 목소리를 반영하려는 시도를 보여주지만, 실질적인 성과가 부족해 우수하게 평가된다."
+        "rating_rationale": "협치 강화 방안은 다양한 이해관계자의 의견을 반영할 수 있는 긍정적인 방향이나, 실제 실행 가능성이 관건이다."
       },
       {
         "item_id": 152009,
@@ -224,7 +224,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "A",
         "new_rating": "B",
-        "rating_rationale": "정기적인 정보 제공과 교육 프로그램 운영은 시민의 이해를 돕는 긍정적인 노력이지만, 더 많은 참여 유도가 필요하다."
+        "rating_rationale": "정기적인 정책 홍보와 교육 프로그램 운영은 시민의 이해도를 높이는 효과가 있지만, 실질적 참여를 유도하는 방안이 필요하다."
       },
       {
         "item_id": 152010,
@@ -232,7 +232,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "전자 행정 시스템 강화는 행정 효율성과 시민 접근성을 높이는 중요한 정책으로 매우 우수한 책임성을 보여준다."
+        "rating_rationale": "전자 행정 시스템 강화는 행정의 효율성을 높이고 시민의 접근성을 개선하여 정부의 책임성을 높이는 중요한 조치이다."
       },
       {
         "item_id": 152011,
@@ -240,7 +240,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "C",
         "new_rating": "B",
-        "rating_rationale": "문화예술 정책 지원 강화는 문화 경쟁력을 높이려는 긍정적인 의도가 있지만, 구체적인 실행 계획이 부족해 우수한 평가를 받는다."
+        "rating_rationale": "문화예술 정책 지원 강화는 서울시의 문화 경쟁력 향상에 기여할 것으로 보이나, 구체적인 실행 계획이 필요하다."
       },
       {
         "item_id": 152012,
@@ -248,7 +248,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "오세훈은 교통문제 해결을 위한 구체적인 공약을 제시하고 실행에 옮겼으며, 이는 시민의 삶의 질 향상에 크게 기여한 점에서 매우 우수하다."
+        "rating_rationale": "오세훈은 구체적인 교통 개선 공약을 세우고 실제로 일부 노선을 개선하여 교통 혼잡도를 줄이는 데 기여하였다. 이는 책임감 있는 행정으로 평가된다."
       },
       {
         "item_id": 152013,
@@ -256,7 +256,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "주택 공급 계획이 추진되었으나 여전히 부족한 점이 존재하여 기대에 미치지 못하는 부분이 있어 양호하지만 개선이 필요하다."
+        "rating_rationale": "주택 공급 계획을 추진했으나 여전히 부족한 부분이 존재하여 기대에 미치지 못했다. 개선 가능성이 있으나 실적이 아쉬운 상황이다."
       },
       {
         "item_id": 152014,
@@ -264,7 +264,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "코로나19 대응에서 신속한 백신 접종과 정책 시행이 있었으나 지연 사례가 있어 전반적으로 우수하나 개선 요소가 있다."
+        "rating_rationale": "코로나19 대응 정책은 신속한 백신 접종으로 시민 안전을 도모했으나 일부 지연이 있었다. 전반적으로 책임감 있는 대응으로 평가된다."
       },
       {
         "item_id": 152015,
@@ -272,7 +272,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "환경 정책은 시행되었으나 대기질 문제 해결에 미흡함이 있어 양호하나 보다 강력한 조치가 필요하다."
+        "rating_rationale": "대기질 개선을 위한 정책을 시행하였으나 대기질이 여전히 우려되는 수준이다. 노력은 있으나 효과가 미흡하다."
       },
       {
         "item_id": 152016,
@@ -280,7 +280,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "반려동물 정책 강화와 다양한 프로그램 시행은 동물 보호에 매우 긍정적인 영향을 미쳐 매우 우수하게 평가된다."
+        "rating_rationale": "반려동물 정책 강화를 통해 동물 보호 및 복지 향상에 기여하였으며, 캠페인을 통해 문화 정상화를 제안한 것은 긍정적이다."
       },
       {
         "item_id": 152017,
@@ -288,15 +288,15 @@
         "collected_by": "ChatGPT",
         "original_rating": "D",
         "new_rating": "D",
-        "rating_rationale": "예산 배분 투명성을 위한 노력이 있었으나 일부 자치구의 불투명함으로 비판받아 보통 수준이다."
+        "rating_rationale": "예산 배분 투명성을 높이기 위한 노력이 있었으나 불투명한 사례가 있어 비판받았다. 책임성에서 부족함이 드러난다."
       },
       {
         "item_id": 152018,
         "data_title": "학교 폭력 예방 정책",
         "collected_by": "ChatGPT",
         "original_rating": "C",
-        "new_rating": "E",
-        "rating_rationale": "학교 폭력 예방 프로그램 추진에도 불구하고 효과가 부족하다는 비판이 있어 개선의 여지가 많아 미흡하다."
+        "new_rating": "D",
+        "rating_rationale": "학교 폭력 예방 프로그램을 추진하였으나 효과적인 실적이 부족하여 비판을 받았다. 책임성에서 다소 미흡한 부분이 있다."
       },
       {
         "item_id": 152019,
@@ -304,23 +304,23 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "문화예술 지원 정책은 지역 예술가들에게 실질적 도움을 주었으나 예산 한계로 모든 지원이 어렵다는 점에서 우수하나 완전하지 않다."
+        "rating_rationale": "문화예술 지원 정책을 통해 지역 예술가들에게 도움을 주었으나 예산의 한계로 모든 신청자에게 지원할 수 없는 점은 아쉬움이 남는다."
       },
       {
         "item_id": 152020,
         "data_title": "서울시 노숙인 정책",
         "collected_by": "ChatGPT",
         "original_rating": "D",
-        "new_rating": "F",
-        "rating_rationale": "노숙인 정책은 추진되었으나 종합적인 대책 부족으로 여전히 많은 문제를 안고 있어 부족한 평가를 받는다."
+        "new_rating": "E",
+        "rating_rationale": "노숙인 문제 해결을 위한 정책을 추진했으나 종합적인 대책 부족으로 여전히 많은 노숙인이 거리에서 생활하고 있다. 책임성이 부족하다."
       },
       {
         "item_id": 152021,
         "data_title": "공공시설 관리 및 개선",
         "collected_by": "ChatGPT",
         "original_rating": "E",
-        "new_rating": "G",
-        "rating_rationale": "공공시설 관리에 소극적인 자세와 재정적 문제로 개선이 더딘 상황은 매우 부족한 책임성을 보여준다."
+        "new_rating": "F",
+        "rating_rationale": "공공시설 관리 및 개선에 대해 소극적인 입장이 비판받았으며, 재정적 문제로 개선 속도가 더딘 상황이다. 책임성이 매우 부족하다."
       },
       {
         "item_id": 152022,
@@ -328,7 +328,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "도시재생 프로젝트는 지역 활성화를 도모했으나, 논란이 있는 정책으로 인해 책임성이 부족하다."
+        "rating_rationale": "도시재생 프로젝트가 지역 활성화에 기여했으나 일부 지역의 논란은 정책의 책임성을 떨어뜨렸다."
       },
       {
         "item_id": 152023,
@@ -336,7 +336,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "D",
         "new_rating": "D",
-        "rating_rationale": "안전 관리 및 재난 예방 정책에 대한 투자에도 불구하고 실질적인 성과가 미미하여 보통 수준의 책임성으로 평가된다."
+        "rating_rationale": "안전 관리 및 재난 예방 정책의 투자가 있었으나, 실질적인 개선이 미비해 책임성이 부족하다."
       },
       {
         "item_id": 152024,
@@ -344,63 +344,63 @@
         "collected_by": "ChatGPT",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "교통 안전 단속 정책이 시행되었으나 교통사고 증가 문제 해결이 부족하여 책임성이 미흡하다고 판단된다."
+        "rating_rationale": "교통 단속 정책이 시행되었으나 사고 증가 문제 해결에 실패하여 책임성이 미흡하다."
       },
       {
         "item_id": 152025,
         "data_title": "디지털 행정 서비스 개선",
         "collected_by": "ChatGPT",
         "original_rating": "D",
-        "new_rating": "E",
-        "rating_rationale": "디지털 행정 서비스 개선이 이루어졌으나 사용자 만족도가 낮아 정책의 실효성이 떨어져 책임성이 미흡하다."
+        "new_rating": "D",
+        "rating_rationale": "디지털 행정 서비스 개선이 이루어졌으나 사용자 만족도가 낮아 책임성을 다하지 못했다."
       },
       {
         "item_id": 152026,
         "data_title": "사회적 기업 지원 정책",
         "collected_by": "ChatGPT",
         "original_rating": "E",
-        "new_rating": "D",
-        "rating_rationale": "사회적 기업 지원 정책이 마련되었으나 지원금 부족으로 기대 이하의 결과가 발생해 보통 수준의 책임성으로 평가된다."
+        "new_rating": "E",
+        "rating_rationale": "사회적 기업 지원 정책이 있으나 지원금 부족으로 기대 이하의 결과가 나와 책임성이 떨어진다."
       },
       {
         "item_id": 152027,
         "data_title": "청년 정책 및 일자리 창출",
         "collected_by": "ChatGPT",
         "original_rating": "D",
-        "new_rating": "E",
-        "rating_rationale": "청년 일자리 창출 정책이 시행되었으나 여전히 많은 청년들이 취업에 어려움을 겪고 있어 책임성이 미흡하다."
+        "new_rating": "F",
+        "rating_rationale": "청년 일자리 창출 정책이 시행되었으나 취업 어려움이 여전해 실질적 책임성을 결여했다."
       },
       {
         "item_id": 152028,
         "data_title": "전문가 자문 및 의견 수렴 과정",
         "collected_by": "ChatGPT",
         "original_rating": "C",
-        "new_rating": "D",
-        "rating_rationale": "정책 결정 과정에서 전문가 자문과 의견 수렴이 이루어졌으나 소홀함으로 비판받아 보통 수준의 책임성이다."
+        "new_rating": "C",
+        "rating_rationale": "전문가 자문과 시민 의견이 일부 반영되었으나 소홀함으로 비판받아 양호한 수준에 머물렀다."
       },
       {
         "item_id": 152029,
         "data_title": "정책 홍보 및 소통",
         "collected_by": "ChatGPT",
         "original_rating": "C",
-        "new_rating": "E",
-        "rating_rationale": "정책 홍보는 활성화되었으나 시민 이해도가 낮아 실효성 의문이 제기되어 책임성이 미흡하다."
+        "new_rating": "D",
+        "rating_rationale": "정책 홍보가 활성화되었지만 시민 이해도가 낮아 실효성에 대한 의문이 제기됨."
       },
       {
         "item_id": 152030,
         "data_title": "시민 참여 확대 정책",
         "collected_by": "ChatGPT",
         "original_rating": "D",
-        "new_rating": "F",
-        "rating_rationale": "시민 참여 확대 정책이 시행되었으나 낮은 참여율로 효과성에 문제가 제기되어 책임성이 부족하다."
+        "new_rating": "E",
+        "rating_rationale": "시민 참여 확대 정책이 시행되었으나 낮은 참여율로 효과성이 문제시되고 있어 책임성이 부족하다."
       },
       {
         "item_id": 152031,
         "data_title": "사회적 안전망 구축 노력",
         "collected_by": "ChatGPT",
         "original_rating": "E",
-        "new_rating": "D",
-        "rating_rationale": "사회적 안전망 구축 노력은 있었으나 범죄 예방 성과가 저조해 보통 수준의 책임성을 가진다."
+        "new_rating": "F",
+        "rating_rationale": "사회적 안전망 구축 노력이 있었으나 범죄 예방 성과가 저조해 책임성을 결여한 것으로 평가된다."
       },
       {
         "item_id": 151932,
@@ -408,7 +408,7 @@
         "collected_by": "Grok",
         "original_rating": "F",
         "new_rating": "E",
-        "rating_rationale": "주택 공급 정책의 이행 지연은 시민들의 주거 불안을 심화시켰으며, 이는 오세훈의 책임성을 크게 저하시켰다."
+        "rating_rationale": "주택 공급 정책 이행 지연은 시민의 주거 불안을 가중시켰으며, 예산 부족 문제로 인해 공약 달성률이 낮아 책임성이 미흡하다."
       },
       {
         "item_id": 151933,
@@ -416,23 +416,23 @@
         "collected_by": "Grok",
         "original_rating": "G",
         "new_rating": "F",
-        "rating_rationale": "과거 국회의원 시절 출석률이 낮았고, 이는 중요한 법안 논의에서의 부재로 이어져 의정 활동의 책임성이 부족함을 보여준다."
+        "rating_rationale": "국회의원 시절 출석률이 낮아 중요한 법안 심의에 참여하지 못한 점은 의정 활동의 책임성을 심각하게 저하시켰다."
       },
       {
         "item_id": 151934,
         "data_title": "환경 정책 관련 실기",
         "collected_by": "Grok",
         "original_rating": "E",
-        "new_rating": "E",
-        "rating_rationale": "환경 정책의 실기는 기후 변화 대응에 대한 책임을 다하지 못한 것으로, 예산 집행의 부적절함이 문제로 지적된다."
+        "new_rating": "D",
+        "rating_rationale": "환경 정책 실기와 예산 집행 부적절로 인한 목표 미달성은 양호하나, 기후 변화 대응의 책임성이 부족하게 평가된다."
       },
       {
         "item_id": 151935,
         "data_title": "재정 관리 논란",
         "collected_by": "Grok",
         "original_rating": "F",
-        "new_rating": "F",
-        "rating_rationale": "재정 관리에서의 예산 초과 지출은 공공 자금 운용의 책임성을 저하시키며, 세금 낭비로 이어진 점이 비판받고 있다."
+        "new_rating": "E",
+        "rating_rationale": "재정 관리 논란에서 예산 초과 지출이 발생하여 세금 낭비로 이어졌고, 이는 공공 자금 운용의 책임성이 미흡한 사례다."
       },
       {
         "item_id": 151936,
@@ -440,7 +440,7 @@
         "collected_by": "Grok",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "대중 교통 정책의 실패는 시민의 이동권 보장을 약화시켰으며, 이는 오세훈의 책임성이 결여된 사례로 볼 수 있다."
+        "rating_rationale": "대중 교통 정책의 지연은 시민 불편을 초래하며, 이동권 보장에 대한 책임성을 약화시킨 문제로 평가된다."
       },
       {
         "item_id": 151937,
@@ -448,7 +448,7 @@
         "collected_by": "Grok",
         "original_rating": "F",
         "new_rating": "E",
-        "rating_rationale": "코로나19 대응 공약 미이행은 고위험군 보호와 의료 시스템 강화에 실패하여 시민 불만을 초래, 책임성이 부족하다."
+        "rating_rationale": "코로나19 대응 공약 미이행으로 고위험군 보호와 의료 시스템 강화가 부족해 책임성이 미흡하다는 비판을 받았다."
       },
       {
         "item_id": 151938,
@@ -456,7 +456,7 @@
         "collected_by": "Grok",
         "original_rating": "G",
         "new_rating": "F",
-        "rating_rationale": "부동산 정책의 실패는 주거 불안을 가중시켰고, 서민층의 불만이 폭발하게 만든 점에서 책임성이 결여된 것으로 평가된다."
+        "rating_rationale": "부동산 정책 실패로 주거 불안이 가중되고, 서민층의 불만이 폭발한 것은 정책 실행의 책임성이 부족한 점을 드러낸다."
       },
       {
         "item_id": 151939,
@@ -464,7 +464,7 @@
         "collected_by": "Grok",
         "original_rating": "E",
         "new_rating": "F",
-        "rating_rationale": "국회의원 시절 낮은 출석률은 지역구 대표로서의 책임을 소홀히 한 것으로, 이후 서울시장으로서도 일관된 책임성 결여를 드러낸다."
+        "rating_rationale": "국회의원 시절 본회의 출석률 저조는 지역구 대표로서의 책임을 소홀히 한 것으로, 이후에도 일관된 책임성 결여가 드러났다."
       },
       {
         "item_id": 151940,
@@ -472,15 +472,15 @@
         "collected_by": "Grok",
         "original_rating": "F",
         "new_rating": "E",
-        "rating_rationale": "도시 개발 공약의 이행 지연은 시민 안전을 위협하고 예산 낭비 문제로 이어져, 공약 실천의 책임성을 문제 삼는 요소가 된다."
+        "rating_rationale": "도시 개발 공약 이행 지연과 부실 시공 문제는 시민 안전을 위협하며, 공약 실천에 대한 책임성이 미흡하게 평가된다."
       },
       {
         "item_id": 151941,
         "data_title": "재난 대비 공약 실천 실패",
         "collected_by": "Grok",
         "original_rating": "G",
-        "new_rating": "E",
-        "rating_rationale": "재난 대비 공약의 미이행은 실제 재난 시 대응력이 약화되어 시민 안전을 위협하였고, 이는 책임성 결여로 비판받고 있다."
+        "new_rating": "F",
+        "rating_rationale": "재난 대비 공약 실천 실패로 실제 재난 시 대응력이 약화되어, 공약 미이행에 대한 책임성이 부족하다는 비판을 받았다."
       },
       {
         "item_id": 151942,
@@ -488,7 +488,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "코로나19 방역 공약을 이행하고 백신 접종을 촉진했으나 초기 대응 지연으로 비판을 받았다."
+        "rating_rationale": "코로나19 대응 공약을 이행했으나 초기 대응 지연으로 비판이 있었음에도 불구하고 백신 접종을 성공적으로 완료하여 안정화에 기여함."
       },
       {
         "item_id": 151943,
@@ -496,7 +496,7 @@
         "collected_by": "Grok",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "한강 르네상스 프로젝트를 통해 친환경 공원과 레저 시설을 성공적으로 확장하여 이용자 수가 증가했다."
+        "rating_rationale": "한강 르네상스 프로젝트를 통해 친환경 공원과 레저 시설을 성공적으로 확대하여 이용자 수 증가라는 긍정적 성과를 달성함."
       },
       {
         "item_id": 151944,
@@ -504,7 +504,7 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "교통 인프라 개선을 통해 교통 지체 문제를 해결했으나 예산 초과 지출 문제가 발생해 책임성에 문제가 있다."
+        "rating_rationale": "교통 인프라 개선 약속을 이행하여 교통 지체를 감소시켰지만 예산 초과 지출 문제가 발생하여 책임성에 약간의 의문이 있음."
       },
       {
         "item_id": 151945,
@@ -512,7 +512,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "용산 개발 프로젝트를 통해 일자리 창출과 지역 경제 활성화 효과를 기대할 수 있어 책임성이 높다."
+        "rating_rationale": "용산 개발 프로젝트를 통해 지역 경제 활성화를 기대할 수 있는 일자리 창출이 예상되며, 공약 이행이 잘 이루어지고 있음."
       },
       {
         "item_id": 151946,
@@ -520,7 +520,7 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "환경 보호 정책을 추진하여 미세먼지 농도를 감소시켰으나 일부 정책이 지연되어 책임성이 다소 부족하다."
+        "rating_rationale": "미세먼지 저감 정책을 실행하여 긍정적인 결과를 도출했지만 일부 정책의 지연이 발생하여 책임성에 영향을 미침."
       },
       {
         "item_id": 151947,
@@ -528,7 +528,7 @@
         "collected_by": "Grok",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "경제 활성화를 위한 지원 공약을 성공적으로 이행하여 소상공인 매출 증가를 이끌어냈다."
+        "rating_rationale": "소상공인 지원을 통해 매출 증가라는 실질적인 성과를 이끌어내었으며, 코로나19 극복을 위한 정책이 잘 이행됨."
       },
       {
         "item_id": 151948,
@@ -536,7 +536,7 @@
         "collected_by": "Grok",
         "original_rating": "D",
         "new_rating": "C",
-        "rating_rationale": "교육 인프라 투자로 많은 학교를 업그레이드했지만 예산 배분 불균형이 제기되어 책임성이 낮아 보인다."
+        "rating_rationale": "학교 리모델링과 디지털 교실 도입을 추진하였으나 예산 배분의 불균형 문제가 제기되어 완전한 책임성을 보이지 않음."
       },
       {
         "item_id": 151949,
@@ -544,7 +544,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "D",
-        "rating_rationale": "복지 확대 정책을 시행했지만 예산 효율성 논란이 있어 책임성이 미흡하다고 평가된다."
+        "rating_rationale": "저소득층 지원 정책을 시행하여 수급자 수가 증가했으나 예산 효율성 논란이 있어 개선의 여지가 있음."
       },
       {
         "item_id": 151950,
@@ -552,15 +552,15 @@
         "collected_by": "Grok",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "행정 투명성 강화를 위한 데이터 공개 플랫폼 구축이 성공적으로 이루어져 시민의 접근성이 높아졌다."
+        "rating_rationale": "행정 투명성을 위한 데이터 공개 플랫폼 구축으로 시민 접근성을 높이며 공공 정보 공개 양이 크게 증가함."
       },
       {
         "item_id": 151951,
         "data_title": "부패 방지 노력",
         "collected_by": "Grok",
         "original_rating": "C",
-        "new_rating": "A",
-        "rating_rationale": "부패 방지 노력을 통해 부패 신고 건수를 줄이는 성과를 올려 책임성이 높다."
+        "new_rating": "B",
+        "rating_rationale": "부패 방지를 위한 감사 시스템 강화로 부패 신고 건수가 줄어드는 긍정적인 결과를 도출하였지만 지속적인 개선이 필요함."
       },
       {
         "item_id": 151952,
@@ -568,7 +568,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "95%의 출석률과 주요 법안 토론 참여는 정치인으로서의 책임성을 매우 잘 보여줍니다."
+        "rating_rationale": "오세훈의 출석률 95%는 정치인의 책임성을 높이는 중요한 지표로, 법안 토론 참여도 높아 매우 우수한 평가를 받습니다."
       },
       {
         "item_id": 151953,
@@ -576,7 +576,7 @@
         "collected_by": "Grok",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "예산 절감 효과와 높은 집행률은 예산 관리의 책임성을 매우 우수하게 나타냅니다."
+        "rating_rationale": "예산 절감 효과 10%는 재정 관리의 책임성을 보여주며, 높은 집행률로 예산을 효율적으로 운용했다는 점에서 매우 우수합니다."
       },
       {
         "item_id": 151954,
@@ -584,7 +584,7 @@
         "collected_by": "Grok",
         "original_rating": "D",
         "new_rating": "C",
-        "rating_rationale": "재난 대비 정책의 강화는 긍정적이나 초기 준비 부족이 지적되어 양호한 평가를 받습니다."
+        "rating_rationale": "재난 대비 정책이 강화되었으나 초기 준비 부족이 지적되어 양호한 평가를 받으며, 재난 발생률 감소는 긍정적 요소입니다."
       },
       {
         "item_id": 151955,
@@ -592,15 +592,15 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "A",
-        "rating_rationale": "문화 예술 지원 예산 증가와 참여자 수 증가로 책임성을 매우 잘 실현했습니다."
+        "rating_rationale": "문화예술 예산 15% 증가는 문화 지원에 대한 강한 의지를 나타내며, 참여 증가로 인해 매우 우수한 평가를 받습니다."
       },
       {
         "item_id": 151956,
         "data_title": "주택 정책 추진",
         "collected_by": "Grok",
         "original_rating": "B",
-        "new_rating": "B",
-        "rating_rationale": "공공 주택 건설 확대와 주택 가격 상승률 완화는 우수한 주거 안정화 정책으로 평가됩니다."
+        "new_rating": "A",
+        "rating_rationale": "공공 주택 10,000호 공급은 주거 안정화에 기여하며, 주택 가격 상승률 완화는 정책 효과를 잘 나타내어 매우 우수합니다."
       },
       {
         "item_id": 151957,
@@ -608,7 +608,7 @@
         "collected_by": "Grok",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "20,000개의 일자리를 창출하고 실업률을 낮춘 점은 고용 창출에 대한 책임성이 매우 우수합니다."
+        "rating_rationale": "20,000개의 일자리 창출과 함께 실업률 2% 하락은 고용 정책의 성공적 시행을 보여줘 매우 우수한 평가를 받습니다."
       },
       {
         "item_id": 151958,
@@ -616,7 +616,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "디지털 전환을 통한 행정 서비스 이용률 증가로 책임성을 우수하게 보여줍니다."
+        "rating_rationale": "스마트 시티 플랫폼 도입으로 행정 서비스 이용률이 증가했으나, 디지털 전환의 전반적인 효과는 향후 평가가 필요해 우수한 평가를 받습니다."
       },
       {
         "item_id": 151959,
@@ -624,7 +624,7 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "B",
-        "rating_rationale": "재생 에너지 시설 확대와 탄소 배출량 감소는 지속 가능한 발전에 대한 우수한 노력으로 평가됩니다."
+        "rating_rationale": "재생 에너지 시설 확대와 탄소 배출량 감소는 지속 가능한 발전에 기여하나, 보다 구체적인 성과가 필요해 우수한 평가를 받습니다."
       },
       {
         "item_id": 151960,
@@ -632,7 +632,7 @@
         "collected_by": "Grok",
         "original_rating": "D",
         "new_rating": "A",
-        "rating_rationale": "주요 국제 회의를 성공적으로 주최하고 외국 투자 유입 증가를 이끌어낸 점에서 매우 우수합니다."
+        "rating_rationale": "주요 국제 회의 유치는 외국 투자 증가와 연결되어 국제 협력의 중요성을 잘 보여주며, 매우 우수한 평가를 받습니다."
       },
       {
         "item_id": 151961,
@@ -640,7 +640,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "시민 의견 수렴 확대와 정책 결정 반영은 시민 참여 증대에 대한 책임성을 매우 잘 보여줍니다."
+        "rating_rationale": "시민 참여율 25% 증가로 정책 결정 과정에 시민 의견이 반영되어 책임성을 높였으며, 매우 우수한 평가를 받습니다."
       },
       {
         "item_id": 151962,
@@ -648,7 +648,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "코로나19 대응 공약 이행에서 백신 접종 확대는 긍정적이나 봉쇄 조치 지연으로 비판을 받았다."
+        "rating_rationale": "코로나19 대응 공약 이행은 전반적으로 긍정적이나 일부 지역 봉쇄 조치 지연으로 비판을 받음."
       },
       {
         "item_id": 151963,
@@ -656,7 +656,7 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "도시 재생 프로젝트는 일부 성과가 있으나 예산 초과와 지연으로 주민 불만이 제기되어 양호하지만 부족한 점이 있다."
+        "rating_rationale": "도시 재생 프로젝트가 일부 진행되었으나 예산 초과와 지연으로 주민 불만이 제기됨."
       },
       {
         "item_id": 151964,
@@ -664,23 +664,23 @@
         "collected_by": "Grok",
         "original_rating": "D",
         "new_rating": "D",
-        "rating_rationale": "교통 정책 공약은 일부 이행되었으나 예산 부족으로 실행이 제한적이었다. 전반적으로 보통 수준."
+        "rating_rationale": "교통 정책 공약 일부만 이행되었고, 예산 부족으로 완전한 이행이 어려워 책임성 문제 발생."
       },
       {
         "item_id": 151965,
         "data_title": "환경 정책 이행",
         "collected_by": "Grok",
         "original_rating": "E",
-        "new_rating": "E",
-        "rating_rationale": "환경 정책 목표 달성률이 낮아 비판을 받았으며 성과 관리에 있어 미흡한 점이 부각되었다."
+        "new_rating": "C",
+        "rating_rationale": "환경 정책 이행이 일정 부분 성공했지만 목표 달성률이 낮아 비판을 받음."
       },
       {
         "item_id": 151966,
         "data_title": "교육 투자 공약",
         "collected_by": "Grok",
         "original_rating": "C",
-        "new_rating": "E",
-        "rating_rationale": "교육 투자 공약 이행이 기대에 미치지 못하며 불평등 문제가 지속되어 책임성 측면에서 미흡하다."
+        "new_rating": "D",
+        "rating_rationale": "교육 투자 공약 일부 이행에도 불구하고 예산 증가가 기대에 미치지 못해 교육 불평등 지속."
       },
       {
         "item_id": 151967,
@@ -688,7 +688,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "C",
-        "rating_rationale": "주거 정책에서 일부 프로젝트가 진행되었으나 부동산 가격 상승으로 효과가 제한적이었다. 양호하지만 성과가 부족하다."
+        "rating_rationale": "주거 정책 이행이 일부 성공적이나 부동산 가격 상승으로 효과가 제한적임."
       },
       {
         "item_id": 151968,
@@ -696,7 +696,7 @@
         "collected_by": "Grok",
         "original_rating": "D",
         "new_rating": "D",
-        "rating_rationale": "경제 활성화 공약은 프로그램 이행이 있었으나 경기 침체로 성과가 기대에 못 미쳐 보통 수준으로 평가된다."
+        "rating_rationale": "경제 활성화 공약이 경기 침체로 기대 성과를 달성하지 못해 책임성에 도전적인 요소 존재."
       },
       {
         "item_id": 151969,
@@ -704,7 +704,7 @@
         "collected_by": "Grok",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "문화 예술 지원 공약은 예산 축소로 일부 프로그램이 취소되어 책임성 관리의 부족을 드러내고 있다."
+        "rating_rationale": "문화 예술 지원 공약 일부 이행되었으나 예산 축소로 프로그램 취소가 발생하여 책임성 부족."
       },
       {
         "item_id": 151970,
@@ -712,7 +712,7 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "B",
-        "rating_rationale": "공공 안전 강화는 일부 성과가 있었으나 지역별 미비점이 존재하여 책임성 측면에서 우수하나 완전하지 않다."
+        "rating_rationale": "공공 안전 강화 정책에서 범죄율 감소 성과가 있으나 일부 지역에서 미비함."
       },
       {
         "item_id": 151971,
@@ -720,7 +720,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "C",
-        "rating_rationale": "디지털 행정 도입은 성공적으로 진행되었으나 접근성 문제는 책임성 평가에 있어 아쉬운 점이 있다."
+        "rating_rationale": "디지털 행정 도입은 성공적이나 고령자 접근성 문제로 인해 책임성에 있어 완전하지 않음."
       },
       {
         "item_id": 151972,
@@ -728,7 +728,7 @@
         "collected_by": "Grok",
         "original_rating": "D",
         "new_rating": "C",
-        "rating_rationale": "복지 정책이 일부 확대되었으나, 예산 한계로 모든 계층을 커버하지 못해 책임성이 떨어진다."
+        "rating_rationale": "저소득층 지원 프로그램 강화는 긍정적이나, 예산 한계로 모든 계층을 커버하지 못한 점에서 책임성이 양호하다고 평가할 수 있다."
       },
       {
         "item_id": 151973,
@@ -736,7 +736,7 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "D",
-        "rating_rationale": "대부분 회의에 출석했으나, 중요한 회의 결석으로 공약 이행에 대한 책임성이 부족하다."
+        "rating_rationale": "대부분의 회의에 출석했으나 중요한 회의에서의 결석은 공약 이행과 관련된 책임성 문제를 나타내어 보통으로 평가된다."
       },
       {
         "item_id": 151974,
@@ -744,23 +744,23 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "예산 관리의 투명성을 유지했으나 일부 프로젝트의 과다 지출로 책임성이 약화되었다."
+        "rating_rationale": "예산 투명성을 확보하고 불필요한 지출을 줄였으나 일부 프로젝트에서 과다 지출이 발생하여 전반적으로 우수하나 미흡한 점이 있다."
       },
       {
         "item_id": 151975,
         "data_title": "반부패 노력",
         "collected_by": "Grok",
         "original_rating": "E",
-        "new_rating": "D",
-        "rating_rationale": "부패 방지 노력은 있으나 완전한 근절이 이루어지지 않아 책임성이 미흡하다."
+        "new_rating": "C",
+        "rating_rationale": "부패 방지 노력을 기울였으나 완전한 근절이 이루어지지 않아 책임성이 양호하다고 평가된다."
       },
       {
         "item_id": 151976,
         "data_title": "재난 관리",
         "collected_by": "Grok",
         "original_rating": "D",
-        "new_rating": "C",
-        "rating_rationale": "재난 대비 시스템 개선이 있었으나 준비 부족으로 피해가 발생해 책임성이 약간 부족하다."
+        "new_rating": "D",
+        "rating_rationale": "재난 대비 시스템 개선은 긍정적이나, 준비 부족으로 피해가 발생한 점에서 책임성이 보통으로 평가된다."
       },
       {
         "item_id": 151977,
@@ -768,7 +768,7 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "D",
-        "rating_rationale": "국제 행사 추진이 있었으나 일부 행사 취소로 성과가 제한적이라 책임성이 떨어진다."
+        "rating_rationale": "국제 행사 추진은 긍정적이지만 일부 행사 취소로 인해 성과가 제한적이어서 책임성이 보통으로 평가된다."
       },
       {
         "item_id": 151978,
@@ -776,7 +776,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "C",
-        "rating_rationale": "관광 홍보 캠페인이 있지만 코로나로 효과가 감소하며 책임성이 제한적이었다."
+        "rating_rationale": "관광 산업 활성화를 위한 캠페인 실시가 있었으나 코로나 여파로 효과가 줄어들어 부분적으로 책임성이 양호하다고 볼 수 있다."
       },
       {
         "item_id": 151979,
@@ -784,7 +784,7 @@
         "collected_by": "Grok",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "청년 일자리 창출 프로그램 도입은 있으나 고용률 개선이 미미하여 책임성이 떨어진다."
+        "rating_rationale": "청년 일자리 창출을 위한 지원 프로그램 도입은 긍정적이나 고용률 개선이 미미하여 책임성이 미흡하다고 평가된다."
       },
       {
         "item_id": 151980,
@@ -792,15 +792,15 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "고령자 의료 지원 확대는 긍정적이나 전체 커버리지가 부족하여 책임성이 약하다."
+        "rating_rationale": "고령자 복지 향상을 위한 의료 지원 확대가 일부 혜택 증가로 이어졌으나 전체 커버리지 부족은 양호하나 부족한 측면이 있다."
       },
       {
         "item_id": 151981,
         "data_title": "지속 가능성 추진",
         "collected_by": "Grok",
         "original_rating": "D",
-        "new_rating": "D",
-        "rating_rationale": "지속 가능한 도시 개발을 위한 프로젝트가 있으나 초기 이행 지연으로 책임성이 부족하다."
+        "new_rating": "E",
+        "rating_rationale": "지속 가능한 도시 개발을 위한 프로젝트 시행은 긍정적이나 장기 효과 불확실성과 초기 이행 지연으로 인해 책임성이 미흡하다."
       },
       {
         "item_id": 107688,
@@ -808,7 +808,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "E",
         "new_rating": "C",
-        "rating_rationale": "역세권 청년주택 정책의 비판은 존재하나, 정책 자체에 대한 대안 제시가 부족하여 양호한 수준으로 평가."
+        "rating_rationale": "청년주택 정책에 대한 비판이 존재하지만, 정책 자체는 청년 주거 안정화를 목표로 하고 있어 양호한 측면이 있음."
       },
       {
         "item_id": 107689,
@@ -816,7 +816,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "D",
         "new_rating": "D",
-        "rating_rationale": "방역 정책의 일관성 부족은 시민의 건강에 직접적인 영향을 미치며, 보통 수준의 책임성을 가지는 것으로 평가."
+        "rating_rationale": "방역 정책의 일관성 부족과 갈등이 발생했으나, 방역의 중요성을 감안할 때 다소 개선의 여지가 있음."
       },
       {
         "item_id": 107690,
@@ -824,7 +824,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "예산 집행의 불투명성은 공공의 신뢰를 저하시킬 수 있어 미흡한 책임성을 보인다고 판단."
+        "rating_rationale": "예산 집행의 불투명성이 지적되어 신뢰도 저하가 우려되며, 투명성을 강화할 필요성이 있음."
       },
       {
         "item_id": 107691,
@@ -832,7 +832,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "D",
         "new_rating": "C",
-        "rating_rationale": "무상교통 정책의 재정 부담 논란은 장기적 관점에서 고민이 필요하지만, 현재까지 큰 문제가 발생하지 않음."
+        "rating_rationale": "재정부담 우려가 있지만, 무상교통 정책은 대중교통 이용 촉진을 위한 시도로 의미가 있음."
       },
       {
         "item_id": 107692,
@@ -840,7 +840,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "E",
         "new_rating": "D",
-        "rating_rationale": "부동산 정책의 실효성 부족은 중대한 문제이나, 정책이 시행된 지 시간이 부족하여 보통으로 평가."
+        "rating_rationale": "부동산 정책의 성과 미흡이 지적되지만, 정책의 목표 자체는 필요하며 개선이 요구됨."
       },
       {
         "item_id": 107693,
@@ -848,7 +848,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "E",
         "new_rating": "F",
-        "rating_rationale": "공공임대주택 공급 축소는 주거 취약계층에 대한 책임성을 크게 저하시키는 문제로, 부족한 책임성을 평가."
+        "rating_rationale": "공공임대주택 공급 축소와 지원 약화는 주거 취약계층에게 부정적 영향을 미쳐 부족한 점이 크다."
       },
       {
         "item_id": 107694,
@@ -856,23 +856,23 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "F",
         "new_rating": "H",
-        "rating_rationale": "과거 민간인 불법 사찰 의혹은 치명적인 결함으로, 정치인의 신뢰성에 큰 타격을 주는 사항으로 평가."
+        "rating_rationale": "불법 사찰 의혹은 시민의 신뢰를 심각하게 훼손할 수 있는 문제로, 치명적 결함으로 평가됨."
       },
       {
         "item_id": 107695,
         "data_title": "부동산 정책 일관성 부족",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "D",
-        "new_rating": "E",
-        "rating_rationale": "부동산 정책의 잦은 변경은 시민의 신뢰를 저하시키며 미흡한 책임성을 나타냄."
+        "new_rating": "D",
+        "rating_rationale": "부동산 정책의 잦은 변경이 시민 불신을 초래하였으나, 정책 추진 의도는 긍정적이다."
       },
       {
         "item_id": 107696,
         "data_title": "코로나19 방역 정책 논란",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "E",
-        "new_rating": "D",
-        "rating_rationale": "코로나19 방역 정책의 일관성 부족은 시민의 건강과 안전에 영향을 미치는 문제로 보통으로 평가."
+        "new_rating": "E",
+        "rating_rationale": "코로나19 방역 조치의 일관성 부족과 지원 미흡 지적은 방역 체계의 신뢰성을 저하시키므로 미흡함."
       },
       {
         "item_id": 107697,
@@ -880,7 +880,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "D",
         "new_rating": "F",
-        "rating_rationale": "청년 일자리 정책의 미흡은 젊은 세대의 미래에 대한 책임성을 심각하게 저하시켜 부족한 평가."
+        "rating_rationale": "청년 일자리 정책의 성과 미흡은 청년층의 실업 문제를 심화시킬 수 있어 부족한 점이 크다."
       },
       {
         "item_id": 107698,
@@ -888,7 +888,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "신속한 방역체계 구축과 임시선별진료소 확대는 코로나19 대응에 대한 높은 책임성을 보여줍니다."
+        "rating_rationale": "신속한 방역체계 구축과 임시선별진료소 확대는 코로나19 대응의 책임성과 효율성을 높여 매우 우수한 평가를 받습니다."
       },
       {
         "item_id": 107699,
@@ -896,7 +896,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "B",
-        "rating_rationale": "공공주택 공급 확대와 청년주택 정책 추진은 부동산 문제 해결을 위한 긍정적 노력입니다."
+        "rating_rationale": "공공주택 공급 확대와 청년주택 정책 추진은 긍정적인 방향이나 일부 이행 지연이 발생해 우수하다고 평가합니다."
       },
       {
         "item_id": 107700,
@@ -904,7 +904,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "예산 집행 과정의 공개와 회계감사 협조는 투명성을 높여 책임성을 강화하는 데 기여합니다."
+        "rating_rationale": "예산 집행 과정의 투명성을 확보하고 회계감사를 적극적으로 협조하는 점은 매우 높은 책임성을 반영합니다."
       },
       {
         "item_id": 107701,
@@ -912,23 +912,23 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "취약계층 지원 확대와 긴급복지 프로그램 운영은 복지 정책에 있어 신뢰성을 높이는 조치입니다."
+        "rating_rationale": "취약계층 지원 확대와 긴급복지 프로그램 운영은 긍정적이나, 지속적인 재원 확보가 필요하여 우수하다고 평가합니다."
       },
       {
         "item_id": 107702,
         "data_title": "환경정책 이행",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
-        "new_rating": "B",
-        "rating_rationale": "미세먼지 저감 정책과 태양광 보급 확대는 환경 문제 해결을 위한 책임 있는 접근을 보여줍니다."
+        "new_rating": "A",
+        "rating_rationale": "미세먼지 저감과 태양광 보급 확대는 환경정책의 책임성을 높이며, 긍정적인 효과를 가져오는 정책입니다."
       },
       {
         "item_id": 107703,
         "data_title": "재난 대응 체계",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
-        "new_rating": "A",
-        "rating_rationale": "폭우 피해 대응과 도시 방재시스템 개선은 재난 대응 체계의 신뢰성과 책임성을 높입니다."
+        "new_rating": "B",
+        "rating_rationale": "폭우 피해 대응과 도시 방재시스템 개선은 보완이 필요하지만, 전반적으로 우수한 재난 대응 체계를 보여줍니다."
       },
       {
         "item_id": 107704,
@@ -936,7 +936,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "B",
-        "rating_rationale": "청년 일자리 지원과 소상공인 정책은 경제 활성화를 위한 책임 있는 접근을 보여줍니다."
+        "rating_rationale": "청년 일자리 지원과 소상공인 정책 추진은 일자리 창출을 위한 중요한 노력이나, 효과 측정에 대한 평가가 필요합니다."
       },
       {
         "item_id": 107705,
@@ -944,7 +944,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "온라인 시민참여 플랫폼 운영과 정책 소통 채널 확대는 시민과의 소통을 강화하며 책임성을 높입니다."
+        "rating_rationale": "온라인 시민참여 플랫폼 운영과 정책 소통 채널 확대는 시민과의 소통을 강화하여 매우 높은 책임성을 보여줍니다."
       },
       {
         "item_id": 107706,
@@ -952,15 +952,15 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "문화예술 지원 확대와 문화다양성 정책 추진은 문화 정책의 책임성을 향상시키는 긍정적 조치입니다."
+        "rating_rationale": "문화예술 지원과 문화다양성 정책은 긍정적이나, 실제 지원 효과에 대한 구체적인 데이터 부족으로 우수하다고 평가합니다."
       },
       {
         "item_id": 107707,
         "data_title": "교통정책 개선",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
-        "new_rating": "B",
-        "rating_rationale": "대중교통 인프라 확충과 친환경 교통정책 추진은 교통 문제 해결을 위한 책임 있는 정책을 나타냅니다."
+        "new_rating": "A",
+        "rating_rationale": "대중교통 인프라 확충과 친환경 교통정책 추진은 교통문제를 해결하는 데 중요한 기여를 하여 매우 우수한 책임성을 보입니다."
       },
       {
         "item_id": 107708,
@@ -968,7 +968,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "스마트시티 정책과 행정 디지털화는 시민의 삶의 질을 향상시키며, 효율적인 행정을 통해 책임성을 높이는 매우 긍정적인 방향이다."
+        "rating_rationale": "스마트시티 정책과 행정 디지털화 추진은 시민의 생활 편의성을 크게 향상시키며, 미래지향적인 행정 서비스를 제공하는 책임 있는 정책으로 평가됨."
       },
       {
         "item_id": 107709,
@@ -976,7 +976,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "A",
-        "rating_rationale": "범죄 예방과 시민 안전을 위한 인프라 구축은 시민의 안전을 최우선으로 하는 정책으로, 책임성이 매우 우수하다."
+        "rating_rationale": "범죄 예방 인프라 구축과 CCTV 확대는 시민 안전을 최우선으로 고려한 정책으로, 책임성과 신뢰성을 높이는 데 기여함."
       },
       {
         "item_id": 107710,
@@ -984,7 +984,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "B",
-        "rating_rationale": "여성 일자리 지원 및 성차별 개선 정책은 긍정적이지만, 보다 포괄적인 접근이 필요해 우수 등급을 부여한다."
+        "rating_rationale": "여성 일자리 지원과 성차별 개선 정책은 사회적 평등을 증진시키는 긍정적인 정책이지만, 실행의 구체성과 효과성이 부족할 수 있음."
       },
       {
         "item_id": 107711,
@@ -992,7 +992,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "시 예산의 건전성을 유지하고 채무를 관리하는 것은 재정적 책임성을 확립하는 중요한 요소로, 매우 우수한 평가를 받는다."
+        "rating_rationale": "시 예산의 건전성을 유지하고 채무 관리를 철저히 하는 것은 재정적 책임성을 보여주는 매우 우수한 정책임."
       },
       {
         "item_id": 107712,
@@ -1000,15 +1000,15 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "B",
-        "rating_rationale": "글로벌 도시 네트워크 구축은 국제적인 협력을 통해 도시의 발전을 도모하지만, 구체적인 성과가 더 필요하다."
+        "rating_rationale": "글로벌 도시 네트워크 구축과 국제협력은 도시의 경쟁력을 높이는 긍정적인 방향이나, 구체적인 성과가 부족할 수 있음."
       },
       {
         "item_id": 107713,
         "data_title": "청년정책",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
-        "new_rating": "B",
-        "rating_rationale": "청년 지원 정책은 중요한 필요성을 충족시키지만, 실행 과정에서의 구체적 성과가 부족해 우수 등급을 부여한다."
+        "new_rating": "A",
+        "rating_rationale": "청년수당과 창업지원 정책은 청년의 경제적 자립을 돕는 중요한 정책으로, 사회적 책임을 다하는 것으로 평가됨."
       },
       {
         "item_id": 107714,
@@ -1016,7 +1016,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "코로나19 대처를 위한 체계적인 방역과 백신접종 지원은 공공의 건강과 안전을 위한 책임 있는 접근으로 매우 우수하다."
+        "rating_rationale": "코로나19 백신접종 지원과 방역체계 구축은 시민의 건강과 안전을 지키기 위한 필수적 조치로, 매우 책임 있는 접근 방식임."
       },
       {
         "item_id": 107715,
@@ -1024,7 +1024,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "신재생에너지 확대는 환경 보호에 기여하나, 실행 가능성과 구체적인 계획의 부족으로 우수 등급을 부여한다."
+        "rating_rationale": "신재생에너지 확대와 에너지 전환 정책은 지속 가능한 발전을 위한 올바른 방향이지만, 실행의 구체성이 다소 미흡함."
       },
       {
         "item_id": 107716,
@@ -1032,15 +1032,15 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "A",
-        "rating_rationale": "코로나19로 인한 소상공인 지원은 경제적 위기를 극복하는 데 중요한 역할을 하며, 책임성이 매우 높다."
+        "rating_rationale": "코로나19 긴급지원금과 경영안정 지원은 소상공인을 보호하고 경제 회복을 돕는 중요한 조치로, 매우 책임 있는 정책임."
       },
       {
         "item_id": 107717,
         "data_title": "도시재생 정책",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
-        "new_rating": "C",
-        "rating_rationale": "도시재생 정책은 지역 발전에 기여하지만, 실행 과정에서의 문제나 비판이 있어 양호 등급을 부여한다."
+        "new_rating": "B",
+        "rating_rationale": "노후 도시지역 재개발과 도시재생 사업은 도시의 지속 가능성을 높이지만, 주민의 의견 반영과 사회적 합의가 부족할 수 있음."
       },
       {
         "item_id": 107718,
@@ -1048,7 +1048,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "재정 안정화 정책은 경제 위기 상황에서 시민의 안전과 복지를 담보하는 중요한 역할을 하며, 서울시의 재정 건전성을 유지하기 위한 적극적인 노력을 보여줍니다."
+        "rating_rationale": "코로나19 위기 속에서 재정 안정화를 위해 적극적인 정책을 추진하며 재정 건전성을 높이는 데 기여하고 있다는 점에서 매우 책임감 있는 행동으로 평가된다."
       },
       {
         "item_id": 107719,
@@ -1056,7 +1056,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "무보수로 시장직을 수행하며 개인의 이익보다 공공의 이익을 우선시한 점이 매우 긍정적입니다. 이는 시민에게 책임감 있는 리더십을 보여줍니다."
+        "rating_rationale": "무보수로 시장직을 수행하며 월급을 반납하는 것은 자신의 책임을 다하고 실질적인 재정 절감을 실천하는 것으로, 모범적인 사례로 평가된다."
       },
       {
         "item_id": 107720,
@@ -1064,7 +1064,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "D",
         "new_rating": "B",
-        "rating_rationale": "주택 공급 확대와 가격 안정화는 중요한 정책이지만, 실제 효과가 얼마나 있었는지에 대한 구체적인 성과가 부족해 우수하나 아쉬운 면이 있습니다."
+        "rating_rationale": "주택 공급 확대 및 가격 안정화 정책 추진은 긍정적이지만, 실행 과정에서의 구체적인 성과가 필요해 다소 부족한 측면이 있다."
       },
       {
         "item_id": 108764,
@@ -1072,7 +1072,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "코로나19 대응을 위해 재난지원금을 신속하게 지급한 것은 시민의 생계 유지에 중요한 역할을 하였으며, 책임 있는 행정으로 평가됩니다."
+        "rating_rationale": "코로나19 대응을 위한 재난지원금을 신속하게 지급함으로써 시민들의 경제적 어려움을 덜어주는 데 중요한 역할을 했다."
       },
       {
         "item_id": 108765,
@@ -1080,7 +1080,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "도시재생 프로젝트는 지역 발전에 기여하지만, 구체적인 성과나 주민 반응에 대한 언급이 부족하여 다소 아쉬운 점이 있습니다."
+        "rating_rationale": "도시재생 프로젝트는 긍정적이나, 전체적인 효과와 지속 가능성에 대한 평가가 필요해 다소 우수하다고 판단된다."
       },
       {
         "item_id": 108766,
@@ -1088,7 +1088,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "노후 지하철 시설의 현대화와 안전 강화를 위한 정책은 시민의 안전을 최우선으로 고려한 책임 있는 접근 방식입니다."
+        "rating_rationale": "노후 지하철 시설을 현대화하고 안전을 강화하는 정책은 시민의 안전과 편의를 극대화하는 매우 책임 있는 결정으로 평가된다."
       },
       {
         "item_id": 108767,
@@ -1096,15 +1096,15 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "A",
         "new_rating": "B",
-        "rating_rationale": "공원 및 녹지 공간 확대는 도시 환경 개선에 기여하나, 구체적인 실행 계획 및 성과가 부족하여 우수하나 아쉬운 평가를 받습니다."
+        "rating_rationale": "공원 및 녹지 공간 확대 정책은 도심 환경 개선에 기여하지만, 실행 가능성에 대한 추가적인 검토가 필요하여 우수한 평가를 받는다."
       },
       {
         "item_id": 108768,
         "data_title": "서울형 뉴딜 정책",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
-        "new_rating": "A",
-        "rating_rationale": "디지털 및 그린 뉴딜 정책은 지속 가능한 발전을 위한 중요한 방향성을 제시하며, 미래 지향적인 책임 있는 정책으로 평가됩니다."
+        "new_rating": "B",
+        "rating_rationale": "디지털 및 그린 뉴딜 정책을 추진하는 것은 미래 지향적이지만, 구체적인 실행 계획과 성과가 부족하여 다소 우수하게 평가된다."
       },
       {
         "item_id": 108769,
@@ -1112,7 +1112,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "B",
-        "rating_rationale": "대중교통 개선과 자전거 도로 확충은 교통 혼잡 문제 해결에 기여하나, 구체적인 데이터나 성과에 대한 정보가 부족하여 우수하나 아쉬운 평가입니다."
+        "rating_rationale": "대중교통 개선과 자전거 도로 확충은 시민의 편의를 증진시키지만, 보다 구체적인 정책 실행과 성과가 필요해 우수하다고 평가된다."
       },
       {
         "item_id": 108770,
@@ -1120,7 +1120,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "A",
-        "rating_rationale": "취약계층을 지원하는 복지 정책은 사회적 책임을 다하는 중요한 역할을 하며, 사회적 형평성을 높이는 데 기여하는 점에서 매우 긍정적입니다."
+        "rating_rationale": "취약계층을 지원하는 복지 정책은 사회적 책임을 다하는 모습으로, 매우 긍정적인 평가를 받을 만하다."
       },
       {
         "item_id": 108771,
@@ -1128,7 +1128,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "D",
         "new_rating": "A",
-        "rating_rationale": "주택 공급 확대와 가격 안정화는 시민의 주거 안정을 위한 매우 중요한 정책으로, 실제 효과가 예상되므로 책임성이 매우 우수하다."
+        "rating_rationale": "주택 공급 확대와 가격 안정화는 시민들의 주거 안정에 직접적인 영향을 미치므로 매우 책임감 있는 정책으로 평가됨."
       },
       {
         "item_id": 108772,
@@ -1136,7 +1136,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "탄소중립 정책은 기후변화 대응에 필수적이며, 친환경 정책 추진은 긍정적이나 구체적인 실행 방안이 부족할 수 있어 우수하다고 평가한다."
+        "rating_rationale": "탄소중립과 친환경 정책은 지속 가능한 발전을 위한 중요한 요소이며, 기후 변화에 대응하려는 노력이 돋보임."
       },
       {
         "item_id": 108773,
@@ -1144,7 +1144,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "신속하고 체계적인 백신 접종은 공공 건강에 직접적으로 기여하며, 효과적으로 관리된 점에서 매우 높은 책임성을 보인다."
+        "rating_rationale": "신속하고 체계적인 백신 접종은 공공의 건강을 보호하는 데 필수적이며, 책임감 있는 행정으로 평가됨."
       },
       {
         "item_id": 108774,
@@ -1152,7 +1152,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "테크 스타트업 지원은 경제 성장에 긍정적인 영향을 미치지만, 실제 성과가 가시화되지 않아 우수하다고 평가된다."
+        "rating_rationale": "테크 스타트업 지원 및 혁신 생태계 조성은 경제 발전에 기여하며, 미래 지향적인 정책으로 긍정적 평가를 받음."
       },
       {
         "item_id": 108775,
@@ -1160,7 +1160,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "A",
-        "rating_rationale": "학생 지원 및 교육 인프라 개선은 미래 세대의 성장에 직접적인 영향을 미치며, 매우 책임감 있는 정책으로 평가된다."
+        "rating_rationale": "학생 지원 및 교육 인프라 개선은 미래 세대를 위한 투자로 매우 책임 있는 정책으로 평가됨."
       },
       {
         "item_id": 108776,
@@ -1168,7 +1168,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "거리두기 정책은 감염병 예방을 위한 중요한 조치이나, 국민의 피로감과 맞물려 실행의 적절성이 조정이 필요하다."
+        "rating_rationale": "거리두기 단계별 관리는 코로나19 대응에 필수적이며, 공공의 안전을 고려한 책임감 있는 접근으로 평가됨."
       },
       {
         "item_id": 108777,
@@ -1176,7 +1176,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "D",
         "new_rating": "B",
-        "rating_rationale": "비정규직 처우 개선은 노동자의 권익을 보호하는 중요한 정책이나, 실질적인 변화가 요구되므로 우수하다고 평가한다."
+        "rating_rationale": "비정규직 처우 개선 및 노동 정책은 사회적 약자를 보호하려는 노력으로 긍정적인 평가를 받음."
       },
       {
         "item_id": 108778,
@@ -1184,7 +1184,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "문화예술 지원은 문화 발전에 기여하지만, 구체적인 성과와 지속 가능성이 부족해 양호하다고 평가된다."
+        "rating_rationale": "문화예술 지원은 사회적 가치 창출에 기여하지만, 보다 구체적인 실행 계획이 필요하므로 양호한 평가를 받음."
       },
       {
         "item_id": 108779,
@@ -1192,7 +1192,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "감염병 대응 의료 시스템 강화는 공공의 안전을 위해 필수적이며, 잘 관리되고 있는 점에서 매우 우수한 책임성을 보인다."
+        "rating_rationale": "감염병 대응 의료 시스템 강화는 공공 안전을 위한 중대한 조치로, 매우 책임감 있는 정책으로 평가됨."
       },
       {
         "item_id": 108780,
@@ -1200,7 +1200,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "B",
-        "rating_rationale": "서울시 예산 운영 및 재정 관리는 투명성과 효율성을 요구하지만, 구체적인 개선 방안이 부족해 우수하다고 평가된다."
+        "rating_rationale": "서울시 예산 운영 및 재정 관리는 투명한 재정 운영을 통해 시민들의 신뢰를 구축하였으나, 더 나은 개선이 필요함."
       }
     ],
     "Grok": [
@@ -1210,15 +1210,15 @@
         "collected_by": "ChatGPT",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "공약 미이행은 책임성의 핵심 요소인 약속 이행에 실패한 사례로, 시민들의 기대에 미치지 못한 점이 크게 부각된다. 이는 책임성을 미흡하게 평가할 수밖에 없는 이유다."
+        "rating_rationale": "오세훈 시장의 공약 미이행은 시민들의 기대를 저버리는 것으로, 책임성을 크게 훼손한다. 주택 공급 관련 공약의 이행 부족은 특히 심각하다."
       },
       {
         "item_id": 151983,
         "data_title": "프로젝트 관리 문제",
         "collected_by": "ChatGPT",
         "original_rating": "D",
-        "new_rating": "F",
-        "rating_rationale": "프로젝트 관리에서 예산 초과와 일정 지연이 빈번히 발생한 것은 관리기술 및 책임성 부족을 명확히 보여준다. 이는 책임성을 부족하게 평가할 만한 중대한 문제다."
+        "new_rating": "E",
+        "rating_rationale": "프로젝트 관리에서의 예산 초과와 일정 지연은 책임성 부족을 명확히 보여준다. 이는 관리 기술의 문제로 책임을 다하지 못한 결과다."
       },
       {
         "item_id": 151984,
@@ -1226,15 +1226,15 @@
         "collected_by": "ChatGPT",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "시민 소통 부족은 정책 결정의 투명성과 책임성을 약화시키는 요인으로, 시민 참여가 미비한 점이 책임성을 미흡하게 만든다."
+        "rating_rationale": "시민 소통 부족은 정책 결정의 투명성과 책임성을 떨어뜨린다. 시민 참여가 미비한 것은 책임 있는 행정을 저해하는 요소다."
       },
       {
         "item_id": 151985,
         "data_title": "중앙정부와의 갈등",
         "collected_by": "ChatGPT",
         "original_rating": "D",
-        "new_rating": "D",
-        "rating_rationale": "중앙정부와의 갈등으로 인해 서울시 정책의 일관성이 떨어지고 지역 발전에 부정적인 영향을 미친 점은 책임성 면에서 보통 수준으로 평가할 수 있다."
+        "new_rating": "E",
+        "rating_rationale": "중앙정부와의 갈등으로 인해 서울시 정책의 일관성이 떨어지는 것은 책임성 부족을 나타낸다. 이로 인해 지역 발전에 부정적인 영향이 생겼다."
       },
       {
         "item_id": 151986,
@@ -1242,7 +1242,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "F",
         "new_rating": "F",
-        "rating_rationale": "감사원의 부패 방지 감사에서 성과를 내지 못한 것은 공공기관의 책임성을 크게 약화시키는 요인으로, 책임성을 부족하게 평가할 수밖에 없다."
+        "rating_rationale": "감사원의 부패 방지 감사에서 성과를 내지 못한 것은 공공기관의 책임성을 크게 약화시킨다. 이는 책임 있는 관리의 부족을 명확히 보여준다."
       },
       {
         "item_id": 151987,
@@ -1250,7 +1250,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "소통 부족으로 인한 정책 시행 실패는 시민의 목소리를 반영하지 못한 점에서 책임성을 미흡하게 평가할 수밖에 없다."
+        "rating_rationale": "소통 부족으로 인한 정책 시행 실패는 책임성을 크게 훼손한다. 특히, 시민의 목소리를 반영하지 못한 교통 정책은 책임성 문제를 드러낸다."
       },
       {
         "item_id": 151988,
@@ -1258,15 +1258,15 @@
         "collected_by": "ChatGPT",
         "original_rating": "D",
         "new_rating": "E",
-        "rating_rationale": "주거 정책에 대한 비판과 공공주택 공급의 미비는 저소득층의 주거 불안정을 심화시키는 요인으로, 책임성을 미흡하게 평가할 수밖에 없다."
+        "rating_rationale": "주거 정책 개편의 구체적 방안 부재는 책임성 부족을 나타낸다. 특히, 공공주택 공급의 미비는 저소득층의 주거 불안정을 심화시켰다."
       },
       {
         "item_id": 151989,
         "data_title": "정치적 공격과 논란",
         "collected_by": "ChatGPT",
         "original_rating": "F",
-        "new_rating": "G",
-        "rating_rationale": "정치적 공격과 논란, 특히 혐오 발언이나 공격적인 발언은 정치적 이미지에 악영향을 끼치며 책임성을 매우 부족하게 만드는 요인이다."
+        "new_rating": "E",
+        "rating_rationale": "정치적 논란과 공격적인 발언은 책임 있는 정치인의 이미지를 훼손한다. 이는 책임성을 크게 떨어뜨리는 요소로 작용한다."
       },
       {
         "item_id": 151990,
@@ -1274,7 +1274,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "코로나19 대응이 늦었고, 방역 지침과 관련한 시의회의 반발로 시민들에게 혼란을 초래한 점은 책임성을 미흡하게 평가할 수밖에 없다."
+        "rating_rationale": "코로나19 대응의 지연과 혼란은 책임성 부족을 명확히 보여준다. 방역 지침 관련 의견 불일치는 리더십에 대한 의구심을 불러일으켰다."
       },
       {
         "item_id": 151991,
@@ -1282,7 +1282,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "H",
         "new_rating": "E",
-        "rating_rationale": "공약 이행 미비와 시의회와의 협의 결렬은 유권자와의 신뢰 관계를 약화시키는 요인으로, 책임성을 미흡하게 평가할 수밖에 없다."
+        "rating_rationale": "공약 이행 미비는 유권자와의 신뢰 관계를 약화시키며 책임성을 크게 훼손한다. 시의회와의 협의 결렬은 책임 있는 행정의 부족을 나타낸다."
       },
       {
         "item_id": 151992,
@@ -1290,7 +1290,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "오세훈 시장은 공공임대주택 확충을 위한 구체적인 공약을 발표하고, 기초자료를 구축하며 입주자 모집을 진행하고 있다. 이는 책임성 있는 정책 추진의 좋은 예이다. 다만, 공약의 완전한 실현 여부는 아직 불확실하다."
+        "rating_rationale": "오세훈 시장은 공공임대주택 확충 공약을 발표하고, 이를 실현하기 위한 기초자료를 구축하며 입주자 모집을 순조롭게 진행 중이다. 이는 책임성을 우수하게 보여준다."
       },
       {
         "item_id": 151993,
@@ -1298,7 +1298,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "오세훈 시장은 서울시의회 회의에 95%의 높은 출석률을 유지하고 있으며, 이는 의회 운영에 적극 참여하고 책임을 다하는 모습을 보여준다. 매우 우수한 책임성으로 평가할 수 있다."
+        "rating_rationale": "오세훈 시장은 서울시의회 회의에 95%의 높은 출석률을 유지하며, 정책 결정 과정에 적극 참여하고 있다. 이는 매우 우수한 책임성을 나타낸다."
       },
       {
         "item_id": 151994,
@@ -1306,7 +1306,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "오세훈 시장은 박원순 전 시장의 성추행 사건 이후 성 평등 정책을 강화하겠다고 약속하였다. 이는 사회적 약자에 대한 책임성을 명확히 하는 중요한 정책으로, 우수한 책임성을 보여준다."
+        "rating_rationale": "오세훈 시장은 박원순 전 시장의 성추행 사건 이후 성 평등 정책을 강화하겠다고 약속하였다. 이는 사회적 약자에 대한 책임성을 우수하게 보여준다."
       },
       {
         "item_id": 151995,
@@ -1314,7 +1314,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "오세훈 시장은 서울 도시 재생 프로젝트를 추진 중이나, 아직 시행되지 않은 상태이다. 프로젝트의 구체적인 계획과 실행이 필요하며, 현재까지는 양호한 책임성으로 평가할 수 있다."
+        "rating_rationale": "오세훈 시장은 도시 재생 프로젝트를 추진 중이며, 하반기에 시행될 예정이다. 이는 책임성을 양호하게 보여주지만, 아직 구체적인 성과가 나오지 않았다."
       },
       {
         "item_id": 151996,
@@ -1322,7 +1322,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "오세훈 시장은 '국민의 소리' 플랫폼을 도입하여 민의를 직접 수렴하고 있다. 이는 시민과의 소통을 중요시하는 책임성 있는 행정의 좋은 예로, 매우 우수한 책임성으로 평가된다."
+        "rating_rationale": "오세훈 시장은 '국민의 소리' 플랫폼을 도입하여 민의를 직접 수렴하고 있다. 이는 매우 우수한 책임성을 나타낸다."
       },
       {
         "item_id": 151997,
@@ -1330,7 +1330,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "오세훈 시장은 대기오염 개선을 위한 다양한 정책을 추진하고 있으며, 특히 대중교통의 전기차 전환을 문서화하여 실질적인 개선을 추진하고 있다. 이는 우수한 책임성으로 평가할 수 있다."
+        "rating_rationale": "오세훈 시장은 미세먼지 저감을 위한 정책을 다수 추진하고 있으며, 실질적인 개선을 위해 노력하고 있다. 이는 책임성을 우수하게 보여준다."
       },
       {
         "item_id": 151998,
@@ -1338,15 +1338,15 @@
         "collected_by": "ChatGPT",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "오세훈 시장은 서울 관광 활성화를 위한 '서울투어 2030' 계획을 발표하였다. 이는 미래를 위한 계획으로서 양호한 책임성으로 평가할 수 있으나, 실현 여부는 아직 불확실하다."
+        "rating_rationale": "오세훈 시장은 '서울투어 2030' 계획을 발표하였으며, 이는 관광산업 발전에 기여할 것으로 보인다. 책임성을 양호하게 보여주지만, 아직 구체적인 성과가 나오지 않았다."
       },
       {
         "item_id": 151999,
         "data_title": "공약 실천 계획 수립",
         "collected_by": "ChatGPT",
         "original_rating": "B",
-        "new_rating": "B",
-        "rating_rationale": "오세훈 시장은 선거 공약을 실현하기 위한 구체적인 실행 계획을 수립하고, 진척 상황을 정기적으로 보고하고 있다. 이는 책임성을 다하는 중요한 노력으로, 우수한 책임성으로 평가된다."
+        "new_rating": "A",
+        "rating_rationale": "오세훈 시장은 공약 실현을 위한 구체적인 실행 계획을 수립하고, 진척 상황을 정기적으로 보고하고 있다. 이는 매우 우수한 책임성을 나타낸다."
       },
       {
         "item_id": 152000,
@@ -1354,7 +1354,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "오세훈 시장은 시민 안전을 강화하기 위한 다양한 정책을 제시하고, 안전한 서울 만들기를 위한 캠프를 진행 중이다. 이는 우수한 책임성으로 평가할 수 있다."
+        "rating_rationale": "오세훈 시장은 시민 안전 강화를 위한 다양한 정책을 제시하고, 안전한 서울 만들기 캠프를 진행 중이다. 이는 책임성을 우수하게 보여준다."
       },
       {
         "item_id": 152001,
@@ -1362,7 +1362,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "A",
         "new_rating": "B",
-        "rating_rationale": "오세훈 시장은 코로나19로 어려워진 서울시 경제를 회복하기 위한 정책을 마련하고, 소상공인을 지원하고 있다. 이는 책임성을 다하는 중요한 정책으로, 우수한 책임성으로 평가된다."
+        "rating_rationale": "오세훈 시장은 코로나19로 어려워진 서울시 경제를 회복하기 위한 정책을 마련하고, 소상공인을 지원하고 있다. 이는 책임성을 우수하게 보여준다."
       },
       {
         "item_id": 152002,
@@ -1370,7 +1370,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "청년층의 높은 실업률을 개선하려는 의도를 반영한 주거 및 일자리 정책 강화는 우수한 책임성을 보여준다. 다만, 구체적인 성과가 보고되지 않아 A 등급에는 미치지 못함."
+        "rating_rationale": "청년 정책 강화는 사회적 책임을 다하려는 의지를 보여준다. 다만, 구체적인 실행 계획과 성과가 필요하므로 우수 등급을 부여한다."
       },
       {
         "item_id": 152003,
@@ -1378,7 +1378,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "A",
         "new_rating": "B",
-        "rating_rationale": "서울시 예산의 효율적 운영을 위해 다양한 방안을 제안하고 낭비를 줄이는 노력은 우수한 책임성을 나타낸다. 다만, 실제 효과에 대한 구체적 데이터가 필요함."
+        "rating_rationale": "비용 효율성을 강조하는 것은 재정 책임성을 보여준다. 구체적인 예산 절감 효과가 입증되면 더 높은 점수를 받을 수 있을 것이다."
       },
       {
         "item_id": 152004,
@@ -1386,15 +1386,15 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "기후 변화 대응을 위한 다양한 프로그램 실시는 우수한 책임성을 보여준다. 그러나 탄소 배출량 감소 목표 달성 여부에 대한 구체적 보고가 필요함."
+        "rating_rationale": "기후 변화 대응 정책은 미래 세대를 위한 책임 있는 행동이다. 다양한 프로그램 추진이 긍정적이지만, 구체적인 성과가 필요하다."
       },
       {
         "item_id": 152005,
         "data_title": "부동산 정책 이행",
         "collected_by": "ChatGPT",
         "original_rating": "C",
-        "new_rating": "B",
-        "rating_rationale": "부동산 안정성을 위한 공공주택 정책 이행과 시장 상황 관찰은 우수한 책임성을 반영한다. 다만, 정책의 장기적 효과에 대한 평가가 필요함."
+        "new_rating": "C",
+        "rating_rationale": "부동산 정책 이행은 책임 있는 정책 수행을 보여주지만, 시장 상황을 면밀히 관찰하는 것만으로는 부족하여 양호 등급을 부여한다."
       },
       {
         "item_id": 152006,
@@ -1402,7 +1402,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "사회적 약자를 위한 복지 정책 강화는 우수한 책임성을 보여준다. 특히 노인과 장애인을 위한 지원 증가는 긍정적이나, 지속 가능성에 대한 평가가 필요함."
+        "rating_rationale": "복지 증진을 위한 노력은 사회적 약자에 대한 책임을 다하려는 의지를 보여준다. 지속적인 지원 확대가 필요하다."
       },
       {
         "item_id": 152007,
@@ -1410,23 +1410,23 @@
         "collected_by": "ChatGPT",
         "original_rating": "C",
         "new_rating": "B",
-        "rating_rationale": "저소득층과 청년을 대상으로 한 주거 안정 정책은 우수한 책임성을 나타낸다. 서울 주거 문제 해결을 위한 기초 마련은 긍정적이나, 실질적 효과가 필요함."
+        "rating_rationale": "주거 안정 정책은 저소득층과 청년을 위한 책임 있는 정책이다. 기초를 마련한 점이 긍정적이나, 더 많은 성과가 필요하다."
       },
       {
         "item_id": 152008,
         "data_title": "협치 강화 방안",
         "collected_by": "ChatGPT",
         "original_rating": "B",
-        "new_rating": "B",
-        "rating_rationale": "다양한 이해관계자와의 협치를 통한 정책 개선 노력은 우수한 책임성을 보여준다. 민간 협력 프로그램 추진은 긍정적이나, 구체적 성과가 필요함."
+        "new_rating": "C",
+        "rating_rationale": "협치를 강화하려는 노력은 책임 있는 행정을 보여주나, 구체적인 성과가 필요하다. 다양한 이해관계자와의 협력이 잘 이루어져야 한다."
       },
       {
         "item_id": 152009,
         "data_title": "서울시 홍보 전략",
         "collected_by": "ChatGPT",
         "original_rating": "A",
-        "new_rating": "B",
-        "rating_rationale": "정책 홍보와 교육 프로그램 운영을 통한 시민의 이해 증진은 우수한 책임성을 나타낸다. 다만, 홍보의 효과성에 대한 평가가 필요함."
+        "new_rating": "C",
+        "rating_rationale": "정책 홍보는 시민에게 책임 있는 정보 제공을 목표로 한다. 정기적인 교육 프로그램 운영이 긍정적이지만, 더 많은 참여가 필요하다."
       },
       {
         "item_id": 152010,
@@ -1434,15 +1434,15 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "전자 행정 시스템 강화와 시민 접근성 향상 노력은 우수한 책임성을 보여준다. 다만, 실제 시스템의 효율성에 대한 구체적 평가가 필요함."
+        "rating_rationale": "전자 행정 시스템 강화는 행정 효율성과 시민 접근성을 높이려는 책임 있는 행동이다. 구체적인 성과가 필요하지만, 긍정적이다."
       },
       {
         "item_id": 152011,
         "data_title": "서울시 문화예술 정책",
         "collected_by": "ChatGPT",
         "original_rating": "C",
-        "new_rating": "B",
-        "rating_rationale": "문화예술 분야 지원 강화와 서울시 문화 경쟁력 향상 노력은 우수한 책임성을 나타낸다. 다만, 구체적인 성과와 지속 가능성에 대한 평가가 필요함."
+        "new_rating": "C",
+        "rating_rationale": "문화예술 정책 강화는 문화 경쟁력을 높이려는 책임 있는 정책이다. 구체적인 지원 방안이 필요하며, 실행 결과를 봐야 한다."
       },
       {
         "item_id": 152012,
@@ -1450,7 +1450,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "오세훈은 광역교통문제 해결을 위해 구체적인 계획을 세우고 일부 실행하여 교통 혼잡도를 줄였다. 이는 책임성을 보여주는 우수한 사례로 평가된다."
+        "rating_rationale": "오세훈은 광역교통문제 해결을 위해 구체적인 계획을 수립하고 일부 성과를 냈으나, 완전한 해결에는 이르지 못했다. 따라서 우수한 수준으로 평가할 수 있다."
       },
       {
         "item_id": 152013,
@@ -1458,7 +1458,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "주택 공급 계획을 추진하여 일정 수준의 성과를 거두었으나, 기대에 미치지 못해 양호한 수준으로 평가된다. 책임성을 다했으나 완전한 성과를 내지 못했다."
+        "rating_rationale": "주택 공급 계획을 추진하여 어느 정도 성과를 냈으나, 기대에 미치지 못해 양호한 수준으로 평가된다. 지속적인 노력이 필요하다."
       },
       {
         "item_id": 152014,
@@ -1466,7 +1466,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "C",
-        "rating_rationale": "코로나19 대응 정책을 시행하여 시민들의 안전을 도모하였으나, 일부 지연이 있어 양호한 수준으로 평가된다. 책임성을 어느 정도 보여주었으나 완벽하지는 않다."
+        "rating_rationale": "코로나19 대응 정책을 통해 백신 접종을 신속히 진행하였으나, 일부 지연이 있어 양호한 수준으로 평가된다. 더 나은 대응이 요구된다."
       },
       {
         "item_id": 152015,
@@ -1474,7 +1474,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "대기 질 개선을 위한 여러 정책을 시행하여 환경오염을 줄였으나, 여전히 대기질이 우려되는 수준으로 양호한 수준으로 평가된다. 책임성을 다했으나 완전한 성과는 내지 못했다."
+        "rating_rationale": "대기 질 개선을 위해 여러 정책을 시행하였으나, 여전히 개선이 필요한 수준으로 양호한 수준으로 평가된다. 지속적인 노력이 필요하다."
       },
       {
         "item_id": 152016,
@@ -1482,15 +1482,15 @@
         "collected_by": "ChatGPT",
         "original_rating": "A",
         "new_rating": "B",
-        "rating_rationale": "반려동물 정책을 강화하여 동물 보호 및 복지를 향상시키고 다양한 프로그램을 시행하였다. 이는 책임성을 보여주는 우수한 사례로 평가된다."
+        "rating_rationale": "반려동물 정책을 강화하여 다양한 프로그램을 시행하였고, 캠페인도 진행하여 우수한 수준으로 평가된다. 문화 정상화에 기여하였다."
       },
       {
         "item_id": 152017,
         "data_title": "서울시 자치구 예산 배분 투명성",
         "collected_by": "ChatGPT",
         "original_rating": "D",
-        "new_rating": "E",
-        "rating_rationale": "예산 배분 과정에서의 투명성을 높이기 위한 노력이 있었으나, 일부 자치구에서 불투명한 사례가 있어 책임성이 미흡한 것으로 평가된다."
+        "new_rating": "D",
+        "rating_rationale": "예산 배분 투명성을 높이기 위한 노력이 있었으나, 일부 자치구에서 불투명한 사례가 있어 보통 수준으로 평가된다. 더 투명한 시스템이 필요하다."
       },
       {
         "item_id": 152018,
@@ -1498,7 +1498,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "C",
         "new_rating": "D",
-        "rating_rationale": "학교 폭력 예방을 위한 프로그램을 추진하였으나, 효과적인 실적이 부족하여 책임성이 보통 수준으로 평가된다. 책임성을 다했으나 성과가 미흡하다."
+        "rating_rationale": "학교 폭력 예방을 위한 프로그램을 추진하였으나, 효과적인 실적이 부족해 보통 수준으로 평가된다. 더 효과적인 정책이 필요하다."
       },
       {
         "item_id": 152019,
@@ -1506,7 +1506,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "C",
-        "rating_rationale": "문화예술 지원 확대를 위한 정책을 시행하여 예술가들에게 도움을 주었으나, 예산의 한계로 모든 신청자에게 지원이 불가능해 양호한 수준으로 평가된다. 책임성을 다했으나 완전한 성과는 내지 못했다."
+        "rating_rationale": "문화예술 지원 확대를 위한 정책을 시행하여 어느 정도 성과를 냈으나, 예산의 한계로 모든 신청자에게 지원이 불가능해 양호한 수준으로 평가된다."
       },
       {
         "item_id": 152020,
@@ -1514,7 +1514,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "D",
         "new_rating": "E",
-        "rating_rationale": "노숙인 문제 해결을 위한 정책을 추진하였으나, 종합적인 대책 부족으로 책임성이 미흡한 것으로 평가된다. 책임성을 다하지 못한 사례로 보인다."
+        "rating_rationale": "노숙인 문제 해결을 위한 정책을 추진하였으나, 종합적인 대책 부족으로 여전히 많은 노숙인이 거리를 떠돌아 미흡한 수준으로 평가된다."
       },
       {
         "item_id": 152021,
@@ -1522,7 +1522,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "E",
         "new_rating": "F",
-        "rating_rationale": "공공시설의 관리 및 개선에 대해 소극적이었던 입장이 비판받았으며, 재정적 문제로 개선 속도가 더딘 상황으로 책임성이 부족한 것으로 평가된다. 책임성을 다하지 못한 사례로 보인다."
+        "rating_rationale": "공공시설의 관리 및 개선에 대해 다소 소극적이었고, 재정적 문제로 개선 속도가 더딘 상황이라 부족한 수준으로 평가된다. 더 적극적인 노력이 필요하다."
       },
       {
         "item_id": 152022,
@@ -1530,7 +1530,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "C",
         "new_rating": "D",
-        "rating_rationale": "도시재생 프로젝트가 일부 지역에서 논란을 일으켰으나, 활성화 목적을 달성하려는 노력은 보통 수준으로 평가할 수 있다. 다만, 논란이 발생한 점은 책임성을 낮추는 요인이다."
+        "rating_rationale": "도시재생 프로젝트는 낙후 지역 활성화를 위해 노력했으나, 일부 지역에서 논란이 발생한 점이 책임성을 보통 수준으로 평가하게 한다. 정책의 일관성과 효과성이 일부 부족함."
       },
       {
         "item_id": 152023,
@@ -1538,7 +1538,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "D",
         "new_rating": "E",
-        "rating_rationale": "안전 관리 및 재난 예방 정책에 대한 투자가 있었으나, 실질적인 안전 지수 개선이 미미하여 책임성이 미흡한 것으로 평가된다. 투자와 성과 간의 괴리가 크다."
+        "rating_rationale": "안전 관리 및 재난 예방 정책에 투자했으나, 실질적인 안전 지수 개선이 미미한 점이 책임성을 미흡하게 만든다. 투자 대비 효과가 부족함."
       },
       {
         "item_id": 152024,
@@ -1546,7 +1546,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "교통 안전을 위한 단속 정책이 시행되었으나, 교통사고 증가세에 대한 해결책이 부족하여 책임성이 미흡하다. 정책의 실효성이 낮아 비판받고 있다."
+        "rating_rationale": "교통 안전을 위한 단속 정책을 시행했으나, 교통사고 증가세에 대한 해결책이 부족하여 책임성이 미흡하다. 정책의 실효성이 낮음."
       },
       {
         "item_id": 152025,
@@ -1554,7 +1554,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "D",
         "new_rating": "E",
-        "rating_rationale": "디지털 행정 서비스 개선을 위한 프로젝트가 시행되었으나, 실제 사용자의 만족도가 낮아 책임성이 미흡하다. 사용자 중심의 개선이 부족했다."
+        "rating_rationale": "디지털 행정 서비스 개선을 위한 프로젝트가 시행되었으나, 사용자 만족도가 낮은 점이 책임성을 미흡하게 만든다. 사용자 중심의 개선이 부족함."
       },
       {
         "item_id": 152026,
@@ -1562,7 +1562,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "사회적 기업 지원 정책이 마련되었으나, 실제 지원금이 부족하여 기대 이하의 결과를 초래하였다. 책임성이 미흡하며, 지원의 실효성이 낮다."
+        "rating_rationale": "사회적 기업 지원 정책을 마련했으나, 실제 지원금이 부족하여 기대 이하의 결과를 초래한 점이 책임성을 미흡하게 한다. 지원의 실효성이 낮음."
       },
       {
         "item_id": 152027,
@@ -1570,7 +1570,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "D",
         "new_rating": "E",
-        "rating_rationale": "청년 일자리 창출 정책이 시행되었으나, 많은 청년들이 여전히 취업에 어려움을 겪고 있어 책임성이 미흡하다. 정책의 실효성이 부족하여 비판받고 있다."
+        "rating_rationale": "청년 일자리 창출 정책을 시행했으나, 많은 청년들이 여전히 취업에 어려움을 겪고 있는 점이 책임성을 미흡하게 만든다. 정책의 실효성이 부족함."
       },
       {
         "item_id": 152028,
@@ -1578,7 +1578,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "C",
         "new_rating": "E",
-        "rating_rationale": "정책 결정 과정에서 전문가 자문과 시민 의견 수렴이 일부 반영되었으나, 중요한 사안에서의 소홀함으로 책임성이 미흡하다. 중요한 결정에서의 부족함이 비판받았다."
+        "rating_rationale": "정책 결정 과정에서 전문가 자문과 시민 의견 수렴이 일부 반영되었으나, 중요한 사안에서 소홀한 점이 책임성을 미흡하게 한다. 의견 반영의 일관성이 부족함."
       },
       {
         "item_id": 152029,
@@ -1586,7 +1586,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "C",
         "new_rating": "E",
-        "rating_rationale": "서울시 정책 홍보가 활성화되었으나, 일부 정책에 대한 시민 이해도가 낮아 책임성이 미흡하다. 홍보와 실효성 간의 괴리가 존재한다."
+        "rating_rationale": "정책 홍보는 활성화되었으나, 일부 정책에 대한 시민 이해도가 낮은 점이 책임성을 미흡하게 만든다. 홍보의 효과성이 부족함."
       },
       {
         "item_id": 152030,
@@ -1594,7 +1594,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "D",
         "new_rating": "E",
-        "rating_rationale": "시민 참여 확대를 위한 프로그램이 시행되었으나, 참여율이 낮아 효과성이 부족하여 책임성이 미흡하다. 참여를 유도하는 데 실패하였다."
+        "rating_rationale": "시민 참여 확대를 위한 프로그램을 시행했으나, 참여율이 낮아 효과성에 문제가 있는 점이 책임성을 미흡하게 한다. 프로그램의 실효성이 낮음."
       },
       {
         "item_id": 152031,
@@ -1602,7 +1602,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "사회적 안전망 구축을 위한 노력이 있었으나, 범죄 예방에 대한 실질적인 성과가 저조하여 책임성이 미흡하다. 정책의 실효성이 낮아 비판받고 있다."
+        "rating_rationale": "사회적 안전망 구축을 위한 노력을 시도했으나, 범죄 예방에 대한 실질적인 성과가 저조한 점이 책임성을 미흡하게 만든다. 정책의 실효성이 부족함."
       },
       {
         "item_id": 151932,
@@ -1610,7 +1610,7 @@
         "collected_by": "Grok",
         "original_rating": "F",
         "new_rating": "E",
-        "rating_rationale": "주택 공급 정책이 지연되며 목표 달성률이 낮았고, 예산 배정이 부족해 시민들의 불만이 증가하였음. 공약 이행 지연으로 책임성이 미흡함."
+        "rating_rationale": "공약 이행이 지연되어 주택 공급 목표를 달성하지 못함. 예산 배정 부족으로 주거 불안이 가중되고 시민 불만이 증가함. 이는 책임성 측면에서 미흡한 수준임."
       },
       {
         "item_id": 151933,
@@ -1618,7 +1618,7 @@
         "collected_by": "Grok",
         "original_rating": "G",
         "new_rating": "F",
-        "rating_rationale": "국회의원 시절 출석률이 낮아 의정 활동의 책임성이 부족했으며, 중요한 법안 심의 시 빈번한 결석으로 책임성을 저하시킴."
+        "rating_rationale": "국회의원 시절 회의 출석률이 낮아 의정 활동의 책임성이 저하됨. 특히 중요한 법안 심의 시 결석이 빈번하여 책임성을 크게 부족하게 함."
       },
       {
         "item_id": 151934,
@@ -1626,7 +1626,7 @@
         "collected_by": "Grok",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "환경 정책, 특히 미세먼지 저감 사업이 지연되고 예산 집행이 부적절해 기후 변화 대응의 책임성이 미흡함."
+        "rating_rationale": "환경 정책 추진이 지연되어 미세먼지 저감 목표를 달성하지 못함. 예산 집행 부적절로 기후 변화 대응 책임성이 미흡함."
       },
       {
         "item_id": 151935,
@@ -1634,7 +1634,7 @@
         "collected_by": "Grok",
         "original_rating": "F",
         "new_rating": "F",
-        "rating_rationale": "재정 관리에서 예산 초과 지출이 발생하고 불투명한 예산 배분으로 세금 낭비가 발생해 책임적 운용이 부족함."
+        "rating_rationale": "재정 관리에서 예산 초과 지출이 발생하며 세금 낭비로 이어짐. 예산 배분 불투명으로 공공 자금 운용 책임성이 크게 부족함."
       },
       {
         "item_id": 151936,
@@ -1642,7 +1642,7 @@
         "collected_by": "Grok",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "대중 교통 정책, 특히 지하철 확장 사업이 지연되며 시민 불편이 증대되어 이동권 보장의 책임성이 미흡함."
+        "rating_rationale": "대중 교통 정책에서 지하철 확장 사업이 지연되어 시민 불편이 증가함. 예산 부족과 행정 지연으로 이동권 보장 책임성이 미흡함."
       },
       {
         "item_id": 151937,
@@ -1650,7 +1650,7 @@
         "collected_by": "Grok",
         "original_rating": "F",
         "new_rating": "E",
-        "rating_rationale": "코로나19 대응 공약이 미이행되어 고위험군 보호와 의료 시스템 강화가 부족해 책임성 측면에서 미흡함."
+        "rating_rationale": "코로나19 대응 공약이 미이행되어 고위험군 보호와 의료 시스템 강화가 부족함. 감염 확산 지속으로 책임성 측면에서 미흡함."
       },
       {
         "item_id": 151938,
@@ -1658,7 +1658,7 @@
         "collected_by": "Grok",
         "original_rating": "G",
         "new_rating": "E",
-        "rating_rationale": "주거 안정화 공약이 제대로 실행되지 않아 주거 불안이 가중되고 부동산 가격 상승이 지속되어 책임성이 미흡함."
+        "rating_rationale": "주거 안정화 공약이 미달성되어 주거 불안이 가중됨. 부동산 가격 상승으로 서민층 불만이 증가하여 책임성 측면에서 미흡함."
       },
       {
         "item_id": 151939,
@@ -1666,7 +1666,7 @@
         "collected_by": "Grok",
         "original_rating": "E",
         "new_rating": "F",
-        "rating_rationale": "국회의원 시절 출석률 저조로 의정 활동이 부실하고, 서울시장으로서도 책임성 결여를 보여 책임성이 부족함."
+        "rating_rationale": "국회의원 시절 본회의 출석률이 낮아 의정 활동이 부실함. 지역구 대표로서 책임을 소홀히 한 사례로 책임성이 크게 부족함."
       },
       {
         "item_id": 151940,
@@ -1674,7 +1674,7 @@
         "collected_by": "Grok",
         "original_rating": "F",
         "new_rating": "E",
-        "rating_rationale": "도시 재생 프로젝트가 지연되고 예산 낭비와 부실 시공 문제가 발생해 공약 실천의 책임성이 미흡함."
+        "rating_rationale": "도시 재생 프로젝트가 지연되어 예산 낭비와 부실 시공 문제가 발생함. 시민 안전이 위협받아 책임성 측면에서 미흡함."
       },
       {
         "item_id": 151941,
@@ -1682,87 +1682,87 @@
         "collected_by": "Grok",
         "original_rating": "G",
         "new_rating": "E",
-        "rating_rationale": "재난 관리 공약이 부족하게 이행되어 실제 재난 시 대응력이 약화되어 책임성 결여가 비판받음."
+        "rating_rationale": "재난 관리 공약이 부족하게 이행되어 재난 대응력이 약화됨. 홍수 피해로 책임성 결여가 비판받아 미흡한 수준임."
       },
       {
         "item_id": 151942,
         "data_title": "코로나19 방역 공약 이행",
         "collected_by": "Grok",
         "original_rating": "B",
-        "new_rating": "B",
-        "rating_rationale": "오세훈은 코로나19 대응 공약을 실천하여 백신 접종과 사회적 거리두기 정책을 강화해 감염률을 안정화시켰으나, 초기 대응 지연으로 인한 비판이 있었다. 총 1,500만 회 이상의 백신 접종을 완료한 점은 우수하지만, 초기 대응 지연은 책임성에 다소 부정적인 영향을 미친다."
+        "new_rating": "C",
+        "rating_rationale": "코로나19 대응 공약을 이행하여 백신 접종과 사회적 거리두기를 통해 감염률을 안정화시켰으나, 초기 대응 지연으로 인한 비판이 있어 책임성 측면에서 양호한 수준으로 평가됩니다."
       },
       {
         "item_id": 151943,
         "data_title": "한강 르네상스 프로젝트 추진",
         "collected_by": "Grok",
         "original_rating": "A",
-        "new_rating": "A",
-        "rating_rationale": "한강 르네상스 프로젝트를 통해 친환경 공원과 레저 시설을 확대하고, 도시 재생을 성공적으로 추진하여 한강 이용자 수를 20% 증가시켰다. 이는 매우 우수한 책임성으로 평가할 수 있다."
+        "new_rating": "B",
+        "rating_rationale": "한강 르네상스 프로젝트를 성공적으로 추진하여 도시 재생과 이용자 수 증가를 이끌어냈으며, 책임성을 우수하게 수행한 것으로 평가됩니다."
       },
       {
         "item_id": 151944,
         "data_title": "교통 인프라 개선",
         "collected_by": "Grok",
         "original_rating": "C",
-        "new_rating": "C",
-        "rating_rationale": "지하철 9호선 연장을 통해 교통 체증을 15% 감소시켰으나, 예산 초과 지출 문제가 발생했다. 공약 이행은 양호하지만, 예산 관리 측면에서 책임성이 다소 부족하다."
+        "new_rating": "D",
+        "rating_rationale": "교통 인프라 개선을 위해 지하철 확장과 버스 노선 재편을 완료하여 교통 지체를 줄였으나, 예산 초과 지출 문제가 있어 책임성 측면에서 보통 수준으로 평가됩니다."
       },
       {
         "item_id": 151945,
         "data_title": "용산 개발 프로젝트",
         "collected_by": "Grok",
         "original_rating": "B",
-        "new_rating": "A",
-        "rating_rationale": "용산 국제 비즈니스 지구 개발을 통해 5,000개의 일자리 창출과 지역 경제 활성화를 기대할 수 있는 성과를 내었다. 이는 매우 우수한 책임성으로 평가할 수 있다."
+        "new_rating": "B",
+        "rating_rationale": "용산 개발 프로젝트를 통해 일자리 창출과 지역 경제 활성화를 기대하게 하여, 책임성을 우수하게 수행한 것으로 평가됩니다."
       },
       {
         "item_id": 151946,
         "data_title": "환경 보호 정책 실행",
         "collected_by": "Grok",
         "original_rating": "C",
-        "new_rating": "B",
-        "rating_rationale": "미세먼지 저감을 위한 전기버스 도입과 공기 청정 시설 확대로 미세먼지 농도를 10% 줄였으나, 일부 정책이 지연된 점은 책임성에 다소 부정적인 영향을 미친다. 전체적으로 우수한 성과를 보였다."
+        "new_rating": "C",
+        "rating_rationale": "미세먼지 저감을 위한 정책을 실행하여 미세먼지 농도를 줄였으나, 일부 정책이 지연되어 책임성 측면에서 양호한 수준으로 평가됩니다."
       },
       {
         "item_id": 151947,
         "data_title": "경제 활성화 대책",
         "collected_by": "Grok",
         "original_rating": "A",
-        "new_rating": "A",
-        "rating_rationale": "코로나19 후유증 극복을 위한 1조 원 규모의 소상공인 지원으로 매출을 15% 증가시켰다. 이는 매우 우수한 책임성으로 평가할 수 있다."
+        "new_rating": "B",
+        "rating_rationale": "경제 활성화를 위한 소상공인 지원 fund를 확대하여 매출 증가를 이끌어냈으며, 책임성을 우수하게 수행한 것으로 평가됩니다."
       },
       {
         "item_id": 151948,
         "data_title": "교육 인프라 투자",
         "collected_by": "Grok",
         "original_rating": "D",
-        "new_rating": "C",
-        "rating_rationale": "교육 시설 개선을 위해 100개 이상의 학교를 업그레이드했으나, 예산 배분 불균형 문제가 제기되었다. 공약 이행은 양호하지만, 예산 관리 측면에서 책임성이 다소 부족하다."
+        "new_rating": "D",
+        "rating_rationale": "교육 인프라 투자를 통해 학교를 업그레이드하였으나, 예산 배분 불균형 문제가 있어 책임성 측면에서 보통 수준으로 평가됩니다."
       },
       {
         "item_id": 151949,
         "data_title": "복지 확대 정책",
         "collected_by": "Grok",
         "original_rating": "B",
-        "new_rating": "C",
-        "rating_rationale": "저소득층 지원을 위해 기초생활 수급자를 10% 증가시켰으나, 예산 효율성 논란이 있었다. 공약 이행은 양호하지만, 예산 관리 측면에서 책임성이 다소 부족하다."
+        "new_rating": "D",
+        "rating_rationale": "복지 확대 정책을 통해 수급자 수를 증가시켰으나, 예산 효율성 논란이 있어 책임성 측면에서 보통 수준으로 평가됩니다."
       },
       {
         "item_id": 151950,
         "data_title": "행정 투명성 강화",
         "collected_by": "Grok",
         "original_rating": "A",
-        "new_rating": "A",
-        "rating_rationale": "공공 정보 공개를 통해 데이터 공개 플랫폼을 구축하여 공개 데이터 양을 50% 증가시켰다. 이는 매우 우수한 책임성으로 평가할 수 있다."
+        "new_rating": "B",
+        "rating_rationale": "행정 투명성을 강화하기 위해 데이터 공개 플랫폼을 구축하여 시민 접근성을 높였으며, 책임성을 우수하게 수행한 것으로 평가됩니다."
       },
       {
         "item_id": 151951,
         "data_title": "부패 방지 노력",
         "collected_by": "Grok",
         "original_rating": "C",
-        "new_rating": "A",
-        "rating_rationale": "부패 예방을 위한 감사 시스템 강화로 부패 신고 건수를 20% 줄였다. 이는 매우 우수한 책임성으로 평가할 수 있다."
+        "new_rating": "B",
+        "rating_rationale": "부패 방지를 위해 감사 시스템을 강화하여 부패 신고 건수를 줄였으며, 책임성을 우수하게 수행한 것으로 평가됩니다."
       },
       {
         "item_id": 151952,
@@ -1770,7 +1770,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "출석률 95%는 매우 높은 수치로, 의정 활동에 대한 높은 책임성을 보여준다. 주요 법안 토론 참여도 책임성을 증명한다."
+        "rating_rationale": "오세훈의 높은 출석률(95%)과 주요 법안 토론 참여는 책임성을 매우 우수하게 나타냄. 국회 의정 활동 보고서에 따른 공식 기록이 이를 뒷받침함."
       },
       {
         "item_id": 151953,
@@ -1778,7 +1778,7 @@
         "collected_by": "Grok",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "예산 절감 효과 10%와 높은 집행률 98%는 예산 관리에 대한 책임성을 매우 우수하게 보여준다."
+        "rating_rationale": "예산 절감 효과(10%)와 높은 예산 집행률(98%)은 책임성의 우수성을 보여줌. 기획재정부 감사 보고서의 공식 데이터가 이를 증명함."
       },
       {
         "item_id": 151954,
@@ -1786,7 +1786,7 @@
         "collected_by": "Grok",
         "original_rating": "D",
         "new_rating": "C",
-        "rating_rationale": "재난 발생률 감소는 긍정적이지만, 초기 준비 부족이 지적되어 책임성은 양호한 수준에 머문다."
+        "rating_rationale": "재난 발생률 감소는 긍정적이나, 초기 준비 부족이 지적됨. 행정안전부 재난 보고서에 따른 공공 기록이 이를 반영함. 책임성은 양호함."
       },
       {
         "item_id": 151955,
@@ -1794,7 +1794,7 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "A",
-        "rating_rationale": "문화예술 예산 15% 증가와 참여자 증가는 문화 지원에 대한 책임성을 매우 우수하게 보여준다."
+        "rating_rationale": "문화예술 예산 증가(15%)와 참여자 증가는 책임성을 매우 우수하게 보여줌. 문화체육관광부 보고서의 공식 데이터가 이를 증명함."
       },
       {
         "item_id": 151956,
@@ -1802,7 +1802,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "공공 주택 10,000호 이상 공급과 주택 가격 상승률 완화는 주거 정책에 대한 책임성을 매우 우수하게 증명한다."
+        "rating_rationale": "공공 주택 공급(10,000호 이상)과 주택 가격 상승률 완화는 책임성의 우수성을 나타냄. 국토교통부 주택 보고서의 정부 기록이 이를 뒷받침함."
       },
       {
         "item_id": 151957,
@@ -1810,7 +1810,7 @@
         "collected_by": "Grok",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "20,000개 일자리 창출과 실업률 2% 하락은 고용 정책에 대한 책임성을 매우 우수하게 보여준다."
+        "rating_rationale": "일자리 창출(20,000개)과 실업률 하락(2%)은 책임성의 우수성을 보여줌. 고용노동부 통계의 공식 데이터가 이를 증명함."
       },
       {
         "item_id": 151958,
@@ -1818,7 +1818,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "스마트 시티 플랫폼 도입과 행정 서비스 이용률 30% 증가는 디지털 전환에 대한 책임성을 매우 우수하게 증명한다."
+        "rating_rationale": "스마트 시티 플랫폼 도입과 행정 서비스 이용률 증가(30%)는 책임성을 매우 우수하게 나타냄. 과학기술정보통신부 보고서의 공공 기록이 이를 뒷받침함."
       },
       {
         "item_id": 151959,
@@ -1826,7 +1826,7 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "A",
-        "rating_rationale": "재생 에너지 시설 확대와 탄소 배출량 5% 감소는 지속 가능한 발전에 대한 책임성을 매우 우수하게 보여준다."
+        "rating_rationale": "재생 에너지 시설 확대와 탄소 배출량 감소(5%)는 책임성의 우수성을 보여줌. 환경부 지속 가능 보고서의 정부 자료가 이를 증명함."
       },
       {
         "item_id": 151960,
@@ -1834,7 +1834,7 @@
         "collected_by": "Grok",
         "original_rating": "D",
         "new_rating": "A",
-        "rating_rationale": "국제 행사 유치와 외국 투자 유입 증가는 국제 협력 강화에 대한 책임성을 매우 우수하게 증명한다."
+        "rating_rationale": "국제 행사 유치와 외국 투자 유입 증가는 책임성의 우수성을 나타냄. 외교부 협력 보고서의 공식 기록이 이를 뒷받침함."
       },
       {
         "item_id": 151961,
@@ -1842,7 +1842,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "공청회 확대와 참여율 25% 증가는 시민 참여 증대에 대한 책임성을 매우 우수하게 보여준다."
+        "rating_rationale": "공청회 확대와 시민 참여율 증가(25%)는 책임성을 매우 우수하게 보여줌. 행정안전부 시민 참여 보고서의 공공 데이터가 이를 증명함."
       },
       {
         "item_id": 151962,
@@ -1850,7 +1850,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "C",
-        "rating_rationale": "오세훈은 코로나19 대응 공약을 이행하며 백신 접종과 검사소 운영을 통해 팬데믹 관리에 노력했다. 그러나 일부 지역 봉쇄 조치의 지연으로 비판을 받았으며, 이는 공약 이행의 일관성을 보여주지만 완벽하지는 않다."
+        "rating_rationale": "오세훈은 코로나19 대응 공약을 이행하며 백신 접종과 대규모 검사소를 운영해 양호한 성과를 보였다. 그러나 일부 지역 봉쇄 조치 지연으로 비판을 받았으며, 이는 공약 이행의 일관성을 보여주지 못해 책임성 측면에서 양호한 수준에 머물렀다."
       },
       {
         "item_id": 151963,
@@ -1858,7 +1858,7 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "D",
-        "rating_rationale": "오세훈은 도시 재생 프로젝트를 추진하며 몇몇 지역에서 성과를 냈으나, 예산 초과와 지연으로 인해 주민 불만이 있었다. 이는 공약 이행의 책임성 측면에서 보통 수준으로 평가된다."
+        "rating_rationale": "오세훈은 도시 재생 프로젝트를 추진해 몇몇 지역에서 진행되었으나, 예산 초과와 지연으로 인해 주민 불만이 제기되었다. 이는 공약 이행의 책임성 측면에서 보통 수준으로 평가된다."
       },
       {
         "item_id": 151964,
@@ -1866,7 +1866,7 @@
         "collected_by": "Grok",
         "original_rating": "D",
         "new_rating": "D",
-        "rating_rationale": "오세훈은 교통 정책 공약 중 일부만 실행했으며, 예산 부족으로 완전한 이행이 어려웠다. 이는 공약과 성과의 책임성 문제를 드러내며, 보통 수준의 책임성을 보여준다."
+        "rating_rationale": "오세훈은 교통 정책 공약을 일부 실행했으나, 전체 공약 중 일부만 이행되었고 예산 부족으로 인해 완전한 이행이 어려웠다. 이는 공약과 성과의 책임성 문제를 드러내며 보통 수준에 머물렀다."
       },
       {
         "item_id": 151965,
@@ -1874,15 +1874,15 @@
         "collected_by": "Grok",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "오세훈은 환경 정책으로 미세먼지 저감과 녹지 확대를 약속했으나, 목표 달성률이 낮아 비판을 받았다. 이는 성과 관리에서 책임성이 미흡한 사례로 평가된다."
+        "rating_rationale": "오세훈은 환경 정책으로 미세먼지 저감과 녹지 확대를 약속했으나, 목표 달성률이 낮아 환경 단체의 비판을 받았다. 이는 책임성의 핵심인 성과 관리에서 약점을 드러내며 미흡한 수준이다."
       },
       {
         "item_id": 151966,
         "data_title": "교육 투자 공약",
         "collected_by": "Grok",
         "original_rating": "C",
-        "new_rating": "E",
-        "rating_rationale": "오세훈은 교육 예산 확대를 약속했으나, 기대에 미치지 못하는 예산 증가와 지속된 교육 불평등 문제로 책임성이 미흡하다고 평가된다."
+        "new_rating": "D",
+        "rating_rationale": "오세훈은 교육 예산 확대를 약속했으나, 전체 예산 증가가 기대에 미치지 못했고 교육 불평등 문제가 지속되었다. 이는 공약 이행의 책임성을 평가하는 데 있어 보통 수준에 머물렀다."
       },
       {
         "item_id": 151967,
@@ -1890,7 +1890,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "D",
-        "rating_rationale": "오세훈은 주택 공급 확대를 공약으로 했으며, 몇 가지 프로젝트를 진행했으나 부동산 가격 상승으로 효과가 제한적이었다. 이는 성과의 책임성 측면에서 보통 수준으로 평가된다."
+        "rating_rationale": "오세훈은 주거 정책으로 주택 공급 확대를 공약했으나, 부동산 가격 상승으로 인해 공약의 효과가 제한적이었다. 이는 성과의 책임성을 검토하는 데 있어 보통 수준으로 평가된다."
       },
       {
         "item_id": 151968,
@@ -1898,7 +1898,7 @@
         "collected_by": "Grok",
         "original_rating": "D",
         "new_rating": "E",
-        "rating_rationale": "오세훈은 경제 활성화를 약속했으나, 경기 침체로 기대 성과를 달성하지 못했다. 이는 공약 이행의 책임성에서 도전적인 요소를 보여주며, 미흡한 수준으로 평가된다."
+        "rating_rationale": "오세훈은 경제 활성화를 약속했으나, 경기 침체로 인해 기대 성과를 달성하지 못했다. 이는 공약 이행의 책임성에서 도전적인 요소를 보여주며 미흡한 수준이다."
       },
       {
         "item_id": 151969,
@@ -1906,7 +1906,7 @@
         "collected_by": "Grok",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "오세훈은 문화 예술 지원을 공약했으나, 예산 축소로 인해 일부 프로그램이 취소되었다. 이는 책임성의 관점에서 공약 관리의 부족을 나타내며, 미흡한 수준으로 평가된다."
+        "rating_rationale": "오세훈은 문화 예술 지원을 공약했으나, 예산 축소로 인해 일부 프로그램이 취소되었다. 이는 책임성의 관점에서 공약 관리의 부족을 나타내며 미흡한 수준이다."
       },
       {
         "item_id": 151970,
@@ -1914,7 +1914,7 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "오세훈은 공공 안전 강화를 약속하며 CCTV 확대와 응급 훈련을 실시해 범죄율 감소를 이루었다. 그러나 일부 지역에서 미비한 점이 있어, 책임성 측면에서 양호한 수준으로 평가된다."
+        "rating_rationale": "오세훈은 공공 안전 강화를 약속하며 CCTV 확대와 응급 훈련을 실시해 범죄율 감소를 이끌어냈다. 그러나 일부 지역에서 미비했으며, 이는 책임성 측면에서 양호한 수준에 해당한다."
       },
       {
         "item_id": 151971,
@@ -1922,7 +1922,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "C",
-        "rating_rationale": "오세훈은 디지털 행정 도입을 공약으로 하여 온라인 행정 서비스를 성공적으로 확대했으나, 고령자 접근성 문제가 제기되었다. 이는 공약 이행의 책임성을 평가할 때 양호한 수준으로 평가된다."
+        "rating_rationale": "오세훈은 디지털 행정 도입을 공약으로 성공적으로 실행했으나, 고령자 접근성 문제가 제기되었다. 이는 공약 이행의 책임성을 평가하는 데 있어 양호한 수준으로 평가된다."
       },
       {
         "item_id": 151972,
@@ -1930,7 +1930,7 @@
         "collected_by": "Grok",
         "original_rating": "D",
         "new_rating": "C",
-        "rating_rationale": "오세훈은 저소득층 지원 프로그램을 강화해 사회복지 확대를 일부 이행했으나, 예산 한계로 인해 모든 계층을 커버하지 못해 책임성 측면에서 양호한 수준이다."
+        "rating_rationale": "오세훈은 사회복지 확대를 약속하고 저소득층 지원 프로그램을 강화했으나, 예산 한계로 모든 계층을 커버하지 못해 양호한 수준의 책임성을 보였다."
       },
       {
         "item_id": 151973,
@@ -1938,7 +1938,7 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "D",
-        "rating_rationale": "대부분의 시의회 회의에 출석했으나, 중요한 회의에서 결석이 발생해 공약 이행과 관련된 책임성 문제가 있어 보통 수준이다."
+        "rating_rationale": "오세훈은 대부분의 시의회 회의에 출석했으나, 일부 중요한 회의에서 결석이 발생해 책임성에서 보통 수준을 보였다."
       },
       {
         "item_id": 151974,
@@ -1946,7 +1946,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "C",
-        "rating_rationale": "예산 투명성을 유지하고 불필요한 지출을 줄였으나, 일부 프로젝트에서 과다 지출이 발생해 책임성 측면에서 양호한 수준이다."
+        "rating_rationale": "오세훈은 예산 투명성을 약속하고 불필요한 지출을 줄였으나, 일부 프로젝트에서 과다 지출이 발생해 양호한 수준의 책임성을 보였다."
       },
       {
         "item_id": 151975,
@@ -1954,7 +1954,7 @@
         "collected_by": "Grok",
         "original_rating": "E",
         "new_rating": "C",
-        "rating_rationale": "부패 방지 공약을 이행하기 위해 감사 시스템을 강화하고 부패 사례를 조사했으나, 완전한 근절에는 이르지 못해 책임성 측면에서 양호한 수준이다."
+        "rating_rationale": "오세훈은 부패 방지 공약을 이행하며 감사 시스템을 강화하고 몇 가지 부패 사례를 조사했으나, 완전한 근절에는 이르지 못해 양호한 수준의 책임성을 보였다."
       },
       {
         "item_id": 151976,
@@ -1962,7 +1962,7 @@
         "collected_by": "Grok",
         "original_rating": "D",
         "new_rating": "C",
-        "rating_rationale": "홍수 대비 시스템을 개선해 재난 관리 약속을 일부 이행했으나, 준비 부족으로 피해가 발생해 책임성 측면에서 양호한 수준이다."
+        "rating_rationale": "오세훈은 자연 재난 대비를 약속하고 홍수 대비 시스템을 개선했으나, 준비 부족으로 피해가 발생해 양호한 수준의 책임성을 보였다."
       },
       {
         "item_id": 151977,
@@ -1970,7 +1970,7 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "D",
-        "rating_rationale": "국제 협력을 위해 글로벌 행사를 추진했으나, 일부 행사가 취소되어 성과가 제한적이어서 책임성 측면에서 보통 수준이다."
+        "rating_rationale": "오세훈은 국제 협력을 공약하고 서울의 글로벌 행사를 추진했으나, 일부 행사가 취소되며 성과가 제한적이어서 책임성에서 보통 수준을 보였다."
       },
       {
         "item_id": 151978,
@@ -1978,7 +1978,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "C",
-        "rating_rationale": "관광 산업 활성화를 위해 홍보 캠페인을 실시했으나, 코로나로 인해 효과가 줄었으나 회복 시도를 했으므로 책임성 측면에서 양호한 수준이다."
+        "rating_rationale": "오세훈은 관광 산업 활성화를 약속하고 홍보 캠페인을 실시했으나, 코로나로 인해 효과가 줄었으나 회복 시도를 해 양호한 수준의 책임성을 보였다."
       },
       {
         "item_id": 151979,
@@ -1986,7 +1986,7 @@
         "collected_by": "Grok",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "청년 일자리 창출을 위해 지원 프로그램을 도입했으나, 고용률 개선이 미미해 책임성 측면에서 미흡한 수준이다."
+        "rating_rationale": "오세훈은 청년 일자리 창출을 약속하고 지원 프로그램을 도입했으나, 고용률 개선이 미미해 책임성에서 미흡한 수준을 보였다."
       },
       {
         "item_id": 151980,
@@ -1994,7 +1994,7 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "고령자 복지를 위해 의료 지원을 확대해 일부 혜택을 증가시켰으나, 전체 커버리지가 부족해 책임성 측면에서 양호한 수준이다."
+        "rating_rationale": "오세훈은 고령자 복지를 약속하고 의료 지원을 확대했으나, 전체 커버리지가 부족해 양호한 수준의 책임성을 보였다."
       },
       {
         "item_id": 151981,
@@ -2002,7 +2002,7 @@
         "collected_by": "Grok",
         "original_rating": "D",
         "new_rating": "D",
-        "rating_rationale": "지속 가능한 도시 개발을 위해 에너지 효율 프로젝트를 시행했으나, 장기 효과가 불확실하고 초기 이행이 지연되어 책임성 측면에서 보통 수준이다."
+        "rating_rationale": "오세훈은 지속 가능한 도시 개발을 공약하고 에너지 효율 프로젝트를 시행했으나, 장기 효과가 불확실하고 초기 이행이 지연되어 책임성에서 보통 수준을 보였다."
       },
       {
         "item_id": 107688,
@@ -2010,7 +2010,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "E",
         "new_rating": "D",
-        "rating_rationale": "역세권 청년주택 정책에 대한 비판이 있지만, 정책 추진 자체는 계속되고 있으며 일부 성과도 존재함. 다만, 임대료 및 분양 조건에 대한 문제점이 지적되고 있어 책임성을 보통 수준으로 평가함."
+        "rating_rationale": "역세권 청년주택 정책에 대한 비판이 존재하지만, 정책 추진 자체는 진행 중이며 일부 성과도 있을 수 있으므로 보통 등급을 부여함."
       },
       {
         "item_id": 107689,
@@ -2018,7 +2018,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "D",
         "new_rating": "E",
-        "rating_rationale": "코로나19 방역 정책의 일관성 부족과 중앙정부와의 갈등으로 인해 책임성이 미흡함. 방역 정책의 불일치는 시민의 안전에 직접적인 영향을 미치므로 책임성을 낮게 평가함."
+        "rating_rationale": "방역 정책의 일관성 부족과 중앙정부와의 갈등으로 인해 책임성이 미흡하다고 판단됨."
       },
       {
         "item_id": 107690,
@@ -2026,7 +2026,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "대규모 사업 예산 집행의 불투명성 문제로 인해 책임성이 미흡함. 예산 집행의 투명성은 공공의 신뢰와 직결되므로 이 부분에서 책임성이 낮게 평가됨."
+        "rating_rationale": "대규모 사업 예산 집행의 불투명성 문제로 인해 책임성이 미흡하다고 판단됨."
       },
       {
         "item_id": 107691,
@@ -2034,7 +2034,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "D",
         "new_rating": "D",
-        "rating_rationale": "무상교통 정책의 장기적 재정 부담 우려가 있지만, 정책 자체는 시민의 삶의 질 향상에 기여하고 있음. 다만, 재정 부담 문제로 인해 책임성을 보통 수준으로 평가함."
+        "rating_rationale": "무상교통 정책의 장기적 재정 부담 우려가 있지만, 정책 자체는 진행 중이므로 보통 등급을 부여함."
       },
       {
         "item_id": 107692,
@@ -2042,7 +2042,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "부동산 정책의 실효성 부족으로 인해 책임성이 미흡함. 주택 공급 및 가격 안정화 정책의 성과가 미흡하여 시민들의 불만이 큼."
+        "rating_rationale": "주택 공급 및 가격 안정화 정책의 미흡한 성과로 인해 책임성이 미흡하다고 판단됨."
       },
       {
         "item_id": 107693,
@@ -2050,7 +2050,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "E",
         "new_rating": "F",
-        "rating_rationale": "공공임대주택 공급 축소와 주거 취약계층 지원 정책 약화로 인해 책임성이 부족함. 주거 취약계층에 대한 지원 약화는 사회적 책임을 저버린 것으로 평가됨."
+        "rating_rationale": "공공임대주택 공급 축소와 주거 취약계층 지원 정책 약화로 인해 책임성이 부족하다고 판단됨."
       },
       {
         "item_id": 107694,
@@ -2058,7 +2058,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "F",
         "new_rating": "G",
-        "rating_rationale": "불법 사찰 의혹은 매우 부족한 책임성을 나타냄. 과거의 논란이 재부각됨으로써 공공의 신뢰를 크게 훼손시킴."
+        "rating_rationale": "과거 불법 사찰 의혹이 재부각됨에 따라 책임성이 매우 부족하다고 판단됨."
       },
       {
         "item_id": 107695,
@@ -2066,7 +2066,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "D",
         "new_rating": "E",
-        "rating_rationale": "부동산 정책의 잦은 변경과 실효성 없는 대책으로 인해 책임성이 미흡함. 시민들의 불신이 증가하고 있어 책임성을 낮게 평가함."
+        "rating_rationale": "부동산 정책의 잦은 변경과 실효성 부족으로 인해 책임성이 미흡하다고 판단됨."
       },
       {
         "item_id": 107696,
@@ -2074,7 +2074,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "코로나19 방역 정책의 일관성 부족과 소상공인 지원 미흡으로 인해 책임성이 미흡함. 방역 정책의 불일치는 시민의 안전에 직접적인 영향을 미치므로 책임성을 낮게 평가함."
+        "rating_rationale": "코로나19 대응 과정에서 방역 조치의 일관성 부족과 소상공인 지원 미흡으로 책임성이 미흡하다고 판단됨."
       },
       {
         "item_id": 107697,
@@ -2082,7 +2082,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "D",
         "new_rating": "E",
-        "rating_rationale": "청년 일자리 정책의 성과가 기대에 미치지 못해 책임성이 미흡함. 청년층의 일자리 문제는 중요한 사회적 이슈로, 이에 대한 책임성이 낮게 평가됨."
+        "rating_rationale": "청년 일자리 정책의 성과가 기대에 미치지 못해 책임성이 미흡하다고 판단됨."
       },
       {
         "item_id": 107698,
@@ -2090,7 +2090,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "코로나19 대응에서 서울시 방역체계를 신속하게 구축하고 임시선별진료소를 확대하여 매우 우수한 책임성을 보여줌. 공식 백서에 기록된 성과가 이를 증명함."
+        "rating_rationale": "코로나19 대응 정책에서 서울시의 신속한 방역체계 구축과 임시선별진료소 확대는 매우 우수한 책임성을 보여준다. 공식 백서에 따른 구체적이고 투명한 대응이 인상적이다."
       },
       {
         "item_id": 107699,
@@ -2098,23 +2098,23 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "B",
-        "rating_rationale": "부동산 정책 공약을 이행하며 공공주택 공급과 청년주택 정책을 추진하여 우수한 책임성을 보임. 하지만 추가적인 성과가 필요할 수 있음."
+        "rating_rationale": "부동산 정책 공약 이행에서 공공주택 공급 확대와 청년주택 정책 추진은 우수한 책임성을 보여준다. 다만, 추가적인 성과와 지속 가능성에 대한 평가가 필요하다."
       },
       {
         "item_id": 107700,
         "data_title": "예산 집행 투명성",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
-        "new_rating": "C",
-        "rating_rationale": "예산 집행 과정을 공개하고 회계감사에 협조하여 양호한 책임성을 보임. 그러나 더 많은 투명성과 효율성이 필요할 수 있음."
+        "new_rating": "A",
+        "rating_rationale": "예산 집행 투명성에서 주요 사업 예산 집행 과정 공개와 회계감사 협조는 매우 우수한 책임성을 보여준다. 재정공개 시스템을 통해 투명성이 보장되었다."
       },
       {
         "item_id": 107701,
         "data_title": "복지정책 책임성",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
-        "new_rating": "B",
-        "rating_rationale": "취약계층 지원을 확대하고 긴급복지 지원 프로그램을 운영하여 우수한 책임성을 보임. 복지정책의 지속적인 이행이 필요함."
+        "new_rating": "A",
+        "rating_rationale": "복지정책 책임성에서 취약계층 지원 확대와 긴급복지 지원 프로그램 운영은 매우 우수한 책임성을 보여준다. 연간보고서를 통해 체계적이고 지속적인 지원이 확인된다."
       },
       {
         "item_id": 107702,
@@ -2122,15 +2122,15 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "미세먼지 저감 정책과 태양광 보급 확대를 통해 우수한 책임성을 보임. 환경정책의 지속적인 개선이 필요함."
+        "rating_rationale": "환경정책 이행에서 미세먼지 저감 정책과 태양광 보급 확대는 우수한 책임성을 보여준다. 성과보고를 통해 구체적인 성과가 확인되지만, 더 많은 개선이 필요하다."
       },
       {
         "item_id": 107703,
         "data_title": "재난 대응 체계",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
-        "new_rating": "A",
-        "rating_rationale": "폭우 피해 대응과 도시 방재시스템 개선을 통해 매우 우수한 책임성을 보여줌. 재난 대응 체계의 효과적인 운영이 증명됨."
+        "new_rating": "B",
+        "rating_rationale": "재난 대응 체계에서 폭우 피해 대응과 도시 방재시스템 개선은 우수한 책임성을 보여준다. 재난안전대책본부 백서를 통해 체계적인 대응이 확인된다."
       },
       {
         "item_id": 107704,
@@ -2138,15 +2138,15 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "B",
-        "rating_rationale": "청년 일자리 지원과 소상공인 정책을 추진하여 우수한 책임성을 보임. 지속적인 일자리 창출 노력이 필요함."
+        "rating_rationale": "일자리 창출 정책에서 청년 일자리 지원과 소상공인 정책 추진은 우수한 책임성을 보여준다. 보고서를 통해 구체적인 지원이 확인되지만, 더 많은 성과가 필요하다."
       },
       {
         "item_id": 107705,
         "data_title": "정책 소통 투명성",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
-        "new_rating": "C",
-        "rating_rationale": "온라인 시민참여 플랫폼 운영과 정책 소통 채널 확대를 통해 양호한 책임성을 보임. 더 많은 소통과 투명성이 필요할 수 있음."
+        "new_rating": "A",
+        "rating_rationale": "정책 소통 투명성에서 온라인 시민참여 플랫폼 운영과 정책 소통 채널 확대는 매우 우수한 책임성을 보여준다. 운영현황을 통해 투명하고 적극적인 소통이 확인된다."
       },
       {
         "item_id": 107706,
@@ -2154,7 +2154,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "문화예술 지원 확대와 문화다양성 정책 추진을 통해 우수한 책임성을 보임. 문화정책의 지속적인 지원이 필요함."
+        "rating_rationale": "문화정책 다양성에서 문화예술 지원 확대와 문화다양성 정책 추진은 우수한 책임성을 보여준다. 연간보고서를 통해 다양한 지원이 확인되지만, 더 많은 성과가 필요하다."
       },
       {
         "item_id": 107707,
@@ -2162,7 +2162,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "대중교통 인프라 확충과 친환경 교통정책 추진을 통해 우수한 책임성을 보임. 교통정책의 지속적인 개선이 필요함."
+        "rating_rationale": "교통정책 개선에서 대중교통 인프라 확충과 친환경 교통정책 추진은 우수한 책임성을 보여준다. 성과보고를 통해 구체적인 성과가 확인되지만, 더 많은 개선이 필요하다."
       },
       {
         "item_id": 107708,
@@ -2170,7 +2170,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "스마트시티 정책과 행정 디지털화 추진은 시민의 편의를 증대시키고 행정 효율성을 높이는 데 기여함. 다만, 실제 성과와 지속 가능성에 대한 평가는 필요함."
+        "rating_rationale": "스마트시티 정책과 행정 디지털화 추진은 시민 편의를 증대시키고 행정 효율성을 높이는 데 기여함. 이러한 정책은 책임성을 갖고 추진된 것으로 보임."
       },
       {
         "item_id": 107709,
@@ -2178,7 +2178,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "B",
-        "rating_rationale": "범죄예방 인프라 구축과 CCTV 확대는 시민 안전에 기여하는 중요한 정책임. 그러나 CCTV 설치와 관련된 프라이버시 문제 등에 대한 대책도 필요함."
+        "rating_rationale": "범죄예방 인프라 구축과 CCTV 확대는 시민 안전을 강화하는 데 중요한 역할을 함. 이는 책임 있는 정책으로 평가할 수 있음."
       },
       {
         "item_id": 107710,
@@ -2186,7 +2186,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "B",
-        "rating_rationale": "여성 일자리 지원과 성차별 개선 정책은 성평등에 기여함. 다만, 정책의 실효성과 지속적인 모니터링이 필요함."
+        "rating_rationale": "여성 일자리 지원과 성차별 개선 정책은 성평등을 촉진하는 데 기여함. 이러한 정책은 책임 있는 행정의 일환으로 평가됨."
       },
       {
         "item_id": 107711,
@@ -2194,7 +2194,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "시 예산의 건전성 유지와 채무관리는 서울시의 재정 건전성을 유지하는 데 매우 중요한 역할을 함. 이는 장기적인 도시 발전을 위한 기초가 됨."
+        "rating_rationale": "시 예산의 건전성 유지와 채무 관리는 매우 중요한 책임성의 척도임. 이는 매우 우수한 책임성을 보여줌."
       },
       {
         "item_id": 107712,
@@ -2202,7 +2202,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "글로벌 도시 네트워크 구축과 국제협력은 서울시의 국제적 위상을 높이는 데 기여함. 그러나 실제 성과와 효과에 대한 평가는 필요함."
+        "rating_rationale": "글로벌 도시 네트워크 구축과 국제협력은 중요하지만, 직접적인 책임성과의 연관성이 다소 낮을 수 있음. 양호한 수준의 책임성을 보임."
       },
       {
         "item_id": 107713,
@@ -2210,7 +2210,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "청년수당과 창업지원은 청년층의 경제적 자립을 돕는 중요한 정책임. 다만, 지원의 효과성과 지속 가능성에 대한 평가가 필요함."
+        "rating_rationale": "청년수당과 창업지원 등 청년 지원 정책은 청년층의 사회적 안정과 발전에 기여함. 이는 우수한 책임성을 보여줌."
       },
       {
         "item_id": 107714,
@@ -2218,7 +2218,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "코로나19 백신접종 지원과 방역체계 구축은 시민의 건강과 안전을 지키는 데 매우 중요한 역할을 함. 이는 책임 있는 행정의 대표적인 사례임."
+        "rating_rationale": "코로나19 백신접종 지원과 방역체계 구축은 시민의 건강과 안전을 최우선으로 하는 매우 책임 있는 정책임."
       },
       {
         "item_id": 107715,
@@ -2226,7 +2226,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "신재생에너지 확대와 에너지전환 정책은 환경 보호와 지속 가능한 발전에 기여함. 다만, 정책의 실효성과 경제적 타당성에 대한 평가가 필요함."
+        "rating_rationale": "신재생에너지 확대와 에너지전환 정책은 환경 보호와 지속 가능성을 위한 책임 있는 정책으로 평가됨."
       },
       {
         "item_id": 107716,
@@ -2234,7 +2234,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "B",
-        "rating_rationale": "코로나19 긴급지원금과 경영안정 지원은 소상공인의 경제적 어려움을 해결하는 데 기여함. 그러나 지원의 효과성과 지속 가능성에 대한 평가가 필요함."
+        "rating_rationale": "코로나19 긴급지원금과 경영안정 지원은 소상공인의 경제적 어려움을 해결하기 위한 우수한 책임성의 사례임."
       },
       {
         "item_id": 107717,
@@ -2242,7 +2242,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "노후 도시지역 재개발과 도시재생 사업은 도시의 품질을 향상시키는 데 기여함. 다만, 주민 이주와 관련된 문제 등에 대한 대책도 필요함."
+        "rating_rationale": "노후 도시지역 재개발과 도시재생 사업은 도시의 지속 가능한 발전을 위한 책임 있는 정책으로 평가됨."
       },
       {
         "item_id": 107718,
@@ -2250,7 +2250,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "코로나19 위기 속에서 재정 안정화를 추진한 것은 우수한 책임성을 보여준다. 재정 건전성을 유지하려는 노력이 돋보인다."
+        "rating_rationale": "코로나19 위기 속에서 재정 안정화를 위해 정책을 추진한 것은 우수한 책임성을 보여준다. 재정 건전성을 유지하려는 노력이 돋보인다."
       },
       {
         "item_id": 107719,
@@ -2258,23 +2258,23 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "무보수로 시장직을 수행하며 월급을 반납한 것은 매우 우수한 책임성을 나타낸다. 실질적 재정 절감을 실천한 점이 높이 평가된다."
+        "rating_rationale": "무보수로 시장직을 수행하며 월급을 반납하고 실질적인 재정 절감을 실천한 것은 매우 우수한 책임성을 보여준다. 개인 희생을 통해 시민을 위한 정책을 추진했다."
       },
       {
         "item_id": 107720,
         "data_title": "서울시 부동산 정책",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "D",
-        "new_rating": "B",
-        "rating_rationale": "주택 공급 확대 및 가격 안정화 정책을 추진한 것은 우수한 책임성을 보여준다. 시민들의 주거 문제 해결에 적극적으로 나선 점이 긍정적이다."
+        "new_rating": "C",
+        "rating_rationale": "주택 공급 확대 및 가격 안정화를 위한 정책을 추진한 것은 양호한 책임성을 보여준다. 그러나 부동산 문제의 복잡성으로 인해 효과가 어느 정도인지 평가하기 어렵다."
       },
       {
         "item_id": 108764,
         "data_title": "재난지원금 집행",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "A",
-        "new_rating": "A",
-        "rating_rationale": "코로나19 대응 재난지원금을 신속하게 지급한 것은 매우 우수한 책임성을 보여준다. 시민들에게 필요한 지원을 빠르게 제공한 점이 높게 평가된다."
+        "new_rating": "B",
+        "rating_rationale": "코로나19 대응을 위해 재난지원금을 신속하게 지급한 것은 우수한 책임성을 보여준다. 긴급 상황에서 신속한 대응이 필요했으며 이를 잘 수행했다."
       },
       {
         "item_id": 108765,
@@ -2282,7 +2282,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "C",
-        "rating_rationale": "서울역 일대 도시재생 프로젝트를 추진한 것은 양호한 책임성을 보여준다. 지역 발전을 위한 노력은 긍정적이나, 그 효과는 장기적인 관점에서 평가해야 한다."
+        "rating_rationale": "서울역 일대 도시재생 프로젝트를 추진한 것은 양호한 책임성을 보여준다. 도시의 지속 가능한 발전을 위해 노력한 점이 긍정적이다."
       },
       {
         "item_id": 108766,
@@ -2290,7 +2290,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "노후 지하철 시설의 현대화 및 안전 강화 정책을 추진한 것은 우수한 책임성을 보여준다. 시민들의 안전을 최우선으로 고려한 점이 돋보인다."
+        "rating_rationale": "노후 지하철 시설을 현대화하고 안전을 강화한 정책은 우수한 책임성을 보여준다. 시민의 안전을 최우선으로 고려한 정책 추진이 돋보인다."
       },
       {
         "item_id": 108767,
@@ -2298,7 +2298,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "A",
         "new_rating": "C",
-        "rating_rationale": "도심 내 공원 및 녹지 공간 확대 정책을 추진한 것은 양호한 책임성을 보여준다. 시민들의 삶의 질을 개선하려는 노력은 긍정적이다."
+        "rating_rationale": "도심 내 공원 및 녹지 공간을 확대하려는 정책은 양호한 책임성을 보여준다. 시민의 삶의 질을 향상시키려는 노력이 엿보인다."
       },
       {
         "item_id": 108768,
@@ -2306,31 +2306,31 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "디지털, 그린 뉴딜 정책을 적극 추진한 것은 우수한 책임성을 보여준다. 미래 지향적인 정책을 통해 도시의 지속 가능성을 도모한 점이 높이 평가된다."
+        "rating_rationale": "디지털 및 그린 뉴딜 정책을 적극적으로 추진한 것은 우수한 책임성을 보여준다. 미래 지향적인 정책을 통해 시민의 삶을 개선하려는 노력이 돋보인다."
       },
       {
         "item_id": 108769,
         "data_title": "교통 정책",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
-        "new_rating": "B",
-        "rating_rationale": "대중교통 개선 및 자전거 도로 확충을 추진한 것은 우수한 책임성을 보여준다. 시민들의 교통 편의를 증진시키려는 노력이 돋보인다."
+        "new_rating": "C",
+        "rating_rationale": "대중교통 개선 및 자전거 도로 확충을 추진한 것은 양호한 책임성을 보여준다. 교통 문제 해결을 위해 노력한 점이 긍정적이다."
       },
       {
         "item_id": 108770,
         "data_title": "취약계층 지원",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
-        "new_rating": "A",
-        "rating_rationale": "노인, 장애인 등 취약계층을 위한 복지 정책을 추진한 것은 매우 우수한 책임성을 보여준다. 사회적 약자를 배려하려는 노력이 높게 평가된다."
+        "new_rating": "B",
+        "rating_rationale": "노인, 장애인 등 취약계층을 위한 복지 정책을 추진한 것은 우수한 책임성을 보여준다. 사회적 약자를 배려하려는 노력이 돋보인다."
       },
       {
         "item_id": 108771,
         "data_title": "부동산 정책",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "D",
-        "new_rating": "B",
-        "rating_rationale": "주택 공급 확대 및 가격 안정화 노력은 우수한 정책이지만, 실제 효과는 지속적인 모니터링이 필요하다. 책임성 측면에서 우수한 편이지만, 완벽하지는 않다."
+        "new_rating": "C",
+        "rating_rationale": "부동산 정책에서 주택 공급 확대와 가격 안정화를 위해 노력한 점은 긍정적이나, 실제 효과와 지속 가능성에 대한 평가가 엇갈림. 양호한 수준으로 평가."
       },
       {
         "item_id": 108772,
@@ -2338,7 +2338,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "탄소중립 및 친환경 정책 추진은 장기적인 책임감을 보여준다. 다만, 구체적인 성과와 실행력이 더 필요하다. 전체적으로 우수한 책임성을 보인다."
+        "rating_rationale": "기후변화 대응에서 탄소중립과 친환경 정책을 추진한 점은 우수. 정책의 구체적 실행과 성과가 주목되나, 현재까지의 노력은 우수한 수준."
       },
       {
         "item_id": 108773,
@@ -2346,15 +2346,15 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "신속하고 체계적인 백신 접종 진행은 매우 우수한 책임성을 보여준다. 긴박한 상황에서의 효과적인 대응이 인상적이다."
+        "rating_rationale": "코로나19 백신 접종에서 신속하고 체계적인 접종 진행은 매우 우수. 공중보건과 시민 안전을 위한 책임감 있는 대응으로 평가."
       },
       {
         "item_id": 108774,
         "data_title": "스타트업 생태계 지원",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
-        "new_rating": "C",
-        "rating_rationale": "테크 스타트업 지원 및 혁신 생태계 조성은 양호한 수준의 책임성을 보인다. 지원의 효과와 지속성이 더 검증되어야 한다."
+        "new_rating": "B",
+        "rating_rationale": "스타트업 생태계 지원에서 테크 스타트업 지원과 혁신 생태계 조성 노력은 우수. 창업 생태계 발전에 기여한 점이 긍정적."
       },
       {
         "item_id": 108775,
@@ -2362,7 +2362,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "학생 지원 및 교육 인프라 개선은 양호한 책임성을 보여준다. 그러나 더 많은 개선과 지원이 필요하다."
+        "rating_rationale": "교육 정책에서 학생 지원과 교육 인프라 개선 노력은 양호. 그러나 교육 불평등 해소와 구체적 성과에 대한 평가가 필요."
       },
       {
         "item_id": 108776,
@@ -2370,7 +2370,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "코로나19 대응 거리두기 단계별 관리는 우수한 책임성을 보여준다. 상황에 맞는 유연한 대처가 돋보인다."
+        "rating_rationale": "사회적 거리두기 정책에서 코로나19 대응 거리두기 단계별 관리는 우수. 유연한 대응과 시민 안전을 위한 노력이 돋보임."
       },
       {
         "item_id": 108777,
@@ -2378,31 +2378,31 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "D",
         "new_rating": "C",
-        "rating_rationale": "비정규직 처우 개선 및 노동 정책은 양호한 책임성을 보인다. 그러나 더 많은 노력이 필요하다."
+        "rating_rationale": "노동자 권익 보호에서 비정규직 처우 개선과 노동 정책 추진은 양호. 그러나 실제 효과와 지속 가능성에 대한 평가가 필요."
       },
       {
         "item_id": 108778,
         "data_title": "문화 정책",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
-        "new_rating": "C",
-        "rating_rationale": "문화예술 지원 및 문화도시 조성은 양호한 책임성을 보여준다. 문화 발전에 대한 책임감이 느껴지지만, 더 많은 지원이 필요하다."
+        "new_rating": "B",
+        "rating_rationale": "문화 정책에서 문화예술 지원과 문화도시 조성 노력은 우수. 문화 발전에 기여한 점이 긍정적."
       },
       {
         "item_id": 108779,
         "data_title": "감염병 대응 인프라",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
-        "new_rating": "B",
-        "rating_rationale": "감염병 대응 의료 시스템 강화는 우수한 책임성을 보여준다. 미래를 위한 준비가 돋보인다."
+        "new_rating": "A",
+        "rating_rationale": "감염병 대응 인프라에서 의료 시스템 강화는 매우 우수. 공중보건과 시민 안전을 위한 책임감 있는 대응으로 평가."
       },
       {
         "item_id": 108780,
         "data_title": "재정 건전성",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
-        "new_rating": "B",
-        "rating_rationale": "서울시 예산 운영 및 재정 관리의 책임성은 우수하다. 재정 건전성을 유지하려는 노력이 돋보인다."
+        "new_rating": "C",
+        "rating_rationale": "재정 건전성에서 서울시 예산 운영과 재정 관리 노력은 양호. 그러나 재정 건전성 유지와 효율적 예산 사용에 대한 평가가 엇갈림."
       }
     ],
     "Claude": [
@@ -2412,7 +2412,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "선거 공약은 유권자와의 약속이자 정치인의 기본적인 책무인데, 주요 공약인 주택 공급 등이 미이행되고 있어 시민들의 기대를 저버린 것은 책임성 측면에서 미흡한 수준으로 평가됨"
+        "rating_rationale": "선거 공약은 시민과의 약속이며, 특히 주택 공급과 같은 핵심 공약의 미이행은 시민의 기대를 저버리는 행위로 책임성 관점에서 미흡한 수준이다. 공약 이행에 대한 구체적 계획과 진행 상황을 투명하게 공개하고 대안을 제시해야 한다."
       },
       {
         "item_id": 151983,
@@ -2420,7 +2420,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "D",
         "new_rating": "F",
-        "rating_rationale": "도시 개발 프로젝트의 예산 초과와 일정 지연이 빈번히 발생하는 것은 행정 관리의 기본적 책무를 다하지 못한 것으로, 시민 세금의 낭비와 직결되어 책임성이 부족한 수준으로 판단됨"
+        "rating_rationale": "도시 개발 프로젝트의 예산 초과와 일정 지연은 공공자원의 비효율적 사용을 의미하며, 이는 시민에 대한 책임을 다하지 못하는 것이다. 프로젝트 관리 능력 부족은 행정 책임자로서 부족한 수준의 책임성을 보여준다."
       },
       {
         "item_id": 151984,
@@ -2428,7 +2428,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "민주적 거버넌스의 핵심인 시민 참여와 소통이 부족한 것은 시장으로서의 기본적 책무를 소홀히 한 것으로, 정책 결정의 투명성과 정당성을 훼손하여 책임성이 미흡함"
+        "rating_rationale": "민주적 거버넌스에서 시민 소통은 필수 요소이며, 공식적 소통 체계 부족은 투명성과 참여성을 저해한다. 정책 결정 과정에서 시민 참여 미비는 민주적 책임성 측면에서 미흡한 수준이다."
       },
       {
         "item_id": 151985,
@@ -2436,7 +2436,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "D",
         "new_rating": "D",
-        "rating_rationale": "중앙정부와의 갈등 자체는 불가피할 수 있으나, 이로 인해 서울시 정책의 일관성이 떨어지고 지역 발전에 부정적 영향을 미치는 것은 시민 이익을 위한 조정 역할에서 보통 수준의 성과를 보임"
+        "rating_rationale": "중앙정부와의 갈등 자체는 자치권 행사 차원에서 이해할 수 있으나, 이로 인한 정책 일관성 저하와 지역 발전 저해는 시민 이익을 우선시해야 하는 책임성 관점에서 보통 수준이다. 갈등 해결을 위한 노력이 필요하다."
       },
       {
         "item_id": 151986,
@@ -2444,7 +2444,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "F",
         "new_rating": "F",
-        "rating_rationale": "감사원의 부패 방지 감사에서 성과를 내지 못한 것은 공직자로서 청렴성과 투명성 확보라는 기본적 책무를 다하지 못한 것으로, 공공기관 책임성 약화의 직접적 원인이 되어 부족한 수준임"
+        "rating_rationale": "감사원의 부패 방지 감사에서 성과 미흡은 공공기관 운영의 투명성과 청렴성에 대한 책임을 다하지 못한 것이다. 부패 방지는 공직자의 기본 책무이므로 이에 대한 실패는 책임성 관점에서 부족한 수준이다."
       },
       {
         "item_id": 151987,
@@ -2452,23 +2452,23 @@
         "collected_by": "ChatGPT",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "정책 시행에서 시민과의 소통 부족으로 인한 실패는 민주적 행정의 기본 원칙을 무시한 것으로, 특히 대중교통 정책 실패로 시민 불만이 증대된 것은 책임성이 미흡한 수준으로 평가됨"
+        "rating_rationale": "정책 시행에서 시민과의 소통 부족으로 인한 실패는 민주적 책임성의 핵심 요소를 놓친 것이다. 특히 교통 정책과 같은 시민 생활 밀착 정책에서의 소통 실패는 시민에 대한 책임을 다하지 못한 미흡한 수준이다."
       },
       {
         "item_id": 151988,
         "data_title": "주거 정책에 대한 비판",
         "collected_by": "ChatGPT",
         "original_rating": "D",
-        "new_rating": "F",
-        "rating_rationale": "주거 정책 개편을 약속하고도 구체적 방안을 제시하지 못하여 실질적 변화가 없고, 저소득층 주거 불안정을 심화시킨 것은 사회적 약자 보호 책무를 방기한 것으로 책임성이 부족함"
+        "new_rating": "E",
+        "rating_rationale": "주거 정책 개편 약속 후 구체적 방안 미제시는 정책 추진력과 실행 능력의 부족을 보여준다. 특히 저소득층 주거 불안정 심화는 사회적 책임을 다하지 못한 것으로 책임성 관점에서 미흡한 수준이다."
       },
       {
         "item_id": 151989,
         "data_title": "정치적 공격과 논란",
         "collected_by": "ChatGPT",
         "original_rating": "F",
-        "new_rating": "E",
-        "rating_rationale": "정치적 논란과 혐오 발언, 공격적 발언은 공직자로서의 품위와 도덕적 책임을 저버린 것으로, 시민 통합과 사회 화합이라는 리더의 기본 역할을 다하지 못하여 책임성이 미흡함"
+        "new_rating": "F",
+        "rating_rationale": "공직자의 혐오 발언이나 공격적 발언은 공직자로서의 품격과 도덕적 책임성에 심각한 문제를 보여준다. 정치적 논란을 자초하는 발언은 시민에 대한 모범적 역할을 다하지 못한 것으로 책임성이 부족한 수준이다."
       },
       {
         "item_id": 151990,
@@ -2476,7 +2476,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "E",
         "new_rating": "F",
-        "rating_rationale": "코로나19라는 시민 생명과 직결된 위기 상황에서 늦은 대응과 혼란 야기는 시민 안전 보호라는 가장 기본적인 책무를 다하지 못한 것으로, 리더십 부재로 인한 책임성이 부족한 수준임"
+        "rating_rationale": "코로나19와 같은 공중보건 위기 상황에서의 늦은 대응과 혼란 초래는 시민의 생명과 안전에 대한 책임을 다하지 못한 것이다. 위기 관리 리더십 부족은 공직자로서의 핵심 책임성이 부족한 수준이다."
       },
       {
         "item_id": 151991,
@@ -2484,7 +2484,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "H",
         "new_rating": "E",
-        "rating_rationale": "선거 공약 이행률이 낮고 시의회와의 협의 결렬로 인한 정책 추진 실패는 유권자와의 신뢰 관계를 근본적으로 훼손하는 것으로, 민주적 책임성의 핵심 요소가 미흡한 수준으로 판단됨"
+        "rating_rationale": "선거 공약 이행 미비와 시의회와의 협의 결렬은 민주적 절차와 시민과의 약속 이행에 대한 책임성 부족을 보여준다. 유권자 신뢰 약화는 민주주의 근간을 흔드는 것으로 책임성 관점에서 미흡한 수준이다."
       },
       {
         "item_id": 151992,
@@ -2492,7 +2492,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "구체적인 수치 목표(8만 가구)와 기간을 설정하고 기초자료 구축 및 입주자 모집이 순조롭게 진행되고 있어 공약 이행에 대한 책임감 있는 접근을 보이고 있으나, 최종 성과는 아직 확인되지 않음"
+        "rating_rationale": "공공임대주택 8만 가구 확충이라는 구체적 목표를 제시하고 기초자료 구축 및 입주자 모집이 순조롭게 진행되고 있어 공약 이행에 대한 책임성을 보여주고 있으나, 최종 성과는 아직 미완성 상태"
       },
       {
         "item_id": 151993,
@@ -2500,7 +2500,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "A",
         "new_rating": "B",
-        "rating_rationale": "95%의 높은 출석률은 공직자로서의 기본적인 책임을 성실히 이행하고 있음을 보여주며, 의회 참여를 통한 정책 결정 과정에서의 책임성을 잘 나타내고 있음"
+        "rating_rationale": "서울시의회 회의 출석률 95%로 매우 높은 수준을 유지하여 의정활동에 대한 기본적 책임을 충실히 이행하고 있으며, 정책 결정 과정에 적극 참여하는 모습을 보여주고 있음"
       },
       {
         "item_id": 151994,
@@ -2508,7 +2508,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "C",
-        "rating_rationale": "전임자의 문제에 대해 후속 조치를 취하고 성평등 정책 강화를 약속한 것은 조직의 연속성과 사회적 책임을 인식한 것으로 평가되나, 구체적인 실행 방안이나 성과는 명시되지 않음"
+        "rating_rationale": "전임 시장의 성추행 사건 이후 성평등 정책 강화 약속은 사회적 책임을 인식한 적절한 대응이나, 구체적인 실행 계획이나 성과보다는 약속 수준에 그치고 있어 양호한 정도로 평가"
       },
       {
         "item_id": 151995,
@@ -2516,7 +2516,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "C",
         "new_rating": "D",
-        "rating_rationale": "도시재생 프로젝트 추진은 긍정적이나 '하반기 시행 예정'이라는 모호한 계획만 제시되어 있어 구체적인 책임감 있는 실행 계획이나 진척도를 확인하기 어려움"
+        "rating_rationale": "도시재생 프로젝트 추진은 긍정적이나 '하반기 시행 예정'이라는 모호한 계획 수준에 머물러 있고, 구체적인 실행 방안이나 진척 상황이 명확하지 않아 책임성 측면에서 보통 수준"
       },
       {
         "item_id": 151996,
@@ -2524,7 +2524,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "A",
         "new_rating": "B",
-        "rating_rationale": "시민 참여를 위한 온라인 플랫폼 도입은 민주적 소통과 투명성 확보를 위한 책임감 있는 접근으로, 시민의 목소리를 직접 수렴하려는 적극적인 자세를 보여줌"
+        "rating_rationale": "온라인 플랫폼 '국민의 소리' 도입으로 시민과의 소통 창구를 마련하여 민주적 책임성을 높이고 있으며, 정책 피드백을 직접 수렴하려는 노력이 우수하다고 평가됨"
       },
       {
         "item_id": 151997,
@@ -2532,7 +2532,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "미세먼지 저감이라는 환경 문제에 대해 대중교통 전기차 전환 등 구체적인 정책을 문서화하여 추진하고 있어 환경에 대한 책임성과 실질적 개선 의지를 보여줌"
+        "rating_rationale": "미세먼지 저감 정책 추진과 대중교통 전기차 전환을 문서화하여 체계적으로 접근하고 있어 환경 문제에 대한 책임성을 보여주고 있으며, 실질적 개선을 위한 구체적 방안을 제시하고 있음"
       },
       {
         "item_id": 151998,
@@ -2540,7 +2540,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "서울투어 2030 계획 발표는 장기적 비전을 제시한 것으로 평가되나, 구체적인 실행 방안이나 현재까지의 성과, 책임 있는 이행 계획에 대한 세부 내용이 부족함"
+        "rating_rationale": "'서울투어 2030' 계획 발표는 장기적 비전 제시로 긍정적이나, 구체적인 실행 방안이나 예산, 추진 일정 등이 명확하지 않아 계획 수립 단계의 양호한 수준으로 평가"
       },
       {
         "item_id": 151999,
@@ -2548,7 +2548,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "선거 공약에 대해 구체적인 실행 계획을 수립하고 진척 상황을 정기적으로 보고하는 시스템을 구축한 것은 유권자에 대한 매우 높은 책임성과 투명성을 보여주는 모범적 사례임"
+        "rating_rationale": "선거 공약에 대한 구체적 실행 계획 수립과 정기적 진척 상황 보고는 정치인의 가장 기본적이면서도 중요한 책임성을 보여주는 매우 우수한 사례로, 공약 관리 시스템을 통한 체계적 접근이 돋보임"
       },
       {
         "item_id": 152000,
@@ -2556,7 +2556,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "C",
-        "rating_rationale": "시민 안전에 대한 다양한 정책 제시와 안전 캠페인 진행은 시민의 생명과 안전에 대한 책임감을 보여주나, 구체적인 성과나 효과적인 실행 방안에 대한 세부 정보가 부족함"
+        "rating_rationale": "시민 안전 대책과 범죄 예방 정책 제시는 시장으로서의 기본 책무 이행이지만, '안전한 서울 만들기 캠프 진행' 정도의 추상적 내용으로 구체적 성과나 실행력이 부족하여 양호한 수준"
       },
       {
         "item_id": 152001,
@@ -2564,7 +2564,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "A",
         "new_rating": "C",
-        "rating_rationale": "코로나19로 인한 경제적 어려움에 대응하여 소상공인 지원 정책을 마련한 것은 사회적 책임을 인식한 것으로 평가되나, 정책의 구체적 내용이나 실제 효과에 대한 정보가 제한적임"
+        "rating_rationale": "코로나19 경제 회복 정책과 소상공인 지원 정책은 시의적절한 대응이나, 구체적인 지원 규모나 성과, 실행 방안에 대한 세부 내용이 부족하여 정책 수립 단계의 양호한 수준으로 평가"
       },
       {
         "item_id": 152002,
@@ -2572,7 +2572,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "C",
-        "rating_rationale": "청년 정책 강화 발표는 사회적 책임을 인식한 긍정적 행보이나, 구체적인 실행 계획이나 성과 지표가 명시되지 않아 실질적 책임 이행 여부를 판단하기 어려움. 정책 의지는 보이나 구체성 부족"
+        "rating_rationale": "청년층의 높은 실업률이라는 구체적 문제를 인식하고 주거·일자리 정책을 제시한 것은 책임감 있는 접근이나, 구체적인 실행계획이나 성과지표가 부족하여 정책의 실효성 확보 측면에서 아쉬움이 있음"
       },
       {
         "item_id": 152003,
@@ -2580,7 +2580,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "A",
         "new_rating": "B",
-        "rating_rationale": "예산 효율성 개선과 낭비 감소는 시민의 세금에 대한 높은 책임성을 보여주는 행동. 공공재원의 투명하고 효율적 운용은 정치인의 핵심 책임으로, 이를 적극 추진하는 것은 우수한 책임감 표현"
+        "rating_rationale": "서울시 예산의 효율적 운영과 낭비 절감은 시민의 세금을 책임감 있게 관리하려는 의지를 보여주며, 구체적인 방안을 제시하고 실제 성과를 내고 있어 높은 책임성을 나타냄"
       },
       {
         "item_id": 152004,
@@ -2588,7 +2588,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "기후변화 대응은 현재와 미래 세대에 대한 책임을 동시에 보여주는 정책 영역. 탄소 배출량 감소라는 명확한 목표 설정과 다양한 프로그램 실시는 환경에 대한 강한 책임의식을 나타냄"
+        "rating_rationale": "기후변화라는 글로벌 이슈에 대해 서울시 차원에서 탄소배출량 감소라는 명확한 목표를 설정하고 다양한 프로그램을 실시하는 것은 미래세대에 대한 책임감 있는 정책 추진으로 평가됨"
       },
       {
         "item_id": 152005,
@@ -2596,7 +2596,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "부동산 정책의 지속적 이행과 시장 상황 모니터링은 시민 주거권에 대한 책임감을 보여주나, '면밀히 관찰'이라는 소극적 표현으로 인해 적극적 문제 해결 의지가 다소 부족해 보임"
+        "rating_rationale": "부동산 안정화를 위한 공공주택 정책 이행과 시장 상황 모니터링은 책임감 있는 접근이나, '면밀히 관찰'이라는 표현이 다소 소극적이며 구체적인 해결방안 제시가 부족함"
       },
       {
         "item_id": 152006,
@@ -2604,31 +2604,31 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "사회적 약자인 노인과 장애인 지원 확대는 사회통합과 형평성에 대한 높은 책임의식을 보여줌. 취약계층 보호는 정치인의 핵심 사회적 책임으로, 이를 강화하는 것은 우수한 평가 요소"
+        "rating_rationale": "사회적 약자인 노인과 장애인을 위한 복지 정책을 강화하고 실제 지원을 늘린 것은 사회적 책임을 다하려는 적극적인 노력으로 평가되며, 지속적인 관심을 보이고 있음"
       },
       {
         "item_id": 152007,
         "data_title": "주거 안정 정책",
         "collected_by": "ChatGPT",
         "original_rating": "C",
-        "new_rating": "B",
-        "rating_rationale": "저소득층과 청년 대상 주거 안정 정책은 주거권 보장이라는 기본적 사회적 책임을 충실히 이행하려는 노력. 사회적 약자를 우선적으로 고려한 정책 방향은 높은 책임성을 나타냄"
+        "new_rating": "C",
+        "rating_rationale": "저소득층과 청년의 주거 문제 해결을 위한 정책 기초를 마련한 것은 사회적 책임을 인식한 접근이나, '기초를 마련'이라는 표현에서 아직 초기 단계임을 보여주어 실질적 성과는 제한적임"
       },
       {
         "item_id": 152008,
         "data_title": "협치 강화 방안",
         "collected_by": "ChatGPT",
         "original_rating": "B",
-        "new_rating": "A",
-        "rating_rationale": "다양한 이해관계자와의 협치는 민주적 거버넌스의 핵심이며, 정치인이 가져야 할 최고 수준의 책임성을 보여줌. 독단적 정책 추진이 아닌 민간과의 협력을 통한 정책 개선은 매우 우수한 책임감"
+        "new_rating": "B",
+        "rating_rationale": "다양한 이해관계자와의 협치를 통한 정책 개선과 민간 협력 프로그램 추진은 민주적이고 투명한 행정을 위한 책임감 있는 접근으로, 시민참여 확대에 기여하고 있음"
       },
       {
         "item_id": 152009,
         "data_title": "서울시 홍보 전략",
         "collected_by": "ChatGPT",
         "original_rating": "A",
-        "new_rating": "B",
-        "rating_rationale": "정책 홍보와 시민 교육은 정보 공개와 시민 참여 활성화라는 민주주의적 책임을 이행하는 행동. 시민의 알 권리 보장과 정책 이해도 제고는 정치인의 중요한 책임 영역으로 우수한 평가"
+        "new_rating": "C",
+        "rating_rationale": "정책 홍보와 교육 프로그램 운영을 통해 시민의 알 권리를 보장하려는 노력은 책임감 있는 행정의 기본 요소이나, 일방향적 정보 제공에 그칠 가능성이 있어 소통의 깊이가 아쉬움"
       },
       {
         "item_id": 152010,
@@ -2636,7 +2636,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "전자 행정 시스템 강화를 통한 행정 효율성과 시민 접근성 향상은 공공서비스 개선에 대한 강한 책임의식을 보여줌. 디지털 시대에 맞는 행정 혁신은 시민 편의성 증대라는 책임 이행"
+        "rating_rationale": "전자 행정 시스템 강화를 통해 행정 효율성 향상과 시민 접근성 개선을 추진하는 것은 디지털 시대에 맞는 책임감 있는 행정 혁신으로, 시민 편의성 증대에 기여하고 있음"
       },
       {
         "item_id": 152011,
@@ -2644,7 +2644,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "문화예술 지원 강화는 시민의 문화향유권과 도시 경쟁력 제고라는 책임을 인식한 정책이나, 다른 사회적 현안에 비해 상대적으로 우선순위가 낮은 영역으로 양호한 수준의 책임성 표현"
+        "rating_rationale": "문화예술 분야 지원 강화를 통해 서울시의 문화 경쟁력 향상을 추진하는 것은 도시 발전에 대한 책임감을 보여주나, 구체적인 지원 방안이나 성과 측정 방법이 명확하지 않아 실효성 확보가 과제임"
       },
       {
         "item_id": 152012,
@@ -2652,7 +2652,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "광역교통문제 해결을 위해 구체적인 계획을 수립하고 실제로 일부 노선을 개선하여 교통 혼잡도 감소라는 가시적 성과를 달성했다. 공약 이행과 실질적 개선 효과를 보여주어 높은 책임성을 입증했다."
+        "rating_rationale": "광역교통문제 해결을 위한 구체적인 계획 수립과 실제 노선 개선을 통해 교통 혼잡도 감소라는 가시적 성과를 달성했으나, 전체적인 교통문제 해결에는 더 많은 시간과 노력이 필요한 상황"
       },
       {
         "item_id": 152013,
@@ -2660,7 +2660,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "주택 공급 계획을 추진하여 2021-2022년 신규 아파트 단지 공급이라는 성과를 거두었으나, 여전히 부족한 부분이 존재하여 기대에 미치지 못했다. 부분적 성과는 있지만 완전한 문제 해결에는 한계를 보였다."
+        "rating_rationale": "재건축과 재개발을 통한 주택 공급에서 실질적인 성과를 거두었으나, 여전히 부족한 부분이 존재하고 시민들의 기대에 완전히 부응하지 못한 점에서 양호한 수준의 책임성을 보임"
       },
       {
         "item_id": 152014,
@@ -2668,7 +2668,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "C",
-        "rating_rationale": "코로나19 확산 방지를 위한 필요 조치를 시행하고 백신 접종을 신속히 진행하여 시민 안전을 도모했으나, 일부 지연이 발생했다. 전반적으로 적절한 대응을 했지만 완벽하지는 않았다."
+        "rating_rationale": "코로나19 대응에서 필요한 조치 시행과 백신 접종을 통해 시민 안전을 도모했으나, 일부 지연이 발생한 점에서 완전한 책임 이행에는 아쉬움이 있어 양호한 수준으로 평가"
       },
       {
         "item_id": 152015,
@@ -2676,7 +2676,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "대기질 개선을 위해 차량 등록 제한, 녹지 공간 증대 등 구체적 정책을 시행하여 환경오염 감소에 기여했으나, 여전히 대기질이 우려되는 수준이다. 노력은 인정되지만 근본적 해결에는 한계가 있다."
+        "rating_rationale": "대기질 개선을 위한 다양한 정책 시행과 구체적인 조치를 통해 환경오염 감소에 기여했으나, 여전히 대기질이 우려되는 수준으로 남아있어 부분적인 책임 이행으로 평가"
       },
       {
         "item_id": 152016,
@@ -2684,23 +2684,23 @@
         "collected_by": "ChatGPT",
         "original_rating": "A",
         "new_rating": "B",
-        "rating_rationale": "반려동물 정책 강화를 통해 동물 보호 및 복지 향상을 위한 다양한 프로그램과 캠페인을 시행하여 반려견 문화 정상화를 제안했다. 체계적이고 적극적인 정책 추진으로 높은 책임성을 보여주었다."
+        "rating_rationale": "반려동물 정책 강화를 통해 동물 복지 향상과 문화 정상화를 위한 구체적이고 다양한 프로그램을 시행하여, 해당 분야에서 적극적이고 효과적인 책임 이행을 보여줌"
       },
       {
         "item_id": 152017,
         "data_title": "서울시 자치구 예산 배분 투명성",
         "collected_by": "ChatGPT",
         "original_rating": "D",
-        "new_rating": "D",
-        "rating_rationale": "예산 배분 투명성을 높이려는 노력은 있었으나, 일부 자치구에서 불투명한 사례가 발생하여 비판을 받았다. 의도는 좋았지만 실행 과정에서의 관리 부족으로 완전한 책임을 다하지 못했다."
+        "new_rating": "E",
+        "rating_rationale": "예산 배분의 투명성 제고를 위한 노력은 있었으나, 일부 자치구에서 불투명한 사례가 발생하여 비판을 받은 점에서 책임성 측면에서 미흡한 수준으로 평가됨"
       },
       {
         "item_id": 152018,
         "data_title": "학교 폭력 예방 정책",
         "collected_by": "ChatGPT",
         "original_rating": "C",
-        "new_rating": "E",
-        "rating_rationale": "학교 폭력 예방을 위한 다양한 프로그램을 추진했으나, 효과적인 실적이 부족하다는 비판이 존재한다. 정책 시행은 했지만 실질적 성과 부족으로 책임성이 미흡하다고 평가된다."
+        "new_rating": "D",
+        "rating_rationale": "학교 폭력 예방을 위한 다양한 프로그램을 추진한 의지는 보였으나, 효과적인 실적이 부족하다는 비판이 존재하여 정책의 실효성과 책임 이행에서 보통 수준에 머물러 있음"
       },
       {
         "item_id": 152019,
@@ -2708,7 +2708,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "B",
         "new_rating": "C",
-        "rating_rationale": "문화예술 지원 확대 정책을 시행하여 지역 예술가들에게 실질적 도움을 주었으나, 예산 한계로 모든 신청자 지원이 불가능했다. 정책 의도와 부분적 성과는 있지만 완전한 해결책 제시에는 한계가 있다."
+        "rating_rationale": "문화예술 지원 정책을 통해 지역 예술가들에게 실질적인 도움을 제공했으나, 예산 한계로 모든 신청자에게 지원이 불가능한 점에서 부분적인 책임 이행으로 평가"
       },
       {
         "item_id": 152020,
@@ -2716,7 +2716,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "D",
         "new_rating": "E",
-        "rating_rationale": "노숙인 문제 해결을 위한 정책을 추진했으나, 종합적인 대책 부족으로 여전히 많은 노숙인이 거리를 떠돌고 있다. 정책 시행은 했지만 근본적 해결 부족으로 책임성이 미흡하다."
+        "rating_rationale": "노숙인 문제 해결을 위한 정책을 추진했으나, 종합적인 대책 부족으로 여전히 많은 노숙인이 거리를 떠도는 상황이 지속되어 근본적인 문제 해결에서 미흡한 책임성을 보임"
       },
       {
         "item_id": 152021,
@@ -2724,7 +2724,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "공공시설 관리 및 개선에 대해 소극적 입장을 취하여 비판받았으며, 재정적 문제를 이유로 개선 속도가 더딘 상황이다. 적극적 해결 의지 부족과 지연으로 책임성이 미흡하다고 평가된다."
+        "rating_rationale": "공공시설 관리 및 개선에 대해 소극적인 입장으로 비판받았으며, 재정적 문제를 이유로 개선 속도가 더딘 점에서 시민들의 기본적인 공공서비스 요구에 대한 책임 이행이 미흡함"
       },
       {
         "item_id": 152022,
@@ -2732,7 +2732,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "C",
         "new_rating": "D",
-        "rating_rationale": "도시재생 프로젝트를 추진한 적극성은 있으나, 일부 지역에서 논란이 발생한 것은 사전 검토와 이해관계자 조정이 부족했음을 시사한다. 정책 실행 과정에서의 책임성이 보통 수준이다."
+        "rating_rationale": "도시재생 프로젝트를 추진했으나 일부 지역에서 논란이 발생한 것은 사전 검토와 시민 의견 수렴이 부족했음을 시사하며, 책임감 있는 정책 추진에 아쉬움이 있음"
       },
       {
         "item_id": 152023,
@@ -2740,7 +2740,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "D",
         "new_rating": "E",
-        "rating_rationale": "안전 관리에 투자는 했으나 실질적인 안전 지수 개선이 미미한 것은 정책의 효과성과 실행력에 문제가 있음을 보여준다. 예산 투입 대비 성과가 부족하여 시민에 대한 책임을 다하지 못했다."
+        "rating_rationale": "안전 관리에 투자했음에도 실질적 개선이 미미한 것은 정책의 실효성 검토와 성과 관리에 대한 책임이 부족함을 보여주며, 시민 안전에 대한 결과 책임이 미흡함"
       },
       {
         "item_id": 152024,
@@ -2748,7 +2748,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "E",
         "new_rating": "F",
-        "rating_rationale": "교통 안전 정책을 시행했음에도 교통사고가 증가하고 해결책이 부족하다는 것은 정책의 근본적 문제를 나타낸다. 시민 안전에 직결되는 사안에서 책임성이 현저히 부족하다."
+        "rating_rationale": "교통 안전 정책을 시행했음에도 교통사고가 증가하고 해결책이 부족하다는 비판을 받은 것은 정책 효과성에 대한 책임감이 부족하고 문제 해결 의지가 미약함을 나타냄"
       },
       {
         "item_id": 152025,
@@ -2756,23 +2756,23 @@
         "collected_by": "ChatGPT",
         "original_rating": "D",
         "new_rating": "E",
-        "rating_rationale": "디지털 행정 서비스 개선을 위한 여러 프로젝트를 시행했으나 사용자 만족도가 낮다는 것은 시민의 실제 needs 파악과 정책 설계에 문제가 있음을 보여준다. 성과 중심의 책임성이 미흡하다."
+        "rating_rationale": "디지털 행정 서비스 개선 프로젝트를 시행했으나 사용자 만족도가 낮은 것은 시민 중심의 서비스 구현에 대한 책임감이 부족하고 실질적 성과 달성에 미흡함"
       },
       {
         "item_id": 152026,
         "data_title": "사회적 기업 지원 정책",
         "collected_by": "ChatGPT",
         "original_rating": "E",
-        "new_rating": "F",
-        "rating_rationale": "사회적 기업 지원 정책을 마련했으나 실제 지원금이 부족하여 기대 이하의 결과를 낳은 것은 정책 기획과 예산 확보에서 책임감 있는 준비가 부족했음을 의미한다."
+        "new_rating": "E",
+        "rating_rationale": "사회적 기업 지원 정책을 마련했으나 지원금 부족으로 기대 이하의 결과를 낳은 것은 정책 설계와 예산 확보에 대한 책임감이 부족하고 실행력이 미흡함을 보여줌"
       },
       {
         "item_id": 152027,
         "data_title": "청년 정책 및 일자리 창출",
         "collected_by": "ChatGPT",
         "original_rating": "D",
-        "new_rating": "E",
-        "rating_rationale": "청년 일자리 창출 정책을 시행했으나 여전히 많은 청년들이 취업 어려움을 겪고 있다는 것은 정책의 실효성이 부족함을 보여준다. 청년층에 대한 책임 있는 정책 실행이 미흡하다."
+        "new_rating": "F",
+        "rating_rationale": "청년 일자리 창출 정책을 시행했음에도 청년들의 취업 어려움이 지속되어 비판받는 것은 정책의 실효성과 청년 문제 해결에 대한 책임감이 부족함을 나타냄"
       },
       {
         "item_id": 152028,
@@ -2780,7 +2780,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "C",
         "new_rating": "E",
-        "rating_rationale": "전문가 자문과 시민 의견 수렴을 일부 반영했으나 중요한 사안에서 소홀했다는 것은 민주적 의사결정 과정에서의 책임성이 일관되지 못했음을 나타낸다. 선별적 소통으로 비판받을 만하다."
+        "rating_rationale": "전문가 자문과 시민 의견 수렴을 일부 반영했으나 중요 사안에서 소홀했다는 비판은 민주적 정책 결정 과정에 대한 책임감이 부족하고 참여적 거버넌스 구현이 미흡함"
       },
       {
         "item_id": 152029,
@@ -2788,7 +2788,7 @@
         "collected_by": "ChatGPT",
         "original_rating": "C",
         "new_rating": "D",
-        "rating_rationale": "정책 홍보는 활성화했으나 시민 이해도가 낮아 실효성에 의문이 제기된 것은 일방향적 홍보에 치중하고 실질적인 소통과 설명 책임을 다하지 못했음을 보여준다."
+        "rating_rationale": "정책 홍보는 활성화했으나 시민 이해도가 낮아 실효성에 의문이 제기된 것은 소통 방식의 개선과 정책 전달에 대한 책임감이 보통 수준에 그침을 보여줌"
       },
       {
         "item_id": 152030,
@@ -2796,15 +2796,15 @@
         "collected_by": "ChatGPT",
         "original_rating": "D",
         "new_rating": "E",
-        "rating_rationale": "시민 참여 확대 프로그램을 시행했으나 참여율이 낮아 효과성에 문제가 제기된 것은 시민의 실제 참여 동기와 장벽을 제대로 분석하지 못한 책임성 부족을 나타낸다."
+        "rating_rationale": "시민 참여 확대 프로그램을 시행했으나 참여율이 낮아 효과성에 문제가 제기된 것은 시민 참여 활성화에 대한 책임감과 프로그램 설계 능력이 미흡함을 나타냄"
       },
       {
         "item_id": 152031,
         "data_title": "사회적 안전망 구축 노력",
         "collected_by": "ChatGPT",
         "original_rating": "E",
-        "new_rating": "F",
-        "rating_rationale": "사회적 안전망 구축을 위한 정책적 노력은 했으나 범죄 예방에 대한 실질적 성과가 저조한 것은 시민 안전이라는 기본적 책무에서 충분한 결과를 만들어내지 못한 중대한 책임성 부족이다."
+        "new_rating": "E",
+        "rating_rationale": "사회적 안전망 구축을 위한 정책적 노력을 시도했으나 범죄 예방 성과가 저조한 것은 시민 안전에 대한 실질적 책임 이행과 정책 실효성 확보가 미흡함을 보여줌"
       },
       {
         "item_id": 151932,
@@ -2812,7 +2812,7 @@
         "collected_by": "Grok",
         "original_rating": "F",
         "new_rating": "E",
-        "rating_rationale": "핵심 공약인 주택 공급 확대가 지연되고 목표 달성률이 낮은 것은 시민과의 약속을 지키지 못한 명백한 책임성 결여입니다. 예산 배정 부족을 이유로 하지만 이는 시장으로서 예산 확보와 정책 추진력 부족을 보여주며, 결과적으로 시민의 주거 불안을 가중시켰습니다."
+        "rating_rationale": "핵심 공약인 주택 공급 정책의 지연과 목표 달성률 저조는 시민과의 약속을 지키지 못한 명백한 책임성 결여이며, 주거 불안 가중으로 시민 피해가 발생했음"
       },
       {
         "item_id": 151933,
@@ -2820,7 +2820,7 @@
         "collected_by": "Grok",
         "original_rating": "G",
         "new_rating": "F",
-        "rating_rationale": "국회의원의 기본 의무인 회의 출석을 소홀히 한 것은 심각한 책임성 결여입니다. 특히 중요 법안 심의 시 빈번한 결석과 70% 미만의 출석률은 국민 대표로서의 기본 책무를 방기한 것으로, 의정 활동에 대한 책임의식이 현저히 부족함을 보여줍니다."
+        "rating_rationale": "국회의원으로서 기본 의무인 회의 출석률이 70% 미만으로 현저히 낮고, 중요 법안 심의 시 빈번한 결석은 국민 대표로서의 책임을 심각하게 방기한 행위임"
       },
       {
         "item_id": 151934,
@@ -2828,7 +2828,7 @@
         "collected_by": "Grok",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "환경 정책은 시민 건강과 직결되는 중요한 사안임에도 미세먼지 저감 사업 지연과 목표 미달성은 책임성 부족을 나타냅니다. 예산 집행 관리 부적절과 사업 효과 미미는 행정 책임자로서 정책 실행력과 관리 능력의 한계를 드러냅니다."
+        "rating_rationale": "미세먼지 저감 등 환경 정책의 지연과 목표 미달성, 부적절한 예산 집행으로 인한 사업 효과 미미는 시민 건강과 직결된 책임성 부족을 보여줌"
       },
       {
         "item_id": 151935,
@@ -2836,7 +2836,7 @@
         "collected_by": "Grok",
         "original_rating": "F",
         "new_rating": "F",
-        "rating_rationale": "공공 자금의 예산 초과 지출과 불투명한 예산 배분은 시민의 세금을 책임지지 못한 심각한 문제입니다. 세금 낭비로 이어진 재정 관리 실패는 공직자로서 가져야 할 기본적인 재정 건전성과 투명성에 대한 책임을 저버린 것으로 평가됩니다."
+        "rating_rationale": "예산 초과 지출과 불투명한 예산 배분으로 인한 세금 낭비는 공공 자금 관리 책임을 심각하게 위반한 사안으로, 시민들의 신뢰를 크게 손상시킴"
       },
       {
         "item_id": 151936,
@@ -2844,7 +2844,7 @@
         "collected_by": "Grok",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "대중교통은 시민의 기본적인 이동권과 직결되는 핵심 공약이었으나 지하철 확장 사업의 지연은 시민 불편을 가중시켰습니다. 예산 부족과 행정적 지연을 해결하지 못한 것은 시장으로서의 추진력과 문제 해결 능력 부족을 보여주는 책임성 결여입니다."
+        "rating_rationale": "대중교통 개선 공약, 특히 지하철 확장 사업의 지연으로 시민 불편 증대와 이동권 보장 책임성 약화를 초래하여 공약 이행 의지가 부족함을 드러냄"
       },
       {
         "item_id": 151937,
@@ -2852,7 +2852,7 @@
         "collected_by": "Grok",
         "original_rating": "F",
         "new_rating": "F",
-        "rating_rationale": "코로나19라는 공중보건 위기 상황에서 백신 배포와 방역 강화 공약 미이행은 시민의 생명과 안전을 위협하는 심각한 책임성 결여입니다. 고위험군 보호 부족과 의료시스템 강화 실패는 재난 대응 책임자로서 치명적인 실패로 평가됩니다."
+        "rating_rationale": "코로나19 백신 배포와 방역 강화 공약 미이행으로 고위험군 보호 실패와 감염 확산 지속은 시민 생명과 직결된 중대한 책임성 결여임"
       },
       {
         "item_id": 151938,
@@ -2860,7 +2860,7 @@
         "collected_by": "Grok",
         "original_rating": "G",
         "new_rating": "E",
-        "rating_rationale": "주거 안정화는 서민층의 생존과 직결되는 핵심 공약이었으나 청년 주택 공급과 임대료 안정화 실패는 사회적 약자에 대한 책임을 다하지 못한 것입니다. 부동산 가격 상승 지속과 서민층 불만 증가는 정책 책임자로서의 역할을 제대로 수행하지 못했음을 보여줍니다."
+        "rating_rationale": "청년 주택 공급과 임대료 안정화 공약 미이행으로 주거 불안 가중과 부동산 가격 상승 지속은 서민층에 대한 책임을 저버린 정책 실패임"
       },
       {
         "item_id": 151939,
@@ -2868,7 +2868,7 @@
         "collected_by": "Grok",
         "original_rating": "E",
         "new_rating": "F",
-        "rating_rationale": "과거 국회의원 시절 저조한 출석률로 인한 의정활동 부실은 지역구 대표로서의 기본 책무 방기입니다. 중요 법안 논의 불참은 국민 대표로서의 책임을 포기한 것이며, 이후 서울시장으로서도 일관된 책임성 결여를 보이는 것은 공직자 자질에 대한 근본적 문제를 제기합니다."
+        "rating_rationale": "국회의원 시절 낮은 본회의 출석률로 중요 법안 논의 불참은 지역구 대표로서의 기본 책임을 소홀히 한 것으로, 일관된 책임성 결여를 보여줌"
       },
       {
         "item_id": 151940,
@@ -2876,7 +2876,7 @@
         "collected_by": "Grok",
         "original_rating": "F",
         "new_rating": "E",
-        "rating_rationale": "도시 재생 프로젝트는 시민의 주거 환경과 안전에 직결되는 중요한 공약이었으나 지연과 예산 낭비, 부실 시공은 시민 안전을 위협하는 결과를 초래했습니다. 노후 주거지 개선 공약 미이행은 시민의 기본적인 주거권 보장에 대한 책임을 다하지 못한 것입니다."
+        "rating_rationale": "서울 도시재생 프로젝트와 노후 주거지 개선 공약 지연, 예산 낭비와 부실 시공으로 시민 안전 위협은 공약 실천 책임성의 명백한 부족임"
       },
       {
         "item_id": 151941,
@@ -2884,7 +2884,7 @@
         "collected_by": "Grok",
         "original_rating": "G",
         "new_rating": "F",
-        "rating_rationale": "재난 관리는 시민의 생명과 재산을 보호하는 가장 기본적인 행정 책무입니다. 지진 대비와 홍수 예방 시스템 강화 공약 미이행으로 실제 2022년 홍수 피해에서 대응력 부족이 드러난 것은 시민 안전에 대한 근본적 책임 방기로 평가됩니다."
+        "rating_rationale": "재난 관리 공약인 지진 대비와 홍수 예방 시스템 강화 미이행으로 실제 재난 시 대응력 약화는 시민 안전에 대한 중대한 책임 방기임"
       },
       {
         "item_id": 151942,
@@ -2892,7 +2892,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "C",
-        "rating_rationale": "코로나19 대응에서 백신 접종 1,500만 회 완료와 감염률 안정화라는 성과를 달성했으나, 초기 대응 지연으로 인한 비판이 있어 완전한 책임 이행에는 아쉬움이 있음"
+        "rating_rationale": "코로나19 대응 공약을 이행하여 1,500만 회 백신 접종 완료와 감염률 안정화라는 구체적 성과를 달성했으나, 초기 대응 지연으로 인한 비판이 있어 완전한 책임 이행에는 한계가 있었음"
       },
       {
         "item_id": 151943,
@@ -2900,7 +2900,7 @@
         "collected_by": "Grok",
         "original_rating": "A",
         "new_rating": "B",
-        "rating_rationale": "한강 르네상스 프로젝트를 공약대로 추진하여 친환경 공원 확대와 레저 시설 증설을 실현했고, 한강 이용자 수 20% 증가라는 구체적 성과를 달성하여 우수한 책임성을 보임"
+        "rating_rationale": "한강 르네상스 프로젝트를 공약대로 추진하여 친환경 공원 확대와 레저 시설 증설을 실현했고, 한강 이용자 수 20% 증가라는 명확한 성과를 달성하여 높은 책임성을 보임"
       },
       {
         "item_id": 151944,
@@ -2908,7 +2908,7 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "지하철 9호선 연장 완료와 교통 지체 15% 감소 성과를 달성했으나, 예산 초과 지출 문제가 발생하여 재정 관리 측면에서 책임성에 한계를 보임"
+        "rating_rationale": "교통 인프라 개선 공약을 이행하여 지하철 9호선 연장 완료와 교통 지체 15% 감소 성과를 거뒀으나, 예산 초과 지출 문제가 발생하여 재정 관리 책임성에 아쉬움이 있음"
       },
       {
         "item_id": 151945,
@@ -2916,7 +2916,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "용산 개발 프로젝트를 공약대로 추진하여 5,000개 일자리 창출 계획을 진행 중이며, 지역 경제 활성화라는 목표를 향해 체계적으로 이행하고 있어 우수한 책임성을 보임"
+        "rating_rationale": "용산 개발 프로젝트를 공약대로 추진하여 5,000개 일자리 창출 예정과 지역 경제 활성화 효과를 달성하고 있어, 장기적 비전 실현에 대한 책임성을 충실히 이행하고 있음"
       },
       {
         "item_id": 151946,
@@ -2924,7 +2924,7 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "전기버스 도입과 공기청정시설 확대로 미세먼지 농도 10% 감소 성과를 달성했으나, 일부 정책 지연으로 인해 완전한 책임 이행에는 미흡함이 있음"
+        "rating_rationale": "환경 보호 공약을 실행하여 전기버스 도입과 미세먼지 농도 10% 감소라는 성과를 달성했으나, 일부 정책 지연이 있어 완전한 책임 이행에는 미흡한 부분이 있음"
       },
       {
         "item_id": 151947,
@@ -2932,7 +2932,7 @@
         "collected_by": "Grok",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "소상공인 지원을 위해 1조 원 규모의 대규모 지원을 실행하고 소상공인 매출 15% 증가라는 명확한 성과를 달성하여 경제 활성화 공약에 대한 매우 우수한 책임성을 보임"
+        "rating_rationale": "경제 활성화 공약을 충실히 이행하여 1조 원 규모의 소상공인 지원을 실행하고, 소상공인 매출 15% 증가라는 명확하고 실질적인 성과를 달성하여 매우 우수한 책임성을 보임"
       },
       {
         "item_id": 151948,
@@ -2940,15 +2940,15 @@
         "collected_by": "Grok",
         "original_rating": "D",
         "new_rating": "C",
-        "rating_rationale": "교육 인프라 개선 공약을 이행하여 100개 이상 학교를 업그레이드했으나, 예산 배분 불균형 문제가 제기되어 공정한 정책 집행 측면에서 아쉬움이 있음"
+        "rating_rationale": "교육 인프라 투자 공약을 이행하여 100개 이상 학교 업그레이드라는 구체적 성과를 달성했으나, 예산 배분 불균형 문제가 제기되어 공정한 정책 집행 책임성에 한계가 있음"
       },
       {
         "item_id": 151949,
         "data_title": "복지 확대 정책",
         "collected_by": "Grok",
         "original_rating": "B",
-        "new_rating": "C",
-        "rating_rationale": "복지 확대 공약을 이행하여 기초생활수급자를 10% 확대했으나, 예산 효율성 논란이 발생하여 재정 운용의 책임성 측면에서 개선이 필요함"
+        "new_rating": "D",
+        "rating_rationale": "복지 확대 공약을 이행하여 기초생활 수급자 10% 증가 성과를 거뒀으나, 예산 효율성 논란이 있어 재정 관리와 정책 효과성 측면에서 책임성이 보통 수준에 그침"
       },
       {
         "item_id": 151950,
@@ -2956,7 +2956,7 @@
         "collected_by": "Grok",
         "original_rating": "A",
         "new_rating": "B",
-        "rating_rationale": "행정 투명성 강화 공약을 충실히 이행하여 데이터 공개 플랫폼을 구축하고 공개 데이터를 50% 증가시켜 시민의 알 권리 보장에 우수한 책임성을 보임"
+        "rating_rationale": "행정 투명성 강화 공약을 충실히 이행하여 데이터 공개 플랫폼 구축과 공개 데이터 50% 증가라는 명확한 성과를 달성하여 시민에 대한 책임성을 우수하게 실현함"
       },
       {
         "item_id": 151951,
@@ -2964,7 +2964,7 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "B",
-        "rating_rationale": "부패 방지 공약을 실천하여 감사위원회를 확대하고 부패 신고 건수를 20% 감소시켜 청렴한 행정 구현에 대한 우수한 책임성을 보임"
+        "rating_rationale": "부패 방지 공약을 실천하여 감사위원회 확대와 부패 신고 건수 20% 감소라는 구체적 성과를 달성하여, 공직 윤리와 청렴성에 대한 책임성을 우수하게 이행함"
       },
       {
         "item_id": 151952,
@@ -2972,7 +2972,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "의원 시절 95% 출석률과 주요 법안 토론 참여는 공직자로서의 기본 책임을 충실히 이행했음을 보여주는 매우 우수한 지표입니다. 국회 공식 기록으로 검증된 신뢰할 만한 데이터입니다."
+        "rating_rationale": "의원 시절 95% 출석률과 주요 법안 토론 참여는 공직자로서 매우 높은 책임성을 보여주며, 국회 공식 기록으로 객관적으로 검증된 우수한 성과입니다."
       },
       {
         "item_id": 151953,
@@ -2980,7 +2980,7 @@
         "collected_by": "Grok",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "공약한 예산 낭비 방지를 실제로 10% 절감으로 달성하고 98% 집행률을 기록한 것은 재정 책임성이 매우 우수함을 입증합니다. 기획재정부 감사를 통해 객관적으로 검증된 성과입니다."
+        "rating_rationale": "공약한 예산 낭비 방지를 실제로 이행하여 10% 절감 효과와 98% 집행률을 달성한 것은 재정 책임성 측면에서 매우 우수한 성과로 평가됩니다."
       },
       {
         "item_id": 151954,
@@ -2988,7 +2988,7 @@
         "collected_by": "Grok",
         "original_rating": "D",
         "new_rating": "C",
-        "rating_rationale": "재난 대비 시설 강화로 재난 발생률 감소라는 성과를 냈으나, 초기 준비 부족이 지적된 점에서 완전한 책임 이행에는 아쉬움이 있어 양호 수준으로 평가됩니다."
+        "rating_rationale": "재난 대비 공약을 이행하여 홍수 방지 시설 강화와 재난 발생률 감소 성과를 냈으나, 초기 준비 부족이 지적되어 양호한 수준의 책임성을 보입니다."
       },
       {
         "item_id": 151955,
@@ -2996,15 +2996,15 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "B",
-        "rating_rationale": "문화예술 예산 15% 증가와 참여자 증가라는 가시적 성과로 공약을 충실히 이행했습니다. 문화체육관광부 공식 데이터로 검증되어 우수한 책임성을 보여줍니다."
+        "rating_rationale": "문화예술 지원 공약을 충실히 이행하여 예산 15% 증가와 참여자 증가 성과를 달성했으며, 정책 목표와 결과가 일치하는 우수한 책임성을 보여줍니다."
       },
       {
         "item_id": 151956,
         "data_title": "주택 정책 추진",
         "collected_by": "Grok",
         "original_rating": "B",
-        "new_rating": "A",
-        "rating_rationale": "주거 안정화 공약을 10,000호 이상 공공주택 공급으로 구체적으로 실현하고 주택가격 상승률 완화라는 실질적 효과를 달성한 매우 우수한 책임 이행 사례입니다."
+        "new_rating": "B",
+        "rating_rationale": "주거 안정화 공약을 구체적으로 실천하여 10,000호 이상 공급과 주택 가격 상승률 완화 효과를 달성한 것은 정책 책임성 측면에서 우수한 성과입니다."
       },
       {
         "item_id": 151957,
@@ -3012,7 +3012,7 @@
         "collected_by": "Grok",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "고용 확대 공약을 20,000개 일자리 창출과 실업률 2% 하락으로 구현한 것은 시민 삶에 직접적 영향을 미치는 매우 우수한 책임성 발휘입니다. 고용노동부 공식 통계로 검증되었습니다."
+        "rating_rationale": "고용 확대 공약을 통해 20,000개 일자리 창출과 실업률 2% 하락이라는 구체적이고 측정 가능한 성과를 달성하여 매우 높은 정책 책임성을 보여줍니다."
       },
       {
         "item_id": 151958,
@@ -3020,7 +3020,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "디지털 행정 공약을 스마트 시티 플랫폼 도입으로 실현하고 행정 서비스 이용률 30% 증가라는 성과를 달성하여 우수한 책임성을 보여줍니다."
+        "rating_rationale": "디지털 행정 공약을 실천하여 스마트 시티 플랫폼 도입과 행정 서비스 이용률 30% 증가를 달성한 것은 현대적 행정 책임성 측면에서 우수한 성과입니다."
       },
       {
         "item_id": 151959,
@@ -3028,7 +3028,7 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "녹색 도시 공약으로 재생에너지 시설 확대와 탄소 배출량 5% 감소를 달성했으나, 환경 정책의 특성상 더 큰 변화가 기대되는 점에서 양호 수준으로 평가됩니다."
+        "rating_rationale": "녹색 도시 공약을 이행하여 재생 에너지 시설 확대와 탄소 배출량 5% 감소 성과를 냈으나, 환경 정책의 장기적 관점에서 보면 양호한 수준의 책임성입니다."
       },
       {
         "item_id": 151960,
@@ -3036,7 +3036,7 @@
         "collected_by": "Grok",
         "original_rating": "D",
         "new_rating": "B",
-        "rating_rationale": "국제 행사 유치 공약을 주요 국제 회의 주최로 실현하고 외국 투자 유입 증가라는 경제적 성과를 달성하여 우수한 책임성을 입증했습니다."
+        "rating_rationale": "국제 행사 유치 공약을 성공적으로 이행하여 주요 국제 회의 주최와 외국 투자 유입 증가 효과를 달성한 것은 국제적 책임성 측면에서 우수한 성과입니다."
       },
       {
         "item_id": 151961,
@@ -3044,7 +3044,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "시민 의견 수렴 공약을 공청회 확대로 실천하고 참여율 25% 증가를 달성한 것은 민주적 책임성 강화에 기여하는 우수한 성과입니다."
+        "rating_rationale": "시민 의견 수렴 공약을 통해 공청회 확대와 참여율 25% 증가를 달성한 것은 민주적 책임성과 시민과의 소통 측면에서 우수한 성과로 평가됩니다."
       },
       {
         "item_id": 151962,
@@ -3052,7 +3052,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "C",
-        "rating_rationale": "코로나19 대응에서 백신 접종 확대와 대규모 검사소 운영 등 핵심 공약을 이행했으나, 지역 봉쇄 조치 지연으로 완전한 책임 이행에는 아쉬움이 있어 양호한 수준의 책임성을 보임"
+        "rating_rationale": "코로나19 대응에서 백신 접종 확대와 검사소 운영 등 핵심 공약을 이행했으나, 지역 봉쇄 조치 지연으로 완전한 책임 이행에는 한계를 보였음"
       },
       {
         "item_id": 151963,
@@ -3060,7 +3060,7 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "D",
-        "rating_rationale": "한강 르네상스 사업을 통해 도시재생 공약 이행을 시도했으나, 예산 초과와 지연, 주민 불만 등으로 인해 책임성 있는 사업 관리가 부족했다고 평가됨"
+        "rating_rationale": "한강 르네상스 사업을 추진하여 공약 이행 의지를 보였으나, 예산 초과와 지연으로 인한 주민 불만 발생은 책임성 관리 부족을 나타냄"
       },
       {
         "item_id": 151964,
@@ -3068,7 +3068,7 @@
         "collected_by": "Grok",
         "original_rating": "D",
         "new_rating": "E",
-        "rating_rationale": "교통 정책 공약 중 일부만 실행되고 예산 부족으로 완전한 이행이 어려웠다는 점에서 공약에 대한 책임성이 미흡한 수준으로 판단됨"
+        "rating_rationale": "교통 정책 공약 중 일부만 실행되고 예산 부족으로 완전한 이행이 어려웠던 점은 공약 대비 성과 관리에서 책임성이 미흡함을 보여줌"
       },
       {
         "item_id": 151965,
@@ -3076,7 +3076,7 @@
         "collected_by": "Grok",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "환경 정책에서 미세먼지 대책과 공원 조성을 추진했으나 목표 달성률이 낮아 환경단체 비판을 받은 점에서 성과 관리 책임성이 미흡함"
+        "rating_rationale": "미세먼지 저감과 녹지 확대를 추진했으나 목표 달성률이 낮아 환경 단체 비판을 받은 것은 성과 관리 책임성에서 미흡한 수준임"
       },
       {
         "item_id": 151966,
@@ -3084,7 +3084,7 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "E",
-        "rating_rationale": "교육 예산 확대 공약에서 일부 투자는 했으나 전체 예산 증가가 기대에 미치지 못하고 교육 불평등 문제가 지속되어 공약 이행 책임성이 미흡함"
+        "rating_rationale": "교육 시설 개선에 일부 투자했으나 전체 예산 증가가 기대에 미치지 못하고 교육 불평등이 지속된 것은 공약 이행 책임성이 미흡함"
       },
       {
         "item_id": 151967,
@@ -3092,7 +3092,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "D",
-        "rating_rationale": "주택 공급 확대를 위한 프로젝트를 진행했으나 부동산 가격 상승으로 공약 효과가 제한적이어서 결과에 대한 책임성이 보통 수준에 그침"
+        "rating_rationale": "주택 공급 확대 프로젝트를 진행했으나 부동산 가격 상승으로 공약 효과가 제한적이었던 점은 성과 책임성 측면에서 보통 수준임"
       },
       {
         "item_id": 151968,
@@ -3100,7 +3100,7 @@
         "collected_by": "Grok",
         "original_rating": "D",
         "new_rating": "D",
-        "rating_rationale": "소상공인 지원과 일자리 창출 프로그램을 시행했으나 경기 침체로 기대 성과를 달성하지 못해 경제 활성화 공약에 대한 책임성이 보통 수준임"
+        "rating_rationale": "소상공인 지원과 일자리 창출 프로그램을 시행했으나 경기 침체로 기대 성과 미달성은 외부 요인을 고려할 때 보통 수준의 책임성임"
       },
       {
         "item_id": 151969,
@@ -3108,15 +3108,15 @@
         "collected_by": "Grok",
         "original_rating": "E",
         "new_rating": "F",
-        "rating_rationale": "문화예술 육성 공약을 위해 축제 지원과 공연장 확대를 추진했으나 예산 축소로 일부 프로그램이 취소되어 공약 관리 책임성이 부족함"
+        "rating_rationale": "문화 예술 지원을 공약했으나 예산 축소로 프로그램 취소가 발생한 것은 공약 관리와 예산 계획 책임성에서 부족한 수준을 보임"
       },
       {
         "item_id": 151970,
         "data_title": "공공 안전 강화",
         "collected_by": "Grok",
         "original_rating": "C",
-        "new_rating": "B",
-        "rating_rationale": "공공안전 강화에서 CCTV 확대와 응급 훈련을 통해 범죄율 감소라는 실질적 성과를 달성했으나 일부 지역 미비로 완전하지 않아 우수한 수준의 책임성을 보임"
+        "new_rating": "C",
+        "rating_rationale": "CCTV 확대와 응급 훈련을 통해 범죄율 감소 성과를 달성했으나 일부 지역 미비는 부분적 성공으로 양호한 책임성 수준임"
       },
       {
         "item_id": 151971,
@@ -3124,7 +3124,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "C",
-        "rating_rationale": "디지털 행정 서비스 확대가 성공적으로 진행되어 공약 이행도가 높았으나 고령자 접근성 문제가 제기되어 포용적 책임성 측면에서 양호한 수준임"
+        "rating_rationale": "온라인 행정 서비스 확대를 성공적으로 진행했으나 고령자 접근성 문제 발생은 포용적 정책 설계 책임성에서 개선 여지를 보임"
       },
       {
         "item_id": 151972,
@@ -3132,7 +3132,7 @@
         "collected_by": "Grok",
         "original_rating": "D",
         "new_rating": "C",
-        "rating_rationale": "복지 정책을 약속하고 저소득층 지원 프로그램을 실제로 강화하여 일부 성과를 거두었으나, 예산 한계로 모든 계층을 커버하지 못한 것은 완전한 공약 이행에 한계를 보여준다. 노력과 부분적 성과는 인정되지만 포괄성 부족으로 양호 수준이다."
+        "rating_rationale": "복지 확대 공약을 부분적으로 이행했으나 예산 한계로 모든 계층을 커버하지 못함. 약속한 정책을 실행했지만 완전하지 않은 이행으로 양호한 수준의 책임성을 보임"
       },
       {
         "item_id": 151973,
@@ -3140,7 +3140,7 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "D",
-        "rating_rationale": "시의회 대부분 회의에 출석한 것은 긍정적이나, 중요한 회의에서의 결석은 공직자로서의 기본 책임을 소홀히 한 것이다. 공약 이행과 관련된 핵심 회의 불참은 시민에 대한 책임성 측면에서 문제가 있어 보통 수준의 평가를 받는다."
+        "rating_rationale": "시의회 출석 의무를 대부분 이행했으나 중요한 회의 결석이 발생. 기본적인 책임은 수행했지만 핵심 순간의 부재로 인해 보통 수준의 책임성을 나타냄"
       },
       {
         "item_id": 151974,
@@ -3148,15 +3148,15 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "C",
-        "rating_rationale": "예산 투명성 공약에 따라 공개적 관리와 불필요한 지출 절감 노력을 보인 점은 긍정적이다. 그러나 일부 프로젝트에서 과다 지출이 발생한 것은 예산 관리 책임성에 흠결이 있음을 보여준다. 전반적으로는 양호한 수준의 책임성을 보인다."
+        "rating_rationale": "예산 투명성 공약을 지키며 불필요한 지출을 줄였으나 일부 프로젝트에서 과다 지출 발생. 전반적으로 양호하지만 완전하지 않은 예산 관리 책임성을 보임"
       },
       {
         "item_id": 151975,
         "data_title": "반부패 노력",
         "collected_by": "Grok",
         "original_rating": "E",
-        "new_rating": "D",
-        "rating_rationale": "부패 방지 공약에 따라 감사 시스템을 강화하고 부패 사례를 조사한 노력은 인정되나, 완전한 근절에 실패한 것은 공약 이행의 한계를 보여준다. 부패 척결은 시민 신뢰의 핵심 요소이므로 불완전한 성과는 책임성 측면에서 보통 수준이다."
+        "new_rating": "C",
+        "rating_rationale": "부패 방지 공약에 따라 감사 시스템을 강화하고 부패 사례를 조사했으나 완전한 근절에는 실패. 노력은 인정되지만 결과가 제한적인 양호한 수준의 책임성"
       },
       {
         "item_id": 151976,
@@ -3164,7 +3164,7 @@
         "collected_by": "Grok",
         "original_rating": "D",
         "new_rating": "D",
-        "rating_rationale": "재난 대비 공약에 따라 홍수 대비 시스템을 개선하고 일부 효과를 거둔 점은 긍정적이나, 준비 부족으로 인한 피해 발생은 시민 안전에 대한 책임을 완전히 이행하지 못했음을 의미한다. 재난 관리는 시민 생명과 직결되므로 부족한 준비는 심각한 문제다."
+        "rating_rationale": "재난 대비 시스템 개선으로 일부 효과를 보였으나 준비 부족으로 피해가 발생. 기본적인 노력은 했지만 완전한 대비 실패로 보통 수준의 책임성을 나타냄"
       },
       {
         "item_id": 151977,
@@ -3172,7 +3172,7 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "E",
-        "rating_rationale": "국제 협력 공약에 따라 글로벌 행사를 추진했으나 일부 행사 취소로 성과가 제한적인 것은 공약 이행 능력의 한계를 드러낸다. 계획 수립과 실행 사이의 격차가 크고, 예상 가능한 변수에 대한 대비 부족으로 시민에 대한 책임을 제대로 이행하지 못했다."
+        "rating_rationale": "국제 협력 공약을 추진했으나 일부 행사가 취소되어 성과가 제한적. 공약 이행에 대한 의지는 있었으나 결과가 미흡하여 책임성이 부족함"
       },
       {
         "item_id": 151978,
@@ -3180,7 +3180,7 @@
         "collected_by": "Grok",
         "original_rating": "B",
         "new_rating": "D",
-        "rating_rationale": "관광 산업 활성화 공약에 따라 홍보 캠페인을 실시한 노력은 인정되나, 코로나라는 외부 요인이 있었음에도 불구하고 대안적 전략 부족으로 효과가 제한적이었다. 위기 상황에서의 적응력과 책임성이 부족하여 보통 수준의 평가를 받는다."
+        "rating_rationale": "관광 산업 활성화를 위한 홍보 캠페인을 실시했으나 코로나로 인해 효과 제한. 외부 요인을 고려하면 기본적인 노력은 했지만 성과가 보통 수준"
       },
       {
         "item_id": 151979,
@@ -3188,7 +3188,7 @@
         "collected_by": "Grok",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "청년 일자리 창출 공약에 따라 지원 프로그램을 도입했으나 고용률 개선이 미미한 것은 정책의 실효성과 책임성에 심각한 문제가 있음을 보여준다. 청년 실업은 중요한 사회 문제이므로 가시적 성과 부족은 공약 이행 책임을 제대로 이행하지 못한 것이다."
+        "rating_rationale": "청년 일자리 창출 공약에 따라 지원 프로그램을 도입했으나 고용률 개선이 미미. 정책 실행은 했지만 핵심 목표 달성에 실패하여 미흡한 책임성"
       },
       {
         "item_id": 151980,
@@ -3196,7 +3196,7 @@
         "collected_by": "Grok",
         "original_rating": "C",
         "new_rating": "D",
-        "rating_rationale": "고령자 복지 공약에 따라 의료 지원을 확대하고 일부 혜택을 증가시킨 노력은 인정되나, 전체 커버리지 부족은 공약의 완전한 이행에 한계가 있음을 보여준다. 고령화 사회에서 중요한 정책임에도 불구하고 포괄성 부족으로 책임성이 제한적이다."
+        "rating_rationale": "고령자 복지 공약에 따라 의료 지원을 확대했으나 전체 커버리지가 부족. 부분적 성과는 있었지만 포괄적 해결책 제공에 한계를 보인 보통 수준의 책임성"
       },
       {
         "item_id": 151981,
@@ -3204,7 +3204,7 @@
         "collected_by": "Grok",
         "original_rating": "D",
         "new_rating": "E",
-        "rating_rationale": "지속 가능한 도시 개발 공약에 따라 에너지 효율 프로젝트를 시행했으나, 초기 이행 지연과 장기 효과의 불확실성은 정책 기획과 실행 능력의 부족을 보여준다. 환경 정책의 중요성을 고려할 때 체계적이지 못한 접근은 책임성 측면에서 미흡하다."
+        "rating_rationale": "지속 가능한 도시 개발 공약으로 에너지 효율 프로젝트를 시행했으나 초기 이행 지연과 장기 효과 불확실. 공약 이행 의지는 있으나 실행력이 미흡함"
       },
       {
         "item_id": 107688,
@@ -3212,7 +3212,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "E",
         "new_rating": "D",
-        "rating_rationale": "청년주택 정책 추진은 긍정적이나 임대료와 분양 조건에 대한 비판이 존재하여 정책 설계와 실행 과정에서의 책임성이 보통 수준으로 평가됨"
+        "rating_rationale": "역세권 청년주택 정책에 대한 비판이 존재하나, 청년 주거 문제 해결을 위한 정책적 노력은 인정됨. 다만 임대료와 분양 조건에 대한 충분한 검토와 개선이 필요한 상황"
       },
       {
         "item_id": 107689,
@@ -3220,7 +3220,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "D",
         "new_rating": "E",
-        "rating_rationale": "방역 정책의 일관성 부족과 중앙정부와의 갈등은 시민 안전에 직결되는 문제로, 정책 조율과 일관된 메시지 전달에 대한 책임성이 미흡함"
+        "rating_rationale": "코로나19라는 국가적 재난 상황에서 방역 정책의 일관성 부족과 중앙정부와의 갈등은 시민 안전에 직접적 영향을 미치는 중대한 책임성 문제로, 개선이 시급함"
       },
       {
         "item_id": 107690,
@@ -3228,7 +3228,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "E",
         "new_rating": "F",
-        "rating_rationale": "감사원이 지적한 대규모 사업 예산 집행의 불투명성은 공적 자금 관리에 대한 기본적 책임을 다하지 못한 것으로 책임성이 부족한 수준임"
+        "rating_rationale": "감사원이 지적한 예산 집행의 불투명성은 공공재정 관리의 기본 원칙을 위반한 것으로, 시민의 세금에 대한 책임감 부족을 보여주는 심각한 문제임"
       },
       {
         "item_id": 107691,
@@ -3236,7 +3236,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "D",
         "new_rating": "D",
-        "rating_rationale": "무상교통 정책은 시민 복지 증진을 위한 시도이나 장기적 재정 부담에 대한 충분한 검토와 대안 마련이 부족하여 재정 책임성 측면에서 보통 수준임"
+        "rating_rationale": "무상교통 정책은 시민 복지 향상을 위한 긍정적 취지이나, 장기적 재정 부담에 대한 충분한 검토와 지속가능성 확보 방안이 부족한 것으로 보임"
       },
       {
         "item_id": 107692,
@@ -3244,7 +3244,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "서울시 부동산 문제 해결은 시장의 핵심 책무 중 하나인데, 주택 공급과 가격 안정화 정책의 미흡한 성과는 정책 책임성이 미흡한 수준임"
+        "rating_rationale": "서울시 부동산 문제는 시민 삶의 질과 직결되는 핵심 이슈임에도 불구하고 주택 공급 및 가격 안정화 정책의 성과가 미흡하여 시장으로서의 책임을 다하지 못함"
       },
       {
         "item_id": 107693,
@@ -3252,7 +3252,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "E",
         "new_rating": "F",
-        "rating_rationale": "공공임대주택 공급 축소와 주거 취약계층 지원 정책 약화는 시민의 기본적 주거권 보장에 대한 책임을 소홀히 한 것으로 책임성이 부족함"
+        "rating_rationale": "주거 취약계층은 시의 보호가 가장 필요한 계층임에도 공공임대주택 공급 축소와 지원 정책 약화는 사회적 책임을 방기한 것으로 평가됨"
       },
       {
         "item_id": 107694,
@@ -3260,7 +3260,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "F",
         "new_rating": "G",
-        "rating_rationale": "민간인 불법 사찰 의혹은 시민의 기본권과 프라이버시를 침해하는 중대한 문제로, 공직자로서의 기본적 윤리와 법적 책임성이 매우 부족함"
+        "rating_rationale": "민간인 불법 사찰은 민주주의 기본 원칙과 시민의 기본권을 침해하는 중대한 문제로, 공직자로서의 기본적 윤리와 법적 책임을 심각하게 위반한 사안임"
       },
       {
         "item_id": 107695,
@@ -3268,7 +3268,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "D",
         "new_rating": "E",
-        "rating_rationale": "부동산 정책의 잦은 변경과 실효성 부족으로 인한 시민 불신 증가는 정책 일관성과 신뢰성 확보에 대한 책임성이 미흡한 수준임"
+        "rating_rationale": "부동산 정책의 잦은 변경과 일관성 부족은 정책 신뢰도를 저해하고 시민들의 혼란을 야기하여, 안정적인 시정 운영에 대한 책임을 제대로 수행하지 못함"
       },
       {
         "item_id": 107696,
@@ -3276,7 +3276,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "E",
         "new_rating": "E",
-        "rating_rationale": "코로나19 방역 조치의 일관성 부족과 소상공인 지원 미흡은 위기 상황에서 시민과 경제주체 보호에 대한 책임성이 미흡한 수준임"
+        "rating_rationale": "코로나19 대응에서 방역 조치의 일관성 부족과 경제적 피해를 받은 소상공인에 대한 지원 미흡은 위기 상황에서의 리더십과 시민 보호 책임을 다하지 못한 것임"
       },
       {
         "item_id": 107697,
@@ -3284,7 +3284,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "D",
         "new_rating": "D",
-        "rating_rationale": "청년 일자리 정책의 성과 미흡은 청년층의 경제적 어려움 해결에 대한 책임을 충분히 다하지 못한 것으로 보통 수준의 책임성을 보임"
+        "rating_rationale": "청년 일자리 문제는 서울시의 중요한 정책 과제이나 성과가 기대에 미치지 못하는 것은 아쉬움. 다만 구조적 한계가 있는 분야로 지속적인 노력과 개선이 필요함"
       },
       {
         "item_id": 107698,
@@ -3292,7 +3292,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "코로나19라는 전례없는 위기 상황에서 방역체계를 신속하게 구축하고 임시선별진료소를 확대한 것은 시민의 생명과 안전을 보호하는 최우선 책임을 충실히 이행한 매우 우수한 대응이다."
+        "rating_rationale": "코로나19라는 전례없는 위기상황에서 신속한 방역체계 구축과 임시선별진료소 확대를 통해 시민의 생명과 안전을 보호하는 최우선 책임을 충실히 이행했음. 공중보건 위기 대응에서 탁월한 책임성을 보여줌"
       },
       {
         "item_id": 107699,
@@ -3300,7 +3300,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "B",
-        "rating_rationale": "부동산 문제 해결을 위한 공공주택 공급 확대와 청년주택 정책 추진은 공약 이행과 주거권 보장 책임을 다하려는 우수한 노력으로 평가되나, 근본적 해결에는 한계가 있다."
+        "rating_rationale": "부동산 정책은 장기적 성과 검증이 필요하지만, 공공주택 공급 확대와 청년주택 정책 추진을 통해 주거 안정이라는 시민의 기본권 보장에 대한 책임을 적극적으로 수행하고 있음을 보여줌"
       },
       {
         "item_id": 107700,
@@ -3308,7 +3308,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "예산 집행 과정의 투명한 공개와 회계감사 협조는 공공재정의 투명성과 책임성을 확보하는 핵심적 의무를 충실히 이행한 매우 우수한 사례로, 민주적 거버넌스의 모범을 보여준다."
+        "rating_rationale": "예산 집행 과정 공개와 회계감사 협조는 공직자의 기본 의무이자 시민에 대한 투명성 책임을 완벽하게 이행하는 모범사례임. 민주주의 기본 원칙인 정보공개와 책임성을 충실히 실현함"
       },
       {
         "item_id": 107701,
@@ -3316,7 +3316,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "취약계층 지원 확대와 긴급복지 지원 프로그램 운영은 사회적 약자를 보호해야 할 공적 책임을 성실히 이행한 우수한 정책으로, 사회안전망 구축에 기여하고 있다."
+        "rating_rationale": "취약계층 지원 확대와 긴급복지 지원은 사회적 약자를 보호해야 할 지방정부의 핵심 책임을 성실히 수행한 것으로 평가됨. 사회 안전망 구축에 대한 책임감 있는 접근을 보여줌"
       },
       {
         "item_id": 107702,
@@ -3324,15 +3324,15 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "미세먼지 저감과 태양광 보급 확대는 시민의 건강권과 미래세대를 위한 환경보전 책임을 다하려는 우수한 노력이나, 환경문제의 구조적 해결을 위해서는 더 강력한 정책이 필요하다."
+        "rating_rationale": "미세먼지 저감과 태양광 보급 확대는 시민의 건강권과 미래세대에 대한 환경적 책임을 이행하는 중요한 정책임. 지속가능한 도시 발전에 대한 장기적 책임의식을 보여주고 있음"
       },
       {
         "item_id": 107703,
         "data_title": "재난 대응 체계",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
-        "new_rating": "A",
-        "rating_rationale": "폭우 피해에 대한 신속한 대응과 도시 방재시스템 개선은 시민의 생명과 재산을 보호해야 할 기본적 책임을 매우 충실히 이행한 것으로, 재난 대응의 모범 사례를 보여준다."
+        "new_rating": "B",
+        "rating_rationale": "자연재해 대응과 도시 방재시스템 개선은 시민의 생명과 재산을 보호해야 할 기본 책임을 충실히 수행한 것으로 평가됨. 재난 예방과 대응에 대한 체계적이고 책임감 있는 접근을 보임"
       },
       {
         "item_id": 107704,
@@ -3340,15 +3340,15 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "청년 일자리 지원과 소상공인 정책 추진은 경제적 책임을 다하려는 양호한 노력이지만, 구조적 일자리 문제 해결과 실질적 성과 측면에서는 보다 혁신적인 접근이 필요하다."
+        "rating_rationale": "청년 일자리와 소상공인 지원은 중요한 경제정책이지만, 지방정부 차원에서는 한계가 있음. 그럼에도 시정부 권한 내에서 일자리 창출 책임을 수행하려는 노력이 인정되어 양호한 수준으로 평가됨"
       },
       {
         "item_id": 107705,
         "data_title": "정책 소통 투명성",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
-        "new_rating": "B",
-        "rating_rationale": "온라인 시민참여 플랫폼 운영과 정책 소통 채널 확대는 민주적 소통과 시민참여 활성화라는 책임을 다하려는 우수한 노력으로, 투명하고 참여적인 시정 운영에 기여하고 있다."
+        "new_rating": "A",
+        "rating_rationale": "온라인 시민참여 플랫폼과 정책 소통 채널 확대는 민주적 거버넌스와 시민과의 소통에 대한 책임을 모범적으로 이행한 사례임. 참여민주주의 실현에 대한 높은 책임의식을 보여줌"
       },
       {
         "item_id": 107706,
@@ -3356,7 +3356,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "C",
-        "rating_rationale": "문화예술 지원 확대와 문화다양성 정책 추진은 시민의 문화권 보장이라는 책임을 이행하려는 양호한 노력이나, 문화정책의 우선순위와 예산 배분의 적절성에 대한 검토가 필요하다."
+        "rating_rationale": "문화예술 지원과 문화다양성 정책은 시민의 문화적 권리 보장이라는 책임을 수행하고 있으나, 다른 핵심 정책들에 비해 상대적으로 우선순위가 낮아 양호한 수준으로 평가됨"
       },
       {
         "item_id": 107707,
@@ -3364,7 +3364,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "대중교통 인프라 확충과 친환경 교통정책 추진은 시민의 이동권 보장과 환경보호 책임을 다하려는 우수한 노력으로, 지속가능한 도시발전과 시민 편의 증진에 기여하고 있다."
+        "rating_rationale": "대중교통 인프라 확충과 친환경 교통정책은 시민의 이동권 보장과 환경 보호라는 이중 책임을 동시에 수행하는 정책임. 도시 교통 문제 해결에 대한 체계적이고 책임감 있는 접근을 보여줌"
       },
       {
         "item_id": 107708,
@@ -3372,7 +3372,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "스마트시티와 행정 디지털화는 미래지향적 정책으로 시민 편의성 향상에 기여하고 있으나, 구체적인 성과 지표와 시민 체감도에 대한 평가가 필요한 상황입니다."
+        "rating_rationale": "스마트시티와 행정 디지털화는 미래지향적 정책으로 시민 편의성 향상에 기여하며, 체계적인 추진단 운영을 통해 정책 실행력을 보여주고 있어 우수한 책임성을 나타냄"
       },
       {
         "item_id": 107709,
@@ -3380,15 +3380,15 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "B",
-        "rating_rationale": "시민안전을 위한 CCTV 확대와 범죄예방 인프라 구축은 기본적인 행정 책임을 충실히 이행한 것으로 평가되나, 개인정보 보호와의 균형 고려가 필요합니다."
+        "rating_rationale": "시민안전은 지방정부의 핵심 책무로, CCTV 확대 등 구체적 인프라 구축을 통해 범죄예방에 적극 대응하고 있으며, 치안정책 백서 발간으로 투명한 정책 공개를 실현하고 있음"
       },
       {
         "item_id": 107710,
         "data_title": "성평등 정책",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
-        "new_rating": "B",
-        "rating_rationale": "성평등 정책 추진은 사회적 가치 실현을 위한 적극적 노력으로 평가되며, 여성 일자리 지원 등 구체적 정책으로 책임감 있는 행정을 보여주고 있습니다."
+        "new_rating": "C",
+        "rating_rationale": "성평등 정책은 사회적 요구에 부응하는 정책이나, 여성 일자리 지원과 성차별 개선의 구체적 성과와 실효성에 대한 평가가 필요하며, 정책의 지속성과 실질적 효과 검증이 중요함"
       },
       {
         "item_id": 107711,
@@ -3396,7 +3396,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "시 예산의 건전성 유지와 체계적인 채무관리는 공공재정에 대한 높은 책임감을 보여주는 핵심 성과로, 지속가능한 시정 운영의 기반을 마련했습니다."
+        "rating_rationale": "재정건전성 유지는 지방정부의 가장 기본적이면서 중요한 책무로, 시 예산의 건전한 관리와 채무관리를 통해 미래세대에 대한 책임을 다하고 있어 매우 우수한 책임성을 보여줌"
       },
       {
         "item_id": 107712,
@@ -3404,7 +3404,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "국제교류와 글로벌 네트워크 구축은 서울의 국제적 위상 제고에 기여하고 있으나, 시민 생활에 직접적 영향과 실질적 성과에 대한 구체적 평가가 필요합니다."
+        "rating_rationale": "국제교류 정책은 서울의 글로벌 위상 제고에 기여하나, 시민들의 직접적 생활 개선 효과는 제한적이며, 예산 대비 실질적 성과와 시민 체감도 측면에서 보통 수준의 책임성을 나타냄"
       },
       {
         "item_id": 107713,
@@ -3412,7 +3412,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "청년수당과 창업지원 등 청년정책은 미래세대에 대한 책임감 있는 접근으로 평가되며, 사회적 현안 해결을 위한 적극적 정책 추진을 보여주고 있습니다."
+        "rating_rationale": "청년수당과 창업지원은 청년층의 경제적 어려움 해결과 미래 성장동력 확보를 위한 적극적 정책으로, 전담 추진단 운영을 통해 체계적으로 접근하고 있어 우수한 책임성을 보임"
       },
       {
         "item_id": 107714,
@@ -3420,7 +3420,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "코로나19 대응에서 백신접종 지원과 방역체계 구축은 시민의 생명과 안전을 지키기 위한 최우선 책무를 성실히 이행한 매우 우수한 위기대응 사례입니다."
+        "rating_rationale": "코로나19라는 전례없는 위기상황에서 백신접종 지원과 방역체계 구축을 통해 시민 생명과 안전을 보호하는 핵심 책무를 충실히 수행했으며, 대응본부 백서 발간으로 투명성까지 확보함"
       },
       {
         "item_id": 107715,
@@ -3428,7 +3428,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "신재생에너지 확대와 에너지전환 정책은 기후변화 대응이라는 글로벌 과제에 대한 책임감 있는 접근으로, 지속가능한 도시 발전을 위한 중요한 정책입니다."
+        "rating_rationale": "신재생에너지 확대와 에너지전환 정책은 기후변화 대응과 지속가능한 도시 발전을 위한 중요한 정책으로, 기후환경본부를 통한 체계적 추진으로 미래세대에 대한 책임을 다하고 있음"
       },
       {
         "item_id": 107716,
@@ -3436,15 +3436,15 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "A",
-        "rating_rationale": "코로나19로 어려움을 겪는 소상공인에 대한 긴급지원금과 경영안정 지원은 위기상황에서 취약계층 보호라는 행정 책임을 모범적으로 수행한 사례입니다."
+        "rating_rationale": "코로나19로 어려움을 겪는 소상공인에 대한 긴급지원금과 경영안정 지원은 위기상황에서 시민의 생계를 보호하는 핵심적 책무 수행으로, 신속하고 적극적인 대응을 보여준 매우 우수한 책임성"
       },
       {
         "item_id": 107717,
         "data_title": "도시재생 정책",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
-        "new_rating": "B",
-        "rating_rationale": "도시재생 사업을 통한 노후지역 개선은 도시 발전과 주거환경 개선이라는 기본 책무를 충실히 이행하고 있으나, 젠트리피케이션 등 부작용 관리가 중요합니다."
+        "new_rating": "C",
+        "rating_rationale": "도시재생 정책은 도시 발전과 주거환경 개선에 필요하나, 기존 주민들의 젠트리피케이션 우려와 이해관계 조정 과정에서의 갈등 해결, 정책 효과의 형평성 측면에서 보완이 필요한 양호한 수준"
       },
       {
         "item_id": 107718,
@@ -3452,7 +3452,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "코로나19 위기 상황에서 서울시 재정 건전성을 유지하기 위한 정책을 추진한 것은 시장으로서의 책임을 적절히 수행한 것으로 평가됩니다. 위기 상황에서의 재정 관리는 매우 중요한 책무입니다."
+        "rating_rationale": "코로나19라는 예측 불가능한 위기 상황에서 서울시 재정 안정화 정책을 추진한 것은 시장으로서 적절한 책임감을 보여주는 사례입니다. 위기 대응 능력과 재정 관리 책임을 다했다고 평가됩니다."
       },
       {
         "item_id": 107719,
@@ -3460,7 +3460,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "월급을 반납하고 무보수로 시장직을 수행한 것은 공직자로서의 높은 책임의식과 솔선수범을 보여주는 매우 우수한 사례입니다. 실질적인 재정 절감 효과와 함께 도덕적 리더십을 발휘했습니다."
+        "rating_rationale": "월급 반납을 통한 무보수 시장직 수행은 공직자로서 최고 수준의 책임감과 솔선수범을 보여주는 행동입니다. 시민의 세금으로 운영되는 공직에 대한 깊은 책임의식과 실천적 자세가 매우 우수합니다."
       },
       {
         "item_id": 107720,
@@ -3468,7 +3468,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "D",
         "new_rating": "C",
-        "rating_rationale": "부동산 정책은 서울시민의 주거 안정을 위한 중요한 책무이나, 주택 공급 확대와 가격 안정화는 단기간에 성과를 판단하기 어려운 정책입니다. 정책 추진 의지는 보이나 실효성 검증이 필요합니다."
+        "rating_rationale": "부동산 정책은 서울시장의 핵심 책무 중 하나로, 주택 공급 확대와 가격 안정화 정책 추진은 적절한 책임 수행입니다. 다만 부동산 문제의 복잡성과 결과의 불확실성을 고려하여 양호 수준으로 평가합니다."
       },
       {
         "item_id": 108764,
@@ -3476,7 +3476,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "A",
         "new_rating": "B",
-        "rating_rationale": "코로나19 재난 상황에서 시민들에게 신속하게 재난지원금을 지급한 것은 위기 상황에서의 행정 책임을 우수하게 수행한 사례입니다. 시민들의 생계 지원에 대한 책임감을 보여줍니다."
+        "rating_rationale": "코로나19 위기 상황에서 재난지원금을 신속하게 지급한 것은 시민의 생계와 직결된 문제에 대한 우수한 책임감을 보여줍니다. 위기 상황에서의 신속한 대응과 실행력이 돋보이는 사례입니다."
       },
       {
         "item_id": 108765,
@@ -3484,7 +3484,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "C",
-        "rating_rationale": "서울역 일대 도시재생 프로젝트는 도시 발전을 위한 중장기적 비전을 제시한 것으로 양호한 수준의 책임 수행입니다. 다만 구체적인 실행 계획과 성과에 대한 추가적인 검증이 필요합니다."
+        "rating_rationale": "서울역 일대 도시재생 프로젝트는 장기적 도시발전을 위한 적절한 정책 추진으로 볼 수 있습니다. 도시 인프라 개선에 대한 책임감을 보여주지만, 장기 프로젝트의 특성상 결과 평가가 제한적입니다."
       },
       {
         "item_id": 108766,
@@ -3492,7 +3492,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "노후 지하철 시설의 현대화와 안전 강화는 시민의 생명과 직결된 중요한 책무입니다. 인프라 안전에 대한 책임을 인식하고 개선 정책을 추진한 것은 우수한 책임 수행으로 평가됩니다."
+        "rating_rationale": "지하철 노후 인프라 개선과 안전 강화는 시민 안전과 직결된 핵심 책무입니다. 대중교통 안전에 대한 책임감을 가지고 적극적으로 개선 정책을 추진한 점이 우수하게 평가됩니다."
       },
       {
         "item_id": 108767,
@@ -3500,7 +3500,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "A",
         "new_rating": "C",
-        "rating_rationale": "도심 내 공원 및 녹지 공간 확대는 시민의 삶의 질 향상을 위한 정책으로 환경에 대한 책임을 보여줍니다. 장기적 관점에서 의미 있는 정책이나 즉각적인 효과 측정은 제한적입니다."
+        "rating_rationale": "도심 내 공원 및 녹지 공간 확대는 시민의 삶의 질 향상과 환경 개선을 위한 적절한 정책입니다. 시민 복리 증진에 대한 책임감을 보여주는 양호한 수준의 정책 추진으로 평가됩니다."
       },
       {
         "item_id": 108768,
@@ -3508,15 +3508,15 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "C",
-        "rating_rationale": "디지털, 그린 뉴딜 정책은 미래 지향적인 정책 방향으로 시대적 변화에 대응하는 책임감을 보여줍니다. 정책의 방향성은 적절하나 구체적인 실행 성과와 효과성에 대한 평가가 필요합니다."
+        "rating_rationale": "서울형 뉴딜 정책을 통한 디지털, 그린 뉴딜 추진은 미래 지향적 도시 발전을 위한 적절한 책임 수행입니다. 변화하는 시대에 맞는 정책 방향을 제시했으나 구체적 성과 확인이 필요합니다."
       },
       {
         "item_id": 108769,
         "data_title": "교통 정책",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
-        "new_rating": "C",
-        "rating_rationale": "대중교통 개선과 자전거 도로 확충은 시민의 교통 편의와 환경 개선을 위한 책임 있는 정책입니다. 지속가능한 교통 체계 구축을 위한 노력으로 양호한 수준의 책임 수행으로 평가됩니다."
+        "new_rating": "B",
+        "rating_rationale": "대중교통 개선과 자전거 도로 확충은 시민의 교통편의와 환경 개선을 위한 우수한 책임감을 보여줍니다. 실질적으로 시민 생활에 직접적 영향을 미치는 정책을 적극 추진한 점이 높이 평가됩니다."
       },
       {
         "item_id": 108770,
@@ -3524,23 +3524,23 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "B",
-        "rating_rationale": "노인, 장애인 등 취약계층에 대한 복지 정책은 사회적 책임을 실현하는 중요한 영역입니다. 사회적 약자를 보호하고 지원하는 정책을 추진한 것은 우수한 책임 의식을 보여주는 사례입니다."
+        "rating_rationale": "노인, 장애인 등 취약계층에 대한 복지 정책 추진은 사회적 책임감과 포용성을 보여주는 우수한 사례입니다. 사회적 약자를 배려하는 정책적 책임감이 잘 드러나는 정책 방향입니다."
       },
       {
         "item_id": 108771,
         "data_title": "부동산 정책",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "D",
-        "new_rating": "C",
-        "rating_rationale": "부동산 정책은 서울시장의 핵심 책임 영역으로, 주택 공급 확대와 가격 안정화 노력을 보이고 있으나 구체적인 성과와 실행력에 대한 정보가 부족하여 양호한 수준으로 평가됩니다."
+        "new_rating": "B",
+        "rating_rationale": "부동산 정책은 서울시장의 핵심 책무로, 주택 공급 확대와 가격 안정화 노력을 보인 것은 시민 생활에 직접적 영향을 미치는 중요한 책임 이행이다. 다만 구체적 성과와 실효성에 대한 추가 검증이 필요하다."
       },
       {
         "item_id": 108772,
         "data_title": "기후변화 대응",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
-        "new_rating": "B",
-        "rating_rationale": "기후변화 대응은 현대 도시 행정의 중요한 책임 영역으로, 탄소중립과 친환경 정책을 적극적으로 추진하는 것은 미래 세대에 대한 책임을 다하는 우수한 모습을 보여줍니다."
+        "new_rating": "A",
+        "rating_rationale": "기후변화는 전 지구적 과제로 지방정부 차원에서 탄소중립 정책과 친환경 정책을 적극 추진한 것은 미래 세대에 대한 책임감을 보여주는 매우 우수한 정책 리더십이다. 장기적 비전과 실행력을 겸비한 책임성을 보였다."
       },
       {
         "item_id": 108773,
@@ -3548,7 +3548,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "A",
         "new_rating": "A",
-        "rating_rationale": "코로나19 백신 접종의 신속하고 체계적인 진행은 시민의 생명과 건강을 보호하는 핵심 책임을 매우 우수하게 수행한 것으로, 공공보건 위기 상황에서의 리더십을 잘 보여줍니다."
+        "rating_rationale": "코로나19 팬데믹 상황에서 시민의 생명과 건강을 보호하기 위한 신속하고 체계적인 백신 접종 진행은 공공 보건에 대한 최우선 책임을 다한 매우 우수한 위기 대응 사례로 평가된다."
       },
       {
         "item_id": 108774,
@@ -3556,15 +3556,15 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "스타트업 생태계 지원과 혁신 생태계 조성은 서울의 경제 발전과 미래 성장 동력 확보를 위한 책임 있는 정책으로, 장기적 관점에서 우수한 행정력을 보여줍니다."
+        "rating_rationale": "스타트업 생태계 지원과 혁신 생태계 조성은 서울의 경제 발전과 미래 성장 동력 확보를 위한 중요한 정책으로, 장기적 도시 경쟁력 강화에 대한 책임감을 보여준다. 지속적인 성과 모니터링이 필요하다."
       },
       {
         "item_id": 108775,
         "data_title": "교육 정책",
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
-        "new_rating": "C",
-        "rating_rationale": "교육 정책에서 학생 지원과 인프라 개선 노력은 양호하나, 서울시 교육청과의 협력 관계 및 실질적 성과에 대한 구체적 정보가 부족하여 양호한 수준으로 평가됩니다."
+        "new_rating": "B",
+        "rating_rationale": "교육은 지방자치단체의 핵심 책무 중 하나로, 학생 지원과 교육 인프라 개선을 통해 미래 세대에 대한 책임을 이행하고 있다. 교육 격차 해소와 질적 향상을 위한 지속적 노력이 평가된다."
       },
       {
         "item_id": 108776,
@@ -3572,7 +3572,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "B",
-        "rating_rationale": "코로나19 대응 거리두기 정책의 단계별 관리는 시민 안전과 경제적 피해 최소화 사이의 균형을 맞추려는 책임감 있는 접근으로, 위기 관리 능력이 우수하게 평가됩니다."
+        "rating_rationale": "코로나19 대응 거리두기 정책의 단계별 관리는 시민 건강 보호와 경제활동 균형을 고려한 책임감 있는 정책 운영을 보여준다. 상황에 따른 유연하고 체계적인 대응이 돋보인다."
       },
       {
         "item_id": 108777,
@@ -3580,7 +3580,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "D",
         "new_rating": "C",
-        "rating_rationale": "노동자 권익 보호와 비정규직 처우 개선은 사회적 책임을 다하는 모습이나, 서울시장의 권한 범위 내에서의 실질적 개선 효과와 구체적 성과에 대한 정보가 제한적입니다."
+        "rating_rationale": "노동자 권익 보호와 비정규직 처우 개선은 사회적 약자 보호라는 중요한 책무이다. 정책 추진 의지는 보이나, 지방정부 차원에서의 한계가 있어 실질적 성과 달성을 위한 추가적 노력이 필요하다."
       },
       {
         "item_id": 108778,
@@ -3588,7 +3588,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "C",
-        "rating_rationale": "문화예술 지원과 문화도시 조성은 시민 삶의 질 향상을 위한 책임 있는 정책이지만, 코로나19 상황에서의 우선순위와 예산 배분의 적절성 측면에서 양호한 수준으로 평가됩니다."
+        "rating_rationale": "문화예술 지원과 문화도시 조성은 시민의 삶의 질 향상과 도시 브랜드 가치 제고를 위한 중요한 정책이다. 문화 분야 투자와 지원을 통해 균형 잡힌 도시 발전에 대한 책임감을 보여주고 있다."
       },
       {
         "item_id": 108779,
@@ -3596,7 +3596,7 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "B",
         "new_rating": "A",
-        "rating_rationale": "감염병 대응 의료 시스템 강화는 팬데믹 경험을 바탕으로 미래 위기에 대비하는 매우 책임감 있는 정책으로, 시민 안전과 공공보건 체계 구축에 대한 우수한 리더십을 보여줍니다."
+        "rating_rationale": "감염병 대응 의료 시스템 강화는 코로나19 경험을 바탕으로 미래 감염병 위기에 대비한 선제적 대응이다. 시민 건강과 안전에 대한 최우선 책임을 다하는 매우 우수한 위기 관리 정책으로 평가된다."
       },
       {
         "item_id": 108780,
@@ -3604,32 +3604,32 @@
         "collected_by": "claude-3-5-haiku-20241022",
         "original_rating": "C",
         "new_rating": "B",
-        "rating_rationale": "서울시 예산 운영과 재정 관리는 시장의 핵심 책임 영역으로, 건전한 재정 운영은 시민에 대한 기본적 책무를 우수하게 수행하는 것으로 평가되며 지속가능한 행정의 기반이 됩니다."
+        "rating_rationale": "재정 건전성과 예산 운영은 지방자치단체장의 기본적이면서도 핵심적인 책무이다. 서울시 재정의 효율적 관리와 건전성 확보를 통해 시민에 대한 재정적 책임을 다하고 있으며, 지속가능한 행정 운영 기반을 마련하고 있다."
       }
     ]
   },
   "scores": {
     "ChatGPT": {
-      "avg_rating": 3.76,
-      "category_score": 78.8,
+      "avg_rating": 3.8266666666666667,
+      "category_score": 79.13333333333333,
       "total_items": 150,
-      "positive": 114,
-      "negative": 36
+      "positive": 117,
+      "negative": 33
     },
     "Grok": {
-      "avg_rating": 3.16,
-      "category_score": 75.8,
+      "avg_rating": 3.066666666666667,
+      "category_score": 75.33333333333333,
       "total_items": 150,
-      "positive": 106,
-      "negative": 44
+      "positive": 107,
+      "negative": 43
     },
     "Claude": {
-      "avg_rating": 2.76,
-      "category_score": 73.8,
+      "avg_rating": 2.7333333333333334,
+      "category_score": 73.66666666666667,
       "total_items": 150,
       "positive": 106,
       "negative": 44
     }
   },
-  "final_score": 76.13333333333333
+  "final_score": 76.04444444444444
 }
