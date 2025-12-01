@@ -46,7 +46,8 @@ export default function AdminPoliticiansPage() {
     try {
       setLoading(true);
       setError(null);
-      const response = await fetch('/api/politicians');
+      // Admin page: request more items (100) to show all politicians
+      const response = await fetch('/api/politicians?limit=100');
 
       if (!response.ok) {
         throw new Error('정치인 목록을 불러오는데 실패했습니다.');

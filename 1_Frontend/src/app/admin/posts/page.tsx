@@ -52,9 +52,10 @@ export default function AdminPostsPage() {
     setPostsError(null);
 
     try {
+      // Admin page: request more items (100) to show all posts
       const url = search
-        ? `/api/admin/content?search=${encodeURIComponent(search)}`
-        : '/api/admin/content';
+        ? `/api/admin/content?search=${encodeURIComponent(search)}&limit=100`
+        : '/api/admin/content?limit=100';
 
       const response = await fetch(url);
 
@@ -88,9 +89,10 @@ export default function AdminPostsPage() {
     setCommentsError(null);
 
     try {
+      // Admin page: request more items (100) to show all comments
       const url = search
-        ? `/api/comments?search=${encodeURIComponent(search)}`
-        : '/api/comments';
+        ? `/api/comments?search=${encodeURIComponent(search)}&limit=100`
+        : '/api/comments?limit=100';
 
       const response = await fetch(url);
 
@@ -125,9 +127,10 @@ export default function AdminPostsPage() {
     setNoticesError(null);
 
     try {
+      // Admin page: request more items (100) to show all notices
       const url = search
-        ? `/api/notices?search=${encodeURIComponent(search)}`
-        : '/api/notices';
+        ? `/api/notices?search=${encodeURIComponent(search)}&limit=100`
+        : '/api/notices?limit=100';
 
       const response = await fetch(url);
 
