@@ -282,7 +282,9 @@ export async function GET(request: NextRequest) {
           status
         ),
         profiles:user_id (
-          username
+          username,
+          nickname,
+          email
         )
       `, { count: "exact" })
 
