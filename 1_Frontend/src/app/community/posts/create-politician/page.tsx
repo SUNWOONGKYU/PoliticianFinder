@@ -5,10 +5,21 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
 // TypeScript interfaces
+interface Politician {
+  id: string;
+  name: string;
+  party: string;
+  position: string;
+  is_verified: boolean;
+  verified_at: string | null;
+  verification_id: string;
+}
+
 interface DraftData {
   title: string;
   content: string;
   tags: string;
+  selectedPoliticianId: string;
   savedAt: string;
 }
 
@@ -29,8 +40,67 @@ export default function CreatePoliticianPostPage() {
   const [showAlert, setShowAlert] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
+  // Politician selection state
+  const [politicians, setPoliticians] = useState<Politician[]>([]);
+  const [selectedPolitician, setSelectedPolitician] = useState<Politician | null>(null);
+  const [loadingPoliticians, setLoadingPoliticians] = useState(true);
+  const [showPoliticianSelector, setShowPoliticianSelector] = useState(false);
+
+  // Check authentication and load verified politicians on mount
+  useEffect(() => {
+    const init = async () => {
+      try {
+        // 1. Check authentication
+        const authResponse = await fetch('/api/auth/me');
+        if (!authResponse.ok) {
+          alert('로그인이 필요합니다.');
+          router.push('/auth/login?redirect=/community/posts/create-politician');
+          return;
+        }
+
+        // 2. Load user's verified politicians
+        const politiciansResponse = await fetch('/api/politicians/verification/my-politicians');
+        const politiciansData = await politiciansResponse.json();
+
+        if (!politiciansResponse.ok) {
+          console.error('Failed to load politicians:', politiciansData);
+          showAlertModal(politiciansData.message || '인증된 정치인 정보를 불러올 수 없습니다.');
+          setLoadingPoliticians(false);
+          return;
+        }
+
+        if (politiciansData.success && politiciansData.data) {
+          setPoliticians(politiciansData.data);
+
+          // If only one politician, auto-select
+          if (politiciansData.data.length === 1) {
+            setSelectedPolitician(politiciansData.data[0]);
+          } else if (politiciansData.data.length > 1) {
+            // Show politician selector if multiple politicians
+            setShowPoliticianSelector(true);
+          } else {
+            // No verified politicians
+            showAlertModal('인증된 정치인이 없습니다. 먼저 정치인 인증을 완료해주세요.');
+            setTimeout(() => {
+              router.push('/politicians');
+            }, 2000);
+          }
+        }
+      } catch (error) {
+        console.error('Initialization error:', error);
+        showAlertModal('페이지를 불러오는 중 오류가 발생했습니다.');
+      } finally {
+        setLoadingPoliticians(false);
+      }
+    };
+
+    init();
+  }, [router]);
+
   // Load draft on component mount
   useEffect(() => {
+    if (!selectedPolitician) return;
+
     const draft = localStorage.getItem('draft_post_politician');
     if (draft) {
       const shouldLoad = window.confirm('임시저장된 글이 있습니다. 불러오시겠습니까?');
@@ -39,9 +109,20 @@ export default function CreatePoliticianPostPage() {
         setTitle(data.title || '');
         setContent(data.content || '');
         setTags(data.tags || '');
+
+        // Check if draft's politician matches current selected politician
+        if (data.selectedPoliticianId !== selectedPolitician.id) {
+          showAlertModal('임시저장된 글의 정치인과 현재 선택된 정치인이 다릅니다.');
+        }
       }
     }
-  }, []);
+  }, [selectedPolitician]);
+
+  // Handle politician selection
+  const handlePoliticianSelect = (politician: Politician) => {
+    setSelectedPolitician(politician);
+    setShowPoliticianSelector(false);
+  };
 
   // Handle file selection
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -65,10 +146,16 @@ export default function CreatePoliticianPostPage() {
 
   // Save draft
   const saveDraft = () => {
+    if (!selectedPolitician) {
+      showAlertModal('정치인을 선택해주세요.');
+      return;
+    }
+
     const draft: DraftData = {
       title,
       content,
       tags,
+      selectedPoliticianId: selectedPolitician.id,
       savedAt: new Date().toISOString()
     };
     localStorage.setItem('draft_post_politician', JSON.stringify(draft));
@@ -79,26 +166,51 @@ export default function CreatePoliticianPostPage() {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    if (!selectedPolitician) {
+      showAlertModal('정치인을 선택해주세요.');
+      return;
+    }
+
     if (!title.trim() || !content.trim()) {
       showAlertModal('제목과 내용을 입력해주세요.');
       return;
     }
 
-    // In production, this would be an API call
-    // const formData = new FormData();
-    // formData.append('title', title);
-    // formData.append('content', content);
-    // formData.append('tags', tags);
-    // formData.append('category', 'politician_post');
-    // selectedFiles.forEach(f => formData.append('files', f.file));
+    try {
+      // Create post via API
+      const response = await fetch('/api/posts', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          title: title.trim(),
+          content: content.trim(),
+          category: 'politician',
+          politician_id: selectedPolitician.id,
+          author_type: 'politician',
+          tags: tags.trim() ? tags.split(',').map(t => t.trim()).filter(t => t) : []
+        })
+      });
 
-    showAlertModal('게시글이 등록되었습니다!');
-    localStorage.removeItem('draft_post_politician');
+      const result = await response.json();
 
-    // Redirect after a short delay
-    setTimeout(() => {
-      router.push('/community');
-    }, 1500);
+      if (!response.ok) {
+        showAlertModal(result.message || '게시글 등록에 실패했습니다.');
+        return;
+      }
+
+      showAlertModal('게시글이 등록되었습니다!');
+      localStorage.removeItem('draft_post_politician');
+
+      // Redirect after a short delay
+      setTimeout(() => {
+        router.push('/community');
+      }, 1500);
+    } catch (error) {
+      console.error('Post creation error:', error);
+      showAlertModal('게시글 등록 중 오류가 발생했습니다.');
+    }
   };
 
   // Alert modal functions
@@ -114,16 +226,120 @@ export default function CreatePoliticianPostPage() {
     document.body.style.overflow = 'auto';
   };
 
+  // Loading state
+  if (loadingPoliticians) {
+    return (
+      <div className="bg-gray-50 min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600 mx-auto mb-4"></div>
+          <p className="text-gray-600">인증된 정치인 정보를 불러오는 중...</p>
+        </div>
+      </div>
+    );
+  }
+
+  // Politician selector modal
+  if (showPoliticianSelector && politicians.length > 0) {
+    return (
+      <div className="bg-gray-50 min-h-screen">
+        <main className="max-w-4xl mx-auto px-4 py-8">
+          <div className="mb-6">
+            <h1 className="text-3xl font-bold text-gray-900 mb-2">정치인 선택</h1>
+            <p className="text-gray-600">글을 작성할 정치인을 선택해주세요.</p>
+          </div>
+
+          <div className="bg-white rounded-lg shadow-md p-6 space-y-4">
+            {politicians.map((politician) => (
+              <button
+                key={politician.id}
+                onClick={() => handlePoliticianSelect(politician)}
+                className="w-full text-left p-4 border-2 border-gray-200 rounded-lg hover:border-primary-500 hover:bg-primary-50 transition"
+              >
+                <div className="flex items-start justify-between">
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-900">{politician.name}</h3>
+                    <p className="text-sm text-gray-600 mt-1">
+                      {politician.position} · {politician.party}
+                    </p>
+                    {politician.is_verified && (
+                      <div className="mt-2">
+                        <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                          ✓ 인증됨
+                        </span>
+                      </div>
+                    )}
+                  </div>
+                  <svg className="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </button>
+            ))}
+          </div>
+
+          <div className="mt-6">
+            <button
+              onClick={() => router.back()}
+              className="px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 font-medium"
+            >
+              취소
+            </button>
+          </div>
+        </main>
+      </div>
+    );
+  }
+
+  // No politician selected state
+  if (!selectedPolitician) {
+    return (
+      <div className="bg-gray-50 min-h-screen flex items-center justify-center">
+        <div className="text-center max-w-md">
+          <p className="text-gray-600 mb-4">인증된 정치인이 없습니다.</p>
+          <Link
+            href="/politicians"
+            className="inline-block px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 font-medium"
+          >
+            정치인 인증하기
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
+  // Main form
   return (
     <div className="bg-gray-50 min-h-screen">
       {/* Main Content */}
       <main className="max-w-4xl mx-auto px-4 py-8">
         <div className="mb-6">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">게시글 작성</h1>
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">정치인 게시글 작성</h1>
           <p className="text-gray-600">커뮤니티에 새로운 글을 작성해보세요.</p>
         </div>
 
         <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow-md p-6 space-y-6">
+          {/* Selected Politician Display */}
+          <div>
+            <label className="block text-sm font-medium text-gray-900 mb-2">작성자 (정치인)</label>
+            <div className="flex items-center justify-between p-4 bg-primary-50 border-2 border-primary-200 rounded-lg">
+              <div>
+                <h3 className="font-bold text-gray-900">{selectedPolitician.name}</h3>
+                <p className="text-sm text-gray-600 mt-1">
+                  {selectedPolitician.position} · {selectedPolitician.party}
+                </p>
+              </div>
+              {politicians.length > 1 && (
+                <button
+                  type="button"
+                  onClick={() => setShowPoliticianSelector(true)}
+                  className="px-4 py-2 text-sm text-primary-600 hover:bg-primary-100 rounded-lg transition"
+                >
+                  변경
+                </button>
+              )}
+            </div>
+          </div>
+
           {/* Category */}
           <div>
             <label className="block text-sm font-medium text-gray-900 mb-2">카테고리</label>
@@ -185,55 +401,6 @@ export default function CreatePoliticianPostPage() {
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
             />
             <p className="text-sm text-gray-500 mt-1">최대 5개까지 입력 가능합니다.</p>
-          </div>
-
-          {/* File Upload */}
-          <div>
-            <label htmlFor="files" className="block text-sm font-medium text-gray-900 mb-2">
-              첨부파일 <span className="text-gray-500">(선택)</span>
-            </label>
-            <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-primary-500 transition">
-              <input
-                type="file"
-                id="files"
-                ref={fileInputRef}
-                multiple
-                accept="image/*,.pdf,.doc,.docx"
-                onChange={handleFileChange}
-                className="hidden"
-              />
-              <label htmlFor="files" className="cursor-pointer">
-                <svg className="mx-auto h-12 w-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
-                </svg>
-                <p className="mt-2 text-sm text-gray-600">
-                  <span className="text-primary-600 font-medium">파일 선택</span> 또는 드래그 앤 드롭
-                </p>
-                <p className="mt-1 text-xs text-gray-500">이미지, PDF, DOC 파일 (최대 10MB)</p>
-              </label>
-            </div>
-            <div className="mt-3 space-y-2">
-              {selectedFiles.map((file, index) => (
-                <div key={index} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-                  <div className="flex items-center gap-2">
-                    <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                    </svg>
-                    <span className="text-sm text-gray-700">{file.name}</span>
-                    <span className="text-xs text-gray-500">({(file.size / 1024).toFixed(1)} KB)</span>
-                  </div>
-                  <button
-                    type="button"
-                    onClick={() => removeFile(index)}
-                    className="text-red-500 hover:text-red-700"
-                  >
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                  </button>
-                </div>
-              ))}
-            </div>
           </div>
 
           {/* Writing Guide */}
