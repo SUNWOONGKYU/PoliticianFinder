@@ -16,6 +16,7 @@ interface Post {
   author_name: string;
   author_id: string;
   author_type: 'user' | 'politician';
+  member_level?: string;
   politician_id?: string | null;
   politician_name?: string;
   politician_identity?: string;
@@ -61,7 +62,7 @@ export default function CommunityPage() {
 
       const result = await response.json();
       if (result.success && result.data) {
-        const mappedPosts: Post[] = result.data.map((post: any) => {
+        const mappedPosts: Post[] = result.data.map((post: any, index: number) => {
           let authorName = '익명';
 
           // 정치인 게시글인 경우
@@ -73,6 +74,10 @@ export default function CommunityPage() {
             authorName = post.profiles.username || '익명';
           }
 
+          // Generate member level based on user_id hash (ML1 ~ ML5)
+          const userIdHash = post.user_id ? post.user_id.split('-')[0].charCodeAt(0) : index;
+          const memberLevel = `ML${(userIdHash % 5) + 1}`;
+
           return {
             id: post.id,
             title: post.title,
@@ -81,6 +86,7 @@ export default function CommunityPage() {
             author_name: authorName,
             author_id: post.user_id,
             author_type: post.politician_id ? 'politician' : 'user',
+            member_level: memberLevel,
             politician_id: post.politician_id,
             politician_name: post.politicians?.name,
             politician_identity: post.politicians?.identity,
@@ -286,9 +292,17 @@ export default function CommunityPage() {
                             {post.politician_name} | {post.politician_position} • {post.politician_party}
                           </Link>
                         ) : (
-                          <span className="font-medium text-secondary-600">
-                            {post.author_name}
-                          </span>
+                          <>
+                            <span className="font-medium text-secondary-600">
+                              {post.author_name}
+                            </span>
+                            {post.member_level && (
+                              <span className="text-xs text-gray-900 font-medium" title={`활동 등급: ${post.member_level}`}>
+                                {post.member_level}
+                              </span>
+                            )}
+                            <span className="text-xs text-emerald-900 font-medium">🏰 영주</span>
+                          </>
                         )}
                         <span>{formatDate(post.created_at)}</span>
                         <span>조회 {post.views}</span>
