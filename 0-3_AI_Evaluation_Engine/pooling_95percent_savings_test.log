@@ -1,0 +1,100 @@
+
+================================================================================
+🚀 95% 토큰 절감 테스트
+================================================================================
+테스트 대상: 023139c6
+방법: Prompt Caching + Category Integration
+목표: 95% 토큰 절감
+================================================================================
+
+================================================================================
+🚀 95% 토큰 절감 테스트 시작
+================================================================================
+정치인 ID: 023139c6
+방법: Prompt Caching (4 breakpoints) + Category Integration
+================================================================================
+
+📥 1단계: 데이터 로드
+  DB에서 1000개 항목 로드
+
+🗜️ 2단계: 데이터 준비
+
+  📦 데이터 준비 중...
+  원본: 1000개 항목
+  중복 제거 후: 1000개 항목
+  압축 완료
+  최종: 1000개 데이터
+
+📊 3단계: 3개 AI 병렬 평가
+
+  📊 ChatGPT 평가 시작
+    ❌ 오류: Error code: 429 - {'error': {'message': 'Request too large for gpt-4 in organization org-tiqaZQkGaf4WOm8tE5SyTTGf on tokens per min (TPM): Limit 10000, Requested 41767. The input or output tokens must be reduced in order to run successfully. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
+
+  📊 Grok 평가 시작
+
+  📊 Claude 평가 시작 (Prompt Caching)
+C:\Development_PoliticianFinder_com\Developement_Real_PoliticianFinder\0-3_AI_Evaluation_Engine\pooling_95percent_savings_test.py:238: DeprecationWarning: The model 'claude-3-5-sonnet-20241022' is deprecated and will reach end-of-life on October 22, 2025.
+Please migrate to a newer model. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+  response = self.anthropic_client.messages.create(
+    ❌ 오류: Error code: 404 - {'type': 'error', 'error': {'type': 'not_found_error', 'message': 'model: claude-3-5-sonnet-20241022'}, 'request_id': 'req_011CViFyodgHVhGmATu7cDQD'}
+    ❌ 오류: 'choices'
+
+📈 4단계: Pooling 점수 계산
+
+================================================================================
+✅ 테스트 완료!
+================================================================================
+소요 시간: 7.4초 (0.1분)
+정치인: 송석준
+데이터 수: 1000개
+
+📊 토큰 사용량:
+  Claude:
+    Input: 0
+    Output: 0
+    Cache Creation: 0
+    Cache Read: 0
+  ChatGPT:
+    Input: 0
+    Output: 0
+  Grok:
+    Input: 0
+    Output: 0
+
+  총합:
+    Total Input: 0
+    Total Output: 0
+    Total Cache: 0
+    Grand Total: 0
+
+📊 Pooling 점수:
+  전문성     : 0.00점
+  리더십     : 0.00점
+  비전      : 0.00점
+  청렴도     : 0.00점
+  윤리성     : 0.00점
+  책임감     : 0.00점
+  투명성     : 0.00점
+  소통능력    : 0.00점
+  대응성     : 0.00점
+  공익성     : 0.00점
+Traceback (most recent call last):
+  File "C:\Development_PoliticianFinder_com\Developement_Real_PoliticianFinder\0-3_AI_Evaluation_Engine\pooling_95percent_savings_test.py", line 512, in <module>
+    asyncio.run(main())
+    ~~~~~~~~~~~^^^^^^^^
+  File "C:\Python313\Lib\asyncio\runners.py", line 195, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "C:\Python313\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Python313\Lib\asyncio\base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "C:\Development_PoliticianFinder_com\Developement_Real_PoliticianFinder\0-3_AI_Evaluation_Engine\pooling_95percent_savings_test.py", line 499, in main
+    result = await evaluator.test_95percent_savings(TEST_POLITICIAN['id'])
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Development_PoliticianFinder_com\Developement_Real_PoliticianFinder\0-3_AI_Evaluation_Engine\pooling_95percent_savings_test.py", line 445, in test_95percent_savings
+    avg_score = sum(pooling_scores.values()) / len(pooling_scores)
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~
+ZeroDivisionError: division by zero
