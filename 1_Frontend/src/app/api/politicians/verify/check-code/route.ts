@@ -20,7 +20,7 @@ export async function POST(request: NextRequest) {
     }
 
     // 2. 인증 정보 조회
-    const { data: verification, error: fetchError } = await supabase
+    const { data: verification, error: fetchError } = await (supabase as any)
       .from('email_verifications')
       .select('*')
       .eq('id', verification_id)
@@ -33,8 +33,21 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // TypeScript: verification이 존재하므로 타입 단언
+    type VerificationType = {
+      id: string;
+      politician_id: string;
+      email: string;
+      verification_code: string;
+      verified: boolean;
+      expires_at: string;
+      verified_at?: string | null;
+    };
+
+    const verificationData = verification as VerificationType;
+
     // 3. 이미 인증됨
-    if (verification.verified) {
+    if (verificationData.verified) {
       return NextResponse.json(
         {
           error: '이미 인증된 코드입니다.',
@@ -46,7 +59,7 @@ export async function POST(request: NextRequest) {
 
     // 4. 만료 확인
     const now = new Date();
-    const expiresAt = new Date(verification.expires_at);
+    const expiresAt = new Date(verificationData.expires_at);
     if (now > expiresAt) {
       return NextResponse.json(
         {
@@ -59,7 +72,7 @@ export async function POST(request: NextRequest) {
     }
 
     // 5. 코드 일치 확인
-    if (verification.verification_code.toUpperCase() !== code.toUpperCase()) {
+    if (verificationData.verification_code.toUpperCase() !== code.toUpperCase()) {
       return NextResponse.json(
         {
           error: '인증 코드가 일치하지 않습니다.',
@@ -70,7 +83,7 @@ export async function POST(request: NextRequest) {
     }
 
     // 6. 인증 완료 처리
-    const { error: updateError } = await supabase
+    const { error: updateError } = await (supabase as any)
       .from('email_verifications')
       .update({
         verified: true,
@@ -91,8 +104,8 @@ export async function POST(request: NextRequest) {
       success: true,
       message: '본인 인증이 완료되었습니다.',
       verified: true,
-      politician_id: verification.politician_id,
-      email: verification.email
+      politician_id: verificationData.politician_id,
+      email: verificationData.email
     });
 
   } catch (error) {
