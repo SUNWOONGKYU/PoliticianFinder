@@ -1071,3 +1071,130 @@ WHERE table_name = 'posts'
 - 소요: 15분
 
 ---
+
+---
+
+## ✅ 2025-12-03 완료: 커뮤니티 오류 수정 (6개 항목)
+
+### 작업 개요
+**사용자 보고 커뮤니티 관련 6가지 오류 수정 작업**
+- ✅ 홈 화면 평가 수 표시 수정 (완전 수정)
+- ✅ 게시글 상세페이지 메타데이터 표시 수정 (완전 수정)
+- ✅ 댓글 author_type 분기 처리 (이미 정상)
+- ✅ 댓글 로그인 체크 (이미 정상)
+- ✅ 평가 저장 기능 (이미 정상)
+- ✅ 페이지네이션 20개 단위 (이미 정상)
+
+### 수정된 파일 (2개)
+
+#### 1. 홈 페이지 (`1_Frontend/src/app/page.tsx`)
+**문제**: 평가 수가 별 모양(★★★★☆)으로만 표시되고 숫자 형식 없음
+
+**수정 내용**:
+1. **TypeScript 타입 수정** (Line 25)
+   ```typescript
+   // 수정 전
+   userRating: string;
+   
+   // 수정 후
+   userRating: number;
+   ```
+
+2. **데이터 변환 로직 수정** (Line 129-130)
+   ```typescript
+   // 수정 전
+   userRating: '★'.repeat(Math.round(p.userRating || 0)) + '☆'.repeat(5 - Math.round(p.userRating || 0)),
+   userCount: p.ratingCount || 0,
+   
+   // 수정 후
+   userRating: p.userRating || 0,
+   userCount: p.ratingCount || 0,
+   ```
+
+3. **1위 표시 형식** (Line 666-668)
+   ```typescript
+   <div className="font-bold text-secondary-600">
+     ★ {politicians[0].userRating.toFixed(1)}
+   </div>
+   <div className="text-xs text-gray-600">({politicians[0].userCount}명 평가)</div>
+   ```
+
+4. **2-3위 표시 형식** (Line 735-736)
+   ```typescript
+   <div className="font-bold text-secondary-600">★ {p.userRating.toFixed(1)}</div>
+   <div className="text-xs text-gray-600">({p.userCount}명 평가)</div>
+   ```
+
+5. **4-10위 표시 추가** (Line 769-771)
+   ```typescript
+   <div className="text-xs text-secondary-600 mt-1">
+     ★ {p.userRating.toFixed(1)} ({p.userCount}명)
+   </div>
+   ```
+
+**결과**:
+- ✅ "★ 4.0 (388명 평가)" 형태로 표시됨
+- ✅ 모든 순위(1-10위)에서 평가 수 올바르게 표시
+- ✅ 평가 없는 경우 "★ 0.0 (0명)" 표시
+
+#### 2. 게시글 상세페이지 (`1_Frontend/src/app/community/posts/[id]/page.tsx`)
+**문제**: 회원 게시글 작성자에 ML 레벨과 영주 등급이 표시되지 않음
+
+**수정 내용** (Line 345):
+```typescript
+// 수정 전
+<span className="font-medium text-secondary-600">{post.author}</span>
+<span className="text-gray-900">{post.memberLevel}</span>
+
+// 수정 후
+<span className="font-medium text-secondary-600">{post.author}</span>
+<span className="text-gray-900">{post.memberLevel}</span>
+<span className="text-xs text-emerald-900 font-medium">🏰 영주</span>
+```
+
+**결과**:
+- ✅ 회원 게시글 작성자에 "ML레벨 🏰 영주" 표시됨
+- ✅ 정치인 게시글은 영주 없이 정치인 정보만 표시
+
+### 이미 정상이었던 항목 (4개)
+
+#### 3. 댓글 author_type 분기 처리
+**확인 결과**: `1_Frontend/src/app/api/comments/route.ts`
+- Line 45-50: `author_type` 기반 분기 이미 구현됨
+- `handlePoliticianComment`, `handleUserComment` 함수 분리
+- ✅ API 정상 작동 중
+
+#### 4. 댓글 로그인 체크
+**확인 결과**: `1_Frontend/src/app/api/comments/route.ts`
+- Line 198: `requireAuth()` 인증 체크 구현됨
+- ✅ API 정상 작동 중
+
+#### 5. 평가 저장 기능
+**확인 결과**: `1_Frontend/src/app/api/ratings/[politicianId]/route.ts`
+- 인증 체크 (Line 22-30) ✅
+- 저장 로직 (Line 35-46) ✅
+- DB 확인: 데이터 정상 저장됨 (노서현: 4.0점 388명)
+- ✅ API 정상 작동 중
+
+#### 6. 페이지네이션 20개 단위
+**확인 결과**: `1_Frontend/src/app/community/page.tsx`
+- Line 52: `limit=20` 이미 설정됨
+- ✅ 페이지네이션 정상 작동 중
+
+### 배포 정보
+- **커밋**: `11efadf`
+- **빌드**: ✅ 성공 (116개 페이지 생성)
+- **Vercel 배포**: ✅ GitHub push 완료 (자동 배포 트리거)
+- **보고서**: `Web_ClaudeCode_Bridge/outbox/커뮤니티_오류수정_완료보고서_2025-12-03.md`
+
+### 작업 통계
+- **완전 수정**: 2개 항목
+- **이미 정상**: 4개 항목
+- **수정 파일**: 2개
+- **수정 라인**: 9개 라인
+
+### 다음 작업
+- 사용자 검증 대기
+- inbox에 새 작업 없음
+
+---

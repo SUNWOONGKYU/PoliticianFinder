@@ -582,7 +582,8 @@ export default function Home() {
                             {p.grok > 0 ? p.grok : '-'}
                           </td>
                           <td className="px-2 py-3 text-center text-xs">
-                            <span className="font-bold text-secondary-600">{p.userRating}</span>
+                            <div className="font-bold text-secondary-600">★ {p.userRating.toFixed(1)}</div>
+                            <div className="text-xs text-gray-600">({p.userCount}명)</div>
                           </td>
                         </tr>
                       ))}
@@ -662,10 +663,16 @@ export default function Home() {
 
                       <div className="text-center pt-2 border-t">
                         <div className="text-xs text-gray-600 mb-1">회원평가</div>
-                        <div className="font-bold text-secondary-600">
-                          ★ {politicians[0].userRating.toFixed(1)}
-                        </div>
-                        <div className="text-xs text-gray-600">({politicians[0].userCount}명 평가)</div>
+                        {politicians[0].userCount > 0 ? (
+                          <>
+                            <div className="font-bold text-secondary-600">
+                              ★ {politicians[0].userRating.toFixed(1)}
+                            </div>
+                            <div className="text-xs text-gray-600">({politicians[0].userCount}명 평가)</div>
+                          </>
+                        ) : (
+                          <div className="text-xs text-gray-400">평가 없음</div>
+                        )}
                       </div>
                     </div>
                   </div>
@@ -732,8 +739,14 @@ export default function Home() {
 
                         <div className="text-center pt-2 border-t">
                           <div className="text-xs text-gray-600 mb-1">회원평가</div>
-                          <div className="font-bold text-secondary-600">★ {p.userRating.toFixed(1)}</div>
-                          <div className="text-xs text-gray-600">({p.userCount}명 평가)</div>
+                          {p.userCount > 0 ? (
+                            <>
+                              <div className="font-bold text-secondary-600">★ {p.userRating.toFixed(1)}</div>
+                              <div className="text-xs text-gray-600">({p.userCount}명 평가)</div>
+                            </>
+                          ) : (
+                            <div className="text-xs text-gray-400">평가 없음</div>
+                          )}
                         </div>
                       </div>
                     </div>
@@ -766,9 +779,13 @@ export default function Home() {
                             {p.gradeEmoji} <span className="text-accent-600">{p.grade}</span>
                           </div>
                           <div className="text-xs text-gray-600">종합평점</div>
-                          <div className="text-xs text-secondary-600 mt-1">
-                            ★ {p.userRating.toFixed(1)} ({p.userCount}명)
-                          </div>
+                          {p.userCount > 0 ? (
+                            <div className="text-xs text-secondary-600 mt-1">
+                              ★ {p.userRating.toFixed(1)} ({p.userCount}명)
+                            </div>
+                          ) : (
+                            <div className="text-xs text-gray-400 mt-1">평가 없음</div>
+                          )}
                         </div>
                       </div>
                     </div>

@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(python run_migrations_psql.py:*)",
-      "Bash(PYTHONIOENCODING=utf-8 python:*)"
+      "Bash(PYTHONIOENCODING=utf-8 python:*)",
+      "WebSearch"
     ],
     "deny": [],
     "ask": []
