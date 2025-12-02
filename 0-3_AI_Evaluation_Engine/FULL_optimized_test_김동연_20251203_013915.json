@@ -1,0 +1,28 @@
+{
+  "politician": "김동연",
+  "politician_id": "17270f25",
+  "compression_stats": {
+    "original_count": 1000,
+    "original_tokens": 14375,
+    "after_dedup_count": 998,
+    "after_ner_tokens": 14341,
+    "after_llmlingua_tokens": 2333,
+    "final_tokens": 2333
+  },
+  "chatgpt": {},
+  "grok": {},
+  "claude": {},
+  "pooling": {
+    "Expertise": 0,
+    "Leadership": 0,
+    "Vision": 0,
+    "Integrity": 0,
+    "Ethics": 0,
+    "Accountability": 0,
+    "Transparency": 0,
+    "Communication": 0,
+    "Responsiveness": 0,
+    "PublicInterest": 0
+  },
+  "elapsed_seconds": 544.957133
+}

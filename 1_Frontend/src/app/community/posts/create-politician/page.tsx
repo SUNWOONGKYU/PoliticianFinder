@@ -183,6 +183,16 @@ export default function CreatePoliticianPostPage() {
       return;
     }
 
+    // Get session token from localStorage
+    const sessionKey = `politician_${selectedPolitician.id}`;
+    const sessionToken = localStorage.getItem(sessionKey);
+
+    if (!sessionToken) {
+      showAlertModal('세션이 만료되었습니다. 다시 인증해주세요.');
+      setStep('auth');
+      return;
+    }
+
     setSubmitting(true);
 
     try {
@@ -190,10 +200,11 @@ export default function CreatePoliticianPostPage() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          title: title.trim(),
-          content: content.trim(),
-          category: 'politician',
           politician_id: selectedPolitician.id,
+          session_token: sessionToken,
+          subject: title.trim(),  // ← "title" 아님, "subject"
+          content: content.trim(),
+          category: 'general',
           author_type: 'politician',
           tags: tags.trim() ? tags.split(',').map(t => t.trim()).filter(t => t) : []
         })
@@ -208,7 +219,7 @@ export default function CreatePoliticianPostPage() {
           router.push('/community');
         }, 1500);
       } else {
-        showAlertModal(data.message || '게시글 등록에 실패했습니다.');
+        showAlertModal(data.message || data.error?.message || '게시글 등록에 실패했습니다.');
       }
     } catch (error) {
       console.error('Failed to create post:', error);
