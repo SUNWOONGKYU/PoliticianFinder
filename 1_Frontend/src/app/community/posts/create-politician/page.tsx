@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef, ChangeEvent, FormEvent } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
@@ -8,162 +8,169 @@ import { useRouter } from 'next/navigation';
 interface Politician {
   id: string;
   name: string;
-  party: string;
-  position: string;
-  is_verified: boolean;
-  verified_at: string | null;
-  verification_id: string;
-}
-
-interface DraftData {
-  title: string;
-  content: string;
-  tags: string;
-  selectedPoliticianId: string;
-  savedAt: string;
-}
-
-interface SelectedFile {
-  file: File;
-  name: string;
-  size: number;
+  political_party_name: string;
+  position_name: string;
+  verified_email: string | null;
 }
 
 export default function CreatePoliticianPostPage() {
   const router = useRouter();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [title, setTitle] = useState('');
-  const [content, setContent] = useState('');
-  const [tags, setTags] = useState('');
-  const [selectedFiles, setSelectedFiles] = useState<SelectedFile[]>([]);
-  const [alertMessage, setAlertMessage] = useState('');
-  const [showAlert, setShowAlert] = useState(false);
-  const fileInputRef = useRef<HTMLInputElement>(null);
+  const [step, setStep] = useState<'select' | 'auth' | 'write'>('select');
 
-  // Politician selection state
+  // Politician selection
   const [politicians, setPoliticians] = useState<Politician[]>([]);
   const [selectedPolitician, setSelectedPolitician] = useState<Politician | null>(null);
   const [loadingPoliticians, setLoadingPoliticians] = useState(true);
-  const [showPoliticianSelector, setShowPoliticianSelector] = useState(false);
 
-  // Check authentication and load verified politicians on mount
+  // Email authentication
+  const [email, setEmail] = useState('');
+  const [verificationCode, setVerificationCode] = useState('');
+  const [codeSent, setCodeSent] = useState(false);
+  const [sendingCode, setSendingCode] = useState(false);
+  const [verifying, setVerifying] = useState(false);
+
+  // Post writing
+  const [title, setTitle] = useState('');
+  const [content, setContent] = useState('');
+  const [tags, setTags] = useState('');
+  const [submitting, setSubmitting] = useState(false);
+
+  // Alert
+  const [alertMessage, setAlertMessage] = useState('');
+  const [showAlert, setShowAlert] = useState(false);
+
+  // Load politicians on mount
   useEffect(() => {
-    const init = async () => {
-      try {
-        // 1. Check authentication
-        const authResponse = await fetch('/api/auth/me');
-        if (!authResponse.ok) {
-          alert('로그인이 필요합니다.');
-          router.push('/auth/login?redirect=/community/posts/create-politician');
-          return;
-        }
+    loadPoliticians();
+  }, []);
 
-        // 2. Load user's verified politicians
-        const politiciansResponse = await fetch('/api/politicians/verification/my-politicians');
-        const politiciansData = await politiciansResponse.json();
+  const loadPoliticians = async () => {
+    try {
+      const response = await fetch('/api/politicians?limit=1000');
+      const data = await response.json();
 
-        if (!politiciansResponse.ok) {
-          console.error('Failed to load politicians:', politiciansData);
-          showAlertModal(politiciansData.message || '인증된 정치인 정보를 불러올 수 없습니다.');
-          setLoadingPoliticians(false);
-          return;
-        }
-
-        if (politiciansData.success && politiciansData.data) {
-          setPoliticians(politiciansData.data);
-
-          // If only one politician, auto-select
-          if (politiciansData.data.length === 1) {
-            setSelectedPolitician(politiciansData.data[0]);
-          } else if (politiciansData.data.length > 1) {
-            // Show politician selector if multiple politicians
-            setShowPoliticianSelector(true);
-          } else {
-            // No verified politicians
-            showAlertModal('인증된 정치인이 없습니다. 먼저 정치인 인증을 완료해주세요.');
-            setTimeout(() => {
-              router.push('/politicians');
-            }, 2000);
-          }
-        }
-      } catch (error) {
-        console.error('Initialization error:', error);
-        showAlertModal('페이지를 불러오는 중 오류가 발생했습니다.');
-      } finally {
-        setLoadingPoliticians(false);
+      if (response.ok && data.success) {
+        setPoliticians(data.data);
+      } else {
+        showAlertModal('정치인 목록을 불러오는데 실패했습니다.');
       }
-    };
-
-    init();
-  }, [router]);
-
-  // Load draft on component mount
-  useEffect(() => {
-    if (!selectedPolitician) return;
-
-    const draft = localStorage.getItem('draft_post_politician');
-    if (draft) {
-      const shouldLoad = window.confirm('임시저장된 글이 있습니다. 불러오시겠습니까?');
-      if (shouldLoad) {
-        const data: DraftData = JSON.parse(draft);
-        setTitle(data.title || '');
-        setContent(data.content || '');
-        setTags(data.tags || '');
-
-        // Check if draft's politician matches current selected politician
-        if (data.selectedPoliticianId !== selectedPolitician.id) {
-          showAlertModal('임시저장된 글의 정치인과 현재 선택된 정치인이 다릅니다.');
-        }
-      }
+    } catch (error) {
+      console.error('Failed to load politicians:', error);
+      showAlertModal('정치인 목록을 불러오는 중 오류가 발생했습니다.');
+    } finally {
+      setLoadingPoliticians(false);
     }
-  }, [selectedPolitician]);
+  };
 
   // Handle politician selection
   const handlePoliticianSelect = (politician: Politician) => {
     setSelectedPolitician(politician);
-    setShowPoliticianSelector(false);
-  };
 
-  // Handle file selection
-  const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files) {
-      const files = Array.from(e.target.files).map(file => ({
-        file,
-        name: file.name,
-        size: file.size
-      }));
-      setSelectedFiles(files);
+    // Check localStorage session
+    const sessionKey = `politician_${politician.id}`;
+    const session = localStorage.getItem(sessionKey);
+
+    if (session) {
+      // Session exists → go directly to writing
+      setStep('write');
+    } else {
+      // No session → need authentication
+      setStep('auth');
     }
   };
 
-  // Remove file
-  const removeFile = (index: number) => {
-    setSelectedFiles(prev => prev.filter((_, i) => i !== index));
-    if (fileInputRef.current) {
-      fileInputRef.current.value = '';
+  // Send verification code
+  const handleSendCode = async () => {
+    if (!email.trim()) {
+      showAlertModal('이메일을 입력해주세요.');
+      return;
     }
-  };
 
-  // Save draft
-  const saveDraft = () => {
     if (!selectedPolitician) {
       showAlertModal('정치인을 선택해주세요.');
       return;
     }
 
-    const draft: DraftData = {
-      title,
-      content,
-      tags,
-      selectedPoliticianId: selectedPolitician.id,
-      savedAt: new Date().toISOString()
-    };
-    localStorage.setItem('draft_post_politician', JSON.stringify(draft));
-    showAlertModal('임시저장되었습니다.');
+    setSendingCode(true);
+
+    try {
+      const response = await fetch('/api/politicians/verify/send-code', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          politician_id: selectedPolitician.id,
+          email: email.trim()
+        })
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        setCodeSent(true);
+        showAlertModal('인증 코드가 이메일로 발송되었습니다.');
+      } else {
+        showAlertModal(data.message || '인증 코드 발송에 실패했습니다.');
+      }
+    } catch (error) {
+      console.error('Failed to send code:', error);
+      showAlertModal('인증 코드 발송 중 오류가 발생했습니다.');
+    } finally {
+      setSendingCode(false);
+    }
   };
 
-  // Handle form submission
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  // Verify code
+  const handleVerifyCode = async () => {
+    if (!verificationCode.trim()) {
+      showAlertModal('인증 코드를 입력해주세요.');
+      return;
+    }
+
+    if (!selectedPolitician) {
+      showAlertModal('정치인을 선택해주세요.');
+      return;
+    }
+
+    setVerifying(true);
+
+    try {
+      const response = await fetch('/api/politicians/verify/check-code', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          politician_id: selectedPolitician.id,
+          email: email.trim(),
+          code: verificationCode.trim()
+        })
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        // Save session to localStorage
+        const sessionKey = `politician_${selectedPolitician.id}`;
+        const sessionToken = data.session_token || Date.now().toString();
+        localStorage.setItem(sessionKey, sessionToken);
+
+        showAlertModal('인증이 완료되었습니다!');
+
+        // Go to writing step
+        setTimeout(() => {
+          setStep('write');
+        }, 1000);
+      } else {
+        showAlertModal(data.message || '인증 코드가 올바르지 않습니다.');
+      }
+    } catch (error) {
+      console.error('Failed to verify code:', error);
+      showAlertModal('인증 코드 확인 중 오류가 발생했습니다.');
+    } finally {
+      setVerifying(false);
+    }
+  };
+
+  // Submit post
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!selectedPolitician) {
@@ -176,13 +183,12 @@ export default function CreatePoliticianPostPage() {
       return;
     }
 
+    setSubmitting(true);
+
     try {
-      // Create post via API
       const response = await fetch('/api/posts', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           title: title.trim(),
           content: content.trim(),
@@ -193,23 +199,22 @@ export default function CreatePoliticianPostPage() {
         })
       });
 
-      const result = await response.json();
+      const data = await response.json();
 
-      if (!response.ok) {
-        showAlertModal(result.message || '게시글 등록에 실패했습니다.');
-        return;
+      if (response.ok && data.success) {
+        showAlertModal('게시글이 등록되었습니다!');
+
+        setTimeout(() => {
+          router.push('/community');
+        }, 1500);
+      } else {
+        showAlertModal(data.message || '게시글 등록에 실패했습니다.');
       }
-
-      showAlertModal('게시글이 등록되었습니다!');
-      localStorage.removeItem('draft_post_politician');
-
-      // Redirect after a short delay
-      setTimeout(() => {
-        router.push('/community');
-      }, 1500);
     } catch (error) {
-      console.error('Post creation error:', error);
+      console.error('Failed to create post:', error);
       showAlertModal('게시글 등록 중 오류가 발생했습니다.');
+    } finally {
+      setSubmitting(false);
     }
   };
 
@@ -217,13 +222,11 @@ export default function CreatePoliticianPostPage() {
   const showAlertModal = (message: string) => {
     setAlertMessage(message);
     setShowAlert(true);
-    document.body.style.overflow = 'hidden';
   };
 
   const closeAlertModal = () => {
     setShowAlert(false);
     setAlertMessage('');
-    document.body.style.overflow = 'auto';
   };
 
   // Loading state
@@ -232,14 +235,14 @@ export default function CreatePoliticianPostPage() {
       <div className="bg-gray-50 min-h-screen flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600 mx-auto mb-4"></div>
-          <p className="text-gray-600">인증된 정치인 정보를 불러오는 중...</p>
+          <p className="text-gray-600">정치인 목록을 불러오는 중...</p>
         </div>
       </div>
     );
   }
 
-  // Politician selector modal
-  if (showPoliticianSelector && politicians.length > 0) {
+  // Step 1: Politician Selection
+  if (step === 'select') {
     return (
       <div className="bg-gray-50 min-h-screen">
         <main className="max-w-4xl mx-auto px-4 py-8">
@@ -248,33 +251,49 @@ export default function CreatePoliticianPostPage() {
             <p className="text-gray-600">글을 작성할 정치인을 선택해주세요.</p>
           </div>
 
-          <div className="bg-white rounded-lg shadow-md p-6 space-y-4">
-            {politicians.map((politician) => (
-              <button
-                key={politician.id}
-                onClick={() => handlePoliticianSelect(politician)}
-                className="w-full text-left p-4 border-2 border-gray-200 rounded-lg hover:border-primary-500 hover:bg-primary-50 transition"
-              >
-                <div className="flex items-start justify-between">
-                  <div>
-                    <h3 className="text-lg font-bold text-gray-900">{politician.name}</h3>
-                    <p className="text-sm text-gray-600 mt-1">
-                      {politician.position} · {politician.party}
-                    </p>
-                    {politician.is_verified && (
-                      <div className="mt-2">
-                        <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                          ✓ 인증됨
-                        </span>
-                      </div>
-                    )}
+          <div className="bg-white rounded-lg shadow-md p-6">
+            <div className="mb-4">
+              <input
+                type="text"
+                placeholder="정치인 이름 검색..."
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+                onChange={(e) => {
+                  const search = e.target.value.toLowerCase();
+                  if (!search) {
+                    loadPoliticians();
+                  } else {
+                    setPoliticians(prev =>
+                      prev.filter(p => p.name.toLowerCase().includes(search))
+                    );
+                  }
+                }}
+              />
+            </div>
+
+            <div className="space-y-3 max-h-96 overflow-y-auto">
+              {politicians.map((politician) => (
+                <button
+                  key={politician.id}
+                  onClick={() => handlePoliticianSelect(politician)}
+                  className="w-full text-left p-4 border-2 border-gray-200 rounded-lg hover:border-primary-500 hover:bg-primary-50 transition"
+                >
+                  <div className="flex items-start justify-between">
+                    <div>
+                      <h3 className="text-lg font-bold text-gray-900">{politician.name}</h3>
+                      <p className="text-sm text-gray-600 mt-1">
+                        {politician.position_name} · {politician.political_party_name}
+                      </p>
+                      {politician.verified_email && (
+                        <p className="text-xs text-green-600 mt-1">✓ 이메일 인증됨</p>
+                      )}
+                    </div>
+                    <svg className="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
                   </div>
-                  <svg className="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </div>
-              </button>
-            ))}
+                </button>
+              ))}
+            </div>
           </div>
 
           <div className="mt-6">
@@ -290,162 +309,254 @@ export default function CreatePoliticianPostPage() {
     );
   }
 
-  // No politician selected state
-  if (!selectedPolitician) {
+  // Step 2: Email Authentication
+  if (step === 'auth' && selectedPolitician) {
     return (
-      <div className="bg-gray-50 min-h-screen flex items-center justify-center">
-        <div className="text-center max-w-md">
-          <p className="text-gray-600 mb-4">인증된 정치인이 없습니다.</p>
-          <Link
-            href="/politicians"
-            className="inline-block px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 font-medium"
-          >
-            정치인 인증하기
-          </Link>
-        </div>
+      <div className="bg-gray-50 min-h-screen">
+        <main className="max-w-2xl mx-auto px-4 py-8">
+          <div className="mb-6">
+            <h1 className="text-3xl font-bold text-gray-900 mb-2">이메일 인증</h1>
+            <p className="text-gray-600">{selectedPolitician.name} 정치인으로 글을 작성하려면 이메일 인증이 필요합니다.</p>
+          </div>
+
+          <div className="bg-white rounded-lg shadow-md p-6 space-y-6">
+            {/* Selected Politician */}
+            <div className="p-4 bg-primary-50 border-2 border-primary-200 rounded-lg">
+              <h3 className="font-bold text-gray-900">{selectedPolitician.name}</h3>
+              <p className="text-sm text-gray-600 mt-1">
+                {selectedPolitician.position_name} · {selectedPolitician.political_party_name}
+              </p>
+            </div>
+
+            {/* Email Input */}
+            <div>
+              <label htmlFor="email" className="block text-sm font-medium text-gray-900 mb-2">
+                이메일 주소 <span className="text-red-500">*</span>
+              </label>
+              <input
+                type="email"
+                id="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="이메일을 입력하세요"
+                disabled={codeSent}
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 disabled:bg-gray-100"
+              />
+              {selectedPolitician.verified_email && (
+                <p className="text-sm text-gray-500 mt-1">
+                  ℹ️ 이 정치인은 등록된 이메일로만 인증 가능합니다.
+                </p>
+              )}
+            </div>
+
+            {/* Send Code Button */}
+            {!codeSent && (
+              <button
+                onClick={handleSendCode}
+                disabled={sendingCode || !email.trim()}
+                className="w-full px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 font-medium disabled:bg-gray-300 disabled:cursor-not-allowed"
+              >
+                {sendingCode ? '발송 중...' : '인증 코드 발송'}
+              </button>
+            )}
+
+            {/* Verification Code Input */}
+            {codeSent && (
+              <>
+                <div>
+                  <label htmlFor="code" className="block text-sm font-medium text-gray-900 mb-2">
+                    인증 코드 <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="code"
+                    value={verificationCode}
+                    onChange={(e) => setVerificationCode(e.target.value)}
+                    placeholder="6자리 인증 코드"
+                    maxLength={6}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+                  />
+                  <p className="text-sm text-gray-500 mt-1">
+                    이메일로 발송된 6자리 인증 코드를 입력하세요.
+                  </p>
+                </div>
+
+                <button
+                  onClick={handleVerifyCode}
+                  disabled={verifying || !verificationCode.trim()}
+                  className="w-full px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 font-medium disabled:bg-gray-300 disabled:cursor-not-allowed"
+                >
+                  {verifying ? '인증 중...' : '인증 확인'}
+                </button>
+
+                <button
+                  onClick={() => {
+                    setCodeSent(false);
+                    setVerificationCode('');
+                  }}
+                  className="w-full px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 font-medium"
+                >
+                  다시 발송
+                </button>
+              </>
+            )}
+          </div>
+
+          <div className="mt-6">
+            <button
+              onClick={() => {
+                setSelectedPolitician(null);
+                setStep('select');
+                setEmail('');
+                setVerificationCode('');
+                setCodeSent(false);
+              }}
+              className="px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 font-medium"
+            >
+              취소
+            </button>
+          </div>
+        </main>
       </div>
     );
   }
 
-  // Main form
-  return (
-    <div className="bg-gray-50 min-h-screen">
-      {/* Main Content */}
-      <main className="max-w-4xl mx-auto px-4 py-8">
-        <div className="mb-6">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">정치인 게시글 작성</h1>
-          <p className="text-gray-600">커뮤니티에 새로운 글을 작성해보세요.</p>
-        </div>
+  // Step 3: Write Post
+  if (step === 'write' && selectedPolitician) {
+    return (
+      <div className="bg-gray-50 min-h-screen">
+        <main className="max-w-4xl mx-auto px-4 py-8">
+          <div className="mb-6">
+            <h1 className="text-3xl font-bold text-gray-900 mb-2">정치인 게시글 작성</h1>
+            <p className="text-gray-600">커뮤니티에 새로운 글을 작성해보세요.</p>
+          </div>
 
-        <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow-md p-6 space-y-6">
-          {/* Selected Politician Display */}
-          <div>
-            <label className="block text-sm font-medium text-gray-900 mb-2">작성자 (정치인)</label>
-            <div className="flex items-center justify-between p-4 bg-primary-50 border-2 border-primary-200 rounded-lg">
-              <div>
-                <h3 className="font-bold text-gray-900">{selectedPolitician.name}</h3>
-                <p className="text-sm text-gray-600 mt-1">
-                  {selectedPolitician.position} · {selectedPolitician.party}
-                </p>
-              </div>
-              {politicians.length > 1 && (
+          <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow-md p-6 space-y-6">
+            {/* Selected Politician Display */}
+            <div>
+              <label className="block text-sm font-medium text-gray-900 mb-2">작성자 (정치인)</label>
+              <div className="flex items-center justify-between p-4 bg-primary-50 border-2 border-primary-200 rounded-lg">
+                <div>
+                  <h3 className="font-bold text-gray-900">{selectedPolitician.name}</h3>
+                  <p className="text-sm text-gray-600 mt-1">
+                    {selectedPolitician.position_name} · {selectedPolitician.political_party_name}
+                  </p>
+                </div>
                 <button
                   type="button"
-                  onClick={() => setShowPoliticianSelector(true)}
+                  onClick={() => {
+                    setSelectedPolitician(null);
+                    setStep('select');
+                  }}
                   className="px-4 py-2 text-sm text-primary-600 hover:bg-primary-100 rounded-lg transition"
                 >
                   변경
                 </button>
-              )}
+              </div>
             </div>
-          </div>
 
-          {/* Category */}
-          <div>
-            <label className="block text-sm font-medium text-gray-900 mb-2">카테고리</label>
-            <div className="w-full px-4 py-2 border border-gray-300 rounded-lg bg-gray-50">
-              <span className="font-medium text-primary-600">🏛️ 정치인 게시판</span>
+            {/* Category */}
+            <div>
+              <label className="block text-sm font-medium text-gray-900 mb-2">카테고리</label>
+              <div className="w-full px-4 py-2 border border-gray-300 rounded-lg bg-gray-50">
+                <span className="font-medium text-primary-600">🏛️ 정치인 게시판</span>
+              </div>
             </div>
-          </div>
 
-          {/* Title */}
-          <div>
-            <label htmlFor="title" className="block text-sm font-medium text-gray-900 mb-2">
-              제목 <span className="text-red-500">*</span>
-            </label>
-            <input
-              type="text"
-              id="title"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              required
-              maxLength={100}
-              placeholder="제목을 입력하세요 (최대 100자)"
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
-            />
-            <div className="text-right mt-1">
-              <span className="text-sm text-gray-500">{title.length} / 100</span>
+            {/* Title */}
+            <div>
+              <label htmlFor="title" className="block text-sm font-medium text-gray-900 mb-2">
+                제목 <span className="text-red-500">*</span>
+              </label>
+              <input
+                type="text"
+                id="title"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+                required
+                maxLength={100}
+                placeholder="제목을 입력하세요 (최대 100자)"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+              />
+              <div className="text-right mt-1">
+                <span className="text-sm text-gray-500">{title.length} / 100</span>
+              </div>
             </div>
-          </div>
 
-          {/* Content */}
-          <div>
-            <label htmlFor="content" className="block text-sm font-medium text-gray-900 mb-2">
-              내용 <span className="text-red-500">*</span>
-            </label>
-            <textarea
-              id="content"
-              value={content}
-              onChange={(e) => setContent(e.target.value)}
-              required
-              rows={15}
-              placeholder="내용을 입력하세요&#10;&#10;• 타인을 비방하거나 명예를 훼손하는 내용은 삼가주세요.&#10;• 허위 사실을 유포하거나 악의적인 내용은 삭제될 수 있습니다.&#10;• 건전한 토론 문화를 만들어 주세요."
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 resize-none"
-            />
-            <div className="text-right mt-1">
-              <span className="text-sm text-gray-500">{content.length}자</span>
+            {/* Content */}
+            <div>
+              <label htmlFor="content" className="block text-sm font-medium text-gray-900 mb-2">
+                내용 <span className="text-red-500">*</span>
+              </label>
+              <textarea
+                id="content"
+                value={content}
+                onChange={(e) => setContent(e.target.value)}
+                required
+                rows={15}
+                placeholder="내용을 입력하세요"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 resize-none"
+              />
+              <div className="text-right mt-1">
+                <span className="text-sm text-gray-500">{content.length}자</span>
+              </div>
             </div>
-          </div>
 
-          {/* Tags */}
-          <div>
-            <label htmlFor="tags" className="block text-sm font-medium text-gray-900 mb-2">
-              태그 <span className="text-gray-500">(선택)</span>
-            </label>
-            <input
-              type="text"
-              id="tags"
-              value={tags}
-              onChange={(e) => setTags(e.target.value)}
-              placeholder="태그를 쉼표(,)로 구분하여 입력하세요"
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
-            />
-            <p className="text-sm text-gray-500 mt-1">최대 5개까지 입력 가능합니다.</p>
-          </div>
+            {/* Tags */}
+            <div>
+              <label htmlFor="tags" className="block text-sm font-medium text-gray-900 mb-2">
+                태그 <span className="text-gray-500">(선택)</span>
+              </label>
+              <input
+                type="text"
+                id="tags"
+                value={tags}
+                onChange={(e) => setTags(e.target.value)}
+                placeholder="태그를 쉼표(,)로 구분하여 입력하세요"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+              />
+              <p className="text-sm text-gray-500 mt-1">최대 5개까지 입력 가능합니다.</p>
+            </div>
 
-          {/* Writing Guide */}
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-            <h3 className="font-bold text-blue-900 mb-2 flex items-center gap-2">
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
-              </svg>
-              작성 가이드
-            </h3>
-            <ul className="text-sm text-gray-700 space-y-1 ml-7">
-              <li>• 구체적이고 명확한 제목을 작성해주세요.</li>
-              <li>• 근거 있는 정보를 바탕으로 작성해주세요.</li>
-              <li>• 타인을 존중하는 언어를 사용해주세요.</li>
-              <li>• 개인정보 유출에 주의해주세요.</li>
-            </ul>
-          </div>
+            {/* Buttons */}
+            <div className="flex gap-3 pt-4 border-t">
+              <button
+                type="button"
+                onClick={() => router.back()}
+                className="flex-1 px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 font-medium"
+              >
+                취소
+              </button>
+              <button
+                type="submit"
+                disabled={submitting}
+                className="flex-1 px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 font-medium disabled:bg-gray-300 disabled:cursor-not-allowed"
+              >
+                {submitting ? '등록 중...' : '등록하기'}
+              </button>
+            </div>
+          </form>
+        </main>
+      </div>
+    );
+  }
 
-          {/* Buttons */}
-          <div className="flex gap-3 pt-4 border-t">
-            <button
-              type="button"
-              onClick={() => router.back()}
-              className="flex-1 px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 font-medium"
-            >
-              취소
-            </button>
-            <button
-              type="button"
-              onClick={saveDraft}
-              className="flex-1 px-6 py-3 border border-primary-600 text-primary-600 rounded-lg hover:bg-purple-50 font-medium"
-            >
-              임시저장
-            </button>
-            <button
-              type="submit"
-              className="flex-1 px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 font-medium"
-            >
-              등록하기
-            </button>
-          </div>
-        </form>
-      </main>
+  // Fallback - should not reach here
+  return (
+    <>
+      <div className="bg-gray-50 min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <p className="text-gray-600">잘못된 페이지 상태입니다.</p>
+          <button
+            onClick={() => router.back()}
+            className="mt-4 px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700"
+          >
+            돌아가기
+          </button>
+        </div>
+      </div>
 
-      {/* Alert Modal */}
+      {/* Alert Modal (shared across all steps) */}
       {showAlert && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
           <div className="bg-white rounded-lg max-w-sm w-full p-6">
@@ -463,6 +574,6 @@ export default function CreatePoliticianPostPage() {
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 }
