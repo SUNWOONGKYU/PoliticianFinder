@@ -341,6 +341,7 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
                 <>
                   <span className="font-medium text-secondary-600">{post.author}</span>
                   <span className="text-gray-900" aria-label={`활동 등급 ${post.memberLevel}`} title={`활동 등급: ${post.memberLevel}`}>{post.memberLevel}</span>
+                  {/* TODO: 향후 회원 등급 시스템 구현 시 동적으로 변경 필요 (현재는 모든 회원이 영주로 표시됨) */}
                   <span className="text-xs text-emerald-900 font-medium">🏰 영주</span>
                 </>
               )}
