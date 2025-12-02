@@ -280,6 +280,9 @@ export async function GET(request: NextRequest) {
           position,
           party,
           status
+        ),
+        profiles:user_id (
+          username
         )
       `, { count: "exact" })
 
