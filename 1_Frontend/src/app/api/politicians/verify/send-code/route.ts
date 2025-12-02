@@ -33,7 +33,7 @@ export async function POST(request: NextRequest) {
     }
 
     // 2. 정치인 정보 조회
-    const { data: politician, error: politicianError } = await supabase
+    const { data: politician, error: politicianError } = await (supabase as any)
       .from('politicians')
       .select('id, name, party, position, email')
       .eq('name', name)
@@ -68,7 +68,7 @@ export async function POST(request: NextRequest) {
     expiresAt.setMinutes(expiresAt.getMinutes() + 10); // 10분 후 만료
 
     // 5. DB에 인증 코드 저장
-    const { data: verification, error: insertError } = await supabase
+    const { data: verification, error: insertError } = await (supabase as any)
       .from('email_verifications')
       .insert({
         politician_id: politician.id,
