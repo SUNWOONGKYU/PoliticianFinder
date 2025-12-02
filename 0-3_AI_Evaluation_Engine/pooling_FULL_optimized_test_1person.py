@@ -96,14 +96,20 @@ class FullOptimizedEvaluator:
         self.grok_api_key = GROK_API_KEY
         self.supabase = create_client(SUPABASE_URL, SUPABASE_SERVICE_KEY)
 
-        # LLMLingua 압축기 초기화
+        # LLMLingua 압축기 초기화 (CPU 모드)
         if LLMLINGUA_AVAILABLE:
-            print("🔧 LLMLingua 압축기 초기화 중...")
-            self.compressor = PromptCompressor(
-                model_name="microsoft/llmlingua-2-bert-base-multilingual-cased-meetingbank",
-                use_llmlingua2=True
-            )
-            print("✅ LLMLingua 준비 완료")
+            try:
+                print("🔧 LLMLingua 압축기 초기화 중 (CPU 모드)...")
+                self.compressor = PromptCompressor(
+                    model_name="microsoft/llmlingua-2-bert-base-multilingual-cased-meetingbank",
+                    use_llmlingua2=True,
+                    device_map="cpu"  # CPU 모드 강제
+                )
+                print("✅ LLMLingua 준비 완료 (CPU)")
+            except Exception as e:
+                print(f"⚠️ LLMLingua 초기화 실패: {e}")
+                self.compressor = None
+                print("⚠️ LLMLingua 미사용 - 대체 압축 사용")
         else:
             self.compressor = None
             print("⚠️ LLMLingua 미사용 - 대체 압축 사용")
