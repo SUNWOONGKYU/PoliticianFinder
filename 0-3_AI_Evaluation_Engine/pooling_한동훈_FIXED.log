@@ -1,0 +1,148 @@
+================================================================================
+배치 풀링 시스템 - 전체 카테고리 평가 (API 호출 최적화)
+================================================================================
+정치인: 한동훈
+카테고리: 10개 전체
+배치 크기: 10개
+API 호출 최적화: 4,500회 → 450회 (90% 감소)
+예상 비용 절감: 약 90%
+================================================================================
+
+================================================================================
+[1/10] Expertise (전문성) 시작...
+================================================================================
+
+================================================================================
+카테고리: Expertise (전문성)
+================================================================================
+
+[Step 1] Expertise 카테고리 데이터 풀 생성 중...
+  총 데이터 풀: 150개
+
+[Step 2] 전문성 데이터 풀 배치 평가 시작...
+  배치 크기: 10개
+  배치 수: 15개
+  API 호출 수: 45회 (기존 450회 대비 90% 감소)
+  예상 소요 시간: 약 2분
+
+  [배치 1/15] 1~10번 뉴스 (10개)
+    - ChatGPT 배치 평가 중 (1/45)... ✅ 10개 완료
+    - Grok 배치 평가 중 (2/45)...     ❌ Grok 배치 평가 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+❌ 실패
+    - Claude 배치 평가 중 (3/45)... ✅ 10개 완료
+
+  [배치 2/15] 11~20번 뉴스 (10개)
+    - ChatGPT 배치 평가 중 (4/45)... ✅ 10개 완료
+    - Grok 배치 평가 중 (5/45)...     ❌ Grok 배치 평가 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+❌ 실패
+    - Claude 배치 평가 중 (6/45)... ✅ 10개 완료
+
+  [배치 3/15] 21~30번 뉴스 (10개)
+    - ChatGPT 배치 평가 중 (7/45)... ✅ 10개 완료
+    - Grok 배치 평가 중 (8/45)...     ❌ Grok 배치 평가 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+❌ 실패
+    - Claude 배치 평가 중 (9/45)... ✅ 10개 완료
+
+  [배치 4/15] 31~40번 뉴스 (10개)
+    - ChatGPT 배치 평가 중 (10/45)... ✅ 10개 완료
+    - Grok 배치 평가 중 (11/45)...     ❌ Grok 배치 평가 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+❌ 실패
+    - Claude 배치 평가 중 (12/45)... ✅ 10개 완료
+
+  [배치 5/15] 41~50번 뉴스 (10개)
+    - ChatGPT 배치 평가 중 (13/45)... ✅ 10개 완료
+    - Grok 배치 평가 중 (14/45)...     ❌ Grok 배치 평가 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+❌ 실패
+    - Claude 배치 평가 중 (15/45)... ✅ 10개 완료
+
+  [배치 6/15] 51~60번 뉴스 (10개)
+    - ChatGPT 배치 평가 중 (16/45)... ✅ 10개 완료
+    - Grok 배치 평가 중 (17/45)...     ❌ Grok 배치 평가 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+❌ 실패
+    - Claude 배치 평가 중 (18/45)... ✅ 10개 완료
+
+  [배치 7/15] 61~70번 뉴스 (10개)
+    - ChatGPT 배치 평가 중 (19/45)... ✅ 10개 완료
+    - Grok 배치 평가 중 (20/45)...     ❌ Grok 배치 평가 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+❌ 실패
+    - Claude 배치 평가 중 (21/45)... ✅ 10개 완료
+
+  [배치 8/15] 71~80번 뉴스 (10개)
+    - ChatGPT 배치 평가 중 (22/45)... ✅ 10개 완료
+    - Grok 배치 평가 중 (23/45)...     ❌ Grok 배치 평가 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+❌ 실패
+    - Claude 배치 평가 중 (24/45)... ✅ 10개 완료
+
+  [배치 9/15] 81~90번 뉴스 (10개)
+    - ChatGPT 배치 평가 중 (25/45)... ✅ 10개 완료
+    - Grok 배치 평가 중 (26/45)...     ❌ Grok 배치 평가 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+❌ 실패
+    - Claude 배치 평가 중 (27/45)... ✅ 10개 완료
+
+  [배치 10/15] 91~100번 뉴스 (10개)
+    - ChatGPT 배치 평가 중 (28/45)... ✅ 10개 완료
+    - Grok 배치 평가 중 (29/45)...     ❌ Grok 배치 평가 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+❌ 실패
+    - Claude 배치 평가 중 (30/45)... ✅ 10개 완료
+
+  [배치 11/15] 101~110번 뉴스 (10개)
+    - ChatGPT 배치 평가 중 (31/45)... ✅ 10개 완료
+    - Grok 배치 평가 중 (32/45)...     ❌ Grok 배치 평가 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+❌ 실패
+    - Claude 배치 평가 중 (33/45)... ✅ 10개 완료
+
+  [배치 12/15] 111~120번 뉴스 (10개)
+    - ChatGPT 배치 평가 중 (34/45)... ✅ 10개 완료
+    - Grok 배치 평가 중 (35/45)...     ❌ Grok 배치 평가 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+❌ 실패
+    - Claude 배치 평가 중 (36/45)... ✅ 10개 완료
+
+  [배치 13/15] 121~130번 뉴스 (10개)
+    - ChatGPT 배치 평가 중 (37/45)... ✅ 10개 완료
+    - Grok 배치 평가 중 (38/45)...     ❌ Grok 배치 평가 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+❌ 실패
+    - Claude 배치 평가 중 (39/45)... ✅ 10개 완료
+
+  [배치 14/15] 131~140번 뉴스 (10개)
+    - ChatGPT 배치 평가 중 (40/45)... ✅ 10개 완료
+    - Grok 배치 평가 중 (41/45)...     ❌ Grok 배치 평가 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+❌ 실패
+    - Claude 배치 평가 중 (42/45)... ✅ 10개 완료
+
+  [배치 15/15] 141~150번 뉴스 (10개)
+    - ChatGPT 배치 평가 중 (43/45)... ✅ 10개 완료
+    - Grok 배치 평가 중 (44/45)...     ❌ Grok 배치 평가 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+❌ 실패
+    - Claude 배치 평가 중 (45/45)... ✅ 10개 완료
+
+  최종 평가 결과:
+    ChatGPT: 150개
+    Grok: 0개
+    Claude: 150개
+
+================================================================================
+최종 점수 계산
+================================================================================
+
+[ChatGPT]
+  평균 등급: +4.56
+  카테고리 점수: 82.8점
+  긍정(A~D): 124개 (82%)
+  부정(E~H): 26개 (17%)
+
+[Grok]
+  평균 등급: +0.00
+  카테고리 점수: 60.0점
+Traceback (most recent call last):
+  File "C:\Development_PoliticianFinder_com\Developement_Real_PoliticianFinder\0-3_AI_Evaluation_Engine\pooling_�ѵ���_FIXED.py", line 414, in <module>
+    main()
+    ~~~~^^
+  File "C:\Development_PoliticianFinder_com\Developement_Real_PoliticianFinder\0-3_AI_Evaluation_Engine\pooling_�ѵ���_FIXED.py", line 340, in main
+    result = process_category(category_eng, category_kor)
+  File "C:\Development_PoliticianFinder_com\Developement_Real_PoliticianFinder\0-3_AI_Evaluation_Engine\pooling_�ѵ���_FIXED.py", line 296, in process_category
+    scores, final_score = calculate_final_scores(results)
+                          ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Development_PoliticianFinder_com\Developement_Real_PoliticianFinder\0-3_AI_Evaluation_Engine\pooling_�ѵ���_FIXED.py", line 259, in calculate_final_scores
+    print(f"  ����(A~D): {scores[ai_name]['positive']}�� ({scores[ai_name]['positive']*100//len(ratings)}%)")
+                                                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^~~~~~~~~~~~~
+ZeroDivisionError: integer division or modulo by zero

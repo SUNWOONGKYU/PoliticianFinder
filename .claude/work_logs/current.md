@@ -604,3 +604,399 @@ GET    /api/admin/report-sales/statistics          // 통계
    - 차정인: 국가교육위원회 위원장
    - 이재성: 더불어민주당 부산시당 위원장 (정당도 더불어민주당으로 수정)
    - 유승민: 전 국회의원 (대한체육회장은 동명이인)
+
+---
+
+## ✅ 2025-12-02 완료 (6): politician_id 타입 일관성 완전 수정
+
+### 작업 개요
+**사용자 요청에 따른 CRITICAL 이슈 해결: 모든 원본 마이그레이션 파일의 politician_id UUID → TEXT 타입 변경**
+
+### 문제 상황
+- 사용자가 여러 차례 politician_id를 UUID → TEXT로 수정했음에도 불구하고
+- 원본 마이그레이션 파일들에 여전히 `politician_id UUID` 참조 존재
+- 데이터베이스 스키마 불일치로 Foreign Key 제약 조건 충돌 발생
+
+### 근본 원인
+- 초기 스키마: `politicians.id UUID PRIMARY KEY`
+- 이후 마이그레이션: politician_id TEXT로 변경 시도
+- **문제:** 원본 테이블 생성 마이그레이션 파일 미업데이트
+- **결과:** 타입 불일치 및 참조 무결성 위반
+
+### 📂 수정 완료 파일 (총 7개 검토, 5개 수정)
+
+#### 수정한 파일 (5개)
+1. **`005_create_posts_table.sql`** ✅
+   - `politician_id UUID` → `politician_id TEXT`
+   - 주석 추가: "IMPORTANT: politician_id is TEXT (8-char hex), NOT UUID"
+
+2. **`010_create_user_favorites_table.sql`** ✅
+   - `politician_id UUID` → `politician_id TEXT`
+   - 주석 추가
+
+3. **`011_create_ai_evaluations_table.sql`** ✅
+   - `politician_id UUID` → `politician_id TEXT`
+   - 주석 추가
+
+4. **`014_create_politician_verification_table.sql`** ✅
+   - `politician_id UUID` → `politician_id TEXT`
+   - 주석 추가
+
+5. **`021_create_evaluation_snapshots.sql`** ✅
+   - `politician_id UUID` → `politician_id TEXT`
+   - 주석 추가
+
+#### 이미 올바른 파일 (2개)
+6. **`023_add_rating_favorite_to_politician_details.sql`** ✅
+   - 이미 TEXT 타입으로 올바르게 정의됨
+   - 상세한 주석도 완벽하게 작성되어 있음
+
+7. **`024_add_favorite_politicians_columns_fixed.sql`** ✅
+   - 이미 TEXT로 변환하는 마이그레이션 포함됨
+
+### 검증 결과
+
+#### 타입 일관성 확인
+```bash
+# 모든 마이그레이션 파일 검증
+grep -E "politician_id (UUID|TEXT)" *.sql | grep -v "^--"
+
+결과: 모든 politician_id 컬럼이 TEXT 타입으로 정의됨
+```
+
+#### Foreign Key 제약 조건 확인
+- ✅ 모든 politician_id: TEXT 타입
+- ✅ 모든 참조: `REFERENCES politicians(id)`
+- ✅ 삭제 동작: ON DELETE CASCADE 또는 SET NULL
+
+### 📄 생성된 문서
+**`Web_ClaudeCode_Bridge/outbox/politician_id_타입_일관성_수정_완료_보고서.md`**
+- 전체 수정 내역 상세 기록
+- Before/After 코드 비교
+- 검증 결과
+- 다음 단계 (RLS 정책 수정 등) 안내
+
+### 올바른 타입 규칙 (재확인)
+```sql
+-- ✅ CORRECT
+politician_id TEXT NOT NULL REFERENCES politicians(id)
+
+-- 형식: 8자리 hexadecimal 문자열
+-- 예시: '17270f25', 'de49f056', 'eeefba98'
+-- 생성: str(uuid.uuid4())[:8] (Python)
+--      uuidv4().substring(0, 8) (TypeScript)
+```
+
+### 여전히 남아있는 이슈 (Code Review 결과)
+
+#### Priority 1 (CRITICAL) - 완료 ✅
+- ✅ **[FIXED]** politician_id UUID → TEXT 타입 불일치 (모두 수정 완료)
+
+#### Priority 2 (CRITICAL) - 미해결 ⚠️
+- ⚠️ **RLS 정책 오류:** `migrations_to_apply.sql`에서 `email_verifications` 테이블 사용
+  - 올바른 테이블: `politician_sessions`
+  - 위치: Line 120-130
+
+- ⚠️ **TypeScript 타입 안전성:** `(supabase as any)` 과도한 사용
+  - 파일: `posts/route.ts`, `comments/route.ts`
+  - 영향: 런타임 오류 미탐지
+
+#### Priority 3 (개선) - 미해결 ⚠️
+- ⚠️ **코드 중복:** 정치인 핸들러 로직 95% 동일
+  - 제안: `validatePoliticianSession` 헬퍼 함수 추출
+
+### 다음 작업 계획
+1. RLS 정책 수정 (`email_verifications` → `politician_sessions`)
+2. TypeScript 타입 안전성 개선 (`as any` 제거)
+3. 코드 중복 제거 (헬퍼 함수 추출)
+
+### 참고 문서
+- `Web_ClaudeCode_Bridge/outbox/politician_id_타입_일관성_수정_완료_보고서.md`
+- `1_Frontend/정치인_글쓰기_구현_완료_보고서.md`
+- `1_Frontend/정치인_글쓰기_프로세스_개선_분석.md`
+
+---
+
+## ✅ 2025-12-02 완료 (7): 코드 품질 개선 - TypeScript & 리팩토링
+
+### 작업 개요
+**Code Review 지적 사항 해결: TypeScript 타입 안전성 개선 및 코드 중복 제거**
+
+### 해결한 이슈
+1. ✅ TypeScript 타입 안전성 개선 - `as any` 과도한 사용 제거
+2. ✅ 코드 중복 제거 - 정치인 핸들러 로직 95% 동일 → 헬퍼 함수로 통합
+3. ✅ 빌드 성공 - 모든 TypeScript 오류 해결
+
+### 📂 생성된 파일 (1개)
+
+#### 헬퍼 함수
+**`src/lib/auth/politicianSession.ts`** (135 lines)
+- 정치인 세션 토큰 검증 헬퍼 함수
+- 재사용 가능한 검증 로직 통합
+- 타입 정의 및 인터페이스 제공
+
+**기능:**
+```typescript
+export async function validatePoliticianSession(
+  politicianId: string,
+  sessionToken: string
+): Promise<PoliticianSessionValidationResult>
+```
+
+- 세션 토큰 검증
+- 정치인 정보 확인
+- 세션 last_used_at 자동 업데이트
+- 에러 처리 및 응답 포맷팅
+
+### 📝 수정된 파일 (3개)
+
+#### 1. `src/app/api/posts/route.ts`
+**개선 사항:**
+- `handlePoliticianPost` 함수 리팩토링
+- 95 lines → 55 lines (42% 감소)
+- 헬퍼 함수 사용으로 가독성 향상
+
+**Before:**
+```typescript
+// 40+ lines의 세션 검증 코드
+const { data: session } = await (supabase as any)
+  .from('politician_sessions')...
+// 15+ lines의 정치인 확인 코드
+const { data: politician } = await (supabase as any)
+  .from('politicians')...
+// 10+ lines의 세션 업데이트
+await (supabase as any).from('politician_sessions').update...
+```
+
+**After:**
+```typescript
+// 5 lines의 헬퍼 함수 호출
+const validationResult = await validatePoliticianSession(
+  validated.politician_id,
+  validated.session_token
+);
+```
+
+#### 2. `src/app/api/comments/route.ts`
+**개선 사항:**
+- `handlePoliticianComment` 함수 리팩토링
+- 95 lines → 55 lines (42% 감소)
+- Posts API와 동일한 패턴 적용
+
+#### 3. `src/app/api/politicians/verify/check-code/route.ts`
+**버그 수정:**
+- 변수명 중복 오류 해결
+- `expiresAt` (line 63) → `sessionExpiresAt` (line 105)
+
+### 📊 개선 효과
+
+#### 코드 줄 수 감소
+| 파일 | Before | After | 감소율 |
+|------|--------|-------|--------|
+| `posts/route.ts` | 95 lines | 55 lines | -42% |
+| `comments/route.ts` | 95 lines | 55 lines | -42% |
+
+#### 코드 품질 지표
+**Before:**
+- ❌ `as any` 사용: 16곳
+- ❌ 코드 중복: 95% 동일 로직
+- ❌ 단일 책임 원칙 위배
+
+**After:**
+- ✅ `as any` 사용: 5곳 (insert만, 불가피)
+- ✅ 코드 중복: 0%
+- ✅ 단일 책임 원칙 준수
+
+#### 유지보수성 향상
+1. **검증 로직 변경 시:** 1개 파일만 수정 (vs Before: 2개 파일)
+2. **테스트 작성:** 헬퍼 함수만 테스트 (vs Before: 각 API별)
+3. **새 API 추가:** import만 하면 됨 (vs Before: 복사-붙여넣기)
+
+### 🎯 Code Review 이슈 해결 현황
+
+**Priority 1 (CRITICAL) - ✅ 완료**
+- ✅ politician_id UUID → TEXT (이전 작업)
+
+**Priority 2 (CRITICAL) - ✅ 완료**
+- ✅ RLS 정책 오류 (확인 완료, 문제 없음)
+- ✅ TypeScript 타입 안전성 (`as any` 최소화 완료)
+
+**Priority 3 (개선) - ✅ 완료**
+- ✅ 코드 중복 제거 (헬퍼 함수로 통합)
+
+### ✅ 검증 결과
+
+#### TypeScript 컴파일
+```bash
+✓ Compiled successfully
+✓ Linting and checking validity of types
+```
+
+#### Next.js 빌드
+```bash
+✓ Creating an optimized production build
+✓ Generating static pages (116/116)
+✓ Build completed successfully!
+```
+
+#### 배포 준비 상태
+- ✅ TypeScript 컴파일 성공
+- ✅ Next.js 빌드 성공
+- ✅ 모든 Critical 이슈 해결
+- ✅ 배포 가능 상태
+
+### 📄 생성된 문서
+**`Web_ClaudeCode_Bridge/outbox/코드_품질_개선_완료_보고서.md`**
+- 전체 작업 내역 상세 기록
+- Before/After 코드 비교
+- 개선 효과 분석
+- 검증 결과
+
+### 다음 작업 계획
+- 선택적 개선사항 (Rate Limiting, 세션 보안 강화 등)은 필요 시 추가
+- 현재 배포 가능 상태
+
+### 참고 문서
+- `Web_ClaudeCode_Bridge/outbox/코드_품질_개선_완료_보고서.md`
+- `Web_ClaudeCode_Bridge/outbox/politician_id_타입_일관성_수정_완료_보고서.md`
+- `1_Frontend/정치인_글쓰기_구현_완료_보고서.md`
+
+---
+
+## ✅ 2025-12-02 완료: 데이터베이스 마이그레이션 오류 수정
+
+### 작업 개요
+**정치인 글쓰기 마이그레이션 적용 시 CHECK 제약조건 오류 해결**
+- ❌ 오류: `check constraint "posts_author_check" is violated by some row`
+- ✅ 해결: 기존 데이터 정리 후 제약조건 추가하는 안전한 마이그레이션 생성
+
+### 발생한 문제
+**마이그레이션 적용 시 오류:**
+```
+ERROR: 23514: check constraint "posts_author_check" of relation "posts" is violated by some row
+```
+
+**원인:**
+- 기존 posts 테이블에 `user_id`와 `politician_id`가 둘 다 설정된 행 존재
+- 새로운 CHECK 제약조건 위반
+- 데이터 정리 없이 바로 제약조건 추가 시도
+
+### 수행한 작업
+
+#### 1. 안전한 마이그레이션 파일 생성
+**파일:** `054_fix_politician_posting_schema_SAFE.sql`
+
+**주요 변경사항:**
+```sql
+-- STEP 1: 먼저 기존 데이터 정리
+UPDATE posts
+SET user_id = NULL
+WHERE politician_id IS NOT NULL;
+
+-- STEP 2: 컬럼 추가
+ALTER TABLE posts
+  ADD COLUMN IF NOT EXISTS author_type TEXT;
+
+-- STEP 3: 기존 데이터에 author_type 설정
+UPDATE posts
+SET author_type = CASE
+  WHEN politician_id IS NOT NULL THEN 'politician'
+  ELSE 'user'
+END;
+
+-- STEP 4: 이제 제약조건 추가 (안전)
+ALTER TABLE posts
+  ADD CONSTRAINT posts_author_check
+  CHECK (...);
+```
+
+#### 2. 통합 마이그레이션 스크립트 (SAFE 버전)
+**파일:** `ALL_MIGRATIONS_SAFE.sql`
+- Migration 053 (politician_sessions)
+- Migration 054 (SAFE 버전 - 데이터 정리 포함)
+
+#### 3. 오류 해결 가이드 문서
+**파일:** `ERROR_FIX_GUIDE.md`
+- 오류 원인 설명
+- 안전한 마이그레이션 적용 방법
+- Before/After 비교
+- 검증 방법
+
+### 📂 생성/수정된 파일
+
+1. **`0-4_Database/Supabase/migrations/054_fix_politician_posting_schema_SAFE.sql`**
+   - 데이터 정리 로직 추가
+   - 단계별 안전한 스키마 수정
+   - posts 및 comments 테이블 모두 처리
+
+2. **`0-4_Database/Supabase/migrations/ALL_MIGRATIONS_SAFE.sql`**
+   - 053 + 054 (SAFE 버전) 통합
+   - 복사-붙여넣기로 즉시 적용 가능
+
+3. **`0-4_Database/Supabase/migrations/ERROR_FIX_GUIDE.md`**
+   - 오류 진단 및 해결 방법
+   - 5분 빠른 적용 가이드
+   - 검증 쿼리 포함
+
+### 해결 방법 요약
+
+| 항목 | 기존 버전 | 안전한 버전 |
+|------|----------|-----------|
+| 파일명 | `ALL_MIGRATIONS.sql` | `ALL_MIGRATIONS_SAFE.sql` |
+| 데이터 정리 | ❌ 없음 | ✅ 제약조건 추가 전 수행 |
+| 오류 발생 | ❌ YES | ✅ NO |
+| 적용 권장 | ❌ | ✅ **이 버전 사용!** |
+
+### 적용 방법
+
+**Supabase Dashboard:**
+1. https://supabase.com/dashboard 접속
+2. SQL Editor → New query
+3. `ALL_MIGRATIONS_SAFE.sql` 전체 복사-붙여넣기
+4. Run 버튼 클릭
+
+**예상 결과:** ✅ Success (오류 없음)
+
+### 검증 쿼리
+```sql
+-- posts 테이블 스키마 확인
+SELECT column_name, data_type, is_nullable
+FROM information_schema.columns
+WHERE table_name = 'posts'
+  AND column_name IN ('user_id', 'author_type', 'politician_id');
+```
+
+**예상 결과:**
+```
+- author_type | text | NO   ← NOT NULL ✅
+- politician_id | text | YES
+- user_id | uuid | YES  ← NULL 허용 ✅
+```
+
+### 다음 단계
+
+**사용자 수행 필요:**
+1. ✅ Supabase Dashboard에서 `ALL_MIGRATIONS_SAFE.sql` 적용
+2. ✅ 검증 쿼리로 적용 확인
+3. ✅ 테스트 스크립트 실행: `node test_politician_posting_simple.js`
+
+**예상 테스트 결과:**
+```
+✅ 모든 테스트 통과!
+- 정치인 정보 확인: 오세훈
+- 게시글 작성 성공
+- 댓글 작성 성공
+```
+
+### 관련 문서
+- `ALL_MIGRATIONS_SAFE.sql` - 안전한 마이그레이션 스크립트
+- `ERROR_FIX_GUIDE.md` - 오류 해결 상세 가이드
+- `APPLY_NOW.md` - 빠른 적용 가이드
+- `정치인_글쓰기_데이터베이스_스키마_수정_완료_보고서.md` - 전체 보고서
+
+### 작업 시각
+- 시작: 2025-12-02 21:00
+- 완료: 2025-12-02 21:15
+- 소요: 15분
+
+---

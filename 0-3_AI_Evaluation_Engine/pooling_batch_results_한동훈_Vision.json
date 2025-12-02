@@ -1,0 +1,3635 @@
+{
+  "data_pool_size": 150,
+  "evaluation_results": {
+    "ChatGPT": [
+      {
+        "item_id": 172190,
+        "data_title": "장기적 비전 제시",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "장기적 비전을 제시하며 국가의 미래 성장동력을 확보할 전략을 제안하여 매우 긍정적인 평가를 받을 만하다."
+      },
+      {
+        "item_id": 172191,
+        "data_title": "법질서 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "법과 질서를 강조하며 국민 안전을 목표로 하는 정책은 우수하지만, 좀 더 구체적인 실행 방안이 필요하다."
+      },
+      {
+        "item_id": 172192,
+        "data_title": "국민과의 소통 개선",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "국민과의 소통을 강화하고 투명 행정을 추진하는 것은 민주적 참여를 촉진하는 매우 훌륭한 접근이다."
+      },
+      {
+        "item_id": 172193,
+        "data_title": "청년 일자리 창출",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "청년 일자리 창출을 위한 정책 제안은 긍정적이나, 보다 구체적인 실행 계획이 필요하다."
+      },
+      {
+        "item_id": 172194,
+        "data_title": "경제 활성화 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "경제 회복을 위한 다양한 정책 제안은 포스트 코로나 시대에 적절한 비전으로 매우 긍정적이다."
+      },
+      {
+        "item_id": 172195,
+        "data_title": "디지털 민첩성 향상",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "디지털 민첩성 향상과 데이터 기반 행정 추진은 미래 지향적이고 효율성을 높이는 데 기여할 것으로 기대된다."
+      },
+      {
+        "item_id": 172196,
+        "data_title": "환경 정책에 대한 인식 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "환경 정책에 대한 접근 부족은 기후변화 대응에 있어 치명적 결함으로, 지속 가능한 발전에 대한 신뢰를 저해한다."
+      },
+      {
+        "item_id": 172197,
+        "data_title": "효율적 행정 실행",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "행정 효율성을 높이기 위한 개혁안은 긍정적이나, 구체적인 실행 결과가 필요하다."
+      },
+      {
+        "item_id": 172198,
+        "data_title": "복지 정책의 비효율성",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "복지 정책의 비효율성 문제는 심각하며, 이를 해결하기 위한 대안 제시가 미흡하다."
+      },
+      {
+        "item_id": 172199,
+        "data_title": "공직자 윤리 문제",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "공직자 윤리 문제에 대한 정책 부족은 부패 예방에 심각한 위험을 초래할 수 있어 매우 부족한 상황이다."
+      },
+      {
+        "item_id": 172200,
+        "data_title": "AI 활용 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "AI 활용 정책은 행정 서비스의 질적 향상과 시대적 흐름을 반영하여 매우 긍정적인 비전을 보여준다."
+      },
+      {
+        "item_id": 172201,
+        "data_title": "지속가능한 성장을 위한 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "지속가능한 성장 정책은 경제와 환경의 조화를 추구함으로써 사회 안정성에 기여할 가능성이 높아 매우 우수하다."
+      },
+      {
+        "item_id": 172202,
+        "data_title": "디지털 정부 구현 비전",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "디지털 정부 구현은 시민의 삶의 질 향상에 직접적으로 기여할 수 있는 중요한 비전으로, 매우 우수하다."
+      },
+      {
+        "item_id": 172203,
+        "data_title": "사회 갈등 해소 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "사회 갈등 해소를 위한 프로그램은 통합 사회를 지향하지만, 구체성 부족으로 인해 약간의 아쉬움이 있다."
+      },
+      {
+        "item_id": 172204,
+        "data_title": "가족 정책의 저조한 성과",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "가족 정책의 저조한 성과는 비전의 신뢰성을 떨어뜨리며, 정책 방향이 부족하다는 비판을 받고 있어 미흡하다."
+      },
+      {
+        "item_id": 172205,
+        "data_title": "여성 권익 향상 기여",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "여성 권익 향상은 사회적 불평등 문제 해결에 기여할 수 있어, 매우 긍정적인 비전을 제시하고 있다."
+      },
+      {
+        "item_id": 172206,
+        "data_title": "노동시장 개혁",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "노동시장 개혁은 경제 환경 변화에 적절히 대응하고자 하는 의지를 보여주지만, 실행 가능성에 대한 의문이 남는다."
+      },
+      {
+        "item_id": 172207,
+        "data_title": "젊은 인재 양성에 대한 노력",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "젊은 인재 양성을 위한 교육 개혁은 미래 사회에 필수적이며, 디지털 기술 교육의 중요성을 강조하여 우수하다."
+      },
+      {
+        "item_id": 172208,
+        "data_title": "문화예술 지원 확대 계획",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "문화예술 지원 확대는 국민의 문화 향유 기회를 늘리고 문화 다양성을 강화하려는 매우 긍정적인 비전이다."
+      },
+      {
+        "item_id": 172209,
+        "data_title": "기후 변화 대응 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "기후 변화 대응 부족은 심각한 문제이며, 구체적 계획의 부재로 인해 비전이 미흡하다는 비판을 받고 있다."
+      },
+      {
+        "item_id": 172210,
+        "data_title": "재정 건강성 향상",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "국가 재정 건강성을 높이기 위한 정책 방향 제시와 지속가능한 운영 강조는 매우 긍정적이며, 국가 발전에 기여할 비전으로 평가됨."
+      },
+      {
+        "item_id": 172211,
+        "data_title": "과학기술 혁신 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "과학기술 혁신 정책을 통해 국가 경쟁력을 높이겠다는 비전은 국가 미래에 대한 선진적 접근으로 매우 우수한 평가를 받는다."
+      },
+      {
+        "item_id": 172212,
+        "data_title": "사이버 보안 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "사이버 보안 문제에 대한 중장기 대응 방안을 마련하겠다는 의지는 긍정적이지만 구체성이 부족해 우수한 평가를 받음."
+      },
+      {
+        "item_id": 172213,
+        "data_title": "교육 혁신을 위한 비전",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "교육 혁신을 위한 다양한 정책 제안과 미래 인재 양성에 대한 약속은 장기적인 비전으로 매우 우수한 평가를 받음."
+      },
+      {
+        "item_id": 172214,
+        "data_title": "정치적 갈등 심화 우려",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "D",
+        "rating_rationale": "정치적 갈등 심화 우려는 비전의 실행에 장애가 될 수 있으며, 정치적 통합 전략이 필요한 상황으로 보통 수준으로 평가됨."
+      },
+      {
+        "item_id": 172215,
+        "data_title": "사회복지 정책의 확장성",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "사회복지 정책 확장 계획은 긍정적이나 구체적인 실행 방안의 부족으로 인해 양호한 수준으로 평가됨."
+      },
+      {
+        "item_id": 172216,
+        "data_title": "교통 체계 혁신",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "교통 체계 혁신 비전은 원활한 교통 환경 조성을 목표로 하고 있으나, 실행 계획의 구체성이 부족해 우수한 평가를 받음."
+      },
+      {
+        "item_id": 172217,
+        "data_title": "대중교통 이용 장려 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "대중교통 이용 장려 정책은 환경 친화적 도시를 추구하는 방향으로 매우 긍정적인 사회적 비전을 제시하고 있음."
+      },
+      {
+        "item_id": 172218,
+        "data_title": "불공정 거래에 대한 대책",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "불공정 거래에 대한 대책 마련의 필요성을 강조한 점은 긍정적이지만 실행 가능성에 대한 구체성이 부족하여 우수한 평가를 받음."
+      },
+      {
+        "item_id": 172219,
+        "data_title": "저출산 문제 대책 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "저출산 문제에 대한 구체적인 대책 부족은 심각한 결함으로, 보다 효과적인 정책 개발이 절실히 요구되는 미흡한 비전으로 평가됨."
+      },
+      {
+        "item_id": 172220,
+        "data_title": "전국민 건강 증진 비전",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "국민 건강 증진을 위한 포부와 다양한 프로그램 제안은 사회적 가치 실현에 매우 긍정적이며, 정책 실현 가능성이 높아 보인다."
+      },
+      {
+        "item_id": 172221,
+        "data_title": "사회적 책임 의식 필요",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "D",
+        "rating_rationale": "사회적 책임 의식 부족에 대한 비판은 정책의 신뢰성을 해칠 수 있지만, 인식 개선의 기회로 삼을 수 있다."
+      },
+      {
+        "item_id": 172222,
+        "data_title": "정신 건강 정책 제안",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "정신 건강 문제에 대한 정책 제안은 사회적 필요에 부합하며, 국민의 정서적 안정에 기여할 가능성이 높다."
+      },
+      {
+        "item_id": 172223,
+        "data_title": "기업의 사회적 책임 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "기업의 사회적 책임을 강조하는 정책 제시는 긍정적이지만, 실제 실행 여부가 평가의 핵심이 될 것이다."
+      },
+      {
+        "item_id": 172224,
+        "data_title": "민주적 가치 수호 공약",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "민주적 가치 수호와 법질서 확립 강조는 정치적 신뢰를 높이고 민주주의 강화에 기여할 것으로 기대된다."
+      },
+      {
+        "item_id": 172225,
+        "data_title": "리더십 부족 논란",
+        "collected_by": "ChatGPT",
+        "original_rating": "H",
+        "new_rating": "E",
+        "rating_rationale": "리더십 부족 논란은 정치적 신뢰를 저하시킬 위험이 있으며, 개선이 시급하다."
+      },
+      {
+        "item_id": 172226,
+        "data_title": "디지털 법률 서비스 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "디지털 법률 서비스 강화는 법률 접근성을 높이며, 국민의 권리 보장에 크게 기여할 것으로 보인다."
+      },
+      {
+        "item_id": 172227,
+        "data_title": "교육 접근성 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "교육 접근성 강화를 위한 정책은 교육의 공정성을 높일 수 있는 긍정적인 방향이며, 실현 가능성이 있다."
+      },
+      {
+        "item_id": 172228,
+        "data_title": "다문화 사회 비전 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "D",
+        "rating_rationale": "다문화 사회에 대한 비판은 정책의 포괄성을 약화시킬 수 있으나, 이를 개선할 기회가 될 수 있다."
+      },
+      {
+        "item_id": 172229,
+        "data_title": "재난 관리 정책 개선 필요",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "F",
+        "rating_rationale": "재난 관리 정책의 부족은 심각한 문제를 초래할 수 있으며, 시급한 개선이 필요하다는 점에서 부정적 평가를 받는다."
+      },
+      {
+        "item_id": 172230,
+        "data_title": "교통안전 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "교통안전 문제 해결을 위한 정책 제안은 사회 안전성 향상에 기여할 것으로, 매우 긍정적인 비전이다."
+      },
+      {
+        "item_id": 172231,
+        "data_title": "공공기관 개혁 조치",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "공공기관 개혁은 국가 효율성을 높이는 중요한 방향으로, 실현 의지를 보인 점이 매우 우수하다."
+      },
+      {
+        "item_id": 172232,
+        "data_title": "청소년 정책에 대한 관심 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "청소년 정책에 대한 관심 부족은 심각한 문제로, 포괄적 정책 제안의 필요성이 강조된다. 미흡한 비전이다."
+      },
+      {
+        "item_id": 172233,
+        "data_title": "무역 정책 수립",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "무역 정책 수립은 경제 성장에 중요한 요소이며, 국제 경쟁력 강화를 목표로 하는 점에서 우수하다."
+      },
+      {
+        "item_id": 172234,
+        "data_title": "사회 안전망 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "사회 안전망 구축은 국민 보호에 필수적이며, 안전한 사회를 지향하는 비전이 매우 우수하다."
+      },
+      {
+        "item_id": 172235,
+        "data_title": "물가 안정 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "물가 안정 정책은 서민 경제에 긍정적 영향을 미칠 것으로 기대되며, 우수한 방향성을 가진다."
+      },
+      {
+        "item_id": 172236,
+        "data_title": "정치적 불신 심화",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "H",
+        "rating_rationale": "정치적 불신 심화는 심각한 문제로, 국민과의 신뢰 구축이 필요하다는 점에서 치명적 결함이 있다."
+      },
+      {
+        "item_id": 172237,
+        "data_title": "정보 및 통신 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "정보통신 분야에서의 혁신 포부는 국가 경쟁력 강화에 기여할 수 있어, 매우 우수한 비전으로 평가된다."
+      },
+      {
+        "item_id": 172238,
+        "data_title": "산업 정책 개선 필요",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "산업 정책 개선 필요성은 체계적 수립 부족으로 비전이 미흡하다는 점에서 낮은 평가를 받는다."
+      },
+      {
+        "item_id": 172239,
+        "data_title": "정보 접근성 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "정보 접근성 강화는 민주적 과정의 투명성을 증대시킬 것으로 기대되며, 긍정적인 비전이다."
+      },
+      {
+        "item_id": 172090,
+        "data_title": "한동훈의 교육 시스템 개혁 비전",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "디지털 교육 시스템 개혁은 미래 직업 준비와 실업률 감소에 기여할 것으로 예상되며, AI와 빅데이터 활용은 혁신적이다."
+      },
+      {
+        "item_id": 172091,
+        "data_title": "경제 회복을 위한 장기 비전 발표",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "코로나 후 경제 회복을 위한 장기 비전은 신성장 산업과 일자리 창출에 초점을 맞추고 있어 실질적인 성장 가능성을 높인다."
+      },
+      {
+        "item_id": 172092,
+        "data_title": "법치 강화와 사회 안정 비전",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "법치 강화를 통한 사회 안정 비전은 부패 방지와 공정 사법 제도를 통해 장기적인 국가 발전을 도모하는 매우 중요한 목표이다."
+      },
+      {
+        "item_id": 172093,
+        "data_title": "환경 보호를 위한 지속 가능 비전",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "2050년 탄소 중립 목표는 기후 변화에 대한 적극적인 대응을 통해 국가의 지속 가능성을 높이는 매우 중요한 비전이다."
+      },
+      {
+        "item_id": 172094,
+        "data_title": "디지털 정부 구축 계획",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "디지털 정부 구축은 행정 효율화와 시민 참여를 통해 공공 서비스 개선을 목표로 하지만, 구체적인 실행 방안이 부족하다."
+      },
+      {
+        "item_id": 172095,
+        "data_title": "인구 고령화 대응 비전",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "고령화 사회에 대한 선제적 대응은 의료 및 복지 시스템 개혁을 통해 사회 안정을 추구하는 중요한 비전이다."
+      },
+      {
+        "item_id": 172096,
+        "data_title": "기술 혁신을 통한 산업 비전",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "AI와 로봇 기술을 산업에 적용하는 비전은 미래 기술 동향을 정확히 예측하고 장기적인 경제 성장을 유도할 것으로 기대된다."
+      },
+      {
+        "item_id": 172097,
+        "data_title": "사회적 불평등 완화 비전",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "소득 불평등 완화 비전은 교육 평등과 세제 개혁을 통해 사회 정의를 목표로 하지만, 구체적인 실행 계획이 미흡하다."
+      },
+      {
+        "item_id": 172098,
+        "data_title": "문화 예술 진흥 비전",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "문화 산업 글로벌화 비전은 K-컬럼과 같은 콘텐츠를 활용하여 문화 발전을 도모하지만, 실현 가능성이 다소 불확실하다."
+      },
+      {
+        "item_id": 172099,
+        "data_title": "안보 강화 장기 비전",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "안보 시스템 업그레이드는 미래 위협 예측을 통한 국가 안정 추구를 목표로 하지만, 구체적인 기술적 접근이 부족하다."
+      },
+      {
+        "item_id": 172100,
+        "data_title": "한동훈의 건강 관리 시스템 비전",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "국민 건강 관리 시스템의 스마트화는 미래 지향적이며, 웨어러블 기기와 빅데이터 활용은 혁신적 접근으로 매우 우수한 비전이다."
+      },
+      {
+        "item_id": 172101,
+        "data_title": "교통 인프라 발전 비전",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "자율주행 교통 시스템 구축은 이동 효율성을 개선할 수 있는 좋은 비전이지만, 구체적인 실행 방안이 부족해 다소 아쉬운 점이 있다."
+      },
+      {
+        "item_id": 172102,
+        "data_title": "과학 기술 육성 비전",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "우주 탐사와 첨단 과학을 통해 미래 기술 혁신을 목표로 하는 비전은 매우 장기적이고 창의적인 접근으로 우수하다고 평가된다."
+      },
+      {
+        "item_id": 172103,
+        "data_title": "지역 균형 발전 비전",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "지방 도시화를 통한 지역 균형 발전은 필요하지만, 구체적인 실행 계획이 부족해 우수하지만 다소 아쉬운 비전으로 평가된다."
+      },
+      {
+        "item_id": 172104,
+        "data_title": "에너지 자립 비전",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "재생 에너지를 통한 에너지 자립 목표는 환경적 지속 가능성을 강조하며, 매우 중요하고 효과적인 비전으로 높게 평가된다."
+      },
+      {
+        "item_id": 172105,
+        "data_title": "한동훈의 비전 관련 언론 인터뷰",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "경제 예측을 바탕으로 한 AI 기반 성장 전략은 미래 지향적이지만, 구체적인 실천 방안이 부족해 우수한 수준으로 평가된다."
+      },
+      {
+        "item_id": 172106,
+        "data_title": "교육 혁신에 대한 뉴스 보도",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "디지털 학습 환경 구축은 미래 인재 양성을 위한 중요한 비전이며, 혁신적인 교육 접근 방식을 제시해 매우 우수하다."
+      },
+      {
+        "item_id": 172107,
+        "data_title": "경제 정책 비전 분석 기사",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "팬데믹 후 경제 회복을 위한 전략은 시의적절하지만, 장기적 성장 전략의 구체성이 부족해 우수한 평가를 받는다."
+      },
+      {
+        "item_id": 172108,
+        "data_title": "환경 비전 관련 보도",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "탄소 중립 목표를 통한 기후 변화 대응은 매우 중요하고 시급한 문제를 다루고 있어 매우 우수한 비전으로 평가된다."
+      },
+      {
+        "item_id": 172109,
+        "data_title": "디지털 정부 비전 뉴스",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "디지털 정부 비전은 행정 혁신을 목표로 하지만, 구체적인 실행 계획이 다소 부족해 우수하나 개선의 여지가 있다."
+      },
+      {
+        "item_id": 172110,
+        "data_title": "인구 고령화 비전 보도",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "고령화 대응 비전은 장기적으로 사회 안정과 복지 개선을 목표로 하여 매우 우수한 비전을 제시함."
+      },
+      {
+        "item_id": 172111,
+        "data_title": "기술 혁신 비전 기사",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "AI 산업 비전은 미래 기술과 장기 성장 가능성을 강조하여 매우 긍정적인 방향성을 보여줌."
+      },
+      {
+        "item_id": 172112,
+        "data_title": "사회 불평등 비전 분석",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "불평등 완화 비전은 세제 개혁을 통해 정의로운 사회를 지향하며, 매우 우수한 장기 비전으로 평가됨."
+      },
+      {
+        "item_id": 172113,
+        "data_title": "문화 진흥 비전 보도",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "문화 글로벌화 비전은 미래 문화 수출을 예측하지만, 구체적인 실행 방안이 부족해 우수하나 다소 아쉬움."
+      },
+      {
+        "item_id": 172114,
+        "data_title": "안보 비전 뉴스",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "안보 강화 비전은 장기적인 안정과 미래 위협 예측을 강조해 매우 우수한 비전으로 평가됨."
+      },
+      {
+        "item_id": 172115,
+        "data_title": "건강 관리 비전 관련 기사",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "스마트 의료를 통한 건강 관리 비전은 장기적인 비용 절감 방안을 제시하지만, 구체성이 떨어져 우수하다고 평가."
+      },
+      {
+        "item_id": 172116,
+        "data_title": "교통 비전 분석 보도",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "자율주행 비전은 미래 혼잡 문제를 해결할 혁신적인 접근으로 매우 우수한 관점을 제시함."
+      },
+      {
+        "item_id": 172117,
+        "data_title": "과학 비전 뉴스",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "우주 탐사 비전은 장기 발전 가능성을 보여주지만, 현실적인 실행 계획이 부족해 우수하다고 평가됨."
+      },
+      {
+        "item_id": 172118,
+        "data_title": "지역 발전 비전 기사",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "지방 균형 비전은 도시화 계획을 통해 미래 인구 이동을 예측하나, 구체성이 부족해 우수한 평가."
+      },
+      {
+        "item_id": 172119,
+        "data_title": "에너지 비전 보도",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "재생 에너지 자립 비전은 미래 위기 대응 방안을 제시해 매우 우수한 장기 비전으로 평가됨."
+      },
+      {
+        "item_id": 172120,
+        "data_title": "한동훈 비전의 예측 실패 사례",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "H",
+        "rating_rationale": "팬데믹 예측 실패는 장기 목표의 무산을 초래하여 비전의 신뢰성을 치명적으로 훼손하였다."
+      },
+      {
+        "item_id": 172121,
+        "data_title": "비전 실행의 지연 문제",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "G",
+        "rating_rationale": "교육 개혁 비전의 실행 지연은 낙관적 예측으로 인해 목표 달성이 불가능하게 하여 매우 부족한 평가를 받는다."
+      },
+      {
+        "item_id": 172122,
+        "data_title": "환경 비전의 비현실성 논란",
+        "collected_by": "Grok",
+        "original_rating": "H",
+        "new_rating": "H",
+        "rating_rationale": "과학적으로 비현실적인 탄소 중립 비전은 신뢰성을 상실하여 장기 목표에 대한 비판을 초래했다."
+      },
+      {
+        "item_id": 172123,
+        "data_title": "경제 비전의 부족한 준비",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "G",
+        "rating_rationale": "구체성이 결여된 경제 회복 비전은 예측 실패를 불러와 매우 부족한 평가를 받는다."
+      },
+      {
+        "item_id": 172124,
+        "data_title": "비전의 정치적 편향 비판",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "정치적 편향이 비전의 왜곡을 초래하여 장기 목표의 신뢰성을 떨어뜨려 부족한 평가를 받는다."
+      },
+      {
+        "item_id": 172125,
+        "data_title": "비전 실행의 부정적 언론 보도",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "G",
+        "rating_rationale": "실패 사례로 보도된 디지털 비전은 예측 오류를 드러내어 매우 부족한 평가를 받는다."
+      },
+      {
+        "item_id": 172126,
+        "data_title": "교육 비전의 논란",
+        "collected_by": "Grok",
+        "original_rating": "H",
+        "new_rating": "G",
+        "rating_rationale": "비현실적이라는 비판은 교육 비전의 신뢰성에 심각한 타격을 주어 매우 부족한 평가를 받는다."
+      },
+      {
+        "item_id": 172127,
+        "data_title": "경제 비전의 실효성 문제",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "H",
+        "rating_rationale": "경제 비전의 실패 분석은 미래 예측 능력 부족을 드러내어 치명적인 결함으로 평가된다."
+      },
+      {
+        "item_id": 172128,
+        "data_title": "환경 비전의 부족",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "H",
+        "rating_rationale": "과학적으로 미흡하다는 지적은 환경 비전의 실현 가능성을 부정하여 치명적인 결함으로 평가된다."
+      },
+      {
+        "item_id": 172129,
+        "data_title": "디지털 비전의 문제점 보도",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "G",
+        "rating_rationale": "지연된 디지털 비전은 예측 오류를 드러내어 매우 부족한 평가를 받는다."
+      },
+      {
+        "item_id": 172130,
+        "data_title": "한동훈 비전의 일반적 평가",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "한동훈의 비전이 보통 수준으로 평가되었고, 장기 목표 실행이 미흡하여 전반적으로 발전 가능성이 낮다."
+      },
+      {
+        "item_id": 172131,
+        "data_title": "기본적 비전 제시",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "비전이 기본적으로 인정되었으나, 구체적인 미래 예측이 부족하여 4점으로 평가된다."
+      },
+      {
+        "item_id": 172132,
+        "data_title": "중립적 비전 분석",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "중립적으로 다루어진 비전이지만 미래 예측이 표준 수준으로 다소 평범하여 양호한 평가를 받았다."
+      },
+      {
+        "item_id": 172133,
+        "data_title": "기본적인 경제 비전",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "경제 비전이 보통으로 평가되었으며, 장기 목표가 기본적이라는 점에서 발전 여지가 있다."
+      },
+      {
+        "item_id": 172134,
+        "data_title": "중립적 환경 비전",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "환경 비전이 중립적으로 보도되었고 미래 예측이 표준적이지만 특별한 강점이 없어 양호하다."
+      },
+      {
+        "item_id": 172135,
+        "data_title": "기본적 과학 비전",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "과학 비전이 기본적으로 인정되었으나 더 나은 예측이 필요하다는 점에서 평균적인 평가를 받았다."
+      },
+      {
+        "item_id": 172136,
+        "data_title": "중립적 사회 비전",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "사회 비전이 중립적으로 분석되었고 미래 예측이 표준적이어서 전반적으로 양호한 평가를 받았다."
+      },
+      {
+        "item_id": 172137,
+        "data_title": "보통 수준의 문화 비전",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "문화 비전이 보통으로 평가되었고, 장기 목표가 기본적이라 개선의 여지가 있다."
+      },
+      {
+        "item_id": 172138,
+        "data_title": "중립적 안보 비전",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "안보 비전이 중립적으로 다루어졌고 미래 예측이 표준 수준이라 양호한 평가를 받았다."
+      },
+      {
+        "item_id": 172139,
+        "data_title": "기본적 비전 요약",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "전체 비전이 중립적으로 요약되었고, 미래 예측이 보통 수준이어서 평균적인 평가를 받았다."
+      },
+      {
+        "item_id": 109435,
+        "data_title": "윤석열 정부 법무부 장관 시절 검찰 개혁 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "G",
+        "rating_rationale": "검찰 개혁 논란은 정치적 중립성을 훼손할 우려가 크며, 이는 비전의 신뢰성을 심각하게 저하시킨다."
+      },
+      {
+        "item_id": 109437,
+        "data_title": "과도한 정치적 편향성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "G",
+        "rating_rationale": "정치적 편향성은 국민통합을 저해하고, 다양한 의견을 수렴할 수 있는 비전의 구축을 방해한다."
+      },
+      {
+        "item_id": 109438,
+        "data_title": "정책 일관성 부족",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "F",
+        "rating_rationale": "정치적 상황에 따라 입장 변경이 잦아 비전의 일관성이 부족하다. 이는 장기적 신뢰를 약화시킨다."
+      },
+      {
+        "item_id": 109440,
+        "data_title": "사법부 독립성 침해 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "G",
+        "new_rating": "H",
+        "rating_rationale": "사법부 독립성 침해 논란은 정치적 압력이 비전의 근본을 흔들며, 심각한 신뢰 문제를 초래한다."
+      },
+      {
+        "item_id": 109443,
+        "data_title": "청년 미래 정책 부재",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "청년 미래 정책의 부재는 향후 국가 발전에 대한 비전이 부족함을 나타내며, 심각한 문제로 여겨진다."
+      },
+      {
+        "item_id": 109445,
+        "data_title": "부동산 공약 신뢰성 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "부동산 공약의 신뢰성 논란은 비전의 구체성과 실현 가능성을 의심하게 하여, 신뢰를 떨어뜨린다."
+      },
+      {
+        "item_id": 109447,
+        "data_title": "정치적 급진성과 극단적 이념 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "H",
+        "rating_rationale": "급진성과 극단적 이념은 사회적 갈등을 조장하며, 포용적 비전의 구축에 치명적 결함을 안긴다."
+      },
+      {
+        "item_id": 109448,
+        "data_title": "미래 전략의 모호성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "G",
+        "rating_rationale": "미래 전략의 모호성은 청년 정책과 혁신에서 구체적인 방향성을 결여하여 비전이 불명확하다."
+      },
+      {
+        "item_id": 109450,
+        "data_title": "정치적 네트워크의 편향성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "F",
+        "rating_rationale": "정치적 네트워크의 편향성은 다양성을 결여하고, 이는 포괄적인 비전의 구축에 저해 요인으로 작용한다."
+      },
+      {
+        "item_id": 109453,
+        "data_title": "정책 일관성 부족",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "정책 일관성 부족은 정치적 상황에 좌우되며, 이는 비전의 신뢰성과 지속성을 약화시킨다."
+      },
+      {
+        "item_id": 109455,
+        "data_title": "디지털 정부 혁신 추진",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "디지털 정부 혁신은 공공 서비스의 효율성을 크게 향상시키며, 한동훈 장관의 주도적인 역할이 긍정적으로 평가됨."
+      },
+      {
+        "item_id": 109457,
+        "data_title": "규제 샌드박스 확대 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "규제 샌드박스 확대는 신기술 혁신을 촉진하고, 경제 성장에 기여할 수 있는 중요한 정책으로, 매우 효과적임."
+      },
+      {
+        "item_id": 109460,
+        "data_title": "AI 정책 추진 의지",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "AI 정책 추진은 미래 기술 발전의 기반을 마련하며, 국가 경쟁력을 높이는 데 기여하는 중요한 의지로 평가됨."
+      },
+      {
+        "item_id": 109463,
+        "data_title": "데이터 경제 활성화 방안",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "데이터 경제 활성화는 국가의 디지털 전환을 가속화하며, 데이터 산업의 성장을 이끄는 중요한 정책으로 매우 긍정적임."
+      },
+      {
+        "item_id": 109464,
+        "data_title": "디지털 포용 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "디지털 포용 정책은 정보 격차 해소에 기여하지만, 보다 포괄적인 접근이 필요하여 우수하나 다소 부족함."
+      },
+      {
+        "item_id": 109466,
+        "data_title": "중소기업 디지털 전환 지원",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "중소기업 디지털 전환 지원은 긍정적이나, 실행 과정에서의 세부 전략이 미흡할 수 있어 우수하나 개선 필요."
+      },
+      {
+        "item_id": 109468,
+        "data_title": "국가 사이버 보안 강화",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "국가 사이버 보안 강화는 공공 안전을 위한 필수적인 조치로, 효과적인 정책 추진으로 매우 우수함."
+      },
+      {
+        "item_id": 109470,
+        "data_title": "미래 산업 생태계 조성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "미래 산업 생태계 조성은 혁신과 경제 성장의 기반이 되는 정책으로, 매우 중요한 방향성으로 평가됨."
+      },
+      {
+        "item_id": 109474,
+        "data_title": "디지털 민주주의 확대",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "B",
+        "rating_rationale": "디지털 민주주의 확대는 시민 참여를 증진시키지만, 기술적 접근성과 실질적 효과에 대한 논의가 더 필요함."
+      },
+      {
+        "item_id": 109473,
+        "data_title": "기후변화 대응 디지털 전략",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "기후변화 대응 디지털 전략은 초기 단계로, 방향성은 있으나 구체적인 실행 계획과 성과가 부족하여 양호하게 평가됨."
+      },
+      {
+        "item_id": 109475,
+        "data_title": "글로벌 디지털 협력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "글로벌 디지털 협력 네트워크 구축은 국제적 협력을 통한 혁신과 경제 발전을 촉진할 수 있어 매우 긍정적이다."
+      },
+      {
+        "item_id": 109477,
+        "data_title": "데이터 개인정보 보호",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "개인정보 보호와 데이터 활용의 균형 모색은 시대적 요구에 부합하며, 데이터 활용의 안전성을 높이는 데 기여할 수 있다."
+      },
+      {
+        "item_id": 109481,
+        "data_title": "디지털 교육 혁신",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "미래형 디지털 교육 인프라 구축은 교육 혁신을 통해 인재 양성과 경제 성장을 도모할 수 있어 매우 중요하다."
+      },
+      {
+        "item_id": 109483,
+        "data_title": "스마트 도시 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "B",
+        "rating_rationale": "도시 인프라의 디지털 전환은 스마트 도시 구현을 통해 삶의 질을 향상시킬 수 있는 중요한 정책이다."
+      },
+      {
+        "item_id": 109487,
+        "data_title": "디지털 헬스케어 추진",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "의료 분야의 디지털 전환은 효과적인 의료 서비스 제공을 위한 필수 요소이며, 초기 모델 제시는 긍정적이다."
+      },
+      {
+        "item_id": 109490,
+        "data_title": "디지털 격차 해소 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "A",
+        "rating_rationale": "취약계층의 디지털 접근성 개선은 사회적 형평성을 높이는 중요한 정책으로, 디지털 격차 해소에 크게 기여할 수 있다."
+      },
+      {
+        "item_id": 109493,
+        "data_title": "블록체인 기술 육성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "B",
+        "rating_rationale": "블록체인 산업 생태계 조성은 미래 산업 발전을 위한 기초를 다지는 것이며, 초기 단계에서 긍정적인 방향성을 보여준다."
+      },
+      {
+        "item_id": 109496,
+        "data_title": "AI 윤리 가이드라인",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "AI 윤리 기준 마련은 기술 발전과 사회적 책임을 동시에 고려하는 중요한 이슈로, 초기 논의가 필요하다."
+      },
+      {
+        "item_id": 109500,
+        "data_title": "디지털 일자리 생태계",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "A",
+        "rating_rationale": "디지털 분야 일자리 창출 정책 모색은 경제 성장과 고용 창출에 기여할 수 있는 매우 긍정적인 접근이다."
+      },
+      {
+        "item_id": 109503,
+        "data_title": "양자컴퓨팅 전략",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "B",
+        "rating_rationale": "차세대 컴퓨팅 기술 육성은 혁신적인 기술 발전을 위한 중요한 이니셔티브이며, 초기 단계에서 긍정적인 방향성을 보여준다."
+      },
+      {
+        "item_id": 109506,
+        "data_title": "당 쇄신 및 미래 비전 제시",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "정치 쇄신과 미래 전략을 강조하여 당의 비전을 명확히 제시하고, 국민의 기대에 부응하는 방향성을 제안함."
+      },
+      {
+        "item_id": 109508,
+        "data_title": "디지털 혁신 정책 추진",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "디지털 혁신 정책을 추진하여 현대 사회의 요구에 부합하는 방향을 제시하지만, 구체적인 실행 계획이 부족함."
+      },
+      {
+        "item_id": 109511,
+        "data_title": "정치 쇄신 로드맵",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "정치 시스템의 근본적인 변화를 제안하여 미래 지향적인 비전을 제시하며, 강력한 정치 혁신 의지를 나타냄."
+      },
+      {
+        "item_id": 109515,
+        "data_title": "청년 정책 비전",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "청년 일자리와 미래 발전 전략을 구체적으로 제시하여 청년층의 요구를 반영한 점에서 매우 긍정적임."
+      },
+      {
+        "item_id": 109519,
+        "data_title": "정치 혁신 의지",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "정치권의 기존 관행을 탈피하겠다는 의지를 보였으나, 구체적인 실행 방안이 부족하여 다소 아쉬움이 남음."
+      },
+      {
+        "item_id": 109522,
+        "data_title": "미래 산업 전략",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "신성장 동력 산업 육성 계획을 발표하여 경제 비전을 제시했지만, 세부 내용이 부족하여 실행 가능성이 의문임."
+      },
+      {
+        "item_id": 109525,
+        "data_title": "정치 혁신 플랫폼",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "디지털 기반 정치 참여 모델을 제안하여 정치 혁신을 도모하고, 새로운 참여 방식을 제시하여 긍정적 평가를 받음."
+      },
+      {
+        "item_id": 109527,
+        "data_title": "미래 교육 비전",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "디지털 시대에 맞춘 교육 혁신 방향을 제시했으나, 구체적인 실행 방안이 부족하여 효과성에 대한 의문이 있음."
+      },
+      {
+        "item_id": 109532,
+        "data_title": "창의적 정치 접근",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "기존 정치 프레임을 벗어난 창의적인 접근을 시도하여 새로운 비전과 가능성을 제시함으로써 긍정적인 평가를 받음."
+      },
+      {
+        "item_id": 109535,
+        "data_title": "기후변화 대응 전략",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "B",
+        "rating_rationale": "장기적인 기후변화 대응 정책 방향을 제시하였지만, 구체적인 실행 전략이 부족하여 실효성에 대한 의문이 남음."
+      },
+      {
+        "item_id": 109539,
+        "data_title": "국가 경쟁력 강화 비전",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "국가 경쟁력 강화를 위한 장기 전략 제안은 국가의 발전 방향을 명확히 제시하며, 글로벌 경쟁력을 높이는 데 기여할 수 있어 매우 우수하다."
+      },
+      {
+        "item_id": 109542,
+        "data_title": "기술 혁신 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "첨단 기술 중심의 정책 방향 제시는 혁신과 발전을 추구하는 현대 사회에서 필수적인 요소로, 국가 발전에 긍정적인 영향을 미칠 것이다."
+      },
+      {
+        "item_id": 109545,
+        "data_title": "사회 포용성 비전",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "B",
+        "rating_rationale": "다양성과 포용을 강조하는 사회 모델은 사회적 통합에 기여하지만 구체적인 실행 방안이 부족하여 우수하나 개선 여지가 있다."
+      },
+      {
+        "item_id": 109548,
+        "data_title": "디지털 민주주의 모델",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "온라인 기반 정치 참여 확대 방안은 민주주의를 강화하는 중요한 방향으로, 현대 사회의 요구에 부합하여 매우 우수하다."
+      },
+      {
+        "item_id": 109549,
+        "data_title": "미래 과학기술 전략",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "과학기술 중심의 국가 발전 전략 제안은 미래 지향적인 접근으로, 국가의 경쟁력 강화를 위한 필수 요소이다."
+      },
+      {
+        "item_id": 109552,
+        "data_title": "국제협력 비전",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "B",
+        "rating_rationale": "글로벌 협력 강화를 위한 장기 전략은 국제 사회에서의 위상을 높이는 데 기여할 수 있으나, 구체성이 부족하여 우수하나 개선 필요하다."
+      },
+      {
+        "item_id": 109554,
+        "data_title": "사회혁신 전략",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "사회 구조적 변화를 위한 혁신 모델 제안은 긍정적이나, 구체적인 실행 계획이 결여되어 있어 우수하나 보완이 필요하다."
+      },
+      {
+        "item_id": 109555,
+        "data_title": "데이터 기반 정책 접근",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "데이터 분석을 통한 정책 결정 방식 제안은 현대적 접근으로, 효율적인 정책 수립에 기여할 수 있어 매우 우수하다."
+      },
+      {
+        "item_id": 109557,
+        "data_title": "미래 세대 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "미래 세대를 위한 장기 발전 전략 제안은 지속 가능성을 고려한 방향으로, 매우 긍정적이고 필요성이 크다."
+      },
+      {
+        "item_id": 109560,
+        "data_title": "혁신적 거버넌스 모델",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "새로운 정치 운영 시스템 제안은 혁신적이나, 실현 가능성에 대한 검토가 필요하여 우수하나 더 발전할 필요가 있다."
+      }
+    ],
+    "Grok": [
+      {
+        "item_id": 172190,
+        "data_title": "장기적 비전 제시",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "한동훈이 디지털 전환과 4차 산업 혁명에 대한 장기적 비전을 제시함으로써 미래 성장동력 확보와 국가 경쟁력 강화에 기여할 수 있는 청사진을 제시하였다. 이는 매우 우수한 비전으로 평가된다."
+      },
+      {
+        "item_id": 172191,
+        "data_title": "법질서 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "법과 질서를 지키는 국가의 비전을 강조하고 이를 통해 국민의 안전과 안정된 사회를 목표로 하는 정책을 추진하는 것은 우수한 비전으로 평가된다. 다만, 구체적인 실행 계획이 부족해 보인다."
+      },
+      {
+        "item_id": 172192,
+        "data_title": "국민과의 소통 개선",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "국민과의 소통을 강화하고 투명 행정과 공정한 절차의 필요성을 강조하는 것은 우수한 비전으로 평가된다. 적극적인 시민 참여와 협력을 이끌어낼 가능성이 높다."
+      },
+      {
+        "item_id": 172193,
+        "data_title": "청년 일자리 창출",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "청년 일자리 창출을 강조하고 산업의 변화에 맞춘 인력 양성을 위한 다양한 프로그램을 제안하는 것은 우수한 비전으로 평가된다. 구체적인 실행 계획이 잘 수립된다면 더욱 효과적일 것이다."
+      },
+      {
+        "item_id": 172194,
+        "data_title": "경제 활성화 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "경제 회복을 위한 다양한 정책을 발표하고 포스트 코로나 시대의 경제 문제에 대응하기 위한 비전을 제시하는 것은 우수한 비전으로 평가된다. 다만, 구체적인 실행 계획이 더 필요하다."
+      },
+      {
+        "item_id": 172195,
+        "data_title": "디지털 민첩성 향상",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "디지털 민첩성을 높이기 위한 전략과 데이터 기반 행정을 추진하겠다는 비전은 우수한 비전으로 평가된다. 효율성을 높이는 데 기여할 가능성이 크다."
+      },
+      {
+        "item_id": 172196,
+        "data_title": "환경 정책에 대한 인식 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "환경 정책에 대한 접근이 부족하고 기후변화 문제에 대한 구체적인 전략이 결여되어 있어 지속 가능한 발전에 대한 의문이 제기되는 것은 미흡한 비전으로 평가된다."
+      },
+      {
+        "item_id": 172197,
+        "data_title": "효율적 행정 실행",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "행정의 효율성을 높이기 위한 다양한 개혁안을 설계하고 실행으로 옮기겠다는 포부는 우수한 비전으로 평가된다. 지속적인 노력이 행정 체계의 발전에 기여할 것이다."
+      },
+      {
+        "item_id": 172198,
+        "data_title": "복지 정책의 비효율성",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "복지 정책에 대한 예산의 비효율성과 전반적인 운영 방식에 대한 비판이 제기되고 있어 보다 나은 대안 제시가 필요한 것은 미흡한 비전으로 평가된다."
+      },
+      {
+        "item_id": 172199,
+        "data_title": "공직자 윤리 문제",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "공직자의 윤리 문제에 대한 정책 부족이 지적되고 있어 부패 예방 및 투명한 정치 환경 조성이 어려워질 수 있는 것은 부족한 비전으로 평가된다."
+      },
+      {
+        "item_id": 172200,
+        "data_title": "AI 활용 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "AI 기술 도입은 행정 서비스의 질적 향상을 기대하게 하며, 시대의 흐름을 반영하는 매우 우수한 비전이다."
+      },
+      {
+        "item_id": 172201,
+        "data_title": "지속가능한 성장을 위한 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "경제와 환경을 동시에 고려한 지속가능한 성장 정책은 매우 우수하며, 조화롭고 안정적인 사회를 지향한다."
+      },
+      {
+        "item_id": 172202,
+        "data_title": "디지털 정부 구현 비전",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "디지털 정부의 구체적인 실행을 강조하고 시민들의 삶의 질 향상을 목표로 하는 비전은 매우 우수하다."
+      },
+      {
+        "item_id": 172203,
+        "data_title": "사회 갈등 해소 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "사회 갈등을 해소하기 위한 다양한 프로그램은 통합된 사회를 위한 중요한 발판이 될 것이며, 우수한 비전이다."
+      },
+      {
+        "item_id": 172204,
+        "data_title": "가족 정책의 저조한 성과",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "가족 정책에서 기대한 성과가 저조하다는 비판이 있으며, 가족 친화적인 정책이 부족하여 미흡한 비전이다."
+      },
+      {
+        "item_id": 172205,
+        "data_title": "여성 권익 향상 기여",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "여성의 사회적 역할과 권익 향상을 강조하며 성평등한 사회를 지향하는 비전은 우수하다."
+      },
+      {
+        "item_id": 172206,
+        "data_title": "노동시장 개혁",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "노동시장의 경직성을 해소하기 위한 다양한 개혁안은 경제 환경 변화에 발빠르게 대응하려는 우수한 비전이다."
+      },
+      {
+        "item_id": 172207,
+        "data_title": "젊은 인재 양성에 대한 노력",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "젊은 인재 양성을 위한 교육 개혁과 디지털 기술 교육의 중요성을 강조하는 비전은 우수하다."
+      },
+      {
+        "item_id": 172208,
+        "data_title": "문화예술 지원 확대 계획",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "문화예술 분야에 대한 투자를 확대하려는 비전은 국민의 문화 향유 기회를 증대시키고, 문화 다양성을 강화하는 우수한 비전이다."
+      },
+      {
+        "item_id": 172209,
+        "data_title": "기후 변화 대응 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "기후 변화 대응 정책이 미흡하고 구체적 계획이 부족하다는 비판이 있어, 탈탄소 경제 전환에 부정적인 영향을 미칠 수 있는 미흡한 비전이다."
+      },
+      {
+        "item_id": 172210,
+        "data_title": "재정 건강성 향상",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "한동훈이 국가 재정 건강성 향상을 위한 여러 정책을 제시하고 지속가능한 재정 운영을 강조하는 것은 매우 긍정적이다. 그러나 구체적인 실행 계획이 명확하지 않아 우수 등급을 부여한다."
+      },
+      {
+        "item_id": 172211,
+        "data_title": "과학기술 혁신 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "과학기술 혁신을 통해 국가 경쟁력을 높이겠다는 비전은 매우 우수하다. 이는 미래 지향적이고 국가 발전에 큰 기여를 할 수 있는 정책 방향이다."
+      },
+      {
+        "item_id": 172212,
+        "data_title": "사이버 보안 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "사이버 보안 문제에 대한 중장기적인 대응 방안을 마련하겠다는 계획은 우수하다. 그러나 구체적인 실행 계획이 더 필요해 보인다."
+      },
+      {
+        "item_id": 172213,
+        "data_title": "교육 혁신을 위한 비전",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "교육 시스템의 혁신과 미래 인재 양성을 위한 다양한 정책 제안은 매우 우수하다. 이는 국가의 미래를 위해 중요한 비전을 제시한 것이다."
+      },
+      {
+        "item_id": 172214,
+        "data_title": "정치적 갈등 심화 우려",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "정책이 정치적 갈등을 심화시킬 위험성이 있다는 비판은 미흡한 점이다. 정치적 통합을 위한 전략이 필요하다는 지적이 있으며, 이는 비전의 부족함을 나타낸다."
+      },
+      {
+        "item_id": 172215,
+        "data_title": "사회복지 정책의 확장성",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "D",
+        "rating_rationale": "사회복지 정책을 확장하여 국민의 삶의 질을 높이겠다는 계획은 보통이다. 그러나 구체적인 실행 방안이 뚜렷하지 않아 보다 명확한 비전이 필요하다."
+      },
+      {
+        "item_id": 172216,
+        "data_title": "교통 체계 혁신",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "교통 체계의 혁신을 통해 원활한 교통 환경을 조성하겠다는 비전은 양호하다. 본격적인 연구와 실행이 기대되며, 이는 긍정적인 방향이다."
+      },
+      {
+        "item_id": 172217,
+        "data_title": "대중교통 이용 장려 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "대중교통 이용 활성화를 위한 다양한 정책과 인센티브 제공은 우수하다. 이는 환경 친화적 도시를 추구하는 방향에 부합하며, 긍정적인 비전을 제시한다."
+      },
+      {
+        "item_id": 172218,
+        "data_title": "불공정 거래에 대한 대책",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "불공정 거래에 대한 실질적인 감독과 대책 마련을 강조하고 시장의 투명성 확보 계획을 밝힌 것은 우수하다. 이는 경제적 투명성과 공정성을 위한 중요한 비전이다."
+      },
+      {
+        "item_id": 172219,
+        "data_title": "저출산 문제 대책 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "저출산 문제에 대한 구체적인 대책이 부족하다는 지적은 미흡하다. 보다 효과적인 정책 개발이 필요하다는 목소리가 나오며, 이는 비전의 부족함을 나타낸다."
+      },
+      {
+        "item_id": 172220,
+        "data_title": "전국민 건강 증진 비전",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "국민 건강 증진을 위한 다양한 프로그램 제안은 매우 우수한 비전으로, 사회 전반의 건강 증진에 기여할 것이다."
+      },
+      {
+        "item_id": 172221,
+        "data_title": "사회적 책임 의식 필요",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "사회적 책임 인식 부족은 미흡한 비전으로, 사회적 쟁점을 간과할 위험이 있다."
+      },
+      {
+        "item_id": 172222,
+        "data_title": "정신 건강 정책 제안",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "정신 건강 문제에 대한 인식을 높이려는 정책은 우수한 비전으로, 국민들의 정서적 안정에 기여할 것이다."
+      },
+      {
+        "item_id": 172223,
+        "data_title": "기업의 사회적 책임 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "기업의 사회적 책임 강화를 위한 정책은 우수한 비전으로, 기업과 사회 간의 관계 개선에 기여할 것이다."
+      },
+      {
+        "item_id": 172224,
+        "data_title": "민주적 가치 수호 공약",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "민주적 가치 수호와 법질서 확립을 강조한 것은 우수한 비전으로, 민주주의의 근본을 다지는 데 기여할 것이다."
+      },
+      {
+        "item_id": 172225,
+        "data_title": "리더십 부족 논란",
+        "collected_by": "ChatGPT",
+        "original_rating": "H",
+        "new_rating": "F",
+        "rating_rationale": "불확실한 리더십은 부족한 비전으로, 정치적 신뢰도에 심각한 문제를 야기할 수 있다."
+      },
+      {
+        "item_id": 172226,
+        "data_title": "디지털 법률 서비스 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "디지털 시대에 맞춘 법률 서비스 강화는 매우 우수한 비전으로, 국민들이 법률 정보에 쉽게 접근할 수 있도록 할 것이다."
+      },
+      {
+        "item_id": 172227,
+        "data_title": "교육 접근성 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "전국민 교육 접근성 강화는 매우 우수한 비전으로, 교육의 공정성을 높이는 데 기여할 것이다."
+      },
+      {
+        "item_id": 172228,
+        "data_title": "다문화 사회 비전 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "다문화 사회에 대한 인식 부족은 미흡한 비전으로, 구체적인 다문화 정책 강화 대책이 필요하다."
+      },
+      {
+        "item_id": 172229,
+        "data_title": "재난 관리 정책 개선 필요",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "F",
+        "rating_rationale": "재난 대응 능력 부족은 부족한 비전으로, 체계적인 개선 방안이 시급히 필요하다."
+      },
+      {
+        "item_id": 172230,
+        "data_title": "교통안전 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "교통안전 강화 정책은 국민의 생활에 직접적인 영향을 미치는 중요한 비전으로, 다양한 정책 제안이 포함되어 있어 우수한 편이다. 다만, 구체적인 실행 계획이 부족해 완벽한 A 등급에는 미치지 못한다."
+      },
+      {
+        "item_id": 172231,
+        "data_title": "공공기관 개혁 조치",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "공공기관 개혁은 국가 운영의 효율성을 높이는 데 중요한 비전이다. 다양한 방안을 모색하고 실현 의지를 보이는 점이 우수하지만, 구체적인 개혁 방안이 명확하지 않아 B 등급을 부여한다."
+      },
+      {
+        "item_id": 172232,
+        "data_title": "청소년 정책에 대한 관심 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "청소년 정책에 대한 관심 부족은 미흡한 비전으로 평가된다. 청소년은 미래의 주역인데도 불구하고, 이를 위한 정책 담론이 부족하다는 비판이 있으며, 이는 사회적 책임을 다하지 못하는 것으로 보인다."
+      },
+      {
+        "item_id": 172233,
+        "data_title": "무역 정책 수립",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "무역 정책 수립은 국제 시장에서의 경쟁력을 강화하는 중요한 비전이다. 다양한 정책 방향을 제시하고 있으며, 이는 우수한 비전으로 평가된다. 다만, 구체적인 실행 계획이 명확하지 않아 B 등급을 부여한다."
+      },
+      {
+        "item_id": 172234,
+        "data_title": "사회 안전망 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "사회 안전망 강화는 매우 우수한 비전으로 평가된다. 범죄로부터 국민을 보호하겠다는 비전은 사회의 안전을 최우선으로 하는 중요한 정책 방향이며, 이를 통해 더욱 안전한 사회를 지향하는 점이 높이 평가된다."
+      },
+      {
+        "item_id": 172235,
+        "data_title": "물가 안정 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "물가 안정 정책은 서민 경제에 긍정적인 영향을 미치는 중요한 비전이다. 다양한 정책을 제안하고 있다는 점에서 우수하지만, 구체적인 길잡이와 실행 계획이 부족해 B 등급을 부여한다."
+      },
+      {
+        "item_id": 172236,
+        "data_title": "정치적 불신 심화",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "정치적 불신 심화는 매우 부족한 비전으로 평가된다. 정책들이 국민들과의 신뢰를 저해하고 있다는 비판이 있으며, 이는 정치적 리더십의 기본적인 책임을 다하지 못하는 것으로 보인다."
+      },
+      {
+        "item_id": 172237,
+        "data_title": "정보 및 통신 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "정보 및 통신 정책은 매우 우수한 비전으로 평가된다. 정보통신 분야에서의 혁신은 국가 경쟁력의 근본적인 강화를 가져올 수 있는 중요한 정책 방향이며, 이를 통해 미래를 준비하는 점이 높이 평가된다."
+      },
+      {
+        "item_id": 172238,
+        "data_title": "산업 정책 개선 필요",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "산업 정책 개선 필요성은 미흡한 비전으로 평가된다. 산업 정책의 체계적인 수립이 부족하다는 비판이 있으며, 이는 국가 경제 발전에 중요한 역할을 하는 산업 분야에서의 책임을 다하지 못하는 것으로 보인다."
+      },
+      {
+        "item_id": 172239,
+        "data_title": "정보 접근성 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "정보 접근성 강화는 민주적 과정의 투명성을 증대시키는 중요한 비전이다. 이를 위한 정책 제안이 우수하지만, 구체적인 실행 계획이 명확하지 않아 B 등급을 부여한다."
+      },
+      {
+        "item_id": 172090,
+        "data_title": "한동훈의 교육 시스템 개혁 비전",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "한동훈의 교육 시스템 개혁 비전은 인공지능과 빅데이터를 활용한 맞춤형 교육 프로그램을 통해 미래 직업 준비를 강화하고, 글로벌 경쟁력을 높이는 데 초점을 맞추고 있다. 이는 매우 우수한 비전으로 평가된다."
+      },
+      {
+        "item_id": 172091,
+        "data_title": "경제 회복을 위한 장기 비전 발표",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "코로나 후유증을 고려한 2030년 경제 비전은 AI 기반 산업 전환과 지속 가능한 에너지 정책을 포함하여 장기적인 안정성을 예측하고 제시하고 있다. 이는 매우 우수한 비전으로 평가된다."
+      },
+      {
+        "item_id": 172092,
+        "data_title": "법치 강화와 사회 안정 비전",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "2040년까지 법치 시스템을 완벽화하는 계획은 부패 방지와 공정 사법 제도를 통해 사회 안정을 예측하고, 장기적인 국가 발전을 목표로 한다. 이는 매우 우수한 비전으로 평가된다."
+      },
+      {
+        "item_id": 172093,
+        "data_title": "환경 보호를 위한 지속 가능 비전",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "2050년 탄소 중립 목표를 달성하기 위한 비전은 기후 변화 예측을 바탕으로 장기적인 환경 정책을 제시하여 국가의 지속 가능성을 높였다. 이는 매우 우수한 비전으로 평가된다."
+      },
+      {
+        "item_id": 172094,
+        "data_title": "디지털 정부 구축 계획",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "2028년까지 디지털 정부를 완성하는 로드맵은 행정 효율화와 시민 참여를 통해 미래 사회 변화를 예측하고, 장기적인 공공 서비스 개선을 목표로 한다. 이는 매우 우수한 비전으로 평가된다."
+      },
+      {
+        "item_id": 172095,
+        "data_title": "인구 고령화 대응 비전",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "2040년 고령화 사회를 예측하고, 의료 및 복지 시스템 개혁을 제안한 비전은 노인 복지 확대와 일자리 재배치를 통해 장기적인 사회 안정을 추구하며, 인구 변화에 대한 선제적 대응을 강조한다. 이는 매우 우수한 비전으로 평가된다."
+      },
+      {
+        "item_id": 172096,
+        "data_title": "기술 혁신을 통한 산업 비전",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "2035년까지 AI와 로봇 기술을 산업에 적용하여 생산성을 높이는 비전은 미래 기술 동향을 정확히 예측하고, 장기적인 경제 성장을 목표로 한다. 이는 매우 우수한 비전으로 평가된다."
+      },
+      {
+        "item_id": 172097,
+        "data_title": "사회적 불평등 완화 비전",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "2030년까지 소득 불평등을 줄이기 위한 정책 비전은 교육 평등과 세제 개혁을 통해 장기적인 사회 정의를 예측하고, 불평등 문제를 해결하는 데 초점을 맞춘다. 이는 매우 우수한 비전으로 평가된다."
+      },
+      {
+        "item_id": 172098,
+        "data_title": "문화 예술 진흥 비전",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "2040년까지 문화 산업을 글로벌화하는 계획은 K-컬럼과 같은 콘텐츠를 통해 미래 문화 수출을 예측하고, 장기적인 문화 발전을 목표로 한다. 이는 매우 우수한 비전으로 평가된다."
+      },
+      {
+        "item_id": 172099,
+        "data_title": "안보 강화 장기 비전",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "2050년까지 안보 시스템을 업그레이드하는 비전은 지능형 감시 기술을 통해 미래 위협을 예측하고, 장기적인 국가 안정을 추구한다. 이는 매우 우수한 비전으로 평가된다."
+      },
+      {
+        "item_id": 172100,
+        "data_title": "한동훈의 건강 관리 시스템 비전",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "한동훈의 건강 관리 시스템 비전은 웨어러블 기기와 빅데이터를 활용한 혁신적인 접근으로, 질병 예측과 의료 비용 절감을 목표로 한다. 이는 매우 구체적이고 장기적인 비전으로, 매우 우수하다."
+      },
+      {
+        "item_id": 172101,
+        "data_title": "교통 인프라 발전 비전",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "2040년까지 자율주행 교통 시스템 구축은 도시 혼잡 예측과 이동 효율성을 강조하는 비전으로, 매우 혁신적이고 장기적인 계획이다. 이는 매우 우수한 비전이다."
+      },
+      {
+        "item_id": 172102,
+        "data_title": "과학 기술 육성 비전",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "2050년까지 우주 탐사와 첨단 과학을 추진하는 비전은 미래 기술 혁명을 예측하고 연구 투자 증대를 목표로 한다. 이는 매우 구체적이고 장기적인 비전으로, 매우 우수하다."
+      },
+      {
+        "item_id": 172103,
+        "data_title": "지역 균형 발전 비전",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "2035년까지 지방 도시화를 추진하는 비전은 인구 이동 예측과 지역 균형을 추구하며, 매우 구체적이고 장기적인 계획이다. 이는 매우 우수한 비전이다."
+      },
+      {
+        "item_id": 172104,
+        "data_title": "에너지 자립 비전",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "2040년 에너지 자립을 목표로 하는 비전은 재생 에너지를 통해 에너지 위기를 예측하고 안정성을 강조한다. 이는 매우 구체적이고 장기적인 비전으로, 매우 우수하다."
+      },
+      {
+        "item_id": 172105,
+        "data_title": "한동훈의 비전 관련 언론 인터뷰",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "2025년 경제 예측을 바탕으로 한 장기 비전은 AI 기반 성장 전략으로, 미래 불확실성을 최소화하는 데 초점을 맞춘다. 이는 매우 구체적이고 장기적인 비전으로, 매우 우수하다."
+      },
+      {
+        "item_id": 172106,
+        "data_title": "교육 혁신에 대한 뉴스 보도",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "2030년까지 디지털 학습 환경을 구축하는 교육 비전은 미래 인재 양성을 예측하고 장기적인 발전을 목표로 한다. 이는 매우 구체적이고 장기적인 비전으로, 매우 우수하다."
+      },
+      {
+        "item_id": 172107,
+        "data_title": "경제 정책 비전 분석 기사",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "2040년 경제 비전은 팬데믹 후 경제 회복을 예측하고 장기적인 성장 전략을 제시한다. 이는 매우 구체적이고 장기적인 비전으로, 매우 우수하다."
+      },
+      {
+        "item_id": 172108,
+        "data_title": "환경 비전 관련 보도",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "2050년 탄소 중립 비전은 기후 변화를 예측하고 장기적인 환경 보호를 강조한다. 이는 매우 구체적이고 장기적인 비전으로, 매우 우수하다."
+      },
+      {
+        "item_id": 172109,
+        "data_title": "디지털 정부 비전 뉴스",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "2028년까지의 디지털 정부 비전은 행정 혁신을 예측하고 장기적인 효율성을 목표로 한다. 이는 매우 구체적이고 장기적인 비전으로, 매우 우수하다."
+      },
+      {
+        "item_id": 172110,
+        "data_title": "인구 고령화 비전 보도",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "한동훈의 고령화 대응 비전이 매우 구체적이고 장기적인 의료 개혁과 복지 개선을 제안하며, 사회 안정에 기여할 가능성이 높다. 2040년까지의 계획이 명확하다."
+      },
+      {
+        "item_id": 172111,
+        "data_title": "기술 혁신 비전 기사",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "한동훈의 AI 산업 비전이 명확하고, 2035년 목표를 통해 미래 기술을 예측하며 장기적인 성장을 추구하는 점이 매우 우수하다."
+      },
+      {
+        "item_id": 172112,
+        "data_title": "사회 불평등 비전 분석",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "한동훈의 불평등 완화 비전이 세제 개혁을 통해 구체적으로 제시되며, 2030년 목표로 장기적인 정의를 강조하는 점이 매우 우수하다."
+      },
+      {
+        "item_id": 172113,
+        "data_title": "문화 진흥 비전 보도",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "한동훈의 문화 글로벌화 비전이 2040년 목표를 명확히 설정하고 미래 문화 수출을 예측하는 점이 매우 우수하다."
+      },
+      {
+        "item_id": 172114,
+        "data_title": "안보 비전 뉴스",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "한동훈의 안보 강화 비전이 2050년 시스템 업그레이드를 통해 미래 위협을 예측하고 장기적인 안정을 목표로 하는 점이 매우 우수하다."
+      },
+      {
+        "item_id": 172115,
+        "data_title": "건강 관리 비전 관련 기사",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "한동훈의 건강 시스템 비전이 2030년 스마트 의료를 통해 미래 질병을 예측하고 장기적인 비용 절감을 제안하는 점이 매우 우수하다."
+      },
+      {
+        "item_id": 172116,
+        "data_title": "교통 비전 분석 보도",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "한동훈의 자율주행 비전이 2040년 교통 혁신을 통해 미래 혼잡을 예측하고 장기적인 이동성을 강조하는 점이 매우 우수하다."
+      },
+      {
+        "item_id": 172117,
+        "data_title": "과학 비전 뉴스",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "한동훈의 우주 탐사 비전이 2050년 연구를 통해 미래 기술을 예측하고 장기적인 발전을 목표로 하는 점이 매우 우수하다."
+      },
+      {
+        "item_id": 172118,
+        "data_title": "지역 발전 비전 기사",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "한동훈의 지방 균형 비전이 2035년 도시화 계획을 통해 미래 인구 이동을 예측하는 점이 매우 우수하다."
+      },
+      {
+        "item_id": 172119,
+        "data_title": "에너지 비전 보도",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "한동훈의 에너지 자립 비전이 2040년 재생 에너지를 통해 미래 위기를 예측하고 장기적인 안정을 제안하는 점이 매우 우수하다."
+      },
+      {
+        "item_id": 172120,
+        "data_title": "한동훈 비전의 예측 실패 사례",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "한동훈의 경제 비전이 팬데믹을 예측하지 못해 장기 목표가 무산된 것은 미래 예측 능력의 심각한 부족을 보여준다. 이는 비전의 실효성을 크게 떨어뜨린다."
+      },
+      {
+        "item_id": 172121,
+        "data_title": "비전 실행의 지연 문제",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "E",
+        "rating_rationale": "교육 개혁 비전이 여러 차례 지연된 것은 미래 예측이 과도하게 낙관적이었음을 의미하며, 이는 비전의 신뢰성을 떨어뜨리는 요인이다."
+      },
+      {
+        "item_id": 172122,
+        "data_title": "환경 비전의 비현실성 논란",
+        "collected_by": "Grok",
+        "original_rating": "H",
+        "new_rating": "F",
+        "rating_rationale": "환경 비전이 과학적으로 비현실적이라는 비판은 비전의 신뢰성을 크게 훼손하며, 장기 목표의 실현 가능성을 의심하게 만든다."
+      },
+      {
+        "item_id": 172123,
+        "data_title": "경제 비전의 부족한 준비",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "경제 회복 비전이 구체적이지 않아 예측 실패가 발생한 것은 비전의 준비 부족을 보여주며, 이는 장기 목표의 효과성을 떨어뜨린다."
+      },
+      {
+        "item_id": 172124,
+        "data_title": "비전의 정치적 편향 비판",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "비전이 정치적 편향으로 인해 왜곡되었다는 비판은 비전의 객관성과 신뢰성을 크게 훼손하며, 장기 목표의 실현 가능성을 의심하게 만든다."
+      },
+      {
+        "item_id": 172125,
+        "data_title": "비전 실행의 부정적 언론 보도",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "E",
+        "rating_rationale": "디지털 비전이 실패 사례로 보도된 것은 미래 예측의 오류를 드러내며, 이는 비전의 실효성을 떨어뜨리는 요인이다."
+      },
+      {
+        "item_id": 172126,
+        "data_title": "교육 비전의 논란",
+        "collected_by": "Grok",
+        "original_rating": "H",
+        "new_rating": "E",
+        "rating_rationale": "교육 비전이 비현실적이라는 비판은 미래 예측이 과도하게 낙관적이었음을 보여주며, 이는 비전의 신뢰성을 떨어뜨린다."
+      },
+      {
+        "item_id": 172127,
+        "data_title": "경제 비전의 실효성 문제",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "경제 비전이 실패한 것으로 분석된 것은 미래 예측 능력의 부족을 드러내며, 이는 비전의 실효성을 떨어뜨리는 요인이다."
+      },
+      {
+        "item_id": 172128,
+        "data_title": "환경 비전의 부족",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "환경 비전이 과학적으로 미흡하다는 지적은 비전의 실현 가능성을 크게 떨어뜨리며, 장기 목표의 신뢰성을 훼손한다."
+      },
+      {
+        "item_id": 172129,
+        "data_title": "디지털 비전의 문제점 보도",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "E",
+        "rating_rationale": "디지털 비전이 지연되었다는 보도는 미래 예측의 오류를 드러내며, 이는 비전의 신뢰성을 떨어뜨리는 요인이다."
+      },
+      {
+        "item_id": 172130,
+        "data_title": "한동훈 비전의 일반적 평가",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "한동훈의 비전이 보통 수준으로 평가되었으며, 장기 목표 실행이 미흡하다고 지적되어 보통 등급을 부여함."
+      },
+      {
+        "item_id": 172131,
+        "data_title": "기본적 비전 제시",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "한동훈의 비전이 기본적으로 인정되었으나, 더 구체적인 미래 예측이 필요하다고 언급되어 보통 등급을 부여함."
+      },
+      {
+        "item_id": 172132,
+        "data_title": "중립적 비전 분석",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "한동훈의 비전이 중립적으로 다루어졌으며, 미래 예측이 표준 수준이라고 평가되어 보통 등급을 부여함."
+      },
+      {
+        "item_id": 172133,
+        "data_title": "기본적인 경제 비전",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "한동훈의 경제 비전이 보통으로 평가되었고, 장기 목표가 기본적이라고 언급되어 보통 등급을 부여함."
+      },
+      {
+        "item_id": 172134,
+        "data_title": "중립적 환경 비전",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "한동훈의 환경 비전이 중립적으로 보도되었으며, 미래 예측이 표준적이라고 평가되어 보통 등급을 부여함."
+      },
+      {
+        "item_id": 172135,
+        "data_title": "기본적 과학 비전",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "한동훈의 과학 비전이 기본적으로 인정되었으나, 더 나은 예측이 필요하다고 언급되어 보통 등급을 부여함."
+      },
+      {
+        "item_id": 172136,
+        "data_title": "중립적 사회 비전",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "한동훈의 사회 비전이 중립적으로 분석되었으며, 미래 예측이 표준적이라고 평가되어 보통 등급을 부여함."
+      },
+      {
+        "item_id": 172137,
+        "data_title": "보통 수준의 문화 비전",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "한동훈의 문화 비전이 보통으로 평가되었고, 장기 목표가 기본적이라고 언급되어 보통 등급을 부여함."
+      },
+      {
+        "item_id": 172138,
+        "data_title": "중립적 안보 비전",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "한동훈의 안보 비전이 중립적으로 다루어졌으며, 미래 예측이 표준 수준이라고 평가되어 보통 등급을 부여함."
+      },
+      {
+        "item_id": 172139,
+        "data_title": "기본적 비전 요약",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "한동훈의 전체 비전이 중립적으로 요약되었으며, 미래 예측이 보통 수준으로 평가되어 보통 등급을 부여함."
+      },
+      {
+        "item_id": 109435,
+        "data_title": "윤석열 정부 법무부 장관 시절 검찰 개혁 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "검찰의 정치적 중립성을 훼손한 것은 장기적인 비전을 세우는 데 치명적 결함으로 작용할 수 있으며, 국민의 신뢰를 잃게 한다."
+      },
+      {
+        "item_id": 109437,
+        "data_title": "과도한 정치적 편향성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "정치적 편향성은 국민통합을 저해하고, 다양한 계층의 지지를 받는 비전 수립에 미흡하다."
+      },
+      {
+        "item_id": 109438,
+        "data_title": "정책 일관성 부족",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "정책 일관성 부족은 장기 비전의 부재를 드러내며, 신뢰성과 지속 가능한 정책 수립에 미흡하다."
+      },
+      {
+        "item_id": 109440,
+        "data_title": "사법부 독립성 침해 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "G",
+        "new_rating": "F",
+        "rating_rationale": "사법부 독립성 침해는 법치주의의 기반을 훼손하며, 장기적인 비전 수립에 치명적 결함으로 작용한다."
+      },
+      {
+        "item_id": 109443,
+        "data_title": "청년 미래 정책 부재",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "청년 미래 정책 부재는 미래 세대의 발전을 위한 비전이 미흡하다는 것을 나타내며, 장기적 발전 전략이 부족하다."
+      },
+      {
+        "item_id": 109445,
+        "data_title": "부동산 공약 신뢰성 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "D",
+        "rating_rationale": "부동산 공약의 신뢰성 논란은 구체적이고 실현 가능한 비전을 제시하지 못한 것으로, 보통 수준의 비전을 나타낸다."
+      },
+      {
+        "item_id": 109447,
+        "data_title": "정치적 급진성과 극단적 이념 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "G",
+        "rating_rationale": "정치적 급진성과 극단적 이념은 사회적 갈등을 조장하며, 장기적인 비전 수립에 매우 부족하다."
+      },
+      {
+        "item_id": 109448,
+        "data_title": "미래 전략의 모호성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "미래 전략의 모호성은 구체적이고 장기적인 비전의 부재를 드러내며, 혁신 전략 수립에 미흡하다."
+      },
+      {
+        "item_id": 109450,
+        "data_title": "정치적 네트워크의 편향성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "정치적 네트워크의 편향성은 다양성을 결여하게 하여, 포괄적인 비전 수립에 미흡하다."
+      },
+      {
+        "item_id": 109453,
+        "data_title": "정책 일관성 부족",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "정책 일관성 부족은 정치적 상황에 따라 변경되는 방향성으로 인해, 지속 가능한 비전 수립에 미흡하다."
+      },
+      {
+        "item_id": 109455,
+        "data_title": "디지털 정부 혁신 추진",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "공공 디지털 전환 정책을 주도하여 행정의 효율성을 높이고 국민 편의를 증대시킴. 매우 우수한 비전을 제시."
+      },
+      {
+        "item_id": 109457,
+        "data_title": "규제 샌드박스 확대 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "신기술 혁신을 위한 규제 완화 정책을 추진하여 산업 발전에 기여. 우수한 비전을 보여줌."
+      },
+      {
+        "item_id": 109460,
+        "data_title": "AI 정책 추진 의지",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "인공지능 기술 발전을 위한 제도적 기반을 마련하려는 노력. 우수한 비전을 제시."
+      },
+      {
+        "item_id": 109463,
+        "data_title": "데이터 경제 활성화 방안",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "데이터 산업 육성을 위한 구체적인 정책을 제시하여 경제 활성화에 기여. 우수한 비전을 보여줌."
+      },
+      {
+        "item_id": 109464,
+        "data_title": "디지털 포용 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "정보 격차 해소를 위한 디지털 교육 지원 정책. 양호한 비전을 제시하나, 실행력이 더 필요."
+      },
+      {
+        "item_id": 109466,
+        "data_title": "중소기업 디지털 전환 지원",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "중소기업 디지털 전환을 지원하는 프로그램 설계. 양호한 비전을 보여줌."
+      },
+      {
+        "item_id": 109468,
+        "data_title": "국가 사이버 보안 강화",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "공공 부문의 사이버 보안 체계 개선을 추진. 양호한 비전을 제시하나, 더 많은 노력이 필요."
+      },
+      {
+        "item_id": 109470,
+        "data_title": "미래 산업 생태계 조성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "신성장 동력 발굴을 위한 정책적 노력. 양호한 비전을 보여줌."
+      },
+      {
+        "item_id": 109474,
+        "data_title": "디지털 민주주의 확대",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "온라인 정책 참여 플랫폼 구축 시도. 양호한 비전을 제시하나, 실행력이 더 필요."
+      },
+      {
+        "item_id": 109473,
+        "data_title": "기후변화 대응 디지털 전략",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "기후변화 대응을 위한 디지털 전략이 초기 단계에 머물러 있음. 보통 수준의 비전을 보여줌."
+      },
+      {
+        "item_id": 109475,
+        "data_title": "글로벌 디지털 협력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "글로벌 디지털 협력 네트워크 구축은 국제적 비전을 제시하며, 디지털 경제 발전에 기여할 수 있으나 구체적 실행 계획이 필요함."
+      },
+      {
+        "item_id": 109477,
+        "data_title": "데이터 개인정보 보호",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "개인정보 보호와 데이터 활용의 균형을 모색하는 것은 중요한 비전이나, 구체적인 정책과 실행 방안이 부족함."
+      },
+      {
+        "item_id": 109481,
+        "data_title": "디지털 교육 혁신",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "미래형 디지털 교육 인프라 구축은 교육 혁신에 기여할 수 있는 중요한 비전이나, 실행 가능성과 구체적 계획이 필요함."
+      },
+      {
+        "item_id": 109483,
+        "data_title": "스마트 도시 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "B",
+        "rating_rationale": "스마트 도시 정책은 도시 인프라의 디지털 전환을 통해 효율성을 높일 수 있는 비전이나, 구체적인 실행 계획이 필요함."
+      },
+      {
+        "item_id": 109487,
+        "data_title": "디지털 헬스케어 추진",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "디지털 헬스케어 추진은 의료 분야의 혁신을 가져올 수 있는 비전이나, 초기 모델 제시 단계로 구체적 실행이 필요함."
+      },
+      {
+        "item_id": 109490,
+        "data_title": "디지털 격차 해소 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "B",
+        "rating_rationale": "디지털 격차 해소 정책은 취약계층의 디지털 접근성을 개선하려는 중요한 비전이나, 실행 가능성과 구체적 계획이 필요함."
+      },
+      {
+        "item_id": 109493,
+        "data_title": "블록체인 기술 육성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "블록체인 기술 육성은 산업 생태계 조성에 기여할 수 있는 비전이나, 초기 단계로 구체적 실행이 필요함."
+      },
+      {
+        "item_id": 109496,
+        "data_title": "AI 윤리 가이드라인",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "AI 윤리 가이드라인 마련은 중요한 비전이나, 초기 논의 단계로 구체적인 정책과 실행 방안이 필요함."
+      },
+      {
+        "item_id": 109500,
+        "data_title": "디지털 일자리 생태계",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "B",
+        "rating_rationale": "디지털 일자리 생태계 구축은 일자리 창출에 기여할 수 있는 중요한 비전이나, 구체적 실행 계획이 필요함."
+      },
+      {
+        "item_id": 109503,
+        "data_title": "양자컴퓨팅 전략",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "양자컴퓨팅 전략은 차세대 기술 육성에 기여할 수 있는 비전이나, 초기 단계로 구체적 실행이 필요함."
+      },
+      {
+        "item_id": 109506,
+        "data_title": "당 쇄신 및 미래 비전 제시",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "국민의힘 당대표 출마 시 정치 쇄신과 미래 전략을 강조함으로써, 구체적인 비전을 제시하고 있음. 다만, 구체적인 실행 계획이 부족해 우수 등급."
+      },
+      {
+        "item_id": 109508,
+        "data_title": "디지털 혁신 정책 추진",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "디지털 기술 기반 정책 혁신 방향을 제시함으로써, 미래 지향적인 비전을 보여줌. 다만, 구체적인 사례나 실행 계획이 부족해 우수 등급."
+      },
+      {
+        "item_id": 109511,
+        "data_title": "정치 쇄신 로드맵",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "기존 정치 시스템의 근본적 변화를 제안함으로써, 양호한 비전을 제시. 다만, 구체적인 방법론이나 실행 계획이 부족해 양호 등급."
+      },
+      {
+        "item_id": 109515,
+        "data_title": "청년 정책 비전",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "청년 일자리와 미래 발전 전략을 제시함으로써, 청년층에 대한 비전을 명확히 함. 구체적인 정책 방향이 있으나, 더 많은 세부 사항이 필요해 우수 등급."
+      },
+      {
+        "item_id": 109519,
+        "data_title": "정치 혁신 의지",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "기존 정치권 관행 탈피를 주장함으로써, 정치 혁신 의지를 보임. 다만, 구체적인 비전이나 실행 계획이 부족해 양호 등급."
+      },
+      {
+        "item_id": 109522,
+        "data_title": "미래 산업 전략",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "신성장 동력 산업 육성 계획을 발표함으로써, 미래 산업에 대한 비전을 제시. 구체적인 계획이 있으나, 더 많은 세부 사항이 필요해 우수 등급."
+      },
+      {
+        "item_id": 109525,
+        "data_title": "정치 혁신 플랫폼",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "디지털 기반 정치 참여 모델을 제안함으로써, 정치 혁신 플랫폼에 대한 비전을 보여줌. 구체적인 모델이 있으나, 더 많은 세부 사항이 필요해 우수 등급."
+      },
+      {
+        "item_id": 109527,
+        "data_title": "미래 교육 비전",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "디지털 시대 교육 혁신 방향을 제시함으로써, 미래 교육에 대한 비전을 명확히 함. 구체적인 방향이 있으나, 더 많은 세부 사항이 필요해 우수 등급."
+      },
+      {
+        "item_id": 109532,
+        "data_title": "창의적 정치 접근",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "기존 정치 프레임을 벗어난 새로운 접근을 시도함으로써, 창의적 정치 접근을 보여줌. 다만, 구체적인 비전이나 실행 계획이 부족해 양호 등급."
+      },
+      {
+        "item_id": 109535,
+        "data_title": "기후변화 대응 전략",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "B",
+        "rating_rationale": "장기적 기후변화 대응 정책 방향을 제시함으로써, 기후변화에 대한 비전을 보여줌. 구체적인 정책 방향이 있으나, 더 많은 세부 사항이 필요해 우수 등급."
+      },
+      {
+        "item_id": 109539,
+        "data_title": "국가 경쟁력 강화 비전",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "글로벌 경쟁력 강화를 위한 장기 전략 제안은 매우 구체적이고 실현 가능성이 높아 매우 우수한 비전으로 평가됩니다. 국가의 경쟁력을 높이는 데 큰 기여를 할 수 있는 전략입니다."
+      },
+      {
+        "item_id": 109542,
+        "data_title": "기술 혁신 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "첨단 기술 중심의 정책 방향 제시는 우수한 비전으로 평가됩니다. 기술 혁신을 통해 국가 발전을 도모하려는 노력은 긍정적이나, 구체적인 실행 계획이 부족해 B 등급을 부여합니다."
+      },
+      {
+        "item_id": 109545,
+        "data_title": "사회 포용성 비전",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "다양성과 포용을 강조하는 사회 모델 제안은 양호한 비전입니다. 사회적 포용성 증대는 중요하지만, 구체적인 실행 방안이 다소 부족해 C 등급을 부여합니다."
+      },
+      {
+        "item_id": 109548,
+        "data_title": "디지털 민주주의 모델",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "온라인 기반 정치 참여 확대 방안 제시는 우수한 비전으로 평가됩니다. 디지털 민주주의 확대는 시대적 요구에 부합하며, 실행 가능성이 높아 B 등급을 부여합니다."
+      },
+      {
+        "item_id": 109549,
+        "data_title": "미래 과학기술 전략",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "과학기술 중심의 국가 발전 전략 제안은 매우 우수한 비전입니다. 미래 지향적이고 혁신적인 전략으로, 국가의 발전에 큰 기여를 할 수 있는 방안입니다."
+      },
+      {
+        "item_id": 109552,
+        "data_title": "국제협력 비전",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "B",
+        "rating_rationale": "글로벌 협력 강화를 위한 장기 전략 제시는 우수한 비전입니다. 국제 협력 강화는 중요하며, 이 비전은 실행 가능성이 높아 B 등급을 부여합니다."
+      },
+      {
+        "item_id": 109554,
+        "data_title": "사회혁신 전략",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "사회 구조적 변화를 위한 혁신 모델 제안은 양호한 비전입니다. 사회 혁신은 필요하지만, 제안된 모델이 다소 추상적이어서 C 등급을 부여합니다."
+      },
+      {
+        "item_id": 109555,
+        "data_title": "데이터 기반 정책 접근",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "데이터 분석을 통한 정책 결정 방식 제안은 우수한 비전입니다. 데이터 기반 정책은 효율성을 높일 수 있으며, 실행 가능성이 높아 B 등급을 부여합니다."
+      },
+      {
+        "item_id": 109557,
+        "data_title": "미래 세대 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "미래 세대를 위한 장기 발전 전략 제시는 매우 우수한 비전입니다. 미래 세대를 고려한 장기적인 전략은 국가의 지속 가능한 발전에 기여할 수 있어 A 등급을 부여합니다."
+      },
+      {
+        "item_id": 109560,
+        "data_title": "혁신적 거버넌스 모델",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "새로운 정치 운영 시스템 제안은 우수한 비전입니다. 혁신적인 거버넌스 모델은 정치 운영의 효율성을 높일 수 있으며, 실행 가능성이 높아 B 등급을 부여합니다."
+      }
+    ],
+    "Claude": [
+      {
+        "item_id": 172190,
+        "data_title": "장기적 비전 제시",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "디지털 전환과 4차 산업혁명이라는 구체적이고 미래지향적인 장기 비전을 제시하여 국가 경쟁력 강화와 성장동력 확보라는 명확한 목표를 설정했음"
+      },
+      {
+        "item_id": 172191,
+        "data_title": "법질서 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "법과 질서를 통한 안전하고 안정된 사회라는 비전을 제시했으나, 구체적인 실행 방안이나 혁신적 요소가 다소 부족하여 우수 수준으로 평가됨"
+      },
+      {
+        "item_id": 172192,
+        "data_title": "국민과의 소통 개선",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "투명 행정과 시민 참여를 통한 소통 강화라는 민주적 거버넌스 비전을 제시했으나, 구체적인 실행 계획과 혁신성이 제한적임"
+      },
+      {
+        "item_id": 172193,
+        "data_title": "청년 일자리 창출",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "산업 변화에 맞춘 청년 일자리 창출이라는 미래지향적 비전을 제시했으나, 구체적인 프로그램 내용과 실행 방안에 대한 세부사항이 부족함"
+      },
+      {
+        "item_id": 172194,
+        "data_title": "경제 활성화 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "포스트 코로나 시대 경제 회복이라는 비전을 제시했으나, 구체적인 정책 내용이나 차별화된 접근 방식에 대한 명확한 설명이 부족하여 양호 수준"
+      },
+      {
+        "item_id": 172195,
+        "data_title": "디지털 민첩성 향상",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "데이터 기반 행정과 디지털 민첩성이라는 현대적 행정 비전을 제시했으나, 구체적인 전략과 실행 방안에 대한 세부적인 내용이 제한적임"
+      },
+      {
+        "item_id": 172196,
+        "data_title": "환경 정책에 대한 인식 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "기후변화와 지속가능한 발전이라는 중요한 미래 과제에 대한 구체적 전략이 결여되어 있어 장기적 국가 비전에 심각한 공백이 존재함"
+      },
+      {
+        "item_id": 172197,
+        "data_title": "효율적 행정 실행",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "행정 효율성 향상이라는 비전을 제시했으나, 개혁안의 구체적 내용과 혁신성이 명확하지 않아 양호한 수준에 머물러 있음"
+      },
+      {
+        "item_id": 172198,
+        "data_title": "복지 정책의 비효율성",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "복지 정책의 비효율성이 지적되고 있어 사회보장에 대한 명확한 비전과 대안 제시가 부족하여 국민 복지 향상에 대한 청사진이 미흡함"
+      },
+      {
+        "item_id": 172199,
+        "data_title": "공직자 윤리 문제",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "공직자 윤리와 부패 예방에 대한 정책 부족으로 투명하고 신뢰받는 정부라는 기본적 비전 구현에 심각한 결함이 있음"
+      },
+      {
+        "item_id": 172200,
+        "data_title": "AI 활용 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "AI 활용 정책은 미래지향적이고 시대적 흐름에 부합하는 비전을 제시하고 있다. 공공부문 혁신을 통한 행정서비스 질 향상이라는 구체적 목표가 있어 우수한 비전으로 평가된다."
+      },
+      {
+        "item_id": 172201,
+        "data_title": "지속가능한 성장을 위한 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "경제와 환경을 동시에 고려한 지속가능한 성장 정책은 매우 포괄적이고 미래지향적인 비전이다. 조화롭고 안정적인 사회라는 명확한 목표와 정교한 정책 방향이 제시되어 매우 우수하다."
+      },
+      {
+        "item_id": 172202,
+        "data_title": "디지털 정부 구현 비전",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "디지털 정부 구현은 현실적이고 구체적인 비전으로, 전자정부 발전을 통한 시민 삶의 질 향상이라는 명확한 목표를 제시하고 있어 우수한 비전으로 평가된다."
+      },
+      {
+        "item_id": 172203,
+        "data_title": "사회 갈등 해소 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "사회 갈등 해소 정책은 사회 통합이라는 중요한 비전을 담고 있으나, 구체적인 실행 방안이나 세부 계획이 명확하지 않아 양호한 수준으로 평가된다."
+      },
+      {
+        "item_id": 172204,
+        "data_title": "가족 정책의 저조한 성과",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "가족 정책의 저조한 성과와 가족 친화적 정책 방향의 부족은 비전 수립과 실행에서 미흡함을 보여준다. 기대한 성과를 달성하지 못하여 미흡한 등급을 받는다."
+      },
+      {
+        "item_id": 172205,
+        "data_title": "여성 권익 향상 기여",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "여성 권익 향상과 성평등한 사회 비전은 사회적 불평등 해결이라는 중요한 가치를 담고 있으며, 포용적이고 진보적인 사회 비전을 제시하여 우수하다고 평가된다."
+      },
+      {
+        "item_id": 172206,
+        "data_title": "노동시장 개혁",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "노동시장 개혁은 경제 환경 변화에 대한 적응력을 보여주는 비전이나, 구체적인 개혁 방향과 사회적 합의 과정에 대한 내용이 부족하여 양호한 수준으로 평가된다."
+      },
+      {
+        "item_id": 172207,
+        "data_title": "젊은 인재 양성에 대한 노력",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "젊은 인재 양성과 교육 개혁은 미래 사회 발전의 핵심 요소를 다루는 비전이다. 미디어 교육과 디지털 기술 교육 강조는 시대적 요구에 부합하여 우수하다고 평가된다."
+      },
+      {
+        "item_id": 172208,
+        "data_title": "문화예술 지원 확대 계획",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "문화예술 지원 확대는 국민의 삶의 질과 문화 다양성 강화라는 좋은 비전을 담고 있으나, 투자 확대라는 일반적 접근법으로 구체성이 부족하여 양호한 수준이다."
+      },
+      {
+        "item_id": 172209,
+        "data_title": "기후 변화 대응 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "기후 변화 대응 정책의 미흡함과 구체적 계획 부족은 현재 가장 중요한 글로벌 과제에 대한 비전이 부족함을 보여준다. 탈탄소 경제 전환에 부정적 영향을 미칠 수 있어 부족하다."
+      },
+      {
+        "item_id": 172210,
+        "data_title": "재정 건강성 향상",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "국가 재정 건전성 확보는 중요한 국정 과제이며, 지속가능한 재정 운영이라는 명확한 방향성을 제시했다. 다만 구체적인 실행 계획과 혁신적 접근법이 부족하여 우수 수준으로 평가된다."
+      },
+      {
+        "item_id": 172211,
+        "data_title": "과학기술 혁신 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "과학기술 혁신을 통한 국가 경쟁력 강화는 미래 지향적이고 전략적인 비전이다. 4차 산업혁명 시대에 필수적인 분야로서 국가 발전의 핵심 동력이 될 수 있어 매우 우수한 비전으로 평가된다."
+      },
+      {
+        "item_id": 172212,
+        "data_title": "사이버 보안 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "디지털 시대의 핵심 과제인 사이버 보안에 대한 중장기적 대응 방안 제시는 시의적절하고 필요한 비전이다. 미래 사회의 안전과 직결되는 중요한 영역으로 우수한 수준의 비전을 보여준다."
+      },
+      {
+        "item_id": 172213,
+        "data_title": "교육 혁신을 위한 비전",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "교육 시스템 혁신과 미래 인재 양성은 국가의 장기적 발전을 위한 핵심 비전이다. 인적 자원 개발을 통한 국가 경쟁력 확보라는 근본적이고 전략적인 접근으로 매우 우수한 비전으로 평가된다."
+      },
+      {
+        "item_id": 172214,
+        "data_title": "정치적 갈등 심화 우려",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "정치적 갈등 심화 우려는 국민 통합과 사회 안정에 부정적 영향을 미칠 수 있다. 정치적 통합 전략의 부재는 비전 실현의 걸림돌이 되며, 사회적 합의 형성에 어려움을 초래할 수 있어 미흡한 수준이다."
+      },
+      {
+        "item_id": 172215,
+        "data_title": "사회복지 정책의 확장성",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "D",
+        "rating_rationale": "사회복지 정책 확장이라는 방향성은 좋으나 구체적인 실행 방안이 명확하지 않다는 한계가 있다. 국민 삶의 질 향상이라는 목표는 바람직하지만 실현 가능성에 대한 의문으로 보통 수준으로 평가된다."
+      },
+      {
+        "item_id": 172216,
+        "data_title": "교통 체계 혁신",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "교통 체계 혁신을 통한 교통 환경 개선은 국민 생활 편의성 향상과 경제 효율성 증대에 기여하는 실용적 비전이다. 도시 발전과 국민 편의를 위한 필수적 과제로서 우수한 수준의 비전을 제시했다."
+      },
+      {
+        "item_id": 172217,
+        "data_title": "대중교통 이용 장려 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "대중교통 활성화를 통한 환경 친화적 도시 조성은 지속가능한 발전과 환경 보호를 동시에 추구하는 균형잡힌 비전이다. 기후변화 대응과 도시 발전의 조화를 이루는 우수한 정책 방향으로 평가된다."
+      },
+      {
+        "item_id": 172218,
+        "data_title": "불공정 거래에 대한 대책",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "C",
+        "rating_rationale": "불공정 거래 감독과 시장 투명성 확보는 건전한 시장 경제 발전을 위한 기본적이고 필요한 정책이다. 공정한 경쟁 환경 조성이라는 목표는 적절하나 혁신적이거나 차별화된 접근은 부족하여 양호 수준이다."
+      },
+      {
+        "item_id": 172219,
+        "data_title": "저출산 문제 대책 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "F",
+        "rating_rationale": "저출산 문제는 국가의 지속가능성을 위협하는 심각한 사회 문제임에도 구체적 대책이 부족하다는 것은 중대한 결함이다. 미래 사회의 근본적 과제에 대한 비전과 해결책이 미흡하여 부족한 수준으로 평가된다."
+      },
+      {
+        "item_id": 172220,
+        "data_title": "전국민 건강 증진 비전",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "전국민 건강 증진이라는 포괄적이고 미래지향적인 비전을 제시했으나, 구체적인 실행 방안과 세부 계획이 부족하여 완전한 우수함에는 미치지 못함"
+      },
+      {
+        "item_id": 172221,
+        "data_title": "사회적 책임 의식 필요",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "사회적 책임 의식 부족으로 인해 정책 비전의 근본적 토대가 약화되며, 사회적 쟁점을 간과할 위험성이 비전 실현에 부정적 영향을 미칠 것으로 예상됨"
+      },
+      {
+        "item_id": 172222,
+        "data_title": "정신 건강 정책 제안",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "정신 건강이라는 중요하고 시의적절한 분야에 대한 정책적 비전을 제시하여 국민 정서적 안정에 기여할 수 있는 우수한 방향성을 보여주고 있음"
+      },
+      {
+        "item_id": 172223,
+        "data_title": "기업의 사회적 책임 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "기업의 사회적 책임 강화를 통해 기업-사회 관계 개선이라는 건설적 비전을 제시하여, 사회 전반의 발전에 기여할 수 있는 우수한 정책 방향을 보임"
+      },
+      {
+        "item_id": 172224,
+        "data_title": "민주적 가치 수호 공약",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "민주적 가치 수호와 법질서 확립이라는 국가 운영의 핵심 원칙을 명확히 제시하여, 민주주의 근본을 다지는 매우 우수한 비전을 보여주고 있음"
+      },
+      {
+        "item_id": 172225,
+        "data_title": "리더십 부족 논란",
+        "collected_by": "ChatGPT",
+        "original_rating": "H",
+        "new_rating": "G",
+        "rating_rationale": "불확실한 리더십으로 인한 정치적 신뢰도 문제는 어떤 비전도 실현하기 어렵게 만드는 매우 심각한 결함으로, 비전 추진 능력 자체에 의문을 제기함"
+      },
+      {
+        "item_id": 172226,
+        "data_title": "디지털 법률 서비스 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "디지털 시대에 맞춘 법률 서비스 강화라는 시대적 요구에 부합하는 혁신적이고 실용적인 비전을 제시하여, 국민 편익 증진에 매우 우수한 방향성을 보임"
+      },
+      {
+        "item_id": 172227,
+        "data_title": "교육 접근성 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "전국민 교육 접근성 강화를 통한 교육 공정성 제고라는 사회적 가치를 실현하는 우수한 비전이나, 구체적 실행 계획의 명확성이 다소 부족함"
+      },
+      {
+        "item_id": 172228,
+        "data_title": "다문화 사회 비전 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "다문화 사회라는 현실적 과제에 대한 인식 부족과 구체적 대책 미비는 미래 사회 변화에 대응하는 비전의 완성도를 현저히 떨어뜨리는 미흡한 부분임"
+      },
+      {
+        "item_id": 172229,
+        "data_title": "재난 관리 정책 개선 필요",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "재난 대응 능력 부족과 체계적 개선방안의 부재는 국민 안전이라는 기본적 국정 과제에 대한 비전이 미흡함을 보여주는 심각한 문제점임"
+      },
+      {
+        "item_id": 172230,
+        "data_title": "교통안전 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "교통안전 강화는 국민 생활과 직결된 중요한 정책 영역이며, 안전한 교통환경 조성이라는 명확한 목표를 제시했으나, 구체적인 실행 방안이나 혁신적인 비전이 부족하여 양호한 수준에 그침"
+      },
+      {
+        "item_id": 172231,
+        "data_title": "공공기관 개혁 조치",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "공공기관 개혁은 국가 운영 효율성 향상이라는 중요한 비전을 담고 있으며, 다양한 방안 모색과 실현 의지를 보여주고 있어 우수한 평가를 받을 만하나, 보다 구체적인 개혁 방향성이 필요함"
+      },
+      {
+        "item_id": 172232,
+        "data_title": "청소년 정책에 대한 관심 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "청소년은 국가의 미래를 담당할 핵심 세대임에도 불구하고 관련 정책 담론이 부족하다는 것은 미래 비전의 중대한 결함을 의미하며, 포괄적인 청소년 정책 부재는 장기적 국가 발전에 부정적 영향"
+      },
+      {
+        "item_id": 172233,
+        "data_title": "무역 정책 수립",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "무역 활성화와 국제 경쟁력 강화는 국가 경제 발전의 핵심 요소로서 중요한 비전을 제시하고 있으며, 다양한 정책 방향을 제시한 점에서 우수하나, 구체적인 차별화 전략이 더 필요함"
+      },
+      {
+        "item_id": 172234,
+        "data_title": "사회 안전망 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "사회 안전망 강화를 통한 범죄 예방과 안전한 사회 구축은 국민의 기본적 안전을 보장하는 중요한 비전으로서 우수한 정책 방향이며, 사회 전반의 안정성 향상에 기여할 것으로 평가됨"
+      },
+      {
+        "item_id": 172235,
+        "data_title": "물가 안정 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "물가 안정은 서민 경제와 직결된 핵심 정책 영역으로서 국민 생활 안정이라는 중요한 비전을 담고 있으며, 다양한 정책 제안과 실행 의지를 보여주어 우수한 평가를 받을 만함"
+      },
+      {
+        "item_id": 172236,
+        "data_title": "정치적 불신 심화",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "G",
+        "rating_rationale": "정치적 불신 심화는 민주주의의 근간을 흔드는 매우 심각한 문제로서, 국민과의 신뢰 구축 실패는 정치 리더십의 근본적 결함을 의미하며, 이는 모든 정책 추진의 기반을 약화시키는 치명적 요소"
+      },
+      {
+        "item_id": 172237,
+        "data_title": "정보 및 통신 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "정보통신 분야 혁신은 4차 산업혁명 시대의 핵심 동력이며, 국가 경쟁력의 근본적 강화라는 명확하고 미래지향적인 비전을 제시하고 있어 매우 우수한 정책 방향으로 평가됨"
+      },
+      {
+        "item_id": 172238,
+        "data_title": "산업 정책 개선 필요",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "산업 정책의 체계적 수립 부족은 국가 경제 발전의 기반을 약화시키는 중요한 문제이며, 실효성 있는 대책 마련이 필요하다는 비판은 산업 비전의 미흡함을 보여주는 부정적 요소"
+      },
+      {
+        "item_id": 172239,
+        "data_title": "정보 접근성 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "정보 접근성 강화를 통한 민주적 과정의 투명성 증대는 민주주의 발전과 국민 참여 확대라는 중요한 비전을 담고 있으며, 정치 발전의 기반을 마련하는 우수한 정책 방향으로 평가됨"
+      },
+      {
+        "item_id": 172090,
+        "data_title": "한동훈의 교육 시스템 개혁 비전",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "2025년까지 AI와 빅데이터를 활용한 맞춤형 교육 시스템 구축이라는 구체적이고 혁신적인 비전을 제시했으며, 실업률 감소와 글로벌 경쟁력 향상이라는 명확한 목표와 성과 지표를 포함하고 있어 매우 우수함"
+      },
+      {
+        "item_id": 172091,
+        "data_title": "경제 회복을 위한 장기 비전 발표",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "2030년 경제 비전에서 AI 기반 산업 전환과 지속가능 에너지 정책을 통합적으로 제시하여 포스트 코로나 시대의 변화를 정확히 예측하고, 신성장 동력 창출이라는 구체적 방향성을 명시한 탁월한 비전"
+      },
+      {
+        "item_id": 172092,
+        "data_title": "법치 강화와 사회 안정 비전",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "2040년까지 법치 시스템 완벽화라는 장기 비전을 제시했으나, 부패 방지와 공정 사법이라는 전통적 접근에 머물러 있어 혁신성이 다소 부족하지만 사회 안정이라는 명확한 목표는 우수함"
+      },
+      {
+        "item_id": 172093,
+        "data_title": "환경 보호를 위한 지속 가능 비전",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "2050년 탄소 중립이라는 글로벌 트렌드에 부합하는 장기 비전을 제시하고, 재생에너지 전환과 생태계 보호를 통합한 포괄적 환경 정책으로 미래 지속가능성을 정확히 예측한 매우 우수한 비전"
+      },
+      {
+        "item_id": 172094,
+        "data_title": "디지털 정부 구축 계획",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "2028년까지 디지털 정부 완성이라는 구체적 목표와 행정 효율화, 시민 참여 확대라는 명확한 방향성을 제시했으나, 상대적으로 단기적이고 기존 디지털 전환 트렌드의 연장선상에 있어 우수한 수준"
+      },
+      {
+        "item_id": 172095,
+        "data_title": "인구 고령화 대응 비전",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "2040년 고령화 사회라는 인구 변화를 정확히 예측하고 의료·복지 시스템 개혁과 일자리 재배치를 통한 선제적 대응 방안을 제시한 것은 사회적 변화에 대한 탁월한 미래 예측력을 보여주는 매우 우수한 비전"
+      },
+      {
+        "item_id": 172096,
+        "data_title": "기술 혁신을 통한 산업 비전",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "2035년까지 AI와 로봇 기술의 산업 적용을 통한 생산성 향상이라는 비전은 기술 트렌드를 잘 반영하고 있으나, 기술 중심적 접근에 치우쳐 사회적 영향에 대한 고려가 부족한 우수한 수준의 비전"
+      },
+      {
+        "item_id": 172097,
+        "data_title": "사회적 불평등 완화 비전",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "2030년까지 소득 불평등 완화를 위한 교육 평등과 세제 개혁 비전은 사회 정의 실현이라는 중요한 목표를 제시했으나, 구체적 실행 방안과 혁신적 접근법이 다소 부족하여 우수한 수준"
+      },
+      {
+        "item_id": 172098,
+        "data_title": "문화 예술 진흥 비전",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "2040년까지 문화 산업 글로벌화 비전은 K-컬처 성공 사례를 기반으로 하고 있으나, 기존 성과의 연장선상에 머물러 있고 구체적 전략과 혁신적 요소가 부족하여 양호한 수준에 그침"
+      },
+      {
+        "item_id": 172099,
+        "data_title": "안보 강화 장기 비전",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "2050년까지 지능형 감시 기술을 통한 안보 시스템 업그레이드 비전은 미래 위협에 대한 장기적 대응을 제시했으나, 기술적 접근에 치중되어 있고 프라이버시 등 부작용에 대한 고려가 부족한 우수한 수준"
+      },
+      {
+        "item_id": 172100,
+        "data_title": "한동훈의 건강 관리 시스템 비전",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "웨어러블 기기와 빅데이터를 활용한 스마트 건강관리 시스템은 구체적이고 실현 가능한 비전이다. 2030년이라는 명확한 목표 시점과 의료비 절감이라는 구체적 효과를 제시했으나, 실행 방안의 세부적 내용이 부족하다."
+      },
+      {
+        "item_id": 172101,
+        "data_title": "교통 인프라 발전 비전",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "2040년 자율주행 교통시스템 구축은 미래지향적이고 혁신적인 비전이다. 도시 혼잡 해결과 이동 효율성 향상이라는 명확한 목표를 제시했으나, 기술적 실현 가능성과 단계별 추진 계획에 대한 구체성이 다소 부족하다."
+      },
+      {
+        "item_id": 172102,
+        "data_title": "과학 기술 육성 비전",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "C",
+        "rating_rationale": "2050년 우주탐사와 첨단과학 추진은 장기적이고 야심찬 비전이지만, 너무 포괄적이고 추상적이다. 구체적인 실행 계획이나 단계별 목표, 예산 계획 등이 명시되지 않아 실현 가능성에 대한 의문이 있다."
+      },
+      {
+        "item_id": 172103,
+        "data_title": "지역 균형 발전 비전",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "2035년 지방 도시화를 통한 지역균형 발전은 중요한 정책 비전이나, '지방 도시화'라는 개념이 모호하고 구체적인 추진 방법론이 부족하다. 인구 이동 예측은 좋으나 실행력 있는 세부 계획이 필요하다."
+      },
+      {
+        "item_id": 172104,
+        "data_title": "에너지 자립 비전",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "2040년 에너지 자립은 현실적이고 중요한 비전이다. 재생에너지를 통한 에너지 위기 대응은 시의적절하고 장기적 안정성을 고려한 전략적 접근이다. 다만 구체적인 에너지 믹스나 단계별 자립도 목표가 명시되지 않았다."
+      },
+      {
+        "item_id": 172105,
+        "data_title": "한동훈의 비전 관련 언론 인터뷰",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "C",
+        "rating_rationale": "AI 기반 성장 전략과 2025년 경제 예측은 적절한 시간 프레임을 가지고 있으나, 내용이 너무 포괄적이고 구체성이 부족하다. 미래 불확실성 최소화라는 목표는 좋으나 실제 실행 방안에 대한 구체적 제시가 미흡하다."
+      },
+      {
+        "item_id": 172106,
+        "data_title": "교육 혁신에 대한 뉴스 보도",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "2030년 디지털 학습 환경 구축은 현실적이고 시급한 교육 혁신 비전이다. 미래 인재 양성이라는 명확한 목표와 적절한 시간 프레임을 가지고 있어 실현 가능성이 높다. 다만 구체적인 커리큘럼이나 인프라 구축 방안이 부족하다."
+      },
+      {
+        "item_id": 172107,
+        "data_title": "경제 정책 비전 분석 기사",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "2040년 경제 비전과 팬데믹 후 경제 회복 전략은 시의적절하나, 내용이 추상적이고 구체적인 정책 수단이나 목표 지표가 명시되지 않았다. 장기 성장 전략이라는 방향성은 좋으나 실행력이 부족해 보인다."
+      },
+      {
+        "item_id": 172108,
+        "data_title": "환경 비전 관련 보도",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "2050년 탄소 중립은 국제적 흐름에 부합하는 중요한 환경 비전이다. 기후변화 대응과 장기적 환경 보호라는 명확한 목표를 가지고 있어 의미 있는 비전이나, 구체적인 감축 경로나 산업별 전략이 제시되지 않았다."
+      },
+      {
+        "item_id": 172109,
+        "data_title": "디지털 정부 비전 뉴스",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "2028년 디지털 정부 구현은 구체적이고 실현 가능한 비전이다. 행정 혁신과 효율성 향상이라는 명확한 목표와 적절한 시간 프레임, 그리고 로드맵까지 제시되어 있어 실행력이 높은 우수한 비전으로 평가된다."
+      },
+      {
+        "item_id": 172110,
+        "data_title": "인구 고령화 비전 보도",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "2040년이라는 장기적 목표 설정과 의료개혁을 통한 사회 안정 예측이 구체적이며, 고령화라는 현실적 문제에 대한 체계적 접근을 보여주나 실행 방안의 구체성이 다소 부족함"
+      },
+      {
+        "item_id": 172111,
+        "data_title": "기술 혁신 비전 기사",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "AI 산업이라는 미래 핵심 분야에 대한 명확한 비전과 2035년 목표 설정이 매우 구체적이며, 장기적 성장 전략이 현실적이고 실현 가능성이 높아 보임"
+      },
+      {
+        "item_id": 172112,
+        "data_title": "사회 불평등 비전 분석",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "사회 불평등이라는 중요한 문제에 대한 세제 개혁 비전이 구체적이고, 2030년 목표가 적절하나 단순히 세제 개혁만으로는 불평등 해결에 한계가 있을 수 있음"
+      },
+      {
+        "item_id": 172113,
+        "data_title": "문화 진흥 비전 보도",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "문화 글로벌화 비전은 긍정적이나 2040년이라는 장기 목표에 비해 구체적인 실행 전략이나 방법론이 명확하지 않으며, 문화 수출 예측의 근거가 부족함"
+      },
+      {
+        "item_id": 172114,
+        "data_title": "안보 비전 뉴스",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "2050년 안보 시스템 업그레이드라는 장기적 비전이 명확하고 미래 위협 예측이 현실적이나, 너무 먼 미래 목표 설정으로 중간 단계별 계획이 필요해 보임"
+      },
+      {
+        "item_id": 172115,
+        "data_title": "건강 관리 비전 관련 기사",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "2030년 스마트 의료 시스템이라는 구체적이고 실현 가능한 목표 설정과 비용 절감이라는 경제적 효과까지 고려한 종합적 비전이 매우 우수함"
+      },
+      {
+        "item_id": 172116,
+        "data_title": "교통 비전 분석 보도",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "자율주행이라는 미래 교통 혁신 분야에 대한 비전이 구체적이고 2040년 목표가 현실적이나, 교통 혼잡 해결만으로는 전체적인 교통 정책 비전으로는 다소 제한적임"
+      },
+      {
+        "item_id": 172117,
+        "data_title": "과학 비전 뉴스",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "C",
+        "rating_rationale": "우주 탐사라는 미래 지향적 비전은 좋으나 2050년이라는 장기 목표에 비해 현실적 실행 가능성과 우선순위 측면에서 다른 정책 분야 대비 시급성이 떨어짐"
+      },
+      {
+        "item_id": 172118,
+        "data_title": "지역 발전 비전 기사",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "지방 균형 발전이라는 중요한 국정 과제에 대한 비전이 명확하고 2035년 도시화 계획이 구체적이나, 인구 이동 예측만으로는 균형 발전 전략의 완성도가 아쉬움"
+      },
+      {
+        "item_id": 172119,
+        "data_title": "에너지 비전 보도",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "에너지 자립이라는 국가적 핵심 과제에 대한 명확한 비전과 2040년 재생 에너지 목표가 매우 현실적이며, 미래 위기 대응과 장기 안정성을 모두 고려한 탁월한 정책 비전임"
+      },
+      {
+        "item_id": 172120,
+        "data_title": "한동훈 비전의 예측 실패 사례",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "팬데믹과 같은 예측 불가능한 상황이지만, 비전 수립 시 위기 대응 방안과 유연성을 고려하지 못한 것은 미래 예측 능력의 중대한 결함을 보여주며, 장기 목표의 완전한 무산은 비전 설계의 근본적 문제점을 드러낸다."
+      },
+      {
+        "item_id": 172121,
+        "data_title": "비전 실행의 지연 문제",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "E",
+        "rating_rationale": "교육 개혁이라는 중요한 분야에서 과도한 낙관적 예측으로 인한 지연은 현실성 부족을 보여주며, 실행 가능성을 충분히 검토하지 않은 비전 수립의 미흡함이 드러나지만 완전한 실패는 아니므로 미흡 수준으로 평가된다."
+      },
+      {
+        "item_id": 172122,
+        "data_title": "환경 비전의 비현실성 논란",
+        "collected_by": "Grok",
+        "original_rating": "H",
+        "new_rating": "F",
+        "rating_rationale": "탄소 중립이라는 글로벌 이슈에서 과학적 근거 부족으로 비현실적 비전을 제시한 것은 전문성과 신뢰성에 심각한 문제가 있음을 보여주며, 환경 정책의 중요성을 고려할 때 부족한 수준의 비전 능력을 드러낸다."
+      },
+      {
+        "item_id": 172123,
+        "data_title": "경제 비전의 부족한 준비",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "경제 회복이라는 핵심 분야에서 구체성 부족과 예측 실패는 비전의 실행력과 현실성에 문제가 있음을 보여주지만, 완전한 실패보다는 준비 부족으로 인한 미흡한 수준으로 평가할 수 있다."
+      },
+      {
+        "item_id": 172124,
+        "data_title": "비전의 정치적 편향 비판",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "G",
+        "rating_rationale": "비전이 특정 정당 이익을 우선시하여 미래 예측이 왜곡되었다는 것은 공익성과 객관성을 상실한 매우 심각한 문제로, 정치인의 비전이 갖춰야 할 기본적 공정성과 신뢰성을 크게 훼손하는 매우 부족한 수준이다."
+      },
+      {
+        "item_id": 172125,
+        "data_title": "비전 실행의 부정적 언론 보도",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "E",
+        "rating_rationale": "디지털 분야는 미래 사회의 핵심 영역인데 예측 오류로 인한 실패는 시대적 흐름을 읽지 못한 비전 능력의 미흡함을 보여주며, 장기 목표 훼손은 정책 신뢰도에 부정적 영향을 미친다."
+      },
+      {
+        "item_id": 172126,
+        "data_title": "교육 비전의 논란",
+        "collected_by": "Grok",
+        "original_rating": "H",
+        "new_rating": "E",
+        "rating_rationale": "교육 비전의 비현실성과 과도한 낙관적 예측은 현실 분석 능력의 부족을 드러내며, 교육이 국가 미래와 직결되는 중요한 분야임을 고려할 때 신중하지 못한 비전 수립으로 미흡한 수준이다."
+      },
+      {
+        "item_id": 172127,
+        "data_title": "경제 비전의 실효성 문제",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "경제 비전의 실패와 미래 예측 능력 부족은 국민 생활과 직결되는 핵심 분야에서의 역량 부족을 보여주며, 경제 정책의 중요성을 고려할 때 더 신중하고 정확한 예측이 필요했던 미흡한 사례다."
+      },
+      {
+        "item_id": 172128,
+        "data_title": "환경 비전의 부족",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "환경 비전이 과학적으로 미흡하고 장기 목표가 실현 불가능하다는 것은 전문성 부족과 현실성 결여를 동시에 보여주는 심각한 문제로, 환경 정책의 시급성과 중요성을 고려할 때 부족한 수준의 비전 능력이다."
+      },
+      {
+        "item_id": 172129,
+        "data_title": "디지털 비전의 문제점 보도",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "E",
+        "rating_rationale": "디지털 비전의 지연과 미래 예측 오류는 급변하는 디지털 시대에 대한 이해 부족을 보여주며, 4차 산업혁명 시대에 필수적인 디지털 전환 비전의 실패는 시대적 흐름 파악의 미흡함을 드러낸다."
+      },
+      {
+        "item_id": 172130,
+        "data_title": "한동훈 비전의 일반적 평가",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "일부 미래 예측의 정확성은 인정되나 장기 목표 실행력 부족으로 전반적으로 보통 수준의 비전 역량을 보임. 구체적 실행 계획의 미흡함이 지적됨"
+      },
+      {
+        "item_id": 172131,
+        "data_title": "기본적 비전 제시",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "기본적인 비전 제시 능력은 인정받았으나 구체적이고 세부적인 미래 예측 능력이 부족한 것으로 평가되어 보통 수준의 비전 역량을 나타냄"
+      },
+      {
+        "item_id": 172132,
+        "data_title": "중립적 비전 분석",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "중립적 평가와 표준 수준의 미래 예측 능력을 보여주어 특별히 뛰어나거나 부족하지 않은 보통 수준의 비전 제시 역량으로 판단됨"
+      },
+      {
+        "item_id": 172133,
+        "data_title": "기본적인 경제 비전",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "경제 분야에서 보통 수준의 비전과 기본적인 장기 목표 설정 능력을 보여주어 평균적인 비전 역량을 나타내나 특별한 차별화 요소 부족"
+      },
+      {
+        "item_id": 172134,
+        "data_title": "중립적 환경 비전",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "환경 분야에서 중립적 평가와 표준적 미래 예측 수준을 보여 특별히 우수하거나 미흡하지 않은 보통 수준의 비전 제시 능력으로 평가됨"
+      },
+      {
+        "item_id": 172135,
+        "data_title": "기본적 과학 비전",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "과학 분야에서 기본적 인정을 받았으나 더 나은 예측 능력이 필요하다는 지적으로 현재 수준은 보통이나 개선 여지가 있는 것으로 판단됨"
+      },
+      {
+        "item_id": 172136,
+        "data_title": "중립적 사회 비전",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "사회 분야 비전이 중립적으로 분석되고 표준적 미래 예측 수준을 보여 평균적인 비전 역량을 나타내나 돋보이는 특별함은 부족한 상태"
+      },
+      {
+        "item_id": 172137,
+        "data_title": "보통 수준의 문화 비전",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "문화 분야에서 보통 수준의 평가와 기본적인 장기 목표 설정을 보여주어 특별히 뛰어나지도 부족하지도 않은 평균적 비전 역량으로 평가됨"
+      },
+      {
+        "item_id": 172138,
+        "data_title": "중립적 안보 비전",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "안보 분야에서 중립적 평가와 표준 수준의 미래 예측 능력을 보여 보통 수준의 비전 제시 역량을 나타내나 차별화된 통찰력은 부족"
+      },
+      {
+        "item_id": 172139,
+        "data_title": "기본적 비전 요약",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "전체 비전에 대한 중립적 요약과 보통 수준의 미래 예측 평가로 종합적으로 평균적인 비전 역량을 보여주나 혁신적이거나 탁월한 요소는 부족"
+      },
+      {
+        "item_id": 109435,
+        "data_title": "윤석열 정부 법무부 장관 시절 검찰 개혁 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "검찰 개혁 과정에서 정치적 중립성 훼손은 사법부 독립이라는 민주주의 핵심 가치를 흔드는 문제로, 장기적 국가 비전에 부정적 영향을 미치며 제도적 신뢰성을 약화시키는 중대한 결함을 보여줌"
+      },
+      {
+        "item_id": 109437,
+        "data_title": "과도한 정치적 편향성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "정치적 편향성은 국민통합이라는 국가 발전의 기본 전제를 저해하며, 분열된 사회에서는 지속가능한 발전 비전을 실현하기 어려워 국가의 미래 발전 방향성에 심각한 장애 요소로 작용함"
+      },
+      {
+        "item_id": 109438,
+        "data_title": "정책 일관성 부족",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "G",
+        "rating_rationale": "정책 일관성 부족과 장기 비전 부재는 비전 평가의 핵심 요소로, 상황에 따라 입장을 변경하는 것은 국가의 지속적 발전 전략 수립과 실행에 매우 부정적 영향을 미치는 치명적 약점임"
+      },
+      {
+        "item_id": 109440,
+        "data_title": "사법부 독립성 침해 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "G",
+        "new_rating": "G",
+        "rating_rationale": "사법부 독립성 침해는 민주주의 근간을 흔드는 행위로, 법치주의 확립이라는 국가 발전의 기본 토대를 훼손하여 장기적 국가 비전 실현에 매우 부정적 영향을 미치는 심각한 문제임"
+      },
+      {
+        "item_id": 109443,
+        "data_title": "청년 미래 정책 부재",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "청년은 국가의 미래 동력이며, 청년 정책 부재는 국가의 지속가능한 발전 비전에 직접적 타격을 주는 요소로, 미래 세대를 위한 장기적 전략 부족은 국가 경쟁력 약화로 이어질 수 있음"
+      },
+      {
+        "item_id": 109445,
+        "data_title": "부동산 공약 신뢰성 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "부동산 공약의 실현가능성 부족은 정책 신뢰성을 떨어뜨리며, 국민 생활과 직결된 주거 정책에서의 구체성 부족은 장기적 도시 발전 비전 수립에 부정적 영향을 미치는 미흡한 부분임"
+      },
+      {
+        "item_id": 109447,
+        "data_title": "정치적 급진성과 극단적 이념 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "극단적 이념과 정치적 급진성은 사회 갈등을 조장하여 국민통합을 저해하며, 안정적이고 지속가능한 국가 발전 비전을 실현하는데 필요한 사회적 합의 형성을 어렵게 만드는 부족한 요소임"
+      },
+      {
+        "item_id": 109448,
+        "data_title": "미래 전략의 모호성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "미래 전략의 모호성과 구체적 장기 비전 부재는 비전 평가의 핵심 기준으로, 청년 정책과 혁신 전략에서의 방향성 부족은 국가의 미래 경쟁력 확보에 부정적 영향을 미치는 중대한 결함임"
+      },
+      {
+        "item_id": 109450,
+        "data_title": "정치적 네트워크의 편향성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "정치적 네트워크의 편향성은 다양한 의견 수렴과 포용적 정책 수립을 제한하며, 균형잡힌 국가 발전 비전을 위해서는 다양성 확보가 필수적이므로 이러한 편향성은 미흡한 부분으로 평가됨"
+      },
+      {
+        "item_id": 109453,
+        "data_title": "정책 일관성 부족",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "정책 방향성의 빈번한 변경은 일관된 국가 발전 전략 수립과 실행을 저해하며, 지속가능한 비전 실현을 위해서는 정책의 연속성과 일관성이 필수적이므로 이는 부족한 요소로 판단됨"
+      },
+      {
+        "item_id": 109455,
+        "data_title": "디지털 정부 혁신 추진",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "디지털 정부 혁신은 미래 행정의 핵심 방향으로 명확한 비전을 제시하며, 실무적 경험을 바탕으로 한 구체적 추진력을 보여주나 혁신성 측면에서 한계가 있음"
+      },
+      {
+        "item_id": 109457,
+        "data_title": "규제 샌드박스 확대 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "규제 샌드박스 확대는 미래 혁신 생태계 조성을 위한 선진적 접근으로 기업가정신과 혁신 문화 확산에 기여할 수 있는 정책적 비전을 보여주지만 구체성이 부족함"
+      },
+      {
+        "item_id": 109460,
+        "data_title": "AI 정책 추진 의지",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "AI 정책 추진은 4차 산업혁명 시대의 핵심 기술 영역으로 국가 경쟁력 확보를 위한 매우 중요한 미래 비전을 제시하며, 제도적 기반 마련을 통한 체계적 접근을 보임"
+      },
+      {
+        "item_id": 109463,
+        "data_title": "데이터 경제 활성화 방안",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "데이터 경제 활성화는 디지털 경제 전환의 핵심 요소로 새로운 경제 패러다임을 제시하는 비전적 정책이나, 데이터 댐 프로젝트의 실효성에 대한 의문이 존재함"
+      },
+      {
+        "item_id": 109464,
+        "data_title": "디지털 포용 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "디지털 포용 정책은 사회통합적 관점에서 의미있는 비전을 제시하고 정보 격차 해소라는 사회적 가치를 추구하나, 혁신적 미래 비전보다는 보완적 성격이 강함"
+      },
+      {
+        "item_id": 109466,
+        "data_title": "중소기업 디지털 전환 지원",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "중소기업 디지털 전환 지원은 경제 생태계 전반의 디지털 혁신을 위한 필요한 정책이지만, 기존 지원 정책의 연장선상에서 새로운 비전적 요소가 제한적임"
+      },
+      {
+        "item_id": 109468,
+        "data_title": "국가 사이버 보안 강화",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "사이버 보안 강화는 디지털 사회의 안전한 기반 구축을 위한 필수적 요소이나, 수세적 방어 정책의 성격이 강하여 혁신적 미래 비전보다는 현상 유지적 특성을 보임"
+      },
+      {
+        "item_id": 109470,
+        "data_title": "미래 산업 생태계 조성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "D",
+        "rating_rationale": "미래 산업 생태계 조성은 중요한 정책 방향이나 구체적인 비전이나 전략이 명확하지 않고, 신성장 동력에 대한 구체적 제시 없이 추상적 수준에 머물러 있음"
+      },
+      {
+        "item_id": 109474,
+        "data_title": "디지털 민주주의 확대",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "B",
+        "rating_rationale": "디지털 민주주의 확대는 정치 참여의 새로운 패러다임을 제시하는 혁신적 비전으로, 시민 참여 확대와 정치 투명성 향상에 기여할 수 있는 미래지향적 접근을 보여줌"
+      },
+      {
+        "item_id": 109473,
+        "data_title": "기후변화 대응 디지털 전략",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "기후변화 대응 디지털 전략은 글로벌 트렌드에 부합하는 중요한 정책 방향이나, 초기 단계로 구체적 비전과 실행 계획이 미흡하여 정책적 완성도가 부족함"
+      },
+      {
+        "item_id": 109475,
+        "data_title": "글로벌 디지털 협력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "글로벌 디지털 협력 네트워크 구축은 국제적 시각과 미래 지향적 접근을 보여주나, 구체적인 실행 계획과 성과 지표가 명확하지 않아 우수 수준으로 평가됨"
+      },
+      {
+        "item_id": 109477,
+        "data_title": "데이터 개인정보 보호",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "개인정보 보호와 데이터 활용의 균형은 현실적이고 필요한 접근이지만, 혁신적 비전보다는 기존 이슈에 대한 대응 수준으로 양호한 평가를 받음"
+      },
+      {
+        "item_id": 109481,
+        "data_title": "디지털 교육 혁신",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "미래형 디지털 교육 인프라 구축은 차세대를 위한 장기적 비전을 제시하며, 교육 혁신을 통한 사회 전반의 디지털 전환 기반 마련이라는 점에서 매우 우수함"
+      },
+      {
+        "item_id": 109483,
+        "data_title": "스마트 도시 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "B",
+        "rating_rationale": "스마트 도시 정책은 도시 전체의 디지털 전환이라는 포괄적 비전을 담고 있으나, 구상 단계에 머물러 있어 구체성 부족으로 우수 수준에 그침"
+      },
+      {
+        "item_id": 109487,
+        "data_title": "디지털 헬스케어 추진",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "디지털 헬스케어는 중요한 미래 산업이지만 초기 모델 제시 수준으로, 의료 분야의 근본적 변화보다는 점진적 개선 정도의 비전을 보여줌"
+      },
+      {
+        "item_id": 109490,
+        "data_title": "디지털 격차 해소 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "디지털 격차 해소는 사회적 포용성 측면에서 의미가 있으나, 기존 문제 해결에 초점을 맞춘 정책으로 혁신적 비전보다는 보완적 성격이 강함"
+      },
+      {
+        "item_id": 109493,
+        "data_title": "블록체인 기술 육성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "B",
+        "rating_rationale": "블록체인 기술 육성은 차세대 핵심 기술에 대한 선제적 투자 의지를 보여주지만, 초기 단계라는 한계와 구체적 로드맵 부재로 우수 수준으로 평가됨"
+      },
+      {
+        "item_id": 109496,
+        "data_title": "AI 윤리 가이드라인",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "AI 윤리 가이드라인 마련은 기술 발전과 인간 가치의 조화라는 미래지향적 관점을 보여주며, 책임감 있는 기술 발전 방향을 제시하여 매우 우수함"
+      },
+      {
+        "item_id": 109500,
+        "data_title": "디지털 일자리 생태계",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "디지털 일자리 창출 정책은 실용적이고 현실적인 접근이지만, 정책 모색 단계에 머물러 있어 구체적인 비전과 실행력 측면에서 양호 수준임"
+      },
+      {
+        "item_id": 109503,
+        "data_title": "양자컴퓨팅 전략",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "A",
+        "rating_rationale": "양자컴퓨팅 전략은 차세대 혁신 기술에 대한 장기적 투자 비전을 보여주며, 국가 경쟁력 확보를 위한 미래지향적 접근으로 매우 우수한 평가를 받음"
+      },
+      {
+        "item_id": 109506,
+        "data_title": "당 쇄신 및 미래 비전 제시",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "당 쇄신과 미래 전략을 강조한 것은 정치 비전의 기본 요소를 제시했으나, 구체적인 실행 방안이나 차별화된 비전이 부족해 보입니다."
+      },
+      {
+        "item_id": 109508,
+        "data_title": "디지털 혁신 정책 추진",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "디지털 기술 기반 정책 혁신은 미래지향적이고 시대적 요구에 부합하는 명확한 비전으로, 구체적인 방향성을 제시한 점이 우수합니다."
+      },
+      {
+        "item_id": 109511,
+        "data_title": "정치 쇄신 로드맵",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "정치 시스템의 근본적 변화 제안은 혁신적 비전을 보여주지만, 실제 변화 방안의 구체성과 실현 가능성에 대한 설명이 부족합니다."
+      },
+      {
+        "item_id": 109515,
+        "data_title": "청년 정책 비전",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "청년층을 대상으로 한 일자리와 미래 발전 전략은 사회적 요구가 높은 분야로, 미래 세대를 위한 구체적 비전을 제시한 점이 매우 우수합니다."
+      },
+      {
+        "item_id": 109519,
+        "data_title": "정치 혁신 의지",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "기존 정치권 관행 탈피 주장은 방향성은 좋으나, 단순한 의지 표명 수준에 그쳐 구체적인 비전이나 실행 계획이 부족합니다."
+      },
+      {
+        "item_id": 109522,
+        "data_title": "미래 산업 전략",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "신성장 동력 산업 육성은 국가 경제의 미래를 위한 핵심 비전으로, 장기적 관점에서 매우 중요하고 구체적인 계획을 제시했습니다."
+      },
+      {
+        "item_id": 109525,
+        "data_title": "정치 혁신 플랫폼",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "디지털 기반 정치 참여 모델은 민주주의 발전과 시민 참여 확대를 위한 혁신적 비전으로, 미래 정치의 방향을 제시한 점이 탁월합니다."
+      },
+      {
+        "item_id": 109527,
+        "data_title": "미래 교육 비전",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "디지털 시대 교육 혁신은 미래 인재 양성의 핵심 과제로, 시대 변화에 부합하는 명확하고 중요한 교육 비전을 제시했습니다."
+      },
+      {
+        "item_id": 109532,
+        "data_title": "창의적 정치 접근",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "기존 정치 프레임을 벗어난 새로운 접근은 창의적 사고를 보여주나, 구체적인 방법론이나 실현 방안에 대한 설명이 부족합니다."
+      },
+      {
+        "item_id": 109535,
+        "data_title": "기후변화 대응 전략",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "A",
+        "rating_rationale": "기후변화 대응은 전 지구적 과제로 장기적 관점이 필수적인 분야입니다. 이에 대한 정책 방향 제시는 미래 세대를 위한 중요한 비전입니다."
+      },
+      {
+        "item_id": 109539,
+        "data_title": "국가 경쟁력 강화 비전",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "글로벌 경쟁력 제고를 위한 장기 전략은 국가 발전에 필수적인 비전이나, 구체적인 실행 방안이나 차별화된 접근법에 대한 세부 내용이 부족하여 우수 수준으로 평가됨"
+      },
+      {
+        "item_id": 109542,
+        "data_title": "기술 혁신 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "첨단 기술 중심의 정책 방향은 미래 지향적이고 시의적절한 비전이지만, 기술 혁신의 구체적인 로드맵이나 실현 가능성에 대한 명확한 제시가 부족하여 우수 등급으로 평가"
+      },
+      {
+        "item_id": 109545,
+        "data_title": "사회 포용성 비전",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "A",
+        "rating_rationale": "다양성과 포용을 강조하는 사회 모델은 현대 사회의 핵심 가치를 반영한 매우 중요한 비전으로, 사회 통합과 지속가능한 발전을 위한 필수적 요소를 포함하고 있어 매우 우수함"
+      },
+      {
+        "item_id": 109548,
+        "data_title": "디지털 민주주의 모델",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "온라인 기반 정치 참여 확대는 민주주의 발전에 기여할 수 있는 혁신적 비전이나, 디지털 격차나 보안 문제 등 실현 과정에서의 도전 요소들에 대한 고려가 필요하여 우수 등급"
+      },
+      {
+        "item_id": 109549,
+        "data_title": "미래 과학기술 전략",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "과학기술 중심의 국가 발전 전략은 4차 산업혁명 시대에 적합한 미래 지향적 비전이지만, 과학기술 투자의 우선순위나 인문사회과학과의 균형에 대한 구체적 방안이 부족함"
+      },
+      {
+        "item_id": 109552,
+        "data_title": "국제협력 비전",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "B",
+        "rating_rationale": "글로벌 협력 강화 전략은 국제사회에서의 위상 제고에 중요한 비전이나, 구체적인 협력 분야나 한국의 고유한 역할에 대한 차별화된 접근법이 명확하지 않아 우수 등급으로 평가"
+      },
+      {
+        "item_id": 109554,
+        "data_title": "사회혁신 전략",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "사회 구조적 변화를 위한 혁신 모델은 기존 시스템의 한계를 극복하고 새로운 사회 패러다임을 제시하는 포괄적이고 근본적인 비전으로서 매우 우수한 정책적 통찰력을 보여줌"
+      },
+      {
+        "item_id": 109555,
+        "data_title": "데이터 기반 정책 접근",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "데이터 분석을 통한 정책 결정 방식은 증거 기반 정책 수립에 필수적인 현대적 접근법이나, 데이터의 질적 한계나 인간적 요소의 고려 부족 등의 한계점이 존재하여 우수 등급"
+      },
+      {
+        "item_id": 109557,
+        "data_title": "미래 세대 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "미래 세대를 위한 장기 발전 전략은 지속가능성과 세대간 형평성을 고려한 매우 중요한 비전으로, 현재의 정책 결정이 미래에 미칠 영향을 종합적으로 고려한 책임감 있는 접근법임"
+      },
+      {
+        "item_id": 109560,
+        "data_title": "혁신적 거버넌스 모델",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "새로운 정치 운영 시스템 제안은 기존 정치 시스템의 한계를 극복하고 효율성과 투명성을 높일 수 있는 혁신적 거버넌스 비전으로서 정치 발전에 매우 중요한 기여를 할 수 있음"
+      }
+    ]
+  },
+  "scores": {
+    "ChatGPT": {
+      "avg_rating": 4.253333333333333,
+      "category_score": 81.26666666666667,
+      "total_items": 150,
+      "positive": 119,
+      "negative": 31
+    },
+    "Grok": {
+      "avg_rating": 4.12,
+      "category_score": 80.60000000000001,
+      "total_items": 150,
+      "positive": 117,
+      "negative": 33
+    },
+    "Claude": {
+      "avg_rating": 3.6133333333333333,
+      "category_score": 78.06666666666666,
+      "total_items": 150,
+      "positive": 116,
+      "negative": 34
+    }
+  },
+  "final_score": 79.97777777777777
+}

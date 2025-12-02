@@ -1,12 +1,13 @@
 -- Task ID: P2D1
 -- Migration: Create user_favorites table
 -- Description: User's favorite politicians tracking
+-- IMPORTANT: politician_id is TEXT (8-char hex), NOT UUID
 
 -- User favorites table
 CREATE TABLE IF NOT EXISTS user_favorites (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
-  politician_id UUID NOT NULL REFERENCES politicians(id) ON DELETE CASCADE,
+  politician_id TEXT NOT NULL REFERENCES politicians(id) ON DELETE CASCADE,
   created_at TIMESTAMPTZ DEFAULT NOW(),
   UNIQUE(user_id, politician_id)
 );

@@ -1,0 +1,3635 @@
+{
+  "data_pool_size": 150,
+  "evaluation_results": {
+    "ChatGPT": [
+      {
+        "item_id": 172490,
+        "data_title": "약속 불이행 문제",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "약속 불이행으로 인해 국민의 신뢰를 떨어뜨리고 있어, 정치인으로서 책임성이 미흡하다."
+      },
+      {
+        "item_id": 172491,
+        "data_title": "검찰 개혁 실적 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "D",
+        "rating_rationale": "검찰 개혁 실적 부족으로 논란이 있으며, 이는 정치적 책임감이 부족함을 나타낸다."
+      },
+      {
+        "item_id": 172492,
+        "data_title": "인사 문제 비판",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "인사 문제로 정치적 중립성이 해치고 있어, 민주적 책임성을 저해하는 요소로 작용한다."
+      },
+      {
+        "item_id": 172493,
+        "data_title": "국민과의 소통 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "국민과의 소통 부족으로 부정적인 인식을 초래하고 있어, 책임성이 미흡하다고 평가된다."
+      },
+      {
+        "item_id": 172494,
+        "data_title": "정치적 발언의 불투명성",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "D",
+        "rating_rationale": "정치적 발언의 모호성으로 국민들이 혼란스러워하고 있으며, 이는 신뢰성에 부정적 영향을 미친다."
+      },
+      {
+        "item_id": 172495,
+        "data_title": "공공의 이익 우선 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "공공의 이익을 최우선으로 고려하겠다는 선언은 긍정적이나, 실제 이행 여부가 중요하다."
+      },
+      {
+        "item_id": 172496,
+        "data_title": "법률 제정 참여",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "법률 제정에 적극 참여하여 법무부 정책 방향 제시에 기여하고 있어, 책임성을 보이는 모습이다."
+      },
+      {
+        "item_id": 172497,
+        "data_title": "정책 투명성 강화 약속",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "정책 투명성 강화 약속은 긍정적이나, 실제 실행 여부가 평가의 핵심이 될 것이다."
+      },
+      {
+        "item_id": 172498,
+        "data_title": "법적 책임 규명 노력",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "법적 책임 규명 필요성을 강조하며 투명하고 공정한 절차를 약속한 점은 책임감이 있다."
+      },
+      {
+        "item_id": 172499,
+        "data_title": "국민 추천 제도 도입",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "국민 추천 제도 도입은 정책 신뢰성을 높이려는 적극적인 노력으로 매우 긍정적이다."
+      },
+      {
+        "item_id": 172500,
+        "data_title": "단체와의 협력 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "사회단체와의 협력을 통해 다양한 의견을 수렴하려는 의지는 정책의 책임성을 높이고, 민주적 절차를 강화하는 긍정적인 접근이다."
+      },
+      {
+        "item_id": 172501,
+        "data_title": "국회 출석률",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "높은 출석률은 국민에 대한 책임을 다하고 있다는 증거로, 국회의원의 기본적인 책무를 충실히 이행하고 있음을 보여준다."
+      },
+      {
+        "item_id": 172502,
+        "data_title": "정책 평가 회의 개최",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "정기적인 평가 회의를 통해 성과 분석과 개선을 도모하는 것은 정책의 효과성을 높이는 책임 있는 자세로 평가된다."
+      },
+      {
+        "item_id": 172503,
+        "data_title": "투명한 예산 사용 약속",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "예산 사용의 투명성을 보장하려는 약속은 공공 재정 관리에 대한 책임성을 높이고, 신뢰를 구축하는 데 기여한다."
+      },
+      {
+        "item_id": 172504,
+        "data_title": "위기 대처 능력",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "과거의 위기 대처 능력은 긍정적이나, 구체적인 사례가 부족하여 다소 신뢰성에 한계가 있는 평가이다."
+      },
+      {
+        "item_id": 172505,
+        "data_title": "법 집행 공정성 강조",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "법 집행의 공정성을 강조하는 것은 법치주의를 확립하고 국민의 권리를 보호하는 데 매우 중요한 책임 있는 태도이다."
+      },
+      {
+        "item_id": 172506,
+        "data_title": "정책 개선 피드백 수렴",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "정책 개선을 위한 피드백 수렴 의지는 적극적인 소통과 책임감 있는 정책 운영을 나타내며, 이는 긍정적이다."
+      },
+      {
+        "item_id": 172507,
+        "data_title": "지속적인 교육 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "지속적인 교육 강화는 전문성을 높이려는 긍정적인 노력으로, 그러나 교육의 구체적인 내용과 성과가 부족해 다소 아쉽다."
+      },
+      {
+        "item_id": 172508,
+        "data_title": "국민의 목소리 반영 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "국민의 목소리를 반영하겠다는 의지는 정책의 민주적 정당성을 강화하고, 책임 있는 정치인의 자세를 보여준다."
+      },
+      {
+        "item_id": 172509,
+        "data_title": "검찰 윤리 교육 실시",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "검찰의 윤리 교육 강화를 약속한 것은 법의 공정성을 유지하려는 책임 있는 자세로, 매우 긍정적으로 평가된다."
+      },
+      {
+        "item_id": 172510,
+        "data_title": "법적 책임 축소 비판",
+        "collected_by": "ChatGPT",
+        "original_rating": "G",
+        "new_rating": "H",
+        "rating_rationale": "법적 책임을 축소하는 조치는 정치인의 신뢰성을 심각하게 훼손하며, 법치주의에 대한 기본적인 원칙을 위배하는 행위로 평가된다."
+      },
+      {
+        "item_id": 172511,
+        "data_title": "정책 변경의 일관성 결여",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "G",
+        "rating_rationale": "정책의 일관성이 결여된 것은 국민의 혼란을 초래하고 신뢰를 잃게 하며, 정치인의 책임성을 심각하게 훼손하는 요소이다."
+      },
+      {
+        "item_id": 172512,
+        "data_title": "논란의 법안 통과",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "논란을 일으킨 법안 주도는 정치적 책임을 다하지 못한 결과로, 이는 정치적 신뢰도를 떨어뜨리는 중대한 문제로 간주된다."
+      },
+      {
+        "item_id": 172513,
+        "data_title": "피해자 목소리 무시 비판",
+        "collected_by": "ChatGPT",
+        "original_rating": "H",
+        "new_rating": "G",
+        "rating_rationale": "피해자의 목소리를 무시하는 것은 공공의 이익을 고려하지 않은 행동으로, 책임성을 갖춘 정치인으로서의 자격을 의심받게 한다."
+      },
+      {
+        "item_id": 172514,
+        "data_title": "사건 처리의 비효율성",
+        "collected_by": "ChatGPT",
+        "original_rating": "G",
+        "new_rating": "F",
+        "rating_rationale": "사건 처리의 비효율성은 국민의 안전에 직접적인 영향을 미치며, 이는 책임을 다하지 못한 것으로 간주되어 부정적인 평가를 받는다."
+      },
+      {
+        "item_id": 172515,
+        "data_title": "정책 실행 투명성",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "정책 실행의 투명성을 약속한 것은 긍정적인 지표이지만, 실제 실행이 따라야 신뢰를 구축할 수 있다. 현재로서는 개선의 여지가 있다."
+      },
+      {
+        "item_id": 172516,
+        "data_title": "정기적인 성과 보고 예정",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "정기적인 성과 보고 계획은 긍정적이나, 실행 여부가 중요하며, 실제로 이행되지 않으면 책임성에 흠집이 날 수 있다."
+      },
+      {
+        "item_id": 172517,
+        "data_title": "갈등 해결 노력",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "갈등 해결 노력을 기울이는 것은 긍정적이지만, 그 노력의 구체성과 효과성에 따라 책임성이 평가될 수 있다."
+      },
+      {
+        "item_id": 172518,
+        "data_title": "정책 개선 요청 수용",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "정책 개선 요청을 수용하는 것은 국민 의견을 존중하는 행위로 긍정적이나, 보다 적극적인 참여가 필요하다."
+      },
+      {
+        "item_id": 172519,
+        "data_title": "사법 제도 개선 방안 제시",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "사법 제도 개선 방안 제시는 법의 지배를 강화하려는 노력으로, 책임성 있는 정치인의 역할을 잘 수행하고 있음을 나타낸다."
+      },
+      {
+        "item_id": 172520,
+        "data_title": "공정성 유지 노력",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "공정성을 높이기 위한 연구는 긍정적이나, 구체적인 실행 계획이 부족하여 다소 미흡한 부분이 있다."
+      },
+      {
+        "item_id": 172521,
+        "data_title": "법률자문 공정성 강화 약속",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "법률자문 과정에서의 공정성 강화를 약속하고 실천 의지를 밝힌 것은 매우 긍정적이며 신뢰를 높이는 요소다."
+      },
+      {
+        "item_id": 172522,
+        "data_title": "국회의원으로서 책임 다짐",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "국회의원으로서의 책임 다짐은 중요하지만, 구체적인 행동 계획이 결여되어 있어 우수하나 다소 부족한 측면이 있다."
+      },
+      {
+        "item_id": 172523,
+        "data_title": "법 취지 존중 강조",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "법의 취지를 존중하겠다는 의지는 바람직하나, 구체적인 실천 방안이 부족하여 다소 미흡하게 평가된다."
+      },
+      {
+        "item_id": 172524,
+        "data_title": "시민의 안전 최우선 보장",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "시민의 안전을 최우선으로 하겠다는 다짐은 책임감 있는 태도를 보여주며, 정책 방향성 제시도 긍정적이다."
+      },
+      {
+        "item_id": 172525,
+        "data_title": "정당 정책 투명성 약속",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "정당의 정책 투명성 약속은 매우 중요하지만, 구체적인 실행 계획이 필요하여 다소 미흡하게 평가된다."
+      },
+      {
+        "item_id": 172526,
+        "data_title": "법적 책임 문제 희석 우려",
+        "collected_by": "ChatGPT",
+        "original_rating": "H",
+        "new_rating": "H",
+        "rating_rationale": "법적 책임을 경감시키려는 시도는 매우 치명적인 결함으로, 신뢰를 심각하게 훼손할 수 있다."
+      },
+      {
+        "item_id": 172527,
+        "data_title": "정책과 약속 불일치 지적",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "G",
+        "rating_rationale": "정책과 약속 간 불일치는 신뢰를 크게 떨어뜨리며, 이는 정치적 책임을 심각하게 저해하는 요소이다."
+      },
+      {
+        "item_id": 172528,
+        "data_title": "국민 의견 반영 약속",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "국민 의견을 반영하겠다는 다짐은 정치인의 책임성을 높이며, 실천 계획이 있다면 더욱 신뢰를 받을 수 있다."
+      },
+      {
+        "item_id": 172529,
+        "data_title": "정치를 위한 정치 비판",
+        "collected_by": "ChatGPT",
+        "original_rating": "G",
+        "new_rating": "F",
+        "rating_rationale": "정치적 이득을 위한 발언 비판은 신뢰 문제를 야기하며, 이는 정치인의 책임성을 크게 저해하는 요소이다."
+      },
+      {
+        "item_id": 172530,
+        "data_title": "정책 결과 분석 진행",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "정책 결과 분석을 진지하게 진행하겠다는 발표는 책임감 있는 태도를 보여줍니다. 이는 정책의 효과를 평가하고 개선하기 위한 긍정적인 행동입니다."
+      },
+      {
+        "item_id": 172531,
+        "data_title": "다양한 이해관계 조정 노력",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "다양한 이해관계를 조정하려는 노력은 책임감의 일환으로, 정책 결정 과정에서의 배려가 중요함을 나타냅니다. 하지만 구체적인 방법이 부족해 추가 보완이 필요합니다."
+      },
+      {
+        "item_id": 172532,
+        "data_title": "국민과의 간담회 개최 의사",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "정기적인 국민 간담회 개최 의사는 책임있는 소통의 중요성을 강조하며, 국민의 목소리를 듣겠다는 의지를 나타냅니다."
+      },
+      {
+        "item_id": 172533,
+        "data_title": "부정부패 척결 의지",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "부정부패 척결 의지를 여러 차례 강조한 것은 정치인의 기본적인 책임을 다하겠다는 강력한 의지를 보여줍니다."
+      },
+      {
+        "item_id": 172534,
+        "data_title": "정당 내부 투명성 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "정당 내부의 투명성을 강화하겠다는 주장은 정치적 책임성을 높이고, 공정한 정치 문화를 조성하려는 의지를 보여줍니다."
+      },
+      {
+        "item_id": 172535,
+        "data_title": "사법 시스템 개선 의지",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "사법 시스템 개선을 위한 노력이 긍정적이나, 구체적인 실행 계획이나 결과가 제시되지 않아 다소 아쉬운 점이 있습니다."
+      },
+      {
+        "item_id": 172536,
+        "data_title": "소통 부족 솔직한 인정",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "소통 부족 문제를 인정하고 개선하겠다는 태도는 책임 있는 행동이지만, 이전 소통 부족 문제를 해결하기 위한 구체적인 계획이 필요합니다."
+      },
+      {
+        "item_id": 172537,
+        "data_title": "정책 신뢰도 향상 방안 제시",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "정책 신뢰도 향상 방안을 제시한 것은 책임성을 다하려는 의지를 보여주며, 구체적인 실행 방안이 기대됩니다."
+      },
+      {
+        "item_id": 172538,
+        "data_title": "국민과의 대화 의지",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "국민과의 대화를 지속적으로 진행하겠다는 약속은 소통의 중요성을 인식하고 책임감을 갖고 있다는 점에서 매우 긍정적입니다."
+      },
+      {
+        "item_id": 172539,
+        "data_title": "정책 공개의 습관화",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "정기적으로 정책 내용을 공개하겠다는 의지는 투명성을 높이려는 좋은 시도이나, 그 실질적인 영향력이 아직 불확실합니다."
+      },
+      {
+        "item_id": 172340,
+        "data_title": "한동훈 의원의 환경 보호 법안 추진 성과",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "한동훈 의원은 환경 법안의 성공적인 추진과 투명한 의정 활동을 통해 지역 사회 발전에 기여했으며, 이는 매우 높은 책임성을 보여줍니다."
+      },
+      {
+        "item_id": 172341,
+        "data_title": "한동훈의 복지 정책 이행 보고",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "저소득층 지원 정책의 성공적인 이행을 통해 수천 가구의 생활 안정을 도모했으며, 책임성 있는 태도로 정책을 관리한 점이 높이 평가됩니다."
+      },
+      {
+        "item_id": 172342,
+        "data_title": "한동훈의 교육 개혁 참여",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "교육 예산 증액을 주장하고, 학생 교육 기회 확대에 기여한 점은 그의 책임성 있는 리더십을 잘 보여줍니다."
+      },
+      {
+        "item_id": 172343,
+        "data_title": "한동훈의 지역 개발 프로젝트",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "지역 주민 의견 수집과 정부 자금 배분을 통해 책임감 있게 프로젝트를 완료했으며, 공약 이행의 모범 사례로 평가됩니다."
+      },
+      {
+        "item_id": 172344,
+        "data_title": "한동훈의 외교 정책 지원",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "국제 협력 법안 지지를 통해 국가 안보 강화를 도모했으며, 일관된 입장은 그의 책임성을 잘 보여줍니다."
+      },
+      {
+        "item_id": 172345,
+        "data_title": "한동훈의 코로나 대응 노력",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "코로나 대응을 위한 법안 제안과 실행으로 지역 의료 시스템을 강화했으며, 책임감 있는 대응으로 평가받았습니다."
+      },
+      {
+        "item_id": 172346,
+        "data_title": "한동훈의 일자리 창출 정책",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "B",
+        "rating_rationale": "일자리 창출을 위한 법안을 추진했지만, 일부 목표 미달이 있어 약간의 부족함이 있지만 기본적인 책임성은 유지했습니다."
+      },
+      {
+        "item_id": 172347,
+        "data_title": "한동훈의 문화 예술 지원",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "문화 예술 지원 예산 확보와 모니터링을 통해 지역 문화 발전에 기여했으며, 이는 높은 책임성을 보여 줍니다."
+      },
+      {
+        "item_id": 172348,
+        "data_title": "한동훈의 교통 인프라 개선",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "교통 인프라 개선을 위한 법안 발의와 책임감 있는 관리로 프로젝트를 추진하여 지역 교통 체계를 업그레이드했습니다."
+      },
+      {
+        "item_id": 172349,
+        "data_title": "한동훈의 노인 복지 확대",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "노인 복지 확대 정책을 실행하여 노인 의료 혜택 증가에 기여하고, 지속적인 피드백 관리가 이루어진 점이 높이 평가됩니다."
+      },
+      {
+        "item_id": 172350,
+        "data_title": "한동훈의 환경 정책 성과",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "환경 보호 법안 통과와 오염 저감 성과로 매우 높은 책임성을 보여줍니다."
+      },
+      {
+        "item_id": 172351,
+        "data_title": "한동훈의 정치 활동 평가",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "공약 이행과 지역 발전 기여로 책임성을 확실히 입증한 평가입니다."
+      },
+      {
+        "item_id": 172352,
+        "data_title": "한동훈의 선거 공약 이행",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "높은 공약 이행률로 책임 있는 정치인으로서의 모습을 잘 보여줍니다."
+      },
+      {
+        "item_id": 172353,
+        "data_title": "한동훈의 사회 복지 노력",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "B",
+        "rating_rationale": "사회 복지 관련 활동이 중립적으로 다루어졌지만, 구체적인 성과가 부족해 다소 아쉬움이 있습니다."
+      },
+      {
+        "item_id": 172354,
+        "data_title": "한동훈의 경제 정책 기여",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "경제 정책의 긍정적 평가와 책임성 있는 태도가 돋보이며 매우 우수합니다."
+      },
+      {
+        "item_id": 172355,
+        "data_title": "한동훈의 법안 제정 성과",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "법안 제정으로 책임성을 강화한 사례가 많아 매우 높은 평가를 받습니다."
+      },
+      {
+        "item_id": 172356,
+        "data_title": "한동훈의 지역 사회 기여",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "지역 사회 기여가 중립적으로 평가되었으나, 성과의 구체성이 부족해 아쉬움이 있습니다."
+      },
+      {
+        "item_id": 172357,
+        "data_title": "한동훈의 의정 활동 분석",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "의정 활동이 책임성 있게 이뤄졌다는 분석으로 매우 우수한 평가를 받습니다."
+      },
+      {
+        "item_id": 172358,
+        "data_title": "한동훈의 공공 안전 정책",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "공공 안전 정책의 긍정적 보도로 책임성을 잘 보여주고 있어 매우 높은 평가입니다."
+      },
+      {
+        "item_id": 172359,
+        "data_title": "한동훈의 환경 보호 캠페인",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "B",
+        "rating_rationale": "환경 보호 캠페인이 중립적으로 평가되었으나, 성과의 구체성이 부족해 다소 아쉽습니다."
+      },
+      {
+        "item_id": 172360,
+        "data_title": "한동훈의 부정적 정책 실패 논란",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "H",
+        "rating_rationale": "한동훈 의원의 정책 실패는 공약 위반으로 여겨지며, 책임성 결여가 명백함. 비판이 심각하고 지속적임."
+      },
+      {
+        "item_id": 172361,
+        "data_title": "한동훈의 예산 관리 실패",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "H",
+        "rating_rationale": "예산 관리에서의 오남용 의혹은 심각한 책임성 문제를 나타내며, 감사원 보고서에서 직접적으로 지적됨."
+      },
+      {
+        "item_id": 172362,
+        "data_title": "한동훈의 공약 불이행 사례",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "H",
+        "rating_rationale": "여러 공약의 불이행은 명백한 책임성 부족을 드러내며, 정부 기록에서 비판받고 있음. 심각한 명예 실추."
+      },
+      {
+        "item_id": 172363,
+        "data_title": "한동훈의 로비 의혹",
+        "collected_by": "Grok",
+        "original_rating": "H",
+        "new_rating": "H",
+        "rating_rationale": "로비 의혹은 투명성 결여를 강조하며, 정부 조사에서 책임 문제로 지적되어 심각한 상황임."
+      },
+      {
+        "item_id": 172364,
+        "data_title": "한동훈의 정책 지연 문제",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "G",
+        "rating_rationale": "정책 지연은 책임성 약화를 초래하며, 공식 문서에서 문제로 기록됨. 지속적인 비판의 원인."
+      },
+      {
+        "item_id": 172365,
+        "data_title": "한동훈의 부정적 보도 논란",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "H",
+        "rating_rationale": "정책 실패에 대한 언론 비판은 책임성 결여를 강조하며, 사회적 신뢰에 큰 타격을 줌."
+      },
+      {
+        "item_id": 172366,
+        "data_title": "한동훈의 의혹 관련 기사",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "H",
+        "rating_rationale": "의혹 관련 기사는 공약 위반 사례로, 책임성 부족이 강조됨. 지속적인 비판으로 신뢰도가 급락."
+      },
+      {
+        "item_id": 172367,
+        "data_title": "한동훈의 비판적 평가",
+        "collected_by": "Grok",
+        "original_rating": "H",
+        "new_rating": "G",
+        "rating_rationale": "2021년 활동의 문제점이 드러나며, 책임성 결여가 지적됨. 비판이 있으나 다수의 특정 사례에 비해 경미함."
+      },
+      {
+        "item_id": 172368,
+        "data_title": "한동훈의 미흡한 활동",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "H",
+        "rating_rationale": "미흡한 활동은 책임성 문제를 야기하며, 언론에서 논란이 커짐. 공적 신뢰도에 심각한 영향을 미침."
+      },
+      {
+        "item_id": 172369,
+        "data_title": "한동훈의 정책 논란",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "H",
+        "rating_rationale": "정책 논란은 책임성 부족이 비판받았으며, 사회적 신뢰에 부정적인 영향을 미침. 지속적인 비판과 논란."
+      },
+      {
+        "item_id": 172370,
+        "data_title": "한동훈의 중립적 정책 평가",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "중립적 보도는 긍정적인 요소지만, 책임성 수준이 기본적이라는 점에서 양호한 평가로 제한됨."
+      },
+      {
+        "item_id": 172371,
+        "data_title": "한동훈의 활동 긍정적 보도",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "긍정적인 평가와 책임성 강화가 강조되어 있어 우수한 평가를 받을 만하지만, 구체성이 부족함."
+      },
+      {
+        "item_id": 172372,
+        "data_title": "한동훈의 중립적 분석",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "중립적 보도는 좋으나, 책임성 수준이 보통으로 평가되어 보통 등급에 해당."
+      },
+      {
+        "item_id": 172373,
+        "data_title": "한동훈의 정책 성공 보도",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "정책 성공에 대한 긍정적 보도는 책임성을 높이나, 구체적인 사례가 부족하여 우수 등급으로 한정됨."
+      },
+      {
+        "item_id": 172374,
+        "data_title": "한동훈의 중립적 활동 평가",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "D",
+        "rating_rationale": "중립적 평가가 이루어졌지만, 책임성 수치가 보통으로 평가되어 보통 수준에 해당."
+      },
+      {
+        "item_id": 172375,
+        "data_title": "한동훈의 긍정적 기여",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "긍정적인 기여와 책임성 우수성이 강조되어 매우 우수한 평가를 받을 만함."
+      },
+      {
+        "item_id": 172376,
+        "data_title": "한동훈의 보통 평가",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "보통 평가에 대한 보도는 책임성이 부족하진 않지만, 특별한 긍정 요소가 없어 보통 등급."
+      },
+      {
+        "item_id": 172377,
+        "data_title": "한동훈의 우수한 활동",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "우수한 활동에 대한 긍정적 보도가 있어 책임성 강화가 명시되었으나, 구체성이 부족함."
+      },
+      {
+        "item_id": 172378,
+        "data_title": "한동훈의 양호한 정책",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "양호한 정책에 대한 보도는 책임성이 낮지 않지만, 특별히 두드러진 요소가 없어 양호 등급."
+      },
+      {
+        "item_id": 172379,
+        "data_title": "한동훈의 중립적 보도",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "중립적 보도가 이루어졌지만, 책임성 수준이 낮게 평가되어 양호한 등급으로 제한됨."
+      },
+      {
+        "item_id": 172380,
+        "data_title": "한동훈의 긍정적 평가",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "한동훈 의원이 긍정적으로 평가되었으며, 책임성 우수하다는 언론 보도가 신뢰성을 높임."
+      },
+      {
+        "item_id": 172381,
+        "data_title": "한동훈의 중립적 기여",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "중립적인 평가가 이루어졌으나, 긍정적인 요소가 부족해 우수하다는 점에서 한 단계 낮음."
+      },
+      {
+        "item_id": 172382,
+        "data_title": "한동훈의 우수한 정책",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "정책이 우수하게 보도되었고, 책임성이 강조되어 매우 긍정적인 평가를 받음."
+      },
+      {
+        "item_id": 172383,
+        "data_title": "한동훈의 보통 활동",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "활동이 보통으로 다루어져 책임성이 다소 부족하게 인식되었음."
+      },
+      {
+        "item_id": 172384,
+        "data_title": "한동훈의 양호한 평가",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "양호한 평가가 이루어졌지만, 뛰어난 성과가 아닌 점에서 중간 등급으로 평가됨."
+      },
+      {
+        "item_id": 172385,
+        "data_title": "한동훈의 긍정적 활동",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "긍정적인 활동이 다뤄져 높은 책임성을 인정받아 매우 우수하다고 평가됨."
+      },
+      {
+        "item_id": 172386,
+        "data_title": "한동훈의 중립적 정책",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "중립적 평가가 이루어졌으나, 특별히 두드러진 성과가 없어 양호하게 평가됨."
+      },
+      {
+        "item_id": 172387,
+        "data_title": "한동훈의 우수한 기여",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "우수한 기여가 보도되어 책임성이 높게 인식되었고, 신뢰를 받음."
+      },
+      {
+        "item_id": 172388,
+        "data_title": "한동훈의 양호한 활동",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "양호한 활동이 평가되었으나, 특별히 두드러진 성과가 없어 중간으로 보임."
+      },
+      {
+        "item_id": 172389,
+        "data_title": "한동훈의 보통 평가",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "평가가 보통으로 이루어져 책임성이 다소 부족하게 느껴졌음."
+      },
+      {
+        "item_id": 109685,
+        "data_title": "국민의힘 비상대책위원장 임명 과정 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "D",
+        "rating_rationale": "비상대책위원장 임명 과정의 논란으로 당 내부 갈등을 초래했다. 이는 정치적 책임을 다하지 못한 결과로 평가된다."
+      },
+      {
+        "item_id": 109687,
+        "data_title": "검사 시절 부적절한 수사 개입 의혹",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "검사 시절의 부적절한 수사 개입 의혹은 공정성을 해치며, 책임 있는 정치인의 태도로는 부족하다."
+      },
+      {
+        "item_id": 109689,
+        "data_title": "정치적 임명 과정의 투명성 문제",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "정치 임명 과정에서 투명성이 부족하다는 지적은 정치적 책임 의식이 결여된 것으로 보인다."
+      },
+      {
+        "item_id": 109691,
+        "data_title": "언론 대응 및 소통 방식 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "언론과의 소통 방식이 공격적이고 방어적이었다. 이는 개선의 여지가 있으나 상황을 악화시킨 정도는 양호하다."
+      },
+      {
+        "item_id": 109693,
+        "data_title": "정책 일관성 및 공약 이행 미흡",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "정책 일관성과 공약 이행이 미흡하여 정치적 신뢰성을 저하시켰다. 이는 책임 있는 정치인의 기준에 미치지 못한다."
+      },
+      {
+        "item_id": 109695,
+        "data_title": "윤석열 정부 비서실장 시절 검언유착 의혹",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "G",
+        "rating_rationale": "검언유착 의혹은 심각한 정치적 책임 회피와 중립성 결여를 나타내며, 이는 매우 부족한 평가를 받는다."
+      },
+      {
+        "item_id": 109697,
+        "data_title": "국민의힘 비상대책위원장 선출 과정의 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "D",
+        "rating_rationale": "비상대책위원장 선출 과정에서 당내 갈등을 유발한 것은 정치적 책임을 다하지 못한 모습으로 평가된다."
+      },
+      {
+        "item_id": 109700,
+        "data_title": "법무부 장관 시절 정치적 중립성 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "법무부 장관으로서 정치적 중립성을 해친 발언은 책임 있는 행동으로 보기 어렵다. 이는 부족한 평가에 해당한다."
+      },
+      {
+        "item_id": 109703,
+        "data_title": "선거 전략과 관련된 정치적 책임 회피",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "총선 패배 이후 책임 회피의 태도는 정치인의 기본적인 책임 의식이 결여된 모습으로 비판받는다."
+      },
+      {
+        "item_id": 109705,
+        "data_title": "정치적 발언의 일관성 부족",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "정치적 발언의 일관성 부족은 신뢰성을 저해하며, 이는 정치인의 책임 있는 자세와는 거리가 있다."
+      },
+      {
+        "item_id": 109707,
+        "data_title": "국민의힘 비상대책위원장 사퇴와 책임",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "비상대책위원장직 사퇴는 책임을 인정하는 행동이나, 총선 참패의 원인에 대한 깊은 반성이나 대책이 부족해 보임."
+      },
+      {
+        "item_id": 109709,
+        "data_title": "법무부 장관 재직 중 검찰 수사 대응",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "검찰 수사 과정에서의 중립성 논란은 법무부 장관으로서의 신뢰성을 훼손하며, 정치적 책임이 미흡하다고 평가됨."
+      },
+      {
+        "item_id": 109711,
+        "data_title": "보수 정당 쇄신 노력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "B",
+        "rating_rationale": "국민의힘의 쇄신 및 혁신 노력은 긍정적이나, 실질적인 변화가 부족해 보이며 지속적인 노력이 필요함."
+      },
+      {
+        "item_id": 109713,
+        "data_title": "정책 공약 이행 노력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "A",
+        "rating_rationale": "선거 공약 실행 추적은 책임감을 보여주며, 공약 이행에 대한 노력이 진정성 있게 평가됨."
+      },
+      {
+        "item_id": 109716,
+        "data_title": "정치적 리더십 발휘",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "B",
+        "rating_rationale": "당내 통합 및 화합 노력이 긍정적이나, 실제 성과와 지속성을 고려했을 때 더 많은 노력이 필요함."
+      },
+      {
+        "item_id": 109718,
+        "data_title": "언론 대응 투명성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "언론 인터뷰 및 기자회견 대응은 투명성을 보여주나, 내용의 깊이나 일관성에서 개선이 필요함."
+      },
+      {
+        "item_id": 109720,
+        "data_title": "법적 책임 수용 태도",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "D",
+        "rating_rationale": "정치적 논란에 대한 법적 대응은 책임을 수용하는 태도이나, 반성이나 대안 제시가 부족해 보임."
+      },
+      {
+        "item_id": 109722,
+        "data_title": "정치적 약속 이행",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "A",
+        "rating_rationale": "선거 공약 및 정치적 약속 이행은 매우 우수하며, 정치적 책임을 다하는 모습으로 긍정적으로 평가됨."
+      },
+      {
+        "item_id": 109724,
+        "data_title": "당 혁신 노력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "B",
+        "rating_rationale": "당 내부 혁신 시도는 긍정적이나, 구체적인 실행 계획과 성과가 부족해 책임성에서 아쉬움이 남음."
+      },
+      {
+        "item_id": 109726,
+        "data_title": "국회 활동 책임성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "국회 내 입법 및 정책 활동은 책임 있는 모습이나, 더 큰 영향력을 발휘할 필요가 있음."
+      },
+      {
+        "item_id": 109728,
+        "data_title": "선거 전략 책임",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "B",
+        "rating_rationale": "총선 전략과 결과를 분석하여 책임을 평가하였으나, 구체적인 실행 방안이 부족하다."
+      },
+      {
+        "item_id": 109730,
+        "data_title": "정치적 소통 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "A",
+        "rating_rationale": "여야 간 소통과 협력 노력이 두드러져 정치적 책임감이 매우 우수하다."
+      },
+      {
+        "item_id": 109731,
+        "data_title": "정책 일관성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "C",
+        "rating_rationale": "정치적 입장의 변화가 관찰되지만, 전체적인 정책 일관성이 부족하여 양호한 수준이다."
+      },
+      {
+        "item_id": 109733,
+        "data_title": "정치적 책임감",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "B",
+        "rating_rationale": "정치적 실수에 대한 적극적인 대응이 있었으나, 보다 철저한 반성이 필요하다."
+      },
+      {
+        "item_id": 109735,
+        "data_title": "당내 민주주의 실천",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "A",
+        "rating_rationale": "당내 의사결정 과정의 투명성이 높아 민주주의 실천이 매우 우수하게 이루어지고 있다."
+      },
+      {
+        "item_id": 109736,
+        "data_title": "위기 대응 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "B",
+        "rating_rationale": "정치적 위기 상황을 효과적으로 관리하였으나, 추가적인 예방 조치가 필요하다."
+      },
+      {
+        "item_id": 109739,
+        "data_title": "정치적 공약 구체성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "선거 공약의 실현 가능성에 대한 구체성이 부족해 양호한 수준으로 평가된다."
+      },
+      {
+        "item_id": 109741,
+        "data_title": "정치적 신뢰도",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "B",
+        "rating_rationale": "정치인으로서의 신뢰성이 높게 평가되나, 몇 가지 이슈로 인해 다소 하락한 측면이 있다."
+      },
+      {
+        "item_id": 109743,
+        "data_title": "정치적 비전 제시",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "A",
+        "rating_rationale": "미래 정치 비전 및 방향성이 명확하고 구체적으로 제시되어 매우 우수하다."
+      },
+      {
+        "item_id": 109744,
+        "data_title": "정치적 통합 노력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "C",
+        "rating_rationale": "정치적 갈등 해소를 위한 노력이 보이나, 실질적인 성과가 부족해 양호하게 평가된다."
+      },
+      {
+        "item_id": 109746,
+        "data_title": "법무부 장관 당시 검찰 개혁 책임",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "검찰 개혁을 추진하며 수사지휘권 폐지를 주도한 점에서 법무부 장관으로서의 책임을 매우 잘 수행하였다."
+      },
+      {
+        "item_id": 109747,
+        "data_title": "윤석열 정부 비서실장 임명 후 당정 갈등 관리",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "B",
+        "rating_rationale": "대통령실과 여당 간의 소통 역할을 모색한 점은 책임 있는 행동이나 갈등 관리의 성과는 부족할 수 있다."
+      },
+      {
+        "item_id": 109748,
+        "data_title": "국민의힘 비상대책위원장 취임 후 당내 쇄신 노력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "당내 쇄신과 조직 정비를 추진하며 책임 있는 리더십을 보여주었지만, 성과에 대한 구체적인 결과는 부족하다."
+      },
+      {
+        "item_id": 109749,
+        "data_title": "부동산 정책 관련 공약 책임",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "D",
+        "rating_rationale": "선거 공약과 실제 정책 이행 사이의 격차가 존재하여 책임성 면에서 보통 수준으로 평가된다."
+      },
+      {
+        "item_id": 109750,
+        "data_title": "대선 캠프 당시 공약 책임",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "윤석열 대선 캠프에서 핵심 역할을 수행하며 대선 공약 책임을 충실히 이행한 점에서 매우 우수하다."
+      },
+      {
+        "item_id": 109751,
+        "data_title": "정치적 책임 수용 태도",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "자기반성과 책임 의지를 표명한 것은 긍정적이나, 구체적인 행동으로 이어지지 않은 점이 아쉽다."
+      },
+      {
+        "item_id": 109752,
+        "data_title": "여론 수렴 및 소통 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "다양한 의견 수렴을 위해 노력한 점은 긍정적이나, 실질적인 여론 반영 수준은 부족할 수 있다."
+      },
+      {
+        "item_id": 109753,
+        "data_title": "선거구 공천 관리 책임",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "공천 과정의 투명성과 공정성 논란이 발생하여 책임성이 미흡한 상황이다."
+      },
+      {
+        "item_id": 109754,
+        "data_title": "정치 개혁 의지",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "당 혁신 및 정치 쇄신을 추진하며 정치 개혁 의지를 확고히 한 점에서 매우 우수하다."
+      },
+      {
+        "item_id": 109755,
+        "data_title": "정책 일관성 유지",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "정치적 입장과 정책의 일관성을 유지하려고 노력했으나, 때로 일관성이 부족했던 사례가 있어 양호로 평가된다."
+      },
+      {
+        "item_id": 109756,
+        "data_title": "당내 갈등 조정 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "A",
+        "rating_rationale": "당내 갈등 조정 능력은 정치인으로서 중요한 역할이며, 내부 분열을 관리하고 화합을 도모한 점에서 매우 우수한 평가를 받을 수 있습니다."
+      },
+      {
+        "item_id": 109757,
+        "data_title": "정치적 리더십 발휘",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "정치적 리더십 발휘는 당 운영 및 결정에서의 책임감을 나타내며, 이러한 능력은 정치인이 가져야 할 기본적인 덕목입니다."
+      },
+      {
+        "item_id": 109758,
+        "data_title": "대중 소통 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "B",
+        "rating_rationale": "대중 소통 능력은 정치적 책임의 중요한 요소이나, 소통 방식의 효과성에 따라 더 높은 평가를 받을 수 있었을 것입니다."
+      },
+      {
+        "item_id": 109759,
+        "data_title": "정치적 약속 이행 책임",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "A",
+        "rating_rationale": "정치적 약속 이행 책임은 정치인의 신뢰성을 높이는 핵심 요소로, 이행에 대한 노력은 매우 긍정적으로 평가됩니다."
+      },
+      {
+        "item_id": 109760,
+        "data_title": "정치적 중립성 유지",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "B",
+        "rating_rationale": "정치적 중립성 유지가 중요하지만, 실제로 정치적 편향성을 완전히 배제하기 어려운 점이 있어 우수한 평가를 받습니다."
+      },
+      {
+        "item_id": 109761,
+        "data_title": "위기 대응 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "위기 대응 능력은 정치인의 중요한 자질이며, 위기 상황에서의 적절한 대응은 책임감 있는 정치인의 특성입니다."
+      },
+      {
+        "item_id": 109762,
+        "data_title": "정책 비전 제시",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "B",
+        "rating_rationale": "정책 비전 제시는 장기적인 발전을 위한 책임감을 보여주지만, 구체적인 실행 계획이 부족할 경우 점수에 영향을 미칠 수 있습니다."
+      },
+      {
+        "item_id": 109763,
+        "data_title": "내부 의견 수렴 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "A",
+        "rating_rationale": "내부 의견 수렴 능력은 당내 민주적 운영을 보여주며, 다양한 의견을 청취하고 반영하는 것은 책임감 있는 태도로 평가됩니다."
+      },
+      {
+        "item_id": 109764,
+        "data_title": "정치적 책임 사과",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "B",
+        "rating_rationale": "정치적 책임 사과는 중요한 요소이나, 사과의 진정성과 그 후의 행동이 더 중요할 수 있어 우수한 평가를 받습니다."
+      },
+      {
+        "item_id": 109765,
+        "data_title": "정치적 신뢰성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "A",
+        "rating_rationale": "정치적 신뢰성은 정치인의 전반적인 책임을 나타내며, 신뢰를 쌓는 노력과 결과는 매우 긍정적으로 평가됩니다."
+      }
+    ],
+    "Grok": [
+      {
+        "item_id": 172490,
+        "data_title": "약속 불이행 문제",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "공약으로 내세운 경찰 개혁의 구체적인 이행이 부족해 국민의 신뢰를 떨어뜨리고 있으며, 이는 책임성에 미흡한 점으로 평가됩니다."
+      },
+      {
+        "item_id": 172491,
+        "data_title": "검찰 개혁 실적 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "검찰 개혁 약속에도 불구하고 실효성에 대한 논란이 많아 책임성 측면에서 아쉬움이 남는 상황입니다."
+      },
+      {
+        "item_id": 172492,
+        "data_title": "인사 문제 비판",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "인사 조치가 정치적 중립성을 해친다는 비판을 받고 있으며, 이는 민주적 책임성을 저해하는 요소로 작용해 책임성이 부족합니다."
+      },
+      {
+        "item_id": 172493,
+        "data_title": "국민과의 소통 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "정책 발표 시 국민과의 소통 부족으로 인해 소속 정당에 대한 부정적인 인식을 초래하고 있어 책임성이 미흡합니다."
+      },
+      {
+        "item_id": 172494,
+        "data_title": "정치적 발언의 불투명성",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "E",
+        "rating_rationale": "정치적 발언의 모호함으로 인해 국민들이 혼란스러워할 수 있으며, 이는 책임성과 신뢰성에 부정적인 영향을 미칩니다."
+      },
+      {
+        "item_id": 172495,
+        "data_title": "공공의 이익 우선 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "공공의 이익을 최우선으로 고려하겠다고 선언한 점은 책임성을 나타내는 긍정적인 요소로 평가됩니다."
+      },
+      {
+        "item_id": 172496,
+        "data_title": "법률 제정 참여",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "여러 법률 제정 과정에 적극적으로 참여하여 법무부의 정책 방향을 제시하는데 기여한 점은 책임성 측면에서 우수합니다."
+      },
+      {
+        "item_id": 172497,
+        "data_title": "정책 투명성 강화 약속",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "정책의 투명성을 강화하겠다고 공언하고 국민에게 정기적으로 보고하겠다는 약속은 책임성 측면에서 우수합니다."
+      },
+      {
+        "item_id": 172498,
+        "data_title": "법적 책임 규명 노력",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "법적 책임 규명에 대한 필요성을 강조하고 투명하고 공정한 절차를 약속한 점은 책임성 측면에서 우수합니다."
+      },
+      {
+        "item_id": 172499,
+        "data_title": "국민 추천 제도 도입",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "정책 수립 과정에 국민 추천 제도를 도입하겠다고 발표한 점은 정책의 신뢰성을 높이려는 노력으로 책임성 측면에서 우수합니다."
+      },
+      {
+        "item_id": 172500,
+        "data_title": "단체와의 협력 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "다양한 사회단체와의 협력을 통해 의견을 수렴하고 정책에 반영하려는 의지는 책임성 있는 태도이나, 실제 실행이 필요함. 우수한 수준으로 평가."
+      },
+      {
+        "item_id": 172501,
+        "data_title": "국회 출석률",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "국회의원으로서 높은 출석률을 유지하는 것은 책임 있는 자세의 증거로, 매우 우수한 수준으로 평가됨."
+      },
+      {
+        "item_id": 172502,
+        "data_title": "정책 평가 회의 개최",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "정책 시행 후 정기적인 평가 회의를 통해 성과를 분석하고 개선점을 파악하려는 의지는 책임성 있는 태도이나, 실제 실행 결과가 필요함. 우수한 수준으로 평가."
+      },
+      {
+        "item_id": 172503,
+        "data_title": "투명한 예산 사용 약속",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "예산 사용의 투명성을 보장하겠다는 약속과 관련 법안 제출은 매우 책임 있는 태도로, 매우 우수한 수준으로 평가됨."
+      },
+      {
+        "item_id": 172504,
+        "data_title": "위기 대처 능력",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "과거 여러 위기 상황에서 신속하고 적절하게 대처한 것은 책임 있는 태도의 증거로, 매우 우수한 수준으로 평가됨."
+      },
+      {
+        "item_id": 172505,
+        "data_title": "법 집행 공정성 강조",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "모든 법 집행이 공정해야 한다는 강조와 제도적 기반 마련 의지는 책임성 있는 태도이나, 실제 실행이 필요함. 우수한 수준으로 평가."
+      },
+      {
+        "item_id": 172506,
+        "data_title": "정책 개선 피드백 수렴",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "정책 시행 후 피드백을 적극적으로 수렴하려는 의지는 책임성 있는 태도이나, 실제 개선 결과가 필요함. 우수한 수준으로 평가."
+      },
+      {
+        "item_id": 172507,
+        "data_title": "지속적인 교육 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "검찰 및 관련 기관의 지속적인 교육 강화를 통해 전문성을 높이려는 의지는 책임성 있는 태도이나, 실제 실행 결과가 필요함. 우수한 수준으로 평가."
+      },
+      {
+        "item_id": 172508,
+        "data_title": "국민의 목소리 반영 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "정책 수립 과정에서 국민의 목소리를 충실히 반영하려는 의지는 책임성 있는 태도이나, 실제 반영 결과가 필요함. 우수한 수준으로 평가."
+      },
+      {
+        "item_id": 172509,
+        "data_title": "검찰 윤리 교육 실시",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "검찰의 윤리 교육을 강화하여 법의 공정성을 유지하려는 의지는 책임성 있는 태도이나, 실제 실행 결과가 필요함. 우수한 수준으로 평가."
+      },
+      {
+        "item_id": 172510,
+        "data_title": "법적 책임 축소 비판",
+        "collected_by": "ChatGPT",
+        "original_rating": "G",
+        "new_rating": "F",
+        "rating_rationale": "법적 책임을 축소하는 조치는 책임성에 매우 부정적인 영향을 미친다. 이는 국민의 신뢰를 저해하며, 책임 회피로 인식될 수 있다."
+      },
+      {
+        "item_id": 172511,
+        "data_title": "정책 변경의 일관성 결여",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "정책의 일관성 결여는 국민의 혼란을 야기하며, 이는 신뢰성과 책임성에 부정적인 영향을 미친다. 책임 있는 정책 수행이 요구된다."
+      },
+      {
+        "item_id": 172512,
+        "data_title": "논란의 법안 통과",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "논란의 법안 통과는 책임성에 미흡한 것으로 평가된다. 의회의 반대와 공개적인 논란은 책임 있는 정책 추진에 실패한 사례로 볼 수 있다."
+      },
+      {
+        "item_id": 172513,
+        "data_title": "피해자 목소리 무시 비판",
+        "collected_by": "ChatGPT",
+        "original_rating": "H",
+        "new_rating": "F",
+        "rating_rationale": "피해자의 목소리를 무시하는 것은 책임성에 매우 부족하다. 이는 정책의 공정성과 책임성을 심각하게 훼손하는 행위로 간주된다."
+      },
+      {
+        "item_id": 172514,
+        "data_title": "사건 처리의 비효율성",
+        "collected_by": "ChatGPT",
+        "original_rating": "G",
+        "new_rating": "E",
+        "rating_rationale": "사건 처리의 비효율성은 책임성에 미흡하다. 이는 국민의 안전과 직결되는 문제로, 책임 있는 처리 방식이 요구된다."
+      },
+      {
+        "item_id": 172515,
+        "data_title": "정책 실행 투명성",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "정책 실행 과정의 투명성 약속은 책임성에 우수한 것으로 평가된다. 이는 국민의 신뢰를 증진시키는 중요한 요소이다."
+      },
+      {
+        "item_id": 172516,
+        "data_title": "정기적인 성과 보고 예정",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "정기적인 성과 보고 계획은 책임성에 우수하다. 이는 정책 진행 상황을 투명하게 공개하고 책임을 다하려는 의지를 보여준다."
+      },
+      {
+        "item_id": 172517,
+        "data_title": "갈등 해결 노력",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "갈등 해결 노력은 책임성에 양호하다. 다양한 입장을 이해하고 조정하려는 노력은 책임 있는 태도로 평가될 수 있다."
+      },
+      {
+        "item_id": 172518,
+        "data_title": "정책 개선 요청 수용",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "정책 개선 요청 수용은 책임성에 우수하다. 이는 국민의 의견을 존중하고 책임 있는 정책 수행을 위한 노력으로 평가된다."
+      },
+      {
+        "item_id": 172519,
+        "data_title": "사법 제도 개선 방안 제시",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "사법 제도 개선 방안 제시는 책임성에 매우 우수하다. 법의 지배를 강화하려는 노력은 책임 있는 정치인의 중요한 역할이다."
+      },
+      {
+        "item_id": 172520,
+        "data_title": "공정성 유지 노력",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "공정성을 높이기 위한 연구와 사회적 불신 해소 노력은 우수한 책임성을 보여준다. 다만, 구체적인 실천 계획이 명확하지 않아 B등급을 부여함."
+      },
+      {
+        "item_id": 172521,
+        "data_title": "법률자문 공정성 강화 약속",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "법률자문 과정에서 공정성을 강화하겠다는 의지와 실천 의사는 우수하다. 법무부 공식 발표라는 신뢰할 수 있는 출처도 긍정적이나, 구체적인 실행 방안이 필요함."
+      },
+      {
+        "item_id": 172522,
+        "data_title": "국회의원으로서 책임 다짐",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "국회의원으로서 책임을 다하고 성실히 임하겠다는 다짐은 양호한 수준이다. 다만, 구체적인 성과나 실행 계획이 명확하지 않아 C등급을 부여함."
+      },
+      {
+        "item_id": 172523,
+        "data_title": "법 취지 존중 강조",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "법의 취지를 존중하겠다는 강조는 책임감을 나타낸다. 다만, 앞으로의 행보에 대한 구체적인 계획이 부족해 양호한 수준으로 평가함."
+      },
+      {
+        "item_id": 172524,
+        "data_title": "시민의 안전 최우선 보장",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "시민의 안전을 최우선으로 하겠다는 의지와 경찰 개혁 방향성 제시는 우수한 책임성을 보여준다. 국정 감사 보고서라는 신뢰할 수 있는 출처도 긍정적이다."
+      },
+      {
+        "item_id": 172525,
+        "data_title": "정당 정책 투명성 약속",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "정당의 정책 투명성을 강조하고 개선 방법을 제시하는 것은 우수한 책임성을 나타낸다. 정당 공식 보도자료라는 출처도 신뢰할 수 있다."
+      },
+      {
+        "item_id": 172526,
+        "data_title": "법적 책임 문제 희석 우려",
+        "collected_by": "ChatGPT",
+        "original_rating": "H",
+        "new_rating": "E",
+        "rating_rationale": "법적 책임을 경감시키려는 시도는 책임성에 큰 문제를 야기한다. 이는 신뢰를 떨어뜨리는 요인이며, 미흡한 수준으로 평가함."
+      },
+      {
+        "item_id": 172527,
+        "data_title": "정책과 약속 불일치 지적",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "정책과 약속의 불일치는 신뢰를 떨어뜨리는 원인이며, 책임성에 미흡한 수준이다. 이를 개선해야 할 필요가 있음."
+      },
+      {
+        "item_id": 172528,
+        "data_title": "국민 의견 반영 약속",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "국민의 의견을 적극 반영하겠다는 다짐과 실천 계획은 우수한 책임성을 보여준다. 법무부 공식 발표라는 출처도 신뢰할 수 있다."
+      },
+      {
+        "item_id": 172529,
+        "data_title": "정치를 위한 정치 비판",
+        "collected_by": "ChatGPT",
+        "original_rating": "G",
+        "new_rating": "E",
+        "rating_rationale": "정치적 이득을 위한 발언은 책임성을 크게 훼손하며, 신뢰 문제를 야기한다. 이는 미흡한 수준으로 평가함."
+      },
+      {
+        "item_id": 172530,
+        "data_title": "정책 결과 분석 진행",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "정책 시행 후 결과 분석을 진지하게 진행하겠다고 발표한 것은 책임감을 나타내는 긍정적인 행동이다. 다만, 구체적인 실행 계획이 없어 우수 등급을 부여한다."
+      },
+      {
+        "item_id": 172531,
+        "data_title": "다양한 이해관계 조정 노력",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "다양한 이해관계를 조정하려는 노력은 책임감을 보여주지만, 구체적인 성과나 계획이 명확하지 않아 양호 등급을 부여한다."
+      },
+      {
+        "item_id": 172532,
+        "data_title": "국민과의 간담회 개최 의사",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "국민과의 간담회를 정기적으로 개최하겠다는 다짐은 책임감을 나타내며, 소통을 통해 책임을 다하려는 의지가 보인다. 다만, 실행 여부가 불확실해 우수 등급을 부여한다."
+      },
+      {
+        "item_id": 172533,
+        "data_title": "부정부패 척결 의지",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "부정부패 척결을 위해 여러 차례 의지를 강조한 것은 책임감을 보여주는 중요한 행동이다. 다만, 구체적인 성과가 명확하지 않아 우수 등급을 부여한다."
+      },
+      {
+        "item_id": 172534,
+        "data_title": "정당 내부 투명성 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "정당 내부의 투명성 강화를 주장하며 구체적인 계획을 제시한 것은 책임감을 매우 우수하게 나타낸다. 이를 통해 책임을 다하려는 의지가 명확하다."
+      },
+      {
+        "item_id": 172535,
+        "data_title": "사법 시스템 개선 의지",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "사법 시스템 개선을 위해 지속적인 노력을 기울이겠다고 공언한 것은 책임감을 보여주는 긍정적인 행동이다. 다만, 구체적인 실행 계획이 없어 우수 등급을 부여한다."
+      },
+      {
+        "item_id": 172536,
+        "data_title": "소통 부족 솔직한 인정",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "과거 소통 부족 문제를 솔직히 인정하고 개선하겠다고 한 것은 책임감을 나타낸다. 다만, 구체적인 개선 계획이 명확하지 않아 양호 등급을 부여한다."
+      },
+      {
+        "item_id": 172537,
+        "data_title": "정책 신뢰도 향상 방안 제시",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "정책의 신뢰도 향상을 위한 다양한 방안을 제시한 것은 책임감을 보여주는 긍정적인 행동이다. 다만, 구체적인 실행 계획이 없어 우수 등급을 부여한다."
+      },
+      {
+        "item_id": 172538,
+        "data_title": "국민과의 대화 의지",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "국민과의 대화를 지속적으로 진행하겠다고 약속한 것은 책임감을 나타내며, 소통의 중요성을 알리는 긍정적인 행동이다. 다만, 실행 여부가 불확실해 우수 등급을 부여한다."
+      },
+      {
+        "item_id": 172539,
+        "data_title": "정책 공개의 습관화",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "정책 내용을 정기적으로 공개하겠다고 한 것은 책임감을 보여주는 긍정적인 행동이다. 이를 통해 국민이 정책을 이해하는 데 도움이 될 것이다. 다만, 구체적인 실행 계획이 없어 우수 등급을 부여한다."
+      },
+      {
+        "item_id": 172340,
+        "data_title": "한동훈 의원의 환경 보호 법안 추진 성과",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "한동훈 의원이 환경 보호 법안을 발의하여 규제를 강화하고, 공식 검토를 거쳐 시행한 점, 그리고 지역 사회 발전에 기여한 점에서 매우 우수한 책임성을 보임. 투명한 의정 활동도 돋보임."
+      },
+      {
+        "item_id": 172341,
+        "data_title": "한동훈의 복지 정책 이행 보고",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "저소득층 지원 확대를 약속하고 실제로 실행하여 수천 가구의 생활 안정을 도모한 점, 그리고 책임성 있는 태도로 정책을 추적 관리한 점에서 매우 우수한 책임성을 보임."
+      },
+      {
+        "item_id": 172342,
+        "data_title": "한동훈의 교육 개혁 참여",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "교육 부문 개혁에 적극 참여하여 예산 증액을 통과시키고, 학생들의 교육 기회를 확대하는 데 기여한 점, 그리고 지속적인 모니터링으로 정책의 효과성을 높인 점에서 매우 우수한 책임성을 보임."
+      },
+      {
+        "item_id": 172343,
+        "data_title": "한동훈의 지역 개발 프로젝트",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "지역 개발 프로젝트를 주도하여 주민 의견을 수집하고 정부 자금을 배분, 인프라 개선을 이룬 점, 그리고 책임성 있는 관리로 프로젝트를 예정대로 완료한 점에서 매우 우수한 책임성을 보임."
+      },
+      {
+        "item_id": 172344,
+        "data_title": "한동훈의 외교 정책 지원",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "국제 협력 관련 법안을 지지하여 외교 성과를 도운 점, 그리고 일관된 입장으로 책임성을 보인 점에서 우수한 책임성을 보임. 다만, 직접적인 실행보다는 지지에 초점이 맞춰져 있음."
+      },
+      {
+        "item_id": 172345,
+        "data_title": "한동훈의 코로나 대응 노력",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "코로나 팬데믹 기간 동안 의료 지원 법안을 제안하고 정부와 협력하여 실행, 지역 의료 시스템을 강화한 점, 그리고 지속적인 감독으로 효과를 발휘한 점에서 매우 우수한 책임성을 보임."
+      },
+      {
+        "item_id": 172346,
+        "data_title": "한동훈의 일자리 창출 정책",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "일자리 창출을 위한 법안을 추진하고 청년 고용을 증가시킨 점에서 양호한 책임성을 보임. 다만, 일부 목표 미달로 인해 완벽한 성과를 내지 못함."
+      },
+      {
+        "item_id": 172347,
+        "data_title": "한동훈의 문화 예술 지원",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "문화 예술 분야 지원을 공약하고 예산을 확보하여 지역 문화 발전에 기여한 점, 그리고 책임성 있는 자세로 모니터링하여 정책 성공을 이끈 점에서 매우 우수한 책임성을 보임."
+      },
+      {
+        "item_id": 172348,
+        "data_title": "한동훈의 교통 인프라 개선",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "교통 인프라 개선을 위해 법안을 발의하고 프로젝트를 추진하여 지역 교통 체계를 업그레이드한 점, 그리고 책임성 있는 관리가 핵심적이었던 점에서 매우 우수한 책임성을 보임."
+      },
+      {
+        "item_id": 172349,
+        "data_title": "한동훈의 노인 복지 확대",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "노인 복지 확대를 약속하고 정책을 실행하여 노인 의료 혜택을 증가시킨 점, 그리고 지속적인 피드백 관리가 이루어진 점에서 매우 우수한 책임성을 보임."
+      },
+      {
+        "item_id": 172350,
+        "data_title": "한동훈의 환경 정책 성과",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "한동훈 의원의 환경 정책이 오염 저감을 달성하며 책임성 있는 모니터링이 효과적이었음을 언론에서 강조함. 매우 우수한 책임성."
+      },
+      {
+        "item_id": 172351,
+        "data_title": "한동훈의 정치 활동 평가",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "한동훈 의원이 여러 공약을 이행하며 책임성을 보여주었고, 특히 지역 발전에 기여한 점이 강조됨. 우수한 책임성."
+      },
+      {
+        "item_id": 172352,
+        "data_title": "한동훈의 선거 공약 이행",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "한동훈 의원의 선거 공약 이행률이 언론에서 높게 평가되었으며, 책임성 있는 모습이 주목받음. 매우 우수한 책임성."
+      },
+      {
+        "item_id": 172353,
+        "data_title": "한동훈의 사회 복지 노력",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "한동훈 의원의 사회 복지 활동이 중립적으로 다루어졌으며, 기본적으로 책임성을 유지했음. 양호한 책임성."
+      },
+      {
+        "item_id": 172354,
+        "data_title": "한동훈의 경제 정책 기여",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "한동훈 의원의 경제 정책이 긍정적으로 평가되며, 책임성 있는 태도가 돋보임. 매우 우수한 책임성."
+      },
+      {
+        "item_id": 172355,
+        "data_title": "한동훈의 법안 제정 성과",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "한동훈 의원의 법안 제정이 언론에서 칭찬받았으며, 책임성을 강화한 사례로 보임. 우수한 책임성."
+      },
+      {
+        "item_id": 172356,
+        "data_title": "한동훈의 지역 사회 기여",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "한동훈 의원의 지역 사회 활동이 중립적으로 다루어졌으며, 기본적 책임성을 유지했음. 양호한 책임성."
+      },
+      {
+        "item_id": 172357,
+        "data_title": "한동훈의 의정 활동 분석",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "한동훈 의원의 의정 활동이 책임성 있게 이뤄졌으며, 2023년 성과가 강조됨. 우수한 책임성."
+      },
+      {
+        "item_id": 172358,
+        "data_title": "한동훈의 공공 안전 정책",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "한동훈 의원의 공공 안전 정책이 언론에서 긍정적으로 보도되었으며, 책임성 있는 행보로 평가됨. 우수한 책임성."
+      },
+      {
+        "item_id": 172359,
+        "data_title": "한동훈의 환경 보호 캠페인",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "한동훈 의원의 환경 캠페인이 중립적으로 평가되었으며, 책임성을 유지했음. 양호한 책임성."
+      },
+      {
+        "item_id": 172360,
+        "data_title": "한동훈의 부정적 정책 실패 논란",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "한동훈 의원의 정책 미이행으로 인해 책임성 부족이 비판받았으며, 공약 위반 사례로 지적되었습니다. 이는 책임성 면에서 미흡한 수준입니다."
+      },
+      {
+        "item_id": 172361,
+        "data_title": "한동훈의 예산 관리 실패",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "예산 관리에서 오남용 의혹이 제기되었고, 감사원 보고서에서 문제가 드러난 점은 책임성 결여를 나타냅니다. 이는 미흡한 수준입니다."
+      },
+      {
+        "item_id": 172362,
+        "data_title": "한동훈의 공약 불이행 사례",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "E",
+        "rating_rationale": "여러 공약이 이행되지 않아 정부 기록에 비판이 기록된 점은 책임성 부족을 명확히 보여줍니다. 이는 미흡한 수준입니다."
+      },
+      {
+        "item_id": 172363,
+        "data_title": "한동훈의 로비 의혹",
+        "collected_by": "Grok",
+        "original_rating": "H",
+        "new_rating": "F",
+        "rating_rationale": "로비 의혹이 정부 조사에서 드러나고 투명성 결여가 지적된 점은 책임성 면에서 부족한 수준입니다. 이는 심각한 문제입니다."
+      },
+      {
+        "item_id": 172364,
+        "data_title": "한동훈의 정책 지연 문제",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "D",
+        "rating_rationale": "정책 지연이 공식 문서에 기록되어 책임성 약화를 초래한 점은 책임성 면에서 보통 수준입니다. 이는 개선이 필요한 부분입니다."
+      },
+      {
+        "item_id": 172365,
+        "data_title": "한동훈의 부정적 보도 논란",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "정책 실패로 인해 언론에서 책임성 결여가 지적된 점은 미흡한 수준입니다. 이는 책임성 면에서 개선이 필요합니다."
+      },
+      {
+        "item_id": 172366,
+        "data_title": "한동훈의 의혹 관련 기사",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "E",
+        "rating_rationale": "의혹이 뉴스에서 다루어지며 책임성 부족이 강조된 점은 미흡한 수준입니다. 공약 위반 사례로 책임성이 부족합니다."
+      },
+      {
+        "item_id": 172367,
+        "data_title": "한동훈의 비판적 평가",
+        "collected_by": "Grok",
+        "original_rating": "H",
+        "new_rating": "E",
+        "rating_rationale": "언론 보도에서 책임성 결여가 지적된 점은 미흡한 수준입니다. 활동의 문제점이 드러난 것은 책임성 면에서 개선이 필요합니다."
+      },
+      {
+        "item_id": 172368,
+        "data_title": "한동훈의 미흡한 활동",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "미흡한 활동이 뉴스에서 논란이 되어 책임성 문제를 초래한 점은 미흡한 수준입니다. 이는 책임성 면에서 개선이 필요합니다."
+      },
+      {
+        "item_id": 172369,
+        "data_title": "한동훈의 정책 논란",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "정책 논란이 언론에서 다루어지며 책임성 부족이 비판된 점은 미흡한 수준입니다. 이는 책임성 면에서 개선이 필요합니다."
+      },
+      {
+        "item_id": 172370,
+        "data_title": "한동훈의 중립적 정책 평가",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "D",
+        "rating_rationale": "뉴스에서 한동훈 의원의 정책이 중립적으로 다루어졌으며, 책임성 수준이 기본적이라고 평가되었습니다. 이는 '보통' 등급에 해당합니다."
+      },
+      {
+        "item_id": 172371,
+        "data_title": "한동훈의 활동 긍정적 보도",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "한동훈 의원의 활동이 언론에서 긍정적으로 평가되었고, 책임성 강화가 강조되었습니다. 이는 '우수' 등급에 해당합니다."
+      },
+      {
+        "item_id": 172372,
+        "data_title": "한동훈의 중립적 분석",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "한동훈 의원의 분석이 중립적으로 보도되었으며, 책임성 수준이 보통이라고 평가되었습니다. 이는 '보통' 등급에 해당합니다."
+      },
+      {
+        "item_id": 172373,
+        "data_title": "한동훈의 정책 성공 보도",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "한동훈 의원의 정책 성공이 언론에서 다루어졌고, 책임성 긍정적이라고 평가되었습니다. 이는 '우수' 등급에 해당합니다."
+      },
+      {
+        "item_id": 172374,
+        "data_title": "한동훈의 중립적 활동 평가",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "D",
+        "rating_rationale": "한동훈 의원의 활동이 중립적으로 평가되었으며, 책임성 수준이 보통이라고 평가되었습니다. 이는 '보통' 등급에 해당합니다."
+      },
+      {
+        "item_id": 172375,
+        "data_title": "한동훈의 긍정적 기여",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "한동훈 의원의 기여가 언론에서 긍정적으로 보도되었고, 책임성 우수하다고 평가되었습니다. 이는 '매우 우수' 등급에 해당합니다."
+      },
+      {
+        "item_id": 172376,
+        "data_title": "한동훈의 보통 평가",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "한동훈 의원의 평가가 보통으로 다루어졌으며, 책임성 수준이 보통이라고 평가되었습니다. 이는 '보통' 등급에 해당합니다."
+      },
+      {
+        "item_id": 172377,
+        "data_title": "한동훈의 우수한 활동",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "한동훈 의원의 활동이 언론에서 우수하게 평가되었고, 책임성 강화라고 평가되었습니다. 이는 '우수' 등급에 해당합니다."
+      },
+      {
+        "item_id": 172378,
+        "data_title": "한동훈의 양호한 정책",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "한동훈 의원의 정책이 양호하게 다루어졌으며, 책임성 수준이 양호하다고 평가되었습니다. 이는 '양호' 등급에 해당합니다."
+      },
+      {
+        "item_id": 172379,
+        "data_title": "한동훈의 중립적 보도",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "한동훈 의원의 보도가 중립적으로 이뤄졌으며, 책임성 수준이 기본적이라고 평가되었습니다. 이는 '보통' 등급에 해당합니다."
+      },
+      {
+        "item_id": 172380,
+        "data_title": "한동훈의 긍정적 평가",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "언론에서 긍정적으로 평가되었으며, 2022년 책임성이 매우 우수하다고 명시됨."
+      },
+      {
+        "item_id": 172381,
+        "data_title": "한동훈의 중립적 기여",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "D",
+        "rating_rationale": "언론에서 중립적으로 평가되었으며, 2023년 책임성이 보통 수준으로 언급됨."
+      },
+      {
+        "item_id": 172382,
+        "data_title": "한동훈의 우수한 정책",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "언론에서 정책이 우수하게 평가되었으며, 2021년 책임성이 강조됨."
+      },
+      {
+        "item_id": 172383,
+        "data_title": "한동훈의 보통 활동",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "언론에서 활동이 보통으로 평가되었으며, 2022년 책임성이 보통 수준으로 언급됨."
+      },
+      {
+        "item_id": 172384,
+        "data_title": "한동훈의 양호한 평가",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "언론에서 양호하게 평가되었으며, 2023년 책임성이 양호하다고 명시됨."
+      },
+      {
+        "item_id": 172385,
+        "data_title": "한동훈의 긍정적 활동",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "언론에서 활동이 긍정적으로 평가되었으며, 2021년 책임성이 매우 우수하다고 명시됨."
+      },
+      {
+        "item_id": 172386,
+        "data_title": "한동훈의 중립적 정책",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "언론에서 정책이 중립적으로 평가되었으며, 2022년 책임성이 보통 수준으로 언급됨."
+      },
+      {
+        "item_id": 172387,
+        "data_title": "한동훈의 우수한 기여",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "언론에서 기여가 우수하게 평가되었으며, 2023년 책임성이 강조됨."
+      },
+      {
+        "item_id": 172388,
+        "data_title": "한동훈의 양호한 활동",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "언론에서 활동이 양호하게 평가되었으며, 2021년 책임성이 양호하다고 명시됨."
+      },
+      {
+        "item_id": 172389,
+        "data_title": "한동훈의 보통 평가",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "언론에서 평가가 보통으로 이뤄졌으며, 2022년 책임성이 보통 수준으로 언급됨."
+      },
+      {
+        "item_id": 109685,
+        "data_title": "국민의힘 비상대책위원장 임명 과정 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "비상대책위원장 임명 과정에서 정치적 갈등과 내부 반발을 야기한 점에서 책임성 미흡. 정치적 책임을 다하지 못한 것으로 보임."
+      },
+      {
+        "item_id": 109687,
+        "data_title": "검사 시절 부적절한 수사 개입 의혹",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "검사 시절 부적절한 수사 개입 의혹으로 공정성에 대한 비판이 존재하는 점에서 책임성이 부족함. 공정성과 책임감이 결여된 행동으로 평가됨."
+      },
+      {
+        "item_id": 109689,
+        "data_title": "정치적 임명 과정의 투명성 문제",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "정치 임명 과정에서 투명성 부족과 정치적 편향성 지적이 있는 점에서 책임성이 미흡함. 투명성과 책임감이 부족한 것으로 보임."
+      },
+      {
+        "item_id": 109691,
+        "data_title": "언론 대응 및 소통 방식 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "언론 대응 과정에서 공격적이고 방어적인 태도로 인한 소통 부족 비판이 있는 점에서 책임성이 미흡함. 소통과 책임감이 부족한 것으로 평가됨."
+      },
+      {
+        "item_id": 109693,
+        "data_title": "정책 일관성 및 공약 이행 미흡",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "정치적 입장 변화와 공약 이행의 일관성 부족으로 신뢰성 저하가 있는 점에서 책임성이 미흡함. 일관성과 책임감이 부족한 것으로 보임."
+      },
+      {
+        "item_id": 109695,
+        "data_title": "윤석열 정부 비서실장 시절 검언유착 의혹",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "검찰 출신 비서실장으로서 언론과의 부적절한 관계 의혹이 있는 점에서 책임성이 부족함. 공정성과 책임감이 결여된 행동으로 평가됨."
+      },
+      {
+        "item_id": 109697,
+        "data_title": "국민의힘 비상대책위원장 선출 과정의 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "당내 갈등과 강한 개인 주도성으로 인해 당 내부 화합을 저해했다는 비판이 있는 점에서 책임성이 미흡함. 화합과 책임감이 부족한 것으로 보임."
+      },
+      {
+        "item_id": 109700,
+        "data_title": "법무부 장관 시절 정치적 중립성 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "법무부 장관으로 재직하면서 정치적 중립성을 해치는 발언과 행보로 비판받은 점에서 책임성이 부족함. 중립성과 책임감이 결여된 행동으로 평가됨."
+      },
+      {
+        "item_id": 109703,
+        "data_title": "선거 전략과 관련된 정치적 책임 회피",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "총선 패배 이후 책임 있는 자세보다는 책임 회피 태도로 일관했다는 비판이 있는 점에서 책임성이 미흡함. 책임 회피 태도가 책임감 부족으로 이어짐."
+      },
+      {
+        "item_id": 109705,
+        "data_title": "정치적 발언의 일관성 부족",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "상황에 따라 변화하는 정치적 입장으로 인해 신뢰성 저하가 있는 점에서 책임성이 미흡함. 일관성과 책임감이 부족한 것으로 보임."
+      },
+      {
+        "item_id": 109707,
+        "data_title": "국민의힘 비상대책위원장 사퇴와 책임",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "총선 참패 후 비상대책위원장직 사퇴는 책임을 지려는 노력으로 보이나, 사퇴가 책임 회피로 해석될 여지가 있어 양호한 수준으로 평가."
+      },
+      {
+        "item_id": 109709,
+        "data_title": "법무부 장관 재직 중 검찰 수사 대응",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "검찰 수사 과정에서의 중립성 논란은 책임성에 부정적인 영향을 미치며, 이는 책임을 다하지 못한 것으로 평가됨."
+      },
+      {
+        "item_id": 109711,
+        "data_title": "보수 정당 쇄신 노력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "B",
+        "rating_rationale": "보수 정당의 쇄신 및 혁신 시도는 책임성을 긍정적으로 평가할 수 있으며, 이를 통해 당의 발전을 도모하려는 노력이 보임."
+      },
+      {
+        "item_id": 109713,
+        "data_title": "정책 공약 이행 노력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "선거 공약 실행 추적은 책임성을 보여주려는 노력이나, 실행 결과에 대한 구체적인 평가가 부족해 양호한 수준으로 평가."
+      },
+      {
+        "item_id": 109716,
+        "data_title": "정치적 리더십 발휘",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "B",
+        "rating_rationale": "당내 통합 및 화합 노력은 책임 있는 리더십을 발휘하려는 의지로 보이며, 이를 통해 당의 단합을 도모하려는 노력이 우수함."
+      },
+      {
+        "item_id": 109718,
+        "data_title": "언론 대응 투명성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "언론 인터뷰 및 기자회견 대응은 책임성을 보여주려는 노력이나, 투명성에 대한 평가가 엇갈려 양호한 수준으로 평가."
+      },
+      {
+        "item_id": 109720,
+        "data_title": "법적 책임 수용 태도",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "D",
+        "rating_rationale": "정치적 논란에 대한 법적 대응은 책임성을 보여주려는 노력이나, 법적 책임 수용 태도에 대한 평가가 보통 수준으로 평가."
+      },
+      {
+        "item_id": 109722,
+        "data_title": "정치적 약속 이행",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "선거 공약 및 정치적 약속 추적은 책임성을 보여주려는 노력이나, 이행 결과에 대한 평가가 부족해 양호한 수준으로 평가."
+      },
+      {
+        "item_id": 109724,
+        "data_title": "당 혁신 노력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "B",
+        "rating_rationale": "국민의힘 내부 혁신 시도는 책임성을 긍정적으로 평가할 수 있으며, 이를 통해 당의 발전을 도모하려는 노력이 우수함."
+      },
+      {
+        "item_id": 109726,
+        "data_title": "국회 활동 책임성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "국회 내 입법 및 정책 활동은 책임성을 보여주려는 노력이나, 활동 결과에 대한 평가가 부족해 양호한 수준으로 평가."
+      },
+      {
+        "item_id": 109728,
+        "data_title": "선거 전략 책임",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "C",
+        "rating_rationale": "2023년 총선 전략 및 결과에 대한 책임을 어느 정도 인정하고 있으며, 결과에 대한 분석을 통해 개선점을 찾으려는 노력이 보임. 그러나 결과가 만족스럽지 않아 양호한 수준."
+      },
+      {
+        "item_id": 109730,
+        "data_title": "정치적 소통 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "B",
+        "rating_rationale": "여야 간 대화 및 협력 노력이 꾸준히 이루어지고 있으며, 국회 회의록에 따르면 적극적인 소통을 시도하고 있음. 이는 우수한 책임감을 나타냄."
+      },
+      {
+        "item_id": 109731,
+        "data_title": "정책 일관성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "D",
+        "rating_rationale": "정치적 입장 변화가 자주 발생하며, 일관성이 부족함. 이는 책임감이 보통 수준임을 나타냄. 정책의 일관성이 중요하지만, 변화가 많아 신뢰도에 영향을 미침."
+      },
+      {
+        "item_id": 109733,
+        "data_title": "정치적 책임감",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "C",
+        "rating_rationale": "정치적 실수에 대한 대응이 적절히 이루어지고 있으며, 책임을 인정하고 개선하려는 노력이 보임. 그러나 완벽한 대응이 아닌 만큼 양호한 수준."
+      },
+      {
+        "item_id": 109735,
+        "data_title": "당내 민주주의 실천",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "B",
+        "rating_rationale": "당내 의사결정 과정의 투명성이 높으며, 민주주의를 실천하려는 노력이 뚜렷함. 이는 우수한 책임감을 나타냄. 당원들의 의견을 존중하고 반영하려는 태도가 돋보임."
+      },
+      {
+        "item_id": 109736,
+        "data_title": "위기 대응 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "A",
+        "rating_rationale": "정치적 위기 상황을 매우 효과적으로 관리하며, 책임감 있게 대응함. 언론 보도에 따르면 위기 상황에서도 침착하고 신속하게 대처하여 매우 우수한 책임감을 보임."
+      },
+      {
+        "item_id": 109739,
+        "data_title": "정치적 공약 구체성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "선거 공약의 실현 가능성이 어느 정도 있으며, 구체적인 계획이 포함되어 있음. 그러나 모든 공약이 현실적으로 실현되기 어려운 부분이 있어 양호한 수준."
+      },
+      {
+        "item_id": 109741,
+        "data_title": "정치적 신뢰도",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "B",
+        "rating_rationale": "정치인으로서의 신뢰도가 높으며, 여론 조사 결과 긍정적인 평가를 받고 있음. 이는 우수한 책임감을 나타냄. 신뢰도가 높다는 것은 책임을 다하고 있음을 의미함."
+      },
+      {
+        "item_id": 109743,
+        "data_title": "정치적 비전 제시",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "A",
+        "rating_rationale": "미래 정치 비전 및 방향성을 명확히 제시하며, 책임감 있게 정책을 발표함. 이는 매우 우수한 책임감을 나타냄. 구체적인 비전 제시는 책임감의 중요한 지표."
+      },
+      {
+        "item_id": 109744,
+        "data_title": "정치적 통합 노력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "C",
+        "rating_rationale": "정치적 갈등 해소를 위해 노력하고 있으며, 통합을 시도하는 모습이 보임. 그러나 완전한 통합에 이르지 못해 양호한 수준. 책임감 있게 접근하고 있지만, 결과가 제한적임."
+      },
+      {
+        "item_id": 109746,
+        "data_title": "법무부 장관 당시 검찰 개혁 책임",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "법무부 장관으로서 검찰 개혁을 적극 추진하고 수사지휘권 폐지를 주도한 것은 매우 책임 있는 행동으로 평가됩니다. 이는 법치주의와 공정한 사법 시스템을 위한 중요한 변화입니다."
+      },
+      {
+        "item_id": 109747,
+        "data_title": "윤석열 정부 비서실장 임명 후 당정 갈등 관리",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "B",
+        "rating_rationale": "대통령실과 여당 간의 갈등을 관리하고 소통 역할을 모색한 것은 우수한 책임감을 보여줍니다. 그러나 갈등 해결의 구체적 성과가 부족해 완벽한 점수는 아니라고 판단됩니다."
+      },
+      {
+        "item_id": 109748,
+        "data_title": "국민의힘 비상대책위원장 취임 후 당내 쇄신 노력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "당내 쇄신 및 조직 정비를 추진한 것은 양호한 수준의 책임성을 보여줍니다. 그러나 당 쇄신의 구체적 결과와 효과가 명확하지 않아 더 높은 평가를 내리기 어렵습니다."
+      },
+      {
+        "item_id": 109749,
+        "data_title": "부동산 정책 관련 공약 책임",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "선거 공약과 실제 정책 이행 사이의 격차가 존재하는 것은 책임성을 미흡하게 보여줍니다. 공약 이행에 대한 책임을 다하지 못한 것으로 평가됩니다."
+      },
+      {
+        "item_id": 109750,
+        "data_title": "대선 캠프 당시 공약 책임",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "대선 캠프에서 핵심 역할을 수행한 것은 우수한 책임성을 보여줍니다. 공약 수립 및 실행에 중요한 역할을 한 것으로 보입니다."
+      },
+      {
+        "item_id": 109751,
+        "data_title": "정치적 책임 수용 태도",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "당 쇄신 과정에서 자기반성 및 책임 의지를 표명한 것은 매우 책임 있는 태도로 평가됩니다. 이는 정치적 책임을 적극적으로 수용하는 모습입니다."
+      },
+      {
+        "item_id": 109752,
+        "data_title": "여론 수렴 및 소통 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "당내외 다양한 의견을 수렴하려는 노력은 우수한 책임성을 보여줍니다. 다양한 의견을 반영하려는 시도는 책임 있는 리더십의 중요한 요소입니다."
+      },
+      {
+        "item_id": 109753,
+        "data_title": "선거구 공천 관리 책임",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "공천 과정의 투명성과 공정성 논란이 발생한 것은 책임성을 미흡하게 보여줍니다. 공천 관리에 대한 책임을 제대로 다하지 못한 것으로 평가됩니다."
+      },
+      {
+        "item_id": 109754,
+        "data_title": "정치 개혁 의지",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "당 혁신 및 정치 쇄신을 추진한 것은 우수한 책임성을 보여줍니다. 정치 개혁에 대한 적극적인 의지를 보인 것은 긍정적으로 평가됩니다."
+      },
+      {
+        "item_id": 109755,
+        "data_title": "정책 일관성 유지",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "정치적 입장과 정책의 일관성을 유지한 것은 양호한 책임성을 보여줍니다. 그러나 일관성의 수준이 완벽하지 않아 더 높은 평가를 내리기 어렵습니다."
+      },
+      {
+        "item_id": 109756,
+        "data_title": "당내 갈등 조정 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "B",
+        "rating_rationale": "한동훈은 당내 갈등을 효과적으로 조정하고 화합을 유도하는 능력을 보여주고 있다. 이러한 능력은 당의 안정성과 단결력을 높이는 데 기여하며, 이는 책임성의 중요한 부분이다."
+      },
+      {
+        "item_id": 109757,
+        "data_title": "정치적 리더십 발휘",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "한동훈은 당 운영 및 정치적 결정에서 강한 리더십을 발휘하고 있다. 이러한 리더십은 책임감을 바탕으로 한 결정과 실행력을 보여주며, 매우 우수한 책임성을 나타낸다."
+      },
+      {
+        "item_id": 109758,
+        "data_title": "대중 소통 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "한동훈은 유권자 및 국민과의 소통을 위해 노력하고 있지만, 소통의 질과 효과성에 있어서는 개선의 여지가 있다. 양호한 수준의 책임성을 보이고 있다."
+      },
+      {
+        "item_id": 109759,
+        "data_title": "정치적 약속 이행 책임",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "D",
+        "rating_rationale": "한동훈은 선거 공약 및 정치적 약속의 이행에 있어서 보통 수준의 책임성을 보이고 있다. 일부 약속은 이행되었으나, 전반적으로 일관된 이행이 부족하다."
+      },
+      {
+        "item_id": 109760,
+        "data_title": "정치적 중립성 유지",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "한동훈은 정치적 중립성을 유지하는 데 있어 미흡한 모습을 보이고 있다. 특정 정치적 입장을 고수하는 경향이 있어 중립성에 대한 책임성이 부족하다."
+      },
+      {
+        "item_id": 109761,
+        "data_title": "위기 대응 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "한동훈은 정치적 위기 상황에서 효과적으로 대처하는 능력을 보여주고 있다. 이러한 능력은 책임감과 신속한 결정을 통해 위기 상황을 관리하는 데 기여한다."
+      },
+      {
+        "item_id": 109762,
+        "data_title": "정책 비전 제시",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "A",
+        "rating_rationale": "한동훈은 장기적 국가 발전 비전을 명확히 제시하고 있으며, 이는 책임감 있는 정책 수립과 실행을 통해 국가 발전에 기여하는 중요한 요소이다."
+      },
+      {
+        "item_id": 109763,
+        "data_title": "내부 의견 수렴 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "C",
+        "rating_rationale": "한동훈은 당내 다양한 의견을 청취하고 반영하려는 노력을 하고 있지만, 그 효과성과 일관성에는 개선의 여지가 있다. 양호한 수준의 책임성을 보이고 있다."
+      },
+      {
+        "item_id": 109764,
+        "data_title": "정치적 책임 사과",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "F",
+        "rating_rationale": "한동훈은 실수나 잘못에 대한 공개 사과를 하지 않는 경향이 있어 책임성에 있어 부족함을 보이고 있다. 이러한 태도는 책임 회피로 인식될 수 있다."
+      },
+      {
+        "item_id": 109765,
+        "data_title": "정치적 신뢰성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "한동훈의 정치적 신뢰성은 보통 수준으로 평가된다. 일부 신뢰성 있는 행동이 있지만, 전반적으로 일관된 신뢰성을 유지하는 데 있어 부족함이 있다."
+      }
+    ],
+    "Claude": [
+      {
+        "item_id": 172490,
+        "data_title": "약속 불이행 문제",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "공약으로 내세운 경찰 개혁에 대한 구체적 이행이 부족하여 국민 신뢰를 저해하는 것은 정치인의 기본 책임인 공약 이행 의무를 소홀히 한 것으로, 책임성 측면에서 상당히 부족함"
+      },
+      {
+        "item_id": 172491,
+        "data_title": "검찰 개혁 실적 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "검찰 개혁 약속에 대해 실효성 있는 정책을 제시하지 못한 것은 책임감 있는 정책 수립 의무를 다하지 못한 것이나, 완전한 불이행은 아니므로 미흡한 수준으로 평가됨"
+      },
+      {
+        "item_id": 172492,
+        "data_title": "인사 문제 비판",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "G",
+        "rating_rationale": "인사 조치에서 정치적 중립성을 해치고 민주적 책임성을 저해한다는 것은 공직자로서의 기본 원칙을 위배하는 매우 심각한 책임성 결여로, 민주주의 근간을 흔드는 문제임"
+      },
+      {
+        "item_id": 172493,
+        "data_title": "국민과의 소통 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "정책 발표 시 국민과의 소통 없이 단독으로 진행하는 것은 민주적 의사결정 과정을 무시하는 행위로 책임성이 미흡하나, 정책 자체의 문제는 아니므로 미흡 수준으로 평가"
+      },
+      {
+        "item_id": 172494,
+        "data_title": "정치적 발언의 불투명성",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "E",
+        "rating_rationale": "정치적 발언의 모호함으로 국민에게 혼란을 야기하는 것은 명확한 의사소통 책임을 다하지 못한 것으로, 신뢰성과 책임성에 부정적 영향을 미치므로 미흡한 수준"
+      },
+      {
+        "item_id": 172495,
+        "data_title": "공공의 이익 우선 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "공공의 이익을 최우선으로 고려한다는 선언과 정책 추진 시 이를 상기시키는 것은 바람직한 자세이나, 구체적인 실행 계획이나 성과가 명시되지 않아 양호한 수준으로 평가"
+      },
+      {
+        "item_id": 172496,
+        "data_title": "법률 제정 참여",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "법률 제정 과정에 적극적으로 참여하여 정책 방향을 제시하는 것은 공직자로서의 직무를 성실히 수행하는 모습으로, 책임감 있는 행동으로 평가되어 우수한 수준"
+      },
+      {
+        "item_id": 172497,
+        "data_title": "정책 투명성 강화 약속",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "정책 투명성 강화와 정기적 보고를 약속한 것은 책임성 있는 자세이나, 아직 약속 단계에 머물러 있고 실제 이행 여부가 불분명하므로 양호한 수준으로 평가"
+      },
+      {
+        "item_id": 172498,
+        "data_title": "법적 책임 규명 노력",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "C",
+        "rating_rationale": "법적 책임 규명의 필요성 강조와 투명하고 공정한 절차 약속은 책임감 있는 태도이나, 구체적인 실행 방안이나 성과가 제시되지 않아 양호한 수준에 그침"
+      },
+      {
+        "item_id": 172499,
+        "data_title": "국민 추천 제도 도입",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "정책 수립 과정에 국민 추천 제도 도입을 발표한 것은 민주적 참여를 확대하고 정책 신뢰성을 높이려는 적극적인 책임감 있는 노력으로, 우수한 수준으로 평가됨"
+      },
+      {
+        "item_id": 172500,
+        "data_title": "단체와의 협력 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "다양한 사회단체와의 협력 의지를 표명한 것은 긍정적이나, 구체적인 실행 계획이나 성과가 제시되지 않아 의지 표명 수준에 그치고 있어 양호한 정도의 책임성을 보임"
+      },
+      {
+        "item_id": 172501,
+        "data_title": "국회 출석률",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "국회의원으로서 높은 출석률을 유지하는 것은 기본적인 의무를 충실히 이행하는 책임감 있는 태도로 평가되며, 이는 공식 기록으로 검증 가능한 객관적 지표임"
+      },
+      {
+        "item_id": 172502,
+        "data_title": "정책 평가 회의 개최",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "C",
+        "rating_rationale": "정책 시행 후 정기적인 평가와 개선점 파악 의지를 밝힌 것은 책임감 있는 자세이나, 아직 계획 단계의 약속이며 실제 이행 여부와 성과는 확인되지 않음"
+      },
+      {
+        "item_id": 172503,
+        "data_title": "투명한 예산 사용 약속",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "예산 사용의 투명성 보장 약속과 함께 관련 법안을 실제 제출한 것은 말뿐만 아닌 구체적 행동으로 이어진 책임감 있는 모습을 보여주며, 법무부 공식 보고서로 검증됨"
+      },
+      {
+        "item_id": 172504,
+        "data_title": "위기 대처 능력",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "과거 위기 상황에서의 신속하고 적절한 대처는 실제 성과에 기반한 책임감 있는 행동으로 평가되며, 위기 관리 능력은 정치인의 중요한 책임성 지표임"
+      },
+      {
+        "item_id": 172505,
+        "data_title": "법 집행 공정성 강조",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "법 집행의 공정성 강조와 제도적 기반 마련 공언은 올바른 방향성을 제시하고 있으나, 구체적인 실행 방안이나 성과가 제시되지 않아 선언적 수준에 머물고 있음"
+      },
+      {
+        "item_id": 172506,
+        "data_title": "정책 개선 피드백 수렴",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "정책 시행 후 피드백 수렴 의지를 밝힌 것은 책임감 있는 태도이나, 실제 피드백 수렴 시스템이나 개선 사례가 구체적으로 제시되지 않아 계획 단계의 약속으로 평가됨"
+      },
+      {
+        "item_id": 172507,
+        "data_title": "지속적인 교육 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "검찰 및 관련 기관의 교육 강화를 통한 전문성 향상 의지는 긍정적이나, 구체적인 교육 프로그램이나 실행 계획이 제시되지 않아 의지 표명 수준에 그치고 있음"
+      },
+      {
+        "item_id": 172508,
+        "data_title": "국민의 목소리 반영 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "정책 수립 과정에서 국민 의견 반영 의지를 보인 것은 민주적 책임성을 인식하는 모습이나, 구체적인 의견 수렴 방법이나 실제 반영 사례가 제시되지 않아 선언적 수준임"
+      },
+      {
+        "item_id": 172509,
+        "data_title": "검찰 윤리 교육 실시",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "C",
+        "rating_rationale": "검찰 윤리 교육 강화를 통한 법의 공정성 유지 약속은 올바른 방향성을 제시하고 있으나, 구체적인 교육 내용이나 실행 계획이 부족하여 약속 단계에 머물고 있음"
+      },
+      {
+        "item_id": 172510,
+        "data_title": "법적 책임 축소 비판",
+        "collected_by": "ChatGPT",
+        "original_rating": "G",
+        "new_rating": "F",
+        "rating_rationale": "법적 책임을 축소하는 조치는 정치인의 기본적인 책임성을 심각하게 훼손하는 행위로, 공직자로서의 윤리적 의무를 저버린 것으로 평가됩니다."
+      },
+      {
+        "item_id": 172511,
+        "data_title": "정책 변경의 일관성 결여",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "정책의 잦은 변경은 일관성 부족을 보여주며 국민에게 혼란을 야기하여 정치인으로서의 신뢰성과 책임성에 부정적 영향을 미치고 있습니다."
+      },
+      {
+        "item_id": 172512,
+        "data_title": "논란의 법안 통과",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "D",
+        "rating_rationale": "주도한 법안이 의회 반대와 논란을 일으킨 것은 사전 조율과 소통 부족을 보여주며, 민주적 절차에 대한 책임감이 부족했다고 판단됩니다."
+      },
+      {
+        "item_id": 172513,
+        "data_title": "피해자 목소리 무시 비판",
+        "collected_by": "ChatGPT",
+        "original_rating": "H",
+        "new_rating": "F",
+        "rating_rationale": "피해자의 목소리를 무시하는 것은 공직자의 기본적 의무인 국민 보호 책임을 방기한 것으로, 심각한 책임성 결함을 보여주는 사안입니다."
+      },
+      {
+        "item_id": 172514,
+        "data_title": "사건 처리의 비효율성",
+        "collected_by": "ChatGPT",
+        "original_rating": "G",
+        "new_rating": "E",
+        "rating_rationale": "사건 처리의 비효율성은 국민 안전과 직결되는 중요한 문제로, 공직자로서의 업무 수행 책임을 제대로 이행하지 못한 것으로 평가됩니다."
+      },
+      {
+        "item_id": 172515,
+        "data_title": "정책 실행 투명성",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "정책 실행 과정의 투명성 공개 약속은 국민에 대한 책임을 다하려는 적극적 의지를 보여주며, 민주적 거버넌스 강화에 기여하는 긍정적 조치입니다."
+      },
+      {
+        "item_id": 172516,
+        "data_title": "정기적인 성과 보고 예정",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "정기적인 성과 보고서 발행 계획은 정책에 대한 지속적인 책임을 지고 국민에게 투명하게 소통하려는 책임감 있는 자세를 보여줍니다."
+      },
+      {
+        "item_id": 172517,
+        "data_title": "갈등 해결 노력",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "갈등 해결을 위한 노력은 사회 통합에 대한 책임감을 보여주는 긍정적 행위이나, 구체적 성과나 방법론이 명확하지 않아 양호한 수준으로 평가됩니다."
+      },
+      {
+        "item_id": 172518,
+        "data_title": "정책 개선 요청 수용",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "정책 개선 요청 수용은 국민 의견을 존중하는 민주적 책임성을 보여주지만, 단순한 수용 의사 표명 수준으로 실질적 이행 여부가 불분명합니다."
+      },
+      {
+        "item_id": 172519,
+        "data_title": "사법 제도 개선 방안 제시",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "사법 제도 개선 방안 제시는 법치주의 강화에 대한 적극적 책임 의지를 보여주며, 공정하고 투명한 사법 시스템 구축에 기여하는 책임감 있는 행동입니다."
+      },
+      {
+        "item_id": 172520,
+        "data_title": "공정성 유지 노력",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "공정성 제고를 위한 연구와 의지를 표명했으나, 구체적인 실행 계획이나 성과가 부족하여 선언적 수준에 그치고 있다. 사회적 불신 해소라는 목표는 긍정적이지만 실질적 책임 이행 방안이 명확하지 않다."
+      },
+      {
+        "item_id": 172521,
+        "data_title": "법률자문 공정성 강화 약속",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "법무부 공식 발표를 통해 법률자문 공정성 강화 의지를 공개적으로 천명하고 실천 약속을 했다. 공식 채널을 통한 명확한 의사표명으로 책임성 측면에서 우수한 모습을 보였으나 실제 성과는 추후 확인이 필요하다."
+      },
+      {
+        "item_id": 172522,
+        "data_title": "국회의원으로서 책임 다짐",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "국회의원으로서의 책임감을 여러 차례 공개적으로 다짐한 점은 긍정적이나, 구체적인 실행 방안이나 성과 지표가 제시되지 않아 선언적 차원에 머물고 있다. 지속적인 의지 표명은 평가할 만하다."
+      },
+      {
+        "item_id": 172523,
+        "data_title": "법 취지 존중 강조",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "법의 취지 존중이라는 기본적인 원칙을 강조하고 이에 부합하는 행보를 약속했다. 법치주의에 대한 기본 인식은 적절하나, 구체적인 실천 방안이나 과거 행적과의 일관성에 대한 검증이 필요한 상황이다."
+      },
+      {
+        "item_id": 172524,
+        "data_title": "시민의 안전 최우선 보장",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "시민 안전을 최우선으로 하겠다는 명확한 우선순위를 제시하고, 경찰 개혁이라는 구체적 방향성을 국정감사를 통해 공식적으로 발표했다. 공공의 안전에 대한 책임감과 개혁 의지를 보여주는 우수한 사례이다."
+      },
+      {
+        "item_id": 172525,
+        "data_title": "정당 정책 투명성 약속",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "정당 정책의 투명성 필요성을 인식하고 개선 방법을 제시한 점이 우수하다. 정당 공식 보도자료를 통해 투명성에 대한 의지를 공개적으로 표명하여 정치적 책임성을 보여주었으나 실제 이행 과정의 모니터링이 필요하다."
+      },
+      {
+        "item_id": 172526,
+        "data_title": "법적 책임 문제 희석 우려",
+        "collected_by": "ChatGPT",
+        "original_rating": "H",
+        "new_rating": "F",
+        "rating_rationale": "특정 사건에서 법적 책임을 경감시키려는 시도는 책임성 측면에서 심각한 문제이다. 법적 책임을 회피하려는 행위는 공직자로서의 기본 책무를 저버리는 것으로, 공정성과 신뢰성에 큰 타격을 주는 부족한 행태이다."
+      },
+      {
+        "item_id": 172527,
+        "data_title": "정책과 약속 불일치 지적",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "정책과 이전 약속의 불일치는 정치인의 신뢰성과 일관성을 크게 훼손하는 문제이다. 공약과 실제 정책 간의 괴리는 유권자에 대한 배신으로 간주될 수 있으며, 정치적 책임성 측면에서 부족한 모습을 보여준다."
+      },
+      {
+        "item_id": 172528,
+        "data_title": "국민 의견 반영 약속",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "정책 수립 과정에서 국민 의견 반영을 약속하고 실천 계획을 밝힌 것은 민주적 책임성을 보여주는 우수한 사례이다. 법무부 공식 발표를 통해 국민과의 소통 의지를 명확히 했으나, 실제 의견 수렴 메커니즘의 구체성이 보완되면 더욱 좋겠다."
+      },
+      {
+        "item_id": 172529,
+        "data_title": "정치를 위한 정치 비판",
+        "collected_by": "ChatGPT",
+        "original_rating": "G",
+        "new_rating": "G",
+        "rating_rationale": "정치적 이득을 위한 정치 행위라는 비판은 공직자의 본분을 벗어난 매우 부족한 행태이다. 국민을 위한 정치가 아닌 개인적 이익 추구로 인식되는 것은 정치적 책임성을 심각하게 훼손하며, 국민의 신뢰를 크게 실추시키는 문제이다."
+      },
+      {
+        "item_id": 172530,
+        "data_title": "정책 결과 분석 진행",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "정책 결과 분석을 진행하겠다는 의지 표명은 긍정적이나, 구체적인 실행 계획이나 책임 메커니즘이 부족하여 의지 표현 수준에 그치고 있다."
+      },
+      {
+        "item_id": 172531,
+        "data_title": "다양한 이해관계 조정 노력",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "이해관계 조정 노력은 책임감 있는 자세이나, 구체적인 조정 방법이나 성과 지표가 제시되지 않아 실질적 책임성 확보 방안이 불분명하다."
+      },
+      {
+        "item_id": 172532,
+        "data_title": "국민과의 간담회 개최 의사",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "C",
+        "rating_rationale": "국민과의 간담회 개최 의사는 소통 책임을 보여주지만, 정기적 개최라는 추상적 약속에 그쳐 구체적인 실행 계획과 피드백 반영 방안이 부족하다."
+      },
+      {
+        "item_id": 172533,
+        "data_title": "부정부패 척결 의지",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "부정부패 척결 의지를 여러 차례 강조한 것은 높은 책임의식을 보여주며, 법무부 공식 발표라는 점에서 공신력이 있어 우수한 책임성을 나타낸다."
+      },
+      {
+        "item_id": 172534,
+        "data_title": "정당 내부 투명성 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "정당 내부 투명성 강화를 위한 구체적 계획 제시는 책임감 있는 접근이며, 정당 공식 보도자료를 통한 공개적 약속으로 실행 가능성을 높였다."
+      },
+      {
+        "item_id": 172535,
+        "data_title": "사법 시스템 개선 의지",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "C",
+        "rating_rationale": "사법 시스템 개선 의지 표명은 공적 책임을 인식한 것이나, 지속적 노력이라는 추상적 표현으로 구체적인 개선 방안과 성과 측정 기준이 불분명하다."
+      },
+      {
+        "item_id": 172536,
+        "data_title": "소통 부족 솔직한 인정",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "과거 소통 부족 문제를 솔직히 인정하고 개선 의지를 밝힌 것은 높은 책임성을 보여주며, 자기반성과 개선 노력이 결합된 우수한 책임감을 나타낸다."
+      },
+      {
+        "item_id": 172537,
+        "data_title": "정책 신뢰도 향상 방안 제시",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "정책 신뢰도 향상을 위한 다양한 방안 제시는 구체적 책임 이행 의지를 보여주며, 국정 감사 보고서라는 공식적 맥락에서 신뢰성이 높다."
+      },
+      {
+        "item_id": 172538,
+        "data_title": "국민과의 대화 의지",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "C",
+        "rating_rationale": "국민과의 지속적 대화 약속은 소통 책임을 인식한 것이나, 구체적인 대화 방식이나 주기가 명시되지 않아 실질적 이행 방안이 부족하다."
+      },
+      {
+        "item_id": 172539,
+        "data_title": "정책 공개의 습관화",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "정책 내용의 정기적 공개는 투명성과 책임성을 높이는 구체적 방안이며, 국민의 정책 이해도 향상이라는 명확한 목표를 제시하여 우수한 책임감을 보인다."
+      },
+      {
+        "item_id": 172340,
+        "data_title": "한동훈 의원의 환경 보호 법안 추진 성과",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "환경 보호 법안을 성공적으로 발의하고 시행까지 완료했으며, 투명한 의정활동과 약속된 성과 달성으로 매우 우수한 책임성을 보임"
+      },
+      {
+        "item_id": 172341,
+        "data_title": "한동훈의 복지 정책 이행 보고",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "선거 공약을 실제 정책으로 실행하여 수천 가구에 실질적 도움을 제공했고, 중장기적 성과 창출과 지속적인 정책 관리로 매우 우수한 책임성을 입증"
+      },
+      {
+        "item_id": 172342,
+        "data_title": "한동훈의 교육 개혁 참여",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "교육 예산 증액을 주장하고 국회 통과까지 이끌어내며, 지속적인 모니터링으로 정책 효과성을 높인 책임성 있는 리더십의 모범 사례"
+      },
+      {
+        "item_id": 172343,
+        "data_title": "한동훈의 지역 개발 프로젝트",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "주민 의견 수집부터 프로젝트 완료까지 전 과정을 책임성 있게 관리하여 지역 인프라 개선이라는 구체적 성과를 달성한 공약 이행의 표본"
+      },
+      {
+        "item_id": 172344,
+        "data_title": "한동훈의 외교 정책 지원",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "외교 정책 지원과 일관된 입장 유지로 국가 안보 강화에 기여했으나, 구체적 성과나 주도적 역할보다는 지원 역할에 그쳐 우수 수준"
+      },
+      {
+        "item_id": 172345,
+        "data_title": "한동훈의 코로나 대응 노력",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "코로나 위기 상황에서 의료 지원 법안 제안과 실행, 지속적 감독을 통해 지역 의료 시스템 강화라는 실질적 성과를 달성한 매우 우수한 책임성"
+      },
+      {
+        "item_id": 172346,
+        "data_title": "한동훈의 일자리 창출 정책",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "일자리 창출 정책을 추진하고 청년 고용 증가 성과를 거두었으나, 일부 목표 미달이 있어 기본적 책임성은 유지했지만 완전하지 못함"
+      },
+      {
+        "item_id": 172347,
+        "data_title": "한동훈의 문화 예술 지원",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "문화 예술 분야 예산 확보와 모니터링을 통해 지역 문화 발전에 기여했으며, 책임성 있는 자세로 정책을 성공적으로 추진한 우수한 사례"
+      },
+      {
+        "item_id": 172348,
+        "data_title": "한동훈의 교통 인프라 개선",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "교통 인프라 개선 법안 발의와 프로젝트 추진으로 지역 교통 체계 업그레이드를 달성했으며, 책임성 있는 관리로 성과를 창출한 우수 사례"
+      },
+      {
+        "item_id": 172349,
+        "data_title": "한동훈의 노인 복지 확대",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "노인 복지 확대 공약을 실행하여 노인 의료 혜택 증가라는 성과를 달성했고, 지속적인 피드백 관리로 책임성을 보인 우수한 사례"
+      },
+      {
+        "item_id": 172350,
+        "data_title": "한동훈의 환경 정책 성과",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "환경 정책을 통과시키고 실제 오염 저감 성과를 달성했으며, 지속적인 모니터링을 통해 책임성 있는 정책 관리를 보여주었으나, 구체적인 성과 지표나 장기적 계획에 대한 세부 정보가 부족함"
+      },
+      {
+        "item_id": 172351,
+        "data_title": "한동훈의 정치 활동 평가",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "여러 공약을 이행하고 지역 발전에 기여했다는 긍정적 평가가 있으나, 구체적인 공약 내용이나 이행 정도, 지역 발전의 구체적 성과에 대한 세부적인 설명이 부족하여 책임성 평가에 한계가 있음"
+      },
+      {
+        "item_id": 172352,
+        "data_title": "한동훈의 선거 공약 이행",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "C",
+        "rating_rationale": "선거 공약 이행률이 높게 평가되었다는 점에서 유권자에 대한 책임을 다하고 있으나, 구체적인 이행률 수치나 어떤 공약들이 이행되었는지에 대한 명확한 정보가 제시되지 않아 평가의 객관성이 제한적임"
+      },
+      {
+        "item_id": 172353,
+        "data_title": "한동훈의 사회 복지 노력",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "사회 복지 관련 활동이 중립적으로 다루어지고 기본적 책임성을 유지했다고 하나, 구체적인 정책 내용이나 성과, 수혜 대상 등에 대한 정보가 없어 실질적인 책임성 이행 정도를 판단하기 어려움"
+      },
+      {
+        "item_id": 172354,
+        "data_title": "한동훈의 경제 정책 기여",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "경제 정책이 긍정적으로 평가되고 2023년 성과가 주목받았다는 점에서 정책적 책임을 다하고 있으나, 경제 정책의 구체적 내용이나 성과 지표, 실제 경제에 미친 영향에 대한 세부 정보가 부족함"
+      },
+      {
+        "item_id": 172355,
+        "data_title": "한동훈의 법안 제정 성과",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "C",
+        "rating_rationale": "법안 제정 성과가 언론에서 칭찬받았다는 점에서 입법자로서의 책임을 다하고 있으나, 어떤 법안인지, 사회에 미친 구체적 영향이나 효과에 대한 상세한 정보가 제시되지 않아 완전한 평가가 제한적임"
+      },
+      {
+        "item_id": 172356,
+        "data_title": "한동훈의 지역 사회 기여",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "D",
+        "rating_rationale": "지역 사회 활동이 중립적으로 다루어지고 기본적 책임성을 유지했다고 하나, 구체적인 활동 내용이나 지역사회에 미친 실질적 영향, 주민들의 반응 등에 대한 구체적 정보가 없어 책임성 평가가 어려움"
+      },
+      {
+        "item_id": 172357,
+        "data_title": "한동훈의 의정 활동 분석",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "의정 활동이 책임성 있게 이뤄졌다는 언론 분석이 있고 2023년 성과가 강조되었으나, 구체적인 의정 활동 내용이나 성과의 세부사항, 국민에게 미친 실질적 영향에 대한 명확한 정보가 부족함"
+      },
+      {
+        "item_id": 172358,
+        "data_title": "한동훈의 공공 안전 정책",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "C",
+        "rating_rationale": "공공 안전 정책이 긍정적으로 보도되고 2021년부터 책임성 있는 행보를 보였다는 점에서 공공의 안전에 대한 책임을 다하고 있으나, 정책의 구체적 내용이나 실제 안전 개선 효과에 대한 세부 정보가 제한적임"
+      },
+      {
+        "item_id": 172359,
+        "data_title": "한동훈의 환경 보호 캠페인",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "환경 보호 캠페인이 중립적으로 평가되고 책임성을 유지했다고 하나, 캠페인의 구체적 내용이나 환경 보호에 미친 실질적 효과, 시민 참여도 등에 대한 구체적 정보가 없어 실질적 책임성 이행 정도를 판단하기 어려움"
+      },
+      {
+        "item_id": 172360,
+        "data_title": "한동훈의 부정적 정책 실패 논란",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "특정 정책의 미이행과 공약 위반은 정치인의 기본적 책임성을 저버린 행위로, 유권자와의 약속을 지키지 못한 중대한 책임성 결함을 보여줍니다."
+      },
+      {
+        "item_id": 172361,
+        "data_title": "한동훈의 예산 관리 실패",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "G",
+        "rating_rationale": "예산 오남용 의혹은 공적 자금의 부적절한 사용을 의미하며, 이는 국민에 대한 신뢰를 심각하게 훼손하는 매우 심각한 책임성 결여 사례입니다."
+      },
+      {
+        "item_id": 172362,
+        "data_title": "한동훈의 공약 불이행 사례",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "F",
+        "rating_rationale": "다수의 공약 불이행은 선거 시 유권자와의 약속을 저버린 것으로, 정치인으로서의 기본적 책임성과 신뢰성에 심각한 문제가 있음을 보여줍니다."
+      },
+      {
+        "item_id": 172363,
+        "data_title": "한동훈의 로비 의혹",
+        "collected_by": "Grok",
+        "original_rating": "H",
+        "new_rating": "G",
+        "rating_rationale": "로비 의혹은 공정한 정치 과정을 왜곡할 수 있는 매우 심각한 문제로, 투명성과 윤리적 책임성에 치명적 결함을 보여주는 사안입니다."
+      },
+      {
+        "item_id": 172364,
+        "data_title": "한동훈의 정책 지연 문제",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "정책 지연은 효율적인 국정 운영을 저해하고 국민의 기대에 부응하지 못하는 것으로, 정치인으로서의 실행력과 책임성이 미흡함을 나타냅니다."
+      },
+      {
+        "item_id": 172365,
+        "data_title": "한동훈의 부정적 보도 논란",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "정책 실패에 대한 언론의 지속적 비판은 정치인으로서의 기본적 역할 수행에 실패했음을 의미하며, 책임성 결여가 사회적으로 인정받고 있음을 보여줍니다."
+      },
+      {
+        "item_id": 172366,
+        "data_title": "한동훈의 의혹 관련 기사",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "F",
+        "rating_rationale": "의혹 관련 보도와 공약 위반은 정치인으로서의 신뢰성과 약속 이행 능력에 심각한 문제가 있음을 보여주며, 책임성이 부족함을 명확히 드러냅니다."
+      },
+      {
+        "item_id": 172367,
+        "data_title": "한동훈의 비판적 평가",
+        "collected_by": "Grok",
+        "original_rating": "H",
+        "new_rating": "E",
+        "rating_rationale": "언론의 비판적 평가는 정치 활동의 문제점이 객관적으로 인정받고 있음을 의미하며, 정치인으로서의 책임성 수행에 미흡함이 있음을 나타냅니다."
+      },
+      {
+        "item_id": 172368,
+        "data_title": "한동훈의 미흡한 활동",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "미흡한 정치 활동은 국민의 대표로서의 역할을 제대로 수행하지 못했음을 의미하며, 정치인으로서의 기본적 책임성이 미흡한 수준임을 보여줍니다."
+      },
+      {
+        "item_id": 172369,
+        "data_title": "한동훈의 정책 논란",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "정책 논란과 관련된 지속적인 비판은 정책 수립과 실행 과정에서의 책임성 부족을 나타내며, 국민에 대한 책임 의식이 미흡함을 보여줍니다."
+      },
+      {
+        "item_id": 172370,
+        "data_title": "한동훈의 중립적 정책 평가",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "D",
+        "rating_rationale": "중립적 정책 평가와 기본적 책임성 수준이라는 표현은 특별히 뛰어나거나 부족하지 않은 보통 수준의 책임성을 보여주며, 구체적인 성과나 문제점이 명시되지 않아 평균적인 평가에 해당함"
+      },
+      {
+        "item_id": 172371,
+        "data_title": "한동훈의 활동 긍정적 보도",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "언론에서 긍정적으로 평가되고 책임성 강화가 강조되었다는 점은 우수한 책임감을 보여주는 지표이며, 지속적인 개선 의지와 실제 성과가 인정받고 있음을 시사함"
+      },
+      {
+        "item_id": 172372,
+        "data_title": "한동훈의 중립적 분석",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "중립적 보도와 보통 수준의 책임성이라는 평가는 특별한 장점이나 단점 없이 평균적인 성과를 보이고 있음을 의미하며, 개선이나 발전의 여지가 있는 상태로 판단됨"
+      },
+      {
+        "item_id": 172373,
+        "data_title": "한동훈의 정책 성공 보도",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "정책 성공이 언론에서 다뤄지고 긍정적 책임성이 언급된 것은 실질적인 성과와 함께 책임감 있는 정치 활동을 보여주는 우수한 사례로, 구체적인 결과물이 인정받고 있음"
+      },
+      {
+        "item_id": 172374,
+        "data_title": "한동훈의 중립적 활동 평가",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "D",
+        "rating_rationale": "중립적 평가와 보통 수준의 책임성은 평균적인 정치 활동을 보여주며, 특별한 성취나 문제점 없이 기본적인 의무를 수행하고 있는 보통 수준의 책임감을 나타냄"
+      },
+      {
+        "item_id": 172375,
+        "data_title": "한동훈의 긍정적 기여",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "긍정적 기여가 언론에서 보도되고 우수한 책임성이 명시적으로 언급된 것은 매우 뛰어난 책임감과 실질적 성과를 동시에 보여주는 최고 수준의 평가에 해당함"
+      },
+      {
+        "item_id": 172376,
+        "data_title": "한동훈의 보통 평가",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "보통 평가라는 직접적인 표현과 함께 책임성에 대한 구체적 설명이 부족한 점은 평균적인 수준의 정치 활동과 책임감을 보이고 있음을 시사하는 보통 등급에 해당함"
+      },
+      {
+        "item_id": 172377,
+        "data_title": "한동훈의 우수한 활동",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "우수한 활동이라는 긍정적 평가와 책임성 강화라는 표현은 지속적인 개선과 높은 수준의 책임감을 보여주며, 언론의 우수 평가는 객관적 인정을 받고 있음을 의미함"
+      },
+      {
+        "item_id": 172378,
+        "data_title": "한동훈의 양호한 정책",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "양호한 정책이라는 평가는 기본 수준을 넘어서는 긍정적 성과를 보여주지만 우수나 매우 우수 수준에는 미치지 못하는 양호한 책임성 수준을 나타냄"
+      },
+      {
+        "item_id": 172379,
+        "data_title": "한동훈의 중립적 보도",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "중립적 보도와 단순한 책임성 수준 언급은 특별한 성과나 문제점 없이 기본적인 정치인으로서의 역할을 수행하고 있는 보통 수준의 책임감을 보여줌"
+      },
+      {
+        "item_id": 172380,
+        "data_title": "한동훈의 긍정적 평가",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "긍정적 평가와 책임성 우수라는 언급이 있으나, 구체적인 성과나 실질적 책임 이행 내용이 부족하여 우수 등급 부여. 언론의 긍정적 보도만으로는 최고 등급 부여에 한계가 있음."
+      },
+      {
+        "item_id": 172381,
+        "data_title": "한동훈의 중립적 기여",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "D",
+        "rating_rationale": "중립적 기여와 책임성 언급만 있을 뿐 구체적인 성과나 책임 이행 사례가 명시되지 않음. 중립적 평가는 특별한 긍정적 요소나 부정적 요소가 없음을 의미하여 보통 등급 부여."
+      },
+      {
+        "item_id": 172382,
+        "data_title": "한동훈의 우수한 정책",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "우수한 정책과 책임성 강조가 언급되어 긍정적 평가 가능하나, 정책의 구체적 내용이나 실제 성과에 대한 세부 정보가 부족함. 언론 보도의 우수 평가를 근거로 우수 등급 부여."
+      },
+      {
+        "item_id": 172383,
+        "data_title": "한동훈의 보통 활동",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "보통 활동과 책임성 언급으로 평균적 수준의 정치 활동을 보여줌. 특별히 뛰어나거나 부족한 점이 드러나지 않아 보통 등급이 적절함. 추가적인 구체적 성과 정보 필요."
+      },
+      {
+        "item_id": 172384,
+        "data_title": "한동훈의 양호한 평가",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "양호한 평가와 책임성 언급으로 평균 이상의 활동을 보여주나, 우수 수준에는 미치지 못함. 언론의 양호 평가를 근거로 양호 등급 부여하며, 구체적 성과 내용 보완 필요."
+      },
+      {
+        "item_id": 172385,
+        "data_title": "한동훈의 긍정적 활동",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "긍정적 활동과 책임성 우수 언급으로 높은 수준의 정치적 책임 이행을 보여줌. 언론의 긍정적 보도와 우수 평가를 종합하여 우수 등급 부여하나, 구체적 사례 부족으로 최고 등급은 제한."
+      },
+      {
+        "item_id": 172386,
+        "data_title": "한동훈의 중립적 정책",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "중립적 정책 평가와 책임성 수준 언급으로 평균적인 정치 활동을 나타냄. 특별한 긍정적 또는 부정적 요소가 없어 보통 등급이 적절하며, 더 구체적인 정책 성과 정보가 필요함."
+      },
+      {
+        "item_id": 172387,
+        "data_title": "한동훈의 우수한 기여",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "우수한 기여와 책임성 강조로 높은 수준의 정치적 성과를 보여줌. 언론의 우수 평가와 책임성 강조를 근거로 우수 등급 부여하나, 기여의 구체적 내용과 실질적 효과에 대한 정보 부족."
+      },
+      {
+        "item_id": 172388,
+        "data_title": "한동훈의 양호한 활동",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "양호한 활동과 책임성 언급으로 평균 이상의 정치적 책임 이행을 나타냄. 언론의 양호 평가를 바탕으로 양호 등급 부여하며, 활동의 구체적 내용과 실질적 성과에 대한 추가 정보 필요."
+      },
+      {
+        "item_id": 172389,
+        "data_title": "한동훈의 보통 평가",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "보통 평가와 책임성 수준 언급으로 평균적인 정치 활동 수준을 보여줌. 특별히 우수하거나 부족한 점이 드러나지 않아 보통 등급 부여하며, 구체적인 성과나 개선 사항에 대한 정보 보완 필요."
+      },
+      {
+        "item_id": 109685,
+        "data_title": "국민의힘 비상대책위원장 임명 과정 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "D",
+        "rating_rationale": "당 대표 선출 과정에서 내부 갈등을 야기했지만, 정치적 절차를 통한 임명이므로 절차적 정당성은 있음. 그러나 당내 화합을 위한 책임감 있는 접근이 부족했다고 판단됨"
+      },
+      {
+        "item_id": 109687,
+        "data_title": "검사 시절 부적절한 수사 개입 의혹",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "검사로서 정치적 수사 개입 의혹은 사법부의 독립성과 공정성을 훼손하는 심각한 문제임. 법조인으로서 가져야 할 기본적인 직업윤리와 책임감에 대한 의문을 제기하는 사안"
+      },
+      {
+        "item_id": 109689,
+        "data_title": "정치적 임명 과정의 투명성 문제",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "정치 임명 과정의 투명성 부족은 민주적 절차와 국민에 대한 책임성을 저해하는 요소임. 공직자로서 투명하고 공정한 절차를 통해 국민의 신뢰를 얻어야 할 책임을 다하지 못함"
+      },
+      {
+        "item_id": 109691,
+        "data_title": "언론 대응 및 소통 방식 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "정치인으로서 언론과의 소통은 국민과의 소통의 중요한 통로임. 공격적이고 방어적인 태도는 건전한 정치문화 조성과 국민에 대한 설명 책임을 제대로 수행하지 못한 것으로 평가됨"
+      },
+      {
+        "item_id": 109693,
+        "data_title": "정책 일관성 및 공약 이행 미흡",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "정책 일관성과 공약 이행은 정치인의 기본적 책임임. 입장 변화와 공약 이행 미흡은 유권자에 대한 약속을 지키지 않은 것으로, 정치적 신뢰성과 책임감에 심각한 문제가 있음"
+      },
+      {
+        "item_id": 109695,
+        "data_title": "윤석열 정부 비서실장 시절 검언유착 의혹",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "검언유착 의혹은 권력기관 간의 부적절한 관계를 시사하며, 비서실장이라는 핵심 보직에서 발생한 문제로 국정 운영의 공정성을 심각하게 훼손함. 공직자로서의 기본 책임을 저버린 중대한 사안"
+      },
+      {
+        "item_id": 109697,
+        "data_title": "국민의힘 비상대책위원장 선출 과정의 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "당 지도부로서 당내 화합을 도모해야 할 책임이 있음에도 불구하고, 개인 주도적 행보로 갈등을 심화시킨 것은 조직 리더로서의 책임감 부족을 보여주는 사례임"
+      },
+      {
+        "item_id": 109700,
+        "data_title": "법무부 장관 시절 정치적 중립성 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "법무부 장관은 법 집행의 최고 책임자로서 정치적 중립성이 절대적으로 요구되는 직책임. 정치적 중립성을 해치는 발언과 행보는 법치주의 근간을 흔드는 매우 심각한 책임 방기 사안"
+      },
+      {
+        "item_id": 109703,
+        "data_title": "선거 전략과 관련된 정치적 책임 회피",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "선거 결과에 대한 책임 회피는 정치인으로서 가져야 할 기본적 책임감의 부재를 보여줌. 특히 당 지도부로서 선거 패배에 대한 책임을 지지 않는 것은 정치적 무책임의 전형적 사례"
+      },
+      {
+        "item_id": 109705,
+        "data_title": "정치적 발언의 일관성 부족",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "정치적 발언의 일관성 부족은 유권자에 대한 신뢰를 저버리는 행위임. 상황에 따라 입장을 바꾸는 것은 원칙과 신념에 대한 책임감 부족을 드러내며, 정치인으로서의 기본 자질에 의문을 제기함"
+      },
+      {
+        "item_id": 109707,
+        "data_title": "국민의힘 비상대책위원장 사퇴와 책임",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "선거 참패 후 비상대책위원장직에서 사퇴한 것은 정치적 책임을 인정하고 수용하는 모습으로, 책임성 측면에서 우수한 대응이라고 평가할 수 있다. 결과에 대한 책임을 지고 물러나는 것은 민주적 책임정치의 기본 원칙에 부합한다."
+      },
+      {
+        "item_id": 109709,
+        "data_title": "법무부 장관 재직 중 검찰 수사 대응",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "법무부 장관 재직 중 검찰 수사 과정에서 중립성 논란이 발생한 것은 공직자로서의 책임성에 문제가 있음을 시사한다. 검찰 수사의 독립성과 중립성을 보장해야 할 위치에서 논란이 제기된 것은 책임성 관점에서 미흡하다고 볼 수 있다."
+      },
+      {
+        "item_id": 109711,
+        "data_title": "보수 정당 쇄신 노력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "보수 정당의 쇄신과 혁신을 시도한 것은 정치적 책임감을 보여주는 긍정적 행동이다. 다만 구체적인 성과나 실질적 변화의 정도를 알 수 없어 양호한 수준으로 평가하며, 지속적인 노력과 가시적 결과가 필요하다."
+      },
+      {
+        "item_id": 109713,
+        "data_title": "정책 공약 이행 노력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "선거 공약 이행을 위한 노력을 보인 것은 유권자에 대한 책임을 다하려는 모습으로 긍정적이다. 하지만 구체적인 이행률이나 성과에 대한 정보가 부족하여 양호한 수준으로 평가하며, 실질적 성과 달성이 중요하다."
+      },
+      {
+        "item_id": 109716,
+        "data_title": "정치적 리더십 발휘",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "C",
+        "rating_rationale": "당내 통합과 화합을 위한 리더십 발휘는 정당 지도자로서의 책임을 다하려는 노력으로 평가된다. 정치적 갈등을 조정하고 통합을 이끌어내는 것은 중요한 책임이지만, 구체적 성과와 지속성이 확인되어야 더 높은 평가가 가능하다."
+      },
+      {
+        "item_id": 109718,
+        "data_title": "언론 대응 투명성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "언론과의 소통과 투명한 대응은 정치인으로서 국민에 대한 책임을 다하는 기본적인 자세이다. 기자회견과 인터뷰를 통한 소통 노력은 양호하지만, 투명성의 질과 정도에 따라 평가가 달라질 수 있어 보다 구체적인 내용이 필요하다."
+      },
+      {
+        "item_id": 109720,
+        "data_title": "법적 책임 수용 태도",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "C",
+        "rating_rationale": "정치적 논란에 대해 법적 절차를 통해 대응한 것은 법치주의 원칙 하에서 책임을 다하는 모습으로 볼 수 있다. 법적 책임을 회피하지 않고 정당한 절차를 따르는 것은 책임성 측면에서 양호하나, 논란의 성격과 대응의 적절성에 따라 평가가 달라질 수 있다."
+      },
+      {
+        "item_id": 109722,
+        "data_title": "정치적 약속 이행",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "정치적 약속과 공약 이행에 대한 지속적인 추적과 노력은 유권자에 대한 책임감을 보여주는 긍정적 행동이다. 공약 이행 보고서 작성 등은 투명성과 책임성을 높이는 방법이나, 실제 이행 성과와 질적 평가가 함께 고려되어야 한다."
+      },
+      {
+        "item_id": 109724,
+        "data_title": "당 혁신 노력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "당 혁신을 위한 지속적인 노력은 정당 지도자로서의 책임감을 보여주는 행동이다. 조직 개선과 혁신을 통해 정당의 발전을 도모하는 것은 책임성 있는 리더십의 표현이지만, 혁신의 실질적 성과와 지속가능성이 중요한 평가 기준이 된다."
+      },
+      {
+        "item_id": 109726,
+        "data_title": "국회 활동 책임성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "국회에서의 입법과 정책 활동은 국민의 대표로서 기본적인 책임을 다하는 행위이다. 회의 참석과 정책 활동을 통해 의정 활동에 충실한 모습은 양호하나, 구체적인 입법 성과나 정책의 질적 수준에 대한 평가가 함께 이루어져야 한다."
+      },
+      {
+        "item_id": 109728,
+        "data_title": "선거 전략 책임",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "D",
+        "rating_rationale": "2023년 총선에서 국민의힘이 부분적 성과를 거두었으나, 전반적인 선거 전략의 효과성과 결과에 대한 명확한 책임 인정이 제한적이었음. 선거 결과에 대한 구체적인 분석과 개선 방안 제시가 부족했음."
+      },
+      {
+        "item_id": 109730,
+        "data_title": "정치적 소통 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "C",
+        "rating_rationale": "여야 간 소통을 위한 기본적인 노력은 보였으나, 실질적인 협력 성과 도출에는 한계가 있었음. 대화 채널 유지에는 기여했지만, 구체적인 합의 도출이나 정치적 갈등 해소에서는 제한적 성과를 보임."
+      },
+      {
+        "item_id": 109731,
+        "data_title": "정책 일관성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "정치적 상황 변화에 따른 입장 변화가 빈번하게 발생하여 일관성 부족이 지적됨. 특히 주요 현안에 대한 입장이 상황에 따라 달라지는 모습을 보여 정책적 신뢰성에 부정적 영향을 미쳤음."
+      },
+      {
+        "item_id": 109733,
+        "data_title": "정치적 책임감",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "C",
+        "rating_rationale": "정치적 실수나 논란 발생 시 기본적인 해명과 대응은 보였으나, 적극적인 책임 인정이나 개선 노력에서는 아쉬움이 있었음. 방어적 대응에 그치는 경우가 많아 완전한 책임감 있는 모습을 보이지는 못했음."
+      },
+      {
+        "item_id": 109735,
+        "data_title": "당내 민주주의 실천",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "B",
+        "rating_rationale": "당 대표로서 당내 의사결정 과정에서 상당한 투명성을 유지하려 노력했으며, 당원들의 의견 수렴을 위한 제도적 장치를 마련했음. 당내 민주주의 실천에서 긍정적인 평가를 받을 만한 노력을 보였음."
+      },
+      {
+        "item_id": 109736,
+        "data_title": "위기 대응 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "C",
+        "rating_rationale": "정치적 위기 상황에서 기본적인 대응 체계는 갖추고 있었으나, 선제적이고 효과적인 위기 관리에서는 한계를 보였음. 위기 상황에 대한 신속한 대응은 있었지만, 근본적 해결책 제시에서는 부족함이 있었음."
+      },
+      {
+        "item_id": 109739,
+        "data_title": "정치적 공약 구체성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "선거 공약의 구체성과 실현 가능성 면에서 보통 수준의 평가를 받았음. 일부 공약은 구체적이었으나, 전반적으로 실현 방안이나 재원 조달 계획 등에서 구체성이 부족한 면이 있어 실현 가능성에 의문이 제기되었음."
+      },
+      {
+        "item_id": 109741,
+        "data_title": "정치적 신뢰도",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "C",
+        "rating_rationale": "여론 조사 결과 정치인으로서의 신뢰도는 중간 수준을 유지하고 있으나, 일관된 높은 신뢰도를 보이지는 못했음. 정치적 상황에 따라 신뢰도 변동이 있어 안정적인 신뢰 기반 구축에서는 아쉬움이 있었음."
+      },
+      {
+        "item_id": 109743,
+        "data_title": "정치적 비전 제시",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "B",
+        "rating_rationale": "미래 정치 비전과 방향성 제시에서 상당히 구체적이고 체계적인 모습을 보였음. 정책 발표를 통해 명확한 정치적 비전을 제시했으며, 이를 실현하기 위한 로드맵도 어느 정도 구체적으로 제시했음."
+      },
+      {
+        "item_id": 109744,
+        "data_title": "정치적 통합 노력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "D",
+        "rating_rationale": "정치적 갈등 해소를 위한 기본적인 노력은 보였으나, 실질적인 통합 효과 달성에서는 제한적 성과를 보였음. 통합 의지는 표명했지만, 구체적인 실행 방안이나 지속적인 노력에서 아쉬움이 있었음."
+      },
+      {
+        "item_id": 109746,
+        "data_title": "법무부 장관 당시 검찰 개혁 책임",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "법무부 장관으로서 검찰 개혁과 수사지휘권 폐지를 주도한 것은 제도적 책임을 다한 것으로 평가되나, 개혁의 실효성과 후속 조치에 대한 지속적 관리가 필요한 상황"
+      },
+      {
+        "item_id": 109747,
+        "data_title": "윤석열 정부 비서실장 임명 후 당정 갈등 관리",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "대통령실과 여당 간 소통 역할을 모색했다는 점에서 책임 의식은 보이나, 당정 갈등 해결에 대한 구체적 성과나 실질적 개선 결과가 명확하지 않음"
+      },
+      {
+        "item_id": 109748,
+        "data_title": "국민의힘 비상대책위원장 취임 후 당내 쇄신 노력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "비상대책위원장으로서 당 쇄신과 조직 정비를 추진한 것은 맡은 역할에 대한 책임감을 보여주며, 조직 개선을 위한 적극적 의지가 나타남"
+      },
+      {
+        "item_id": 109749,
+        "data_title": "부동산 정책 관련 공약 책임",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "선거 공약과 실제 정책 이행 사이의 격차가 존재한다는 것은 유권자에 대한 약속 이행 책임을 제대로 다하지 못했음을 의미하며, 정치적 신뢰도에 부정적 영향"
+      },
+      {
+        "item_id": 109750,
+        "data_title": "대선 캠프 당시 공약 책임",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "대선 캠프에서 핵심 역할을 수행했다는 것은 선거 과정에서의 책임을 다했음을 보여주나, 이후 공약 이행과 정책 실현에 대한 지속적 책임이 중요"
+      },
+      {
+        "item_id": 109751,
+        "data_title": "정치적 책임 수용 태도",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "당 쇄신 과정에서 자기반성과 책임 의지를 표명한 것은 정치인으로서 매우 바람직한 책임감을 보여주며, 문제 인식과 개선 의지가 명확히 드러남"
+      },
+      {
+        "item_id": 109752,
+        "data_title": "여론 수렴 및 소통 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "당내외 다양한 의견을 수렴하려는 노력은 민주적 리더십과 포용적 책임감을 보여주며, 소통을 통한 문제 해결 의지가 긍정적으로 평가됨"
+      },
+      {
+        "item_id": 109753,
+        "data_title": "선거구 공천 관리 책임",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "공천 과정의 투명성과 공정성 논란이 제기된 것은 정치적 책임 수행에 있어 중요한 결함을 보여주며, 민주적 절차에 대한 신뢰를 훼손할 수 있음"
+      },
+      {
+        "item_id": 109754,
+        "data_title": "정치 개혁 의지",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "당 혁신과 정치 쇄신을 추진하는 것은 정치 발전에 대한 책임감을 보여주며, 기존 문제점을 개선하려는 적극적 의지가 평가할 만함"
+      },
+      {
+        "item_id": 109755,
+        "data_title": "정책 일관성 유지",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "정치적 입장과 정책의 일관성 수준을 유지하는 것은 기본적인 정치적 책임이나, 변화하는 상황에 대한 유연한 대응과 균형이 필요한 영역"
+      },
+      {
+        "item_id": 109756,
+        "data_title": "당내 갈등 조정 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "D",
+        "rating_rationale": "당내 갈등 조정에서 일정 부분 노력을 보이고 있으나, 여전히 당내 분열이 지속되고 있어 완전한 책임을 다했다고 보기 어려움. 화합 노력은 인정되지만 실질적 성과는 제한적"
+      },
+      {
+        "item_id": 109757,
+        "data_title": "정치적 리더십 발휘",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "당 대표로서 기본적인 리더십은 발휘하고 있으나, 당내 결속력 강화와 대외적 정치적 영향력 확대에서는 아직 충분한 성과를 보여주지 못함. 개선 여지가 있는 수준"
+      },
+      {
+        "item_id": 109758,
+        "data_title": "대중 소통 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "B",
+        "rating_rationale": "SNS와 각종 매체를 통한 국민과의 소통에서 적극적인 모습을 보이고 있으며, 젊은 층과의 소통에서 특히 강점을 보임. 소통 방식의 다양성과 접근성에서 우수한 평가"
+      },
+      {
+        "item_id": 109759,
+        "data_title": "정치적 약속 이행 책임",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "당 대표 취임 후 제시한 공약들의 구체적 실행 계획이 부족하고, 일부 약속의 경우 실현 가능성에 대한 의문이 제기됨. 책임 있는 약속 이행을 위한 노력이 더 필요한 상황"
+      },
+      {
+        "item_id": 109760,
+        "data_title": "정치적 중립성 유지",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "정치적 현안에 대해 당파적 입장을 견지하는 경우가 많아 중립성 측면에서는 보통 수준. 야당 대표라는 위치상 어느 정도 당연하지만, 국정 현안에서 보다 객관적 접근 필요"
+      },
+      {
+        "item_id": 109761,
+        "data_title": "위기 대응 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "각종 정치적 위기 상황에서 신속한 대응을 보이고 있으나, 일부 사안에서는 초기 대응이 미흡했던 경우가 있음. 전반적으로 양호한 수준이지만 일관성 있는 위기관리 체계 구축 필요"
+      },
+      {
+        "item_id": 109762,
+        "data_title": "정책 비전 제시",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "국가 발전을 위한 기본적인 비전은 제시하고 있으나, 구체적이고 실현 가능한 정책 로드맵이 부족함. 장기적 관점에서의 체계적인 정책 비전 개발이 더 필요한 상황"
+      },
+      {
+        "item_id": 109763,
+        "data_title": "내부 의견 수렴 능력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "C",
+        "rating_rationale": "당내 각 계파의 의견을 듣고 조율하려는 노력을 보이고 있으나, 실제 의사결정 과정에서 모든 의견이 충분히 반영되고 있는지는 의문. 소통 창구는 열어두고 있어 양호한 수준"
+      },
+      {
+        "item_id": 109764,
+        "data_title": "정치적 책임 사과",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "B",
+        "rating_rationale": "필요한 상황에서 공개적으로 사과하고 책임을 인정하는 모습을 보여 정치적 책임감을 나타냄. 다만 사과 이후 구체적인 개선 조치나 재발 방지 노력에서는 보완이 필요"
+      },
+      {
+        "item_id": 109765,
+        "data_title": "정치적 신뢰성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "검찰총장 출신이라는 배경으로 일정한 신뢰도를 확보하고 있으나, 정치 입문 후 일관성 있는 행보를 통해 더욱 견고한 신뢰 기반을 구축해야 할 필요성이 있음"
+      }
+    ]
+  },
+  "scores": {
+    "ChatGPT": {
+      "avg_rating": 3.986666666666667,
+      "category_score": 79.93333333333334,
+      "total_items": 150,
+      "positive": 120,
+      "negative": 30
+    },
+    "Grok": {
+      "avg_rating": 3.533333333333333,
+      "category_score": 77.66666666666667,
+      "total_items": 150,
+      "positive": 113,
+      "negative": 37
+    },
+    "Claude": {
+      "avg_rating": 2.7066666666666666,
+      "category_score": 73.53333333333333,
+      "total_items": 150,
+      "positive": 114,
+      "negative": 36
+    }
+  },
+  "final_score": 77.04444444444444
+}

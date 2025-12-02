@@ -1,0 +1,3635 @@
+{
+  "data_pool_size": 150,
+  "evaluation_results": {
+    "ChatGPT": [
+      {
+        "item_id": 172290,
+        "data_title": "부패 방지 정책에 대한 참여",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "부패 방지 정책 추진과 정부 기관 투명성 향상 노력은 매우 긍정적으로 평가됩니다."
+      },
+      {
+        "item_id": 172291,
+        "data_title": "부패 신고 시스템 도입",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "부패 신고 시스템 도입과 시민의 긍정적인 피드백은 청렴성 증진에 기여한 것으로 높이 평가됩니다."
+      },
+      {
+        "item_id": 172292,
+        "data_title": "국제 세무 투명성 개선",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "국제 세무 투명성 개선을 위한 노력은 중요하지만 구체적인 성과가 부족해 우수 등급으로 평가됩니다."
+      },
+      {
+        "item_id": 172293,
+        "data_title": "적극적인 대국민 소통",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "대국민 소통을 통한 청렴성 설명은 긍정적이나, 더 많은 시민 참여가 필요합니다."
+      },
+      {
+        "item_id": 172294,
+        "data_title": "부패 관련 형사 고발 조치",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "부패 사건에 대한 신속한 형사 고발 조치는 부패 척결 의지를 잘 보여줍니다."
+      },
+      {
+        "item_id": 172295,
+        "data_title": "공직자의 윤리 강령 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "공직자의 윤리 강령 강화와 정기적인 윤리 교육은 청렴성을 높이는 데 매우 효과적입니다."
+      },
+      {
+        "item_id": 172296,
+        "data_title": "부패 감시단 운영",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "전문 감시단 운영은 부패 감시에 기여하나, 감시 결과에 대한 공개가 필요합니다."
+      },
+      {
+        "item_id": 172297,
+        "data_title": "부패 관련 법안 발의",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "부패 근절을 위한 법안 발의는 사회의 청렴성을 높이는 데 중요한 역할을 할 것입니다."
+      },
+      {
+        "item_id": 172298,
+        "data_title": "전국 청렴 캠페인 주관",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "전국 청렴 캠페인은 긍정적이나, 지속적인 참여 유도가 필요하여 우수 등급으로 평가합니다."
+      },
+      {
+        "item_id": 172299,
+        "data_title": "부패 수사 자원 투입 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "부패 수사를 위한 자원 투입 강화는 부패 사건 수사에 큰 도움이 되어 매우 긍정적입니다."
+      },
+      {
+        "item_id": 172300,
+        "data_title": "부패 논란 및 비판",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "부패 논란과 비판으로 인해 정책의 투명성이 부족하다는 주장이 제기되었고, 이는 청렴성에 부정적인 영향을 미친다."
+      },
+      {
+        "item_id": 172301,
+        "data_title": "부패 문제 지적 사건",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "과거 특정 사건에서 청렴성에 대한 의혹이 제기되어 신뢰에 타격을 주었으며, 이는 중대한 결함으로 평가된다."
+      },
+      {
+        "item_id": 172302,
+        "data_title": "부패 방지 교육 미비",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "부패 방지 교육 미비는 정책의 실효성을 떨어뜨리고, 이는 청렴성에 대한 신뢰를 약화시키는 요소로 작용한다."
+      },
+      {
+        "item_id": 172303,
+        "data_title": "청렴성 평가 낮은 지표",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "청렴성 평가 지표가 낮게 나타나고, 이는 대중의 신뢰도를 감소시키는 중요한 요인으로 작용하고 있다."
+      },
+      {
+        "item_id": 172304,
+        "data_title": "부패 수사 절차의 문제점",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "부패 수사 절차의 복잡성과 비효율성은 한동훈의 정책에 대한 불만을 초래하며, 이는 청렴성에 부정적인 영향을 미친다."
+      },
+      {
+        "item_id": 172305,
+        "data_title": "부패 사건 처리 미흡",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "부패 사건 처리 과정이 느리고 미흡하다는 지적은 청렴성에 대한 신뢰를 크게 저하시킨다."
+      },
+      {
+        "item_id": 172306,
+        "data_title": "비상식적 정책 이행",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "비상식적인 정책 이행은 청렴성을 저해하는 요소로 작용하고 있으며, 이는 비판의 근거가 된다."
+      },
+      {
+        "item_id": 172307,
+        "data_title": "인사 문제의 투명성 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "인사 결정 과정의 불투명성은 부패의 우려를 증가시키고, 이는 청렴성에 대한 신뢰를 약화시키는 요인이다."
+      },
+      {
+        "item_id": 172308,
+        "data_title": "청렴 증진 조치에 대한 문제",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "청렴 증진 조치가 구체적인 결과 없이 시행되고 있다는 비판은 방향성을 결여한 것으로, 신뢰에 부정적인 영향을 미친다."
+      },
+      {
+        "item_id": 172309,
+        "data_title": "부패 방지 전략의 실효성 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "부패 방지 전략의 실효성 부족은 전문가들에 의해 지적되었으며, 이는 청렴성에 대한 신뢰를 해치는 요소로 작용한다."
+      },
+      {
+        "item_id": 172310,
+        "data_title": "청렴성 관련 연구 발표",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "한동훈의 청렴성 관련 연구 발표는 부패 방지에 대한 새로운 이해를 제공하여 청렴성 증진에 기여한다."
+      },
+      {
+        "item_id": 172311,
+        "data_title": "청렴성 관련 세미나 개최",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "청렴성 강화를 위한 세미나 개최는 다양한 전문가의 의견을 수렴하고 정책 개선에 긍정적인 영향을 미칠 것으로 기대된다."
+      },
+      {
+        "item_id": 172312,
+        "data_title": "정부 대국민 청렴 캠페인 참여",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "대국민 청렴 캠페인 참여는 국민 인식을 개선할 수 있는 기회지만, 실질적인 성과가 필요하다."
+      },
+      {
+        "item_id": 172313,
+        "data_title": "공공 기관 청렴성 증진 활동",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "각종 공공 기관의 청렴성을 높이기 위한 프로젝트는 긍정적인 피드백을 받아 청렴성 증진에 크게 기여한다."
+      },
+      {
+        "item_id": 172314,
+        "data_title": "청렴성 관련 공개 토론회 주최",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "청렴성을 높이기 위한 공개 토론회 주최는 다양한 의견을 수렴하고 공론화를 촉진하는 매우 긍정적인 활동이다."
+      },
+      {
+        "item_id": 172315,
+        "data_title": "청렴성 강화를 위한 정책 토대 마련",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "구체적인 정책 토대를 마련하기 위한 연구와 시뮬레이션은 청렴성 강화를 위한 체계적인 접근 방식이다."
+      },
+      {
+        "item_id": 172316,
+        "data_title": "부패 방지 기술 도입을 위한 연구",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "부패 방지 기술 도입을 위한 연구는 미래 청렴성 강화에 기여할 것으로 기대되지만, 구체적인 성과가 필요하다."
+      },
+      {
+        "item_id": 172317,
+        "data_title": "청렴 제도를 위한 법적 기반 정비",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "청렴 제도를 위한 법적 기반 정비는 제도적 장치를 마련하여 청렴성 강화를 위한 중요한 조치이다."
+      },
+      {
+        "item_id": 172318,
+        "data_title": "부패 방지 및 청렴성 관련 공청회",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "부패 방지 및 청렴성 관련 공청회 개최는 다양한 의견을 수렴하고 정책에 반영하겠다는 의지가 돋보인다."
+      },
+      {
+        "item_id": 172319,
+        "data_title": "부정부패 감시 보고서 발행",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "부정부패 감시 보고서 발행은 지속적인 청렴 정책 추진을 약속하며 투명성을 높이는 중요한 활동이다."
+      },
+      {
+        "item_id": 172320,
+        "data_title": "부패 관련 전담팀 운영",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "부패 전담팀의 운영은 신속한 사건 처리를 통해 신뢰도를 높이는 긍정적인 조치로, 청렴성 향상에 매우 우수한 기여를 하고 있다."
+      },
+      {
+        "item_id": 172321,
+        "data_title": "다양한 청렴 관련 자료 발표",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "청렴 관련 자료 발표는 대중의 인식을 높이는 데 기여하지만, 단순한 정보 제공에 그쳐 더 큰 행동 변화로 이어질 필요가 있다."
+      },
+      {
+        "item_id": 172322,
+        "data_title": "부패 예방 캠페인 전개",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "부패 예방 캠페인은 시민의 청렴 의식을 향상시키고 있으며, 사회적 인식 변화를 유도하는 매우 효과적인 방법으로 평가된다."
+      },
+      {
+        "item_id": 172323,
+        "data_title": "부패와의 전쟁 선언",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "부패와의 전쟁 선언은 강력한 의지를 보여주며, 이는 국내외에서 긍정적인 반응을 얻고 있어 청렴성 제고에 매우 기여하고 있다."
+      },
+      {
+        "item_id": 172324,
+        "data_title": "공공 서비스의 투명성 증대",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "공공 서비스의 투명성 증대는 국민 만족도를 높이는 긍정적인 결과를 가져왔지만, 장기적이고 지속적인 정책이 필요하다."
+      },
+      {
+        "item_id": 172325,
+        "data_title": "부패 관련 시뮬레이션 게임 실시",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "부패 예방 시뮬레이션 게임은 청렴성을 인식시키는 좋은 기회를 제공하지만, 효과에 대한 구체적인 평가가 부족하다."
+      },
+      {
+        "item_id": 172326,
+        "data_title": "청렴성 수치 공표",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "정기적인 청렴성 수치 공표는 정부의 부패 방지 노력을 투명하게 보여주며, 이는 매우 긍정적인 청렴성 조치로 평가된다."
+      },
+      {
+        "item_id": 172327,
+        "data_title": "청렴성 관련 훈련 프로그램 운영",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "청렴성 훈련 프로그램은 공직자들의 의식 향상에 기여하지만, 실제 효과와 지속적인 참여를 위한 추가적인 노력이 필요하다."
+      },
+      {
+        "item_id": 172328,
+        "data_title": "부패 예방을 위한 포럼 주최",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "부패 예방 포럼은 전문가 의견 수렴의 장을 마련하여 정책에 반영하겠다는 의지를 보여주지만, 실행력에 대한 구체적인 계획이 필요하다."
+      },
+      {
+        "item_id": 172329,
+        "data_title": "청렴성 관련 표창 제정",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "청렴성 관련 표창 제정은 청렴 문화를 장려하는 매우 효과적인 방법으로, 이는 개인 및 기관의 청렴성을 촉진하는 긍정적인 조치이다."
+      },
+      {
+        "item_id": 172330,
+        "data_title": "청렴성 외부 감사 진행",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "외부 감사를 정기적으로 진행하여 투명성을 높이는 노력은 청렴성을 강화하는 매우 긍정적인 조치로 평가된다."
+      },
+      {
+        "item_id": 172331,
+        "data_title": "부패 처벌 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "부패 처벌 강화를 위한 법안 발의는 부정행위에 대한 경각심을 높이고, 청렴성을 실질적으로 향상시키는 조치로 매우 우수하다."
+      },
+      {
+        "item_id": 172332,
+        "data_title": "해외 청렴성 관련 교육 참여",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "해외 청렴성 교육 참여는 국제적 기준을 배우고 인식을 개선하는 좋은 접근이지만, 내부적 변화에 대한 구체성이 부족하다."
+      },
+      {
+        "item_id": 172333,
+        "data_title": "부패 리스크 관리 체계 구축",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "부패 리스크 관리 체계 구축은 체계적이고 예측 가능한 방식으로 부패를 예방하려는 노력으로 매우 긍정적이다."
+      },
+      {
+        "item_id": 172334,
+        "data_title": "부패 방지 TF 운영",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "부패 방지 TF의 운영은 창의적이고 실질적인 대책 마련을 위한 좋은 방법이나 실효성에 대한 검증이 필요하다."
+      },
+      {
+        "item_id": 172335,
+        "data_title": "청렴성 관련 소통 채널 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "국민과의 소통 채널 강화를 통해 신뢰를 구축하려는 노력은 청렴성을 높이는 데 기여하는 매우 우수한 조치이다."
+      },
+      {
+        "item_id": 172336,
+        "data_title": "부패 방지 헌장 제정",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "부패 방지 헌장의 제정은 공직자의 청렴성을 강조하고 문화 개선을 위한 강력한 기반을 마련하는 매우 긍정적 조치이다."
+      },
+      {
+        "item_id": 172337,
+        "data_title": "청렴성 강화 특별 위원회 구성",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "청렴성 강화 특별 위원회의 구성은 정책 개선의 체계적 기반을 마련하지만, 실제 효과가 어떻게 나타날지 주목해야 한다."
+      },
+      {
+        "item_id": 172338,
+        "data_title": "시민 참여 프로그램 운영",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "시민 참여 프로그램의 운영은 국민의 직접 참여를 유도하여 청렴 문화를 확산시키는 데 매우 효과적인 방법이다."
+      },
+      {
+        "item_id": 172339,
+        "data_title": "부패 방지 이니셔티브 발표",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "부패 방지 이니셔티브 발표는 주목받고 있지만, 실질적인 정책 추진의 구체성과 지속성이 중요하다."
+      },
+      {
+        "item_id": 172140,
+        "data_title": "한동훈의 공직자 재산 공개 준수",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "한동훈 의원이 매년 공직자 재산을 투명하게 공개하며 부패 방지법을 준수한 점이 긍정적으로 평가됩니다. 자산의 상세한 보고와 의심스러운 자금 유입이 없었음은 청렴성을 높이는 데 기여했습니다."
+      },
+      {
+        "item_id": 172141,
+        "data_title": "한동훈의 검찰 재임 시 청렴 정책 추진",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "한동훈의 검찰 재임 시 부패 사건에 대한 엄정한 수사와 청렴 정책 강화는 공공 기관의 청렴성을 제고하는 데 크게 기여했습니다. 이는 그의 리더십을 드러냅니다."
+      },
+      {
+        "item_id": 172142,
+        "data_title": "한동훈의 의정 활동 중 부패 방지 법안 지지",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "한동훈이 부패 방지 법안을 적극 지지하고 참여한 이력이 있으며, 이는 청렴성을 강조하는 그의 의정 활동을 반영합니다. 부패 방지에 대한 그의 노력이 두드러집니다."
+      },
+      {
+        "item_id": 172143,
+        "data_title": "한동훈의 공공 자금 관리 감사 결과",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "공공 자금 사용에 대한 감사 결과가 모두 적법하게 처리되었음을 보여주며, 예산 투명성을 유지한 것은 그의 청렴한 관리 습관을 잘 나타냅니다."
+      },
+      {
+        "item_id": 172144,
+        "data_title": "한동훈의 선거 자금 보고서 검토",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "선거 자금 사용이 정확하게 보고되었고 부정적 유입이 없었다는 점은 금전적 부패를 피한 사례로서, 그의 청렴성을 높이는 기준을 제시합니다."
+      },
+      {
+        "item_id": 172145,
+        "data_title": "한동훈의 부패 예방 교육 참여",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "부패 예방 교육에 참여하여 청렴성을 강조한 활동은 공직자들에게 긍정적인 영향을 미쳤습니다. 이는 그의 청렴성 유지에 대한 의지를 보여줍니다."
+      },
+      {
+        "item_id": 172146,
+        "data_title": "한동훈의 재산 증식 관련 조사 결과",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "재산 증식이 합법적이고 부패 의혹 없이 이루어졌다는 점은 한동훈의 청렴한 개인 자산 관리의 모범 사례로 평가됩니다. 이는 긍정적인 신뢰를 형성합니다."
+      },
+      {
+        "item_id": 172147,
+        "data_title": "한동훈의 반부패 캠페인 지원",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "반부패 캠페인 지원을 통해 금전적 부패 예방에 기여한 점은 그의 청렴성을 높이는데 중요한 역할을 했습니다. 공공 인식 제고에도 긍정적인 영향을 미쳤습니다."
+      },
+      {
+        "item_id": 172148,
+        "data_title": "한동훈의 공직 생활 감사 평가",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "공직 생활 동안 감사 평가에서 청렴 기준을 준수한 것으로 나타난 점은 그의 높은 청렴성을 나타내며, 부패 방지의 중요성을 강조하는 긍정적인 사례입니다."
+      },
+      {
+        "item_id": 172149,
+        "data_title": "한동훈의 부패 신고 시스템 개선 제안",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "부패 신고 시스템 개선을 제안하여 금전적 부패 감시 체계를 강화한 점은 청렴성 향상의 구체적 예로, 그의 적극적인 의지를 나타냅니다."
+      },
+      {
+        "item_id": 172150,
+        "data_title": "한동훈의 언론 인터뷰에서의 청렴 강조",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "한동훈이 청렴성을 강조하고 금전적 부패에 대한 입장을 명확히 밝혀 공공의 신뢰를 높인 점이 매우 긍정적입니다."
+      },
+      {
+        "item_id": 172151,
+        "data_title": "한동훈의 부패 방지 관련 칼럼 기고",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "부패 방지 관련 칼럼에서 금전적 부패의 위험성과 대안을 제시하여 청렴한 태도를 보여준 점이 인상적입니다."
+      },
+      {
+        "item_id": 172152,
+        "data_title": "한동훈의 청렴 관련 뉴스 보도",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "청렴한 행보가 다루어지고 금전적 문제 없이 공직을 수행한 점이 대중의 긍정적 반응을 이끌어 낸 사례입니다."
+      },
+      {
+        "item_id": 172153,
+        "data_title": "한동훈의 선거 유세에서의 청렴 약속",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "선거 유세에서 청렴을 약속하고 이를 실현해 나가는 모습이 청렴성에 대한 강한 의지를 보여줍니다."
+      },
+      {
+        "item_id": 172154,
+        "data_title": "한동훈의 부패 예방 강연 보도",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "부패 예방 강연을 통해 금전적 부패의 해악을 설명하며 청렴성을 높이는 데 기여한 점이 매우 긍정적입니다."
+      },
+      {
+        "item_id": 172155,
+        "data_title": "한동훈의 재산 공개 뉴스",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "재산 공개가 투명하게 이루어져 금전적 부패 의혹을 불식시키며 청렴성을 높인 점이 우수합니다."
+      },
+      {
+        "item_id": 172156,
+        "data_title": "한동훈의 반부패 협력 보도",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "다른 기관과의 반부패 협력을 추진한 점이 금전적 부패를 줄이는 데 효과적이며 긍정적인 평가를 받습니다."
+      },
+      {
+        "item_id": 172157,
+        "data_title": "한동훈의 청렴 이미지 관련 기사",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "청렴 이미지가 긍정적으로 형성된 점과 금전적 문제 없이 활동한 것이 칭찬받는 모습이 매우 좋습니다."
+      },
+      {
+        "item_id": 172158,
+        "data_title": "한동훈의 부패 방지 발언 보도",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "부패 방지 발언에서 강경한 입장을 드러내어 청렴성을 증명한 점이 매우 긍정적입니다."
+      },
+      {
+        "item_id": 172159,
+        "data_title": "한동훈의 공공 자금 사용 보도",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "공공 자금 사용이 적법하게 이루어졌고, 금전적 부패 의혹이 없어 청렴성 높은 평가를 받은 점이 우수합니다."
+      },
+      {
+        "item_id": 172160,
+        "data_title": "한동훈의 금전 의혹 관련 논란",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "D",
+        "rating_rationale": "조사 결과 무혐의로 밝혀졌으나 초기 논란으로 청렴성에 타격을 주었으며 공공 신뢰 저하가 우려됩니다."
+      },
+      {
+        "item_id": 172161,
+        "data_title": "한동훈의 자금 유입 문제점",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "H",
+        "rating_rationale": "자금 유입에 대한 의혹과 불투명한 거래가 발견되어 청렴성에 치명적인 결함을 초래할 수 있습니다."
+      },
+      {
+        "item_id": 172162,
+        "data_title": "한동훈의 부패 관련 비판",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "G",
+        "rating_rationale": "부패 가능성이 지적되고 금전적 이득을 위한 행동 의혹이 있어 청렴성을 매우 부족하게 합니다."
+      },
+      {
+        "item_id": 172163,
+        "data_title": "한동훈의 재산 관리 논란",
+        "collected_by": "Grok",
+        "original_rating": "H",
+        "new_rating": "H",
+        "rating_rationale": "재산 관리에서 문제가 발생하고 금전적 부패 의심이 제기되어 청렴성을 심각히 훼손합니다."
+      },
+      {
+        "item_id": 172164,
+        "data_title": "한동훈의 선거 자금 논란",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "G",
+        "rating_rationale": "선거 자금에 대한 비판과 불법 자금 유입 가능성이 있어 청렴성에 큰 타격을 주었습니다."
+      },
+      {
+        "item_id": 172165,
+        "data_title": "한동훈의 금전 의혹 뉴스",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "G",
+        "rating_rationale": "금전 의혹과 부패 가능성이 지적되어 대중적 비판을 받았고 청렴성에 부정적 영향을 미쳤습니다."
+      },
+      {
+        "item_id": 172166,
+        "data_title": "한동훈의 부패 비판 보도",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "G",
+        "rating_rationale": "부패 관련 비판이 다루어지고 금전적 이득 추구 의혹이 있어 청렴성을 저하시킵니다."
+      },
+      {
+        "item_id": 172167,
+        "data_title": "한동훈의 자금 유입 비판",
+        "collected_by": "Grok",
+        "original_rating": "H",
+        "new_rating": "H",
+        "rating_rationale": "자금 유입에 대한 비판과 불투명한 거래가 지적되어 청렴성에 심각한 문제를 초래합니다."
+      },
+      {
+        "item_id": 172168,
+        "data_title": "한동훈의 재산 논란 보도",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "G",
+        "rating_rationale": "재산 관리 논란과 금전적 부패 가능성으로 공공 신뢰를 떨어뜨리는 결과를 가져왔습니다."
+      },
+      {
+        "item_id": 172169,
+        "data_title": "한동훈의 선거 자금 비판",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "G",
+        "rating_rationale": "선거 자금 비판과 불법 가능성이 지적되어 청렴성에 큰 타격을 주고 있습니다."
+      },
+      {
+        "item_id": 172170,
+        "data_title": "한동훈의 청렴한 재정 보고",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "A",
+        "rating_rationale": "한동훈의 재정 보고는 공공 데이터에서 청렴하게 관리되었으며, 금전적 부패 없이 진행되어 매우 우수한 평가를 받습니다."
+      },
+      {
+        "item_id": 172171,
+        "data_title": "한동훈의 부패 방지 협력",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "A",
+        "rating_rationale": "부패 방지 협력에 참여한 기록은 금전적 문제 없이 진행되었고, 청렴성을 확고히 하는 데 기여하였습니다."
+      },
+      {
+        "item_id": 172172,
+        "data_title": "한동훈의 투명한 자산 관리",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "A",
+        "rating_rationale": "자산 관리가 투명하게 이루어졌으며, 금전적 부패 의혹이 없다는 점에서 매우 우수한 청렴성을 보여줍니다."
+      },
+      {
+        "item_id": 172173,
+        "data_title": "한동훈의 법안 지지 활동",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "B",
+        "rating_rationale": "청렴 관련 법안 지지 활동은 중립적 평가를 받았으나, 구체적인 성과가 부족하여 우수 등급으로 평가합니다."
+      },
+      {
+        "item_id": 172174,
+        "data_title": "한동훈의 교육 참여",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "B",
+        "rating_rationale": "청렴 교육 참여는 금전적 부패 예방에 기여했으나, 구체적인 효과나 결과가 부족하여 우수 등급을 부여합니다."
+      },
+      {
+        "item_id": 172175,
+        "data_title": "한동훈의 뉴스에서의 중립적 평가",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "B",
+        "rating_rationale": "언론에서 청렴성이 중립적으로 다루어졌지만, 특별히 뛰어난 점이 드러나지 않아 우수 평가를 받습니다."
+      },
+      {
+        "item_id": 172176,
+        "data_title": "한동훈의 캠페인 참여 보도",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "B",
+        "rating_rationale": "청렴 캠페인 참여가 중립적으로 보도되었고 금전적 부패 방지에 기여했지만, 더 구체적인 성과가 필요합니다."
+      },
+      {
+        "item_id": 172177,
+        "data_title": "한동훈의 인터뷰 내용",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "B",
+        "rating_rationale": "인터뷰에서 청렴성 관련 발언이 중립적으로 평가되었고, 안정적이지만 특히 두드러진 내용이 부족하여 우수 등급입니다."
+      },
+      {
+        "item_id": 172178,
+        "data_title": "한동훈의 활동 보도",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "B",
+        "rating_rationale": "청렴 활동이 중립적으로 다루어졌으며, 금전적 부패 관련 내용이 없어 긍정적인 평가를 받지만, 더 구체적인 사례가 필요합니다."
+      },
+      {
+        "item_id": 172179,
+        "data_title": "한동훈의 약속 이행",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "B",
+        "rating_rationale": "청렴 약속 이행이 중립적으로 평가되었고, 금전적 문제 없음은 긍정적이지만, 더 확고한 성과가 필요하여 우수 등급입니다."
+      },
+      {
+        "item_id": 172180,
+        "data_title": "한동훈의 보고서 제출",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "A",
+        "rating_rationale": "한동훈의 청렴 보고서 제출이 금전적 부패가 없음을 확인하여 매우 긍정적인 평가를 받을 수 있습니다."
+      },
+      {
+        "item_id": 172181,
+        "data_title": "한동훈의 정책 지지",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "A",
+        "rating_rationale": "청렴 정책 지지가 금전적 이슈 없이 진행되었으며, 이는 그의 청렴성을 높이 평가할 근거가 됩니다."
+      },
+      {
+        "item_id": 172182,
+        "data_title": "한동훈의 관리 기록",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "A",
+        "rating_rationale": "자산 관리 기록이 청렴하게 유지되었다는 사실은 한동훈의 높은 청렴성을 나타냅니다."
+      },
+      {
+        "item_id": 172183,
+        "data_title": "한동훈의 뉴스 보도",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "A",
+        "rating_rationale": "언론 보도가 중립적으로 진행되었고, 금전적 문제 없음이 확인되어 청렴성이 높게 평가됩니다."
+      },
+      {
+        "item_id": 172184,
+        "data_title": "한동훈의 활동 관련",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "A",
+        "rating_rationale": "청렴 활동이 중립적으로 다루어졌고, 부패 관련 이슈가 없으므로 매우 높은 평가를 받습니다."
+      },
+      {
+        "item_id": 172185,
+        "data_title": "한동훈의 발언",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "A",
+        "rating_rationale": "청렴 발언이 중립적으로 평가되었고, 이는 그의 청렴성을 지지하는 긍정적인 요소입니다."
+      },
+      {
+        "item_id": 172186,
+        "data_title": "한동훈의 캠페인",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "A",
+        "rating_rationale": "청렴 캠페인이 중립적으로 언급된 점은 그의 청렴한 이미지에 긍정적인 영향을 미칩니다."
+      },
+      {
+        "item_id": 172187,
+        "data_title": "한동훈의 이행 상황",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "A",
+        "rating_rationale": "청렴 이행 상황이 중립적으로 보도되었으며, 이는 그의 청렴성을 뒷받침하는 중요한 요소입니다."
+      },
+      {
+        "item_id": 172188,
+        "data_title": "한동훈의 보고",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "A",
+        "rating_rationale": "공식 보고에서 청렴성이 중립적으로 확인되어, 신뢰할 수 있는 평가를 받았습니다."
+      },
+      {
+        "item_id": 172189,
+        "data_title": "한동훈의 정책",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "A",
+        "rating_rationale": "청렴 정책이 중립적으로 평가되어, 한동훈의 청렴성에 긍정적인 영향을 미치고 있습니다."
+      },
+      {
+        "item_id": 109331,
+        "data_title": "경기도지사 선거 허위사실 유포 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "H",
+        "rating_rationale": "허위사실 유포는 정치인의 신뢰성을 해치는 중대한 행위로, 유권자의 판단에 심각한 영향을 미칠 수 있다."
+      },
+      {
+        "item_id": 109332,
+        "data_title": "개인정보 부적절 열람 의혹",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "G",
+        "rating_rationale": "개인정보 부적절 열람은 사생활 침해 및 공직자로서 기본적인 윤리를 심각하게 위반하는 행위이다."
+      },
+      {
+        "item_id": 109333,
+        "data_title": "검찰 내부 정보 유출 의혹",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "G",
+        "new_rating": "G",
+        "rating_rationale": "검찰 내부 정보를 부적절하게 유출하는 것은 공정한 수사 및 법 집행을 해치는 중대한 결함으로 간주된다."
+      },
+      {
+        "item_id": 109334,
+        "data_title": "정치자금 수집 투명성 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "정치자금의 불투명한 수집 및 사용은 선거의 공정성을 해칠 수 있으며, 공직자의 신뢰를 떨어뜨리는 심각한 문제이다."
+      },
+      {
+        "item_id": 109335,
+        "data_title": "이해충돌 의혹",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "G",
+        "rating_rationale": "이해충돌 의혹은 정치적 지위를 남용하여 개인적 이익을 추구하는 행위로, 청렴성의 근본을 훼손한다."
+      },
+      {
+        "item_id": 109336,
+        "data_title": "윗선 지시 의혹 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "윗선 지시 의혹은 검찰의 정치적 중립성을 심각하게 해칠 수 있어, 공정한 법 집행을 저해하는 중대한 문제이다."
+      },
+      {
+        "item_id": 109337,
+        "data_title": "해외 부동산 투자 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "부동산 투자 과정에서의 불투명한 자금 흐름은 공직자의 윤리성을 의심하게 만들며, 신뢰성을 떨어뜨린다."
+      },
+      {
+        "item_id": 109338,
+        "data_title": "김건희 코바나컨텐츠 특혜 의혹",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "H",
+        "rating_rationale": "정치적 영향력을 통한 기업 특혜 의혹은 심각한 부패의 가능성을 시사하며, 공직자의 청렴성을 근본적으로 훼손한다."
+      },
+      {
+        "item_id": 109339,
+        "data_title": "검찰 시절 정치개입 의혹",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "G",
+        "rating_rationale": "정치개입 의혹은 검찰의 독립성과 중립성을 해치며, 법 집행의 공정성을 심각하게 저해할 수 있는 문제이다."
+      },
+      {
+        "item_id": 109340,
+        "data_title": "선거법 위반 의혹",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "F",
+        "rating_rationale": "선거법 위반 의혹은 정치적 신뢰를 훼손하며, 공직자의 도덕적 기준을 심각하게 위협하는 중대한 사안이다."
+      },
+      {
+        "item_id": 109341,
+        "data_title": "해외 논문 표절 의혹",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "H",
+        "rating_rationale": "박사학위 논문 표절 의혹은 학문적 신뢰성을 심각하게 훼손할 수 있는 문제로, 공직자의 청렴성에 치명적 결함을 나타낸다."
+      },
+      {
+        "item_id": 109342,
+        "data_title": "김건희 코바나컨텐츠 특혜 의혹",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "H",
+        "new_rating": "E",
+        "rating_rationale": "대통령 부인 소속 회사에 대한 특혜 의혹은 정치적 윤리성과 투명성을 저해하며, 청렴성에 미흡한 영향을 미친다."
+      },
+      {
+        "item_id": 109343,
+        "data_title": "선거법 위반 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "G",
+        "new_rating": "F",
+        "rating_rationale": "선거법 위반 논란은 법적 신뢰성을 떨어뜨리며, 정치적 윤리성을 크게 해치는 요소로 간주된다."
+      },
+      {
+        "item_id": 109344,
+        "data_title": "정치자금법 위반 의혹",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "D",
+        "rating_rationale": "정치자금법 위반 의혹은 투명성이 부족하나, 직접적인 부정 행위가 확인되지 않아 보통 수준으로 평가된다."
+      },
+      {
+        "item_id": 109345,
+        "data_title": "법무부 검사 시절 직권 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "검사 시절 정치적 중립성 위반 의혹은 법적 기준을 심각하게 위배하며, 청렴성에 부족한 영향을 미친다."
+      },
+      {
+        "item_id": 109346,
+        "data_title": "기자 사찰 의혹",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "H",
+        "new_rating": "G",
+        "rating_rationale": "언론 탄압 및 부적절한 검찰 권한 행사는 중대한 청렴성 위반으로, 매우 부족한 평가를 받는다."
+      },
+      {
+        "item_id": 109347,
+        "data_title": "국회의원 당선 후 윤리성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "C",
+        "rating_rationale": "국회의원 재직 중 정치적 윤리 기준 준수 여부는 양호하나, 구체적인 사례에 따라 다를 수 있어 중간 등급으로 평가된다."
+      },
+      {
+        "item_id": 109348,
+        "data_title": "정보 투명성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "B",
+        "rating_rationale": "개인 이력 및 재산 공개 투명성은 일반적으로 우수하나, 추가적인 정보 부족으로 인해 완전한 신뢰성을 보장하지 않는다."
+      },
+      {
+        "item_id": 109349,
+        "data_title": "검찰 시절 수사 편향성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "H",
+        "rating_rationale": "정치적 성향에 따른 수사 편향성 의혹은 법적 신뢰성을 심각하게 훼손하며, 청렴성에 치명적 결함을 드러낸다."
+      },
+      {
+        "item_id": 109350,
+        "data_title": "정치자금 모금 투명성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "D",
+        "rating_rationale": "정당 및 선거 캠페인 자금 조달 과정의 투명성 부족은 보통 수준의 청렴성 문제로 평가되지만, 개선이 필요하다."
+      },
+      {
+        "item_id": 109351,
+        "data_title": "국회의원 활동 윤리성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "A",
+        "rating_rationale": "국회의원 활동에서 이해충돌 방지를 강조하는 윤리성은 매우 우수하며, 공공의 이익을 우선시하는 태도를 보여줍니다."
+      },
+      {
+        "item_id": 109352,
+        "data_title": "공직 윤리 서약",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "공직자로서 윤리 기준을 준수하겠다는 서약은 청렴성을 높이고, 공직자의 책임을 강조하는 긍정적인 행위입니다."
+      },
+      {
+        "item_id": 109353,
+        "data_title": "정보 접근성 투명성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "A",
+        "rating_rationale": "의정활동의 투명성을 높이는 공개 자료는 시민들이 정치인의 행동을 감시할 수 있게 하여 신뢰를 구축합니다."
+      },
+      {
+        "item_id": 109354,
+        "data_title": "직권 행사 공정성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "B",
+        "rating_rationale": "정치적 권한 행사에서의 공정성을 강조하였으나, 구체적인 사례가 부족하여 다소 아쉬운 부분이 있습니다."
+      },
+      {
+        "item_id": 109355,
+        "data_title": "개인 재산 신고 투명성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "A",
+        "rating_rationale": "개인 재산 신고의 투명성은 공직자의 청렴성을 높이는 중요한 요소로, 변동 내역 공개는 신뢰를 유지하는 데 기여합니다."
+      },
+      {
+        "item_id": 109356,
+        "data_title": "언론 대응 윤리성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "B",
+        "rating_rationale": "언론과의 소통 방식이 윤리적이라 하더라도, 구체적인 사례와 결과가 부족해 약간의 개선 여지가 있습니다."
+      },
+      {
+        "item_id": 109357,
+        "data_title": "선거 캠페인 공정성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "A",
+        "rating_rationale": "선거 과정에서의 윤리적 행동은 정치인의 신뢰도를 높이며, 공정한 선거를 위한 필수 조건으로 매우 중요합니다."
+      },
+      {
+        "item_id": 109358,
+        "data_title": "정치적 책임성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "B",
+        "rating_rationale": "정치적 실수에 대한 책임 인정은 긍정적이나, 실제 대응 방식에 대한 구체적인 정보가 부족하여 다소 아쉽습니다."
+      },
+      {
+        "item_id": 109359,
+        "data_title": "공직자 윤리 교육 참여",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "윤리 교육 프로그램 참여는 공직자의 청렴성을 강화하는 노력으로, 적극적인 태도를 보여줍니다."
+      },
+      {
+        "item_id": 109360,
+        "data_title": "이해충돌 방지 노력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "A",
+        "rating_rationale": "개인적 이해관계와 공적 업무의 분리를 위한 노력은 청렴성을 높이는 매우 중요한 조치로, 긍정적인 평가를 받습니다."
+      },
+      {
+        "item_id": 109361,
+        "data_title": "김건희 특검 관련 의혹",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "G",
+        "new_rating": "E",
+        "rating_rationale": "김건희 특검 저지 의혹은 청렴성을 심각하게 훼손할 수 있는 문제로, 정치인으로서 투명한 행동이 요구된다."
+      },
+      {
+        "item_id": 109362,
+        "data_title": "다단계 의혹 대응",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "D",
+        "rating_rationale": "다단계 논란에 대한 해명이 부족하여 의혹이 해소되지 않고, 이는 정치인으로서 신뢰성을 저하시킨다."
+      },
+      {
+        "item_id": 109363,
+        "data_title": "정치자금 모금 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "정치자금 모금 과정의 투명성 부족은 공직자로서 높은 기준을 충족하지 못하고, 신뢰를 잃게 만든다."
+      },
+      {
+        "item_id": 109364,
+        "data_title": "윤석열 정부 내 입지",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "D",
+        "rating_rationale": "측근 의혹 및 정치적 영향력 논란은 정치인으로서의 청렴성을 의심하게 만드는 요소로 작용한다."
+      },
+      {
+        "item_id": 109365,
+        "data_title": "과거 검사 시절 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "검사 시절 수사 편향성 지적은 법적 신뢰성에 큰 타격을 주며, 이는 청렴성과 직결된다."
+      },
+      {
+        "item_id": 109366,
+        "data_title": "정치인 윤리 준수",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "B",
+        "rating_rationale": "정치인으로서 기본적인 윤리 준수 노력이 있다면, 청렴성을 증진시키는 긍정적인 요소로 평가된다."
+      },
+      {
+        "item_id": 109367,
+        "data_title": "국민의힘 당 내부 갈등",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "D",
+        "rating_rationale": "당 내부 분열 조장 의혹은 정치인으로서의 신뢰성을 저하시킬 수 있으며, 청렴성에 부정적인 영향을 미친다."
+      },
+      {
+        "item_id": 109368,
+        "data_title": "언론 대응 태도",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "A",
+        "rating_rationale": "언론 질의에 대한 투명한 대응은 청렴성을 높이는 긍정적인 행동으로, 매우 우수한 평가를 받을 수 있다."
+      },
+      {
+        "item_id": 109369,
+        "data_title": "선거법 준수 여부",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "C",
+        "rating_rationale": "선거 과정의 법적 준수 여부가 불확실하면 청렴성에 의문을 제기하지만, 현재로서는 중간 정도의 평가를 받는다."
+      },
+      {
+        "item_id": 109370,
+        "data_title": "정치자금 투명성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "B",
+        "rating_rationale": "정치자금 모금 및 사용의 투명성은 청렴성을 높이는 긍정적인 요소이며, 우수한 평가를 받을 수 있다."
+      },
+      {
+        "item_id": 109371,
+        "data_title": "공직자 윤리 준수",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "A",
+        "rating_rationale": "공직자로서 윤리 기준을 준수하고 있다는 점에서 매우 긍정적이며, 청렴성에 대한 의지를 보여줍니다."
+      },
+      {
+        "item_id": 109372,
+        "data_title": "이해충돌 가능성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "개인적 이해관계와 공적 업무의 충돌 가능성이 제기되어 청렴성에 부정적인 영향을 미칠 수 있습니다."
+      },
+      {
+        "item_id": 109373,
+        "data_title": "정치적 투명성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "B",
+        "rating_rationale": "정치적 활동의 투명성과 공개성을 강조하여 청렴성을 높이는 노력을 보여주지만, 완전한 투명성은 부족합니다."
+      },
+      {
+        "item_id": 109374,
+        "data_title": "직권 남용 의혹",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "G",
+        "new_rating": "F",
+        "rating_rationale": "직권 남용 의혹은 청렴성에 치명적인 결함을 초래할 수 있으며, 정치적 신뢰도에 부정적 영향을 미칩니다."
+      },
+      {
+        "item_id": 109375,
+        "data_title": "청탁 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "부적절한 청탁 및 로비 의혹은 청렴성의 심각한 훼손을 의미하며, 공직자로서의 신뢰성을 저하시킵니다."
+      },
+      {
+        "item_id": 109377,
+        "data_title": "비리 연루 가능성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "G",
+        "rating_rationale": "과거 비리 연루 가능성은 청렴성에 대한 큰 의구심을 불러일으키며, 신뢰 회복이 어려울 수 있습니다."
+      },
+      {
+        "item_id": 109380,
+        "data_title": "정치적 도덕성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "C",
+        "rating_rationale": "정치인으로서의 도덕적 기준이 언급되었으나, 구체적인 행동이나 실천이 부족해 양호한 수준입니다."
+      },
+      {
+        "item_id": 109382,
+        "data_title": "언론 대응 투명성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "B",
+        "rating_rationale": "언론 의혹에 대한 투명한 해명은 긍정적이지만, 그 자체로 청렴성을 완전히 보장하지는 않습니다."
+      },
+      {
+        "item_id": 109384,
+        "data_title": "공정성 의지",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "A",
+        "rating_rationale": "공정한 정치활동에 대한 의지는 청렴성을 높이는 중요한 요소로, 매우 긍정적인 평가를 받을 수 있습니다."
+      },
+      {
+        "item_id": 109386,
+        "data_title": "정치적 책임감",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "B",
+        "rating_rationale": "정치인으로서 책임 있는 행동을 강조하여 청렴성을 높이려는 노력이 보이나, 구체성이 부족합니다."
+      }
+    ],
+    "Grok": [
+      {
+        "item_id": 172290,
+        "data_title": "부패 방지 정책에 대한 참여",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "한동훈은 부패 방지 정책을 추진하며 정부 기관의 투명성을 높이기 위해 노력하였다. 공적 자금 관리를 효과적으로 하고 감사를 강화한 점이 매우 우수하다."
+      },
+      {
+        "item_id": 172291,
+        "data_title": "부패 신고 시스템 도입",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "부패 신고 시스템을 도입하고 시민들이 쉽게 부패를 신고할 수 있도록 간소화한 점이 매우 우수하다. 시민들로부터 긍정적인 피드백을 받은 점도 중요하다."
+      },
+      {
+        "item_id": 172292,
+        "data_title": "국제 세무 투명성 개선",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "국제적으로 세무 투명성을 높이기 위한 전략을 세우고, 관련 국제기구와 협력하여 부패를 줄이기 위한 노력을 기울인 점이 매우 우수하다."
+      },
+      {
+        "item_id": 172293,
+        "data_title": "적극적인 대국민 소통",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "청렴성 관련 정책에 대해 국민들에게 적극적으로 설명하고 소통한 점이 우수하다. 포럼 및 설명회를 통해 이를 알린 노력도 인정할 만하다."
+      },
+      {
+        "item_id": 172294,
+        "data_title": "부패 관련 형사 고발 조치",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "부패 사건에 대한 형사 고발 조치를 신속하게 취하고, 관련 부서를 엄정하게 관리한 점이 매우 우수하다. 부패 척결에 대한 강한 의지를 보여준다."
+      },
+      {
+        "item_id": 172295,
+        "data_title": "공직자의 윤리 강령 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "공직자의 윤리 강령을 강화하고, 정기적으로 윤리 교육을 실시한 점이 매우 우수하다. 공직자들의 청렴성을 높이기 위한 노력이 돋보인다."
+      },
+      {
+        "item_id": 172296,
+        "data_title": "부패 감시단 운영",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "부패를 감시하기 위한 전문 감시단을 운영하고, 정기적으로 업무를 점검한 점이 매우 우수하다. 부패 발생 가능성을 낮추기 위한 노력이 인상적이다."
+      },
+      {
+        "item_id": 172297,
+        "data_title": "부패 관련 법안 발의",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "부패를 근절하기 위한 다양한 법안을 발의한 점이 매우 우수하다. 이러한 법안이 사회의 부정부패를 감소시키는 데 중요한 역할을 할 것으로 기대된다."
+      },
+      {
+        "item_id": 172298,
+        "data_title": "전국 청렴 캠페인 주관",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "청렴 캠페인을 통해 국민의 청렴 의식을 고양시키기 위해 전국적인 캠페인을 진행한 점이 우수하다. 다양한 매체를 활용하여 효과적으로 홍보한 노력도 인정할 만하다."
+      },
+      {
+        "item_id": 172299,
+        "data_title": "부패 수사 자원 투입 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "부패 수사를 위한 정부 자원을 적극적으로 투입하여 수사기능을 강화한 점이 매우 우수하다. 부패 사건의 수사를 원활하게 한 점이 돋보인다."
+      },
+      {
+        "item_id": 172300,
+        "data_title": "부패 논란 및 비판",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "한동훈에 대한 시민단체의 비판이 제기되었고, 추진한 정책의 투명성 부족이 지적되었다. 이는 청렴성에 미흡한 상태로 평가된다."
+      },
+      {
+        "item_id": 172301,
+        "data_title": "부패 문제 지적 사건",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "과거 특정 사건에서 청렴성에 대한 의혹을 받았으며, 이는 그의 신뢰에 타격을 주어 청렴성 부족으로 평가된다."
+      },
+      {
+        "item_id": 172302,
+        "data_title": "부패 방지 교육 미비",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "부패 방지 정책의 교육 미비로 인해 실효성이 떨어진다는 지적이 있어, 청렴성에 미흡한 상태로 평가된다."
+      },
+      {
+        "item_id": 172303,
+        "data_title": "청렴성 평가 낮은 지표",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "청렴성 평가 지표가 낮게 나타나 신뢰도가 감소하였으며, 이는 청렴성 부족으로 평가된다."
+      },
+      {
+        "item_id": 172304,
+        "data_title": "부패 수사 절차의 문제점",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "부패 수사 절차가 비효율적이라는 비판이 있어, 청렴성에 미흡한 상태로 평가된다."
+      },
+      {
+        "item_id": 172305,
+        "data_title": "부패 사건 처리 미흡",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "부패 사건 처리 과정이 미흡하다는 지적이 있어, 청렴성에 미흡한 상태로 평가된다."
+      },
+      {
+        "item_id": 172306,
+        "data_title": "비상식적 정책 이행",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "비상식적인 정책이 청렴성을 저해할 수 있다는 비판이 있어, 청렴성에 미흡한 상태로 평가된다."
+      },
+      {
+        "item_id": 172307,
+        "data_title": "인사 문제의 투명성 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "인사 결정 과정의 불투명성으로 부패 우려가 증가하였으며, 이는 청렴성 부족으로 평가된다."
+      },
+      {
+        "item_id": 172308,
+        "data_title": "청렴 증진 조치에 대한 문제",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "청렴 증진 조치가 구체적인 결과 없이 시행되고 있다는 비판이 있어, 청렴성에 미흡한 상태로 평가된다."
+      },
+      {
+        "item_id": 172309,
+        "data_title": "부패 방지 전략의 실효성 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "부패 방지 전략의 실효성 부족으로 인해 보다 강력한 조치가 필요하다는 지적이 있어, 청렴성에 미흡한 상태로 평가된다."
+      },
+      {
+        "item_id": 172310,
+        "data_title": "청렴성 관련 연구 발표",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "한동훈이 청렴성을 높이기 위한 연구 결과를 발표하여 부패 방지에 대한 새로운 이해를 제공하였다. 이는 매우 우수한 청렴성 활동으로 평가된다."
+      },
+      {
+        "item_id": 172311,
+        "data_title": "청렴성 관련 세미나 개최",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "한동훈이 청렴성 강화를 위한 세미나를 개최하여 전문가들과 의견을 나누었다. 이는 우수한 청렴성 활동으로, 정책 개선에 기여할 것으로 보인다."
+      },
+      {
+        "item_id": 172312,
+        "data_title": "정부 대국민 청렴 캠페인 참여",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "한동훈이 대국민 청렴 캠페인에 참여하여 청렴성을 강조하였다. 이는 국민 인식을 개선할 수 있는 기회로, 우수한 청렴성 활동이다."
+      },
+      {
+        "item_id": 172313,
+        "data_title": "공공 기관 청렴성 증진 활동",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "한동훈이 공공 기관의 청렴성을 높이기 위한 프로젝트를 기획하고 시행하였다. 긍정적인 피드백을 받은 점에서 매우 우수한 청렴성 활동으로 평가된다."
+      },
+      {
+        "item_id": 172314,
+        "data_title": "청렴성 관련 공개 토론회 주최",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "한동훈이 청렴성을 높이기 위한 공개 토론회를 주최하여 다양한 의견을 수렴하였다. 이는 공론화의 장을 제공한 우수한 활동이다."
+      },
+      {
+        "item_id": 172315,
+        "data_title": "청렴성 강화를 위한 정책 토대 마련",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "한동훈이 청렴성을 높이기 위한 구체적인 정책 토대를 마련하기 위해 다양한 연구를 바탕으로 시뮬레이션을 진행하였다. 이는 매우 우수한 청렴성 활동이다."
+      },
+      {
+        "item_id": 172316,
+        "data_title": "부패 방지 기술 도입을 위한 연구",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "한동훈이 최신 기술을 활용하여 부패를 방지하기 위한 연구를 선도하고 있으며, 이는 미래 청렴성 강화에 기여할 것으로 기대된다. 매우 우수한 활동이다."
+      },
+      {
+        "item_id": 172317,
+        "data_title": "청렴 제도를 위한 법적 기반 정비",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "한동훈이 청렴 제도를 강화하기 위한 법적 기반 정비에 힘쓰고 있으며, 법안 제정 및 개정을 통해 제도적 장치를 마련하고 있다. 매우 우수한 청렴성 활동이다."
+      },
+      {
+        "item_id": 172318,
+        "data_title": "부패 방지 및 청렴성 관련 공청회",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "한동훈이 부패 방지와 청렴성 강화를 위한 공청회를 개최하여 다양한 의견을 수렴하고 정책에 반영하겠다고 밝혔다. 이는 우수한 청렴성 활동이다."
+      },
+      {
+        "item_id": 172319,
+        "data_title": "부정부패 감시 보고서 발행",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "한동훈이 부정부패 감시 활동을 담은 보고서를 발행하며, 이를 기반으로 지속적인 청렴 정책이 추진될 것을 약속하였다. 이는 매우 우수한 청렴성 활동이다."
+      },
+      {
+        "item_id": 172320,
+        "data_title": "부패 관련 전담팀 운영",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "부패 전담팀을 운영하여 부패 사건을 신속하게 관리하고 신뢰도를 높이고 있음. 매우 우수한 청렴성 관리."
+      },
+      {
+        "item_id": 172321,
+        "data_title": "다양한 청렴 관련 자료 발표",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "청렴성 관련 자료를 발표하여 대중의 인식을 높이고 있음. 우수한 청렴성 홍보 활동."
+      },
+      {
+        "item_id": 172322,
+        "data_title": "부패 예방 캠페인 전개",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "부패 예방 캠페인을 통해 시민의 청렴 의식을 향상시키고 있음. 우수한 부패 예방 활동."
+      },
+      {
+        "item_id": 172323,
+        "data_title": "부패와의 전쟁 선언",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "부패와의 전쟁을 선언하고 강력히 추진하고 있으며, 국외에서도 긍정적인 반응을 얻고 있음. 매우 우수한 청렴성 관리."
+      },
+      {
+        "item_id": 172324,
+        "data_title": "공공 서비스의 투명성 증대",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "공공 서비스의 투명성을 높이는 정책을 실시하여 국민 만족도를 증가시키고 있음. 매우 우수한 청렴성 관리."
+      },
+      {
+        "item_id": 172325,
+        "data_title": "부패 관련 시뮬레이션 게임 실시",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "부패 예방을 위한 시뮬레이션 게임을 운영하여 참여자에게 청렴성을 인식시키고 있음. 양호한 청렴성 교육."
+      },
+      {
+        "item_id": 172326,
+        "data_title": "청렴성 수치 공표",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "정기적으로 청렴성 수치를 공표하여 국민들에게 부패 방지 노력을 알리고 있음. 매우 우수한 청렴성 관리."
+      },
+      {
+        "item_id": 172327,
+        "data_title": "청렴성 관련 훈련 프로그램 운영",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "청렴성을 위한 훈련 프로그램을 운영하여 공직자의 청렴 의식을 높이고 있음. 우수한 청렴성 교육."
+      },
+      {
+        "item_id": 172328,
+        "data_title": "부패 예방을 위한 포럼 주최",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "부패 예방 포럼을 주최하여 전문가 의견을 수렴하고 정책에 반영하려는 노력. 우수한 청렴성 관리."
+      },
+      {
+        "item_id": 172329,
+        "data_title": "청렴성 관련 표창 제정",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "청렴성 관련 표창 제정을 통해 청렴 문화를 장려하고 있음. 우수한 청렴성 홍보 활동."
+      },
+      {
+        "item_id": 172330,
+        "data_title": "청렴성 외부 감사 진행",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "한동훈이 정기적으로 외부 감사를 진행하는 것은 청렴성 유지에 긍정적인 영향을 미친다. 이는 투명성을 높이려는 노력으로 평가된다. 다만, 외부 감사의 결과가 언급되지 않아서 A 등급보다는 B 등급이 적절하다."
+      },
+      {
+        "item_id": 172331,
+        "data_title": "부패 처벌 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "부패 처벌 강화를 위한 법안 발의는 부정부패 예방에 기여할 수 있는 중요한 조치다. 이는 청렴성 강화에 긍정적인 영향을 미친다. 다만, 법안이 실제로 통과되고 효과를 발휘할지에 대한 불확실성이 있으므로 B 등급이 적절하다."
+      },
+      {
+        "item_id": 172332,
+        "data_title": "해외 청렴성 관련 교육 참여",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "해외 청렴성 교육 프로그램 참여는 개인의 인식을 개선하는 데 도움이 될 수 있지만, 직접적인 청렴성 강화 정책보다는 교육적 차원에 머물러 있다. 따라서 양호한 수준인 C 등급이 적절하다."
+      },
+      {
+        "item_id": 172333,
+        "data_title": "부패 리스크 관리 체계 구축",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "부패 리스크 관리 체계 구축은 체계적인 방지 대책 마련에 기여할 수 있는 중요한 조치다. 이는 청렴성 강화에 긍정적인 영향을 미친다. 다만, 구체적인 실행 결과가 언급되지 않아 B 등급이 적절하다."
+      },
+      {
+        "item_id": 172334,
+        "data_title": "부패 방지 TF 운영",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "부패 방지 TF 운영은 다양한 시뮬레이션을 통해 대책을 마련하려는 노력으로 평가된다. 이는 청렴성 강화에 긍정적인 영향을 미친다. 다만, TF의 구체적인 성과가 언급되지 않아 B 등급이 적절하다."
+      },
+      {
+        "item_id": 172335,
+        "data_title": "청렴성 관련 소통 채널 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "청렴성 관련 소통 채널 강화는 국민과의 접점을 늘려 신뢰 구축에 기여할 수 있다. 그러나 이는 직접적인 청렴성 강화 정책보다는 소통 강화에 중점을 둔 것으로, 양호한 수준인 C 등급이 적절하다."
+      },
+      {
+        "item_id": 172336,
+        "data_title": "부패 방지 헌장 제정",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "부패 방지 헌장 제정은 모든 공직자의 청렴성을 강조하고 청렴 문화를 강화하려는 노력으로 평가된다. 이는 청렴성 강화에 긍정적인 영향을 미친다. 다만, 헌장의 실질적 효과가 언급되지 않아 B 등급이 적절하다."
+      },
+      {
+        "item_id": 172337,
+        "data_title": "청렴성 강화 특별 위원회 구성",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "청렴성 강화 특별 위원회 구성은 정책을 체계적으로 개선할 수 있는 기반을 마련한 것으로 평가된다. 이는 청렴성 강화에 긍정적인 영향을 미친다. 다만, 위원회의 구체적인 성과가 언급되지 않아 B 등급이 적절하다."
+      },
+      {
+        "item_id": 172338,
+        "data_title": "시민 참여 프로그램 운영",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "시민 참여 프로그램 운영은 청렴 문화 확산에 기여할 수 있는 중요한 조치다. 그러나 이는 직접적인 청렴성 강화 정책보다는 시민 참여에 중점을 둔 것으로, 양호한 수준인 C 등급이 적절하다."
+      },
+      {
+        "item_id": 172339,
+        "data_title": "부패 방지 이니셔티브 발표",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "부패 방지 이니셔티브 발표는 적극적인 정책 추진을 통해 청렴성을 강화하려는 노력으로 평가된다. 이는 청렴성 강화에 긍정적인 영향을 미친다. 다만, 이니셔티브의 구체적인 실행 계획이 언급되지 않아 B 등급이 적절하다."
+      },
+      {
+        "item_id": 172140,
+        "data_title": "한동훈의 공직자 재산 공개 준수",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "한동훈 의원이 매년 공직자 재산을 투명하게 공개하고, 부패 방지법에 따라 모든 자산을 상세히 보고한 것은 매우 우수한 청렴성의 증거입니다. 불필요한 부동산 보유나 의심스러운 자금 유입이 없다는 점에서 높은 평가를 받을 수 있습니다."
+      },
+      {
+        "item_id": 172141,
+        "data_title": "한동훈의 검찰 재임 시 청렴 정책 추진",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "한동훈이 검찰총장 재임 중 부패 사건에 대한 엄정한 수사를 강조하고, 내부 청렴 지침을 강화한 것은 매우 우수한 청렴성의 사례로 평가됩니다. 이는 공공 기관의 청렴성을 제고하는 데 중요한 역할을 했습니다."
+      },
+      {
+        "item_id": 172142,
+        "data_title": "한동훈의 의정 활동 중 부패 방지 법안 지지",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "한동훈 의원이 부패 방지 관련 법안을 적극 지지하고, 이를 통해 공공 부문의 금전적 부패를 최소화한 것은 매우 우수한 청렴성의 증거입니다. 그의 활동은 청렴성을 강조하는 방향으로 이어졌습니다."
+      },
+      {
+        "item_id": 172143,
+        "data_title": "한동훈의 공공 자금 관리 감사 결과",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "감사원에서 한동훈의 공공 자금 사용이 적법하게 처리되었고, 불필요한 비용이 없었던 것은 매우 우수한 청렴성의 사례로 평가됩니다. 이는 청렴한 관리 습관을 반영합니다."
+      },
+      {
+        "item_id": 172144,
+        "data_title": "한동훈의 선거 자금 보고서 검토",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "선거관리위원회에서 한동훈의 선거 자금 사용이 정확하고 부정적 유입이 없었던 것은 매우 우수한 청렴성의 증거입니다. 이는 금전적 부패를 피한 대표적인 사례로 평가됩니다."
+      },
+      {
+        "item_id": 172145,
+        "data_title": "한동훈의 부패 예방 교육 참여",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "한동훈이 부패 예방 교육에 참석하고, 이를 통해 공직자들에게 청렴성을 강조한 활동은 매우 우수한 청렴성의 사례로 평가됩니다. 이는 금전적 부패를 줄이는 데 기여했습니다."
+      },
+      {
+        "item_id": 172146,
+        "data_title": "한동훈의 재산 증식 관련 조사 결과",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "정부 재산 조사에서 한동훈의 재산 증식이 합법적이고, 부패 의혹 없이 이뤄졌다는 것은 매우 우수한 청렴성의 증거입니다. 이는 청렴한 개인 자산 관리의 모범으로 평가됩니다."
+      },
+      {
+        "item_id": 172147,
+        "data_title": "한동훈의 반부패 캠페인 지원",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "한동훈이 국가 반부패 캠페인에 지원하며, 금전적 부패를 예방하는 데 힘쓴 것은 매우 우수한 청렴성의 사례로 평가됩니다. 그의 역할이 효과적이었고, 공공의 인식을 높였습니다."
+      },
+      {
+        "item_id": 172148,
+        "data_title": "한동훈의 공직 생활 감사 평가",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "공직생활 기간 동안 감사 평가에서 한동훈이 청렴 기준을 준수한 것은 매우 우수한 청렴성의 증거입니다. 금전적 문제 없이 활동한 점이 높게 평가됩니다."
+      },
+      {
+        "item_id": 172149,
+        "data_title": "한동훈의 부패 신고 시스템 개선 제안",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "한동훈이 국회에서 부패 신고 시스템 개선을 제안하고, 이를 통해 금전적 부패를 감시하는 체계를 강화한 것은 매우 우수한 청렴성의 사례로 평가됩니다. 제안이 채택되어 효과를 발휘한 점이 높게 평가됩니다."
+      },
+      {
+        "item_id": 172150,
+        "data_title": "한동훈의 언론 인터뷰에서의 청렴 강조",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "한동훈이 언론 인터뷰에서 청렴성을 강조하며 금전적 부패에 대한 입장을 명확히 밝힌 것은 공공의 신뢰를 높이는 데 기여한 매우 우수한 행동입니다."
+      },
+      {
+        "item_id": 172151,
+        "data_title": "한동훈의 부패 방지 관련 칼럼 기고",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "부패 방지 관련 칼럼을 기고하고 금전적 부패의 위험성을 경고한 것은 그의 청렴성을 보여주는 매우 우수한 사례입니다."
+      },
+      {
+        "item_id": 172152,
+        "data_title": "한동훈의 청렴 관련 뉴스 보도",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "한동훈의 청렴한 행보가 뉴스 보도에서 강조되고 대중의 긍정적 반응을 이끌어낸 것은 매우 우수한 청렴성의 증거입니다."
+      },
+      {
+        "item_id": 172153,
+        "data_title": "한동훈의 선거 유세에서의 청렴 약속",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "선거 유세에서 청렴을 약속하고 이를 실현한 것으로 보도된 것은 매우 우수한 청렴성의 실천입니다."
+      },
+      {
+        "item_id": 172154,
+        "data_title": "한동훈의 부패 예방 강연 보도",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "부패 예방 강연을 통해 금전적 부패의 해악을 설명한 것은 청렴성을 높이는 데 기여한 매우 우수한 행동입니다."
+      },
+      {
+        "item_id": 172155,
+        "data_title": "한동훈의 재산 공개 뉴스",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "재산을 투명하게 공개하고 금전적 부패 의혹을 불식시킨 것은 매우 우수한 청렴성의 증거입니다."
+      },
+      {
+        "item_id": 172156,
+        "data_title": "한동훈의 반부패 협력 보도",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "다른 기관과 반부패 협력을 추진한 것은 금전적 부패를 줄이는 데 효과적인 매우 우수한 행동입니다."
+      },
+      {
+        "item_id": 172157,
+        "data_title": "한동훈의 청렴 이미지 관련 기사",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "청렴 이미지가 언론에서 칭찬받고 공공의 긍정적 인식을 형성한 것은 매우 우수한 청렴성의 증거입니다."
+      },
+      {
+        "item_id": 172158,
+        "data_title": "한동훈의 부패 방지 발언 보도",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "부패 방지 발언을 통해 금전적 부패에 대한 강경한 입장을 드러낸 것은 청렴성을 증명하는 매우 우수한 사례입니다."
+      },
+      {
+        "item_id": 172159,
+        "data_title": "한동훈의 공공 자금 사용 보도",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "공공 자금 사용이 적법하게 이뤄진 것으로 확인된 것은 금전적 부패 의혹이 없어 매우 우수한 청렴성의 증거입니다."
+      },
+      {
+        "item_id": 172160,
+        "data_title": "한동훈의 금전 의혹 관련 논란",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "C",
+        "rating_rationale": "한동훈의 금전 의혹이 무혐의로 밝혀졌으나, 초기 논란으로 인해 청렴성에 대한 공공 신뢰가 약간 저하되었습니다. 이는 양호한 수준으로 평가할 수 있습니다."
+      },
+      {
+        "item_id": 172161,
+        "data_title": "한동훈의 자금 유입 문제점",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "한동훈의 자금 유입에 대한 의혹과 불투명한 거래가 발견되어 청렴성에 심각한 문제를 초래할 수 있습니다. 조사가 진행 중인 상태로 미흡한 수준입니다."
+      },
+      {
+        "item_id": 172162,
+        "data_title": "한동훈의 부패 관련 비판",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "E",
+        "rating_rationale": "한동훈의 부패 가능성과 금전적 이득 추구 의혹이 제기되어 청렴성을 약화시키는 요인으로 작용했습니다. 상세 검토가 필요한 상황으로 미흡한 수준입니다."
+      },
+      {
+        "item_id": 172163,
+        "data_title": "한동훈의 재산 관리 논란",
+        "collected_by": "Grok",
+        "original_rating": "H",
+        "new_rating": "F",
+        "rating_rationale": "한동훈의 재산 관리 문제와 금전적 부패 의심이 제기되어 공직자로서의 청렴성을 심각히 훼손합니다. 추가 조사가 진행 중인 상황으로 부족한 수준입니다."
+      },
+      {
+        "item_id": 172164,
+        "data_title": "한동훈의 선거 자금 논란",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "한동훈의 선거 자금에 대한 비판과 불법 자금 유입 가능성이 제기되어 청렴성에 큰 타격을 주었습니다. 검토 결과가 발표될 예정으로 부족한 수준입니다."
+      },
+      {
+        "item_id": 172165,
+        "data_title": "한동훈의 금전 의혹 뉴스",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "한동훈의 금전 의혹과 부패 가능성이 지적되어 청렴성에 대한 대중적 비판을 불러일으켰습니다. 기사가 여러 증거를 인용한 상황으로 미흡한 수준입니다."
+      },
+      {
+        "item_id": 172166,
+        "data_title": "한동훈의 부패 비판 보도",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "E",
+        "rating_rationale": "한동훈의 부패 관련 비판과 금전적 이득 추구 의혹이 제기되어 청렴성을 저하시키는 요소로 작용했습니다. 보도가 여론 반응을 포함한 상황으로 미흡한 수준입니다."
+      },
+      {
+        "item_id": 172167,
+        "data_title": "한동훈의 자금 유입 비판",
+        "collected_by": "Grok",
+        "original_rating": "H",
+        "new_rating": "F",
+        "rating_rationale": "한동훈의 자금 유입에 대한 비판과 불투명한 거래가 지적되어 청렴성에 심각한 문제를 초래합니다. 기사가 상세 증거를 제공한 상황으로 부족한 수준입니다."
+      },
+      {
+        "item_id": 172168,
+        "data_title": "한동훈의 재산 논란 보도",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "한동훈의 재산 관리 논란과 금전적 부패 가능성이 제기되어 공공의 신뢰를 떨어뜨렸습니다. 보도가 조사 결과를 언급한 상황으로 미흡한 수준입니다."
+      },
+      {
+        "item_id": 172169,
+        "data_title": "한동훈의 선거 자금 비판",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "한동훈의 선거 자금 비판과 불법 가능성이 지적되어 청렴성에 타격을 주었습니다. 기사가 여러 분석을 포함한 상황으로 부족한 수준입니다."
+      },
+      {
+        "item_id": 172170,
+        "data_title": "한동훈의 청렴한 재정 보고",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "A",
+        "rating_rationale": "한동훈의 재정 보고가 청렴하게 관리되었으며, 금전적 부패 없이 모범적으로 진행되었음을 공공 데이터가 입증함. 상세한 기록이 존재."
+      },
+      {
+        "item_id": 172171,
+        "data_title": "한동훈의 부패 방지 협력",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "A",
+        "rating_rationale": "한동훈이 부패 방지 협력에 참여하여 금전적 문제 없이 청렴성을 지지한 점이 법무부 자료로 공식화됨."
+      },
+      {
+        "item_id": 172172,
+        "data_title": "한동훈의 투명한 자산 관리",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "A",
+        "rating_rationale": "한동훈의 자산 관리가 투명하게 이뤄졌으며, 금전적 부패 의혹이 없어 청렴성을 유지한 점이 감사원 데이터로 공식화됨."
+      },
+      {
+        "item_id": 172173,
+        "data_title": "한동훈의 법안 지지 활동",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "한동훈이 청렴 관련 법안을 지지하여 금전적 부패 방지에 기여한 점이 국회 자료에 기록되었으나, 중립적 평가를 받음."
+      },
+      {
+        "item_id": 172174,
+        "data_title": "한동훈의 교육 참여",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "한동훈의 청렴 교육 참여가 금전적 부패 예방에 기여한 점이 행정안전부 데이터에 기록되었으나, 중립적인 사례로 평가됨."
+      },
+      {
+        "item_id": 172175,
+        "data_title": "한동훈의 뉴스에서의 중립적 평가",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "언론에서 한동훈의 청렴성이 중립적으로 다루어졌으며, 금전적 문제 없이 유지된 점이 언급되었으나, 대중적 시각으로 평가됨."
+      },
+      {
+        "item_id": 172176,
+        "data_title": "한동훈의 캠페인 참여 보도",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "뉴스에서 한동훈의 청렴 캠페인 참여가 보도되었으며, 금전적 부패 방지에 중립적임. 기사가 사실적이지만 중립적 평가."
+      },
+      {
+        "item_id": 172177,
+        "data_title": "한동훈의 인터뷰 내용",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "언론 인터뷰에서 한동훈의 청렴성 관련 발언이 중립적으로 평가되었으며, 금전적 이슈가 없어 안정적임. 중립적 평가."
+      },
+      {
+        "item_id": 172178,
+        "data_title": "한동훈의 활동 보도",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "뉴스 보도에서 한동훈의 청렴 활동이 중립적으로 다루어졌으며, 금전적 부패 관련 없음. 중립적 평가."
+      },
+      {
+        "item_id": 172179,
+        "data_title": "한동훈의 약속 이행",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "언론에서 한동훈의 청렴 약속 이행이 중립적으로 평가되었으며, 금전적 문제 없음. 중립적 평가."
+      },
+      {
+        "item_id": 172180,
+        "data_title": "한동훈의 보고서 제출",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "A",
+        "rating_rationale": "한동훈의 청렴 보고서가 공식적으로 제출되었고, 금전적 부패가 없음이 확인되었으며, 중립적 평가를 받았으므로 매우 우수한 청렴성을 보여줍니다."
+      },
+      {
+        "item_id": 172181,
+        "data_title": "한동훈의 정책 지지",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "A",
+        "rating_rationale": "한동훈의 청렴 정책 지지가 기록되었고, 금전적 이슈 없이 진행되었으므로 매우 우수한 청렴성을 보여줍니다."
+      },
+      {
+        "item_id": 172182,
+        "data_title": "한동훈의 관리 기록",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "A",
+        "rating_rationale": "한동훈의 자산 관리 기록이 청렴하게 유지되었고, 중립적 사례로 평가되었으므로 매우 우수한 청렴성을 보여줍니다."
+      },
+      {
+        "item_id": 172183,
+        "data_title": "한동훈의 뉴스 보도",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "A",
+        "rating_rationale": "언론에서 한동훈의 청렴성 보도가 중립적으로 나왔고, 금전적 문제가 없으므로 매우 우수한 청렴성을 보여줍니다."
+      },
+      {
+        "item_id": 172184,
+        "data_title": "한동훈의 활동 관련",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "A",
+        "rating_rationale": "뉴스에서 한동훈의 청렴 활동이 중립적으로 다루어졌고, 금전적 부패와 관련이 없으므로 매우 우수한 청렴성을 보여줍니다."
+      },
+      {
+        "item_id": 172185,
+        "data_title": "한동훈의 발언",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "A",
+        "rating_rationale": "언론 인터뷰에서 한동훈의 청렴 발언이 중립적으로 평가되었으므로 매우 우수한 청렴성을 보여줍니다."
+      },
+      {
+        "item_id": 172186,
+        "data_title": "한동훈의 캠페인",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "A",
+        "rating_rationale": "뉴스 보도에서 한동훈의 청렴 캠페인이 중립적으로 언급되었으므로 매우 우수한 청렴성을 보여줍니다."
+      },
+      {
+        "item_id": 172187,
+        "data_title": "한동훈의 이행 상황",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "A",
+        "rating_rationale": "언론에서 한동훈의 청렴 이행이 중립적으로 보도되었으므로 매우 우수한 청렴성을 보여줍니다."
+      },
+      {
+        "item_id": 172188,
+        "data_title": "한동훈의 보고",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "A",
+        "rating_rationale": "공식 보고에서 한동훈의 청렴 보고가 중립적으로 확인되었으므로 매우 우수한 청렴성을 보여줍니다."
+      },
+      {
+        "item_id": 172189,
+        "data_title": "한동훈의 정책",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "A",
+        "rating_rationale": "한동훈의 청렴 정책이 중립적으로 평가된 기록이 있으므로 매우 우수한 청렴성을 보여줍니다."
+      },
+      {
+        "item_id": 109331,
+        "data_title": "경기도지사 선거 허위사실 유포 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "허위사실 유포는 청렴성에 큰 타격을 주는 행위로, 미흡한 수준에 해당함. 허위사실 유포는 공정한 선거를 해치는 행위로 평가됨."
+      },
+      {
+        "item_id": 109332,
+        "data_title": "개인정보 부적절 열람 의혹",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "개인정보의 부적절한 열람은 청렴성에 중대한 결함을 드러내는 행위로, 부족한 수준에 해당함. 개인정보 보호는 매우 중요한 윤리적 기준임."
+      },
+      {
+        "item_id": 109333,
+        "data_title": "검찰 내부 정보 유출 의혹",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "G",
+        "new_rating": "F",
+        "rating_rationale": "검찰 내부 정보의 부적절한 유출은 청렴성에 큰 결함을 드러내는 행위로, 부족한 수준에 해당함. 정보 유출은 신뢰성을 크게 훼손함."
+      },
+      {
+        "item_id": 109334,
+        "data_title": "정치자금 수집 투명성 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "정치자금의 불투명한 수집 및 사용은 청렴성에 큰 타격을 주는 행위로, 미흡한 수준에 해당함. 투명한 자금 관리의 중요성이 강조됨."
+      },
+      {
+        "item_id": 109335,
+        "data_title": "이해충돌 의혹",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "정치적 지위를 이용한 개인/당파적 이익 추구는 청렴성에 큰 타격을 주는 행위로, 미흡한 수준에 해당함. 이해충돌은 공정성을 해침."
+      },
+      {
+        "item_id": 109336,
+        "data_title": "윗선 지시 의혹 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "윗선의 정치적 수사 지시 의혹은 청렴성에 큰 결함을 드러내는 행위로, 부족한 수준에 해당함. 정치적 중립성은 매우 중요한 가치임."
+      },
+      {
+        "item_id": 109337,
+        "data_title": "해외 부동산 투자 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "해외 부동산 투자 과정에서의 불투명한 자금 흐름은 청렴성에 큰 타격을 주는 행위로, 미흡한 수준에 해당함. 자금 투명성이 중요함."
+      },
+      {
+        "item_id": 109338,
+        "data_title": "김건희 코바나컨텐츠 특혜 의혹",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "정치적 영향력을 통한 특정 기업에 대한 특혜 의혹은 청렴성에 큰 타격을 주는 행위로, 미흡한 수준에 해당함. 특혜는 공정성을 해침."
+      },
+      {
+        "item_id": 109339,
+        "data_title": "검찰 시절 정치개입 의혹",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "정치적 수사와 편향된 수사는 청렴성에 큰 결함을 드러내는 행위로, 부족한 수준에 해당함. 정치적 중립성은 매우 중요한 가치임."
+      },
+      {
+        "item_id": 109340,
+        "data_title": "선거법 위반 의혹",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "선거법 위반은 청렴성에 큰 타격을 주는 행위로, 미흡한 수준에 해당함. 법적 기준을 준수하는 것이 청렴성의 기본 요소임."
+      },
+      {
+        "item_id": 109341,
+        "data_title": "해외 논문 표절 의혹",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "박사학위 논문 표절 의혹은 학문적 청렴성에 심각한 문제를 제기하며, 이는 매우 부족한 수준에 해당함."
+      },
+      {
+        "item_id": 109342,
+        "data_title": "김건희 코바나컨텐츠 특혜 의혹",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "H",
+        "new_rating": "E",
+        "rating_rationale": "대통령 부인 소속 회사에 대한 특혜 의혹은 정치적 청렴성에 미흡한 수준으로 평가됨. 직접적인 연관성은 없으나, 의혹 자체가 문제."
+      },
+      {
+        "item_id": 109343,
+        "data_title": "선거법 위반 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "G",
+        "new_rating": "F",
+        "rating_rationale": "선거법 위반 의혹은 정치적 청렴성에 심각한 문제를 제기하며, 이는 매우 부족한 수준에 해당함."
+      },
+      {
+        "item_id": 109344,
+        "data_title": "정치자금법 위반 의혹",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "정치자금 수입 및 지출 과정의 투명성 문제는 청렴성에 미흡한 수준으로 평가됨. 투명성 부족이 의혹을 불러일으킴."
+      },
+      {
+        "item_id": 109345,
+        "data_title": "법무부 검사 시절 직권 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "검사 재직 시 정치적 중립성 위반 의혹은 청렴성에 미흡한 수준으로 평가됨. 공정성과 중립성의 중요성이 무시됨."
+      },
+      {
+        "item_id": 109346,
+        "data_title": "기자 사찰 의혹",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "H",
+        "new_rating": "G",
+        "rating_rationale": "언론 탄압 및 부적절한 검찰 권한 행사는 청렴성에 매우 부족한 수준으로 평가됨. 권한 남용이 심각한 문제."
+      },
+      {
+        "item_id": 109347,
+        "data_title": "국회의원 당선 후 윤리성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "C",
+        "rating_rationale": "국회의원 재직 중 정치적 윤리 기준 준수 여부는 양호한 수준으로 평가됨. 특별한 문제점이 보고되지 않음."
+      },
+      {
+        "item_id": 109348,
+        "data_title": "정보 투명성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "B",
+        "rating_rationale": "개인 이력 및 재산 공개 투명성은 우수한 수준으로 평가됨. 투명한 정보 공개가 청렴성에 긍정적."
+      },
+      {
+        "item_id": 109349,
+        "data_title": "검찰 시절 수사 편향성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "정치적 성향에 따른 수사 편향 의혹은 청렴성에 미흡한 수준으로 평가됨. 공정성과 중립성의 위반이 문제."
+      },
+      {
+        "item_id": 109350,
+        "data_title": "정치자금 모금 투명성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "D",
+        "rating_rationale": "정당 및 선거 캠페인 자금 조달 과정은 보통 수준으로 평가됨. 특별한 문제점은 없으나, 투명성 강화 필요."
+      },
+      {
+        "item_id": 109351,
+        "data_title": "국회의원 활동 윤리성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "국회의원 활동 중 이해충돌 방지 노력이 양호한 수준으로 평가됩니다. 국회 회의록에 따르면, 이해충돌 방지에 대한 기본적인 준수를 확인할 수 있으나, 특별히 두드러진 성과는 없습니다."
+      },
+      {
+        "item_id": 109352,
+        "data_title": "공직 윤리 서약",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "공직자로서의 윤리 기준 준수 선언은 우수한 수준입니다. 공식 선서문을 통해 윤리 기준을 준수하겠다는 의지를 명확히 밝혔으며, 이는 청렴성에 긍정적인 영향을 미칩니다."
+      },
+      {
+        "item_id": 109353,
+        "data_title": "정보 접근성 투명성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "B",
+        "rating_rationale": "공개 자료 및 의정활동의 투명성은 우수합니다. 국회 공개 자료를 통해 활동 내역이 투명하게 공개되고 있어, 청렴성에 긍정적인 평가를 받을 수 있습니다."
+      },
+      {
+        "item_id": 109354,
+        "data_title": "직권 행사 공정성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "C",
+        "rating_rationale": "정치적 권한 행사의 공정성은 양호한 수준입니다. 국회 회의록에 따르면, 공정성을 유지하려는 노력이 있으나, 특별히 두드러진 성과는 없습니다."
+      },
+      {
+        "item_id": 109355,
+        "data_title": "개인 재산 신고 투명성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "A",
+        "rating_rationale": "재산 변동 내역의 공개는 매우 우수합니다. 국회 재산 신고 자료를 통해 투명하게 재산 변동 내역을 공개하고 있어, 청렴성에 매우 긍정적인 영향을 미칩니다."
+      },
+      {
+        "item_id": 109356,
+        "data_title": "언론 대응 윤리성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "D",
+        "rating_rationale": "언론과의 소통 및 대응 방식은 보통 수준입니다. 언론 보도 분석에 따르면, 일부 언론과의 갈등이 있었으나, 전체적으로는 적절한 대응을 보였습니다."
+      },
+      {
+        "item_id": 109357,
+        "data_title": "선거 캠페인 공정성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "C",
+        "rating_rationale": "선거 과정에서의 윤리적 행동은 양호한 수준입니다. 선거관리위원회 보고에 따르면, 기본적인 윤리 기준을 준수했으나, 특별히 두드러진 성과는 없습니다."
+      },
+      {
+        "item_id": 109358,
+        "data_title": "정치적 책임성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "정치적 실수에 대한 책임 인정 및 대응은 양호한 수준입니다. 언론 보도 및 발언록에 따르면, 책임을 인정하고 적절히 대응하려는 노력이 있었습니다."
+      },
+      {
+        "item_id": 109359,
+        "data_title": "공직자 윤리 교육 참여",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "윤리 교육 및 준수 프로그램 참여도는 우수합니다. 국회 교육 이수 기록에 따르면, 적극적으로 윤리 교육에 참여하여 청렴성에 긍정적인 영향을 미칩니다."
+      },
+      {
+        "item_id": 109360,
+        "data_title": "이해충돌 방지 노력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "C",
+        "rating_rationale": "개인적 이해관계와 공적 업무의 분리는 양호한 수준입니다. 국회 윤리위원회 보고에 따르면, 기본적인 이해충돌 방지 노력이 있었으나, 특별히 두드러진 성과는 없습니다."
+      },
+      {
+        "item_id": 109361,
+        "data_title": "김건희 특검 관련 의혹",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "G",
+        "new_rating": "E",
+        "rating_rationale": "김건희 특검 저지 의혹은 청렴성에 미흡한 것으로 평가됩니다. 특검 저지는 공정성과 투명성에 문제를 야기할 수 있습니다."
+      },
+      {
+        "item_id": 109362,
+        "data_title": "다단계 의혹 대응",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "다단계 논란에 대한 해명 부족은 청렴성에 미흡한 것으로 평가됩니다. 해명이 부족하면 의혹이 커질 수 있습니다."
+      },
+      {
+        "item_id": 109363,
+        "data_title": "정치자금 모금 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "정치자금 모금 과정의 투명성 부족은 청렴성에 미흡한 것으로 평가됩니다. 투명성 부족은 부패의 가능성을 높입니다."
+      },
+      {
+        "item_id": 109364,
+        "data_title": "윤석열 정부 내 입지",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "측근 의혹 및 정치적 영향력 논란은 청렴성에 미흡한 것으로 평가됩니다. 측근 문제는 정치인의 청렴성을 의심하게 합니다."
+      },
+      {
+        "item_id": 109365,
+        "data_title": "과거 검사 시절 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "검사 시절 수사 편향성 지적은 청렴성에 미흡한 것으로 평가됩니다. 수사 편향성은 공정성을 해칠 수 있습니다."
+      },
+      {
+        "item_id": 109366,
+        "data_title": "정치인 윤리 준수",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "정치인으로서 기본적 윤리 준수 노력은 청렴성에 양호한 것으로 평가됩니다. 기본적 윤리 준수는 긍정적입니다."
+      },
+      {
+        "item_id": 109367,
+        "data_title": "국민의힘 당 내부 갈등",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "당 내부 분열 조장 의혹은 청렴성에 미흡한 것으로 평가됩니다. 분열 조장은 정치적 청렴성을 해칠 수 있습니다."
+      },
+      {
+        "item_id": 109368,
+        "data_title": "언론 대응 태도",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "B",
+        "rating_rationale": "언론 질의에 대한 투명한 대응은 청렴성에 우수한 것으로 평가됩니다. 투명한 대응은 신뢰를 높입니다."
+      },
+      {
+        "item_id": 109369,
+        "data_title": "선거법 준수 여부",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "C",
+        "rating_rationale": "선거 과정의 법적 준수 여부는 청렴성에 양호한 것으로 평가됩니다. 법적 준수는 기본적인 청렴성을 유지하는 데 중요합니다."
+      },
+      {
+        "item_id": 109370,
+        "data_title": "정치자금 투명성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "C",
+        "rating_rationale": "정치자금 모금 및 사용의 투명성은 청렴성에 양호한 것으로 평가됩니다. 투명성은 청렴성의 핵심 요소입니다."
+      },
+      {
+        "item_id": 109371,
+        "data_title": "공직자 윤리 준수",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "B",
+        "rating_rationale": "공직자로서의 윤리 기준을 준수하고 있다는 점에서 우수한 평가를 받을 수 있으나, 구체적인 사례나 증거가 없어 완벽한 점수는 주기 어렵다."
+      },
+      {
+        "item_id": 109372,
+        "data_title": "이해충돌 가능성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "개인적 이해관계와 공적 업무의 충돌 가능성이 제기된 점에서 청렴성에 미흡한 것으로 평가된다. 이는 신뢰를 저해할 수 있는 요소이다."
+      },
+      {
+        "item_id": 109373,
+        "data_title": "정치적 투명성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "C",
+        "rating_rationale": "정치적 활동의 투명성과 공개성이 양호하다는 점에서 중간 정도의 평가를 받을 수 있다. 그러나 더 구체적인 사례가 필요하다."
+      },
+      {
+        "item_id": 109374,
+        "data_title": "직권 남용 의혹",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "G",
+        "new_rating": "F",
+        "rating_rationale": "정치적 영향력을 이용한 부적절한 행위가 의심된다는 점에서 청렴성에 부족하다고 판단된다. 이는 심각한 윤리적 문제를 야기할 수 있다."
+      },
+      {
+        "item_id": 109375,
+        "data_title": "청탁 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "G",
+        "rating_rationale": "부적절한 청탁 및 로비 의혹이 제기된 점에서 청렴성에 매우 부족한 것으로 평가된다. 이는 공직자의 도덕적 기준을 크게 훼손할 수 있다."
+      },
+      {
+        "item_id": 109377,
+        "data_title": "비리 연루 가능성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "과거 비리 연루 의혹이 제기된 점에서 청렴성에 부족하다고 판단된다. 해명이 있더라도 의혹이 지속되는 경우 신뢰 회복이 어렵다."
+      },
+      {
+        "item_id": 109380,
+        "data_title": "정치적 도덕성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "C",
+        "rating_rationale": "정치인으로서의 도덕적 기준이 양호하다는 점에서 중간 정도의 평가를 받을 수 있다. 그러나 더 구체적인 사례와 증거가 필요하다."
+      },
+      {
+        "item_id": 109382,
+        "data_title": "언론 대응 투명성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "B",
+        "rating_rationale": "언론 의혹에 대한 투명한 해명이 이루어졌다는 점에서 우수한 평가를 받을 수 있다. 이는 신뢰 회복에 긍정적인 영향을 미친다."
+      },
+      {
+        "item_id": 109384,
+        "data_title": "공정성 의지",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "B",
+        "rating_rationale": "공정한 정치활동에 대한 의지가 있다는 점에서 우수한 평가를 받을 수 있다. 그러나 실제 행동이 뒷받침되어야 한다."
+      },
+      {
+        "item_id": 109386,
+        "data_title": "정치적 책임감",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "B",
+        "rating_rationale": "정치인으로서의 책임 있는 행동이 있다는 점에서 우수한 평가를 받을 수 있다. 이는 공직자의 기본적인 도덕적 기준을 충족한다."
+      }
+    ],
+    "Claude": [
+      {
+        "item_id": 172290,
+        "data_title": "부패 방지 정책에 대한 참여",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "부패 방지 정책 추진과 정부 기관 투명성 제고, 공적 자금 관리 및 감사 강화는 청렴성 향상의 핵심 요소로서 매우 우수한 성과를 보여줍니다."
+      },
+      {
+        "item_id": 172291,
+        "data_title": "부패 신고 시스템 도입",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "부패 신고 시스템 도입과 시스템 간소화를 통한 시민 접근성 향상은 부패 척결의 실질적 기반을 마련한 매우 우수한 청렴성 강화 조치입니다."
+      },
+      {
+        "item_id": 172292,
+        "data_title": "국제 세무 투명성 개선",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "국제 세무 투명성 개선과 국제기구 협력을 통한 부패 감소 노력은 우수한 청렴성 정책이나, 구체적 성과나 실행 방안이 명확하지 않아 A등급보다는 낮게 평가됩니다."
+      },
+      {
+        "item_id": 172293,
+        "data_title": "적극적인 대국민 소통",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "청렴성 정책에 대한 국민 소통과 설명회 개최는 투명성 증진에 기여하는 양호한 활동이지만, 직접적인 부패 척결보다는 홍보성 활동에 가까워 중간 등급입니다."
+      },
+      {
+        "item_id": 172294,
+        "data_title": "부패 관련 형사 고발 조치",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "부패 사건에 대한 신속한 형사 고발 조치와 관련 부서의 엄정한 관리는 부패 척결에 대한 강력한 의지와 실행력을 보여주는 매우 우수한 청렴성 실천입니다."
+      },
+      {
+        "item_id": 172295,
+        "data_title": "공직자의 윤리 강령 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "공직자 윤리 강령 강화와 정기적 윤리 교육 실시는 청렴성 제도화에 기여하는 우수한 정책이나, 예방적 차원의 조치로서 직접적 부패 척결보다는 한 단계 낮은 평가입니다."
+      },
+      {
+        "item_id": 172296,
+        "data_title": "부패 감시단 운영",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "전문 부패 감시단 운영과 정기적 업무 점검을 통한 부패 예방 시스템 구축은 우수한 청렴성 강화 방안이지만, 사후 관리적 성격이 강해 최고 등급보다는 낮게 평가됩니다."
+      },
+      {
+        "item_id": 172297,
+        "data_title": "부패 관련 법안 발의",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "부패 근절을 위한 법안 발의는 제도적 기반을 통한 근본적 부패 척결 방안으로서, 사회 전체의 부정부패 감소에 기여할 매우 우수한 청렴성 강화 노력입니다."
+      },
+      {
+        "item_id": 172298,
+        "data_title": "전국 청렴 캠페인 주관",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "전국 청렴 캠페인을 통한 국민 청렴 의식 고양은 사회 전반의 청렴 문화 확산에 기여하는 양호한 활동이지만, 실질적 부패 척결보다는 의식 개선에 중점을 둔 활동입니다."
+      },
+      {
+        "item_id": 172299,
+        "data_title": "부패 수사 자원 투입 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "부패 수사를 위한 정부 자원 투입 강화와 수사 기능 강화는 부패 척결의 실행력을 뒷받침하는 매우 우수한 조치로서, 청렴성 실현의 핵심적 기반을 마련했습니다."
+      },
+      {
+        "item_id": 172300,
+        "data_title": "부패 논란 및 비판",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "시민단체로부터 정책의 투명성 부족에 대한 비판이 제기되어 청렴성에 대한 우려가 있으나, 구체적인 부패 행위는 명시되지 않아 미흡 수준으로 평가됨"
+      },
+      {
+        "item_id": 172301,
+        "data_title": "부패 문제 지적 사건",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "과거 특정 사건에서 청렴성 의혹을 받았고 이것이 신뢰에 타격을 주었다고 평가되어, 청렴성에 상당한 부정적 영향을 미친 것으로 판단됨"
+      },
+      {
+        "item_id": 172302,
+        "data_title": "부패 방지 교육 미비",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "부패 방지 정책의 교육과정 미비로 실효성이 떨어진다는 전문가 지적이 있어, 청렴성 제고를 위한 시스템적 접근이 미흡한 것으로 평가됨"
+      },
+      {
+        "item_id": 172303,
+        "data_title": "청렴성 평가 낮은 지표",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "공공 데이터에 기반한 청렴성 평가 지표가 낮게 나타나 객관적으로 청렴성에 문제가 있음이 확인되어 신뢰도 감소 요인으로 작용함"
+      },
+      {
+        "item_id": 172304,
+        "data_title": "부패 수사 절차의 문제점",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "부패 수사 절차의 복잡성과 비효율성에 대한 비판이 있어 청렴성 확보를 위한 시스템 운영에 미흡함이 있으나, 직접적인 부패와는 구분됨"
+      },
+      {
+        "item_id": 172305,
+        "data_title": "부패 사건 처리 미흡",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "공공 기관 보고서에서 부패 사건 처리 과정이 미흡하다고 지적되고 해결 속도와 결과에 불만이 존재하여 청렴성 실현에 부족함이 확인됨"
+      },
+      {
+        "item_id": 172306,
+        "data_title": "비상식적 정책 이행",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "일부 정책이 비상식적으로 평가받아 청렴성을 저해할 수 있다는 우려가 제기되었으나, 구체적인 부패나 비리와 직접 연결되지는 않음"
+      },
+      {
+        "item_id": 172307,
+        "data_title": "인사 문제의 투명성 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "인사 결정 과정의 불투명성에 대한 비판이 제기되어 부패 우려를 증가시키고 있어, 청렴성 확보를 위한 투명성 원칙에 부족함이 있음"
+      },
+      {
+        "item_id": 172308,
+        "data_title": "청렴 증진 조치에 대한 문제",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "청렴 증진 조치들이 구체적 결과 없이 시행되고 방향성이 결여되어 있다는 비판으로, 청렴성 개선 노력의 실효성이 미흡한 것으로 평가됨"
+      },
+      {
+        "item_id": 172309,
+        "data_title": "부패 방지 전략의 실효성 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "연구 보고서에서 부패 방지 전략의 실효성 부족을 지적하고 강력한 조치 필요성을 강조하여, 청렴성 확보를 위한 정책적 접근이 부족함"
+      },
+      {
+        "item_id": 172310,
+        "data_title": "청렴성 관련 연구 발표",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "청렴성 관련 연구 발표는 부패 방지에 대한 새로운 이해를 제공하여 청렴성 향상에 기여하는 긍정적 활동이나, 구체적인 성과나 실질적 변화에 대한 내용이 부족하여 우수 수준으로 평가됨"
+      },
+      {
+        "item_id": 172311,
+        "data_title": "청렴성 관련 세미나 개최",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "청렴성 강화를 위한 세미나 개최로 전문가들과의 의견 교환을 통해 정책 개선에 기여할 것으로 기대되나, 실제적인 정책 변화나 구체적 성과보다는 논의 단계의 활동으로 우수 수준으로 평가됨"
+      },
+      {
+        "item_id": 172312,
+        "data_title": "정부 대국민 청렴 캠페인 참여",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "정부 주관 대국민 청렴 캠페인 참여는 청렴성을 강조하고 국민 인식 개선에 기여할 수 있는 활동이지만, 개인의 주도적 노력보다는 정부 정책에 참여하는 수동적 성격이 강하여 양호 수준으로 평가됨"
+      },
+      {
+        "item_id": 172313,
+        "data_title": "공공 기관 청렴성 증진 활동",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "공공 기관 청렴성 증진을 위한 프로젝트를 직접 기획하고 시행하여 긍정적 피드백을 받은 것은 실질적이고 구체적인 성과를 보여주는 매우 우수한 청렴성 관련 활동으로 평가됨"
+      },
+      {
+        "item_id": 172314,
+        "data_title": "청렴성 관련 공개 토론회 주최",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "청렴성 관련 공개 토론회 주최를 통해 다양한 의견을 수렴하고 공론화의 장을 제공한 것은 민주적이고 투명한 접근방식으로 청렴성 향상에 기여하는 우수한 활동으로 평가됨"
+      },
+      {
+        "item_id": 172315,
+        "data_title": "청렴성 강화를 위한 정책 토대 마련",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "청렴성 강화를 위한 구체적인 정책 토대 마련을 위해 다양한 연구를 바탕으로 시뮬레이션까지 진행한 것은 체계적이고 과학적인 접근으로 실질적 정책 개선에 기여하는 매우 우수한 활동임"
+      },
+      {
+        "item_id": 172316,
+        "data_title": "부패 방지 기술 도입을 위한 연구",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "최신 기술을 활용한 부패 방지 연구를 선도하는 것은 미래지향적이고 혁신적인 접근으로 청렴성 강화에 실질적으로 기여할 수 있는 매우 우수한 활동으로 평가됨"
+      },
+      {
+        "item_id": 172317,
+        "data_title": "청렴 제도를 위한 법적 기반 정비",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "청렴 제도 강화를 위한 법적 기반 정비와 법안 제정 및 개정을 통한 제도적 장치 마련은 청렴성을 체계적으로 뒷받침하는 근본적이고 지속가능한 매우 우수한 활동으로 평가됨"
+      },
+      {
+        "item_id": 172318,
+        "data_title": "부패 방지 및 청렴성 관련 공청회",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "부패 방지와 청렴성 강화를 위한 공청회 개최로 다양한 의견을 수렴하고 정책 반영을 약속한 것은 민주적 절차를 통한 청렴성 향상 노력으로 우수한 활동으로 평가됨"
+      },
+      {
+        "item_id": 172319,
+        "data_title": "부정부패 감시 보고서 발행",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "부정부패 감시 활동을 담은 보고서 발행과 이를 기반으로 한 지속적인 청렴 정책 추진 약속은 투명성과 책임성을 보여주는 실질적이고 체계적인 매우 우수한 청렴성 활동으로 평가됨"
+      },
+      {
+        "item_id": 172320,
+        "data_title": "부패 관련 전담팀 운영",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "부패 전담팀 구성은 청렴성 확보를 위한 체계적이고 적극적인 접근방식으로, 조직적 차원에서 부패 방지에 대한 강한 의지를 보여주며 실질적인 성과 창출이 기대되는 우수한 정책입니다."
+      },
+      {
+        "item_id": 172321,
+        "data_title": "다양한 청렴 관련 자료 발표",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "청렴성 관련 자료 발표는 투명성과 교육적 효과 측면에서 긍정적이나, 단순한 정보 제공 수준에 그치고 있어 실질적인 청렴성 향상을 위한 구체적인 실행력은 다소 부족해 보입니다."
+      },
+      {
+        "item_id": 172322,
+        "data_title": "부패 예방 캠페인 전개",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "부패 예방 캠페인은 사회 전반의 청렴 의식 향상을 위한 적극적인 노력으로, 예방적 차원에서 부패 방지에 기여하고 있으며, 시민 참여를 통한 청렴 문화 확산에 우수한 효과를 보이고 있습니다."
+      },
+      {
+        "item_id": 172323,
+        "data_title": "부패와의 전쟁 선언",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "부패와의 전쟁 선언은 청렴성에 대한 최고 수준의 의지와 결단을 보여주는 것으로, 강력한 추진력과 국제적 인정을 받는 등 청렴성 확보를 위한 매우 우수한 리더십을 발휘하고 있습니다."
+      },
+      {
+        "item_id": 172324,
+        "data_title": "공공 서비스의 투명성 증대",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "공공 서비스 투명성 증대는 청렴성의 핵심 요소로, 실질적인 정책 시행을 통해 국민 만족도 향상이라는 구체적 성과를 달성한 것은 청렴성 관점에서 매우 우수한 성과입니다."
+      },
+      {
+        "item_id": 172325,
+        "data_title": "부패 관련 시뮬레이션 게임 실시",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "시뮬레이션 게임을 통한 청렴성 교육은 창의적이고 참여적인 접근방식으로 긍정적이나, 교육적 효과에 한정되어 있어 실질적인 부패 방지 효과는 제한적일 수 있어 양호한 수준으로 평가됩니다."
+      },
+      {
+        "item_id": 172326,
+        "data_title": "청렴성 수치 공표",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "청렴성 수치의 정기적 공표는 투명성과 책임성을 보여주는 우수한 행정 관행으로, 국민에 대한 신뢰 구축과 지속적인 개선 의지를 나타내어 청렴성 확보에 효과적으로 기여하고 있습니다."
+      },
+      {
+        "item_id": 172327,
+        "data_title": "청렴성 관련 훈련 프로그램 운영",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "공직자 대상 청렴성 훈련 프로그램은 부패 방지의 핵심인 인적 자원 개발에 초점을 맞춘 우수한 정책으로, 체계적인 교육을 통해 조직 내 청렴 문화 정착에 실질적으로 기여하고 있습니다."
+      },
+      {
+        "item_id": 172328,
+        "data_title": "부패 예방을 위한 포럼 주최",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "부패 예방 포럼 주최는 전문가 의견 수렴과 정책 개발을 위한 좋은 시도이나, 포럼 개최 자체는 일회성 행사의 성격이 강해 지속적인 청렴성 확보 효과는 제한적일 수 있습니다."
+      },
+      {
+        "item_id": 172329,
+        "data_title": "청렴성 관련 표창 제정",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "청렴성 표창 제정은 청렴 문화 장려를 위한 긍정적인 인센티브 제도로 의미가 있으나, 상징적 성격이 강하고 실질적인 부패 방지 효과보다는 문화 조성에 그치는 한계가 있습니다."
+      },
+      {
+        "item_id": 172330,
+        "data_title": "청렴성 외부 감사 진행",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "정기적인 외부 감사 진행은 투명성과 객관성을 보장하는 매우 우수한 청렴성 확보 방안입니다. 제3자에 의한 독립적 검증을 통해 자발적으로 청렴도를 점검하고 개선하려는 적극적 자세를 보여줍니다."
+      },
+      {
+        "item_id": 172331,
+        "data_title": "부패 처벌 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "부패 처벌 강화 법안 발의는 청렴성 확보를 위한 제도적 기반 마련에 기여하는 매우 우수한 활동입니다. 법적 처벌 수준을 높여 부정부패에 대한 강력한 의지를 보이며, 예방 효과도 기대할 수 있습니다."
+      },
+      {
+        "item_id": 172332,
+        "data_title": "해외 청렴성 관련 교육 참여",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "해외 청렴성 교육 참여는 국제적 기준에 맞는 청렴성 향상을 위한 우수한 노력입니다. 글로벌 스탠다드를 학습하고 적용하려는 의지를 보여주며, 개인적 역량 강화를 통한 청렴성 개선에 기여합니다."
+      },
+      {
+        "item_id": 172333,
+        "data_title": "부패 리스크 관리 체계 구축",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "부패 리스크 관리 체계 구축은 사전 예방적 접근을 통한 매우 우수한 청렴성 확보 방안입니다. 체계적이고 과학적인 방법으로 부패 요소를 사전에 차단하고 관리하는 시스템을 마련한 것은 높이 평가됩니다."
+      },
+      {
+        "item_id": 172334,
+        "data_title": "부패 방지 TF 운영",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "부패 방지 TF 운영과 시뮬레이션 기반 대책 마련은 우수한 청렴성 강화 활동입니다. 다양한 시나리오를 통한 선제적 대응 체계 구축으로 실효성 있는 부패 방지 정책을 수립하려는 노력이 돋보입니다."
+      },
+      {
+        "item_id": 172335,
+        "data_title": "청렴성 관련 소통 채널 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "청렴성 관련 소통 채널 강화는 국민과의 신뢰 구축을 통한 우수한 청렴성 확보 방안입니다. 투명한 소통을 통해 국민 감시와 참여를 유도하여 자연스러운 견제 시스템을 구축하는 긍정적 효과가 있습니다."
+      },
+      {
+        "item_id": 172336,
+        "data_title": "부패 방지 헌장 제정",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "부패 방지 헌장 제정은 청렴 문화 확산을 위한 우수한 제도적 기반 마련입니다. 모든 공직자에게 청렴성의 중요성을 각인시키고 조직 전체의 청렴 의식을 제고하는 데 효과적인 방안으로 평가됩니다."
+      },
+      {
+        "item_id": 172337,
+        "data_title": "청렴성 강화 특별 위원회 구성",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "청렴성 강화 특별 위원회 구성은 체계적인 청렴성 정책 추진을 위한 우수한 조직적 접근입니다. 전담 조직을 통해 지속적이고 일관성 있는 청렴성 개선 정책을 수립하고 실행할 수 있는 기반을 마련했습니다."
+      },
+      {
+        "item_id": 172338,
+        "data_title": "시민 참여 프로그램 운영",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "시민 참여 프로그램 운영은 국민과 함께하는 청렴 문화 확산을 위한 우수한 활동입니다. 시민 참여를 통한 사회 전반의 청렴 의식 제고와 자발적 감시 체계 구축으로 청렴성 향상에 기여합니다."
+      },
+      {
+        "item_id": 172339,
+        "data_title": "부패 방지 이니셔티브 발표",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "부패 방지 이니셔티브 발표는 청렴성 향상 의지를 보여주는 양호한 수준의 활동입니다. 새로운 정책 방향 제시는 긍정적이나, 구체적인 실행 계획과 성과가 뒷받침되어야 실질적인 청렴성 개선 효과를 기대할 수 있습니다."
+      },
+      {
+        "item_id": 172140,
+        "data_title": "한동훈의 공직자 재산 공개 준수",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "공직자 재산을 투명하게 공개하고 부패방지법을 철저히 준수하며, 의심스러운 자금 유입이 없어 매우 우수한 청렴성을 보여줌. 공공 신뢰 제고에도 기여함."
+      },
+      {
+        "item_id": 172141,
+        "data_title": "한동훈의 검찰 재임 시 청렴 정책 추진",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "검찰총장 재임 중 부패 사건에 대한 엄정한 수사를 강조하고 내부 청렴 지침을 강화하여 공공기관 청렴성 제고에 중요한 역할을 했음. 매우 우수한 청렴 리더십을 발휘함."
+      },
+      {
+        "item_id": 172142,
+        "data_title": "한동훈의 의정 활동 중 부패 방지 법안 지지",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "국회에서 부패방지 관련 법안을 적극 지지하고 토론에 참여하여 공공부문 부패 최소화에 기여함. 청렴성 강조 방향으로 우수한 의정활동을 보임."
+      },
+      {
+        "item_id": 172143,
+        "data_title": "한동훈의 공공 자금 관리 감사 결과",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "감사원 검토 결과 모든 공공자금 지출이 적법하게 처리되고 불필요한 비용이 없었으며, 예산 투명성이 유지되어 매우 우수한 청렴한 관리 습관을 보여줌."
+      },
+      {
+        "item_id": 172144,
+        "data_title": "한동훈의 선거 자금 보고서 검토",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "선거관리위원회 검토 결과 선거자금 사용이 정확하고 부정적 유입이 없어 금전적 부패를 피한 대표적 사례로 평가됨. 매우 우수한 청렴성 기준을 제시함."
+      },
+      {
+        "item_id": 172145,
+        "data_title": "한동훈의 부패 예방 교육 참여",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "정부 주최 부패예방 교육에 참석하여 공직자들에게 청렴성을 강조하고 금전적 부패 감소에 기여함. 청렴성 향상을 위한 우수한 노력을 보임."
+      },
+      {
+        "item_id": 172146,
+        "data_title": "한동훈의 재산 증식 관련 조사 결과",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "국세청 조사 결과 재산 증식이 합법적이고 부패 의혹 없이 이뤄져 청렴한 개인 자산 관리의 모범으로 평가됨. 매우 우수한 청렴성을 입증함."
+      },
+      {
+        "item_id": 172147,
+        "data_title": "한동훈의 반부패 캠페인 지원",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "국가 반부패 캠페인을 지원하여 금전적 부패 예방에 힘쓰고 공공 인식 제고에 효과적인 역할을 함. 지속적인 청렴 노력으로 우수한 평가를 받음."
+      },
+      {
+        "item_id": 172148,
+        "data_title": "한동훈의 공직 생활 감사 평가",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "공직생활 기간 동안 감사 평가에서 청렴 기준을 준수하고 금전적 문제 없이 활동하여 부패방지의 중요성을 강조함. 매우 우수한 청렴성을 보여줌."
+      },
+      {
+        "item_id": 172149,
+        "data_title": "한동훈의 부패 신고 시스템 개선 제안",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "국회에서 부패 신고 시스템 개선을 제안하여 금전적 부패 감시 체계를 강화하고 실제 효과를 발휘함. 청렴성 향상을 위한 구체적이고 우수한 기여를 함."
+      },
+      {
+        "item_id": 172150,
+        "data_title": "한동훈의 언론 인터뷰에서의 청렴 강조",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "언론 인터뷰에서 청렴성을 강조한 것은 긍정적이나, 단순한 발언 수준에 그쳐 구체적인 행동이나 실질적 성과가 부족함. 의지 표명 정도로 평가됨."
+      },
+      {
+        "item_id": 172151,
+        "data_title": "한동훈의 부패 방지 관련 칼럼 기고",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "부패 방지 관련 칼럼 기고는 사회적 인식 제고에 기여하나, 이론적 차원의 활동에 그쳐 실제 청렴성 실천과는 거리가 있음. 교육적 효과는 인정됨."
+      },
+      {
+        "item_id": 172152,
+        "data_title": "한동훈의 청렴 관련 뉴스 보도",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "C",
+        "rating_rationale": "금전적 문제 없이 공직을 수행했다는 보도는 긍정적이나, 구체적인 청렴 실천 사례나 성과가 명시되지 않아 일반적 수준의 평가에 그침."
+      },
+      {
+        "item_id": 172153,
+        "data_title": "한동훈의 선거 유세에서의 청렴 약속",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "D",
+        "rating_rationale": "선거 유세에서의 청렴 약속은 정치적 수사에 그칠 가능성이 높으며, 실제 이행 여부가 불확실함. 약속의 실현 여부에 대한 구체적 검증이 필요함."
+      },
+      {
+        "item_id": 172154,
+        "data_title": "한동훈의 부패 예방 강연 보도",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "부패 예방 강연은 사회적 가치 확산에 기여하나, 개인의 청렴성 실천보다는 교육 활동 차원으로 실질적 청렴도 평가에는 제한적임."
+      },
+      {
+        "item_id": 172155,
+        "data_title": "한동훈의 재산 공개 뉴스",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "재산 공개를 통한 투명한 자산 관리는 청렴성의 핵심 요소로, 금전적 부패 의혹 불식에 효과적임. 투명성 확보를 통한 신뢰도 제고에 기여함."
+      },
+      {
+        "item_id": 172156,
+        "data_title": "한동훈의 반부패 협력 보도",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "다른 기관과의 반부패 협력 추진은 실질적인 청렴성 향상을 위한 구체적 행동으로, 시스템적 개선에 기여하는 의미 있는 활동으로 평가됨."
+      },
+      {
+        "item_id": 172157,
+        "data_title": "한동훈의 청렴 이미지 관련 기사",
+        "collected_by": "Grok",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "청렴 이미지에 대한 긍정적 보도와 여론 형성은 의미가 있으나, 이미지 차원에 그쳐 실질적인 청렴성 실천 성과로 보기에는 한계가 있음."
+      },
+      {
+        "item_id": 172158,
+        "data_title": "한동훈의 부패 방지 발언 보도",
+        "collected_by": "Grok",
+        "original_rating": "A",
+        "new_rating": "C",
+        "rating_rationale": "부패 방지에 대한 강경한 입장 표명은 청렴 의지를 보여주나, 발언 수준에 그쳐 실제 행동으로 이어지는 구체적 성과가 부족함."
+      },
+      {
+        "item_id": 172159,
+        "data_title": "한동훈의 공공 자금 사용 보도",
+        "collected_by": "Grok",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "공공 자금의 적법한 사용이 감사를 통해 확인된 것은 청렴성의 핵심인 공금 관리의 투명성과 적절성을 객관적으로 입증하는 우수한 사례임."
+      },
+      {
+        "item_id": 172160,
+        "data_title": "한동훈의 금전 의혹 관련 논란",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "D",
+        "rating_rationale": "금전적 의혹이 제기되었으나 조사 결과 무혐의로 판명되어 법적 문제는 없지만, 초기 논란으로 인한 공공 신뢰 저하가 발생했으며, 공직자로서 의혹 자체를 피하지 못한 점에서 보통 수준의 청렴성을 보임"
+      },
+      {
+        "item_id": 172161,
+        "data_title": "한동훈의 자금 유입 문제점",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "정부 자료를 통해 자금 유입의 불투명한 거래가 실제로 발견되었으며, 현재 조사가 진행 중인 상태로 청렴성에 심각한 의혹이 제기되어 부족한 수준의 평가가 적절함"
+      },
+      {
+        "item_id": 172162,
+        "data_title": "한동훈의 부패 관련 비판",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "F",
+        "rating_rationale": "감사원 보고서라는 공신력 있는 출처에서 부패 가능성과 금전적 이득을 위한 행동 의혹이 지적되어 청렴성이 크게 약화되었으며, 상세 검토가 필요한 상황으로 부족한 등급에 해당함"
+      },
+      {
+        "item_id": 172163,
+        "data_title": "한동훈의 재산 관리 논란",
+        "collected_by": "Grok",
+        "original_rating": "H",
+        "new_rating": "G",
+        "rating_rationale": "국세청 자료라는 객관적 출처에서 재산 관리 문제와 금전적 부패 의심이 제기되어 공직자로서의 청렴성이 심각히 훼손되었으며, 추가 조사가 진행될 정도로 매우 부족한 수준임"
+      },
+      {
+        "item_id": 172164,
+        "data_title": "한동훈의 선거 자금 논란",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "G",
+        "rating_rationale": "선거관리위원회 문서에서 선거 자금의 불법 유입 가능성이 지적되어 청렴성에 큰 타격을 주었으며, 민주주의 근간인 선거의 공정성을 훼손할 수 있는 매우 심각한 문제로 매우 부족함"
+      },
+      {
+        "item_id": 172165,
+        "data_title": "한동훈의 금전 의혹 뉴스",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "언론 보도를 통해 금전 의혹과 부패 가능성이 제기되어 대중적 비판을 받았으나, 구체적인 조사 결과나 확정적 증거보다는 의혹 수준으로 미흡한 정도의 청렴성 문제로 평가됨"
+      },
+      {
+        "item_id": 172166,
+        "data_title": "한동훈의 부패 비판 보도",
+        "collected_by": "Grok",
+        "original_rating": "G",
+        "new_rating": "E",
+        "rating_rationale": "조선일보 기사에서 부패 관련 비판과 금전적 이득 추구 의혹이 보도되어 청렴성 저하 요소가 되었으나, 언론 보도 수준의 의혹으로 여론 반응을 고려할 때 미흡한 수준으로 평가됨"
+      },
+      {
+        "item_id": 172167,
+        "data_title": "한동훈의 자금 유입 비판",
+        "collected_by": "Grok",
+        "original_rating": "H",
+        "new_rating": "F",
+        "rating_rationale": "YTN 뉴스에서 자금 유입의 불투명한 거래가 상세 증거와 함께 보도되어 청렴성에 심각한 문제를 초래했으며, 구체적 증거가 제시된 점에서 단순 의혹보다 심각한 부족한 수준임"
+      },
+      {
+        "item_id": 172168,
+        "data_title": "한동훈의 재산 논란 보도",
+        "collected_by": "Grok",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "한겨레 신문에서 재산 관리 논란과 금전적 부패 가능성이 조사 결과를 언급하며 보도되어 공공 신뢰를 떨어뜨렸으나, 확정적 결론보다는 가능성 수준으로 미흡한 정도로 평가됨"
+      },
+      {
+        "item_id": 172169,
+        "data_title": "한동훈의 선거 자금 비판",
+        "collected_by": "Grok",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "MBC 뉴스에서 선거 자금의 불법 가능성이 여러 분석과 함께 보도되어 청렴성에 타격을 주었으나, 언론 보도 차원의 비판으로 확정적 불법행위보다는 의혹 수준으로 미흡함"
+      },
+      {
+        "item_id": 172170,
+        "data_title": "한동훈의 청렴한 재정 보고",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "A",
+        "rating_rationale": "국회 기록에 따른 청렴한 재정 보고로 금전적 부패가 전혀 없고, 상세한 기록이 있어 투명성이 매우 높으며, 모범 사례로 평가될 정도로 우수한 청렴성을 보여줌"
+      },
+      {
+        "item_id": 172171,
+        "data_title": "한동훈의 부패 방지 협력",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "B",
+        "rating_rationale": "법무부 공식 자료에 근거한 부패 방지 협력 활동으로 금전적 문제가 없고, 청렴성 증진에 적극적으로 기여한 우수한 사례이나 재정 관리만큼 직접적이지는 않음"
+      },
+      {
+        "item_id": 172172,
+        "data_title": "한동훈의 투명한 자산 관리",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "A",
+        "rating_rationale": "감사원 데이터에 기반한 투명한 자산 관리로 금전적 부패 의혹이 전혀 없고, 공식 보고서로 확인된 매우 우수한 청렴성을 보여주는 객관적 증거"
+      },
+      {
+        "item_id": 172173,
+        "data_title": "한동훈의 법안 지지 활동",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "청렴 관련 법안 지지 활동이 국회 자료로 확인되어 금전적 부패 방지에 기여했으나, 중립적 평가를 받는 수준으로 양호한 정도의 청렴성을 보임"
+      },
+      {
+        "item_id": 172174,
+        "data_title": "한동훈의 교육 참여",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "행정안전부 데이터에 기록된 청렴 교육 참여로 부패 예방에 기여했으나, 중립적 사례로 분류되어 양호한 수준의 청렴성 활동으로 평가됨"
+      },
+      {
+        "item_id": 172175,
+        "data_title": "한동훈의 뉴스에서의 중립적 평가",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "언론에서 중립적으로 다루어진 청렴성으로 금전적 문제는 없으나, 특별히 우수하거나 모범적이지 않은 보통 수준의 청렴성을 유지하는 정도로 평가됨"
+      },
+      {
+        "item_id": 172176,
+        "data_title": "한동훈의 캠페인 참여 보도",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "청렴 캠페인 참여가 언론에 보도되었으나 중립적 평가를 받아, 금전적 부패는 없지만 특별히 뛰어나지 않은 보통 수준의 청렴성 활동으로 판단됨"
+      },
+      {
+        "item_id": 172177,
+        "data_title": "한동훈의 인터뷰 내용",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "언론 인터뷰에서 청렴성 관련 발언이 중립적으로 평가되어 금전적 이슈는 없으나, 안정적 수준에 그치는 보통 정도의 청렴성을 보여줌"
+      },
+      {
+        "item_id": 172178,
+        "data_title": "한동훈의 활동 보도",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "뉴스 보도에서 청렴 활동이 중립적으로 다루어져 금전적 부패와는 무관하나, 특별한 성과나 모범성이 부족한 보통 수준의 청렴성 활동으로 평가됨"
+      },
+      {
+        "item_id": 172179,
+        "data_title": "한동훈의 약속 이행",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "D",
+        "rating_rationale": "청렴 약속 이행이 언론에서 중립적으로 평가되어 금전적 문제는 없으나, 특별히 우수하거나 모범적이지 않은 보통 수준의 청렴성 유지 정도로 판단됨"
+      },
+      {
+        "item_id": 172180,
+        "data_title": "한동훈의 보고서 제출",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "B",
+        "rating_rationale": "국회 기록을 통해 공식적으로 금전적 부패가 없음이 확인된 것은 청렴성 측면에서 우수한 평가를 받을 만하다. 투명한 보고서 제출과 객관적 검증이 이루어진 점이 긍정적이다."
+      },
+      {
+        "item_id": 172181,
+        "data_title": "한동훈의 정책 지지",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "청렴 정책을 지지하고 금전적 이슈 없이 진행된 것은 양호한 수준이나, 단순한 정책 지지 차원에서 구체적인 청렴성 실천 사례가 부족하여 보통 수준의 평가가 적절하다."
+      },
+      {
+        "item_id": 172182,
+        "data_title": "한동훈의 관리 기록",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "B",
+        "rating_rationale": "감사원이라는 공신력 있는 기관에서 자산 관리 기록이 청렴하게 유지되었다고 확인한 것은 객관적이고 신뢰할 만한 평가로, 청렴성 측면에서 우수한 수준으로 볼 수 있다."
+      },
+      {
+        "item_id": 172183,
+        "data_title": "한동훈의 뉴스 보도",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "언론 보도에서 중립적으로 청렴성이 다루어지고 금전적 문제가 없다고 보도된 것은 양호한 수준이나, 언론 보도 자체만으로는 구체적 청렴성 실천의 증거로는 제한적이다."
+      },
+      {
+        "item_id": 172184,
+        "data_title": "한동훈의 활동 관련",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "청렴 활동이 중립적으로 언론에 다루어진 것은 긍정적이나, 구체적인 활동 내용이나 성과에 대한 세부사항이 부족하여 양호한 수준의 평가가 적절하다고 판단된다."
+      },
+      {
+        "item_id": 172185,
+        "data_title": "한동훈의 발언",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "언론 인터뷰에서 청렴 발언이 중립적으로 평가받은 것은 기본적인 청렴 의식을 보여주나, 발언 수준에 그쳐 실질적 청렴성 실천 사례로는 양호한 정도로 평가된다."
+      },
+      {
+        "item_id": 172186,
+        "data_title": "한동훈의 캠페인",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "청렴 캠페인 활동이 언론에서 중립적으로 언급된 것은 청렴성에 대한 의지를 보여주는 긍정적 신호이나, 캠페인 자체의 구체적 효과나 성과가 명시되지 않아 양호한 수준이다."
+      },
+      {
+        "item_id": 172187,
+        "data_title": "한동훈의 이행 상황",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "청렴 이행이 중립적으로 보도된 것은 기본적인 청렴성 유지를 의미하나, 이행의 구체적 내용이나 성과에 대한 세부사항이 부족하여 양호한 수준으로 평가된다."
+      },
+      {
+        "item_id": 172188,
+        "data_title": "한동훈의 보고",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "B",
+        "rating_rationale": "국회라는 공식 기관에서 청렴 보고가 중립적으로 확인된 것은 객관적 검증을 거친 것으로, 투명성과 책임성 측면에서 우수한 청렴성을 보여주는 사례로 평가할 수 있다."
+      },
+      {
+        "item_id": 172189,
+        "data_title": "한동훈의 정책",
+        "collected_by": "Grok",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "법무부 자료를 통해 청렴 정책이 중립적으로 평가받은 것은 제도적 청렴성을 보여주나, 정책 수준에서의 평가로 실질적 청렴성 실천 측면에서는 양호한 정도로 판단된다."
+      },
+      {
+        "item_id": 109331,
+        "data_title": "경기도지사 선거 허위사실 유포 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "선거과정에서 허위사실을 유포한 것은 민주주의의 근간인 공정한 선거를 훼손하는 심각한 청렴성 위반 행위로, 공직자의 기본 윤리를 크게 벗어난 행위입니다."
+      },
+      {
+        "item_id": 109332,
+        "data_title": "개인정보 부적절 열람 의혹",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "법무부 장관이라는 고위공직자가 직권을 남용하여 개인정보를 부적절하게 열람한 것은 권력 남용이자 개인정보보호법 위반 소지가 있는 중대한 청렴성 결함입니다."
+      },
+      {
+        "item_id": 109333,
+        "data_title": "검찰 내부 정보 유출 의혹",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "G",
+        "new_rating": "G",
+        "rating_rationale": "검찰 내부 민감정보 유출은 국가기밀 누설과 직결되며, 법무부 장관이라는 최고위직에서 발생한 정보보안 위반으로 매우 심각한 청렴성 문제입니다."
+      },
+      {
+        "item_id": 109334,
+        "data_title": "정치자금 수집 투명성 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "정치자금의 불투명한 수집과 사용은 정치자금법 위반 소지가 있으며, 투명성과 책임성을 요구받는 정치인으로서 부적절한 행위로 청렴성에 부정적 영향을 미칩니다."
+      },
+      {
+        "item_id": 109335,
+        "data_title": "이해충돌 의혹",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "정치적 지위를 이용한 개인적 이익 추구는 공직윤리의 핵심인 공익우선 원칙을 위반하는 행위로, 이해충돌방지법 위반 소지가 있는 심각한 청렴성 문제입니다."
+      },
+      {
+        "item_id": 109336,
+        "data_title": "윗선 지시 의혹 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "검찰의 정치적 중립성은 법치주의의 근간이며, 윗선의 정치적 수사 지시를 받았다면 사법부 독립성 훼손과 관련된 청렴성 문제가 있습니다."
+      },
+      {
+        "item_id": 109337,
+        "data_title": "해외 부동산 투자 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "해외 부동산 투자 과정에서 자금 흐름이 불투명하다면 재산신고 의무 위반이나 부정한 재산 형성 의혹이 있어 공직자의 청렴성에 부정적 영향을 미칩니다."
+      },
+      {
+        "item_id": 109338,
+        "data_title": "김건희 코바나컨텐츠 특혜 의혹",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "G",
+        "rating_rationale": "정치적 영향력을 통한 특정 기업 특혜 제공은 부패방지법과 공직윤리법의 핵심 위반사항으로, 권력을 사적 이익을 위해 남용한 매우 심각한 청렴성 결함입니다."
+      },
+      {
+        "item_id": 109339,
+        "data_title": "검찰 시절 정치개입 의혹",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "검찰총장 시절 정치적 편향 수사는 사법부의 독립성과 중립성을 훼손하는 행위로, 법치주의 원칙을 위반한 심각한 청렴성 문제입니다."
+      },
+      {
+        "item_id": 109340,
+        "data_title": "선거법 위반 의혹",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "F",
+        "rating_rationale": "선거법 위반은 민주주의 제도의 근간을 흔드는 행위로, 정치자금법과 공직선거법 위반은 정치인의 기본 자질인 청렴성에 심각한 결함을 나타냅니다."
+      },
+      {
+        "item_id": 109341,
+        "data_title": "해외 논문 표절 의혹",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "박사학위 논문 표절 의혹은 학문적 정직성과 직결되는 심각한 청렴성 문제로, 정치인의 기본적인 도덕성에 대한 의구심을 불러일으키는 중대한 결함이다."
+      },
+      {
+        "item_id": 109342,
+        "data_title": "김건희 코바나컨텐츠 특혜 의혹",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "H",
+        "new_rating": "G",
+        "rating_rationale": "대통령 부인 관련 특혜 의혹은 권력을 이용한 부당한 이익 제공 가능성을 시사하며, 공직자의 공정성과 청렴성에 심각한 타격을 주는 매우 부족한 수준의 문제다."
+      },
+      {
+        "item_id": 109343,
+        "data_title": "선거법 위반 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "G",
+        "new_rating": "F",
+        "rating_rationale": "선거법 위반 의혹은 민주주의의 근간인 선거 과정의 공정성을 훼손하는 행위로, 정치인의 기본적인 법적 준수 의무를 위반한 부족한 청렴성을 보여준다."
+      },
+      {
+        "item_id": 109344,
+        "data_title": "정치자금법 위반 의혹",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "정치자금 투명성 문제는 공직자의 재정 관리 투명성 부족을 의미하며, 국민의 알 권리와 정치 자금의 투명한 운용에 대한 기대를 충족시키지 못하는 미흡한 수준이다."
+      },
+      {
+        "item_id": 109345,
+        "data_title": "법무부 검사 시절 직권 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "검사 재직 시 정치적 중립성 위반 의혹은 공직자의 기본 의무인 정치적 중립을 저버린 것으로, 법조인으로서의 직업 윤리와 청렴성에 부족한 모습을 보인다."
+      },
+      {
+        "item_id": 109346,
+        "data_title": "기자 사찰 의혹",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "H",
+        "new_rating": "G",
+        "rating_rationale": "기자 사찰 및 언론 탄압 의혹은 민주주의의 핵심 가치인 언론의 자유를 침해하는 매우 심각한 문제로, 권력 남용과 관련된 청렴성에 매우 부족한 평가를 받을 수밖에 없다."
+      },
+      {
+        "item_id": 109347,
+        "data_title": "국회의원 당선 후 윤리성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "D",
+        "rating_rationale": "국회의원 재직 중 정치적 윤리 기준 준수 여부는 구체적인 위반 사례가 명시되지 않아 보통 수준으로 평가하며, 추가적인 구체적 정보가 필요한 상황이다."
+      },
+      {
+        "item_id": 109348,
+        "data_title": "정보 투명성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "개인 이력 및 재산 공개의 투명성은 법적 의무 사항으로, 기본적인 공개 의무를 이행한 것으로 보이나 완전한 투명성 확보 여부는 추가 검토가 필요한 양호한 수준이다."
+      },
+      {
+        "item_id": 109349,
+        "data_title": "검찰 시절 수사 편향성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "검찰 시절 정치적 성향에 따른 수사 편향성 의혹은 사법부의 공정성과 중립성을 훼손하는 심각한 문제로, 법조인으로서의 청렴성과 직업 윤리에 부족한 모습을 보인다."
+      },
+      {
+        "item_id": 109350,
+        "data_title": "정치자금 모금 투명성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "D",
+        "rating_rationale": "정치자금 모금 과정의 투명성은 선거관리위원회 보고를 통해 관리되고 있으나, 완전한 투명성 확보 여부와 관련하여 보통 수준의 청렴성을 보이는 것으로 평가된다."
+      },
+      {
+        "item_id": 109351,
+        "data_title": "국회의원 활동 윤리성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "B",
+        "rating_rationale": "국회의원 활동 중 이해충돌 방지에 대한 내용으로, 공적 업무와 사적 이익의 분리를 위한 노력이 보이나 구체적인 실행 결과나 성과에 대한 세부 정보가 부족하여 우수 수준으로 평가"
+      },
+      {
+        "item_id": 109352,
+        "data_title": "공직 윤리 서약",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "공직자로서의 윤리 기준 준수를 선언한 것은 긍정적이나, 단순한 선서나 다짐 수준에 그치고 있어 실질적인 행동이나 구체적인 실천 방안이 부족하여 양호 수준으로 평가"
+      },
+      {
+        "item_id": 109353,
+        "data_title": "정보 접근성 투명성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "B",
+        "rating_rationale": "공개 자료 및 의정활동의 투명성 확보는 청렴성의 핵심 요소로, 국민의 알 권리 보장과 정치적 투명성 증진에 기여하고 있어 우수한 수준으로 평가되나 더 적극적인 공개가 필요"
+      },
+      {
+        "item_id": 109354,
+        "data_title": "직권 행사 공정성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "B",
+        "rating_rationale": "정치적 권한 행사의 공정성은 청렴한 정치인의 필수 덕목으로, 편파적이지 않고 공정한 직권 행사를 보여주고 있어 우수하나 지속적인 모니터링과 검증이 필요한 상황"
+      },
+      {
+        "item_id": 109355,
+        "data_title": "개인 재산 신고 투명성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "A",
+        "rating_rationale": "개인 재산 신고 및 변동 내역의 투명한 공개는 정치인의 경제적 청렴성을 입증하는 가장 직접적인 지표로, 국민에게 신뢰를 주고 부정축재 의혹을 차단하는 매우 우수한 행동"
+      },
+      {
+        "item_id": 109356,
+        "data_title": "언론 대응 윤리성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "C",
+        "rating_rationale": "언론과의 소통 및 대응 방식이 윤리적으로 이루어지고 있다는 점은 긍정적이나, 구체적인 소통 내용이나 투명성 정도, 언론의 감시 기능에 대한 협조 수준을 정확히 파악하기 어려워 양호 수준"
+      },
+      {
+        "item_id": 109357,
+        "data_title": "선거 캠페인 공정성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "B",
+        "rating_rationale": "선거 과정에서의 윤리적 행동은 민주주의의 근간이 되는 중요한 요소로, 선거관리위원회의 공식 보고를 통해 확인된 공정한 캠페인 진행은 우수한 청렴성을 보여주는 사례"
+      },
+      {
+        "item_id": 109358,
+        "data_title": "정치적 책임성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "A",
+        "rating_rationale": "정치적 실수에 대한 책임 인정 및 적절한 대응은 진정한 청렴성의 핵심으로, 자신의 잘못을 솔직히 시인하고 책임지는 자세는 정치인의 도덕적 품격과 청렴성을 보여주는 매우 우수한 행동"
+      },
+      {
+        "item_id": 109359,
+        "data_title": "공직자 윤리 교육 참여",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "공직자 윤리 교육 참여는 기본적인 의무 사항이지만, 적극적으로 참여하고 있다는 점에서 긍정적으로 평가되나 단순 참여에 그치지 않고 실제 업무에 적용하는 것이 더 중요하여 양호 수준"
+      },
+      {
+        "item_id": 109360,
+        "data_title": "이해충돌 방지 노력",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "A",
+        "rating_rationale": "개인적 이해관계와 공적 업무의 명확한 분리는 청렴성의 가장 기본이자 핵심 원칙으로, 국회 윤리위원회의 공식 보고를 통해 확인된 체계적인 이해충돌 방지 노력은 매우 우수한 수준"
+      },
+      {
+        "item_id": 109361,
+        "data_title": "김건희 특검 관련 의혹",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "G",
+        "new_rating": "F",
+        "rating_rationale": "김건희 특검 저지 의혹은 공정한 수사를 방해할 수 있는 행위로, 정치인의 청렴성과 공정성에 대한 심각한 의문을 제기하며, 법치주의 원칙에 반하는 행동으로 평가됩니다."
+      },
+      {
+        "item_id": 109362,
+        "data_title": "다단계 의혹 대응",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "다단계 논란에 대한 해명 부족은 투명성과 책임감 있는 소통의 부재를 보여주며, 국민에 대한 설명 책임을 다하지 못한 것으로 청렴성 측면에서 미흡한 평가를 받습니다."
+      },
+      {
+        "item_id": 109363,
+        "data_title": "정치자금 모금 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "정치자금 모금 과정의 투명성 부족은 정치인의 가장 기본적인 청렴성 요구사항을 충족하지 못한 것으로, 금전적 투명성은 청렴성의 핵심 요소이므로 부족한 등급을 부여합니다."
+      },
+      {
+        "item_id": 109364,
+        "data_title": "윤석열 정부 내 입지",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "측근 의혹 및 정치적 영향력 논란은 권력 남용 가능성과 부적절한 인맥 활용 의혹을 제기하며, 공정하고 투명한 정치 활동에 대한 의문을 불러일으켜 미흡한 평가를 받습니다."
+      },
+      {
+        "item_id": 109365,
+        "data_title": "과거 검사 시절 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "검사 시절 수사 편향성 지적은 공정성과 중립성이라는 청렴성의 핵심 가치를 훼손한 것으로, 법 집행자로서의 기본 윤리를 위반했다는 의혹으로 부족한 등급을 부여합니다."
+      },
+      {
+        "item_id": 109366,
+        "data_title": "정치인 윤리 준수",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "B",
+        "rating_rationale": "정치인으로서 기본적 윤리 준수 노력은 청렴성 측면에서 긍정적인 평가 요소이며, 도덕적 기준을 지키려는 의지와 실천을 보여주어 우수한 등급을 부여할 수 있습니다."
+      },
+      {
+        "item_id": 109367,
+        "data_title": "국민의힘 당 내부 갈등",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "당 내부 분열 조장 의혹은 조직의 화합과 단결을 해치는 행위로, 리더십의 청렴성과 조직 운영의 투명성에 부정적 영향을 미쳐 미흡한 평가를 받습니다."
+      },
+      {
+        "item_id": 109368,
+        "data_title": "언론 대응 태도",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "B",
+        "rating_rationale": "언론 질의에 대한 투명한 대응은 정치인의 책임감과 개방성을 보여주는 긍정적 요소로, 국민과의 소통 의지와 투명성을 드러내어 우수한 등급을 부여합니다."
+      },
+      {
+        "item_id": 109369,
+        "data_title": "선거법 준수 여부",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "C",
+        "rating_rationale": "선거 과정의 법적 준수 여부는 청렴성 평가의 기본 요소이며, 구체적인 위반 사례가 명시되지 않은 상황에서 법적 기준 준수 노력으로 양호한 등급을 부여합니다."
+      },
+      {
+        "item_id": 109370,
+        "data_title": "정치자금 투명성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "C",
+        "rating_rationale": "정치자금 모금 및 사용의 투명성은 정치인 청렴성의 핵심 지표이며, 투명성 확보 노력이 있다면 긍정적이나 구체적 성과가 불분명하여 양호한 등급을 부여합니다."
+      },
+      {
+        "item_id": 109371,
+        "data_title": "공직자 윤리 준수",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "B",
+        "rating_rationale": "공직자 윤리 준수는 청렴성의 기본 요소로서 긍정적이나, 구체적인 실행 사례나 성과가 명시되지 않아 우수 수준으로 평가함"
+      },
+      {
+        "item_id": 109372,
+        "data_title": "이해충돌 가능성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "개인적 이해관계와 공적 업무의 충돌 가능성은 청렴성에 직접적인 위험 요소로 작용하며, 이해충돌 방지가 청렴성의 핵심이므로 미흡으로 평가함"
+      },
+      {
+        "item_id": 109373,
+        "data_title": "정치적 투명성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "B",
+        "rating_rationale": "정치적 활동의 투명성과 공개성은 청렴성 확보의 중요한 수단이며, 국민의 알 권리 보장과 신뢰 구축에 기여하므로 우수 수준으로 평가함"
+      },
+      {
+        "item_id": 109374,
+        "data_title": "직권 남용 의혹",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "G",
+        "new_rating": "F",
+        "rating_rationale": "직권 남용 의혹은 공적 권한의 사적 이용을 의미하며, 이는 청렴성의 핵심 가치인 공정성과 정직성을 심각하게 훼손하는 행위로 부족 등급 부여"
+      },
+      {
+        "item_id": 109375,
+        "data_title": "청탁 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "부적절한 청탁 및 로비 의혹은 공정한 업무 수행을 저해하고 부패의 온상이 될 수 있어 청렴성 관점에서 심각한 문제로 부족 등급으로 평가함"
+      },
+      {
+        "item_id": 109377,
+        "data_title": "비리 연루 가능성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "G",
+        "rating_rationale": "과거 비리 연루 의혹은 청렴성에 대한 근본적 의문을 제기하며, 비록 해명이 있다 하더라도 공직자의 도덕적 신뢰도에 매우 부정적 영향을 미침"
+      },
+      {
+        "item_id": 109380,
+        "data_title": "정치적 도덕성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "C",
+        "rating_rationale": "정치인으로서의 도덕적 기준 언급은 청렴성 의식을 보여주는 긍정적 요소이나, 구체적인 행동이나 성과보다는 원칙적 수준에서 양호로 평가함"
+      },
+      {
+        "item_id": 109382,
+        "data_title": "언론 대응 투명성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "B",
+        "rating_rationale": "언론 의혹에 대한 투명한 해명은 책임감 있는 자세이며, 투명성은 청렴성 확보의 핵심 요소로서 신뢰 구축에 기여하므로 우수 등급 부여"
+      },
+      {
+        "item_id": 109384,
+        "data_title": "공정성 의지",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "공정한 정치활동에 대한 의지 표명은 청렴성에 대한 인식을 보여주나, 의지 표명 단계에 그쳐 실제 행동과 성과가 수반되어야 하므로 양호로 평가함"
+      },
+      {
+        "item_id": 109386,
+        "data_title": "정치적 책임감",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "C",
+        "rating_rationale": "정치인으로서의 책임감 있는 행동은 청렴성의 기본 덕목이나, 구체적인 실행 방안이나 성과가 명시되지 않아 원칙적 수준에서 양호로 평가함"
+      }
+    ]
+  },
+  "scores": {
+    "ChatGPT": {
+      "avg_rating": 3.6933333333333334,
+      "category_score": 78.46666666666667,
+      "total_items": 150,
+      "positive": 108,
+      "negative": 42
+    },
+    "Grok": {
+      "avg_rating": 3.6266666666666665,
+      "category_score": 78.13333333333334,
+      "total_items": 150,
+      "positive": 104,
+      "negative": 46
+    },
+    "Claude": {
+      "avg_rating": 2.76,
+      "category_score": 73.8,
+      "total_items": 150,
+      "positive": 104,
+      "negative": 46
+    }
+  },
+  "final_score": 76.8
+}
