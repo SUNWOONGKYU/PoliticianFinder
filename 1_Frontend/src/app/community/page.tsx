@@ -283,7 +283,7 @@ export default function CommunityPage() {
                             className="font-medium text-primary-600 hover:text-primary-700 hover:underline"
                             onClick={(e) => e.stopPropagation()}
                           >
-                            {post.politician_name} | {post.politician_identity} {post.politician_title && `• ${post.politician_title}`}
+                            {post.politician_name} | {post.politician_position} • {post.politician_party}
                           </Link>
                         ) : (
                           <span className="font-medium text-secondary-600">

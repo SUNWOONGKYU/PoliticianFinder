@@ -1,0 +1,2435 @@
+{
+  "data_pool_size": 100,
+  "evaluation_results": {
+    "ChatGPT": [
+      {
+        "item_id": 172840,
+        "data_title": "공공기관의 인사청탁 문제",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "H",
+        "rating_rationale": "한동훈의 인사청탁 문제는 공익성을 중대하게 저해하는 행위로, 사익을 우선시하고 있어 치명적 결함으로 평가된다."
+      },
+      {
+        "item_id": 172841,
+        "data_title": "공익 신문고 운영 부진",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "H",
+        "rating_rationale": "공익 신문고 운영 부진은 시민들의 제보와 고발이 처리되지 않아 공익의 심각한 손상을 초래하고, 이는 심각한 문제로 여겨진다."
+      },
+      {
+        "item_id": 172842,
+        "data_title": "사회적 책임 의식 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "G",
+        "rating_rationale": "사회적 책임 의식 부족은 공익을 우선하기보다는 특정 그룹의 이해를 대변하는 경향을 보이며 매우 부족한 상황이다."
+      },
+      {
+        "item_id": 172843,
+        "data_title": "정책 투명성 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "F",
+        "rating_rationale": "정책의 투명성 부족은 공공의 이익이 반영되지 못하게 하여 공익을 해치는 요소로, 부족한 평가를 받는다."
+      },
+      {
+        "item_id": 172844,
+        "data_title": "부동산 정책 비판",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "G",
+        "rating_rationale": "부동산 정책이 저소득층을 외면하고 이익을 우선시하고 있어, 공익적 요소가 결여된 매우 부족한 상황이다."
+      },
+      {
+        "item_id": 172845,
+        "data_title": "법률 자문 극대화 우려",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "H",
+        "rating_rationale": "법률 자문 극대화 발언은 사익을 위한 행위로 의심받아 공익을 해치는 치명적인 결함으로 간주된다."
+      },
+      {
+        "item_id": 172846,
+        "data_title": "선거법 위반 논란",
+        "collected_by": "ChatGPT",
+        "original_rating": "H",
+        "new_rating": "H",
+        "rating_rationale": "선거법 위반 논란은 공공의 신뢰를 크게 흔들어 공익을 저해하는 심각한 문제로 평가된다."
+      },
+      {
+        "item_id": 172847,
+        "data_title": "교육 정책 실효성 문제",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "G",
+        "rating_rationale": "교육 정책의 실효성 문제는 특정 그룹에 유리하게 설계되어 공익적 측면이 무시되는 매우 부족한 상황이다."
+      },
+      {
+        "item_id": 172848,
+        "data_title": "사회적 약자 외면",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "사회적 약자에 대한 소극적인 태도는 공익적 책임이 미흡하다는 점에서 부족한 평가를 받는다."
+      },
+      {
+        "item_id": 172849,
+        "data_title": "정책 참여 기회 제한",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "G",
+        "rating_rationale": "정책 결정 과정에서의 참여 기회 제한은 민주적 공익성을 저해하는 요인으로 매우 부족한 상황으로 보인다."
+      },
+      {
+        "item_id": 172850,
+        "data_title": "공공복리 증진 노력",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "공공복리 증진을 위한 정책 시행은 시민들에게 직접적인 혜택을 제공하고 사회 전체의 복지를 향상시키는 긍정적인 조치로 매우 우수하게 평가된다."
+      },
+      {
+        "item_id": 172851,
+        "data_title": "환경 정책 개선",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "환경 정책 개선은 지속 가능한 발전을 목표로 하여 미래 세대와 자연을 보호하는 측면에서 매우 긍정적이며 공익성 측면에서도 우수하다."
+      },
+      {
+        "item_id": 172852,
+        "data_title": "사회적 대화 증진",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "사회적 대화 증진은 갈등 완화에 기여하여 공익을 위한 토대를 마련하는 중요한 노력으로, 긍정적으로 평가되지만 구체적인 성과가 필요하다."
+      },
+      {
+        "item_id": 172853,
+        "data_title": "물가 대책 추진",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "물가 대책 추진은 시민들의 생활 안정에 기여하는 매우 중요한 정책으로, 공공의 이익을 위해 큰 역할을 하는 것으로 평가된다."
+      },
+      {
+        "item_id": 172854,
+        "data_title": "보건의료 정책 확대",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "보건의료 정책 확대는 국민 건강 증진에 직접적으로 기여하여 공익성을 높이는 중요한 조치로 매우 긍정적으로 평가된다."
+      },
+      {
+        "item_id": 172855,
+        "data_title": "청년 정책 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "청년 정책 강화를 통한 일자리 창출은 미래 세대에 대한 투자로, 공공의 이익을 극대화 하는 매우 우수한 정책으로 평가된다."
+      },
+      {
+        "item_id": 172856,
+        "data_title": "문화 정책 증대",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "문화 정책 증대는 문화적 다양성을 인정하고 지원하는 긍정적인 의도가 있으나, 구체적인 실행 계획과 성과가 더 필요하다."
+      },
+      {
+        "item_id": 172857,
+        "data_title": "세제 개편 방안",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "세제 개편 방안은 소득 불균형 해소를 위한 중요한 노력으로, 공공의 이익을 위한 긍정적인 방향으로 매우 잘 평가된다."
+      },
+      {
+        "item_id": 172858,
+        "data_title": "지역 발전 투자",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "지역 발전을 위한 대규모 투자는 균형 발전을 이루려는 중요한 조치로, 지역 주민들에게 실질적인 혜택을 제공하여 매우 긍정적이다."
+      },
+      {
+        "item_id": 172859,
+        "data_title": "정보 접근성 향상 노력",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "정보 접근성 향상 노력은 시민들에게 공공 정보에 대한 접근을 개선하여 사회적 형평성을 증진시키는 매우 우수한 정책으로 평가된다."
+      },
+      {
+        "item_id": 172860,
+        "data_title": "재개발 정책 추진",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "재개발 정책이 지역 사회의 문제를 효과적으로 해결하여 긍정적인 변화에 기여하고 있어 공익성이 매우 우수하다."
+      },
+      {
+        "item_id": 172861,
+        "data_title": "안전 정책 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "시민 안전을 위한 정책 강화는 공공의 이익을 우선시하는 긍정적인 노력을 보여주며, 공익성이 매우 높다."
+      },
+      {
+        "item_id": 172862,
+        "data_title": "소외계층 지원 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "소외계층 지원 정책 강화는 사회적 불평등 해소에 기여하여 공익에 크게 이바지하고 있어 매우 우수하다."
+      },
+      {
+        "item_id": 172863,
+        "data_title": "AI 기술 활용 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "AI 기술 활용은 공공 서비스의 질을 높이는 데 기여하나, 그 영향력이 부분적인 것으로 평가되어 우수한 등급을 부여한다."
+      },
+      {
+        "item_id": 172864,
+        "data_title": "디지털 전환 추진",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "디지털 전환 추진으로 행정 효율성이 증가하여 시민 편의에 기여하나, 더 큰 사회적 영향력이 필요하다."
+      },
+      {
+        "item_id": 172865,
+        "data_title": "투명한 재정 관리",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "투명한 재정 관리는 공공의 신뢰를 높이며 공익을 우선시하는 중요한 노력을 반영하고 있어 매우 우수하다."
+      },
+      {
+        "item_id": 172866,
+        "data_title": "부족한 복지 예산",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "복지 예산 부족으로 공적 서비스의 제한이 우려되어, 공익 원칙에 어긋나는 점에서 미흡한 평가를 받는다."
+      },
+      {
+        "item_id": 172867,
+        "data_title": "상대적 빈곤 문제 미흡",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "H",
+        "rating_rationale": "상대적 빈곤 문제 해결이 미흡하여 사회적 불평등을 심화시킬 우려가 커 공익에 심각한 손상을 초래하고 있다."
+      },
+      {
+        "item_id": 172868,
+        "data_title": "노인 복지 정책 미비",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "H",
+        "rating_rationale": "노인 복지 정책의 미비는 고령화 사회에 적절한 대응을 하지 못하여 공익에 치명적인 영향을 미치고 있다."
+      },
+      {
+        "item_id": 172869,
+        "data_title": "정신 건강 정책 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "H",
+        "rating_rationale": "정신 건강 정책의 부족은 많은 사람들의 삶의 질을 해치며, 공익에 심각하게 반하는 요소로 평가된다."
+      },
+      {
+        "item_id": 172870,
+        "data_title": "청렴성 문제 지적",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "H",
+        "rating_rationale": "청렴성 문제는 정치인의 기본적인 신뢰성을 저해하며, 공익을 심각하게 훼손하는 요소로 작용한다."
+      },
+      {
+        "item_id": 172871,
+        "data_title": "불투명한 정책 결정 과정",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "H",
+        "rating_rationale": "정책 결정의 불투명함은 민주주의의 기본 원칙을 위반하며, 공익을 고려한 의사 결정에 역행한다."
+      },
+      {
+        "item_id": 172872,
+        "data_title": " 노조와의 갈등 문제",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "G",
+        "rating_rationale": "노조와의 갈등은 사회적 불평등을 심화시키고, 노동자의 권익을 침해하여 공익에 부정적 영향을 미친다."
+      },
+      {
+        "item_id": 172873,
+        "data_title": "여성 정책 미비",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "G",
+        "rating_rationale": "여성 정책의 미비는 성차별 문제를 심화시켜 사회의 공정성을 저해하고, 공익에 큰 피해를 준다."
+      },
+      {
+        "item_id": 172874,
+        "data_title": "자원 배분 불균형 문제",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "H",
+        "rating_rationale": "공공 자원의 불균형 배분은 특정 집단에만 유리하게 작용해 사회적 불평등을 초래하고 공익을 침해한다."
+      },
+      {
+        "item_id": 172875,
+        "data_title": "청년 예산 우선 순위 미비",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "G",
+        "rating_rationale": "청년 정책에 대한 예산 미비는 청년층의 목소리를 무시하며, 사회의 미래를 위협하는 심각한 문제다."
+      },
+      {
+        "item_id": 172876,
+        "data_title": "공익적 마인드 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "H",
+        "rating_rationale": "개인적 이해관계를 우선시하는 태도는 공공의 이익을 저해하며, 정치인의 기본적인 역할에 위배된다."
+      },
+      {
+        "item_id": 172877,
+        "data_title": "환경 보호 정책 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "G",
+        "rating_rationale": "환경 보호 정책의 부족은 기후 변화에 대한 대응을 저해하여 장기적으로 공익에 심각한 피해를 초래한다."
+      },
+      {
+        "item_id": 172878,
+        "data_title": "정신 건강 관련 예산 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "정신 건강 관련 예산 부족은 사회적 안전망을 약화시켜 공익을 해치는 요소로 작용한다."
+      },
+      {
+        "item_id": 172879,
+        "data_title": "노인 돌봄 서비스 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "F",
+        "rating_rationale": "노인 돌봄 서비스 부족은 고령화 사회에 대한 준비 부족을 나타내며, 공익에 부정적인 영향을 미친다."
+      },
+      {
+        "item_id": 172880,
+        "data_title": "청년 일자리 창출",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "청년 일자리 창출은 미래 세대의 경제적 안정을 도모하며 사회적 가치를 높이는 중요한 정책으로, 공익성이 매우 우수하다."
+      },
+      {
+        "item_id": 172881,
+        "data_title": "사회적 불평등 해소 노력",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "사회적 불평등 해소 정책은 모든 시민의 기본권을 보장하고 사회적 통합을 촉진하는 방향으로, 공익적인 효과가 매우 크다."
+      },
+      {
+        "item_id": 172882,
+        "data_title": "스마트 시티 구축",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "스마트 시티 구축은 도시 생활 환경을 개선하고 시민의 삶의 질을 높이는 데 기여하여 공익성이 매우 우수하다."
+      },
+      {
+        "item_id": 172883,
+        "data_title": "기후 변화 대처 방안 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "기후 변화 대처 방안 강화는 지속 가능한 발전을 위한 필수적인 조치로, 공공의 이익을 최우선으로 고려한 정책이다."
+      },
+      {
+        "item_id": 172884,
+        "data_title": "문화예술 지원 확대",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "문화예술 지원 확대는 국민의 문화적 권리를 보장하고 사회적 통합을 촉진하는 공익적 가치가 크다."
+      },
+      {
+        "item_id": 172885,
+        "data_title": "적극적인 시민참여 유도",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "적극적인 시민참여 유도는 민주적 거버넌스를 강화하고 정책 결정의 공정성을 높여 공익성을 매우 높인다."
+      },
+      {
+        "item_id": 172886,
+        "data_title": "상담 지원 서비스 확대",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "정신 건강 상담 지원 서비스 확대는 국민의 정신적 웰빙을 향상시키는 중요한 정책으로, 공익성이 매우 높다."
+      },
+      {
+        "item_id": 172887,
+        "data_title": "고용 정책 개혁",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "고용 정책 개혁은 고용 안정성을 높여 국민의 삶의 질을 개선하는 방향으로, 공익적 측면이 크다."
+      },
+      {
+        "item_id": 172888,
+        "data_title": "에너지 정책 개선",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "에너지 정책 개선은 에너지 효율성을 높여 환경 보호와 공공의 이익을 동시에 추구하는 방향으로 매우 우수하다."
+      },
+      {
+        "item_id": 172889,
+        "data_title": "해양 생태계 보전",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "해양 생태계 보전 정책은 지속 가능한 발전을 위해 필수적이며, 공공의 이익을 위한 매우 중요한 정책으로 평가된다."
+      },
+      {
+        "item_id": 109581,
+        "data_title": "법무부 검사 시절 정치 개입 의혹",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "H",
+        "rating_rationale": "정치적 수사에 관여한 의혹은 법치주의와 민주주의 원칙에 반하는 심각한 문제로, 공익에 대한 심각한 위협을 제기한다."
+      },
+      {
+        "item_id": 109582,
+        "data_title": "대통령실 민정수석 시절 고발 사주 의혹",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "G",
+        "new_rating": "H",
+        "rating_rationale": "고발 사주 의혹은 정치적 중립성을 해치는 심각한 범죄로, 공공의 신뢰를 저하시킨다. 이에 따라 공익성 평가가 치명적 결함으로 이어진다."
+      },
+      {
+        "item_id": 109583,
+        "data_title": "긴급복지지원법 위반 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "과거의 보조금 유용 의혹은 공공 자원의 낭비로 이어질 수 있으며, 이는 공익을 저해하는 미흡한 행동으로 평가된다."
+      },
+      {
+        "item_id": 109584,
+        "data_title": "국민의힘 당대표 선거 과정 네거티브 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "G",
+        "rating_rationale": "부정적 여론 조작 의혹은 민주적 선거 과정을 훼손할 수 있어, 공익에 대한 매우 부족한 접근으로 평가된다."
+      },
+      {
+        "item_id": 109585,
+        "data_title": "이중 지역구 공천 특혜 의혹",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "이중 지역구 공천 특혜 의혹은 공정한 정치 과정에 대한 신뢰를 저하시켜, 공익성 평가에서 부족한 요소로 작용한다."
+      },
+      {
+        "item_id": 109586,
+        "data_title": "비상장 주식 양도소득세 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "D",
+        "rating_rationale": "부동산 관련 정책 추진은 공익을 위한 노력으로 볼 수 있으나, 논란으로 인해 그 효과가 의문시되며 보통 수준으로 평가된다."
+      },
+      {
+        "item_id": 109587,
+        "data_title": "교육 정책 개혁 시도",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "사교육 완화 및 공교육 강화 정책은 사회적 필요에 부합하여 우수한 공익성 평가를 받지만, 효과와 실행 가능성에 대한 논의가 필요하다."
+      },
+      {
+        "item_id": 109588,
+        "data_title": "청년 일자리 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "A",
+        "rating_rationale": "청년 실업 문제 해결을 위한 고용 지원 정책은 사회적 약자를 돕는 매우 긍정적인 공익적 접근으로, 매우 우수하게 평가된다."
+      },
+      {
+        "item_id": 109589,
+        "data_title": "복지 정책 접근",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "사회적 약자 지원 정책의 부족은 공익에 대한 미흡한 접근을 나타내며, 긴급히 개선이 필요한 분야로 평가된다."
+      },
+      {
+        "item_id": 109590,
+        "data_title": "지역 균형 발전 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "C",
+        "rating_rationale": "수도권과 비수도권의 격차 해소를 위한 노력은 양호하나, 실행의 미흡함으로 인해 공익성 평가가 보통 수준으로 떨어진다."
+      },
+      {
+        "item_id": 109591,
+        "data_title": "중소기업 지원 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "A",
+        "rating_rationale": "중소기업 지원 정책은 지역 경제 활성화와 일자리 창출에 기여, 공익성이 매우 높음."
+      },
+      {
+        "item_id": 109592,
+        "data_title": "환경 정책 접근",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "기후변화 대응 정책 미흡은 사회적 안전과 지속 가능성에 부정적인 영향을 미쳐 공익성이 낮음."
+      },
+      {
+        "item_id": 109593,
+        "data_title": "노동자 권리 보호",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "노동자 권익 보호 정책의 한계는 사회적 불평등을 심화시키며, 공익성을 심각하게 저해함."
+      },
+      {
+        "item_id": 109594,
+        "data_title": "사회안전망 구축",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "B",
+        "rating_rationale": "취약계층 사회보장제도 개선 시도는 긍정적이나, 더 많은 노력이 필요하여 우수하나 부족함."
+      },
+      {
+        "item_id": 109595,
+        "data_title": "보건의료 접근성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "의료 서비스 불평등 해소 정책 미흡은 건강권을 침해, 공익에 미치는 영향이 부정적임."
+      },
+      {
+        "item_id": 109596,
+        "data_title": "장애인 복지 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "G",
+        "new_rating": "E",
+        "rating_rationale": "장애인 복지 정책의 미흡은 사회적 약자의 권리를 제한, 공익성을 저해하는 심각한 문제임."
+      },
+      {
+        "item_id": 109597,
+        "data_title": "저출산 대응 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "D",
+        "rating_rationale": "저출산 문제 해결을 위한 제한적 접근은 장기적으로 인구 문제를 악화시킬 가능성이 있어 보통 수준."
+      },
+      {
+        "item_id": 109598,
+        "data_title": "고령화 사회 대책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "C",
+        "rating_rationale": "노인 복지 정책 개선 필요성은 인정되나, 현재의 노력은 양호하나 추가적인 개선이 요구됨."
+      },
+      {
+        "item_id": 109599,
+        "data_title": "소득 불평등 해소",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "소득 격차 완화 정책 부족은 사회적 불평등을 심화시키며, 공익에 대한 기여가 부족함."
+      },
+      {
+        "item_id": 109600,
+        "data_title": "교통 인프라 개선",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "B",
+        "rating_rationale": "대중교통 접근성 향상 노력은 긍정적이나, 더 폭넓은 접근이 필요하여 우수하나 부분적 향상에 그침."
+      },
+      {
+        "item_id": 109601,
+        "data_title": "디지털 포용 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "디지털 격차 해소 정책이 미흡하다는 지적은 공익성에 부정적 영향을 미치며, 이는 사회적 불평등을 심화시킬 수 있다."
+      },
+      {
+        "item_id": 109602,
+        "data_title": "농어촌 지원 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "농어촌 지역 경제 활성화 정책의 미흡함은 지역 주민들의 삶의 질을 저하시킬 수 있으며, 이는 공익에 반하는 결과를 초래한다."
+      },
+      {
+        "item_id": 109603,
+        "data_title": "다문화 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "G",
+        "new_rating": "E",
+        "rating_rationale": "다문화 가정 지원 정책이 미흡하다는 점은 사회의 통합을 저해하고, 다양한 문화 간의 갈등을 유발할 수 있어 공익성에 부정적이다."
+      },
+      {
+        "item_id": 109604,
+        "data_title": "에너지 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "D",
+        "rating_rationale": "재생에너지 전환 정책이 소극적이라는 비판은 환경 보호와 지속 가능한 발전을 저해할 수 있어 공익적 측면에서 아쉬운 점이 있다."
+      },
+      {
+        "item_id": 109605,
+        "data_title": "사회적 약자 지원",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "D",
+        "rating_rationale": "취약계층 지원 정책의 구조적 한계는 사회적 약자에게 부정적 영향을 미칠 수 있으며, 공익성을 다소 저해하는 요소로 작용한다."
+      },
+      {
+        "item_id": 110163,
+        "data_title": "청소년 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "B",
+        "rating_rationale": "청소년 복지 및 권리 보호 방안은 긍정적 영향을 미쳐 공익성을 높이는 방향으로 평가되지만, 구체적인 실행 방안이 부족할 수 있다."
+      },
+      {
+        "item_id": 110164,
+        "data_title": "이민자 통합 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "G",
+        "new_rating": "B",
+        "rating_rationale": "다문화 사회 통합 방안을 모색하는 노력은 긍정적이나, 실제 실행력에 대한 의문이 남아 공익성에 있어 다소 아쉬운 점이 있다."
+      },
+      {
+        "item_id": 110165,
+        "data_title": "재난 대응 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "B",
+        "rating_rationale": "사회안전망 강화 방안의 논의는 시민들의 안전과 복지를 증진할 수 있어 긍정적으로 평가되지만, 실행 가능성에 대한 우려가 존재한다."
+      },
+      {
+        "item_id": 110166,
+        "data_title": "에너지 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "B",
+        "rating_rationale": "에너지 전환 및 친환경 정책 접근은 환경 보호 및 지속 가능한 발전에 기여할 가능성이 크지만, 실행력 부족이 우려된다."
+      },
+      {
+        "item_id": 110167,
+        "data_title": "건강보험 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "A",
+        "rating_rationale": "의료 접근성 개선 방안은 국민의 건강과 복지를 증진시키는 매우 긍정적인 정책으로, 공익성을 높이는 데 크게 기여할 것으로 예상된다."
+      },
+      {
+        "item_id": 110168,
+        "data_title": "총선 공천 쇄신 시도",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "총선 공천 쇄신 시도는 정치적 투명성을 높일 수 있는 긍정적인 변화지만, 구체적인 실천 방안이 부족해 우수 등급을 부여."
+      },
+      {
+        "item_id": 110169,
+        "data_title": "청년 정책 관심",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "청년 정책에 대한 관심은 사회적 필요를 반영하지만, 구체적인 정책 실행이나 성과에 대한 정보가 부족해 우수 등급."
+      },
+      {
+        "item_id": 110170,
+        "data_title": "복지정책 한계",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "D",
+        "rating_rationale": "복지정책 한계에 대한 지적은 중요하지만, 비판에 그치고 구체적인 대안 제시가 부족해 보통 등급 부여."
+      },
+      {
+        "item_id": 110171,
+        "data_title": "이민법 개정 입법 활동",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "A",
+        "rating_rationale": "이민법 개정은 다문화 가정과 외국인 근로자에 대한 법적 보호를 강화하는 중요한 정책으로서 매우 우수한 공익성을 지님."
+      },
+      {
+        "item_id": 110172,
+        "data_title": "청년 일자리 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "B",
+        "rating_rationale": "청년 일자리 정책은 청년 실업 문제 해결을 위한 긍정적인 시도로 우수한 평가를 받지만, 실행 가능성에 대한 정보가 부족."
+      },
+      {
+        "item_id": 110173,
+        "data_title": "사회적 약자 보호 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "A",
+        "rating_rationale": "사회적 약자 보호 정책 입법 활동은 취약계층을 위한 강력한 지원을 목표로 하여 매우 우수한 공익성을 지님."
+      },
+      {
+        "item_id": 110174,
+        "data_title": "지역 균형 발전 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "G",
+        "new_rating": "B",
+        "rating_rationale": "지역 균형 발전 정책은 수도권과 지방 간 불균형 해소를 위한 노력으로 우수하지만, 구체적인 실행 계획이 미비함."
+      },
+      {
+        "item_id": 110175,
+        "data_title": "복지 정책 입법 활동",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "A",
+        "rating_rationale": "복지 정책 입법 활동은 사회안전망 강화를 위한 중요한 노력을 반영하여 매우 우수한 공익성을 지님."
+      },
+      {
+        "item_id": 110176,
+        "data_title": "코로나19 대응 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "A",
+        "rating_rationale": "코로나19 대응 정책은 사회적 취약계층을 위한 지원을 포함하여 매우 중요한 공익적 가치를 지니고 있어 매우 우수한 등급."
+      },
+      {
+        "item_id": 110177,
+        "data_title": "사회적 형평성 고려",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "G",
+        "new_rating": "B",
+        "rating_rationale": "사회적 형평성 고려는 불평등 해소를 위한 정책 제안으로 우수하지만, 구체적인 실행 방안 제시가 부족하여 우수 등급."
+      },
+      {
+        "item_id": 110178,
+        "data_title": "교육 기회 균등 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "A",
+        "rating_rationale": "교육 기회 균등 정책은 사회적 불평등 해소에 기여하며, 모든 계층에게 교육의 기회를 제공하여 공익에 매우 긍정적인 영향을 미친다."
+      },
+      {
+        "item_id": 110179,
+        "data_title": "소상공인 지원 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "A",
+        "rating_rationale": "소상공인 지원 정책은 경제적 취약계층의 생존을 도와주고 지역 경제 활성화에 기여하여 공익성을 높인다."
+      },
+      {
+        "item_id": 110180,
+        "data_title": "노동자 권익 보호",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "G",
+        "new_rating": "A",
+        "rating_rationale": "노동자 권익 보호는 근로자의 기본 인권을 보장하고 노동 환경을 개선하여 사회적 정의와 안전망 구축에 기여한다."
+      },
+      {
+        "item_id": 110181,
+        "data_title": "사회복지 예산 확대",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "A",
+        "rating_rationale": "사회복지 예산 확대는 사회적 약자를 보호하고 국민의 안전망을 강화하여 공익적 가치를 높이는 매우 중요한 정책이다."
+      },
+      {
+        "item_id": 110182,
+        "data_title": "장애인 복지 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "G",
+        "new_rating": "A",
+        "rating_rationale": "장애인 복지 정책은 사회적 약자인 장애인의 권리를 보장하고 그들의 생활 수준 향상에 기여하여 공익성이 매우 높다."
+      },
+      {
+        "item_id": 110183,
+        "data_title": "취약계층 의료 지원",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "A",
+        "rating_rationale": "취약계층 의료 지원은 저소득층의 건강권을 보장하고 의료 서비스의 접근성을 높여 공익적 측면에서 매우 긍정적이다."
+      },
+      {
+        "item_id": 110184,
+        "data_title": "주거 안정성 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "G",
+        "new_rating": "A",
+        "rating_rationale": "주거 안정성 정책은 주거 취약계층을 지원하여 기본적인 생활을 보장하고 사회적 불평등을 해소하는 데 기여한다."
+      },
+      {
+        "item_id": 110185,
+        "data_title": "환경 정의 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "B",
+        "rating_rationale": "환경 정의 정책은 환경 취약계층을 보호하여 지속 가능한 발전을 도모하고 사회적 형평성을 향상시키지만, 실효성에 대한 우려가 있다."
+      },
+      {
+        "item_id": 110186,
+        "data_title": "성차별 해소 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "G",
+        "new_rating": "A",
+        "rating_rationale": "성차별 해소 정책은 성별 불평등 문제를 해결하고 모든 개인의 권리를 보장하여 공익적 가치가 매우 높다."
+      },
+      {
+        "item_id": 110187,
+        "data_title": "난민 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "B",
+        "rating_rationale": "난민 정책은 인권 보호와 사회 통합을 목표로 하여 공익적 측면에서 중요하지만, 사회적 반발과 실효성에 대한 의문이 있을 수 있다."
+      }
+    ],
+    "Grok": [
+      {
+        "item_id": 172840,
+        "data_title": "공공기관의 인사청탁 문제",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "한동훈의 공공기관 인사청탁 문제는 사익을 위한 행위로 공익성을 저해한다는 비판이 있어 공익성 측면에서 미흡하다."
+      },
+      {
+        "item_id": 172841,
+        "data_title": "공익 신문고 운영 부진",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "공익 신문고 운영 부진으로 시민들의 고발과 제보가 제대로 처리되지 않아 공익이 심각하게 손상되고 있어 공익성 측면에서 미흡하다."
+      },
+      {
+        "item_id": 172842,
+        "data_title": "사회적 책임 의식 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "사회적 책임에 대한 발언이 부족하고 현안 대처가 미흡해 공익을 우선하지 않는다는 비판이 있어 공익성 측면에서 미흡하다."
+      },
+      {
+        "item_id": 172843,
+        "data_title": "정책 투명성 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "정책의 투명성이 부족해 공공의 이익이 제대로 반영되지 못하고 있다는 비판이 있어 공익성 측면에서 미흡하다."
+      },
+      {
+        "item_id": 172844,
+        "data_title": "부동산 정책 비판",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "부동산 정책이 저소득층을 위한 공익적 요소가 결여되어 있어 공익성 측면에서 미흡하다."
+      },
+      {
+        "item_id": 172845,
+        "data_title": "법률 자문 극대화 우려",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "법률 자문을 극대화하겠다는 발언이 사익을 위한 행위로 의심받아 공익을 해칠 수 있다는 비판이 있어 공익성 측면에서 미흡하다."
+      },
+      {
+        "item_id": 172846,
+        "data_title": "선거법 위반 논란",
+        "collected_by": "ChatGPT",
+        "original_rating": "H",
+        "new_rating": "F",
+        "rating_rationale": "선거법 위반 논란으로 공공의 신뢰가 크게 흔들려 공익을 저해하는 심각한 문제로 여겨져 공익성 측면에서 부족하다."
+      },
+      {
+        "item_id": 172847,
+        "data_title": "교육 정책 실효성 문제",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "교육 정책이 실효성 문제로 비판받고 특정 그룹에 유리하도록 설계되어 공익적 측면이 무시되고 있어 공익성 측면에서 미흡하다."
+      },
+      {
+        "item_id": 172848,
+        "data_title": "사회적 약자 외면",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "사회적 약자 문제에 소극적인 태도를 보여 공익적 책임이 미흡하다는 비판이 있어 공익성 측면에서 미흡하다."
+      },
+      {
+        "item_id": 172849,
+        "data_title": "정책 참여 기회 제한",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "정책 결정 과정에서 공공의 참여 기회가 제한되어 민주적인 공익성을 저해한다는 비판이 있어 공익성 측면에서 미흡하다."
+      },
+      {
+        "item_id": 172850,
+        "data_title": "공공복리 증진 노력",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "한동훈의 공공복리 증진 정책은 일반 시민들에게 포괄적 혜택을 제공하며, 정부 발표로 신뢰성이 높아 매우 우수한 공익성을 가짐."
+      },
+      {
+        "item_id": 172851,
+        "data_title": "환경 정책 개선",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "환경 정책 강화는 지속 가능한 발전을 목표로 하며, 환경부 자료로 신뢰성이 높아 매우 우수한 공익성을 가짐."
+      },
+      {
+        "item_id": 172852,
+        "data_title": "사회적 대화 증진",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "사회적 대화 증진은 공익을 위한 토대가 될 수 있으나, 언론 보도로 신뢰성이 다소 낮아 우수한 공익성을 가짐."
+      },
+      {
+        "item_id": 172853,
+        "data_title": "물가 대책 추진",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "물가 대책 추진은 시민들의 생활 안정에 도움이 되며, 경제 연구 보고서로 신뢰성이 높아 우수한 공익성을 가짐."
+      },
+      {
+        "item_id": 172854,
+        "data_title": "보건의료 정책 확대",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "보건의료 정책 확대는 국민 건강 증진에 기여하며, 보건복지부 발표로 신뢰성이 높아 매우 우수한 공익성을 가짐."
+      },
+      {
+        "item_id": 172855,
+        "data_title": "청년 정책 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "청년 정책 강화는 미래 세대를 위한 투자로 여겨지며, 뉴스 기사로 신뢰성이 다소 낮아 우수한 공익성을 가짐."
+      },
+      {
+        "item_id": 172856,
+        "data_title": "문화 정책 증대",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "문화 정책 증대는 공공의 이익을 위한 조치로 긍정적이나, 문화부 자료로 신뢰성이 다소 낮아 우수한 공익성을 가짐."
+      },
+      {
+        "item_id": 172857,
+        "data_title": "세제 개편 방안",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "세제 개편은 소득 불균형 해소를 위한 노력으로 긍정적이나, 경제 부처 발표로 신뢰성이 다소 낮아 우수한 공익성을 가짐."
+      },
+      {
+        "item_id": 172858,
+        "data_title": "지역 발전 투자",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "지역 발전 투자는 균형 발전을 위한 중요한 조치로 평가되며, 지방자치단체 보고서로 신뢰성이 높아 매우 우수한 공익성을 가짐."
+      },
+      {
+        "item_id": 172859,
+        "data_title": "정보 접근성 향상 노력",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "정보 접근성 향상 노력은 일반 시민들에게 혜택을 주며, 공공기관 보고서로 신뢰성이 높아 매우 우수한 공익성을 가짐."
+      },
+      {
+        "item_id": 172860,
+        "data_title": "재개발 정책 추진",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "재개발 정책이 지역 사회 문제 해결에 기여함으로써 공익에 매우 긍정적인 영향을 미친다. 지역 사회의 발전과 주거 환경 개선이 공익성의 핵심 요소이다."
+      },
+      {
+        "item_id": 172861,
+        "data_title": "안전 정책 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "시민의 안전을 우선시하는 정책은 공공의 이익을 극대화하며, 이는 사회 전체의 안정과 발전에 필수적이다. 매우 우수한 공익성 평가를 받을 만하다."
+      },
+      {
+        "item_id": 172862,
+        "data_title": "소외계층 지원 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "소외계층 지원 정책은 사회적 불평등 해소에 기여하며, 이는 공익을 증진시키는 중요한 요소이다. 매우 우수한 공익성 평가를 받을 만하다."
+      },
+      {
+        "item_id": 172863,
+        "data_title": "AI 기술 활용 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "AI 기술을 활용한 정책은 공공 서비스의 질을 향상시키며, 이는 시민들의 삶의 질을 높이는 데 기여한다. 매우 우수한 공익성 평가를 받을 만하다."
+      },
+      {
+        "item_id": 172864,
+        "data_title": "디지털 전환 추진",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "디지털 전환을 통한 행정 효율성 향상은 시민들의 편의를 증대시키며, 이는 공익을 증진시키는 중요한 요소이다. 매우 우수한 공익성 평가를 받을 만하다."
+      },
+      {
+        "item_id": 172865,
+        "data_title": "투명한 재정 관리",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "투명한 재정 관리 정책은 공공의 신뢰를 회복시키며, 이는 공익을 증진시키는 중요한 요소이다. 매우 우수한 공익성 평가를 받을 만하다."
+      },
+      {
+        "item_id": 172866,
+        "data_title": "부족한 복지 예산",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "복지 예산 부족은 공적 서비스의 제한을 초래하며, 이는 공익을 우선시해야 하는 원칙에 어긋난다. 공익성을 미흡하게 평가할 수밖에 없다."
+      },
+      {
+        "item_id": 172867,
+        "data_title": "상대적 빈곤 문제 미흡",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "상대적 빈곤 문제 해결이 미흡하면 공익을 심각하게 훼손할 우려가 크다. 이는 공익성을 크게 훼손하는 요소로 평가된다."
+      },
+      {
+        "item_id": 172868,
+        "data_title": "노인 복지 정책 미비",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "F",
+        "rating_rationale": "노인 복지 정책 미비는 고령화 사회에 적절한 대응이 이루어지지 않음을 의미하며, 이는 공익에 심각한 영향을 미친다. 공익성을 크게 훼손하는 요소로 평가된다."
+      },
+      {
+        "item_id": 172869,
+        "data_title": "정신 건강 정책 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "F",
+        "rating_rationale": "정신 건강 정책 부족은 많은 사람들의 삶의 질을 해치는 요소로, 공익에 반한다. 이는 공익성을 크게 훼손하는 요소로 평가된다."
+      },
+      {
+        "item_id": 172870,
+        "data_title": "청렴성 문제 지적",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "청렴성 문제는 공익을 우선하는 자세와 상반되며, 이는 공공의 신뢰를 크게 훼손하는 요소이다. 따라서 매우 부족한 등급을 부여한다."
+      },
+      {
+        "item_id": 172871,
+        "data_title": "불투명한 정책 결정 과정",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "정책 결정 과정의 불투명함은 공익을 고려하는 의사 결정을 방해하며, 이는 공공의 이익을 미흡하게 하는 요소로 작용한다."
+      },
+      {
+        "item_id": 172872,
+        "data_title": " 노조와의 갈등 문제",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "노동조합과의 갈등은 사회적 고통을 키우는 요소로, 공익을 미흡하게 하는 문제로 평가된다. 이는 사회적 안정성을 저해한다."
+      },
+      {
+        "item_id": 172873,
+        "data_title": "여성 정책 미비",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "여성 정책의 미비는 성차별 문제를 야기하며, 이는 공익에 큰 영향을 미치는 문제로 평가되어 미흡한 등급을 부여한다."
+      },
+      {
+        "item_id": 172874,
+        "data_title": "자원 배분 불균형 문제",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "자원 배분의 불균형은 공공의 이익을 훼손하는 요소로, 특정 지역과 계층에 유리하게 자원이 배분되는 것은 미흡한 결과를 초래한다."
+      },
+      {
+        "item_id": 172875,
+        "data_title": "청년 예산 우선 순위 미비",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "청년 예산의 우선순위 미비는 청년층의 목소리를 무시하는 것으로, 이는 공익을 미흡하게 하는 중요한 문제로 평가된다."
+      },
+      {
+        "item_id": 172876,
+        "data_title": "공익적 마인드 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "공익보다 개인적 이해관계를 우선시하는 것은 공공의 이익을 크게 저해하는 요소로, 매우 부족한 등급을 부여한다."
+      },
+      {
+        "item_id": 172877,
+        "data_title": "환경 보호 정책 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "환경 보호 정책의 부족은 기후 변화 문제에 대한 대처를 어렵게 하여 공익을 해치는 결과로 이어질 수 있어 미흡한 등급을 부여한다."
+      },
+      {
+        "item_id": 172878,
+        "data_title": "정신 건강 관련 예산 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "정신 건강 관련 예산의 부족은 관련 정책의 미비로 이어져 공익을 해치는 심각한 문제로 평가되어 미흡한 등급을 부여한다."
+      },
+      {
+        "item_id": 172879,
+        "data_title": "노인 돌봄 서비스 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "노인 돌봄 서비스의 부족은 고령화 사회에 적절한 대비를 하지 못하게 하여 공익을 위협하는 요소로, 미흡한 등급을 부여한다."
+      },
+      {
+        "item_id": 172880,
+        "data_title": "청년 일자리 창출",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "청년 일자리 창출은 미래 세대를 위한 중요한 투자로, 사회 전체의 공익에 기여하는 매우 우수한 정책이다."
+      },
+      {
+        "item_id": 172881,
+        "data_title": "사회적 불평등 해소 노력",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "사회적 불평등 해소는 모든 시민의 삶의 질을 향상시키는 데 기여하며, 미래 지향적인 접근으로 매우 우수하다."
+      },
+      {
+        "item_id": 172882,
+        "data_title": "스마트 시티 구축",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "스마트 시티 구축은 도시 환경 개선에 기여하며, 공익적 가치를 강조하는 매우 우수한 정책이다."
+      },
+      {
+        "item_id": 172883,
+        "data_title": "기후 변화 대처 방안 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "기후 변화 대처 방안 강화는 국가적 차원에서 매우 중요한 공익적 가치를 지니며, 매우 우수한 정책이다."
+      },
+      {
+        "item_id": 172884,
+        "data_title": "문화예술 지원 확대",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "문화예술 지원 확대는 국민의 문화적 향유권을 높이는 데 기여하며, 공익적 측면이 강해 매우 우수하다."
+      },
+      {
+        "item_id": 172885,
+        "data_title": "적극적인 시민참여 유도",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "시민참여 유도는 공정성을 높이고 시민의 의견을 반영하는 데 기여하며, 매우 우수한 정책이다."
+      },
+      {
+        "item_id": 172886,
+        "data_title": "상담 지원 서비스 확대",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "정신 건강 문제 해결을 위한 상담 지원 서비스 확대는 공익적 차원에서 매우 중요한 정책으로, 매우 우수하다."
+      },
+      {
+        "item_id": 172887,
+        "data_title": "고용 정책 개혁",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "고용 정책 개혁은 고용 안정성을 높이는 데 기여하며, 공익적 가치를 지니는 매우 우수한 정책이다."
+      },
+      {
+        "item_id": 172888,
+        "data_title": "에너지 정책 개선",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "에너지 정책 개선은 에너지 효율성을 높이고 공공의 이익을 위한 매우 우수한 정책이다."
+      },
+      {
+        "item_id": 172889,
+        "data_title": "해양 생태계 보전",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "해양 생태계 보전은 지속 가능한 발전을 추구하며, 공익적 가치를 지니는 매우 우수한 정책이다."
+      },
+      {
+        "item_id": 109581,
+        "data_title": "법무부 검사 시절 정치 개입 의혹",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "정치적 개입 의혹은 공익성을 심각하게 훼손하는 행위로, 법치주의와 공정성을 위협한다. 이는 공익에 매우 부족한 사례로 평가된다."
+      },
+      {
+        "item_id": 109582,
+        "data_title": "대통령실 민정수석 시절 고발 사주 의혹",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "G",
+        "new_rating": "F",
+        "rating_rationale": "고발 사주 의혹은 정치적 중립성을 훼손하고, 공정한 법 집행을 방해하는 행위로, 공익에 매우 부족한 사례로 평가된다."
+      },
+      {
+        "item_id": 109583,
+        "data_title": "긴급복지지원법 위반 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "보조금 유용 의혹은 공공 자금의 적절한 관리와 투명성을 저해하는 행위로, 공익에 미흡한 사례로 평가된다."
+      },
+      {
+        "item_id": 109584,
+        "data_title": "국민의힘 당대표 선거 과정 네거티브 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "부정적 여론 조작 의혹은 공정한 선거와 민주주의를 위협하는 행위로, 공익에 미흡한 사례로 평가된다."
+      },
+      {
+        "item_id": 109585,
+        "data_title": "이중 지역구 공천 특혜 의혹",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "이중 공천 특혜 의혹은 공정한 경쟁을 저해하고, 정치적 신뢰를 훼손하는 행위로, 공익에 미흡한 사례로 평가된다."
+      },
+      {
+        "item_id": 109586,
+        "data_title": "비상장 주식 양도소득세 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "D",
+        "rating_rationale": "비상장 주식 양도소득세 정책은 논란이 있지만, 정책 추진 자체는 공익을 위한 노력으로 볼 수 있으나, 그 효과와 실행에 대한 논란이 있어 보통으로 평가된다."
+      },
+      {
+        "item_id": 109587,
+        "data_title": "교육 정책 개혁 시도",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "사교육 완화 및 공교육 강화 정책은 교육의 공정성을 높이고, 사회적 기회均等을 증진하는 데 기여할 수 있어 양호한 사례로 평가된다."
+      },
+      {
+        "item_id": 109588,
+        "data_title": "청년 일자리 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "청년 실업 해결을 위한 고용 지원 정책은 사회적 약자의 경제적 자립을 도모하고, 청년층의 사회 진입을 돕는 데 기여할 수 있어 양호한 사례로 평가된다."
+      },
+      {
+        "item_id": 109589,
+        "data_title": "복지 정책 접근",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "사회적 약자 지원 정책 부족은 사회적 약자의 권리와 복지를 보호하는 데 실패한 사례로, 공익에 미흡한 사례로 평가된다."
+      },
+      {
+        "item_id": 109590,
+        "data_title": "지역 균형 발전 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "수도권-비수도권 격차 해소 노력 미흡은 지역 간 불균형을 초래하고, 사회적 정의를 저해하는 행위로, 공익에 미흡한 사례로 평가된다."
+      },
+      {
+        "item_id": 109591,
+        "data_title": "중소기업 지원 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "중소기업 지원 프로그램 제안은 공익적 가치가 있으나, 구체적인 실행 계획이나 효과에 대한 언급이 없어 양호한 수준으로 평가됩니다."
+      },
+      {
+        "item_id": 109592,
+        "data_title": "환경 정책 접근",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "기후변화 대응 정책이 미흡하다는 점에서 공익성에 기여하지 못하고 있어 미흡한 등급을 부여합니다."
+      },
+      {
+        "item_id": 109593,
+        "data_title": "노동자 권리 보호",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "노동자 권익 보호 정책의 한계로 인해 공익성 측면에서 미흡하다고 판단됩니다."
+      },
+      {
+        "item_id": 109594,
+        "data_title": "사회안전망 구축",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "B",
+        "rating_rationale": "취약계층 사회보장제도 개선 시도는 공익적 가치가 크며, 적극적인 노력으로 우수한 등급을 받을 수 있습니다."
+      },
+      {
+        "item_id": 109595,
+        "data_title": "보건의료 접근성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "의료 서비스 불평등 해소 정책이 미흡하다는 점에서 공익성에 기여하지 못해 미흡한 등급을 부여합니다."
+      },
+      {
+        "item_id": 109596,
+        "data_title": "장애인 복지 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "G",
+        "new_rating": "E",
+        "rating_rationale": "장애인 권리 보장 및 지원 정책이 미흡하다는 점에서 공익성에 기여하지 못해 미흡한 등급을 부여합니다."
+      },
+      {
+        "item_id": 109597,
+        "data_title": "저출산 대응 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "D",
+        "rating_rationale": "저출산 문제 해결을 위한 제한적 접근은 공익적 가치가 있으나, 충분하지 않아 보통 등급을 부여합니다."
+      },
+      {
+        "item_id": 109598,
+        "data_title": "고령화 사회 대책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "D",
+        "rating_rationale": "노인 복지 정책 개선 필요성은 공익적 가치가 있으나, 구체적인 개선 방안이 제시되지 않아 보통 등급을 부여합니다."
+      },
+      {
+        "item_id": 109599,
+        "data_title": "소득 불평등 해소",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "소득 격차 완화 정책이 부족하다는 점에서 공익성에 기여하지 못해 미흡한 등급을 부여합니다."
+      },
+      {
+        "item_id": 109600,
+        "data_title": "교통 인프라 개선",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "대중교통 접근성 향상 노력은 공익적 가치가 있으나, 구체적인 성과나 계획이 명확하지 않아 양호한 등급을 부여합니다."
+      },
+      {
+        "item_id": 109601,
+        "data_title": "디지털 포용 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "디지털 격차 해소 정책이 미흡하다고 평가되어 공익성 측면에서 부족함. 디지털 포용은 사회적 약자를 위한 중요한 정책인데, 이를 충족하지 못함."
+      },
+      {
+        "item_id": 109602,
+        "data_title": "농어촌 지원 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "농어촌 지역 경제 활성화가 미흡하다고 평가되어 공익성 측면에서 부족함. 농어촌의 경제적 지원은 지역 균형 발전에 중요한데, 이를 충족하지 못함."
+      },
+      {
+        "item_id": 109603,
+        "data_title": "다문화 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "G",
+        "new_rating": "E",
+        "rating_rationale": "다문화 가정 지원 및 통합 정책이 미흡하다고 평가되어 공익성 측면에서 부족함. 다문화 사회의 통합은 사회적 포용성에 중요한데, 이를 충족하지 못함."
+      },
+      {
+        "item_id": 109604,
+        "data_title": "에너지 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "재생에너지 전환 정책이 소극적이라고 평가되어 공익성 측면에서 부족함. 환경 보호와 지속 가능성을 위한 에너지 전환은 중요한데, 이를 충족하지 못함."
+      },
+      {
+        "item_id": 109605,
+        "data_title": "사회적 약자 지원",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "취약계층 지원 정책의 구조적 한계가 있다고 평가되어 공익성 측면에서 부족함. 사회적 약자를 위한 지원은 필수적인데, 이를 충족하지 못함."
+      },
+      {
+        "item_id": 110163,
+        "data_title": "청소년 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "C",
+        "rating_rationale": "청소년 복지 및 권리 보호 방안이 논의되고 있어 공익성 측면에서 양호함. 청소년의 권리와 복지는 사회적 책임인데, 이를 논의하는 것은 긍정적."
+      },
+      {
+        "item_id": 110164,
+        "data_title": "이민자 통합 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "G",
+        "new_rating": "C",
+        "rating_rationale": "다문화 사회 통합 방안이 모색되고 있어 공익성 측면에서 양호함. 이민자 통합은 사회적 포용성에 중요한데, 이를 모색하는 것은 긍정적."
+      },
+      {
+        "item_id": 110165,
+        "data_title": "재난 대응 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "C",
+        "rating_rationale": "사회안전망 강화 방안이 논의되고 있어 공익성 측면에서 양호함. 재난 대응 정책은 국민의 안전을 위한 중요한 정책인데, 이를 논의하는 것은 긍정적."
+      },
+      {
+        "item_id": 110166,
+        "data_title": "에너지 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "C",
+        "rating_rationale": "에너지 전환 및 친환경 정책이 논의되고 있어 공익성 측면에서 양호함. 환경 보호와 지속 가능성을 위한 정책 논의는 긍정적."
+      },
+      {
+        "item_id": 110167,
+        "data_title": "건강보험 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "C",
+        "rating_rationale": "의료 접근성 개선 방안이 논의되고 있어 공익성 측면에서 양호함. 건강보험 정책은 국민의 건강을 위한 중요한 정책인데, 이를 논의하는 것은 긍정적."
+      },
+      {
+        "item_id": 110168,
+        "data_title": "총선 공천 쇄신 시도",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "C",
+        "rating_rationale": "공천 쇄신 시도는 정치적 혁신을 꾀하는 것으로 공익성을 어느 정도 반영하지만, 구체적인 결과나 효과가 명확하지 않아 양호한 수준으로 평가됩니다."
+      },
+      {
+        "item_id": 110169,
+        "data_title": "청년 정책 관심",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "청년 일자리와 주거 문제에 대한 관심은 사회적 문제 해결에 기여할 수 있어 우수한 공익성을 가집니다. 다만, 구체적인 정책 실행 여부가 불분명하여 B 등급입니다."
+      },
+      {
+        "item_id": 110170,
+        "data_title": "복지정책 한계",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "사회적 약자를 위한 구체적 복지정책이 부족하다는 점에서 공익성을 충분히 반영하지 못하고 있어 미흡한 수준입니다."
+      },
+      {
+        "item_id": 110171,
+        "data_title": "이민법 개정 입법 활동",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "B",
+        "rating_rationale": "다문화 가정 및 외국인 근로자의 법적 지위 개선 노력은 사회적 포용성을 높이는 데 기여하므로 우수한 공익성을 가집니다."
+      },
+      {
+        "item_id": 110172,
+        "data_title": "청년 일자리 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "B",
+        "rating_rationale": "청년 실업 해결을 위한 정책 제안은 사회적 문제 해결에 기여할 수 있어 우수한 공익성을 가집니다. 다만, 정책의 구체적 실행 여부가 불분명하여 B 등급입니다."
+      },
+      {
+        "item_id": 110173,
+        "data_title": "사회적 약자 보호 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "A",
+        "rating_rationale": "취약계층 지원 정책 입법 활동은 사회적 약자를 위한 직접적인 지원으로 매우 우수한 공익성을 가집니다."
+      },
+      {
+        "item_id": 110174,
+        "data_title": "지역 균형 발전 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "G",
+        "new_rating": "A",
+        "rating_rationale": "수도권-지방 격차 해소 정책은 지역 간 균형 발전을 도모하는 것으로 매우 우수한 공익성을 가집니다."
+      },
+      {
+        "item_id": 110175,
+        "data_title": "복지 정책 입법 활동",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "A",
+        "rating_rationale": "사회안전망 강화를 위한 입법 노력은 사회적 안전망을 강화하여 매우 우수한 공익성을 가집니다."
+      },
+      {
+        "item_id": 110176,
+        "data_title": "코로나19 대응 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "A",
+        "rating_rationale": "팬데믹 시기 사회적 취약계층 지원은 긴박한 상황에서의 사회적 약자 보호로 매우 우수한 공익성을 가집니다."
+      },
+      {
+        "item_id": 110177,
+        "data_title": "사회적 형평성 고려",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "G",
+        "new_rating": "A",
+        "rating_rationale": "사회적 불평등 해소 정책 제안은 사회적 형평성을 높이는 데 기여하므로 매우 우수한 공익성을 가집니다."
+      },
+      {
+        "item_id": 110178,
+        "data_title": "교육 기회 균등 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "A",
+        "rating_rationale": "교육 기회 균등 정책은 사회적 격차를 줄이고 모든 이들에게 동등한 교육 기회를 제공함으로써 공익에 매우 기여함. 교육은 사회 발전의 기초이자 개인의 삶의 질을 결정짓는 중요한 요소이므로, 이 정책은 매우 우수한 공익성을 가짐."
+      },
+      {
+        "item_id": 110179,
+        "data_title": "소상공인 지원 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "A",
+        "rating_rationale": "소상공인 지원 정책은 경제적 취약계층의 생존과 안정을 도모하며, 지역 경제 활성화에 큰 기여를 함. 이는 전체 사회의 경제적 안정성을 높이는 데 큰 역할을 하므로 매우 우수한 공익성을 가짐."
+      },
+      {
+        "item_id": 110180,
+        "data_title": "노동자 권익 보호",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "G",
+        "new_rating": "A",
+        "rating_rationale": "노동자 권익 보호는 노동 환경 개선과 권리 보장을 통해 노동자의 삶의 질을 높이고, 사회적 불평등을 줄이는 데 기여함. 이는 사회의 기본적인 공정성을 유지하는 데 매우 중요한 역할을 하므로 매우 우수한 공익성을 가짐."
+      },
+      {
+        "item_id": 110181,
+        "data_title": "사회복지 예산 확대",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "A",
+        "rating_rationale": "사회복지 예산 확대는 사회안전망을 강화하여 취약계층의 생활 안정을 도모함. 이는 사회적 약자를 보호하고 사회적 통합을 촉진하는 데 매우 중요한 역할을 하므로 매우 우수한 공익성을 가짐."
+      },
+      {
+        "item_id": 110182,
+        "data_title": "장애인 복지 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "G",
+        "new_rating": "A",
+        "rating_rationale": "장애인 복지 정책은 장애인의 권리 보장과 지원을 통해 사회적 약자를 보호하고, 그들의 사회 참여를 촉진함. 이는 사회적 포용성을 높이고 공정성을 실현하는 데 매우 중요한 역할을 하므로 매우 우수한 공익성을 가짐."
+      },
+      {
+        "item_id": 110183,
+        "data_title": "취약계층 의료 지원",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "A",
+        "rating_rationale": "취약계층 의료 지원은 저소득층의 의료 서비스 접근성을 개선하여 그들의 건강과 삶의 질을 향상시킴. 이는 사회적 불평등을 줄이고 공공 보건을 증진하는 데 매우 중요한 역할을 하므로 매우 우수한 공익성을 가짐."
+      },
+      {
+        "item_id": 110184,
+        "data_title": "주거 안정성 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "G",
+        "new_rating": "A",
+        "rating_rationale": "주거 안정성 정책은 주거 취약계층의 주거 문제를 해결하여 그들의 삶의 질을 향상시키고 사회적 안정성을 높임. 이는 사회적 불평등을 줄이고 사회적 통합을 촉진하는 데 매우 중요한 역할을 하므로 매우 우수한 공익성을 가짐."
+      },
+      {
+        "item_id": 110185,
+        "data_title": "환경 정의 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "A",
+        "rating_rationale": "환경 정의 정책은 환경 취약계층을 보호하고 환경적 불평등을 해소함으로써 사회적 공정성을 증진함. 이는 지속 가능한 사회 발전에 기여하므로 매우 우수한 공익성을 가짐."
+      },
+      {
+        "item_id": 110186,
+        "data_title": "성차별 해소 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "G",
+        "new_rating": "A",
+        "rating_rationale": "성차별 해소 정책은 성별 불평등을 줄이고 사회적 공정성을 실현함으로써 모든 성별이 동등한 기회를 누릴 수 있도록 함. 이는 사회적 통합과 평등을 촉진하는 데 매우 중요한 역할을 하므로 매우 우수한 공익성을 가짐."
+      },
+      {
+        "item_id": 110187,
+        "data_title": "난민 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "A",
+        "rating_rationale": "난민 정책은 난민의 인권을 보호하고 사회 통합을 촉진함으로써 사회적 포용성을 높임. 이는 인도주의적 가치를 실현하고 사회적 공정성을 증진하는 데 매우 중요한 역할을 하므로 매우 우수한 공익성을 가짐."
+      }
+    ],
+    "Claude": [
+      {
+        "item_id": 172840,
+        "data_title": "공공기관의 인사청탁 문제",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "G",
+        "rating_rationale": "공공기관 인사청탁은 공정성과 투명성을 심각하게 훼손하는 행위로, 사익추구를 위해 공적 권한을 남용한 것으로 평가되어 공익성이 매우 부족함"
+      },
+      {
+        "item_id": 172841,
+        "data_title": "공익 신문고 운영 부진",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "F",
+        "rating_rationale": "공익신문고는 시민의 권익보호와 부정부패 척결을 위한 핵심 제도인데, 이의 운영 부진은 시민의 신뢰를 저버리고 공익실현 기능을 마비시키는 부족한 행정"
+      },
+      {
+        "item_id": 172842,
+        "data_title": "사회적 책임 의식 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "정치인으로서 사회적 책임 의식 부족과 특정 그룹 이해 대변은 공익보다 사익을 우선시하는 태도로, 공공의 이익 추구 의무를 소홀히 한 미흡한 행보"
+      },
+      {
+        "item_id": 172843,
+        "data_title": "정책 투명성 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "F",
+        "rating_rationale": "정책 투명성 부족은 민주주의 기본 원칙을 위배하고 국민의 알 권리를 침해하며, 정책 결정 과정에서 공공의 이익이 배제되는 부족한 거버넌스를 보여줌"
+      },
+      {
+        "item_id": 172844,
+        "data_title": "부동산 정책 비판",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "부동산 정책에서 저소득층을 위한 공익적 요소 결여는 사회적 약자 보호 의무를 방기하고 주거권이라는 기본권 보장에 미흡한 정책적 접근을 보임"
+      },
+      {
+        "item_id": 172845,
+        "data_title": "법률 자문 극대화 우려",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "법률 자문 극대화 발언이 사익 추구로 의심받는 상황은 공직자의 도덕성과 공익성에 대한 의문을 제기하며, 공공의 신뢰를 훼손하는 미흡한 언행"
+      },
+      {
+        "item_id": 172846,
+        "data_title": "선거법 위반 논란",
+        "collected_by": "ChatGPT",
+        "original_rating": "H",
+        "new_rating": "G",
+        "rating_rationale": "선거법 위반 논란은 민주주의의 근간인 선거제도의 공정성을 훼손하고 공공의 신뢰를 심각하게 손상시키는 행위로, 공익성이 매우 부족한 중대한 문제"
+      },
+      {
+        "item_id": 172847,
+        "data_title": "교육 정책 실효성 문제",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "교육 정책의 실효성 문제와 특정 그룹 편향성은 교육 기회의 평등과 공정성을 해치고, 미래 세대를 위한 공익적 가치 실현에 미흡한 정책 설계를 보임"
+      },
+      {
+        "item_id": 172848,
+        "data_title": "사회적 약자 외면",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "사회적 약자에 대한 소극적 태도는 사회통합과 형평성 추구라는 공익적 책임을 방기하는 것으로, 취약계층 보호 의무를 다하지 못한 부족한 리더십"
+      },
+      {
+        "item_id": 172849,
+        "data_title": "정책 참여 기회 제한",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "F",
+        "rating_rationale": "정책 결정 과정에서 시민 참여 기회 제한은 민주적 거버넌스 원칙을 위배하고 국민 주권 실현을 저해하며, 참여민주주의 가치 구현에 부족한 접근"
+      },
+      {
+        "item_id": 172850,
+        "data_title": "공공복리 증진 노력",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "공공복리 증진이라는 공익적 목적은 좋으나, 구체적인 정책 내용과 실행 계획이 명시되지 않아 실질적인 공익 기여도를 판단하기 어려움. 일반적인 정책 의도 수준에 그침"
+      },
+      {
+        "item_id": 172851,
+        "data_title": "환경 정책 개선",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "환경 정책 강화는 현재와 미래 세대 모두에게 중요한 공익적 가치를 제공하며, 지속가능한 발전이라는 장기적 관점에서 사회 전체의 이익에 기여하는 우수한 정책 방향"
+      },
+      {
+        "item_id": 172852,
+        "data_title": "사회적 대화 증진",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "사회적 갈등 해소를 위한 대화 노력은 사회 통합과 민주적 의사결정 과정에 기여하여 공익 증진에 우수한 효과를 가져올 수 있는 중요한 접근 방식"
+      },
+      {
+        "item_id": 172853,
+        "data_title": "물가 대책 추진",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "물가 안정은 모든 계층의 국민 생활에 직접적으로 영향을 미치는 핵심 민생 이슈로, 특히 서민층의 생활 안정에 매우 중요한 공익적 가치를 제공하는 정책"
+      },
+      {
+        "item_id": 172854,
+        "data_title": "보건의료 정책 확대",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "보건의료 정책 확대는 국민의 기본권인 건강권 보장과 직결되며, 전 국민의 삶의 질 향상과 사회 안전망 강화에 매우 중요한 공익적 기여를 하는 정책"
+      },
+      {
+        "item_id": 172855,
+        "data_title": "청년 정책 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "청년 일자리 창출은 사회의 지속가능성과 경제 활력에 중요한 역할을 하며, 청년층의 사회 참여 기회 확대를 통해 장기적인 공익 증진에 우수한 기여"
+      },
+      {
+        "item_id": 172856,
+        "data_title": "문화 정책 증대",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "문화 정책은 사회의 정신적 가치와 다양성 증진에 기여하지만, 다른 민생 정책에 비해 직접적인 공익 효과가 상대적으로 제한적이며 우선순위가 낮을 수 있음"
+      },
+      {
+        "item_id": 172857,
+        "data_title": "세제 개편 방안",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "세제 개편을 통한 소득 불균형 해소는 사회 정의 실현과 경제적 형평성 증진에 핵심적인 역할을 하며, 사회 전체의 안정성과 공정성에 매우 중요한 공익적 가치 제공"
+      },
+      {
+        "item_id": 172858,
+        "data_title": "지역 발전 투자",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "지역 균형 발전 투자는 수도권 집중 완화와 지역 경제 활성화를 통해 국가 전체의 균형적 발전에 기여하며, 지역 주민들의 삶의 질 향상에 우수한 공익적 효과"
+      },
+      {
+        "item_id": 172859,
+        "data_title": "정보 접근성 향상 노력",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "정보 접근성 향상은 민주주의의 기본 전제인 국민의 알 권리 보장과 정보 격차 해소에 기여하여, 사회적 형평성과 참여 민주주의 발전에 우수한 공익적 가치 제공"
+      },
+      {
+        "item_id": 172860,
+        "data_title": "재개발 정책 추진",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "재개발 정책을 통해 지역사회의 오랜 문제를 해결하는 것은 공공의 이익에 크게 기여하는 정책으로, 주거환경 개선과 지역발전에 긍정적 영향을 미치므로 우수한 공익성을 보여준다."
+      },
+      {
+        "item_id": 172861,
+        "data_title": "안전 정책 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "시민의 안전을 최우선으로 하는 정책 강화는 모든 국민의 기본권 보장과 직결되는 핵심 공익사항으로, 공공의 이익을 명확히 우선시하는 매우 우수한 정책적 접근이다."
+      },
+      {
+        "item_id": 172862,
+        "data_title": "소외계층 지원 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "A",
+        "rating_rationale": "소외계층 지원 정책은 사회적 불평등 해소와 사회통합에 핵심적 역할을 하며, 취약계층의 기본적 생활권 보장을 통해 사회 전체의 공익을 크게 증진시키는 매우 우수한 정책이다."
+      },
+      {
+        "item_id": 172863,
+        "data_title": "AI 기술 활용 정책",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "AI 기술 활용을 통한 정책 효율성 증대와 공공서비스 질 향상은 시민들에게 직접적 혜택을 제공하며, 미래지향적 행정서비스 개선을 통해 공익에 우수한 기여를 하고 있다."
+      },
+      {
+        "item_id": 172864,
+        "data_title": "디지털 전환 추진",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "디지털 전환을 통한 행정 효율성 증대와 시민 편의성 향상은 공공서비스의 접근성을 높이고 행정비용을 절감하여 전체 국민의 이익에 우수한 기여를 하는 정책이다."
+      },
+      {
+        "item_id": 172865,
+        "data_title": "투명한 재정 관리",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "투명한 재정 관리는 민주주의의 기본 원칙이자 공적 자원의 효율적 활용을 보장하는 핵심 요소로, 국민의 신뢰 회복과 공익 실현에 매우 우수한 기여를 하는 정책이다."
+      },
+      {
+        "item_id": 172866,
+        "data_title": "부족한 복지 예산",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "복지 예산 부족으로 인한 공적 서비스 제한은 사회적 약자 보호와 기본적 복지권 보장에 부정적 영향을 미치며, 공익 실현에 필요한 자원 배분이 미흡한 상태를 보여준다."
+      },
+      {
+        "item_id": 172867,
+        "data_title": "상대적 빈곤 문제 미흡",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "상대적 빈곤 문제 해결 정책의 미흡함은 사회적 불평등을 심화시키고 사회통합을 저해하는 심각한 문제로, 공익 실현의 핵심 과제인 사회적 형평성 확보에 부족한 모습을 보인다."
+      },
+      {
+        "item_id": 172868,
+        "data_title": "노인 복지 정책 미비",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "F",
+        "rating_rationale": "고령화 사회에서 노인 복지 정책 미비는 인구 변화에 대한 부적절한 대응으로 많은 국민의 기본적 생활권을 위협하며, 사회 전체의 지속가능성과 공익에 부족한 영향을 미친다."
+      },
+      {
+        "item_id": 172869,
+        "data_title": "정신 건강 정책 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "F",
+        "rating_rationale": "정신 건강 정책의 부재는 현대 사회의 중요한 보건 이슈를 방치하는 것으로, 많은 국민의 삶의 질과 사회적 생산성에 부정적 영향을 미쳐 공익 실현에 부족한 정책적 대응이다."
+      },
+      {
+        "item_id": 172870,
+        "data_title": "청렴성 문제 지적",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "정치적 청렴성 문제는 공익을 추구해야 할 정치인의 기본 자질에 심각한 결함을 보여주며, 공공의 신뢰를 훼손하여 민주주의 발전에 부정적 영향을 미치는 중대한 문제입니다."
+      },
+      {
+        "item_id": 172871,
+        "data_title": "불투명한 정책 결정 과정",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "정책 결정 과정의 불투명성은 민주적 의사결정과 국민의 알 권리를 침해하여 공익성을 저해하지만, 정책 자체의 내용이나 결과에 대한 구체적 평가가 부족하여 미흡한 수준으로 평가됩니다."
+      },
+      {
+        "item_id": 172872,
+        "data_title": " 노조와의 갈등 문제",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "노조와의 갈등으로 인한 사회적 고통 증가는 사회통합과 노사관계 안정이라는 공익을 해치는 문제이나, 갈등의 구체적 원인이나 해결 노력에 대한 정보가 부족하여 미흡한 평가를 받습니다."
+      },
+      {
+        "item_id": 172873,
+        "data_title": "여성 정책 미비",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "F",
+        "rating_rationale": "여성 정책 미비로 인한 성차별 문제는 성평등이라는 기본적 공익 가치를 훼손하며, 사회 구성원 절반에 해당하는 여성의 권익을 보호하지 못하는 것은 공익성 측면에서 부족한 수준입니다."
+      },
+      {
+        "item_id": 172874,
+        "data_title": "자원 배분 불균형 문제",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "공공 자원의 불균형 배분은 사회 형평성과 공정성이라는 핵심적 공익 가치를 직접적으로 훼손하며, 특정 지역이나 계층에 편향된 정책은 전체 사회의 이익에 반하는 심각한 문제입니다."
+      },
+      {
+        "item_id": 172875,
+        "data_title": "청년 예산 우선 순위 미비",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "청년 정책 예산 배정의 우선순위 미비는 미래 세대에 대한 투자 부족을 의미하여 장기적 공익을 해치지만, 예산 제약이나 다른 정책과의 균형 등을 고려할 때 미흡한 수준으로 평가됩니다."
+      },
+      {
+        "item_id": 172876,
+        "data_title": "공익적 마인드 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "F",
+        "new_rating": "G",
+        "rating_rationale": "공익보다 개인적 이해관계를 우선시하는 것은 정치인의 기본 책무를 저버리는 행위로, 공공의 이익을 직접적으로 해치며 정치에 대한 국민의 신뢰를 근본적으로 훼손하는 매우 부족한 행태입니다."
+      },
+      {
+        "item_id": 172877,
+        "data_title": "환경 보호 정책 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "환경 보호 정책 부족은 기후변화라는 전 지구적 위기 대응에 실패하여 현재와 미래 세대의 생존권을 위협하는 공익 훼손 요소이나, 정책의 구체적 내용이나 대안에 대한 정보 부족으로 미흡하게 평가됩니다."
+      },
+      {
+        "item_id": 172878,
+        "data_title": "정신 건강 관련 예산 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "정신 건강 관련 예산 부족은 국민의 기본적 건강권과 복지 향상이라는 공익을 저해하는 문제이지만, 전체 보건의료 예산 내에서의 우선순위나 효율적 배분 측면을 고려할 때 미흡한 수준입니다."
+      },
+      {
+        "item_id": 172879,
+        "data_title": "노인 돌봄 서비스 부족",
+        "collected_by": "ChatGPT",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "고령화 사회에서 노인 돌봄 서비스 부족은 사회복지 확충과 세대 간 연대라는 공익적 가치를 훼손하는 문제이나, 재정 여건이나 서비스 전달 체계의 복잡성을 감안할 때 미흡한 수준으로 판단됩니다."
+      },
+      {
+        "item_id": 172880,
+        "data_title": "청년 일자리 창출",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "청년 일자리 창출은 사회의 미래 세대를 위한 중요한 공익적 정책으로, 경제 활성화와 사회 안정에 기여하는 우수한 정책이나 구체적 성과 데이터가 부족함"
+      },
+      {
+        "item_id": 172881,
+        "data_title": "사회적 불평등 해소 노력",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "사회적 불평등 해소는 모든 시민의 기본권 보장과 사회 통합에 핵심적인 공익적 가치를 실현하는 매우 우수한 정책으로 사회 전체의 복지 향상에 기여함"
+      },
+      {
+        "item_id": 172882,
+        "data_title": "스마트 시티 구축",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "스마트 시티 구축은 도시민의 삶의 질 향상과 효율적인 도시 운영을 통해 공익에 기여하는 우수한 정책이나 시민 접근성과 디지털 격차 해소 방안이 명확하지 않음"
+      },
+      {
+        "item_id": 172883,
+        "data_title": "기후 변화 대처 방안 강화",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "기후 변화 대처는 현재와 미래 세대 모두의 생존과 직결된 글로벌 공익 과제로, 환경 보호와 지속가능한 발전을 위한 매우 우수한 정책적 노력임"
+      },
+      {
+        "item_id": 172884,
+        "data_title": "문화예술 지원 확대",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "C",
+        "rating_rationale": "문화예술 지원 확대는 국민의 문화적 권리 보장과 삶의 질 향상에 기여하는 양호한 정책이나, 다른 사회적 현안에 비해 우선순위가 상대적으로 낮을 수 있음"
+      },
+      {
+        "item_id": 172885,
+        "data_title": "적극적인 시민참여 유도",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "A",
+        "rating_rationale": "시민참여 유도는 민주주의의 핵심 가치인 참여와 투명성을 실현하여 정책의 공정성과 legitimacy를 높이는 매우 우수한 공익적 접근 방식임"
+      },
+      {
+        "item_id": 172886,
+        "data_title": "상담 지원 서비스 확대",
+        "collected_by": "ChatGPT",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "정신건강 상담 지원 서비스 확대는 국민의 기본적 건강권 보장과 사회적 비용 절감에 기여하는 우수한 공익 정책으로 사회 안전망 강화에 중요한 역할을 함"
+      },
+      {
+        "item_id": 172887,
+        "data_title": "고용 정책 개혁",
+        "collected_by": "ChatGPT",
+        "original_rating": "B",
+        "new_rating": "B",
+        "rating_rationale": "고용 정책 개혁을 통한 고용 안정성 제고는 국민의 경제적 안정과 사회 전체의 생산성 향상에 기여하는 우수한 공익 정책이나 구체적 개혁 내용이 불분명함"
+      },
+      {
+        "item_id": 172888,
+        "data_title": "에너지 정책 개선",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "B",
+        "rating_rationale": "에너지 효율성 향상 정책은 환경 보호, 경제적 효율성, 에너지 안보 강화 등 다면적 공익 가치를 실현하는 우수한 정책으로 지속가능한 발전에 기여함"
+      },
+      {
+        "item_id": 172889,
+        "data_title": "해양 생태계 보전",
+        "collected_by": "ChatGPT",
+        "original_rating": "A",
+        "new_rating": "A",
+        "rating_rationale": "해양 생태계 보전은 생물다양성 보호와 지속가능한 발전을 위한 필수적 공익 과제로, 현재와 미래 세대를 위한 환경 자산 보호에 매우 우수한 정책적 가치를 가짐"
+      },
+      {
+        "item_id": 109581,
+        "data_title": "법무부 검사 시절 정치 개입 의혹",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "검찰의 정치적 중립성을 해치는 매우 심각한 의혹으로, 사법부 독립성과 민주주의 원칙에 반하는 행위가 의심되어 공익에 크게 반하는 내용임"
+      },
+      {
+        "item_id": 109582,
+        "data_title": "대통령실 민정수석 시절 고발 사주 의혹",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "G",
+        "new_rating": "F",
+        "rating_rationale": "민정수석이라는 고위직에서 정치적 고발을 사주했다는 의혹은 권력 남용과 정치적 중립성 위반으로 국민의 신뢰를 크게 훼손하는 공익 저해 행위임"
+      },
+      {
+        "item_id": 109583,
+        "data_title": "긴급복지지원법 위반 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "과거 학생회장 시절의 보조금 유용 의혹은 공적 자금의 부적절한 사용으로 도덕성과 청렴성에 문제가 있어 공익성 관점에서 미흡함"
+      },
+      {
+        "item_id": 109584,
+        "data_title": "국민의힘 당대표 선거 과정 네거티브 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "E",
+        "rating_rationale": "당대표 선거 과정에서의 네거티브와 여론 조작 의혹은 민주적 정치 과정을 왜곡하고 정치 신뢰도를 떨어뜨려 공익에 부정적 영향을 미침"
+      },
+      {
+        "item_id": 109585,
+        "data_title": "이중 지역구 공천 특혜 의혹",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "이중 지역구 공천 특혜 의혹은 공정한 정치 참여 기회를 해치고 특권 의식을 보여주어 정치적 공정성과 투명성 측면에서 문제가 있음"
+      },
+      {
+        "item_id": 109586,
+        "data_title": "비상장 주식 양도소득세 논란",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "D",
+        "rating_rationale": "비상장 주식 양도소득세 정책은 세수 확보와 형평성 제고 측면에서 일정한 공익성이 있으나 논란이 있어 보통 수준의 평가를 받음"
+      },
+      {
+        "item_id": 109587,
+        "data_title": "교육 정책 개혁 시도",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "사교육 완화와 공교육 강화 정책 제안은 교육 불평등 해소와 학부모 부담 경감에 기여할 수 있어 공익성 관점에서 우수한 정책 방향임"
+      },
+      {
+        "item_id": 109588,
+        "data_title": "청년 일자리 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "B",
+        "rating_rationale": "청년 실업 해결을 위한 고용 지원 정책은 사회적 문제 해결과 경제 활성화에 기여하는 중요한 공익적 가치를 지닌 정책 제안임"
+      },
+      {
+        "item_id": 109589,
+        "data_title": "복지 정책 접근",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "사회적 약자 지원 정책이 부족하다는 것은 사회 통합과 복지 향상이라는 공익적 가치 실현에 미흡함을 보여주는 부정적 평가 요소임"
+      },
+      {
+        "item_id": 109590,
+        "data_title": "지역 균형 발전 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "지역 균형 발전 노력이 미흡하다는 것은 국가 전체의 균등한 발전과 지역 격차 해소라는 공익적 목표 달성에 부족함을 나타냄"
+      },
+      {
+        "item_id": 109591,
+        "data_title": "중소기업 지원 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "B",
+        "rating_rationale": "중소기업 지원 프로그램 제안은 경제 생태계 건전성과 일자리 창출에 기여하는 공익적 정책이나, 구체적 실행방안과 효과성에 대한 세부사항이 부족하여 우수 수준으로 평가됨"
+      },
+      {
+        "item_id": 109592,
+        "data_title": "환경 정책 접근",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "기후변화는 전 지구적 공익 현안임에도 불구하고 대응 정책이 미흡하다는 평가는 환경보호와 미래세대를 위한 책임을 다하지 못하고 있음을 보여주어 공익성이 미흡함"
+      },
+      {
+        "item_id": 109593,
+        "data_title": "노동자 권리 보호",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "노동자 권익 보호는 사회 구성원의 기본권과 직결되는 중요한 공익 사안이나, 정책의 한계가 지적되어 노동자의 삶의 질 개선에 충분히 기여하지 못하는 것으로 평가됨"
+      },
+      {
+        "item_id": 109594,
+        "data_title": "사회안전망 구축",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "취약계층을 위한 사회보장제도 개선 시도는 사회적 약자 보호라는 공익적 가치를 추구하고 있으나, '시도' 수준에 그쳐 실질적 개선 효과가 제한적일 가능성이 있어 양호 수준으로 평가됨"
+      },
+      {
+        "item_id": 109595,
+        "data_title": "보건의료 접근성",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "의료 서비스는 국민의 생명권과 직결되는 핵심 공익 영역임에도 불구하고 불평등 해소 정책이 미흡하다는 것은 기본적 공익 책무를 제대로 수행하지 못하고 있음을 의미하여 부족 등급으로 평가됨"
+      },
+      {
+        "item_id": 109596,
+        "data_title": "장애인 복지 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "G",
+        "new_rating": "F",
+        "rating_rationale": "장애인 권리 보장은 사회적 약자 보호와 인권 증진의 핵심 공익 사안이나, 지원 정책이 미흡하다는 평가는 사회 통합과 평등 실현에 대한 책임을 충분히 이행하지 못하고 있음을 보여줌"
+      },
+      {
+        "item_id": 109597,
+        "data_title": "저출산 대응 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "저출산 문제는 국가 지속가능성과 직결되는 중대한 공익 현안이나, 제한적 접근만을 보이고 있어 미래 사회 안정성과 경제 활력 유지를 위한 공익적 책임을 충분히 다하지 못하고 있음"
+      },
+      {
+        "item_id": 109598,
+        "data_title": "고령화 사회 대책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "고령화 사회 대응은 급속한 인구 구조 변화에 따른 필수적 공익 과제이나, 노인 복지 정책 개선 필요성만 제기되고 구체적 해결방안이 미흡하여 공익 실현에 한계를 보임"
+      },
+      {
+        "item_id": 109599,
+        "data_title": "소득 불평등 해소",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "소득 불평등 해소는 사회 안정과 공정성 확보를 위한 핵심 공익 과제임에도 불구하고 관련 정책이 부족하다는 평가는 사회 통합과 경제 정의 실현에 대한 공익적 책무를 제대로 수행하지 못하고 있음을 의미함"
+      },
+      {
+        "item_id": 109600,
+        "data_title": "교통 인프라 개선",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "C",
+        "rating_rationale": "대중교통 접근성 향상은 시민의 이동권 보장과 환경 개선에 기여하는 공익적 정책으로, 실질적 노력을 보이고 있어 긍정적이나 전체적인 교통 인프라 개선 측면에서는 제한적 효과로 평가됨"
+      },
+      {
+        "item_id": 109601,
+        "data_title": "디지털 포용 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "디지털 격차 해소는 현대 사회의 핵심 공익 과제임에도 불구하고 정책이 미흡하다는 평가로, 사회적 포용성과 평등한 기회 제공 측면에서 부족함을 보여줌"
+      },
+      {
+        "item_id": 109602,
+        "data_title": "농어촌 지원 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "E",
+        "rating_rationale": "농어촌 지역 경제 활성화는 지역 균형 발전과 국가 전체의 지속가능한 성장을 위한 중요한 공익 사안이나, 정책 실행이 미흡하여 지역 격차 해소에 한계를 보임"
+      },
+      {
+        "item_id": 109603,
+        "data_title": "다문화 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "G",
+        "new_rating": "E",
+        "rating_rationale": "다문화 사회로의 전환 시기에 다문화 가정 지원과 사회통합은 필수적인 공익 과제임에도 정책이 미흡하여 사회 갈등 해소와 포용성 증진에 부족함을 나타냄"
+      },
+      {
+        "item_id": 109604,
+        "data_title": "에너지 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "F",
+        "rating_rationale": "기후변화 대응과 지속가능한 발전을 위한 재생에너지 전환은 미래세대를 위한 핵심 공익 과제인데, 소극적 접근은 환경보호와 에너지 안보 측면에서 심각한 문제임"
+      },
+      {
+        "item_id": 109605,
+        "data_title": "사회적 약자 지원",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "F",
+        "rating_rationale": "사회적 약자 보호는 사회정의와 인권 보장의 핵심이며, 취약계층 지원 정책의 구조적 한계는 사회 안전망의 근본적 결함을 의미하여 공익성에 심각한 문제가 있음"
+      },
+      {
+        "item_id": 110163,
+        "data_title": "청소년 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "B",
+        "rating_rationale": "청소년 복지와 권리 보호는 미래세대를 위한 중요한 투자이며, 국정감사 차원에서 이를 다루는 것은 아동·청소년의 건전한 성장과 사회 발전에 긍정적으로 기여함"
+      },
+      {
+        "item_id": 110164,
+        "data_title": "이민자 통합 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "G",
+        "new_rating": "B",
+        "rating_rationale": "다문화 사회로의 변화에 대응하는 이민자 통합 정책 논의는 사회 통합과 갈등 예방을 위한 중요한 공익 활동으로, 포용적 사회 구현에 기여하는 의미 있는 접근임"
+      },
+      {
+        "item_id": 110165,
+        "data_title": "재난 대응 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "A",
+        "rating_rationale": "재난 대응과 사회안전망 강화는 국민의 생명과 안전을 직접적으로 보호하는 핵심 공익 영역으로, 이에 대한 체계적 논의와 정책 개발은 매우 높은 공익적 가치를 가짐"
+      },
+      {
+        "item_id": 110166,
+        "data_title": "에너지 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "A",
+        "rating_rationale": "에너지 전환과 친환경 정책은 기후변화 대응과 지속가능한 발전을 위한 필수적 과제로, 미래세대와 환경보호를 위한 매우 중요한 공익적 활동에 해당함"
+      },
+      {
+        "item_id": 110167,
+        "data_title": "건강보험 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "A",
+        "rating_rationale": "의료 접근성 개선은 국민의 기본권인 건강권 보장과 직결되는 핵심 공익 사안으로, 사회적 약자를 포함한 모든 국민의 의료서비스 접근성 향상에 매우 중요한 의미를 가짐"
+      },
+      {
+        "item_id": 110168,
+        "data_title": "총선 공천 쇄신 시도",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "C",
+        "new_rating": "B",
+        "rating_rationale": "기존 정치 관행 개선을 통한 민주주의 발전에 기여하는 내용으로, 정치 투명성과 공정성 향상에 도움이 되나 구체적 방안이 부족하여 우수 수준"
+      },
+      {
+        "item_id": 110169,
+        "data_title": "청년 정책 관심",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "B",
+        "new_rating": "C",
+        "rating_rationale": "청년층의 핵심 현안인 일자리와 주거 문제에 대한 관심 표명은 사회적 가치가 있으나, 단순 관심 표명 수준으로 구체성이 부족하여 양호 수준"
+      },
+      {
+        "item_id": 110170,
+        "data_title": "복지정책 한계",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "E",
+        "rating_rationale": "사회적 약자를 위한 복지정책이 부족하다는 비판적 내용으로, 공익 실현에 대한 한계를 드러내어 사회적 책임 이행이 미흡한 수준"
+      },
+      {
+        "item_id": 110171,
+        "data_title": "이민법 개정 입법 활동",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "D",
+        "new_rating": "A",
+        "rating_rationale": "다문화 가정과 외국인 근로자의 법적 지위 개선을 위한 구체적 입법 활동으로, 사회통합과 인권 보호에 직접적으로 기여하는 매우 우수한 공익적 가치"
+      },
+      {
+        "item_id": 110172,
+        "data_title": "청년 일자리 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "B",
+        "rating_rationale": "청년 실업이라는 중요한 사회문제 해결을 위한 정책 제안으로 공익성이 높으나, 제안 단계에 그쳐 실질적 효과는 제한적이어서 우수 수준"
+      },
+      {
+        "item_id": 110173,
+        "data_title": "사회적 약자 보호 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "A",
+        "rating_rationale": "취약계층 지원을 위한 구체적 입법 활동으로, 사회적 약자 보호라는 핵심적 공익 가치를 실현하는 직접적 행동으로 매우 우수한 수준"
+      },
+      {
+        "item_id": 110174,
+        "data_title": "지역 균형 발전 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "G",
+        "new_rating": "B",
+        "rating_rationale": "수도권과 지방 간 격차 해소는 국가 균형발전이라는 중요한 공익적 목표이나, 정책의 구체성과 실현 가능성에 대한 정보가 부족하여 우수 수준"
+      },
+      {
+        "item_id": 110175,
+        "data_title": "복지 정책 입법 활동",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "A",
+        "rating_rationale": "사회안전망 강화를 위한 입법 노력은 전 국민의 복리 증진과 직결되는 핵심적 공익 활동으로, 구체적 입법 행동을 통해 매우 우수한 공익적 가치 실현"
+      },
+      {
+        "item_id": 110176,
+        "data_title": "코로나19 대응 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "A",
+        "rating_rationale": "코로나19라는 국가적 위기 상황에서 사회적 취약계층을 우선 지원하는 정책은 공공의 이익과 사회적 약자 보호를 동시에 실현하는 매우 우수한 공익적 행동"
+      },
+      {
+        "item_id": 110177,
+        "data_title": "사회적 형평성 고려",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "G",
+        "new_rating": "B",
+        "rating_rationale": "사회적 불평등 해소는 중요한 공익적 목표이나, 정책 제안 단계에 그쳐 있고 구체적 실행 방안과 효과에 대한 내용이 부족하여 우수 수준"
+      },
+      {
+        "item_id": 110178,
+        "data_title": "교육 기회 균등 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "A",
+        "rating_rationale": "교육 기회 균등은 사회 계층 이동성을 높이고 장기적으로 사회 전체의 경쟁력 향상에 기여하는 핵심적인 공익 정책으로, 모든 국민의 기본권 보장과 사회 정의 실현에 매우 중요한 역할을 합니다."
+      },
+      {
+        "item_id": 110179,
+        "data_title": "소상공인 지원 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "E",
+        "new_rating": "B",
+        "rating_rationale": "소상공인 지원은 경제적 취약계층의 생존권 보장과 지역경제 활성화에 직접적으로 기여하며, 사회 안정성 확보와 경제 양극화 완화라는 공익적 가치를 실현하는 우수한 정책입니다."
+      },
+      {
+        "item_id": 110180,
+        "data_title": "노동자 권익 보호",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "G",
+        "new_rating": "A",
+        "rating_rationale": "노동자 권익 보호는 헌법상 보장된 기본권이며, 사회 구성원 대다수의 삶의 질 향상과 사회 정의 실현에 직결되는 핵심적인 공익 정책으로 매우 높은 사회적 가치를 가집니다."
+      },
+      {
+        "item_id": 110181,
+        "data_title": "사회복지 예산 확대",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "A",
+        "rating_rationale": "사회복지 예산 확대는 사회안전망 강화를 통해 모든 국민의 기본적 생활 보장과 사회 통합을 실현하는 핵심 정책으로, 공익성 측면에서 매우 우수한 가치를 가지는 정책입니다."
+      },
+      {
+        "item_id": 110182,
+        "data_title": "장애인 복지 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "G",
+        "new_rating": "A",
+        "rating_rationale": "장애인 복지 정책은 사회적 약자 보호와 인권 보장의 핵심이며, 포용적 사회 구현과 사회 정의 실현에 필수적인 정책으로 매우 높은 공익적 가치를 가집니다."
+      },
+      {
+        "item_id": 110183,
+        "data_title": "취약계층 의료 지원",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "A",
+        "rating_rationale": "취약계층 의료 지원은 생명권과 건강권이라는 기본권 보장의 핵심이며, 의료 접근성 개선을 통한 사회 정의 실현과 모든 국민의 건강한 삶 보장에 매우 중요한 공익적 가치를 가집니다."
+      },
+      {
+        "item_id": 110184,
+        "data_title": "주거 안정성 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "G",
+        "new_rating": "A",
+        "rating_rationale": "주거 안정성 정책은 헌법상 보장된 주거권 실현과 사회적 약자 보호의 핵심이며, 사회 통합과 안정성 확보에 필수적인 정책으로 매우 높은 공익적 가치를 가집니다."
+      },
+      {
+        "item_id": 110185,
+        "data_title": "환경 정의 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "A",
+        "rating_rationale": "환경 정의 정책은 환경권 보장과 지속가능한 발전을 통한 미래 세대의 삶의 질 보장에 핵심적이며, 환경 취약계층 보호를 통한 사회 정의 실현에 매우 중요한 공익적 가치를 가집니다."
+      },
+      {
+        "item_id": 110186,
+        "data_title": "성차별 해소 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "G",
+        "new_rating": "A",
+        "rating_rationale": "성차별 해소 정책은 성평등이라는 헌법적 가치 실현과 사회 정의 구현의 핵심이며, 사회 구성원 절반에 해당하는 여성의 기본권 보장과 사회 전체의 발전에 매우 중요한 공익적 가치를 가집니다."
+      },
+      {
+        "item_id": 110187,
+        "data_title": "난민 정책",
+        "collected_by": "claude-3-5-haiku-20241022",
+        "original_rating": "F",
+        "new_rating": "B",
+        "rating_rationale": "난민 정책은 인도주의적 가치와 인권 보장의 중요한 영역이며, 국제적 책임과 사회 통합 측면에서 공익적 가치를 가지지만, 국내 정책 우선순위와 사회적 합의 필요성을 고려할 때 우수한 수준입니다."
+      }
+    ]
+  },
+  "scores": {
+    "ChatGPT": {
+      "avg_rating": 2.2,
+      "category_score": 71.0,
+      "total_items": 100,
+      "positive": 62,
+      "negative": 38
+    },
+    "Grok": {
+      "avg_rating": 2.88,
+      "category_score": 74.39999999999999,
+      "total_items": 100,
+      "positive": 58,
+      "negative": 42
+    },
+    "Claude": {
+      "avg_rating": 2.36,
+      "category_score": 71.8,
+      "total_items": 100,
+      "positive": 56,
+      "negative": 44
+    }
+  },
+  "final_score": 72.39999999999999
+}

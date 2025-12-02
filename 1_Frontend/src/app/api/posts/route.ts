@@ -1,33 +1,160 @@
 // P3BA3: Real API - 커뮤니티 (게시글 목록/작성)
 // Supabase RLS 연동: 실제 인증 사용자 기반 CRUD
+// 정치인 글쓰기 지원 추가
 
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { createClient } from "@/lib/supabase/server";
+import { createAdminClient } from "@/lib/supabase/server";
 import { requireAuth, checkUserRestrictions } from "@/lib/auth/helpers";
+import { validatePoliticianSession } from "@/lib/auth/politicianSession";
 
+// 일반 회원 글쓰기 스키마
 const createPostSchema = z.object({
-  title: z.string().min(5, "제목은 최소 5자 이상이어야 합니다").max(200, "제목은 최대 200자까지 입력 가능합니다"),
+  subject: z.string().min(5, "제목은 최소 5자 이상이어야 합니다").max(200, "제목은 최대 200자까지 입력 가능합니다"),
   content: z.string().min(10, "내용은 최소 10자 이상이어야 합니다").max(10000, "내용은 최대 10000자까지 입력 가능합니다"),
   category: z.enum(["general", "question", "debate", "news"]).default("general"),
-  politician_id: z.string().uuid().optional().nullable(),
+  politician_id: z.string().optional().nullable(),
   tags: z.array(z.string()).max(5, "태그는 최대 5개까지 입력 가능합니다").optional(),
+});
+
+// 정치인 글쓰기 스키마
+const politicianPostSchema = z.object({
+  politician_id: z.string().min(8).max(8, "politician_id는 8자리 hex 문자열이어야 합니다"),
+  session_token: z.string().min(64).max(64, "session_token은 64자리 hex 문자열이어야 합니다"),
+  subject: z.string().min(5, "제목은 최소 5자 이상이어야 합니다").max(200, "제목은 최대 200자까지 입력 가능합니다"),
+  content: z.string().min(10, "내용은 최소 10자 이상이어야 합니다").max(10000, "내용은 최대 10000자까지 입력 가능합니다"),
+  category: z.enum(["general", "question", "debate", "news"]).default("general"),
+  tags: z.array(z.string()).max(5, "태그는 최대 5개까지 입력 가능합니다").optional(),
+  author_type: z.literal('politician'),
 });
 
 const getPostsQuerySchema = z.object({
   page: z.string().optional().default("1").transform(Number),
   limit: z.string().optional().default("20").transform(Number).refine(val => val >= 1 && val <= 100, "limit은 1-100 사이여야 합니다"),
   category: z.string().optional(),
-  politician_id: z.string().uuid().optional(),
+  politician_id: z.string().optional(),
   has_politician: z.string().optional().transform(val => val === 'true'),
   sort: z.string().optional().default("-created_at"),
 });
 
 /**
  * POST /api/posts
- * 게시글 작성 (인증 필요)
+ * 게시글 작성 (회원 인증 또는 정치인 세션 토큰 필요)
  */
 export async function POST(request: NextRequest) {
+  try {
+    const body = await request.json();
+
+    // author_type에 따라 분기
+    if (body.author_type === 'politician') {
+      // ===== 정치인 글쓰기 =====
+      return await handlePoliticianPost(request, body);
+    } else {
+      // ===== 일반 회원 글쓰기 =====
+      return await handleUserPost(request, body);
+    }
+  } catch (error) {
+    if (error instanceof z.ZodError) {
+      return NextResponse.json(
+        {
+          success: false,
+          error: {
+            code: 'VALIDATION_ERROR',
+            message: '입력 데이터가 올바르지 않습니다.',
+            details: error.errors,
+          },
+        },
+        { status: 400 }
+      );
+    }
+    console.error("[POST /api/posts] Unexpected error:", error);
+    return NextResponse.json(
+      {
+        success: false,
+        error: {
+          code: 'INTERNAL_SERVER_ERROR',
+          message: '서버 오류가 발생했습니다.',
+        },
+      },
+      { status: 500 }
+    );
+  }
+}
+
+/**
+ * 정치인 글쓰기 처리
+ */
+async function handlePoliticianPost(request: NextRequest, body: any) {
+  try {
+    // 1. 스키마 검증
+    const validated = politicianPostSchema.parse(body);
+
+    // 2. 세션 토큰 검증 (헬퍼 함수 사용)
+    const validationResult = await validatePoliticianSession(
+      validated.politician_id,
+      validated.session_token
+    );
+
+    if (!validationResult.valid) {
+      return NextResponse.json(
+        {
+          success: false,
+          error: validationResult.error,
+        },
+        { status: validationResult.error?.code === 'NOT_FOUND' ? 404 : 401 }
+      );
+    }
+
+    // 3. Admin client로 게시글 삽입 (RLS 우회)
+    const supabase = createAdminClient();
+    const { data: newPost, error: insertError } = await supabase
+      .from('posts')
+      .insert({
+        user_id: null,
+        politician_id: validated.politician_id,
+        subject: validated.subject,
+        content: validated.content,
+        category: validated.category,
+        tags: validated.tags || null,
+        author_type: 'politician',
+      } as any)
+      .select()
+      .single();
+
+    if (insertError) {
+      console.error('[POST /api/posts] Politician post insert error:', insertError);
+      return NextResponse.json(
+        {
+          success: false,
+          error: {
+            code: 'DATABASE_ERROR',
+            message: '게시글 작성 중 오류가 발생했습니다.',
+            details: insertError.message,
+          },
+        },
+        { status: 500 }
+      );
+    }
+
+    return NextResponse.json(
+      {
+        success: true,
+        data: newPost,
+        message: `${validationResult.politician?.name}님의 게시글이 작성되었습니다.`,
+      },
+      { status: 201 }
+    );
+  } catch (error) {
+    console.error('[handlePoliticianPost] Error:', error);
+    throw error;
+  }
+}
+
+/**
+ * 일반 회원 글쓰기 처리
+ */
+async function handleUserPost(request: NextRequest, body: any) {
   try {
     // 1. 인증 확인
     const authResult = await requireAuth();
@@ -52,7 +179,6 @@ export async function POST(request: NextRequest) {
     }
 
     // 3. 요청 데이터 검증
-    const body = await request.json();
     const validated = createPostSchema.parse(body);
 
     // 4. Supabase 클라이언트 생성 (RLS 적용됨)
@@ -85,17 +211,18 @@ export async function POST(request: NextRequest) {
       .from("posts")
       .insert({
         user_id: user.id,
-        title: validated.title,
+        subject: validated.subject,
         content: validated.content,
         category: validated.category,
         politician_id: validated.politician_id || null,
         tags: validated.tags || null,
+        author_type: 'user',
       })
       .select()
       .single();
 
     if (error) {
-      console.error("[POST /api/posts] Supabase insert error:", error);
+      console.error("[POST /api/posts] User post insert error:", error);
       return NextResponse.json(
         {
           success: false,
@@ -116,30 +243,8 @@ export async function POST(request: NextRequest) {
       { status: 201 }
     );
   } catch (error) {
-    if (error instanceof z.ZodError) {
-      return NextResponse.json(
-        {
-          success: false,
-          error: {
-            code: 'VALIDATION_ERROR',
-            message: '입력 데이터가 올바르지 않습니다.',
-            details: error.errors,
-          },
-        },
-        { status: 400 }
-      );
-    }
-    console.error("[POST /api/posts] Unexpected error:", error);
-    return NextResponse.json(
-      {
-        success: false,
-        error: {
-          code: 'INTERNAL_SERVER_ERROR',
-          message: '서버 오류가 발생했습니다.',
-        },
-      },
-      { status: 500 }
-    );
+    console.error('[handleUserPost] Error:', error);
+    throw error;
   }
 }
 
@@ -199,7 +304,7 @@ export async function GET(request: NextRequest) {
     // 5. 정렬 적용
     const sortKey = query.sort.startsWith("-") ? query.sort.substring(1) : query.sort;
     const isDescending = query.sort.startsWith("-");
-    
+
     // 고정 게시글 우선, 그 다음 정렬
     queryBuilder = queryBuilder
       .order(sortKey as any, { ascending: !isDescending });

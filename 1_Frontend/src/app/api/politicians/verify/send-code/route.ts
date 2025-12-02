@@ -22,59 +22,70 @@ export async function POST(request: NextRequest) {
     const supabase = createAdminClient();
     const body = await request.json();
 
-    const { name, party, position } = body;
+    const { politician_id, email } = body;
 
     // 1. 입력 검증
-    if (!name || !party || !position) {
+    if (!politician_id || !email) {
       return NextResponse.json(
-        { error: 'name, party, position 필드는 필수입니다.' },
+        { error: 'politician_id와 email 필드는 필수입니다.' },
         { status: 400 }
       );
     }
 
-    // 2. 정치인 정보 조회
+    // 2. 이메일 형식 검증
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return NextResponse.json(
+        { error: '올바른 이메일 형식이 아닙니다.' },
+        { status: 400 }
+      );
+    }
+
+    // 3. 정치인 정보 조회
     const { data: politician, error: politicianError } = await (supabase as any)
       .from('politicians')
-      .select('id, name, party, position, email')
-      .eq('name', name)
-      .eq('party', party)
-      .eq('position', position)
+      .select('id, name, party, position, verified_email, email_verified_at')
+      .eq('id', politician_id)
       .single();
 
     if (politicianError || !politician) {
       return NextResponse.json(
         {
-          error: '일치하는 정치인 정보를 찾을 수 없습니다.',
-          message: '이름, 정당, 직위를 다시 확인해주세요.'
+          error: '정치인 정보를 찾을 수 없습니다.',
+          message: 'politician_id를 확인해주세요.'
         },
         { status: 404 }
       );
     }
 
-    // 3. 이메일 확인
-    if (!politician.email) {
-      return NextResponse.json(
-        {
-          error: '이메일 정보 없음',
-          message: '해당 정치인의 이메일 정보가 등록되어 있지 않습니다.'
-        },
-        { status: 400 }
-      );
+    // 4. 이미 등록된 이메일이 있는 경우 → 일치 확인
+    if (politician.verified_email) {
+      if (politician.verified_email.toLowerCase() !== email.toLowerCase()) {
+        return NextResponse.json(
+          {
+            error: '등록된 이메일과 일치하지 않습니다.',
+            message: `${politician.name} 정치인은 이미 다른 이메일로 등록되어 있습니다.`,
+            registered_email: politician.verified_email.replace(/(.{3}).+(@.+)/, '$1***$2') // 마스킹
+          },
+          { status: 403 }
+        );
+      }
     }
+    // verified_email 없으면 → 자유롭게 이메일 입력 가능 (최초 등록)
 
-    // 4. 인증 코드 생성
+    // 5. 인증 코드 생성
     const verificationCode = generateCode();
     const expiresAt = new Date();
     expiresAt.setMinutes(expiresAt.getMinutes() + 10); // 10분 후 만료
 
-    // 5. DB에 인증 코드 저장
+    // 6. DB에 인증 코드 저장
     const { data: verification, error: insertError } = await (supabase as any)
       .from('email_verifications')
       .insert({
         politician_id: politician.id,
-        email: politician.email,
+        email: email,  // 사용자가 입력한 이메일 사용
         verification_code: verificationCode,
-        purpose: 'report_purchase',
+        purpose: politician.verified_email ? 'posting' : 'email_registration',  // 최초 등록 vs 글쓰기
         verified: false,
         expires_at: expiresAt.toISOString()
       })
@@ -89,11 +100,11 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // 6. 이메일 발송
+    // 7. 이메일 발송
     try {
       await resend.emails.send({
         from: 'noreply@politicianfinder.ai.kr',
-        to: politician.email,
+        to: email,  // 사용자가 입력한 이메일로 발송
         subject: `[PoliticianFinder] ${politician.name}님 본인 인증 코드`,
         html: `
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
@@ -129,13 +140,14 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // 7. 성공 응답
+    // 8. 성공 응답
     return NextResponse.json({
       success: true,
       message: '인증 코드가 이메일로 발송되었습니다.',
       verification_id: verification.id,
-      email: politician.email.replace(/(.{3}).+(@.+)/, '$1***$2'), // 이메일 마스킹
-      expires_at: expiresAt.toISOString()
+      email: email.replace(/(.{3}).+(@.+)/, '$1***$2'), // 이메일 마스킹
+      expires_at: expiresAt.toISOString(),
+      is_first_time: !politician.verified_email  // 최초 등록인지 여부
     });
 
   } catch (error) {

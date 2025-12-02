@@ -38,6 +38,7 @@ interface Post {
   politician_id?: number | null;
   politician_name?: string;
   politician_position?: string;
+  politician_party?: string;     // 정당
   politician_identity?: string;  // P3F3: 신분
   politician_title?: string;     // P3F3: 직책
   view_count: number;
@@ -814,7 +815,7 @@ export default function Home() {
                                   className="font-medium text-primary-600 hover:text-primary-700 hover:underline"
                                   onClick={(e) => e.stopPropagation()}
                                 >
-                                  {post.politician_name} | {post.politician_identity} {post.politician_title && `• ${post.politician_title}`}
+                                  {post.politician_name} | {post.politician_position} • {post.politician_party}
                                 </Link>
                               ) : (
                                 <span className="font-medium text-primary-600">
@@ -888,7 +889,7 @@ export default function Home() {
                                   className="font-medium text-primary-600 hover:text-primary-700 hover:underline"
                                   onClick={(e) => e.stopPropagation()}
                                 >
-                                  {post.politician_name} | {post.politician_identity} {post.politician_title && `• ${post.politician_title}`}
+                                  {post.politician_name} | {post.politician_position} • {post.politician_party}
                                 </Link>
                               ) : (
                                 <>

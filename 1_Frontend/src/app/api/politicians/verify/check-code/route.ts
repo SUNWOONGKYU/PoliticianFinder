@@ -3,6 +3,7 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import { createAdminClient } from '@/lib/supabase/server';
+import { randomBytes } from 'crypto';
 
 export async function POST(request: NextRequest) {
   try {
@@ -99,13 +100,57 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // 7. 성공 응답
+    // 7. 세션 토큰 생성 (영구 사용)
+    const sessionToken = randomBytes(32).toString('hex'); // 64자리 hex
+    const sessionExpiresAt = new Date('2099-12-31T23:59:59Z'); // 영구 사용 (2099년까지)
+
+    // 8. 세션 토큰 저장
+    const { error: sessionError } = await (supabase as any)
+      .from('politician_sessions')
+      .insert([{
+        politician_id: verificationData.politician_id,
+        session_token: sessionToken,
+        expires_at: sessionExpiresAt.toISOString(),
+        ip_address: request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || null,
+        user_agent: request.headers.get('user-agent') || null
+      }]);
+
+    if (sessionError) {
+      console.error('Failed to create session:', sessionError);
+      return NextResponse.json(
+        { error: '세션 생성 실패', details: sessionError.message },
+        { status: 500 }
+      );
+    }
+
+    // 9. verified_email 저장 (최초 인증인 경우)
+    const { data: politicianData } = await (supabase as any)
+      .from('politicians')
+      .select('verified_email')
+      .eq('id', verificationData.politician_id)
+      .single();
+
+    if (!politicianData?.verified_email) {
+      // 최초 인증 → verified_email 저장
+      await (supabase as any)
+        .from('politicians')
+        .update({
+          verified_email: verificationData.email,
+          email_verified_at: new Date().toISOString()
+        })
+        .eq('id', verificationData.politician_id);
+    }
+
+    // 10. 성공 응답 (세션 토큰 포함)
     return NextResponse.json({
       success: true,
       message: '본인 인증이 완료되었습니다.',
       verified: true,
       politician_id: verificationData.politician_id,
-      email: verificationData.email
+      email: verificationData.email,
+      session_token: sessionToken,
+      expires_at: expiresAt.toISOString(),
+      is_first_time: !politicianData?.verified_email  // 최초 등록 완료 여부
     });
 
   } catch (error) {

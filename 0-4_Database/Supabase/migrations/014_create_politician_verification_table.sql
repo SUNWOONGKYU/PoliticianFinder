@@ -1,11 +1,12 @@
 -- Task ID: P2D1
 -- Migration: Create politician_verification table
 -- Description: Politician identity verification records
+-- IMPORTANT: politician_id is TEXT (8-char hex), NOT UUID
 
 -- Politician verification table
 CREATE TABLE IF NOT EXISTS politician_verification (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  politician_id UUID NOT NULL REFERENCES politicians(id) ON DELETE CASCADE,
+  politician_id TEXT NOT NULL REFERENCES politicians(id) ON DELETE CASCADE,
   user_id UUID REFERENCES users(id) ON DELETE SET NULL,
   verification_method TEXT NOT NULL CHECK (verification_method IN ('email', 'document', 'phone', 'in_person', 'official_channel')),
   verification_token TEXT,

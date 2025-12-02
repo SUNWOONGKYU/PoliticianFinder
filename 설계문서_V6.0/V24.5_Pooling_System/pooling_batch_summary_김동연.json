@@ -1,0 +1,303 @@
+{
+  "politician_name": "김동연",
+  "total_categories": 10,
+  "total_duration_minutes": 115.60041478333332,
+  "results": [
+    {
+      "category_eng": "Expertise",
+      "category_kor": "전문성",
+      "final_score": 80.51111111111112,
+      "scores": {
+        "ChatGPT": {
+          "avg_rating": 4.28,
+          "category_score": 81.4,
+          "total_items": 150,
+          "positive": 114,
+          "negative": 36
+        },
+        "Grok": {
+          "avg_rating": 4.546666666666667,
+          "category_score": 82.73333333333333,
+          "total_items": 150,
+          "positive": 108,
+          "negative": 42
+        },
+        "Claude": {
+          "avg_rating": 3.48,
+          "category_score": 77.4,
+          "total_items": 150,
+          "positive": 109,
+          "negative": 41
+        }
+      },
+      "duration_minutes": 11.9184787
+    },
+    {
+      "category_eng": "Leadership",
+      "category_kor": "리더십",
+      "final_score": 81.73333333333333,
+      "scores": {
+        "ChatGPT": {
+          "avg_rating": 4.706666666666667,
+          "category_score": 83.53333333333333,
+          "total_items": 150,
+          "positive": 119,
+          "negative": 31
+        },
+        "Grok": {
+          "avg_rating": 4.44,
+          "category_score": 82.2,
+          "total_items": 150,
+          "positive": 111,
+          "negative": 39
+        },
+        "Claude": {
+          "avg_rating": 3.8933333333333335,
+          "category_score": 79.46666666666667,
+          "total_items": 150,
+          "positive": 109,
+          "negative": 41
+        }
+      },
+      "duration_minutes": 11.070413016666667
+    },
+    {
+      "category_eng": "Vision",
+      "category_kor": "비전",
+      "final_score": 79.39999999999999,
+      "scores": {
+        "ChatGPT": {
+          "avg_rating": 4.093333333333334,
+          "category_score": 80.46666666666667,
+          "total_items": 150,
+          "positive": 113,
+          "negative": 37
+        },
+        "Grok": {
+          "avg_rating": 4.346666666666667,
+          "category_score": 81.73333333333333,
+          "total_items": 150,
+          "positive": 106,
+          "negative": 44
+        },
+        "Claude": {
+          "avg_rating": 3.2,
+          "category_score": 76.0,
+          "total_items": 150,
+          "positive": 107,
+          "negative": 43
+        }
+      },
+      "duration_minutes": 11.558160116666667
+    },
+    {
+      "category_eng": "Integrity",
+      "category_kor": "청렴성",
+      "final_score": 84.26666666666667,
+      "scores": {
+        "ChatGPT": {
+          "avg_rating": 5.346666666666667,
+          "category_score": 86.73333333333333,
+          "total_items": 150,
+          "positive": 131,
+          "negative": 19
+        },
+        "Grok": {
+          "avg_rating": 4.8933333333333335,
+          "category_score": 84.46666666666667,
+          "total_items": 150,
+          "positive": 126,
+          "negative": 24
+        },
+        "Claude": {
+          "avg_rating": 4.32,
+          "category_score": 81.6,
+          "total_items": 150,
+          "positive": 123,
+          "negative": 27
+        }
+      },
+      "duration_minutes": 11.271185216666668
+    },
+    {
+      "category_eng": "Ethics",
+      "category_kor": "윤리성",
+      "final_score": 82.13333333333334,
+      "scores": {
+        "ChatGPT": {
+          "avg_rating": 4.733333333333333,
+          "category_score": 83.66666666666667,
+          "total_items": 150,
+          "positive": 118,
+          "negative": 32
+        },
+        "Grok": {
+          "avg_rating": 4.36,
+          "category_score": 81.8,
+          "total_items": 150,
+          "positive": 108,
+          "negative": 42
+        },
+        "Claude": {
+          "avg_rating": 4.1866666666666665,
+          "category_score": 80.93333333333334,
+          "total_items": 150,
+          "positive": 113,
+          "negative": 37
+        }
+      },
+      "duration_minutes": 11.023749266666666
+    },
+    {
+      "category_eng": "Accountability",
+      "category_kor": "책임성",
+      "final_score": 83.33333333333333,
+      "scores": {
+        "ChatGPT": {
+          "avg_rating": 5.026666666666666,
+          "category_score": 85.13333333333334,
+          "total_items": 150,
+          "positive": 125,
+          "negative": 25
+        },
+        "Grok": {
+          "avg_rating": 4.506666666666667,
+          "category_score": 82.53333333333333,
+          "total_items": 150,
+          "positive": 118,
+          "negative": 32
+        },
+        "Claude": {
+          "avg_rating": 4.466666666666667,
+          "category_score": 82.33333333333334,
+          "total_items": 150,
+          "positive": 124,
+          "negative": 26
+        }
+      },
+      "duration_minutes": 11.917059116666668
+    },
+    {
+      "category_eng": "Transparency",
+      "category_kor": "투명성",
+      "final_score": 81.1111111111111,
+      "scores": {
+        "ChatGPT": {
+          "avg_rating": 4.68,
+          "category_score": 83.4,
+          "total_items": 150,
+          "positive": 115,
+          "negative": 35
+        },
+        "Grok": {
+          "avg_rating": 4.226666666666667,
+          "category_score": 81.13333333333333,
+          "total_items": 150,
+          "positive": 108,
+          "negative": 42
+        },
+        "Claude": {
+          "avg_rating": 3.76,
+          "category_score": 78.8,
+          "total_items": 150,
+          "positive": 109,
+          "negative": 41
+        }
+      },
+      "duration_minutes": 11.931588316666668
+    },
+    {
+      "category_eng": "Communication",
+      "category_kor": "소통능력",
+      "final_score": 80.0,
+      "scores": {
+        "ChatGPT": {
+          "avg_rating": 4.306666666666667,
+          "category_score": 81.53333333333333,
+          "total_items": 150,
+          "positive": 113,
+          "negative": 37
+        },
+        "Grok": {
+          "avg_rating": 4.013333333333334,
+          "category_score": 80.06666666666668,
+          "total_items": 150,
+          "positive": 106,
+          "negative": 44
+        },
+        "Claude": {
+          "avg_rating": 3.68,
+          "category_score": 78.4,
+          "total_items": 150,
+          "positive": 108,
+          "negative": 42
+        }
+      },
+      "duration_minutes": 11.739106033333334
+    },
+    {
+      "category_eng": "Responsiveness",
+      "category_kor": "대응성",
+      "final_score": 83.0,
+      "scores": {
+        "ChatGPT": {
+          "avg_rating": 5.0,
+          "category_score": 85.0,
+          "total_items": 150,
+          "positive": 122,
+          "negative": 28
+        },
+        "Grok": {
+          "avg_rating": 4.826666666666667,
+          "category_score": 84.13333333333334,
+          "total_items": 150,
+          "positive": 114,
+          "negative": 36
+        },
+        "Claude": {
+          "avg_rating": 3.973333333333333,
+          "category_score": 79.86666666666666,
+          "total_items": 150,
+          "positive": 116,
+          "negative": 34
+        }
+      },
+      "duration_minutes": 11.506723633333333
+    },
+    {
+      "category_eng": "PublicInterest",
+      "category_kor": "공익성",
+      "final_score": 79.75555555555556,
+      "scores": {
+        "ChatGPT": {
+          "avg_rating": 3.72,
+          "category_score": 78.60000000000001,
+          "total_items": 150,
+          "positive": 109,
+          "negative": 41
+        },
+        "Grok": {
+          "avg_rating": 4.266666666666667,
+          "category_score": 81.33333333333333,
+          "total_items": 150,
+          "positive": 107,
+          "negative": 43
+        },
+        "Claude": {
+          "avg_rating": 3.8666666666666667,
+          "category_score": 79.33333333333334,
+          "total_items": 150,
+          "positive": 109,
+          "negative": 41
+        }
+      },
+      "duration_minutes": 11.663925449999999
+    }
+  ],
+  "overall_scores": {
+    "chatgpt_average": 82.94666666666667,
+    "grok_average": 82.21333333333334,
+    "claude_average": 79.41333333333333,
+    "final_average": 81.52444444444444
+  }
+}

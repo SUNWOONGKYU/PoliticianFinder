@@ -208,13 +208,27 @@ def evaluate_all_150_items_batch(data_pool, category_kor):
                 for idx, item in enumerate(batch_items):
                     if idx < len(batch_results):
                         result_item = batch_results[idx]
+
+                        # 등급 추출 및 검증
+                        rating = result_item.get('rating', '').upper().strip()
+
+                        # 등급이 A~H가 아니면 첫 글자 추출 시도
+                        if rating not in ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']:
+                            # 첫 글자가 A~H인 경우 사용
+                            if rating and rating[0] in ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']:
+                                rating = rating[0]
+                            else:
+                                # 기본값 C (중립) 사용
+                                rating = 'C'
+                                print(f"\n      ⚠️ 잘못된 등급 형식: '{result_item.get('rating', '')}' → 'C'로 대체")
+
                         results[ai_name].append({
                             'item_id': item['id'],
                             'data_title': item['data_title'],
                             'collected_by': item['collected_by'],
                             'original_rating': item['original_rating'],
-                            'new_rating': result_item['rating'].upper(),
-                            'rating_rationale': result_item['rating_rationale']
+                            'new_rating': rating,
+                            'rating_rationale': result_item.get('rating_rationale', '')
                         })
 
                 print(f"✅ {len(batch_results)}개 완료")

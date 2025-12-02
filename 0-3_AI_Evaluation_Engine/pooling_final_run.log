@@ -1,0 +1,225 @@
+================================================================================
+오세훈, 한동훈 전체 10개 카테고리 풀링 시스템
+================================================================================
+정치인: 오세훈, 한동훈
+카테고리: 10개 전체
+================================================================================
+
+================================================================================
+정치인: 오세훈 (ID: 62e7b453)
+================================================================================
+
+  [Expertise (전문성)]
+    데이터: 150개
+    ChatGPT: 81.4 | Grok: 76.6 | Claude: 73.7 → 최종: 77.2 (차이: 7.7)
+
+  [Leadership (리더십)]
+    데이터: 150개
+    ChatGPT: 79.9 | Grok: 80.5 | Claude: 76.7 → 최종: 79.0 (차이: 3.7)
+
+  [Vision (비전)]
+    데이터: 150개
+    ChatGPT: 83.0 | Grok: 82.3 | Claude: 80.5 → 최종: 81.9 (차이: 2.5)
+
+  [Integrity (청렴성)]
+    데이터: 150개
+    ChatGPT: 78.3 | Grok: 76.1 | Claude: 74.8 → 최종: 76.4 (차이: 3.5)
+
+  [Ethics (윤리성)]
+    데이터: 150개
+    ChatGPT: 77.5 | Grok: 76.7 | Claude: 75.8 → 최종: 76.7 (차이: 1.7)
+
+  [Accountability (책임성)]
+    데이터: 150개
+    ChatGPT: 78.8 | Grok: 76.1 | Claude: 74.5 → 최종: 76.5 (차이: 4.3)
+
+  [Transparency (투명성)]
+    데이터: 150개
+    ChatGPT: 73.1 | Grok: 73.1 | Claude: 71.1 → 최종: 72.4 (차이: 2.1)
+
+  [Communication (소통능력)]
+    데이터: 150개
+    ChatGPT: 81.1 | Grok: 80.0 | Claude: 77.9 → 최종: 79.7 (차이: 3.1)
+
+  [Responsiveness (대응성)]
+    데이터: 150개
+    ChatGPT: 84.1 | Grok: 83.1 | Claude: 81.3 → 최종: 82.8 (차이: 2.8)
+
+  [PublicInterest (공익성)]
+    데이터: 150개
+    ChatGPT: 81.0 | Grok: 81.7 | Claude: 81.1 → 최종: 81.3 (차이: 0.7)
+
+  [종합 점수]
+    ChatGPT: 79.8점
+    Grok:    78.6점
+    Claude:  76.7점
+    최종:    78.4점
+    소요시간: 125.5분
+
+================================================================================
+정치인: 한동훈 (ID: 7abadf92)
+================================================================================
+
+  [Expertise (전문성)]
+    데이터: 150개
+    ChatGPT: 82.7 | Grok: 81.1 | Claude: 76.5 → 최종: 80.1 (차이: 6.1)
+
+  [Leadership (리더십)]
+    데이터: 150개
+    ChatGPT: 83.3 | Grok: 81.9 | Claude: 78.9 → 최종: 81.4 (차이: 4.3)
+
+  [Vision (비전)]
+    데이터: 150개
+    ChatGPT: 82.2 | Grok: 80.9 | Claude: 79.3 → 최종: 80.8 (차이: 2.9)
+
+  [Integrity (청렴성)]
+    데이터: 150개
+    ChatGPT: 79.5 | Grok: 77.5 | Claude: 74.4 → 최종: 77.1 (차이: 5.1)
+
+  [Ethics (윤리성)]
+    데이터: 150개
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+    ChatGPT: 70.1 | Grok: 75.7 | Claude: 68.9 → 최종: 71.5 (차이: 6.8)
+
+  [Accountability (책임성)]
+    데이터: 150개
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+    ChatGPT: 80.3 | Grok: 60.0 | Claude: 73.9 → 최종: 71.4 (차이: 20.3)
+
+  [Transparency (투명성)]
+    데이터: 100개
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+    ChatGPT: 70.7 | Grok: 60.0 | Claude: 65.4 → 최종: 65.4 (차이: 10.7)
+
+  [Communication (소통능력)]
+    데이터: 150개
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+    ChatGPT: 72.3 | Grok: 60.0 | Claude: 71.4 → 최종: 67.9 (차이: 12.3)
+
+  [Responsiveness (대응성)]
+    데이터: 100개
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+    ChatGPT: 77.6 | Grok: 60.0 | Claude: 72.9 → 최종: 70.2 (차이: 17.6)
+
+  [PublicInterest (공익성)]
+    데이터: 100개
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+ ❌ Grok 오류: Error code: 429 - {'code': 'Some resource has been exhausted', 'error': 'Your team 356e28dd-0007-4086-bc7b-90bb427914d6 has either used all available credits or reached its monthly spending limit. To continue making API requests, please purchase more credits or raise your spending limit.'}
+    ChatGPT: 72.3 | Grok: 60.0 | Claude: 72.4 → 최종: 68.2 (차이: 12.4)
+
+  [종합 점수]
+    ChatGPT: 77.1점
+    Grok:    69.7점
+    Claude:  73.4점
+    최종:    73.4점
+    소요시간: 95.9분
+
+================================================================================
+📊 최종 결과 요약
+================================================================================
+
+오세훈:
+  ChatGPT 평균: 79.8점
+  Grok 평균:    78.6점
+  Claude 평균:  76.7점
+  최종 평균:    78.4점
+
+  카테고리별 상세:
+    Expertise      : ChatGPT 81.4 | Grok 76.6 | Claude 73.7 (차이: 7.7)
+    Leadership     : ChatGPT 79.9 | Grok 80.5 | Claude 76.7 (차이: 3.7)
+    Vision         : ChatGPT 83.0 | Grok 82.3 | Claude 80.5 (차이: 2.5)
+    Integrity      : ChatGPT 78.3 | Grok 76.1 | Claude 74.8 (차이: 3.5)
+    Ethics         : ChatGPT 77.5 | Grok 76.7 | Claude 75.8 (차이: 1.7)
+    Accountability : ChatGPT 78.8 | Grok 76.1 | Claude 74.5 (차이: 4.3)
+    Transparency   : ChatGPT 73.1 | Grok 73.1 | Claude 71.1 (차이: 2.1)
+    Communication  : ChatGPT 81.1 | Grok 80.0 | Claude 77.9 (차이: 3.1)
+    Responsiveness : ChatGPT 84.1 | Grok 83.1 | Claude 81.3 (차이: 2.8)
+    PublicInterest : ChatGPT 81.0 | Grok 81.7 | Claude 81.1 (차이: 0.7)
+
+한동훈:
+  ChatGPT 평균: 77.1점
+  Grok 평균:    69.7점
+  Claude 평균:  73.4점
+  최종 평균:    73.4점
+
+  카테고리별 상세:
+    Expertise      : ChatGPT 82.7 | Grok 81.1 | Claude 76.5 (차이: 6.1)
+    Leadership     : ChatGPT 83.3 | Grok 81.9 | Claude 78.9 (차이: 4.3)
+    Vision         : ChatGPT 82.2 | Grok 80.9 | Claude 79.3 (차이: 2.9)
+    Integrity      : ChatGPT 79.5 | Grok 77.5 | Claude 74.4 (차이: 5.1)
+    Ethics         : ChatGPT 70.1 | Grok 75.7 | Claude 68.9 (차이: 6.8)
+    Accountability : ChatGPT 80.3 | Grok 60.0 | Claude 73.9 (차이: 20.3)
+    Transparency   : ChatGPT 70.7 | Grok 60.0 | Claude 65.4 (차이: 10.7)
+    Communication  : ChatGPT 72.3 | Grok 60.0 | Claude 71.4 (차이: 12.3)
+    Responsiveness : ChatGPT 77.6 | Grok 60.0 | Claude 72.9 (차이: 17.6)
+    PublicInterest : ChatGPT 72.3 | Grok 60.0 | Claude 72.4 (차이: 12.4)
+
+총 소요 시간: 221.4분 (3.7시간)
+================================================================================
+
+결과 저장: pooling_오세훈_한동훈_전체카테고리_results.json

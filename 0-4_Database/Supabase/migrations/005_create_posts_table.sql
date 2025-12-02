@@ -3,10 +3,11 @@
 -- Description: Community posts and discussions
 
 -- Posts table
+-- IMPORTANT: politician_id is TEXT (8-char hex), NOT UUID
 CREATE TABLE IF NOT EXISTS posts (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   user_id UUID NOT NULL REFERENCES profiles(id) ON DELETE CASCADE,
-  politician_id UUID REFERENCES politicians(id) ON DELETE SET NULL,
+  politician_id TEXT REFERENCES politicians(id) ON DELETE SET NULL,
   title TEXT NOT NULL,
   content TEXT NOT NULL,
   category TEXT CHECK (category IN ('general', 'question', 'debate', 'news')),

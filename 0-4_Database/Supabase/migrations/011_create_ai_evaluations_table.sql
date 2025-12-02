@@ -1,11 +1,12 @@
 -- Task ID: P2D1
 -- Migration: Create ai_evaluations table
 -- Description: AI-generated politician evaluations
+-- IMPORTANT: politician_id is TEXT (8-char hex), NOT UUID
 
 -- AI evaluations table
 CREATE TABLE IF NOT EXISTS ai_evaluations (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  politician_id UUID NOT NULL REFERENCES politicians(id) ON DELETE CASCADE,
+  politician_id TEXT NOT NULL REFERENCES politicians(id) ON DELETE CASCADE,
   evaluation_date DATE NOT NULL,
   overall_score INTEGER CHECK (overall_score >= 0 AND overall_score <= 100),
   overall_grade TEXT,

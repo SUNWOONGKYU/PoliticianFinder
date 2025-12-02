@@ -1,11 +1,12 @@
 -- Task ID: P4BA19
 -- Migration: Create evaluation_snapshots table
 -- Description: Monthly snapshots of AI evaluations for time-series analysis
+-- IMPORTANT: politician_id is TEXT (8-char hex), NOT UUID
 
 -- Evaluation snapshots table
 CREATE TABLE IF NOT EXISTS evaluation_snapshots (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  politician_id UUID NOT NULL REFERENCES politicians(id) ON DELETE CASCADE,
+  politician_id TEXT NOT NULL REFERENCES politicians(id) ON DELETE CASCADE,
   snapshot_date DATE NOT NULL,
 
   -- Overall scores (averaged from 5 AI models)
