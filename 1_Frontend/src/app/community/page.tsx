@@ -296,10 +296,10 @@ export default function CommunityPage() {
                             <span className="font-medium text-secondary-600">
                               {post.author_name}
                             </span>
-                            <span className="text-xs text-gray-900 font-medium" title={`활동 등급: ${post.member_level || 'ML1'}`}>
+                            <span className="text-sm text-gray-900 font-bold bg-yellow-100 px-2 py-1 rounded">
                               {post.member_level || 'ML1'}
                             </span>
-                            <span className="text-xs text-emerald-900 font-medium">🏰 영주</span>
+                            <span className="text-sm text-emerald-900 font-bold bg-green-100 px-2 py-1 rounded">🏰 영주</span>
                           </>
                         )}
                         <span>{formatDate(post.created_at)}</span>
