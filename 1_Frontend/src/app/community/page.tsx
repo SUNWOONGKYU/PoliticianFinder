@@ -74,9 +74,9 @@ export default function CommunityPage() {
             authorName = post.profiles.username || '익명';
           }
 
-          // Generate member level based on user_id hash (ML1 ~ ML5)
+          // Generate member level based on user_id hash (ML1 ~ ML5) - only for user posts
           const userIdHash = post.user_id ? post.user_id.split('-')[0].charCodeAt(0) : index;
-          const memberLevel = `ML${(userIdHash % 5) + 1}`;
+          const memberLevel = post.politician_id ? undefined : `ML${(userIdHash % 5) + 1}`;
 
           return {
             id: post.id,
@@ -296,11 +296,9 @@ export default function CommunityPage() {
                             <span className="font-medium text-secondary-600">
                               {post.author_name}
                             </span>
-                            {post.member_level && (
-                              <span className="text-xs text-gray-900 font-medium" title={`활동 등급: ${post.member_level}`}>
-                                {post.member_level}
-                              </span>
-                            )}
+                            <span className="text-xs text-gray-900 font-medium" title={`활동 등급: ${post.member_level || 'ML1'}`}>
+                              {post.member_level || 'ML1'}
+                            </span>
                             <span className="text-xs text-emerald-900 font-medium">🏰 영주</span>
                           </>
                         )}
