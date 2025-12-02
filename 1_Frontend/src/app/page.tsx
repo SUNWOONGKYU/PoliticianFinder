@@ -194,6 +194,7 @@ export default function Home() {
                   politician_id: post.politician_id,
                   politician_name: politicianName,
                   politician_position: politicianPosition,
+                  politician_party: post.politicians?.party,
                   politician_identity: politicianIdentity,  // P3F3
                   politician_title: politicianTitle,        // P3F3
                   view_count: post.view_count || 0,
