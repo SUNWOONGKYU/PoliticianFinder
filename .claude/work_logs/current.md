@@ -1,9 +1,80 @@
 # Work Log - Current Session
 
-## Session Start: 2025-12-01 21:01:00
+## Session Start: 2025-12-02 22:20:00
 
 ### Previous Log
-- [2025-11-30 작업 로그](2025-11-30.md)
+- [2025-12-01 작업 로그](2025-12-01.md)
+
+---
+
+## ✅ 2025-12-02 완료: 정치인 메타데이터 표시 수정
+
+### 작업 개요
+**정치인 게시글 메타데이터 표시 형식 통일 및 수정**
+- ✅ 홈 페이지와 커뮤니티 페이지 메타데이터 표시 형식 통일
+- ✅ 표시 순서 수정: `이름 | 직책 • 정당` (직책이 정당보다 우선)
+- ✅ TypeScript 인터페이스에 `politician_party` 필드 추가
+- ✅ 빌드 성공 및 프로덕션 배포 완료
+
+### 수정된 파일 (2개)
+
+#### 1. 홈 페이지 (`1_Frontend/src/app/page.tsx`)
+- **Post 인터페이스 수정**: `politician_party` 필드 추가
+- **메타데이터 표시 수정** (2곳):
+  - Line 817: 정치인 게시글 작성자 표시
+  - Line 891: 인기 게시글 작성자 표시
+- **변경 전**: `{post.politician_name} | {post.politician_identity} {post.politician_title && \`• ${post.politician_title}\`}`
+- **변경 후**: `{post.politician_name} | {post.politician_position} • {post.politician_party}`
+- **예시**: `오세훈 | 서울특별시장 • 국민의힘`
+
+#### 2. 커뮤니티 페이지 (`1_Frontend/src/app/community/page.tsx`)
+- **메타데이터 표시 수정** (Line 286)
+- **변경 전**: `{post.politician_name} | {post.politician_identity} {post.politician_title && \`• ${post.politician_title}\`}`
+- **변경 후**: `{post.politician_name} | {post.politician_position} • {post.politician_party}`
+
+### 기술적 변경사항
+
+**TypeScript 인터페이스 수정**:
+```typescript
+interface Post {
+  // ... existing fields
+  politician_position?: string;
+  politician_party?: string;     // ✅ 추가
+  politician_identity?: string;  // 사용 안 함
+  politician_title?: string;     // 사용 안 함
+}
+```
+
+**메타데이터 표시 형식**:
+- ✅ **올바른 필드 사용**: `position` (직책), `party` (정당)
+- ✅ **올바른 순서**: 직책 → 정당 (직책이 더 중요)
+- ✅ **일관된 형식**: 홈/커뮤니티 동일
+
+### 검증 결과
+
+**빌드 성공**:
+- ✅ TypeScript 컴파일: 성공
+- ✅ Next.js 빌드: 성공 (116 routes)
+- ✅ 정적 페이지 생성: 성공
+
+**배포 완료**:
+- ✅ Git commit & push: 완료
+- ✅ Vercel 자동 배포: 진행 중
+- ✅ 사이트 상태: HTTP 200 OK
+
+### Git Commit
+```
+fix: 정치인 메타데이터 표시 수정 - 홈/커뮤니티 통일
+
+- Post interface에 politician_party 필드 추가
+- 홈 페이지와 커뮤니티 페이지 모두 동일한 형식으로 표시
+- 형식: 이름 | 직책 • 정당 (예: 오세훈 | 서울특별시장 • 국민의힘)
+- 직책을 정당보다 먼저 표시 (중요도 반영)
+```
+
+### 다음 작업
+- 프로덕션 배포 완료 후 실제 화면에서 메타데이터 표시 확인
+- 오세훈 테스트 게시글로 최종 검증
 
 ---
 
