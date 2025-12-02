@@ -71,7 +71,7 @@ export default function CommunityPage() {
           }
           // 일반 회원 게시글인 경우
           else if (post.profiles) {
-            authorName = post.profiles.username || '익명';
+            authorName = post.profiles.username || post.profiles.nickname || post.profiles.email?.split('@')[0] || '익명';
           }
 
           // Generate member level based on user_id hash (ML1 ~ ML5) - only for user posts
