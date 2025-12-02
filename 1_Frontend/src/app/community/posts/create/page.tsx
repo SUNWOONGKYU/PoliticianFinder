@@ -43,6 +43,27 @@ export default function CreatePostPage() {
   const [loadingPoliticians, setLoadingPoliticians] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
+  // Check authentication on mount
+  useEffect(() => {
+    const checkAuth = async () => {
+      try {
+        const response = await fetch('/api/auth/me');
+        if (!response.ok) {
+          // Not logged in, redirect to login
+          alert('로그인이 필요합니다.');
+          router.push('/auth/login?redirect=/community/posts/create');
+          return;
+        }
+      } catch (error) {
+        console.error('Auth check failed:', error);
+        alert('로그인이 필요합니다.');
+        router.push('/auth/login?redirect=/community/posts/create');
+      }
+    };
+
+    checkAuth();
+  }, [router]);
+
   // Load draft on component mount
   useEffect(() => {
     const draft = localStorage.getItem('draft_post_member');
