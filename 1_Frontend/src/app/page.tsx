@@ -1188,36 +1188,6 @@ export default function Home() {
               </a>
             </div>
 
-            {/* 광고 배너 2 */}
-            <div className="bg-white rounded-lg shadow p-4">
-              <div className="text-xs text-gray-500 mb-2">광고</div>
-              <div
-                className="bg-gray-100 rounded-lg flex items-center justify-center"
-                style={{ height: '150px' }}
-              >
-                <div className="text-center text-gray-400">
-                  <div className="text-3xl mb-1">📢</div>
-                  <div className="text-sm">배너 광고 영역 2</div>
-                  <div className="text-xs">(300x150)</div>
-                </div>
-              </div>
-            </div>
-
-            {/* 광고 배너 3 */}
-            <div className="bg-white rounded-lg shadow p-4">
-              <div className="text-xs text-gray-500 mb-2">광고</div>
-              <div
-                className="bg-gray-100 rounded-lg flex items-center justify-center"
-                style={{ height: '150px' }}
-              >
-                <div className="text-center text-gray-400">
-                  <div className="text-3xl mb-1">📢</div>
-                  <div className="text-sm">배너 광고 영역 3</div>
-                  <div className="text-xs">(300x150)</div>
-                </div>
-              </div>
-            </div>
-
             {/* 내 정보 (회원 등급 및 포인트) */}
             <div className="bg-white rounded-lg shadow p-3">
               <h3 className="font-bold text-xl mb-2 pb-1 border-b-2 border-secondary-500 text-gray-900">

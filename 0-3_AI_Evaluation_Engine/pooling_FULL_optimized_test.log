@@ -1,0 +1,83 @@
+
+================================================================================
+🚀 최첨단 초최적화 Pooling 평가 시스템
+================================================================================
+테스트: 김동연
+목표: 98% 토큰 절감
+
+최적화 기법:
+  1. 중복 제거
+  2. NER 핵심 추출
+  3. LLMLingua 압축 (20배)
+  4. 불필요 문구 제거
+  5. System Message 최소화 (15토큰)
+  6. Prompt Caching
+  7. BatchPrompt (1회 API)
+================================================================================
+🔧 LLMLingua 압축기 초기화 중...
+`torch_dtype` is deprecated! Use `dtype` instead!
+Xet Storage is enabled for this repo, but the 'hf_xet' package is not installed. Falling back to regular HTTP download. For better performance, install the package with: `pip install huggingface_hub[hf_xet]` or `pip install hf_xet`
+Traceback (most recent call last):
+  File "C:\Development_PoliticianFinder_com\Developement_Real_PoliticianFinder\0-3_AI_Evaluation_Engine\pooling_FULL_optimized_test_1person.py", line 581, in <module>
+    asyncio.run(main())
+    ~~~~~~~~~~~^^^^^^^^
+  File "C:\Python313\Lib\asyncio\runners.py", line 195, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "C:\Python313\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Python313\Lib\asyncio\base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "C:\Development_PoliticianFinder_com\Developement_Real_PoliticianFinder\0-3_AI_Evaluation_Engine\pooling_FULL_optimized_test_1person.py", line 562, in main
+    evaluator = FullOptimizedEvaluator()
+  File "C:\Development_PoliticianFinder_com\Developement_Real_PoliticianFinder\0-3_AI_Evaluation_Engine\pooling_FULL_optimized_test_1person.py", line 102, in __init__
+    self.compressor = PromptCompressor(
+                      ~~~~~~~~~~~~~~~~^
+        model_name="microsoft/llmlingua-2-bert-base-multilingual-cased-meetingbank",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        use_llmlingua2=True
+        ^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Python313\Lib\site-packages\llmlingua\prompt_compressor.py", line 89, in __init__
+    self.load_model(model_name, device_map, model_config)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\llmlingua\prompt_compressor.py", line 140, in load_model
+    model = MODEL_CLASS.from_pretrained(
+        model_name,
+    ...<6 lines>...
+        **model_config,
+    )
+  File "C:\Python313\Lib\site-packages\transformers\models\auto\auto_factory.py", line 604, in from_pretrained
+    return model_class.from_pretrained(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        pretrained_model_name_or_path, *model_args, config=config, **hub_kwargs, **kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Python313\Lib\site-packages\transformers\modeling_utils.py", line 277, in _wrapper
+    return func(*args, **kwargs)
+  File "C:\Python313\Lib\site-packages\transformers\modeling_utils.py", line 5048, in from_pretrained
+    ) = cls._load_pretrained_model(
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        model,
+        ^^^^^^
+    ...<12 lines>...
+        weights_only=weights_only,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Python313\Lib\site-packages\transformers\modeling_utils.py", line 5432, in _load_pretrained_model
+    caching_allocator_warmup(model, expanded_device_map, hf_quantizer)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\transformers\modeling_utils.py", line 6089, in caching_allocator_warmup
+    index = device.index if device.index is not None else torch_accelerator_module.current_device()
+                                                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Python313\Lib\site-packages\torch\cuda\__init__.py", line 1069, in current_device
+    _lazy_init()
+    ~~~~~~~~~~^^
+  File "C:\Python313\Lib\site-packages\torch\cuda\__init__.py", line 403, in _lazy_init
+    raise AssertionError("Torch not compiled with CUDA enabled")
+AssertionError: Torch not compiled with CUDA enabled
