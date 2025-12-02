@@ -582,7 +582,9 @@ export default function Home() {
                             {p.grok > 0 ? p.grok : '-'}
                           </td>
                           <td className="px-2 py-3 text-center text-xs">
-                            <div className="font-bold text-secondary-600">★ {p.userRating.toFixed(1)}</div>
+                            <div className="font-bold text-secondary-600">
+                              {'★'.repeat(Math.round(p.userRating))}{'☆'.repeat(5 - Math.round(p.userRating))}
+                            </div>
                             <div className="text-xs text-gray-600">({p.userCount}명)</div>
                           </td>
                         </tr>
@@ -666,7 +668,7 @@ export default function Home() {
                         {politicians[0].userCount > 0 ? (
                           <>
                             <div className="font-bold text-secondary-600">
-                              ★ {politicians[0].userRating.toFixed(1)}
+                              {'★'.repeat(Math.round(politicians[0].userRating))}{'☆'.repeat(5 - Math.round(politicians[0].userRating))}
                             </div>
                             <div className="text-xs text-gray-600">({politicians[0].userCount}명 평가)</div>
                           </>
@@ -741,7 +743,9 @@ export default function Home() {
                           <div className="text-xs text-gray-600 mb-1">회원평가</div>
                           {p.userCount > 0 ? (
                             <>
-                              <div className="font-bold text-secondary-600">★ {p.userRating.toFixed(1)}</div>
+                              <div className="font-bold text-secondary-600">
+                                {'★'.repeat(Math.round(p.userRating))}{'☆'.repeat(5 - Math.round(p.userRating))}
+                              </div>
                               <div className="text-xs text-gray-600">({p.userCount}명 평가)</div>
                             </>
                           ) : (
@@ -781,7 +785,7 @@ export default function Home() {
                           <div className="text-xs text-gray-600">종합평점</div>
                           {p.userCount > 0 ? (
                             <div className="text-xs text-secondary-600 mt-1">
-                              ★ {p.userRating.toFixed(1)} ({p.userCount}명)
+                              {'★'.repeat(Math.round(p.userRating))}{'☆'.repeat(5 - Math.round(p.userRating))} ({p.userCount}명)
                             </div>
                           ) : (
                             <div className="text-xs text-gray-400 mt-1">평가 없음</div>
