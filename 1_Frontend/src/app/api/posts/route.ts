@@ -278,6 +278,7 @@ export async function GET(request: NextRequest) {
         politicians:politician_id (
           name,
           position,
+          party,
           status
         )
       `, { count: "exact" })
