@@ -49,7 +49,7 @@ export default function CommunityPage() {
   const fetchPosts = useCallback(async () => {
     try {
       setLoading(true);
-      let apiUrl = `/api/community/posts?limit=20`;
+      let apiUrl = `/api/posts?limit=20`;
 
       if (currentCategory === 'politician_post') {
         apiUrl += '&has_politician=true';
