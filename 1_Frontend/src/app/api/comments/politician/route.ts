@@ -31,7 +31,7 @@ export async function POST(request: NextRequest) {
       .from('politicians')
       .select('id, name')
       .eq('id', validated.politician_id)
-      .single();
+      .single() as { data: { id: string; name: string } | null; error: any };
 
     if (politicianError || !politician) {
       return NextResponse.json(
@@ -95,7 +95,7 @@ export async function POST(request: NextRequest) {
         post_id: validated.post_id,
         user_id: null,
         content: validated.content,
-      })
+      } as any)
       .select()
       .single();
 
