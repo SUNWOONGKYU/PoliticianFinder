@@ -72,6 +72,38 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
    - 작업 완료 JSON 파일 생성
    - 웹사이트에서 확인 가능하도록
 
+### ⏰ 5분 자동 커밋 규칙
+
+**백그라운드 자동 커밋 시스템:**
+
+1. **자동 커밋 스크립트 위치**
+   - `.claude/auto_commit.sh`
+   - 5분(300초)마다 자동으로 변경사항 커밋
+
+2. **스크립트 실행 방법**
+   ```bash
+   # 백그라운드에서 실행
+   bash .claude/auto_commit.sh &
+   ```
+
+3. **동작 방식**
+   - 변경사항 확인 (`git status --porcelain`)
+   - 변경사항 있으면 자동 스테이징 (`git add -A`)
+   - 타임스탬프와 함께 커밋
+   - 5분 대기 후 반복
+
+4. **커밋 메시지 형식**
+   ```
+   auto: 자동 커밋 YYYY-MM-DD HH:MM:SS
+
+   🤖 Generated with [Claude Code](https://claude.com/claude-code)
+   ```
+
+5. **주의사항**
+   - 수동 커밋과 충돌 방지: 수동 커밋 전에는 스크립트 종료 권장
+   - push는 자동으로 하지 않음 (수동 push 필요)
+   - 작업 중 실시간 백업 목적
+
 ### 📂 파일 저장 위치 규칙
 
 **설치 vs 사용법 구분:**

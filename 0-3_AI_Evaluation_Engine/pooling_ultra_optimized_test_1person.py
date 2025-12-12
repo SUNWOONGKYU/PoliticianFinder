@@ -54,10 +54,10 @@ CATEGORY_KOREAN = {
     "PublicInterest": "공익성"
 }
 
-# 테스트 정치인 (김동연)
+# 테스트 정치인 (송석준)
 TEST_POLITICIAN = {
-    "name": "김동연",
-    "id": "17270f25"
+    "name": "송석준",
+    "id": "023139c6"
 }
 
 

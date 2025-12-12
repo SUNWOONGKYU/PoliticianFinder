@@ -1,0 +1,56 @@
+{
+  "politician": "송석준",
+  "politician_id": "023139c6",
+  "data_count": 1000,
+  "scores": {
+    "chatgpt": {
+      "Expertise": [],
+      "Leadership": [],
+      "Vision": [],
+      "Integrity": [],
+      "Ethics": [],
+      "Accountability": [],
+      "Transparency": [],
+      "Communication": [],
+      "Responsiveness": [],
+      "PublicInterest": []
+    },
+    "grok": {
+      "Expertise": [],
+      "Leadership": [],
+      "Vision": [],
+      "Integrity": [],
+      "Ethics": [],
+      "Accountability": [],
+      "Transparency": [],
+      "Communication": [],
+      "Responsiveness": [],
+      "PublicInterest": []
+    },
+    "claude": {
+      "Expertise": [],
+      "Leadership": [],
+      "Vision": [],
+      "Integrity": [],
+      "Ethics": [],
+      "Accountability": [],
+      "Transparency": [],
+      "Communication": [],
+      "Responsiveness": [],
+      "PublicInterest": []
+    }
+  },
+  "pooling": {
+    "Expertise": 0,
+    "Leadership": 0,
+    "Vision": 0,
+    "Integrity": 0,
+    "Ethics": 0,
+    "Accountability": 0,
+    "Transparency": 0,
+    "Communication": 0,
+    "Responsiveness": 0,
+    "PublicInterest": 0
+  },
+  "elapsed_seconds": 46.257104
+}
