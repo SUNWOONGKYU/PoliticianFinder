@@ -2,10 +2,8 @@
 
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import dynamic from 'next/dynamic';
 import { createClient } from '@/lib/supabase/client';
 import { User } from '@supabase/supabase-js';
-import { ThemeToggle } from '@/components/ui/ThemeToggle';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -89,9 +87,6 @@ export default function Header() {
                 </span>
               )}
             </Link>
-
-            {/* 다크모드 토글 */}
-            <ThemeToggle size="sm" showMenu />
           </div>
 
           {/* Auth Buttons (Desktop) */}
@@ -120,11 +115,6 @@ export default function Header() {
 
           {/* Mobile menu button & notification */}
           <div className="md:hidden flex items-center space-x-1">
-            {/* 다크모드 토글 (모바일) - 44x44px 터치 타겟 */}
-            <div className="min-w-[44px] min-h-[44px] flex items-center justify-center">
-              <ThemeToggle size="sm" />
-            </div>
-
             {/* 알림 아이콘 (모바일) - 44x44px 터치 타겟 */}
             <Link
               href="/notifications"
