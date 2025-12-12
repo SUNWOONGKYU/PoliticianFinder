@@ -694,9 +694,12 @@ export default function Home() {
                           <td className="px-1 py-2 text-center font-bold text-accent-600 text-sm whitespace-nowrap">{p.chatgpt > 0 ? p.chatgpt : '-'}</td>
                           <td className="px-1 py-2 text-center font-bold text-accent-600 text-sm whitespace-nowrap">{p.grok > 0 ? p.grok : '-'}</td>
                           <td className="px-1 py-2 text-center whitespace-nowrap">
-                            <span className="font-bold text-secondary-600" style={{ fontSize: '0.6rem' }}>
+                            <div className="font-bold text-secondary-600" style={{ fontSize: '0.6rem' }}>
                               {'★'.repeat(Math.round(p.userRating))}{'☆'.repeat(5 - Math.round(p.userRating))}
-                            </span>
+                            </div>
+                            <div className="text-gray-500" style={{ fontSize: '0.55rem' }}>
+                              ({p.userCount || 0}명)
+                            </div>
                           </td>
                         </tr>
                       ))}
