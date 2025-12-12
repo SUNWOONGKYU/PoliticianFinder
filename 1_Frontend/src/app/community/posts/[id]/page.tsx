@@ -43,6 +43,13 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
   const [displayedComments, setDisplayedComments] = useState(5); // 처음에 5개만 표시
   const [currentUser, setCurrentUser] = useState<{ id: string; email: string; name?: string } | null>(null);
 
+  // 정치인 인증 관련 state
+  const [politicianAuthModalOpen, setPoliticianAuthModalOpen] = useState(false);
+  const [politicianAuthId, setPoliticianAuthId] = useState('');
+  const [politicianAuthToken, setPoliticianAuthToken] = useState('');
+  const [politicianAuthLoading, setPoliticianAuthLoading] = useState(false);
+  const [authenticatedPolitician, setAuthenticatedPolitician] = useState<{ id: string; name: string; sessionToken: string } | null>(null);
+
   // Sample user nicknames
   const sampleNicknames = [
     '정치는우리의것', '투명한정치', '민주시민', '시민참여자', '투표하는시민',
@@ -259,6 +266,123 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
     }
   }, [params.id]);
 
+  // 정치인 본인 인증 핸들러
+  const handlePoliticianAuth = useCallback(async () => {
+    if (!politicianAuthId.trim() || !politicianAuthToken.trim()) {
+      setAlertMessage('정치인 ID와 세션 토큰을 모두 입력해주세요.');
+      setAlertModalOpen(true);
+      return;
+    }
+
+    setPoliticianAuthLoading(true);
+    try {
+      // 세션 토큰 검증 API 호출
+      const response = await fetch('/api/politicians/verify-session', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          politician_id: politicianAuthId.trim(),
+          session_token: politicianAuthToken.trim()
+        })
+      });
+
+      const data = await response.json();
+
+      if (!response.ok || !data.success) {
+        throw new Error(data.error?.message || '정치인 인증에 실패했습니다.');
+      }
+
+      // 인증 성공
+      setAuthenticatedPolitician({
+        id: politicianAuthId.trim(),
+        name: data.politician?.name || '정치인',
+        sessionToken: politicianAuthToken.trim()
+      });
+      setPoliticianAuthModalOpen(false);
+      setPoliticianAuthId('');
+      setPoliticianAuthToken('');
+      setAlertMessage(`${data.politician?.name || '정치인'}님으로 인증되었습니다.`);
+      setAlertModalOpen(true);
+    } catch (error) {
+      console.error('Politician auth error:', error);
+      setAlertMessage(error instanceof Error ? error.message : '정치인 인증에 실패했습니다.');
+      setAlertModalOpen(true);
+    } finally {
+      setPoliticianAuthLoading(false);
+    }
+  }, [politicianAuthId, politicianAuthToken]);
+
+  // 정치인 댓글 제출 핸들러
+  const handlePoliticianCommentSubmit = useCallback(async () => {
+    if (!politicianCommentText.trim()) {
+      setAlertMessage('댓글 내용을 입력해주세요.');
+      setAlertModalOpen(true);
+      return;
+    }
+
+    if (!authenticatedPolitician) {
+      setPoliticianAuthModalOpen(true);
+      return;
+    }
+
+    try {
+      const response = await fetch('/api/comments', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          post_id: params.id,
+          content: politicianCommentText.trim(),
+          politician_id: authenticatedPolitician.id,
+          session_token: authenticatedPolitician.sessionToken,
+          author_type: 'politician'
+        })
+      });
+
+      const data = await response.json();
+
+      if (!response.ok || !data.success) {
+        throw new Error(data.error?.message || '댓글 등록에 실패했습니다.');
+      }
+
+      // 댓글 목록 새로고침
+      const commentsResponse = await fetch(`/api/comments?post_id=${params.id}`);
+      if (commentsResponse.ok) {
+        const result = await commentsResponse.json();
+        if (result.success && result.data) {
+          const mappedComments: Comment[] = result.data.map((comment: any, index: number) => {
+            const userIdHash = comment.user_id ? comment.user_id.split('-')[0].charCodeAt(0) : index;
+            const nicknameIndex = userIdHash % 10;
+            const mlLevel = `ML${(userIdHash % 5) + 1}`;
+
+            return {
+              id: comment.id,
+              author: comment.users?.name || comment.users?.nickname || sampleNicknames[nicknameIndex],
+              userId: comment.user_id,
+              authorType: comment.author_type === 'politician' ? 'politician' : 'member',
+              memberLevel: mlLevel,
+              influenceLevel: '방랑자',
+              timestamp: formatDate(comment.created_at),
+              content: comment.content,
+              upvotes: comment.upvotes || 0,
+              downvotes: comment.downvotes || 0,
+              isFollowing: false
+            };
+          });
+          setComments(mappedComments);
+          setTotalComments(mappedComments.length);
+        }
+      }
+
+      setPoliticianCommentText('');
+      setAlertMessage(`${authenticatedPolitician.name}님의 댓글이 등록되었습니다.`);
+      setAlertModalOpen(true);
+    } catch (error) {
+      console.error('Politician comment submit error:', error);
+      setAlertMessage(error instanceof Error ? error.message : '댓글 등록에 실패했습니다.');
+      setAlertModalOpen(true);
+    }
+  }, [params.id, politicianCommentText, authenticatedPolitician, sampleNicknames]);
+
   const handleUpvote = () => {
     if (upvoted) {
       setUpvotes(upvotes - 1);
@@ -444,20 +568,44 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
 
               {/* 정치인 댓글 작성 폼 */}
               <div className="mb-4 p-4 bg-orange-50 border border-primary-200 rounded-lg">
-                <div className="flex items-center gap-2 mb-2">
+                <div className="flex items-center justify-between gap-2 mb-2">
                   <span className="text-sm font-bold text-primary-600">🏛️ 정치인으로 댓글 작성</span>
+                  {authenticatedPolitician ? (
+                    <div className="flex items-center gap-2">
+                      <span className="text-sm text-primary-600 font-medium">{authenticatedPolitician.name}님으로 인증됨</span>
+                      <button
+                        onClick={() => setAuthenticatedPolitician(null)}
+                        className="text-xs text-gray-500 hover:text-gray-700"
+                      >
+                        (인증 해제)
+                      </button>
+                    </div>
+                  ) : (
+                    <button
+                      onClick={() => setPoliticianAuthModalOpen(true)}
+                      className="text-sm text-primary-600 hover:text-primary-700 font-medium underline"
+                    >
+                      본인 인증하기
+                    </button>
+                  )}
                 </div>
                 <textarea
                   value={politicianCommentText}
                   onChange={(e) => setPoliticianCommentText(e.target.value)}
                   rows={3}
                   className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 resize-none"
-                  placeholder="정치인으로 댓글을 입력하세요..."
+                  placeholder={authenticatedPolitician ? `${authenticatedPolitician.name}님으로 댓글을 입력하세요...` : "정치인 본인 인증 후 댓글을 입력할 수 있습니다."}
+                  disabled={!authenticatedPolitician}
                 />
                 <div className="flex justify-between items-center mt-2">
-                  <span className="text-sm text-gray-500">정치인 본인 인증 필요</span>
+                  {authenticatedPolitician ? (
+                    <span className="text-sm text-primary-600 font-medium">✅ 인증 완료</span>
+                  ) : (
+                    <span className="text-sm text-gray-500">정치인 본인 인증이 필요합니다</span>
+                  )}
                   <button
-                    disabled={!politicianCommentText.trim()}
+                    onClick={handlePoliticianCommentSubmit}
+                    disabled={!politicianCommentText.trim() || !authenticatedPolitician}
                     className="px-6 py-2 bg-primary-500 text-white rounded-lg hover:bg-primary-600 font-medium disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     정치인 댓글 등록
@@ -479,7 +627,7 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
                 />
                 <div className="flex justify-between items-center mt-2">
                   {currentUser ? (
-                    <span className="text-sm text-emerald-600 font-medium">{currentUser.name || currentUser.email}님으로 댓글 작성</span>
+                    <span className="text-sm text-secondary-600 font-medium">{currentUser.name || currentUser.email}님으로 댓글 작성</span>
                   ) : (
                     <span className="text-sm text-gray-500">회원 계정으로 로그인 필요</span>
                   )}
@@ -504,7 +652,7 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
               <div className="flex items-center justify-between gap-2 mb-2">
                 <span className="text-sm font-bold text-gray-700">💬 댓글 작성</span>
                 {currentUser ? (
-                  <span className="text-sm text-emerald-600 font-medium">{currentUser.name || currentUser.email}님으로 작성</span>
+                  <span className="text-sm text-secondary-600 font-medium">{currentUser.name || currentUser.email}님으로 작성</span>
                 ) : (
                   <span className="text-sm text-gray-500">로그인 필요</span>
                 )}
@@ -656,6 +804,92 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
             <div className="flex justify-center">
               <button onClick={() => setAlertModalOpen(false)} className="px-8 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-500 transition">
                 확인
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* 정치인 본인 인증 모달 */}
+      {politicianAuthModalOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4" onClick={() => setPoliticianAuthModalOpen(false)}>
+          <div className="bg-white rounded-lg max-w-md w-full p-6" onClick={(e) => e.stopPropagation()}>
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-xl font-bold text-gray-900">🏛️ 정치인 본인 인증</h2>
+              <button onClick={() => setPoliticianAuthModalOpen(false)} className="text-gray-400 hover:text-gray-600">
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+
+            <p className="text-gray-600 text-sm mb-6">
+              정치인 본인 인증을 위해 발급받은 정치인 ID와 세션 토큰을 입력해주세요.
+              인증 후 정치인으로서 댓글을 작성할 수 있습니다.
+            </p>
+
+            <div className="space-y-4">
+              <div>
+                <label htmlFor="politician-id" className="block text-sm font-medium text-gray-700 mb-1">
+                  정치인 ID (8자리)
+                </label>
+                <input
+                  type="text"
+                  id="politician-id"
+                  value={politicianAuthId}
+                  onChange={(e) => setPoliticianAuthId(e.target.value)}
+                  maxLength={8}
+                  placeholder="예: 17270f25"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="session-token" className="block text-sm font-medium text-gray-700 mb-1">
+                  세션 토큰 (64자리)
+                </label>
+                <input
+                  type="password"
+                  id="session-token"
+                  value={politicianAuthToken}
+                  onChange={(e) => setPoliticianAuthToken(e.target.value)}
+                  maxLength={64}
+                  placeholder="발급받은 세션 토큰을 입력하세요"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+                />
+              </div>
+            </div>
+
+            <div className="mt-6 p-4 bg-gray-50 rounded-lg">
+              <p className="text-xs text-gray-500">
+                💡 정치인 ID와 세션 토큰은 정치인 등록 시 발급받습니다.
+                분실하신 경우 관리자에게 문의해주세요.
+              </p>
+            </div>
+
+            <div className="flex gap-3 mt-6">
+              <button
+                onClick={() => setPoliticianAuthModalOpen(false)}
+                className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50"
+              >
+                취소
+              </button>
+              <button
+                onClick={handlePoliticianAuth}
+                disabled={politicianAuthLoading || !politicianAuthId.trim() || !politicianAuthToken.trim()}
+                className="flex-1 px-4 py-2 bg-primary-500 text-white rounded-lg hover:bg-primary-600 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+              >
+                {politicianAuthLoading ? (
+                  <>
+                    <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    인증 중...
+                  </>
+                ) : (
+                  '인증하기'
+                )}
               </button>
             </div>
           </div>
