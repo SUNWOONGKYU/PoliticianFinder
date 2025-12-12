@@ -181,14 +181,14 @@ export default function Home() {
   useEffect(() => {
     const fetchUserStats = async () => {
       try {
-        // 먼저 현재 세션 확인
-        const sessionResponse = await fetch('/api/auth/session');
-        if (!sessionResponse.ok) return;
+        // 먼저 현재 로그인 사용자 확인 (/api/auth/me 사용)
+        const meResponse = await fetch('/api/auth/me');
+        const meData = await meResponse.json();
 
-        const sessionData = await sessionResponse.json();
-        if (!sessionData.user?.id) return;
+        // 로그인되지 않은 경우 (401 또는 success: false)
+        if (!meData.success || !meData.user?.id) return;
 
-        const userId = sessionData.user.id;
+        const userId = meData.user.id;
         setCurrentUserId(userId);
         setUserStatsLoading(true);
 
