@@ -648,22 +648,22 @@ export default function Home() {
                         <th className="px-2 py-3 text-left font-bold text-gray-900 w-24">출마지구</th>
                         <th className="px-2 py-3 text-center font-bold text-gray-900 w-24">평가등급</th>
                         <th className="px-2 py-3 text-center font-bold text-gray-900 w-20">종합평점</th>
-                        <th className="px-2 py-3 text-center font-bold text-gray-900 w-24">
-                          <div className="flex items-center justify-center gap-1">
+                        <th className="px-1 py-2 text-center font-bold text-gray-900 w-14">
+                          <div className="flex flex-col items-center justify-center">
                             <img src={aiLogos.claude} alt="Claude" className="h-4 w-4 object-contain rounded" />
-                            <span>Claude</span>
+                            <span className="text-xs">Claude</span>
                           </div>
                         </th>
-                        <th className="px-2 py-3 text-center font-bold text-gray-900 w-24">
-                          <div className="flex items-center justify-center gap-1">
+                        <th className="px-1 py-2 text-center font-bold text-gray-900 w-14">
+                          <div className="flex flex-col items-center justify-center">
                             <img src={aiLogos.chatgpt} alt="ChatGPT" className="h-4 w-4 object-contain" />
-                            <span>ChatGPT</span>
+                            <span className="text-xs">GPT</span>
                           </div>
                         </th>
-                        <th className="px-2 py-3 text-center font-bold text-gray-900 w-24">
-                          <div className="flex items-center justify-center gap-1">
+                        <th className="px-1 py-2 text-center font-bold text-gray-900 w-14">
+                          <div className="flex flex-col items-center justify-center">
                             <img src={aiLogos.grok} alt="Grok" className="h-4 w-4 object-contain" />
-                            <span>Grok</span>
+                            <span className="text-xs">Grok</span>
                           </div>
                         </th>
                         <th className="px-2 py-3 text-center font-bold text-gray-900 w-20">회원평가</th>
@@ -698,13 +698,13 @@ export default function Home() {
                           <td className="px-2 py-3 text-center font-bold text-accent-600">
                             {p.totalScore > 0 ? p.totalScore : '-'}
                           </td>
-                          <td className="px-2 py-3 text-center font-bold text-accent-600">
+                          <td className="px-1 py-3 text-center font-bold text-accent-600 text-sm">
                             {p.claude > 0 ? p.claude : '-'}
                           </td>
-                          <td className="px-2 py-3 text-center font-bold text-accent-600">
+                          <td className="px-1 py-3 text-center font-bold text-accent-600 text-sm">
                             {p.chatgpt > 0 ? p.chatgpt : '-'}
                           </td>
-                          <td className="px-2 py-3 text-center font-bold text-accent-600">
+                          <td className="px-1 py-3 text-center font-bold text-accent-600 text-sm">
                             {p.grok > 0 ? p.grok : '-'}
                           </td>
                           <td className="px-2 py-3 text-center text-xs">
