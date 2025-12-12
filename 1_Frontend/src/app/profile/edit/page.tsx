@@ -9,7 +9,30 @@ interface ProfileFormData {
   memberLevel: string;
   bio: string;
   profileImage: File | null;
+  preferredDistrict: string;
 }
+
+// 한국 주요 지역 목록
+const REGIONS = [
+  '',
+  '서울',
+  '부산',
+  '대구',
+  '인천',
+  '광주',
+  '대전',
+  '울산',
+  '세종',
+  '경기',
+  '강원',
+  '충북',
+  '충남',
+  '전북',
+  '전남',
+  '경북',
+  '경남',
+  '제주',
+];
 
 interface UserData {
   id: string;
@@ -18,6 +41,9 @@ interface UserData {
   role: string;
   points: number;
   level: number;
+  bio?: string;
+  preferred_district?: string;
+  profile_image_url?: string;
 }
 
 export default function ProfileEditPage() {
@@ -27,7 +53,10 @@ export default function ProfileEditPage() {
     memberLevel: '',
     bio: '',
     profileImage: null,
+    preferredDistrict: '',
   });
+  const [profileImageUrl, setProfileImageUrl] = useState<string | null>(null);
+  const [saving, setSaving] = useState(false);
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -42,21 +71,35 @@ export default function ProfileEditPage() {
     const fetchUserData = async () => {
       try {
         setLoading(true);
-        const response = await fetch('/api/auth/me');
-        const result = await response.json();
 
-        if (!response.ok || !result.success) {
-          throw new Error(result.error?.message || '사용자 정보를 불러오는데 실패했습니다.');
+        // 인증 정보와 프로필 정보 동시 조회
+        const [authResponse, profileResponse] = await Promise.all([
+          fetch('/api/auth/me'),
+          fetch('/api/profile')
+        ]);
+
+        const authResult = await authResponse.json();
+        const profileResult = await profileResponse.json();
+
+        if (!authResponse.ok || !authResult.success) {
+          throw new Error(authResult.error?.message || '사용자 정보를 불러오는데 실패했습니다.');
         }
 
-        const user: UserData = result.data.user;
+        const user: UserData = authResult.data.user;
+        const profile = profileResult.success ? profileResult.data : null;
+
         setFormData({
-          nickname: user.name,
-          email: user.email,
-          memberLevel: `ML${user.level}`,
-          bio: '',
+          nickname: user.name || '',
+          email: user.email || '',
+          memberLevel: `ML${user.level || 1}`,
+          bio: profile?.bio || '',
           profileImage: null,
+          preferredDistrict: profile?.preferred_district || '',
         });
+
+        if (profile?.profile_image_url) {
+          setProfileImageUrl(profile.profile_image_url);
+        }
       } catch (err) {
         console.error('Failed to fetch user data:', err);
         setError(err instanceof Error ? err.message : '알 수 없는 오류가 발생했습니다.');
@@ -83,6 +126,13 @@ export default function ProfileEditPage() {
     }));
   };
 
+  const handleDistrictChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setFormData((prev) => ({
+      ...prev,
+      preferredDistrict: e.target.value,
+    }));
+  };
+
   const handleProfileImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
@@ -99,7 +149,7 @@ export default function ProfileEditPage() {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const nickname = formData.nickname.trim();
@@ -109,7 +159,43 @@ export default function ProfileEditPage() {
       return;
     }
 
-    showAlert('프로필이 수정되었습니다!');
+    setSaving(true);
+
+    try {
+      // 프로필 데이터 업데이트
+      const updateData: Record<string, string> = {
+        nickname: nickname,
+      };
+
+      if (formData.bio) {
+        updateData.bio = formData.bio;
+      }
+
+      if (formData.preferredDistrict) {
+        updateData.preferred_district = formData.preferredDistrict;
+      }
+
+      const response = await fetch('/api/profile', {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(updateData),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.error || '프로필 수정에 실패했습니다.');
+      }
+
+      showAlert('프로필이 수정되었습니다!');
+    } catch (err) {
+      console.error('Profile update error:', err);
+      showAlert(err instanceof Error ? err.message : '프로필 수정 중 오류가 발생했습니다.');
+    } finally {
+      setSaving(false);
+    }
   };
 
   const handleCancel = () => {
@@ -173,17 +259,25 @@ export default function ProfileEditPage() {
             </label>
             <div className="flex items-center gap-6">
               <div className="w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center overflow-hidden">
-                <svg
-                  className="w-16 h-16 text-gray-400"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                    clipRule="evenodd"
-                  ></path>
-                </svg>
+                {profileImageUrl || formData.profileImage ? (
+                  <img
+                    src={formData.profileImage ? URL.createObjectURL(formData.profileImage) : profileImageUrl || ''}
+                    alt="프로필"
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <svg
+                    className="w-16 h-16 text-gray-400"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                      clipRule="evenodd"
+                    ></path>
+                  </svg>
+                )}
               </div>
               <div>
                 <input
@@ -267,20 +361,53 @@ export default function ProfileEditPage() {
             </div>
           </div>
 
+          {/* 관심 지역 */}
+          <div>
+            <label htmlFor="preferredDistrict" className="block text-sm font-medium text-gray-900 mb-2">
+              관심 지역 <span className="text-gray-500">(선택)</span>
+            </label>
+            <select
+              id="preferredDistrict"
+              value={formData.preferredDistrict}
+              onChange={handleDistrictChange}
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary-500 focus:border-secondary-500 bg-white"
+            >
+              <option value="">지역을 선택해주세요</option>
+              {REGIONS.filter(r => r !== '').map((region) => (
+                <option key={region} value={region}>
+                  {region}
+                </option>
+              ))}
+            </select>
+            <p className="text-xs text-gray-500 mt-1">선택한 지역의 정치인 정보를 우선적으로 표시합니다.</p>
+          </div>
+
           {/* 버튼 */}
           <div className="flex gap-3 pt-4 border-t">
             <button
               type="button"
               onClick={handleCancel}
-              className="flex-1 px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 font-medium"
+              disabled={saving}
+              className="flex-1 px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 font-medium disabled:opacity-50 disabled:cursor-not-allowed"
             >
               취소
             </button>
             <button
               type="submit"
-              className="flex-1 px-6 py-3 bg-secondary-500 text-white rounded-lg hover:bg-secondary-600 font-medium"
+              disabled={saving}
+              className="flex-1 px-6 py-3 bg-secondary-500 text-white rounded-lg hover:bg-secondary-600 font-medium disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
             >
-              저장하기
+              {saving ? (
+                <>
+                  <svg className="animate-spin -ml-1 mr-2 h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg>
+                  저장 중...
+                </>
+              ) : (
+                '저장하기'
+              )}
             </button>
           </div>
         </form>

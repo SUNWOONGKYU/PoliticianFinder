@@ -6,7 +6,7 @@ import { getInfluenceGrade, formatInfluenceGrade } from '@/utils/memberLevel';
 import GradeUpgradeModal from '@/components/GradeUpgradeModal';
 import useGradeNotification from '@/hooks/useGradeNotification';
 
-type TabType = 'posts' | 'comments' | 'activity';
+type TabType = 'posts' | 'comments' | 'activity' | 'favorites';
 
 interface UserData {
   id: string;
@@ -38,6 +38,22 @@ interface UserPost {
   share_count: number;
 }
 
+interface FavoritePolitician {
+  id: string;
+  politician_id: string;
+  notes: string | null;
+  notification_enabled: boolean;
+  is_pinned: boolean;
+  created_at: string;
+  politicians: {
+    id: string;
+    name: string;
+    party: string;
+    position: string;
+    profile_image_url: string | null;
+  };
+}
+
 export default function MypagePage() {
   const [activeTab, setActiveTab] = useState<TabType>('posts');
   const [userData, setUserData] = useState<UserData | null>(null);
@@ -46,6 +62,8 @@ export default function MypagePage() {
   const [postsLoading, setPostsLoading] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [favoritePoliticians, setFavoritePoliticians] = useState<FavoritePolitician[]>([]);
+  const [favoritesLoading, setFavoritesLoading] = useState(false);
 
   // 등급 변동 알림 훅
   const { notification, closeModal } = useGradeNotification({
@@ -125,6 +143,29 @@ export default function MypagePage() {
     };
 
     fetchUserPosts();
+  }, [userData, activeTab]);
+
+  // Fetch favorite politicians when favorites tab is active
+  useEffect(() => {
+    const fetchFavoritePoliticians = async () => {
+      if (!userData || activeTab !== 'favorites') return;
+
+      try {
+        setFavoritesLoading(true);
+        const response = await fetch('/api/favorites');
+        const result = await response.json();
+
+        if (result.success && result.data) {
+          setFavoritePoliticians(result.data);
+        }
+      } catch (err) {
+        console.error('Failed to fetch favorite politicians:', err);
+      } finally {
+        setFavoritesLoading(false);
+      }
+    };
+
+    fetchFavoritePoliticians();
   }, [userData, activeTab]);
 
   // Loading state
@@ -321,6 +362,16 @@ export default function MypagePage() {
                     }`}
                   >
                     활동 내역
+                  </button>
+                  <button
+                    onClick={() => setActiveTab('favorites')}
+                    className={`px-6 py-3 text-sm font-medium border-b-2 transition focus:outline-none ${
+                      activeTab === 'favorites'
+                        ? 'border-secondary-500 text-secondary-600'
+                        : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                    }`}
+                  >
+                    관심 정치인
                   </button>
                 </nav>
               </div>
@@ -641,6 +692,104 @@ export default function MypagePage() {
                     ※ 영향력 등급은 실시간으로 갱신됩니다
                   </div>
                 </div>
+              </div>
+            )}
+
+            {/* Tab Content: Favorites */}
+            {activeTab === 'favorites' && (
+              <div>
+                {favoritesLoading ? (
+                  <div className="bg-white rounded-lg shadow-md p-8 text-center">
+                    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-secondary-600 mx-auto"></div>
+                    <p className="mt-4 text-gray-600">관심 정치인 목록을 불러오는 중...</p>
+                  </div>
+                ) : favoritePoliticians.length === 0 ? (
+                  <div className="bg-white rounded-lg shadow-md p-8 text-center">
+                    <div className="text-gray-400 mb-4">
+                      <svg className="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                      </svg>
+                    </div>
+                    <p className="text-gray-600 mb-4">등록된 관심 정치인이 없습니다.</p>
+                    <Link
+                      href="/politicians"
+                      className="inline-block px-4 py-2 bg-secondary-500 text-white rounded-lg hover:bg-secondary-600 transition"
+                    >
+                      정치인 둘러보기
+                    </Link>
+                  </div>
+                ) : (
+                  <div className="bg-white rounded-lg shadow-md divide-y">
+                    {favoritePoliticians.map((favorite) => (
+                      <Link key={favorite.id} href={`/politicians/${favorite.politician_id}`}>
+                        <div className="p-4 hover:bg-gray-50 transition cursor-pointer">
+                          <div className="flex items-center gap-4">
+                            {/* 프로필 이미지 */}
+                            <div className="w-14 h-14 bg-gray-200 rounded-full flex items-center justify-center overflow-hidden flex-shrink-0">
+                              {favorite.politicians?.profile_image_url ? (
+                                <img
+                                  src={favorite.politicians.profile_image_url}
+                                  alt={favorite.politicians.name}
+                                  className="w-full h-full object-cover"
+                                />
+                              ) : (
+                                <svg className="w-8 h-8 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                                  <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
+                                </svg>
+                              )}
+                            </div>
+
+                            {/* 정치인 정보 */}
+                            <div className="flex-1 min-w-0">
+                              <div className="flex items-center gap-2">
+                                <h3 className="text-base font-semibold text-gray-900 truncate">
+                                  {favorite.politicians?.name || '알 수 없음'}
+                                </h3>
+                                {favorite.is_pinned && (
+                                  <span className="text-yellow-500" title="고정됨">📌</span>
+                                )}
+                                {favorite.notification_enabled && (
+                                  <span className="text-blue-500" title="알림 활성화">🔔</span>
+                                )}
+                              </div>
+                              <div className="flex items-center gap-2 mt-1">
+                                <span className="text-sm text-gray-600">
+                                  {favorite.politicians?.party || '무소속'}
+                                </span>
+                                <span className="text-gray-300">|</span>
+                                <span className="text-sm text-gray-500">
+                                  {favorite.politicians?.position || '정치인'}
+                                </span>
+                              </div>
+                              {favorite.notes && (
+                                <p className="text-xs text-gray-500 mt-1 truncate">
+                                  메모: {favorite.notes}
+                                </p>
+                              )}
+                            </div>
+
+                            {/* 등록일 */}
+                            <div className="text-xs text-gray-400 flex-shrink-0">
+                              {new Date(favorite.created_at).toLocaleDateString('ko-KR')}
+                            </div>
+                          </div>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                )}
+
+                {/* 정치인 페이지 링크 */}
+                {favoritePoliticians.length > 0 && (
+                  <div className="mt-4 text-center">
+                    <Link
+                      href="/politicians"
+                      className="text-sm text-secondary-600 hover:text-secondary-700 font-medium"
+                    >
+                      더 많은 정치인 둘러보기 →
+                    </Link>
+                  </div>
+                )}
               </div>
             )}
           </div>
