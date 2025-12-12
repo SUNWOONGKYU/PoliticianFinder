@@ -25,17 +25,7 @@ export async function GET(request: NextRequest, { params }: RouteParams) {
     // 사용자 정보 조회 (실제 존재하는 컬럼만)
     const { data: user, error: userError } = await supabase
       .from('users')
-      .select(\`
-        user_id,
-        nickname,
-        name,
-        profile_image_url,
-        activity_points,
-        activity_level,
-        influence_grade,
-        follower_count,
-        created_at
-      \`)
+      .select('user_id, nickname, name, profile_image_url, activity_points, activity_level, influence_grade, follower_count, created_at')
       .eq('user_id', targetUserId)
       .single();
 
@@ -91,7 +81,7 @@ export async function GET(request: NextRequest, { params }: RouteParams) {
         activity: {
           level: user.activity_level || 'ML1',
           points: currentPoints,
-          next_level: currentLevelNum < 10 ? \`ML\${currentLevelNum + 1}\` : null,
+          next_level: currentLevelNum < 10 ? 'ML' + (currentLevelNum + 1) : null,
           points_to_next_level: pointsToNextLevel,
           progress_percent: Math.round(progressPercent),
         },
@@ -100,7 +90,7 @@ export async function GET(request: NextRequest, { params }: RouteParams) {
           title: gradeInfo.title,
           titleEn: gradeInfo.titleEn,
           emoji: gradeInfo.emoji,
-          display: \`\${gradeInfo.emoji} \${gradeInfo.title}\`,
+          display: gradeInfo.emoji + ' ' + gradeInfo.title,
         },
         followers: {
           count: user.follower_count || 0,
