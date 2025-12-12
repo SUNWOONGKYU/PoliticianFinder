@@ -1,5 +1,6 @@
 // P1BA4: Real API - 팔로우 API
 // Supabase RLS 연동: 실제 인증 사용자 기반 팔로우
+// 스키마: follower_id, following_type, following_user_id, following_politician_id
 
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
@@ -7,7 +8,6 @@ import { createClient } from "@/lib/supabase/server";
 import { requireAuth } from "@/lib/auth/helpers";
 
 const followSchema = z.object({
-  user_id: z.string().uuid().optional(),
   politician_id: z.string().min(8).max(8),  // 8자리 hex 문자열
 });
 
@@ -22,10 +22,7 @@ export async function POST(request: NextRequest) {
     const supabase = await createClient();
     const body = await request.json();
 
-    const follow = followSchema.parse({
-      ...body,
-      user_id: user.id,
-    });
+    const follow = followSchema.parse(body);
 
     // 정치인 존재 여부 확인
     const { data: politician, error: politicianError } = await supabase
@@ -41,12 +38,13 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // 중복 팔로우 확인
+    // 중복 팔로우 확인 (DB 스키마에 맞게 수정)
     const { data: existing } = await supabase
       .from('follows')
       .select('id')
-      .eq('user_id', follow.user_id)
-      .eq('politician_id', follow.politician_id)
+      .eq('follower_id', user.id)
+      .eq('following_type', 'politician')
+      .eq('following_politician_id', follow.politician_id)
       .single();
 
     if (existing) {
@@ -56,12 +54,14 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // 팔로우 생성
+    // 팔로우 생성 (DB 스키마에 맞게 수정)
     const { data: newFollow, error: insertError } = await supabase
       .from('follows')
       .insert({
-        user_id: follow.user_id,
-        politician_id: follow.politician_id,
+        follower_id: user.id,
+        following_type: 'politician',
+        following_politician_id: follow.politician_id,
+        following_user_id: null,
       })
       .select()
       .single();
@@ -69,7 +69,7 @@ export async function POST(request: NextRequest) {
     if (insertError) {
       console.error('Supabase insert error:', insertError);
       return NextResponse.json(
-        { success: false, error: "팔로우 추가 중 오류가 발생했습니다" },
+        { success: false, error: "팔로우 추가 중 오류가 발생했습니다", details: insertError.message },
         { status: 500 }
       );
     }
@@ -111,10 +111,12 @@ export async function GET(request: NextRequest) {
     const page = parseInt(request.nextUrl.searchParams.get('page') || '1');
     const limit = parseInt(request.nextUrl.searchParams.get('limit') || '20');
 
+    // DB 스키마에 맞게 수정: follower_id, following_politician_id
     let query = supabase
       .from('follows')
-      .select('*, politicians(id, name, party, position, region, profile_image_url)', { count: 'exact' })
-      .eq('user_id', user.id)
+      .select('*, politicians:following_politician_id(id, name, party, position, region, profile_image_url)', { count: 'exact' })
+      .eq('follower_id', user.id)
+      .eq('following_type', 'politician')
       .order('created_at', { ascending: false });
 
     const start = (page - 1) * limit;
@@ -126,7 +128,7 @@ export async function GET(request: NextRequest) {
     if (error) {
       console.error('Supabase query error:', error);
       return NextResponse.json(
-        { success: false, error: "팔로우 목록 조회 중 오류가 발생했습니다" },
+        { success: false, error: "팔로우 목록 조회 중 오류가 발생했습니다", details: error.message },
         { status: 500 }
       );
     }
@@ -172,16 +174,18 @@ export async function DELETE(request: NextRequest) {
       );
     }
 
+    // DB 스키마에 맞게 수정: follower_id, following_type, following_politician_id
     const { error } = await supabase
       .from('follows')
       .delete()
-      .eq('user_id', user.id)
-      .eq('politician_id', politician_id);
+      .eq('follower_id', user.id)
+      .eq('following_type', 'politician')
+      .eq('following_politician_id', politician_id);
 
     if (error) {
       console.error('Supabase delete error:', error);
       return NextResponse.json(
-        { success: false, error: "언팔로우 중 오류가 발생했습니다" },
+        { success: false, error: "언팔로우 중 오류가 발생했습니다", details: error.message },
         { status: 500 }
       );
     }
