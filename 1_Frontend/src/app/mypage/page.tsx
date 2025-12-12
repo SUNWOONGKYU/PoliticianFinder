@@ -3,6 +3,8 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { getInfluenceGrade, formatInfluenceGrade } from '@/utils/memberLevel';
+import GradeUpgradeModal from '@/components/GradeUpgradeModal';
+import useGradeNotification from '@/hooks/useGradeNotification';
 
 type TabType = 'posts' | 'comments' | 'activity';
 
@@ -44,6 +46,13 @@ export default function MypagePage() {
   const [postsLoading, setPostsLoading] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+
+  // 등급 변동 알림 훅
+  const { notification, closeModal } = useGradeNotification({
+    activityLevel: userStats?.activity_level,
+    influenceGrade: userStats?.influence_grade,
+    isLoggedIn: !!userData,
+  });
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -626,6 +635,17 @@ export default function MypagePage() {
           </div>
         </div>
       </div>
+
+      {/* 등급 승급 모달 */}
+      {notification && (
+        <GradeUpgradeModal
+          isOpen={notification.showModal}
+          onClose={closeModal}
+          gradeType={notification.gradeType}
+          previousGrade={notification.previousGrade}
+          newGrade={notification.newGrade}
+        />
+      )}
     </div>
   );
 }
