@@ -638,16 +638,16 @@ export default function Home() {
                   <table className="w-full text-xs">
                     <thead className="bg-gray-100 border-b-2 border-primary-500">
                       <tr>
-                        <th className="px-2 py-3 text-center font-bold text-gray-900 w-12">순위</th>
-                        <th className="px-3 py-3 text-left font-bold text-gray-900 w-24">이름</th>
-                        <th className="px-2 py-3 text-left font-bold text-gray-900 w-28">직책</th>
-                        <th className="px-2 py-3 text-left font-bold text-gray-900 w-24">정당</th>
-                        <th className="px-2 py-3 text-left font-bold text-gray-900 w-16">신분</th>
-                        <th className="px-2 py-3 text-left font-bold text-gray-900 w-24">출마직종</th>
-                        <th className="px-2 py-3 text-left font-bold text-gray-900 w-20">출마지역</th>
-                        <th className="px-2 py-3 text-left font-bold text-gray-900 w-24">출마지구</th>
-                        <th className="px-2 py-3 text-center font-bold text-gray-900 w-24">평가등급</th>
-                        <th className="px-2 py-3 text-center font-bold text-gray-900 w-20">종합평점</th>
+                        <th className="px-1 py-3 text-center font-bold text-gray-900 w-10">순위</th>
+                        <th className="px-2 py-3 text-left font-bold text-gray-900 w-20">이름</th>
+                        <th className="px-1 py-3 text-left font-bold text-gray-900 w-20">직책</th>
+                        <th className="px-1 py-3 text-left font-bold text-gray-900 w-16">정당</th>
+                        <th className="px-1 py-3 text-left font-bold text-gray-900 w-12">신분</th>
+                        <th className="px-1 py-3 text-left font-bold text-gray-900 w-20 whitespace-nowrap">출마직종</th>
+                        <th className="px-1 py-3 text-left font-bold text-gray-900 w-14">출마지역</th>
+                        <th className="px-1 py-3 text-left font-bold text-gray-900 w-16">출마지구</th>
+                        <th className="px-1 py-3 text-center font-bold text-gray-900 w-16">평가등급</th>
+                        <th className="px-1 py-3 text-center font-bold text-gray-900 w-14">종합평점</th>
                         <th className="px-1 py-2 text-center font-bold text-gray-900 w-14">
                           <div className="flex flex-col items-center justify-center">
                             <img src={aiLogos.claude} alt="Claude" className="h-4 w-4 object-contain rounded" />
@@ -666,36 +666,36 @@ export default function Home() {
                             <span className="text-xs">Grok</span>
                           </div>
                         </th>
-                        <th className="px-2 py-3 text-center font-bold text-gray-900 w-20">회원평가</th>
+                        <th className="px-1 py-3 text-center font-bold text-gray-900 w-16">회원평가</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-200">
                       {politicians.map((p) => (
                         <tr key={p.id} className="hover:bg-gray-50 cursor-pointer">
-                          <td className="px-2 py-3 text-center">
+                          <td className="px-1 py-3 text-center">
                             <span className="font-bold text-gray-900 text-sm">{p.rank}</span>
                           </td>
-                          <td className="px-3 py-3">
+                          <td className="px-2 py-3">
                             <Link href={`/politicians/${p.id}`}>
-                              <span className="font-bold text-primary-600 hover:text-primary-700 text-sm inline-flex items-center gap-1">
+                              <span className="font-bold text-primary-600 hover:text-primary-700 text-sm whitespace-nowrap">
                                 {p.name} <span className="text-xs">›</span>
                               </span>
                             </Link>
                           </td>
-                          <td className="px-2 py-3 text-gray-600 text-xs">
+                          <td className="px-1 py-3 text-gray-600 text-xs">
                             {p.title || '-'}
                           </td>
-                          <td className="px-2 py-3 text-gray-600 text-xs">{p.party}</td>
-                          <td className="px-2 py-3 text-gray-600 text-xs">
+                          <td className="px-1 py-3 text-gray-600 text-xs">{p.party}</td>
+                          <td className="px-1 py-3 text-gray-600 text-xs">
                             {p.identity}
                           </td>
-                          <td className="px-2 py-3 text-gray-600 text-xs">{p.positionType || '-'}</td>
-                          <td className="px-2 py-3 text-gray-600 text-xs">{p.region}</td>
-                          <td className="px-2 py-3 text-gray-600 text-xs">{p.district || '-'}</td>
-                          <td className="px-2 py-3 text-center text-xs font-semibold text-accent-600">
+                          <td className="px-1 py-3 text-gray-600 text-xs whitespace-nowrap">{p.positionType || '-'}</td>
+                          <td className="px-1 py-3 text-gray-600 text-xs">{p.region}</td>
+                          <td className="px-1 py-3 text-gray-600 text-xs">{p.district || '-'}</td>
+                          <td className="px-1 py-3 text-center text-xs font-semibold text-accent-600">
                             {p.gradeEmoji} {p.grade}
                           </td>
-                          <td className="px-2 py-3 text-center font-bold text-accent-600">
+                          <td className="px-1 py-3 text-center font-bold text-accent-600">
                             {p.totalScore > 0 ? p.totalScore : '-'}
                           </td>
                           <td className="px-1 py-3 text-center font-bold text-accent-600 text-sm">
@@ -707,11 +707,10 @@ export default function Home() {
                           <td className="px-1 py-3 text-center font-bold text-accent-600 text-sm">
                             {p.grok > 0 ? p.grok : '-'}
                           </td>
-                          <td className="px-2 py-3 text-center text-xs">
+                          <td className="px-1 py-3 text-center text-xs">
                             <div className="font-bold text-secondary-600">
                               {'★'.repeat(Math.round(p.userRating))}{'☆'.repeat(5 - Math.round(p.userRating))}
                             </div>
-                            <div className="text-xs text-gray-600">({p.userCount}명)</div>
                           </td>
                         </tr>
                       ))}
