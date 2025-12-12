@@ -34,7 +34,7 @@ export async function POST(request: NextRequest) {
       .select('id, name, party, position')
       .eq('name', validated.name)
       .eq('party', validated.party)
-      .single();
+      .single() as { data: { id: string; name: string; party: string; position: string | null } | null; error: any };
 
     if (error || !politician) {
       // 이름 + 정당으로 먼저 검색 실패 시 더 상세한 에러 메시지
