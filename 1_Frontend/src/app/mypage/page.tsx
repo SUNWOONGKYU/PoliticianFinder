@@ -65,10 +65,21 @@ export default function MypagePage() {
           throw new Error(result.error?.message || '사용자 정보를 불러오는데 실패했습니다.');
         }
 
-        setUserData(result.data.user);
+        // /api/auth/me 응답: { success, user, profile }
+        const user = result.user;
+        const profile = result.profile;
+
+        setUserData({
+          id: user.id,
+          email: user.email,
+          name: profile?.name || profile?.nickname || user.email,
+          role: profile?.role || 'user',
+          points: profile?.activity_points || 0,
+          level: parseInt((profile?.activity_level || 'ML1').replace('ML', '')) || 1,
+        });
 
         // 사용자 통계 불러오기
-        const userId = result.data.user.id;
+        const userId = user.id;
         const statsResponse = await fetch(`/api/users/${userId}/stats`);
         const statsResult = await statsResponse.json();
 
