@@ -142,6 +142,26 @@ export async function GET(request: NextRequest) {
       updated_at: string;
     }> = {};
 
+    // 회원 평가 데이터 조회 (politician_details 테이블)
+    let ratingsMap: Record<string, { user_rating: number; rating_count: number }> = {};
+    if (politicianIds.length > 0) {
+      const { data: ratingsData, error: ratingsError } = await supabase
+        .from("politician_details")
+        .select("politician_id, user_rating, rating_count")
+        .in("politician_id", politicianIds);
+
+      if (ratingsError) {
+        console.error("Ratings query error:", ratingsError);
+      } else if (ratingsData) {
+        ratingsData.forEach((r: any) => {
+          ratingsMap[r.politician_id] = {
+            user_rating: r.user_rating || 0,
+            rating_count: r.rating_count || 0
+          };
+        });
+      }
+    }
+
     if (politicianIds.length > 0) {
       const { data: scores, error: scoresError } = await supabase
         .from("ai_final_scores")
@@ -199,8 +219,15 @@ export async function GET(request: NextRequest) {
     // P3F4: Map fields for list view (snake_case → camelCase) with V24.0 scores
     let mappedPoliticians = (politicians || []).map((p: any) => {
       const scoreData = scoresMap[p.id];
+      const ratingData = ratingsMap[p.id];
+      // politician_details의 user_rating, rating_count를 dbRecord에 추가
+      const enrichedRecord = {
+        ...p,
+        user_rating: ratingData?.user_rating || 0,
+        rating_count: ratingData?.rating_count || 0
+      };
       return mapPoliticianListFieldsWithScore(
-        p,
+        enrichedRecord,
         scoreData?.total_score || 0,
         scoreData?.claude_score || 0,
         scoreData?.chatgpt_score || 0,
