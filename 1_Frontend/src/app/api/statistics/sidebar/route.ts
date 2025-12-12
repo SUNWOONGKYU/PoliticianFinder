@@ -1,138 +1,185 @@
 // Sidebar Statistics API - 홈 사이드바 통계 정보
-// 전체 정치인 수, 활성 정치인 수, 게시글 수, 댓글 수 등 통계 제공
+// 정치인/회원/커뮤니티 전체 통계 제공
 
 import { NextRequest, NextResponse } from "next/server";
-import { createClient } from "@/lib/supabase/server";
+import { createClient, createAdminClient } from "@/lib/supabase/server";
 
 export async function GET(request: NextRequest) {
   try {
     const supabase = await createClient();
+    const adminClient = createAdminClient();
 
-    // 1. 전체 정치인 수
-    const { count: totalPoliticians, error: politiciansError } = await supabase
+    // 날짜 계산
+    const now = new Date();
+    const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate()).toISOString();
+    const thisMonthStart = new Date(now.getFullYear(), now.getMonth(), 1).toISOString();
+    const sevenDaysAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000).toISOString();
+
+    // ============================================
+    // 1. 정치인 통계
+    // ============================================
+
+    // 전체 정치인 수
+    const { count: totalPoliticians } = await supabase
       .from("politicians")
       .select("*", { count: "exact", head: true });
 
-    if (politiciansError) {
-      console.error("Error counting politicians:", politiciansError);
-    }
-
-    // 2. 활성 정치인 수 (is_active = true)
-    const { count: activePoliticians, error: activeError } = await supabase
+    // 신분별 정치인 수 (identity 컬럼)
+    const { data: politiciansByIdentity } = await supabase
       .from("politicians")
+      .select("identity");
+
+    const identityStats = {
+      현직: 0,
+      후보자: 0,
+      예비후보자: 0,
+      출마자: 0,
+    };
+
+    (politiciansByIdentity || []).forEach((p: any) => {
+      const identity = p.identity || '현직';
+      if (identity in identityStats) {
+        identityStats[identity as keyof typeof identityStats]++;
+      }
+    });
+
+    // 출마직종별 정치인 수 (position_type 컬럼)
+    const { data: politiciansByPosition } = await supabase
+      .from("politicians")
+      .select("position_type");
+
+    const positionStats = {
+      국회의원: 0,
+      광역단체장: 0,
+      광역의원: 0,
+      기초단체장: 0,
+      기초의원: 0,
+      교육감: 0,
+    };
+
+    (politiciansByPosition || []).forEach((p: any) => {
+      const positionType = p.position_type || '';
+      if (positionType in positionStats) {
+        positionStats[positionType as keyof typeof positionStats]++;
+      }
+    });
+
+    // ============================================
+    // 2. 회원 통계
+    // ============================================
+
+    // 전체 회원 수
+    const { count: totalUsers } = await adminClient
+      .from("users")
+      .select("*", { count: "exact", head: true });
+
+    // 이번 달 가입자 수
+    const { count: thisMonthUsers } = await adminClient
+      .from("users")
       .select("*", { count: "exact", head: true })
-      .eq("is_active", true);
+      .gte("created_at", thisMonthStart);
 
-    if (activeError) {
-      console.error("Error counting active politicians:", activeError);
-    }
+    // 레벨별 분포
+    const { data: usersByLevel } = await adminClient
+      .from("users")
+      .select("activity_level");
 
-    // 3. 전체 게시글 수
-    const { count: totalPosts, error: postsError } = await supabase
+    const levelStats: Record<string, number> = {};
+    (usersByLevel || []).forEach((u: any) => {
+      const level = u.activity_level || 'ML1';
+      levelStats[level] = (levelStats[level] || 0) + 1;
+    });
+
+    // 레벨 내림차순 정렬 (ML10, ML9, ... ML1)
+    const sortedLevelStats = Object.entries(levelStats)
+      .sort((a, b) => {
+        const numA = parseInt(a[0].replace('ML', '')) || 0;
+        const numB = parseInt(b[0].replace('ML', '')) || 0;
+        return numB - numA;
+      })
+      .reduce((acc, [key, value]) => {
+        acc[key] = value;
+        return acc;
+      }, {} as Record<string, number>);
+
+    // ============================================
+    // 3. 커뮤니티 통계
+    // ============================================
+
+    // 전체 게시글 수
+    const { count: totalPosts } = await supabase
       .from("posts")
       .select("*", { count: "exact", head: true });
 
-    if (postsError) {
-      console.error("Error counting posts:", postsError);
-    }
-
-    // 4. 정치인 게시판 게시글 수 (category = 'politician')
-    const { count: politicianPosts, error: politicianPostsError } = await supabase
+    // 정치인 게시글 수
+    const { count: politicianPosts } = await supabase
       .from("posts")
       .select("*", { count: "exact", head: true })
       .eq("category", "politician");
 
-    if (politicianPostsError) {
-      console.error("Error counting politician posts:", politicianPostsError);
-    }
+    // 회원 게시글 수
+    const userPosts = (totalPosts || 0) - (politicianPosts || 0);
 
-    // 5. 일반 게시판 게시글 수 (category != 'politician')
-    const { count: userPosts, error: userPostsError } = await supabase
-      .from("posts")
-      .select("*", { count: "exact", head: true })
-      .neq("category", "politician");
-
-    if (userPostsError) {
-      console.error("Error counting user posts:", userPostsError);
-    }
-
-    // 6. 전체 댓글 수
-    const { count: totalComments, error: commentsError } = await supabase
+    // 전체 댓글 수
+    const { count: totalComments } = await supabase
       .from("comments")
       .select("*", { count: "exact", head: true });
 
-    if (commentsError) {
-      console.error("Error counting comments:", commentsError);
-    }
-
-    // 7. 전체 평가 수
-    const { count: totalRatings, error: ratingsError } = await supabase
-      .from("politician_ratings")
-      .select("*", { count: "exact", head: true });
-
-    if (ratingsError) {
-      console.error("Error counting ratings:", ratingsError);
-    }
-
-    // 8. 전체 즐겨찾기 수
-    const { count: totalFavorites, error: favoritesError } = await supabase
-      .from("favorite_politicians")
-      .select("*", { count: "exact", head: true });
-
-    if (favoritesError) {
-      console.error("Error counting favorites:", favoritesError);
-    }
-
-    // 9. 최근 7일간 신규 게시글 수
-    const sevenDaysAgo = new Date();
-    sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
-
-    const { count: recentPosts, error: recentPostsError } = await supabase
+    // 오늘 게시글 수
+    const { count: todayPosts } = await supabase
       .from("posts")
       .select("*", { count: "exact", head: true })
-      .gte("created_at", sevenDaysAgo.toISOString());
+      .gte("created_at", todayStart);
 
-    if (recentPostsError) {
-      console.error("Error counting recent posts:", recentPostsError);
-    }
-
-    // 10. 최근 7일간 신규 댓글 수
-    const { count: recentComments, error: recentCommentsError } = await supabase
+    // 오늘 댓글 수
+    const { count: todayComments } = await supabase
       .from("comments")
       .select("*", { count: "exact", head: true })
-      .gte("created_at", sevenDaysAgo.toISOString());
+      .gte("created_at", todayStart);
 
-    if (recentCommentsError) {
-      console.error("Error counting recent comments:", recentCommentsError);
-    }
+    // 이번 주 게시글 수
+    const { count: weekPosts } = await supabase
+      .from("posts")
+      .select("*", { count: "exact", head: true })
+      .gte("created_at", sevenDaysAgo);
 
+    // 이번 주 댓글 수
+    const { count: weekComments } = await supabase
+      .from("comments")
+      .select("*", { count: "exact", head: true })
+      .gte("created_at", sevenDaysAgo);
+
+    // ============================================
+    // 응답 데이터 구성
+    // ============================================
     const statistics = {
       politicians: {
         total: totalPoliticians || 0,
-        active: activePoliticians || 0,
-        inactive: (totalPoliticians || 0) - (activePoliticians || 0),
+        byIdentity: identityStats,
+        byPosition: positionStats,
       },
-      posts: {
-        total: totalPosts || 0,
-        politician: politicianPosts || 0,
-        user: userPosts || 0,
-        recent7Days: recentPosts || 0,
+      users: {
+        total: totalUsers || 0,
+        thisMonth: thisMonthUsers || 0,
+        byLevel: sortedLevelStats,
       },
-      comments: {
-        total: totalComments || 0,
-        recent7Days: recentComments || 0,
-      },
-      engagement: {
-        totalRatings: totalRatings || 0,
-        totalFavorites: totalFavorites || 0,
-      },
-      summary: {
-        totalPoliticians: totalPoliticians || 0,
-        activePoliticians: activePoliticians || 0,
-        totalPosts: totalPosts || 0,
-        politicianPosts: politicianPosts || 0,
-        userPosts: userPosts || 0,
-        totalComments: totalComments || 0,
+      community: {
+        posts: {
+          total: totalPosts || 0,
+          politician: politicianPosts || 0,
+          user: userPosts,
+        },
+        comments: {
+          total: totalComments || 0,
+        },
+        today: {
+          posts: todayPosts || 0,
+          comments: todayComments || 0,
+        },
+        thisWeek: {
+          posts: weekPosts || 0,
+          comments: weekComments || 0,
+        },
       },
     };
 
@@ -142,7 +189,12 @@ export async function GET(request: NextRequest) {
         data: statistics,
         timestamp: new Date().toISOString(),
       },
-      { status: 200 }
+      {
+        status: 200,
+        headers: {
+          'Cache-Control': 'public, s-maxage=60, stale-while-revalidate=120',
+        },
+      }
     );
   } catch (error) {
     console.error("[Sidebar Statistics API] Error:", error);
