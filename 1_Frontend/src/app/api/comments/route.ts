@@ -275,6 +275,9 @@ async function handleUserComment(request: NextRequest, body: any) {
           error: {
             code: 'DATABASE_ERROR',
             message: '댓글 작성 중 오류가 발생했습니다.',
+            details: error.message,
+            hint: error.hint,
+            db_code: error.code,
           },
         },
         { status: 500 }
