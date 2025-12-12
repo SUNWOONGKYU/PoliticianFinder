@@ -221,11 +221,11 @@ export default function MypagePage() {
               {/* Stats */}
               <div className="mt-6 pt-6 border-t grid grid-cols-5 gap-2 text-center">
                 <div>
-                  <div className="text-xl font-bold text-gray-900">24</div>
+                  <div className="text-xl font-bold text-gray-900">{userStats?.post_count || 0}</div>
                   <div className="text-xs text-gray-500">게시글</div>
                 </div>
                 <div>
-                  <div className="text-xl font-bold text-gray-900">156</div>
+                  <div className="text-xl font-bold text-gray-900">{userStats?.comment_count || 0}</div>
                   <div className="text-xs text-gray-500">댓글</div>
                 </div>
                 <div>
@@ -233,11 +233,11 @@ export default function MypagePage() {
                   <div className="text-xs text-gray-500">포인트</div>
                 </div>
                 <div>
-                  <div className="text-xl font-bold text-gray-900">2.5K</div>
+                  <div className="text-xl font-bold text-gray-900">{userStats?.follower_count || 0}</div>
                   <div className="text-xs text-gray-500">팔로워</div>
                 </div>
                 <div>
-                  <div className="text-xl font-bold text-gray-900">128</div>
+                  <div className="text-xl font-bold text-gray-900">{userStats?.following_count || 0}</div>
                   <div className="text-xs text-gray-500">팔로잉</div>
                 </div>
               </div>
@@ -557,7 +557,7 @@ export default function MypagePage() {
                 {/* Influence Grade Card */}
                 <div className="bg-gradient-to-r from-emerald-50 to-teal-50 rounded-lg shadow-md p-6 border-2 border-emerald-200">
                   <div className="flex items-center mb-4">
-                    <div className="text-3xl mr-3">🏰</div>
+                    <div className="text-3xl mr-3">{getInfluenceGrade(userStats?.follower_count || 0).emoji}</div>
                     <div>
                       <h3 className="text-lg font-bold text-gray-900">영향력 등급</h3>
                       <p className="text-xs text-gray-500">지역구 내 팔로워 순위 기반 (명예 칭호)</p>
@@ -567,9 +567,11 @@ export default function MypagePage() {
                   <div className="bg-white bg-opacity-80 rounded-lg p-4 mb-3">
                     <div className="flex items-center justify-between mb-3">
                       <div className="flex items-center">
-                        <span className="text-2xl mr-3">{getInfluenceGrade(0).emoji}</span>
+                        <span className="text-2xl mr-3">{getInfluenceGrade(userStats?.follower_count || 0).emoji}</span>
                         <div>
-                          <div className="text-2xl font-bold text-emerald-900">{getInfluenceGrade(0).title} ({getInfluenceGrade(0).titleEn})</div>
+                          <div className="text-2xl font-bold text-emerald-900">
+                            {getInfluenceGrade(userStats?.follower_count || 0).title} ({getInfluenceGrade(userStats?.follower_count || 0).titleEn})
+                          </div>
                           <div className="text-sm text-gray-600 mt-1">📍 지역 미설정</div>
                         </div>
                       </div>
@@ -578,8 +580,10 @@ export default function MypagePage() {
                     <div className="grid grid-cols-2 gap-3 pt-3 border-t">
                       <div className="text-center">
                         <div className="text-xs text-gray-500 mb-1">팔로워</div>
-                        <div className="text-xl font-bold text-indigo-600">0명</div>
-                        <div className="text-xs text-gray-500 mt-1">팔로우 기능 준비 중</div>
+                        <div className="text-xl font-bold text-indigo-600">{userStats?.follower_count || 0}명</div>
+                        <div className="text-xs text-gray-500 mt-1">
+                          {(userStats?.follower_count || 0) < 10 ? '10명 이상 시 기사 등급' : '팔로워 활동 중'}
+                        </div>
                       </div>
                       <div className="text-center">
                         <div className="text-xs text-gray-500 mb-1">지역 순위</div>
@@ -593,10 +597,16 @@ export default function MypagePage() {
                     <div className="flex items-center justify-between text-sm">
                       <div className="flex items-center text-gray-700">
                         <span className="mr-2">🎯</span>
-                        <span>다음 등급: <span className="font-bold text-emerald-900">기사 (Knight)</span></span>
+                        <span>다음 등급: <span className="font-bold text-emerald-900">
+                          {(userStats?.follower_count || 0) < 10 ? '기사 (Knight)' :
+                           (userStats?.follower_count || 0) < 50 ? '영주 (Lord)' :
+                           (userStats?.follower_count || 0) < 200 ? '공작 (Duke)' : '군주 (Monarch)'}
+                        </span></span>
                       </div>
                       <div className="text-xs text-gray-600">
-                        상위 5% 진입 시
+                        {(userStats?.follower_count || 0) < 10 ? '팔로워 10명 이상' :
+                         (userStats?.follower_count || 0) < 50 ? '상위 20% + 팔로워 50명' :
+                         (userStats?.follower_count || 0) < 200 ? '상위 5% + 팔로워 200명' : '1위 + 팔로워 500명'}
                       </div>
                     </div>
                   </div>
