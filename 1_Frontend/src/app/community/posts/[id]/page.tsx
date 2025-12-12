@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import FixedCommentInput from '@/components/ui/FixedCommentInput';
+import FollowButton from '@/components/FollowButton';
 import { formatInfluenceGrade } from '@/utils/memberLevel';
 
 interface Comment {
@@ -79,6 +80,7 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
             title: postData.title,
             category: postData.politician_id ? '정치인 게시판' : '자유게시판',
             author: author,
+            userId: postData.user_id,
             isPolitician: !!postData.politician_id,
             politicianStatus: postData.politicians?.status,
             politicianPosition: postData.politicians?.position,
@@ -343,6 +345,9 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
                   <span className="font-medium text-secondary-600">{post.author}</span>
                   <span className="text-gray-900" aria-label={`활동 등급 ${post.memberLevel}`} title={`활동 등급: ${post.memberLevel}`}>{post.memberLevel}</span>
                   <span className="text-xs text-emerald-900 font-medium">{formatInfluenceGrade(0)}</span>
+                  {post.userId && (
+                    <FollowButton targetUserId={post.userId} size="sm" variant="outline" />
+                  )}
                 </>
               )}
               <span>{post.timestamp}</span>
