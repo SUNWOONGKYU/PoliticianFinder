@@ -114,13 +114,13 @@ export async function GET(request: NextRequest) {
       .from("posts")
       .select("*", { count: "exact", head: true });
 
-    // 정치인 게시글 수
+    // 정치인 게시글 수 (politician_id가 있는 글)
     const { count: politicianPosts } = await supabase
       .from("posts")
       .select("*", { count: "exact", head: true })
-      .eq("category", "politician");
+      .not("politician_id", "is", null);
 
-    // 회원 게시글 수
+    // 회원 게시글 수 (politician_id가 없는 글)
     const userPosts = (totalPosts || 0) - (politicianPosts || 0);
 
     // 전체 댓글 수
