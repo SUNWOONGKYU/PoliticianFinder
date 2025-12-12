@@ -271,7 +271,7 @@ export default function MypagePage() {
               {/* Actions */}
               <div className="mt-6 space-y-2">
                 <Link
-                  href={`/users/${userData.id}/profile`}
+                  href="/profile/edit"
                   className="block w-full text-center px-4 py-2 bg-secondary-500 text-white rounded-md hover:bg-secondary-600 font-medium text-sm focus:outline-none focus:ring-2 focus:ring-secondary-300"
                 >
                   프로필 수정
