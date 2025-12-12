@@ -1382,9 +1382,8 @@ export default function Home() {
                         {userStats?.influence.emoji || '🚶'} {userStats?.influence.title || '방랑자'}
                       </span>
                     </div>
-                    <div className="flex justify-between text-xs text-gray-600 mt-1">
-                      <div>팔로워 {userStats?.followers.count || 0}명</div>
-                      <div>팔로잉 {userStats?.followers.following_count || 0}명</div>
+                    <div className="text-xs text-gray-600 mt-1">
+                      팔로워 {userStats?.followers.count || 0}명
                     </div>
                   </div>
 
