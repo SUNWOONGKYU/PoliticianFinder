@@ -47,10 +47,16 @@ export async function createClient() {
  * 회원가입 시 users 테이블에 프로필 생성할 때 사용
  */
 export function createAdminClient() {
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-  const supabaseServiceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const supabaseServiceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+
+  if (!supabaseUrl) {
+    console.error('[createAdminClient] NEXT_PUBLIC_SUPABASE_URL is not defined');
+    throw new Error('NEXT_PUBLIC_SUPABASE_URL is not defined');
+  }
 
   if (!supabaseServiceRoleKey) {
+    console.error('[createAdminClient] SUPABASE_SERVICE_ROLE_KEY is not defined');
     throw new Error('SUPABASE_SERVICE_ROLE_KEY is not defined');
   }
 

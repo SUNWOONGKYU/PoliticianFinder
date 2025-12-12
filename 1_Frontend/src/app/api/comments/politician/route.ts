@@ -85,13 +85,19 @@ export async function GET(request: NextRequest) {
  */
 export async function POST(request: NextRequest) {
   try {
+    console.log('[POST /api/comments/politician] Starting...');
+
     const body = await request.json();
+    console.log('[POST /api/comments/politician] Body:', JSON.stringify(body));
 
     // 입력 데이터 검증
     const validated = politicianCommentSchema.parse(body);
+    console.log('[POST /api/comments/politician] Validated:', JSON.stringify(validated));
 
     // Admin client 사용 (RLS 우회)
+    console.log('[POST /api/comments/politician] Creating admin client...');
     const supabase = createAdminClient();
+    console.log('[POST /api/comments/politician] Admin client created');
 
     // 1. 정치인 존재 확인
     const { data: politician, error: politicianError } = await supabase
@@ -184,12 +190,14 @@ export async function POST(request: NextRequest) {
     }
 
     console.error('[POST /api/comments/politician] Unexpected error:', error);
+    console.error('[POST /api/comments/politician] Error stack:', error instanceof Error ? error.stack : 'N/A');
     return NextResponse.json(
       {
         success: false,
         error: {
           code: 'INTERNAL_SERVER_ERROR',
           message: '서버 오류가 발생했습니다.',
+          details: error instanceof Error ? error.message : String(error),
         },
       },
       { status: 500 }

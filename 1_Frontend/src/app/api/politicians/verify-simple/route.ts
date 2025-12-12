@@ -19,13 +19,21 @@ const verifySimpleSchema = z.object({
  */
 export async function POST(request: NextRequest) {
   try {
+    console.log('[POST /api/politicians/verify-simple] Starting...');
+
     const body = await request.json();
+    console.log('[POST /api/politicians/verify-simple] Body:', JSON.stringify(body));
 
     // 입력 데이터 검증
     const validated = verifySimpleSchema.parse(body);
+    console.log('[POST /api/politicians/verify-simple] Validated');
 
     // Admin client 사용 (RLS 우회)
+    console.log('[POST /api/politicians/verify-simple] Creating admin client...');
+    console.log('[POST /api/politicians/verify-simple] SUPABASE_URL exists:', !!process.env.NEXT_PUBLIC_SUPABASE_URL);
+    console.log('[POST /api/politicians/verify-simple] SERVICE_ROLE_KEY exists:', !!process.env.SUPABASE_SERVICE_ROLE_KEY);
     const supabase = createAdminClient();
+    console.log('[POST /api/politicians/verify-simple] Admin client created');
 
     // 이름 + 소속정당 + 출마직종으로 정치인 검색
     // position 필드는 DB에서 다양하게 저장될 수 있으므로 유연하게 검색
@@ -110,12 +118,14 @@ export async function POST(request: NextRequest) {
     }
 
     console.error('[POST /api/politicians/verify-simple] Unexpected error:', error);
+    console.error('[POST /api/politicians/verify-simple] Error stack:', error instanceof Error ? error.stack : 'N/A');
     return NextResponse.json(
       {
         success: false,
         error: {
           code: 'INTERNAL_SERVER_ERROR',
           message: '서버 오류가 발생했습니다.',
+          details: error instanceof Error ? error.message : String(error),
         },
       },
       { status: 500 }
