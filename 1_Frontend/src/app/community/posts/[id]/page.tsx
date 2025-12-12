@@ -41,12 +41,36 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
   const [commentsLoading, setCommentsLoading] = useState(false);
   const [totalComments, setTotalComments] = useState(0);
   const [displayedComments, setDisplayedComments] = useState(5); // 처음에 5개만 표시
+  const [currentUser, setCurrentUser] = useState<{ id: string; email: string; name?: string } | null>(null);
 
   // Sample user nicknames
   const sampleNicknames = [
     '정치는우리의것', '투명한정치', '민주시민', '시민참여자', '투표하는시민',
     '민생이우선', '변화를원해', '미래세대', '깨어있는시민', '정책분석가'
   ];
+
+  // 로그인 상태 확인
+  useEffect(() => {
+    const checkAuth = async () => {
+      try {
+        const response = await fetch('/api/auth/me');
+        if (response.ok) {
+          const result = await response.json();
+          if (result.success && result.user) {
+            setCurrentUser({
+              id: result.user.id,
+              email: result.user.email,
+              name: result.profile?.name || result.profile?.nickname || result.user.email
+            });
+          }
+        }
+      } catch (error) {
+        console.error('[게시글 상세] 인증 확인 오류:', error);
+      }
+    };
+
+    checkAuth();
+  }, []);
 
   // Fetch post data from API
   useEffect(() => {
@@ -208,7 +232,7 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
 
             return {
               id: comment.id,
-              author: sampleNicknames[nicknameIndex],
+              author: comment.users?.name || comment.users?.nickname || sampleNicknames[nicknameIndex],
               userId: comment.user_id,
               authorType: 'member' as const,
               memberLevel: mlLevel,
@@ -454,7 +478,11 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
                   placeholder="회원으로 댓글을 입력하세요..."
                 />
                 <div className="flex justify-between items-center mt-2">
-                  <span className="text-sm text-gray-500">회원 계정으로 로그인 필요</span>
+                  {currentUser ? (
+                    <span className="text-sm text-emerald-600 font-medium">{currentUser.name || currentUser.email}님으로 댓글 작성</span>
+                  ) : (
+                    <span className="text-sm text-gray-500">회원 계정으로 로그인 필요</span>
+                  )}
                   <button
                     onClick={() => {
                       if (commentText.trim()) {
@@ -473,8 +501,13 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
           ) : (
             /* 회원 자유게시판 - 일반 댓글 작성 폼만 표시 */
             <div className="mb-6 p-4 bg-white border border-gray-200 rounded-lg">
-              <div className="flex items-center gap-2 mb-2">
+              <div className="flex items-center justify-between gap-2 mb-2">
                 <span className="text-sm font-bold text-gray-700">💬 댓글 작성</span>
+                {currentUser ? (
+                  <span className="text-sm text-emerald-600 font-medium">{currentUser.name || currentUser.email}님으로 작성</span>
+                ) : (
+                  <span className="text-sm text-gray-500">로그인 필요</span>
+                )}
               </div>
               <textarea
                 value={commentText}
