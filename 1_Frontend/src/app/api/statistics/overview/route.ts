@@ -42,8 +42,8 @@ export async function GET(request: NextRequest) {
       // 총 댓글 수 (comments 테이블이 있다면)
       supabase.from('comments').select('*', { count: 'exact', head: true }),
 
-      // 총 평가 수 (ratings 테이블이 있다면)
-      supabase.from('ratings').select('*', { count: 'exact', head: true }),
+      // 총 평가 수 (politician_ratings 테이블)
+      supabase.from('politician_ratings').select('*', { count: 'exact', head: true }),
 
       // 활성 정치인 수
       supabase
