@@ -180,19 +180,21 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
   // MI7: 고정 댓글 입력창 제출 핸들러
   const handleCommentSubmit = useCallback(async (content: string) => {
     try {
-      const response = await fetch(`/api/posts/${params.id}/comments`, {
+      // /api/comments API 호출 (post_id 포함)
+      const response = await fetch('/api/comments', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ content })
+        body: JSON.stringify({ post_id: params.id, content })
       });
 
+      const data = await response.json();
+
       if (!response.ok) {
-        const data = await response.json();
-        throw new Error(data.error || '댓글 등록에 실패했습니다.');
+        throw new Error(data.error?.message || data.error || '댓글 등록에 실패했습니다.');
       }
 
       // 댓글 목록 새로고침
-      const commentsResponse = await fetch(`/api/posts/${params.id}/comments`);
+      const commentsResponse = await fetch(`/api/comments?post_id=${params.id}`);
       if (commentsResponse.ok) {
         const result = await commentsResponse.json();
         if (result.success && result.data) {
