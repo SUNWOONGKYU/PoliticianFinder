@@ -207,14 +207,30 @@ async function handleUserComment(request: NextRequest, body: any) {
     // 3. Supabase 클라이언트 생성
     const supabase = await createClient();
 
-    // 4. 게시글 존재 여부 확인
+    // 4. post_id를 숫자로 변환
+    const postIdNum = parseInt(validated.post_id, 10);
+    if (isNaN(postIdNum)) {
+      return NextResponse.json(
+        {
+          success: false,
+          error: {
+            code: 'VALIDATION_ERROR',
+            message: '유효하지 않은 게시글 ID입니다.',
+          },
+        },
+        { status: 400 }
+      );
+    }
+
+    // 5. 게시글 존재 여부 확인
     const { data: post, error: postError } = await supabase
       .from('posts')
       .select('id')
-      .eq('id', validated.post_id)
+      .eq('id', postIdNum)
       .single();
 
     if (postError || !post) {
+      console.error('[POST /api/comments] Post not found:', postIdNum, postError);
       return NextResponse.json(
         {
           success: false,
@@ -227,12 +243,13 @@ async function handleUserComment(request: NextRequest, body: any) {
       );
     }
 
-    // 5. 대댓글인 경우 부모 댓글 존재 여부 확인
+    // 6. 대댓글인 경우 부모 댓글 존재 여부 확인
     if (validated.parent_id) {
+      const parentIdNum = parseInt(validated.parent_id, 10);
       const { data: parentComment, error: parentError } = await supabase
         .from('comments')
         .select('id')
-        .eq('id', validated.parent_id)
+        .eq('id', parentIdNum)
         .single();
 
       if (parentError || !parentComment) {
@@ -249,14 +266,14 @@ async function handleUserComment(request: NextRequest, body: any) {
       }
     }
 
-    // 6. Supabase에 댓글 삽입 (RLS로 user_id 자동 검증)
+    // 7. Supabase에 댓글 삽입 (RLS로 user_id 자동 검증)
     const { data: newComment, error } = await supabase
       .from('comments')
       .insert({
-        post_id: validated.post_id,
+        post_id: postIdNum,
         content: validated.content,
         user_id: user.id,
-        parent_id: validated.parent_id || null,
+        parent_id: validated.parent_id ? parseInt(validated.parent_id, 10) : null,
         author_type: 'user',
       })
       .select()
