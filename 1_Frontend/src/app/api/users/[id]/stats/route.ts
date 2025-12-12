@@ -22,28 +22,25 @@ export async function GET(request: NextRequest, { params }: RouteParams) {
     const targetUserId = params.id;
     const supabase = await createClient();
 
-    // 사용자 정보 조회
+    // 사용자 정보 조회 (실제 존재하는 컬럼만)
     const { data: user, error: userError } = await supabase
       .from('users')
-      .select(`
+      .select(\`
         user_id,
-        username,
         nickname,
+        name,
         profile_image_url,
         activity_points,
         activity_level,
         influence_grade,
         follower_count,
-        following_count,
-        preferred_district,
-        district_rank,
-        district_percentile,
         created_at
-      `)
+      \`)
       .eq('user_id', targetUserId)
       .single();
 
     if (userError || !user) {
+      console.error('User query error:', userError);
       return NextResponse.json(
         { success: false, error: "사용자를 찾을 수 없습니다" },
         { status: 404 }
@@ -61,6 +58,12 @@ export async function GET(request: NextRequest, { params }: RouteParams) {
       .from('comments')
       .select('id', { count: 'exact', head: true })
       .eq('user_id', targetUserId);
+
+    // 팔로잉 수 조회
+    const { count: followingCount } = await supabase
+      .from('follows')
+      .select('id', { count: 'exact', head: true })
+      .eq('follower_id', targetUserId);
 
     // 영향력 그레이드 정보
     const gradeKey = user.influence_grade || 'Wanderer';
@@ -81,14 +84,14 @@ export async function GET(request: NextRequest, { params }: RouteParams) {
       data: {
         user: {
           id: user.user_id,
-          username: user.username || user.nickname || '익명',
+          username: user.name || user.nickname || '익명',
           profile_image_url: user.profile_image_url,
           joined_at: user.created_at,
         },
         activity: {
           level: user.activity_level || 'ML1',
           points: currentPoints,
-          next_level: currentLevelNum < 10 ? `ML${currentLevelNum + 1}` : null,
+          next_level: currentLevelNum < 10 ? \`ML\${currentLevelNum + 1}\` : null,
           points_to_next_level: pointsToNextLevel,
           progress_percent: Math.round(progressPercent),
         },
@@ -97,17 +100,13 @@ export async function GET(request: NextRequest, { params }: RouteParams) {
           title: gradeInfo.title,
           titleEn: gradeInfo.titleEn,
           emoji: gradeInfo.emoji,
-          display: `${gradeInfo.emoji} ${gradeInfo.title}`,
+          display: \`\${gradeInfo.emoji} \${gradeInfo.title}\`,
         },
         followers: {
           count: user.follower_count || 0,
-          following_count: user.following_count || 0,
+          following_count: followingCount || 0,
         },
-        district: user.preferred_district ? {
-          name: user.preferred_district,
-          rank: user.district_rank || 0,
-          percentile: user.district_percentile || 100,
-        } : null,
+        district: null,
         activity_stats: {
           post_count: postCount || 0,
           comment_count: commentCount || 0,
