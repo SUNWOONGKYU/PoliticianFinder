@@ -7,6 +7,48 @@
 
 ---
 
+## ✅ 2025-12-12 완료: 팔로워/팔로잉 목록 페이지 구현
+
+### 작업 개요
+**팔로우 시스템 프론트엔드 - 팔로워/팔로잉 목록 페이지 추가 (P3BA36 후속 작업)**
+
+### 생성된 파일 (2개)
+
+#### 1. `1_Frontend/src/app/users/[id]/followers/page.tsx`
+- 팔로워 목록 페이지
+- API 연동: `GET /api/users/{id}/followers`
+- 페이지네이션 지원
+- 팔로워별 FollowButton 표시
+- 영향력 등급 배지 표시 (방랑자~군주)
+- 활동 레벨 배지 표시 (ML1~ML10)
+
+#### 2. `1_Frontend/src/app/users/[id]/following/page.tsx`
+- 팔로잉 목록 페이지
+- API 연동: `GET /api/users/{id}/following`
+- 필터 탭: 전체, 회원, 정치인
+- 회원: FollowButton 포함
+- 정치인: 프로필 링크 포함
+- 페이지네이션 지원
+
+### 수정된 파일 (1개)
+
+#### `1_Frontend/src/app/mypage/page.tsx`
+- 팔로워/팔로잉 수 클릭 가능하게 변경
+- Link 컴포넌트로 각각 `/users/{id}/followers`, `/users/{id}/following`으로 이동
+
+### 검증 결과
+- ✅ 빌드 성공 (`npm run build`)
+- ✅ TypeScript 컴파일 성공
+- ✅ 새 페이지 포함 확인:
+  - `/users/[id]/followers` - 3.37 kB
+  - `/users/[id]/following` - 3.75 kB
+
+### 연관 Task
+- P3BA36: 팔로우 시스템 백엔드 구현 (완료)
+- DB 마이그레이션: `060_APPLY_NOW.sql` (Supabase 적용 완료)
+
+---
+
 ## ✅ 2025-12-12 완료: 팔로우 시스템 프론트엔드 구현
 
 ### 작업 개요
