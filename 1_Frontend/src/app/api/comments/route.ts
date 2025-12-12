@@ -207,30 +207,19 @@ async function handleUserComment(request: NextRequest, body: any) {
     // 3. Supabase 클라이언트 생성
     const supabase = await createClient();
 
-    // 4. post_id를 숫자로 변환
-    const postIdNum = parseInt(validated.post_id, 10);
-    if (isNaN(postIdNum)) {
-      return NextResponse.json(
-        {
-          success: false,
-          error: {
-            code: 'VALIDATION_ERROR',
-            message: '유효하지 않은 게시글 ID입니다.',
-          },
-        },
-        { status: 400 }
-      );
-    }
+    // 4. post_id 처리 (숫자 또는 문자열 모두 지원)
+    const postId = validated.post_id;
+    console.log('[POST /api/comments] post_id:', postId, 'user_id:', user.id);
 
     // 5. 게시글 존재 여부 확인
     const { data: post, error: postError } = await supabase
       .from('posts')
       .select('id')
-      .eq('id', postIdNum)
+      .eq('id', postId)
       .single();
 
     if (postError || !post) {
-      console.error('[POST /api/comments] Post not found:', postIdNum, postError);
+      console.error('[POST /api/comments] Post not found:', postId, postError);
       return NextResponse.json(
         {
           success: false,
@@ -245,11 +234,10 @@ async function handleUserComment(request: NextRequest, body: any) {
 
     // 6. 대댓글인 경우 부모 댓글 존재 여부 확인
     if (validated.parent_id) {
-      const parentIdNum = parseInt(validated.parent_id, 10);
       const { data: parentComment, error: parentError } = await supabase
         .from('comments')
         .select('id')
-        .eq('id', parentIdNum)
+        .eq('id', validated.parent_id)
         .single();
 
       if (parentError || !parentComment) {
@@ -270,10 +258,10 @@ async function handleUserComment(request: NextRequest, body: any) {
     const { data: newComment, error } = await supabase
       .from('comments')
       .insert({
-        post_id: postIdNum,
+        post_id: postId,
         content: validated.content,
         user_id: user.id,
-        parent_id: validated.parent_id ? parseInt(validated.parent_id, 10) : null,
+        parent_id: validated.parent_id || null,
         author_type: 'user',
       })
       .select()
