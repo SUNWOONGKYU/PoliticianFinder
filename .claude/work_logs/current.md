@@ -7,6 +7,87 @@
 
 ---
 
+## ✅ 2025-12-12 완료: 팔로우 시스템 프론트엔드 구현
+
+### 작업 개요
+**팔로우 시스템 프론트엔드 완전 구현 (P3BA36 후속 작업)**
+
+### 생성된 파일 (1개)
+
+#### 재사용 가능한 FollowButton 컴포넌트
+- `1_Frontend/src/components/FollowButton.tsx`
+  - 팔로우/언팔로우 토글 기능
+  - 호버 시 "언팔로우" 표시
+  - 로딩 상태 표시
+  - 사이즈 옵션: sm, md, lg
+  - 스타일 옵션: default, outline
+  - 자동 팔로우 상태 확인 (API 호출)
+
+### 수정된 파일 (2개)
+
+#### 1. `1_Frontend/src/app/mypage/page.tsx`
+- **UserStats 인터페이스 추가**: follower_count, following_count, post_count, comment_count
+- **API 통계 연동**: `/api/users/{id}/stats` 호출로 실제 데이터 표시
+- **하드코딩 제거**:
+  - 팔로워 2.5K → `{userStats?.follower_count || 0}`
+  - 팔로잉 128 → `{userStats?.following_count || 0}`
+  - 게시글 24 → `{userStats?.post_count || 0}`
+  - 댓글 156 → `{userStats?.comment_count || 0}`
+- **영향력 등급 카드 개선**:
+  - 실제 팔로워 수 기반 등급 표시
+  - 다음 등급까지 필요한 조건 동적 표시
+
+#### 2. `1_Frontend/src/app/community/posts/[id]/page.tsx`
+- **FollowButton 컴포넌트 import**
+- **post 객체에 userId 추가**
+- **작성자 정보에 팔로우 버튼 추가** (회원 게시글만)
+  - 정치인 게시글: 팔로우 버튼 없음
+  - 회원 게시글: 작성자명 옆에 팔로우 버튼 표시
+
+### API 연동 구조
+
+```
+마이페이지
+  └── GET /api/users/{id}/stats
+      └── 팔로워/팔로잉 수, 게시글 수, 댓글 수
+
+게시글 상세
+  └── FollowButton 컴포넌트
+      ├── GET /api/users/{id}/follow (상태 확인)
+      ├── POST /api/users/{id}/follow (팔로우)
+      └── DELETE /api/users/{id}/follow (언팔로우)
+```
+
+### 검증 결과
+- ✅ 빌드 성공 (`npm run build`)
+- ✅ TypeScript 컴파일 성공
+- ✅ 116개 페이지 생성
+
+### 연관 Task
+- P3BA36: 팔로우 시스템 백엔드 구현 (완료)
+
+### 다음 작업
+- DB 마이그레이션 Supabase에 적용 (`060_follow_system_complete.sql`)
+- 실제 테스트 (팔로우/언팔로우 기능 동작 확인)
+
+---
+
+## ✅ 2025-12-12 완료: 5분 자동 커밋 규칙 설정
+
+### 작업 개요
+- CLAUDE.md에 5분 자동 커밋 규칙 섹션 추가
+- 백그라운드 자동 커밋 스크립트 실행
+
+### 생성/수정된 파일
+- `.claude/auto_commit.sh` - 5분 자동 커밋 스크립트
+- `.claude/CLAUDE.md` - 자동 커밋 규칙 섹션 추가 (Line 75-105)
+
+### 자동 커밋 상태
+- ✅ 스크립트 실행 중 (백그라운드)
+- ✅ 5분마다 변경사항 자동 커밋
+
+---
+
 ## ✅ 2025-12-12 완료: 회원 등급 시스템 용어 정리 및 하드코딩 제거
 
 ### 작업 개요
