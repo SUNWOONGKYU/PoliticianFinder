@@ -160,15 +160,17 @@
 
 ## 🏷️ Area별 색인
 
-### Frontend (F) - 1개
+### Frontend (F) - 3개
 - Phase 1: [P1F1](P1F1.md)
+- Phase 3: [P3F3](P3F3.md), [P3F4](P3F4.md)
 
 ### Backend Infrastructure (BI) - 3개
 - Phase 1: [P1BI1](P1BI1.md), [P1BI2](P1BI2.md), [P1BI3](P1BI3.md)
 
-### Backend APIs (BA) - 52개
+### Backend APIs (BA) - 57개
 - Phase 1 Mock: [P1BA1](P1BA1.md) ~ [P1BA23](P1BA23.md)
 - Phase 3 Real: [P3BA1](P3BA1.md) ~ [P3BA23](P3BA23.md)
+- Phase 3 확장: [P3BA33](P3BA33.md) ~ [P3BA37](P3BA37.md) ⭐ 신규
 - Phase 4 Utils: [P4BA1](P4BA1.md) ~ [P4BA6](P4BA6.md)
 
 ### Database (D) - 1개
@@ -204,6 +206,10 @@
 - Real: [P3BA13](P3BA13.md) ~ [P3BA20](P3BA20.md)
 - Utils: [P4BA3](P4BA3.md), [P4BA4](P4BA4.md), [P4BA5](P4BA5.md), [P4BA6](P4BA6.md)
 - Scheduler: [P4O2](P4O2.md), [P4O3](P4O3.md)
+
+### 팔로우/등급 시스템 ⭐ 신규
+- Backend: [P3BA36](P3BA36.md), [P3BA37](P3BA37.md)
+- 관련 작업: [P3BA33](P3BA33.md), [P3BA34](P3BA34.md), [P3BA35](P3BA35.md)
 
 ### 관리자
 - Mock: [P1BA21](P1BA21.md) ~ [P1BA23](P1BA23.md)
@@ -290,5 +296,6 @@ cat P1BA1.md
 ---
 
 **생성일**: 2025-11-06
-**PROJECT GRID Version**: v4.0
-**총 작업지시서**: 67개
+**최종 수정일**: 2025-12-12
+**PROJECT GRID Version**: v4.1
+**총 작업지시서**: 74개 (원래 67개 + 신규 7개)
