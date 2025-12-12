@@ -58,6 +58,67 @@ interface Notice {
   created_at: string;
 }
 
+// 사이드바 통계 타입 정의
+interface SidebarStats {
+  politicians: {
+    total: number;
+    byIdentity: {
+      현직: number;
+      후보자: number;
+      예비후보자: number;
+      출마자: number;
+    };
+    byPosition: {
+      국회의원: number;
+      광역단체장: number;
+      광역의원: number;
+      기초단체장: number;
+      기초의원: number;
+      교육감: number;
+    };
+  };
+  users: {
+    total: number;
+    thisMonth: number;
+    byLevel: Record<string, number>;
+  };
+  community: {
+    posts: {
+      total: number;
+      politician: number;
+      user: number;
+    };
+    comments: {
+      total: number;
+    };
+    today: {
+      posts: number;
+      comments: number;
+    };
+    thisWeek: {
+      posts: number;
+      comments: number;
+    };
+  };
+}
+
+// 사용자 통계 타입 정의
+interface UserStats {
+  activity: {
+    level: string;
+    points: number;
+  };
+  influence: {
+    grade: string;
+    title: string;
+    emoji: string;
+  };
+  followers: {
+    count: number;
+    following_count: number;
+  };
+}
+
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState('');
   const [politicians, setPoliticians] = useState<Politician[]>([]);
@@ -74,6 +135,15 @@ export default function Home() {
     ratings: 0,
   });
 
+  // 사이드바 통계 상태
+  const [sidebarStats, setSidebarStats] = useState<SidebarStats | null>(null);
+  const [sidebarLoading, setSidebarLoading] = useState(true);
+
+  // 로그인 사용자 통계 상태
+  const [currentUserId, setCurrentUserId] = useState<string | null>(null);
+  const [userStats, setUserStats] = useState<UserStats | null>(null);
+  const [userStatsLoading, setUserStatsLoading] = useState(false);
+
   // Google 로그인 성공 시 URL 파라미터 제거 및 새로고침
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -83,6 +153,61 @@ export default function Home() {
       // 헤더가 세션을 다시 확인하도록 새로고침
       window.location.reload();
     }
+  }, []);
+
+  // 사이드바 통계 데이터 가져오기
+  useEffect(() => {
+    const fetchSidebarStats = async () => {
+      try {
+        setSidebarLoading(true);
+        const response = await fetch('/api/statistics/sidebar');
+        if (response.ok) {
+          const data = await response.json();
+          if (data.success && data.data) {
+            setSidebarStats(data.data);
+          }
+        }
+      } catch (err) {
+        console.error('Error fetching sidebar stats:', err);
+      } finally {
+        setSidebarLoading(false);
+      }
+    };
+
+    fetchSidebarStats();
+  }, []);
+
+  // 로그인 사용자 확인 및 통계 가져오기
+  useEffect(() => {
+    const fetchUserStats = async () => {
+      try {
+        // 먼저 현재 세션 확인
+        const sessionResponse = await fetch('/api/auth/session');
+        if (!sessionResponse.ok) return;
+
+        const sessionData = await sessionResponse.json();
+        if (!sessionData.user?.id) return;
+
+        const userId = sessionData.user.id;
+        setCurrentUserId(userId);
+        setUserStatsLoading(true);
+
+        // 사용자 통계 가져오기
+        const statsResponse = await fetch(`/api/users/${userId}/stats`);
+        if (statsResponse.ok) {
+          const statsData = await statsResponse.json();
+          if (statsData.success && statsData.data) {
+            setUserStats(statsData.data);
+          }
+        }
+      } catch (err) {
+        console.error('Error fetching user stats:', err);
+      } finally {
+        setUserStatsLoading(false);
+      }
+    };
+
+    fetchUserStats();
   }, []);
 
   // API에서 TOP 10 정치인 데이터 가져오기
@@ -1000,62 +1125,66 @@ export default function Home() {
               <h3 className="font-bold text-xl mb-3 pb-2 border-b-2 border-primary-500 text-gray-900">
                 📊 정치인 등록 현황
               </h3>
-              <div className="space-y-2 text-sm">
-                <div className="flex justify-between">
-                  <span className="text-gray-700">전체</span>
-                  <span className="font-semibold text-gray-900">30명</span>
-                </div>
-                <div className="mt-3 pt-2 border-t">
-                  <div className="font-semibold text-gray-900 mb-2">📋 신분별</div>
-                  <div className="space-y-1 pl-2">
-                    <div className="flex justify-between text-gray-700">
-                      <span>현직</span>
-                      <span className="font-medium text-gray-900">23명</span>
+              {sidebarLoading ? (
+                <p className="text-center text-gray-500 text-sm">로딩 중...</p>
+              ) : (
+                <div className="space-y-2 text-sm">
+                  <div className="flex justify-between">
+                    <span className="text-gray-700">전체</span>
+                    <span className="font-semibold text-gray-900">{sidebarStats?.politicians.total || 0}명</span>
+                  </div>
+                  <div className="mt-3 pt-2 border-t">
+                    <div className="font-semibold text-gray-900 mb-2">📋 신분별</div>
+                    <div className="space-y-1 pl-2">
+                      <div className="flex justify-between text-gray-700">
+                        <span>현직</span>
+                        <span className="font-medium text-gray-900">{sidebarStats?.politicians.byIdentity.현직 || 0}명</span>
+                      </div>
+                      <div className="flex justify-between text-gray-700">
+                        <span>후보자</span>
+                        <span className="font-medium text-gray-900">{sidebarStats?.politicians.byIdentity.후보자 || 0}명</span>
+                      </div>
+                      <div className="flex justify-between text-gray-700">
+                        <span>예비후보자</span>
+                        <span className="font-medium text-gray-900">{sidebarStats?.politicians.byIdentity.예비후보자 || 0}명</span>
+                      </div>
+                      <div className="flex justify-between text-gray-700">
+                        <span>출마자</span>
+                        <span className="font-medium text-gray-900">{sidebarStats?.politicians.byIdentity.출마자 || 0}명</span>
+                      </div>
                     </div>
-                    <div className="flex justify-between text-gray-700">
-                      <span>후보자</span>
-                      <span className="font-medium text-gray-900">3명</span>
-                    </div>
-                    <div className="flex justify-between text-gray-700">
-                      <span>예비후보자</span>
-                      <span className="font-medium text-gray-900">2명</span>
-                    </div>
-                    <div className="flex justify-between text-gray-700">
-                      <span>출마자</span>
-                      <span className="font-medium text-gray-900">2명</span>
+                  </div>
+                  <div className="mt-3 pt-2 border-t">
+                    <div className="font-semibold text-gray-900 mb-2">🏛️ 출마직종별</div>
+                    <div className="space-y-1 pl-2">
+                      <div className="flex justify-between text-gray-700">
+                        <span>국회의원</span>
+                        <span className="font-medium text-gray-900">{sidebarStats?.politicians.byPosition.국회의원 || 0}명</span>
+                      </div>
+                      <div className="flex justify-between text-gray-700">
+                        <span>광역단체장</span>
+                        <span className="font-medium text-gray-900">{sidebarStats?.politicians.byPosition.광역단체장 || 0}명</span>
+                      </div>
+                      <div className="flex justify-between text-gray-700">
+                        <span>광역의원</span>
+                        <span className="font-medium text-gray-900">{sidebarStats?.politicians.byPosition.광역의원 || 0}명</span>
+                      </div>
+                      <div className="flex justify-between text-gray-700">
+                        <span>기초단체장</span>
+                        <span className="font-medium text-gray-900">{sidebarStats?.politicians.byPosition.기초단체장 || 0}명</span>
+                      </div>
+                      <div className="flex justify-between text-gray-700">
+                        <span>기초의원</span>
+                        <span className="font-medium text-gray-900">{sidebarStats?.politicians.byPosition.기초의원 || 0}명</span>
+                      </div>
+                      <div className="flex justify-between text-gray-700">
+                        <span>교육감</span>
+                        <span className="font-medium text-gray-900">{sidebarStats?.politicians.byPosition.교육감 || 0}명</span>
+                      </div>
                     </div>
                   </div>
                 </div>
-                <div className="mt-3 pt-2 border-t">
-                  <div className="font-semibold text-gray-900 mb-2">🏛️ 출마직종별</div>
-                  <div className="space-y-1 pl-2">
-                    <div className="flex justify-between text-gray-700">
-                      <span>국회의원</span>
-                      <span className="font-medium text-gray-900">12명</span>
-                    </div>
-                    <div className="flex justify-between text-gray-700">
-                      <span>광역단체장</span>
-                      <span className="font-medium text-gray-900">5명</span>
-                    </div>
-                    <div className="flex justify-between text-gray-700">
-                      <span>광역의원</span>
-                      <span className="font-medium text-gray-900">4명</span>
-                    </div>
-                    <div className="flex justify-between text-gray-700">
-                      <span>기초단체장</span>
-                      <span className="font-medium text-gray-900">6명</span>
-                    </div>
-                    <div className="flex justify-between text-gray-700">
-                      <span>기초의원</span>
-                      <span className="font-medium text-gray-900">3명</span>
-                    </div>
-                    <div className="flex justify-between text-gray-700">
-                      <span>교육감</span>
-                      <span className="font-medium text-gray-900">2명</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              )}
             </div>
 
             {/* 회원 통계 */}
@@ -1063,37 +1192,31 @@ export default function Home() {
               <h3 className="font-bold text-xl mb-3 pb-2 border-b-2 border-secondary-500 text-gray-900">
                 👥 회원 현황
               </h3>
-              <div className="space-y-2 text-sm">
-                <div className="flex justify-between">
-                  <span className="text-gray-700">전체</span>
-                  <span className="font-semibold text-gray-900">20명</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-700">이번 달 가입</span>
-                  <span className="font-semibold text-gray-900">0명</span>
-                </div>
-                <div className="mt-3 pt-2 border-t">
-                  <div className="font-semibold text-gray-900 mb-2">📊 레벨별 분포</div>
-                  <div className="space-y-1 pl-2">
-                    <div className="flex justify-between text-xs text-gray-700">
-                      <span>ML5</span>
-                      <span className="font-medium text-gray-900">1명</span>
-                    </div>
-                    <div className="flex justify-between text-xs text-gray-700">
-                      <span>ML4</span>
-                      <span className="font-medium text-gray-900">7명</span>
-                    </div>
-                    <div className="flex justify-between text-xs text-gray-700">
-                      <span>ML3</span>
-                      <span className="font-medium text-gray-900">11명</span>
-                    </div>
-                    <div className="flex justify-between text-xs text-gray-700">
-                      <span>ML2</span>
-                      <span className="font-medium text-gray-900">1명</span>
+              {sidebarLoading ? (
+                <p className="text-center text-gray-500 text-sm">로딩 중...</p>
+              ) : (
+                <div className="space-y-2 text-sm">
+                  <div className="flex justify-between">
+                    <span className="text-gray-700">전체</span>
+                    <span className="font-semibold text-gray-900">{sidebarStats?.users.total || 0}명</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-700">이번 달 가입</span>
+                    <span className="font-semibold text-gray-900">{sidebarStats?.users.thisMonth || 0}명</span>
+                  </div>
+                  <div className="mt-3 pt-2 border-t">
+                    <div className="font-semibold text-gray-900 mb-2">📊 레벨별 분포</div>
+                    <div className="space-y-1 pl-2">
+                      {sidebarStats?.users.byLevel && Object.entries(sidebarStats.users.byLevel).map(([level, count]) => (
+                        <div key={level} className="flex justify-between text-xs text-gray-700">
+                          <span>{level}</span>
+                          <span className="font-medium text-gray-900">{count}명</span>
+                        </div>
+                      ))}
                     </div>
                   </div>
                 </div>
-              </div>
+              )}
             </div>
 
             {/* 커뮤니티 통계 */}
@@ -1101,50 +1224,54 @@ export default function Home() {
               <h3 className="font-bold text-xl mb-3 pb-2 border-b-2 border-secondary-500 text-gray-900">
                 💬 커뮤니티 활동
               </h3>
-              <div className="space-y-2 text-sm">
-                <div>
-                  <div className="font-semibold text-gray-900 mb-1">전체 게시글: 20개</div>
-                  <div className="pl-2 space-y-1">
-                    <div className="flex justify-between text-gray-700">
-                      <span>정치인글</span>
-                      <span className="font-medium text-gray-900">2개</span>
+              {sidebarLoading ? (
+                <p className="text-center text-gray-500 text-sm">로딩 중...</p>
+              ) : (
+                <div className="space-y-2 text-sm">
+                  <div>
+                    <div className="font-semibold text-gray-900 mb-1">전체 게시글: {sidebarStats?.community.posts.total || 0}개</div>
+                    <div className="pl-2 space-y-1">
+                      <div className="flex justify-between text-gray-700">
+                        <span>정치인글</span>
+                        <span className="font-medium text-gray-900">{sidebarStats?.community.posts.politician || 0}개</span>
+                      </div>
+                      <div className="flex justify-between text-gray-700">
+                        <span>회원글</span>
+                        <span className="font-medium text-gray-900">{sidebarStats?.community.posts.user || 0}개</span>
+                      </div>
                     </div>
-                    <div className="flex justify-between text-gray-700">
-                      <span>회원글</span>
-                      <span className="font-medium text-gray-900">18개</span>
+                  </div>
+                  <div className="pt-2">
+                    <div className="font-semibold text-gray-900">전체 댓글: {sidebarStats?.community.comments.total || 0}개</div>
+                  </div>
+                  <div className="mt-3 pt-2 border-t">
+                    <div className="font-semibold text-gray-900 mb-1">📅 오늘</div>
+                    <div className="pl-2 space-y-1">
+                      <div className="flex justify-between text-gray-700">
+                        <span>게시글</span>
+                        <span className="font-medium text-gray-900">{sidebarStats?.community.today.posts || 0}개</span>
+                      </div>
+                      <div className="flex justify-between text-gray-700">
+                        <span>댓글</span>
+                        <span className="font-medium text-gray-900">{sidebarStats?.community.today.comments || 0}개</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="mt-2 pt-2 border-t">
+                    <div className="font-semibold text-gray-900 mb-1">📅 이번 주</div>
+                    <div className="pl-2 space-y-1">
+                      <div className="flex justify-between text-gray-700">
+                        <span>게시글</span>
+                        <span className="font-medium text-gray-900">{sidebarStats?.community.thisWeek.posts || 0}개</span>
+                      </div>
+                      <div className="flex justify-between text-gray-700">
+                        <span>댓글</span>
+                        <span className="font-medium text-gray-900">{sidebarStats?.community.thisWeek.comments || 0}개</span>
+                      </div>
                     </div>
                   </div>
                 </div>
-                <div className="pt-2">
-                  <div className="font-semibold text-gray-900">전체 댓글: 59개</div>
-                </div>
-                <div className="mt-3 pt-2 border-t">
-                  <div className="font-semibold text-gray-900 mb-1">📅 오늘</div>
-                  <div className="pl-2 space-y-1">
-                    <div className="flex justify-between text-gray-700">
-                      <span>게시글</span>
-                      <span className="font-medium text-gray-900">0개</span>
-                    </div>
-                    <div className="flex justify-between text-gray-700">
-                      <span>댓글</span>
-                      <span className="font-medium text-gray-900">4개</span>
-                    </div>
-                  </div>
-                </div>
-                <div className="mt-2 pt-2 border-t">
-                  <div className="font-semibold text-gray-900 mb-1">📅 이번 주</div>
-                  <div className="pl-2 space-y-1">
-                    <div className="flex justify-between text-gray-700">
-                      <span>게시글</span>
-                      <span className="font-medium text-gray-900">3개</span>
-                    </div>
-                    <div className="flex justify-between text-gray-700">
-                      <span>댓글</span>
-                      <span className="font-medium text-gray-900">12개</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              )}
             </div>
 
             {/* 연결 */}
