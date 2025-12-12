@@ -1,0 +1,75 @@
+{
+  "timestamp": "2025-12-02T17:43:13.474Z",
+  "politician": {
+    "id": "62e7b453",
+    "name": "오세훈"
+  },
+  "user": {
+    "email": "wksun99@gmail.com"
+  },
+  "tests": [
+    {
+      "category": "홈 화면",
+      "name": "오세훈 별점 표시",
+      "status": "fail",
+      "details": {
+        "error": "Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON"
+      },
+      "timestamp": "2025-12-02T17:43:14.012Z"
+    },
+    {
+      "category": "정치인 상세",
+      "name": "오세훈 정보 조회",
+      "status": "fail",
+      "details": {
+        "error": "Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON"
+      },
+      "timestamp": "2025-12-02T17:43:14.408Z"
+    },
+    {
+      "category": "평가 기능",
+      "name": "평점 등록",
+      "status": "skip",
+      "details": {
+        "reason": "인증 필요"
+      },
+      "timestamp": "2025-12-02T17:43:14.408Z"
+    },
+    {
+      "category": "커뮤니티",
+      "name": "게시글 목록 조회",
+      "status": "fail",
+      "details": {
+        "error": "Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON"
+      },
+      "timestamp": "2025-12-02T17:43:14.541Z"
+    },
+    {
+      "category": "커뮤니티",
+      "name": "게시글 상세 조회",
+      "status": "skip",
+      "details": {
+        "reason": "게시글 없음"
+      },
+      "timestamp": "2025-12-02T17:43:14.673Z"
+    },
+    {
+      "category": "댓글 기능",
+      "name": "댓글 작성",
+      "status": "skip",
+      "details": {
+        "reason": "인증 필요"
+      },
+      "timestamp": "2025-12-02T17:43:14.673Z"
+    },
+    {
+      "category": "즐겨찾기",
+      "name": "정치인 즐겨찾기",
+      "status": "skip",
+      "details": {
+        "reason": "인증 필요"
+      },
+      "timestamp": "2025-12-02T17:43:14.673Z"
+    }
+  ]
+}

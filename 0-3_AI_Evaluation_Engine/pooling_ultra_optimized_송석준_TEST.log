@@ -1,0 +1,143 @@
+
+================================================================================
+🚀 초최적화 Pooling 평가 시스템 - 1명 테스트
+================================================================================
+테스트 대상: 송석준
+목표: 98% 토큰 절감
+================================================================================
+
+================================================================================
+🚀 초최적화 평가 시작: 송석준
+================================================================================
+
+📥 1단계: 데이터 로드
+  DB에서 1000개 항목 로드
+
+🗜️ 2단계: 데이터 압축
+
+  📦 데이터 압축 시작...
+  원본: 1000개 항목
+  원본 토큰: ~14,443개
+  중복 제거 후: 1000개 항목 (100.0%)
+  압축 후 토큰: ~14,356개
+  토큰 절감: 0.6%
+
+📊 3단계: 카테고리별 평가 (10개)
+
+  [1/10] 전문성 (Expertise)
+    📊 ChatGPT 평가: Expertise
+      ❌ 오류: Error code: 429 - {'error': {'message': 'Request too large for gpt-4 in organization org-tiqaZQkGaf4WOm8tE5SyTTGf on tokens per min (TPM): Limit 10000, Requested 38873. The input or output tokens must be reduced in order to run successfully. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
+    📊 Grok 평가: Expertise
+    📊 Claude 평가: Expertise
+C:\Development_PoliticianFinder_com\Developement_Real_PoliticianFinder\0-3_AI_Evaluation_Engine\pooling_ultra_optimized_test_1person.py:196: DeprecationWarning: The model 'claude-3-5-sonnet-20241022' is deprecated and will reach end-of-life on October 22, 2025.
+Please migrate to a newer model. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+  response = self.anthropic_client.messages.create(
+      ❌ 오류: Error code: 404 - {'type': 'error', 'error': {'type': 'not_found_error', 'message': 'model: claude-3-5-sonnet-20241022'}, 'request_id': 'req_011CViJCFitHzNg3tYBFZdyK'}
+      ❌ 오류: 'choices'
+    ✅ 완료: ChatGPT(0), Grok(0), Claude(0)
+
+  [2/10] 리더십 (Leadership)
+    📊 ChatGPT 평가: Leadership
+      ❌ 오류: Error code: 429 - {'error': {'message': 'Request too large for gpt-4 in organization org-tiqaZQkGaf4WOm8tE5SyTTGf on tokens per min (TPM): Limit 10000, Requested 38873. The input or output tokens must be reduced in order to run successfully. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
+    📊 Grok 평가: Leadership
+    📊 Claude 평가: Leadership
+      ❌ 오류: Error code: 404 - {'type': 'error', 'error': {'type': 'not_found_error', 'message': 'model: claude-3-5-sonnet-20241022'}, 'request_id': 'req_011CViJCdVaZrHV7KjBom5kG'}
+      ❌ 오류: 'choices'
+    ✅ 완료: ChatGPT(0), Grok(0), Claude(0)
+
+  [3/10] 비전 (Vision)
+    📊 ChatGPT 평가: Vision
+      ❌ 오류: Error code: 429 - {'error': {'message': 'Request too large for gpt-4 in organization org-tiqaZQkGaf4WOm8tE5SyTTGf on tokens per min (TPM): Limit 10000, Requested 38872. The input or output tokens must be reduced in order to run successfully. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
+    📊 Grok 평가: Vision
+    📊 Claude 평가: Vision
+      ❌ 오류: Error code: 404 - {'type': 'error', 'error': {'type': 'not_found_error', 'message': 'model: claude-3-5-sonnet-20241022'}, 'request_id': 'req_011CViJCyvu7b83kkqQyjRDu'}
+      ❌ 오류: 'choices'
+    ✅ 완료: ChatGPT(0), Grok(0), Claude(0)
+
+  [4/10] 청렴도 (Integrity)
+    📊 ChatGPT 평가: Integrity
+      ❌ 오류: Error code: 429 - {'error': {'message': 'Request too large for gpt-4 in organization org-tiqaZQkGaf4WOm8tE5SyTTGf on tokens per min (TPM): Limit 10000, Requested 38873. The input or output tokens must be reduced in order to run successfully. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
+    📊 Grok 평가: Integrity
+    📊 Claude 평가: Integrity
+      ❌ 오류: Error code: 404 - {'type': 'error', 'error': {'type': 'not_found_error', 'message': 'model: claude-3-5-sonnet-20241022'}, 'request_id': 'req_011CViJDJ2pkBsNo6VRBXsvq'}
+      ❌ 오류: 'choices'
+    ✅ 완료: ChatGPT(0), Grok(0), Claude(0)
+
+  [5/10] 윤리성 (Ethics)
+    📊 ChatGPT 평가: Ethics
+      ❌ 오류: Error code: 429 - {'error': {'message': 'Request too large for gpt-4 in organization org-tiqaZQkGaf4WOm8tE5SyTTGf on tokens per min (TPM): Limit 10000, Requested 38873. The input or output tokens must be reduced in order to run successfully. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
+    📊 Grok 평가: Ethics
+    📊 Claude 평가: Ethics
+      ❌ 오류: Error code: 404 - {'type': 'error', 'error': {'type': 'not_found_error', 'message': 'model: claude-3-5-sonnet-20241022'}, 'request_id': 'req_011CViJDeZMTNm4tHTq42Wa6'}
+      ❌ 오류: 'choices'
+    ✅ 완료: ChatGPT(0), Grok(0), Claude(0)
+
+  [6/10] 책임감 (Accountability)
+    📊 ChatGPT 평가: Accountability
+      ❌ 오류: Error code: 429 - {'error': {'message': 'Request too large for gpt-4 in organization org-tiqaZQkGaf4WOm8tE5SyTTGf on tokens per min (TPM): Limit 10000, Requested 38873. The input or output tokens must be reduced in order to run successfully. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
+    📊 Grok 평가: Accountability
+    📊 Claude 평가: Accountability
+      ❌ 오류: Error code: 404 - {'type': 'error', 'error': {'type': 'not_found_error', 'message': 'model: claude-3-5-sonnet-20241022'}, 'request_id': 'req_011CViJDwussbx6zShtTxtwu'}
+      ❌ 오류: 'choices'
+    ✅ 완료: ChatGPT(0), Grok(0), Claude(0)
+
+  [7/10] 투명성 (Transparency)
+    📊 ChatGPT 평가: Transparency
+      ❌ 오류: Error code: 429 - {'error': {'message': 'Request too large for gpt-4 in organization org-tiqaZQkGaf4WOm8tE5SyTTGf on tokens per min (TPM): Limit 10000, Requested 38873. The input or output tokens must be reduced in order to run successfully. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
+    📊 Grok 평가: Transparency
+    📊 Claude 평가: Transparency
+      ❌ 오류: Error code: 404 - {'type': 'error', 'error': {'type': 'not_found_error', 'message': 'model: claude-3-5-sonnet-20241022'}, 'request_id': 'req_011CViJEGmwjUQvg3WSYn1C4'}
+      ❌ 오류: 'choices'
+    ✅ 완료: ChatGPT(0), Grok(0), Claude(0)
+
+  [8/10] 소통능력 (Communication)
+    📊 ChatGPT 평가: Communication
+      ❌ 오류: Error code: 429 - {'error': {'message': 'Request too large for gpt-4 in organization org-tiqaZQkGaf4WOm8tE5SyTTGf on tokens per min (TPM): Limit 10000, Requested 38874. The input or output tokens must be reduced in order to run successfully. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
+    📊 Grok 평가: Communication
+    📊 Claude 평가: Communication
+      ❌ 오류: Error code: 404 - {'type': 'error', 'error': {'type': 'not_found_error', 'message': 'model: claude-3-5-sonnet-20241022'}, 'request_id': 'req_011CViJEboSBDqV2A3YP84vM'}
+      ❌ 오류: 'choices'
+    ✅ 완료: ChatGPT(0), Grok(0), Claude(0)
+
+  [9/10] 대응성 (Responsiveness)
+    📊 ChatGPT 평가: Responsiveness
+      ❌ 오류: Error code: 429 - {'error': {'message': 'Request too large for gpt-4 in organization org-tiqaZQkGaf4WOm8tE5SyTTGf on tokens per min (TPM): Limit 10000, Requested 38873. The input or output tokens must be reduced in order to run successfully. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
+    📊 Grok 평가: Responsiveness
+    📊 Claude 평가: Responsiveness
+      ❌ 오류: Error code: 404 - {'type': 'error', 'error': {'type': 'not_found_error', 'message': 'model: claude-3-5-sonnet-20241022'}, 'request_id': 'req_011CViJEuurkEt4SdtuBXUHX'}
+      ❌ 오류: 'choices'
+    ✅ 완료: ChatGPT(0), Grok(0), Claude(0)
+
+  [10/10] 공익성 (PublicInterest)
+    📊 ChatGPT 평가: PublicInterest
+      ❌ 오류: Error code: 429 - {'error': {'message': 'Request too large for gpt-4 in organization org-tiqaZQkGaf4WOm8tE5SyTTGf on tokens per min (TPM): Limit 10000, Requested 38873. The input or output tokens must be reduced in order to run successfully. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
+    📊 Grok 평가: PublicInterest
+    📊 Claude 평가: PublicInterest
+      ❌ 오류: Error code: 404 - {'type': 'error', 'error': {'type': 'not_found_error', 'message': 'model: claude-3-5-sonnet-20241022'}, 'request_id': 'req_011CViJFEhhu57b5yj5RsNfm'}
+      ❌ 오류: 'choices'
+    ✅ 완료: ChatGPT(0), Grok(0), Claude(0)
+
+📈 4단계: Pooling 점수 계산
+
+================================================================================
+✅ 평가 완료!
+  소요 시간: 46.3초 (0.8분)
+  데이터 수: 1000개
+  카테고리: 10개
+================================================================================
+
+📊 Pooling 점수:
+  전문성     : 0.00점
+  리더십     : 0.00점
+  비전      : 0.00점
+  청렴도     : 0.00점
+  윤리성     : 0.00점
+  책임감     : 0.00점
+  투명성     : 0.00점
+  소통능력    : 0.00점
+  대응성     : 0.00점
+  공익성     : 0.00점
+
+  평균: 0.00점
+
+💾 결과 저장: ultra_optimized_test_송석준_20251203_030120.json

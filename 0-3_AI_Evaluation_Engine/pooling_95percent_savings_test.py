@@ -173,7 +173,7 @@ class TokenSavingsEvaluator:
         return unique
 
     def _prepare_data_list(self, raw_data: List[Dict]) -> List[str]:
-        """데이터 리스트 준비"""
+        """데이터 리스트 준비 (150개로 제한)"""
         print(f"\n  📦 데이터 준비 중...")
         print(f"  원본: {len(raw_data)}개 항목")
 
@@ -189,8 +189,12 @@ class TokenSavingsEvaluator:
         unique_data = self._remove_duplicates(text_data)
         print(f"  중복 제거 후: {len(unique_data)}개 항목")
 
-        # 3. 압축
-        compressed_data = [self._compress_data(d) for d in unique_data]
+        # 3. 150개로 제한
+        limited_data = unique_data[:150]
+        print(f"  150개로 제한: {len(limited_data)}개 항목")
+
+        # 4. 압축
+        compressed_data = [self._compress_data(d) for d in limited_data]
         print(f"  압축 완료")
 
         return compressed_data
@@ -236,7 +240,7 @@ class TokenSavingsEvaluator:
 
         try:
             response = self.anthropic_client.messages.create(
-                model="claude-3-5-sonnet-20241022",
+                model="claude-3-5-haiku-20241022",
                 max_tokens=16000,
                 system=system_messages,
                 messages=[
