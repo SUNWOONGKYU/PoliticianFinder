@@ -594,15 +594,10 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
                   onChange={(e) => setPoliticianCommentText(e.target.value)}
                   rows={3}
                   className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 resize-none"
-                  placeholder={authenticatedPolitician ? `${authenticatedPolitician.name}님으로 댓글을 입력하세요...` : "정치인 본인 인증 후 댓글을 입력할 수 있습니다."}
+                  placeholder={authenticatedPolitician ? `${authenticatedPolitician.name}님으로 댓글을 입력하세요...` : "본인 인증 후 댓글을 입력할 수 있습니다."}
                   disabled={!authenticatedPolitician}
                 />
-                <div className="flex justify-between items-center mt-2">
-                  {authenticatedPolitician ? (
-                    <span className="text-sm text-primary-600 font-medium">✅ 인증 완료</span>
-                  ) : (
-                    <span className="text-sm text-gray-500">정치인 본인 인증이 필요합니다</span>
-                  )}
+                <div className="flex justify-end items-center mt-2">
                   <button
                     onClick={handlePoliticianCommentSubmit}
                     disabled={!politicianCommentText.trim() || !authenticatedPolitician}
