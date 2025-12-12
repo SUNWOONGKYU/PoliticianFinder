@@ -2,7 +2,7 @@
 // GET /api/users/[id]/stats - 레벨, 그레이드, 팔로워 수 등
 
 import { NextRequest, NextResponse } from "next/server";
-import { createClient } from "@/lib/supabase/server";
+import { createClient, createAdminClient } from "@/lib/supabase/server";
 
 interface RouteParams {
   params: { id: string };
@@ -49,8 +49,9 @@ export async function GET(request: NextRequest, { params }: RouteParams) {
       .select('id', { count: 'exact', head: true })
       .eq('user_id', targetUserId);
 
-    // 팔로잉 수 조회
-    const { count: followingCount } = await supabase
+    // 팔로잉 수 조회 (RLS 우회를 위해 adminClient 사용)
+    const adminClient = createAdminClient();
+    const { count: followingCount } = await adminClient
       .from('follows')
       .select('id', { count: 'exact', head: true })
       .eq('follower_id', targetUserId);
