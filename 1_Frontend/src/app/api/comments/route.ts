@@ -315,10 +315,17 @@ export async function GET(request: NextRequest) {
     // 2. Supabase 클라이언트 생성
     const supabase = await createClient();
 
-    // 3. Supabase 쿼리 빌더 시작 (단순 조회)
+    // 3. Supabase 쿼리 빌더 시작 (users 조인)
     let queryBuilder = supabase
       .from('comments')
-      .select('*', { count: 'exact' })
+      .select(`
+        *,
+        users:user_id (
+          name,
+          nickname,
+          email
+        )
+      `, { count: 'exact' })
       .order('created_at', { ascending: false });
 
     // 4. post_id 필터 (선택적)
