@@ -72,7 +72,13 @@
 
 ---
 
-### Phase 3: Real APIs (23개)
+### Phase 3: Real APIs + Frontend 확장 (28개)
+
+#### Frontend 확장 (2개)
+- [P3F3](P3F3.md) - 정치인 상세 페이지 개선
+- [P3F4](P3F4.md) - 정치인 스키마 완성
+
+#### Backend APIs (26개)
 
 **인증 관련 (6개)**
 - [P3BA1](P3BA1.md) - 회원가입 API (Real) (의존: P2D1, P1BA1)
@@ -108,6 +114,13 @@
 - [P3BA21](P3BA21.md) - 관리자 통계 API (Real) (의존: P2D1, P1BA21)
 - [P3BA22](P3BA22.md) - 사용자 관리 API (Real) (의존: P2D1, P1BA22)
 - [P3BA23](P3BA23.md) - 콘텐츠 신고 API (Real) (의존: P2D1, P1BA23)
+
+**팔로우/등급 시스템 (5개)** ⭐ 신규
+- [P3BA33](P3BA33.md) - 마이페이지 API 리팩토링 (의존: P2D1)
+- [P3BA34](P3BA34.md) - 커뮤니티 게시판 개선 (의존: P2D1)
+- [P3BA35](P3BA35.md) - 정치인 글쓰기 수정 (의존: P2D1)
+- [P3BA36](P3BA36.md) - 팔로우 시스템 백엔드 (의존: P2D1)
+- [P3BA37](P3BA37.md) - 팔로우 시스템 프론트엔드 및 실시간 기능 (의존: P3BA36)
 
 ---
 
