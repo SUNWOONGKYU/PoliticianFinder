@@ -232,14 +232,20 @@ export default function MypagePage() {
                   <div className="text-xl font-bold text-gray-900">{userData.points.toLocaleString()}</div>
                   <div className="text-xs text-gray-500">포인트</div>
                 </div>
-                <div>
+                <Link
+                  href={`/users/${userData.id}/followers`}
+                  className="hover:bg-gray-50 rounded-lg p-1 transition cursor-pointer"
+                >
                   <div className="text-xl font-bold text-gray-900">{userStats?.follower_count || 0}</div>
                   <div className="text-xs text-gray-500">팔로워</div>
-                </div>
-                <div>
+                </Link>
+                <Link
+                  href={`/users/${userData.id}/following`}
+                  className="hover:bg-gray-50 rounded-lg p-1 transition cursor-pointer"
+                >
                   <div className="text-xl font-bold text-gray-900">{userStats?.following_count || 0}</div>
                   <div className="text-xs text-gray-500">팔로잉</div>
-                </div>
+                </Link>
               </div>
 
               {/* Actions */}
