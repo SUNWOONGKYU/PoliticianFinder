@@ -85,13 +85,19 @@ export default function ProfileEditPage() {
           throw new Error(authResult.error?.message || '사용자 정보를 불러오는데 실패했습니다.');
         }
 
-        const user: UserData = authResult.data.user;
-        const profile = profileResult.success ? profileResult.data : null;
+        // /api/auth/me 응답: { success, user, profile }
+        const user = authResult.user;
+        const authProfile = authResult.profile;
+        const profile = profileResult.success ? profileResult.data : authProfile;
+
+        // 마이페이지와 동일한 방식으로 데이터 접근
+        const userName = authProfile?.name || authProfile?.nickname || user?.email || '';
+        const userLevel = parseInt((authProfile?.activity_level || 'ML1').replace('ML', '')) || 1;
 
         setFormData({
-          nickname: user.name || '',
-          email: user.email || '',
-          memberLevel: `ML${user.level || 1}`,
+          nickname: userName,
+          email: user?.email || '',
+          memberLevel: `ML${userLevel}`,
           bio: profile?.bio || '',
           profileImage: null,
           preferredDistrict: profile?.preferred_district || '',
