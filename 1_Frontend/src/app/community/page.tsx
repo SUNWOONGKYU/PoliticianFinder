@@ -7,6 +7,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { formatInfluenceGrade } from '@/utils/memberLevel';
 
 interface Post {
   id: number;
@@ -299,7 +300,7 @@ export default function CommunityPage() {
                             <span className="text-xs text-gray-900 font-medium" title={`활동 등급: ${post.member_level || 'ML1'}`}>
                               {post.member_level || 'ML1'}
                             </span>
-                            <span className="text-xs text-emerald-900 font-medium">🏰 영주</span>
+                            <span className="text-xs text-emerald-900 font-medium">{formatInfluenceGrade(0)}</span>
                           </>
                         )}
                         <span>{formatDate(post.created_at)}</span>
