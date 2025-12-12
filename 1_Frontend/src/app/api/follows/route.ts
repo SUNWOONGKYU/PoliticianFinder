@@ -8,7 +8,7 @@ import { requireAuth } from "@/lib/auth/helpers";
 
 const followSchema = z.object({
   user_id: z.string().uuid().optional(),
-  politician_id: z.string().uuid(),
+  politician_id: z.string().min(8).max(8),  // 8자리 hex 문자열
 });
 
 export async function POST(request: NextRequest) {

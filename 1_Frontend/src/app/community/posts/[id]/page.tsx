@@ -29,7 +29,8 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
   const [shareModalOpen, setShareModalOpen] = useState(false);
   const [alertMessage, setAlertMessage] = useState('');
   const [alertModalOpen, setAlertModalOpen] = useState(false);
-  const [commentText, setCommentText] = useState('');
+  const [commentText, setCommentText] = useState('');  // 회원 댓글용
+  const [politicianCommentText, setPoliticianCommentText] = useState('');  // 정치인 댓글용
   const [upvoted, setUpvoted] = useState(false);
   const [downvoted, setDownvoted] = useState(false);
   const [upvotes, setUpvotes] = useState(0);
@@ -420,15 +421,18 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
                   <span className="text-sm font-bold text-primary-600">🏛️ 정치인으로 댓글 작성</span>
                 </div>
                 <textarea
-                  value={commentText}
-                  onChange={(e) => setCommentText(e.target.value)}
+                  value={politicianCommentText}
+                  onChange={(e) => setPoliticianCommentText(e.target.value)}
                   rows={3}
                   className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 resize-none"
                   placeholder="정치인으로 댓글을 입력하세요..."
                 />
                 <div className="flex justify-between items-center mt-2">
                   <span className="text-sm text-gray-500">정치인 본인 인증 필요</span>
-                  <button className="px-6 py-2 bg-primary-500 text-white rounded-lg hover:bg-primary-600 font-medium">
+                  <button
+                    disabled={!politicianCommentText.trim()}
+                    className="px-6 py-2 bg-primary-500 text-white rounded-lg hover:bg-primary-600 font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
                     정치인 댓글 등록
                   </button>
                 </div>
@@ -448,7 +452,16 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
                 />
                 <div className="flex justify-between items-center mt-2">
                   <span className="text-sm text-gray-500">회원 계정으로 로그인 필요</span>
-                  <button className="px-6 py-2 bg-secondary-600 text-white rounded-lg hover:bg-secondary-700 font-medium">
+                  <button
+                    onClick={() => {
+                      if (commentText.trim()) {
+                        handleCommentSubmit(commentText);
+                        setCommentText('');
+                      }
+                    }}
+                    disabled={!commentText.trim()}
+                    className="px-6 py-2 bg-secondary-600 text-white rounded-lg hover:bg-secondary-700 font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
                     회원 댓글 등록
                   </button>
                 </div>
@@ -464,11 +477,20 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
                 value={commentText}
                 onChange={(e) => setCommentText(e.target.value)}
                 rows={3}
-                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 resize-none"
+                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary-500 focus:border-secondary-500 resize-none"
                 placeholder="댓글을 입력하세요..."
               />
               <div className="flex justify-end items-center mt-2">
-                <button className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-medium">
+                <button
+                  onClick={() => {
+                    if (commentText.trim()) {
+                      handleCommentSubmit(commentText);
+                      setCommentText('');
+                    }
+                  }}
+                  disabled={!commentText.trim()}
+                  className="px-6 py-2 bg-secondary-600 text-white rounded-lg hover:bg-secondary-700 font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+                >
                   댓글 등록
                 </button>
               </div>
