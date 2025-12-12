@@ -638,62 +638,62 @@ export default function Home() {
                   <table className="w-full text-xs">
                     <thead className="bg-gray-100 border-b-2 border-primary-500">
                       <tr>
-                        <th className="px-1 py-2 text-center font-bold text-gray-900 w-8">순위</th>
-                        <th className="px-1 py-2 text-left font-bold text-gray-900 w-16">이름</th>
-                        <th className="px-1 py-2 text-left font-bold text-gray-900 w-16">직책</th>
+                        <th className="px-1 py-2 text-center font-bold text-gray-900 whitespace-nowrap">순위</th>
+                        <th className="px-2 py-2 text-left font-bold text-gray-900 whitespace-nowrap">이름</th>
+                        <th className="px-1 py-2 text-left font-bold text-gray-900 whitespace-nowrap">직책</th>
                         <th className="px-1 py-2 text-left font-bold text-gray-900 whitespace-nowrap">정당</th>
-                        <th className="px-1 py-2 text-left font-bold text-gray-900 w-10">신분</th>
+                        <th className="px-1 py-2 text-left font-bold text-gray-900 whitespace-nowrap">신분</th>
                         <th className="px-1 py-2 text-left font-bold text-gray-900 whitespace-nowrap">출마직종</th>
-                        <th className="px-1 py-2 text-left font-bold text-gray-900 w-12">출마지역</th>
-                        <th className="px-1 py-2 text-left font-bold text-gray-900 w-12">출마지구</th>
-                        <th className="px-1 py-2 text-center font-bold text-gray-900 w-14">평가등급</th>
-                        <th className="px-1 py-2 text-center font-bold text-gray-900 w-12">종합평점</th>
-                        <th className="px-1 py-2 text-center font-bold text-gray-900 w-12">
-                          <div className="flex flex-col items-center justify-center">
+                        <th className="px-1 py-2 text-left font-bold text-gray-900 whitespace-nowrap">지역</th>
+                        <th className="px-1 py-2 text-left font-bold text-gray-900 whitespace-nowrap">지구</th>
+                        <th className="px-1 py-2 text-center font-bold text-gray-900 whitespace-nowrap">등급</th>
+                        <th className="px-1 py-2 text-center font-bold text-gray-900 whitespace-nowrap">종합</th>
+                        <th className="px-1 py-2 text-center font-bold text-gray-900">
+                          <div className="flex flex-col items-center">
                             <img src={aiLogos.claude} alt="Claude" className="h-4 w-4 object-contain rounded" />
-                            <span className="text-xs">Claude</span>
+                            <span className="text-xs whitespace-nowrap">Claude</span>
                           </div>
                         </th>
-                        <th className="px-1 py-2 text-center font-bold text-gray-900 w-12">
-                          <div className="flex flex-col items-center justify-center">
+                        <th className="px-1 py-2 text-center font-bold text-gray-900">
+                          <div className="flex flex-col items-center">
                             <img src={aiLogos.chatgpt} alt="ChatGPT" className="h-4 w-4 object-contain" />
-                            <span className="text-xs">GPT</span>
+                            <span className="text-xs whitespace-nowrap">GPT</span>
                           </div>
                         </th>
-                        <th className="px-1 py-2 text-center font-bold text-gray-900 w-12">
-                          <div className="flex flex-col items-center justify-center">
+                        <th className="px-1 py-2 text-center font-bold text-gray-900">
+                          <div className="flex flex-col items-center">
                             <img src={aiLogos.grok} alt="Grok" className="h-4 w-4 object-contain" />
-                            <span className="text-xs">Grok</span>
+                            <span className="text-xs whitespace-nowrap">Grok</span>
                           </div>
                         </th>
-                        <th className="px-1 py-2 text-center font-bold text-gray-900 w-14">회원평가</th>
+                        <th className="px-1 py-2 text-center font-bold text-gray-900 whitespace-nowrap">회원</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-200">
                       {politicians.map((p) => (
                         <tr key={p.id} className="hover:bg-gray-50 cursor-pointer">
-                          <td className="px-1 py-2 text-center">
+                          <td className="px-1 py-2 text-center whitespace-nowrap">
                             <span className="font-bold text-gray-900 text-sm">{p.rank}</span>
                           </td>
-                          <td className="px-1 py-2">
+                          <td className="px-2 py-2 whitespace-nowrap">
                             <Link href={`/politicians/${p.id}`}>
-                              <span className="font-bold text-primary-600 hover:text-primary-700 text-sm whitespace-nowrap">
+                              <span className="font-bold text-primary-600 hover:text-primary-700 text-sm">
                                 {p.name} <span className="text-xs">›</span>
                               </span>
                             </Link>
                           </td>
-                          <td className="px-1 py-2 text-gray-600 text-xs">{p.title || '-'}</td>
+                          <td className="px-1 py-2 text-gray-600 text-xs whitespace-nowrap">{p.title || '-'}</td>
                           <td className="px-1 py-2 text-gray-600 text-xs whitespace-nowrap">{p.party}</td>
-                          <td className="px-1 py-2 text-gray-600 text-xs">{p.identity}</td>
+                          <td className="px-1 py-2 text-gray-600 text-xs whitespace-nowrap">{p.identity}</td>
                           <td className="px-1 py-2 text-gray-600 text-xs whitespace-nowrap">{p.positionType || '-'}</td>
-                          <td className="px-1 py-2 text-gray-600 text-xs">{p.region}</td>
-                          <td className="px-1 py-2 text-gray-600 text-xs">{p.district || '-'}</td>
+                          <td className="px-1 py-2 text-gray-600 text-xs whitespace-nowrap">{p.region}</td>
+                          <td className="px-1 py-2 text-gray-600 text-xs whitespace-nowrap">{p.district || '-'}</td>
                           <td className="px-1 py-2 text-center text-xs font-semibold text-accent-600 whitespace-nowrap">{p.gradeEmoji} {p.grade}</td>
-                          <td className="px-1 py-2 text-center font-bold text-accent-600 text-sm">{p.totalScore > 0 ? p.totalScore : '-'}</td>
-                          <td className="px-1 py-2 text-center font-bold text-accent-600 text-sm">{p.claude > 0 ? p.claude : '-'}</td>
-                          <td className="px-1 py-2 text-center font-bold text-accent-600 text-sm">{p.chatgpt > 0 ? p.chatgpt : '-'}</td>
-                          <td className="px-1 py-2 text-center font-bold text-accent-600 text-sm">{p.grok > 0 ? p.grok : '-'}</td>
-                          <td className="px-1 py-2 text-center">
+                          <td className="px-1 py-2 text-center font-bold text-accent-600 text-sm whitespace-nowrap">{p.totalScore > 0 ? p.totalScore : '-'}</td>
+                          <td className="px-1 py-2 text-center font-bold text-accent-600 text-sm whitespace-nowrap">{p.claude > 0 ? p.claude : '-'}</td>
+                          <td className="px-1 py-2 text-center font-bold text-accent-600 text-sm whitespace-nowrap">{p.chatgpt > 0 ? p.chatgpt : '-'}</td>
+                          <td className="px-1 py-2 text-center font-bold text-accent-600 text-sm whitespace-nowrap">{p.grok > 0 ? p.grok : '-'}</td>
+                          <td className="px-1 py-2 text-center whitespace-nowrap">
                             <span className="font-bold text-secondary-600 text-xs">
                               {'★'.repeat(Math.round(p.userRating))}{'☆'.repeat(5 - Math.round(p.userRating))}
                             </span>
