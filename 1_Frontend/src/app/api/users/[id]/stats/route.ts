@@ -26,7 +26,7 @@ export async function GET(request: NextRequest, { params }: RouteParams) {
     const { data: user, error: userError } = await supabase
       .from('users')
       .select(`
-        id,
+        user_id,
         username,
         nickname,
         profile_image_url,
@@ -40,7 +40,7 @@ export async function GET(request: NextRequest, { params }: RouteParams) {
         district_percentile,
         created_at
       `)
-      .eq('id', targetUserId)
+      .eq('user_id', targetUserId)
       .single();
 
     if (userError || !user) {
@@ -80,7 +80,7 @@ export async function GET(request: NextRequest, { params }: RouteParams) {
       success: true,
       data: {
         user: {
-          id: user.id,
+          id: user.user_id,
           username: user.username || user.nickname || '익명',
           profile_image_url: user.profile_image_url,
           joined_at: user.created_at,
