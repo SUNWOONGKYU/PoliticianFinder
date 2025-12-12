@@ -254,13 +254,13 @@ async function handleUserComment(request: NextRequest, body: any) {
       }
     }
 
-    // 7. Supabase에 댓글 삽입 (RLS로 user_id 자동 검증)
+    // 7. Supabase에 댓글 삽입 (DB 스키마: author_id 사용)
     const { data: newComment, error } = await supabase
       .from('comments')
       .insert({
         post_id: postId,
         content: validated.content,
-        user_id: user.id,
+        author_id: user.id,
         parent_id: validated.parent_id || null,
         author_type: 'user',
       })
