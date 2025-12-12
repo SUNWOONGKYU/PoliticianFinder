@@ -161,55 +161,76 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
     return `${year}.${month}.${day} ${hours}:${minutes}`;
   };
 
-  // Fetch comments from API
+  // Fetch comments from API (회원 댓글 + 정치인 댓글 합치기)
   useEffect(() => {
     const fetchComments = async () => {
       if (!params.id) return;
 
       try {
         setCommentsLoading(true);
-        const response = await fetch(`/api/comments?post_id=${params.id}&limit=100`);
 
-        if (!response.ok) {
-          throw new Error('댓글을 불러오는데 실패했습니다.');
-        }
+        // 두 테이블에서 병렬로 댓글 조회
+        const [userCommentsRes, politicianCommentsRes] = await Promise.all([
+          fetch(`/api/comments?post_id=${params.id}&limit=100`),
+          fetch(`/api/comments/politician?post_id=${params.id}`)
+        ]);
 
-        const result = await response.json();
+        const userResult = userCommentsRes.ok ? await userCommentsRes.json() : { success: false, data: [] };
+        const politicianResult = politicianCommentsRes.ok ? await politicianCommentsRes.json() : { success: false, data: [] };
 
-        if (result.success && result.data) {
-          // Map API response to Comment interface
-          const mappedComments: Comment[] = result.data.map((comment: any, index: number) => {
-            // Generate consistent nickname based on user_id
-            const userIdHash = comment.user_id ? comment.user_id.split('-')[0].charCodeAt(0) : index;
-            const nicknameIndex = userIdHash % 10;
+        // Format date helper
+        const formatCommentDate = (dateString: string) => {
+          const date = new Date(dateString);
+          return `${date.getFullYear()}.${String(date.getMonth() + 1).padStart(2, '0')}.${String(date.getDate()).padStart(2, '0')} ${String(date.getHours()).padStart(2, '0')}:${String(date.getMinutes()).padStart(2, '0')}`;
+        };
 
-            // Generate consistent member level (ML1-ML5) based on user_id
-            const mlLevel = `ML${(userIdHash % 5) + 1}`;
+        // Map user comments
+        const userComments: Comment[] = (userResult.success && userResult.data) ? userResult.data.map((comment: any, index: number) => {
+          const userIdHash = comment.user_id ? comment.user_id.split('-')[0].charCodeAt(0) : index;
+          const nicknameIndex = userIdHash % 10;
+          const mlLevel = `ML${(userIdHash % 5) + 1}`;
 
-            // Format date
-            const formatDate = (dateString: string) => {
-              const date = new Date(dateString);
-              return `${date.getFullYear()}.${String(date.getMonth() + 1).padStart(2, '0')}.${String(date.getDate()).padStart(2, '0')} ${String(date.getHours()).padStart(2, '0')}:${String(date.getMinutes()).padStart(2, '0')}`;
-            };
+          return {
+            id: comment.id,
+            author: comment.users?.name || sampleNicknames[nicknameIndex],
+            userId: comment.user_id,
+            authorType: 'member' as const,
+            memberLevel: mlLevel,
+            influenceLevel: '방랑자',
+            timestamp: formatCommentDate(comment.created_at),
+            rawTimestamp: comment.created_at,
+            content: comment.content,
+            upvotes: comment.upvotes || 0,
+            downvotes: comment.downvotes || 0,
+            isFollowing: false
+          };
+        }) : [];
 
-            return {
-              id: comment.id,
-              author: comment.users?.name || sampleNicknames[nicknameIndex],
-              userId: comment.user_id,
-              authorType: 'member' as const,
-              memberLevel: mlLevel,
-              influenceLevel: '방랑자',
-              timestamp: formatDate(comment.created_at),
-              content: comment.content,
-              upvotes: comment.upvotes || 0,
-              downvotes: comment.downvotes || 0,
-              isFollowing: false
-            };
-          });
+        // Map politician comments
+        const politicianComments: Comment[] = (politicianResult.success && politicianResult.data) ? politicianResult.data.map((comment: any) => {
+          return {
+            id: comment.id,
+            author: comment.politician_name,
+            userId: comment.politician_id,
+            authorType: 'politician' as const,
+            politicianStatus: '정치인',
+            politicianPosition: '',
+            timestamp: formatCommentDate(comment.created_at),
+            rawTimestamp: comment.created_at,
+            content: comment.content,
+            upvotes: comment.upvotes || 0,
+            downvotes: comment.downvotes || 0,
+            isFollowing: false
+          };
+        }) : [];
 
-          setComments(mappedComments);
-          setTotalComments(result.pagination?.total || mappedComments.length);
-        }
+        // 두 댓글 배열 합치고 시간순 정렬
+        const allComments = [...userComments, ...politicianComments].sort((a: any, b: any) => {
+          return new Date(a.rawTimestamp).getTime() - new Date(b.rawTimestamp).getTime();
+        });
+
+        setComments(allComments);
+        setTotalComments(allComments.length);
       } catch (err) {
         console.error('[게시글 상세] 댓글 조회 오류:', err);
         setComments([]);
@@ -220,6 +241,67 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
 
     fetchComments();
   }, [params.id]);
+
+  // 댓글 목록 새로고침 함수 (공용)
+  const refreshComments = useCallback(async () => {
+    const formatCommentDate = (dateString: string) => {
+      const date = new Date(dateString);
+      return `${date.getFullYear()}.${String(date.getMonth() + 1).padStart(2, '0')}.${String(date.getDate()).padStart(2, '0')} ${String(date.getHours()).padStart(2, '0')}:${String(date.getMinutes()).padStart(2, '0')}`;
+    };
+
+    const [userCommentsRes, politicianCommentsRes] = await Promise.all([
+      fetch(`/api/comments?post_id=${params.id}&limit=100`),
+      fetch(`/api/comments/politician?post_id=${params.id}`)
+    ]);
+
+    const userResult = userCommentsRes.ok ? await userCommentsRes.json() : { success: false, data: [] };
+    const politicianResult = politicianCommentsRes.ok ? await politicianCommentsRes.json() : { success: false, data: [] };
+
+    const userComments: Comment[] = (userResult.success && userResult.data) ? userResult.data.map((comment: any, index: number) => {
+      const userIdHash = comment.user_id ? comment.user_id.split('-')[0].charCodeAt(0) : index;
+      const nicknameIndex = userIdHash % 10;
+      const mlLevel = `ML${(userIdHash % 5) + 1}`;
+
+      return {
+        id: comment.id,
+        author: comment.users?.name || sampleNicknames[nicknameIndex],
+        userId: comment.user_id,
+        authorType: 'member' as const,
+        memberLevel: mlLevel,
+        influenceLevel: '방랑자',
+        timestamp: formatCommentDate(comment.created_at),
+        rawTimestamp: comment.created_at,
+        content: comment.content,
+        upvotes: comment.upvotes || 0,
+        downvotes: comment.downvotes || 0,
+        isFollowing: false
+      };
+    }) : [];
+
+    const politicianComments: Comment[] = (politicianResult.success && politicianResult.data) ? politicianResult.data.map((comment: any) => {
+      return {
+        id: comment.id,
+        author: comment.politician_name,
+        userId: comment.politician_id,
+        authorType: 'politician' as const,
+        politicianStatus: '정치인',
+        politicianPosition: '',
+        timestamp: formatCommentDate(comment.created_at),
+        rawTimestamp: comment.created_at,
+        content: comment.content,
+        upvotes: comment.upvotes || 0,
+        downvotes: comment.downvotes || 0,
+        isFollowing: false
+      };
+    }) : [];
+
+    const allComments = [...userComments, ...politicianComments].sort((a: any, b: any) => {
+      return new Date(a.rawTimestamp).getTime() - new Date(b.rawTimestamp).getTime();
+    });
+
+    setComments(allComments);
+    setTotalComments(allComments.length);
+  }, [params.id, sampleNicknames]);
 
   // MI7: 고정 댓글 입력창 제출 핸들러
   const handleCommentSubmit = useCallback(async (content: string) => {
@@ -238,36 +320,8 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
         throw new Error((data.error?.message || data.error || '댓글 등록에 실패했습니다.') + errorDetail);
       }
 
-      // 댓글 목록 새로고침
-      const commentsResponse = await fetch(`/api/comments?post_id=${params.id}`);
-      if (commentsResponse.ok) {
-        const result = await commentsResponse.json();
-        if (result.success && result.data) {
-          const mappedComments: Comment[] = result.data.map((comment: any, index: number) => {
-            const userIdHash = comment.user_id ? comment.user_id.split('-')[0].charCodeAt(0) : index;
-            const nicknameIndex = userIdHash % 10;
-            const mlLevel = `ML${(userIdHash % 5) + 1}`;
-            const influenceLevels = ['IL1', 'IL2', 'IL3', 'IL4', 'IL5'];
-            const influenceLevel = influenceLevels[(userIdHash + 2) % 5];
-
-            return {
-              id: comment.id,
-              author: comment.users?.name || comment.users?.nickname || sampleNicknames[nicknameIndex],
-              userId: comment.user_id,
-              authorType: 'member' as const,
-              memberLevel: mlLevel,
-              influenceLevel: influenceLevel,
-              timestamp: formatDate(comment.created_at),
-              content: comment.content,
-              upvotes: comment.upvotes || 0,
-              downvotes: comment.downvotes || 0,
-              isFollowing: false
-            };
-          });
-          setComments(mappedComments);
-          setTotalComments(mappedComments.length);
-        }
-      }
+      // 댓글 목록 새로고침 (두 테이블 합쳐서)
+      await refreshComments();
 
       setAlertMessage('댓글이 등록되었습니다.');
       setAlertModalOpen(true);
@@ -277,7 +331,7 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
       setAlertModalOpen(true);
       throw error;
     }
-  }, [params.id]);
+  }, [params.id, refreshComments]);
 
   // 정치인 본인 인증 핸들러 (이름 + 소속정당 + 출마직종)
   const handlePoliticianAuth = useCallback(async () => {
@@ -356,34 +410,8 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
         throw new Error(data.error?.message || '댓글 등록에 실패했습니다.');
       }
 
-      // 댓글 목록 새로고침
-      const commentsResponse = await fetch(`/api/comments?post_id=${params.id}`);
-      if (commentsResponse.ok) {
-        const result = await commentsResponse.json();
-        if (result.success && result.data) {
-          const mappedComments: Comment[] = result.data.map((comment: any, index: number) => {
-            const userIdHash = comment.user_id ? comment.user_id.split('-')[0].charCodeAt(0) : index;
-            const nicknameIndex = userIdHash % 10;
-            const mlLevel = `ML${(userIdHash % 5) + 1}`;
-
-            return {
-              id: comment.id,
-              author: comment.users?.name || comment.users?.nickname || sampleNicknames[nicknameIndex],
-              userId: comment.user_id,
-              authorType: comment.author_type === 'politician' ? 'politician' : 'member',
-              memberLevel: mlLevel,
-              influenceLevel: '방랑자',
-              timestamp: formatDate(comment.created_at),
-              content: comment.content,
-              upvotes: comment.upvotes || 0,
-              downvotes: comment.downvotes || 0,
-              isFollowing: false
-            };
-          });
-          setComments(mappedComments);
-          setTotalComments(mappedComments.length);
-        }
-      }
+      // 댓글 목록 새로고침 (두 테이블 합쳐서)
+      await refreshComments();
 
       setPoliticianCommentText('');
       setAlertMessage(`${authenticatedPolitician.name}님의 댓글이 등록되었습니다.`);
@@ -393,7 +421,7 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
       setAlertMessage(error instanceof Error ? error.message : '댓글 등록에 실패했습니다.');
       setAlertModalOpen(true);
     }
-  }, [params.id, politicianCommentText, authenticatedPolitician, sampleNicknames]);
+  }, [params.id, politicianCommentText, authenticatedPolitician, refreshComments]);
 
   const handleUpvote = () => {
     if (upvoted) {
