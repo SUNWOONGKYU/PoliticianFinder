@@ -15,6 +15,15 @@ interface UserData {
   level: number;
 }
 
+interface UserStats {
+  follower_count: number;
+  following_count: number;
+  post_count: number;
+  comment_count: number;
+  activity_level: string;
+  influence_grade: string;
+}
+
 interface UserPost {
   id: number;
   title: string;
@@ -30,6 +39,7 @@ interface UserPost {
 export default function MypagePage() {
   const [activeTab, setActiveTab] = useState<TabType>('posts');
   const [userData, setUserData] = useState<UserData | null>(null);
+  const [userStats, setUserStats] = useState<UserStats | null>(null);
   const [userPosts, setUserPosts] = useState<UserPost[]>([]);
   const [postsLoading, setPostsLoading] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -47,6 +57,22 @@ export default function MypagePage() {
         }
 
         setUserData(result.data.user);
+
+        // 사용자 통계 불러오기
+        const userId = result.data.user.id;
+        const statsResponse = await fetch(`/api/users/${userId}/stats`);
+        const statsResult = await statsResponse.json();
+
+        if (statsResponse.ok && statsResult.success) {
+          setUserStats({
+            follower_count: statsResult.data.followers?.count || 0,
+            following_count: statsResult.data.followers?.following_count || 0,
+            post_count: statsResult.data.activity_stats?.post_count || 0,
+            comment_count: statsResult.data.activity_stats?.comment_count || 0,
+            activity_level: statsResult.data.activity?.level || 'ML1',
+            influence_grade: statsResult.data.influence?.grade || 'Wanderer',
+          });
+        }
       } catch (err) {
         console.error('Failed to fetch user data:', err);
         setError(err instanceof Error ? err.message : '알 수 없는 오류가 발생했습니다.');
