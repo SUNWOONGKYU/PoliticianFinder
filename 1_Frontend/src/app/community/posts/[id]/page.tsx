@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import FixedCommentInput from '@/components/ui/FixedCommentInput';
+import { formatInfluenceGrade } from '@/utils/memberLevel';
 
 interface Comment {
   id: number;
@@ -150,7 +151,7 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
               userId: comment.user_id,
               authorType: 'member' as const,
               memberLevel: mlLevel,
-              influenceLevel: '영주',
+              influenceLevel: '방랑자',
               timestamp: formatDate(comment.created_at),
               content: comment.content,
               upvotes: comment.upvotes || 0,
@@ -341,8 +342,7 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
                 <>
                   <span className="font-medium text-secondary-600">{post.author}</span>
                   <span className="text-gray-900" aria-label={`활동 등급 ${post.memberLevel}`} title={`활동 등급: ${post.memberLevel}`}>{post.memberLevel}</span>
-                  {/* TODO: 향후 회원 등급 시스템 구현 시 동적으로 변경 필요 (현재는 모든 회원이 영주로 표시됨) */}
-                  <span className="text-xs text-emerald-900 font-medium">🏰 영주</span>
+                  <span className="text-xs text-emerald-900 font-medium">{formatInfluenceGrade(0)}</span>
                 </>
               )}
               <span>{post.timestamp}</span>

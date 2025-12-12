@@ -1,9 +1,113 @@
 # Work Log - Current Session
 
-## Session Start: 2025-12-02 22:20:00
+## Session Start: 2025-12-12 (Continued)
 
 ### Previous Log
 - [2025-12-01 작업 로그](2025-12-01.md)
+
+---
+
+## ✅ 2025-12-12 완료: 회원 등급 시스템 용어 정리 및 하드코딩 제거
+
+### 작업 개요
+**회원 등급 시스템의 용어 혼란 해결 및 하드코딩된 "영주" 제거**
+
+### 핵심 개념 정리 (사용자 지시)
+- **레벨 (Level)**: 포인트 기반 → ML1~ML10 (활동 레벨)
+- **그레이드 (Grade)**: 영향력 기반 → 방랑자~군주 (영향력 그레이드)
+
+### 수정된 파일 (5개)
+
+#### 1. `1_Frontend/src/utils/memberLevel.ts` - 용어 수정
+- `ActivityGrade` → `ActivityLevel` (포인트 기반 = 레벨)
+- `getActivityGrade()` → `getActivityLevel()`
+- `formatActivityGrade()` → `formatActivityLevel()`
+- `InfluenceGrade` 유지 (영향력 기반 = 그레이드)
+- 하위 호환성 별칭 추가 (deprecated)
+
+#### 2. `1_Frontend/src/app/page.tsx` - 하드코딩 제거
+- Line 932, 1238: "🏰 영주" → `formatInfluenceGrade(0)` (= "🚶 방랑자")
+- 팔로워 데이터 없으면 기본값 "방랑자" 표시
+
+#### 3. `1_Frontend/src/app/community/page.tsx` - 하드코딩 제거
+- Line 302: 하드코딩 "🏰 영주" → `formatInfluenceGrade(0)`
+
+#### 4. `1_Frontend/src/app/community/posts/[id]/page.tsx` - 하드코딩 제거
+- Line 345: 하드코딩 제거
+- Line 154: `influenceLevel: '영주'` → `influenceLevel: '방랑자'`
+
+#### 5. `1_Frontend/src/app/mypage/page.tsx` - 하드코딩 제거
+- 영향력 그레이드 카드 섹션 전면 수정
+- "영주 (Lord)" → `getInfluenceGrade(0).title` (= "방랑자")
+- 팔로워 "327명" → "0명" + "팔로우 기능 준비 중"
+
+### 기술적 변경사항
+
+**용어 체계:**
+```typescript
+// 레벨 (Level) = 포인트 기반
+interface ActivityLevel {
+  level: number;       // 1-10
+  name: string;        // ML1-ML10
+  minPoints: number;
+  maxPoints: number;
+}
+
+// 그레이드 (Grade) = 영향력 기반
+interface InfluenceGrade {
+  type: InfluenceGradeType;  // Wanderer, Knight, Lord, Duke, Monarch
+  title: string;              // 방랑자, 기사, 영주, 공작, 군주
+  emoji: string;              // 🚶, ⚔️, 🏰, 👑, 🌟
+  minFollowers: number;
+  percentileRequired: number | null;
+}
+```
+
+**영향력 그레이드 규칙:**
+| 그레이드 | 한글 | 이모지 | 조건 |
+|---------|------|--------|-----|
+| Wanderer | 방랑자 | 🚶 | 팔로워 < 10 |
+| Knight | 기사 | ⚔️ | 팔로워 ≥ 10 |
+| Lord | 영주 | 🏰 | 상위 20% + 팔로워 ≥ 50 |
+| Duke | 공작 | 👑 | 상위 5% + 팔로워 ≥ 200 |
+| Monarch | 군주 | 🌟 | 1위 + 팔로워 ≥ 500 |
+
+### 검증 결과
+- ✅ 빌드 성공 (`npm run build`)
+- ✅ 모든 하드코딩된 "영주" 제거
+- ✅ 팔로워 데이터 없으면 "🚶 방랑자" 표시
+
+---
+
+## ✅ 2025-12-12 완료: P3BA36 팔로우 시스템 백엔드 구현
+
+### 작업 개요
+팔로우 시스템 백엔드 완전 구현 (기획서 기반)
+
+### 생성된 파일
+
+#### DB 마이그레이션
+- `0-4_Database/Supabase/migrations/060_follow_system_complete.sql`
+  - users 테이블 확장 (activity_points, follower_count, influence_grade 등)
+  - activity_points_history 테이블
+  - calculate_activity_level() 함수
+  - calculate_influence_grade() 함수
+  - update_follow_counts() 트리거 (팔로우 시 자동 카운트)
+  - award_activity_points() 트리거 (게시글/댓글 작성 시 포인트)
+
+#### API Routes
+- `1_Frontend/src/app/api/users/[id]/follow/route.ts` - 팔로우/언팔로우
+- `1_Frontend/src/app/api/users/[id]/followers/route.ts` - 팔로워 목록
+- `1_Frontend/src/app/api/users/[id]/following/route.ts` - 팔로잉 목록
+- `1_Frontend/src/app/api/users/[id]/stats/route.ts` - 사용자 통계
+
+### 검증 결과
+- ✅ 빌드 성공
+- ✅ Project Grid에 P3BA36 Task 추가
+
+### 다음 작업
+- DB 마이그레이션 Supabase에 적용
+- 프론트엔드 팔로우 버튼 연동
 
 ---
 

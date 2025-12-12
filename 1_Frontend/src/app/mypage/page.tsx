@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { getInfluenceGrade, formatInfluenceGrade } from '@/utils/memberLevel';
 
 type TabType = 'posts' | 'comments' | 'activity';
 
@@ -540,10 +541,10 @@ export default function MypagePage() {
                   <div className="bg-white bg-opacity-80 rounded-lg p-4 mb-3">
                     <div className="flex items-center justify-between mb-3">
                       <div className="flex items-center">
-                        <span className="text-2xl mr-3">🏰</span>
+                        <span className="text-2xl mr-3">{getInfluenceGrade(0).emoji}</span>
                         <div>
-                          <div className="text-2xl font-bold text-emerald-900">영주 (Lord)</div>
-                          <div className="text-sm text-gray-600 mt-1">📍 서울 강남구 갑</div>
+                          <div className="text-2xl font-bold text-emerald-900">{getInfluenceGrade(0).title} ({getInfluenceGrade(0).titleEn})</div>
+                          <div className="text-sm text-gray-600 mt-1">📍 지역 미설정</div>
                         </div>
                       </div>
                     </div>
@@ -551,13 +552,13 @@ export default function MypagePage() {
                     <div className="grid grid-cols-2 gap-3 pt-3 border-t">
                       <div className="text-center">
                         <div className="text-xs text-gray-500 mb-1">팔로워</div>
-                        <div className="text-xl font-bold text-indigo-600">327명</div>
-                        <div className="text-xs text-green-600 mt-1">▲ 12명 (이번 주)</div>
+                        <div className="text-xl font-bold text-indigo-600">0명</div>
+                        <div className="text-xs text-gray-500 mt-1">팔로우 기능 준비 중</div>
                       </div>
                       <div className="text-center">
                         <div className="text-xs text-gray-500 mb-1">지역 순위</div>
-                        <div className="text-xl font-bold text-emerald-900">상위 15%</div>
-                        <div className="text-xs text-gray-500 mt-1">1,247명 중 187위</div>
+                        <div className="text-xl font-bold text-emerald-900">-</div>
+                        <div className="text-xs text-gray-500 mt-1">지역 설정 필요</div>
                       </div>
                     </div>
                   </div>
@@ -566,7 +567,7 @@ export default function MypagePage() {
                     <div className="flex items-center justify-between text-sm">
                       <div className="flex items-center text-gray-700">
                         <span className="mr-2">🎯</span>
-                        <span>다음 등급: <span className="font-bold text-emerald-900">공작 (Duke)</span></span>
+                        <span>다음 등급: <span className="font-bold text-emerald-900">기사 (Knight)</span></span>
                       </div>
                       <div className="text-xs text-gray-600">
                         상위 5% 진입 시

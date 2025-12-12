@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { LoadingSection } from '@/components/ui/Spinner';
+import { formatInfluenceGrade, getInfluenceGrade } from '@/utils/memberLevel';
 
 // 정치인 데이터 타입 정의
 interface Politician {
@@ -929,7 +930,9 @@ export default function Home() {
                                       {post.member_level}
                                     </span>
                                   )}
-                                  <span className="text-xs text-emerald-900 font-medium">🏰 영주</span>
+                                  <span className="text-xs text-emerald-900 font-medium">
+                                    {formatInfluenceGrade(0)}
+                                  </span>
                                 </>
                               )}
                               <span>{formatDate(post.created_at)}</span>
@@ -1235,11 +1238,11 @@ export default function Home() {
                 <div className="bg-emerald-50 rounded-lg p-3 border border-emerald-200">
                   <div className="flex justify-between items-center">
                     <span className="text-sm text-gray-900">영향력 등급</span>
-                    <span className="text-sm font-bold text-emerald-900">🏰 영주</span>
+                    <span className="text-sm font-bold text-emerald-900">{formatInfluenceGrade(0)}</span>
                   </div>
                   <div className="flex justify-between text-xs text-gray-600 mt-1">
-                    <div>팔로워 327명</div>
-                    <div>지역구 내 상위 15%</div>
+                    <div>팔로워 0명</div>
+                    <div>팔로우 기능 준비 중</div>
                   </div>
                 </div>
 
