@@ -1347,39 +1347,55 @@ export default function Home() {
               <h3 className="font-bold text-xl mb-2 pb-1 border-b-2 border-secondary-500 text-gray-900">
                 👤 나의 활동
               </h3>
-              <div className="flex flex-col gap-1">
-                <div className="bg-secondary-50 rounded-lg p-3">
-                  <div className="flex justify-between items-center">
-                    <span className="text-sm text-gray-900">활동 등급</span>
-                    <span className="text-sm font-bold text-gray-900">ML5</span>
-                  </div>
+              {userStatsLoading ? (
+                <p className="text-center text-gray-500 text-sm py-4">로딩 중...</p>
+              ) : !currentUserId ? (
+                <div className="text-center py-4">
+                  <p className="text-sm text-gray-600 mb-3">로그인하면 나의 활동 정보를 확인할 수 있습니다.</p>
+                  <Link
+                    href="/login"
+                    className="inline-block bg-secondary-500 text-white font-medium py-2 px-4 rounded-lg hover:bg-secondary-600 transition text-sm"
+                  >
+                    로그인하기
+                  </Link>
                 </div>
-
-                <div className="bg-secondary-50 rounded-lg p-3">
-                  <div className="flex justify-between items-center">
-                    <span className="text-sm text-gray-900">보유 포인트</span>
-                    <span className="text-sm font-bold text-gray-900">12,580 P</span>
+              ) : (
+                <div className="flex flex-col gap-1">
+                  <div className="bg-secondary-50 rounded-lg p-3">
+                    <div className="flex justify-between items-center">
+                      <span className="text-sm text-gray-900">활동 등급</span>
+                      <span className="text-sm font-bold text-gray-900">{userStats?.activity.level || 'ML1'}</span>
+                    </div>
                   </div>
+
+                  <div className="bg-secondary-50 rounded-lg p-3">
+                    <div className="flex justify-between items-center">
+                      <span className="text-sm text-gray-900">활동 포인트</span>
+                      <span className="text-sm font-bold text-gray-900">{(userStats?.activity.points || 0).toLocaleString()} P</span>
+                    </div>
+                  </div>
+
+                  <div className="bg-emerald-50 rounded-lg p-3 border border-emerald-200">
+                    <div className="flex justify-between items-center">
+                      <span className="text-sm text-gray-900">영향력 등급</span>
+                      <span className="text-sm font-bold text-emerald-900">
+                        {userStats?.influence.emoji || '🚶'} {userStats?.influence.title || '방랑자'}
+                      </span>
+                    </div>
+                    <div className="flex justify-between text-xs text-gray-600 mt-1">
+                      <div>팔로워 {userStats?.followers.count || 0}명</div>
+                      <div>팔로잉 {userStats?.followers.following_count || 0}명</div>
+                    </div>
+                  </div>
+
+                  <Link
+                    href="/mypage"
+                    className="block w-full bg-secondary-500 text-white font-medium py-3 rounded-lg hover:bg-secondary-600 transition text-sm text-center"
+                  >
+                    마이페이지
+                  </Link>
                 </div>
-
-                <div className="bg-emerald-50 rounded-lg p-3 border border-emerald-200">
-                  <div className="flex justify-between items-center">
-                    <span className="text-sm text-gray-900">영향력 등급</span>
-                    <span className="text-sm font-bold text-emerald-900">{formatInfluenceGrade(0)}</span>
-                  </div>
-                  <div className="flex justify-between text-xs text-gray-600 mt-1">
-                    <div>팔로워 0명</div>
-                    <div>팔로우 기능 준비 중</div>
-                  </div>
-                </div>
-
-                <Link
-                  href="/mypage"
-                  className="block w-full bg-secondary-500 text-white font-medium py-3 rounded-lg hover:bg-secondary-600 transition text-sm text-center"
-                >
-                  마이페이지
-                </Link>
-              </div>
+              )}
             </div>
           </aside>
         </div>

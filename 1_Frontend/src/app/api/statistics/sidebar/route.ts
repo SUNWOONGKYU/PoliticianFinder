@@ -24,10 +24,10 @@ export async function GET(request: NextRequest) {
       .from("politicians")
       .select("*", { count: "exact", head: true });
 
-    // 신분별 정치인 수 (identity 컬럼)
-    const { data: politiciansByIdentity } = await supabase
+    // 신분별 정치인 수 (status 컬럼 사용)
+    const { data: politiciansByStatus } = await supabase
       .from("politicians")
-      .select("identity");
+      .select("status");
 
     const identityStats = {
       현직: 0,
@@ -36,17 +36,20 @@ export async function GET(request: NextRequest) {
       출마자: 0,
     };
 
-    (politiciansByIdentity || []).forEach((p: any) => {
-      const identity = p.identity || '현직';
-      if (identity in identityStats) {
-        identityStats[identity as keyof typeof identityStats]++;
+    (politiciansByStatus || []).forEach((p: any) => {
+      const status = p.status || '현직';
+      if (status in identityStats) {
+        identityStats[status as keyof typeof identityStats]++;
+      } else {
+        // 매핑되지 않은 status는 현직으로 처리
+        identityStats['현직']++;
       }
     });
 
-    // 출마직종별 정치인 수 (position_type 컬럼)
+    // 출마직종별 정치인 수 (position 컬럼 사용)
     const { data: politiciansByPosition } = await supabase
       .from("politicians")
-      .select("position_type");
+      .select("position");
 
     const positionStats = {
       국회의원: 0,
@@ -58,9 +61,9 @@ export async function GET(request: NextRequest) {
     };
 
     (politiciansByPosition || []).forEach((p: any) => {
-      const positionType = p.position_type || '';
-      if (positionType in positionStats) {
-        positionStats[positionType as keyof typeof positionStats]++;
+      const position = p.position || '';
+      if (position in positionStats) {
+        positionStats[position as keyof typeof positionStats]++;
       }
     });
 
