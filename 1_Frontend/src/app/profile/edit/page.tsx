@@ -361,10 +361,10 @@ export default function ProfileEditPage() {
             </div>
           </div>
 
-          {/* 관심 지역 */}
+          {/* 활동 지역 */}
           <div>
             <label htmlFor="preferredDistrict" className="block text-sm font-medium text-gray-900 mb-2">
-              관심 지역 <span className="text-gray-500">(선택)</span>
+              활동 지역 <span className="text-gray-500">(선택)</span>
             </label>
             <select
               id="preferredDistrict"
