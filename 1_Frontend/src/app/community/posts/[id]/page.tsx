@@ -190,7 +190,8 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.error?.message || data.error || '댓글 등록에 실패했습니다.');
+        const errorDetail = data.error?.details ? ` [${data.error.details}]` : '';
+        throw new Error((data.error?.message || data.error || '댓글 등록에 실패했습니다.') + errorDetail);
       }
 
       // 댓글 목록 새로고침
