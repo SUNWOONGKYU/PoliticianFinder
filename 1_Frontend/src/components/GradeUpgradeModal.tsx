@@ -124,7 +124,7 @@ export default function GradeUpgradeModal({
           <p className="text-gray-600 mb-6">
             {isActivityGrade
               ? `축하합니다! ${gradeInfo.description} 등급에 도달했습니다.`
-              : `축하합니다! ${gradeInfo.emoji} ${gradeInfo.name} 등급에 도달했습니다!`}
+              : `축하합니다! ${emoji} ${gradeInfo.name} 등급에 도달했습니다!`}
           </p>
 
           {/* 등급별 추가 정보 */}
