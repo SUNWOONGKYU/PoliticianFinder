@@ -333,14 +333,18 @@ export async function DELETE(request: NextRequest) {
 
     console.log('✅ DELETE: Politician deleted successfully');
 
-    // 감사 로그
-    await supabase.from('audit_logs').insert({
-      action_type: 'politician_deleted',
-      target_type: 'politician',
-      target_id: politician_id,
-      admin_id: null,
-      metadata: { name: politicianName },
-    }).catch(() => console.log('⚠️ Audit log failed (optional)'));
+    // 감사 로그 (실패해도 무시)
+    try {
+      await supabase.from('audit_logs').insert({
+        action_type: 'politician_deleted',
+        target_type: 'politician',
+        target_id: politician_id,
+        admin_id: null,
+        metadata: { name: politicianName },
+      });
+    } catch {
+      console.log('⚠️ Audit log failed (optional)');
+    }
 
     return NextResponse.json({
       success: true,
