@@ -217,6 +217,27 @@ export default function ProfileEditPage() {
         updateData.preferred_district = formData.preferredRegion;
       }
 
+      // 프로필 사진 업로드
+      if (formData.profileImage) {
+        const imageFormData = new FormData();
+        imageFormData.append('file', formData.profileImage);
+        imageFormData.append('uploadType', 'avatar');
+
+        const uploadResponse = await fetch('/api/storage/upload', {
+          method: 'POST',
+          body: imageFormData,
+        });
+
+        const uploadResult = await uploadResponse.json();
+
+        if (uploadResponse.ok && uploadResult.success && uploadResult.images?.original) {
+          updateData.profile_image_url = uploadResult.images.original;
+        } else {
+          console.error('Image upload failed:', uploadResult.error);
+          // 이미지 업로드 실패해도 나머지 프로필은 저장 진행
+        }
+      }
+
       const response = await fetch('/api/profile', {
         method: 'PATCH',
         headers: {
