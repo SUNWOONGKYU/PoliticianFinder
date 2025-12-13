@@ -15,6 +15,7 @@ interface UserData {
   role: string;
   points: number;
   level: number;
+  profile_image_url: string | null;
 }
 
 interface UserStats {
@@ -94,6 +95,7 @@ export default function MypagePage() {
           role: profile?.role || 'user',
           points: profile?.activity_points || 0,
           level: parseInt((profile?.activity_level || 'ML1').replace('ML', '')) || 1,
+          profile_image_url: profile?.profile_image_url || null,
         });
 
         // 사용자 통계 불러오기
@@ -269,10 +271,18 @@ export default function MypagePage() {
             <div className="bg-white rounded-lg shadow-md p-6 sticky top-20">
               {/* Profile Image */}
               <div className="flex flex-col items-center">
-                <div className="w-24 h-24 bg-secondary-500 rounded-full flex items-center justify-center mb-4">
-                  <svg className="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                  </svg>
+                <div className="w-24 h-24 rounded-full flex items-center justify-center mb-4 overflow-hidden bg-secondary-500">
+                  {userData.profile_image_url ? (
+                    <img
+                      src={userData.profile_image_url}
+                      alt="프로필"
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <svg className="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    </svg>
+                  )}
                 </div>
                 <h2 className="text-xl font-bold text-gray-900">{userData.name}</h2>
                 <p className="text-sm text-gray-500 mt-1">{userData.email}</p>
