@@ -257,6 +257,12 @@ export default function ProfileEditPage() {
         throw new Error(result.error || '프로필 수정에 실패했습니다.');
       }
 
+      // 프로필 이미지 URL 상태 업데이트
+      if (updateData.profile_image_url) {
+        setProfileImageUrl(updateData.profile_image_url);
+        setFormData(prev => ({ ...prev, profileImage: null }));
+      }
+
       showAlert('프로필이 수정되었습니다!');
     } catch (err) {
       console.error('Profile update error:', err);
