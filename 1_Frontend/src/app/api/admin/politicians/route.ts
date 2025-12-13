@@ -242,3 +242,116 @@ export async function POST(request: NextRequest) {
     );
   }
 }
+
+/**
+ * DELETE /api/admin/politicians?id=xxx
+ * 정치인 삭제
+ */
+export async function DELETE(request: NextRequest) {
+  try {
+    // 관리자 권한 확인
+    const authResult = await requireAdmin();
+    if (authResult instanceof NextResponse) {
+      return authResult;
+    }
+
+    // Environment variables check
+    if (!supabaseUrl || !supabaseServiceKey) {
+      return NextResponse.json(
+        { success: false, error: 'Server configuration error.' },
+        { status: 500 }
+      );
+    }
+
+    const politician_id = request.nextUrl.searchParams.get('id');
+    console.log('🔍 DELETE Politician: Requested id:', politician_id);
+
+    if (!politician_id) {
+      return NextResponse.json(
+        { success: false, error: 'id is required' },
+        { status: 400 }
+      );
+    }
+
+    const supabase = createClient(supabaseUrl, supabaseServiceKey);
+
+    // 정치인 존재 확인
+    const { data: existingPolitician, error: fetchError } = await supabase
+      .from('politicians')
+      .select('id, name')
+      .eq('id', politician_id)
+      .single();
+
+    if (fetchError || !existingPolitician) {
+      console.log('❌ DELETE: Politician not found');
+      return NextResponse.json(
+        { success: false, error: '정치인을 찾을 수 없습니다' },
+        { status: 404 }
+      );
+    }
+
+    const politicianName = existingPolitician.name;
+    console.log('✅ DELETE: Politician found:', politicianName);
+
+    // 관련 데이터 삭제 (CASCADE가 없는 경우)
+    // 1. ai_evaluations
+    await supabase.from('ai_evaluations').delete().eq('politician_id', politician_id);
+    // 2. favorite_politicians
+    await supabase.from('favorite_politicians').delete().eq('politician_id', politician_id);
+    // 3. politician_ratings
+    await supabase.from('politician_ratings').delete().eq('politician_id', politician_id);
+    // 4. careers
+    await supabase.from('careers').delete().eq('politician_id', politician_id);
+    // 5. pledges
+    await supabase.from('pledges').delete().eq('politician_id', politician_id);
+    // 6. politician_details
+    await supabase.from('politician_details').delete().eq('politician_id', politician_id);
+    // 7. politician_sessions
+    await supabase.from('politician_sessions').delete().eq('politician_id', politician_id);
+    // 8. politician_email_verifications
+    await supabase.from('politician_email_verifications').delete().eq('politician_id', politician_id);
+    // 9. posts (정치인이 작성한 게시글)
+    await supabase.from('posts').delete().eq('politician_id', politician_id);
+    // 10. comments (정치인이 작성한 댓글)
+    await supabase.from('comments').delete().eq('politician_id', politician_id);
+
+    console.log('✅ DELETE: Related data cleaned up');
+
+    // 정치인 삭제
+    const { error: deleteError } = await supabase
+      .from('politicians')
+      .delete()
+      .eq('id', politician_id);
+
+    if (deleteError) {
+      console.error('❌ DELETE: Supabase delete error:', deleteError);
+      return NextResponse.json(
+        { success: false, error: '정치인 삭제 중 오류가 발생했습니다', details: deleteError.message },
+        { status: 500 }
+      );
+    }
+
+    console.log('✅ DELETE: Politician deleted successfully');
+
+    // 감사 로그
+    await supabase.from('audit_logs').insert({
+      action_type: 'politician_deleted',
+      target_type: 'politician',
+      target_id: politician_id,
+      admin_id: null,
+      metadata: { name: politicianName },
+    }).catch(() => console.log('⚠️ Audit log failed (optional)'));
+
+    return NextResponse.json({
+      success: true,
+      message: `정치인 "${politicianName}"이(가) 삭제되었습니다`,
+    }, { status: 200 });
+
+  } catch (error) {
+    console.error('[Admin Politicians API] DELETE error:', error);
+    return NextResponse.json(
+      { success: false, error: 'Internal server error', details: String(error) },
+      { status: 500 }
+    );
+  }
+}

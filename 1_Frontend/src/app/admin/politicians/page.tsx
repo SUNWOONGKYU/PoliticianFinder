@@ -124,23 +124,26 @@ export default function AdminPoliticiansPage() {
   };
 
   // Handle delete politician
-  const handleDelete = async (id: number) => {
-    if (!confirm('정말로 이 정치인을 삭제하시겠습니까?')) {
+  const handleDelete = async (id: number | string) => {
+    if (!confirm('정말로 이 정치인을 삭제하시겠습니까?\n\n관련된 모든 데이터(댓글, 게시글, 평점 등)도 함께 삭제됩니다.')) {
       return;
     }
 
     try {
-      const response = await fetch(`/api/politicians/${id}`, {
+      // Admin API 사용 (id를 쿼리 파라미터로 전달)
+      const response = await fetch(`/api/admin/politicians?id=${id}`, {
         method: 'DELETE',
       });
 
-      if (!response.ok) {
-        throw new Error('삭제에 실패했습니다.');
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.error || '삭제에 실패했습니다.');
       }
 
       // Refresh list after deletion
       await fetchPoliticians();
-      alert('정치인이 성공적으로 삭제되었습니다.');
+      alert(result.message || '정치인이 성공적으로 삭제되었습니다.');
     } catch (err) {
       alert(err instanceof Error ? err.message : '삭제 중 오류가 발생했습니다.');
     }
