@@ -122,7 +122,7 @@ export async function DELETE(request: NextRequest) {
     console.log('🔍 DELETE: Checking if user exists in DB...');
     const { data: existingUser, error: fetchError } = await supabase
       .from('users')
-      .select('user_id, name')
+      .select('user_id, name, nickname, email')
       .eq('user_id', user_id)
       .single();
 
@@ -136,24 +136,35 @@ export async function DELETE(request: NextRequest) {
       );
     }
 
-    console.log('✅ DELETE: User found:', (existingUser as any).name);
+    const userName = (existingUser as any).nickname || (existingUser as any).name || 'Unknown';
+    console.log('✅ DELETE: User found:', userName);
 
-    // 사용자 삭제 (user_id 필드 사용)
-    console.log('🗑️  DELETE: Attempting to delete user...');
+    // 1. 먼저 users 테이블에서 삭제 (FK 관계로 인해 먼저 삭제)
+    console.log('🗑️  DELETE: Deleting from users table...');
     const { error: deleteError } = await supabase
       .from('users')
       .delete()
       .eq('user_id', user_id);
 
     if (deleteError) {
-      console.error('❌ DELETE: Supabase delete error:', deleteError);
+      console.error('❌ DELETE: users table delete error:', deleteError);
       return NextResponse.json(
         { success: false, error: '사용자 삭제 중 오류가 발생했습니다', details: deleteError.message },
         { status: 500 }
       );
     }
+    console.log('✅ DELETE: users table record deleted');
 
-    console.log('✅ DELETE: User deleted successfully');
+    // 2. auth.users에서도 삭제 (Supabase Auth)
+    console.log('🗑️  DELETE: Deleting from auth.users...');
+    const { error: authDeleteError } = await supabase.auth.admin.deleteUser(user_id);
+
+    if (authDeleteError) {
+      console.error('⚠️  DELETE: auth.users delete error (may be already deleted):', authDeleteError);
+      // auth.users 삭제 실패해도 계속 진행 (이미 삭제된 경우일 수 있음)
+    } else {
+      console.log('✅ DELETE: auth.users record deleted');
+    }
 
     // 감사 로그 기록 (관리자 ID 없이)
     await (supabase as any).from('audit_logs').insert({
@@ -161,7 +172,7 @@ export async function DELETE(request: NextRequest) {
       target_type: 'user',
       target_id: user_id,
       admin_id: null,
-      metadata: { name: (existingUser as any).name },
+      metadata: { name: userName },
     }).then(() => console.log('✅ DELETE: Audit log created')).catch(() => console.log('⚠️  Audit log failed (optional)'));
 
     return NextResponse.json({
@@ -172,7 +183,7 @@ export async function DELETE(request: NextRequest) {
   } catch (error) {
     console.error('DELETE /api/admin/users error:', error);
     return NextResponse.json(
-      { success: false, error: 'Internal server error' },
+      { success: false, error: 'Internal server error', details: String(error) },
       { status: 500 }
     );
   }
