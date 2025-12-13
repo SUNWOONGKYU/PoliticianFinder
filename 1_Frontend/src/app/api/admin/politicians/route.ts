@@ -293,27 +293,24 @@ export async function DELETE(request: NextRequest) {
     const politicianName = existingPolitician.name;
     console.log('✅ DELETE: Politician found:', politicianName);
 
-    // 관련 데이터 삭제 (CASCADE가 없는 경우)
-    // 1. ai_evaluations
-    await supabase.from('ai_evaluations').delete().eq('politician_id', politician_id);
-    // 2. favorite_politicians
-    await supabase.from('favorite_politicians').delete().eq('politician_id', politician_id);
-    // 3. politician_ratings
-    await supabase.from('politician_ratings').delete().eq('politician_id', politician_id);
-    // 4. careers
-    await supabase.from('careers').delete().eq('politician_id', politician_id);
-    // 5. pledges
-    await supabase.from('pledges').delete().eq('politician_id', politician_id);
-    // 6. politician_details
-    await supabase.from('politician_details').delete().eq('politician_id', politician_id);
-    // 7. politician_sessions
-    await supabase.from('politician_sessions').delete().eq('politician_id', politician_id);
-    // 8. politician_email_verifications
-    await supabase.from('politician_email_verifications').delete().eq('politician_id', politician_id);
-    // 9. posts (정치인이 작성한 게시글)
-    await supabase.from('posts').delete().eq('politician_id', politician_id);
-    // 10. comments (정치인이 작성한 댓글)
-    await supabase.from('comments').delete().eq('politician_id', politician_id);
+    // 관련 데이터 삭제 (테이블이 없어도 에러 무시)
+    const relatedTables = [
+      'favorite_politicians',
+      'politician_ratings',
+      'politician_details',
+      'politician_sessions',
+      'politician_email_verifications',
+      'posts',
+      'comments'
+    ];
+
+    for (const table of relatedTables) {
+      try {
+        await supabase.from(table).delete().eq('politician_id', politician_id);
+      } catch {
+        // 테이블이 없거나 에러 발생해도 무시
+      }
+    }
 
     console.log('✅ DELETE: Related data cleaned up');
 
