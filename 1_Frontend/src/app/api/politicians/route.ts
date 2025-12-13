@@ -257,7 +257,7 @@ export async function GET(request: NextRequest) {
       mappedPoliticians = mappedPoliticians.slice(startIdx, endIdx);
     }
 
-    return NextResponse.json(
+    const response = NextResponse.json(
       {
         success: true,
         data: mappedPoliticians,
@@ -272,6 +272,11 @@ export async function GET(request: NextRequest) {
       },
       { status: 200 }
     );
+
+    // 캐시 헤더 추가 (5분 캐싱)
+    response.headers.set('Cache-Control', 'public, s-maxage=300, stale-while-revalidate=600');
+
+    return response;
   } catch (error) {
     if (error instanceof z.ZodError) {
       return NextResponse.json({

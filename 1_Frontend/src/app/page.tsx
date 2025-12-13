@@ -650,19 +650,19 @@ export default function Home() {
                         <th className="px-1 py-2 text-center font-bold text-gray-900">종합평점</th>
                         <th className="px-1 py-2 text-center font-bold text-gray-900">
                           <div className="flex flex-col items-center">
-                            <img src={aiLogos.claude} alt="Claude" className="h-4 w-4 object-contain rounded" />
+                            <Image src={aiLogos.claude} alt="Claude" width={16} height={16} className="h-4 w-4 object-contain rounded" unoptimized />
                             <span className="text-xs whitespace-nowrap">Claude</span>
                           </div>
                         </th>
                         <th className="px-1 py-2 text-center font-bold text-gray-900">
                           <div className="flex flex-col items-center">
-                            <img src={aiLogos.chatgpt} alt="ChatGPT" className="h-4 w-4 object-contain" />
+                            <Image src={aiLogos.chatgpt} alt="ChatGPT" width={16} height={16} className="h-4 w-4 object-contain" unoptimized />
                             <span className="text-xs whitespace-nowrap">GPT</span>
                           </div>
                         </th>
                         <th className="px-1 py-2 text-center font-bold text-gray-900">
                           <div className="flex flex-col items-center">
-                            <img src={aiLogos.grok} alt="Grok" className="h-4 w-4 object-contain" />
+                            <Image src={aiLogos.grok} alt="Grok" width={16} height={16} className="h-4 w-4 object-contain" unoptimized />
                             <span className="text-xs whitespace-nowrap">Grok</span>
                           </div>
                         </th>
@@ -769,7 +769,7 @@ export default function Home() {
                           </span>
                         </div>
                         <div className="flex items-center gap-2">
-                          <img src={aiLogos.grok} alt="Grok" className="h-5 w-5 object-contain" />
+                          <Image src={aiLogos.grok} alt="Grok" width={20} height={20} className="h-5 w-5 object-contain" unoptimized />
                           <span className="text-xs text-gray-900">Grok</span>
                           <span className="ml-auto font-bold text-accent-600">
                             {politicians[0].grok}
@@ -847,7 +847,7 @@ export default function Home() {
                             <span className="ml-auto font-bold text-accent-600">{p.chatgpt > 0 ? p.chatgpt : '-'}</span>
                           </div>
                           <div className="flex items-center gap-2">
-                            <img src={aiLogos.grok} alt="Grok" className="h-5 w-5 object-contain" />
+                            <Image src={aiLogos.grok} alt="Grok" width={20} height={20} className="h-5 w-5 object-contain" unoptimized />
                             <span className="text-xs text-gray-900">Grok</span>
                             <span className="ml-auto font-bold text-accent-600">{p.grok > 0 ? p.grok : '-'}</span>
                           </div>

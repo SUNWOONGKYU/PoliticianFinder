@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useRouter, usePathname } from 'next/navigation';
 
 export default function AdminSidebar() {
@@ -81,7 +82,14 @@ export default function AdminSidebar() {
       </nav>
       <div className="mt-auto p-4 border-t border-gray-700">
         <div className="flex items-center gap-3 mb-4">
-          <img className="w-10 h-10 rounded-full" src="https://i.pravatar.cc/100?u=admin" alt="Admin" />
+          <Image
+              className="w-10 h-10 rounded-full"
+              src="https://i.pravatar.cc/100?u=admin"
+              alt="Admin"
+              width={40}
+              height={40}
+              unoptimized
+            />
           <div>
             <p className="font-semibold">관리자</p>
             <p className="text-sm text-gray-400">온라인</p>
