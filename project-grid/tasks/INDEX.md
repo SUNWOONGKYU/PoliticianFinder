@@ -113,13 +113,14 @@
 
 ### Phase 4: Utilities & Schedulers (9개)
 
-#### Utility Functions (6개)
+#### Utility Functions (7개)
 - [P4BA1](P4BA1.md) - 선관위 크롤링 스크립트 (의존: P2D1)
 - [P4BA2](P4BA2.md) - 정치인 데이터 시딩 (의존: P4BA1)
 - [P4BA3](P4BA3.md) - 이미지 업로드 헬퍼 (의존: P2D1)
 - [P4BA4](P4BA4.md) - 파일 업로드 헬퍼 (의존: P2D1)
 - [P4BA5](P4BA5.md) - 욕설 필터
 - [P4BA6](P4BA6.md) - 알림 생성 헬퍼 (의존: P2D1)
+- [P4BA20](P4BA20.md) - 정치인 통합 이메일 인증 시스템 (의존: P2D1, P3BA2)
 
 #### Schedulers (3개)
 - [P4O1](P4O1.md) - 크롤링 스케줄러 (의존: P4BA1)

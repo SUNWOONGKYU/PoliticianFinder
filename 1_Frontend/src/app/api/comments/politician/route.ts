@@ -11,6 +11,7 @@ const politicianCommentSchema = z.object({
   post_id: z.string().min(1, '게시글 ID는 필수입니다'),
   politician_id: z.string().min(1, '정치인 ID는 필수입니다'),
   content: z.string().min(1, '댓글 내용은 필수입니다').max(500, '댓글은 최대 500자까지 입력 가능합니다'),
+  session_token: z.string().optional(), // 세션 토큰 (새 통합 인증 시스템)
 });
 
 /**
@@ -117,6 +118,33 @@ export async function POST(request: NextRequest) {
         },
         { status: 404 }
       );
+    }
+
+    // 1.5. 세션 토큰 검증 (새 통합 인증 시스템)
+    if (validated.session_token) {
+      const { data: session, error: sessionError } = await (supabase as any)
+        .from('politician_sessions')
+        .select('id, politician_id, expires_at')
+        .eq('politician_id', validated.politician_id)
+        .eq('session_token', validated.session_token)
+        .gt('expires_at', new Date().toISOString())
+        .single() as { data: { id: string; politician_id: string; expires_at: string } | null; error: any };
+
+      if (sessionError || !session) {
+        console.log('[POST /api/comments/politician] Invalid or expired session');
+        return NextResponse.json(
+          {
+            success: false,
+            error: {
+              code: 'SESSION_INVALID',
+              message: '세션이 만료되었거나 유효하지 않습니다. 다시 인증해주세요.',
+            },
+          },
+          { status: 401 }
+        );
+      }
+
+      console.log('[POST /api/comments/politician] Session verified for:', politician.name);
     }
 
     // 2. 게시글 존재 확인
