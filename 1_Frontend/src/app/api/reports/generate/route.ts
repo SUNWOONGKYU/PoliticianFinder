@@ -104,11 +104,11 @@ export async function POST(request: NextRequest) {
     }
 
     // 4. Fetch politician data
-    const { data: politician, error: politicianError } = await supabase
+    const { data: politician, error: politicianError } = await (supabase as any)
       .from('politicians')
       .select('id, name, political_party_id, position_id, profile_image_url, bio')
       .eq('id', politician_id)
-      .single();
+      .single() as { data: any; error: any };
 
     if (politicianError || !politician) {
       return NextResponse.json(
@@ -118,11 +118,11 @@ export async function POST(request: NextRequest) {
     }
 
     // 5. Fetch evaluation data
-    const { data: evaluation, error: evaluationError } = await supabase
+    const { data: evaluation, error: evaluationError } = await (supabase as any)
       .from('ai_evaluations')
       .select('*')
       .eq('id', evaluation_id)
-      .single();
+      .single() as { data: any; error: any };
 
     if (evaluationError || !evaluation) {
       return NextResponse.json(
@@ -140,12 +140,12 @@ export async function POST(request: NextRequest) {
     }
 
     // 6. Fetch evaluation history for trend chart
-    const { data: history, error: historyError } = await supabase
+    const { data: history } = await (supabase as any)
       .from('ai_evaluations')
       .select('evaluation_date, overall_score, overall_grade')
       .eq('politician_id', politician_id)
       .order('evaluation_date', { ascending: false })
-      .limit(10);
+      .limit(10) as { data: any[] | null };
 
     const evaluationHistory: EvaluationHistory[] = history || [];
 
