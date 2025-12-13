@@ -113,7 +113,7 @@ async function handlePoliticianPost(request: NextRequest, body: any) {
       .insert({
         user_id: null,
         politician_id: validated.politician_id,
-        subject: validated.subject,
+        title: validated.subject,
         content: validated.content,
         category: validated.category,
         tags: validated.tags || null,
