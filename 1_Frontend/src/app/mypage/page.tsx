@@ -16,6 +16,17 @@ interface UserData {
   points: number;
   level: number;
   profile_image_url: string | null;
+  preferred_district: string | null;
+}
+
+interface UserComment {
+  id: number;
+  content: string;
+  created_at: string;
+  upvotes: number;
+  downvotes: number;
+  post_id: number;
+  post_title: string;
 }
 
 interface UserStats {
@@ -65,6 +76,8 @@ export default function MypagePage() {
   const [error, setError] = useState<string | null>(null);
   const [favoritePoliticians, setFavoritePoliticians] = useState<FavoritePolitician[]>([]);
   const [favoritesLoading, setFavoritesLoading] = useState(false);
+  const [userComments, setUserComments] = useState<UserComment[]>([]);
+  const [commentsLoading, setCommentsLoading] = useState(false);
 
   // 등급 변동 알림 훅
   const { notification, closeModal } = useGradeNotification({
@@ -96,6 +109,7 @@ export default function MypagePage() {
           points: profile?.activity_points || 0,
           level: parseInt((profile?.activity_level || 'ML1').replace('ML', '')) || 1,
           profile_image_url: profile?.profile_image_url || null,
+          preferred_district: profile?.preferred_district || null,
         });
 
         // 사용자 통계 불러오기
@@ -178,6 +192,29 @@ export default function MypagePage() {
     };
 
     fetchFavoritePoliticians();
+  }, [userData, activeTab]);
+
+  // Fetch user comments when comments tab is active
+  useEffect(() => {
+    const fetchUserComments = async () => {
+      if (!userData || activeTab !== 'comments') return;
+
+      try {
+        setCommentsLoading(true);
+        const response = await fetch(`/api/community/comments?user_id=${userData.id}&limit=10`);
+        const result = await response.json();
+
+        if (result.success && result.data) {
+          setUserComments(result.data);
+        }
+      } catch (err) {
+        console.error('Failed to fetch user comments:', err);
+      } finally {
+        setCommentsLoading(false);
+      }
+    };
+
+    fetchUserComments();
   }, [userData, activeTab]);
 
   // Loading state
@@ -447,70 +484,36 @@ export default function MypagePage() {
             {/* Tab Content: Comments */}
             {activeTab === 'comments' && (
               <div>
-                <div className="bg-white rounded-lg shadow-md divide-y">
-                  {/* Comment Item */}
-                  <div className="p-4 hover:bg-gray-50 transition">
-                    <div className="text-sm text-gray-500 mb-2">
-                      <a href="#" className="font-medium text-secondary-600 hover:underline">2025년 정치 개혁 방향</a>에 댓글을 남겼습니다
-                    </div>
-                    <p className="text-sm text-gray-900">
-                      정말 공감합니다. 특히 투명성 강화 부분이 중요하다고 생각해요. 국민들이 정치인의 활동을 실시간으로 볼 수 있어야 합니다.
-                    </p>
-                    <div className="flex items-center gap-4 mt-2 text-xs text-gray-500">
-                      <span>2025-01-24 14:32</span>
-                      <span className="text-red-600">👍 5</span>
-                      <span className="text-gray-400">👎 1</span>
-                    </div>
+                {commentsLoading ? (
+                  <div className="bg-white rounded-lg shadow-md p-8 text-center">
+                    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-secondary-600 mx-auto"></div>
+                    <p className="mt-4 text-gray-600">댓글을 불러오는 중...</p>
                   </div>
-
-                  {/* Comment Item */}
-                  <div className="p-4 hover:bg-gray-50 transition">
-                    <div className="text-sm text-gray-500 mb-2">
-                      <a href="#" className="font-medium text-secondary-600 hover:underline">AI 평가의 한계점</a>에 댓글을 남겼습니다
-                    </div>
-                    <p className="text-sm text-gray-900">
-                      AI도 결국 데이터를 기반으로 하기 때문에 편향이 있을 수 있다는 점을 인지해야 합니다. 하지만 그럼에도 기존 방식보다는 객관적이라고 봅니다.
-                    </p>
-                    <div className="flex items-center gap-4 mt-2 text-xs text-gray-500">
-                      <span>2025-01-23 09:15</span>
-                      <span className="text-red-600">👍 12</span>
-                      <span className="text-gray-400">👎 0</span>
-                    </div>
+                ) : userComments.length === 0 ? (
+                  <div className="bg-white rounded-lg shadow-md p-8 text-center">
+                    <p className="text-gray-600">작성한 댓글이 없습니다.</p>
                   </div>
-
-                  {/* Comment Item */}
-                  <div className="p-4 hover:bg-gray-50 transition">
-                    <div className="text-sm text-gray-500 mb-2">
-                      <a href="#" className="font-medium text-secondary-600 hover:underline">지역구 의원 활동 비교</a>에 댓글을 남겼습니다
-                    </div>
-                    <p className="text-sm text-gray-900">
-                      우리 지역구 의원은 AI 평가에서 높은 점수를 받았는데 실제로도 활동을 열심히 하시더라고요. 믿을만한 것 같습니다.
-                    </p>
-                    <div className="flex items-center gap-4 mt-2 text-xs text-gray-500">
-                      <span>2025-01-21 18:42</span>
-                      <span className="text-red-600">👍 8</span>
-                      <span className="text-gray-400">👎 2</span>
-                    </div>
+                ) : (
+                  <div className="bg-white rounded-lg shadow-md divide-y">
+                    {userComments.map((comment) => (
+                      <Link key={comment.id} href={`/community/posts/${comment.post_id}`}>
+                        <div className="p-4 hover:bg-gray-50 transition cursor-pointer">
+                          <div className="text-sm text-gray-500 mb-2">
+                            <span className="font-medium text-secondary-600">{comment.post_title || '게시글'}</span>에 댓글을 남겼습니다
+                          </div>
+                          <p className="text-sm text-gray-900 line-clamp-2">
+                            {comment.content}
+                          </p>
+                          <div className="flex items-center gap-4 mt-2 text-xs text-gray-500">
+                            <span>{new Date(comment.created_at).toLocaleDateString('ko-KR')}</span>
+                            <span className="text-red-600">👍 {comment.upvotes || 0}</span>
+                            <span className="text-gray-400">👎 {comment.downvotes || 0}</span>
+                          </div>
+                        </div>
+                      </Link>
+                    ))}
                   </div>
-                </div>
-
-                {/* Pagination */}
-                <div className="mt-6 flex justify-center">
-                  <nav className="inline-flex rounded-md shadow-sm -space-x-px">
-                    <button className="px-3 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
-                      이전
-                    </button>
-                    <button className="px-4 py-2 border border-gray-300 bg-secondary-500 text-sm font-medium text-white">
-                      1
-                    </button>
-                    <button className="px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
-                      2
-                    </button>
-                    <button className="px-3 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
-                      다음
-                    </button>
-                  </nav>
-                </div>
+                )}
               </div>
             )}
 
@@ -522,65 +525,49 @@ export default function MypagePage() {
                   <h3 className="text-lg font-bold text-gray-900 mb-4">활동 등급 - 포인트 현황</h3>
                   <div className="grid grid-cols-2 gap-4">
                     <div className="bg-orange-50 rounded-lg p-4 border-2 border-orange-200">
-                      <div className="text-sm text-gray-600 mb-1">연간 포인트 (2025년)</div>
-                      <div className="text-3xl font-bold text-orange-600">1,248</div>
-                      <div className="text-xs text-gray-500 mt-1">레벨: ML5</div>
+                      <div className="text-sm text-gray-600 mb-1">총 포인트</div>
+                      <div className="text-3xl font-bold text-orange-600">{userData.points.toLocaleString()}</div>
+                      <div className="text-xs text-gray-500 mt-1">레벨: ML{userData.level}</div>
                     </div>
                     <div className="bg-blue-50 rounded-lg p-4 border-2 border-blue-200">
-                      <div className="text-sm text-gray-600 mb-1">월간 포인트 (1월)</div>
-                      <div className="text-3xl font-bold text-blue-600">187</div>
-                      <div className="text-xs text-gray-500 mt-1">이번 달 순위: 12위</div>
+                      <div className="text-sm text-gray-600 mb-1">활동 레벨</div>
+                      <div className="text-3xl font-bold text-blue-600">ML{userData.level}</div>
+                      <div className="text-xs text-gray-500 mt-1">
+                        {userData.level < 10 ? `다음 레벨: ML${userData.level + 1}` : '최고 레벨'}
+                      </div>
                     </div>
                   </div>
 
                   {/* Level Progress */}
-                  <div className="mt-6 border-t pt-4">
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="text-sm font-medium text-gray-700">레벨 진행도</span>
-                      <span className="text-sm font-medium text-secondary-600">ML5 → ML6</span>
-                    </div>
-                    <div className="w-full bg-gray-200 rounded-full h-3">
-                      <div className="bg-secondary-500 h-3 rounded-full" style={{ width: '62%' }}></div>
-                    </div>
-                    <div className="flex items-center justify-between mt-2 text-xs text-gray-500">
-                      <span>1,248 / 2,000 포인트</span>
-                      <span>752 포인트 남음</span>
-                    </div>
-                  </div>
+                  {(() => {
+                    const levelThresholds = [0, 100, 300, 600, 1000, 2000, 4000, 8000, 16000, 32000];
+                    const currentLevel = userData.level;
+                    const currentPoints = userData.points;
+                    const prevThreshold = levelThresholds[currentLevel - 1] || 0;
+                    const nextThreshold = currentLevel < 10 ? levelThresholds[currentLevel] : prevThreshold;
+                    const progress = nextThreshold > prevThreshold
+                      ? Math.min(100, ((currentPoints - prevThreshold) / (nextThreshold - prevThreshold)) * 100)
+                      : 100;
+                    const pointsNeeded = nextThreshold - currentPoints;
 
-                  {/* Monthly Points History */}
-                  <div className="mt-6 border-t pt-4">
-                    <h4 className="text-sm font-bold text-gray-900 mb-3">월별 포인트 내역</h4>
-                    <div className="grid grid-cols-6 gap-2 text-center">
-                      <div className="bg-blue-100 rounded p-2">
-                        <div className="text-xs text-gray-600">1월</div>
-                        <div className="text-sm font-bold text-blue-700">187</div>
+                    return (
+                      <div className="mt-6 border-t pt-4">
+                        <div className="flex items-center justify-between mb-2">
+                          <span className="text-sm font-medium text-gray-700">레벨 진행도</span>
+                          <span className="text-sm font-medium text-secondary-600">
+                            ML{currentLevel} → {currentLevel < 10 ? `ML${currentLevel + 1}` : '최고 레벨'}
+                          </span>
+                        </div>
+                        <div className="w-full bg-gray-200 rounded-full h-3">
+                          <div className="bg-secondary-500 h-3 rounded-full" style={{ width: `${progress}%` }}></div>
+                        </div>
+                        <div className="flex items-center justify-between mt-2 text-xs text-gray-500">
+                          <span>{currentPoints.toLocaleString()} / {nextThreshold.toLocaleString()} 포인트</span>
+                          <span>{pointsNeeded > 0 ? `${pointsNeeded.toLocaleString()} 포인트 남음` : '레벨업 완료!'}</span>
+                        </div>
                       </div>
-                      <div className="bg-gray-100 rounded p-2">
-                        <div className="text-xs text-gray-600">12월</div>
-                        <div className="text-sm font-bold text-gray-700">245</div>
-                      </div>
-                      <div className="bg-gray-100 rounded p-2">
-                        <div className="text-xs text-gray-600">11월</div>
-                        <div className="text-sm font-bold text-gray-700">198</div>
-                      </div>
-                      <div className="bg-gray-100 rounded p-2">
-                        <div className="text-xs text-gray-600">10월</div>
-                        <div className="text-sm font-bold text-gray-700">156</div>
-                      </div>
-                      <div className="bg-gray-100 rounded p-2">
-                        <div className="text-xs text-gray-600">9월</div>
-                        <div className="text-sm font-bold text-gray-700">223</div>
-                      </div>
-                      <div className="bg-gray-100 rounded p-2">
-                        <div className="text-xs text-gray-600">8월</div>
-                        <div className="text-sm font-bold text-gray-700">189</div>
-                      </div>
-                    </div>
-                    <div className="text-right mt-2">
-                      <button className="text-xs text-primary-600 hover:text-primary-700 font-medium">전체 보기 →</button>
-                    </div>
-                  </div>
+                    );
+                  })()}
                 </div>
 
                 {/* Activity Stats */}
@@ -588,65 +575,22 @@ export default function MypagePage() {
                   <h3 className="text-lg font-bold text-gray-900 mb-4">활동 통계</h3>
 
                   {/* Stats Grid */}
-                  <div className="grid grid-cols-2 gap-4 mb-6">
+                  <div className="grid grid-cols-2 gap-4">
                     <div className="bg-blue-50 rounded-lg p-4">
                       <div className="text-sm text-gray-600 mb-1">총 게시글</div>
-                      <div className="text-2xl font-bold text-blue-600">24</div>
+                      <div className="text-2xl font-bold text-blue-600">{userStats?.post_count || 0}</div>
                     </div>
                     <div className="bg-emerald-50 rounded-lg p-4">
                       <div className="text-sm text-gray-600 mb-1">총 댓글</div>
-                      <div className="text-2xl font-bold text-green-600">156</div>
-                    </div>
-                    <div className="bg-emerald-50 rounded-lg p-4">
-                      <div className="text-sm text-gray-600 mb-1">받은 공감</div>
-                      <div className="text-2xl font-bold text-green-600">342</div>
+                      <div className="text-2xl font-bold text-green-600">{userStats?.comment_count || 0}</div>
                     </div>
                     <div className="bg-indigo-50 rounded-lg p-4">
-                      <div className="text-sm text-gray-600 mb-1">정치인 평가</div>
-                      <div className="text-2xl font-bold text-indigo-600">18</div>
+                      <div className="text-sm text-gray-600 mb-1">팔로워</div>
+                      <div className="text-2xl font-bold text-indigo-600">{userStats?.follower_count || 0}</div>
                     </div>
                     <div className="bg-pink-50 rounded-lg p-4">
-                      <div className="text-sm text-gray-600 mb-1">Best 글</div>
-                      <div className="text-2xl font-bold text-pink-600">3</div>
-                    </div>
-                    <div className="bg-red-50 rounded-lg p-4">
-                      <div className="text-sm text-gray-600 mb-1">Hot 글</div>
-                      <div className="text-2xl font-bold text-red-600">5</div>
-                    </div>
-                  </div>
-
-                  {/* Recent Activity */}
-                  <div className="border-t pt-6 mt-6">
-                    <h4 className="text-sm font-bold text-gray-900 mb-4">최근 활동</h4>
-                    <div className="space-y-3">
-                      <div className="flex items-start gap-3">
-                        <div className="w-2 h-2 bg-blue-500 rounded-full mt-1.5"></div>
-                        <div className="flex-1">
-                          <p className="text-sm text-gray-900">게시글 작성</p>
-                          <p className="text-xs text-gray-500">AI 평가 시스템의 신뢰성에 대한 토론 • 2025-01-24</p>
-                        </div>
-                      </div>
-                      <div className="flex items-start gap-3">
-                        <div className="w-2 h-2 bg-emerald-500 rounded-full mt-1.5"></div>
-                        <div className="flex-1">
-                          <p className="text-sm text-gray-900">댓글 작성</p>
-                          <p className="text-xs text-gray-500">2025년 정치 개혁 방향 • 2025-01-24</p>
-                        </div>
-                      </div>
-                      <div className="flex items-start gap-3">
-                        <div className="w-2 h-2 bg-indigo-500 rounded-full mt-1.5"></div>
-                        <div className="flex-1">
-                          <p className="text-sm text-gray-900">정치인 평가</p>
-                          <p className="text-xs text-gray-500">홍길동 국회의원 평가 참여 • 2025-01-24</p>
-                        </div>
-                      </div>
-                      <div className="flex items-start gap-3">
-                        <div className="w-2 h-2 bg-emerald-500 rounded-full mt-1.5"></div>
-                        <div className="flex-1">
-                          <p className="text-sm text-gray-900">공감 받음</p>
-                          <p className="text-xs text-gray-500">우리 동네 국회의원 찾기 기능 건의 • 2025-01-23</p>
-                        </div>
-                      </div>
+                      <div className="text-sm text-gray-600 mb-1">팔로잉</div>
+                      <div className="text-2xl font-bold text-pink-600">{userStats?.following_count || 0}</div>
                     </div>
                   </div>
                 </div>
@@ -669,7 +613,11 @@ export default function MypagePage() {
                           <div className="text-2xl font-bold text-emerald-900">
                             {getInfluenceGrade(userStats?.follower_count || 0).title} ({getInfluenceGrade(userStats?.follower_count || 0).titleEn})
                           </div>
-                          <div className="text-sm text-gray-600 mt-1">📍 지역 미설정</div>
+                          <div className="text-sm text-gray-600 mt-1">
+                            📍 {userData.preferred_district
+                              ? userData.preferred_district.replace('|', ' ')
+                              : '지역 미설정'}
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -683,9 +631,17 @@ export default function MypagePage() {
                         </div>
                       </div>
                       <div className="text-center">
-                        <div className="text-xs text-gray-500 mb-1">지역 순위</div>
-                        <div className="text-xl font-bold text-emerald-900">-</div>
-                        <div className="text-xs text-gray-500 mt-1">지역 설정 필요</div>
+                        <div className="text-xs text-gray-500 mb-1">지역</div>
+                        <div className="text-xl font-bold text-emerald-900">
+                          {userData.preferred_district
+                            ? userData.preferred_district.split('|')[0]
+                            : '-'}
+                        </div>
+                        <div className="text-xs text-gray-500 mt-1">
+                          {userData.preferred_district
+                            ? userData.preferred_district.split('|')[1] || ''
+                            : '프로필에서 설정'}
+                        </div>
                       </div>
                     </div>
                   </div>
