@@ -37,17 +37,19 @@ export async function GET(request: NextRequest, { params }: RouteParams) {
       );
     }
 
-    // 게시글 수 조회
+    // 게시글 수 조회 (삭제되지 않은 것만)
     const { count: postCount } = await supabase
       .from('posts')
       .select('id', { count: 'exact', head: true })
-      .eq('user_id', targetUserId);
+      .eq('user_id', targetUserId)
+      .eq('is_deleted', false);
 
-    // 댓글 수 조회
+    // 댓글 수 조회 (삭제되지 않은 것만)
     const { count: commentCount } = await supabase
       .from('comments')
       .select('id', { count: 'exact', head: true })
-      .eq('user_id', targetUserId);
+      .eq('user_id', targetUserId)
+      .eq('is_deleted', false);
 
     // 팔로잉 수 조회 (RLS 우회를 위해 adminClient 사용)
     const adminClient = createAdminClient();
