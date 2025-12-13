@@ -1,0 +1,236 @@
+# 성능 최적화 리포트
+
+**프로젝트:** PoliticianFinder
+**작성일:** 2025-12-13
+**작성자:** Claude Code
+**상태:** 완료 및 배포됨
+
+---
+
+## 1. 개요
+
+Facebook에서 공유된 "Knowledge Gap" 글을 기반으로 PoliticianFinder 프로젝트에 종합적인 성능 최적화를 적용했습니다.
+
+### 주요 목표
+- 초기 로딩 속도 개선
+- 번들 사이즈 최적화
+- 사용자 체감 속도 향상
+- 서버/클라이언트 캐싱 적용
+
+---
+
+## 2. 적용된 최적화 항목
+
+### 2.1 Next.js 설정 최적화 (`next.config.mjs`)
+
+| 항목 | 설정 | 효과 |
+|------|------|------|
+| 이미지 포맷 | `formats: ['image/avif', 'image/webp']` | 이미지 크기 30-50% 감소 |
+| 이미지 캐싱 | `minimumCacheTTL: 31536000` (1년) | 반복 요청 제거 |
+| 서버 전용 패키지 | `serverExternalPackages` | 클라이언트 번들에서 제외 |
+| 패키지 최적화 | `optimizePackageImports` | 트리쉐이킹 강화 |
+| 정적 파일 캐싱 | `Cache-Control: immutable` | 정적 파일 1년 캐싱 |
+| 압축 | `compress: true` | 응답 크기 감소 |
+
+#### 서버 전용 패키지 (클라이언트 번들에서 제외)
+```javascript
+serverExternalPackages: [
+  'puppeteer',      // PDF 생성용 (155KB+)
+  '@anthropic-ai/sdk',  // AI SDK (3.5MB)
+  'openai',         // AI SDK (11MB)
+  '@google/generative-ai',
+  'nodemailer',     // 이메일 발송
+  'pg',             // PostgreSQL
+  'sharp',          // 이미지 처리
+]
+```
+
+#### 트리쉐이킹 대상 패키지
+```javascript
+optimizePackageImports: [
+  'lucide-react',   // 아이콘 (42MB → 필요한 것만)
+  'recharts',       // 차트 (6.9MB → 필요한 것만)
+  '@supabase/supabase-js',
+]
+```
+
+---
+
+### 2.2 이미지 최적화
+
+#### 변환된 파일 목록
+
+| 파일 | 변경 내용 |
+|------|----------|
+| `AdminSidebar.tsx` | `<img>` → `<Image>` (관리자 프로필) |
+| `page.tsx` (메인) | `<img>` → `<Image>` (AI 로고 5개) |
+| `compare/page.tsx` | `<img>` → `<Image>` (정치인 프로필) |
+
+#### 이미지 도메인 설정
+```javascript
+remotePatterns: [
+  { hostname: 'cdn.brandfetch.io' },
+  { hostname: 'cdn.simpleicons.org' },
+  { hostname: 'via.placeholder.com' },
+  { hostname: 'upload.wikimedia.org' },
+  { hostname: 'www.assembly.go.kr' },
+  { hostname: '*.supabase.co' },
+]
+```
+
+---
+
+### 2.3 Skeleton UI 컴포넌트
+
+**파일:** `src/components/ui/Skeleton.tsx`
+
+| 컴포넌트 | 용도 |
+|----------|------|
+| `Skeleton` | 기본 플레이스홀더 |
+| `SkeletonText` | 텍스트 라인 (다수) |
+| `SkeletonCard` | 일반 카드 |
+| `SkeletonPoliticianCard` | 정치인 카드 |
+| `SkeletonTableRow` | 테이블 행 |
+| `SkeletonTable` | 전체 테이블 |
+| `SkeletonPostList` | 게시글 목록 |
+| `SkeletonRankingTable` | 메인 페이지 랭킹 테이블 |
+| `SkeletonProfile` | 프로필 페이지 |
+
+#### 사용 예시
+```tsx
+import { SkeletonRankingTable } from '@/components/ui/Skeleton';
+
+{isLoading ? (
+  <SkeletonRankingTable rows={10} />
+) : (
+  <RankingTable data={politicians} />
+)}
+```
+
+---
+
+### 2.4 API 캐싱
+
+#### 클라이언트 사이드 캐시 (`src/lib/cache.ts`)
+
+| 함수 | 기능 |
+|------|------|
+| `clientCache.get(key)` | 캐시에서 데이터 조회 |
+| `clientCache.set(key, data, ttl)` | 캐시에 데이터 저장 |
+| `clientCache.invalidate(pattern)` | 패턴 매칭 캐시 삭제 |
+| `cachedFetch(url, options)` | 캐시된 fetch 함수 |
+
+#### 캐시 TTL 설정
+```typescript
+const CACHE_TTL = {
+  SHORT: 1 * 60 * 1000,      // 1분
+  MEDIUM: 5 * 60 * 1000,     // 5분
+  LONG: 30 * 60 * 1000,      // 30분
+  HOUR: 60 * 60 * 1000,      // 1시간
+  DAY: 24 * 60 * 60 * 1000,  // 1일
+};
+```
+
+#### 서버 사이드 캐시 헤더
+```typescript
+// /api/politicians 응답에 추가
+response.headers.set(
+  'Cache-Control',
+  'public, s-maxage=300, stale-while-revalidate=600'
+);
+```
+
+---
+
+## 3. 생성/수정된 파일 목록
+
+### 새로 생성된 파일
+| 파일 경로 | 설명 |
+|----------|------|
+| `src/components/ui/Skeleton.tsx` | Skeleton UI 컴포넌트 |
+| `src/lib/cache.ts` | 클라이언트 캐시 유틸리티 |
+
+### 수정된 파일
+| 파일 경로 | 변경 내용 |
+|----------|----------|
+| `next.config.mjs` | 종합 성능 최적화 설정 |
+| `src/app/admin/components/AdminSidebar.tsx` | img → Image 변환 |
+| `src/app/page.tsx` | img → Image 변환 (5개) |
+| `src/app/politicians/compare/page.tsx` | img → Image 변환 |
+| `src/app/api/politicians/route.ts` | 캐시 헤더 추가 |
+
+---
+
+## 4. 예상 성능 개선 효과
+
+| 항목 | 개선 전 | 개선 후 | 개선율 |
+|------|--------|--------|-------|
+| 이미지 로딩 | 원본 크기 | WebP/AVIF | ~40% 감소 |
+| 클라이언트 번들 | 무거운 패키지 포함 | 서버 전용 분리 | ~15% 감소 |
+| API 반복 요청 | 매번 서버 요청 | 캐시 사용 | ~80% 감소 |
+| 체감 로딩 속도 | 빈 화면 | Skeleton UI | 즉시 피드백 |
+| 정적 파일 | 매번 다운로드 | 1년 캐싱 | ~95% 감소 |
+
+---
+
+## 5. 추가 권장 사항
+
+### 즉시 적용 가능
+- [ ] Sentry 에러 트래킹 연동
+- [ ] Vercel Analytics 활성화
+- [ ] 버튼 중복 클릭 방지 전역 적용
+
+### 중기 적용
+- [ ] React Query/SWR 도입으로 캐싱 고도화
+- [ ] DB 인덱스 최적화 (자주 사용되는 쿼리)
+- [ ] Lighthouse 정기 모니터링
+
+### 장기 적용
+- [ ] CDN 이미지 최적화 (Cloudinary, imgix 등)
+- [ ] Service Worker를 통한 오프라인 지원
+- [ ] Critical CSS 인라인화
+
+---
+
+## 6. 검증 방법
+
+### Lighthouse 테스트
+```bash
+# Chrome DevTools > Lighthouse 탭에서 실행
+# 또는 CLI로 실행
+npx lighthouse https://www.politicianfinder.ai.kr --view
+```
+
+### 번들 분석
+```bash
+# 번들 분석기 설치 후 실행
+npm install @next/bundle-analyzer
+ANALYZE=true npm run build
+```
+
+### 캐시 동작 확인
+```bash
+# Network 탭에서 Cache-Control 헤더 확인
+# 또는 curl로 확인
+curl -I https://www.politicianfinder.ai.kr/api/politicians
+```
+
+---
+
+## 7. 결론
+
+본 최적화 작업을 통해 PoliticianFinder의 로딩 성능이 전반적으로 개선되었습니다.
+
+**핵심 성과:**
+1. 이미지 자동 최적화 (WebP/AVIF)
+2. 클라이언트 번들 경량화 (서버 전용 패키지 분리)
+3. API 캐싱 (클라이언트 + 서버)
+4. Skeleton UI로 체감 속도 개선
+5. 정적 파일 장기 캐싱
+
+**배포 상태:** ✅ 완료 (2025-12-13)
+**커밋:** `52e01c0` - "perf: 종합 성능 최적화 적용"
+
+---
+
+*Generated by Claude Code on 2025-12-13*
