@@ -42,12 +42,8 @@ export async function POST(request: NextRequest) {
 
     console.log('[send-code] Found politician:', politician.name);
 
-    // 2. 6자리 인증 코드 생성 (혼동 가능한 문자 제외: 0, O, I, L, 1)
-    const ALLOWED_CHARS = '23456789ABCDEFGHJKMNPQRSTUVWXYZ';
-    let verificationCode = '';
-    for (let i = 0; i < 6; i++) {
-      verificationCode += ALLOWED_CHARS.charAt(Math.floor(Math.random() * ALLOWED_CHARS.length));
-    }
+    // 2. 6자리 숫자 인증 코드 생성
+    const verificationCode = String(Math.floor(100000 + Math.random() * 900000));
 
     // 3. 만료 시간 설정 (10분)
     const expiresAt = new Date();
