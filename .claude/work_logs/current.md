@@ -1,9 +1,56 @@
 # Work Log - Current Session
 
-## Session Start: 2025-12-12 (Continued)
+## Session Start: 2025-12-13 (Continued)
 
 ### Previous Log
 - [2025-12-01 작업 로그](2025-12-01.md)
+
+---
+
+## ✅ 2025-12-13 완료: P4BA20 정치인 통합 이메일 인증 시스템
+
+### 작업 개요
+**기존 간편 인증(이름/정당/직종 입력) → 새 통합 이메일 인증 시스템으로 전환**
+
+### 핵심 변경사항
+1. 등록된 정치인만 드롭다운에서 선택 (수동 입력 제거)
+2. 이메일로 6자리 인증 코드 발송 (Resend API)
+3. 세션 1년 유효 (실질적 영구 인증)
+4. 새 이메일로 재인증 시 verified_email 업데이트
+
+### 생성된 파일 (6개)
+
+#### 1. DB 마이그레이션
+- `0-4_Database/Supabase/migrations/062_politician_unified_auth.sql`
+- 테이블: politician_email_verifications, politician_sessions
+- politicians 테이블에 verified_email, email_verified_at 컬럼 추가
+
+#### 2. API Routes (3개)
+- `1_Frontend/src/app/api/politicians/auth/send-code/route.ts` - 인증 코드 발송
+- `1_Frontend/src/app/api/politicians/auth/verify-code/route.ts` - 코드 확인 + 세션 발급
+- `1_Frontend/src/app/api/politicians/auth/session/route.ts` - 세션 상태 확인
+
+#### 3. 프론트엔드 컴포넌트
+- `1_Frontend/src/components/PoliticianAuthModal.tsx` - 통합 인증 모달
+
+#### 4. Task 문서
+- `project-grid/tasks/P4BA20.md` - 작업 지시서
+
+### 수정된 파일 (3개)
+- `1_Frontend/src/app/community/posts/[id]/politician/page.tsx` - 인증 모달 통합
+- `1_Frontend/src/app/api/comments/politician/route.ts` - 세션 토큰 검증 추가
+- `project-grid/tasks/INDEX.md` - P4BA20 추가
+
+### 검증 결과
+- ✅ TypeScript 컴파일 성공
+- ✅ Next.js 빌드 성공
+- ⏳ DB 마이그레이션 사용자 적용 필요 (062_politician_unified_auth.sql)
+
+### 다음 작업
+**사용자 필수 조치:**
+1. Supabase에서 `062_politician_unified_auth.sql` SQL 실행
+2. git push 후 Vercel 자동 배포 확인
+3. 실제 이메일 인증 테스트
 
 ---
 
