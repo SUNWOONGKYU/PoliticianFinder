@@ -1,8 +1,9 @@
 // Task ID: P4BA15
 // POST /api/reports/generate - Generate PDF report for evaluation
+// ⚠️ 정치인 전용: 일반 회원은 구매 불가, 정치인 세션 토큰 인증 필수
 
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@/lib/supabase/server';
+import { createAdminClient } from '@/lib/supabase/server';
 import { getReportGenerator } from '@/lib/pdf/report-generator';
 import { uploadReportPDF, reportPDFExists, getReportPDFUrl } from '@/lib/storage/upload';
 import {
@@ -10,6 +11,7 @@ import {
   EvaluationForReport,
   EvaluationHistory,
 } from '@/lib/pdf/types';
+import { validatePoliticianSession } from '@/lib/auth/politicianSession';
 
 // Force dynamic rendering
 export const dynamic = 'force-dynamic';
@@ -19,20 +21,24 @@ export const maxDuration = 60; // 60 seconds
 
 /**
  * Request body interface
+ * ⚠️ 정치인 전용: session_token 필수
  */
 interface GenerateReportRequest {
   politician_id: string;
   evaluation_id: string;
+  session_token: string; // 정치인 세션 토큰 (필수)
   force_regenerate?: boolean; // Force regeneration even if PDF exists
 }
 
 /**
  * POST /api/reports/generate
  * Generate PDF report for a politician's AI evaluation
+ * ⚠️ 정치인 전용: 일반 회원은 구매 불가
  *
  * Request body:
  * - politician_id: string (required)
  * - evaluation_id: string (required)
+ * - session_token: string (required) - 정치인 세션 토큰
  * - force_regenerate?: boolean (optional, default: false)
  *
  * Response:
@@ -45,24 +51,9 @@ export async function POST(request: NextRequest) {
   const startTime = Date.now();
 
   try {
-    const supabase = await createClient();
-
-    // 1. Authentication check
-    const {
-      data: { user },
-      error: authError,
-    } = await supabase.auth.getUser();
-
-    if (authError || !user) {
-      return NextResponse.json(
-        { success: false, error: '인증이 필요합니다' },
-        { status: 401 }
-      );
-    }
-
-    // 2. Parse and validate request body
+    // 1. Parse and validate request body
     const body: GenerateReportRequest = await request.json();
-    const { politician_id, evaluation_id, force_regenerate = false } = body;
+    const { politician_id, evaluation_id, session_token, force_regenerate = false } = body;
 
     if (!politician_id || !evaluation_id) {
       return NextResponse.json(
@@ -70,6 +61,33 @@ export async function POST(request: NextRequest) {
         { status: 400 }
       );
     }
+
+    if (!session_token) {
+      return NextResponse.json(
+        {
+          success: false,
+          error: '정치인 인증이 필요합니다. 일반 회원은 구매할 수 없습니다.',
+          code: 'POLITICIAN_ONLY'
+        },
+        { status: 401 }
+      );
+    }
+
+    // 2. 정치인 세션 토큰 검증
+    const validationResult = await validatePoliticianSession(politician_id, session_token);
+
+    if (!validationResult.valid) {
+      return NextResponse.json(
+        {
+          success: false,
+          error: validationResult.error?.message || '세션이 만료되었거나 유효하지 않습니다.',
+          code: validationResult.error?.code
+        },
+        { status: 401 }
+      );
+    }
+
+    const supabase = createAdminClient();
 
     // 3. Check if PDF already exists (unless force_regenerate is true)
     if (!force_regenerate) {
@@ -229,35 +247,47 @@ export async function POST(request: NextRequest) {
 }
 
 /**
- * GET /api/reports/generate?politician_id=xxx&evaluation_id=xxx
+ * GET /api/reports/generate?politician_id=xxx&evaluation_id=xxx&session_token=xxx
  * Check if report exists and return URL
+ * ⚠️ 정치인 전용: 일반 회원은 조회 불가
  */
 export async function GET(request: NextRequest) {
   try {
-    const supabase = await createClient();
-
-    // 1. Authentication check
-    const {
-      data: { user },
-      error: authError,
-    } = await supabase.auth.getUser();
-
-    if (authError || !user) {
-      return NextResponse.json(
-        { success: false, error: '인증이 필요합니다' },
-        { status: 401 }
-      );
-    }
-
-    // 2. Get query parameters
+    // 1. Get query parameters
     const searchParams = request.nextUrl.searchParams;
     const politician_id = searchParams.get('politician_id');
     const evaluation_id = searchParams.get('evaluation_id');
+    const session_token = searchParams.get('session_token');
 
     if (!politician_id || !evaluation_id) {
       return NextResponse.json(
         { success: false, error: 'politician_id와 evaluation_id가 필요합니다' },
         { status: 400 }
+      );
+    }
+
+    if (!session_token) {
+      return NextResponse.json(
+        {
+          success: false,
+          error: '정치인 인증이 필요합니다. 일반 회원은 조회할 수 없습니다.',
+          code: 'POLITICIAN_ONLY'
+        },
+        { status: 401 }
+      );
+    }
+
+    // 2. 정치인 세션 토큰 검증
+    const validationResult = await validatePoliticianSession(politician_id, session_token);
+
+    if (!validationResult.valid) {
+      return NextResponse.json(
+        {
+          success: false,
+          error: validationResult.error?.message || '세션이 만료되었거나 유효하지 않습니다.',
+          code: validationResult.error?.code
+        },
+        { status: 401 }
       );
     }
 
