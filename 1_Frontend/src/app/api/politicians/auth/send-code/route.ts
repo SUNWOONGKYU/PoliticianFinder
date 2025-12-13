@@ -72,13 +72,8 @@ export async function POST(request: NextRequest) {
     console.log('[send-code] Verification created:', verification.id);
 
     // 5. 이메일 발송 (Resend)
-    let emailResult: any = null;
-    let emailError: any = null;
     try {
-      console.log('[send-code] RESEND_API_KEY exists:', !!process.env.RESEND_API_KEY);
-      console.log('[send-code] RESEND_API_KEY prefix:', process.env.RESEND_API_KEY?.substring(0, 5));
-
-      emailResult = await resend.emails.send({
+      await resend.emails.send({
         from: 'PoliticianFinder <noreply@politicianfinder.ai.kr>',
         to: validated.email,
         subject: `[PoliticianFinder] ${politician.name}님 본인 인증 코드`,
@@ -115,10 +110,9 @@ export async function POST(request: NextRequest) {
         `,
       });
 
-      console.log('[send-code] Email sent:', emailResult);
-    } catch (err) {
-      emailError = err;
-      console.error('[send-code] Email send error:', err);
+      console.log('[send-code] Email sent successfully');
+    } catch (emailError) {
+      console.error('[send-code] Email send error:', emailError);
     }
 
     // 6. 응답 (이메일 일부 마스킹)
@@ -136,14 +130,6 @@ export async function POST(request: NextRequest) {
         name: politician.name,
         party: politician.party,
         position: politician.position,
-      },
-      // 디버그 정보 (임시)
-      _debug: {
-        emailSent: !!emailResult?.data?.id,
-        emailId: emailResult?.data?.id || null,
-        emailError: emailError ? String(emailError) : null,
-        apiKeyExists: !!process.env.RESEND_API_KEY,
-        apiKeyPrefix: process.env.RESEND_API_KEY?.substring(0, 5) || null,
       }
     });
 
