@@ -1389,7 +1389,7 @@ export default function Home() {
       </div>
 
       {/* 이용 방법 섹션 */}
-      <section className="bg-white py-16 mt-12">
+      <section className="bg-white py-16 mt-12 border-t-4 border-secondary-500">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-2xl font-bold text-gray-900 mb-3">이용 방법</h2>
