@@ -230,9 +230,14 @@ export default function ProfileEditPage() {
 
         const uploadResult = await uploadResponse.json();
 
-        if (uploadResponse.ok && uploadResult.success && uploadResult.images?.original) {
-          updateData.profile_image_url = uploadResult.images.original;
-        } else {
+        if (uploadResponse.ok && uploadResult.success && uploadResult.images?.length > 0) {
+          // medium 크기 이미지 사용 (없으면 첫 번째 이미지)
+          const mediumImage = uploadResult.images.find((img: { size: string }) => img.size === 'medium');
+          const imageUrl = mediumImage?.url || uploadResult.images[0]?.url;
+          if (imageUrl) {
+            updateData.profile_image_url = imageUrl;
+          }
+        } else if (uploadResult.error) {
           console.error('Image upload failed:', uploadResult.error);
           // 이미지 업로드 실패해도 나머지 프로필은 저장 진행
         }
