@@ -27,7 +27,8 @@
       "Bash(npm run build:*)",
       "Bash(bash:*)",
       "Bash(tee:*)",
-      "Bash(vercel logs:*)"
+      "Bash(vercel logs:*)",
+      "Bash(git push:*)"
     ],
     "deny": [],
     "ask": []
