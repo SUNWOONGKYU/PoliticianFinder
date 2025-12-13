@@ -46,12 +46,18 @@ export async function GET(request: NextRequest) {
     ]);
 
     // 최근 활동 가져오기 (게시물, 댓글, 결제 등을 하나의 타임라인으로)
-    const recentActivities = [];
+    const recentActivities: Array<{
+      id: string;
+      type: string;
+      user_name: string;
+      description: string;
+      timestamp: string;
+    }> = [];
 
     // 최근 게시물
     const { data: recentPosts } = await supabase
       .from('posts')
-      .select('id, title, created_at')
+      .select('id, title, created_at, user_id')
       .order('created_at', { ascending: false })
       .limit(5);
 
@@ -59,9 +65,10 @@ export async function GET(request: NextRequest) {
       recentActivities.push(
         ...recentPosts.map(post => ({
           id: `post-${post.id}`,
-          type: 'post_created',
+          type: '게시글',
+          user_name: '회원',
+          description: `님이 새 게시글을 작성했습니다: ${post.title?.substring(0, 30) || '제목 없음'}`,
           timestamp: post.created_at,
-          details: `새 게시물: ${post.title}`,
         }))
       );
     }
@@ -69,7 +76,7 @@ export async function GET(request: NextRequest) {
     // 최근 결제
     const { data: recentPayments } = await supabase
       .from('payments')
-      .select('id, amount, created_at')
+      .select('id, amount, created_at, user_id')
       .order('created_at', { ascending: false })
       .limit(5);
 
@@ -77,9 +84,10 @@ export async function GET(request: NextRequest) {
       recentActivities.push(
         ...recentPayments.map(payment => ({
           id: `payment-${payment.id}`,
-          type: 'payment_completed',
+          type: '결제',
+          user_name: '회원',
+          description: `님이 결제를 완료했습니다: ${(payment.amount || 0).toLocaleString()}원`,
           timestamp: payment.created_at,
-          details: `결제 완료: ${payment.amount.toLocaleString()}원`,
         }))
       );
     }
@@ -87,7 +95,7 @@ export async function GET(request: NextRequest) {
     // 최근 문의
     const { data: recentInquiries } = await supabase
       .from('inquiries')
-      .select('id, title, created_at')
+      .select('id, title, created_at, email')
       .order('created_at', { ascending: false })
       .limit(5);
 
@@ -95,9 +103,29 @@ export async function GET(request: NextRequest) {
       recentActivities.push(
         ...recentInquiries.map(inquiry => ({
           id: `inquiry-${inquiry.id}`,
-          type: 'inquiry_received',
+          type: '문의',
+          user_name: inquiry.email?.split('@')[0] || '익명',
+          description: `님이 문의를 접수했습니다: ${inquiry.title?.substring(0, 30) || '제목 없음'}`,
           timestamp: inquiry.created_at,
-          details: `문의 접수: ${inquiry.title}`,
+        }))
+      );
+    }
+
+    // 최근 회원가입
+    const { data: recentUsers } = await supabase
+      .from('users')
+      .select('user_id, nickname, created_at')
+      .order('created_at', { ascending: false })
+      .limit(5);
+
+    if (recentUsers) {
+      recentActivities.push(
+        ...recentUsers.map(user => ({
+          id: `user-${user.user_id}`,
+          type: '회원',
+          user_name: user.nickname || '새 회원',
+          description: '님이 회원가입했습니다.',
+          timestamp: user.created_at,
         }))
       );
     }
