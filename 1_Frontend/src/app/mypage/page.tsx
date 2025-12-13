@@ -104,14 +104,24 @@ export default function MypagePage() {
         const statsResult = await statsResponse.json();
 
         if (statsResponse.ok && statsResult.success) {
+          const calculatedLevel = statsResult.data.activity?.level || 'ML1';
+          const calculatedLevelNum = parseInt(calculatedLevel.replace('ML', '')) || 1;
+
           setUserStats({
             follower_count: statsResult.data.followers?.count || 0,
             following_count: statsResult.data.followers?.following_count || 0,
             post_count: statsResult.data.activity_stats?.post_count || 0,
             comment_count: statsResult.data.activity_stats?.comment_count || 0,
-            activity_level: statsResult.data.activity?.level || 'ML1',
+            activity_level: calculatedLevel,
             influence_grade: statsResult.data.influence?.grade || 'Wanderer',
           });
+
+          // 포인트 기반 계산된 레벨로 userData 업데이트
+          setUserData(prev => prev ? {
+            ...prev,
+            level: calculatedLevelNum,
+            points: statsResult.data.activity?.points || prev.points,
+          } : null);
         }
       } catch (err) {
         console.error('Failed to fetch user data:', err);

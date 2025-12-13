@@ -60,14 +60,25 @@ export async function GET(request: NextRequest, { params }: RouteParams) {
     const gradeKey = user.influence_grade || 'Wanderer';
     const gradeInfo = INFLUENCE_GRADES[gradeKey] || INFLUENCE_GRADES.Wanderer;
 
-    // 다음 활동 레벨까지 필요한 포인트 계산
+    // 활동 포인트 기반 레벨 계산 (DB 값이 아닌 포인트로 동적 계산)
     const currentPoints = user.activity_points || 0;
     const levelThresholds = [0, 100, 300, 600, 1000, 2000, 4000, 8000, 16000, 32000];
-    const currentLevelNum = parseInt((user.activity_level || 'ML1').replace('ML', ''));
+
+    // 포인트 기반으로 레벨 계산
+    let calculatedLevelNum = 1;
+    for (let i = 1; i < levelThresholds.length; i++) {
+      if (currentPoints >= levelThresholds[i]) {
+        calculatedLevelNum = i + 1;
+      } else {
+        break;
+      }
+    }
+    const currentLevelNum = calculatedLevelNum;
     const nextLevelPoints = currentLevelNum < 10 ? levelThresholds[currentLevelNum] : null;
     const pointsToNextLevel = nextLevelPoints ? nextLevelPoints - currentPoints : null;
+    const prevThreshold = levelThresholds[currentLevelNum - 1] || 0;
     const progressPercent = nextLevelPoints
-      ? Math.min(100, ((currentPoints - levelThresholds[currentLevelNum - 1]) / (nextLevelPoints - levelThresholds[currentLevelNum - 1])) * 100)
+      ? Math.min(100, ((currentPoints - prevThreshold) / (nextLevelPoints - prevThreshold)) * 100)
       : 100;
 
     return NextResponse.json({
@@ -80,7 +91,7 @@ export async function GET(request: NextRequest, { params }: RouteParams) {
           joined_at: user.created_at,
         },
         activity: {
-          level: user.activity_level || 'ML1',
+          level: 'ML' + currentLevelNum,  // 포인트 기반 계산된 레벨
           points: currentPoints,
           next_level: currentLevelNum < 10 ? 'ML' + (currentLevelNum + 1) : null,
           points_to_next_level: pointsToNextLevel,
