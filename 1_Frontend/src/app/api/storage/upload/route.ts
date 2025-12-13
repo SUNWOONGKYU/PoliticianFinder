@@ -1,17 +1,29 @@
-// P4BA3: 이미지 업로드 API 엔드포인트 (예시)
+// P4BA3: 이미지 업로드 API 엔드포인트
 // 작업일: 2025-11-09
+// 수정일: 2025-12-14 - Vercel 서버리스 환경 호환 (sharp 제거)
 // 설명: Supabase Storage 이미지 업로드 API
 
 import { NextRequest, NextResponse } from 'next/server';
-import { uploadImage, uploadUserAvatar } from '@/lib/utils/image-upload';
 import { createClient } from '@/lib/supabase/server';
+
+// 허용된 이미지 형식
+const ALLOWED_MIME_TYPES = [
+  'image/jpeg',
+  'image/jpg',
+  'image/png',
+  'image/webp',
+  'image/gif',
+];
+
+// 최대 파일 크기: 5MB
+const MAX_FILE_SIZE = 5 * 1024 * 1024;
 
 /**
  * POST /api/storage/upload
  *
- * 이미지 업로드 API
+ * 이미지 업로드 API (Vercel 서버리스 호환)
  *
- * @body {FormData} - file, bucket, path, filename
+ * @body {FormData} - file, uploadType
  */
 export async function POST(request: NextRequest) {
   try {
@@ -36,10 +48,7 @@ export async function POST(request: NextRequest) {
     // ========================================================================
     const formData = await request.formData();
     const file = formData.get('file') as File;
-    const bucket = formData.get('bucket') as string;
-    const path = formData.get('path') as string;
-    const filename = formData.get('filename') as string;
-    const uploadType = formData.get('uploadType') as string; // 'avatar' | 'politician' | 'custom'
+    const uploadType = formData.get('uploadType') as string;
 
     if (!file) {
       return NextResponse.json(
@@ -49,54 +58,81 @@ export async function POST(request: NextRequest) {
     }
 
     // ========================================================================
-    // 3. 업로드 타입에 따라 처리
+    // 3. 파일 유효성 검증
     // ========================================================================
-    let result;
-
-    if (uploadType === 'avatar') {
-      // 사용자 아바타 업로드
-      result = await uploadUserAvatar(user.id, file);
-    } else if (uploadType === 'politician') {
-      // 정치인 이미지 업로드
-      if (!filename) {
-        return NextResponse.json(
-          { success: false, error: '정치인 ID가 필요합니다.', code: 'POLITICIAN_ID_REQUIRED' },
-          { status: 400 }
-        );
-      }
-
-      const { uploadPoliticianImage } = await import('@/lib/utils/image-upload');
-      result = await uploadPoliticianImage(filename, file);
-    } else {
-      // 커스텀 업로드
-      if (!bucket || !path || !filename) {
-        return NextResponse.json(
-          { success: false, error: '필수 파라미터가 누락되었습니다.', code: 'MISSING_PARAMS' },
-          { status: 400 }
-        );
-      }
-
-      result = await uploadImage({
-        file,
-        bucket,
-        path,
-        filename,
-      });
-    }
-
-    // ========================================================================
-    // 4. 응답
-    // ========================================================================
-    if (!result.success) {
+    if (!ALLOWED_MIME_TYPES.includes(file.type)) {
       return NextResponse.json(
-        { success: false, error: result.error, code: result.code },
+        { success: false, error: '허용되지 않은 이미지 형식입니다.', code: 'INVALID_FORMAT' },
         { status: 400 }
       );
     }
 
+    if (file.size > MAX_FILE_SIZE) {
+      return NextResponse.json(
+        { success: false, error: '파일 크기가 5MB를 초과합니다.', code: 'FILE_TOO_LARGE' },
+        { status: 400 }
+      );
+    }
+
+    // ========================================================================
+    // 4. 직접 Supabase Storage에 업로드 (sharp 없이)
+    // ========================================================================
+    const timestamp = Date.now();
+    const random = Math.random().toString(36).substring(2, 8);
+    const ext = file.name.split('.').pop() || 'jpg';
+
+    let bucket = 'avatars';
+    let filePath = '';
+
+    if (uploadType === 'avatar') {
+      bucket = 'avatars';
+      filePath = `avatars/${user.id}/avatar_${timestamp}_${random}.${ext}`;
+    } else if (uploadType === 'politician') {
+      bucket = 'politician-images';
+      const politicianId = formData.get('filename') as string || 'unknown';
+      filePath = `politician-images/${politicianId}/photo_${timestamp}_${random}.${ext}`;
+    } else {
+      bucket = 'avatars';
+      filePath = `uploads/${user.id}/${timestamp}_${random}.${ext}`;
+    }
+
+    // File을 ArrayBuffer로 변환
+    const arrayBuffer = await file.arrayBuffer();
+    const buffer = new Uint8Array(arrayBuffer);
+
+    // Supabase Storage에 업로드
+    const { data, error: uploadError } = await supabase.storage
+      .from(bucket)
+      .upload(filePath, buffer, {
+        contentType: file.type,
+        upsert: true,
+      });
+
+    if (uploadError) {
+      console.error('Storage upload error:', uploadError);
+      return NextResponse.json(
+        { success: false, error: `업로드 실패: ${uploadError.message}`, code: 'UPLOAD_ERROR' },
+        { status: 400 }
+      );
+    }
+
+    // Public URL 가져오기
+    const { data: { publicUrl } } = supabase.storage
+      .from(bucket)
+      .getPublicUrl(filePath);
+
+    // ========================================================================
+    // 5. 응답
+    // ========================================================================
     return NextResponse.json({
       success: true,
-      images: result.images,
+      images: [
+        {
+          size: 'medium',
+          path: filePath,
+          url: publicUrl,
+        }
+      ],
       message: '이미지가 성공적으로 업로드되었습니다.',
     });
   } catch (error) {
