@@ -1,7 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
+import { CONSTITUENCIES } from '@/constants/constituencies';
 
 interface ProfileFormData {
   nickname: string;
@@ -9,30 +10,9 @@ interface ProfileFormData {
   memberLevel: string;
   bio: string;
   profileImage: File | null;
-  preferredDistrict: string;
+  preferredRegion: string;  // 광역 (예: "서울", "경기")
+  preferredDistrict: string;  // 선거구 (예: "강남구 갑", "수원시 갑")
 }
-
-// 한국 주요 지역 목록
-const REGIONS = [
-  '',
-  '서울',
-  '부산',
-  '대구',
-  '인천',
-  '광주',
-  '대전',
-  '울산',
-  '세종',
-  '경기',
-  '강원',
-  '충북',
-  '충남',
-  '전북',
-  '전남',
-  '경북',
-  '경남',
-  '제주',
-];
 
 interface UserData {
   id: string;
@@ -53,6 +33,7 @@ export default function ProfileEditPage() {
     memberLevel: '',
     bio: '',
     profileImage: null,
+    preferredRegion: '',
     preferredDistrict: '',
   });
   const [profileImageUrl, setProfileImageUrl] = useState<string | null>(null);
@@ -65,6 +46,18 @@ export default function ProfileEditPage() {
     message: '',
     visible: false,
   });
+
+  // 광역 목록
+  const regionList = useMemo(() => {
+    return CONSTITUENCIES.map(c => c.metropolitanArea);
+  }, []);
+
+  // 선택한 광역에 따른 선거구 목록
+  const districtList = useMemo(() => {
+    if (!formData.preferredRegion) return [];
+    const constituency = CONSTITUENCIES.find(c => c.metropolitanArea === formData.preferredRegion);
+    return constituency ? constituency.districts : [];
+  }, [formData.preferredRegion]);
 
   // Fetch user data on component mount
   useEffect(() => {
@@ -94,13 +87,43 @@ export default function ProfileEditPage() {
         const userName = authProfile?.name || authProfile?.nickname || user?.email || '';
         const userLevel = parseInt((authProfile?.activity_level || 'ML1').replace('ML', '')) || 1;
 
+        // 저장된 지역 데이터 파싱 (형식: "광역|선거구" 또는 기존 형식)
+        let savedRegion = '';
+        let savedDistrict = '';
+        const savedLocation = profile?.preferred_district || '';
+
+        if (savedLocation.includes('|')) {
+          // 새 형식: "서울|강남구 갑"
+          const [region, district] = savedLocation.split('|');
+          savedRegion = region;
+          savedDistrict = district;
+        } else if (savedLocation) {
+          // 기존 형식이거나 광역만 저장된 경우 - 광역으로 간주
+          const foundConstituency = CONSTITUENCIES.find(c =>
+            c.metropolitanArea === savedLocation ||
+            c.fullName === savedLocation ||
+            c.districts.includes(savedLocation)
+          );
+          if (foundConstituency) {
+            if (foundConstituency.districts.includes(savedLocation)) {
+              // 선거구가 저장된 경우 해당 광역 찾기
+              savedRegion = foundConstituency.metropolitanArea;
+              savedDistrict = savedLocation;
+            } else {
+              // 광역만 저장된 경우
+              savedRegion = foundConstituency.metropolitanArea;
+            }
+          }
+        }
+
         setFormData({
           nickname: userName,
           email: user?.email || '',
           memberLevel: `ML${userLevel}`,
           bio: profile?.bio || '',
           profileImage: null,
-          preferredDistrict: profile?.preferred_district || '',
+          preferredRegion: savedRegion,
+          preferredDistrict: savedDistrict,
         });
 
         if (profile?.profile_image_url) {
@@ -129,6 +152,15 @@ export default function ProfileEditPage() {
     setFormData((prev) => ({
       ...prev,
       bio: value,
+    }));
+  };
+
+  // 광역 변경 시 선거구 초기화
+  const handleRegionChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setFormData((prev) => ({
+      ...prev,
+      preferredRegion: e.target.value,
+      preferredDistrict: '',  // 광역 변경 시 선거구 초기화
     }));
   };
 
@@ -177,8 +209,12 @@ export default function ProfileEditPage() {
         updateData.bio = formData.bio;
       }
 
-      if (formData.preferredDistrict) {
-        updateData.preferred_district = formData.preferredDistrict;
+      // 광역|선거구 형식으로 저장 (예: "서울|강남구 갑")
+      if (formData.preferredRegion && formData.preferredDistrict) {
+        updateData.preferred_district = `${formData.preferredRegion}|${formData.preferredDistrict}`;
+      } else if (formData.preferredRegion) {
+        // 광역만 선택한 경우
+        updateData.preferred_district = formData.preferredRegion;
       }
 
       const response = await fetch('/api/profile', {
@@ -367,25 +403,63 @@ export default function ProfileEditPage() {
             </div>
           </div>
 
-          {/* 활동 지역 */}
-          <div>
-            <label htmlFor="preferredDistrict" className="block text-sm font-medium text-gray-900 mb-2">
-              활동 지역 <span className="text-gray-500">(선택)</span>
+          {/* 활동 지역 (국회의원 선거구 기준) */}
+          <div className="space-y-4">
+            <label className="block text-sm font-medium text-gray-900">
+              활동 지역 <span className="text-gray-500">(선택, 국회의원 선거구 기준)</span>
             </label>
-            <select
-              id="preferredDistrict"
-              value={formData.preferredDistrict}
-              onChange={handleDistrictChange}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary-500 focus:border-secondary-500 bg-white"
-            >
-              <option value="">지역을 선택해주세요</option>
-              {REGIONS.filter(r => r !== '').map((region) => (
-                <option key={region} value={region}>
-                  {region}
+
+            {/* 광역 선택 */}
+            <div>
+              <label htmlFor="preferredRegion" className="block text-xs text-gray-600 mb-1">
+                광역시/도
+              </label>
+              <select
+                id="preferredRegion"
+                value={formData.preferredRegion}
+                onChange={handleRegionChange}
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary-500 focus:border-secondary-500 bg-white"
+              >
+                <option value="">광역시/도를 선택해주세요</option>
+                {regionList.map((region) => (
+                  <option key={region} value={region}>
+                    {region}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            {/* 선거구 선택 */}
+            <div>
+              <label htmlFor="preferredDistrict" className="block text-xs text-gray-600 mb-1">
+                선거구
+              </label>
+              <select
+                id="preferredDistrict"
+                value={formData.preferredDistrict}
+                onChange={handleDistrictChange}
+                disabled={!formData.preferredRegion}
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary-500 focus:border-secondary-500 bg-white disabled:bg-gray-100 disabled:cursor-not-allowed"
+              >
+                <option value="">
+                  {formData.preferredRegion ? '선거구를 선택해주세요' : '먼저 광역시/도를 선택해주세요'}
                 </option>
-              ))}
-            </select>
-            <p className="text-xs text-gray-500 mt-1">선택한 지역의 정치인 정보를 우선적으로 표시합니다.</p>
+                {districtList.map((district) => (
+                  <option key={district} value={district}>
+                    {district}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <p className="text-xs text-gray-500">
+              선택한 지역의 정치인 정보를 우선적으로 표시합니다.
+              {formData.preferredRegion && formData.preferredDistrict && (
+                <span className="block mt-1 text-secondary-600 font-medium">
+                  선택: {formData.preferredRegion} {formData.preferredDistrict}
+                </span>
+              )}
+            </p>
           </div>
 
           {/* 버튼 */}
