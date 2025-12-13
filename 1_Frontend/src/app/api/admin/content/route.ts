@@ -51,11 +51,11 @@ export async function GET(request: NextRequest) {
         *,
         politicians:politician_id (
           name,
-          position,
-          status
+          party,
+          position
         ),
         users:user_id (
-          name,
+          nickname,
           email
         )
       `, { count: "exact" })
