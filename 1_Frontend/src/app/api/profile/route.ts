@@ -9,7 +9,8 @@ const updateProfileSchema = z.object({
   nickname: z.string().min(2).max(20).optional(),
   bio: z.string().max(200).optional(),
   preferred_district: z.string().max(100).optional(),
-  profile_image_url: z.string().url().optional(),
+  // profile_image_url은 Supabase Storage URL을 허용해야 하므로 .url() 제거
+  profile_image_url: z.string().optional(),
 });
 
 /**
