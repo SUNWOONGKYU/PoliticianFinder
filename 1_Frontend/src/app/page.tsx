@@ -1428,21 +1428,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA 섹션 */}
-      <section className="bg-white py-16 border-t-4 border-secondary-500">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl font-bold text-gray-900 mb-8">
-            더 나은 민주주의를 위한 첫 걸음, PoliticianFinder와 함께 하세요.
-          </h2>
-          <Link
-            href="/auth/signup"
-            className="inline-block px-8 py-4 bg-primary-500 text-white font-bold text-lg rounded-lg hover:bg-primary-600 transition shadow-lg focus:outline-none focus:ring-2 focus:ring-primary-300"
-          >
-            회원가입
-          </Link>
-        </div>
-      </section>
-
       {/* Floating CTA Buttons */}
       <FloatingCTA />
     </main>
