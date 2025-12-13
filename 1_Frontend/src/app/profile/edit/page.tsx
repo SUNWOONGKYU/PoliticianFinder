@@ -85,7 +85,18 @@ export default function ProfileEditPage() {
 
         // 마이페이지와 동일한 방식으로 데이터 접근
         const userName = authProfile?.name || authProfile?.nickname || user?.email || '';
-        const userLevel = parseInt((authProfile?.activity_level || 'ML1').replace('ML', '')) || 1;
+
+        // 포인트 기반 레벨 계산 (DB 값이 아닌 포인트로 동적 계산)
+        const currentPoints = authProfile?.activity_points || 0;
+        const levelThresholds = [0, 100, 300, 600, 1000, 2000, 4000, 8000, 16000, 32000];
+        let userLevel = 1;
+        for (let i = 1; i < levelThresholds.length; i++) {
+          if (currentPoints >= levelThresholds[i]) {
+            userLevel = i + 1;
+          } else {
+            break;
+          }
+        }
 
         // 저장된 지역 데이터 파싱 (형식: "광역|선거구" 또는 기존 형식)
         let savedRegion = '';
