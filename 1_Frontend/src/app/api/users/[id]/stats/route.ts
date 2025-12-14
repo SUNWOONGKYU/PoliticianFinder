@@ -58,8 +58,22 @@ export async function GET(request: NextRequest, { params }: RouteParams) {
       .select('id', { count: 'exact', head: true })
       .eq('follower_id', targetUserId);
 
-    // 영향력 그레이드 정보
-    const gradeKey = user.influence_grade || 'Wanderer';
+    // 영향력 그레이드 동적 계산 (팔로워 수 기반)
+    const followerCount = user.follower_count || 0;
+    let gradeKey = 'Wanderer';  // 기본값: 방랑자
+
+    // 팔로워 수에 따른 그레이드 결정
+    if (followerCount >= 500) {
+      gradeKey = 'Monarch';  // 군주: 500명 이상
+    } else if (followerCount >= 200) {
+      gradeKey = 'Duke';     // 공작: 200명 이상
+    } else if (followerCount >= 50) {
+      gradeKey = 'Lord';     // 영주: 50명 이상
+    } else if (followerCount >= 10) {
+      gradeKey = 'Knight';   // 기사: 10명 이상
+    }
+    // 10명 미만: Wanderer (방랑자)
+
     const gradeInfo = INFLUENCE_GRADES[gradeKey] || INFLUENCE_GRADES.Wanderer;
 
     // 활동 포인트 기반 레벨 계산 (DB 값이 아닌 포인트로 동적 계산)
@@ -107,7 +121,7 @@ export async function GET(request: NextRequest, { params }: RouteParams) {
           display: gradeInfo.emoji + ' ' + gradeInfo.title,
         },
         followers: {
-          count: user.follower_count || 0,
+          count: followerCount,  // 동적 계산에 사용한 값과 동일하게
           following_count: followingCount || 0,
         },
         district: null,
