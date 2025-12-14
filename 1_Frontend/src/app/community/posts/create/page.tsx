@@ -181,22 +181,52 @@ export default function CreatePostPage() {
       return;
     }
 
-    // In production, this would be an API call
-    // const formData = new FormData();
-    // formData.append('title', title);
-    // formData.append('content', content);
-    // formData.append('tags', tags);
-    // formData.append('category', 'general');
-    // formData.append('politicianTag', politicianTag);
-    // selectedFiles.forEach(f => formData.append('files', f.file));
+    if (title.trim().length < 5) {
+      showAlertModal('제목은 최소 5자 이상이어야 합니다.');
+      return;
+    }
 
-    showAlertModal('게시글이 등록되었습니다!');
-    localStorage.removeItem('draft_post_member');
+    if (content.trim().length < 10) {
+      showAlertModal('내용은 최소 10자 이상이어야 합니다.');
+      return;
+    }
 
-    // Redirect after a short delay
-    setTimeout(() => {
-      router.push('/community');
-    }, 1500);
+    try {
+      // 태그 처리
+      const tagList = tags.split(',').map(t => t.trim()).filter(t => t).slice(0, 5);
+
+      const response = await fetch('/api/posts', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          subject: title.trim(),
+          content: content.trim(),
+          category: 'general',
+          tags: tagList.length > 0 ? tagList : null,
+          politician_id: null,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        showAlertModal(result.error?.message || '게시글 등록에 실패했습니다.');
+        return;
+      }
+
+      showAlertModal('게시글이 등록되었습니다!');
+      localStorage.removeItem('draft_post_member');
+
+      // Redirect after a short delay
+      setTimeout(() => {
+        router.push('/community');
+      }, 1500);
+    } catch (error) {
+      console.error('게시글 등록 오류:', error);
+      showAlertModal('게시글 등록 중 오류가 발생했습니다.');
+    }
   };
 
   // Alert modal functions

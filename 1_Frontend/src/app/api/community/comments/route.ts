@@ -3,7 +3,7 @@
 // 사용자별 댓글 목록 조회
 
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@/lib/supabase/server';
+import { createAdminClient } from '@/lib/supabase/server';
 
 export async function GET(request: NextRequest) {
   try {
@@ -18,22 +18,13 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    const supabase = await createClient();
+    // RLS 우회를 위해 adminClient 사용
+    const supabase = createAdminClient();
 
-    // 댓글과 게시글 정보 함께 조회
+    // 먼저 댓글만 조회 (posts 조인 없이)
     const { data: comments, error } = await supabase
       .from('comments')
-      .select(`
-        id,
-        content,
-        created_at,
-        like_count,
-        post_id,
-        posts (
-          id,
-          title
-        )
-      `)
+      .select('id, content, created_at, like_count, post_id')
       .eq('user_id', userId)
       .eq('is_deleted', false)
       .order('created_at', { ascending: false })
@@ -42,9 +33,27 @@ export async function GET(request: NextRequest) {
     if (error) {
       console.error('Comments fetch error:', error);
       return NextResponse.json(
-        { success: false, error: 'Failed to fetch comments' },
+        { success: false, error: 'Failed to fetch comments', details: error.message },
         { status: 500 }
       );
+    }
+
+    // 게시글 제목 별도 조회
+    const postIds = [...new Set((comments || []).map(c => c.post_id).filter(Boolean))];
+    let postsMap: Record<number, string> = {};
+
+    if (postIds.length > 0) {
+      const { data: posts } = await supabase
+        .from('posts')
+        .select('id, title')
+        .in('id', postIds);
+
+      if (posts) {
+        postsMap = posts.reduce((acc, post) => {
+          acc[post.id] = post.title;
+          return acc;
+        }, {} as Record<number, string>);
+      }
     }
 
     // 응답 형식 변환
@@ -55,7 +64,7 @@ export async function GET(request: NextRequest) {
       upvotes: comment.like_count || 0,
       downvotes: 0,
       post_id: comment.post_id,
-      post_title: comment.posts?.title || '삭제된 게시글',
+      post_title: postsMap[comment.post_id] || '삭제된 게시글',
     }));
 
     return NextResponse.json({
