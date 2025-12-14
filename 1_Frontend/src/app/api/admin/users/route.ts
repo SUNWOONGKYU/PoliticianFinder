@@ -139,7 +139,27 @@ export async function DELETE(request: NextRequest) {
     const userName = (existingUser as any).nickname || (existingUser as any).name || 'Unknown';
     console.log('✅ DELETE: User found:', userName);
 
-    // 1. 먼저 users 테이블에서 삭제 (FK 관계로 인해 먼저 삭제)
+    // 1. 먼저 auth.users에서 삭제 (인증 정보 먼저 삭제)
+    // ⚠️ 중요: auth.users가 삭제되지 않으면 사용자가 다시 로그인 가능!
+    console.log('🗑️  DELETE: Deleting from auth.users FIRST...');
+    const { error: authDeleteError } = await supabase.auth.admin.deleteUser(user_id);
+
+    if (authDeleteError) {
+      // "User not found" 에러는 이미 삭제된 경우이므로 무시
+      if (authDeleteError.message?.includes('User not found')) {
+        console.log('⚠️  DELETE: auth.users already deleted or not found, continuing...');
+      } else {
+        console.error('❌ DELETE: auth.users delete error:', authDeleteError);
+        return NextResponse.json(
+          { success: false, error: 'auth.users 삭제 실패', details: authDeleteError.message },
+          { status: 500 }
+        );
+      }
+    } else {
+      console.log('✅ DELETE: auth.users record deleted');
+    }
+
+    // 2. users 테이블에서 삭제 (프로필 정보)
     console.log('🗑️  DELETE: Deleting from users table...');
     const { error: deleteError } = await supabase
       .from('users')
@@ -148,23 +168,14 @@ export async function DELETE(request: NextRequest) {
 
     if (deleteError) {
       console.error('❌ DELETE: users table delete error:', deleteError);
+      // auth.users는 이미 삭제됨, users 테이블 삭제 실패는 경고만
+      console.warn('⚠️  DELETE: auth.users deleted but users table delete failed!');
       return NextResponse.json(
-        { success: false, error: '사용자 삭제 중 오류가 발생했습니다', details: deleteError.message },
+        { success: false, error: 'users 테이블 삭제 실패 (auth.users는 삭제됨)', details: deleteError.message },
         { status: 500 }
       );
     }
     console.log('✅ DELETE: users table record deleted');
-
-    // 2. auth.users에서도 삭제 (Supabase Auth)
-    console.log('🗑️  DELETE: Deleting from auth.users...');
-    const { error: authDeleteError } = await supabase.auth.admin.deleteUser(user_id);
-
-    if (authDeleteError) {
-      console.error('⚠️  DELETE: auth.users delete error (may be already deleted):', authDeleteError);
-      // auth.users 삭제 실패해도 계속 진행 (이미 삭제된 경우일 수 있음)
-    } else {
-      console.log('✅ DELETE: auth.users record deleted');
-    }
 
     // 감사 로그 기록 (관리자 ID 없이)
     await (supabase as any).from('audit_logs').insert({
