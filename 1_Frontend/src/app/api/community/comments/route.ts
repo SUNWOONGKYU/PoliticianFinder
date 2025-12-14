@@ -24,11 +24,11 @@ export async function GET(request: NextRequest) {
     // 먼저 댓글만 조회 (posts 조인 없이)
     const { data: comments, error } = await supabase
       .from('comments')
-      .select('id, content, created_at, like_count, post_id')
+      .select('id, content, created_at, post_id')
       .eq('user_id', userId)
       .eq('is_deleted', false)
       .order('created_at', { ascending: false })
-      .limit(limit) as { data: Array<{ id: string; content: string; created_at: string; like_count: number; post_id: number }> | null; error: any };
+      .limit(limit) as { data: Array<{ id: string; content: string; created_at: string; post_id: number }> | null; error: any };
 
     if (error) {
       console.error('Comments fetch error:', error);
@@ -61,7 +61,7 @@ export async function GET(request: NextRequest) {
       id: comment.id,
       content: comment.content,
       created_at: comment.created_at,
-      upvotes: comment.like_count || 0,
+      upvotes: 0,
       downvotes: 0,
       post_id: comment.post_id,
       post_title: postsMap[comment.post_id] || '삭제된 게시글',
