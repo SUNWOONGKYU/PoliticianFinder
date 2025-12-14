@@ -1333,15 +1333,17 @@ export default function Home() {
             {/* 광고 2: YouTube 영상 */}
             <div className="bg-white rounded-lg shadow p-4">
               <div className="text-xs text-gray-500 mb-2">광고</div>
-              <div className="rounded-lg overflow-hidden">
+              <div className="rounded-lg overflow-hidden aspect-video">
                 <iframe
                   width="100%"
-                  height="180"
-                  src="https://www.youtube.com/embed/NpK76bKELSs"
+                  height="100%"
+                  src="https://www.youtube-nocookie.com/embed/NpK76bKELSs?rel=0"
                   title="YouTube video"
                   frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="strict-origin-when-cross-origin"
                   className="rounded-lg"
                 ></iframe>
               </div>
