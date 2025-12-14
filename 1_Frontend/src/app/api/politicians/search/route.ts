@@ -50,36 +50,28 @@ export async function GET(request: NextRequest) {
       .select("*", { count: "exact" });
 
     // 검색어 기반 필터링 (Full-text search)
+    // Note: politicians 테이블 컬럼: name, name_kanji, name_en (name_kana, name_english 없음)
     if (query.type === "name") {
-      // 이름 필드만 검색 (한국어, 한자, 영문)
+      // 이름 필드만 검색 (한국어, 영문)
       queryBuilder = queryBuilder.or(
-        `name.ilike.%${query.q}%,name_kana.ilike.%${query.q}%,name_english.ilike.%${query.q}%`
+        `name.ilike.%${query.q}%,name_en.ilike.%${query.q}%`
       );
     } else if (query.type === "bio") {
-      // 약력 필드만 검색
-      queryBuilder = queryBuilder.ilike("bio", `%${query.q}%`);
+      // 약력 필드만 검색 (career 컬럼 사용)
+      queryBuilder = queryBuilder.ilike("career", `%${query.q}%`);
     } else {
       // type === "all": 모든 텍스트 필드 검색
       queryBuilder = queryBuilder.or(
-        `name.ilike.%${query.q}%,name_kana.ilike.%${query.q}%,name_english.ilike.%${query.q}%,bio.ilike.%${query.q}%`
+        `name.ilike.%${query.q}%,name_en.ilike.%${query.q}%,career.ilike.%${query.q}%`
       );
     }
 
     // 추가 필터 적용
-    if (query.political_party_id !== undefined) {
-      queryBuilder = queryBuilder.eq("political_party_id", query.political_party_id);
-    }
-
-    if (query.position_id !== undefined) {
-      queryBuilder = queryBuilder.eq("position_id", query.position_id);
-    }
-
-    if (query.constituency_id !== undefined) {
-      queryBuilder = queryBuilder.eq("constituency_id", query.constituency_id);
-    }
+    // Note: political_party_id, position_id, constituency_id 컬럼 없음 - 필터 비활성화
+    // 대신 party, position, region 문자열 컬럼 사용 가능
 
     if (query.verified_only) {
-      queryBuilder = queryBuilder.not("verified_at", "is", null);
+      queryBuilder = queryBuilder.eq("is_verified", true);
     }
 
     // 결과 제한 및 정렬 (이름순)
