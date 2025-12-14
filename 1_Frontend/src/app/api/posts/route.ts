@@ -211,12 +211,13 @@ async function handleUserPost(request: NextRequest, body: any) {
       .from("posts")
       .insert({
         user_id: user.id,
-        subject: validated.subject,
+        title: validated.subject,
         content: validated.content,
         category: validated.category,
         politician_id: validated.politician_id || null,
         tags: validated.tags || null,
         author_type: 'user',
+        moderation_status: 'approved',
       })
       .select()
       .single();

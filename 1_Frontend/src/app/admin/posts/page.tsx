@@ -76,7 +76,7 @@ export default function AdminPostsPage() {
       const mappedPosts = rawData.map((post: any) => ({
         id: post.id,
         title: post.title || 'Untitled',
-        author: post.profiles?.username || post.profiles?.email || 'Unknown',
+        author: post.users?.nickname || post.users?.name || post.users?.email?.split('@')[0] || 'Unknown',
         date: new Date(post.created_at).toLocaleDateString('ko-KR'),
       }));
 
@@ -113,8 +113,8 @@ export default function AdminPostsPage() {
       const mappedComments = rawData.map((comment: any) => ({
         id: comment.id,
         content: comment.content || '',
-        author: comment.profiles?.username || comment.profiles?.email || 'Unknown',
-        postTitle: comment.community_posts?.title || 'Unknown Post',
+        author: comment.users?.nickname || comment.users?.name || comment.users?.email?.split('@')[0] || 'Unknown',
+        postTitle: comment.posts?.title || 'Unknown Post',
         date: new Date(comment.created_at).toLocaleDateString('ko-KR'),
       }));
 

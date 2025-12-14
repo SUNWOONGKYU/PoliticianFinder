@@ -45,12 +45,15 @@ export default function CommunityPage() {
   const [posts, setPosts] = useState<Post[]>([]);
   const [loading, setLoading] = useState(true);
   const [totalCount, setTotalCount] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  const postsPerPage = 20;
 
   // Fetch posts
   const fetchPosts = useCallback(async () => {
     try {
       setLoading(true);
-      let apiUrl = `/api/posts?limit=20`;
+      let apiUrl = `/api/posts?limit=${postsPerPage}&page=${currentPage}`;
 
       if (currentCategory === 'politician_post') {
         apiUrl += '&has_politician=true';
@@ -94,20 +97,21 @@ export default function CommunityPage() {
             politician_title: post.politicians?.title,
             politician_party: post.politicians?.party,
             politician_position: post.politicians?.position,
-            like_count: post.upvotes || 0,
+            like_count: post.upvotes || post.like_count || 0,
             dislike_count: post.downvotes || 0,
             views: post.view_count || 0,
             comment_count: post.comment_count || 0,
             share_count: post.share_count || 0,
             tags: post.tags || [],
             is_pinned: post.is_pinned || false,
-            is_best: (post.upvotes || 0) > 50,
+            is_best: (post.upvotes || post.like_count || 0) > 50,
             is_hot: (post.view_count || 0) > 100,
             created_at: post.created_at,
           };
         });
         setPosts(mappedPosts);
         setTotalCount(result.pagination?.total || mappedPosts.length);
+        setTotalPages(result.pagination?.totalPages || 1);
       }
     } catch (err) {
       console.error('게시글 조회 오류:', err);
@@ -115,7 +119,7 @@ export default function CommunityPage() {
     } finally {
       setLoading(false);
     }
-  }, [currentCategory]);
+  }, [currentCategory, currentPage]);
 
   useEffect(() => {
     fetchPosts();
@@ -195,19 +199,19 @@ export default function CommunityPage() {
           {/* Tabs */}
           <div className="flex items-center space-x-4 overflow-x-auto">
             <button
-              onClick={() => setCurrentCategory('all')}
+              onClick={() => { setCurrentCategory('all'); setCurrentPage(1); }}
               className={getTabClass('all', 'border-gray-300')}
             >
               전체
             </button>
             <button
-              onClick={() => setCurrentCategory('politician_post')}
+              onClick={() => { setCurrentCategory('politician_post'); setCurrentPage(1); }}
               className={getTabClass('politician_post', 'border-primary-500')}
             >
               🏛️ 정치인 게시판
             </button>
             <button
-              onClick={() => setCurrentCategory('general')}
+              onClick={() => { setCurrentCategory('general'); setCurrentPage(1); }}
               className={currentCategory === 'general'
                 ? 'flex-1 px-4 py-2 bg-purple-600 text-white rounded-lg font-medium hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-primary-300 transition whitespace-nowrap text-center min-w-[160px]'
                 : 'flex-1 px-4 py-2 bg-white text-gray-700 rounded-lg border-2 border-purple-600 font-medium hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-primary-300 transition whitespace-nowrap text-center min-w-[160px]'
@@ -254,73 +258,138 @@ export default function CommunityPage() {
             <p className="text-gray-500 text-lg">게시글이 없습니다</p>
           </div>
         ) : (
-          <div className="divide-y">
-            {filteredPosts.map((post) => (
-              <Link key={post.id} href={`/community/posts/${post.id}`}>
-                <div className="p-4 hover:bg-gray-50 cursor-pointer">
-                  <div className="flex items-start justify-between">
-                    <div className="flex-1">
-                      <div className="flex items-center gap-2 mb-1">
-                        {post.is_pinned && (
-                          <span className="px-2 py-0.5 bg-red-100 text-red-600 text-xs font-bold rounded">
-                            공지
-                          </span>
-                        )}
-                        {post.is_hot && (
-                          <span className="px-2 py-0.5 bg-red-100 text-red-600 text-xs font-bold rounded">
-                            Hot
-                          </span>
-                        )}
-                        {post.is_best && (
-                          <span className="px-2 py-0.5 bg-yellow-100 text-yellow-800 text-xs font-bold rounded">
-                            Best
-                          </span>
-                        )}
-                        <h3 className="font-bold text-gray-900">
-                          {post.title}
-                        </h3>
-                      </div>
-                      <p className="text-sm text-gray-600 mb-2 line-clamp-2">
-                        {post.content}
-                      </p>
-                      <div className="flex items-center gap-3 text-xs text-gray-500">
-                        {post.author_type === 'politician' ? (
-                          <Link
-                            href={`/politicians/${post.politician_id}`}
-                            className="font-medium text-primary-600 hover:text-primary-700 hover:underline"
-                            onClick={(e) => e.stopPropagation()}
-                          >
-                            {post.politician_name} | {post.politician_position} • {post.politician_party}
-                          </Link>
-                        ) : (
-                          <>
-                            <span className="font-medium text-secondary-600">
-                              {post.author_name}
+          <>
+            <div className="divide-y bg-white rounded-lg shadow">
+              {filteredPosts.map((post) => (
+                <Link key={post.id} href={`/community/posts/${post.id}`}>
+                  <div className="p-4 hover:bg-gray-50 cursor-pointer">
+                    <div className="flex items-start justify-between">
+                      <div className="flex-1">
+                        <div className="flex items-center gap-2 mb-1">
+                          {post.is_pinned && (
+                            <span className="px-2 py-0.5 bg-red-100 text-red-600 text-xs font-bold rounded">
+                              공지
                             </span>
-                            <span className="text-xs text-gray-900 font-medium" title={`활동 등급: ${post.member_level || 'ML1'}`}>
-                              {post.member_level || 'ML1'}
+                          )}
+                          {post.is_hot && (
+                            <span className="px-2 py-0.5 bg-red-100 text-red-600 text-xs font-bold rounded">
+                              Hot
                             </span>
-                            <span className="text-xs text-emerald-900 font-medium">{formatInfluenceGrade(0)}</span>
-                          </>
-                        )}
-                        <span>{formatDate(post.created_at)}</span>
-                        <span>조회 {post.views}</span>
-                        <span className="text-red-600">👍 {post.like_count}</span>
-                        <span className="text-gray-400">👎 {post.dislike_count}</span>
-                        <span>댓글 {post.comment_count}</span>
-                        <span className="flex items-center gap-1">
-                          <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
-                          </svg>
-                          공유 {post.share_count}
-                        </span>
+                          )}
+                          {post.is_best && (
+                            <span className="px-2 py-0.5 bg-yellow-100 text-yellow-800 text-xs font-bold rounded">
+                              Best
+                            </span>
+                          )}
+                          <h3 className="font-bold text-gray-900">
+                            {post.title}
+                          </h3>
+                        </div>
+                        <p className="text-sm text-gray-600 mb-2 line-clamp-2">
+                          {post.content}
+                        </p>
+                        <div className="flex items-center gap-3 text-xs text-gray-500">
+                          {post.author_type === 'politician' ? (
+                            <Link
+                              href={`/politicians/${post.politician_id}`}
+                              className="font-medium text-primary-600 hover:text-primary-700 hover:underline"
+                              onClick={(e) => e.stopPropagation()}
+                            >
+                              {post.politician_name} | {post.politician_position} • {post.politician_party}
+                            </Link>
+                          ) : (
+                            <>
+                              <span className="font-medium text-secondary-600">
+                                {post.author_name}
+                              </span>
+                              <span className="text-xs text-gray-900 font-medium" title={`활동 등급: ${post.member_level || 'ML1'}`}>
+                                {post.member_level || 'ML1'}
+                              </span>
+                              <span className="text-xs text-emerald-900 font-medium">{formatInfluenceGrade(0)}</span>
+                            </>
+                          )}
+                          <span>{formatDate(post.created_at)}</span>
+                          <span>조회 {post.views}</span>
+                          <span className="text-red-600">👍 {post.like_count}</span>
+                          <span className="text-gray-400">👎 {post.dislike_count}</span>
+                          <span>댓글 {post.comment_count}</span>
+                          <span className="flex items-center gap-1">
+                            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+                            </svg>
+                            공유 {post.share_count}
+                          </span>
+                        </div>
                       </div>
                     </div>
                   </div>
+                </Link>
+              ))}
+            </div>
+
+            {/* Pagination */}
+            {totalPages > 1 && (
+              <div className="mt-6 flex justify-center items-center gap-2">
+                <button
+                  onClick={() => setCurrentPage(1)}
+                  disabled={currentPage === 1}
+                  className="px-3 py-2 border rounded-lg hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed text-sm"
+                >
+                  처음
+                </button>
+                <button
+                  onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))}
+                  disabled={currentPage === 1}
+                  className="px-3 py-2 border rounded-lg hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed text-sm"
+                >
+                  이전
+                </button>
+
+                <div className="flex gap-1">
+                  {Array.from({ length: Math.min(5, totalPages) }, (_, i) => {
+                    let pageNum;
+                    if (totalPages <= 5) {
+                      pageNum = i + 1;
+                    } else if (currentPage <= 3) {
+                      pageNum = i + 1;
+                    } else if (currentPage >= totalPages - 2) {
+                      pageNum = totalPages - 4 + i;
+                    } else {
+                      pageNum = currentPage - 2 + i;
+                    }
+                    return (
+                      <button
+                        key={pageNum}
+                        onClick={() => setCurrentPage(pageNum)}
+                        className={`px-3 py-2 border rounded-lg text-sm ${
+                          currentPage === pageNum
+                            ? 'bg-primary-500 text-white border-primary-500'
+                            : 'hover:bg-gray-100'
+                        }`}
+                      >
+                        {pageNum}
+                      </button>
+                    );
+                  })}
                 </div>
-              </Link>
-            ))}
-          </div>
+
+                <button
+                  onClick={() => setCurrentPage(prev => Math.min(totalPages, prev + 1))}
+                  disabled={currentPage === totalPages}
+                  className="px-3 py-2 border rounded-lg hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed text-sm"
+                >
+                  다음
+                </button>
+                <button
+                  onClick={() => setCurrentPage(totalPages)}
+                  disabled={currentPage === totalPages}
+                  className="px-3 py-2 border rounded-lg hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed text-sm"
+                >
+                  마지막
+                </button>
+              </div>
+            )}
+          </>
         )}
       </div>
 
