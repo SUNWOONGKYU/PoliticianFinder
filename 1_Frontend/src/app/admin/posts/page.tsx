@@ -73,12 +73,24 @@ export default function AdminPostsPage() {
       const rawData = (result.success && Array.isArray(result.data)) ? result.data : (Array.isArray(result) ? result : []);
 
       // Map the data to match Post interface
-      const mappedPosts = rawData.map((post: any) => ({
-        id: post.id,
-        title: post.title || 'Untitled',
-        author: post.users?.nickname || post.users?.name || post.users?.email?.split('@')[0] || 'Unknown',
-        date: new Date(post.created_at).toLocaleDateString('ko-KR'),
-      }));
+      const mappedPosts = rawData.map((post: any) => {
+        // author_type에 따라 작성자 결정
+        let author = 'Unknown';
+        if (post.author_type === 'politician' && post.politicians?.name) {
+          // 정치인 게시글: politicians 테이블에서 이름
+          author = `${post.politicians.name} (정치인)`;
+        } else if (post.users) {
+          // 일반 회원 게시글: users 테이블에서 이름
+          author = post.users.nickname || post.users.name || post.users.email?.split('@')[0] || 'Unknown';
+        }
+
+        return {
+          id: post.id,
+          title: post.title || 'Untitled',
+          author,
+          date: new Date(post.created_at).toLocaleDateString('ko-KR'),
+        };
+      });
 
       setPosts(mappedPosts);
     } catch (error) {
@@ -110,13 +122,25 @@ export default function AdminPostsPage() {
       const rawData = (result.success && Array.isArray(result.data)) ? result.data : (Array.isArray(result) ? result : []);
 
       // Map the data to match Comment interface
-      const mappedComments = rawData.map((comment: any) => ({
-        id: comment.id,
-        content: comment.content || '',
-        author: comment.users?.nickname || comment.users?.name || comment.users?.email?.split('@')[0] || 'Unknown',
-        postTitle: comment.posts?.title || 'Unknown Post',
-        date: new Date(comment.created_at).toLocaleDateString('ko-KR'),
-      }));
+      const mappedComments = rawData.map((comment: any) => {
+        // author_type에 따라 작성자 결정
+        let author = 'Unknown';
+        if (comment.author_type === 'politician' && comment.politicians?.name) {
+          // 정치인 댓글: politicians 테이블에서 이름
+          author = `${comment.politicians.name} (정치인)`;
+        } else if (comment.users) {
+          // 일반 회원 댓글: users 테이블에서 이름
+          author = comment.users.nickname || comment.users.name || comment.users.email?.split('@')[0] || 'Unknown';
+        }
+
+        return {
+          id: comment.id,
+          content: comment.content || '',
+          author,
+          postTitle: comment.posts?.title || 'Unknown Post',
+          date: new Date(comment.created_at).toLocaleDateString('ko-KR'),
+        };
+      });
 
       setComments(mappedComments);
     } catch (error) {
