@@ -315,7 +315,7 @@ export async function GET(request: NextRequest) {
     // 2. Supabase 클라이언트 생성
     const supabase = await createClient();
 
-    // 3. Supabase 쿼리 빌더 시작 (users, posts 조인)
+    // 3. Supabase 쿼리 빌더 시작 (users, posts, politicians 조인)
     let queryBuilder = supabase
       .from('comments')
       .select(`
@@ -328,6 +328,10 @@ export async function GET(request: NextRequest) {
         posts:post_id (
           id,
           title
+        ),
+        politicians:politician_id (
+          name,
+          party
         )
       `, { count: 'exact' })
       .order('created_at', { ascending: false });
