@@ -13,7 +13,7 @@ const searchQuerySchema = z.object({
   position_id: z.string().optional().transform(val => val ? Number(val) : undefined),
   constituency_id: z.string().optional().transform(val => val ? Number(val) : undefined),
   verified_only: z.enum(["true", "false"]).optional().transform(val => val === "true"),
-  is_active: z.enum(["true", "false"]).optional().transform(val => val === "true"),
+  // is_active 제거: politicians 테이블에 해당 컬럼 없음 (status 컬럼 사용)
 });
 
 type SearchQuery = z.infer<typeof searchQuerySchema>;
@@ -36,7 +36,7 @@ export async function GET(request: NextRequest) {
       position_id: searchParams.get("position_id"),
       constituency_id: searchParams.get("constituency_id"),
       verified_only: searchParams.get("verified_only"),
-      is_active: searchParams.get("is_active"),
+      // is_active 제거: politicians 테이블에 해당 컬럼 없음
     };
 
     const query = searchQuerySchema.parse(queryParams);
@@ -45,10 +45,10 @@ export async function GET(request: NextRequest) {
     const supabase = await createClient();
 
     // Supabase 쿼리 빌더 시작
+    // Note: politicians 테이블에 is_active 컬럼 없음, 필터 제거
     let queryBuilder = supabase
       .from("politicians")
-      .select("*", { count: "exact" })
-      .eq("is_active", query.is_active ?? true);
+      .select("*", { count: "exact" });
 
     // 검색어 기반 필터링 (Full-text search)
     if (query.type === "name") {
@@ -117,7 +117,6 @@ export async function GET(request: NextRequest) {
             position_id: query.position_id,
             constituency_id: query.constituency_id,
             verified_only: query.verified_only,
-            is_active: query.is_active ?? true,
           }
         },
         timestamp: new Date().toISOString(),
