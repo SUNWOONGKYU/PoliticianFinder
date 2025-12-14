@@ -124,7 +124,8 @@ export function middleware(request: NextRequest) {
     img-src 'self' data: https: blob:;
     font-src 'self' data: https://fonts.gstatic.com;
     connect-src 'self' https://*.supabase.co wss://*.supabase.co https://www.google-analytics.com;
-    media-src 'self';
+    media-src 'self' https://www.youtube.com https://www.youtube-nocookie.com;
+    frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com;
     object-src 'none';
     frame-ancestors 'none';
     base-uri 'self';
