@@ -105,10 +105,11 @@ export default function CreatePostPage() {
 
         if (result.success && result.data) {
           // Transform API data to match component interface
+          // API 응답 필드: party, position (political_party_name, position_name 아님)
           const transformedData: Politician[] = result.data.map((p: any) => ({
             name: p.name,
-            party: p.political_party_name || '정당 정보 없음',
-            position: p.position_name || '직책 정보 없음',
+            party: p.party || '정당 정보 없음',
+            position: p.position || '직책 정보 없음',
           }));
 
           setSearchResults(transformedData);
