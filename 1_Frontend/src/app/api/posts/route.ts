@@ -13,9 +13,9 @@ import { validatePoliticianSession } from "@/lib/auth/politicianSession";
 const createPostSchema = z.object({
   subject: z.string().min(5, "제목은 최소 5자 이상이어야 합니다").max(200, "제목은 최대 200자까지 입력 가능합니다"),
   content: z.string().min(10, "내용은 최소 10자 이상이어야 합니다").max(10000, "내용은 최대 10000자까지 입력 가능합니다"),
-  category: z.enum(["general", "question", "debate", "news"]).default("general"),
-  politician_id: z.string().optional().nullable(),
-  tags: z.array(z.string()).max(5, "태그는 최대 5개까지 입력 가능합니다").optional(),
+  category: z.enum(["general", "question", "debate", "news"]).nullable().optional().default("general"),
+  politician_id: z.string().nullable().optional(),
+  tags: z.array(z.string()).max(5, "태그는 최대 5개까지 입력 가능합니다").nullable().optional(),
 });
 
 // 정치인 글쓰기 스키마
