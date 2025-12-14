@@ -28,7 +28,7 @@ export async function GET(request: NextRequest) {
       .eq('user_id', userId)
       .eq('is_deleted', false)
       .order('created_at', { ascending: false })
-      .limit(limit);
+      .limit(limit) as { data: Array<{ id: string; content: string; created_at: string; like_count: number; post_id: number }> | null; error: any };
 
     if (error) {
       console.error('Comments fetch error:', error);
@@ -46,7 +46,7 @@ export async function GET(request: NextRequest) {
       const { data: posts } = await supabase
         .from('posts')
         .select('id, title')
-        .in('id', postIds);
+        .in('id', postIds) as { data: Array<{ id: number; title: string }> | null };
 
       if (posts) {
         postsMap = posts.reduce((acc, post) => {
