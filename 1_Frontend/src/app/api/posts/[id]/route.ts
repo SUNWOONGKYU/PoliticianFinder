@@ -33,6 +33,7 @@ export async function GET(
         *,
         politicians:politician_id (
           name,
+          party,
           position,
           status
         )

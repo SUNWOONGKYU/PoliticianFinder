@@ -43,6 +43,10 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
   const [displayedComments, setDisplayedComments] = useState(5); // 처음에 5개만 표시
   const [currentUser, setCurrentUser] = useState<{ id: string; email: string; name?: string } | null>(null);
 
+  // 게시글 수정/삭제 관련 state
+  const [deleteModalOpen, setDeleteModalOpen] = useState(false);
+  const [deleteLoading, setDeleteLoading] = useState(false);
+
   // 정치인 인증 관련 state
   const [politicianAuthModalOpen, setPoliticianAuthModalOpen] = useState(false);
   const [politicianAuthName, setPoliticianAuthName] = useState('');
@@ -134,7 +138,14 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
             views: postData.view_count || 0,
             commentCount: postData.comment_count || 0,
             shareCount: postData.share_count || 0,
-            content: postData.content
+            content: postData.content,
+            // 태그된 정치인 정보 (관련 정치인 표시용)
+            taggedPolitician: postData.politician_id && postData.politicians ? {
+              id: postData.politician_id,
+              name: postData.politicians.name,
+              party: postData.politicians.party,
+              position: postData.politicians.position,
+            } : null,
           });
 
           setUpvotes(postData.upvotes || 0);
@@ -423,6 +434,37 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
     }
   }, [params.id, politicianCommentText, authenticatedPolitician, refreshComments]);
 
+  // 게시글 삭제 핸들러
+  const handleDeletePost = useCallback(async () => {
+    setDeleteLoading(true);
+    try {
+      const response = await fetch(`/api/posts/${params.id}`, {
+        method: 'DELETE',
+      });
+
+      const data = await response.json();
+
+      if (!response.ok || !data.success) {
+        throw new Error(data.error?.message || '게시글 삭제에 실패했습니다.');
+      }
+
+      setAlertMessage('게시글이 삭제되었습니다.');
+      setAlertModalOpen(true);
+      setDeleteModalOpen(false);
+
+      // 삭제 후 목록으로 이동
+      setTimeout(() => {
+        router.push('/community');
+      }, 1000);
+    } catch (error) {
+      console.error('Delete post error:', error);
+      setAlertMessage(error instanceof Error ? error.message : '게시글 삭제에 실패했습니다.');
+      setAlertModalOpen(true);
+    } finally {
+      setDeleteLoading(false);
+    }
+  }, [params.id, router]);
+
   const handleUpvote = () => {
     if (upvoted) {
       setUpvotes(upvotes - 1);
@@ -523,7 +565,48 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
             <span className="px-2 py-1 bg-emerald-100 text-emerald-800 text-xs font-bold rounded">💬 {post.category}</span>
           </div>
 
-          <h1 className="text-3xl font-bold text-gray-900 mb-4">{post.title}</h1>
+          <div className="flex items-start justify-between gap-4 mb-4">
+            <h1 className="text-3xl font-bold text-gray-900">{post.title}</h1>
+
+            {/* 작성자만 보이는 수정/삭제 버튼 */}
+            {currentUser && post.userId === currentUser.id && (
+              <div className="flex items-center gap-2 flex-shrink-0">
+                <button
+                  onClick={() => router.push(`/community/posts/${params.id}/edit`)}
+                  className="px-3 py-1.5 text-sm text-gray-600 border border-gray-300 rounded-lg hover:bg-gray-50 transition"
+                >
+                  수정
+                </button>
+                <button
+                  onClick={() => setDeleteModalOpen(true)}
+                  className="px-3 py-1.5 text-sm text-red-600 border border-red-300 rounded-lg hover:bg-red-50 transition"
+                >
+                  삭제
+                </button>
+              </div>
+            )}
+          </div>
+
+          {/* 정치인 태그 표시 */}
+          {post.taggedPolitician && (
+            <div className="mb-4 p-3 bg-orange-50 border border-orange-200 rounded-lg">
+              <div className="flex items-center gap-2">
+                <span className="text-orange-600 font-medium">🏛️ 관련 정치인:</span>
+                <Link
+                  href={`/politicians/${post.taggedPolitician.id}`}
+                  className="text-orange-700 font-bold hover:underline"
+                >
+                  {post.taggedPolitician.name}
+                </Link>
+                {post.taggedPolitician.party && (
+                  <span className="text-orange-600">({post.taggedPolitician.party})</span>
+                )}
+                {post.taggedPolitician.position && (
+                  <span className="text-gray-500 text-sm">· {post.taggedPolitician.position}</span>
+                )}
+              </div>
+            </div>
+          )}
 
           <div className="border-b pb-4 mb-6">
             <div className="flex items-center gap-3 text-xs text-gray-500 flex-wrap">
@@ -839,6 +922,50 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
             <div className="flex justify-center">
               <button onClick={() => setAlertModalOpen(false)} className="px-8 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-500 transition">
                 확인
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* 삭제 확인 모달 */}
+      {deleteModalOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4" onClick={() => setDeleteModalOpen(false)}>
+          <div className="bg-white rounded-lg max-w-sm w-full p-6" onClick={(e) => e.stopPropagation()}>
+            <div className="text-center mb-6">
+              <div className="mx-auto w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mb-4">
+                <svg className="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                </svg>
+              </div>
+              <h3 className="text-lg font-bold text-gray-900 mb-2">게시글 삭제</h3>
+              <p className="text-gray-600">정말 이 게시글을 삭제하시겠습니까?</p>
+              <p className="text-sm text-red-500 mt-1">삭제된 게시글은 복구할 수 없습니다.</p>
+            </div>
+            <div className="flex gap-3">
+              <button
+                onClick={() => setDeleteModalOpen(false)}
+                disabled={deleteLoading}
+                className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 disabled:opacity-50"
+              >
+                취소
+              </button>
+              <button
+                onClick={handleDeletePost}
+                disabled={deleteLoading}
+                className="flex-1 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 disabled:opacity-50 flex items-center justify-center"
+              >
+                {deleteLoading ? (
+                  <>
+                    <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    삭제 중...
+                  </>
+                ) : (
+                  '삭제하기'
+                )}
               </button>
             </div>
           </div>
