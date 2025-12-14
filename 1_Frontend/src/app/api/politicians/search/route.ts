@@ -7,13 +7,12 @@ import { createClient } from "@/lib/supabase/server";
 
 const searchQuerySchema = z.object({
   q: z.string().min(1, "검색어는 최소 1자 이상이어야 합니다."),
-  type: z.enum(["name", "bio", "all"]).optional().default("all"),
-  limit: z.string().optional().default("10").transform(Number),
-  political_party_id: z.string().optional().transform(val => val ? Number(val) : undefined),
-  position_id: z.string().optional().transform(val => val ? Number(val) : undefined),
-  constituency_id: z.string().optional().transform(val => val ? Number(val) : undefined),
-  verified_only: z.enum(["true", "false"]).optional().transform(val => val === "true"),
-  // is_active 제거: politicians 테이블에 해당 컬럼 없음 (status 컬럼 사용)
+  type: z.enum(["name", "bio", "all"]).nullable().optional().default("all"),
+  limit: z.string().nullable().optional().default("10").transform(val => val ? Number(val) : 10),
+  political_party_id: z.string().nullable().optional().transform(val => val ? Number(val) : undefined),
+  position_id: z.string().nullable().optional().transform(val => val ? Number(val) : undefined),
+  constituency_id: z.string().nullable().optional().transform(val => val ? Number(val) : undefined),
+  verified_only: z.enum(["true", "false"]).nullable().optional().transform(val => val === "true"),
 });
 
 type SearchQuery = z.infer<typeof searchQuerySchema>;
