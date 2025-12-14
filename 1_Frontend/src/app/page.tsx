@@ -1297,7 +1297,7 @@ export default function Home() {
               </div>
             </div>
 
-            {/* 광고: Claude 완벽 가이드 */}
+            {/* 광고 1: Claude 완벽 가이드 */}
             <div className="bg-white rounded-lg shadow p-4">
               <div className="text-xs text-gray-500 mb-2">광고</div>
               <a
@@ -1328,6 +1328,23 @@ export default function Home() {
                   </p>
                 </div>
               </a>
+            </div>
+
+            {/* 광고 2: YouTube 영상 */}
+            <div className="bg-white rounded-lg shadow p-4">
+              <div className="text-xs text-gray-500 mb-2">광고</div>
+              <div className="rounded-lg overflow-hidden">
+                <iframe
+                  width="100%"
+                  height="180"
+                  src="https://www.youtube.com/embed/NpK76bKELSs"
+                  title="YouTube video"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="rounded-lg"
+                ></iframe>
+              </div>
             </div>
 
             {/* 내 정보 (회원 등급 및 포인트) */}
