@@ -78,8 +78,9 @@ export async function GET(request: NextRequest) {
           title,
           party
         ),
-        profiles:user_id (
-          username
+        users:user_id (
+          nickname,
+          name
         )
       `, { count: "exact" })
       // 승인된 게시글만 조회

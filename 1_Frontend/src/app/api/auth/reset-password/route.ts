@@ -128,21 +128,28 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // 5. Supabase Client Connection (Mock - Phase 1)
+    // 5. Supabase Client Connection
     const supabase = await createClient();
-    console.log('[Phase 1 Mock] Supabase client connected:', !!supabase);
-    console.log('[Phase 1 Mock] Password reset requested for:', data.email);
+    console.log('[비밀번호 재설정] Supabase client connected:', !!supabase);
+    console.log('[비밀번호 재설정] Password reset requested for:', data.email);
 
-    // 6. Mock: Always return success (security - don't reveal if email exists)
-    // Phase 3 will use: supabase.auth.resetPasswordForEmail()
+    // 6. Real Supabase password reset email
+    const { error: resetError } = await supabase.auth.resetPasswordForEmail(data.email, {
+      redirectTo: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://politicianfinder.com'}/auth/password-reset`,
+    });
 
-    // 7. Success Response (always, for security)
+    if (resetError) {
+      console.error('[비밀번호 재설정] Supabase error:', resetError);
+      // For security, don't reveal if email exists or not
+      // Just log the error and return success message
+    }
+
+    // 7. Success Response (always, for security - don't reveal if email exists)
     return NextResponse.json(
       {
         success: true,
         data: {
-          message:
-            '비밀번호 재설정 링크를 이메일로 발송했습니다. (Phase 1 Mock with Supabase)',
+          message: '입력하신 이메일로 비밀번호 재설정 링크를 발송했습니다. 이메일을 확인해 주세요.',
         },
       },
       { status: 200 }

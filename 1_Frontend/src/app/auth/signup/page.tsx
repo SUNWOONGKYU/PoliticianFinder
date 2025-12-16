@@ -21,6 +21,7 @@ export default function SignupPage() {
   });
 
   const [error, setError] = useState('');
+  const [errorDetails, setErrorDetails] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
   const [termsAll, setTermsAll] = useState(false);
 
@@ -46,6 +47,7 @@ export default function SignupPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
+    setErrorDetails([]);
 
     if (!formData.terms_agreed || !formData.privacy_agreed) {
       setError('필수 약관에 동의해주세요.');
@@ -73,13 +75,55 @@ export default function SignupPage() {
 
       if (!response.ok) {
         console.error('Signup error:', data);
-        setError(data.error?.message || data.message || '회원가입에 실패했습니다.');
+
+        // 오류 메시지 설정
+        const errorMessage = data.error?.message || data.message || '회원가입에 실패했습니다.';
+        setError(errorMessage);
+
+        // 상세 오류 정보 수집
+        const details: string[] = [];
+
+        // 오류 코드별 추가 안내
+        if (data.error?.code) {
+          switch (data.error.code) {
+            case 'VALIDATION_ERROR':
+              if (data.error.details) {
+                Object.entries(data.error.details).forEach(([field, msgs]) => {
+                  if (Array.isArray(msgs)) {
+                    msgs.forEach(msg => details.push(`• ${msg}`));
+                  }
+                });
+              }
+              break;
+            case 'WEAK_PASSWORD':
+              if (data.error.details?.suggestions) {
+                details.push('비밀번호 요구사항:');
+                data.error.details.suggestions.forEach((s: string) => details.push(`• ${s}`));
+              }
+              break;
+            case 'EMAIL_ALREADY_EXISTS':
+              details.push('• 다른 이메일 주소를 사용해 주세요.');
+              details.push('• 이미 가입하셨다면 로그인해 주세요.');
+              break;
+            case 'RATE_LIMIT_EXCEEDED':
+              details.push('• 너무 많은 시도가 있었습니다.');
+              details.push('• 잠시 후 다시 시도해 주세요.');
+              break;
+            case 'PROFILE_CREATION_FAILED':
+              if (data.error.hint) {
+                details.push(`• 힌트: ${data.error.hint}`);
+              }
+              break;
+          }
+        }
+
+        setErrorDetails(details);
         return;
       }
 
       window.location.href = '/auth/login?message=회원가입이 완료되었습니다. 이메일 인증을 완료해 주세요.';
     } catch (err) {
-      setError('오류가 발생했습니다.');
+      setError('네트워크 오류가 발생했습니다. 인터넷 연결을 확인해 주세요.');
     } finally {
       setLoading(false);
     }
@@ -110,7 +154,14 @@ export default function SignupPage() {
             {/* Error Message */}
             {error && (
               <div className="rounded-md bg-red-50 p-4 text-sm text-red-700">
-                {error}
+                <p className="font-medium">{error}</p>
+                {errorDetails.length > 0 && (
+                  <ul className="mt-2 space-y-1 text-red-600">
+                    {errorDetails.map((detail, idx) => (
+                      <li key={idx}>{detail}</li>
+                    ))}
+                  </ul>
+                )}
               </div>
             )}
 

@@ -1,5 +1,136 @@
 # Work Log - Current Session
 
+## Session Start: 2025-12-15
+
+---
+
+## 🔄 2025-12-15 진행중: 비밀번호 재설정 기능 수정
+
+### 작업 개요
+**사용자 보고 이슈**: 비밀번호 재설정 이메일 링크 클릭 시 "새 비밀번호 설정" 화면 대신 "이메일 입력" 화면이 표시됨
+
+### 문제 원인
+1. `useSearchParams()` 훅이 Next.js App Router에서 Suspense 경계 없이 사용됨
+2. URL의 `?code=` 파라미터 처리 로직 불완전
+3. 코드 교환 에러 시 모드 전환 실패
+
+### 수정된 파일 (2개)
+
+#### 1. `/api/auth/reset-password/route.ts` (이전 세션에서 수정)
+- Mock API → Real Supabase `resetPasswordForEmail()` 호출로 변경
+- redirect URL: `/auth/password-reset` (올바른 경로)
+
+#### 2. `/auth/password-reset/page.tsx` ✅ 완전 재작성
+**주요 변경사항:**
+```typescript
+// 1. Suspense 경계 추가
+export default function PasswordResetPage() {
+  return (
+    <Suspense fallback={<LoadingSpinner message="페이지 로딩 중..." />}>
+      <PasswordResetContent />
+    </Suspense>
+  );
+}
+
+// 2. code/token 양쪽 파라미터 지원
+const code = searchParams.get('code');
+const token = searchParams.get('token');
+const authCode = code || token;
+
+// 3. 기존 세션 확인 후 코드 교환
+const { data: { session: existingSession } } = await supabase.auth.getSession();
+if (existingSession) {
+  setMode('reset');
+  return;
+}
+
+// 4. 코드 교환 에러 처리 강화
+if (exchangeError.message.includes('code challenge') ||
+    exchangeError.message.includes('expired') ||
+    exchangeError.message.includes('invalid')) {
+  setError('인증 링크가 만료되었거나 이미 사용되었습니다.');
+  setMode('request');
+  return;
+}
+```
+
+### 테스트 결과
+
+#### 테스트 1: API 이메일 발송 ✅ 성공
+```bash
+curl -X POST "https://www.politicianfinder.ai.kr/api/auth/reset-password" \
+  -H "Content-Type: application/json" \
+  -d '{"email":"wksun999@naver.com"}'
+
+# 응답:
+{"success":true,"data":{"message":"입력하신 이메일로 비밀번호 재설정 링크를 발송했습니다."}}
+```
+
+#### 테스트 2-5: 대기 중
+- 이메일 링크 클릭 후 "새 비밀번호 설정" 화면 표시 여부 확인 필요
+
+### 배포 정보
+- **빌드**: ✅ 성공 (126개 페이지)
+- **Vercel 배포**: ✅ 완료 (https://politician-finder-ogjqlfg3f-finder-world.vercel.app)
+- **배포 시간**: 2025-12-15 01:25 KST
+
+### 다음 확인 사항 (사용자 테스트 필요)
+1. wksun999@naver.com으로 발송된 이메일 확인
+2. 이메일 링크 클릭 시:
+   - ✅ "새 비밀번호 설정" 화면이 표시되어야 함
+   - ❌ "비밀번호를 잊으셨나요?" 화면이 나오면 추가 수정 필요
+3. 비밀번호 변경 후 로그인 성공 여부
+
+### 작업 상태
+- **코드 수정**: ✅ 완료
+- **빌드/배포**: ✅ 완료
+- **사용자 검증**: ⏳ 대기 중
+
+---
+
+## Session Start: 2025-12-14
+
+---
+
+## ✅ 2025-12-14 완료: 게시글 수정/삭제 기능 및 정치인 태그 표시
+
+### 작업 개요
+게시글 상세 페이지에 수정/삭제 기능 추가 및 정치인 태그 표시 구현
+
+### 수정된 파일 (2개)
+1. `1_Frontend/src/app/api/posts/[id]/route.ts`
+   - GET 쿼리에 `politicians.party` 필드 추가
+
+2. `1_Frontend/src/app/community/posts/[id]/page.tsx`
+   - 삭제 확인 모달 state 추가 (deleteModalOpen, deleteLoading)
+   - handleDeletePost 핸들러 추가
+   - 작성자용 수정/삭제 버튼 추가 (currentUser.id === post.userId 체크)
+   - taggedPolitician 데이터 매핑 추가
+
+### 생성된 파일 (1개)
+1. `1_Frontend/src/app/community/posts/[id]/edit/page.tsx`
+   - 게시글 수정 페이지
+   - 인증 및 작성자 확인
+   - PATCH API 호출
+   - 수정 완료 후 상세 페이지로 리다이렉트
+
+### 기능 상세
+1. **정치인 태그 표시**: 게시글에 연결된 정치인 정보 (이름, 정당, 직책) 표시
+2. **수정 버튼**: 작성자만 보이며, 클릭 시 수정 페이지로 이동
+3. **삭제 버튼**: 작성자만 보이며, 클릭 시 삭제 확인 모달 표시
+4. **삭제 확인 모달**: "삭제된 게시글은 복구할 수 없습니다" 경고 포함
+
+### 검증 결과
+- ✅ TypeScript 컴파일 성공
+- ✅ Next.js 빌드 성공
+- ✅ Vercel 배포 완료
+
+### 커밋 정보
+- 커밋: `d9134e1`
+- 메시지: `feat: 게시글 수정/삭제 기능 및 정치인 태그 표시 추가`
+
+---
+
 ## Session Start: 2025-12-13 (Continued)
 
 ### Previous Log
@@ -1491,5 +1622,67 @@ WHERE table_name = 'posts'
 ### 다음 작업
 - 사용자 검증 대기
 - inbox에 새 작업 없음
+
+---
+
+---
+
+## ✅ 2025-12-15 완료: 프로덕션 점검 리스트 전체 검토 및 개선 구현
+
+### 작업 개요
+유호현 페북글 기반 프로덕션 체크리스트 35개 항목 중 33개 항목 전체 점검 및 개선 사항 구현
+
+### 최종 결과: 31/33 완료 (2개 스킵)
+
+### 카테고리별 점검 결과
+
+| 카테고리 | 상태 | 결과 |
+|----------|------|------|
+| A. 기능 완성도 | ✅ | 5/6 (A6 스킵) |
+| B. 보안 | ✅ | 6/6 |
+| C. 성능 최적화 | ✅ | 6/6 |
+| D. 사용자 경험 | ✅ | 4/5 (D4 스킵) |
+| E. 배포 및 운영 | ✅ | 6/6 |
+| F. 동시성/엣지 케이스 | ✅ | 4/4 |
+
+### 🚨 Critical Manual Actions Required
+
+1. **API 키 교체 (긴급)**
+   - SUPABASE_SERVICE_ROLE_KEY
+   - RESEND_API_KEY
+   - git history에 노출되어 있음
+
+2. **RLS 마이그레이션 적용**
+   - Supabase에서 `064_fix_missing_rls_policies.sql` 실행
+
+### 생성된 파일 (5개)
+1. `0-4_Database/Supabase/migrations/064_fix_missing_rls_policies.sql` - RLS 보안 정책
+2. `1_Frontend/src/lib/utils/sanitize.ts` - XSS 방지 유틸리티
+3. `1_Frontend/sentry.edge.config.ts` - Sentry Edge 설정
+4. `1_Frontend/src/components/providers/AnalyticsProvider.tsx` - GA 초기화
+5. `1_Frontend/src/lib/logger.ts` - pino 구조화 로깅
+
+### 수정된 파일 (9개)
+1. `1_Frontend/.gitignore` - .env 패턴 강화
+2. `1_Frontend/.env.example` - GA, Sentry 환경변수 추가
+3. `1_Frontend/src/app/community/posts/[id]/page.tsx` - XSS 수정
+4. `1_Frontend/src/app/community/posts/[id]/politician/page.tsx` - XSS 수정
+5. `1_Frontend/sentry.client.config.ts` - Sentry 실제 설정
+6. `1_Frontend/sentry.server.config.ts` - Sentry 실제 설정
+7. `1_Frontend/next.config.mjs` - withSentryConfig 적용
+8. `1_Frontend/src/lib/monitoring/analytics.ts` - react-ga4 실제 구현
+9. `1_Frontend/src/app/layout.tsx` - AnalyticsProvider 적용
+
+### 설치된 패키지 (4개)
+- @sentry/nextjs
+- react-ga4
+- pino
+- pino-pretty
+
+### 검증 결과
+- ✅ npm run build 성공
+
+### 체크리스트 위치
+- `Web_ClaudeCode_Bridge/outbox/production_checklist.json`
 
 ---

@@ -9,6 +9,7 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Responsi
 import { Politician } from '@/types/politician';
 import FavoriteButton from '@/components/FavoriteButton';
 import { LoadingPage } from '@/components/ui/Spinner';
+import { useNotification } from '@/components/NotificationProvider';
 
 const SAMPLE_POLITICIAN: Politician = {
   id: 'POL001',
@@ -115,6 +116,7 @@ const CATEGORY_NAMES: Record<number, string> = {
 export default function PoliticianDetailPage() {
   const params = useParams();
   const politicianId = params?.id as string;
+  const { showToast } = useNotification();
 
   const [politician, setPolitician] = useState<Politician>(SAMPLE_POLITICIAN);
   const [loading, setLoading] = useState(true);
@@ -256,7 +258,7 @@ export default function PoliticianDetailPage() {
 
   const handleRatingSubmit = async () => {
     if (userRating === 0) {
-      alert('별점을 선택해주세요.');
+      showToast('별점을 선택해주세요.', 'error');
       return;
     }
 
@@ -270,7 +272,7 @@ export default function PoliticianDetailPage() {
       const data = await response.json();
 
       if (response.ok) {
-        alert('평가가 완료되었습니다!');
+        showToast('평가가 완료되었습니다!', 'success');
         setShowRatingModal(false);
         setUserRating(0);
         // Refresh politician data
@@ -282,15 +284,15 @@ export default function PoliticianDetailPage() {
       } else {
         // 에러 처리
         if (response.status === 401) {
-          alert('로그인이 필요합니다.');
+          showToast('로그인이 필요합니다.', 'error');
           window.location.href = '/auth/login';
         } else {
-          alert(data.error || '평가 제출에 실패했습니다.');
+          showToast(data.error || '평가 제출에 실패했습니다.', 'error');
         }
       }
     } catch (error) {
       console.error('Rating submit error:', error);
-      alert('평가 제출 중 오류가 발생했습니다.');
+      showToast('평가 제출 중 오류가 발생했습니다.', 'error');
     }
   };
 

@@ -282,10 +282,9 @@ export async function GET(request: NextRequest) {
           party,
           status
         ),
-        profiles:user_id (
-          username,
+        users:user_id (
           nickname,
-          email
+          name
         )
       `, { count: "exact" })
 

@@ -281,24 +281,24 @@ export default function CreatePoliticianPostPage() {
               />
             </div>
 
-            <div className="space-y-3 max-h-96 overflow-y-auto">
+            <div className="space-y-1 max-h-[500px] overflow-y-auto">
               {politicians.map((politician) => (
                 <button
                   key={politician.id}
                   onClick={() => handlePoliticianSelect(politician)}
-                  className="w-full text-left p-4 border-2 border-gray-200 rounded-lg hover:border-primary-500 hover:bg-primary-50 transition"
+                  className="w-full text-left px-3 py-2 border border-gray-200 rounded-lg hover:border-primary-500 hover:bg-primary-50 transition"
                 >
-                  <div className="flex items-start justify-between">
-                    <div>
-                      <h3 className="text-lg font-bold text-gray-900">{politician.name}</h3>
-                      <p className="text-sm text-gray-600 mt-1">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3 min-w-0">
+                      <span className="font-semibold text-gray-900 whitespace-nowrap">{politician.name}</span>
+                      <span className="text-sm text-gray-500 truncate">
                         {politician.position_name} · {politician.political_party_name}
-                      </p>
+                      </span>
                       {politician.verified_email && (
-                        <p className="text-xs text-green-600 mt-1">✓ 이메일 인증됨</p>
+                        <span className="text-xs text-green-600 whitespace-nowrap">✓ 인증됨</span>
                       )}
                     </div>
-                    <svg className="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 text-gray-400 flex-shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
                   </div>
@@ -365,7 +365,7 @@ export default function CreatePoliticianPostPage() {
               <button
                 onClick={handleSendCode}
                 disabled={sendingCode || !email.trim()}
-                className="w-full px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 font-medium disabled:bg-gray-300 disabled:cursor-not-allowed"
+                className="w-full px-6 py-3 bg-primary-500 text-white rounded-lg hover:bg-primary-600 font-medium disabled:bg-gray-300 disabled:cursor-not-allowed"
               >
                 {sendingCode ? '발송 중...' : '인증 코드 발송'}
               </button>
@@ -395,7 +395,7 @@ export default function CreatePoliticianPostPage() {
                 <button
                   onClick={handleVerifyCode}
                   disabled={verifying || !verificationCode.trim()}
-                  className="w-full px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 font-medium disabled:bg-gray-300 disabled:cursor-not-allowed"
+                  className="w-full px-6 py-3 bg-primary-500 text-white rounded-lg hover:bg-primary-600 font-medium disabled:bg-gray-300 disabled:cursor-not-allowed"
                 >
                   {verifying ? '인증 중...' : '인증 확인'}
                 </button>
@@ -541,7 +541,7 @@ export default function CreatePoliticianPostPage() {
               <button
                 type="submit"
                 disabled={submitting}
-                className="flex-1 px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 font-medium disabled:bg-gray-300 disabled:cursor-not-allowed"
+                className="flex-1 px-6 py-3 bg-primary-500 text-white rounded-lg hover:bg-primary-600 font-medium disabled:bg-gray-300 disabled:cursor-not-allowed"
               >
                 {submitting ? '등록 중...' : '등록하기'}
               </button>
@@ -560,7 +560,7 @@ export default function CreatePoliticianPostPage() {
           <p className="text-gray-600">잘못된 페이지 상태입니다.</p>
           <button
             onClick={() => router.back()}
-            className="mt-4 px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700"
+            className="mt-4 px-6 py-3 bg-primary-500 text-white rounded-lg hover:bg-primary-600"
           >
             돌아가기
           </button>

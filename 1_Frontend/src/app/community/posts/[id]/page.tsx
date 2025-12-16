@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 import FixedCommentInput from '@/components/ui/FixedCommentInput';
 import FollowButton from '@/components/FollowButton';
 import { formatInfluenceGrade } from '@/utils/memberLevel';
+import { textToSafeHtml } from '@/lib/utils/sanitize';
 
 interface Comment {
   id: number;
@@ -31,6 +32,8 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
   const [alertModalOpen, setAlertModalOpen] = useState(false);
   const [commentText, setCommentText] = useState('');  // 회원 댓글용
   const [politicianCommentText, setPoliticianCommentText] = useState('');  // 정치인 댓글용
+  const [commentSubmitting, setCommentSubmitting] = useState(false);  // 회원 댓글 제출 중 상태
+  const [politicianCommentSubmitting, setPoliticianCommentSubmitting] = useState(false);  // 정치인 댓글 제출 중 상태
   const [upvoted, setUpvoted] = useState(false);
   const [downvoted, setDownvoted] = useState(false);
   const [upvotes, setUpvotes] = useState(0);
@@ -112,17 +115,17 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
         if (result.success && result.data) {
           const postData = result.data;
 
-          // Generate consistent nickname based on user_id
-          const userIdHash = postData.user_id ? postData.user_id.split('-')[0].charCodeAt(0) : 0;
-          const nicknameIndex = userIdHash % 10;
-
           // Generate consistent member level (ML1-ML5) based on user_id
+          const userIdHash = postData.user_id ? postData.user_id.split('-')[0].charCodeAt(0) : 0;
           const mlLevel = postData.politician_id ? undefined : `ML${(userIdHash % 5) + 1}`;
 
-          // Determine author based on politician_id
+          // 실제 사용자 닉네임 사용 (users 테이블에서 조인)
+          const actualNickname = postData.users?.nickname || postData.users?.name;
+
+          // Determine author: 정치인 게시글이면 정치인 이름, 아니면 실제 사용자 닉네임
           const author = postData.politician_id && postData.politicians
             ? postData.politicians.name
-            : sampleNicknames[nicknameIndex];
+            : (actualNickname || '익명 사용자');
 
           setPost({
             id: postData.id,
@@ -316,6 +319,8 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
 
   // MI7: 고정 댓글 입력창 제출 핸들러
   const handleCommentSubmit = useCallback(async (content: string) => {
+    if (commentSubmitting) return; // 이미 제출 중이면 무시
+    setCommentSubmitting(true);
     try {
       // /api/comments API 호출 (post_id 포함)
       const response = await fetch('/api/comments', {
@@ -341,8 +346,10 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
       setAlertMessage(error instanceof Error ? error.message : '댓글 등록에 실패했습니다.');
       setAlertModalOpen(true);
       throw error;
+    } finally {
+      setCommentSubmitting(false);
     }
-  }, [params.id, refreshComments]);
+  }, [params.id, refreshComments, commentSubmitting]);
 
   // 정치인 본인 인증 핸들러 (이름 + 소속정당 + 출마직종)
   const handlePoliticianAuth = useCallback(async () => {
@@ -404,6 +411,9 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
       return;
     }
 
+    if (politicianCommentSubmitting) return; // 이미 제출 중이면 무시
+    setPoliticianCommentSubmitting(true);
+
     try {
       const response = await fetch('/api/comments/politician', {
         method: 'POST',
@@ -431,8 +441,10 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
       console.error('Politician comment submit error:', error);
       setAlertMessage(error instanceof Error ? error.message : '댓글 등록에 실패했습니다.');
       setAlertModalOpen(true);
+    } finally {
+      setPoliticianCommentSubmitting(false);
     }
-  }, [params.id, politicianCommentText, authenticatedPolitician, refreshComments]);
+  }, [params.id, politicianCommentText, authenticatedPolitician, refreshComments, politicianCommentSubmitting]);
 
   // 게시글 삭제 핸들러
   const handleDeletePost = useCallback(async () => {
@@ -465,31 +477,87 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
     }
   }, [params.id, router]);
 
-  const handleUpvote = () => {
-    if (upvoted) {
-      setUpvotes(upvotes - 1);
-      setUpvoted(false);
-    } else {
-      setUpvotes(upvotes + 1);
-      setUpvoted(true);
-      if (downvoted) {
-        setDownvotes(downvotes - 1);
-        setDownvoted(false);
+  const handleUpvote = async () => {
+    if (!currentUser) {
+      showAlert('로그인이 필요합니다.');
+      return;
+    }
+
+    try {
+      const response = await fetch('/api/votes', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          post_id: post.id,
+          vote_type: 'like'
+        })
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        if (response.status === 409) {
+          showAlert('이미 공감하셨습니다.');
+        } else {
+          showAlert(data.error?.message || data.error || '오류가 발생했습니다.');
+        }
+        return;
       }
+
+      // 성공 시 UI 업데이트
+      if (!upvoted) {
+        setUpvotes(upvotes + 1);
+        setUpvoted(true);
+        if (downvoted) {
+          setDownvotes(downvotes - 1);
+          setDownvoted(false);
+        }
+      }
+    } catch (error) {
+      console.error('Vote error:', error);
+      showAlert('투표 처리 중 오류가 발생했습니다.');
     }
   };
 
-  const handleDownvote = () => {
-    if (downvoted) {
-      setDownvotes(downvotes - 1);
-      setDownvoted(false);
-    } else {
-      setDownvotes(downvotes + 1);
-      setDownvoted(true);
-      if (upvoted) {
-        setUpvotes(upvotes - 1);
-        setUpvoted(false);
+  const handleDownvote = async () => {
+    if (!currentUser) {
+      showAlert('로그인이 필요합니다.');
+      return;
+    }
+
+    try {
+      const response = await fetch('/api/votes', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          post_id: post.id,
+          vote_type: 'dislike'
+        })
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        if (response.status === 409) {
+          showAlert('이미 비공감하셨습니다.');
+        } else {
+          showAlert(data.error?.message || data.error || '오류가 발생했습니다.');
+        }
+        return;
       }
+
+      // 성공 시 UI 업데이트
+      if (!downvoted) {
+        setDownvotes(downvotes + 1);
+        setDownvoted(true);
+        if (upvoted) {
+          setUpvotes(upvotes - 1);
+          setUpvoted(false);
+        }
+      }
+    } catch (error) {
+      console.error('Vote error:', error);
+      showAlert('투표 처리 중 오류가 발생했습니다.');
     }
   };
 
@@ -644,7 +712,7 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
               if (paragraph.startsWith('## ')) {
                 return <h2 key={idx} className="text-2xl font-bold text-gray-900 mt-6 mb-3">{paragraph.replace('## ', '')}</h2>;
               }
-              return <p key={idx} className="text-gray-700 leading-relaxed mb-4" dangerouslySetInnerHTML={{ __html: paragraph.replace(/\n/g, '<br>') }} />;
+              return <p key={idx} className="text-gray-700 leading-relaxed mb-4" dangerouslySetInnerHTML={{ __html: textToSafeHtml(paragraph) }} />;
             })}
           </div>
 
@@ -723,10 +791,10 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
                 <div className="flex justify-end items-center mt-2">
                   <button
                     onClick={handlePoliticianCommentSubmit}
-                    disabled={!politicianCommentText.trim() || !authenticatedPolitician}
+                    disabled={!politicianCommentText.trim() || !authenticatedPolitician || politicianCommentSubmitting}
                     className="px-6 py-2 bg-primary-500 text-white rounded-lg hover:bg-primary-600 font-medium disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    정치인 댓글 등록
+                    {politicianCommentSubmitting ? '등록 중...' : '정치인 댓글 등록'}
                   </button>
                 </div>
               </div>
@@ -756,10 +824,10 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
                         setCommentText('');
                       }
                     }}
-                    disabled={!commentText.trim()}
+                    disabled={!commentText.trim() || commentSubmitting}
                     className="px-6 py-2 bg-secondary-600 text-white rounded-lg hover:bg-secondary-700 font-medium disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    회원 댓글 등록
+                    {commentSubmitting ? '등록 중...' : '회원 댓글 등록'}
                   </button>
                 </div>
               </div>
@@ -790,17 +858,26 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
                       setCommentText('');
                     }
                   }}
-                  disabled={!commentText.trim()}
+                  disabled={!commentText.trim() || commentSubmitting}
                   className="px-6 py-2 bg-secondary-600 text-white rounded-lg hover:bg-secondary-700 font-medium disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  댓글 등록
+                  {commentSubmitting ? '등록 중...' : '댓글 등록'}
                 </button>
               </div>
             </div>
           )}
 
           <div className="space-y-4">
-            {comments.slice(0, displayedComments).map((comment) => (
+            {comments.length === 0 ? (
+              <div className="text-center py-8">
+                <svg className="mx-auto h-12 w-12 text-gray-400 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                </svg>
+                <p className="text-gray-500 font-medium">아직 댓글이 없습니다</p>
+                <p className="text-gray-400 text-sm mt-1">첫 번째 댓글을 남겨보세요!</p>
+              </div>
+            ) : (
+              comments.slice(0, displayedComments).map((comment) => (
               <div key={comment.id} className="border-b pb-4">
                 <div className="mb-2">
                   <div className="flex items-center gap-3 text-xs text-gray-500 flex-wrap">
@@ -831,7 +908,8 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
                 </div>
                 <p className="text-gray-700 leading-relaxed">{comment.content}</p>
               </div>
-            ))}
+            ))
+            )}
 
             {comments.length > displayedComments && (
               <div className="text-center pt-4">

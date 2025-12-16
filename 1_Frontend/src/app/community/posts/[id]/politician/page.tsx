@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { PoliticianAuthModal, getPoliticianSession, validatePoliticianSession, clearPoliticianSession } from '@/components/PoliticianAuthModal';
+import { textToSafeHtml } from '@/lib/utils/sanitize';
 
 interface PoliticianSession {
   politician_id: string;
@@ -422,7 +423,7 @@ export default function PoliticianPostDetailPage({ params }: { params: { id: str
               if (paragraph.startsWith('## ')) {
                 return <h2 key={idx} className="text-2xl font-bold text-gray-900 mt-6 mb-3">{paragraph.replace('## ', '')}</h2>;
               }
-              return <p key={idx} className="text-gray-700 leading-relaxed mb-4" dangerouslySetInnerHTML={{ __html: paragraph.replace(/\n/g, '<br>') }} />;
+              return <p key={idx} className="text-gray-700 leading-relaxed mb-4" dangerouslySetInnerHTML={{ __html: textToSafeHtml(paragraph) }} />;
             })}
           </div>
 

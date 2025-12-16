@@ -1,3 +1,5 @@
+import { withSentryConfig } from "@sentry/nextjs";
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // 이미지 최적화
@@ -72,4 +74,30 @@ const nextConfig = {
   },
 };
 
-export default nextConfig;
+// Sentry 설정
+const sentryWebpackPluginOptions = {
+  // 소스맵 업로드 비활성화 (프로덕션 배포 시 활성화)
+  silent: true,
+
+  // 조직 및 프로젝트 (환경변수에서 가져옴)
+  org: process.env.SENTRY_ORG,
+  project: process.env.SENTRY_PROJECT,
+
+  // Sentry CLI로 소스맵 업로드 (SENTRY_AUTH_TOKEN 필요)
+  // 배포 시 자동 업로드를 원하면 true로 변경
+  disableServerWebpackPlugin: !process.env.SENTRY_AUTH_TOKEN,
+  disableClientWebpackPlugin: !process.env.SENTRY_AUTH_TOKEN,
+
+  // 소스맵 숨기기 (보안)
+  hideSourceMaps: true,
+
+  // 번들 크기 분석 비활성화
+  widenClientFileUpload: true,
+};
+
+// Sentry DSN이 있을 때만 Sentry 래핑
+const config = process.env.NEXT_PUBLIC_SENTRY_DSN
+  ? withSentryConfig(nextConfig, sentryWebpackPluginOptions)
+  : nextConfig;
+
+export default config;

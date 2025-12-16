@@ -1,75 +1,67 @@
-// Task: P6O3
+// Task: Production Checklist E2
 // Sentry Client Configuration
-// Generated: 2025-11-10
-// Agent: devops-engineer
+// Updated: 2025-12-15
 
-// NOTE: Install @sentry/nextjs with: npm install @sentry/nextjs
-// Uncomment the following line after installing the package
-// import * as Sentry from '@sentry/nextjs';
+import * as Sentry from "@sentry/nextjs";
 
-// Temporary type-safe stub until Sentry is installed
-{
-  const SentryClient = {
-    init: (config: any) => {
-      if (process.env.NODE_ENV !== 'development') {
-        console.log('[Sentry] Would initialize with config:', config);
-      }
-    },
-    BrowserTracing: class {},
-    Replay: class {
-      constructor(config: any) {}
-    },
-  } as any;
+Sentry.init({
+  dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
 
-  SentryClient.init({
-    dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
+  // 프로덕션에서만 활성화
+  enabled: process.env.NODE_ENV === "production",
 
-    // Set tracesSampleRate to 1.0 to capture 100% of transactions for performance monitoring.
-    // We recommend adjusting this value in production
-    tracesSampleRate: process.env.NODE_ENV === 'production' ? 0.1 : 1.0,
+  // 샘플링 비율
+  tracesSampleRate: 0.1, // 성능 모니터링 10%
 
-    // Capture Replay for 10% of all sessions,
-    // plus for 100% of sessions with an error
-    replaysSessionSampleRate: 0.1,
-    replaysOnErrorSampleRate: 1.0,
+  // 세션 리플레이 설정
+  replaysSessionSampleRate: 0.1, // 일반 세션 10%
+  replaysOnErrorSampleRate: 1.0, // 에러 발생 시 100%
 
-    // Set environment
-    environment: process.env.NODE_ENV || 'development',
+  // 환경 설정
+  environment: process.env.NODE_ENV || "development",
 
-    // Configure integrations
-    integrations: [
-      new SentryClient.BrowserTracing(),
-      new SentryClient.Replay({
-        maskAllText: true,
-        blockAllMedia: true,
-      }),
-    ],
+  // 릴리즈 버전
+  release: process.env.NEXT_PUBLIC_APP_VERSION || "1.0.0",
 
-    // Filter out sensitive information
-    beforeSend(event: any, hint: any) {
-      // Don't send events in development
-      if (process.env.NODE_ENV === 'development') {
-        return null;
-      }
+  // 민감한 정보 필터링
+  beforeSend(event) {
+    // 개발 환경에서는 전송하지 않음
+    if (process.env.NODE_ENV === "development") {
+      return null;
+    }
 
-      // Filter out sensitive user data
-      if (event.user) {
-        delete event.user.email;
-        delete event.user.ip_address;
-      }
+    // 민감한 사용자 데이터 필터링
+    if (event.user) {
+      delete event.user.email;
+      delete event.user.ip_address;
+    }
 
-      return event;
-    },
+    return event;
+  },
 
-    // Ignore certain errors
-    ignoreErrors: [
-      // Browser extensions
-      'top.GLOBALS',
-      // Network errors
-      'NetworkError',
-      'Network request failed',
-      // Random plugins/extensions
-      'Non-Error promise rejection captured',
-    ],
-  });
-}
+  // 무시할 에러 패턴
+  ignoreErrors: [
+    // 브라우저 확장 프로그램 에러
+    "top.GLOBALS",
+    "ResizeObserver loop limit exceeded",
+    "ResizeObserver loop completed with undelivered notifications",
+    // 네트워크 에러 (사용자 연결 문제)
+    "Failed to fetch",
+    "NetworkError",
+    "Network request failed",
+    "Load failed",
+    // 취소된 요청
+    "AbortError",
+    // 랜덤 플러그인/확장
+    "Non-Error promise rejection captured",
+  ],
+
+  integrations: [
+    Sentry.replayIntegration({
+      // 세션 리플레이에서 민감한 정보 마스킹
+      maskAllText: true,
+      maskAllInputs: true,
+      blockAllMedia: true,
+    }),
+  ],
+});
