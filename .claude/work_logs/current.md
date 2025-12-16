@@ -524,7 +524,7 @@ fix: 정치인 메타데이터 표시 수정 - 홈/커뮤니티 통일
 #### 2. 이메일 인증 API (Phase 2)
 - `1_Frontend/src/app/api/politicians/verify/send-code/route.ts`
   - 정치인 정보 조회 (이름, 정당, 직위)
-  - 6자리 영숫자 코드 생성
+  - 6자리 숫자 코드 생성
   - Resend로 이메일 발송
   - 10분 유효기간 설정
 - `1_Frontend/src/app/api/politicians/verify/check-code/route.ts`
@@ -791,7 +791,7 @@ fix: 관리자 페이지 페이지네이션 리밋 조정 (30/50 → 20)
 
 #### 1. 🔐 이메일 인증 (NEW!)
 **구매 전 본인 확인 프로세스**
-- **방식**: 6자리 영숫자 코드 (예: "AB12CD")
+- **방식**: 6자리 숫자 코드 (예: "123456")
 - **유효 시간**: 10분
 - **발송 수단**: Resend API
 - **보안 원리**: 이메일 소유권 = 본인 증명
