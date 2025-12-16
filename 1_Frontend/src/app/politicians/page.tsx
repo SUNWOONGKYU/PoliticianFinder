@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 import { PoliticianListItem } from '@/types/politician';
 import { REGIONS } from '@/constants/regions';
 import { CONSTITUENCIES, getConstituenciesByMetropolitan } from '@/constants/constituencies';
+import { SkeletonRankingTable, SkeletonPoliticianCard } from '@/components/ui/Skeleton';
 
 interface Politician extends PoliticianListItem {
   rank: number;
@@ -537,7 +538,45 @@ export default function PoliticiansPage() {
           </div>
         </div>
 
+        {/* Loading State - Desktop */}
+        {loading && (
+          <div className="hidden md:block bg-white rounded-lg shadow-md overflow-hidden">
+            <SkeletonRankingTable rows={10} />
+          </div>
+        )}
+
+        {/* Loading State - Mobile */}
+        {loading && (
+          <div className="md:hidden space-y-4">
+            {Array.from({ length: 5 }).map((_, i) => (
+              <SkeletonPoliticianCard key={i} />
+            ))}
+          </div>
+        )}
+
+        {/* Error State */}
+        {error && !loading && (
+          <div className="bg-red-50 border border-red-200 rounded-lg p-6 mb-6">
+            <div className="flex items-start gap-3">
+              <svg className="w-6 h-6 text-red-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <div className="flex-1">
+                <h3 className="text-lg font-semibold text-red-800 mb-1">데이터를 불러오는데 실패했습니다</h3>
+                <p className="text-red-600 text-sm mb-3">잠시 후 다시 시도해주세요.</p>
+                <button
+                  onClick={() => window.location.reload()}
+                  className="px-4 py-2 bg-red-100 text-red-700 rounded-lg hover:bg-red-200 transition text-sm font-medium"
+                >
+                  새로고침
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Desktop: Table */}
+        {!loading && !error && (
         <div className="hidden md:block bg-white rounded-lg shadow-md overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
@@ -646,8 +685,10 @@ export default function PoliticiansPage() {
             </table>
           </div>
         </div>
+        )}
 
         {/* Mobile: Enhanced Card View */}
+        {!loading && !error && (
         <div className="md:hidden space-y-4">
           {filteredData.map((p) => (
             <div
@@ -789,6 +830,7 @@ export default function PoliticiansPage() {
             </div>
           ))}
         </div>
+        )}
 
         {/* Pagination Controls */}
         {totalPages > 1 && (

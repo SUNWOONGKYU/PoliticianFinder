@@ -73,9 +73,9 @@ export default function CommunityPage() {
           if (post.politician_id && post.politicians) {
             authorName = post.politicians.name || '정치인';
           }
-          // 일반 회원 게시글인 경우
-          else if (post.profiles) {
-            authorName = post.profiles.username || post.profiles.nickname || post.profiles.email?.split('@')[0] || '익명';
+          // 일반 회원 게시글인 경우 - users 테이블에서 닉네임 가져오기
+          else if (post.users) {
+            authorName = post.users.nickname || post.users.name || '익명';
           }
 
           // Generate member level based on user_id hash (ML1 ~ ML5) - only for user posts
@@ -254,8 +254,18 @@ export default function CommunityPage() {
             <p className="text-gray-500 text-lg">게시글을 불러오는 중...</p>
           </div>
         ) : filteredPosts.length === 0 ? (
-          <div className="text-center py-16">
-            <p className="text-gray-500 text-lg">게시글이 없습니다</p>
+          <div className="text-center py-16 bg-white rounded-lg shadow">
+            <svg className="mx-auto h-16 w-16 text-gray-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+            </svg>
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">게시글이 없습니다</h3>
+            <p className="text-gray-500 text-sm mb-4">아직 작성된 게시글이 없거나 검색 조건에 맞는 게시글이 없습니다.</p>
+            <a href="/community/posts/create" className="inline-flex items-center px-4 py-2 bg-primary-500 text-white rounded-lg hover:bg-primary-600 transition font-medium text-sm">
+              <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+              </svg>
+              첫 게시글 작성하기
+            </a>
           </div>
         ) : (
           <>

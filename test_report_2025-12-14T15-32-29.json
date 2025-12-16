@@ -1,0 +1,31 @@
+{
+  "summary": {
+    "total": 1,
+    "passed": 0,
+    "failed": 1,
+    "errors": 0,
+    "successRate": "0.0%",
+    "testAccount": "wksun999@naver.com",
+    "timestamp": "2025-12-14T15:32:29.384Z"
+  },
+  "results": [
+    {
+      "category": "인증",
+      "testName": "로그인",
+      "status": "FAIL",
+      "details": "이메일 또는 비밀번호가 올바르지 않습니다.",
+      "response": "{\"success\":false,\"error\":{\"code\":\"INVALID_CREDENTIALS\",\"message\":\"이메일 또는 비밀번호가 올바르지 않습니다.\"}}",
+      "timestamp": "2025-12-14T15:32:29.383Z"
+    }
+  ],
+  "failedTests": [
+    {
+      "category": "인증",
+      "testName": "로그인",
+      "status": "FAIL",
+      "details": "이메일 또는 비밀번호가 올바르지 않습니다.",
+      "response": "{\"success\":false,\"error\":{\"code\":\"INVALID_CREDENTIALS\",\"message\":\"이메일 또는 비밀번호가 올바르지 않습니다.\"}}",
+      "timestamp": "2025-12-14T15:32:29.383Z"
+    }
+  ]
+}

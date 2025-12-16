@@ -333,13 +333,30 @@ export async function POST(request: NextRequest) {
         console.error('[회원가입 API] auth.users 롤백 실패:', deleteError);
       }
 
+      // 상세 오류 메시지 생성
+      let detailedMessage = '회원가입 처리 중 오류가 발생했습니다.';
+      const errorMsg = profileError.message?.toLowerCase() || '';
+
+      if (errorMsg.includes('duplicate') || errorMsg.includes('unique') || profileError.code === '23505') {
+        detailedMessage = '이미 가입된 이메일이거나 닉네임입니다. 다른 정보로 시도해 주세요.';
+      } else if (errorMsg.includes('null') || errorMsg.includes('not-null')) {
+        detailedMessage = '필수 정보가 누락되었습니다. 모든 필수 항목을 입력해 주세요.';
+      } else if (errorMsg.includes('permission') || errorMsg.includes('policy')) {
+        detailedMessage = '권한 오류가 발생했습니다. 관리자에게 문의해 주세요.';
+      } else if (errorMsg.includes('connection') || errorMsg.includes('timeout')) {
+        detailedMessage = '서버 연결에 실패했습니다. 잠시 후 다시 시도해 주세요.';
+      } else {
+        detailedMessage = `회원가입 처리 중 오류: ${profileError.message || '알 수 없는 오류'}`;
+      }
+
       return NextResponse.json(
         {
           success: false,
           error: {
             code: 'PROFILE_CREATION_FAILED',
-            message: '회원가입 처리 중 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.',
+            message: detailedMessage,
             details: profileError.message,
+            hint: profileError.hint || null,
           },
         },
         { status: 500 }

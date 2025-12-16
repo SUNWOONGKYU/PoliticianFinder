@@ -1,0 +1,176 @@
+{
+  "report_type": "production_checklist_review",
+  "title": "PoliticianFinder 프로덕션 점검 및 개선 완료 보고서",
+  "generated_at": "2025-12-15T20:30:00Z",
+  "generator": "Claude Code (Opus 4.5)",
+  
+  "summary": {
+    "total_items": 33,
+    "checked": 31,
+    "skipped": 2,
+    "skipped_items": ["A6. 오프라인 대응", "D4. 페이지 이동 피드백"],
+    "build_status": "success"
+  },
+
+  "categories_result": {
+    "A_기능완성도": { "status": "completed", "checked": 5, "skipped": 1 },
+    "B_보안": { "status": "completed", "checked": 6, "skipped": 0 },
+    "C_성능최적화": { "status": "completed", "checked": 6, "skipped": 0 },
+    "D_사용자경험": { "status": "completed", "checked": 4, "skipped": 1 },
+    "E_배포운영": { "status": "completed", "checked": 6, "skipped": 0 },
+    "F_동시성": { "status": "completed", "checked": 4, "skipped": 0 }
+  },
+
+  "critical_actions_required": [
+    {
+      "id": "B2",
+      "priority": "critical",
+      "action": "API 키 교체",
+      "details": "SUPABASE_SERVICE_ROLE_KEY, RESEND_API_KEY가 git history에 노출됨",
+      "steps": [
+        "Supabase Dashboard > Settings > API > service_role key 새로 발급",
+        "Resend Dashboard > API Keys > 새 키 발급",
+        "Vercel Dashboard > Environment Variables 업데이트",
+        "로컬 .env.local 업데이트"
+      ]
+    },
+    {
+      "id": "B1",
+      "priority": "critical",
+      "action": "RLS 마이그레이션 적용",
+      "details": "users, politician_details 테이블에 RLS 미적용",
+      "steps": [
+        "Supabase Dashboard > SQL Editor 접속",
+        "064_fix_missing_rls_policies.sql 내용 복사/붙여넣기",
+        "Run 클릭하여 실행"
+      ],
+      "file": "0-4_Database/Supabase/migrations/064_fix_missing_rls_policies.sql"
+    }
+  ],
+
+  "implemented_improvements": [
+    {
+      "id": "B5",
+      "title": "XSS 방지",
+      "description": "커뮤니티 게시글 dangerouslySetInnerHTML XSS 취약점 수정",
+      "files_created": ["1_Frontend/src/lib/utils/sanitize.ts"],
+      "files_modified": [
+        "1_Frontend/src/app/community/posts/[id]/page.tsx",
+        "1_Frontend/src/app/community/posts/[id]/politician/page.tsx"
+      ]
+    },
+    {
+      "id": "B3",
+      "title": ".gitignore 강화",
+      "description": ".env 파일 패턴 강화로 민감정보 커밋 방지",
+      "files_modified": ["1_Frontend/.gitignore"]
+    },
+    {
+      "id": "E2",
+      "title": "Sentry 에러 트래킹",
+      "description": "@sentry/nextjs 설치 및 설정",
+      "packages_installed": ["@sentry/nextjs"],
+      "files_created": ["1_Frontend/sentry.edge.config.ts"],
+      "files_modified": [
+        "1_Frontend/sentry.client.config.ts",
+        "1_Frontend/sentry.server.config.ts",
+        "1_Frontend/next.config.mjs"
+      ],
+      "env_vars_added": ["NEXT_PUBLIC_SENTRY_DSN", "SENTRY_DSN", "SENTRY_AUTH_TOKEN", "SENTRY_ORG", "SENTRY_PROJECT"],
+      "manual_setup_required": "Sentry 프로젝트 생성 후 DSN 환경변수 설정"
+    },
+    {
+      "id": "E3",
+      "title": "Google Analytics 연동",
+      "description": "react-ga4 설치 및 자동 페이지뷰 추적",
+      "packages_installed": ["react-ga4"],
+      "files_created": ["1_Frontend/src/components/providers/AnalyticsProvider.tsx"],
+      "files_modified": [
+        "1_Frontend/src/lib/monitoring/analytics.ts",
+        "1_Frontend/src/app/layout.tsx"
+      ],
+      "env_vars_added": ["NEXT_PUBLIC_GA_ID"],
+      "manual_setup_required": "GA4 프로퍼티 생성 후 Measurement ID 환경변수 설정"
+    },
+    {
+      "id": "E4",
+      "title": "구조화된 로깅 시스템",
+      "description": "pino 기반 로깅 - 민감정보 자동 제거, 환경별 설정",
+      "packages_installed": ["pino", "pino-pretty"],
+      "files_created": ["1_Frontend/src/lib/logger.ts"],
+      "features": [
+        "개발환경: pretty print (컬러, 타임스탬프)",
+        "프로덕션: JSON 포맷 (Vercel 로그 호환)",
+        "민감정보 자동 마스킹 (password, token, authorization 등)",
+        "모듈별 하위 로거 생성 지원",
+        "API 요청/에러/이벤트/성능/보안 로깅 유틸리티"
+      ]
+    }
+  ],
+
+  "files_summary": {
+    "created": [
+      "0-4_Database/Supabase/migrations/064_fix_missing_rls_policies.sql",
+      "1_Frontend/src/lib/utils/sanitize.ts",
+      "1_Frontend/sentry.edge.config.ts",
+      "1_Frontend/src/components/providers/AnalyticsProvider.tsx",
+      "1_Frontend/src/lib/logger.ts"
+    ],
+    "modified": [
+      "1_Frontend/.gitignore",
+      "1_Frontend/.env.example",
+      "1_Frontend/src/app/community/posts/[id]/page.tsx",
+      "1_Frontend/src/app/community/posts/[id]/politician/page.tsx",
+      "1_Frontend/sentry.client.config.ts",
+      "1_Frontend/sentry.server.config.ts",
+      "1_Frontend/next.config.mjs",
+      "1_Frontend/src/lib/monitoring/analytics.ts",
+      "1_Frontend/src/app/layout.tsx"
+    ]
+  },
+
+  "packages_installed": [
+    "@sentry/nextjs",
+    "react-ga4",
+    "pino",
+    "pino-pretty"
+  ],
+
+  "verification": {
+    "build": {
+      "status": "success",
+      "command": "npm run build"
+    }
+  },
+
+  "env_vars_to_configure": [
+    {
+      "name": "NEXT_PUBLIC_SENTRY_DSN",
+      "required": false,
+      "description": "Sentry 클라이언트 DSN",
+      "get_from": "https://sentry.io > Project > Settings > Client Keys"
+    },
+    {
+      "name": "SENTRY_AUTH_TOKEN",
+      "required": false,
+      "description": "Sentry 소스맵 업로드용 토큰",
+      "get_from": "https://sentry.io > Settings > Auth Tokens"
+    },
+    {
+      "name": "NEXT_PUBLIC_GA_ID",
+      "required": false,
+      "description": "Google Analytics 4 Measurement ID",
+      "get_from": "https://analytics.google.com > Admin > Data Streams"
+    }
+  ],
+
+  "checklist_location": "Web_ClaudeCode_Bridge/outbox/production_checklist.json",
+
+  "next_steps": [
+    "1. API 키 교체 (critical)",
+    "2. RLS 마이그레이션 실행 (critical)",
+    "3. Sentry 프로젝트 생성 및 DSN 설정 (optional)",
+    "4. GA4 프로퍼티 생성 및 ID 설정 (optional)",
+    "5. Vercel 재배포"
+  ]
+}

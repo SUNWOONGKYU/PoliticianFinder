@@ -1,111 +1,143 @@
-// Task: P6O3
+// Task: Production Checklist E3
 // Google Analytics Helper
-// Generated: 2025-11-10
-// Agent: devops-engineer
+// Updated: 2025-12-15
 
-// NOTE: Install react-ga4 with: npm install react-ga4
-// Uncomment the following line after installing the package
-// import ReactGA from 'react-ga4';
+import ReactGA from "react-ga4";
 
-// Temporary type-safe stub until react-ga4 is installed
-const ReactGA = {
-  initialize: (gaId: string, options?: any) => {
-    if (typeof window !== 'undefined' && process.env.NODE_ENV !== 'development') {
-      console.log('[GA] Would initialize with ID:', gaId);
-    }
-  },
-  send: (params: any) => {
-    if (typeof window !== 'undefined' && process.env.NODE_ENV !== 'development') {
-      console.log('[GA] Would send:', params);
-    }
-  },
-  event: (params: any) => {
-    if (typeof window !== 'undefined' && process.env.NODE_ENV !== 'development') {
-      console.log('[GA] Would track event:', params);
-    }
-  },
-} as any;
+// Google Analytics 초기화 여부
+let isInitialized = false;
 
-// Initialize Google Analytics
+// Google Analytics 초기화
 export const initGA = () => {
   const gaId = process.env.NEXT_PUBLIC_GA_ID;
 
-  if (gaId && typeof window !== 'undefined') {
+  if (!gaId) {
+    if (process.env.NODE_ENV === "development") {
+      console.log("[GA] GA_ID not configured, skipping initialization");
+    }
+    return;
+  }
+
+  if (isInitialized) {
+    return;
+  }
+
+  if (typeof window !== "undefined") {
     ReactGA.initialize(gaId, {
       gaOptions: {
         anonymizeIp: true,
+        siteSpeedSampleRate: 100,
       },
     });
+    isInitialized = true;
+
+    if (process.env.NODE_ENV === "development") {
+      console.log("[GA] Initialized with ID:", gaId);
+    }
   }
 };
 
-// Track page views
+// 페이지뷰 추적
 export const logPageView = (path: string) => {
-  if (typeof window !== 'undefined') {
-    ReactGA.send({ hitType: 'pageview', page: path });
-  }
+  if (!isInitialized || typeof window === "undefined") return;
+
+  ReactGA.send({
+    hitType: "pageview",
+    page: path,
+    title: document.title,
+  });
 };
 
-// Track custom events
-export const logEvent = (category: string, action: string, label?: string, value?: number) => {
-  if (typeof window !== 'undefined') {
-    ReactGA.event({
-      category,
-      action,
-      label,
-      value,
-    });
-  }
+// 커스텀 이벤트 추적
+export const logEvent = (
+  category: string,
+  action: string,
+  label?: string,
+  value?: number
+) => {
+  if (!isInitialized || typeof window === "undefined") return;
+
+  ReactGA.event({
+    category,
+    action,
+    label,
+    value,
+  });
 };
 
-// Predefined events
+// 사전 정의된 이벤트
 export const analytics = {
-  // Page view
+  // 페이지뷰
   pageView: (path: string) => {
     logPageView(path);
   },
 
-  // Search event
+  // 검색 이벤트
   search: (searchTerm: string) => {
-    logEvent('Search', 'politician_search', searchTerm);
+    logEvent("Search", "politician_search", searchTerm);
   },
 
-  // Post creation
+  // 게시글 작성
   postCreate: (postType: string) => {
-    logEvent('Post', 'post_create', postType);
+    logEvent("Post", "post_create", postType);
   },
 
-  // Politician favorite
+  // 정치인 즐겨찾기
   politicianFavorite: (politicianId: string, isFavorite: boolean) => {
     logEvent(
-      'Politician',
-      isFavorite ? 'add_favorite' : 'remove_favorite',
+      "Politician",
+      isFavorite ? "add_favorite" : "remove_favorite",
       politicianId
     );
   },
 
-  // User login
-  login: (method: 'email' | 'google') => {
-    logEvent('Auth', 'login', method);
+  // 정치인 상세 조회
+  politicianView: (politicianId: string, politicianName: string) => {
+    logEvent("Politician", "view_detail", `${politicianName} (${politicianId})`);
   },
 
-  // User signup
-  signup: (method: 'email' | 'google') => {
-    logEvent('Auth', 'signup', method);
+  // 정치인 평점 등록
+  politicianRate: (politicianId: string, rating: number) => {
+    logEvent("Politician", "rate", politicianId, rating);
   },
 
-  // Comment event
-  comment: (action: 'create' | 'delete' | 'edit') => {
-    logEvent('Comment', action);
+  // 사용자 로그인
+  login: (method: "email" | "google") => {
+    logEvent("Auth", "login", method);
   },
 
-  // Voting event
-  vote: (voteType: 'agree' | 'disagree') => {
-    logEvent('Vote', 'post_vote', voteType);
+  // 사용자 회원가입
+  signup: (method: "email" | "google") => {
+    logEvent("Auth", "signup", method);
   },
 
-  // Share event
+  // 댓글 이벤트
+  comment: (action: "create" | "delete" | "edit") => {
+    logEvent("Comment", action);
+  },
+
+  // 투표 이벤트
+  vote: (voteType: "agree" | "disagree") => {
+    logEvent("Vote", "post_vote", voteType);
+  },
+
+  // 공유 이벤트
   share: (platform: string) => {
-    logEvent('Share', 'share_content', platform);
+    logEvent("Share", "share_content", platform);
+  },
+
+  // AI 평가 리포트 조회
+  aiReportView: (politicianId: string) => {
+    logEvent("AIReport", "view", politicianId);
+  },
+
+  // AI 평가 리포트 구매
+  aiReportPurchase: (politicianId: string, price: number) => {
+    logEvent("AIReport", "purchase", politicianId, price);
+  },
+
+  // 에러 발생
+  error: (errorType: string, errorMessage: string) => {
+    logEvent("Error", errorType, errorMessage);
   },
 };

@@ -4,6 +4,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 import { createAdminClient } from '@/lib/supabase/server';
+import crypto from 'crypto';
 
 const verifySimpleSchema = z.object({
   name: z.string().min(1, '이름은 필수입니다'),
@@ -88,7 +89,39 @@ export async function POST(request: NextRequest) {
     //   );
     // }
 
-    // 인증 성공
+    // 세션 토큰 생성 (64자리 hex)
+    const sessionToken = crypto.randomBytes(32).toString('hex');
+    const expiresAt = new Date(Date.now() + 24 * 60 * 60 * 1000); // 24시간 후 만료
+
+    // 세션 저장 (politician_sessions 테이블에)
+    const { error: sessionError } = await (supabase as any)
+      .from('politician_sessions')
+      .insert({
+        politician_id: politician.id,
+        session_token: sessionToken,
+        expires_at: expiresAt.toISOString(),
+        created_at: new Date().toISOString(),
+      });
+
+    if (sessionError) {
+      console.error('[verify-simple] Session insert error:', sessionError);
+      // 세션 저장 실패해도 인증은 성공으로 처리 (세션 토큰 없이)
+      return NextResponse.json(
+        {
+          success: true,
+          politician: {
+            id: politician.id,
+            name: politician.name,
+            party: politician.party,
+            position: politician.position,
+          },
+          message: `${politician.name}님 본인 인증이 완료되었습니다.`,
+        },
+        { status: 200 }
+      );
+    }
+
+    // 인증 성공 + 세션 토큰 반환
     return NextResponse.json(
       {
         success: true,
@@ -98,6 +131,8 @@ export async function POST(request: NextRequest) {
           party: politician.party,
           position: politician.position,
         },
+        session_token: sessionToken,
+        expires_at: expiresAt.toISOString(),
         message: `${politician.name}님 본인 인증이 완료되었습니다.`,
       },
       { status: 200 }

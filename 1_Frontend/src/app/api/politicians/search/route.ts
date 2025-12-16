@@ -51,18 +51,23 @@ export async function GET(request: NextRequest) {
 
     // 검색어 기반 필터링 (Full-text search)
     // Note: politicians 테이블 컬럼: name, name_kanji, name_en (name_kana, name_english 없음)
+    // Note: career 컬럼은 JSONB 타입이므로 ilike 사용 불가 - TEXT 컬럼만 검색
     if (query.type === "name") {
       // 이름 필드만 검색 (한국어, 영문)
       queryBuilder = queryBuilder.or(
         `name.ilike.%${query.q}%,name_en.ilike.%${query.q}%`
       );
     } else if (query.type === "bio") {
-      // 약력 필드만 검색 (career 컬럼 사용)
-      queryBuilder = queryBuilder.ilike("career", `%${query.q}%`);
+      // 약력 필드만 검색 - party, position, region 텍스트 컬럼 사용
+      // career는 JSONB이므로 제외
+      queryBuilder = queryBuilder.or(
+        `party.ilike.%${query.q}%,position.ilike.%${query.q}%,region.ilike.%${query.q}%`
+      );
     } else {
       // type === "all": 모든 텍스트 필드 검색
+      // career는 JSONB이므로 제외, 대신 party, position, region 검색
       queryBuilder = queryBuilder.or(
-        `name.ilike.%${query.q}%,name_en.ilike.%${query.q}%,career.ilike.%${query.q}%`
+        `name.ilike.%${query.q}%,name_en.ilike.%${query.q}%,party.ilike.%${query.q}%,position.ilike.%${query.q}%`
       );
     }
 

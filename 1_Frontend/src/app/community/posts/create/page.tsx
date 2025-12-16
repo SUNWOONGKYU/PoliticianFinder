@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 
 // TypeScript interfaces
 interface Politician {
+  id: string;
   name: string;
   party: string;
   position: string;
@@ -34,6 +35,7 @@ export default function CreatePostPage() {
   const [tags, setTags] = useState('');
   const [politicianSearch, setPoliticianSearch] = useState('');
   const [politicianTag, setPoliticianTag] = useState('');
+  const [selectedPoliticianId, setSelectedPoliticianId] = useState<string | null>(null);
   const [selectedFiles, setSelectedFiles] = useState<SelectedFile[]>([]);
   const [searchResults, setSearchResults] = useState<Politician[]>([]);
   const [showSearchResults, setShowSearchResults] = useState(false);
@@ -87,6 +89,10 @@ export default function CreatePostPage() {
     if (query.length === 0) {
       setShowSearchResults(false);
       setSearchResults([]);
+      // 검색어가 비면 선택된 정치인도 초기화
+      if (!politicianTag) {
+        setSelectedPoliticianId(null);
+      }
       return;
     }
 
@@ -105,8 +111,9 @@ export default function CreatePostPage() {
 
         if (result.success && result.data) {
           // Transform API data to match component interface
-          // API 응답 필드: party, position (political_party_name, position_name 아님)
+          // API 응답 필드: id, party, position
           const transformedData: Politician[] = result.data.map((p: any) => ({
+            id: p.id,
             name: p.name,
             party: p.party || '정당 정보 없음',
             position: p.position || '직책 정보 없음',
@@ -156,6 +163,7 @@ export default function CreatePostPage() {
   const selectPolitician = (politician: Politician) => {
     setPoliticianSearch(`${politician.name} (${politician.party}, ${politician.position})`);
     setPoliticianTag(politician.name);
+    setSelectedPoliticianId(politician.id);  // 정치인 ID 저장
     setShowSearchResults(false);
   };
 
@@ -206,7 +214,7 @@ export default function CreatePostPage() {
           content: content.trim(),
           category: 'general',
           tags: tagList.length > 0 ? tagList : null,
-          politician_id: null,
+          politician_id: selectedPoliticianId,  // 선택된 정치인 ID 전송
         }),
       });
 

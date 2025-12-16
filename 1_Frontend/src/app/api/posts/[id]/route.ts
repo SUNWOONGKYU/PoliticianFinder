@@ -26,7 +26,7 @@ export async function GET(
     // Supabase 클라이언트 생성
     const supabase = await createClient();
 
-    // 게시글 조회
+    // 게시글 조회 (작성자 정보 + 태그된 정치인 정보 포함)
     const { data: post, error } = await supabase
       .from('posts')
       .select(`
@@ -36,6 +36,10 @@ export async function GET(
           party,
           position,
           status
+        ),
+        users:user_id (
+          nickname,
+          name
         )
       `)
       .eq('id', id)

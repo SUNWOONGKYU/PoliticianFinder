@@ -13,9 +13,12 @@
 
 import './globals.css';
 import dynamic from 'next/dynamic';
+import { Suspense } from 'react';
 import Footer from './components/footer';
 import { ThemeProvider } from '@/contexts/ThemeContext';
 import ScrollToTop from '@/components/ui/ScrollToTop';
+import AnalyticsProvider from '@/components/providers/AnalyticsProvider';
+import ProgressBarProvider from '@/components/providers/ProgressBarProvider';
 
 // Header를 클라이언트 전용으로 로드 (Hydration 에러 방지)
 const Header = dynamic(() => import('./components/header'), { ssr: false });
@@ -54,15 +57,21 @@ export default function RootLayout({
       </head>
       <body className="bg-gray-50 dark:bg-slate-900 transition-colors duration-300 overflow-x-hidden" style={{ fontFamily: "'Noto Sans KR', sans-serif" }}>
         <ThemeProvider defaultTheme="system">
-          <div className="min-h-screen flex flex-col overflow-x-hidden">
-            <Header />
-            <main className="flex-1">
-              {children}
-            </main>
-            <Footer />
-          </div>
-          {/* 전역 스크롤 Top 버튼 */}
-          <ScrollToTop showAfter={400} bottomOffset={24} />
+          <AnalyticsProvider>
+            <Suspense fallback={null}>
+              <ProgressBarProvider>
+                <div className="min-h-screen flex flex-col overflow-x-hidden">
+                  <Header />
+                  <main className="flex-1">
+                    {children}
+                  </main>
+                  <Footer />
+                </div>
+                {/* 전역 스크롤 Top 버튼 */}
+                <ScrollToTop showAfter={400} bottomOffset={24} />
+              </ProgressBarProvider>
+            </Suspense>
+          </AnalyticsProvider>
         </ThemeProvider>
       </body>
     </html>

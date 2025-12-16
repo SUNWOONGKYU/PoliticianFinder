@@ -1,0 +1,374 @@
+{
+  "title": "PoliticianFinder 프로덕션 점검 리스트",
+  "created_at": "2025-12-15",
+  "last_updated": "2025-12-16T09:21:00Z",
+  "source": "유호현 페북글 기반 + PoliticianFinder 맞춤",
+  "total_items": 33,
+  "summary": {
+    "checked": 32,
+    "pending": 0,
+    "skipped": 1,
+    "critical_actions": [],
+    "all_critical_resolved": true,
+    "completed_critical_actions": [
+      "B1: RLS 마이그레이션 완료 (2025-12-16) - users, politician_details, politician_comments 테이블에 RLS 정책 적용",
+      "B2: API 키 교체 완료 (2025-12-16) - SUPABASE_SERVICE_ROLE_KEY, RESEND_API_KEY 교체 및 Vercel 재배포"
+    ],
+    "implemented_improvements": [
+      "D4: nprogress 페이지 이동 피드백 구현 완료",
+      "E2: @sentry/nextjs 설치 및 설정 완료",
+      "E3: react-ga4 설치 및 AnalyticsProvider 구현 완료",
+      "E4: pino 로깅 시스템 구현 완료",
+      "F4: 페이지네이션 이미 구현됨 확인"
+    ]
+  },
+  "categories": [
+    {
+      "id": "A",
+      "name": "기능 완성도",
+      "status": "completed",
+      "items": [
+        {
+          "id": "A1",
+          "title": "로딩 상태 처리",
+          "status": "checked",
+          "priority": "high",
+          "checked_at": "2025-12-15",
+          "findings": "정치인 목록 페이지에 Skeleton UI 추가 완료",
+          "action_taken": "SkeletonRankingTable, SkeletonPoliticianCard 추가"
+        },
+        {
+          "id": "A2",
+          "title": "에러 핸들링",
+          "status": "checked",
+          "priority": "high",
+          "checked_at": "2025-12-15",
+          "findings": "정치인 목록 페이지에 에러 UI 추가",
+          "action_taken": "사용자 친화적 에러 메시지 + 새로고침 버튼"
+        },
+        {
+          "id": "A3",
+          "title": "Empty State UI",
+          "status": "checked",
+          "priority": "medium",
+          "checked_at": "2025-12-15",
+          "findings": "커뮤니티, 댓글 섹션 개선 완료",
+          "action_taken": "아이콘+메시지+CTA버튼 추가"
+        },
+        {
+          "id": "A4",
+          "title": "버튼 더블클릭 방지",
+          "status": "checked",
+          "priority": "high",
+          "checked_at": "2025-12-15",
+          "action_taken": "commentSubmitting, politicianCommentSubmitting 상태 추가"
+        },
+        {
+          "id": "A5",
+          "title": "폼 제출 성공 피드백",
+          "status": "checked",
+          "priority": "medium",
+          "checked_at": "2025-12-15",
+          "action_taken": "평점 등록에 Toast 알림 적용"
+        },
+        {
+          "id": "A6",
+          "title": "오프라인 대응",
+          "status": "skipped",
+          "priority": "low",
+          "skip_reason": "우선순위 낮음"
+        }
+      ]
+    },
+    {
+      "id": "B",
+      "name": "보안",
+      "status": "completed",
+      "items": [
+        {
+          "id": "B1",
+          "title": "Supabase RLS 정책 점검",
+          "status": "checked",
+          "priority": "critical",
+          "checked_at": "2025-12-16",
+          "findings": "users, politician_details 테이블에 RLS 미적용",
+          "action_taken": "SQL Editor에서 RLS 정책 적용 완료 - users, politician_details, politician_comments 테이블에 RLS 활성화",
+          "resolved_at": "2025-12-16T10:30:00Z"
+        },
+        {
+          "id": "B2",
+          "title": "환경 변수 분리",
+          "status": "checked",
+          "priority": "critical",
+          "checked_at": "2025-12-16",
+          "findings": ".env.production이 git history에 커밋됨",
+          "action_taken": ".gitignore 강화, API 키 교체 완료 (SUPABASE_SERVICE_ROLE_KEY, RESEND_API_KEY), Vercel 재배포 완료",
+          "urgent_action_required": false,
+          "resolved_at": "2025-12-16T09:21:00Z"
+        },
+        {
+          "id": "B3",
+          "title": ".gitignore 점검",
+          "status": "checked",
+          "priority": "critical",
+          "checked_at": "2025-12-15",
+          "action_taken": "1_Frontend/.gitignore 강화"
+        },
+        {
+          "id": "B4",
+          "title": "API 키 노출 방지",
+          "status": "checked",
+          "priority": "high",
+          "checked_at": "2025-12-15",
+          "findings": "양호 - 클라이언트는 anon key만 사용"
+        },
+        {
+          "id": "B5",
+          "title": "XSS 방지",
+          "status": "checked",
+          "priority": "high",
+          "checked_at": "2025-12-15",
+          "findings": "커뮤니티 게시글 XSS 취약점",
+          "action_taken": "src/lib/utils/sanitize.ts 생성, textToSafeHtml() 적용"
+        },
+        {
+          "id": "B6",
+          "title": "CSRF 방지",
+          "status": "checked",
+          "priority": "medium",
+          "checked_at": "2025-12-15",
+          "findings": "양호 - JWT 기반 인증으로 자동 보호"
+        }
+      ]
+    },
+    {
+      "id": "C",
+      "name": "성능 최적화",
+      "status": "completed",
+      "items": [
+        {
+          "id": "C1",
+          "title": "Lighthouse 성능 점수",
+          "status": "checked",
+          "priority": "high",
+          "checked_at": "2025-12-15",
+          "findings": "양호 - next.config.mjs에 이미지/캐싱/압축 최적화 완료"
+        },
+        {
+          "id": "C2",
+          "title": "이미지 최적화",
+          "status": "checked",
+          "priority": "high",
+          "checked_at": "2025-12-15",
+          "findings": "설정 양호. 프로필 이미지는 <img> 태그 사용",
+          "improvement_suggestion": "<Image> 컴포넌트로 변경 권장"
+        },
+        {
+          "id": "C3",
+          "title": "번들 사이즈 분석",
+          "status": "checked",
+          "priority": "medium",
+          "checked_at": "2025-12-15",
+          "findings": "양호 - 서버 전용 패키지(puppeteer, AI SDK) 클라이언트에서 제외"
+        },
+        {
+          "id": "C4",
+          "title": "불필요한 리렌더링 방지",
+          "status": "checked",
+          "priority": "medium",
+          "checked_at": "2025-12-15",
+          "findings": "양호 - useMemo(24), useCallback(61), React.memo(2) 사용"
+        },
+        {
+          "id": "C5",
+          "title": "DB 쿼리 최적화",
+          "status": "checked",
+          "priority": "high",
+          "checked_at": "2025-12-15",
+          "findings": "개선가능 - select(*) 대신 필요 컬럼만, N+1 쿼리 존재",
+          "improvement_suggestion": "필요 컬럼만 select, JOIN으로 N+1 해결"
+        },
+        {
+          "id": "C6",
+          "title": "API 응답 캐싱",
+          "status": "checked",
+          "priority": "medium",
+          "checked_at": "2025-12-15",
+          "findings": "양호 - Cache-Control 5분 설정"
+        }
+      ]
+    },
+    {
+      "id": "D",
+      "name": "사용자 경험 (UX)",
+      "status": "completed",
+      "items": [
+        {
+          "id": "D1",
+          "title": "모바일 반응형 점검",
+          "status": "checked",
+          "priority": "high",
+          "checked_at": "2025-12-15",
+          "findings": "양호 - Tailwind md:/sm:/lg: 클래스 광범위 사용"
+        },
+        {
+          "id": "D2",
+          "title": "접근성 (a11y)",
+          "status": "checked",
+          "priority": "medium",
+          "checked_at": "2025-12-15",
+          "findings": "양호 - aria-*, role, sr-only 등 43개 인스턴스 사용"
+        },
+        {
+          "id": "D3",
+          "title": "폼 유효성 검사 UX",
+          "status": "checked",
+          "priority": "medium",
+          "checked_at": "2025-12-15",
+          "findings": "양호 - 563개 유효성 검사 패턴 (required, pattern, zod)"
+        },
+        {
+          "id": "D4",
+          "title": "페이지 이동 피드백",
+          "status": "checked",
+          "priority": "low",
+          "checked_at": "2025-12-16",
+          "action_taken": "nprogress 설치, ProgressBarProvider 및 ProgressLink 컴포넌트 구현 - 페이지 전환 시 상단 프로그레스 바 표시"
+        },
+        {
+          "id": "D5",
+          "title": "404/500 에러 페이지",
+          "status": "checked",
+          "priority": "medium",
+          "checked_at": "2025-12-15",
+          "findings": "우수 - 홈/정치인/커뮤니티 버튼, 다크모드, 고객센터 링크"
+        }
+      ]
+    },
+    {
+      "id": "E",
+      "name": "배포 및 운영",
+      "status": "completed",
+      "items": [
+        {
+          "id": "E1",
+          "title": "Dev/Prod 환경 분리",
+          "status": "checked",
+          "priority": "high",
+          "checked_at": "2025-12-15",
+          "findings": "양호 - .env.example 문서화, process.env.NODE_ENV 사용, Vercel 환경 변수 분리"
+        },
+        {
+          "id": "E2",
+          "title": "에러 트래킹 (Sentry)",
+          "status": "checked",
+          "priority": "high",
+          "checked_at": "2025-12-15",
+          "findings": "구현 완료 - @sentry/nextjs 설치",
+          "action_taken": "sentry.client.config.ts, sentry.server.config.ts, sentry.edge.config.ts 생성, next.config.mjs에 withSentryConfig 적용",
+          "requires_manual_action": "Sentry 프로젝트 생성 후 NEXT_PUBLIC_SENTRY_DSN 환경변수 설정"
+        },
+        {
+          "id": "E3",
+          "title": "Analytics 연동",
+          "status": "checked",
+          "priority": "medium",
+          "checked_at": "2025-12-15",
+          "findings": "구현 완료 - react-ga4 설치",
+          "action_taken": "analytics.ts 업데이트, AnalyticsProvider 생성, layout.tsx에 적용",
+          "requires_manual_action": "Google Analytics 4 생성 후 NEXT_PUBLIC_GA_ID 환경변수 설정"
+        },
+        {
+          "id": "E4",
+          "title": "로깅 시스템",
+          "status": "checked",
+          "priority": "medium",
+          "checked_at": "2025-12-15",
+          "findings": "구현 완료 - pino 설치",
+          "action_taken": "src/lib/logger.ts 생성 - 구조화된 로깅, 민감정보 자동 제거, 개발/프로덕션 환경별 설정"
+        },
+        {
+          "id": "E5",
+          "title": "백업 전략",
+          "status": "checked",
+          "priority": "high",
+          "checked_at": "2025-12-15",
+          "findings": "Supabase 자동 백업 사용 (Pro 플랜 기준 7일)",
+          "requires_manual_action": "Supabase 대시보드에서 백업 설정 확인 필요"
+        },
+        {
+          "id": "E6",
+          "title": "SSL/HTTPS 확인",
+          "status": "checked",
+          "priority": "critical",
+          "checked_at": "2025-12-15",
+          "findings": "우수 - HSTS(63072000s), CSP upgrade-insecure-requests"
+        }
+      ]
+    },
+    {
+      "id": "F",
+      "name": "동시성/엣지 케이스",
+      "status": "completed",
+      "items": [
+        {
+          "id": "F1",
+          "title": "동시 수정 충돌",
+          "status": "checked",
+          "priority": "medium",
+          "checked_at": "2025-12-15",
+          "findings": "미구현 - Optimistic Locking/ETag 없음",
+          "improvement_suggestion": "updated_at 필드로 충돌 감지 로직 추가 권장"
+        },
+        {
+          "id": "F2",
+          "title": "Rate Limiting",
+          "status": "checked",
+          "priority": "high",
+          "checked_at": "2025-12-15",
+          "findings": "우수 - API(100/min), Login(5/min), Signup(3/hour)"
+        },
+        {
+          "id": "F3",
+          "title": "세션 만료 처리",
+          "status": "checked",
+          "priority": "medium",
+          "checked_at": "2025-12-15",
+          "findings": "양호 - refresh_token 로직 존재, auth/refresh API 구현됨"
+        },
+        {
+          "id": "F4",
+          "title": "대용량 데이터 페이지네이션",
+          "status": "checked",
+          "priority": "medium",
+          "checked_at": "2025-12-15",
+          "findings": "구현 완료 - politicians 목록에 페이지네이션 구현됨 (20개씩, 페이지 네비게이션 UI 포함)"
+        }
+      ]
+    }
+  ],
+  "files_created": [
+    "0-4_Database/Supabase/migrations/064_fix_missing_rls_policies.sql",
+    "1_Frontend/src/lib/utils/sanitize.ts",
+    "1_Frontend/sentry.edge.config.ts",
+    "1_Frontend/src/components/providers/AnalyticsProvider.tsx",
+    "1_Frontend/src/lib/logger.ts"
+  ],
+  "files_modified": [
+    "1_Frontend/.gitignore",
+    "1_Frontend/.env.example",
+    "1_Frontend/src/app/community/posts/[id]/page.tsx",
+    "1_Frontend/src/app/community/posts/[id]/politician/page.tsx",
+    "1_Frontend/sentry.client.config.ts",
+    "1_Frontend/sentry.server.config.ts",
+    "1_Frontend/next.config.mjs",
+    "1_Frontend/src/lib/monitoring/analytics.ts",
+    "1_Frontend/src/app/layout.tsx"
+  ],
+  "packages_installed": [
+    "@sentry/nextjs",
+    "react-ga4",
+    "pino",
+    "pino-pretty"
+  ]
+}

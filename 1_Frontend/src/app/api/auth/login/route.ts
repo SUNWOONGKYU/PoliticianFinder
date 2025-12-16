@@ -148,6 +148,11 @@ export async function POST(request: NextRequest) {
             error: {
               code: 'INVALID_CREDENTIALS',
               message: '이메일 또는 비밀번호가 올바르지 않습니다.',
+              debug: {
+                supabaseError: authError.message,
+                status: authError.status,
+                code: authError.code,
+              }
             },
           },
           { status: 401 }
