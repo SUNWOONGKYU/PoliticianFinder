@@ -50,7 +50,7 @@
 ```json
 {
   "request_id": "uuid-of-request",
-  "verification_code": "ABC123"
+  "verification_code": "123456"
 }
 ```
 
@@ -218,7 +218,7 @@ curl -X POST http://localhost:3000/api/politicians/verification/verify \
   -H "Authorization: Bearer YOUR_TOKEN" \
   -d '{
     "request_id": "uuid-here",
-    "verification_code": "ABC123"
+    "verification_code": "123456"
   }'
 ```
 
