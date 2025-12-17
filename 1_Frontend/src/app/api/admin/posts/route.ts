@@ -15,7 +15,7 @@ export async function GET(request: NextRequest) {
 
     let query = (supabase as any)
       .from('posts')
-      .select('id, title, content, category, user_id, politician_id, view_count, like_count, comment_count, created_at, updated_at', { count: 'exact' })
+      .select('*', { count: 'exact' })
       .order('created_at', { ascending: false });
 
     // 검색 필터
