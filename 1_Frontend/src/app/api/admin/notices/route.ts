@@ -62,7 +62,7 @@ export async function POST(request: NextRequest) {
     const supabase = createAdminClient();
     const body = await request.json();
 
-    const { title, content, is_pinned } = body;
+    const { title, content } = body;
 
     if (!title || !content) {
       return NextResponse.json(
@@ -76,7 +76,6 @@ export async function POST(request: NextRequest) {
       .insert({
         title,
         content,
-        is_pinned: is_pinned || false,
         author_id: null,
       })
       .select()
