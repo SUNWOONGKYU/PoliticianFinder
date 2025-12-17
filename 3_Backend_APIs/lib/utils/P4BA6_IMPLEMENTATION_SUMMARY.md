@@ -131,7 +131,7 @@ Retrieves notifications with filtering and pagination.
 
 | Type | Title | Single User Message | Batch Message |
 |------|-------|---------------------|---------------|
-| `post_like` | 좋아요 알림 | "홍길동님이 게시글을 좋아합니다" | "홍길동 외 5명이 좋아합니다" |
+| `post_like` | 공감 알림 | "홍길동님이 게시글을 좋아합니다" | "홍길동 외 5명이 좋아합니다" |
 | `post_comment` | 댓글 알림 | "김철수님이 댓글을 달았습니다" | "김철수 외 3명이 댓글을 달았습니다" |
 | `comment_reply` | 답글 알림 | "이영희님이 답글을 달았습니다" | "이영희 외 2명이 답글을 달았습니다" |
 | `follow` | 팔로우 알림 | "박민수님이 팔로우했습니다" | "박민수 외 4명이 팔로우했습니다" |

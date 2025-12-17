@@ -143,7 +143,7 @@
 |----------------------|---------|-------------------|
 | points.post          | 10      | 게시글 작성       |
 | points.comment       | 5       | 댓글 작성         |
-| points.like          | 1       | 좋아요 클릭       |
+| points.like          | 1       | 공감 클릭       |
 | points.follow        | 20      | 팔로우            |
 | points.share         | 3       | 공유              |
 | points.report        | 5       | 신고              |
@@ -312,7 +312,7 @@ CREATE INDEX idx_system_settings_key ON system_settings(key);
 INSERT INTO system_settings (key, value, description) VALUES
 ('points.post', '10', '게시글 작성 시 포인트'),
 ('points.comment', '5', '댓글 작성 시 포인트'),
-('points.like', '1', '좋아요 클릭 시 포인트'),
+('points.like', '1', '공감 클릭 시 포인트'),
 ('points.follow', '20', '팔로우 시 포인트'),
 ('points.share', '3', '공유 시 포인트'),
 ('points.report', '5', '신고 시 포인트'),

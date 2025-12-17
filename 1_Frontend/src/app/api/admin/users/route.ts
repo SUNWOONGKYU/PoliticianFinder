@@ -9,6 +9,10 @@ const userUpdateSchema = z.object({
   user_id: z.string().uuid(),
   status: z.enum(['active', 'suspended', 'banned']).optional(),
   role: z.enum(['user', 'admin', 'moderator']).optional(),
+  level: z.number().min(1).max(100).optional(),
+  points: z.number().min(0).optional(),
+  activity_level: z.string().optional(),
+  influence_grade: z.string().optional(),
   admin_notes: z.string().optional(),
 });
 
@@ -96,11 +100,132 @@ export async function GET(request: NextRequest) {
 }
 
 export async function PATCH(request: NextRequest) {
-  // Temporarily disabled due to TypeScript build issues
-  return NextResponse.json(
-    { success: false, error: 'PATCH temporarily disabled' },
-    { status: 501 }
-  );
+  // 🔥 NO AUTH CHECK - DIRECT ADMIN CLIENT 🔥
+  try {
+    const supabase = createAdminClient();
+    const body = await request.json();
+
+    // 입력 검증
+    const validated = userUpdateSchema.safeParse(body);
+    if (!validated.success) {
+      return NextResponse.json(
+        { success: false, error: '입력 데이터가 올바르지 않습니다', details: validated.error.errors },
+        { status: 400 }
+      );
+    }
+
+    const { user_id, status, role, level, points, activity_level, influence_grade, admin_notes } = validated.data;
+
+    // 사용자 존재 확인
+    const { data: existingUser, error: fetchError } = await (supabase as any)
+      .from('users')
+      .select('user_id, name, email, role')
+      .eq('user_id', user_id)
+      .single();
+
+    if (fetchError || !existingUser) {
+      return NextResponse.json(
+        { success: false, error: '사용자를 찾을 수 없습니다' },
+        { status: 404 }
+      );
+    }
+
+    // 업데이트할 필드 구성
+    const updateData: Record<string, any> = {
+      updated_at: new Date().toISOString(),
+    };
+
+    // status -> is_active, is_banned 변환
+    if (status) {
+      if (status === 'active') {
+        updateData.is_active = true;
+        updateData.is_banned = false;
+        updateData.banned_at = null;
+        updateData.banned_reason = null;
+      } else if (status === 'banned') {
+        updateData.is_banned = true;
+        updateData.banned_at = new Date().toISOString();
+        updateData.banned_reason = admin_notes || '관리자에 의해 차단됨';
+      } else if (status === 'suspended') {
+        updateData.is_active = false;
+        updateData.is_banned = false;
+      }
+    }
+
+    // 역할 업데이트
+    if (role) {
+      updateData.role = role;
+    }
+
+    // 등급/레벨 업데이트
+    if (level !== undefined) {
+      updateData.level = level;
+    }
+    if (points !== undefined) {
+      updateData.points = points;
+    }
+    if (activity_level) {
+      updateData.activity_level = activity_level;
+    }
+    if (influence_grade) {
+      updateData.influence_grade = influence_grade;
+    }
+
+    // 관리자 메모 업데이트 (banned_reason 필드 활용)
+    if (admin_notes && !status) {
+      updateData.banned_reason = admin_notes;
+    }
+
+    // 업데이트 실행
+    const { data: updatedUser, error: updateError } = await (supabase as any)
+      .from('users')
+      .update(updateData)
+      .eq('user_id', user_id)
+      .select()
+      .single();
+
+    if (updateError) {
+      console.error('User update error:', updateError);
+      return NextResponse.json(
+        { success: false, error: '사용자 정보 업데이트 실패', details: updateError.message },
+        { status: 500 }
+      );
+    }
+
+    // 감사 로그 기록
+    await (supabase as any).from('audit_logs').insert({
+      action_type: 'user_updated',
+      target_type: 'user',
+      target_id: user_id,
+      admin_id: null,
+      metadata: {
+        user_name: existingUser.name || existingUser.email,
+        changes: Object.keys(updateData).filter(k => k !== 'updated_at'),
+      },
+    }).catch(() => console.log('Audit log failed (optional)'));
+
+    return NextResponse.json({
+      success: true,
+      data: {
+        id: updatedUser.user_id,
+        email: updatedUser.email,
+        name: updatedUser.name,
+        role: updatedUser.role,
+        level: updatedUser.level,
+        points: updatedUser.points,
+        activity_level: updatedUser.activity_level,
+        influence_grade: updatedUser.influence_grade,
+        status: updatedUser.is_banned ? 'banned' : (updatedUser.is_active ? 'active' : 'suspended'),
+      },
+      message: '사용자 정보가 업데이트되었습니다',
+    }, { status: 200 });
+  } catch (error) {
+    console.error('PATCH /api/admin/users error:', error);
+    return NextResponse.json(
+      { success: false, error: 'Internal server error', details: String(error) },
+      { status: 500 }
+    );
+  }
 }
 
 export async function DELETE(request: NextRequest) {

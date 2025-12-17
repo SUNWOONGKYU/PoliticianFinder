@@ -345,7 +345,7 @@ export interface Database {
 - pledges
 - posts
 - comments
-- post_likes, comment_likes
+- votes, votes
 - follows
 - notifications
 - user_favorites

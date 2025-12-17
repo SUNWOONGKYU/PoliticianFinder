@@ -133,7 +133,7 @@ Phase 1의 Backend API 작업 4개를 완료했습니다:
 | /api/payments | GET/POST | ✅ | 결제 내역/처리 |
 | /api/follows | GET/POST/DELETE | ✅ | 팔로우 관리 |
 | /api/shares | GET/POST | ✅ | 공유 기록 |
-| /api/votes | GET/POST/DELETE | ✅ | 좋아요/싫어요 |
+| /api/votes | GET/POST/DELETE | ✅ | 공감/싫어요 |
 | /api/admin/dashboard | GET | ✅ | 관리자 대시보드 |
 | /api/admin/reports | GET/POST/PATCH | ✅ | 신고 관리 |
 | /api/statistics/payments | GET | ✅ | 결제 통계 |

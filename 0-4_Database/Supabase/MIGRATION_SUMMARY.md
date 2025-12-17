@@ -65,7 +65,7 @@ Successfully created comprehensive Supabase migration files for the PoliticianFi
 |----------|-------|--------|
 | User Management | 3 | users, follows, notifications |
 | Politician Data | 5 | politicians, careers, pledges, ai_evaluations, politician_verification |
-| Community | 7 | posts, comments, post_likes, comment_likes, reports, shares, user_favorites |
+| Community | 7 | posts, comments, votes, votes, reports, shares, user_favorites |
 | Admin | 6 | audit_logs, admin_actions, advertisements, policies, notification_templates, system_settings |
 | **Total** | **21** | |
 

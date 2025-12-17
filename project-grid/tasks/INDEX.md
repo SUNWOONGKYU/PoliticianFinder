@@ -51,7 +51,7 @@
 - [P1BA14](P1BA14.md) - 게시글 상세 API (Mock) (의존: P1BI1, P1BI2)
 - [P1BA15](P1BA15.md) - 게시글 작성 API (Mock) (의존: P1BI1, P1BI2)
 - [P1BA16](P1BA16.md) - 댓글 작성 API (Mock) (의존: P1BI1, P1BI2)
-- [P1BA17](P1BA17.md) - 좋아요 API (Mock) (의존: P1BI1, P1BI2)
+- [P1BA17](P1BA17.md) - 공감 API (Mock) (의존: P1BI1, P1BI2)
 - [P1BA18](P1BA18.md) - 공유 API (Mock) (의존: P1BI1, P1BI2)
 
 **소셜 기능 (2개)**
@@ -97,7 +97,7 @@
 - [P3BA14](P3BA14.md) - 게시글 상세 API (Real) (의존: P2D1, P1BA14)
 - [P3BA15](P3BA15.md) - 게시글 작성 API (Real) (의존: P2D1, P1BA15)
 - [P3BA16](P3BA16.md) - 댓글 작성 API (Real) (의존: P2D1, P1BA16)
-- [P3BA17](P3BA17.md) - 좋아요 API (Real) (의존: P2D1, P1BA17)
+- [P3BA17](P3BA17.md) - 공감 API (Real) (의존: P2D1, P1BA17)
 - [P3BA18](P3BA18.md) - 공유 API (Real) (의존: P2D1, P1BA18)
 
 **소셜 기능 (2개)**

@@ -14,7 +14,7 @@
   "trigger": {
     "user_question": "웹사이트에 표시된 업보트 숫자(41개)가 데이터베이스와 일치하는가?",
     "investigation": "데이터베이스 조사 결과 posts 테이블에 like_count 컬럼이 중복 존재",
-    "root_cause": "이전 작업에서 post_likes/comment_likes 테이블만 삭제, like_count 컬럼은 삭제하지 않음"
+    "root_cause": "이전 작업에서 votes/votes 테이블만 삭제, like_count 컬럼은 삭제하지 않음"
   },
 
   "problem_identified": {
@@ -183,7 +183,7 @@
       "posts_columns": [
         "upvotes: 0 (모든 게시글)",
         "downvotes: 0 (모든 게시글)",
-        "like_count: 41, 50, 49, 48... (실제 좋아요 수)"
+        "like_count: 41, 50, 49, 48... (실제 공감 수)"
       ]
     },
     "after": {

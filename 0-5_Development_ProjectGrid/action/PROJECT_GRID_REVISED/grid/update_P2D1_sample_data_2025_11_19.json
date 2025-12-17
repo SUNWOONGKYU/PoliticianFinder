@@ -42,10 +42,10 @@
           "impact": "FK 관계 정상화"
         },
         {
-          "issue": "Voting 시스템 - post_likes/comment_likes vs votes",
+          "issue": "Voting 시스템 - votes/votes vs votes",
           "solution": "votes 테이블로 통합 (Reddit-style)",
           "file": "fix_voting_system.sql",
-          "tables_removed": ["post_likes", "comment_likes"],
+          "tables_removed": ["votes", "votes"],
           "table_added": "votes (upvote/downvote)"
         },
         {

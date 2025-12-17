@@ -15,7 +15,7 @@
 
   "issue_description": {
     "problem": "posts 테이블에 like_count 컬럼이 남아있어 upvotes/downvotes 시스템과 중복",
-    "root_cause": "이전에 post_likes/comment_likes 테이블만 삭제하고 posts.like_count 컬럼은 삭제하지 않음",
+    "root_cause": "이전에 votes/votes 테이블만 삭제하고 posts.like_count 컬럼은 삭제하지 않음",
     "impact": "프론트엔드가 like_count를 사용하여 데이터 불일치 및 혼란 발생"
   },
 

@@ -3,6 +3,7 @@
 
 import { createClient } from '@/lib/supabase/server';
 import { NextResponse } from 'next/server';
+import { headers } from 'next/headers';
 
 export interface AuthUser {
   id: string;
@@ -12,10 +13,29 @@ export interface AuthUser {
 /**
  * Get authenticated user from Supabase session
  * Returns user object if authenticated, null otherwise
+ * Supports both cookie-based auth and Bearer token auth
  */
 export async function getAuthenticatedUser(): Promise<AuthUser | null> {
   const supabase = await createClient();
+  const headersList = await headers();
 
+  // Check for Authorization Bearer token
+  const authHeader = headersList.get('authorization');
+  const accessToken = authHeader?.startsWith('Bearer ') ? authHeader.slice(7) : null;
+
+  // If we have a Bearer token, pass it directly to getUser()
+  if (accessToken) {
+    const { data: { user }, error } = await supabase.auth.getUser(accessToken);
+    if (error || !user) {
+      return null;
+    }
+    return {
+      id: user.id,
+      email: user.email || '',
+    };
+  }
+
+  // Otherwise use the cookie-based session
   const { data: { user }, error } = await supabase.auth.getUser();
 
   if (error || !user) {

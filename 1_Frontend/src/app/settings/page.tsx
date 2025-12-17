@@ -25,6 +25,9 @@ export default function SettingsPage() {
   });
 
   const [alertMessage, setAlertMessage] = useState<string | null>(null);
+  const [deletePassword, setDeletePassword] = useState('');
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [isDeleting, setIsDeleting] = useState(false);
 
   const handleNotificationChange = (key: keyof typeof notifications) => {
     setNotifications(prev => ({
@@ -63,14 +66,42 @@ export default function SettingsPage() {
   };
 
   const handleDeleteAccount = () => {
-    if (window.confirm('정말로 계정을 삭제하시겠습니까?\n\n모든 데이터가 영구적으로 삭제되며 복구할 수 없습니다.')) {
-      if (window.confirm('계속하시겠습니까? 이 작업은 되돌릴 수 없습니다.')) {
-        setAlertMessage('계정이 삭제되었습니다.');
-        // In a real app, redirect to home after deletion
+    setShowDeleteModal(true);
+  };
+
+  const confirmDeleteAccount = async () => {
+    if (!deletePassword) {
+      setAlertMessage('비밀번호를 입력해주세요.');
+      return;
+    }
+
+    setIsDeleting(true);
+    try {
+      const response = await fetch('/api/user/delete', {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          password: deletePassword,
+          confirm: true
+        })
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setAlertMessage('계정이 삭제되었습니다. 이용해주셔서 감사합니다.');
+        setShowDeleteModal(false);
         setTimeout(() => {
           window.location.href = '/';
-        }, 1000);
+        }, 2000);
+      } else {
+        setAlertMessage(data.error?.message || '계정 삭제에 실패했습니다.');
       }
+    } catch (error) {
+      setAlertMessage('서버 오류가 발생했습니다.');
+    } finally {
+      setIsDeleting(false);
+      setDeletePassword('');
     }
   };
 
@@ -338,6 +369,51 @@ export default function SettingsPage() {
           </Link>
         </div>
       </main>
+
+      {/* Delete Account Modal */}
+      {showDeleteModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-lg max-w-md w-full p-6">
+            <h3 className="text-xl font-bold text-gray-900 mb-4">계정 삭제</h3>
+            <p className="text-gray-600 mb-4">
+              정말로 계정을 삭제하시겠습니까?<br />
+              모든 데이터가 영구적으로 삭제되며 복구할 수 없습니다.
+            </p>
+            <div className="mb-4">
+              <label htmlFor="deletePassword" className="block text-sm font-medium text-gray-700 mb-2">
+                비밀번호 확인
+              </label>
+              <input
+                type="password"
+                id="deletePassword"
+                value={deletePassword}
+                onChange={(e) => setDeletePassword(e.target.value)}
+                placeholder="비밀번호를 입력하세요"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500"
+              />
+            </div>
+            <div className="flex justify-end gap-3">
+              <button
+                onClick={() => {
+                  setShowDeleteModal(false);
+                  setDeletePassword('');
+                }}
+                className="px-4 py-2 text-gray-600 hover:text-gray-800 font-medium"
+                disabled={isDeleting}
+              >
+                취소
+              </button>
+              <button
+                onClick={confirmDeleteAccount}
+                disabled={isDeleting}
+                className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 font-medium disabled:opacity-50"
+              >
+                {isDeleting ? '삭제 중...' : '계정 삭제'}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Alert Modal */}
       {alertMessage && (

@@ -196,8 +196,8 @@
     - DELETE 제거
     - GET 목록
 
-27. ⚡ **정치인 본인 인증 API** - `app/api/politicians/verify/route.ts`
-    - POST 본인 인증 (이름, 정당, 직종 일치 확인)
+27. ⚡ **정치인 이메일 인증 API** - `app/api/politicians/verification/route.ts`
+    - POST 이메일 인증 요청/확인
 
 **🔗 그룹 G: AI 평가 연동**
 28. ⬅️ **AI 평가 요청 API** - `app/api/evaluations/request/route.ts` (← 평가 엔진)

@@ -104,13 +104,14 @@ export async function PUT(request: NextRequest) {
     }
 
     // 6. Update user profile in users table
+    // Note: users 테이블의 PK는 'user_id'
     const { data: updatedProfile, error: updateError } = await supabase
       .from('users')
       .update({
         ...data,
         updated_at: new Date().toISOString(),
       })
-      .eq('id', authUser.id)
+      .eq('user_id', authUser.id)
       .select()
       .single();
 
@@ -137,10 +138,10 @@ export async function PUT(request: NextRequest) {
         success: true,
         data: {
           user: {
-            id: updatedProfile.id,
+            id: updatedProfile.user_id,
             email: updatedProfile.email,
-            name: updatedProfile.name,
-            avatar_url: updatedProfile.avatar_url,
+            name: updatedProfile.name || updatedProfile.nickname,
+            avatar_url: updatedProfile.avatar_url || updatedProfile.profile_image_url,
             role: updatedProfile.role,
             points: updatedProfile.points,
             level: updatedProfile.level,
@@ -170,6 +171,11 @@ export async function PUT(request: NextRequest) {
 }
 
 // ============================================================================
+// PATCH /api/user/profile/update (alias for PUT)
+// ============================================================================
+export { PUT as PATCH };
+
+// ============================================================================
 // OPTIONS /api/user/profile/update
 // ============================================================================
 export async function OPTIONS(request: NextRequest) {
@@ -177,7 +183,7 @@ export async function OPTIONS(request: NextRequest) {
     status: 204,
     headers: {
       'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': 'PUT, OPTIONS',
+      'Access-Control-Allow-Methods': 'PUT, PATCH, OPTIONS',
       'Access-Control-Allow-Headers': 'Content-Type, Authorization',
     },
   });

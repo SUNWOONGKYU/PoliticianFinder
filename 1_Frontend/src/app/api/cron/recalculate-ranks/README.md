@@ -78,8 +78,8 @@ Required environment variables:
 - `users`: User accounts with points and level
 - `posts`: Community posts
 - `comments`: Comments on posts
-- `post_likes`: Likes on posts
-- `comment_likes`: Likes on comments
+- `votes`: Likes on posts
+- `votes`: Likes on comments
 - `reports`: User reports
 - `notifications`: System notifications
 

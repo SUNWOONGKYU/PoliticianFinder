@@ -1,0 +1,105 @@
+{
+  "task_id": "P3BA39",
+  "task_name": "연결 서비스 관리 기능 (Admin)",
+  "phase": 3,
+  "area": "BA",
+  "type": "create",
+  "created_date": "2025-12-17",
+  "status": "완료",
+  "progress": 100,
+
+  "task_description": "정치인-시민 연결 요청을 관리자가 관리할 수 있는 Admin 기능 구현",
+
+  "background": {
+    "issue": "연결 서비스 관리 기능이 구현되지 않음",
+    "impact": "관리자가 연결 요청을 관리할 수 없음",
+    "severity": "medium"
+  },
+
+  "implementation": {
+    "assigned_agent": "backend-developer",
+    "files_to_create": [
+      "0-4_Database/Supabase/migrations/connections_table.sql",
+      "1_Frontend/src/app/api/admin/connections/route.ts",
+      "1_Frontend/src/app/admin/connections/page.tsx"
+    ],
+    "technologies": [
+      "TypeScript",
+      "Next.js API Routes",
+      "Supabase Client",
+      "PostgreSQL"
+    ]
+  },
+
+  "database": {
+    "table_name": "connections",
+    "columns": {
+      "id": "UUID PRIMARY KEY",
+      "requester_id": "UUID (시민 user_id)",
+      "politician_id": "TEXT (정치인 ID)",
+      "subject": "TEXT (연결 요청 제목)",
+      "message": "TEXT (연결 요청 내용)",
+      "status": "TEXT (pending/approved/rejected/completed)",
+      "admin_notes": "TEXT (관리자 메모)",
+      "created_at": "TIMESTAMP",
+      "updated_at": "TIMESTAMP",
+      "processed_at": "TIMESTAMP (처리 일시)",
+      "processed_by": "UUID (처리한 관리자 ID)"
+    }
+  },
+
+  "api_endpoints": {
+    "GET /api/admin/connections": {
+      "description": "연결 요청 목록 조회",
+      "authentication": "관리자 권한 필요",
+      "query_parameters": {
+        "status": "상태 필터 (pending/approved/rejected/completed)",
+        "page": "페이지 번호",
+        "limit": "페이지당 항목 수"
+      },
+      "response": {
+        "success": true,
+        "data": "연결 요청 배열",
+        "pagination": {}
+      }
+    },
+    "PATCH /api/admin/connections/[id]": {
+      "description": "연결 요청 상태 변경",
+      "authentication": "관리자 권한 필요",
+      "request_body": {
+        "status": "변경할 상태",
+        "admin_notes": "관리자 메모"
+      },
+      "response": {
+        "success": true,
+        "message": "연결 요청이 처리되었습니다."
+      }
+    }
+  },
+
+  "admin_page": {
+    "path": "/admin/connections",
+    "features": [
+      "연결 요청 목록 조회",
+      "상태별 필터링",
+      "요청 상세 보기",
+      "승인/거부 처리",
+      "관리자 메모 작성"
+    ]
+  },
+
+  "security": {
+    "authentication": "requireAuth() 미들웨어",
+    "authorization": "관리자 권한 검증",
+    "audit_logging": "모든 처리 작업을 audit_logs에 기록"
+  },
+
+  "related_tasks": ["P1F1", "P3BA30"],
+  "dependencies": ["P2D1 (Database)"],
+
+  "execution_info": {
+    "executor": "Claude Code",
+    "execution_date": "2025-12-17",
+    "duration_minutes": null
+  }
+}

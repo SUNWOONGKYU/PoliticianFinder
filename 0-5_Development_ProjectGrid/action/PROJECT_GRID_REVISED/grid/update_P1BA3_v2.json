@@ -11,5 +11,5 @@
   "generator": "-",
   "duration": "-",
   "modification_history": "-",
-  "remarks": "7개 커뮤니티 API를 1개 작업지시서로 통합 (게시글 CRUD, 댓글, 좋아요)"
+  "remarks": "7개 커뮤니티 API를 1개 작업지시서로 통합 (게시글 CRUD, 댓글, 공감)"
 }

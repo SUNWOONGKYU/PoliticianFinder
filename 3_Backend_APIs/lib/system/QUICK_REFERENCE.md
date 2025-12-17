@@ -51,7 +51,7 @@ if (isDown) {
 ### Points
 - `points.post` - 게시글 작성 (기본: 10)
 - `points.comment` - 댓글 작성 (기본: 5)
-- `points.like` - 좋아요 (기본: 1)
+- `points.like` - 공감 (기본: 1)
 - `points.follow` - 팔로우 (기본: 20)
 - `points.share` - 공유 (기본: 3)
 - `points.report` - 신고 (기본: 5)

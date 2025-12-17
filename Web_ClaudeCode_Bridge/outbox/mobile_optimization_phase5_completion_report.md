@@ -68,7 +68,7 @@ Phase 5는 선택적 고급 기능으로, 사용자 경험을 향상시키는 4�
 - comment (파랑): 댓글
 - reply (보라): 답글
 - mention (주황): 멘션
-- post_like (빨강): 좋아요
+- post_like (빨강): 공감
 - follow (초록): 팔로우
 - payment (노랑): 결제
 - system (기본): 시스템

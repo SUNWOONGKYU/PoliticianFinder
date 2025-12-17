@@ -88,8 +88,8 @@
       "users",
       "posts",
       "comments",
-      "post_likes",
-      "comment_likes",
+      "votes",
+      "votes",
       "reports",
       "notifications"
     ]
