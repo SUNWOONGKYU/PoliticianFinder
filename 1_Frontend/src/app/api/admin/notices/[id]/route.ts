@@ -47,7 +47,7 @@ export async function PATCH(request: NextRequest, { params }: RouteParams) {
     const notice_id = params.id;
     const body = await request.json();
 
-    const { title, content, is_pinned } = body;
+    const { title, content } = body;
 
     const updateData: Record<string, any> = {
       updated_at: new Date().toISOString(),
@@ -55,7 +55,6 @@ export async function PATCH(request: NextRequest, { params }: RouteParams) {
 
     if (title !== undefined) updateData.title = title;
     if (content !== undefined) updateData.content = content;
-    if (is_pinned !== undefined) updateData.is_pinned = is_pinned;
 
     const { data, error } = await (supabase as any)
       .from('notices')
