@@ -25,7 +25,9 @@ export default function SupportPage() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     // Validation
@@ -44,13 +46,46 @@ export default function SupportPage() {
       return;
     }
 
-    // Submit logic (would normally send to API)
-    setAlertMessage('문의가 성공적으로 접수되었습니다.\n빠른 시일 내에 답변드리겠습니다.');
-    setShowAlert(true);
-    setTimeout(() => setShowAlert(false), 3000);
+    if (!formData.message) {
+      setAlertMessage('문의 내용을 입력해주세요.');
+      setShowAlert(true);
+      setTimeout(() => setShowAlert(false), 2000);
+      return;
+    }
 
-    // Reset form
-    setFormData({ name: '', email: '', phone: '', message: '' });
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch('/api/inquiries', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          subject: '일반문의',
+          message: formData.message,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setAlertMessage('문의가 성공적으로 접수되었습니다.\n빠른 시일 내에 답변드리겠습니다.');
+        setFormData({ name: '', email: '', phone: '', message: '' });
+      } else {
+        setAlertMessage(data.error || '문의 접수에 실패했습니다. 다시 시도해주세요.');
+      }
+    } catch (error) {
+      console.error('문의 제출 오류:', error);
+      setAlertMessage('서버 오류가 발생했습니다. 잠시 후 다시 시도해주세요.');
+    } finally {
+      setIsSubmitting(false);
+      setShowAlert(true);
+      setTimeout(() => setShowAlert(false), 3000);
+    }
   };
 
   const faqs = [
@@ -157,9 +192,10 @@ export default function SupportPage() {
               <div>
                 <button
                   type="submit"
-                  className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-secondary-500 hover:bg-secondary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary-500"
+                  disabled={isSubmitting}
+                  className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-secondary-500 hover:bg-secondary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary-500 disabled:bg-gray-400 disabled:cursor-not-allowed"
                 >
-                  문의 제출
+                  {isSubmitting ? '제출 중...' : '문의 제출'}
                 </button>
               </div>
             </form>
