@@ -153,7 +153,7 @@ async function main() {
   try {
     const res = await fetch(`${BASE_URL}/api/admin/posts?limit=5`, { headers: getAuthHeaders() });
     const data = await res.json();
-    log('9. 게시글 목록 조회', res.ok || res.status === 404, `${data.data?.length || 0}개`);
+    log('9. 게시글 목록 조회', res.ok && data.success, `${data.data?.length || 0}개`);
   } catch (e) { log('9. 게시글 목록 조회', false, e.message); }
 
   // 10. 댓글 목록 조회
@@ -198,8 +198,7 @@ async function main() {
       headers: getAuthHeaders(),
       body: JSON.stringify({
         title: '관리자 테스트 공지사항',
-        content: '이것은 관리자 기능 테스트를 위한 공지사항입니다.',
-        is_pinned: false
+        content: '이것은 관리자 기능 테스트를 위한 공지사항입니다.'
       })
     });
     const data = await res.json();

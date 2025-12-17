@@ -15,12 +15,12 @@ export async function GET(request: NextRequest) {
 
     let query = (supabase as any)
       .from('posts')
-      .select('id, subject, content, category, user_id, politician_id, view_count, like_count, comment_count, created_at, updated_at', { count: 'exact' })
+      .select('id, title, content, category, user_id, politician_id, view_count, like_count, comment_count, created_at, updated_at', { count: 'exact' })
       .order('created_at', { ascending: false });
 
     // 검색 필터
     if (search) {
-      query = query.or(`subject.ilike.%${search}%,content.ilike.%${search}%`);
+      query = query.or(`title.ilike.%${search}%,content.ilike.%${search}%`);
     }
 
     // 페이지네이션
@@ -73,7 +73,7 @@ export async function DELETE(request: NextRequest) {
     // 게시물 존재 확인
     const { data: existingPost, error: fetchError } = await (supabase as any)
       .from('posts')
-      .select('id, subject')
+      .select('id, title')
       .eq('id', post_id)
       .single();
 
@@ -105,7 +105,7 @@ export async function DELETE(request: NextRequest) {
         target_type: 'post',
         target_id: post_id,
         admin_id: null,
-        metadata: { subject: existingPost.subject },
+        metadata: { title: existingPost.title },
       });
     } catch {
       console.log('Audit log failed (optional)');
