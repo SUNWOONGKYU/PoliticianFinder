@@ -283,6 +283,57 @@ async function logAudit(
 }
 
 // ============================================================================
+// GET /api/admin/auto-moderate - 자동 중재 설정 조회
+// ============================================================================
+
+/**
+ * 자동 중재 설정 조회 API
+ *
+ * @route GET /api/admin/auto-moderate
+ * @returns {200} { success: true, data: { ... } }
+ */
+export async function GET(request: NextRequest): Promise<NextResponse> {
+  try {
+    // 자동 중재 설정 정보 반환
+    const settings = {
+      enabled: true,
+      severityThresholds: {
+        ignore: 30,    // 30점 미만: 무시
+        review: 60,    // 30-60점: 검토 필요
+        delete: 60,    // 60점 이상: 자동 삭제
+      },
+      autoActions: {
+        deleteOnHighSeverity: true,
+        warnUserOnDelete: true,
+        notifyAdminOnReview: true,
+      },
+      categories: ['spam', 'harassment', 'hate_speech', 'misinformation', 'inappropriate', 'other'],
+      riskLevels: ['low', 'medium', 'high', 'critical'],
+    };
+
+    return NextResponse.json({
+      success: true,
+      data: settings,
+      message: '자동 중재 설정을 조회했습니다',
+      timestamp: new Date().toISOString(),
+    }, { status: 200 });
+  } catch (error) {
+    console.error('[자동 중재 API] GET 오류:', error);
+    return NextResponse.json(
+      {
+        success: false,
+        error: {
+          code: 'INTERNAL_SERVER_ERROR',
+          message: '설정 조회 중 오류가 발생했습니다.',
+          details: error instanceof Error ? error.message : '알 수 없는 오류',
+        },
+      },
+      { status: 500 }
+    );
+  }
+}
+
+// ============================================================================
 // POST /api/admin/auto-moderate
 // ============================================================================
 

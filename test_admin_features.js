@@ -1,7 +1,7 @@
 // 관리자 기능 테스트 (20개)
 // wksun99@gmail.com / na5215900 (admin role)
 
-const BASE_URL = 'https://politician-finder-pf22qonu8-finder-world.vercel.app';
+const BASE_URL = 'https://www.politicianfinder.ai.kr';
 const TEST_EMAIL = 'wksun99@gmail.com';
 const TEST_PASSWORD = 'na5215900';
 
