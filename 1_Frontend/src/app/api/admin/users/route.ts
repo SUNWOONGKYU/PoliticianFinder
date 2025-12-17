@@ -192,17 +192,21 @@ export async function PATCH(request: NextRequest) {
       );
     }
 
-    // 감사 로그 기록
-    await (supabase as any).from('audit_logs').insert({
-      action_type: 'user_updated',
-      target_type: 'user',
-      target_id: user_id,
-      admin_id: null,
-      metadata: {
-        user_name: existingUser.name || existingUser.email,
-        changes: Object.keys(updateData).filter(k => k !== 'updated_at'),
-      },
-    }).catch(() => console.log('Audit log failed (optional)'));
+    // 감사 로그 기록 (선택사항 - 실패해도 무시)
+    try {
+      await (supabase as any).from('audit_logs').insert({
+        action_type: 'user_updated',
+        target_type: 'user',
+        target_id: user_id,
+        admin_id: null,
+        metadata: {
+          user_name: existingUser.name || existingUser.email,
+          changes: Object.keys(updateData).filter(k => k !== 'updated_at'),
+        },
+      });
+    } catch {
+      console.log('Audit log failed (optional)');
+    }
 
     return NextResponse.json({
       success: true,
