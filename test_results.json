@@ -1,172 +1,43 @@
 {
-  "test_time": "2025-11-19T17:41:26.158842",
-  "base_url": "https://politician-finder-p4ogc5z6q-finder-world.vercel.app",
-  "summary": {
-    "total": 23,
-    "passed": 16,
-    "failed": 7
-  },
-  "results": [
-    {
-      "name": "Home Page",
-      "method": "GET",
-      "endpoint": "/",
-      "status": 200,
-      "success": true
+  "member": {
+    "프로필 수정": {
+      "status": "PASS"
     },
-    {
-      "name": "Politicians Page",
-      "method": "GET",
-      "endpoint": "/politicians",
-      "status": 200,
-      "success": true
+    "게시글 공감": {
+      "status": "FAIL",
+      "error": "Could not find the table 'public.votes' in the schema cache"
     },
-    {
-      "name": "Posts Page",
-      "method": "GET",
-      "endpoint": "/posts",
-      "status": 200,
-      "success": true
+    "댓글 공감": {
+      "status": "FAIL",
+      "error": "Could not find the table 'public.votes' in the schema cache"
     },
-    {
-      "name": "About Page",
-      "method": "GET",
-      "endpoint": "/about",
-      "status": 200,
-      "success": true
+    "게시글 신고": {
+      "status": "FAIL",
+      "error": "Could not find the table 'public.reports' in the schema cache"
     },
-    {
-      "name": "Politicians API",
-      "method": "GET",
-      "endpoint": "/api/politicians",
-      "status": 200,
-      "success": true
+    "알림 조회": {
+      "status": "PASS",
+      "count": 0
     },
-    {
-      "name": "Politicians API (search)",
-      "method": "GET",
-      "endpoint": "/api/politicians?search=kim",
-      "status": 200,
-      "success": true
+    "게시글 공유": {
+      "status": "FAIL",
+      "error": "Could not find the 'target_id' column of 'shares' in the schema cache"
     },
-    {
-      "name": "Politicians API (party filter)",
-      "method": "GET",
-      "endpoint": "/api/politicians?party=national",
-      "status": 200,
-      "success": true
+    "게시글 삭제": {
+      "status": "PASS"
     },
-    {
-      "name": "Posts API",
-      "method": "GET",
-      "endpoint": "/api/posts",
-      "status": 200,
-      "success": true
-    },
-    {
-      "name": "Posts API (search)",
-      "method": "GET",
-      "endpoint": "/api/posts?search=policy",
-      "status": 200,
-      "success": true
-    },
-    {
-      "name": "Admin Dashboard",
-      "method": "GET",
-      "endpoint": "/admin",
-      "status": 200,
-      "success": true
-    },
-    {
-      "name": "Admin Users",
-      "method": "GET",
-      "endpoint": "/admin/users",
-      "status": 200,
-      "success": true
-    },
-    {
-      "name": "Admin Posts",
-      "method": "GET",
-      "endpoint": "/admin/posts",
-      "status": 200,
-      "success": true
-    },
-    {
-      "name": "Admin Comments",
-      "method": "GET",
-      "endpoint": "/admin/comments",
-      "status": 200,
-      "success": true
-    },
-    {
-      "name": "Admin Politicians",
-      "method": "GET",
-      "endpoint": "/admin/politicians",
-      "status": 200,
-      "success": true
-    },
-    {
-      "name": "Admin Inquiries",
-      "method": "GET",
-      "endpoint": "/admin/inquiries",
-      "status": 200,
-      "success": true
-    },
-    {
-      "name": "Admin Settings",
-      "method": "GET",
-      "endpoint": "/admin/settings",
-      "status": 200,
-      "success": true
-    },
-    {
-      "name": "Admin Dashboard API",
-      "method": "GET",
-      "endpoint": "/api/admin/dashboard",
-      "status": 401,
-      "success": false
-    },
-    {
-      "name": "Admin Users API",
-      "method": "GET",
-      "endpoint": "/api/admin/users",
-      "status": 401,
-      "success": false
-    },
-    {
-      "name": "Admin Posts API",
-      "method": "GET",
-      "endpoint": "/api/admin/posts",
-      "status": 401,
-      "success": false
-    },
-    {
-      "name": "Admin Comments API",
-      "method": "GET",
-      "endpoint": "/api/admin/comments",
-      "status": 401,
-      "success": false
-    },
-    {
-      "name": "Admin Politicians API",
-      "method": "GET",
-      "endpoint": "/api/admin/politicians",
-      "status": 401,
-      "success": false
-    },
-    {
-      "name": "Admin Inquiries API",
-      "method": "GET",
-      "endpoint": "/api/admin/inquiries",
-      "status": 401,
-      "success": false
-    },
-    {
-      "name": "Admin Audit Logs API",
-      "method": "GET",
-      "endpoint": "/api/admin/audit-logs",
-      "status": 401,
-      "success": false
+    "댓글 삭제": {
+      "status": "PASS"
     }
-  ]
+  },
+  "politician": {
+    "정치인 댓글": {
+      "status": "PASS",
+      "note": "테이블 존재, 인증 시스템 연동"
+    },
+    "정치인 게시글": {
+      "status": "PASS",
+      "count": 5
+    }
+  }
 }

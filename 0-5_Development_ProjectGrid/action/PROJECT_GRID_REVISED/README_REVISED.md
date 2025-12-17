@@ -107,7 +107,7 @@ PROJECT_GRID_REVISED/
 - **P1BA2**: Mock API: 정치인 (6개 route.ts)
   - 목록, 상세, 관심등록, 본인인증, AI평가 조회, AI평가 생성
 - **P1BA3**: Mock API: 커뮤니티 (7개 route.ts)
-  - 게시글 목록/상세/작성, 댓글, 좋아요, 공유, 팔로우
+  - 게시글 목록/상세/작성, 댓글, 공감, 공유, 팔로우
 - **P1BA4**: Mock API: 기타 (4개 route.ts)
   - 알림, 관리자 통계, 사용자 관리, 콘텐츠 신고
 
@@ -244,7 +244,7 @@ P{Phase}{Area}{순번}
 | 게시글 상세 | GET /api/posts/[id] | api/posts/[id]/route.ts | 상세 정보 |
 | 게시글 작성 | POST /api/posts | api/posts/route.ts | 새 게시글 |
 | 댓글 작성 | POST /api/posts/[id]/comments | api/posts/[id]/comments/route.ts | 댓글 작성 |
-| 좋아요 | POST /api/posts/[id]/like | api/posts/[id]/like/route.ts | 좋아요/취소 |
+| 공감 | POST /api/posts/[id]/like | api/posts/[id]/like/route.ts | 공감/취소 |
 | 공유 | POST /api/posts/[id]/share | api/posts/[id]/share/route.ts | 게시글 공유 |
 | 팔로우 | POST /api/users/[id]/follow | api/users/[id]/follow/route.ts | 팔로우/언팔로우 |
 

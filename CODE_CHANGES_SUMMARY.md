@@ -590,7 +590,7 @@ const author = sampleNicknames[nicknameIndex];
 
 ### 배지 표시 로직
 - **Hot 배지**: 조회수 100 이상
-- **Best 배지**: 좋아요 50 이상
+- **Best 배지**: 공감 50 이상
 
 ### 날짜 포맷
 - 형식: `YYYY.MM.DD HH:mm`

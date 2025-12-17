@@ -76,7 +76,7 @@
 
 **Helper Functions**:
 - `renderCommentNotification()` - 댓글 알림
-- `renderLikeNotification()` - 좋아요 알림
+- `renderLikeNotification()` - 공감 알림
 - `renderFollowNotification()` - 팔로우 알림
 - `renderMentionNotification()` - 멘션 알림
 - `renderCustomNotification()` - 커스텀 알림

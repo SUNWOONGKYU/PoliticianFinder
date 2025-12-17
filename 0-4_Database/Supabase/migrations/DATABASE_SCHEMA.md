@@ -29,11 +29,11 @@ This document provides a comprehensive overview of the PoliticianFinder database
        ├──────────────┬─────────────┐
        │              │             │
   ┌────▼────┐  ┌─────▼──────┐ ┌───▼────┐
-  │comments │  │ post_likes │ │ shares │
+  │comments │  │   votes    │ │ shares │
   └────┬────┘  └────────────┘ └────────┘
-       │
+       │        (공감/비공감)
   ┌────▼────────┐
-  │comment_likes│
+  │   votes     │
   └─────────────┘
 
 Admin Tables:
@@ -184,7 +184,7 @@ Comments with nested reply support
 | is_deleted | BOOLEAN | Soft delete flag |
 | moderation_status | TEXT | pending/approved/rejected/flagged |
 
-#### post_likes, comment_likes
+#### votes, votes
 Like tracking with unique constraint (user + target)
 
 #### follows

@@ -267,7 +267,7 @@ const activeFilterCount = [identityFilter, categoryFilter, partyFilter, regionFi
 - ✅ Three-section layout (Header / Body / Footer)
 - ✅ Header: 작성자 아바타 + 이름 + 팔로우 버튼
 - ✅ Body: 클릭 가능한 콘텐츠 영역, hover 효과
-- ✅ Footer: 상호작용 통계 (좋아요, 댓글, 조회수)
+- ✅ Footer: 상호작용 통계 (공감, 댓글, 조회수)
 - ✅ 명확한 시각 계층
 - ✅ Hot, Best 배지 (이모지 포함)
 - ✅ 태그 최대 3개 표시 (+N 표시)

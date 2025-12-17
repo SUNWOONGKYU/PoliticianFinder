@@ -83,7 +83,7 @@
 ## Implementation Details
 
 ### Notification Types Implemented ✅
-1. ✅ `post_like` - 게시글 좋아요
+1. ✅ `post_like` - 게시글 공감
 2. ✅ `post_comment` - 게시글 댓글
 3. ✅ `comment_reply` - 댓글 답글
 4. ✅ `follow` - 팔로우

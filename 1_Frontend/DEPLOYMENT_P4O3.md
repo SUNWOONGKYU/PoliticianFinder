@@ -199,8 +199,8 @@ Ensure these tables exist in Supabase:
 - ✅ `users` (with points, level columns)
 - ✅ `posts`
 - ✅ `comments`
-- ✅ `post_likes`
-- ✅ `comment_likes`
+- ✅ `votes`
+- ✅ `votes`
 - ✅ `reports`
 - ✅ `notifications`
 

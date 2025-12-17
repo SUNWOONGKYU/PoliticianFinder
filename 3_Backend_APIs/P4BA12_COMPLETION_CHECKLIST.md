@@ -258,7 +258,7 @@ CREATE INDEX idx_system_settings_key ON system_settings(key);
 ### Points (포인트)
 - [x] points.post (게시글 작성: 10)
 - [x] points.comment (댓글 작성: 5)
-- [x] points.like (좋아요: 1)
+- [x] points.like (공감: 1)
 - [x] points.follow (팔로우: 20)
 - [x] points.share (공유: 3)
 - [x] points.report (신고: 5)

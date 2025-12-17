@@ -5,15 +5,37 @@
 
 import { createServerClient, type CookieOptions } from '@supabase/ssr';
 import { createClient as createSupabaseClient } from '@supabase/supabase-js';
-import { cookies } from 'next/headers';
+import { cookies, headers } from 'next/headers';
 import type { Database } from '../database.types';
 
 export async function createClient() {
   const cookieStore = await cookies();
+  const headersList = await headers();
 
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
   const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
 
+  // Authorization 헤더에서 토큰 확인 (Bearer token 지원)
+  const authHeader = headersList.get('authorization');
+  const accessToken = authHeader?.startsWith('Bearer ') ? authHeader.slice(7) : null;
+
+  // Authorization 헤더가 있으면 직접 클라이언트 생성
+  if (accessToken) {
+    const client = createSupabaseClient<Database>(supabaseUrl, supabaseAnonKey, {
+      global: {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      },
+      auth: {
+        autoRefreshToken: false,
+        persistSession: false,
+      },
+    });
+    return client;
+  }
+
+  // 쿠키 기반 인증 (기본)
   return createServerClient<Database>(supabaseUrl, supabaseAnonKey, {
     cookies: {
       get(name: string) {

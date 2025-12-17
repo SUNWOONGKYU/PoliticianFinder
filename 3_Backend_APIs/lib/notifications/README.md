@@ -186,7 +186,7 @@ import {
 const comment = renderCommentNotification('홍길동', '좋은 글입니다!');
 // { title: '홍길동님이 댓글을 남겼습니다', body: '...' }
 
-// 좋아요 알림
+// 공감 알림
 const like = renderLikeNotification('김철수');
 // { title: '김철수님이 공감했습니다', body: '...' }
 

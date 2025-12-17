@@ -1,0 +1,104 @@
+{
+  "task_id": "P3BA38",
+  "task_name": "정치인 프로필 수정 기능 (/api/politicians/[id]/profile)",
+  "phase": 3,
+  "area": "BA",
+  "type": "create",
+  "created_date": "2025-12-17",
+  "status": "완료",
+  "progress": 100,
+
+  "task_description": "본인 인증된 정치인이 자신의 프로필 정보를 직접 수정할 수 있는 기능 구현",
+
+  "background": {
+    "issue": "정치인이 자신의 프로필을 직접 수정할 수 있는 기능 필요",
+    "impact": "정치인 본인이 최신 정보로 프로필 업데이트 가능",
+    "severity": "medium"
+  },
+
+  "implementation": {
+    "assigned_agent": "backend-developer",
+    "files_created": [
+      "1_Frontend/src/app/api/politicians/[id]/profile/route.ts",
+      "1_Frontend/src/app/politicians/[id]/edit/page.tsx"
+    ],
+    "technologies": [
+      "TypeScript",
+      "Next.js API Routes",
+      "Supabase Client",
+      "서비스 롤 키 인증"
+    ]
+  },
+
+  "api_endpoints": {
+    "GET /api/politicians/[id]/profile": {
+      "description": "정치인 프로필 정보 조회",
+      "authentication": "로그인 필요",
+      "response": {
+        "success": true,
+        "data": "정치인 기본 정보 + 상세 정보"
+      },
+      "database_operations": [
+        "politicians 테이블 조회",
+        "politician_details 테이블 조인"
+      ]
+    },
+    "PATCH /api/politicians/[id]/profile": {
+      "description": "정치인 프로필 수정",
+      "authentication": "본인 인증된 정치인만 가능",
+      "request_body": {
+        "name": "이름",
+        "party": "소속 정당",
+        "position": "직위",
+        "region": "지역구",
+        "birth_date": "생년월일",
+        "education": "학력",
+        "career": "경력",
+        "contact_email": "이메일",
+        "contact_phone": "전화번호",
+        "website": "웹사이트",
+        "sns_links": "SNS 링크"
+      },
+      "response": {
+        "success": true,
+        "message": "프로필이 성공적으로 수정되었습니다.",
+        "data": "수정된 정치인 정보"
+      },
+      "database_operations": [
+        "politicians 테이블 업데이트",
+        "politician_details 테이블 업데이트 (upsert)"
+      ]
+    }
+  },
+
+  "frontend": {
+    "page": "/politicians/[id]/edit",
+    "description": "정치인 프로필 수정 페이지",
+    "features": [
+      "기본 정보 수정 폼",
+      "상세 정보 수정 폼",
+      "본인 인증 확인",
+      "수정 완료 알림"
+    ]
+  },
+
+  "security": {
+    "authentication": "Supabase Auth",
+    "authorization": "본인 인증 정치인만 수정 가능",
+    "validation": "입력값 검증"
+  },
+
+  "test_results": {
+    "api_test": "HTTP 200 반환 확인",
+    "deployment_url": "https://politician-finder.vercel.app/politicians/[id]/edit"
+  },
+
+  "related_tasks": ["P1F1", "P3BA8"],
+  "dependencies": ["P2D1 (Database)", "politicians 테이블", "politician_details 테이블"],
+
+  "execution_info": {
+    "executor": "Claude Code",
+    "execution_date": "2025-12-17",
+    "duration_minutes": 30
+  }
+}

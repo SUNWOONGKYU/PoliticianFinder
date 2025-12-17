@@ -49,7 +49,7 @@ api-builder, api-test
 1. `lib/utils/notification-helper.ts` - 알림 생성 헬퍼
 
 **알림 타입:**
-- `post_like`: 게시글 좋아요
+- `post_like`: 게시글 공감
 - `post_comment`: 게시글 댓글
 - `comment_reply`: 댓글 답글
 - `follow`: 팔로우
@@ -58,7 +58,7 @@ api-builder, api-test
 
 **중복 방지 전략:**
 - 동일 사용자의 동일 타입 알림은 1시간 내 1개만 생성
-- 예: A가 B의 게시글에 좋아요 5번 -> 알림 1개만
+- 예: A가 B의 게시글에 공감 5번 -> 알림 1개만
 
 **배치 알림 예시:**
 - "홍길동 외 5명이 좋아합니다"

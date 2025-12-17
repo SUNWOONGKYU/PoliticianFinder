@@ -50,10 +50,11 @@ export async function GET(request: NextRequest) {
     }
 
     // 3. Get user profile from users table
+    // Note: users 테이블의 PK는 'user_id' (auth.users.id와 연결)
     const { data: userProfile, error: profileError } = await supabase
       .from('users')
       .select('*')
-      .eq('id', authUser.id)
+      .eq('user_id', authUser.id)
       .single();
 
     if (profileError) {
@@ -92,16 +93,18 @@ export async function GET(request: NextRequest) {
         success: true,
         data: {
           user: {
-            id: userProfile.id,
+            id: userProfile.user_id, // users 테이블의 PK는 'user_id'
             email: userProfile.email,
-            name: userProfile.name,
-            avatar_url: userProfile.avatar_url,
+            name: userProfile.name || userProfile.nickname,
+            nickname: userProfile.nickname,
+            avatar_url: userProfile.avatar_url || userProfile.profile_image_url,
             role: userProfile.role,
             points: userProfile.points,
             level: userProfile.level,
             bio: userProfile.bio,
             location: userProfile.location,
             is_banned: userProfile.is_banned,
+            is_active: userProfile.is_active,
             created_at: userProfile.created_at,
             updated_at: userProfile.updated_at,
           },

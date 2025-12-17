@@ -270,7 +270,7 @@
 |----------------------|--------|---------|-------------------|
 | points.post          | number | 10      | 게시글 작성       |
 | points.comment       | number | 5       | 댓글 작성         |
-| points.like          | number | 1       | 좋아요 클릭       |
+| points.like          | number | 1       | 공감 클릭       |
 | points.follow        | number | 20      | 팔로우            |
 | points.share         | number | 3       | 공유              |
 | points.report        | number | 5       | 신고              |

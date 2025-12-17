@@ -82,7 +82,7 @@ Migrations are executed in numerical order:
 ### Community
 - **posts** - Community posts with moderation
 - **comments** - Nested comments with replies
-- **post_likes** / **comment_likes** - Like tracking
+- **votes** / **votes** - Like tracking
 - **reports** - Content reporting
 - **shares** - Social sharing tracking
 - **user_favorites** - Favorite politicians

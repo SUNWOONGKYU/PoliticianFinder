@@ -10,7 +10,7 @@
 
 ### 1. 알림 타입
 
-- `post_like`: 게시글 좋아요
+- `post_like`: 게시글 공감
 - `post_comment`: 게시글 댓글
 - `comment_reply`: 댓글 답글
 - `follow`: 팔로우
@@ -22,9 +22,9 @@
 동일 사용자의 동일 타입 알림은 **1시간 내 1개만** 생성됩니다.
 
 예시:
-- A가 B의 게시글에 좋아요 5번 클릭 → 알림 1개만 생성
-- 좋아요 취소 후 1시간 내 다시 좋아요 → 알림 생성 안 됨
-- 1시간 경과 후 다시 좋아요 → 새 알림 생성
+- A가 B의 게시글에 공감 5번 클릭 → 알림 1개만 생성
+- 공감 취소 후 1시간 내 다시 공감 → 알림 생성 안 됨
+- 1시간 경과 후 다시 공감 → 새 알림 생성
 
 ### 3. 배치 알림
 
@@ -215,7 +215,7 @@ console.log(`${deletedCount}개의 오래된 알림이 삭제되었습니다.`);
 
 ## 사용 예시
 
-### 1. 게시글 좋아요 API에서 사용
+### 1. 게시글 공감 API에서 사용
 
 ```typescript
 // POST /api/posts/[id]/like
@@ -223,7 +223,7 @@ export async function POST(request: Request, { params }: { params: { id: string 
   const { userId } = await getUserFromSession(request);
   const postId = params.id;
 
-  // 1. 좋아요 처리
+  // 1. 공감 처리
   await likePost(postId, userId);
 
   // 2. 게시글 작성자 조회
@@ -245,12 +245,12 @@ export async function POST(request: Request, { params }: { params: { id: string 
 }
 ```
 
-### 2. 배치 알림 생성 (좋아요 여러 명)
+### 2. 배치 알림 생성 (공감 여러 명)
 
 ```typescript
 // 주기적으로 실행되는 배치 작업
 export async function processBatchNotifications() {
-  // 1. 최근 1시간 내 좋아요 그룹화
+  // 1. 최근 1시간 내 공감 그룹화
   const likeGroups = await getRecentLikesByPost();
 
   for (const group of likeGroups) {
@@ -382,18 +382,18 @@ export async function POST(request: Request) {
 
 ### 시나리오
 
-#### 시나리오 1: 좋아요 중복
+#### 시나리오 1: 공감 중복
 ```
-10:00 - A가 B의 게시글 좋아요 → 알림 생성 ✅
-10:30 - A가 좋아요 취소 후 다시 좋아요 → 알림 생성 안 됨 ❌
-11:30 - A가 다시 좋아요 → 알림 생성 ✅ (1시간 경과)
+10:00 - A가 B의 게시글 공감 → 알림 생성 ✅
+10:30 - A가 공감 취소 후 다시 공감 → 알림 생성 안 됨 ❌
+11:30 - A가 다시 공감 → 알림 생성 ✅ (1시간 경과)
 ```
 
 #### 시나리오 2: 배치 알림
 ```
-10:00 - A가 B의 게시글 좋아요 → 알림: "A님이 좋아합니다"
-10:15 - C가 B의 게시글 좋아요 → 알림 업데이트: "A 외 1명이 좋아합니다"
-10:30 - D, E가 좋아요 → 알림 업데이트: "A 외 3명이 좋아합니다"
+10:00 - A가 B의 게시글 공감 → 알림: "A님이 좋아합니다"
+10:15 - C가 B의 게시글 공감 → 알림 업데이트: "A 외 1명이 좋아합니다"
+10:30 - D, E가 공감 → 알림 업데이트: "A 외 3명이 좋아합니다"
 ```
 
 ## 데이터베이스 스키마

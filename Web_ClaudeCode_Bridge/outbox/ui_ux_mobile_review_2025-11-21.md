@@ -404,14 +404,14 @@ const [activeFilters, setActiveFilters] = useState<string[]>([]);
   <h3>{post.title}</h3>
   <p>{post.content}</p>
   <div className="flex gap-4">
-    <span>좋아요 {post.likes}</span>
+    <span>공감 {post.likes}</span>
     <span>댓글 {post.comments}</span>
     <span>공유 {post.shares}</span>
   </div>
 </div>
 ```
 
-- 한 카드에 너무 많은 정보 (작성자, 팔로워 수, 시간, 제목, 내용, 좋아요, 댓글, 공유)
+- 한 카드에 너무 많은 정보 (작성자, 팔로워 수, 시간, 제목, 내용, 공감, 댓글, 공유)
 - 시각적 위계 불명확
 - 모바일에서 가독성 저하
 
@@ -1237,7 +1237,7 @@ const chartOptions = {
 ### MC3. 전역 - 터치 타겟 크기 부족
 
 **현재 문제**:
-- 좋아요, 공유 버튼: 24x24px (너무 작음)
+- 공감, 공유 버튼: 24x24px (너무 작음)
 - 필터 체크박스: 16x16px (터치 불가능)
 - 드롭다운 화살표: 20x20px (작음)
 

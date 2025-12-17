@@ -63,8 +63,8 @@
 4. pledges ❓
 5. posts ✅
 6. comments ✅
-7. post_likes ❓
-8. comment_likes ❓
+7. votes ❓
+8. votes ❓
 9. follows ❓
 10. notifications ❓
 11. user_favorites (favorite_politicians) ❌

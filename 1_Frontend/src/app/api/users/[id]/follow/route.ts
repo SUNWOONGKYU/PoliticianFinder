@@ -31,10 +31,11 @@ export async function POST(request: NextRequest, { params }: RouteParams) {
     const supabase = await createClient();
 
     // 대상 사용자 존재 확인
+    // Note: users 테이블의 PK는 'user_id'
     const { data: targetUser, error: userError } = await supabase
       .from('users')
-      .select('id, username, nickname')
-      .eq('id', targetUserId)
+      .select('user_id, name, nickname')
+      .eq('user_id', targetUserId)
       .single();
 
     if (userError || !targetUser) {
@@ -49,8 +50,7 @@ export async function POST(request: NextRequest, { params }: RouteParams) {
       .from('follows')
       .select('id')
       .eq('follower_id', user.id)
-      .eq('following_type', 'user')
-      .eq('following_user_id', targetUserId)
+      .eq('following_id', targetUserId)
       .single();
 
     if (existing) {
@@ -65,9 +65,7 @@ export async function POST(request: NextRequest, { params }: RouteParams) {
       .from('follows')
       .insert({
         follower_id: user.id,
-        following_type: 'user',
-        following_user_id: targetUserId,
-        following_politician_id: null,
+        following_id: targetUserId,
       })
       .select()
       .single();
@@ -84,7 +82,7 @@ export async function POST(request: NextRequest, { params }: RouteParams) {
     const { data: updatedUser } = await supabase
       .from('users')
       .select('follower_count, following_count, activity_points, activity_level, influence_grade')
-      .eq('id', targetUserId)
+      .eq('user_id', targetUserId)
       .single();
 
     return NextResponse.json(
@@ -95,7 +93,7 @@ export async function POST(request: NextRequest, { params }: RouteParams) {
           follow_id: newFollow.id,
           target_user: {
             id: targetUserId,
-            username: targetUser.username || targetUser.nickname,
+            username: targetUser.name || targetUser.nickname,
             follower_count: updatedUser?.follower_count || 0,
           },
           points_awarded: 20,
@@ -129,8 +127,7 @@ export async function DELETE(request: NextRequest, { params }: RouteParams) {
       .from('follows')
       .delete()
       .eq('follower_id', user.id)
-      .eq('following_type', 'user')
-      .eq('following_user_id', targetUserId);
+      .eq('following_id', targetUserId);
 
     if (deleteError) {
       console.error('Unfollow error:', deleteError);
@@ -174,8 +171,7 @@ export async function GET(request: NextRequest, { params }: RouteParams) {
       .from('follows')
       .select('id, created_at')
       .eq('follower_id', user.id)
-      .eq('following_type', 'user')
-      .eq('following_user_id', targetUserId)
+      .eq('following_id', targetUserId)
       .single();
 
     return NextResponse.json({
