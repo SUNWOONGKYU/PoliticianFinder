@@ -1,8 +1,6 @@
 'use client';
 
-import { useState, useMemo, useEffect, useCallback } from 'react';
-import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { useState, useMemo, useEffect } from 'react';
 import { PoliticianListItem } from '@/types/politician';
 import { REGIONS } from '@/constants/regions';
 import { CONSTITUENCIES, getConstituenciesByMetropolitan } from '@/constants/constituencies';
@@ -32,7 +30,6 @@ const calculateGrade = (score: number): string => {
 };
 
 export default function PoliticiansPage() {
-  const router = useRouter();
   const [politicians, setPoliticians] = useState<Politician[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -51,40 +48,6 @@ export default function PoliticiansPage() {
   const [gradeFilter, setGradeFilter] = useState('');
   const [showMobileFilters, setShowMobileFilters] = useState(false);
 
-  // M6: 비교하기 기능 상태
-  const [compareMode, setCompareMode] = useState(false);
-  const [selectedForCompare, setSelectedForCompare] = useState<string[]>([]);
-  const MAX_COMPARE_COUNT = 4;
-
-  // M6: 비교 선택 토글
-  const toggleCompareSelection = useCallback((politicianId: string | number, e?: React.MouseEvent | React.ChangeEvent) => {
-    if (e) {
-      e.stopPropagation();
-    }
-    const idStr = String(politicianId);
-    setSelectedForCompare(prev => {
-      if (prev.includes(idStr)) {
-        return prev.filter(id => id !== idStr);
-      }
-      if (prev.length >= MAX_COMPARE_COUNT) {
-        return prev;
-      }
-      return [...prev, idStr];
-    });
-  }, []);
-
-  // M6: 비교하기 모드 종료
-  const exitCompareMode = useCallback(() => {
-    setCompareMode(false);
-    setSelectedForCompare([]);
-  }, []);
-
-  // M6: 비교 페이지로 이동
-  const goToComparePage = useCallback(() => {
-    if (selectedForCompare.length >= 2) {
-      router.push(`/politicians/compare?ids=${selectedForCompare.join(',')}`);
-    }
-  }, [selectedForCompare, router]);
 
   const filteredData = useMemo(() => {
     return politicians.filter((p) => {
@@ -233,49 +196,11 @@ export default function PoliticiansPage() {
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Page Header */}
-        <div className="mb-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div className="mb-6">
           <p className="text-lg text-gray-600">
             AI 기반 객관적 평가내역을 참고하여 훌륭한 정치인을 찾아보세요
           </p>
-          {/* M6: 비교하기 모드 토글 버튼 */}
-          <button
-            onClick={() => compareMode ? exitCompareMode() : setCompareMode(true)}
-            className={`
-              inline-flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-sm transition-all
-              min-h-touch whitespace-nowrap
-              ${compareMode
-                ? 'bg-primary-500 text-white hover:bg-primary-600'
-                : 'bg-white border-2 border-primary-500 text-primary-600 hover:bg-primary-50'
-              }
-            `}
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-            </svg>
-            {compareMode ? '비교 취소' : '비교하기'}
-          </button>
         </div>
-
-        {/* M6: 비교하기 안내 배너 */}
-        {compareMode && (
-          <div className="mb-4 p-4 bg-primary-50 dark:bg-primary-900/30 border border-primary-200 dark:border-primary-700 rounded-lg">
-            <div className="flex items-center gap-3">
-              <div className="flex-shrink-0 w-10 h-10 bg-primary-100 dark:bg-primary-800 rounded-full flex items-center justify-center">
-                <svg className="w-5 h-5 text-primary-600 dark:text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-              <div className="flex-1">
-                <p className="text-sm font-medium text-primary-800 dark:text-primary-200">
-                  비교할 정치인을 선택하세요 (최대 {MAX_COMPARE_COUNT}명)
-                </p>
-                <p className="text-xs text-primary-600 dark:text-primary-400 mt-1">
-                  선택: {selectedForCompare.length}/{MAX_COMPARE_COUNT}명 | 2명 이상 선택 시 비교 가능
-                </p>
-              </div>
-            </div>
-          </div>
-        )}
 
         {/* Search & Filter */}
         <div className="bg-white rounded-lg shadow-md p-6 mb-6">
@@ -582,10 +507,6 @@ export default function PoliticiansPage() {
             <table className="w-full text-sm">
               <thead className="bg-gray-100 border-b-2 border-primary-500">
                 <tr>
-                  {/* M6: 비교 모드 체크박스 컬럼 */}
-                  {compareMode && (
-                    <th className="px-2 py-3 text-center font-bold text-gray-900 w-12">선택</th>
-                  )}
                   <th className="px-2 py-3 text-center font-bold text-gray-900 w-12">순위</th>
                   <th className="px-3 py-3 text-left font-bold text-gray-900 w-24">이름</th>
                   <th className="px-2 py-3 text-left font-bold text-gray-900 w-28">직책</th>
@@ -606,47 +527,20 @@ export default function PoliticiansPage() {
                 {filteredData.map((p) => (
                   <tr
                     key={p.rank}
-                    className={`
-                      hover:bg-gray-50 cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary-500
-                      ${compareMode && selectedForCompare.includes(String(p.id)) ? 'bg-primary-50' : ''}
-                    `}
+                    className="hover:bg-gray-50 cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary-500"
                     onClick={() => {
-                      if (compareMode) {
-                        toggleCompareSelection(p.id);
-                      } else {
-                        window.location.href = `/politicians/${p.id}`;
-                      }
+                      window.location.href = `/politicians/${p.id}`;
                     }}
                     onKeyDown={(e) => {
                       if (e.key === 'Enter' || e.key === ' ') {
                         e.preventDefault();
-                        if (compareMode) {
-                          toggleCompareSelection(p.id);
-                        } else {
-                          window.location.href = `/politicians/${p.id}`;
-                        }
+                        window.location.href = `/politicians/${p.id}`;
                       }
                     }}
                     tabIndex={0}
                     role="button"
-                    aria-label={compareMode ? `${p.name} 비교 선택` : `${p.name} 상세 정보 보기`}
+                    aria-label={`${p.name} 상세 정보 보기`}
                   >
-                    {/* M6: 비교 모드 체크박스 */}
-                    {compareMode && (
-                      <td className="px-3 py-3 text-center">
-                        <label className="flex items-center justify-center min-w-[44px] min-h-[44px] cursor-pointer">
-                          <input
-                            type="checkbox"
-                            checked={selectedForCompare.includes(String(p.id))}
-                            onChange={(e) => toggleCompareSelection(p.id, e)}
-                            onClick={(e) => e.stopPropagation()}
-                            disabled={!selectedForCompare.includes(String(p.id)) && selectedForCompare.length >= MAX_COMPARE_COUNT}
-                            className="w-5 h-5 text-primary-600 border-gray-300 rounded focus:ring-primary-500 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
-                            aria-label={`${p.name} 비교 선택`}
-                          />
-                        </label>
-                      </td>
-                    )}
                     <td className="px-2 py-3 text-center">
                       <span className="font-bold text-gray-900 text-sm">{p.rank}</span>
                     </td>
@@ -693,48 +587,23 @@ export default function PoliticiansPage() {
           {filteredData.map((p) => (
             <div
               key={p.rank}
-              className={`
-                bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden touch-manipulation focus:outline-none focus:ring-2 focus:ring-primary-500 cursor-pointer
-                ${compareMode && selectedForCompare.includes(String(p.id)) ? 'ring-2 ring-primary-500 bg-primary-50/30' : ''}
-              `}
+              className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden touch-manipulation focus:outline-none focus:ring-2 focus:ring-primary-500 cursor-pointer"
               onClick={() => {
-                if (compareMode) {
-                  toggleCompareSelection(p.id);
-                } else {
-                  window.location.href = `/politicians/${p.id}`;
-                }
+                window.location.href = `/politicians/${p.id}`;
               }}
               onKeyDown={(e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                   e.preventDefault();
-                  if (compareMode) {
-                    toggleCompareSelection(p.id);
-                  } else {
-                    window.location.href = `/politicians/${p.id}`;
-                  }
+                  window.location.href = `/politicians/${p.id}`;
                 }
               }}
               tabIndex={0}
               role="button"
-              aria-label={compareMode ? `${p.name} 비교 선택` : `${p.name} 상세 정보 보기`}
+              aria-label={`${p.name} 상세 정보 보기`}
             >
               {/* Card Header with Rank and Grade */}
               <div className="bg-gradient-to-r from-primary-50 to-secondary-50 px-4 py-3 flex justify-between items-center">
                 <div className="flex items-center gap-3">
-                  {/* M6: 비교 모드 체크박스 */}
-                  {compareMode && (
-                    <div className="flex-shrink-0">
-                      <input
-                        type="checkbox"
-                        checked={selectedForCompare.includes(String(p.id))}
-                        onChange={(e) => toggleCompareSelection(p.id, e)}
-                        onClick={(e) => e.stopPropagation()}
-                        disabled={!selectedForCompare.includes(String(p.id)) && selectedForCompare.length >= MAX_COMPARE_COUNT}
-                        className="w-6 h-6 text-primary-600 border-gray-300 rounded focus:ring-primary-500 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
-                        aria-label={`${p.name} 비교 선택`}
-                      />
-                    </div>
-                  )}
                   <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-sm">
                     <span className="text-base font-bold text-primary-600">#{p.rank}</span>
                   </div>
@@ -900,72 +769,6 @@ export default function PoliticiansPage() {
           </div>
         )}
       </div>
-
-      {/* M6: 하단 고정 비교 바 */}
-      {compareMode && selectedForCompare.length > 0 && (
-        <div className="fixed bottom-0 left-0 right-0 z-50 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 shadow-lg">
-          <div className="max-w-7xl mx-auto px-4 py-3">
-            <div className="flex items-center justify-between gap-4">
-              {/* 선택된 정치인 미리보기 */}
-              <div className="flex-1 flex items-center gap-2 overflow-x-auto">
-                <span className="text-sm text-gray-600 dark:text-gray-400 whitespace-nowrap">
-                  선택됨:
-                </span>
-                <div className="flex gap-2">
-                  {selectedForCompare.map(id => {
-                    const politician = politicians.find(p => String(p.id) === id);
-                    return politician ? (
-                      <div
-                        key={id}
-                        className="inline-flex items-center gap-1 px-3 py-1 bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300 rounded-full text-sm whitespace-nowrap"
-                      >
-                        <span>{politician.name}</span>
-                        <button
-                          onClick={(e) => toggleCompareSelection(id, e)}
-                          className="hover:bg-primary-200 dark:hover:bg-primary-800 rounded-full p-0.5 transition"
-                          aria-label={`${politician.name} 선택 해제`}
-                        >
-                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                          </svg>
-                        </button>
-                      </div>
-                    ) : null;
-                  })}
-                </div>
-              </div>
-
-              {/* 버튼 그룹 */}
-              <div className="flex-shrink-0 flex items-center gap-2">
-                <button
-                  onClick={exitCompareMode}
-                  className="px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition min-h-touch"
-                >
-                  취소
-                </button>
-                <button
-                  onClick={goToComparePage}
-                  disabled={selectedForCompare.length < 2}
-                  className={`
-                    px-6 py-2 rounded-lg font-medium text-sm transition min-h-touch
-                    ${selectedForCompare.length >= 2
-                      ? 'bg-primary-500 text-white hover:bg-primary-600'
-                      : 'bg-gray-200 text-gray-400 cursor-not-allowed'
-                    }
-                  `}
-                >
-                  비교하기 ({selectedForCompare.length}명)
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* 비교 모드일 때 하단 패딩 추가 */}
-      {compareMode && selectedForCompare.length > 0 && (
-        <div className="h-20" aria-hidden="true" />
-      )}
     </div>
   );
 }
