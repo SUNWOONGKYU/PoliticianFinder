@@ -219,7 +219,7 @@ export const ImageGallery: React.FC<ImageGalleryProps> = ({
       <div className={`relative ${height} ${className}`} ref={galleryRef}>
         {/* 이미지 슬라이더 */}
         <div
-          className="relative w-full h-full overflow-hidden rounded-lg bg-gray-100"
+          className="relative w-full h-full overflow-hidden rounded-lg bg-gray-100 dark:bg-gray-800"
           onTouchStart={onTouchStart}
           onTouchMove={onTouchMove}
           onTouchEnd={onTouchEnd}
