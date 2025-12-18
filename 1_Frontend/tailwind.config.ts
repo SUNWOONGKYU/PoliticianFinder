@@ -14,6 +14,14 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  // Safelist for dynamically generated classes (party gradients in compare page)
+  safelist: [
+    'from-blue-400', 'to-blue-600',
+    'from-red-400', 'to-red-600',
+    'from-yellow-400', 'to-yellow-600',
+    'from-gray-400', 'to-gray-600',
+    'bg-gradient-to-br',
+  ],
   darkMode: 'class',  // 클래스 기반 다크모드 활성화
   theme: {
     extend: {
