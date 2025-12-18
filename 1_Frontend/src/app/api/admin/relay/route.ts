@@ -11,10 +11,13 @@ import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 import { createClient as createServerClient } from '@/lib/supabase/server';
 
-const supabaseAdmin = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
+// Lazy initialization to avoid build-time errors
+const getSupabaseAdmin = () => {
+  return createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY!
+  );
+};
 
 // GET: 중개 업체 목록 조회
 export async function GET(request: NextRequest) {
@@ -38,6 +41,7 @@ export async function GET(request: NextRequest) {
     const offset = (page - 1) * limit;
 
     // 기본 쿼리
+    const supabaseAdmin = getSupabaseAdmin();
     let query = supabaseAdmin
       .from('relay_providers')
       .select('*', { count: 'exact' });
@@ -153,6 +157,7 @@ export async function POST(request: NextRequest) {
       insertData.approved_by = user.id;
     }
 
+    const supabaseAdmin = getSupabaseAdmin();
     const { data, error } = await supabaseAdmin
       .from('relay_providers')
       .insert(insertData)
@@ -224,6 +229,8 @@ export async function PATCH(request: NextRequest) {
         { status: 400 }
       );
     }
+
+    const supabaseAdmin = getSupabaseAdmin();
 
     // 상태가 active로 변경되는 경우 승인 정보 추가
     if (updateFields.status === 'active') {
@@ -304,6 +311,8 @@ export async function DELETE(request: NextRequest) {
         { status: 400 }
       );
     }
+
+    const supabaseAdmin = getSupabaseAdmin();
 
     // 삭제 전 데이터 조회 (로그용)
     const { data: provider } = await supabaseAdmin

@@ -9,10 +9,13 @@ import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 import { createClient as createServerClient } from '@/lib/supabase/server';
 
-const supabaseAdmin = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
+// Lazy initialization to avoid build-time errors
+const getSupabaseAdmin = () => {
+  return createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY!
+  );
+};
 
 // GET: 연결 요청 목록 조회
 export async function GET(request: NextRequest) {
@@ -36,6 +39,7 @@ export async function GET(request: NextRequest) {
     const offset = (page - 1) * limit;
 
     // 기본 쿼리
+    const supabaseAdmin = getSupabaseAdmin();
     let query = supabaseAdmin
       .from('connections')
       .select(`
@@ -122,6 +126,7 @@ export async function PATCH(request: NextRequest) {
     }
 
     // 상태 업데이트
+    const supabaseAdmin = getSupabaseAdmin();
     const updateData: Record<string, unknown> = {
       status,
       processed_at: new Date().toISOString(),
