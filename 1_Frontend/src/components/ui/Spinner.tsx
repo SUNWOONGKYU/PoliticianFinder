@@ -112,7 +112,7 @@ export const LoadingPage: React.FC<LoadingPageProps> = ({
   return (
     <div className="flex flex-col items-center justify-center min-h-[400px] py-16">
       <Spinner size={size} variant="primary" />
-      <p className="text-gray-600 text-lg mt-4 font-medium">{message}</p>
+      <p className="text-gray-600 dark:text-gray-400 text-lg mt-4 font-medium">{message}</p>
     </div>
   );
 };
@@ -139,7 +139,31 @@ export const LoadingSection: React.FC<LoadingSectionProps> = ({
   return (
     <div className={`flex flex-col items-center justify-center ${height}`}>
       <Spinner size="md" variant="primary" />
-      <p className="text-gray-500 text-base mt-3">{message}</p>
+      <p className="text-gray-500 dark:text-gray-400 text-base mt-3">{message}</p>
+    </div>
+  );
+};
+
+/**
+ * 오버레이 로딩 컴포넌트 (전체 화면 덮기)
+ */
+export interface LoadingOverlayProps {
+  message?: string;
+  isVisible: boolean;
+}
+
+export const LoadingOverlay: React.FC<LoadingOverlayProps> = ({
+  message = '처리 중...',
+  isVisible,
+}) => {
+  if (!isVisible) return null;
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
+      <div className="bg-white dark:bg-gray-800 rounded-xl shadow-2xl p-8 flex flex-col items-center gap-4">
+        <Spinner size="lg" variant="primary" />
+        <p className="text-gray-700 dark:text-gray-300 text-lg font-medium">{message}</p>
+      </div>
     </div>
   );
 };
@@ -177,7 +201,7 @@ export const Skeleton: React.FC<SkeletonProps> = ({
 }) => {
   return (
     <div
-      className={`animate-pulse bg-gray-200 ${width} ${height} ${
+      className={`animate-pulse bg-gray-200 dark:bg-gray-700 ${width} ${height} ${
         circle ? 'rounded-full' : 'rounded'
       } ${className}`}
       role="status"
@@ -191,7 +215,7 @@ export const Skeleton: React.FC<SkeletonProps> = ({
  */
 export const PoliticianCardSkeleton: React.FC = () => {
   return (
-    <div className="bg-white rounded-xl shadow-md p-6 space-y-4">
+    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 space-y-4">
       {/* 프로필 이미지 + 이름 */}
       <div className="flex items-center gap-4">
         <Skeleton width="w-16" height="h-16" circle />
@@ -221,7 +245,7 @@ export const PoliticianCardSkeleton: React.FC = () => {
  */
 export const PostCardSkeleton: React.FC = () => {
   return (
-    <div className="bg-white rounded-lg border border-gray-200 p-6 space-y-4">
+    <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6 space-y-4">
       {/* 제목 */}
       <Skeleton width="w-3/4" height="h-6" />
 
@@ -249,12 +273,57 @@ export const TableRowSkeleton: React.FC<{ columns?: number }> = ({
   columns = 5,
 }) => {
   return (
-    <tr className="border-b border-gray-200">
+    <tr className="border-b border-gray-200 dark:border-gray-700">
       {Array.from({ length: columns }).map((_, index) => (
         <td key={index} className="px-4 py-3">
           <Skeleton width="w-full" height="h-4" />
         </td>
       ))}
     </tr>
+  );
+};
+
+/**
+ * 리스트 아이템 Skeleton 컴포넌트
+ */
+export const ListItemSkeleton: React.FC = () => {
+  return (
+    <div className="flex items-center gap-4 p-4 border-b border-gray-200 dark:border-gray-700">
+      <Skeleton width="w-10" height="h-10" circle />
+      <div className="flex-1 space-y-2">
+        <Skeleton width="w-1/3" height="h-4" />
+        <Skeleton width="w-2/3" height="h-3" />
+      </div>
+      <Skeleton width="w-16" height="h-8" />
+    </div>
+  );
+};
+
+/**
+ * 프로필 헤더 Skeleton 컴포넌트
+ */
+export const ProfileHeaderSkeleton: React.FC = () => {
+  return (
+    <div className="flex flex-col items-center space-y-4 p-6">
+      <Skeleton width="w-24" height="h-24" circle />
+      <div className="text-center space-y-2">
+        <Skeleton width="w-32" height="h-6" />
+        <Skeleton width="w-48" height="h-4" />
+      </div>
+      <div className="flex gap-6 mt-4">
+        <div className="text-center space-y-1">
+          <Skeleton width="w-12" height="h-5" />
+          <Skeleton width="w-16" height="h-3" />
+        </div>
+        <div className="text-center space-y-1">
+          <Skeleton width="w-12" height="h-5" />
+          <Skeleton width="w-16" height="h-3" />
+        </div>
+        <div className="text-center space-y-1">
+          <Skeleton width="w-12" height="h-5" />
+          <Skeleton width="w-16" height="h-3" />
+        </div>
+      </div>
+    </div>
   );
 };
