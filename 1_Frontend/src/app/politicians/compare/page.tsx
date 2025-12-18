@@ -278,8 +278,11 @@ function CompareContent() {
 
                   {/* View Detail Button */}
                   <button
-                    onClick={() => router.push(`/politicians/${p.id}`)}
-                    className="mt-4 w-full px-4 py-3 bg-primary-500 text-white rounded-lg hover:bg-primary-600 active:bg-primary-700 transition font-medium text-sm flex items-center justify-center gap-2"
+                    onClick={() => {
+                      console.log('Navigating to:', `/politicians/${p.id}`);
+                      window.location.href = `/politicians/${p.id}`;
+                    }}
+                    className="mt-4 w-full px-4 py-3 bg-primary-500 text-white rounded-lg hover:bg-primary-600 active:bg-primary-700 transition font-medium text-sm flex items-center justify-center gap-2 cursor-pointer"
                   >
                     상세 보기
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
