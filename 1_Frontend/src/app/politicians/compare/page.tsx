@@ -102,6 +102,22 @@ function CompareContent() {
     return partyColors[party] || 'bg-gray-400';
   };
 
+  // 정당별 그라데이션 색상 (프로필 이미지 없을 때 사용)
+  const getPartyGradient = (party: string) => {
+    const gradients: Record<string, string> = {
+      '더불어민주당': 'from-blue-400 to-blue-600',
+      '국민의힘': 'from-red-400 to-red-600',
+      '정의당': 'from-yellow-400 to-yellow-600',
+      '무소속': 'from-gray-400 to-gray-600',
+    };
+    return gradients[party] || 'from-gray-400 to-gray-600';
+  };
+
+  // 이름에서 성 추출 (첫 글자)
+  const getInitial = (name: string) => {
+    return name ? name.charAt(0) : '?';
+  };
+
   const getHighestScore = (field: 'totalScore' | 'claudeScore' | 'userRating') => {
     if (politicians.length === 0) return null;
     return Math.max(...politicians.map(p => p[field] || 0));
@@ -193,13 +209,15 @@ function CompareContent() {
                 <div className={`${getPartyColor(p.party)} h-2`} />
                 <div className="p-4">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-16 h-16 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center overflow-hidden">
+                    <div className="w-16 h-16 rounded-full flex items-center justify-center overflow-hidden shadow-md">
                       {p.profileImageUrl ? (
                         <Image src={p.profileImageUrl} alt={p.name} width={64} height={64} className="w-full h-full object-cover" unoptimized />
                       ) : (
-                        <svg className="w-10 h-10 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                        </svg>
+                        <div className={`w-full h-full bg-gradient-to-br ${getPartyGradient(p.party)} flex items-center justify-center`}>
+                          <span className="text-2xl font-bold text-white drop-shadow-sm">
+                            {getInitial(p.name)}
+                          </span>
+                        </div>
                       )}
                     </div>
                     <div className="flex-1">
@@ -259,12 +277,15 @@ function CompareContent() {
                   </div>
 
                   {/* View Detail Button */}
-                  <a
-                    href={`/politicians/${p.id}`}
-                    className="block mt-4 w-full text-center px-4 py-3 bg-primary-500 text-white rounded-lg hover:bg-primary-600 transition font-medium text-sm"
+                  <button
+                    onClick={() => router.push(`/politicians/${p.id}`)}
+                    className="mt-4 w-full px-4 py-3 bg-primary-500 text-white rounded-lg hover:bg-primary-600 active:bg-primary-700 transition font-medium text-sm flex items-center justify-center gap-2"
                   >
-                    상세 보기 →
-                  </a>
+                    상세 보기
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </button>
                 </div>
               </div>
             );
