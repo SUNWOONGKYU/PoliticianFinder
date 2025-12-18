@@ -120,6 +120,14 @@ This applies to ALL tables:
 | evaluation_score | INTEGER | AI evaluation score (0-100) |
 | evaluation_grade | TEXT | Letter grade |
 
+**Valid Enum Values:**
+
+| Field | Valid Values |
+|-------|-------------|
+| identity (신분) | 현직, 후보자, 예비후보자, 출마예정자, 출마자 |
+| position_type (출마직종) | 국회의원, 광역단체장, 광역의원, 기초단체장, 기초의원, 교육감 |
+| party (정당) | 더불어민주당, 국민의힘, 조국혁신당, 개혁신당, 진보당, 기본소득당, 사회민주당, 정의당, 무소속 |
+
 **Indexes:**
 - name
 - party
