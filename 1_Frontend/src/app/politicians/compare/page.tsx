@@ -259,105 +259,16 @@ function CompareContent() {
                   </div>
 
                   {/* View Detail Button */}
-                  <Link
+                  <a
                     href={`/politicians/${p.id}`}
-                    className="mt-4 w-full inline-flex items-center justify-center gap-2 px-4 py-3 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition font-medium text-sm"
+                    className="block mt-4 w-full text-center px-4 py-3 bg-primary-500 text-white rounded-lg hover:bg-primary-600 transition font-medium text-sm"
                   >
-                    상세 보기
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </Link>
+                    상세 보기 →
+                  </a>
                 </div>
               </div>
             );
           })}
-        </div>
-
-        {/* Comparison Table (Desktop) */}
-        <div className="hidden md:block bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden">
-          <div className="p-4 border-b border-gray-200 dark:border-gray-700">
-            <h2 className="text-lg font-bold text-gray-900 dark:text-white">상세 비교</h2>
-          </div>
-          <div className="overflow-x-auto">
-            <table className="w-full">
-              <thead className="bg-gray-50 dark:bg-gray-700">
-                <tr>
-                  <th className="px-4 py-3 text-left text-sm font-medium text-gray-700 dark:text-gray-300">항목</th>
-                  {politicians.map(p => (
-                    <th key={p.id} className="px-4 py-3 text-center text-sm font-medium text-gray-900 dark:text-white">
-                      {p.name}
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
-                <tr>
-                  <td className="px-4 py-3 text-sm text-gray-600 dark:text-gray-400">정당</td>
-                  {politicians.map(p => (
-                    <td key={p.id} className="px-4 py-3 text-center text-sm text-gray-900 dark:text-white">{p.party}</td>
-                  ))}
-                </tr>
-                <tr>
-                  <td className="px-4 py-3 text-sm text-gray-600 dark:text-gray-400">지역</td>
-                  {politicians.map(p => (
-                    <td key={p.id} className="px-4 py-3 text-center text-sm text-gray-900 dark:text-white">{p.region}</td>
-                  ))}
-                </tr>
-                <tr>
-                  <td className="px-4 py-3 text-sm text-gray-600 dark:text-gray-400">신분</td>
-                  {politicians.map(p => (
-                    <td key={p.id} className="px-4 py-3 text-center text-sm text-gray-900 dark:text-white">{p.identity}</td>
-                  ))}
-                </tr>
-                <tr>
-                  <td className="px-4 py-3 text-sm text-gray-600 dark:text-gray-400">평가 등급</td>
-                  {politicians.map(p => {
-                    const gradeInfo = getGradeDisplay(p.grade);
-                    return (
-                      <td key={p.id} className={`px-4 py-3 text-center text-sm font-bold ${gradeInfo.color}`}>
-                        {gradeInfo.emoji} {gradeInfo.name}
-                      </td>
-                    );
-                  })}
-                </tr>
-                <tr className="bg-primary-50 dark:bg-primary-900/20">
-                  <td className="px-4 py-3 text-sm font-medium text-gray-700 dark:text-gray-300">종합 점수</td>
-                  {politicians.map(p => (
-                    <td key={p.id} className={`px-4 py-3 text-center text-lg font-bold ${
-                      p.totalScore === getHighestScore('totalScore') ? 'text-primary-600 dark:text-primary-400' : 'text-gray-900 dark:text-white'
-                    }`}>
-                      {p.totalScore}점
-                    </td>
-                  ))}
-                </tr>
-                <tr>
-                  <td className="px-4 py-3 text-sm text-gray-600 dark:text-gray-400">Claude 평가</td>
-                  {politicians.map(p => (
-                    <td key={p.id} className={`px-4 py-3 text-center text-sm font-bold ${
-                      p.claudeScore === getHighestScore('claudeScore') ? 'text-accent-600 dark:text-accent-400' : 'text-gray-900 dark:text-white'
-                    }`}>
-                      {p.claudeScore}점
-                    </td>
-                  ))}
-                </tr>
-                <tr>
-                  <td className="px-4 py-3 text-sm text-gray-600 dark:text-gray-400">회원 평가</td>
-                  {politicians.map(p => (
-                    <td key={p.id} className="px-4 py-3 text-center">
-                      <span className={`text-sm font-bold ${
-                        p.userRating === getHighestScore('userRating') ? 'text-secondary-600 dark:text-secondary-400' : 'text-gray-900 dark:text-white'
-                      }`}>
-                        {'★'.repeat(Math.floor(p.userRating))}
-                        {'☆'.repeat(5 - Math.floor(p.userRating))}
-                      </span>
-                      <span className="text-xs text-gray-500 ml-1">({p.ratingCount}명)</span>
-                    </td>
-                  ))}
-                </tr>
-              </tbody>
-            </table>
-          </div>
         </div>
       </div>
     </div>
