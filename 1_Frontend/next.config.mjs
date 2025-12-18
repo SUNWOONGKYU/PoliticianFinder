@@ -1,7 +1,12 @@
 import { withSentryConfig } from "@sentry/nextjs";
 
 /** @type {import('next').NextConfig} */
+// Build cache invalidation: 2025-12-18T15:50:00
 const nextConfig = {
+  // Force rebuild
+  generateBuildId: async () => {
+    return `build-${Date.now()}`;
+  },
   // 이미지 최적화
   images: {
     remotePatterns: [
