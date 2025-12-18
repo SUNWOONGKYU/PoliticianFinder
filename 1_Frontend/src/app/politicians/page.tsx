@@ -343,6 +343,7 @@ export default function PoliticiansPage() {
                   <option value="현직">현직</option>
                   <option value="후보자">후보자</option>
                   <option value="예비후보자">예비후보자</option>
+                  <option value="출마예정자">출마예정자</option>
                   <option value="출마자">출마자</option>
                 </select>
               </div>
@@ -361,6 +362,7 @@ export default function PoliticiansPage() {
                   <option value="광역의원">광역의원</option>
                   <option value="기초단체장">기초단체장</option>
                   <option value="기초의원">기초의원</option>
+                  <option value="교육감">교육감</option>
                 </select>
               </div>
 
@@ -375,6 +377,11 @@ export default function PoliticiansPage() {
                   <option value="">전체</option>
                   <option value="더불어민주당">더불어민주당</option>
                   <option value="국민의힘">국민의힘</option>
+                  <option value="조국혁신당">조국혁신당</option>
+                  <option value="개혁신당">개혁신당</option>
+                  <option value="진보당">진보당</option>
+                  <option value="기본소득당">기본소득당</option>
+                  <option value="사회민주당">사회민주당</option>
                   <option value="정의당">정의당</option>
                   <option value="무소속">무소속</option>
                 </select>
