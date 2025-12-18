@@ -8,10 +8,13 @@ import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 import { createClient as createServerClient } from '@/lib/supabase/server';
 
-const supabaseAdmin = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
+// Lazy initialization to avoid build-time errors
+const getSupabaseAdmin = () => {
+  return createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY!
+  );
+};
 
 // POST: 문의 등록
 export async function POST(request: NextRequest) {
@@ -64,6 +67,7 @@ export async function POST(request: NextRequest) {
       message
     ].filter(Boolean).join('\n');
 
+    const supabaseAdmin = getSupabaseAdmin();
     const { data, error } = await supabaseAdmin
       .from('inquiries')
       .insert({
@@ -117,6 +121,7 @@ export async function GET(request: NextRequest) {
     }
 
     // 내 문의 목록 조회 (user_id 또는 이메일로)
+    const supabaseAdmin = getSupabaseAdmin();
     const { data, error } = await supabaseAdmin
       .from('inquiries')
       .select('*')
