@@ -5,7 +5,8 @@ import { NextRequest, NextResponse } from 'next/server';
 import { createAdminClient } from '@/lib/supabase/server';
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Lazy initialization to avoid build-time errors
+const getResend = () => new Resend(process.env.RESEND_API_KEY);
 
 // 6자리 숫자 코드 생성
 function generateCode(): string {
@@ -101,6 +102,7 @@ export async function POST(request: NextRequest) {
     }
 
     // 7. 이메일 발송
+    const resend = getResend();
     try {
       await resend.emails.send({
         from: 'noreply@politicianfinder.ai.kr',
