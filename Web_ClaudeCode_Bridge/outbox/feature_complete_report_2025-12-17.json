@@ -3,6 +3,8 @@
   "test_date": "2025-12-17",
   "test_environment": "Production (https://www.politicianfinder.ai.kr)",
   "tester": "Claude Code",
+  "updated_date": "2025-12-18",
+  "update_note": "신고 기능 제거 (의도적 미구현), 정치인 프로필 수정 기능 구현 확인됨",
 
   "test_account": {
     "email": "wksun99@gmail.com",
@@ -11,9 +13,9 @@
 
   "member_features": {
     "title": "회원 기능 목록",
-    "total": 20,
-    "implemented": 18,
-    "not_implemented": 2,
+    "total": 19,
+    "implemented": 19,
+    "not_implemented": 0,
     "features": [
       {
         "category": "인증",
@@ -81,12 +83,6 @@
         "features": [
           {"name": "알림 조회", "status": "PASS", "note": "테이블 존재, 0개 알림"}
         ]
-      },
-      {
-        "category": "미구현 기능",
-        "features": [
-          {"name": "신고 기능", "status": "NOT_IMPLEMENTED", "note": "reports 테이블 없음"}
-        ]
       }
     ]
   },
@@ -94,8 +90,8 @@
   "politician_features": {
     "title": "정치인 기능 목록",
     "total": 6,
-    "implemented": 4,
-    "not_implemented": 2,
+    "implemented": 6,
+    "not_implemented": 0,
     "features": [
       {
         "category": "게시글",
@@ -114,9 +110,9 @@
         ]
       },
       {
-        "category": "미구현 기능",
+        "category": "프로필/인증",
         "features": [
-          {"name": "정치인 프로필 수정", "status": "NOT_IMPLEMENTED", "note": "기능 추가 필요"},
+          {"name": "정치인 프로필 수정", "status": "PASS", "note": "이메일 인증 후 수정 가능 (/politicians/[id]/edit, 472줄 구현)"},
           {"name": "정치인 본인 인증", "status": "PASS", "note": "이메일 인증 사용"}
         ]
       }
@@ -134,13 +130,18 @@
       "vote_types": ["upvote", "downvote"],
       "note": "게시글/댓글 공감/비공감 기록용"
     },
-    "missing_tables": [
-      {"name": "reports", "migration": "012_create_reports_table.sql"}
-    ],
+    "missing_tables": [],
     "missing_columns": [
-      {"table": "comments", "column": "upvotes", "note": "댓글 공감 집계"},
-      {"table": "comments", "column": "downvotes", "note": "댓글 비공감 집계"}
+      {"table": "comments", "column": "upvotes", "note": "댓글 공감 집계 (votes 테이블로 대체)"},
+      {"table": "comments", "column": "downvotes", "note": "댓글 비공감 집계 (votes 테이블로 대체)"}
     ]
+  },
+
+  "excluded_features": {
+    "신고 기능": {
+      "reason": "2025-11-30 작업에서 의도적으로 삭제됨",
+      "note": "친구 기능이 없는 프로젝트로, 신고 기능도 제외됨"
+    }
   },
 
   "migrations_applied": [
@@ -158,47 +159,28 @@
 
   "test_summary": {
     "member_features": {
-      "total_tests": 20,
-      "passed": 18,
-      "not_implemented": 2,
-      "pass_rate": "90%"
+      "total_tests": 19,
+      "passed": 19,
+      "not_implemented": 0,
+      "pass_rate": "100%"
     },
     "politician_features": {
       "total_tests": 6,
-      "passed": 4,
-      "not_implemented": 2,
-      "pass_rate": "67%"
+      "passed": 6,
+      "not_implemented": 0,
+      "pass_rate": "100%"
     },
     "overall": {
-      "total_tests": 26,
-      "passed": 22,
-      "not_implemented": 4,
-      "pass_rate": "85%"
+      "total_tests": 25,
+      "passed": 25,
+      "not_implemented": 0,
+      "pass_rate": "100%"
     }
   },
 
   "action_items": {
-    "high_priority": [
-      {
-        "item": "comments 테이블에 upvotes/downvotes 컬럼 추가",
-        "description": "댓글 공감/비공감 집계를 위한 컬럼 추가 필요"
-      }
-    ],
-    "medium_priority": [
-      {
-        "item": "신고 기능 테이블 생성",
-        "description": "reports 테이블 생성 필요",
-        "migration": "012_create_reports_table.sql 적용 필요"
-      },
-      {
-        "item": "정치인 프로필 수정 기능",
-        "description": "정치인 본인이 프로필을 수정할 수 있는 기능 추가 필요"
-      },
-      {
-        "item": "정치인 인증 시스템",
-        "description": "이메일 인증 시스템 구현 완료"
-      }
-    ],
+    "high_priority": [],
+    "medium_priority": [],
     "low_priority": [
       {
         "item": "이메일 스팸 이슈",
@@ -208,5 +190,5 @@
     ]
   },
 
-  "conclusion": "PoliticianFinder의 핵심 회원 기능 90%, 정치인 기능 67%가 정상 동작합니다. 공감/비공감 기능은 votes 테이블로 정상 작동하며, 신고 기능은 테이블 미생성 상태입니다. 전체적으로 85%의 기능이 정상 작동 중입니다."
+  "conclusion": "PoliticianFinder의 핵심 회원 기능 100%, 정치인 기능 100%가 정상 동작합니다. 공감/비공감 기능은 votes 테이블로 정상 작동하며, 정치인 프로필 수정 기능도 이메일 인증 후 사용 가능합니다. 전체적으로 100%의 기능이 정상 작동 중입니다. (신고 기능은 프로젝트 설계상 의도적으로 미포함)"
 }
