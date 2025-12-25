@@ -1,4 +1,5 @@
 'use client';
+import { useRequireAuth } from '@/hooks/useRequireAuth';
 
 import { useState, useMemo, useEffect } from 'react';
 import Link from 'next/link';
@@ -14,6 +15,21 @@ interface Politician {
 }
 
 export default function FavoritesPage() {
+  // P7F1: Page-level authentication protection
+  const { user: authUser, loading: authLoading } = useRequireAuth();
+
+  // P7F1: Show loading while checking authentication
+  if (authLoading) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600 mb-4"></div>
+          <p className="text-gray-600">로딩 중...</p>
+        </div>
+      </div>
+    );
+  }
+
   const [searchQuery, setSearchQuery] = useState('');
   const [favorites, setFavorites] = useState<Politician[]>([]);
   const [showAlert, setShowAlert] = useState(false);

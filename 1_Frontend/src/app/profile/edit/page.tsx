@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { useRequireAuth } from '@/hooks/useRequireAuth';
 import { useState, useEffect, useMemo } from 'react';
 import { CONSTITUENCIES } from '@/constants/constituencies';
 
@@ -27,6 +28,21 @@ interface UserData {
 }
 
 export default function ProfileEditPage() {
+  // P7F1: Page-level authentication protection
+  const { user: authUser, loading: authLoading } = useRequireAuth();
+
+  // P7F1: Show loading while checking authentication
+  if (authLoading) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600 mb-4"></div>
+          <p className="text-gray-600">로딩 중...</p>
+        </div>
+      </div>
+    );
+  }
+
   const [formData, setFormData] = useState<ProfileFormData>({
     nickname: '',
     email: '',

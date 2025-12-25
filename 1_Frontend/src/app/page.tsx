@@ -519,9 +519,9 @@ export default function Home() {
     <main className="bg-gray-50">
       {/* 메인 레이아웃 */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <div className="flex flex-col lg:flex-row gap-6">
           {/* 메인 콘텐츠 (왼쪽) */}
-          <div className="lg:col-span-9 space-y-6">
+          <div className="flex-1 min-w-0 space-y-6">
             {/* 검색 섹션 */}
             <section className="bg-white rounded-lg shadow-lg p-3">
               <div className="space-y-4">
@@ -635,70 +635,67 @@ export default function Home() {
                   <>
                     {/* 데스크톱: 테이블 */}
                     <div className="hidden md:block overflow-x-auto">
-                  <table className="w-full text-xs">
+                  <table className="w-full text-[13px]">
                     <thead className="bg-gray-100 border-b-2 border-primary-500">
                       <tr>
                         <th className="px-1 py-2 text-center font-bold text-gray-900 whitespace-nowrap">순위</th>
                         <th className="px-1 py-2 text-left font-bold text-gray-900 whitespace-nowrap">이름</th>
-                        <th className="px-1 py-2 text-left font-bold text-gray-900 max-w-16">직책</th>
-                        <th className="px-1 py-2 text-left font-bold text-gray-900 max-w-20">정당</th>
+                        <th className="px-1 py-2 text-left font-bold text-gray-900 whitespace-nowrap">직책</th>
+                        <th className="px-1 py-2 text-left font-bold text-gray-900 whitespace-nowrap">정당</th>
                         <th className="px-1 py-2 text-left font-bold text-gray-900 whitespace-nowrap">신분</th>
                         <th className="px-1 py-2 text-left font-bold text-gray-900 whitespace-nowrap">출마직종</th>
-                        <th className="px-1 py-2 text-left font-bold text-gray-900 w-16">출마지역</th>
-                        <th className="px-1 py-2 text-left font-bold text-gray-900 w-28">출마지구</th>
-                        <th className="px-1 py-2 text-center font-bold text-gray-900">평가등급</th>
-                        <th className="px-1 py-2 text-center font-bold text-gray-900">종합평점</th>
-                        <th className="px-1 py-2 text-center font-bold text-gray-900">
+                        <th className="px-1 py-2 text-left font-bold text-gray-900 whitespace-nowrap">출마지역</th>
+                        <th className="px-1 py-2 text-left font-bold text-gray-900 w-24">출마지구</th>
+                        <th className="px-1 py-2 text-center font-bold text-gray-900 whitespace-nowrap">평가등급</th>
+                        <th className="px-1 py-2 text-center font-bold text-gray-900 whitespace-nowrap">종합평점</th>
+                        <th className="px-1 py-2 text-center font-bold text-gray-900 w-16">
                           <div className="flex flex-col items-center">
                             <Image src={aiLogos.claude} alt="Claude" width={16} height={16} className="h-4 w-4 object-contain rounded" unoptimized />
-                            <span className="text-xs whitespace-nowrap">Claude</span>
+                            <span className="whitespace-nowrap">Claude</span>
                           </div>
                         </th>
-                        <th className="px-1 py-2 text-center font-bold text-gray-900">
+                        <th className="px-1 py-2 text-center font-bold text-gray-900 w-16">
                           <div className="flex flex-col items-center">
                             <Image src={aiLogos.chatgpt} alt="ChatGPT" width={16} height={16} className="h-4 w-4 object-contain" unoptimized />
-                            <span className="text-xs whitespace-nowrap">GPT</span>
+                            <span className="whitespace-nowrap">GPT</span>
                           </div>
                         </th>
-                        <th className="px-1 py-2 text-center font-bold text-gray-900">
+                        <th className="px-1 py-2 text-center font-bold text-gray-900 w-16">
                           <div className="flex flex-col items-center">
                             <Image src={aiLogos.grok} alt="Grok" width={16} height={16} className="h-4 w-4 object-contain" unoptimized />
-                            <span className="text-xs whitespace-nowrap">Grok</span>
+                            <span className="whitespace-nowrap">Grok</span>
                           </div>
                         </th>
-                        <th className="px-1 py-2 text-center font-bold text-gray-900">회원평가</th>
+                        <th className="px-1 py-2 text-center font-bold text-gray-900 whitespace-nowrap">회원평가</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-200">
                       {politicians.map((p) => (
-                        <tr key={p.id} className="hover:bg-gray-50 cursor-pointer">
+                        <tr key={p.id} className="hover:bg-orange-50 cursor-pointer transition-colors">
                           <td className="px-1 py-2 text-center whitespace-nowrap">
-                            <span className="font-bold text-gray-900 text-sm">{p.rank}</span>
+                            <span className="font-bold text-gray-900">{p.rank}</span>
                           </td>
                           <td className="px-1 py-2 whitespace-nowrap">
                             <Link href={`/politicians/${p.id}`}>
-                              <span className="font-bold text-primary-600 hover:text-primary-700 text-sm">
-                                {p.name} <span className="text-xs">›</span>
+                              <span className="font-bold text-primary-600 hover:text-primary-700">
+                                {p.name} ›
                               </span>
                             </Link>
                           </td>
-                          <td className="px-1 py-2 text-gray-600 text-xs whitespace-nowrap max-w-16 truncate">{p.title || '-'}</td>
-                          <td className="px-1 py-2 text-gray-600 text-xs whitespace-nowrap max-w-20 truncate">{p.party}</td>
-                          <td className="px-1 py-2 text-gray-600 text-xs whitespace-nowrap">{p.identity}</td>
-                          <td className="px-1 py-2 text-gray-600 text-xs whitespace-nowrap">{p.positionType || '-'}</td>
-                          <td className="px-1 py-2 text-gray-600 text-xs whitespace-nowrap w-16">{p.region}</td>
-                          <td className="px-1 py-2 text-gray-600 text-xs whitespace-nowrap w-28">{p.district || '-'}</td>
-                          <td className="px-1 py-2 text-center text-xs font-semibold text-accent-600 whitespace-nowrap">{p.gradeEmoji} {p.grade}</td>
-                          <td className="px-1 py-2 text-center font-bold text-accent-600 text-sm whitespace-nowrap">{p.totalScore > 0 ? p.totalScore : '-'}</td>
-                          <td className="px-1 py-2 text-center font-bold text-accent-600 text-sm whitespace-nowrap">{p.claude > 0 ? p.claude : '-'}</td>
-                          <td className="px-1 py-2 text-center font-bold text-accent-600 text-sm whitespace-nowrap">{p.chatgpt > 0 ? p.chatgpt : '-'}</td>
-                          <td className="px-1 py-2 text-center font-bold text-accent-600 text-sm whitespace-nowrap">{p.grok > 0 ? p.grok : '-'}</td>
+                          <td className="px-1 py-2 text-gray-600 whitespace-nowrap">{p.title || '-'}</td>
+                          <td className="px-1 py-2 text-gray-600 whitespace-nowrap">{p.party}</td>
+                          <td className="px-1 py-2 text-gray-600 whitespace-nowrap">{p.identity}</td>
+                          <td className="px-1 py-2 text-gray-600 whitespace-nowrap">{p.positionType || '-'}</td>
+                          <td className="px-1 py-2 text-gray-600 whitespace-nowrap">{p.region}</td>
+                          <td className="px-1 py-2 text-gray-600 w-24 truncate" title={p.district || '-'}>{p.district || '-'}</td>
+                          <td className="px-1 py-2 text-center font-bold text-accent-600 whitespace-nowrap">{p.gradeEmoji} {p.grade}</td>
+                          <td className="px-1 py-2 text-center font-bold text-accent-600 whitespace-nowrap">{p.totalScore > 0 ? p.totalScore : '-'}</td>
+                          <td className="px-1 py-2 text-center font-bold text-accent-600 whitespace-nowrap">{p.claude > 0 ? p.claude : '-'}</td>
+                          <td className="px-1 py-2 text-center font-bold text-accent-600 whitespace-nowrap">{p.chatgpt > 0 ? p.chatgpt : '-'}</td>
+                          <td className="px-1 py-2 text-center font-bold text-accent-600 whitespace-nowrap">{p.grok > 0 ? p.grok : '-'}</td>
                           <td className="px-1 py-2 text-center whitespace-nowrap">
-                            <div className="font-bold text-secondary-600" style={{ fontSize: '0.6rem' }}>
+                            <div className="font-bold text-secondary-600" style={{ fontSize: '0.656rem' }}>
                               {'★'.repeat(Math.round(p.userRating))}{'☆'.repeat(5 - Math.round(p.userRating))}
-                            </div>
-                            <div className="text-gray-500" style={{ fontSize: '0.55rem' }}>
-                              ({p.userCount || 0}명)
                             </div>
                           </td>
                         </tr>
@@ -1078,8 +1075,8 @@ export default function Home() {
             </section>
           </div>
 
-          {/* 우측 사이드바 */}
-          <aside className="lg:col-span-3 space-y-4">
+          {/* 우측 사이드바 - 고정 너비 320px */}
+          <aside className="lg:w-80 lg:flex-shrink-0 space-y-4">
             {/* 공지사항 */}
             <div className="bg-white rounded-lg shadow p-4">
               <div className="flex items-center justify-between mb-3 pb-2 border-b-2 border-primary-500">

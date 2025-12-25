@@ -197,3 +197,8 @@ body {
 .slide-in-from-bottom-2 {
   animation-name: slideInFromBottom;
 }
+
+/* ===== 전역 컨테이너 너비 확장 (1280px → 1400px) ===== */
+.max-w-7xl {
+  max-width: 1400px !important;
+}

@@ -1,7 +1,8 @@
 /**
- * Project Grid Task ID: P1F2
- * 작업명: 로그인 페이지
- * 설명: 사용자 로그인 기능 구현
+ * Project Grid Task ID: P1F2, P7F1
+ * 작업명: 로그인 페이지 + 리다이렉트 처리
+ * 설명: 사용자 로그인 기능 구현, 인증 후 원래 페이지 리다이렉트
+ * P7F1 수정: Open Redirect 취약점 수정 (2025-12-18)
  */
 
 'use client';
@@ -73,7 +74,22 @@ export default function LoginPage() {
         return;
       }
 
-      window.location.href = '/';
+      // P7F1: 로그인 성공 후 원래 페이지로 리다이렉트 또는 홈으로 이동
+      // P7F1 보안 수정: Open Redirect 취약점 방지 - 내부 경로만 허용
+      const searchParams = new URLSearchParams(window.location.search);
+      const redirectUrl = searchParams.get('redirect');
+      let safeRedirect = '/';
+
+      if (redirectUrl) {
+        const decoded = decodeURIComponent(redirectUrl);
+        // 상대 경로('/'로 시작)이면서 '//'로 시작하지 않는 경우만 허용
+        // 외부 URL(https://evil.com)이나 프로토콜 상대 URL(//evil.com)은 차단
+        if (decoded.startsWith('/') && !decoded.startsWith('//')) {
+          safeRedirect = decoded;
+        }
+      }
+
+      window.location.href = safeRedirect;
     } catch (err) {
       setError('오류가 발생했습니다.');
     } finally {
