@@ -486,25 +486,25 @@ export default function Home() {
     }
   };
 
-  // Floating CTA Component
+  // Floating CTA Component - 모바일 최적화: 터치 타겟 확보, safe-area 대응
   const FloatingCTA = () => (
-    <div className="fixed bottom-6 right-6 z-50 flex gap-3">
+    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex gap-2 sm:gap-3 safe-area-bottom">
       {/* 검색 버튼 */}
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-        className="bg-primary-500 text-white px-6 py-3 rounded-full shadow-lg hover:bg-primary-600 transition-all hover:scale-105 flex items-center gap-2"
+        className="bg-primary-500 text-white px-4 sm:px-6 py-3 min-h-[48px] rounded-full shadow-lg hover:bg-primary-600 transition-all active:scale-95 flex items-center gap-2 touch-manipulation"
         aria-label="맨 위로 스크롤하여 검색"
       >
         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
         </svg>
-        <span>검색</span>
+        <span className="hidden sm:inline">검색</span>
       </button>
 
       {/* 평가하기 버튼 - 정치인 목록 페이지로 이동 */}
       <button
         onClick={() => window.location.href = '/politicians'}
-        className="bg-secondary-600 text-white p-3 rounded-full shadow-lg hover:bg-secondary-700 transition-all hover:scale-105"
+        className="bg-secondary-600 text-white p-3 min-w-[48px] min-h-[48px] rounded-full shadow-lg hover:bg-secondary-700 transition-all active:scale-95 flex items-center justify-center touch-manipulation"
         title="정치인 평가하기"
         aria-label="정치인 평가하기"
       >
@@ -555,7 +555,7 @@ export default function Home() {
                   </div>
                   <button
                     onClick={handleSearch}
-                    className="px-8 py-3 bg-primary-500 text-white rounded-lg hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-300 font-semibold text-sm shadow-sm"
+                    className="px-6 sm:px-8 py-3 min-h-[44px] min-w-[64px] bg-primary-500 text-white rounded-lg hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-300 font-semibold text-sm shadow-sm touch-manipulation active:bg-primary-700"
                   >
                     검색
                   </button>
@@ -563,59 +563,59 @@ export default function Home() {
               </div>
             </section>
 
-            {/* 통계 섹션 */}
-            <section className="bg-gradient-to-br from-primary-50 to-secondary-50 rounded-lg shadow-lg p-8">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {/* 통계 섹션 - 모바일 최적화: 패딩 줄이기, 폰트 사이즈 조정 */}
+            <section className="bg-gradient-to-br from-primary-50 to-secondary-50 rounded-lg shadow-lg p-4 sm:p-6 md:p-8">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
                 {/* 등록된 정치인 */}
-                <div className="text-center bg-white/70 backdrop-blur-sm rounded-lg p-6 hover:shadow-md transition-shadow">
-                  <div className="text-4xl md:text-5xl font-bold text-primary-600 mb-2">
+                <div className="text-center bg-white/70 backdrop-blur-sm rounded-lg p-3 sm:p-4 md:p-6 hover:shadow-md transition-shadow">
+                  <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary-600 mb-1 sm:mb-2">
                     {statistics.politicians > 0 ? `${statistics.politicians.toLocaleString()}+` : '...'}
                   </div>
-                  <div className="text-sm md:text-base text-gray-700 font-medium">
+                  <div className="text-xs sm:text-sm md:text-base text-gray-700 font-medium">
                     등록된 정치인
                   </div>
                 </div>
 
                 {/* 회원 */}
-                <div className="text-center bg-white/70 backdrop-blur-sm rounded-lg p-6 hover:shadow-md transition-shadow">
-                  <div className="text-4xl md:text-5xl font-bold text-secondary-600 mb-2">
+                <div className="text-center bg-white/70 backdrop-blur-sm rounded-lg p-3 sm:p-4 md:p-6 hover:shadow-md transition-shadow">
+                  <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-secondary-600 mb-1 sm:mb-2">
                     {statistics.users > 0 ? `${statistics.users.toLocaleString()}+` : '...'}
                   </div>
-                  <div className="text-sm md:text-base text-gray-700 font-medium">
+                  <div className="text-xs sm:text-sm md:text-base text-gray-700 font-medium">
                     회원
                   </div>
                 </div>
 
                 {/* 커뮤니티 글 */}
-                <div className="text-center bg-white/70 backdrop-blur-sm rounded-lg p-6 hover:shadow-md transition-shadow">
-                  <div className="text-4xl md:text-5xl font-bold text-green-600 mb-2">
+                <div className="text-center bg-white/70 backdrop-blur-sm rounded-lg p-3 sm:p-4 md:p-6 hover:shadow-md transition-shadow">
+                  <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-green-600 mb-1 sm:mb-2">
                     {statistics.posts > 0 ? `${statistics.posts.toLocaleString()}+` : '...'}
                   </div>
-                  <div className="text-sm md:text-base text-gray-700 font-medium">
+                  <div className="text-xs sm:text-sm md:text-base text-gray-700 font-medium">
                     커뮤니티 글
                   </div>
                 </div>
 
                 {/* 평가 참여자 */}
-                <div className="text-center bg-white/70 backdrop-blur-sm rounded-lg p-6 hover:shadow-md transition-shadow">
-                  <div className="text-4xl md:text-5xl font-bold text-blue-600 mb-2">
+                <div className="text-center bg-white/70 backdrop-blur-sm rounded-lg p-3 sm:p-4 md:p-6 hover:shadow-md transition-shadow">
+                  <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-blue-600 mb-1 sm:mb-2">
                     {statistics.ratings > 0 ? `${statistics.ratings.toLocaleString()}+` : '...'}
                   </div>
-                  <div className="text-sm md:text-base text-gray-700 font-medium">
+                  <div className="text-xs sm:text-sm md:text-base text-gray-700 font-medium">
                     평가 참여자
                   </div>
                 </div>
               </div>
             </section>
 
-            {/* 정치인 순위 섹션 */}
+            {/* 정치인 순위 섹션 - 모바일 최적화 */}
             <section className="bg-white rounded-lg shadow">
-              <div className="px-4 pt-4">
-                <h2 className="text-2xl font-bold text-gray-900">🏆 정치인 순위 TOP 10</h2>
-                <p className="text-sm text-gray-600 mt-1">
+              <div className="px-3 sm:px-4 pt-3 sm:pt-4">
+                <h2 className="text-xl sm:text-2xl font-bold text-gray-900">🏆 정치인 순위 TOP 10</h2>
+                <p className="text-xs sm:text-sm text-gray-600 mt-1 line-clamp-2 sm:line-clamp-none">
                   공개된 데이터를 활용하여 AI가 객관적으로 산출한 정치인 평점 순위 (상위 10명)
                 </p>
-                <div className="w-full h-0.5 bg-primary-500 mt-3 mb-4"></div>
+                <div className="w-full h-0.5 bg-primary-500 mt-2 sm:mt-3 mb-3 sm:mb-4"></div>
               </div>
               <div className="p-4">
                 {/* Loading state */}
@@ -920,11 +920,11 @@ export default function Home() {
               </div>
             </section>
 
-            {/* 정치인 최근 게시글 섹션 */}
+            {/* 정치인 최근 게시글 섹션 - 모바일 최적화 */}
             <section className="bg-white rounded-lg shadow">
-              <div className="p-4 border-b-2 border-primary-500">
-                <h2 className="text-2xl font-bold text-gray-900">📝 정치인 최근 게시글</h2>
-                <p className="text-sm text-gray-600 mt-1">정치인들이 작성한 최신 글</p>
+              <div className="p-3 sm:p-4 border-b-2 border-primary-500">
+                <h2 className="text-xl sm:text-2xl font-bold text-gray-900">📝 정치인 최근 게시글</h2>
+                <p className="text-xs sm:text-sm text-gray-600 mt-1">정치인들이 작성한 최신 글</p>
               </div>
               <div className="divide-y">
                 {postsLoading ? (
@@ -938,40 +938,39 @@ export default function Home() {
                 ) : (
                   politicianPosts.map((post) => (
                     <Link key={post.id} href={`/community/posts/${post.id}`}>
-                      <div className="p-4 hover:bg-gray-50 cursor-pointer">
+                      <div className="p-3 sm:p-4 hover:bg-gray-50 cursor-pointer active:bg-gray-100 touch-manipulation">
                         <div className="flex items-start justify-between">
-                          <div className="flex-1">
-                            <h3 className="font-bold text-gray-900 mb-1">
+                          <div className="flex-1 min-w-0">
+                            <h3 className="font-bold text-gray-900 mb-1 text-sm sm:text-base truncate-2">
                               {post.title}
                             </h3>
-                            <p className="text-sm text-gray-600 mb-2 line-clamp-2">
+                            <p className="text-xs sm:text-sm text-gray-600 mb-2 line-clamp-2">
                               {post.content}
                             </p>
-                            <div className="flex items-center gap-3 text-xs text-gray-500">
-                              {post.politician_id ? (
-                                <Link
-                                  href={`/politicians/${post.politician_id}`}
-                                  className="font-medium text-primary-600 hover:text-primary-700 hover:underline"
-                                  onClick={(e) => e.stopPropagation()}
-                                >
-                                  {post.politician_name} | {post.politician_position} • {post.politician_party}
-                                </Link>
-                              ) : (
-                                <span className="font-medium text-primary-600">
-                                  {post.author}
-                                </span>
-                              )}
-                              <span>{formatDate(post.created_at)}</span>
-                              <span>조회 {post.view_count}</span>
-                              <span className="text-red-600">👍 {post.upvotes}</span>
-                              <span className="text-gray-400">👎 0</span>
-                              <span>댓글 {post.comment_count}</span>
-                              <span className="flex items-center gap-1">
-                                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
-                                </svg>
-                                공유 0
-                              </span>
+                            {/* 메타 정보 - 모바일: 2줄, 데스크탑: 1줄 */}
+                            <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3 text-xs text-gray-500">
+                              <div className="flex items-center gap-2 flex-wrap">
+                                {post.politician_id ? (
+                                  <Link
+                                    href={`/politicians/${post.politician_id}`}
+                                    className="font-medium text-primary-600 hover:text-primary-700 hover:underline truncate max-w-[200px]"
+                                    onClick={(e) => e.stopPropagation()}
+                                  >
+                                    {post.politician_name} | {post.politician_position}
+                                  </Link>
+                                ) : (
+                                  <span className="font-medium text-primary-600 truncate">
+                                    {post.author}
+                                  </span>
+                                )}
+                                <span className="hidden sm:inline">{formatDate(post.created_at)}</span>
+                              </div>
+                              <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
+                                <span className="sm:hidden text-[10px]">{formatDate(post.created_at)}</span>
+                                <span>조회 {post.view_count}</span>
+                                <span className="text-red-600">👍 {post.upvotes}</span>
+                                <span>댓글 {post.comment_count}</span>
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -982,11 +981,11 @@ export default function Home() {
               </div>
             </section>
 
-            {/* 커뮤니티 인기 게시글 섹션 */}
+            {/* 커뮤니티 인기 게시글 섹션 - 모바일 최적화 */}
             <section className="bg-white rounded-lg shadow">
-              <div className="p-4 border-b-2 border-secondary-500">
-                <h2 className="text-2xl font-bold text-gray-900">🔥 커뮤니티 인기 게시글</h2>
-                <p className="text-sm text-gray-600 mt-1">이번 주 가장 인기 있는 글</p>
+              <div className="p-3 sm:p-4 border-b-2 border-secondary-500">
+                <h2 className="text-xl sm:text-2xl font-bold text-gray-900">🔥 커뮤니티 인기 게시글</h2>
+                <p className="text-xs sm:text-sm text-gray-600 mt-1">이번 주 가장 인기 있는 글</p>
               </div>
               <div className="divide-y">
                 {postsLoading ? (
@@ -1000,62 +999,57 @@ export default function Home() {
                 ) : (
                   popularPosts.map((post) => (
                     <Link key={post.id} href={`/community/posts/${post.id}`}>
-                      <div className="p-4 hover:bg-gray-50 cursor-pointer">
+                      <div className="p-3 sm:p-4 hover:bg-gray-50 cursor-pointer active:bg-gray-100 touch-manipulation">
                         <div className="flex items-start justify-between">
-                          <div className="flex-1">
-                            <div className="flex items-center gap-2 mb-1">
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-center gap-1 sm:gap-2 mb-1 flex-wrap">
                               {post.is_hot && (
-                                <span className="px-2 py-0.5 bg-red-100 text-red-600 text-xs font-bold rounded">
+                                <span className="px-1.5 sm:px-2 py-0.5 bg-red-100 text-red-600 text-[10px] sm:text-xs font-bold rounded">
                                   Hot
                                 </span>
                               )}
                               {post.is_best && (
-                                <span className="px-2 py-0.5 bg-yellow-100 text-yellow-800 text-xs font-bold rounded">
+                                <span className="px-1.5 sm:px-2 py-0.5 bg-yellow-100 text-yellow-800 text-[10px] sm:text-xs font-bold rounded">
                                   Best
                                 </span>
                               )}
-                              <h3 className="font-bold text-gray-900">
+                              <h3 className="font-bold text-gray-900 text-sm sm:text-base truncate">
                                 {post.title}
                               </h3>
                             </div>
-                            <p className="text-sm text-gray-600 mb-2 line-clamp-2">
+                            <p className="text-xs sm:text-sm text-gray-600 mb-2 line-clamp-2">
                               {post.content}
                             </p>
-                            <div className="flex items-center gap-3 text-xs text-gray-500">
-                              {post.politician_id ? (
-                                <Link
-                                  href={`/politicians/${post.politician_id}`}
-                                  className="font-medium text-primary-600 hover:text-primary-700 hover:underline"
-                                  onClick={(e) => e.stopPropagation()}
-                                >
-                                  {post.politician_name} | {post.politician_position} • {post.politician_party}
-                                </Link>
-                              ) : (
-                                <>
-                                  <span className="font-medium text-secondary-600">
-                                    {post.author}
-                                  </span>
-                                  {post.member_level && (
-                                    <span className="text-xs text-gray-900 font-medium" title={`활동 등급: ${post.member_level}`}>
-                                      {post.member_level}
+                            {/* 메타 정보 - 모바일: 2줄, 데스크탑: 1줄 */}
+                            <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3 text-xs text-gray-500">
+                              <div className="flex items-center gap-2 flex-wrap">
+                                {post.politician_id ? (
+                                  <Link
+                                    href={`/politicians/${post.politician_id}`}
+                                    className="font-medium text-primary-600 hover:text-primary-700 hover:underline truncate max-w-[180px]"
+                                    onClick={(e) => e.stopPropagation()}
+                                  >
+                                    {post.politician_name} | {post.politician_position}
+                                  </Link>
+                                ) : (
+                                  <>
+                                    <span className="font-medium text-secondary-600 truncate">
+                                      {post.author}
                                     </span>
-                                  )}
-                                  <span className="text-xs text-emerald-900 font-medium">
-                                    {formatInfluenceGrade(0)}
-                                  </span>
-                                </>
-                              )}
-                              <span>{formatDate(post.created_at)}</span>
-                              <span>조회 {post.view_count}</span>
-                              <span className="text-red-600">👍 {post.upvotes}</span>
-                              <span className="text-gray-400">👎 0</span>
-                              <span>댓글 {post.comment_count}</span>
-                              <span className="flex items-center gap-1">
-                                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
-                                </svg>
-                                공유 0
-                              </span>
+                                    {post.member_level && (
+                                      <span className="text-[10px] sm:text-xs text-gray-900 font-medium" title={`활동 등급: ${post.member_level}`}>
+                                        {post.member_level}
+                                      </span>
+                                    )}
+                                  </>
+                                )}
+                              </div>
+                              <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
+                                <span className="text-[10px] sm:text-xs">{formatDate(post.created_at)}</span>
+                                <span>조회 {post.view_count}</span>
+                                <span className="text-red-600">👍 {post.upvotes}</span>
+                                <span>댓글 {post.comment_count}</span>
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -1075,8 +1069,8 @@ export default function Home() {
             </section>
           </div>
 
-          {/* 우측 사이드바 - 고정 너비 320px */}
-          <aside className="lg:w-80 lg:flex-shrink-0 space-y-4">
+          {/* 우측 사이드바 - 모바일: 전체 너비, 데스크탑: 고정 320px */}
+          <aside className="w-full lg:w-80 lg:flex-shrink-0 space-y-3 sm:space-y-4">
             {/* 공지사항 */}
             <div className="bg-white rounded-lg shadow p-4">
               <div className="flex items-center justify-between mb-3 pb-2 border-b-2 border-primary-500">
@@ -1404,38 +1398,38 @@ export default function Home() {
         </div>
       </div>
 
-      {/* 이용 방법 섹션 */}
-      <section className="bg-white py-16 mt-12 border-t-4 border-secondary-500">
+      {/* 이용 방법 섹션 - 모바일 최적화 */}
+      <section className="bg-white py-8 sm:py-12 md:py-16 mt-8 sm:mt-12 border-t-4 border-secondary-500">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-3">이용 방법</h2>
-            <p className="text-gray-600">간단한 3단계로 시작하세요</p>
+          <div className="text-center mb-6 sm:mb-8 md:mb-12">
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2 sm:mb-3">이용 방법</h2>
+            <p className="text-sm sm:text-base text-gray-600">간단한 3단계로 시작하세요</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-4 md:gap-8">
             <div className="text-center">
-              <div className="inline-flex items-center justify-center w-20 h-20 bg-secondary-600 text-white rounded-full text-3xl font-bold mb-4">
+              <div className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 bg-secondary-600 text-white rounded-full text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4">
                 1
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">회원가입</h3>
-              <p className="text-gray-600">
+              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3">회원가입</h3>
+              <p className="text-sm sm:text-base text-gray-600">
                 간단한 정보만 입력하면 손쉽게 회원 가입을 할 수 있습니다.
               </p>
             </div>
             <div className="text-center">
-              <div className="inline-flex items-center justify-center w-20 h-20 bg-secondary-600 text-white rounded-full text-3xl font-bold mb-4">
+              <div className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 bg-secondary-600 text-white rounded-full text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4">
                 2
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">정치인 검색</h3>
-              <p className="text-gray-600">
+              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3">정치인 검색</h3>
+              <p className="text-sm sm:text-base text-gray-600">
                 관심있는 정치인을 검색하고 AI가 산출한 평가점수와 내역을 확인해보세요.
               </p>
             </div>
             <div className="text-center">
-              <div className="inline-flex items-center justify-center w-20 h-20 bg-secondary-600 text-white rounded-full text-3xl font-bold mb-4">
+              <div className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 bg-secondary-600 text-white rounded-full text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4">
                 3
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">참여하기</h3>
-              <p className="text-gray-600">
+              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3">참여하기</h3>
+              <p className="text-sm sm:text-base text-gray-600">
                 정치인들에 대해서 평가하고, 정치와 관련된 다양한 주제에 대하여 자신의 주장을 하고
                 토론하면서 보상 포인트를 모아보세요.
               </p>
