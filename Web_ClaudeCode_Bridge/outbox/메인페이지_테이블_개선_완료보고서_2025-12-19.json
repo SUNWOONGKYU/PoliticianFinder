@@ -1,0 +1,98 @@
+{
+  "task_name": "메인 페이지 테이블 디자인 개선",
+  "status": "완료",
+  "date": "2025-12-19",
+  "generator": "Claude Code",
+
+  "summary": "메인 페이지 정치인 순위 테이블의 가독성 및 레이아웃 전면 개선",
+
+  "changes": {
+    "container": {
+      "before": "max-w-7xl (1280px)",
+      "after": "1400px (globals.css 오버라이드)",
+      "reason": "테이블 14개 컬럼 공간 확보"
+    },
+    "sidebar": {
+      "before": "lg:col-span-3 (그리드 비율)",
+      "after": "lg:w-80 lg:flex-shrink-0 (고정 320px)",
+      "reason": "메인 콘텐츠 영역 최대화"
+    },
+    "layout": {
+      "before": "grid-cols-12",
+      "after": "flex flex-col lg:flex-row",
+      "reason": "사이드바 고정 너비 적용"
+    },
+    "font_size": {
+      "before": "text-xs (12px) / text-sm (14px) 혼재",
+      "after": "text-[13px] 전체 통일",
+      "reason": "가독성 향상 및 일관성"
+    },
+    "font_weight": {
+      "bold": ["순위", "이름", "평가등급", "종합평점", "Claude", "GPT", "Grok"],
+      "regular": ["직책", "정당", "신분", "출마직종", "출마지역", "출마지구"],
+      "reason": "시각적 계층 구조 명확화"
+    },
+    "column_widths": {
+      "출마지구": {
+        "before": "w-28 (112px)",
+        "after": "w-24 (96px) + truncate + tooltip",
+        "reason": "6자 표시, 나머지 마우스 오버로 확인"
+      },
+      "AI_columns": {
+        "before": "너비 미지정",
+        "after": "w-16 (64px)",
+        "reason": "일관된 컬럼 너비"
+      }
+    },
+    "hover_effect": {
+      "before": "hover:bg-gray-50",
+      "after": "hover:bg-orange-50 transition-colors",
+      "reason": "행 추적 용이, 정치적 중립 (파란색 → 주황색)"
+    },
+    "headers": {
+      "change": "모든 헤더에 whitespace-nowrap 적용",
+      "reason": "헤더 텍스트 한 줄 유지 (평가등급 등)"
+    }
+  },
+
+  "files_modified": [
+    {
+      "path": "1_Frontend/src/app/page.tsx",
+      "changes": [
+        "레이아웃 grid → flex 변경",
+        "테이블 폰트 크기 13px 통일",
+        "컬럼 너비 조정",
+        "호버 효과 변경"
+      ]
+    },
+    {
+      "path": "1_Frontend/src/app/globals.css",
+      "changes": [
+        "max-w-7xl을 1400px로 오버라이드 (전역 적용)"
+      ]
+    }
+  ],
+
+  "verification": {
+    "ui_designer_review": "8.5/10",
+    "issues_resolved": [
+      "폰트 크기 너무 작음 (12px → 13px)",
+      "평가등급 헤더 두 줄 표시 → 한 줄",
+      "출마지구 공간 부족 → truncate + tooltip",
+      "테이블 공간 부족 → 컨테이너 확장"
+    ],
+    "build": "성공",
+    "deploy": "성공"
+  },
+
+  "additional_data_update": {
+    "politician": "안태준",
+    "changes": {
+      "region": "인천",
+      "district": "미추홀구"
+    },
+    "reason": "출마지역/출마지구 표시 테스트용 데이터 입력"
+  },
+
+  "deployment_url": "https://www.politicianfinder.com/"
+}

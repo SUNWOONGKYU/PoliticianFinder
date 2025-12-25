@@ -202,10 +202,10 @@ export default function PoliticiansPage() {
           </p>
         </div>
 
-        {/* Search & Filter */}
-        <div className="bg-white rounded-lg shadow-md p-6 mb-6">
-          <div className="space-y-4">
-            {/* Search Row */}
+        {/* Search & Filter - 모바일 최적화 */}
+        <div className="bg-white rounded-lg shadow-md p-4 sm:p-6 mb-4 sm:mb-6">
+          <div className="space-y-3 sm:space-y-4">
+            {/* Search Row - 44px 터치 타겟 */}
             <div className="flex gap-2">
               <input
                 type="search"
@@ -213,9 +213,9 @@ export default function PoliticiansPage() {
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 placeholder="이름, 정당, 지역 검색"
-                className="flex-1 px-4 py-2 border-2 border-primary-200 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-300 focus:border-primary-500 text-base"
+                className="flex-1 px-3 sm:px-4 py-3 min-h-[44px] border-2 border-primary-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-300 focus:border-primary-500 text-base touch-manipulation"
               />
-              <button className="px-8 py-2 bg-primary-500 text-white rounded-md hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-300 font-medium text-sm shadow-sm whitespace-nowrap">
+              <button className="px-4 sm:px-8 py-3 min-h-[44px] min-w-[64px] bg-primary-500 text-white rounded-lg hover:bg-primary-600 active:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-300 font-medium text-sm shadow-sm whitespace-nowrap touch-manipulation">
                 검색
               </button>
             </div>
@@ -302,7 +302,7 @@ export default function PoliticiansPage() {
 
                 <button
                   onClick={handleResetFilters}
-                  className="text-sm text-primary-600 hover:text-primary-800 font-medium"
+                  className="min-h-[44px] px-3 py-2 text-sm text-primary-600 hover:text-primary-800 active:text-primary-900 font-medium touch-manipulation rounded-lg active:bg-primary-50"
                 >
                   전체 초기화
                 </button>
@@ -313,7 +313,7 @@ export default function PoliticiansPage() {
             <div className="md:hidden mb-4">
               <button
                 onClick={() => setShowMobileFilters(!showMobileFilters)}
-                className="w-full px-4 py-3 bg-white border-2 border-primary-500 text-primary-700 rounded-lg font-medium flex items-center justify-between min-h-touch"
+                className="w-full px-4 py-3 bg-white border-2 border-primary-500 text-primary-700 rounded-lg font-medium flex items-center justify-between min-h-[44px] touch-manipulation active:bg-primary-50"
                 aria-label={showMobileFilters ? '필터 패널 닫기' : '필터 패널 열기'}
                 aria-expanded={showMobileFilters}
               >
@@ -337,7 +337,7 @@ export default function PoliticiansPage() {
                 <select
                   value={identityFilter}
                   onChange={(e) => setIdentityFilter(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-200 focus:border-primary-500 text-sm"
+                  className="w-full px-3 sm:px-4 py-3 min-h-[44px] border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-200 focus:border-primary-500 text-base touch-manipulation bg-white"
                 >
                   <option value="">전체</option>
                   <option value="현직">현직</option>
@@ -354,7 +354,7 @@ export default function PoliticiansPage() {
                 <select
                   value={categoryFilter}
                   onChange={(e) => setCategoryFilter(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-200 focus:border-primary-500 text-sm"
+                  className="w-full px-3 sm:px-4 py-3 min-h-[44px] border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-200 focus:border-primary-500 text-base touch-manipulation bg-white"
                 >
                   <option value="">전체</option>
                   <option value="국회의원">국회의원</option>
@@ -372,7 +372,7 @@ export default function PoliticiansPage() {
                 <select
                   value={partyFilter}
                   onChange={(e) => setPartyFilter(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-200 focus:border-primary-500 text-sm"
+                  className="w-full px-3 sm:px-4 py-3 min-h-[44px] border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-200 focus:border-primary-500 text-base touch-manipulation bg-white"
                 >
                   <option value="">전체</option>
                   <option value="더불어민주당">더불어민주당</option>
@@ -395,7 +395,7 @@ export default function PoliticiansPage() {
                 <select
                   value={regionFilter}
                   onChange={(e) => setRegionFilter(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-200 focus:border-primary-500 text-sm"
+                  className="w-full px-3 sm:px-4 py-3 min-h-[44px] border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-200 focus:border-primary-500 text-base touch-manipulation bg-white"
                 >
                   <option value="">전체</option>
 
@@ -432,7 +432,7 @@ export default function PoliticiansPage() {
                 <select
                   value={gradeFilter}
                   onChange={(e) => setGradeFilter(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-200 focus:border-primary-500 text-sm"
+                  className="w-full px-3 sm:px-4 py-3 min-h-[44px] border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-200 focus:border-primary-500 text-base touch-manipulation bg-white"
                 >
                   <option value="">전체</option>
                   <option value="M">🌺 Mugunghwa (940-1000점)</option>
@@ -451,7 +451,7 @@ export default function PoliticiansPage() {
               {/* Filter Search Button */}
               <div className="flex-shrink-0">
                 <label className="block text-xs font-medium text-gray-700 mb-1 invisible">검색</label>
-                <button className="px-8 py-3 bg-primary-500 text-white rounded-md hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-300 font-medium text-sm shadow-sm whitespace-nowrap">
+                <button className="px-4 sm:px-8 py-3 min-h-[44px] bg-primary-500 text-white rounded-lg hover:bg-primary-600 active:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-300 font-medium text-sm shadow-sm whitespace-nowrap touch-manipulation">
                   필터 검색
                 </button>
               </div>
@@ -461,7 +461,7 @@ export default function PoliticiansPage() {
                 <label className="block text-xs font-medium text-gray-700 mb-1 invisible">초기화</label>
                 <button
                   onClick={handleResetFilters}
-                  className="px-8 py-3 bg-primary-100 text-primary-700 border-2 border-primary-300 rounded-md hover:bg-primary-200 focus:outline-none focus:ring-2 focus:ring-primary-300 font-medium text-sm shadow-sm whitespace-nowrap"
+                  className="px-4 sm:px-8 py-3 min-h-[44px] bg-primary-100 text-primary-700 border-2 border-primary-300 rounded-lg hover:bg-primary-200 active:bg-primary-300 focus:outline-none focus:ring-2 focus:ring-primary-300 font-medium text-sm shadow-sm whitespace-nowrap touch-manipulation"
                 >
                   초기화
                 </button>
@@ -498,7 +498,7 @@ export default function PoliticiansPage() {
                 <p className="text-red-600 text-sm mb-3">잠시 후 다시 시도해주세요.</p>
                 <button
                   onClick={() => window.location.reload()}
-                  className="px-4 py-2 bg-red-100 text-red-700 rounded-lg hover:bg-red-200 transition text-sm font-medium"
+                  className="px-4 py-3 min-h-[44px] bg-red-100 text-red-700 rounded-lg hover:bg-red-200 active:bg-red-300 transition text-sm font-medium touch-manipulation"
                 >
                   새로고침
                 </button>
@@ -708,28 +708,37 @@ export default function PoliticiansPage() {
         </div>
         )}
 
-        {/* Pagination Controls */}
+        {/* Pagination Controls - 모바일 최적화 */}
         {totalPages > 1 && (
-          <div className="flex justify-center gap-2 mt-8 mb-4">
+          <div className="flex flex-wrap justify-center gap-1 sm:gap-2 mt-6 sm:mt-8 mb-4 px-2">
             <button
               onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
               disabled={currentPage === 1}
-              className={`px-4 py-2 rounded-lg font-medium transition ${
+              className={`min-h-[44px] min-w-[44px] px-3 sm:px-4 py-2 rounded-lg font-medium transition touch-manipulation ${
                 currentPage === 1
                   ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
-                  : 'bg-gray-500 text-white hover:bg-gray-600'
+                  : 'bg-gray-500 text-white hover:bg-gray-600 active:bg-gray-700'
               }`}
             >
               이전
             </button>
-            {Array.from({ length: Math.min(totalPages, 10) }, (_, i) => i + 1).map(pageNum => (
+            {/* 모바일에서는 5개, 데스크탑에서는 10개 표시 */}
+            {Array.from({ length: Math.min(totalPages, 10) }, (_, i) => i + 1)
+              .filter((pageNum) => {
+                // 모바일에서는 현재 페이지 주변 2개씩만 표시
+                if (typeof window !== 'undefined' && window.innerWidth < 640) {
+                  return Math.abs(pageNum - currentPage) <= 2 || pageNum === 1 || pageNum === totalPages;
+                }
+                return true;
+              })
+              .map(pageNum => (
               <button
                 key={pageNum}
                 onClick={() => setCurrentPage(pageNum)}
-                className={`px-4 py-2 rounded-lg font-medium transition ${
+                className={`min-h-[44px] min-w-[44px] px-3 sm:px-4 py-2 rounded-lg font-medium transition touch-manipulation ${
                   currentPage === pageNum
                     ? 'bg-primary-500 text-white'
-                    : 'bg-white text-gray-700 border-2 border-gray-300 hover:bg-gray-50'
+                    : 'bg-white text-gray-700 border-2 border-gray-300 hover:bg-gray-50 active:bg-gray-100'
                 }`}
               >
                 {pageNum}
@@ -738,10 +747,10 @@ export default function PoliticiansPage() {
             <button
               onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 1))}
               disabled={currentPage >= totalPages}
-              className={`px-4 py-2 rounded-lg font-medium transition ${
+              className={`min-h-[44px] min-w-[44px] px-3 sm:px-4 py-2 rounded-lg font-medium transition touch-manipulation ${
                 currentPage >= totalPages
                   ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
-                  : 'bg-gray-500 text-white hover:bg-gray-600'
+                  : 'bg-gray-500 text-white hover:bg-gray-600 active:bg-gray-700'
               }`}
             >
               다음
