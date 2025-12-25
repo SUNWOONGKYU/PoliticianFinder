@@ -418,14 +418,14 @@ export default function PoliticianDetailPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Breadcrumb - 모바일 접근성을 위해 최소 14px */}
+        {/* Breadcrumb - 모바일 접근성을 위해 44px 터치 타겟 */}
         <nav className="mb-6">
-          <ol className="flex items-center space-x-2 text-sm sm:text-base text-gray-600 min-h-touch">
-            <li><Link href="/" className="hover:text-primary-600 py-1">홈</Link></li>
-            <li>›</li>
-            <li><Link href="/politicians" className="hover:text-primary-600 py-1">정치인 목록</Link></li>
-            <li>›</li>
-            <li className="text-gray-900 font-medium py-1">{politician.name}</li>
+          <ol className="flex items-center flex-wrap gap-1 text-sm sm:text-base text-gray-600">
+            <li><Link href="/" className="hover:text-primary-600 px-2 py-2 min-h-[44px] inline-flex items-center touch-manipulation active:bg-gray-100 rounded-lg">홈</Link></li>
+            <li className="text-gray-400">›</li>
+            <li><Link href="/politicians" className="hover:text-primary-600 px-2 py-2 min-h-[44px] inline-flex items-center touch-manipulation active:bg-gray-100 rounded-lg">정치인 목록</Link></li>
+            <li className="text-gray-400">›</li>
+            <li className="text-gray-900 font-medium px-2 py-2">{politician.name}</li>
           </ol>
         </nav>
 
@@ -1013,11 +1013,14 @@ export default function PoliticianDetailPage() {
       {/* P3BA35: AI 평가 상세 모달 - API categoryScores 사용 */}
       {showAIDetailModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-lg max-w-3xl w-full max-h-[90vh] overflow-y-auto p-6">
+          <div className="bg-white rounded-lg max-w-3xl w-full max-h-[90vh] overflow-y-auto p-4 sm:p-6">
             {/* 헤더 */}
             <div className="flex items-center justify-between mb-6 border-b pb-4">
-              <h3 className="text-2xl font-bold text-gray-900">{politician.name} - V24.0 AI 평가 상세</h3>
-              <button onClick={() => setShowAIDetailModal(false)} className="text-gray-500 hover:text-gray-700">
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-900">{politician.name} - V24.0 AI 평가 상세</h3>
+              <button
+                onClick={() => setShowAIDetailModal(false)}
+                className="min-w-[44px] min-h-[44px] flex items-center justify-center text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-lg touch-manipulation"
+              >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
@@ -1088,10 +1091,13 @@ export default function PoliticianDetailPage() {
       {/* 현재 구매 섹션이 숨김 처리되어 있으므로 이 모달은 열리지 않음 */}
       {showPurchaseModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-lg max-w-md w-full p-6">
+          <div className="bg-white rounded-lg max-w-md w-full p-4 sm:p-6">
             <div className="flex items-center justify-between mb-6 border-b pb-4">
-              <h3 className="text-xl font-bold text-gray-900">정치인 AI 상세평가보고서 구매</h3>
-              <button onClick={() => setShowPurchaseModal(false)} className="text-gray-500 hover:text-gray-700">
+              <h3 className="text-lg sm:text-xl font-bold text-gray-900">정치인 AI 상세평가보고서 구매</h3>
+              <button
+                onClick={() => setShowPurchaseModal(false)}
+                className="min-w-[44px] min-h-[44px] flex items-center justify-center text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-lg touch-manipulation"
+              >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
@@ -1123,10 +1129,10 @@ export default function PoliticianDetailPage() {
             </div>
 
             <div className="flex gap-3">
-              <button onClick={() => setShowPurchaseModal(false)} className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition">
+              <button onClick={() => setShowPurchaseModal(false)} className="flex-1 px-4 py-3 min-h-[44px] border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 active:bg-gray-100 transition touch-manipulation">
                 취소
               </button>
-              <button onClick={confirmPurchase} className="flex-1 px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition">
+              <button onClick={confirmPurchase} className="flex-1 px-4 py-3 min-h-[44px] bg-gray-900 text-white rounded-lg hover:bg-gray-800 active:bg-gray-950 transition touch-manipulation">
                 구매하기
               </button>
             </div>
@@ -1137,16 +1143,16 @@ export default function PoliticianDetailPage() {
       {/* 별점 평가 모달 */}
       {showRatingModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-          <div className="bg-white rounded-lg shadow-xl max-w-md w-full p-6">
+          <div className="bg-white rounded-lg shadow-xl max-w-md w-full p-4 sm:p-6">
             <div className="flex items-center justify-between mb-6">
-              <h3 className="text-xl font-bold text-gray-900">별점 평가</h3>
+              <h3 className="text-lg sm:text-xl font-bold text-gray-900">별점 평가</h3>
               <button
                 onClick={() => {
                   setShowRatingModal(false);
                   setUserRating(0);
                   setHoverRating(0);
                 }}
-                className="text-gray-400 hover:text-gray-600 transition"
+                className="min-w-[44px] min-h-[44px] flex items-center justify-center text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-lg transition touch-manipulation"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -1155,22 +1161,22 @@ export default function PoliticianDetailPage() {
             </div>
 
             <div className="mb-6">
-              <p className="text-gray-700 mb-4 text-center">
+              <p className="text-gray-700 mb-4 text-center text-base">
                 <span className="font-bold">{politician.name}</span> 정치인에 대한 평가를 남겨주세요
               </p>
 
-              {/* 별점 UI */}
-              <div className="flex justify-center gap-2 mb-2">
+              {/* 별점 UI - 48px 터치 타겟 */}
+              <div className="flex justify-center gap-1 sm:gap-2 mb-2">
                 {[1, 2, 3, 4, 5].map((star) => (
                   <button
                     key={star}
                     onClick={() => setUserRating(star)}
                     onMouseEnter={() => setHoverRating(star)}
                     onMouseLeave={() => setHoverRating(0)}
-                    className="transition-transform hover:scale-110"
+                    className="min-w-[48px] min-h-[48px] flex items-center justify-center transition-transform hover:scale-110 active:scale-95 touch-manipulation"
                   >
                     <svg
-                      className="w-12 h-12"
+                      className="w-10 h-10 sm:w-12 sm:h-12"
                       fill={star <= (hoverRating || userRating) ? '#F59E0B' : 'none'}
                       stroke={star <= (hoverRating || userRating) ? '#F59E0B' : '#D1D5DB'}
                       strokeWidth={2}
@@ -1187,7 +1193,7 @@ export default function PoliticianDetailPage() {
               </div>
 
               <div className="text-center">
-                <span className="text-gray-600">
+                <span className="text-gray-600 text-base">
                   {userRating > 0 ? '★'.repeat(userRating) : '별점 평가를 해주세요'}
                 </span>
               </div>
@@ -1200,13 +1206,13 @@ export default function PoliticianDetailPage() {
                   setUserRating(0);
                   setHoverRating(0);
                 }}
-                className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition"
+                className="flex-1 px-4 py-3 min-h-[44px] border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 active:bg-gray-100 transition touch-manipulation"
               >
                 취소
               </button>
               <button
                 onClick={handleRatingSubmit}
-                className="flex-1 px-4 py-2 bg-secondary-600 text-white rounded-lg hover:bg-secondary-700 transition"
+                className="flex-1 px-4 py-3 min-h-[44px] bg-secondary-600 text-white rounded-lg hover:bg-secondary-700 active:bg-secondary-800 transition touch-manipulation"
               >
                 평가 제출
               </button>
