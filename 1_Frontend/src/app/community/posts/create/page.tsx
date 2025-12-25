@@ -277,7 +277,7 @@ export default function CreatePostPage() {
           {/* Category */}
           <div>
             <label className="block text-sm font-medium text-gray-900 mb-2">카테고리</label>
-            <div className="w-full px-4 py-2 border border-gray-300 rounded-lg bg-gray-50">
+            <div className="w-full px-4 py-3 min-h-[44px] border border-gray-300 rounded-lg bg-gray-50 flex items-center">
               <span className="font-medium text-purple-600">💬 회원 자유게시판</span>
             </div>
           </div>
@@ -295,7 +295,7 @@ export default function CreatePostPage() {
                 onChange={(e) => setPoliticianSearch(e.target.value)}
                 placeholder="정치인 이름 검색..."
                 autoComplete="off"
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+                className="w-full px-4 py-3 min-h-[44px] border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-base touch-manipulation"
               />
 
               {/* Search Results Dropdown */}
@@ -314,7 +314,7 @@ export default function CreatePostPage() {
                         <div
                           key={index}
                           onClick={() => selectPolitician(p)}
-                          className="p-3 hover:bg-gray-100 cursor-pointer border-b last:border-b-0"
+                          className="min-h-[44px] p-3 hover:bg-gray-100 active:bg-gray-200 cursor-pointer border-b last:border-b-0 touch-manipulation"
                         >
                           <div className="font-medium text-gray-900">{p.name}</div>
                           <div className="text-xs text-gray-600">{p.party} · {p.position}</div>
@@ -343,7 +343,7 @@ export default function CreatePostPage() {
               required
               maxLength={100}
               placeholder="제목을 입력하세요 (최대 100자)"
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-base"
+              className="w-full px-4 py-3 min-h-[44px] border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-base touch-manipulation"
             />
             <div className="text-right mt-1">
               <span className="text-sm text-gray-500">{title.length} / 100</span>
@@ -362,7 +362,7 @@ export default function CreatePostPage() {
               required
               rows={10}
               placeholder="내용을 입력하세요&#10;&#10;• 타인을 비방하거나 명예를 훼손하는 내용은 삼가주세요.&#10;• 허위 사실을 유포하거나 악의적인 내용은 삭제될 수 있습니다.&#10;• 건전한 토론 문화를 만들어 주세요."
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 resize-none text-base md:rows-15"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 resize-none text-base touch-manipulation"
             />
             <div className="text-right mt-1">
               <span className="text-sm text-gray-500">{content.length}자</span>
@@ -380,7 +380,7 @@ export default function CreatePostPage() {
               value={tags}
               onChange={(e) => setTags(e.target.value)}
               placeholder="태그를 쉼표(,)로 구분하여 입력하세요"
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+              className="w-full px-4 py-3 min-h-[44px] border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-base touch-manipulation"
             />
             <p className="text-sm text-gray-500 mt-1">최대 5개까지 입력 가능합니다.</p>
           </div>
@@ -455,20 +455,20 @@ export default function CreatePostPage() {
             <button
               type="button"
               onClick={() => router.back()}
-              className="flex-1 px-6 py-3 min-h-touch border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 font-medium transition"
+              className="flex-1 flex items-center justify-center px-6 py-3 min-h-[44px] border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 active:bg-gray-100 font-medium transition touch-manipulation"
             >
               취소
             </button>
             <button
               type="button"
               onClick={saveDraft}
-              className="flex-1 px-6 py-3 min-h-touch border border-purple-600 text-purple-600 rounded-lg hover:bg-purple-50 font-medium transition"
+              className="flex-1 flex items-center justify-center px-6 py-3 min-h-[44px] border border-purple-600 text-purple-600 rounded-lg hover:bg-purple-50 active:bg-purple-100 font-medium transition touch-manipulation"
             >
               임시저장
             </button>
             <button
               type="submit"
-              className="flex-1 px-6 py-3 min-h-touch bg-purple-600 text-white rounded-lg hover:bg-purple-700 font-medium transition"
+              className="flex-1 flex items-center justify-center px-6 py-3 min-h-[44px] bg-purple-600 text-white rounded-lg hover:bg-purple-700 active:bg-purple-800 font-medium transition touch-manipulation"
             >
               등록하기
             </button>
@@ -476,7 +476,7 @@ export default function CreatePostPage() {
         </form>
       </main>
 
-      {/* Alert Modal */}
+      {/* Alert Modal - 모바일 최적화 */}
       {showAlert && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
           <div className="bg-white rounded-lg max-w-sm w-full p-6">
@@ -486,7 +486,7 @@ export default function CreatePostPage() {
             <div className="flex justify-center">
               <button
                 onClick={closeAlertModal}
-                className="px-8 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-500 transition"
+                className="min-h-[44px] min-w-[120px] px-8 py-3 bg-gray-900 text-white rounded-lg hover:bg-gray-800 active:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 transition touch-manipulation font-medium"
               >
                 확인
               </button>
