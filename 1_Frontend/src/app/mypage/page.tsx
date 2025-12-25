@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { getInfluenceGrade, formatInfluenceGrade } from '@/utils/memberLevel';
 import GradeUpgradeModal from '@/components/GradeUpgradeModal';
 import useGradeNotification from '@/hooks/useGradeNotification';
+import { useRequireAuth } from '@/hooks/useRequireAuth';
 
 type TabType = 'posts' | 'comments' | 'activity' | 'favorites';
 
@@ -67,6 +68,21 @@ interface FavoritePolitician {
 }
 
 export default function MypagePage() {
+  // P7F1: 페이지 레벨 인증 보호
+  const { user: authUser, loading: authLoading } = useRequireAuth();
+
+  // P7F1: 인증 로딩 중일 때 로딩 표시
+  if (authLoading) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600 mb-4"></div>
+          <p className="text-gray-600">로딩 중...</p>
+        </div>
+      </div>
+    );
+  }
+
   const [activeTab, setActiveTab] = useState<TabType>('posts');
   const [userData, setUserData] = useState<UserData | null>(null);
   const [userStats, setUserStats] = useState<UserStats | null>(null);

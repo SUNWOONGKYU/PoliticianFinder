@@ -1,9 +1,25 @@
 'use client';
 
 import { useState } from 'react';
+import { useRequireAuth } from '@/hooks/useRequireAuth';
 import Link from 'next/link';
 
 export default function SettingsPage() {
+  // P7F1: Page-level authentication protection
+  const { user: authUser, loading: authLoading } = useRequireAuth();
+
+  // P7F1: Show loading while checking authentication
+  if (authLoading) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600 mb-4"></div>
+          <p className="text-gray-600">로딩 중...</p>
+        </div>
+      </div>
+    );
+  }
+
   const [notifications, setNotifications] = useState({
     comments: true,
     likes: true,
