@@ -62,9 +62,10 @@ export default function Header() {
             <Link href="/" className="text-2xl font-bold text-primary-600 dark:text-primary-400">
               PoliticianFinder
             </Link>
-            <div className="hidden md:block w-48">
-              <div className="font-bold text-gray-900 dark:text-gray-100" style={{ fontSize: 'clamp(0.5rem, 3vw, 1rem)', width: '100%' }}>훌륭한 정치인 찾기</div>
-              <div className="text-gray-900 dark:text-gray-300 font-medium" style={{ fontSize: 'clamp(0.38rem, 2.28vw, 0.7125rem)', width: '100%' }}>AI 기반 정치인 평가 플랫폼</div>
+            {/* 캐치프레이즈: sm(480px) 이상에서 표시 */}
+            <div className="hidden sm:block w-40 md:w-48">
+              <div className="font-bold text-gray-900 dark:text-gray-100 text-xs sm:text-sm md:text-base truncate">훌륭한 정치인 찾기</div>
+              <div className="text-gray-900 dark:text-gray-300 font-medium text-[10px] sm:text-xs md:text-sm truncate">AI 기반 정치인 평가 플랫폼</div>
             </div>
           </div>
 
@@ -144,20 +145,20 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu - 모바일 최적화: 44px 터치 타겟, 액티브 피드백 */}
         {mobileMenuOpen && (
-          <div className="md:hidden pb-4">
-            <div className="flex flex-col space-y-2">
-              <Link href="/" className="text-gray-900 dark:text-gray-100 hover:text-primary-600 dark:hover:text-primary-400 font-medium px-3 py-3" onClick={() => setMobileMenuOpen(false)}>홈</Link>
-              <Link href="/politicians" className="text-gray-900 dark:text-gray-100 hover:text-primary-600 dark:hover:text-primary-400 font-medium px-3 py-3" onClick={() => setMobileMenuOpen(false)}>정치인</Link>
-              <Link href="/community" className="text-gray-900 dark:text-gray-100 hover:text-primary-600 dark:hover:text-primary-400 font-medium px-3 py-3" onClick={() => setMobileMenuOpen(false)}>커뮤니티</Link>
-              <Link href="/connection" className="text-gray-900 dark:text-gray-100 hover:text-primary-600 dark:hover:text-primary-400 font-medium px-3 py-3" onClick={() => setMobileMenuOpen(false)}>연결</Link>
+          <div className="md:hidden pb-4 safe-area-bottom">
+            <div className="flex flex-col space-y-1">
+              <Link href="/" className="text-gray-900 dark:text-gray-100 hover:text-primary-600 dark:hover:text-primary-400 font-medium px-4 py-3 min-h-[44px] flex items-center rounded-lg active:bg-gray-100 dark:active:bg-slate-800 touch-manipulation" onClick={() => setMobileMenuOpen(false)}>홈</Link>
+              <Link href="/politicians" className="text-gray-900 dark:text-gray-100 hover:text-primary-600 dark:hover:text-primary-400 font-medium px-4 py-3 min-h-[44px] flex items-center rounded-lg active:bg-gray-100 dark:active:bg-slate-800 touch-manipulation" onClick={() => setMobileMenuOpen(false)}>정치인</Link>
+              <Link href="/community" className="text-gray-900 dark:text-gray-100 hover:text-primary-600 dark:hover:text-primary-400 font-medium px-4 py-3 min-h-[44px] flex items-center rounded-lg active:bg-gray-100 dark:active:bg-slate-800 touch-manipulation" onClick={() => setMobileMenuOpen(false)}>커뮤니티</Link>
+              <Link href="/connection" className="text-gray-900 dark:text-gray-100 hover:text-primary-600 dark:hover:text-primary-400 font-medium px-4 py-3 min-h-[44px] flex items-center rounded-lg active:bg-gray-100 dark:active:bg-slate-800 touch-manipulation" onClick={() => setMobileMenuOpen(false)}>연결</Link>
               <hr className="my-2 border-gray-200 dark:border-slate-700" />
               {!isMounted ? (
-                <div className="text-gray-400 px-3 py-3"></div>
+                <div className="text-gray-400 px-4 py-3 min-h-[44px]"></div>
               ) : user ? (
                 <>
-                  <Link href="/mypage" className="text-gray-900 dark:text-gray-100 hover:text-primary-600 dark:hover:text-primary-400 font-medium px-3 py-3" onClick={() => setMobileMenuOpen(false)}>
+                  <Link href="/mypage" className="text-gray-900 dark:text-gray-100 hover:text-primary-600 dark:hover:text-primary-400 font-medium px-4 py-3 min-h-[44px] flex items-center rounded-lg active:bg-gray-100 dark:active:bg-slate-800 touch-manipulation" onClick={() => setMobileMenuOpen(false)}>
                     {user.user_metadata?.name || user.email?.split('@')[0] || '마이페이지'}
                   </Link>
                   <button
@@ -165,15 +166,15 @@ export default function Header() {
                       handleLogout();
                       setMobileMenuOpen(false);
                     }}
-                    className="text-left text-gray-900 dark:text-gray-100 hover:text-red-600 dark:hover:text-red-400 font-medium px-3 py-3"
+                    className="text-left text-gray-900 dark:text-gray-100 hover:text-red-600 dark:hover:text-red-400 font-medium px-4 py-3 min-h-[44px] flex items-center rounded-lg active:bg-red-50 dark:active:bg-red-900/20 touch-manipulation"
                   >
                     로그아웃
                   </button>
                 </>
               ) : (
                 <>
-                  <Link href="/auth/login" className="text-gray-900 dark:text-gray-100 hover:text-primary-600 dark:hover:text-primary-400 font-medium px-3 py-3" onClick={() => setMobileMenuOpen(false)}>로그인</Link>
-                  <Link href="/auth/signup" className="bg-primary-500 text-white px-4 py-3 rounded-lg hover:bg-primary-600 font-medium text-center" onClick={() => setMobileMenuOpen(false)}>회원가입</Link>
+                  <Link href="/auth/login" className="text-gray-900 dark:text-gray-100 hover:text-primary-600 dark:hover:text-primary-400 font-medium px-4 py-3 min-h-[44px] flex items-center rounded-lg active:bg-gray-100 dark:active:bg-slate-800 touch-manipulation" onClick={() => setMobileMenuOpen(false)}>로그인</Link>
+                  <Link href="/auth/signup" className="bg-primary-500 text-white px-4 py-3 min-h-[44px] rounded-lg hover:bg-primary-600 font-medium text-center flex items-center justify-center active:bg-primary-700 touch-manipulation" onClick={() => setMobileMenuOpen(false)}>회원가입</Link>
                 </>
               )}
             </div>
