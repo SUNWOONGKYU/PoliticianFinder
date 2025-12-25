@@ -607,7 +607,7 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
       {/* Main Content */}
       <main className="max-w-4xl mx-auto px-4 py-8">
         <div className="mb-4">
-          <Link href="/community" className="inline-flex items-center text-gray-600 hover:text-primary-600">
+          <Link href="/community" className="inline-flex items-center min-h-[44px] px-2 py-2 text-gray-600 hover:text-primary-600 active:text-primary-700 rounded-lg hover:bg-gray-100 active:bg-gray-200 touch-manipulation transition">
             <svg className="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
@@ -636,18 +636,18 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
           <div className="flex items-start justify-between gap-4 mb-4">
             <h1 className="text-3xl font-bold text-gray-900">{post.title}</h1>
 
-            {/* 작성자만 보이는 수정/삭제 버튼 */}
+            {/* 작성자만 보이는 수정/삭제 버튼 - 모바일 최적화 */}
             {currentUser && post.userId === currentUser.id && (
               <div className="flex items-center gap-2 flex-shrink-0">
                 <button
                   onClick={() => router.push(`/community/posts/${params.id}/edit`)}
-                  className="px-3 py-1.5 text-sm text-gray-600 border border-gray-300 rounded-lg hover:bg-gray-50 transition"
+                  className="min-h-[44px] min-w-[44px] px-4 py-2 text-sm text-gray-600 border border-gray-300 rounded-lg hover:bg-gray-50 active:bg-gray-100 transition touch-manipulation"
                 >
                   수정
                 </button>
                 <button
                   onClick={() => setDeleteModalOpen(true)}
-                  className="px-3 py-1.5 text-sm text-red-600 border border-red-300 rounded-lg hover:bg-red-50 transition"
+                  className="min-h-[44px] min-w-[44px] px-4 py-2 text-sm text-red-600 border border-red-300 rounded-lg hover:bg-red-50 active:bg-red-100 transition touch-manipulation"
                 >
                   삭제
                 </button>
@@ -716,26 +716,26 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
             })}
           </div>
 
-          <div className="flex items-center justify-center gap-4 py-6 border-t border-b">
+          <div className="flex items-center justify-center gap-3 sm:gap-4 py-6 border-t border-b">
             <button
               onClick={handleUpvote}
-              className={`flex flex-col items-center gap-1 px-6 py-3 rounded-lg transition ${upvoted ? 'bg-red-100' : 'bg-red-50 hover:bg-red-100'}`}
+              className={`flex flex-col items-center gap-1 min-w-[80px] sm:min-w-[100px] min-h-[60px] px-4 sm:px-6 py-3 rounded-lg transition touch-manipulation ${upvoted ? 'bg-red-100 active:bg-red-200' : 'bg-red-50 hover:bg-red-100 active:bg-red-200'}`}
             >
               <span className="text-2xl">👍</span>
-              <span className="text-sm font-medium text-gray-700">공감 <span className="text-red-600">{upvotes}</span></span>
+              <span className="text-xs sm:text-sm font-medium text-gray-700">공감 <span className="text-red-600">{upvotes}</span></span>
             </button>
             <button
               onClick={handleDownvote}
-              className={`flex flex-col items-center gap-1 px-6 py-3 rounded-lg transition ${downvoted ? 'bg-gray-100' : 'bg-gray-50 hover:bg-gray-100'}`}
+              className={`flex flex-col items-center gap-1 min-w-[80px] sm:min-w-[100px] min-h-[60px] px-4 sm:px-6 py-3 rounded-lg transition touch-manipulation ${downvoted ? 'bg-gray-100 active:bg-gray-200' : 'bg-gray-50 hover:bg-gray-100 active:bg-gray-200'}`}
             >
               <span className="text-2xl">👎</span>
-              <span className="text-sm font-medium text-gray-700">비공감 <span className="text-gray-500">{downvotes}</span></span>
+              <span className="text-xs sm:text-sm font-medium text-gray-700">비공감 <span className="text-gray-500">{downvotes}</span></span>
             </button>
-            <button onClick={handleShare} className="flex flex-col items-center gap-1 px-6 py-3 bg-emerald-50 hover:bg-emerald-100 rounded-lg transition">
+            <button onClick={handleShare} className="flex flex-col items-center gap-1 min-w-[80px] sm:min-w-[100px] min-h-[60px] px-4 sm:px-6 py-3 bg-emerald-50 hover:bg-emerald-100 active:bg-emerald-200 rounded-lg transition touch-manipulation">
               <svg className="w-6 h-6 text-emerald-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.59 13.51l6.83 3.98m-.01-10.98l-6.82 3.98M21 5a3 3 0 11-6 0 3 3 0 016 0zM9 12a3 3 0 11-6 0 3 3 0 016 0zm12 7a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
-              <span className="text-sm font-medium text-gray-700">공유 <span className="text-emerald-900">{post.shareCount}</span></span>
+              <span className="text-xs sm:text-sm font-medium text-gray-700">공유 <span className="text-emerald-900">{post.shareCount}</span></span>
             </button>
           </div>
         </article>
@@ -915,7 +915,7 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
               <div className="text-center pt-4">
                 <button
                   onClick={() => setDisplayedComments(prev => prev + 10)}
-                  className="px-6 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 font-medium"
+                  className="min-h-[44px] px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 active:bg-gray-100 font-medium transition touch-manipulation"
                 >
                   댓글 더보기 ({comments.length - displayedComments}개 남음)
                 </button>
@@ -990,7 +990,7 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
         </div>
       )}
 
-      {/* Alert Modal */}
+      {/* Alert Modal - 모바일 최적화 */}
       {alertModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4" onClick={() => setAlertModalOpen(false)}>
           <div className="bg-white rounded-lg max-w-sm w-full p-6" onClick={(e) => e.stopPropagation()}>
@@ -998,7 +998,7 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
               <p className="text-gray-900 text-center whitespace-pre-line">{alertMessage}</p>
             </div>
             <div className="flex justify-center">
-              <button onClick={() => setAlertModalOpen(false)} className="px-8 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-500 transition">
+              <button onClick={() => setAlertModalOpen(false)} className="min-h-[44px] min-w-[120px] px-8 py-3 bg-gray-900 text-white rounded-lg hover:bg-gray-800 active:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 transition touch-manipulation font-medium">
                 확인
               </button>
             </div>
