@@ -25,7 +25,8 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
   }, ref) => {
     const inputId = id || `input-${Math.random().toString(36).substring(7)}`;
 
-    const baseStyles = 'flex h-11 w-full rounded-lg border px-3 py-2 text-body-md transition-all duration-200';
+    // 모바일 최적화: 44px 최소 높이, 16px 폰트 (iOS 자동 확대 방지), 넉넉한 패딩
+    const baseStyles = 'flex min-h-[44px] w-full rounded-lg border px-4 py-3 text-base transition-all duration-200 touch-manipulation';
     const focusStyles = 'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2';
     const disabledStyles = 'disabled:cursor-not-allowed disabled:opacity-50 disabled:bg-gray-100';
 

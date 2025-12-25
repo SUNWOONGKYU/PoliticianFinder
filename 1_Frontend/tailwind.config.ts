@@ -24,6 +24,15 @@ const config: Config = {
   ],
   darkMode: 'class',  // 클래스 기반 다크모드 활성화
   theme: {
+    // 모바일 최적화: 커스텀 breakpoints
+    screens: {
+      'xs': '320px',    // 소형 모바일 (iPhone SE)
+      'sm': '480px',    // 대형 모바일
+      'md': '768px',    // 태블릿
+      'lg': '1024px',   // 데스크탑
+      'xl': '1280px',   // 대형 데스크탑
+      '2xl': '1536px',  // 초대형 화면
+    },
     extend: {
       fontFamily: {
         sans: ['Pretendard', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'sans-serif'],
@@ -33,6 +42,15 @@ const config: Config = {
       },
       minWidth: {
         'touch': '44px',  // WCAG 터치 타겟 최소 크기
+      },
+      // 모바일 최적화: 터치 및 Safe Area spacing
+      spacing: {
+        'touch': '44px',      // 터치 타겟 크기
+        'touch-lg': '48px',   // 큰 터치 타겟
+        'safe-top': 'env(safe-area-inset-top)',
+        'safe-bottom': 'env(safe-area-inset-bottom)',
+        'safe-left': 'env(safe-area-inset-left)',
+        'safe-right': 'env(safe-area-inset-right)',
       },
       fontSize: {
         // Display (히어로 섹션, 랜딩)

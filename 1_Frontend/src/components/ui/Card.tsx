@@ -5,11 +5,12 @@ export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   padding?: 'none' | 'sm' | 'md' | 'lg';
 }
 
+// 반응형 패딩 (모바일 최적화)
 const paddingStyles = {
   none: '',
-  sm: 'p-4',
-  md: 'p-6',
-  lg: 'p-8',
+  sm: 'p-3 sm:p-4',           // 모바일: 12px, 데스크탑: 16px
+  md: 'p-4 sm:p-6',           // 모바일: 16px, 데스크탑: 24px
+  lg: 'p-5 sm:p-6 lg:p-8',    // 모바일: 20px, 태블릿: 24px, 데스크탑: 32px
 };
 
 const variantStyles = {
