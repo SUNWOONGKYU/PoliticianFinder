@@ -71,18 +71,7 @@ export default function MypagePage() {
   // P7F1: 페이지 레벨 인증 보호
   const { user: authUser, loading: authLoading } = useRequireAuth();
 
-  // P7F1: 인증 로딩 중일 때 로딩 표시
-  if (authLoading) {
-    return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="text-center">
-          <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600 mb-4"></div>
-          <p className="text-gray-600">로딩 중...</p>
-        </div>
-      </div>
-    );
-  }
-
+  // 모든 useState는 조건문 이전에 호출 (React Hook 규칙)
   const [activeTab, setActiveTab] = useState<TabType>('posts');
   const [userData, setUserData] = useState<UserData | null>(null);
   const [userStats, setUserStats] = useState<UserStats | null>(null);
@@ -102,7 +91,11 @@ export default function MypagePage() {
     isLoggedIn: !!userData,
   });
 
+  // 모든 useEffect는 조건문 이전에 호출 (React Hook 규칙)
   useEffect(() => {
+    // authLoading 중이면 fetch 하지 않음
+    if (authLoading) return;
+
     const fetchUserData = async () => {
       try {
         setLoading(true);
@@ -154,7 +147,9 @@ export default function MypagePage() {
           } : null);
         }
       } catch (err) {
-        console.error('Failed to fetch user data:', err);
+        if (process.env.NODE_ENV === 'development') {
+          console.error('Failed to fetch user data:', err);
+        }
         setError(err instanceof Error ? err.message : '알 수 없는 오류가 발생했습니다.');
       } finally {
         setLoading(false);
@@ -162,7 +157,7 @@ export default function MypagePage() {
     };
 
     fetchUserData();
-  }, []);
+  }, [authLoading]);
 
   // Fetch user posts when userData is available and posts tab is active
   useEffect(() => {
@@ -178,7 +173,9 @@ export default function MypagePage() {
           setUserPosts(result.data);
         }
       } catch (err) {
-        console.error('Failed to fetch user posts:', err);
+        if (process.env.NODE_ENV === 'development') {
+          console.error('Failed to fetch user posts:', err);
+        }
       } finally {
         setPostsLoading(false);
       }
@@ -201,7 +198,9 @@ export default function MypagePage() {
           setFavoritePoliticians(result.data);
         }
       } catch (err) {
-        console.error('Failed to fetch favorite politicians:', err);
+        if (process.env.NODE_ENV === 'development') {
+          console.error('Failed to fetch favorite politicians:', err);
+        }
       } finally {
         setFavoritesLoading(false);
       }
@@ -224,7 +223,9 @@ export default function MypagePage() {
           setUserComments(result.data);
         }
       } catch (err) {
-        console.error('Failed to fetch user comments:', err);
+        if (process.env.NODE_ENV === 'development') {
+          console.error('Failed to fetch user comments:', err);
+        }
       } finally {
         setCommentsLoading(false);
       }
@@ -232,6 +233,18 @@ export default function MypagePage() {
 
     fetchUserComments();
   }, [userData, activeTab]);
+
+  // P7F1: 인증 로딩 중일 때 로딩 표시 (모든 Hook 호출 후 early return)
+  if (authLoading) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600 mb-4"></div>
+          <p className="text-gray-600">로딩 중...</p>
+        </div>
+      </div>
+    );
+  }
 
   // Loading state
   if (loading) {
@@ -405,8 +418,12 @@ export default function MypagePage() {
             {/* Tab Navigation - 모바일 최적화 */}
             <div className="bg-white rounded-lg shadow-md mb-6">
               <div className="border-b border-gray-200">
-                <nav className="flex -mb-px overflow-x-auto scrollbar-hide" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+                <nav role="tablist" aria-label="마이페이지 섹션" className="flex -mb-px overflow-x-auto scrollbar-hide" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
                   <button
+                    role="tab"
+                    id="tab-posts"
+                    aria-selected={activeTab === 'posts'}
+                    aria-controls="panel-posts"
                     onClick={() => setActiveTab('posts')}
                     className={`flex-shrink-0 min-h-[44px] px-4 sm:px-6 py-3 text-sm font-medium border-b-2 transition focus:outline-none touch-manipulation whitespace-nowrap ${
                       activeTab === 'posts'
@@ -417,6 +434,10 @@ export default function MypagePage() {
                     내 게시글
                   </button>
                   <button
+                    role="tab"
+                    id="tab-comments"
+                    aria-selected={activeTab === 'comments'}
+                    aria-controls="panel-comments"
                     onClick={() => setActiveTab('comments')}
                     className={`flex-shrink-0 min-h-[44px] px-4 sm:px-6 py-3 text-sm font-medium border-b-2 transition focus:outline-none touch-manipulation whitespace-nowrap ${
                       activeTab === 'comments'
@@ -427,6 +448,10 @@ export default function MypagePage() {
                     내 댓글
                   </button>
                   <button
+                    role="tab"
+                    id="tab-activity"
+                    aria-selected={activeTab === 'activity'}
+                    aria-controls="panel-activity"
                     onClick={() => setActiveTab('activity')}
                     className={`flex-shrink-0 min-h-[44px] px-4 sm:px-6 py-3 text-sm font-medium border-b-2 transition focus:outline-none touch-manipulation whitespace-nowrap ${
                       activeTab === 'activity'
@@ -437,6 +462,10 @@ export default function MypagePage() {
                     활동 내역
                   </button>
                   <button
+                    role="tab"
+                    id="tab-favorites"
+                    aria-selected={activeTab === 'favorites'}
+                    aria-controls="panel-favorites"
                     onClick={() => setActiveTab('favorites')}
                     className={`flex-shrink-0 min-h-[44px] px-4 sm:px-6 py-3 text-sm font-medium border-b-2 transition focus:outline-none touch-manipulation whitespace-nowrap ${
                       activeTab === 'favorites'
@@ -452,7 +481,7 @@ export default function MypagePage() {
 
             {/* Tab Content: Posts */}
             {activeTab === 'posts' && (
-              <div>
+              <div id="panel-posts" role="tabpanel" aria-labelledby="tab-posts">
                 {postsLoading ? (
                   <div className="bg-white rounded-lg shadow-md p-8 text-center">
                     <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-secondary-600 mx-auto"></div>
@@ -499,7 +528,7 @@ export default function MypagePage() {
 
             {/* Tab Content: Comments */}
             {activeTab === 'comments' && (
-              <div>
+              <div id="panel-comments" role="tabpanel" aria-labelledby="tab-comments">
                 {commentsLoading ? (
                   <div className="bg-white rounded-lg shadow-md p-8 text-center">
                     <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-secondary-600 mx-auto"></div>
@@ -535,7 +564,7 @@ export default function MypagePage() {
 
             {/* Tab Content: Activity */}
             {activeTab === 'activity' && (
-              <div>
+              <div id="panel-activity" role="tabpanel" aria-labelledby="tab-activity">
                 {/* Points Summary */}
                 <div className="bg-white rounded-lg shadow-md p-6 mb-6">
                   <h3 className="text-lg font-bold text-gray-900 mb-4">활동 등급 - 포인트 현황</h3>
@@ -683,7 +712,7 @@ export default function MypagePage() {
 
             {/* Tab Content: Favorites */}
             {activeTab === 'favorites' && (
-              <div>
+              <div id="panel-favorites" role="tabpanel" aria-labelledby="tab-favorites">
                 {favoritesLoading ? (
                   <div className="bg-white rounded-lg shadow-md p-8 text-center">
                     <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-secondary-600 mx-auto"></div>

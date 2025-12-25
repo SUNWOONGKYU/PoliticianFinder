@@ -92,7 +92,9 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
           }
         }
       } catch (error) {
-        console.error('[게시글 상세] 인증 확인 오류:', error);
+        if (process.env.NODE_ENV === 'development') {
+          console.error('[게시글 상세] 인증 확인 오류:', error);
+        }
       }
     };
 
@@ -155,7 +157,9 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
           setDownvotes(postData.downvotes || 0);
         }
       } catch (err) {
-        console.error('[게시글 상세] 오류:', err);
+        if (process.env.NODE_ENV === 'development') {
+          console.error('[게시글 상세] 오류:', err);
+        }
       } finally {
         setLoading(false);
       }
@@ -246,7 +250,9 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
         setComments(allComments);
         setTotalComments(allComments.length);
       } catch (err) {
-        console.error('[게시글 상세] 댓글 조회 오류:', err);
+        if (process.env.NODE_ENV === 'development') {
+          console.error('[게시글 상세] 댓글 조회 오류:', err);
+        }
         setComments([]);
       } finally {
         setCommentsLoading(false);
@@ -342,7 +348,9 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
       setAlertMessage('댓글이 등록되었습니다.');
       setAlertModalOpen(true);
     } catch (error) {
-      console.error('Comment submit error:', error);
+      if (process.env.NODE_ENV === 'development') {
+        console.error('Comment submit error:', error);
+      }
       setAlertMessage(error instanceof Error ? error.message : '댓글 등록에 실패했습니다.');
       setAlertModalOpen(true);
       throw error;
@@ -390,7 +398,9 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
       setAlertMessage(`${data.politician.name}님으로 인증되었습니다.`);
       setAlertModalOpen(true);
     } catch (error) {
-      console.error('Politician auth error:', error);
+      if (process.env.NODE_ENV === 'development') {
+        console.error('Politician auth error:', error);
+      }
       setAlertMessage(error instanceof Error ? error.message : '정보가 일치하지 않습니다. 다시 확인해주세요.');
       setAlertModalOpen(true);
     } finally {
@@ -438,7 +448,9 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
       setAlertMessage(`${authenticatedPolitician.name}님의 댓글이 등록되었습니다.`);
       setAlertModalOpen(true);
     } catch (error) {
-      console.error('Politician comment submit error:', error);
+      if (process.env.NODE_ENV === 'development') {
+        console.error('Politician comment submit error:', error);
+      }
       setAlertMessage(error instanceof Error ? error.message : '댓글 등록에 실패했습니다.');
       setAlertModalOpen(true);
     } finally {
@@ -469,7 +481,9 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
         router.push('/community');
       }, 1000);
     } catch (error) {
-      console.error('Delete post error:', error);
+      if (process.env.NODE_ENV === 'development') {
+        console.error('Delete post error:', error);
+      }
       setAlertMessage(error instanceof Error ? error.message : '게시글 삭제에 실패했습니다.');
       setAlertModalOpen(true);
     } finally {
@@ -514,7 +528,9 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
         }
       }
     } catch (error) {
-      console.error('Vote error:', error);
+      if (process.env.NODE_ENV === 'development') {
+        console.error('Vote error:', error);
+      }
       showAlert('투표 처리 중 오류가 발생했습니다.');
     }
   };
@@ -556,7 +572,9 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
         }
       }
     } catch (error) {
-      console.error('Vote error:', error);
+      if (process.env.NODE_ENV === 'development') {
+        console.error('Vote error:', error);
+      }
       showAlert('투표 처리 중 오류가 발생했습니다.');
     }
   };
@@ -784,7 +802,8 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
                   value={politicianCommentText}
                   onChange={(e) => setPoliticianCommentText(e.target.value)}
                   rows={3}
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 resize-none"
+                  inputMode="text"
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 resize-none text-base touch-manipulation"
                   placeholder={authenticatedPolitician ? `${authenticatedPolitician.name}님으로 댓글을 입력하세요...` : "본인 인증 후 댓글을 입력할 수 있습니다."}
                   disabled={!authenticatedPolitician}
                 />
@@ -808,7 +827,8 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
                   value={commentText}
                   onChange={(e) => setCommentText(e.target.value)}
                   rows={3}
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary-500 focus:border-secondary-500 resize-none"
+                  inputMode="text"
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary-500 focus:border-secondary-500 resize-none text-base touch-manipulation"
                   placeholder="회원으로 댓글을 입력하세요..."
                 />
                 <div className="flex justify-between items-center mt-2">
@@ -847,7 +867,8 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
                 value={commentText}
                 onChange={(e) => setCommentText(e.target.value)}
                 rows={3}
-                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary-500 focus:border-secondary-500 resize-none"
+                inputMode="text"
+                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary-500 focus:border-secondary-500 resize-none text-base touch-manipulation"
                 placeholder="댓글을 입력하세요..."
               />
               <div className="flex justify-end items-center mt-2">

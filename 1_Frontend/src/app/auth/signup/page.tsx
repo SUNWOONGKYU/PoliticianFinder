@@ -74,7 +74,9 @@ export default function SignupPage() {
       const data = await response.json();
 
       if (!response.ok) {
-        console.error('Signup error:', data);
+        if (process.env.NODE_ENV === 'development') {
+          console.error('Signup error:', data);
+        }
 
         // 오류 메시지 설정
         const errorMessage = data.error?.message || data.message || '회원가입에 실패했습니다.';

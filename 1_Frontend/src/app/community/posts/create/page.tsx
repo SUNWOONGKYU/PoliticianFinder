@@ -57,7 +57,9 @@ export default function CreatePostPage() {
           return;
         }
       } catch (error) {
-        console.error('Auth check failed:', error);
+        if (process.env.NODE_ENV === 'development') {
+          console.error('Auth check failed:', error);
+        }
         alert('로그인이 필요합니다.');
         router.push('/auth/login?redirect=/community/posts/create');
       }
@@ -126,7 +128,9 @@ export default function CreatePostPage() {
           setShowSearchResults(true);
         }
       } catch (error) {
-        console.error('Failed to fetch politicians:', error);
+        if (process.env.NODE_ENV === 'development') {
+          console.error('Failed to fetch politicians:', error);
+        }
         setSearchResults([]);
         setShowSearchResults(false);
       } finally {
@@ -233,7 +237,9 @@ export default function CreatePostPage() {
         router.push('/community');
       }, 1500);
     } catch (error) {
-      console.error('게시글 등록 오류:', error);
+      if (process.env.NODE_ENV === 'development') {
+        console.error('게시글 등록 오류:', error);
+      }
       showAlertModal('게시글 등록 중 오류가 발생했습니다.');
     }
   };
@@ -361,6 +367,7 @@ export default function CreatePostPage() {
               onChange={(e) => setContent(e.target.value)}
               required
               rows={10}
+              inputMode="text"
               placeholder="내용을 입력하세요&#10;&#10;• 타인을 비방하거나 명예를 훼손하는 내용은 삼가주세요.&#10;• 허위 사실을 유포하거나 악의적인 내용은 삭제될 수 있습니다.&#10;• 건전한 토론 문화를 만들어 주세요."
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 resize-none text-base touch-manipulation"
             />
