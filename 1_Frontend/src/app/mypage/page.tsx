@@ -329,9 +329,9 @@ export default function MypagePage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
-          {/* Left Sidebar: Profile Card */}
+          {/* Left Sidebar: Profile Card - 모바일 최적화 */}
           <div className="lg:col-span-1">
-            <div className="bg-white rounded-lg shadow-md p-6 sticky top-20">
+            <div className="bg-white rounded-lg shadow-md p-4 sm:p-6 lg:sticky lg:top-20">
               {/* Profile Image */}
               <div className="flex flex-col items-center">
                 <div className="w-24 h-24 rounded-full flex items-center justify-center mb-4 overflow-hidden bg-secondary-500">
@@ -382,17 +382,17 @@ export default function MypagePage() {
                 </Link>
               </div>
 
-              {/* Actions */}
-              <div className="mt-6 space-y-2">
+              {/* Actions - 모바일 최적화 */}
+              <div className="mt-6 space-y-3">
                 <Link
                   href="/profile/edit"
-                  className="block w-full text-center px-4 py-2 bg-secondary-500 text-white rounded-md hover:bg-secondary-600 font-medium text-sm focus:outline-none focus:ring-2 focus:ring-secondary-300"
+                  className="block w-full text-center min-h-[44px] px-4 py-3 bg-secondary-500 text-white rounded-lg hover:bg-secondary-600 active:bg-secondary-700 font-medium text-base focus:outline-none focus:ring-2 focus:ring-secondary-300 transition touch-manipulation flex items-center justify-center"
                 >
                   프로필 수정
                 </Link>
                 <Link
                   href="/settings"
-                  className="block w-full text-center px-4 py-2 border border-gray-300 text-gray-700 rounded-md hover:bg-gray-50 font-medium text-sm focus:outline-none focus:ring-2 focus:ring-gray-300"
+                  className="block w-full text-center min-h-[44px] px-4 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 active:bg-gray-100 font-medium text-base focus:outline-none focus:ring-2 focus:ring-gray-300 transition touch-manipulation flex items-center justify-center"
                 >
                   설정
                 </Link>
@@ -402,46 +402,46 @@ export default function MypagePage() {
 
           {/* Right Content: Tabs */}
           <div className="lg:col-span-2">
-            {/* Tab Navigation */}
+            {/* Tab Navigation - 모바일 최적화 */}
             <div className="bg-white rounded-lg shadow-md mb-6">
               <div className="border-b border-gray-200">
-                <nav className="flex -mb-px">
+                <nav className="flex -mb-px overflow-x-auto scrollbar-hide" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
                   <button
                     onClick={() => setActiveTab('posts')}
-                    className={`px-6 py-3 text-sm font-medium border-b-2 transition focus:outline-none ${
+                    className={`flex-shrink-0 min-h-[44px] px-4 sm:px-6 py-3 text-sm font-medium border-b-2 transition focus:outline-none touch-manipulation whitespace-nowrap ${
                       activeTab === 'posts'
                         ? 'border-secondary-500 text-secondary-600'
-                        : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                        : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 active:bg-gray-50'
                     }`}
                   >
                     내 게시글
                   </button>
                   <button
                     onClick={() => setActiveTab('comments')}
-                    className={`px-6 py-3 text-sm font-medium border-b-2 transition focus:outline-none ${
+                    className={`flex-shrink-0 min-h-[44px] px-4 sm:px-6 py-3 text-sm font-medium border-b-2 transition focus:outline-none touch-manipulation whitespace-nowrap ${
                       activeTab === 'comments'
                         ? 'border-secondary-500 text-secondary-600'
-                        : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                        : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 active:bg-gray-50'
                     }`}
                   >
                     내 댓글
                   </button>
                   <button
                     onClick={() => setActiveTab('activity')}
-                    className={`px-6 py-3 text-sm font-medium border-b-2 transition focus:outline-none ${
+                    className={`flex-shrink-0 min-h-[44px] px-4 sm:px-6 py-3 text-sm font-medium border-b-2 transition focus:outline-none touch-manipulation whitespace-nowrap ${
                       activeTab === 'activity'
                         ? 'border-secondary-500 text-secondary-600'
-                        : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                        : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 active:bg-gray-50'
                     }`}
                   >
                     활동 내역
                   </button>
                   <button
                     onClick={() => setActiveTab('favorites')}
-                    className={`px-6 py-3 text-sm font-medium border-b-2 transition focus:outline-none ${
+                    className={`flex-shrink-0 min-h-[44px] px-4 sm:px-6 py-3 text-sm font-medium border-b-2 transition focus:outline-none touch-manipulation whitespace-nowrap ${
                       activeTab === 'favorites'
                         ? 'border-secondary-500 text-secondary-600'
-                        : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                        : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 active:bg-gray-50'
                     }`}
                   >
                     관심 정치인
@@ -466,7 +466,7 @@ export default function MypagePage() {
                   <div className="bg-white rounded-lg shadow-md divide-y">
                     {userPosts.map((post) => (
                       <Link key={post.id} href={`/community/posts/${post.id}`}>
-                        <div className="p-4 hover:bg-gray-50 transition cursor-pointer">
+                        <div className="p-4 hover:bg-gray-50 active:bg-gray-100 transition cursor-pointer touch-manipulation">
                           <div className="flex items-start justify-between">
                             <div className="flex-1">
                               <h3 className="text-base font-semibold text-gray-900 hover:text-secondary-600">
@@ -513,7 +513,7 @@ export default function MypagePage() {
                   <div className="bg-white rounded-lg shadow-md divide-y">
                     {userComments.map((comment) => (
                       <Link key={comment.id} href={`/community/posts/${comment.post_id}`}>
-                        <div className="p-4 hover:bg-gray-50 transition cursor-pointer">
+                        <div className="p-4 hover:bg-gray-50 active:bg-gray-100 transition cursor-pointer touch-manipulation">
                           <div className="text-sm text-gray-500 mb-2">
                             <span className="font-medium text-secondary-600">{comment.post_title || '게시글'}</span>에 댓글을 남겼습니다
                           </div>
@@ -699,7 +699,7 @@ export default function MypagePage() {
                     <p className="text-gray-600 mb-4">등록된 관심 정치인이 없습니다.</p>
                     <Link
                       href="/politicians"
-                      className="inline-block px-4 py-2 bg-secondary-500 text-white rounded-lg hover:bg-secondary-600 transition"
+                      className="inline-flex items-center justify-center min-h-[44px] px-6 py-3 bg-secondary-500 text-white rounded-lg hover:bg-secondary-600 active:bg-secondary-700 transition touch-manipulation font-medium"
                     >
                       정치인 둘러보기
                     </Link>
@@ -708,7 +708,7 @@ export default function MypagePage() {
                   <div className="bg-white rounded-lg shadow-md divide-y">
                     {favoritePoliticians.map((favorite) => (
                       <Link key={favorite.id} href={`/politicians/${favorite.politician_id}`}>
-                        <div className="p-4 hover:bg-gray-50 transition cursor-pointer">
+                        <div className="p-4 hover:bg-gray-50 active:bg-gray-100 transition cursor-pointer touch-manipulation">
                           <div className="flex items-center gap-4">
                             {/* 프로필 이미지 */}
                             <div className="w-14 h-14 bg-gray-200 rounded-full flex items-center justify-center overflow-hidden flex-shrink-0">
@@ -765,12 +765,12 @@ export default function MypagePage() {
                   </div>
                 )}
 
-                {/* 정치인 페이지 링크 */}
+                {/* 정치인 페이지 링크 - 모바일 최적화 */}
                 {favoritePoliticians.length > 0 && (
                   <div className="mt-4 text-center">
                     <Link
                       href="/politicians"
-                      className="text-sm text-secondary-600 hover:text-secondary-700 font-medium"
+                      className="inline-flex items-center justify-center min-h-[44px] px-4 py-2 text-sm text-secondary-600 hover:text-secondary-700 active:text-secondary-800 font-medium touch-manipulation"
                     >
                       더 많은 정치인 둘러보기 →
                     </Link>
