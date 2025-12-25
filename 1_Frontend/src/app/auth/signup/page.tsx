@@ -165,8 +165,8 @@ export default function SignupPage() {
               </div>
             )}
 
-            {/* Email */}
-            <div className="space-y-2.5">
+            {/* Email - 모바일 최적화 */}
+            <div className="space-y-2">
               <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                 이메일 <span className="text-red-500">*</span>
               </label>
@@ -174,16 +174,18 @@ export default function SignupPage() {
                 id="email"
                 name="email"
                 type="email"
+                inputMode="email"
+                autoComplete="email"
                 value={formData.email}
                 onChange={handleInputChange}
                 placeholder="example@email.com"
-                className="w-full px-3 py-1.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-200 focus:border-primary-500 placeholder-gray-400 text-sm"
+                className="w-full px-4 py-3 min-h-[44px] border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-200 focus:border-primary-500 placeholder-gray-400 text-base touch-manipulation"
                 required
               />
             </div>
 
-            {/* Password */}
-            <div className="space-y-2.5">
+            {/* Password - 모바일 최적화 */}
+            <div className="space-y-2">
               <label htmlFor="password" className="block text-sm font-medium text-gray-700">
                 비밀번호 <span className="text-red-500">*</span>
               </label>
@@ -191,19 +193,20 @@ export default function SignupPage() {
                 id="password"
                 name="password"
                 type="password"
+                autoComplete="new-password"
                 value={formData.password}
                 onChange={handleInputChange}
                 placeholder="8자 이상 영문 소문자, 숫자 조합"
-                className="w-full px-3 py-1.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-200 focus:border-primary-500 placeholder-gray-400 text-sm"
+                className="w-full px-4 py-3 min-h-[44px] border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-200 focus:border-primary-500 placeholder-gray-400 text-base touch-manipulation"
                 required
               />
-              <p className="mt-1 text-xs text-gray-500">
+              <p className="text-xs text-gray-500">
                 비밀번호는 최소 8자 이상이어야 합니다.
               </p>
             </div>
 
-            {/* Password Confirm */}
-            <div className="space-y-2.5">
+            {/* Password Confirm - 모바일 최적화 */}
+            <div className="space-y-2">
               <label htmlFor="password_confirm" className="block text-sm font-medium text-gray-700">
                 비밀번호 확인 <span className="text-red-500">*</span>
               </label>
@@ -211,16 +214,17 @@ export default function SignupPage() {
                 id="password_confirm"
                 name="password_confirm"
                 type="password"
+                autoComplete="new-password"
                 value={formData.password_confirm}
                 onChange={handleInputChange}
                 placeholder="비밀번호를 다시 입력하세요"
-                className="w-full px-3 py-1.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-200 focus:border-primary-500 placeholder-gray-400 text-sm"
+                className="w-full px-4 py-3 min-h-[44px] border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-200 focus:border-primary-500 placeholder-gray-400 text-base touch-manipulation"
                 required
               />
             </div>
 
-            {/* Nickname */}
-            <div className="space-y-2.5">
+            {/* Nickname - 모바일 최적화 */}
+            <div className="space-y-2">
               <label htmlFor="nickname" className="block text-sm font-medium text-gray-700">
                 닉네임 <span className="text-red-500">*</span>
               </label>
@@ -228,84 +232,85 @@ export default function SignupPage() {
                 id="nickname"
                 name="nickname"
                 type="text"
+                autoComplete="nickname"
                 value={formData.nickname}
                 onChange={handleInputChange}
                 placeholder="2-10자 이내"
-                className="w-full px-3 py-1.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-200 focus:border-primary-500 placeholder-gray-400 text-sm"
+                className="w-full px-4 py-3 min-h-[44px] border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-200 focus:border-primary-500 placeholder-gray-400 text-base touch-manipulation"
                 required
               />
             </div>
 
 
-            {/* Terms Agreement */}
-            <div className="space-y-1.5 pt-2">
+            {/* Terms Agreement - 모바일 최적화 */}
+            <div className="space-y-2 pt-3">
               {/* All Terms */}
-              <div className="flex items-start">
+              <label htmlFor="terms-all" className="flex items-center min-h-[44px] cursor-pointer touch-manipulation active:bg-gray-50 rounded-lg px-1 -mx-1">
                 <input
                   id="terms-all"
                   type="checkbox"
                   checked={termsAll}
                   onChange={handleTermsAll}
-                  className="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded mt-0.5"
+                  className="h-5 w-5 text-primary-600 focus:ring-primary-500 border-gray-300 rounded"
                 />
-                <label htmlFor="terms-all" className="ml-2 text-sm font-medium text-gray-900 cursor-pointer">
+                <span className="ml-3 text-sm font-medium text-gray-900">
                   전체 동의
-                </label>
-              </div>
+                </span>
+              </label>
 
               {/* Individual Terms */}
-              <div className="border-t pt-1.5 space-y-1">
-                <div className="flex items-start min-h-[44px]">
+              <div className="border-t pt-2 space-y-1">
+                <label htmlFor="terms-agreed" className="flex items-center min-h-[44px] cursor-pointer touch-manipulation active:bg-gray-50 rounded-lg px-1 -mx-1">
                   <input
                     id="terms-agreed"
                     name="terms_agreed"
                     type="checkbox"
                     checked={formData.terms_agreed}
                     onChange={handleInputChange}
-                    className="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded mt-0.5"
+                    className="h-5 w-5 text-primary-600 focus:ring-primary-500 border-gray-300 rounded"
                     required
                   />
-                  <label htmlFor="terms-agreed" className="ml-2 text-sm text-gray-700 cursor-pointer">
+                  <span className="ml-3 text-sm text-gray-700">
                     (필수) 이용약관 동의
-                  </label>
-                </div>
+                  </span>
+                </label>
 
-                <div className="flex items-start min-h-[44px]">
+                <label htmlFor="privacy-agreed" className="flex items-center min-h-[44px] cursor-pointer touch-manipulation active:bg-gray-50 rounded-lg px-1 -mx-1">
                   <input
                     id="privacy-agreed"
                     name="privacy_agreed"
                     type="checkbox"
                     checked={formData.privacy_agreed}
                     onChange={handleInputChange}
-                    className="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded mt-0.5"
+                    className="h-5 w-5 text-primary-600 focus:ring-primary-500 border-gray-300 rounded"
                     required
                   />
-                  <label htmlFor="privacy-agreed" className="ml-2 text-sm text-gray-700 cursor-pointer">
+                  <span className="ml-3 text-sm text-gray-700">
                     (필수) 개인정보 수집 및 이용 동의
-                  </label>
-                </div>
+                  </span>
+                </label>
 
-                <div className="flex items-start min-h-[44px]">
+                <label htmlFor="marketing-agreed" className="flex items-center min-h-[44px] cursor-pointer touch-manipulation active:bg-gray-50 rounded-lg px-1 -mx-1">
                   <input
                     id="marketing-agreed"
                     name="marketing_agreed"
                     type="checkbox"
                     checked={formData.marketing_agreed}
                     onChange={handleInputChange}
-                    className="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded mt-0.5"
+                    className="h-5 w-5 text-primary-600 focus:ring-primary-500 border-gray-300 rounded"
                   />
-                  <label htmlFor="marketing-agreed" className="ml-2 text-sm text-gray-700 cursor-pointer">
+                  <span className="ml-3 text-sm text-gray-700">
                     (선택) 마케팅 정보 수신 동의
-                  </label>
-                </div>
+                  </span>
+                </label>
               </div>
             </div>
 
-            {/* Submit Button */}
+            {/* Submit Button - 모바일 최적화 */}
             <button
               type="submit"
               disabled={loading}
-              className="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-primary-500 hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 disabled:bg-gray-400 transition pt-2"
+              className="w-full flex justify-center items-center min-h-[44px] py-3 px-4 border border-transparent text-base font-medium rounded-lg text-white bg-primary-500 hover:bg-primary-600 active:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 disabled:bg-gray-400 transition touch-manipulation"
             >
               {loading ? '가입 중...' : '회원가입'}
             </button>
@@ -323,7 +328,7 @@ export default function SignupPage() {
             <button
               type="button"
               onClick={handleGoogleSignup}
-              className="w-full inline-flex justify-center items-center gap-2 py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-900 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary-300"
+              className="w-full inline-flex justify-center items-center gap-2 min-h-[44px] py-3 px-4 border border-gray-300 rounded-lg shadow-sm bg-white text-base font-medium text-gray-900 hover:bg-gray-50 active:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-primary-300 transition touch-manipulation"
             >
               <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>

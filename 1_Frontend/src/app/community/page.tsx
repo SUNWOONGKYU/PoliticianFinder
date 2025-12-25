@@ -158,9 +158,9 @@ export default function CommunityPage() {
 
   const getTabClass = (tab: string, borderColor: string) => {
     if (currentCategory === tab) {
-      return 'flex-1 px-4 py-2 bg-primary-500 text-white rounded-lg font-medium hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-300 transition whitespace-nowrap text-center min-w-[160px]';
+      return 'flex-1 px-3 sm:px-4 py-3 min-h-[44px] bg-primary-500 text-white rounded-lg font-medium hover:bg-primary-600 active:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-300 transition whitespace-nowrap text-center min-w-[100px] sm:min-w-[160px] text-sm sm:text-base touch-manipulation';
     }
-    return `flex-1 px-4 py-2 bg-white text-gray-700 rounded-lg border-2 ${borderColor} font-medium hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-primary-300 transition whitespace-nowrap text-center min-w-[160px]`;
+    return `flex-1 px-3 sm:px-4 py-3 min-h-[44px] bg-white text-gray-700 rounded-lg border-2 ${borderColor} font-medium hover:bg-gray-100 active:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-300 transition whitespace-nowrap text-center min-w-[100px] sm:min-w-[160px] text-sm sm:text-base touch-manipulation`;
   };
 
   return (
@@ -173,31 +173,32 @@ export default function CommunityPage() {
           <p className="text-lg text-gray-600">정치 관련 자신의 주장을 하고 다양한 의견을 나누면서 토론해 보세요</p>
         </div>
 
-        {/* 게시글 검색 */}
-        <section className="bg-white rounded-lg shadow-lg p-4 mb-6">
+        {/* 게시글 검색 - 모바일 최적화 */}
+        <section className="bg-white rounded-lg shadow-lg p-3 sm:p-4 mb-6">
           <div className="relative flex gap-2">
             <div className="relative flex-1">
               <input
-                type="text"
-                placeholder="제목, 내용, 작성자 등으로 게시글 통합검색"
+                type="search"
+                inputMode="search"
+                placeholder="제목, 내용, 작성자 검색"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full px-4 py-3 pl-12 border-2 border-primary-300 rounded-lg focus:outline-none focus:border-primary-500 text-gray-900 focus:ring-2 focus:ring-primary-200"
+                className="w-full px-3 sm:px-4 py-3 pl-10 sm:pl-12 min-h-[44px] border-2 border-primary-300 rounded-lg focus:outline-none focus:border-primary-500 text-base text-gray-900 focus:ring-2 focus:ring-primary-200 touch-manipulation"
               />
-              <svg className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
             </div>
-            <button className="px-8 py-3 bg-primary-500 text-white rounded-lg hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-300 font-semibold text-sm shadow-sm">
+            <button className="px-4 sm:px-8 py-3 min-h-[44px] bg-primary-500 text-white rounded-lg hover:bg-primary-600 active:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-300 font-semibold text-sm shadow-sm touch-manipulation">
               검색
             </button>
           </div>
         </section>
 
-        {/* Tab Menu + Write Button */}
-        <div className="flex items-center justify-between mb-6">
-          {/* Tabs */}
-          <div className="flex items-center space-x-4 overflow-x-auto">
+        {/* Tab Menu + Write Button - 모바일: 세로 스택, 데스크탑: 가로 배열 */}
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6">
+          {/* Tabs - 모바일에서 가로 스크롤 */}
+          <div className="flex items-center gap-2 sm:gap-4 overflow-x-auto scrollbar-hide pb-1">
             <button
               onClick={() => { setCurrentCategory('all'); setCurrentPage(1); }}
               className={getTabClass('all', 'border-gray-300')}
@@ -208,29 +209,29 @@ export default function CommunityPage() {
               onClick={() => { setCurrentCategory('politician_post'); setCurrentPage(1); }}
               className={getTabClass('politician_post', 'border-primary-500')}
             >
-              🏛️ 정치인 게시판
+              🏛️ 정치인
             </button>
             <button
               onClick={() => { setCurrentCategory('general'); setCurrentPage(1); }}
               className={currentCategory === 'general'
-                ? 'flex-1 px-4 py-2 bg-purple-600 text-white rounded-lg font-medium hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-primary-300 transition whitespace-nowrap text-center min-w-[160px]'
-                : 'flex-1 px-4 py-2 bg-white text-gray-700 rounded-lg border-2 border-purple-600 font-medium hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-primary-300 transition whitespace-nowrap text-center min-w-[160px]'
+                ? 'flex-1 px-3 sm:px-4 py-3 min-h-[44px] bg-purple-600 text-white rounded-lg font-medium hover:bg-purple-700 active:bg-purple-800 focus:outline-none focus:ring-2 focus:ring-primary-300 transition whitespace-nowrap text-center min-w-[100px] sm:min-w-[160px] text-sm sm:text-base touch-manipulation'
+                : 'flex-1 px-3 sm:px-4 py-3 min-h-[44px] bg-white text-gray-700 rounded-lg border-2 border-purple-600 font-medium hover:bg-gray-100 active:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-300 transition whitespace-nowrap text-center min-w-[100px] sm:min-w-[160px] text-sm sm:text-base touch-manipulation'
               }
             >
-              💬 회원 자유게시판
+              💬 자유게시판
             </button>
           </div>
 
-          {/* Write Button */}
+          {/* Write Button - 모바일에서 전체 너비 */}
           <button
             onClick={handleWriteClick}
-            className="px-6 py-2 bg-primary-500 text-white rounded-lg font-medium hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-300 transition whitespace-nowrap shadow-md"
+            className="w-full sm:w-auto px-6 py-3 min-h-[44px] bg-primary-500 text-white rounded-lg font-medium hover:bg-primary-600 active:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-300 transition whitespace-nowrap shadow-md touch-manipulation"
           >
             글쓰기
           </button>
         </div>
 
-        {/* Sort Options */}
+        {/* Sort Options - 모바일 최적화 */}
         <div className="flex items-center justify-between mb-4">
           <div className="text-sm text-gray-600">
             총 <span className="font-bold text-gray-900">{totalCount}</span>개의 게시글
@@ -239,7 +240,7 @@ export default function CommunityPage() {
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value as 'latest' | 'popular' | 'views')}
-              className="px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-primary-300"
+              className="px-3 py-2 min-h-[44px] border border-gray-300 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-primary-300 bg-white touch-manipulation"
             >
               <option value="latest">최신순</option>
               <option value="popular">공감순</option>
@@ -254,13 +255,13 @@ export default function CommunityPage() {
             <p className="text-gray-500 text-lg">게시글을 불러오는 중...</p>
           </div>
         ) : filteredPosts.length === 0 ? (
-          <div className="text-center py-16 bg-white rounded-lg shadow">
+          <div className="text-center py-16 px-4 bg-white rounded-lg shadow">
             <svg className="mx-auto h-16 w-16 text-gray-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
             </svg>
             <h3 className="text-lg font-semibold text-gray-900 mb-2">게시글이 없습니다</h3>
             <p className="text-gray-500 text-sm mb-4">아직 작성된 게시글이 없거나 검색 조건에 맞는 게시글이 없습니다.</p>
-            <a href="/community/posts/create" className="inline-flex items-center px-4 py-2 bg-primary-500 text-white rounded-lg hover:bg-primary-600 transition font-medium text-sm">
+            <a href="/community/posts/create" className="inline-flex items-center px-6 py-3 min-h-[44px] bg-primary-500 text-white rounded-lg hover:bg-primary-600 active:bg-primary-700 transition font-medium text-sm touch-manipulation">
               <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
               </svg>
@@ -272,7 +273,7 @@ export default function CommunityPage() {
             <div className="divide-y bg-white rounded-lg shadow">
               {filteredPosts.map((post) => (
                 <Link key={post.id} href={`/community/posts/${post.id}`}>
-                  <div className="p-4 hover:bg-gray-50 cursor-pointer">
+                  <div className="p-4 hover:bg-gray-50 active:bg-gray-100 cursor-pointer touch-manipulation transition-colors">
                     <div className="flex items-start justify-between">
                       <div className="flex-1">
                         <div className="flex items-center gap-2 mb-1">
@@ -337,20 +338,20 @@ export default function CommunityPage() {
               ))}
             </div>
 
-            {/* Pagination */}
+            {/* Pagination - 모바일 최적화 */}
             {totalPages > 1 && (
-              <div className="mt-6 flex justify-center items-center gap-2">
+              <div className="mt-6 flex flex-wrap justify-center items-center gap-1 sm:gap-2">
                 <button
                   onClick={() => setCurrentPage(1)}
                   disabled={currentPage === 1}
-                  className="px-3 py-2 border rounded-lg hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed text-sm"
+                  className="px-3 py-2 min-h-[44px] min-w-[44px] border rounded-lg hover:bg-gray-100 active:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed text-sm touch-manipulation hidden sm:block"
                 >
                   처음
                 </button>
                 <button
                   onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))}
                   disabled={currentPage === 1}
-                  className="px-3 py-2 border rounded-lg hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed text-sm"
+                  className="px-3 py-2 min-h-[44px] min-w-[44px] border rounded-lg hover:bg-gray-100 active:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed text-sm touch-manipulation"
                 >
                   이전
                 </button>
@@ -371,10 +372,10 @@ export default function CommunityPage() {
                       <button
                         key={pageNum}
                         onClick={() => setCurrentPage(pageNum)}
-                        className={`px-3 py-2 border rounded-lg text-sm ${
+                        className={`px-3 py-2 min-h-[44px] min-w-[44px] border rounded-lg text-sm touch-manipulation ${
                           currentPage === pageNum
                             ? 'bg-primary-500 text-white border-primary-500'
-                            : 'hover:bg-gray-100'
+                            : 'hover:bg-gray-100 active:bg-gray-200'
                         }`}
                       >
                         {pageNum}
@@ -386,14 +387,14 @@ export default function CommunityPage() {
                 <button
                   onClick={() => setCurrentPage(prev => Math.min(totalPages, prev + 1))}
                   disabled={currentPage === totalPages}
-                  className="px-3 py-2 border rounded-lg hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed text-sm"
+                  className="px-3 py-2 min-h-[44px] min-w-[44px] border rounded-lg hover:bg-gray-100 active:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed text-sm touch-manipulation"
                 >
                   다음
                 </button>
                 <button
                   onClick={() => setCurrentPage(totalPages)}
                   disabled={currentPage === totalPages}
-                  className="px-3 py-2 border rounded-lg hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed text-sm"
+                  className="px-3 py-2 min-h-[44px] min-w-[44px] border rounded-lg hover:bg-gray-100 active:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed text-sm touch-manipulation hidden sm:block"
                 >
                   마지막
                 </button>
@@ -403,30 +404,30 @@ export default function CommunityPage() {
         )}
       </div>
 
-      {/* Category Selection Modal */}
+      {/* Category Selection Modal - 모바일 최적화 */}
       {showCategoryModal && (
         <div
           className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4"
           onClick={() => setShowCategoryModal(false)}
         >
           <div
-            className="bg-white rounded-lg shadow-xl max-w-md w-full p-6"
+            className="bg-white rounded-lg shadow-xl max-w-md w-full p-4 sm:p-6"
             onClick={(e) => e.stopPropagation()}
           >
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">카테고리 선택</h2>
-            <p className="text-gray-600 mb-6">어떤 게시판에 글을 작성하시겠습니까?</p>
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">카테고리 선택</h2>
+            <p className="text-gray-600 mb-6 text-base">어떤 게시판에 글을 작성하시겠습니까?</p>
 
             <div className="space-y-3">
               <Link
                 href="/community/posts/create-politician"
-                className="block w-full px-6 py-2 bg-primary-500 text-white rounded-lg hover:bg-primary-600 transition text-center font-medium shadow-sm border-4 border-primary-600"
+                className="block w-full px-6 py-3 min-h-[44px] bg-primary-500 text-white rounded-lg hover:bg-primary-600 active:bg-primary-700 transition text-center font-medium shadow-sm border-4 border-primary-600 touch-manipulation"
               >
                 🏛️ 정치인 게시판
               </Link>
 
               <Link
                 href="/community/posts/create"
-                className="block w-full px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition text-center font-medium shadow-sm border-4 border-purple-700"
+                className="block w-full px-6 py-3 min-h-[44px] bg-purple-600 text-white rounded-lg hover:bg-purple-700 active:bg-purple-800 transition text-center font-medium shadow-sm border-4 border-purple-700 touch-manipulation"
               >
                 💬 회원 자유게시판
               </Link>
@@ -434,7 +435,7 @@ export default function CommunityPage() {
 
             <button
               onClick={() => setShowCategoryModal(false)}
-              className="mt-4 w-full px-6 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition font-medium"
+              className="mt-4 w-full px-6 py-3 min-h-[44px] bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 active:bg-gray-400 transition font-medium touch-manipulation"
             >
               취소
             </button>

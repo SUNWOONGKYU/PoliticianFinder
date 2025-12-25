@@ -154,8 +154,8 @@ export default function LoginPage() {
               </div>
             )}
 
-            {/* Email */}
-            <div className="space-y-3">
+            {/* Email - 모바일 최적화 */}
+            <div className="space-y-2">
               <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                 이메일
               </label>
@@ -163,16 +163,18 @@ export default function LoginPage() {
                 id="email"
                 name="email"
                 type="email"
+                inputMode="email"
+                autoComplete="email"
                 value={formData.email}
                 onChange={handleInputChange}
                 placeholder="example@email.com"
-                className="w-full px-3 py-1.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-200 focus:border-primary-500 placeholder-gray-400 text-sm"
+                className="w-full px-4 py-3 min-h-[44px] border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-200 focus:border-primary-500 placeholder-gray-400 text-base touch-manipulation"
                 required
               />
             </div>
 
-            {/* Password */}
-            <div className="space-y-3">
+            {/* Password - 모바일 최적화 */}
+            <div className="space-y-2">
               <label htmlFor="password" className="block text-sm font-medium text-gray-700">
                 비밀번호
               </label>
@@ -180,10 +182,11 @@ export default function LoginPage() {
                 id="password"
                 name="password"
                 type="password"
+                autoComplete="current-password"
                 value={formData.password}
                 onChange={handleInputChange}
                 placeholder="비밀번호를 입력하세요"
-                className="w-full px-3 py-1.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-200 focus:border-primary-500 placeholder-gray-400 text-sm"
+                className="w-full px-4 py-3 min-h-[44px] border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-200 focus:border-primary-500 placeholder-gray-400 text-base touch-manipulation"
                 required
               />
             </div>
@@ -211,11 +214,11 @@ export default function LoginPage() {
               </Link>
             </div>
 
-            {/* Login Button */}
+            {/* Login Button - 모바일 최적화 */}
             <button
               type="submit"
               disabled={loading}
-              className="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-primary-500 hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 disabled:bg-gray-400 transition"
+              className="w-full flex justify-center items-center min-h-[44px] py-3 px-4 border border-transparent text-base font-medium rounded-lg text-white bg-primary-500 hover:bg-primary-600 active:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 disabled:bg-gray-400 transition touch-manipulation"
             >
               {loading ? '로그인 중...' : '로그인'}
             </button>
@@ -233,7 +236,7 @@ export default function LoginPage() {
             <button
               type="button"
               onClick={handleGoogleLogin}
-              className="w-full inline-flex justify-center items-center gap-2 py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-900 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary-300"
+              className="w-full inline-flex justify-center items-center gap-2 min-h-[44px] py-3 px-4 border border-gray-300 rounded-lg shadow-sm bg-white text-base font-medium text-gray-900 hover:bg-gray-50 active:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-primary-300 transition touch-manipulation"
             >
               <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
