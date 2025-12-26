@@ -158,9 +158,9 @@ export default function CommunityPage() {
 
   const getTabClass = (tab: string, borderColor: string) => {
     if (currentCategory === tab) {
-      return 'flex-1 px-3 sm:px-4 py-3 min-h-[44px] bg-primary-500 text-white rounded-lg font-medium hover:bg-primary-600 active:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-300 transition whitespace-nowrap text-center min-w-[100px] sm:min-w-[160px] text-sm sm:text-base touch-manipulation';
+      return 'flex-1 px-3 sm:px-4 py-2 min-h-[40px] bg-primary-500 text-white rounded-lg font-medium hover:bg-primary-600 active:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-300 transition whitespace-nowrap text-center min-w-[80px] sm:min-w-[120px] text-sm touch-manipulation';
     }
-    return `flex-1 px-3 sm:px-4 py-3 min-h-[44px] bg-white text-gray-700 rounded-lg border-2 ${borderColor} font-medium hover:bg-gray-100 active:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-300 transition whitespace-nowrap text-center min-w-[100px] sm:min-w-[160px] text-sm sm:text-base touch-manipulation`;
+    return `flex-1 px-3 sm:px-4 py-2 min-h-[40px] bg-white text-gray-700 rounded-lg border-2 ${borderColor} font-medium hover:bg-gray-100 active:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-300 transition whitespace-nowrap text-center min-w-[80px] sm:min-w-[120px] text-sm touch-manipulation`;
   };
 
   return (
@@ -183,13 +183,13 @@ export default function CommunityPage() {
                 placeholder="제목, 내용, 작성자 검색"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full px-3 sm:px-4 py-3 pl-10 sm:pl-12 min-h-[44px] border-2 border-primary-300 rounded-lg focus:outline-none focus:border-primary-500 text-base text-gray-900 focus:ring-2 focus:ring-primary-200 touch-manipulation"
+                className="w-full px-3 sm:px-4 py-2.5 pl-10 sm:pl-12 min-h-[44px] border-2 border-primary-300 rounded-lg focus:outline-none focus:border-primary-500 text-base text-gray-900 focus:ring-2 focus:ring-primary-200 touch-manipulation"
               />
               <svg className="absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
             </div>
-            <button className="px-4 sm:px-8 py-3 min-h-[44px] bg-primary-500 text-white rounded-lg hover:bg-primary-600 active:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-300 font-semibold text-sm shadow-sm touch-manipulation">
+            <button className="px-4 sm:px-6 py-2.5 min-h-[44px] bg-primary-500 text-white rounded-lg hover:bg-primary-600 active:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-300 font-semibold text-sm shadow-sm touch-manipulation">
               검색
             </button>
           </div>
@@ -214,8 +214,8 @@ export default function CommunityPage() {
             <button
               onClick={() => { setCurrentCategory('general'); setCurrentPage(1); }}
               className={currentCategory === 'general'
-                ? 'flex-1 px-3 sm:px-4 py-3 min-h-[44px] bg-purple-600 text-white rounded-lg font-medium hover:bg-purple-700 active:bg-purple-800 focus:outline-none focus:ring-2 focus:ring-primary-300 transition whitespace-nowrap text-center min-w-[100px] sm:min-w-[160px] text-sm sm:text-base touch-manipulation'
-                : 'flex-1 px-3 sm:px-4 py-3 min-h-[44px] bg-white text-gray-700 rounded-lg border-2 border-purple-600 font-medium hover:bg-gray-100 active:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-300 transition whitespace-nowrap text-center min-w-[100px] sm:min-w-[160px] text-sm sm:text-base touch-manipulation'
+                ? 'flex-1 px-3 sm:px-4 py-2 min-h-[40px] bg-purple-600 text-white rounded-lg font-medium hover:bg-purple-700 active:bg-purple-800 focus:outline-none focus:ring-2 focus:ring-primary-300 transition whitespace-nowrap text-center min-w-[80px] sm:min-w-[120px] text-sm touch-manipulation'
+                : 'flex-1 px-3 sm:px-4 py-2 min-h-[40px] bg-white text-gray-700 rounded-lg border-2 border-purple-600 font-medium hover:bg-gray-100 active:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-300 transition whitespace-nowrap text-center min-w-[80px] sm:min-w-[120px] text-sm touch-manipulation'
               }
             >
               💬 자유게시판
@@ -225,7 +225,7 @@ export default function CommunityPage() {
           {/* Write Button - 모바일에서 전체 너비 */}
           <button
             onClick={handleWriteClick}
-            className="w-full sm:w-auto px-6 py-3 min-h-[44px] bg-primary-500 text-white rounded-lg font-medium hover:bg-primary-600 active:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-300 transition whitespace-nowrap shadow-md touch-manipulation"
+            className="w-full sm:w-auto px-5 py-2.5 min-h-[44px] bg-primary-500 text-white rounded-lg font-medium hover:bg-primary-600 active:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-300 transition whitespace-nowrap shadow-md touch-manipulation"
           >
             글쓰기
           </button>
@@ -261,7 +261,7 @@ export default function CommunityPage() {
             </svg>
             <h3 className="text-lg font-semibold text-gray-900 mb-2">게시글이 없습니다</h3>
             <p className="text-gray-500 text-sm mb-4">아직 작성된 게시글이 없거나 검색 조건에 맞는 게시글이 없습니다.</p>
-            <a href="/community/posts/create" className="inline-flex items-center px-6 py-3 min-h-[44px] bg-primary-500 text-white rounded-lg hover:bg-primary-600 active:bg-primary-700 transition font-medium text-sm touch-manipulation">
+            <a href="/community/posts/create" className="inline-flex items-center px-5 py-2.5 min-h-[44px] bg-primary-500 text-white rounded-lg hover:bg-primary-600 active:bg-primary-700 transition font-medium text-sm touch-manipulation">
               <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
               </svg>
@@ -420,14 +420,14 @@ export default function CommunityPage() {
             <div className="space-y-3">
               <Link
                 href="/community/posts/create-politician"
-                className="block w-full px-6 py-3 min-h-[44px] bg-primary-500 text-white rounded-lg hover:bg-primary-600 active:bg-primary-700 transition text-center font-medium shadow-sm border-4 border-primary-600 touch-manipulation"
+                className="block w-full px-5 py-2.5 min-h-[44px] bg-primary-500 text-white rounded-lg hover:bg-primary-600 active:bg-primary-700 transition text-center font-medium shadow-sm border-2 border-primary-600 touch-manipulation"
               >
                 🏛️ 정치인 게시판
               </Link>
 
               <Link
                 href="/community/posts/create"
-                className="block w-full px-6 py-3 min-h-[44px] bg-purple-600 text-white rounded-lg hover:bg-purple-700 active:bg-purple-800 transition text-center font-medium shadow-sm border-4 border-purple-700 touch-manipulation"
+                className="block w-full px-5 py-2.5 min-h-[44px] bg-purple-600 text-white rounded-lg hover:bg-purple-700 active:bg-purple-800 transition text-center font-medium shadow-sm border-2 border-purple-700 touch-manipulation"
               >
                 💬 회원 자유게시판
               </Link>
@@ -435,7 +435,7 @@ export default function CommunityPage() {
 
             <button
               onClick={() => setShowCategoryModal(false)}
-              className="mt-4 w-full px-6 py-3 min-h-[44px] bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 active:bg-gray-400 transition font-medium touch-manipulation"
+              className="mt-4 w-full px-5 py-2.5 min-h-[44px] bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 active:bg-gray-400 transition font-medium touch-manipulation"
             >
               취소
             </button>

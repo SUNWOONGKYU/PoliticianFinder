@@ -492,7 +492,7 @@ export default function Home() {
       {/* 검색 버튼 */}
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-        className="bg-primary-500 text-white px-4 sm:px-6 py-3 min-h-[48px] rounded-full shadow-lg hover:bg-primary-600 transition-all active:scale-95 flex items-center gap-2 touch-manipulation"
+        className="bg-primary-500 text-white px-4 sm:px-5 py-2 min-h-[44px] rounded-full shadow-lg hover:bg-primary-600 transition-all active:scale-95 flex items-center gap-2 touch-manipulation"
         aria-label="맨 위로 스크롤하여 검색"
       >
         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -504,7 +504,7 @@ export default function Home() {
       {/* 평가하기 버튼 - 정치인 목록 페이지로 이동 */}
       <button
         onClick={() => window.location.href = '/politicians'}
-        className="bg-secondary-600 text-white p-3 min-w-[48px] min-h-[48px] rounded-full shadow-lg hover:bg-secondary-700 transition-all active:scale-95 flex items-center justify-center touch-manipulation"
+        className="bg-secondary-600 text-white p-2.5 min-w-[44px] min-h-[44px] rounded-full shadow-lg hover:bg-secondary-700 transition-all active:scale-95 flex items-center justify-center touch-manipulation"
         title="정치인 평가하기"
         aria-label="정치인 평가하기"
       >
@@ -532,7 +532,7 @@ export default function Home() {
                       inputMode="search"
                       id="index-search-input"
                       placeholder="정치인과 게시글을 통합 검색하세요"
-                      className="w-full px-4 py-3 pl-12 border-2 border-primary-300 rounded-lg focus:outline-none focus:border-primary-500 text-gray-900 focus:ring-2 focus:ring-primary-200 text-base"
+                      className="w-full px-4 py-2.5 pl-12 min-h-[44px] border-2 border-primary-300 rounded-lg focus:outline-none focus:border-primary-500 text-gray-900 focus:ring-2 focus:ring-primary-200 text-base"
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
                       onKeyPress={(e) => {
@@ -555,7 +555,7 @@ export default function Home() {
                   </div>
                   <button
                     onClick={handleSearch}
-                    className="px-6 sm:px-8 py-3 min-h-[44px] min-w-[64px] bg-primary-500 text-white rounded-lg hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-300 font-semibold text-sm shadow-sm touch-manipulation active:bg-primary-700"
+                    className="px-5 sm:px-6 py-2.5 min-h-[44px] min-w-[60px] bg-primary-500 text-white rounded-lg hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-300 font-semibold text-sm shadow-sm touch-manipulation active:bg-primary-700"
                   >
                     검색
                   </button>
@@ -1387,7 +1387,7 @@ export default function Home() {
 
                   <Link
                     href="/mypage"
-                    className="block w-full bg-secondary-500 text-white font-medium py-3 rounded-lg hover:bg-secondary-600 transition text-sm text-center"
+                    className="block w-full bg-secondary-500 text-white font-medium py-2.5 min-h-[44px] rounded-lg hover:bg-secondary-600 transition text-sm text-center flex items-center justify-center"
                   >
                     마이페이지
                   </Link>
