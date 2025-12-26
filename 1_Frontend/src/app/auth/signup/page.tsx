@@ -248,14 +248,16 @@ export default function SignupPage() {
             <div className="space-y-2 pt-3">
               {/* All Terms */}
               <label htmlFor="terms-all" className="flex items-center min-h-[44px] cursor-pointer touch-manipulation active:bg-gray-50 rounded-lg px-1 -mx-1">
-                <input
-                  id="terms-all"
-                  type="checkbox"
-                  checked={termsAll}
-                  onChange={handleTermsAll}
-                  className="h-5 w-5 text-primary-600 focus:ring-primary-500 border-gray-300 rounded"
-                />
-                <span className="ml-3 text-sm font-medium text-gray-900">
+                <span className="flex items-center justify-center min-w-[44px] min-h-[44px]">
+                  <input
+                    id="terms-all"
+                    type="checkbox"
+                    checked={termsAll}
+                    onChange={handleTermsAll}
+                    className="h-6 w-6 text-primary-600 focus:ring-primary-500 border-gray-300 rounded cursor-pointer"
+                  />
+                </span>
+                <span className="ml-2 text-sm font-medium text-gray-900">
                   전체 동의
                 </span>
               </label>
@@ -263,45 +265,51 @@ export default function SignupPage() {
               {/* Individual Terms */}
               <div className="border-t pt-2 space-y-1">
                 <label htmlFor="terms-agreed" className="flex items-center min-h-[44px] cursor-pointer touch-manipulation active:bg-gray-50 rounded-lg px-1 -mx-1">
-                  <input
-                    id="terms-agreed"
-                    name="terms_agreed"
-                    type="checkbox"
-                    checked={formData.terms_agreed}
-                    onChange={handleInputChange}
-                    className="h-5 w-5 text-primary-600 focus:ring-primary-500 border-gray-300 rounded"
-                    required
-                  />
-                  <span className="ml-3 text-sm text-gray-700">
+                  <span className="flex items-center justify-center min-w-[44px] min-h-[44px]">
+                    <input
+                      id="terms-agreed"
+                      name="terms_agreed"
+                      type="checkbox"
+                      checked={formData.terms_agreed}
+                      onChange={handleInputChange}
+                      className="h-6 w-6 text-primary-600 focus:ring-primary-500 border-gray-300 rounded cursor-pointer"
+                      required
+                    />
+                  </span>
+                  <span className="ml-2 text-sm text-gray-700">
                     (필수) 이용약관 동의
                   </span>
                 </label>
 
                 <label htmlFor="privacy-agreed" className="flex items-center min-h-[44px] cursor-pointer touch-manipulation active:bg-gray-50 rounded-lg px-1 -mx-1">
-                  <input
-                    id="privacy-agreed"
-                    name="privacy_agreed"
-                    type="checkbox"
-                    checked={formData.privacy_agreed}
-                    onChange={handleInputChange}
-                    className="h-5 w-5 text-primary-600 focus:ring-primary-500 border-gray-300 rounded"
-                    required
-                  />
-                  <span className="ml-3 text-sm text-gray-700">
+                  <span className="flex items-center justify-center min-w-[44px] min-h-[44px]">
+                    <input
+                      id="privacy-agreed"
+                      name="privacy_agreed"
+                      type="checkbox"
+                      checked={formData.privacy_agreed}
+                      onChange={handleInputChange}
+                      className="h-6 w-6 text-primary-600 focus:ring-primary-500 border-gray-300 rounded cursor-pointer"
+                      required
+                    />
+                  </span>
+                  <span className="ml-2 text-sm text-gray-700">
                     (필수) 개인정보 수집 및 이용 동의
                   </span>
                 </label>
 
                 <label htmlFor="marketing-agreed" className="flex items-center min-h-[44px] cursor-pointer touch-manipulation active:bg-gray-50 rounded-lg px-1 -mx-1">
-                  <input
-                    id="marketing-agreed"
-                    name="marketing_agreed"
-                    type="checkbox"
-                    checked={formData.marketing_agreed}
-                    onChange={handleInputChange}
-                    className="h-5 w-5 text-primary-600 focus:ring-primary-500 border-gray-300 rounded"
-                  />
-                  <span className="ml-3 text-sm text-gray-700">
+                  <span className="flex items-center justify-center min-w-[44px] min-h-[44px]">
+                    <input
+                      id="marketing-agreed"
+                      name="marketing_agreed"
+                      type="checkbox"
+                      checked={formData.marketing_agreed}
+                      onChange={handleInputChange}
+                      className="h-6 w-6 text-primary-600 focus:ring-primary-500 border-gray-300 rounded cursor-pointer"
+                    />
+                  </span>
+                  <span className="ml-2 text-sm text-gray-700">
                     (선택) 마케팅 정보 수신 동의
                   </span>
                 </label>
