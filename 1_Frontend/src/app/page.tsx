@@ -480,7 +480,7 @@ export default function Home() {
   const aiLogos = {
     claude: 'https://cdn.brandfetch.io/idW5s392j1/w/338/h/338/theme/dark/icon.png?c=1bxid64Mup7aczewSAYMX&t=1738315794862',
     chatgpt: 'https://cdn.brandfetch.io/idR3duQxYl/theme/dark/symbol.svg?c=1bxid64Mup7aczewSAYMX',
-    gemini: 'https://cdn.brandfetch.io/id2S0n58vT/theme/dark/symbol.svg?c=1bxid64Mup7aczewSAYMX',
+    gemini: 'https://cdn.simpleicons.org/googlegemini',
     grok: 'https://cdn.simpleicons.org/x/000000',
   };
 
