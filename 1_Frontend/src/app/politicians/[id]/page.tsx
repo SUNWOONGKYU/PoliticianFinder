@@ -511,6 +511,7 @@ export default function PoliticianDetailPage() {
                     </svg>
                     별점 평가하기
                   </button>
+{/* TODO: 정치인 본인 검증 시스템 완성 후 활성화 - 현재는 숨김 처리
                   <Link
                     href={`/politicians/${politicianId}/edit`}
                     className="px-8 py-3 bg-white/20 backdrop-blur-sm text-white border-2 border-white/50 rounded-xl font-bold hover:bg-white/30 hover:scale-105 transition-all flex items-center justify-center gap-2 min-h-[44px]"
@@ -521,6 +522,7 @@ export default function PoliticianDetailPage() {
                     </svg>
                     프로필 수정 (본인)
                   </Link>
+                  */}
                 </div>
               </div>
 
