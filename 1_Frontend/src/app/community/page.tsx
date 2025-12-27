@@ -299,37 +299,40 @@ export default function CommunityPage() {
                         <p className="text-sm text-gray-600 mb-2 line-clamp-2">
                           {post.content}
                         </p>
-                        <div className="flex items-center gap-3 text-xs text-gray-500">
-                          {post.author_type === 'politician' ? (
-                            <Link
-                              href={`/politicians/${post.politician_id}`}
-                              className="font-medium text-primary-600 hover:text-primary-700 hover:underline"
-                              onClick={(e) => e.stopPropagation()}
-                            >
-                              {post.politician_name} | {post.politician_position} • {post.politician_party}
-                            </Link>
-                          ) : (
-                            <>
-                              <span className="font-medium text-secondary-600">
-                                {post.author_name}
-                              </span>
-                              <span className="text-xs text-gray-900 font-medium" title={`활동 등급: ${post.member_level || 'ML1'}`}>
-                                {post.member_level || 'ML1'}
-                              </span>
-                              <span className="text-xs text-emerald-900 font-medium">{formatInfluenceGrade(0)}</span>
-                            </>
-                          )}
-                          <span>{formatDate(post.created_at)}</span>
-                          <span>조회 {post.views}</span>
-                          <span className="text-red-600">👍 {post.like_count}</span>
-                          <span className="text-gray-400">👎 {post.dislike_count}</span>
-                          <span>댓글 {post.comment_count}</span>
-                          <span className="flex items-center gap-1">
-                            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
-                            </svg>
-                            공유 {post.share_count}
-                          </span>
+                        {/* 모바일: 2줄 분리 / PC: 1줄 */}
+                        <div className="text-xs text-gray-500">
+                          {/* 1줄: 작성자 정보 */}
+                          <div className="flex items-center gap-2 flex-wrap">
+                            {post.author_type === 'politician' ? (
+                              <Link
+                                href={`/politicians/${post.politician_id}`}
+                                className="font-medium text-primary-600 hover:text-primary-700 hover:underline"
+                                onClick={(e) => e.stopPropagation()}
+                              >
+                                🏛️ {post.politician_name} | {post.politician_position} • {post.politician_party}
+                              </Link>
+                            ) : (
+                              <>
+                                <span className="font-medium text-secondary-600">
+                                  {post.author_name}
+                                </span>
+                                <span className="text-gray-900 font-medium" title={`활동 등급: ${post.member_level || 'ML1'}`}>
+                                  {post.member_level || 'ML1'}
+                                </span>
+                                <span className="text-emerald-900 font-medium">{formatInfluenceGrade(0)}</span>
+                              </>
+                            )}
+                            <span className="text-gray-400">•</span>
+                            <span>{formatDate(post.created_at)}</span>
+                          </div>
+                          {/* 2줄: 통계 정보 */}
+                          <div className="flex items-center gap-3 mt-1">
+                            <span>조회 {post.views}</span>
+                            <span className="text-red-600">👍 {post.like_count}</span>
+                            <span className="hidden sm:inline text-gray-400">👎 {post.dislike_count}</span>
+                            <span>💬 {post.comment_count}</span>
+                            <span className="hidden sm:inline">공유 {post.share_count}</span>
+                          </div>
                         </div>
                       </div>
                     </div>

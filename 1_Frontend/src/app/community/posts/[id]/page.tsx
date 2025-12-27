@@ -646,26 +646,27 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
         ) : (
           <>
             {/* Post Detail */}
-            <article className="bg-white rounded-lg shadow-md p-6 mb-6">
-          <div className="flex items-center gap-2 mb-4">
-            <span className="px-2 py-1 bg-emerald-100 text-emerald-800 text-xs font-bold rounded">💬 {post.category}</span>
+            <article className="bg-white rounded-lg shadow-md p-4 sm:p-6 mb-6">
+          <div className="flex items-center gap-2 mb-3">
+            <span className="px-2.5 py-1 bg-emerald-100 text-emerald-800 text-sm font-bold rounded">💬 {post.category}</span>
           </div>
 
-          <div className="flex items-start justify-between gap-4 mb-4">
-            <h1 className="text-3xl font-bold text-gray-900">{post.title}</h1>
+          {/* 제목 영역 - 모바일: 세로 배치 */}
+          <div className="mb-4">
+            <h1 className="text-xl sm:text-2xl font-bold text-gray-900 leading-tight">{post.title}</h1>
 
-            {/* 작성자만 보이는 수정/삭제 버튼 - 모바일 최적화 */}
+            {/* 작성자만 보이는 수정/삭제 버튼 - 모바일: 제목 아래 */}
             {currentUser && post.userId === currentUser.id && (
-              <div className="flex items-center gap-2 flex-shrink-0">
+              <div className="flex items-center gap-2 mt-3">
                 <button
                   onClick={() => router.push(`/community/posts/${params.id}/edit`)}
-                  className="min-h-[44px] min-w-[44px] px-4 py-2 text-sm text-gray-600 border border-gray-300 rounded-lg hover:bg-gray-50 active:bg-gray-100 transition touch-manipulation"
+                  className="min-h-[44px] px-4 py-2 text-sm text-gray-600 border border-gray-300 rounded-lg hover:bg-gray-50 active:bg-gray-100 transition touch-manipulation"
                 >
                   수정
                 </button>
                 <button
                   onClick={() => setDeleteModalOpen(true)}
-                  className="min-h-[44px] min-w-[44px] px-4 py-2 text-sm text-red-600 border border-red-300 rounded-lg hover:bg-red-50 active:bg-red-100 transition touch-manipulation"
+                  className="min-h-[44px] px-4 py-2 text-sm text-red-600 border border-red-300 rounded-lg hover:bg-red-50 active:bg-red-100 transition touch-manipulation"
                 >
                   삭제
                 </button>
@@ -694,30 +695,35 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
             </div>
           )}
 
-          <div className="border-b pb-4 mb-6">
-            <div className="flex items-center gap-3 text-xs text-gray-500 flex-wrap">
+          {/* 메타 정보 - 모바일: 2줄 분리, Facebook/X 크기 기준 */}
+          <div className="border-b pb-4 mb-6 text-sm text-gray-600">
+            {/* 1줄: 작성자 정보 */}
+            <div className="flex items-center gap-2 flex-wrap mb-2">
               {post.isPolitician ? (
                 <>
-                  <span className="font-medium text-primary-600">{post.author}</span>
-                  <span className="text-gray-900">{post.politicianStatus} {post.politicianPosition}</span>
+                  <span className="font-semibold text-primary-600">{post.author}</span>
+                  <span className="text-gray-700">{post.politicianStatus} {post.politicianPosition}</span>
                 </>
               ) : (
                 <>
-                  <span className="font-medium text-secondary-600">{post.author}</span>
-                  <span className="text-gray-900" aria-label={`활동 등급 ${post.memberLevel}`} title={`활동 등급: ${post.memberLevel}`}>{post.memberLevel}</span>
-                  <span className="text-xs text-emerald-900 font-medium">{formatInfluenceGrade(0)}</span>
+                  <span className="font-semibold text-secondary-600">{post.author}</span>
+                  <span className="text-gray-700 font-medium" aria-label={`활동 등급 ${post.memberLevel}`}>{post.memberLevel}</span>
+                  <span className="text-emerald-700 font-medium">{formatInfluenceGrade(0)}</span>
                   {post.userId && (
                     <FollowButton targetUserId={post.userId} size="sm" variant="outline" />
                   )}
                 </>
               )}
+            </div>
+            {/* 2줄: 날짜 및 통계 */}
+            <div className="flex items-center gap-3 flex-wrap">
               <span>{post.timestamp}</span>
               <span>조회수 {post.views}</span>
               <span className="text-red-600">👍 {upvotes}</span>
               <span className="text-gray-400">👎 {downvotes}</span>
               <span>댓글 {post.commentCount}</span>
-              <button onClick={handleShare} className="flex items-center gap-1 hover:text-emerald-900">
-                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <button onClick={handleShare} className="flex items-center gap-1 hover:text-emerald-700 min-h-[44px] px-1 -mx-1 touch-manipulation">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.59 13.51l6.83 3.98m-.01-10.98l-6.82 3.98M21 5a3 3 0 11-6 0 3 3 0 016 0zM9 12a3 3 0 11-6 0 3 3 0 016 0zm12 7a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
                 <span>공유 {post.shareCount}</span>
@@ -725,12 +731,13 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
             </div>
           </div>
 
-          <div className="prose max-w-none mb-8">
+          {/* 본문 - Facebook/X 기준 15-16px */}
+          <div className="mb-8">
             {post.content.split('\n\n').map((paragraph: string, idx: number) => {
               if (paragraph.startsWith('## ')) {
-                return <h2 key={idx} className="text-2xl font-bold text-gray-900 mt-6 mb-3">{paragraph.replace('## ', '')}</h2>;
+                return <h2 key={idx} className="text-lg sm:text-xl font-bold text-gray-900 mt-6 mb-3">{paragraph.replace('## ', '')}</h2>;
               }
-              return <p key={idx} className="text-gray-700 leading-relaxed mb-4" dangerouslySetInnerHTML={{ __html: textToSafeHtml(paragraph) }} />;
+              return <p key={idx} className="text-[15px] sm:text-base text-gray-800 leading-relaxed mb-4" dangerouslySetInnerHTML={{ __html: textToSafeHtml(paragraph) }} />;
             })}
           </div>
 
@@ -759,8 +766,8 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
         </article>
 
         {/* Comments Section */}
-        <section className="bg-white rounded-lg shadow-md p-6">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">댓글 <span className="text-emerald-900">{post.commentCount}</span></h2>
+        <section className="bg-white rounded-lg shadow-md p-4 sm:p-6">
+          <h2 className="text-lg sm:text-xl font-bold text-gray-900 mb-4">댓글 <span className="text-emerald-700">{totalComments}</span></h2>
 
           {/* 댓글 탭 */}
           {/* 정치인 게시판에만 정치인/회원 댓글 구분 표시 */}
@@ -900,34 +907,38 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
             ) : (
               comments.slice(0, displayedComments).map((comment) => (
               <div key={comment.id} className="border-b pb-4">
-                <div className="mb-2">
-                  <div className="flex items-center gap-3 text-xs text-gray-500 flex-wrap">
-                    {/* 정치인 게시판에서만 정치인/회원 구분 표시 */}
+                {/* 댓글 메타 정보 - 2줄 분리, Facebook/X 크기 기준 */}
+                <div className="mb-2 text-sm text-gray-600">
+                  {/* 1줄: 작성자 정보 */}
+                  <div className="flex items-center gap-2 flex-wrap mb-1">
                     {post?.isPolitician && comment.authorType === 'politician' ? (
                       <>
-                        <Link href={`/politicians/${comment.userId}`} className="font-medium text-primary-600 hover:text-primary-700 hover:underline">
+                        <Link href={`/politicians/${comment.userId}`} className="font-semibold text-primary-600 hover:text-primary-700 hover:underline">
                           {comment.author}
                         </Link>
-                        <span className="text-gray-900">{comment.politicianStatus} {comment.politicianPosition}</span>
+                        <span className="text-gray-700">{comment.politicianStatus} {comment.politicianPosition}</span>
                       </>
                     ) : (
                       <>
-                        <Link href={`/users/${comment.userId}/profile`} className="font-medium text-purple-600 hover:text-purple-700 hover:underline">
+                        <Link href={`/users/${comment.userId}/profile`} className="font-semibold text-purple-600 hover:text-purple-700 hover:underline">
                           {comment.author}
                         </Link>
-                        <span className="text-gray-900" aria-label={`활동 등급 ${comment.memberLevel}`} title={`활동 등급: ${comment.memberLevel}`}>{comment.memberLevel}</span>
-                        <span className="text-xs text-emerald-900 font-medium" aria-label={`영향력 등급 ${comment.influenceLevel}`} title={`영향력 등급: ${comment.influenceLevel}`}>🏰 {comment.influenceLevel}</span>
-                        <button className="px-2 py-0.5 border border-emerald-700 text-emerald-900 rounded text-xs hover:bg-gray-50 transition">
+                        <span className="text-gray-700 font-medium">{comment.memberLevel}</span>
+                        <span className="text-emerald-700 font-medium">🏰 {comment.influenceLevel}</span>
+                        <button className="px-2.5 py-1 border border-emerald-700 text-emerald-700 rounded text-sm hover:bg-gray-50 transition min-h-[32px] touch-manipulation">
                           + 팔로우
                         </button>
                       </>
                     )}
+                  </div>
+                  {/* 2줄: 날짜 및 통계 */}
+                  <div className="flex items-center gap-3">
                     <span>{comment.timestamp}</span>
                     <span className="text-red-600">👍 {comment.upvotes}</span>
                     <span className="text-gray-400">👎 {comment.downvotes}</span>
                   </div>
                 </div>
-                <p className="text-gray-700 leading-relaxed">{comment.content}</p>
+                <p className="text-[15px] sm:text-base text-gray-800 leading-relaxed">{comment.content}</p>
               </div>
             ))
             )}
@@ -947,7 +958,7 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
 
         {/* Other Posts */}
         <section className="mt-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">다른 게시글</h2>
+          <h2 className="text-lg sm:text-xl font-bold text-gray-900 mb-4">다른 게시글</h2>
           <div className="space-y-3">
             <Link href="/community/posts/1" className="block p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition">
               <div className="flex items-center justify-between">
@@ -972,7 +983,7 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4" onClick={() => setShareModalOpen(false)}>
           <div className="bg-white rounded-lg shadow-xl max-w-md w-full p-6" onClick={(e) => e.stopPropagation()}>
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-2xl font-bold text-gray-900">게시글 공유하기</h2>
+              <h2 className="text-lg sm:text-xl font-bold text-gray-900">게시글 공유하기</h2>
               <button onClick={() => setShareModalOpen(false)} className="text-gray-400 hover:text-gray-600">
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
