@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useMemo, useEffect } from 'react';
+import Link from 'next/link';
 import { PoliticianListItem } from '@/types/politician';
 import { REGIONS } from '@/constants/regions';
 import { CONSTITUENCIES, getConstituenciesByMetropolitan } from '@/constants/constituencies';
@@ -534,27 +535,18 @@ export default function PoliticiansPage() {
                 {filteredData.map((p) => (
                   <tr
                     key={p.rank}
-                    className="hover:bg-gray-50 cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary-500"
-                    onClick={() => {
-                      window.location.href = `/politicians/${p.id}`;
-                    }}
-                    onKeyDown={(e) => {
-                      if (e.key === 'Enter' || e.key === ' ') {
-                        e.preventDefault();
-                        window.location.href = `/politicians/${p.id}`;
-                      }
-                    }}
-                    tabIndex={0}
-                    role="button"
-                    aria-label={`${p.name} 상세 정보 보기`}
+                    className="hover:bg-gray-50"
                   >
                     <td className="px-2 py-3 text-center">
                       <span className="font-bold text-gray-900 text-sm">{p.rank}</span>
                     </td>
                     <td className="px-3 py-3">
-                      <span className="font-bold text-primary-600 hover:text-primary-700 text-sm inline-flex items-center gap-1">
+                      <Link
+                        href={`/politicians/${p.id}`}
+                        className="font-bold text-primary-600 hover:text-primary-700 hover:underline text-sm inline-flex items-center gap-1"
+                      >
                         {p.name} <span className="text-xs">›</span>
-                      </span>
+                      </Link>
                     </td>
                     <td className="px-2 py-3 text-gray-600 text-xs">{p.title || '-'}</td>
                     <td className="px-2 py-3 text-gray-600 text-xs">{p.party}</td>
@@ -592,21 +584,10 @@ export default function PoliticiansPage() {
         {!loading && !error && (
         <div className="md:hidden space-y-4">
           {filteredData.map((p) => (
-            <div
+            <Link
               key={p.rank}
-              className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden touch-manipulation focus:outline-none focus:ring-2 focus:ring-primary-500 cursor-pointer"
-              onClick={() => {
-                window.location.href = `/politicians/${p.id}`;
-              }}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                  e.preventDefault();
-                  window.location.href = `/politicians/${p.id}`;
-                }
-              }}
-              tabIndex={0}
-              role="button"
-              aria-label={`${p.name} 상세 정보 보기`}
+              href={`/politicians/${p.id}`}
+              className="block bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden touch-manipulation focus:outline-none focus:ring-2 focus:ring-primary-500"
             >
               {/* Card Header with Rank and Grade */}
               <div className="bg-gradient-to-r from-primary-50 to-secondary-50 px-4 py-3 flex justify-between items-center">
@@ -703,7 +684,7 @@ export default function PoliticiansPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
         )}
