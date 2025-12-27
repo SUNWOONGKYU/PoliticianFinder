@@ -22,6 +22,7 @@ interface Politician {
   gradeEmoji: string;
   claude: number;
   chatgpt: number;
+  gemini: number;  // Gemini AI 점수
   grok: number;
   userRating: number;
   userCount: number;
@@ -251,6 +252,7 @@ export default function Home() {
               // API에서 온 개별 AI 점수 사용 (없으면 totalScore 사용)
               claude: p.claude !== undefined ? p.claude : totalScore,
               chatgpt: p.chatgpt !== undefined ? p.chatgpt : totalScore,
+              gemini: p.gemini !== undefined ? p.gemini : totalScore,
               grok: p.grok !== undefined ? p.grok : totalScore,
               userRating: p.userRating || 0,
               userCount: p.ratingCount || 0,
@@ -478,6 +480,7 @@ export default function Home() {
   const aiLogos = {
     claude: 'https://cdn.brandfetch.io/idW5s392j1/w/338/h/338/theme/dark/icon.png?c=1bxid64Mup7aczewSAYMX&t=1738315794862',
     chatgpt: 'https://cdn.brandfetch.io/idR3duQxYl/theme/dark/symbol.svg?c=1bxid64Mup7aczewSAYMX',
+    gemini: 'https://cdn.brandfetch.io/id2S0n58vT/theme/dark/symbol.svg?c=1bxid64Mup7aczewSAYMX',
     grok: 'https://cdn.simpleicons.org/x/000000',
   };
 
@@ -662,6 +665,12 @@ export default function Home() {
                         </th>
                         <th className="px-1 py-2 text-center font-bold text-gray-900 w-16">
                           <div className="flex flex-col items-center">
+                            <Image src={aiLogos.gemini} alt="Gemini" width={16} height={16} className="h-4 w-4 object-contain" unoptimized />
+                            <span className="whitespace-nowrap">Gemini</span>
+                          </div>
+                        </th>
+                        <th className="px-1 py-2 text-center font-bold text-gray-900 w-16">
+                          <div className="flex flex-col items-center">
                             <Image src={aiLogos.grok} alt="Grok" width={16} height={16} className="h-4 w-4 object-contain" unoptimized />
                             <span className="whitespace-nowrap">Grok</span>
                           </div>
@@ -692,6 +701,7 @@ export default function Home() {
                           <td className="px-1 py-2 text-center font-bold text-accent-600 whitespace-nowrap">{p.totalScore > 0 ? p.totalScore : '-'}</td>
                           <td className="px-1 py-2 text-center font-bold text-accent-600 whitespace-nowrap">{p.claude > 0 ? p.claude : '-'}</td>
                           <td className="px-1 py-2 text-center font-bold text-accent-600 whitespace-nowrap">{p.chatgpt > 0 ? p.chatgpt : '-'}</td>
+                          <td className="px-1 py-2 text-center font-bold text-accent-600 whitespace-nowrap">{p.gemini > 0 ? p.gemini : '-'}</td>
                           <td className="px-1 py-2 text-center font-bold text-accent-600 whitespace-nowrap">{p.grok > 0 ? p.grok : '-'}</td>
                           <td className="px-1 py-2 text-center whitespace-nowrap">
                             <div className="font-bold text-secondary-600" style={{ fontSize: '0.656rem' }}>
@@ -763,6 +773,17 @@ export default function Home() {
                           <span className="text-xs text-gray-900">ChatGPT</span>
                           <span className="ml-auto font-bold text-accent-600">
                             {politicians[0].chatgpt}
+                          </span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <img
+                            src={aiLogos.gemini}
+                            alt="Gemini"
+                            className="h-5 w-5 object-contain"
+                          />
+                          <span className="text-xs text-gray-900">Gemini</span>
+                          <span className="ml-auto font-bold text-accent-600">
+                            {politicians[0].gemini || '-'}
                           </span>
                         </div>
                         <div className="flex items-center gap-2">
@@ -839,6 +860,15 @@ export default function Home() {
                             />
                             <span className="text-xs text-gray-900">ChatGPT</span>
                             <span className="ml-auto font-bold text-accent-600">{p.chatgpt > 0 ? p.chatgpt : '-'}</span>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <img
+                              src={aiLogos.gemini}
+                              alt="Gemini"
+                              className="h-5 w-5 object-contain"
+                            />
+                            <span className="text-xs text-gray-900">Gemini</span>
+                            <span className="ml-auto font-bold text-accent-600">{p.gemini > 0 ? p.gemini : '-'}</span>
                           </div>
                           <div className="flex items-center gap-2">
                             <Image src={aiLogos.grok} alt="Grok" width={20} height={20} className="h-5 w-5 object-contain" unoptimized />

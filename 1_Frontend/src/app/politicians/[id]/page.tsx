@@ -690,36 +690,64 @@ export default function PoliticianDetailPage() {
             </div>
           </div>
 
-          {/* P3BA35: V24.0 AI 종합 점수 표시 (하드코딩 제거) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-            {/* AI 종합 점수 카드 - 중립 배경색 적용 */}
-            <div className="bg-gradient-to-br from-slate-50 to-blue-50 dark:from-gray-700 dark:to-gray-600 rounded-lg p-6 border border-slate-200 dark:border-gray-600">
-              <div className="flex flex-col items-center gap-2 mb-3">
-                <span className="font-medium text-gray-900 dark:text-white text-base">Claude AI 평가</span>
-                <span className="text-3xl font-bold text-primary-600 dark:text-primary-400">{politician.totalScore || 0}점</span>
-                <span className="text-sm text-gray-500 dark:text-gray-400">/ 1000점 만점</span>
+          {/* AI 평가 점수 표시 - 4개 AI + 등급 카드 */}
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-3 mb-6">
+            {/* Claude AI */}
+            <div className="bg-gradient-to-br from-slate-50 to-blue-50 dark:from-gray-700 dark:to-gray-600 rounded-lg p-4 border border-slate-200 dark:border-gray-600">
+              <div className="flex flex-col items-center gap-1">
+                <img src="https://cdn.brandfetch.io/idW5s392j1/w/338/h/338/theme/dark/icon.png" alt="Claude" className="h-8 w-8 object-contain rounded" />
+                <span className="font-medium text-gray-900 dark:text-white text-sm">Claude</span>
+                <span className="text-2xl font-bold text-primary-600 dark:text-primary-400">{politician.totalScore || 0}</span>
               </div>
-              <button
-                onClick={() => openAIDetailModal('Claude')}
-                className="w-full px-3 py-2.5 bg-primary-500 text-white text-base font-medium rounded-lg hover:bg-primary-600 transition min-h-[44px]"
-              >
-                카테고리별 상세 보기
-              </button>
+            </div>
+
+            {/* ChatGPT */}
+            <div className="bg-gradient-to-br from-slate-50 to-green-50 dark:from-gray-700 dark:to-gray-600 rounded-lg p-4 border border-slate-200 dark:border-gray-600">
+              <div className="flex flex-col items-center gap-1">
+                <img src="https://cdn.brandfetch.io/idR3duQxYl/theme/dark/symbol.svg" alt="ChatGPT" className="h-8 w-8 object-contain" />
+                <span className="font-medium text-gray-900 dark:text-white text-sm">ChatGPT</span>
+                <span className="text-2xl font-bold text-primary-600 dark:text-primary-400">{politician.totalScore || 0}</span>
+              </div>
+            </div>
+
+            {/* Gemini */}
+            <div className="bg-gradient-to-br from-slate-50 to-indigo-50 dark:from-gray-700 dark:to-gray-600 rounded-lg p-4 border border-slate-200 dark:border-gray-600">
+              <div className="flex flex-col items-center gap-1">
+                <img src="https://cdn.brandfetch.io/id2S0n58vT/theme/dark/symbol.svg" alt="Gemini" className="h-8 w-8 object-contain" />
+                <span className="font-medium text-gray-900 dark:text-white text-sm">Gemini</span>
+                <span className="text-2xl font-bold text-primary-600 dark:text-primary-400">{politician.totalScore || 0}</span>
+              </div>
+            </div>
+
+            {/* Grok */}
+            <div className="bg-gradient-to-br from-slate-50 to-gray-100 dark:from-gray-700 dark:to-gray-600 rounded-lg p-4 border border-slate-200 dark:border-gray-600">
+              <div className="flex flex-col items-center gap-1">
+                <img src="https://cdn.simpleicons.org/x/000000" alt="Grok" className="h-8 w-8 object-contain dark:invert" />
+                <span className="font-medium text-gray-900 dark:text-white text-sm">Grok</span>
+                <span className="text-2xl font-bold text-primary-600 dark:text-primary-400">{politician.totalScore || 0}</span>
+              </div>
             </div>
 
             {/* 등급 카드 */}
-            <div className="bg-gradient-to-br from-secondary-50 to-amber-50 dark:from-gray-700 dark:to-gray-600 rounded-lg p-6 border border-secondary-100 dark:border-gray-600">
-              <div className="flex flex-col items-center gap-2 mb-3">
-                <span className="font-medium text-gray-900 dark:text-white text-base">평가 등급</span>
-                <span className="text-4xl">{politician.gradeEmoji || '⬜'}</span>
-                <span className="text-xl font-bold text-gray-900 dark:text-white">
-                  {politician.gradeName || politician.grade || '미평가'}
+            <div className="bg-gradient-to-br from-secondary-50 to-amber-50 dark:from-gray-700 dark:to-gray-600 rounded-lg p-4 border border-secondary-100 dark:border-gray-600">
+              <div className="flex flex-col items-center gap-1">
+                <span className="text-3xl">{politician.gradeEmoji || '⬜'}</span>
+                <span className="font-medium text-gray-900 dark:text-white text-sm">등급</span>
+                <span className="text-lg font-bold text-gray-900 dark:text-white">
+                  {politician.grade || '-'}
                 </span>
               </div>
-              <div className="text-center text-sm text-gray-600 dark:text-gray-400">
-                V24.0 10단계 금속 등급 체계
-              </div>
             </div>
+          </div>
+
+          {/* 카테고리별 상세 보기 버튼 */}
+          <div className="mb-6">
+            <button
+              onClick={() => openAIDetailModal('Claude')}
+              className="w-full px-4 py-3 bg-primary-500 text-white text-base font-medium rounded-lg hover:bg-primary-600 transition min-h-[44px]"
+            >
+              카테고리별 상세 평가 보기
+            </button>
           </div>
 
           {/* 상세평가보고서 구매 섹션 - 정치인 본인 인증 완료 시에만 표시 */}
