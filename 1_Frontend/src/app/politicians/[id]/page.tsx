@@ -10,6 +10,7 @@ import { Politician } from '@/types/politician';
 import FavoriteButton from '@/components/FavoriteButton';
 import { LoadingPage } from '@/components/ui/Spinner';
 import { useNotification } from '@/components/NotificationProvider';
+import { getPoliticianSession } from '@/components/PoliticianAuthModal';
 
 const SAMPLE_POLITICIAN: Politician = {
   id: 'POL001',
@@ -137,6 +138,9 @@ export default function PoliticianDetailPage() {
   // 정치인 본인 인증 상태 (상세평가보고서 구매 섹션 표시 여부)
   const [isVerifiedOwner, setIsVerifiedOwner] = useState(false);
 
+  // 정치인 세션 기반 본인 확인 (프로필 수정 버튼 표시 여부)
+  const [isOwnProfile, setIsOwnProfile] = useState(false);
+
   // H13: 탭 네비게이션용 상태
   const [activeTab, setActiveTab] = useState<string>('basic');
   const [showStickyNav, setShowStickyNav] = useState(false);
@@ -217,6 +221,34 @@ export default function PoliticianDetailPage() {
     };
 
     checkVerificationStatus();
+  }, [politicianId]);
+
+  // 정치인 세션 기반 본인 확인 (localStorage의 politician_session 확인)
+  useEffect(() => {
+    const checkOwnProfile = () => {
+      const session = getPoliticianSession();
+      if (session && session.politician_id === politicianId) {
+        // 세션 만료 확인
+        const expiresAt = new Date(session.expires_at);
+        if (expiresAt > new Date()) {
+          setIsOwnProfile(true);
+          return;
+        }
+      }
+      setIsOwnProfile(false);
+    };
+
+    checkOwnProfile();
+
+    // localStorage 변경 감지 (다른 탭에서 로그인/로그아웃 시)
+    const handleStorageChange = (e: StorageEvent) => {
+      if (e.key === 'politician_session') {
+        checkOwnProfile();
+      }
+    };
+
+    window.addEventListener('storage', handleStorageChange);
+    return () => window.removeEventListener('storage', handleStorageChange);
   }, [politicianId]);
 
   const handleReportToggle = useCallback((aiName: string) => {
@@ -511,18 +543,19 @@ export default function PoliticianDetailPage() {
                     </svg>
                     별점 평가하기
                   </button>
-{/* TODO: 정치인 본인 검증 시스템 완성 후 활성화 - 현재는 숨김 처리
-                  <Link
-                    href={`/politicians/${politicianId}/edit`}
-                    className="px-8 py-3 bg-white/20 backdrop-blur-sm text-white border-2 border-white/50 rounded-xl font-bold hover:bg-white/30 hover:scale-105 transition-all flex items-center justify-center gap-2 min-h-[44px]"
-                    aria-label={`${politician.name} 프로필 수정`}
-                  >
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                    </svg>
-                    프로필 수정 (본인)
-                  </Link>
-                  */}
+{/* 정치인 본인 인증된 경우에만 프로필 수정 버튼 표시 */}
+                  {isOwnProfile && (
+                    <Link
+                      href={`/politicians/${politicianId}/edit`}
+                      className="px-8 py-3 bg-white/20 backdrop-blur-sm text-white border-2 border-white/50 rounded-xl font-bold hover:bg-white/30 hover:scale-105 transition-all flex items-center justify-center gap-2 min-h-[44px]"
+                      aria-label={`${politician.name} 프로필 수정`}
+                    >
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                      </svg>
+                      프로필 수정 (본인)
+                    </Link>
+                  )}
                 </div>
               </div>
 
