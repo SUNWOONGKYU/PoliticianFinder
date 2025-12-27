@@ -500,35 +500,32 @@ export default function PoliticianDetailPage() {
                 </div>
               </div>
 
-              {/* Info Section */}
+              {/* Info Section - 이름 옆에 신분+직책, 밑에 정당 + 지역/지구 */}
               <div className="flex-1 text-center md:text-left text-white">
-                <div className="flex flex-col md:flex-row items-center md:items-start gap-3 mb-3">
+                {/* 이름 + 신분 + 직책 (한 줄) */}
+                <div className="flex flex-col md:flex-row items-center md:items-start gap-2 mb-2">
                   <h1 className="text-3xl md:text-4xl font-bold">{politician.name}</h1>
-                  <span className="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm font-medium">
+                  <div className="flex items-center gap-2">
+                    <span className="px-3 py-1 bg-accent-500/80 backdrop-blur-sm rounded-full text-sm font-medium">
+                      {politician.identity}
+                    </span>
+                    {politician.title && (
+                      <span className="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-base font-medium">
+                        {politician.title}
+                      </span>
+                    )}
+                  </div>
+                </div>
+
+                {/* 정당 + 지역/지구 (두 번째 줄) */}
+                <div className="flex flex-wrap justify-center md:justify-start items-center gap-2 mb-6">
+                  <span className="px-3 py-1 bg-primary-500/80 backdrop-blur-sm rounded-full text-sm font-medium">
                     {politician.party}
                   </span>
-                </div>
-
-                <div className="flex flex-wrap justify-center md:justify-start gap-2 mb-4">
-                  <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-sm">
-                    {politician.identity}
+                  <span className="text-white/80">·</span>
+                  <span className="text-white/90 text-sm">
+                    {politician.region} {politician.district}
                   </span>
-                  {politician.title && (
-                    <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-sm">
-                      {politician.title}
-                    </span>
-                  )}
-                  <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-sm">
-                    {politician.position}
-                  </span>
-                </div>
-
-                <div className="flex items-center justify-center md:justify-start gap-2 text-lg mb-6">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
-                  <span>{politician.region} {politician.district}</span>
                 </div>
 
                 {/* Action Buttons */}
@@ -624,45 +621,49 @@ export default function PoliticianDetailPage() {
           </div>
         </nav>
 
-        {/* [1] 기본 정보 섹션 (상세) */}
+        {/* [1] 기본 정보 섹션 (상세) - 목록 페이지 순서: 직책, 정당, 신분, 출마직종, 출마지역, 출마지구 */}
         <section id="basic" className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-6 scroll-mt-32">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">상세 정보</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="flex items-center gap-3 min-h-[44px]">
               <span className="text-gray-600 dark:text-gray-400 font-medium w-24 text-base">한자명</span>
-              <span className="text-gray-900 dark:text-white text-base">{politician.nameKanji}</span>
+              <span className="text-gray-900 dark:text-white text-base">{politician.nameKanji || '-'}</span>
             </div>
             <div className="flex items-center gap-3 min-h-[44px]">
               <span className="text-gray-600 dark:text-gray-400 font-medium w-24 text-base">영문명</span>
-              <span className="text-gray-900 dark:text-white text-base">{politician.nameEn}</span>
+              <span className="text-gray-900 dark:text-white text-base">{politician.nameEn || '-'}</span>
             </div>
             <div className="flex items-center gap-3 min-h-[44px]">
-              <span className="text-gray-600 dark:text-gray-400 font-medium w-24 text-base">소속 정당</span>
-              <span className="text-gray-900 dark:text-white text-base">{politician.party}</span>
+              <span className="text-gray-600 dark:text-gray-400 font-medium w-24 text-base">직책</span>
+              <span className="text-gray-900 dark:text-white text-base">{politician.title || '-'}</span>
             </div>
             <div className="flex items-center gap-3 min-h-[44px]">
-              <span className="text-gray-600 dark:text-gray-400 font-medium w-24 text-base">지역</span>
-              <span className="text-gray-900 dark:text-white text-base">{politician.region}</span>
+              <span className="text-gray-600 dark:text-gray-400 font-medium w-24 text-base">정당</span>
+              <span className="text-gray-900 dark:text-white text-base">{politician.party || '-'}</span>
+            </div>
+            <div className="flex items-center gap-3 min-h-[44px]">
+              <span className="text-gray-600 dark:text-gray-400 font-medium w-24 text-base">신분</span>
+              <span className="text-gray-900 dark:text-white text-base">{politician.identity || '-'}</span>
+            </div>
+            <div className="flex items-center gap-3 min-h-[44px]">
+              <span className="text-gray-600 dark:text-gray-400 font-medium w-24 text-base">출마직종</span>
+              <span className="text-gray-900 dark:text-white text-base">{politician.position || '-'}</span>
+            </div>
+            <div className="flex items-center gap-3 min-h-[44px]">
+              <span className="text-gray-600 dark:text-gray-400 font-medium w-24 text-base">출마지역</span>
+              <span className="text-gray-900 dark:text-white text-base">{politician.region || '-'}</span>
+            </div>
+            <div className="flex items-center gap-3 min-h-[44px]">
+              <span className="text-gray-600 dark:text-gray-400 font-medium w-24 text-base">출마지구</span>
+              <span className="text-gray-900 dark:text-white text-base">{politician.district || '-'}</span>
             </div>
             <div className="flex items-center gap-3 min-h-[44px]">
               <span className="text-gray-600 dark:text-gray-400 font-medium w-24 text-base">생년월일</span>
-              <span className="text-gray-900 dark:text-white text-base">{politician.birthDate} ({politician.age}세)</span>
+              <span className="text-gray-900 dark:text-white text-base">{politician.birthDate || '-'} {politician.age ? `(${politician.age}세)` : ''}</span>
             </div>
             <div className="flex items-center gap-3 min-h-[44px]">
               <span className="text-gray-600 dark:text-gray-400 font-medium w-24 text-base">성별</span>
-              <span className="text-gray-900 dark:text-white text-base">{politician.gender}</span>
-            </div>
-            <div className="flex items-center gap-3 min-h-[44px]">
-              <span className="text-gray-600 dark:text-gray-400 font-medium w-24 text-base">클로드 평점</span>
-              <span className="text-accent-600 dark:text-accent-400 font-bold text-lg">{politician.claudeScore}점</span>
-            </div>
-            <div className="flex items-center gap-3 min-h-[44px]">
-              <span className="text-gray-600 dark:text-gray-400 font-medium w-24 text-base">종합평점</span>
-              <span className="text-accent-600 dark:text-accent-400 font-bold text-lg">{politician.totalScore}점</span>
-            </div>
-            <div className="flex items-center gap-3 min-h-[44px]">
-              <span className="text-gray-600 dark:text-gray-400 font-medium w-24 text-base">평가등급</span>
-              <span className="text-accent-600 dark:text-accent-400 font-bold text-lg">{politician.gradeEmoji} {politician.grade}</span>
+              <span className="text-gray-900 dark:text-white text-base">{politician.gender || '-'}</span>
             </div>
           </div>
         </section>
@@ -690,50 +691,59 @@ export default function PoliticianDetailPage() {
             </div>
           </div>
 
-          {/* AI 평가 점수 표시 - 4개 AI + 등급 카드 */}
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-3 mb-6">
+          {/* AI 평가 점수 표시 - 종합평점 + 4개 AI + 등급 카드 */}
+          <div className="grid grid-cols-3 md:grid-cols-6 gap-2 mb-6">
+            {/* 종합 평점 */}
+            <div className="bg-gradient-to-br from-primary-50 to-accent-50 dark:from-gray-700 dark:to-gray-600 rounded-lg p-3 border-2 border-primary-200 dark:border-primary-600">
+              <div className="flex flex-col items-center gap-0.5">
+                <span className="text-lg">📊</span>
+                <span className="font-medium text-gray-900 dark:text-white text-xs">종합</span>
+                <span className="text-xl font-bold text-primary-600 dark:text-primary-400">{politician.totalScore || 0}</span>
+              </div>
+            </div>
+
             {/* Claude AI */}
-            <div className="bg-gradient-to-br from-slate-50 to-blue-50 dark:from-gray-700 dark:to-gray-600 rounded-lg p-4 border border-slate-200 dark:border-gray-600">
-              <div className="flex flex-col items-center gap-1">
-                <img src="https://cdn.brandfetch.io/idW5s392j1/w/338/h/338/theme/dark/icon.png" alt="Claude" className="h-8 w-8 object-contain rounded" />
-                <span className="font-medium text-gray-900 dark:text-white text-sm">Claude</span>
-                <span className="text-2xl font-bold text-primary-600 dark:text-primary-400">{politician.totalScore || 0}</span>
+            <div className="bg-gradient-to-br from-slate-50 to-blue-50 dark:from-gray-700 dark:to-gray-600 rounded-lg p-3 border border-slate-200 dark:border-gray-600">
+              <div className="flex flex-col items-center gap-0.5">
+                <img src="https://cdn.brandfetch.io/idW5s392j1/w/338/h/338/theme/dark/icon.png" alt="Claude" className="h-5 w-5 object-contain rounded" />
+                <span className="font-medium text-gray-900 dark:text-white text-xs">Claude</span>
+                <span className="text-xl font-bold text-primary-600 dark:text-primary-400">{politician.totalScore || 0}</span>
               </div>
             </div>
 
             {/* ChatGPT */}
-            <div className="bg-gradient-to-br from-slate-50 to-green-50 dark:from-gray-700 dark:to-gray-600 rounded-lg p-4 border border-slate-200 dark:border-gray-600">
-              <div className="flex flex-col items-center gap-1">
-                <img src="https://cdn.brandfetch.io/idR3duQxYl/theme/dark/symbol.svg" alt="ChatGPT" className="h-8 w-8 object-contain" />
-                <span className="font-medium text-gray-900 dark:text-white text-sm">ChatGPT</span>
-                <span className="text-2xl font-bold text-primary-600 dark:text-primary-400">{politician.totalScore || 0}</span>
+            <div className="bg-gradient-to-br from-slate-50 to-green-50 dark:from-gray-700 dark:to-gray-600 rounded-lg p-3 border border-slate-200 dark:border-gray-600">
+              <div className="flex flex-col items-center gap-0.5">
+                <img src="https://cdn.brandfetch.io/idR3duQxYl/theme/dark/symbol.svg" alt="ChatGPT" className="h-5 w-5 object-contain" />
+                <span className="font-medium text-gray-900 dark:text-white text-xs">ChatGPT</span>
+                <span className="text-xl font-bold text-primary-600 dark:text-primary-400">{politician.totalScore || 0}</span>
               </div>
             </div>
 
             {/* Gemini */}
-            <div className="bg-gradient-to-br from-slate-50 to-indigo-50 dark:from-gray-700 dark:to-gray-600 rounded-lg p-4 border border-slate-200 dark:border-gray-600">
-              <div className="flex flex-col items-center gap-1">
-                <img src="https://cdn.simpleicons.org/googlegemini" alt="Gemini" className="h-8 w-8 object-contain" />
-                <span className="font-medium text-gray-900 dark:text-white text-sm">Gemini</span>
-                <span className="text-2xl font-bold text-primary-600 dark:text-primary-400">{politician.totalScore || 0}</span>
+            <div className="bg-gradient-to-br from-slate-50 to-indigo-50 dark:from-gray-700 dark:to-gray-600 rounded-lg p-3 border border-slate-200 dark:border-gray-600">
+              <div className="flex flex-col items-center gap-0.5">
+                <img src="https://cdn.simpleicons.org/googlegemini" alt="Gemini" className="h-5 w-5 object-contain" />
+                <span className="font-medium text-gray-900 dark:text-white text-xs">Gemini</span>
+                <span className="text-xl font-bold text-primary-600 dark:text-primary-400">{politician.totalScore || 0}</span>
               </div>
             </div>
 
             {/* Grok */}
-            <div className="bg-gradient-to-br from-slate-50 to-gray-100 dark:from-gray-700 dark:to-gray-600 rounded-lg p-4 border border-slate-200 dark:border-gray-600">
-              <div className="flex flex-col items-center gap-1">
-                <img src="https://cdn.simpleicons.org/x/000000" alt="Grok" className="h-8 w-8 max-h-8 max-w-8 object-contain dark:invert" />
-                <span className="font-medium text-gray-900 dark:text-white text-sm">Grok</span>
-                <span className="text-2xl font-bold text-primary-600 dark:text-primary-400">{politician.totalScore || 0}</span>
+            <div className="bg-gradient-to-br from-slate-50 to-gray-100 dark:from-gray-700 dark:to-gray-600 rounded-lg p-3 border border-slate-200 dark:border-gray-600">
+              <div className="flex flex-col items-center gap-0.5">
+                <img src="https://cdn.simpleicons.org/x/000000" alt="Grok" className="h-5 w-5 max-h-5 max-w-5 object-contain dark:invert" />
+                <span className="font-medium text-gray-900 dark:text-white text-xs">Grok</span>
+                <span className="text-xl font-bold text-primary-600 dark:text-primary-400">{politician.totalScore || 0}</span>
               </div>
             </div>
 
             {/* 등급 카드 */}
-            <div className="bg-gradient-to-br from-secondary-50 to-amber-50 dark:from-gray-700 dark:to-gray-600 rounded-lg p-4 border border-secondary-100 dark:border-gray-600">
-              <div className="flex flex-col items-center gap-1">
-                <span className="text-3xl">{politician.gradeEmoji || '⬜'}</span>
-                <span className="font-medium text-gray-900 dark:text-white text-sm">등급</span>
-                <span className="text-lg font-bold text-gray-900 dark:text-white">
+            <div className="bg-gradient-to-br from-secondary-50 to-amber-50 dark:from-gray-700 dark:to-gray-600 rounded-lg p-3 border border-secondary-100 dark:border-gray-600">
+              <div className="flex flex-col items-center gap-0.5">
+                <span className="text-lg">{politician.gradeEmoji || '⬜'}</span>
+                <span className="font-medium text-gray-900 dark:text-white text-xs">등급</span>
+                <span className="text-base font-bold text-gray-900 dark:text-white">
                   {politician.grade || '-'}
                 </span>
               </div>
