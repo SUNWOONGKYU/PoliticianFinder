@@ -757,42 +757,182 @@ export default function PoliticianDetailPage() {
           )}
         </section>
 
-        {/* [3] 커뮤니티 활동 정보 섹션 */}
-        <section id="community" className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-6 scroll-mt-32">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">커뮤니티 활동 정보</h2>
+        {/* [3] 커뮤니티 활동 정보 섹션 - 확장 버전 */}
+        <section id="community" className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 sm:p-6 mb-6 scroll-mt-32">
+          <h2 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-4">커뮤니티</h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-            {/* 작성한 게시글 */}
-            <Link href={`/community?filter=politician&author=${politician.name}`} className="block bg-primary-50 dark:bg-primary-900/20 rounded-lg p-6 border-2 border-primary-200 dark:border-primary-700 hover:border-primary-400 transition cursor-pointer min-h-[100px]">
-              <div className="flex items-center justify-between">
-                <div>
-                  <div className="text-base font-medium text-primary-700 dark:text-primary-300 mb-1">🏛️ 작성한 게시글</div>
-                  <div className="text-3xl font-bold text-primary-600 dark:text-primary-400">{politician.postCount || 0}개</div>
-                  <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">(받은 공감 {politician.likeCount || 0}개)</div>
-                </div>
-                <svg className="w-6 h-6 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7"></path>
-                </svg>
-              </div>
+          {/* 통계 카드 */}
+          <div className="grid grid-cols-2 gap-3 mb-6">
+            <Link href={`/community?filter=politician&author=${politician.name}`} className="block bg-primary-50 dark:bg-primary-900/20 rounded-lg p-4 border border-primary-200 dark:border-primary-700 hover:border-primary-400 transition">
+              <div className="text-sm font-medium text-primary-700 dark:text-primary-300 mb-1">🏛️ 작성한 글</div>
+              <div className="text-2xl font-bold text-primary-600 dark:text-primary-400">{politician.postCount || 0}</div>
             </Link>
-
-            {/* 태깅된 게시글 */}
-            <Link href={`/community?filter=general&tagged=${politician.name}`} className="block bg-purple-50 dark:bg-purple-900/20 rounded-lg p-6 border-2 border-purple-200 dark:border-purple-700 hover:border-purple-400 transition cursor-pointer min-h-[100px]">
-              <div className="flex items-center justify-between">
-                <div>
-                  <div className="text-base font-medium text-purple-700 dark:text-purple-300 mb-1">💬 태깅된 게시글</div>
-                  <div className="text-3xl font-bold text-purple-600 dark:text-purple-400">{politician.taggedCount || 0}개</div>
-                  <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">(회원들이 이 정치인에 대해 작성)</div>
-                </div>
-                <svg className="w-6 h-6 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7"></path>
-                </svg>
-              </div>
+            <Link href={`/community?filter=general&tagged=${politician.name}`} className="block bg-purple-50 dark:bg-purple-900/20 rounded-lg p-4 border border-purple-200 dark:border-purple-700 hover:border-purple-400 transition">
+              <div className="text-sm font-medium text-purple-700 dark:text-purple-300 mb-1">💬 태깅된 글</div>
+              <div className="text-2xl font-bold text-purple-600 dark:text-purple-400">{politician.taggedCount || 0}</div>
             </Link>
           </div>
 
-          <div className="text-base text-gray-500 dark:text-gray-400 text-center">
-            클릭하시면 해당 게시글 목록으로 이동합니다
+          {/* 의견 작성 폼 */}
+          <div className="mb-6 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
+            <h3 className="text-base font-semibold text-gray-900 dark:text-white mb-3">💬 {politician.name} 의원에게 의견 남기기</h3>
+            <textarea
+              placeholder={`${politician.name} 의원에 대한 의견을 남겨주세요...`}
+              className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg text-[15px] text-gray-900 dark:text-white bg-white dark:bg-gray-800 resize-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+              rows={3}
+            />
+            <div className="flex justify-end mt-3">
+              <button className="px-4 py-2 bg-primary-500 text-white rounded-lg font-medium hover:bg-primary-600 transition min-h-[44px] touch-manipulation">
+                의견 등록
+              </button>
+            </div>
+          </div>
+
+          {/* 최근 의견/댓글 목록 */}
+          <div className="mb-6">
+            <div className="flex items-center justify-between mb-3">
+              <h3 className="text-base font-semibold text-gray-900 dark:text-white">최근 의견</h3>
+              <Link href={`/community?tagged=${politician.name}`} className="text-sm text-primary-600 hover:underline min-h-[44px] flex items-center px-2">
+                전체보기 →
+              </Link>
+            </div>
+
+            <div className="space-y-4">
+              {/* 샘플 의견 1 */}
+              <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                <div className="text-sm text-gray-600 dark:text-gray-400 mb-2">
+                  <span className="font-semibold text-secondary-600">시민참여자</span>
+                  <span className="mx-2">·</span>
+                  <span>ML3</span>
+                  <span className="mx-2">·</span>
+                  <span>2025.01.15</span>
+                </div>
+                <p className="text-[15px] text-gray-800 dark:text-gray-200 leading-relaxed">
+                  {politician.name} 의원님의 최근 활동에 대해 긍정적으로 평가합니다. 지역 발전을 위해 노력하시는 모습이 인상적입니다.
+                </p>
+                <div className="flex items-center gap-4 mt-3 text-sm text-gray-500">
+                  <button className="flex items-center gap-1 hover:text-red-500 min-h-[44px] px-2 -mx-2 touch-manipulation">
+                    <span>👍</span> <span>12</span>
+                  </button>
+                  <button className="flex items-center gap-1 hover:text-gray-700 min-h-[44px] px-2 touch-manipulation">
+                    <span>👎</span> <span>2</span>
+                  </button>
+                  <button className="hover:text-primary-600 min-h-[44px] px-2 touch-manipulation">답글</button>
+                </div>
+              </div>
+
+              {/* 샘플 의견 2 */}
+              <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                <div className="text-sm text-gray-600 dark:text-gray-400 mb-2">
+                  <span className="font-semibold text-secondary-600">정책분석가</span>
+                  <span className="mx-2">·</span>
+                  <span>ML5</span>
+                  <span className="mx-2">·</span>
+                  <span>2025.01.14</span>
+                </div>
+                <p className="text-[15px] text-gray-800 dark:text-gray-200 leading-relaxed">
+                  교통 정책에 대한 공약 이행률이 궁금합니다. 구체적인 진행 상황을 알 수 있을까요?
+                </p>
+                <div className="flex items-center gap-4 mt-3 text-sm text-gray-500">
+                  <button className="flex items-center gap-1 hover:text-red-500 min-h-[44px] px-2 -mx-2 touch-manipulation">
+                    <span>👍</span> <span>8</span>
+                  </button>
+                  <button className="flex items-center gap-1 hover:text-gray-700 min-h-[44px] px-2 touch-manipulation">
+                    <span>👎</span> <span>0</span>
+                  </button>
+                  <button className="hover:text-primary-600 min-h-[44px] px-2 touch-manipulation">답글</button>
+                </div>
+              </div>
+
+              {/* 샘플 의견 3 - 정치인 답변 */}
+              <div className="p-4 bg-primary-50 dark:bg-primary-900/20 rounded-lg border-l-4 border-primary-500">
+                <div className="text-sm text-gray-600 dark:text-gray-400 mb-2">
+                  <span className="font-semibold text-primary-600">🏛️ {politician.name}</span>
+                  <span className="ml-2 px-2 py-0.5 bg-primary-100 text-primary-700 rounded text-xs">정치인</span>
+                  <span className="mx-2">·</span>
+                  <span>2025.01.14</span>
+                </div>
+                <p className="text-[15px] text-gray-800 dark:text-gray-200 leading-relaxed">
+                  관심 가져주셔서 감사합니다. 교통 정책 관련하여 현재 70% 이상 진행 중이며, 다음 달 중으로 구체적인 성과 보고서를 공개할 예정입니다.
+                </p>
+                <div className="flex items-center gap-4 mt-3 text-sm text-gray-500">
+                  <button className="flex items-center gap-1 hover:text-red-500 min-h-[44px] px-2 -mx-2 touch-manipulation">
+                    <span>👍</span> <span>45</span>
+                  </button>
+                  <button className="flex items-center gap-1 hover:text-gray-700 min-h-[44px] px-2 touch-manipulation">
+                    <span>👎</span> <span>3</span>
+                  </button>
+                  <button className="hover:text-primary-600 min-h-[44px] px-2 touch-manipulation">답글</button>
+                </div>
+              </div>
+            </div>
+
+            {/* 더보기 버튼 */}
+            <div className="text-center mt-4">
+              <Link
+                href={`/community?tagged=${politician.name}`}
+                className="inline-flex items-center justify-center px-6 py-3 border border-gray-300 dark:border-gray-600 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition min-h-[44px] touch-manipulation"
+              >
+                더 많은 의견 보기
+              </Link>
+            </div>
+          </div>
+
+          {/* 관련 게시글 미리보기 */}
+          <div>
+            <div className="flex items-center justify-between mb-3">
+              <h3 className="text-base font-semibold text-gray-900 dark:text-white">관련 게시글</h3>
+              <Link href={`/community?search=${politician.name}`} className="text-sm text-primary-600 hover:underline min-h-[44px] flex items-center px-2">
+                전체보기 →
+              </Link>
+            </div>
+
+            <div className="space-y-2">
+              {/* 샘플 게시글 1 */}
+              <Link href="/community/posts/1" className="block p-3 bg-gray-50 dark:bg-gray-700 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition">
+                <div className="flex items-start justify-between gap-3">
+                  <div className="flex-1 min-w-0">
+                    <div className="text-[15px] font-medium text-gray-900 dark:text-white truncate">
+                      [{politician.name} 의원 관련] 지역 발전 정책 분석
+                    </div>
+                    <div className="text-sm text-gray-500 mt-1">
+                      시민참여자 · 조회 156 · 👍 23
+                    </div>
+                  </div>
+                  <span className="text-xs text-gray-400 flex-shrink-0">1일 전</span>
+                </div>
+              </Link>
+
+              {/* 샘플 게시글 2 */}
+              <Link href="/community/posts/2" className="block p-3 bg-gray-50 dark:bg-gray-700 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition">
+                <div className="flex items-start justify-between gap-3">
+                  <div className="flex-1 min-w-0">
+                    <div className="text-[15px] font-medium text-gray-900 dark:text-white truncate">
+                      {politician.party} 소속 의원들 활동 비교
+                    </div>
+                    <div className="text-sm text-gray-500 mt-1">
+                      정책분석가 · 조회 234 · 👍 45
+                    </div>
+                  </div>
+                  <span className="text-xs text-gray-400 flex-shrink-0">3일 전</span>
+                </div>
+              </Link>
+
+              {/* 샘플 게시글 3 */}
+              <Link href="/community/posts/3" className="block p-3 bg-gray-50 dark:bg-gray-700 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition">
+                <div className="flex items-start justify-between gap-3">
+                  <div className="flex-1 min-w-0">
+                    <div className="text-[15px] font-medium text-gray-900 dark:text-white truncate">
+                      {politician.region} 지역 현안에 대한 의견
+                    </div>
+                    <div className="text-sm text-gray-500 mt-1">
+                      지역주민 · 조회 89 · 👍 12
+                    </div>
+                  </div>
+                  <span className="text-xs text-gray-400 flex-shrink-0">5일 전</span>
+                </div>
+              </Link>
+            </div>
           </div>
         </section>
 
