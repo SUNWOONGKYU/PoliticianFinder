@@ -325,13 +325,13 @@ export default function CommunityPage() {
                             <span className="text-gray-400">•</span>
                             <span>{formatDate(post.created_at)}</span>
                           </div>
-                          {/* 2줄: 통계 정보 */}
-                          <div className="flex items-center gap-3 mt-1">
+                          {/* 2줄: 통계 정보 - 모바일에서도 전부 표시 */}
+                          <div className="flex items-center gap-2 sm:gap-3 mt-1 flex-wrap">
                             <span>조회 {post.views}</span>
                             <span className="text-red-600">👍 {post.like_count}</span>
-                            <span className="hidden sm:inline text-gray-400">👎 {post.dislike_count}</span>
+                            <span className="text-gray-400">👎 {post.dislike_count}</span>
                             <span>💬 {post.comment_count}</span>
-                            <span className="hidden sm:inline">공유 {post.share_count}</span>
+                            <span>공유 {post.share_count}</span>
                           </div>
                         </div>
                       </div>
