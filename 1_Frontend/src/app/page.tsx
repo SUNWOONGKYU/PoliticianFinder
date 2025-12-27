@@ -671,7 +671,7 @@ export default function Home() {
                         </th>
                         <th className="px-1 py-2 text-center font-bold text-gray-900 w-16">
                           <div className="flex flex-col items-center">
-                            <Image src={aiLogos.grok} alt="Grok" width={16} height={16} className="h-4 w-4 object-contain" unoptimized />
+                            <img src={aiLogos.grok} alt="Grok" className="h-4 w-4 max-h-4 max-w-4 object-contain" />
                             <span className="whitespace-nowrap">Grok</span>
                           </div>
                         </th>
@@ -787,7 +787,7 @@ export default function Home() {
                           </span>
                         </div>
                         <div className="flex items-center gap-2">
-                          <Image src={aiLogos.grok} alt="Grok" width={20} height={20} className="h-5 w-5 object-contain" unoptimized />
+                          <img src={aiLogos.grok} alt="Grok" className="h-5 w-5 max-h-5 max-w-5 object-contain" />
                           <span className="text-xs text-gray-900">Grok</span>
                           <span className="ml-auto font-bold text-accent-600">
                             {politicians[0].grok}
@@ -871,7 +871,7 @@ export default function Home() {
                             <span className="ml-auto font-bold text-accent-600">{p.gemini > 0 ? p.gemini : '-'}</span>
                           </div>
                           <div className="flex items-center gap-2">
-                            <Image src={aiLogos.grok} alt="Grok" width={20} height={20} className="h-5 w-5 object-contain" unoptimized />
+                            <img src={aiLogos.grok} alt="Grok" className="h-5 w-5 max-h-5 max-w-5 object-contain" />
                             <span className="text-xs text-gray-900">Grok</span>
                             <span className="ml-auto font-bold text-accent-600">{p.grok > 0 ? p.grok : '-'}</span>
                           </div>
