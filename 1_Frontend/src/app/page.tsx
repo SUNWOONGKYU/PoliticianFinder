@@ -706,18 +706,18 @@ export default function Home() {
 
                 {/* 모바일: 카드 */}
                 <div className="md:hidden space-y-4">
-                  {/* 1위 - 특별 스타일 */}
-                  <div className="bg-white border-2 border-primary-500 rounded-lg p-4 shadow-md">
+                  {/* 1위 - 특별 스타일 (카드 전체 클릭 가능) */}
+                  <Link
+                    href={`/politicians/${politicians[0].id}`}
+                    className="block bg-white border-2 border-primary-500 rounded-lg p-4 shadow-md hover:shadow-lg transition-all"
+                  >
                     <div className="flex items-start justify-between mb-3">
                       <div className="flex-1">
                         <div className="flex items-center gap-2 mb-2">
                           <span className="text-2xl font-bold text-primary-500">1위</span>
-                          <Link
-                            href={`/politicians/${politicians[0].id}`}
-                            className="text-xl font-bold text-gray-900 hover:text-primary-600 hover:underline"
-                          >
+                          <span className="text-xl font-bold text-gray-900">
                             {politicians[0].name}
-                          </Link>
+                          </span>
                         </div>
                         <div className="text-sm text-gray-600">
                           <span className="font-medium">
@@ -788,21 +788,18 @@ export default function Home() {
                         )}
                       </div>
                     </div>
-                  </div>
+                  </Link>
 
-                  {/* 2-3위 - 일반 카드 (상세) */}
+                  {/* 2-3위 - 일반 카드 (상세) (카드 전체 클릭 가능) */}
                   {politicians.slice(1, 3).map((p) => (
-                    <div key={p.id} className="bg-white border border-gray-200 rounded-lg p-4 shadow">
+                    <Link key={p.id} href={`/politicians/${p.id}`} className="block bg-white border border-gray-200 rounded-lg p-4 shadow hover:shadow-md hover:border-primary-300 transition-all">
                       <div className="flex items-start justify-between mb-3">
                         <div className="flex-1">
                           <div className="flex items-center gap-2 mb-2">
                             <span className="text-xl font-bold text-gray-700">{p.rank}위</span>
-                            <Link
-                              href={`/politicians/${p.id}`}
-                              className="text-lg font-bold text-gray-900 hover:text-primary-600 hover:underline"
-                            >
+                            <span className="text-lg font-bold text-gray-900">
                               {p.name}
-                            </Link>
+                            </span>
                           </div>
                           <div className="text-sm text-gray-600">
                             <span className="font-medium">
@@ -864,25 +861,23 @@ export default function Home() {
                           )}
                         </div>
                       </div>
-                    </div>
+                    </Link>
                   ))}
 
-                  {/* 4-10위 - 간략 버전 */}
+                  {/* 4-10위 - 간략 버전 (카드 전체 클릭 가능) */}
                   {politicians.slice(3).map((p) => (
-                    <div
+                    <Link
                       key={p.id}
-                      className="bg-white border border-gray-200 rounded-lg p-3 shadow"
+                      href={`/politicians/${p.id}`}
+                      className="block bg-white border border-gray-200 rounded-lg p-3 shadow hover:shadow-md hover:border-primary-300 transition-all"
                     >
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-3">
                           <span className="text-lg font-bold text-gray-700">{p.rank}위</span>
                           <div>
-                            <Link
-                              href={`/politicians/${p.id}`}
-                              className="font-bold text-gray-900 hover:text-primary-600 hover:underline"
-                            >
+                            <span className="font-bold text-gray-900">
                               {p.name}
-                            </Link>
+                            </span>
                             <div className="text-xs text-gray-600">
                               {p.identity} {p.title && `• ${p.title}`} | {p.party}
                             </div>
@@ -903,7 +898,7 @@ export default function Home() {
                           )}
                         </div>
                       </div>
-                    </div>
+                    </Link>
                   ))}
                 </div>
 
