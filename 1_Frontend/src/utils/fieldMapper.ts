@@ -49,11 +49,15 @@ export function mapPoliticianFields(
     nameKanji: dbRecord.name_kanji || '',
     nameEn: dbRecord.name_en || dbRecord.name_english || '',
 
-    // P3F3: identity and title (separated from status)
-    identity: dbRecord.identity || '현직',
-    title: dbRecord.title || '',
+    // P3F3: identity and title - 목록 API와 동일하게 매핑
+    // status 컬럼이 신분 (현직, 출마예정자)
+    // position 컬럼이 직책 (성동구청장, 경기도지사 등)
+    // title 컬럼이 출마직종 (광역단체장, 국회의원 등)
+    identity: dbRecord.status || dbRecord.identity || '현직',
+    title: dbRecord.position || '',
+    positionType: dbRecord.title || '',
 
-    // Position and party
+    // Position and party (legacy - 하위 호환)
     position: dbRecord.position || '',
     party: dbRecord.party || '',
     region: dbRecord.region || '',      // 출마지역 (광역)
