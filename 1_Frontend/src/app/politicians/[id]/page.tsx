@@ -461,8 +461,8 @@ export default function PoliticianDetailPage() {
           </ol>
         </nav>
 
-        {/* Hero Section */}
-        <section ref={heroRef} className="relative bg-gradient-to-br from-primary-500 via-primary-600 to-secondary-600 rounded-2xl shadow-2xl overflow-hidden mb-8">
+        {/* Hero Section - 정치적 중립색 (블루/인디고) */}
+        <section ref={heroRef} className="relative bg-gradient-to-br from-slate-700 via-slate-800 to-slate-900 rounded-2xl shadow-2xl overflow-hidden mb-8">
           {/* Background Pattern */}
           <div className="absolute inset-0 opacity-10">
             <div className="absolute inset-0" style={{
@@ -483,7 +483,7 @@ export default function PoliticianDetailPage() {
                       className="w-full h-full object-cover"
                     />
                   ) : (
-                    <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary-400 to-primary-500">
+                    <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-slate-500 to-slate-600">
                       <svg className="w-20 h-20 md:w-24 md:h-24 text-white" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v1c0 .55.45 1 1 1h14c.55 0 1-.45 1-1v-1c0-2.66-5.33-4-8-4z"/>
                       </svg>
@@ -692,8 +692,8 @@ export default function PoliticianDetailPage() {
 
           {/* P3BA35: V24.0 AI 종합 점수 표시 (하드코딩 제거) */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-            {/* AI 종합 점수 카드 */}
-            <div className="bg-gradient-to-br from-primary-50 to-accent-50 dark:from-gray-700 dark:to-gray-600 rounded-lg p-6 border border-primary-100 dark:border-gray-600">
+            {/* AI 종합 점수 카드 - 중립 배경색 적용 */}
+            <div className="bg-gradient-to-br from-slate-50 to-blue-50 dark:from-gray-700 dark:to-gray-600 rounded-lg p-6 border border-slate-200 dark:border-gray-600">
               <div className="flex flex-col items-center gap-2 mb-3">
                 <span className="font-medium text-gray-900 dark:text-white text-base">Claude AI 평가</span>
                 <span className="text-3xl font-bold text-primary-600 dark:text-primary-400">{politician.totalScore || 0}점</span>
@@ -724,7 +724,7 @@ export default function PoliticianDetailPage() {
 
           {/* 상세평가보고서 구매 섹션 - 정치인 본인 인증 완료 시에만 표시 */}
           {isVerifiedOwner && (
-          <div className="bg-primary-50 rounded-lg p-6 border-2 border-primary-200">
+          <div className="bg-slate-50 rounded-lg p-6 border-2 border-slate-200">
             <h3 className="text-lg font-bold text-gray-900 mb-3">📊 상세평가보고서 구매</h3>
             <p className="text-base text-gray-900 mb-3">
               <strong className="text-lg">보다 상세한 AI 평가 내역이 궁금하신가요?</strong><br/>
@@ -796,9 +796,9 @@ export default function PoliticianDetailPage() {
         <section id="community" className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 sm:p-6 mb-6 scroll-mt-32">
           <h2 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-4">커뮤니티</h2>
 
-          {/* 통계 카드 */}
+          {/* 통계 카드 - 배경만 중립색 적용 */}
           <div className="grid grid-cols-2 gap-3 mb-6">
-            <Link href={`/community?filter=politician&author=${politician.name}`} className="block bg-primary-50 dark:bg-primary-900/20 rounded-lg p-4 border border-primary-200 dark:border-primary-700 hover:border-primary-400 transition">
+            <Link href={`/community?filter=politician&author=${politician.name}`} className="block bg-slate-50 dark:bg-slate-900/20 rounded-lg p-4 border border-slate-200 dark:border-slate-700 hover:border-slate-400 transition">
               <div className="text-sm font-medium text-primary-700 dark:text-primary-300 mb-1">🏛️ 작성한 글</div>
               <div className="text-2xl font-bold text-primary-600 dark:text-primary-400">{politician.postCount || 0}</div>
             </Link>
@@ -1094,93 +1094,6 @@ export default function PoliticianDetailPage() {
                 </ul>
               </div>
             )}
-          </div>
-        </section>
-
-        {/* M3: 관련 정치인 추천 섹션 */}
-        <section className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mt-6">
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">관련 정치인</h2>
-            <Link
-              href={`/politicians?party=${encodeURIComponent(politician.party)}`}
-              className="text-base text-primary-600 dark:text-primary-400 hover:underline flex items-center gap-1 min-h-[44px] px-2"
-            >
-              더보기
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </Link>
-          </div>
-
-          {/* 같은 정당 정치인 */}
-          <div className="mb-4">
-            <h3 className="text-base font-medium text-gray-600 dark:text-gray-400 mb-3">
-              같은 정당 ({politician.party})
-            </h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-              {/* 샘플 관련 정치인 카드들 */}
-              {[
-                { name: '이재명', score: 920, region: '경기 성남' },
-                { name: '박지현', score: 890, region: '비례대표' },
-                { name: '우원식', score: 875, region: '서울 동작' },
-                { name: '추미애', score: 860, region: '서울 광진' },
-              ].map((p, idx) => (
-                <Link
-                  key={idx}
-                  href={`/politicians?search=${encodeURIComponent(p.name)}`}
-                  className="block p-3 bg-gray-50 dark:bg-gray-700 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition min-h-[80px]"
-                >
-                  <div className="flex items-center gap-2 mb-2">
-                    <div className="w-10 h-10 rounded-full bg-primary-100 dark:bg-primary-800 flex items-center justify-center flex-shrink-0">
-                      <svg className="w-5 h-5 text-primary-500" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v1c0 .55.45 1 1 1h14c.55 0 1-.45 1-1v-1c0-2.66-5.33-4-8-4z" />
-                      </svg>
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="font-medium text-gray-900 dark:text-white text-base truncate">{p.name}</div>
-                      <div className="text-sm text-gray-500 dark:text-gray-400 truncate">{p.region}</div>
-                    </div>
-                  </div>
-                  <div className="text-right">
-                    <span className="text-base font-bold text-primary-600 dark:text-primary-400">{p.score}점</span>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          {/* 같은 지역 정치인 */}
-          <div>
-            <h3 className="text-base font-medium text-gray-600 dark:text-gray-400 mb-3">
-              같은 지역 ({politician.region})
-            </h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-              {[
-                { name: '오세훈', party: '국민의힘', score: 885 },
-                { name: '박용진', party: '더불어민주당', score: 865 },
-              ].map((p, idx) => (
-                <Link
-                  key={idx}
-                  href={`/politicians?search=${encodeURIComponent(p.name)}`}
-                  className="block p-3 bg-gray-50 dark:bg-gray-700 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition min-h-[80px]"
-                >
-                  <div className="flex items-center gap-2 mb-2">
-                    <div className="w-10 h-10 rounded-full bg-secondary-100 dark:bg-secondary-800 flex items-center justify-center flex-shrink-0">
-                      <svg className="w-5 h-5 text-secondary-500" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v1c0 .55.45 1 1 1h14c.55 0 1-.45 1-1v-1c0-2.66-5.33-4-8-4z" />
-                      </svg>
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="font-medium text-gray-900 dark:text-white text-base truncate">{p.name}</div>
-                      <div className="text-sm text-gray-500 dark:text-gray-400 truncate">{p.party}</div>
-                    </div>
-                  </div>
-                  <div className="text-right">
-                    <span className="text-base font-bold text-secondary-600 dark:text-secondary-400">{p.score}점</span>
-                  </div>
-                </Link>
-              ))}
-            </div>
           </div>
         </section>
       </div>
