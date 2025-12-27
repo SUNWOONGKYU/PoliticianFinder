@@ -500,32 +500,39 @@ export default function PoliticianDetailPage() {
                 </div>
               </div>
 
-              {/* Info Section - 이름 옆에 신분+직책, 밑에 정당 + 지역/지구 */}
+              {/* Info Section - 이름 옆에 직책, 밑에 정당/신분/출마직종/출마지역/출마지구 */}
               <div className="flex-1 text-center md:text-left text-white">
-                {/* 이름 + 신분 + 직책 (한 줄) */}
-                <div className="flex flex-col md:flex-row items-center md:items-start gap-2 mb-2">
+                {/* 1줄: 이름 + 직책 */}
+                <div className="flex flex-col md:flex-row items-center md:items-start gap-2 mb-3">
                   <h1 className="text-3xl md:text-4xl font-bold">{politician.name}</h1>
-                  <div className="flex items-center gap-2">
-                    <span className="px-3 py-1 bg-accent-500/80 backdrop-blur-sm rounded-full text-sm font-medium">
-                      {politician.identity}
+                  {politician.title && (
+                    <span className="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-base font-medium">
+                      {politician.title}
                     </span>
-                    {politician.title && (
-                      <span className="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-base font-medium">
-                        {politician.title}
-                      </span>
-                    )}
-                  </div>
+                  )}
                 </div>
 
-                {/* 정당 + 지역/지구 (두 번째 줄) */}
+                {/* 2줄: 정당, 신분, 출마직종, 출마지역, 출마지구 */}
                 <div className="flex flex-wrap justify-center md:justify-start items-center gap-2 mb-6">
                   <span className="px-3 py-1 bg-primary-500/80 backdrop-blur-sm rounded-full text-sm font-medium">
                     {politician.party}
                   </span>
-                  <span className="text-white/80">·</span>
-                  <span className="text-white/90 text-sm">
-                    {politician.region} {politician.district}
+                  <span className="px-3 py-1 bg-accent-500/80 backdrop-blur-sm rounded-full text-sm font-medium">
+                    {politician.identity}
                   </span>
+                  {politician.positionType && (
+                    <span className="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">
+                      {politician.positionType}
+                    </span>
+                  )}
+                  <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-sm">
+                    {politician.region}
+                  </span>
+                  {politician.district && (
+                    <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-sm">
+                      {politician.district}
+                    </span>
+                  )}
                 </div>
 
                 {/* Action Buttons */}
