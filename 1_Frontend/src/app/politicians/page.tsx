@@ -551,8 +551,8 @@ export default function PoliticiansPage() {
                         {p.name} <span className="text-xs">›</span>
                       </Link>
                     </td>
-                    <td className="px-1 py-2 text-gray-600 text-xs whitespace-nowrap">{p.title || '-'}</td>
-                    <td className="px-1 py-2 text-gray-600 text-xs whitespace-nowrap">{p.party}</td>
+                    <td className="px-1 py-2 text-gray-600 text-xs max-w-[100px] truncate" title={p.title || '-'}>{p.title || '-'}</td>
+                    <td className="px-1 py-2 text-gray-600 text-xs max-w-[80px] truncate" title={p.party}>{p.party}</td>
                     <td className="px-1 py-2 text-gray-600 text-xs whitespace-nowrap">{p.identity}</td>
                     <td className="px-1 py-2 text-gray-600 text-xs whitespace-nowrap">{p.category}</td>
                     <td className="px-1 py-2 text-gray-600 text-xs whitespace-nowrap">{p.region}</td>
