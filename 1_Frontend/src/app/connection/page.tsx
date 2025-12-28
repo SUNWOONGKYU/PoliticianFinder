@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 // 샘플 정치인 데이터
 const politicians = [
-  { id: 1, name: '김민준', party: '더불어민주당', position: '국회의원', region: '서울 강남구' },
+  { id: 1, name: '정원오', party: '더불어민주당', position: '국회의원', region: '서울 강남구' },
   { id: 2, name: '이서연', party: '국민의힘', position: '국회의원', region: '경기 성남시 분당구' },
   { id: 3, name: '박준호', party: '더불어민주당', position: '국회의원', region: '부산 해운대구' },
   { id: 4, name: '최지우', party: '조국혁신당', position: '국회의원', region: '서울 마포구' },

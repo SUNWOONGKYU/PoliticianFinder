@@ -22,12 +22,12 @@ export default function AccountTransferPage() {
 
   const orderInfo: OrderInfo = {
     productName: '정치인 AI 상세평가보고서',
-    politicianName: '김민준',
+    politicianName: '정원오',
     politicianPosition: '현직 국회의원',
     party: '더불어민주당',
     region: '서울 강남구',
     amount: '500,000원',
-    depositorName: '김민준',
+    depositorName: '정원오',
   };
 
   useEffect(() => {

@@ -10,7 +10,7 @@ interface VerifyForm {
 }
 
 const VALID_POLITICIANS = [
-  { name: '김민준', party: '더불어민주당', position: '국회의원' },
+  { name: '정원오', party: '더불어민주당', position: '국회의원' },
   { name: '이서연', party: '국민의힘', position: '광역단체장' },
   { name: '박준서', party: '정의당', position: '현직' },
 ];
@@ -429,7 +429,7 @@ export default function PaymentPage() {
                   </div>
                   <div className="flex-1 min-w-0">
                     <h3 className="font-bold text-gray-900 mb-1">정치인 정치인 AI 상세평가보고서</h3>
-                    <p className="text-sm text-gray-600">김민준 의원</p>
+                    <p className="text-sm text-gray-600">정원오 의원</p>
                     <p className="text-sm text-gray-500">더불어민주당 · 서울 강남구</p>
                   </div>
                 </div>

@@ -46,7 +46,7 @@ interface Post {
 const samplePoliticians: Politician[] = [
   {
     id: 1,
-    name: '김민준',
+    name: '정원오',
     position: '국회의원',
     identity: '현직',
     party: '더불어민주당',
@@ -88,7 +88,7 @@ const samplePoliticianPosts: Post[] = [
     id: 1,
     title: '2025년 지역 발전 계획 공유드립니다',
     content: '우리 지역의 교통 인프라 개선과 청년 일자리 창출을 위한 구체적인 계획을 공유합니다...',
-    author: '김민준 | 현직 국회의원',
+    author: '정원오 | 현직 국회의원',
     authorLink: '/politicians/1',
     category: 'politician_post',
     createdAt: '2025-01-28T09:00:00',
