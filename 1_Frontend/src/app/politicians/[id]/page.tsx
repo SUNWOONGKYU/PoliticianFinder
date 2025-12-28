@@ -12,64 +12,6 @@ import { LoadingPage } from '@/components/ui/Spinner';
 import { useNotification } from '@/components/NotificationProvider';
 import { getPoliticianSession } from '@/components/PoliticianAuthModal';
 
-const SAMPLE_POLITICIAN: Politician = {
-  id: 'POL001',
-  name: '김민준',
-  nameKanji: '金民俊',
-  nameEn: 'Kim Min-jun',
-  identity: '현직',
-  title: '국회의원 (21대)',
-  position: '국회의원',
-  party: '더불어민주당',
-  region: '서울 강남구',
-  district: '강남구 갑',
-  birthDate: '1975.03.15',
-  age: 50,
-  gender: '남',
-  claudeScore: 970,
-  totalScore: 950,
-  grade: 'M',
-  gradeEmoji: '🌺',
-  lastUpdated: '2025.01.20 14:30',
-  postCount: 12,
-  likeCount: 234,
-  taggedCount: 45,
-  education: ['서울대학교 법학과 졸업 (1998년)', '하버드 대학교 공공정책대학원 석사 (2005년)', '서울 강남고등학교 졸업 (1993년)'],
-  career: ['前 국회 법제사법위원회 위원 (2020~2024)', '前 더불어민주당 정책위원회 부의장 (2018~2020)', '前 법무법인 광장 변호사 (2008~2015)', '前 대통령비서실 행정관 (2006~2008)'],
-  electionHistory: ['제21대 국회의원 (2020년 당선, 서울 강남구)', '제20대 국회의원 (2016년 당선, 서울 강남구)'],
-  militaryService: '육군 만기 제대 (1999~2001)',
-  assets: {
-    total: '약 15억원 (2024년 기준)',
-    real_estate: '약 12억원 (서울 강남구 아파트)',
-    financial: '약 3억원'
-  },
-  taxArrears: '없음',
-  criminalRecord: '없음',
-  militaryServiceIssue: '없음',
-  residencyFraud: '없음',
-  pledges: ['강남구 교통 혼잡 완화 (GTX-C 조기 개통)', '청년 주택 공급 확대 (연 1,000가구)', '노후 학교 시설 현대화 (10개교)'],
-  legislativeActivity: {
-    attendance_rate: '95% (21대 국회 평균 92%)',
-    bills_proposed: 42,
-    bills_representative: 28,
-    bills_co_proposed: 14,
-    bills_passed: 18
-  },
-  profileImageUrl: null,
-  websiteUrl: null,
-  bio: '',
-  phone: '',
-  email: '',
-  twitterHandle: '',
-  facebookUrl: '',
-  instagramHandle: '',
-  verifiedAt: null,
-  isActive: true,
-  createdAt: '2024-01-01T00:00:00Z',
-  updatedAt: '2025-01-20T14:30:00Z',
-  userRating: 0,
-  ratingCount: 0
-};
 
 // P3BA35: AI_SCORES는 더 이상 하드코딩하지 않음
 // V24.0 시스템에서는 Claude AI만 평가를 수행하며, totalScore를 사용
@@ -119,8 +61,9 @@ export default function PoliticianDetailPage() {
   const politicianId = params?.id as string;
   const { showToast } = useNotification();
 
-  const [politician, setPolitician] = useState<Politician>(SAMPLE_POLITICIAN);
+  const [politician, setPolitician] = useState<Politician | null>(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const [selectedReports, setSelectedReports] = useState<string[]>([]);
   const [showPurchaseModal, setShowPurchaseModal] = useState(false);
   const [showAIDetailModal, setShowAIDetailModal] = useState(false);
@@ -183,13 +126,13 @@ export default function PoliticianDetailPage() {
         }
       } catch (err) {
         console.error('Error fetching politician:', err);
-        // 에러 발생시 샘플 데이터 유지
+        setError('정치인 정보를 불러오는데 실패했습니다.');
       } finally {
         setLoading(false);
       }
     };
 
-    if (politicianId && politicianId !== SAMPLE_POLITICIAN.id) {
+    if (politicianId) {
       fetchPoliticianDetail();
     } else {
       setLoading(false);
@@ -308,11 +251,11 @@ export default function PoliticianDetailPage() {
         setShowRatingModal(false);
         setUserRating(0);
         // Refresh politician data
-        setPolitician(prev => ({
+        setPolitician(prev => prev ? {
           ...prev,
           userRating: data.averageRating,
           ratingCount: data.ratingCount
-        }));
+        } : null);
       } else {
         // 에러 처리
         if (response.status === 401) {
@@ -388,6 +331,7 @@ export default function PoliticianDetailPage() {
   // 플로팅 버튼용 관심 정치인 토글
   const handleToggleFavoriteFloating = async () => {
     setLoadingFavorite(true);
+    if (!politician) return;
 
     try {
       if (isFavoriteFloating) {
@@ -443,6 +387,26 @@ export default function PoliticianDetailPage() {
     return (
       <div className="min-h-screen bg-gray-50">
         <LoadingPage message="정치인 정보를 불러오는 중..." />
+      </div>
+    );
+  }
+
+  if (error || !politician) {
+    return (
+      <div className="min-h-screen bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div className="bg-white rounded-lg shadow-md p-8 text-center">
+            <div className="text-6xl mb-4">😢</div>
+            <h1 className="text-2xl font-bold text-gray-900 mb-2">정치인을 찾을 수 없습니다</h1>
+            <p className="text-gray-600 mb-6">{error || '요청하신 정치인 정보가 존재하지 않습니다.'}</p>
+            <Link
+              href="/politicians"
+              className="inline-flex items-center px-6 py-3 bg-primary-500 text-white rounded-lg hover:bg-primary-600 transition"
+            >
+              정치인 목록으로 돌아가기
+            </Link>
+          </div>
+        </div>
       </div>
     );
   }
