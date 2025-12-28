@@ -29,6 +29,7 @@ export interface Politician {
   // P3F3: identity and title (separated from status)
   identity: string;       // 신분 (현직, 후보자 등)
   title?: string;        // 직책 (국회의원 (21대) 등)
+  positionType?: string; // 출마직종 (국회의원, 광역단체장 등)
 
   // Position and party
   position: string;
