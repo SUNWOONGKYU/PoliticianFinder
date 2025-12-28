@@ -13,7 +13,6 @@ interface Politician extends PoliticianListItem {
   district: string;
   overallScore: number;
   chatgptScore: number;
-  geminiScore: number;
   grokScore: number;
   memberRating: number;
   memberCount: number;
@@ -151,7 +150,6 @@ export default function PoliticiansPage() {
               gradeEmoji: p.gradeEmoji || '💚',
               overallScore: p.totalScore || 0,
               chatgptScore: p.chatgpt || 0,
-              geminiScore: p.gemini || 0,
               grokScore: p.grok || 0,
               userRating: p.userRating || 0,
               ratingCount: p.ratingCount || 0,
@@ -529,7 +527,6 @@ export default function PoliticiansPage() {
                   <th className="px-1 py-2 text-center font-bold text-gray-900 whitespace-nowrap">종합평점</th>
                   <th className="px-1 py-2 text-center font-bold text-gray-900 whitespace-nowrap">Claude</th>
                   <th className="px-1 py-2 text-center font-bold text-gray-900 whitespace-nowrap">ChatGPT</th>
-                  <th className="px-1 py-2 text-center font-bold text-gray-900 whitespace-nowrap">Gemini</th>
                   <th className="px-1 py-2 text-center font-bold text-gray-900 whitespace-nowrap">Grok</th>
                   <th className="px-1 py-2 text-center font-bold text-gray-900 whitespace-nowrap">회원평가</th>
                 </tr>
@@ -567,7 +564,6 @@ export default function PoliticiansPage() {
                     <td className="px-1 py-2 text-center font-bold text-accent-600 text-xs whitespace-nowrap">{p.overallScore}</td>
                     <td className="px-1 py-2 text-center font-bold text-accent-600 text-xs whitespace-nowrap">{p.claudeScore}</td>
                     <td className="px-1 py-2 text-center font-bold text-accent-600 text-xs whitespace-nowrap">{p.chatgptScore}</td>
-                    <td className="px-1 py-2 text-center font-bold text-accent-600 text-xs whitespace-nowrap">{p.geminiScore}</td>
                     <td className="px-1 py-2 text-center font-bold text-accent-600 text-xs whitespace-nowrap">{p.grokScore}</td>
                     <td className="px-1 py-2 text-center text-xs whitespace-nowrap">
                       <span className="font-bold text-secondary-600">
