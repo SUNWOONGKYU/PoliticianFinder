@@ -527,6 +527,7 @@ export default function PoliticiansPage() {
                   <th className="px-1 py-2 text-center font-bold text-gray-900 whitespace-nowrap">종합평점</th>
                   <th className="px-1 py-2 text-center font-bold text-gray-900 whitespace-nowrap">Claude</th>
                   <th className="px-1 py-2 text-center font-bold text-gray-900 whitespace-nowrap">ChatGPT</th>
+                  <th className="px-1 py-2 text-center font-bold text-gray-900 whitespace-nowrap">Gemini</th>
                   <th className="px-1 py-2 text-center font-bold text-gray-900 whitespace-nowrap">Grok</th>
                   <th className="px-1 py-2 text-center font-bold text-gray-900 whitespace-nowrap">회원평가</th>
                 </tr>
@@ -564,6 +565,7 @@ export default function PoliticiansPage() {
                     <td className="px-1 py-2 text-center font-bold text-accent-600 text-xs whitespace-nowrap">{p.overallScore}</td>
                     <td className="px-1 py-2 text-center font-bold text-accent-600 text-xs whitespace-nowrap">{p.claudeScore}</td>
                     <td className="px-1 py-2 text-center font-bold text-accent-600 text-xs whitespace-nowrap">{p.chatgptScore}</td>
+                    <td className="px-1 py-2 text-center font-bold text-gray-400 text-xs whitespace-nowrap">-</td>
                     <td className="px-1 py-2 text-center font-bold text-accent-600 text-xs whitespace-nowrap">{p.grokScore}</td>
                     <td className="px-1 py-2 text-center text-xs whitespace-nowrap">
                       <span className="font-bold text-secondary-600">
@@ -643,7 +645,7 @@ export default function PoliticiansPage() {
                 </div>
 
                 {/* AI Scores Grid */}
-                <div className="grid grid-cols-3 gap-2 mb-4">
+                <div className="grid grid-cols-4 gap-2 mb-4">
                   <div className="bg-gray-50 rounded-lg p-3 text-center">
                     <div className="text-sm text-gray-500 mb-1">Claude</div>
                     <div className="text-lg font-bold text-gray-900">{p.claudeScore}</div>
@@ -651,6 +653,10 @@ export default function PoliticiansPage() {
                   <div className="bg-gray-50 rounded-lg p-3 text-center">
                     <div className="text-sm text-gray-500 mb-1">ChatGPT</div>
                     <div className="text-lg font-bold text-gray-900">{p.chatgptScore}</div>
+                  </div>
+                  <div className="bg-gray-50 rounded-lg p-3 text-center">
+                    <div className="text-sm text-gray-500 mb-1">Gemini</div>
+                    <div className="text-lg font-bold text-gray-400">-</div>
                   </div>
                   <div className="bg-gray-50 rounded-lg p-3 text-center">
                     <div className="text-sm text-gray-500 mb-1">Grok</div>
