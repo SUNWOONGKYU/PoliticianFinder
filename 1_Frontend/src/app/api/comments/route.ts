@@ -154,7 +154,7 @@ async function handlePoliticianComment(request: NextRequest, body: any) {
         user_id: null,
         politician_id: validated.politician_id,
         content: validated.content,
-        parent_id: validated.parent_id || null,
+        parent_comment_id: validated.parent_id || null,
         author_type: 'politician',
       } as any)
       .select()
