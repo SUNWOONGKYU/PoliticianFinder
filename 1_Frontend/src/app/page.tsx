@@ -249,11 +249,11 @@ export default function Home() {
               totalScore: totalScore,
               grade: p.grade || calculateGrade(totalScore),
               gradeEmoji: p.gradeEmoji || getGradeEmoji(p.grade || calculateGrade(totalScore)),
-              // API에서 온 개별 AI 점수 사용 (없으면 totalScore 사용)
-              claude: p.claude !== undefined ? p.claude : totalScore,
-              chatgpt: p.chatgpt !== undefined ? p.chatgpt : totalScore,
-              gemini: p.gemini !== undefined ? p.gemini : totalScore,
-              grok: p.grok !== undefined ? p.grok : totalScore,
+              // API에서 온 개별 AI 점수 사용 (없으면 0으로 설정하여 '-' 표시)
+              claude: p.claude !== undefined && p.claude !== null ? p.claude : 0,
+              chatgpt: p.chatgpt !== undefined && p.chatgpt !== null ? p.chatgpt : 0,
+              gemini: p.gemini !== undefined && p.gemini !== null ? p.gemini : 0,
+              grok: p.grok !== undefined && p.grok !== null ? p.grok : 0,
               userRating: p.userRating || 0,
               userCount: p.ratingCount || 0,
             };
