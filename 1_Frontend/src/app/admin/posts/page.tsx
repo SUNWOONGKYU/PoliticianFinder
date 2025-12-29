@@ -52,7 +52,7 @@ export default function AdminPostsPage() {
   const [noticesPage, setNoticesPage] = useState(1);
   const noticesPerPage = 20; // 공지사항: 20개씩
 
-  // Fetch posts from API
+  // Fetch posts from API (Admin API - no auth required)
   const fetchPosts = async (search?: string) => {
     setPostsLoading(true);
     setPostsError(null);
@@ -60,8 +60,8 @@ export default function AdminPostsPage() {
     try {
       // Fetch all posts for client-side pagination
       const url = search
-        ? `/api/admin/content?search=${encodeURIComponent(search)}&limit=1000`
-        : '/api/admin/content?limit=1000';
+        ? `/api/admin/posts?search=${encodeURIComponent(search)}&limit=1000`
+        : '/api/admin/posts?limit=1000';
 
       const response = await fetch(url);
 
@@ -76,12 +76,15 @@ export default function AdminPostsPage() {
       const mappedPosts = rawData.map((post: any) => {
         // author_type에 따라 작성자 결정
         let author = 'Unknown';
-        if (post.author_type === 'politician' && post.politicians?.name) {
-          // 정치인 게시글: politicians 테이블에서 이름
-          author = `${post.politicians.name} (정치인)`;
+        if (post.author_type === 'politician') {
+          // 정치인 게시글
+          author = post.politicians?.name ? `${post.politicians.name} (정치인)` : '정치인';
         } else if (post.users) {
-          // 일반 회원 게시글: users 테이블에서 이름
+          // 일반 회원 게시글 (조인된 경우)
           author = post.users.nickname || post.users.name || post.users.email?.split('@')[0] || 'Unknown';
+        } else if (post.user_id) {
+          // user_id만 있는 경우
+          author = '회원';
         }
 
         return {
