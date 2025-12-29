@@ -405,8 +405,8 @@ export default function PoliticianPostDetailPage({ params }: { params: { id: str
             <div className="flex items-center gap-3 text-xs text-gray-500 flex-wrap">
               <span className="font-medium text-primary-600">{post.author}</span>
               <span>{post.timestamp}</span>
-              <span>조회수 {post.views}</span>
-              <span className="text-red-600">👍 {upvotes}</span>
+              <span>조회 {post.views}</span>
+              <span className="text-red-500">👍 {upvotes}</span>
               <span className="text-gray-400">👎 {downvotes}</span>
               <span>댓글 {post.commentCount}</span>
               <button onClick={handleShare} className="flex items-center gap-1 hover:text-primary-600">
