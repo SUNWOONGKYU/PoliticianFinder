@@ -695,39 +695,37 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
             </div>
           )}
 
-          {/* 메타 정보 - 목록 페이지와 동일한 크기 */}
+          {/* 메타 정보 - PC: 1줄 / 모바일: 2줄 */}
           <div className="border-b pb-4 mb-6 text-xs text-gray-600">
-            {/* 1줄: 작성자 정보 */}
-            <div className="flex items-center gap-2 flex-wrap mb-2">
-              {post.isPolitician ? (
-                <>
-                  <span className="font-semibold text-primary-600">{post.author}</span>
-                  <span className="text-gray-700">{post.politicianStatus} {post.politicianPosition}</span>
-                </>
-              ) : (
-                <>
-                  <span className="font-semibold text-secondary-600">{post.author}</span>
-                  <span className="text-gray-700 font-medium" aria-label={`활동 등급 ${post.memberLevel}`}>{post.memberLevel}</span>
-                  <span className="text-emerald-700 font-medium">{formatInfluenceGrade(0)}</span>
-                  {post.userId && (
-                    <FollowButton targetUserId={post.userId} size="sm" variant="outline" />
-                  )}
-                </>
-              )}
-            </div>
-            {/* 2줄: 날짜 및 통계 */}
-            <div className="flex items-center gap-2 sm:gap-3 flex-wrap text-gray-500">
-              <span>{post.timestamp}</span>
-              <span>조회 {post.views}</span>
-              <span className="text-red-500">👍 {upvotes}</span>
-              <span className="text-gray-400">👎 {downvotes}</span>
-              <span>댓글 {post.commentCount}</span>
-              <button onClick={handleShare} className="flex items-center gap-1 hover:text-emerald-700 min-h-[44px] px-1 -mx-1 touch-manipulation">
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.59 13.51l6.83 3.98m-.01-10.98l-6.82 3.98M21 5a3 3 0 11-6 0 3 3 0 016 0zM9 12a3 3 0 11-6 0 3 3 0 016 0zm12 7a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
+            <div className="flex flex-col sm:flex-row sm:items-center sm:gap-4">
+              {/* 작성자 정보 */}
+              <div className="flex items-center gap-2 flex-wrap">
+                {post.isPolitician ? (
+                  <>
+                    <span className="font-semibold text-primary-600">{post.author}</span>
+                    <span className="text-gray-700">{post.politicianStatus} {post.politicianPosition}</span>
+                  </>
+                ) : (
+                  <>
+                    <span className="font-semibold text-secondary-600">{post.author}</span>
+                    <span className="text-gray-700 font-medium" aria-label={`활동 등급 ${post.memberLevel}`}>{post.memberLevel}</span>
+                    <span className="text-emerald-700 font-medium">{formatInfluenceGrade(0)}</span>
+                    {post.userId && (
+                      <FollowButton targetUserId={post.userId} size="sm" variant="outline" />
+                    )}
+                  </>
+                )}
+                <span className="text-gray-400">•</span>
+                <span>{post.timestamp}</span>
+              </div>
+              {/* 통계 정보 - PC: 같은 줄 / 모바일: 다음 줄 */}
+              <div className="flex items-center gap-2 sm:gap-3 mt-1 sm:mt-0 flex-wrap text-gray-500">
+                <span>조회 {post.views}</span>
+                <span className="text-red-500">👍 {upvotes}</span>
+                <span className="text-gray-400">👎 {downvotes}</span>
+                <span>댓글 {post.commentCount}</span>
                 <span>공유 {post.shareCount}</span>
-              </button>
+              </div>
             </div>
           </div>
 

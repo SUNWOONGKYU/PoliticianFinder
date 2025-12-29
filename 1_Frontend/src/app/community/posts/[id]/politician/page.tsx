@@ -401,20 +401,23 @@ export default function PoliticianPostDetailPage({ params }: { params: { id: str
 
           <h1 className="text-xl sm:text-2xl font-bold text-gray-900 leading-tight mb-4">{post.title}</h1>
 
-          <div className="border-b pb-4 mb-6">
-            <div className="flex items-center gap-3 text-xs text-gray-500 flex-wrap">
-              <span className="font-medium text-primary-600">{post.author}</span>
-              <span>{post.timestamp}</span>
-              <span>조회 {post.views}</span>
-              <span className="text-red-500">👍 {upvotes}</span>
-              <span className="text-gray-400">👎 {downvotes}</span>
-              <span>댓글 {post.commentCount}</span>
-              <button onClick={handleShare} className="flex items-center gap-1 hover:text-primary-600">
-                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.59 13.51l6.83 3.98m-.01-10.98l-6.82 3.98M21 5a3 3 0 11-6 0 3 3 0 016 0zM9 12a3 3 0 11-6 0 3 3 0 016 0zm12 7a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
+          {/* 메타 정보 - PC: 1줄 / 모바일: 2줄 */}
+          <div className="border-b pb-4 mb-6 text-xs text-gray-600">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:gap-4">
+              {/* 작성자 정보 */}
+              <div className="flex items-center gap-2 flex-wrap">
+                <span className="font-medium text-primary-600">{post.author}</span>
+                <span className="text-gray-400">•</span>
+                <span>{post.timestamp}</span>
+              </div>
+              {/* 통계 정보 - PC: 같은 줄 / 모바일: 다음 줄 */}
+              <div className="flex items-center gap-2 sm:gap-3 mt-1 sm:mt-0 flex-wrap text-gray-500">
+                <span>조회 {post.views}</span>
+                <span className="text-red-500">👍 {upvotes}</span>
+                <span className="text-gray-400">👎 {downvotes}</span>
+                <span>댓글 {post.commentCount}</span>
                 <span>공유 {post.shareCount}</span>
-              </button>
+              </div>
             </div>
           </div>
 
