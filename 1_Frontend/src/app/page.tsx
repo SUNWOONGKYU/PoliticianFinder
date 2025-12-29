@@ -993,9 +993,9 @@ export default function Home() {
                               </div>
                               <div className="flex items-center gap-2 sm:gap-3 flex-wrap text-xs text-gray-500">
                                 <span className="sm:hidden text-[10px]">{formatDate(post.created_at)}</span>
-                                <span>👁️ {post.view_count}</span>
+                                <span>조회 {post.view_count}</span>
                                 <span className="text-red-500">👍 {post.upvotes}</span>
-                                <span>💬 {post.comment_count}</span>
+                                <span>댓글 {post.comment_count}</span>
                               </div>
                             </div>
                           </div>
@@ -1072,9 +1072,9 @@ export default function Home() {
                               </div>
                               <div className="flex items-center gap-2 sm:gap-3 flex-wrap text-xs text-gray-500">
                                 <span className="text-[10px] sm:text-xs">{formatDate(post.created_at)}</span>
-                                <span>👁️ {post.view_count}</span>
+                                <span>조회 {post.view_count}</span>
                                 <span className="text-red-500">👍 {post.upvotes}</span>
-                                <span>💬 {post.comment_count}</span>
+                                <span>댓글 {post.comment_count}</span>
                               </div>
                             </div>
                           </div>

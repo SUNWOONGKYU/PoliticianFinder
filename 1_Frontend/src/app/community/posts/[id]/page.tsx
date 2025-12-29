@@ -716,10 +716,10 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
               )}
             </div>
             {/* 2줄: 날짜 및 통계 */}
-            <div className="flex items-center gap-3 flex-wrap">
+            <div className="flex items-center gap-3 flex-wrap text-gray-500">
               <span>{post.timestamp}</span>
-              <span>조회수 {post.views}</span>
-              <span className="text-red-600">👍 {upvotes}</span>
+              <span>조회 {post.views}</span>
+              <span className="text-red-500">👍 {upvotes}</span>
               <span className="text-gray-400">👎 {downvotes}</span>
               <span>댓글 {post.commentCount}</span>
               <button onClick={handleShare} className="flex items-center gap-1 hover:text-emerald-700 min-h-[44px] px-1 -mx-1 touch-manipulation">
