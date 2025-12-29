@@ -188,19 +188,20 @@ export default function AdminPostsPage() {
     }
   };
 
-  // Delete post
+  // Delete post (Admin API - bypasses RLS)
   const handleDeletePost = async (postId: number) => {
     if (!confirm('정말로 이 게시글을 삭제하시겠습니까?')) {
       return;
     }
 
     try {
-      const response = await fetch(`/api/posts/${postId}`, {
+      const response = await fetch(`/api/admin/posts?post_id=${postId}`, {
         method: 'DELETE',
       });
 
       if (!response.ok) {
-        throw new Error('Failed to delete post');
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.error || 'Failed to delete post');
       }
 
       // Refresh posts list
