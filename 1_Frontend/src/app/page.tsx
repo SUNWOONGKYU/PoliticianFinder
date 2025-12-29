@@ -161,7 +161,9 @@ export default function Home() {
     const fetchSidebarStats = async () => {
       try {
         setSidebarLoading(true);
-        const response = await fetch('/api/statistics/sidebar');
+        const response = await fetch('/api/statistics/sidebar', {
+          next: { revalidate: 60 }, // 1분 캐싱 (통계 데이터)
+        });
         if (response.ok) {
           const data = await response.json();
           if (data.success && data.data) {
@@ -221,7 +223,7 @@ export default function Home() {
           headers: {
             'Content-Type': 'application/json',
           },
-          cache: 'no-store',
+          next: { revalidate: 300 }, // 5분 캐싱 (정치인 랭킹은 자주 변경되지 않음)
         });
 
         if (!response.ok) {
