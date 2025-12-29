@@ -365,32 +365,32 @@ export default function MypagePage() {
                 <span className="inline-block bg-secondary-100 text-secondary-700 text-xs font-semibold px-3 py-1 rounded-full mt-2">ML{userData.level}</span>
               </div>
 
-              {/* Stats */}
-              <div className="mt-6 pt-6 border-t grid grid-cols-5 gap-2 text-center">
-                <div>
-                  <div className="text-xl font-bold text-gray-900">{userStats?.post_count || 0}</div>
+              {/* Stats - 모바일: 3열, 태블릿 이상: 5열 */}
+              <div className="mt-6 pt-6 border-t grid grid-cols-3 sm:grid-cols-5 gap-2 sm:gap-3 text-center">
+                <div className="p-2">
+                  <div className="text-lg sm:text-xl font-bold text-gray-900">{userStats?.post_count || 0}</div>
                   <div className="text-xs text-gray-500">게시글</div>
                 </div>
-                <div>
-                  <div className="text-xl font-bold text-gray-900">{userStats?.comment_count || 0}</div>
+                <div className="p-2">
+                  <div className="text-lg sm:text-xl font-bold text-gray-900">{userStats?.comment_count || 0}</div>
                   <div className="text-xs text-gray-500">댓글</div>
                 </div>
-                <div>
-                  <div className="text-xl font-bold text-gray-900">{userData.points.toLocaleString()}</div>
+                <div className="p-2">
+                  <div className="text-lg sm:text-xl font-bold text-gray-900">{userData.points.toLocaleString()}</div>
                   <div className="text-xs text-gray-500">포인트</div>
                 </div>
                 <Link
                   href={`/users/${userData.id}/followers`}
-                  className="hover:bg-gray-50 rounded-lg p-1 transition cursor-pointer"
+                  className="hover:bg-gray-50 active:bg-gray-100 rounded-lg p-2 min-h-[44px] transition cursor-pointer touch-manipulation flex flex-col items-center justify-center"
                 >
-                  <div className="text-xl font-bold text-gray-900">{userStats?.follower_count || 0}</div>
+                  <div className="text-lg sm:text-xl font-bold text-gray-900">{userStats?.follower_count || 0}</div>
                   <div className="text-xs text-gray-500">팔로워</div>
                 </Link>
                 <Link
                   href={`/users/${userData.id}/following`}
-                  className="hover:bg-gray-50 rounded-lg p-1 transition cursor-pointer"
+                  className="hover:bg-gray-50 active:bg-gray-100 rounded-lg p-2 min-h-[44px] transition cursor-pointer touch-manipulation flex flex-col items-center justify-center"
                 >
-                  <div className="text-xl font-bold text-gray-900">{userStats?.following_count || 0}</div>
+                  <div className="text-lg sm:text-xl font-bold text-gray-900">{userStats?.following_count || 0}</div>
                   <div className="text-xs text-gray-500">팔로잉</div>
                 </Link>
               </div>
