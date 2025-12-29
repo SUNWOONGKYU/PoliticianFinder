@@ -475,12 +475,12 @@ export default function Home() {
     return emojiMap[grade] || '💚';
   };
 
-  // AI 로고 URL
+  // AI 로고 URL (로컬 SVG로 변경하여 로딩 속도 개선)
   const aiLogos = {
-    claude: 'https://cdn.brandfetch.io/idW5s392j1/w/338/h/338/theme/dark/icon.png?c=1bxid64Mup7aczewSAYMX&t=1738315794862',
-    chatgpt: 'https://cdn.brandfetch.io/idR3duQxYl/theme/dark/symbol.svg?c=1bxid64Mup7aczewSAYMX',
-    gemini: 'https://cdn.simpleicons.org/googlegemini',
-    grok: 'https://cdn.simpleicons.org/x/000000',
+    claude: '/icons/claude.svg',
+    chatgpt: '/icons/chatgpt.svg',
+    gemini: '/icons/gemini.svg',
+    grok: '/icons/grok.svg',
   };
 
   const handleSearch = () => {
