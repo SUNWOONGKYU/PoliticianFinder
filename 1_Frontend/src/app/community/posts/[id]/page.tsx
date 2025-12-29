@@ -695,8 +695,8 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
             </div>
           )}
 
-          {/* 메타 정보 - 모바일: 2줄 분리, Facebook/X 크기 기준 */}
-          <div className="border-b pb-4 mb-6 text-sm text-gray-600">
+          {/* 메타 정보 - 목록 페이지와 동일한 크기 */}
+          <div className="border-b pb-4 mb-6 text-xs text-gray-600">
             {/* 1줄: 작성자 정보 */}
             <div className="flex items-center gap-2 flex-wrap mb-2">
               {post.isPolitician ? (
@@ -716,7 +716,7 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
               )}
             </div>
             {/* 2줄: 날짜 및 통계 */}
-            <div className="flex items-center gap-3 flex-wrap text-gray-500">
+            <div className="flex items-center gap-2 sm:gap-3 flex-wrap text-gray-500">
               <span>{post.timestamp}</span>
               <span>조회 {post.views}</span>
               <span className="text-red-500">👍 {upvotes}</span>
