@@ -20,8 +20,11 @@ export default function Error({ error, reset }: ErrorProps) {
   const router = useRouter();
 
   useEffect(() => {
-    // 에러 로깅 (프로덕션에서는 외부 서비스로 전송)
-    console.error('Application Error:', error);
+    // 에러 로깅 (개발 환경에서만 콘솔 출력, 프로덕션에서는 Sentry 등 외부 서비스 사용)
+    if (process.env.NODE_ENV === 'development') {
+      console.error('Application Error:', error);
+    }
+    // TODO: 프로덕션에서는 Sentry.captureException(error) 등으로 전송
   }, [error]);
 
   return (
