@@ -653,7 +653,7 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
 
           {/* 제목 영역 - 모바일: 세로 배치 */}
           <div className="mb-4">
-            <h1 className="text-lg sm:text-xl font-bold text-gray-900 leading-tight">{post.title}</h1>
+            <h1 className="text-base sm:text-lg font-bold text-gray-900 leading-tight">{post.title}</h1>
 
             {/* 작성자만 보이는 수정/삭제 버튼 - 모바일: 제목 아래 */}
             {currentUser && post.userId === currentUser.id && (
@@ -733,9 +733,9 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
           <div className="mb-8">
             {post.content.split('\n\n').map((paragraph: string, idx: number) => {
               if (paragraph.startsWith('## ')) {
-                return <h2 key={idx} className="text-base sm:text-lg font-bold text-gray-900 mt-6 mb-3">{paragraph.replace('## ', '')}</h2>;
+                return <h2 key={idx} className="text-sm sm:text-base font-bold text-gray-900 mt-6 mb-3">{paragraph.replace('## ', '')}</h2>;
               }
-              return <p key={idx} className="text-sm sm:text-base text-gray-800 leading-relaxed mb-4" dangerouslySetInnerHTML={{ __html: textToSafeHtml(paragraph) }} />;
+              return <p key={idx} className="text-[13px] sm:text-sm text-gray-800 leading-relaxed mb-4" dangerouslySetInnerHTML={{ __html: textToSafeHtml(paragraph) }} />;
             })}
           </div>
 
@@ -765,7 +765,7 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
 
         {/* Comments Section */}
         <section className="bg-white rounded-lg shadow-md p-4 sm:p-6">
-          <h2 className="text-lg sm:text-xl font-bold text-gray-900 mb-4">댓글 <span className="text-emerald-700">{totalComments}</span></h2>
+          <h2 className="text-base sm:text-lg font-bold text-gray-900 mb-4">댓글 <span className="text-emerald-700">{totalComments}</span></h2>
 
           {/* 댓글 탭 */}
           {/* 정치인 게시판에만 정치인/회원 댓글 구분 표시 */}
@@ -936,7 +936,7 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
                     <span className="text-gray-400">👎 {comment.downvotes}</span>
                   </div>
                 </div>
-                <p className="text-sm sm:text-base text-gray-800 leading-relaxed">{comment.content}</p>
+                <p className="text-[13px] sm:text-sm text-gray-800 leading-relaxed">{comment.content}</p>
               </div>
             ))
             )}
@@ -956,7 +956,7 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
 
         {/* Other Posts */}
         <section className="mt-8">
-          <h2 className="text-lg sm:text-xl font-bold text-gray-900 mb-4">다른 게시글</h2>
+          <h2 className="text-base sm:text-lg font-bold text-gray-900 mb-4">다른 게시글</h2>
           <div className="space-y-3">
             <Link href="/community/posts/1" className="block p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition">
               <div className="flex items-center justify-between">
