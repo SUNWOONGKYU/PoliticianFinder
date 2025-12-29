@@ -234,7 +234,7 @@ export async function POST(request: NextRequest) {
         `,
       });
 
-      console.log('[send-report] Email sent successfully to:', purchase.buyer_email);
+      console.log('[send-report] Email sent successfully to:', purchase.buyer_email?.substring(0, 3) + '***@***');
     } catch (emailError) {
       console.error('[send-report] Email send error:', emailError);
       return NextResponse.json({

@@ -22,7 +22,7 @@ export async function POST(request: NextRequest) {
     const validated = sendCodeSchema.parse(body);
 
     console.log('[send-code] politician_id:', validated.politician_id);
-    console.log('[send-code] email:', validated.email);
+    console.log('[send-code] email:', validated.email?.substring(0, 3) + '***@***');
 
     const supabase = createAdminClient();
 

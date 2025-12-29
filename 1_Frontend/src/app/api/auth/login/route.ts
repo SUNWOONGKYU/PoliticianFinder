@@ -258,7 +258,7 @@ export async function POST(request: NextRequest) {
 
     console.log('[로그인 API] 로그인 성공:', {
       id: authData.user.id,
-      email: authData.user.email,
+      email: authData.user.email?.substring(0, 3) + '***@***',
     });
 
     // 10. Success Response

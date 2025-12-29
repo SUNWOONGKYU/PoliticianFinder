@@ -261,7 +261,7 @@ export async function PATCH(request: NextRequest) {
         console.error("Failed to send email, but inquiry was updated:", emailResult.error);
         // Don't fail the request if email fails - inquiry is already updated
       } else {
-        console.log("Email notification sent successfully to:", enriched.email);
+        console.log("Email notification sent successfully to:", enriched.email?.substring(0, 3) + '***@***');
       }
     }
 
