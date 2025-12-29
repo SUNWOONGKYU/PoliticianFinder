@@ -278,74 +278,73 @@ export default function Home() {
     '민생이우선', '변화를원해', '미래세대', '깨어있는시민', '정책분석가'
   ];
 
-  // API에서 게시글 데이터 가져오기
+  // API에서 게시글 데이터 가져오기 (병렬 처리로 성능 최적화)
   useEffect(() => {
     const fetchPosts = async () => {
       try {
         setPostsLoading(true);
 
-        // 정치인 최근 게시글 가져오기 (has_politician=true, 최신순 3개)
-        const politicianPostsResponse = await fetch('/api/posts?has_politician=true&limit=3&page=1');
+        // 두 API를 병렬로 호출 (성능 최적화)
+        const [politicianPostsResponse, popularPostsResponse] = await Promise.all([
+          fetch('/api/posts?has_politician=true&limit=3&page=1'),
+          fetch('/api/posts?limit=3&page=1&sort=-view_count')
+        ]);
+
+        // 정치인 최근 게시글 처리
         if (politicianPostsResponse.ok) {
           const politicianPostsData = await politicianPostsResponse.json();
           if (politicianPostsData.success && politicianPostsData.data) {
-            // Fetch politician names for posts with politician_id
-            const mappedPoliticianPosts = await Promise.all(
-              politicianPostsData.data.map(async (post: any) => {
-                let politicianName = post.politicians?.name || '정치인';
-                let politicianPosition = '국회의원';
-                let politicianIdentity = post.politicians?.identity;  // P3F3: 신분
-                let politicianTitle = post.politicians?.title;        // P3F3: 직책
+            const mappedPoliticianPosts = politicianPostsData.data.map((post: any) => {
+              let politicianName = post.politicians?.name || '정치인';
+              let politicianPosition = '국회의원';
+              let politicianIdentity = post.politicians?.identity;
+              let politicianTitle = post.politicians?.title;
 
-                if (post.politician_id && post.politicians) {
-                  // Position ID mapping (simple version)
-                  const positionMap: Record<number, string> = {
-                    1: '국회의원',
-                    2: '광역단체장',
-                    3: '광역의원',
-                    4: '기초단체장',
-                    5: '기초의원'
-                  };
-                  politicianPosition = post.politicians.position || positionMap[post.politicians.position_id] || '정치인';
-                  politicianIdentity = post.politicians.identity;
-                  politicianTitle = post.politicians.title;
-                  politicianName = post.politicians.name;
-                }
-
-                return {
-                  id: post.id,
-                  title: post.title,
-                  content: post.content,
-                  category: post.category,
-                  author: politicianName,
-                  author_id: post.user_id,
-                  politician_id: post.politician_id,
-                  politician_name: politicianName,
-                  politician_position: politicianPosition,
-                  politician_party: post.politicians?.party,
-                  politician_identity: politicianIdentity,  // P3F3
-                  politician_title: politicianTitle,        // P3F3
-                  view_count: post.view_count || 0,
-                  upvotes: post.upvotes || 0,
-                  downvotes: post.downvotes || 0,
-                  comment_count: post.comment_count || 0,
-                  created_at: post.created_at,
+              if (post.politician_id && post.politicians) {
+                const positionMap: Record<number, string> = {
+                  1: '국회의원',
+                  2: '광역단체장',
+                  3: '광역의원',
+                  4: '기초단체장',
+                  5: '기초의원'
                 };
-              })
-            );
+                politicianPosition = post.politicians.position || positionMap[post.politicians.position_id] || '정치인';
+                politicianIdentity = post.politicians.identity;
+                politicianTitle = post.politicians.title;
+                politicianName = post.politicians.name;
+              }
+
+              return {
+                id: post.id,
+                title: post.title,
+                content: post.content,
+                category: post.category,
+                author: politicianName,
+                author_id: post.user_id,
+                politician_id: post.politician_id,
+                politician_name: politicianName,
+                politician_position: politicianPosition,
+                politician_party: post.politicians?.party,
+                politician_identity: politicianIdentity,
+                politician_title: politicianTitle,
+                view_count: post.view_count || 0,
+                upvotes: post.upvotes || 0,
+                downvotes: post.downvotes || 0,
+                comment_count: post.comment_count || 0,
+                created_at: post.created_at,
+              };
+            });
             setPoliticianPosts(mappedPoliticianPosts);
           }
         }
 
-        // 커뮤니티 인기 게시글 가져오기 (전체, 조회수 순 3개)
-        const popularPostsResponse = await fetch('/api/posts?limit=3&page=1&sort=-view_count');
+        // 커뮤니티 인기 게시글 처리
         if (popularPostsResponse.ok) {
           const popularPostsData = await popularPostsResponse.json();
           if (popularPostsData.success && popularPostsData.data) {
             const mappedPopularPosts = popularPostsData.data.map((post: any, index: number) => {
               const userIdHash = post.user_id ? post.user_id.split('-')[0].charCodeAt(0) : index;
               const nicknameIndex = userIdHash % 10;
-              // Generate member level based on user_id hash (ML1 ~ ML5)
               const memberLevel = `ML${(userIdHash % 5) + 1}`;
 
               return {
