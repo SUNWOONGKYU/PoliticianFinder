@@ -6,6 +6,7 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import AdminSidebar from "../components/AdminSidebar";
 
 interface Inquiry {
   id: string;
@@ -171,8 +172,11 @@ export default function AdminInquiriesPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div className="min-h-screen bg-gray-100">
+      <div className="flex h-screen">
+        <AdminSidebar />
+
+        <main className="flex-1 p-6 lg:p-8 overflow-y-auto">
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-900">문의 관리</h1>
@@ -637,6 +641,7 @@ export default function AdminInquiriesPage() {
             </div>
           </div>
         )}
+        </main>
       </div>
     </div>
   );
