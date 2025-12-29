@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import AdminSidebar from '../components/AdminSidebar';
 
 interface Post {
-  id: number;
+  id: string;  // UUID
   title: string;
   author: string;
   date: string;
@@ -189,7 +189,7 @@ export default function AdminPostsPage() {
   };
 
   // Delete post (Admin API - bypasses RLS)
-  const handleDeletePost = async (postId: number) => {
+  const handleDeletePost = async (postId: string) => {
     if (!confirm('정말로 이 게시글을 삭제하시겠습니까?')) {
       return;
     }
