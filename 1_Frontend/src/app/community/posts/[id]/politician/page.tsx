@@ -399,7 +399,7 @@ export default function PoliticianPostDetailPage({ params }: { params: { id: str
             <span className="px-2 py-1 bg-amber-100 text-amber-800 text-xs font-bold rounded">🏛️ {post.category}</span>
           </div>
 
-          <h1 className="text-3xl font-bold text-gray-900 mb-4">{post.title}</h1>
+          <h1 className="text-xl sm:text-2xl font-bold text-gray-900 leading-tight mb-4">{post.title}</h1>
 
           <div className="border-b pb-4 mb-6">
             <div className="flex items-center gap-3 text-xs text-gray-500 flex-wrap">
