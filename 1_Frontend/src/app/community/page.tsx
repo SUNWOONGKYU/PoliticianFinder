@@ -300,8 +300,8 @@ export default function CommunityPage() {
                           {post.content}
                         </p>
                         {/* 모바일: 2줄 분리 / PC: 1줄 */}
-                        <div className="text-xs text-gray-500">
-                          {/* 1줄: 작성자 정보 */}
+                        <div className="flex flex-col sm:flex-row sm:items-center sm:gap-4 text-xs text-gray-500">
+                          {/* 작성자 정보 */}
                           <div className="flex items-center gap-2 flex-wrap">
                             {post.author_type === 'politician' ? (
                               <Link
@@ -325,8 +325,8 @@ export default function CommunityPage() {
                             <span className="text-gray-400">•</span>
                             <span>{formatDate(post.created_at)}</span>
                           </div>
-                          {/* 2줄: 통계 정보 - 모바일에서도 전부 표시 */}
-                          <div className="flex items-center gap-2 sm:gap-3 mt-1 flex-wrap text-xs text-gray-500">
+                          {/* 통계 정보 - PC: 같은 줄 / 모바일: 다음 줄 */}
+                          <div className="flex items-center gap-2 sm:gap-3 mt-1 sm:mt-0 flex-wrap">
                             <span>조회 {post.views}</span>
                             <span className="text-red-500">👍 {post.like_count}</span>
                             <span className="text-gray-400">👎 {post.dislike_count}</span>

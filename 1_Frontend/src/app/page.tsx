@@ -995,6 +995,7 @@ export default function Home() {
                                 <span className="sm:hidden text-[10px]">{formatDate(post.created_at)}</span>
                                 <span>조회 {post.view_count}</span>
                                 <span className="text-red-500">👍 {post.upvotes}</span>
+                                <span className="text-gray-400">👎 {post.downvotes}</span>
                                 <span>댓글 {post.comment_count}</span>
                               </div>
                             </div>
@@ -1074,6 +1075,7 @@ export default function Home() {
                                 <span className="text-[10px] sm:text-xs">{formatDate(post.created_at)}</span>
                                 <span>조회 {post.view_count}</span>
                                 <span className="text-red-500">👍 {post.upvotes}</span>
+                                <span className="text-gray-400">👎 {post.downvotes}</span>
                                 <span>댓글 {post.comment_count}</span>
                               </div>
                             </div>
