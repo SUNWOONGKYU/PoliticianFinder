@@ -23,6 +23,8 @@ import NotificationProvider from '@/components/NotificationProvider';
 
 // Header를 클라이언트 전용으로 로드 (Hydration 에러 방지)
 const Header = dynamic(() => import('./components/header'), { ssr: false });
+// MobileTabBar - 모바일 하단 네비게이션
+const MobileTabBar = dynamic(() => import('@/components/layout/MobileTabBar'), { ssr: false });
 
 export const metadata = {
   title: 'PoliticianFinder - 훌륭한 정치인 찾기',
@@ -68,6 +70,7 @@ export default function RootLayout({
                       {children}
                     </main>
                     <Footer />
+                    <MobileTabBar />
                   </div>
                   {/* 전역 스크롤 Top 버튼 */}
                   <ScrollToTop showAfter={400} bottomOffset={24} />
