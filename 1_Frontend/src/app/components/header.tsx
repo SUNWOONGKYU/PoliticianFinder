@@ -54,7 +54,12 @@ export default function Header() {
   };
 
   return (
-    <header className="bg-white dark:bg-slate-900 shadow-sm sticky top-0 z-50 border-b-2 border-primary-500 transition-colors duration-300">
+    <>
+      {/* 테스트 중 배너 */}
+      <div className="bg-amber-500 text-white text-center py-2 px-4 text-sm font-medium sticky top-0 z-[60]">
+        🚧 현재 테스트 중입니다. 실제 서비스가 아닙니다. 🚧
+      </div>
+      <header className="bg-white dark:bg-slate-900 shadow-sm sticky top-[40px] z-50 border-b-2 border-primary-500 transition-colors duration-300">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo & Catchphrase */}
@@ -182,5 +187,6 @@ export default function Header() {
         )}
       </nav>
     </header>
+    </>
   );
 }
