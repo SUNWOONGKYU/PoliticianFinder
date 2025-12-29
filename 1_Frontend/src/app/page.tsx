@@ -47,6 +47,7 @@ interface Post {
   upvotes: number;
   downvotes: number;
   comment_count: number;
+  share_count: number;
   created_at: string;
   is_hot?: boolean;
   is_best?: boolean;
@@ -333,6 +334,7 @@ export default function Home() {
                 upvotes: post.upvotes || 0,
                 downvotes: post.downvotes || 0,
                 comment_count: post.comment_count || 0,
+                share_count: post.share_count || 0,
                 created_at: post.created_at,
               };
             });
@@ -365,6 +367,7 @@ export default function Home() {
                 upvotes: post.upvotes || 0,
                 downvotes: post.downvotes || 0,
                 comment_count: post.comment_count || 0,
+                share_count: post.share_count || 0,
                 created_at: post.created_at,
                 is_hot: (post.view_count || 0) > 100,
                 is_best: (post.upvotes || 0) > 50,
@@ -997,6 +1000,7 @@ export default function Home() {
                                 <span className="text-red-500">👍 {post.upvotes}</span>
                                 <span className="text-gray-400">👎 {post.downvotes}</span>
                                 <span>댓글 {post.comment_count}</span>
+                                <span>공유 {post.share_count}</span>
                               </div>
                             </div>
                           </div>
@@ -1077,6 +1081,7 @@ export default function Home() {
                                 <span className="text-red-500">👍 {post.upvotes}</span>
                                 <span className="text-gray-400">👎 {post.downvotes}</span>
                                 <span>댓글 {post.comment_count}</span>
+                                <span>공유 {post.share_count}</span>
                               </div>
                             </div>
                           </div>
