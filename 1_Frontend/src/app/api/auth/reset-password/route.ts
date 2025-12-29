@@ -131,7 +131,7 @@ export async function POST(request: NextRequest) {
     // 5. Supabase Client Connection
     const supabase = await createClient();
     console.log('[비밀번호 재설정] Supabase client connected:', !!supabase);
-    console.log('[비밀번호 재설정] Password reset requested for:', data.email);
+    console.log('[비밀번호 재설정] Password reset requested for:', data.email?.substring(0, 3) + '***@***');
 
     // 6. Real Supabase password reset email
     const { error: resetError } = await supabase.auth.resetPasswordForEmail(data.email, {
@@ -277,7 +277,7 @@ export async function PUT(request: NextRequest) {
     // 6. Supabase Client Connection (Mock - Phase 1)
     const supabase = await createClient();
     console.log('[Phase 1 Mock] Supabase client connected:', !!supabase);
-    console.log('[Phase 1 Mock] Password update confirmed for:', data.email);
+    console.log('[Phase 1 Mock] Password update confirmed for:', data.email?.substring(0, 3) + '***@***');
 
     // 7. Mock: Update Password (Phase 1)
     // Phase 3 will use: supabase.auth.updateUser({ password: newPassword })

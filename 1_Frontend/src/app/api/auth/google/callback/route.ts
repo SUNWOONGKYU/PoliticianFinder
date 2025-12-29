@@ -156,7 +156,7 @@ export async function GET(request: NextRequest) {
 
     console.log('[Google OAuth Callback] 로그인 성공:', {
       userId: data.user.id,
-      email: data.user.email,
+      email: data.user.email?.substring(0, 3) + '***@***',
       provider: 'google',
     });
 

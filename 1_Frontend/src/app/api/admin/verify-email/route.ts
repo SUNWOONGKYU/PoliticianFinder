@@ -28,7 +28,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    console.log('[Admin] 이메일 수동 인증 시작:', email);
+    console.log('[Admin] 이메일 수동 인증 시작:', email?.substring(0, 3) + '***@***');
 
     const supabase = createAdminClient();
 
@@ -52,7 +52,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    console.log('[Admin] 사용자 찾음:', { id: user.id, email: user.email });
+    console.log('[Admin] 사용자 찾음:', { id: user.id, email: user.email?.substring(0, 3) + '***@***' });
 
     // 3. 이미 인증된 경우
     if (user.email_confirmed_at) {
@@ -81,7 +81,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    console.log('[Admin] 이메일 인증 완료:', updatedUser.user?.email);
+    console.log('[Admin] 이메일 인증 완료:', updatedUser.user?.email?.substring(0, 3) + '***@***');
 
     return NextResponse.json({
       success: true,

@@ -92,8 +92,30 @@ export function middleware(request: NextRequest) {
     );
   }
 
-  // === 2. Admin Protection (기존 로직 유지) ===
-  if (pathname !== '/admin/login' && pathname.startsWith('/admin')) {
+  // === 2. Admin Protection ===
+  // 2-1. Admin API Protection (API 요청은 401 반환)
+  if (pathname.startsWith('/api/admin')) {
+    const isAdmin = request.cookies.get('isAdmin')?.value === 'true';
+
+    if (!isAdmin) {
+      return new NextResponse(
+        JSON.stringify({
+          success: false,
+          error: {
+            code: 'UNAUTHORIZED',
+            message: '관리자 권한이 필요합니다.',
+          },
+        }),
+        {
+          status: 401,
+          headers: { 'Content-Type': 'application/json' },
+        }
+      );
+    }
+  }
+
+  // 2-2. Admin Page Protection (페이지 요청은 로그인으로 리다이렉트)
+  if (pathname !== '/admin/login' && pathname.startsWith('/admin') && !pathname.startsWith('/api/admin')) {
     const isAdmin = request.cookies.get('isAdmin')?.value === 'true';
 
     if (!isAdmin) {
