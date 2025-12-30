@@ -726,12 +726,12 @@ export default function Home() {
                               </span>
                             </Link>
                           </td>
-                          <td className="px-1 py-2 text-gray-600 whitespace-nowrap" title={p.title || '-'}>{truncateText(p.title)}</td>
+                          <td className="px-1 py-2 text-gray-600 whitespace-nowrap" title={p.title || '-'}>{truncateText(p.title || '')}</td>
                           <td className="px-1 py-2 text-gray-600 whitespace-nowrap">{p.party}</td>
                           <td className="px-1 py-2 text-gray-600 whitespace-nowrap">{p.identity}</td>
                           <td className="px-1 py-2 text-gray-600 whitespace-nowrap">{p.positionType || '-'}</td>
                           <td className="px-1 py-2 text-gray-600 whitespace-nowrap" title={getFullRegionName(p.region)}>{truncateText(getFullRegionName(p.region))}</td>
-                          <td className="px-1 py-2 text-gray-600 whitespace-nowrap" title={p.district || '-'}>{truncateText(p.district)}</td>
+                          <td className="px-1 py-2 text-gray-600 whitespace-nowrap" title={p.district || '-'}>{truncateText(p.district || '')}</td>
                           <td className="px-1 py-2 text-center font-bold text-accent-600 whitespace-nowrap">{p.gradeEmoji} {p.grade}</td>
                           <td className="px-1 py-2 text-center font-bold text-accent-600 whitespace-nowrap">{p.totalScore > 0 ? p.totalScore : '-'}</td>
                           <td className="px-1 py-2 text-center font-bold text-accent-600 whitespace-nowrap">{p.claude > 0 ? p.claude : '-'}</td>
