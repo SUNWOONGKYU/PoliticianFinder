@@ -153,25 +153,16 @@ export default function NotificationsPage() {
   // P7F1: Page-level authentication protection
   const { user: authUser, loading: authLoading } = useRequireAuth();
 
-  // P7F1: Show loading while checking authentication
-  if (authLoading) {
-    return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="text-center">
-          <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600 mb-4"></div>
-          <p className="text-gray-600">로딩 중...</p>
-        </div>
-      </div>
-    );
-  }
-
+  // 모든 useState 훅은 조건부 return 이전에 선언 (React Hooks 규칙)
   const [notifications, setNotifications] = useState<Notification[]>([]);
   const [loading, setLoading] = useState(true);
   const [currentFilter, setCurrentFilter] = useState<FilterType>('all');
 
-  // API에서 알림 데이터 가져오기
+  // API에서 알림 데이터 가져오기 - authLoading이 끝나고 user가 있을 때만 fetch
   useEffect(() => {
     const fetchNotifications = async () => {
+      if (authLoading || !authUser) return;
+
       try {
         setLoading(true);
         const response = await fetch('/api/notifications');
@@ -189,8 +180,9 @@ export default function NotificationsPage() {
     };
 
     fetchNotifications();
-  }, []);
+  }, [authLoading, authUser]);
 
+  // useMemo, useCallback 훅도 조건부 return 이전에 선언 (React Hooks 규칙)
   const filteredNotifications = useMemo(() => {
     if (currentFilter === 'all') {
       return notifications;
@@ -269,6 +261,18 @@ export default function NotificationsPage() {
       day: 'numeric',
     });
   }, []);
+
+  // P7F1: Show loading while checking authentication (모든 훅 선언 이후에 조건부 return)
+  if (authLoading) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600 mb-4"></div>
+          <p className="text-gray-600">로딩 중...</p>
+        </div>
+      </div>
+    );
+  }
 
   const handleMarkAllRead = async () => {
     try {
