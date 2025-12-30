@@ -340,7 +340,7 @@ export async function GET(request: NextRequest) {
     const total = count || 0;
     const totalPages = Math.ceil(total / query.limit);
 
-    return NextResponse.json(
+    const response = NextResponse.json(
       {
         success: true,
         data: posts || [],
@@ -354,6 +354,11 @@ export async function GET(request: NextRequest) {
       },
       { status: 200 }
     );
+
+    // 캐시 헤더 추가 (1분 캐싱, 게시글은 자주 갱신되므로 짧게)
+    response.headers.set('Cache-Control', 'public, s-maxage=60, stale-while-revalidate=120');
+
+    return response;
   } catch (error) {
     if (error instanceof z.ZodError) {
       return NextResponse.json(
