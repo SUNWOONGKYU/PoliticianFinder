@@ -14,37 +14,85 @@ export default function Header() {
   useEffect(() => {
     setIsMounted(true);
     const supabase = createClient();
+    let pollingInterval: NodeJS.Timeout | null = null;
 
-    // 초기 세션 확인
-    const getUser = async () => {
-      const { data: { user } } = await supabase.auth.getUser();
-      setUser(user);
+    // 알림 개수 가져오기 함수
+    const fetchUnreadCount = async (currentUser: User | null) => {
+      if (!currentUser) {
+        setUnreadCount(0);
+        return;
+      }
 
-      // 사용자가 로그인했으면 알림 개수 가져오기
-      if (user) {
+      try {
         const { count } = await supabase
           .from('notifications')
           .select('*', { count: 'exact', head: true })
-          .eq('user_id', user.id)
+          .eq('user_id', currentUser.id)
           .eq('is_read', false);
 
         setUnreadCount(count || 0);
+      } catch (error) {
+        console.error('Failed to fetch unread count:', error);
+      }
+    };
+
+    // 초기 세션 확인
+    const getUser = async () => {
+      const { data: { user: currentUser } } = await supabase.auth.getUser();
+      setUser(currentUser);
+      await fetchUnreadCount(currentUser);
+
+      // 로그인 상태면 30초마다 알림 개수 갱신
+      if (currentUser) {
+        pollingInterval = setInterval(() => {
+          fetchUnreadCount(currentUser);
+        }, 30000);
       }
     };
 
     getUser();
 
+    // 탭이 다시 활성화될 때 알림 개수 갱신
+    const handleVisibilityChange = async () => {
+      if (document.visibilityState === 'visible') {
+        const { data: { user: currentUser } } = await supabase.auth.getUser();
+        if (currentUser) {
+          fetchUnreadCount(currentUser);
+        }
+      }
+    };
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+
     // 세션 변경 감지
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
-      setUser(session?.user ?? null);
+      const newUser = session?.user ?? null;
+      setUser(newUser);
 
-      // 로그아웃 시 알림 개수 초기화
-      if (!session?.user) {
+      // 로그아웃 시 알림 개수 초기화 및 폴링 중지
+      if (!newUser) {
         setUnreadCount(0);
+        if (pollingInterval) {
+          clearInterval(pollingInterval);
+          pollingInterval = null;
+        }
+      } else {
+        // 로그인 시 알림 개수 갱신 및 폴링 시작
+        fetchUnreadCount(newUser);
+        if (!pollingInterval) {
+          pollingInterval = setInterval(() => {
+            fetchUnreadCount(newUser);
+          }, 30000);
+        }
       }
     });
 
-    return () => subscription.unsubscribe();
+    return () => {
+      subscription.unsubscribe();
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      if (pollingInterval) {
+        clearInterval(pollingInterval);
+      }
+    };
   }, []);
 
   const handleLogout = async () => {
