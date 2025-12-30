@@ -118,14 +118,14 @@ const SwipeableNotificationItem: React.FC<{
           {/* 콘텐츠 */}
           <div className="flex-1 min-w-0">
             <div className="flex items-start justify-between gap-2">
-              <p className={`text-sm ${!notification.is_read ? 'text-gray-900 dark:text-gray-100 font-medium' : 'text-gray-600 dark:text-gray-300'}`}>
+              <p className={`text-sm sm:text-base ${!notification.is_read ? 'text-gray-900 dark:text-gray-100 font-medium' : 'text-gray-600 dark:text-gray-300'}`}>
                 {!notification.is_read && (
                   <span className="inline-block w-2 h-2 bg-blue-500 rounded-full mr-2" />
                 )}
                 {notification.content}
               </p>
             </div>
-            <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+            <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mt-1">
               {formatTime(notification.created_at)}
             </p>
           </div>
@@ -136,10 +136,10 @@ const SwipeableNotificationItem: React.FC<{
               e.stopPropagation();
               onDelete(notification.id);
             }}
-            className="hidden sm:block flex-shrink-0 p-1.5 text-gray-400 hover:text-red-500 dark:text-gray-500 dark:hover:text-red-400 rounded-full hover:bg-gray-100 dark:hover:bg-slate-700 transition-colors"
+            className="hidden sm:flex flex-shrink-0 min-h-[44px] min-w-[44px] items-center justify-center text-gray-400 hover:text-red-500 dark:text-gray-500 dark:hover:text-red-400 rounded-full hover:bg-gray-100 dark:hover:bg-slate-700 active:bg-gray-200 dark:active:bg-slate-600 transition-colors touch-manipulation"
             aria-label="삭제"
           >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
@@ -339,29 +339,29 @@ export default function NotificationsPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-slate-900 transition-colors">
-      <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+    <div className="min-h-screen bg-gray-50 dark:bg-slate-900 transition-colors pb-safe">
+      <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 pb-20 sm:pb-8">
         {/* 헤더 */}
         <div className="mb-6">
           <div className="flex items-center justify-between mb-3">
             <h1 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-gray-100">알림</h1>
-            <div className="flex items-center gap-2 sm:gap-3">
+            <div className="flex items-center gap-1 sm:gap-2">
               <button
                 onClick={handleMarkAllRead}
-                className="text-sm text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-medium px-2 py-1 rounded-lg hover:bg-primary-50 dark:hover:bg-primary-900/20 transition-colors"
+                className="text-sm text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-medium px-3 py-2 min-h-[44px] flex items-center rounded-lg hover:bg-primary-50 dark:hover:bg-primary-900/20 active:bg-primary-100 dark:active:bg-primary-900/30 transition-colors touch-manipulation"
                 disabled={unreadCount === 0}
               >
                 모두 읽음
               </button>
               <button
                 onClick={handleDeleteAllRead}
-                className="text-sm text-gray-600 dark:text-gray-400 hover:text-red-600 dark:hover:text-red-400 font-medium px-2 py-1 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors"
+                className="text-sm text-gray-600 dark:text-gray-400 hover:text-red-600 dark:hover:text-red-400 font-medium px-3 py-2 min-h-[44px] flex items-center rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 active:bg-gray-200 dark:active:bg-slate-700 transition-colors touch-manipulation"
               >
                 읽은 알림 삭제
               </button>
               <Link
                 href="/settings"
-                className="p-2 text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors"
+                className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 active:bg-gray-200 dark:active:bg-slate-700 transition-colors touch-manipulation"
                 aria-label="알림 설정"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -389,10 +389,10 @@ export default function NotificationsPage() {
                 key={tab.key}
                 onClick={() => setCurrentFilter(tab.key)}
                 className={`
-                  flex-shrink-0 px-4 sm:px-6 py-3 text-sm font-medium border-b-2 transition-colors whitespace-nowrap
+                  flex-shrink-0 px-4 sm:px-6 min-h-[44px] flex items-center text-sm font-medium border-b-2 transition-colors whitespace-nowrap touch-manipulation
                   ${currentFilter === tab.key
                     ? 'text-primary-600 dark:text-primary-400 border-primary-600 dark:border-primary-400 bg-primary-50/50 dark:bg-primary-900/10'
-                    : 'text-gray-600 dark:text-gray-400 border-transparent hover:text-gray-900 dark:hover:text-gray-200 hover:border-gray-300 dark:hover:border-gray-600'
+                    : 'text-gray-600 dark:text-gray-400 border-transparent hover:text-gray-900 dark:hover:text-gray-200 hover:border-gray-300 dark:hover:border-gray-600 active:bg-gray-100 dark:active:bg-slate-700'
                   }
                 `}
               >
