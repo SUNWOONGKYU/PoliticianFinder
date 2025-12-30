@@ -694,7 +694,7 @@ export default function PoliticianDetailPage() {
             {/* Gemini */}
             <div className="bg-gradient-to-br from-slate-50 to-indigo-50 dark:from-gray-700 dark:to-gray-600 rounded-lg p-3 border border-slate-200 dark:border-gray-600">
               <div className="flex flex-col items-center gap-0.5">
-                <img src="/icons/gemini.svg" alt="Gemini" className="h-5 w-5 object-contain" />
+                <img src="https://cdn.simpleicons.org/googlegemini" alt="Gemini" className="h-5 w-5 object-contain" />
                 <span className="font-medium text-gray-900 dark:text-white text-xs">Gemini</span>
                 <span className="text-xl font-bold text-primary-600 dark:text-primary-400">{politician.totalScore || 0}</span>
               </div>
@@ -703,7 +703,7 @@ export default function PoliticianDetailPage() {
             {/* Grok */}
             <div className="bg-gradient-to-br from-slate-50 to-gray-100 dark:from-gray-700 dark:to-gray-600 rounded-lg p-3 border border-slate-200 dark:border-gray-600">
               <div className="flex flex-col items-center gap-0.5">
-                <img src="/icons/grok.svg" alt="Grok" className="h-5 w-5 max-h-5 max-w-5 object-contain dark:invert" />
+                <img src="https://cdn.simpleicons.org/x/000000" alt="Grok" className="h-5 w-5 max-h-5 max-w-5 object-contain dark:invert" />
                 <span className="font-medium text-gray-900 dark:text-white text-xs">Grok</span>
                 <span className="text-xl font-bold text-primary-600 dark:text-primary-400">{politician.totalScore || 0}</span>
               </div>
