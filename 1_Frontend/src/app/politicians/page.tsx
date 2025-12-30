@@ -30,6 +30,37 @@ const calculateGrade = (score: number): string => {
   return 'Tn';
 };
 
+// 출마지역 풀네임 변환
+const getFullRegionName = (region: string): string => {
+  const regionMap: Record<string, string> = {
+    '서울': '서울특별시',
+    '경기': '경기도',
+    '인천': '인천광역시',
+    '부산': '부산광역시',
+    '대구': '대구광역시',
+    '광주': '광주광역시',
+    '대전': '대전광역시',
+    '울산': '울산광역시',
+    '세종': '세종특별자치시',
+    '강원': '강원특별자치도',
+    '충북': '충청북도',
+    '충남': '충청남도',
+    '전북': '전북특별자치도',
+    '전남': '전라남도',
+    '경북': '경상북도',
+    '경남': '경상남도',
+    '제주': '제주특별자치도',
+  };
+  return regionMap[region] || region;
+};
+
+// 출마지구 7글자 제한 (초과시 ...)
+const truncateDistrict = (district: string, maxLength: number = 7): string => {
+  if (!district) return '-';
+  if (district.length <= maxLength) return district;
+  return district.slice(0, maxLength) + '...';
+};
+
 export default function PoliticiansPage() {
   const [politicians, setPoliticians] = useState<Politician[]>([]);
   const [loading, setLoading] = useState(true);
@@ -553,8 +584,8 @@ export default function PoliticiansPage() {
                     <td className="px-1 py-2 text-gray-600 text-xs max-w-[80px] truncate" title={p.party}>{p.party}</td>
                     <td className="px-1 py-2 text-gray-600 text-xs whitespace-nowrap">{p.identity}</td>
                     <td className="px-1 py-2 text-gray-600 text-xs whitespace-nowrap">{p.category}</td>
-                    <td className="px-1 py-2 text-gray-600 text-xs whitespace-nowrap">{p.region}</td>
-                    <td className="px-1 py-2 text-gray-600 text-xs whitespace-nowrap">{p.district || '-'}</td>
+                    <td className="px-1 py-2 text-gray-600 text-xs whitespace-nowrap">{getFullRegionName(p.region)}</td>
+                    <td className="px-1 py-2 text-gray-600 text-xs whitespace-nowrap" title={p.district || '-'}>{truncateDistrict(p.district)}</td>
                     <td className="px-1 py-2 text-center text-xs font-semibold text-accent-600 whitespace-nowrap">
                       {p.grade === 'E' && '💚 Emerald'}
                       {p.grade === 'P' && '🥇 Platinum'}
@@ -634,7 +665,7 @@ export default function PoliticiansPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
-                  <span>{p.region} {p.district}</span>
+                  <span>{getFullRegionName(p.region)} {truncateDistrict(p.district)}</span>
                 </div>
 
                 {/* Overall Score Highlight */}

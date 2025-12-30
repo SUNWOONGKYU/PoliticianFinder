@@ -480,6 +480,37 @@ export default function Home() {
     return emojiMap[grade] || '💚';
   };
 
+  // 출마지역 풀네임 변환
+  const getFullRegionName = (region: string): string => {
+    const regionMap: Record<string, string> = {
+      '서울': '서울특별시',
+      '경기': '경기도',
+      '인천': '인천광역시',
+      '부산': '부산광역시',
+      '대구': '대구광역시',
+      '광주': '광주광역시',
+      '대전': '대전광역시',
+      '울산': '울산광역시',
+      '세종': '세종특별자치시',
+      '강원': '강원특별자치도',
+      '충북': '충청북도',
+      '충남': '충청남도',
+      '전북': '전북특별자치도',
+      '전남': '전라남도',
+      '경북': '경상북도',
+      '경남': '경상남도',
+      '제주': '제주특별자치도',
+    };
+    return regionMap[region] || region;
+  };
+
+  // 출마지구 7글자 제한 (초과시 ...)
+  const truncateDistrict = (district: string, maxLength: number = 7): string => {
+    if (!district) return '-';
+    if (district.length <= maxLength) return district;
+    return district.slice(0, maxLength) + '...';
+  };
+
   // AI 로고 URL (CDN)
   const aiLogos = {
     claude: 'https://cdn.brandfetch.io/idW5s392j1/w/338/h/338/theme/dark/icon.png?c=1bxid64Mup7aczewSAYMX&t=1738315794862',
@@ -699,8 +730,8 @@ export default function Home() {
                           <td className="px-1 py-2 text-gray-600 whitespace-nowrap">{p.party}</td>
                           <td className="px-1 py-2 text-gray-600 whitespace-nowrap">{p.identity}</td>
                           <td className="px-1 py-2 text-gray-600 whitespace-nowrap">{p.positionType || '-'}</td>
-                          <td className="px-1 py-2 text-gray-600 whitespace-nowrap">{p.region}</td>
-                          <td className="px-1 py-2 text-gray-600 w-24 truncate" title={p.district || '-'}>{p.district || '-'}</td>
+                          <td className="px-1 py-2 text-gray-600 whitespace-nowrap">{getFullRegionName(p.region)}</td>
+                          <td className="px-1 py-2 text-gray-600 whitespace-nowrap" title={p.district || '-'}>{truncateDistrict(p.district)}</td>
                           <td className="px-1 py-2 text-center font-bold text-accent-600 whitespace-nowrap">{p.gradeEmoji} {p.grade}</td>
                           <td className="px-1 py-2 text-center font-bold text-accent-600 whitespace-nowrap">{p.totalScore > 0 ? p.totalScore : '-'}</td>
                           <td className="px-1 py-2 text-center font-bold text-accent-600 whitespace-nowrap">{p.claude > 0 ? p.claude : '-'}</td>
@@ -740,7 +771,7 @@ export default function Home() {
                           <span className="mx-1">|</span>
                           <span>{politicians[0].party}</span>
                         </div>
-                        <div className="text-sm text-gray-600">{politicians[0].region}</div>
+                        <div className="text-sm text-gray-600">{getFullRegionName(politicians[0].region)}</div>
                       </div>
                     </div>
 
@@ -833,7 +864,7 @@ export default function Home() {
                             <span className="mx-1">|</span>
                             <span>{p.party}</span>
                           </div>
-                          <div className="text-sm text-gray-600">{p.region}</div>
+                          <div className="text-sm text-gray-600">{getFullRegionName(p.region)}</div>
                         </div>
                       </div>
 
