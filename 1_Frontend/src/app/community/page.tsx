@@ -158,9 +158,9 @@ export default function CommunityPage() {
 
   const getTabClass = (tab: string, borderColor: string) => {
     if (currentCategory === tab) {
-      return 'flex-1 px-3 sm:px-4 py-2 min-h-[40px] bg-primary-500 text-white rounded-lg font-medium hover:bg-primary-600 active:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-300 transition whitespace-nowrap text-center min-w-[80px] sm:min-w-[120px] text-sm touch-manipulation';
+      return 'flex-1 px-3 sm:px-4 py-2 min-h-[44px] bg-primary-500 text-white rounded-lg font-medium hover:bg-primary-600 active:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-300 transition whitespace-nowrap text-center min-w-[80px] sm:min-w-[120px] text-sm touch-manipulation';
     }
-    return `flex-1 px-3 sm:px-4 py-2 min-h-[40px] bg-white text-gray-700 rounded-lg border-2 ${borderColor} font-medium hover:bg-gray-100 active:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-300 transition whitespace-nowrap text-center min-w-[80px] sm:min-w-[120px] text-sm touch-manipulation`;
+    return `flex-1 px-3 sm:px-4 py-2 min-h-[44px] bg-white text-gray-700 rounded-lg border-2 ${borderColor} font-medium hover:bg-gray-100 active:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-300 transition whitespace-nowrap text-center min-w-[80px] sm:min-w-[120px] text-sm touch-manipulation`;
   };
 
   return (
@@ -214,8 +214,8 @@ export default function CommunityPage() {
             <button
               onClick={() => { setCurrentCategory('general'); setCurrentPage(1); }}
               className={currentCategory === 'general'
-                ? 'flex-1 px-3 sm:px-4 py-2 min-h-[40px] bg-purple-600 text-white rounded-lg font-medium hover:bg-purple-700 active:bg-purple-800 focus:outline-none focus:ring-2 focus:ring-primary-300 transition whitespace-nowrap text-center min-w-[80px] sm:min-w-[120px] text-sm touch-manipulation'
-                : 'flex-1 px-3 sm:px-4 py-2 min-h-[40px] bg-white text-gray-700 rounded-lg border-2 border-purple-600 font-medium hover:bg-gray-100 active:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-300 transition whitespace-nowrap text-center min-w-[80px] sm:min-w-[120px] text-sm touch-manipulation'
+                ? 'flex-1 px-3 sm:px-4 py-2 min-h-[44px] bg-purple-600 text-white rounded-lg font-medium hover:bg-purple-700 active:bg-purple-800 focus:outline-none focus:ring-2 focus:ring-primary-300 transition whitespace-nowrap text-center min-w-[80px] sm:min-w-[120px] text-sm touch-manipulation'
+                : 'flex-1 px-3 sm:px-4 py-2 min-h-[44px] bg-white text-gray-700 rounded-lg border-2 border-purple-600 font-medium hover:bg-gray-100 active:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-300 transition whitespace-nowrap text-center min-w-[80px] sm:min-w-[120px] text-sm touch-manipulation'
               }
             >
               💬 자유게시판

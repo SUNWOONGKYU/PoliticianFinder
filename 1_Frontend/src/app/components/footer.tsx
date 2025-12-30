@@ -8,8 +8,8 @@ import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <footer className="bg-primary-500 dark:bg-slate-800 text-white transition-colors duration-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 sm:py-4">
+    <footer className="bg-primary-500 dark:bg-slate-800 text-white transition-colors duration-300 safe-area-bottom">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 sm:py-4 pb-[max(0.5rem,env(safe-area-inset-bottom))]">
         {/* Footer Links - 모바일: 한 줄 가로 스크롤, 데스크탑: 가로 배열 */}
         <div className="flex justify-center gap-x-2 sm:gap-4 md:gap-6 overflow-x-auto scrollbar-hide">
           <Link href="/services" className="text-white hover:text-gray-100 transition font-medium min-h-[44px] flex items-center px-2 sm:px-3 whitespace-nowrap rounded-lg active:bg-white/10 touch-manipulation text-xs sm:text-sm">서비스 소개</Link>
