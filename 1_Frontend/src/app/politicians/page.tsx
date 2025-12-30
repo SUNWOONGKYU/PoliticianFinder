@@ -543,12 +543,12 @@ export default function PoliticiansPage() {
         {!loading && !error && (
         <div className="hidden md:block bg-white rounded-lg shadow-md overflow-hidden">
           <div className="overflow-x-auto">
-            <table className="w-full text-sm">
+            <table className="w-full text-[13px]">
               <thead className="bg-gray-100 border-b-2 border-primary-500">
                 <tr>
                   <th className="px-1 py-2 text-center font-bold text-gray-900 w-10">순위</th>
                   <th className="px-2 py-2 text-left font-bold text-gray-900 min-w-[70px]">이름</th>
-                  <th className="px-1 py-2 text-left font-bold text-gray-900 whitespace-nowrap">직책</th>
+                  <th className="px-1 py-2 text-left font-bold text-gray-900 w-20">직책</th>
                   <th className="px-1 py-2 text-left font-bold text-gray-900 whitespace-nowrap">정당</th>
                   <th className="px-1 py-2 text-left font-bold text-gray-900 w-12">신분</th>
                   <th className="px-1 py-2 text-left font-bold text-gray-900 whitespace-nowrap">출마직종</th>
@@ -570,35 +570,35 @@ export default function PoliticiansPage() {
                     className="hover:bg-gray-50"
                   >
                     <td className="px-1 py-2 text-center whitespace-nowrap">
-                      <span className="font-bold text-gray-900 text-xs">{p.rank}</span>
+                      <span className="font-bold text-gray-900">{p.rank}</span>
                     </td>
                     <td className="px-2 py-2 whitespace-nowrap">
                       <Link
                         href={`/politicians/${p.id}`}
-                        className="font-bold text-primary-600 hover:text-primary-700 hover:underline text-xs inline-flex items-center gap-1"
+                        className="font-bold text-primary-600 hover:text-primary-700 hover:underline inline-flex items-center gap-1"
                       >
-                        {p.name} <span className="text-xs">›</span>
+                        {p.name} ›
                       </Link>
                     </td>
-                    <td className="px-1 py-2 text-gray-600 text-xs whitespace-nowrap" title={p.title || '-'}>{truncateText(p.title || '')}</td>
-                    <td className="px-1 py-2 text-gray-600 text-xs max-w-[80px] truncate" title={p.party}>{p.party}</td>
-                    <td className="px-1 py-2 text-gray-600 text-xs whitespace-nowrap">{p.identity}</td>
-                    <td className="px-1 py-2 text-gray-600 text-xs whitespace-nowrap">{p.category}</td>
-                    <td className="px-1 py-2 text-gray-600 text-xs whitespace-nowrap" title={getFullRegionName(p.region)}>{truncateText(getFullRegionName(p.region))}</td>
-                    <td className="px-1 py-2 text-gray-600 text-xs whitespace-nowrap" title={p.district || '-'}>{truncateText(p.district || '')}</td>
-                    <td className="px-1 py-2 text-center text-xs font-semibold text-accent-600 whitespace-nowrap">
+                    <td className="px-1 py-2 text-gray-600 whitespace-nowrap" title={p.title || '-'}>{truncateText(p.title || '')}</td>
+                    <td className="px-1 py-2 text-gray-600 whitespace-nowrap">{p.party}</td>
+                    <td className="px-1 py-2 text-gray-600 whitespace-nowrap">{p.identity}</td>
+                    <td className="px-1 py-2 text-gray-600 whitespace-nowrap">{p.category}</td>
+                    <td className="px-1 py-2 text-gray-600 whitespace-nowrap" title={getFullRegionName(p.region)}>{truncateText(getFullRegionName(p.region))}</td>
+                    <td className="px-1 py-2 text-gray-600 whitespace-nowrap" title={p.district || '-'}>{truncateText(p.district || '')}</td>
+                    <td className="px-1 py-2 text-center font-semibold text-accent-600 whitespace-nowrap">
                       {p.grade === 'E' && '💚 Emerald'}
                       {p.grade === 'P' && '🥇 Platinum'}
                       {p.grade === 'D' && '💎 Diamond'}
                       {p.grade === 'M' && '🌺 Mugunghwa'}
                       {p.grade === 'G' && '🥇 Gold'}
                     </td>
-                    <td className="px-1 py-2 text-center font-bold text-accent-600 text-xs whitespace-nowrap">{p.overallScore}</td>
-                    <td className="px-1 py-2 text-center font-bold text-accent-600 text-xs whitespace-nowrap">{p.claudeScore}</td>
-                    <td className="px-1 py-2 text-center font-bold text-accent-600 text-xs whitespace-nowrap">{p.chatgptScore}</td>
-                    <td className="px-1 py-2 text-center font-bold text-gray-400 text-xs whitespace-nowrap">-</td>
-                    <td className="px-1 py-2 text-center font-bold text-accent-600 text-xs whitespace-nowrap">{p.grokScore}</td>
-                    <td className="px-1 py-2 text-center text-xs whitespace-nowrap">
+                    <td className="px-1 py-2 text-center font-bold text-accent-600 whitespace-nowrap">{p.overallScore}</td>
+                    <td className="px-1 py-2 text-center font-bold text-accent-600 whitespace-nowrap">{p.claudeScore}</td>
+                    <td className="px-1 py-2 text-center font-bold text-accent-600 whitespace-nowrap">{p.chatgptScore}</td>
+                    <td className="px-1 py-2 text-center font-bold text-gray-400 whitespace-nowrap">-</td>
+                    <td className="px-1 py-2 text-center font-bold text-accent-600 whitespace-nowrap">{p.grokScore}</td>
+                    <td className="px-1 py-2 text-center whitespace-nowrap">
                       <span className="font-bold text-secondary-600">
                         {'★'.repeat(p.memberRating)}{'☆'.repeat(5 - p.memberRating)}
                       </span>
