@@ -193,14 +193,14 @@ export default function LoginPage() {
 
             {/* Remember & Forgot Password */}
             <div className="flex items-center justify-between min-h-[44px]">
-              <label htmlFor="remember" className="flex items-center min-h-[44px] cursor-pointer">
+              <label htmlFor="remember" className="flex items-center min-h-[44px] cursor-pointer touch-manipulation active:bg-gray-100 rounded-lg px-1 -ml-1">
                 <input
                   id="remember"
                   name="remember"
                   type="checkbox"
                   checked={formData.remember}
                   onChange={handleInputChange}
-                  className="h-5 w-5 text-primary-600 focus:ring-primary-500 border-gray-300 rounded"
+                  className="h-6 w-6 min-h-[44px] min-w-[44px] text-primary-600 focus:ring-primary-500 border-gray-300 rounded cursor-pointer"
                 />
                 <span className="ml-3 text-sm text-gray-700">
                   로그인 상태 유지
