@@ -504,11 +504,11 @@ export default function Home() {
     return regionMap[region] || region;
   };
 
-  // 출마지구 7글자 제한 (초과시 ...)
-  const truncateDistrict = (district: string, maxLength: number = 7): string => {
-    if (!district) return '-';
-    if (district.length <= maxLength) return district;
-    return district.slice(0, maxLength) + '...';
+  // 텍스트 7글자 제한 (초과시 ...)
+  const truncateText = (text: string, maxLength: number = 7): string => {
+    if (!text) return '-';
+    if (text.length <= maxLength) return text;
+    return text.slice(0, maxLength) + '...';
   };
 
   // AI 로고 URL (CDN)
@@ -676,14 +676,14 @@ export default function Home() {
                   <table className="w-full text-[13px]">
                     <thead className="bg-gray-100 border-b-2 border-primary-500">
                       <tr>
-                        <th className="px-1 py-2 text-center font-bold text-gray-900 whitespace-nowrap">순위</th>
-                        <th className="px-1 py-2 text-left font-bold text-gray-900 whitespace-nowrap">이름</th>
+                        <th className="px-1 py-2 text-center font-bold text-gray-900 w-10">순위</th>
+                        <th className="px-2 py-2 text-left font-bold text-gray-900 min-w-[70px]">이름</th>
                         <th className="px-1 py-2 text-left font-bold text-gray-900 whitespace-nowrap">직책</th>
                         <th className="px-1 py-2 text-left font-bold text-gray-900 whitespace-nowrap">정당</th>
-                        <th className="px-1 py-2 text-left font-bold text-gray-900 whitespace-nowrap">신분</th>
+                        <th className="px-1 py-2 text-left font-bold text-gray-900 w-12">신분</th>
                         <th className="px-1 py-2 text-left font-bold text-gray-900 whitespace-nowrap">출마직종</th>
-                        <th className="px-1 py-2 text-left font-bold text-gray-900 whitespace-nowrap">출마지역</th>
-                        <th className="px-1 py-2 text-left font-bold text-gray-900 w-24">출마지구</th>
+                        <th className="px-1 py-2 text-left font-bold text-gray-900 w-20">출마지역</th>
+                        <th className="px-1 py-2 text-left font-bold text-gray-900 w-20">출마지구</th>
                         <th className="px-1 py-2 text-center font-bold text-gray-900 whitespace-nowrap">평가등급</th>
                         <th className="px-1 py-2 text-center font-bold text-gray-900 whitespace-nowrap">종합평점</th>
                         <th className="px-1 py-2 text-center font-bold text-gray-900 w-16">
@@ -730,8 +730,8 @@ export default function Home() {
                           <td className="px-1 py-2 text-gray-600 whitespace-nowrap">{p.party}</td>
                           <td className="px-1 py-2 text-gray-600 whitespace-nowrap">{p.identity}</td>
                           <td className="px-1 py-2 text-gray-600 whitespace-nowrap">{p.positionType || '-'}</td>
-                          <td className="px-1 py-2 text-gray-600 whitespace-nowrap">{getFullRegionName(p.region)}</td>
-                          <td className="px-1 py-2 text-gray-600 whitespace-nowrap" title={p.district || '-'}>{truncateDistrict(p.district)}</td>
+                          <td className="px-1 py-2 text-gray-600 whitespace-nowrap" title={getFullRegionName(p.region)}>{truncateText(getFullRegionName(p.region))}</td>
+                          <td className="px-1 py-2 text-gray-600 whitespace-nowrap" title={p.district || '-'}>{truncateText(p.district)}</td>
                           <td className="px-1 py-2 text-center font-bold text-accent-600 whitespace-nowrap">{p.gradeEmoji} {p.grade}</td>
                           <td className="px-1 py-2 text-center font-bold text-accent-600 whitespace-nowrap">{p.totalScore > 0 ? p.totalScore : '-'}</td>
                           <td className="px-1 py-2 text-center font-bold text-accent-600 whitespace-nowrap">{p.claude > 0 ? p.claude : '-'}</td>
