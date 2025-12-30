@@ -209,9 +209,9 @@ export default function PoliticianDetailPage() {
     }
   }, [selectedReports.length]);
 
-  // P3BA35: 상세평가보고서 가격 계산 (Claude 1개만 지원)
+  // P3BA35: 상세평가보고서 가격 계산 (AI당 30만원)
   const totalPrice = useMemo(() => {
-    return selectedReports.length * 500000;
+    return selectedReports.length * 300000;
   }, [selectedReports.length]);
 
   const openAIDetailModal = (aiName: string) => {
@@ -742,7 +742,7 @@ export default function PoliticianDetailPage() {
 
             {/* P3BA35: V24.0에서는 Claude AI만 사용 - 단순화된 UI */}
             <div className="bg-white rounded-lg p-4 mb-4">
-              <div className="text-base font-medium text-gray-900 mb-3">Claude AI 상세평가보고서 (₩500,000)</div>
+              <div className="text-base font-medium text-gray-900 mb-3">Claude AI 상세평가보고서 (₩300,000)</div>
               <div className="space-y-3">
                 <label className="flex items-center gap-3 cursor-pointer min-h-[44px]">
                   <input
