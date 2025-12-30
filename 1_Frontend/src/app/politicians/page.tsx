@@ -369,7 +369,7 @@ export default function PoliticiansPage() {
                 <select
                   value={identityFilter}
                   onChange={(e) => setIdentityFilter(e.target.value)}
-                  className="w-full px-3 sm:px-4 py-2 min-h-[40px] border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-200 focus:border-primary-500 text-base touch-manipulation bg-white"
+                  className="w-full px-3 sm:px-4 py-2 min-h-[44px] border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-200 focus:border-primary-500 text-base touch-manipulation bg-white"
                 >
                   <option value="">전체</option>
                   <option value="현직">현직</option>
@@ -386,7 +386,7 @@ export default function PoliticiansPage() {
                 <select
                   value={categoryFilter}
                   onChange={(e) => setCategoryFilter(e.target.value)}
-                  className="w-full px-3 sm:px-4 py-2 min-h-[40px] border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-200 focus:border-primary-500 text-base touch-manipulation bg-white"
+                  className="w-full px-3 sm:px-4 py-2 min-h-[44px] border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-200 focus:border-primary-500 text-base touch-manipulation bg-white"
                 >
                   <option value="">전체</option>
                   <option value="국회의원">국회의원</option>
@@ -404,7 +404,7 @@ export default function PoliticiansPage() {
                 <select
                   value={partyFilter}
                   onChange={(e) => setPartyFilter(e.target.value)}
-                  className="w-full px-3 sm:px-4 py-2 min-h-[40px] border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-200 focus:border-primary-500 text-base touch-manipulation bg-white"
+                  className="w-full px-3 sm:px-4 py-2 min-h-[44px] border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-200 focus:border-primary-500 text-base touch-manipulation bg-white"
                 >
                   <option value="">전체</option>
                   <option value="더불어민주당">더불어민주당</option>
@@ -427,7 +427,7 @@ export default function PoliticiansPage() {
                 <select
                   value={regionFilter}
                   onChange={(e) => setRegionFilter(e.target.value)}
-                  className="w-full px-3 sm:px-4 py-2 min-h-[40px] border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-200 focus:border-primary-500 text-base touch-manipulation bg-white"
+                  className="w-full px-3 sm:px-4 py-2 min-h-[44px] border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-200 focus:border-primary-500 text-base touch-manipulation bg-white"
                 >
                   <option value="">전체</option>
 
@@ -464,7 +464,7 @@ export default function PoliticiansPage() {
                 <select
                   value={gradeFilter}
                   onChange={(e) => setGradeFilter(e.target.value)}
-                  className="w-full px-3 sm:px-4 py-2 min-h-[40px] border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-200 focus:border-primary-500 text-base touch-manipulation bg-white"
+                  className="w-full px-3 sm:px-4 py-2 min-h-[44px] border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-200 focus:border-primary-500 text-base touch-manipulation bg-white"
                 >
                   <option value="">전체</option>
                   <option value="M">🌺 Mugunghwa (940-1000점)</option>
@@ -483,7 +483,7 @@ export default function PoliticiansPage() {
               {/* Filter Search Button */}
               <div className="flex-shrink-0">
                 <label className="block text-xs font-medium text-gray-700 mb-1 invisible">검색</label>
-                <button className="px-4 sm:px-6 py-2 min-h-[40px] bg-primary-500 text-white rounded-lg hover:bg-primary-600 active:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-300 font-medium text-sm shadow-sm whitespace-nowrap touch-manipulation">
+                <button className="px-4 sm:px-6 py-2 min-h-[44px] bg-primary-500 text-white rounded-lg hover:bg-primary-600 active:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-300 font-medium text-sm shadow-sm whitespace-nowrap touch-manipulation">
                   필터 검색
                 </button>
               </div>
@@ -493,7 +493,7 @@ export default function PoliticiansPage() {
                 <label className="block text-xs font-medium text-gray-700 mb-1 invisible">초기화</label>
                 <button
                   onClick={handleResetFilters}
-                  className="px-4 sm:px-6 py-2 min-h-[40px] bg-primary-100 text-primary-700 border-2 border-primary-300 rounded-lg hover:bg-primary-200 active:bg-primary-300 focus:outline-none focus:ring-2 focus:ring-primary-300 font-medium text-sm shadow-sm whitespace-nowrap touch-manipulation"
+                  className="px-4 sm:px-6 py-2 min-h-[44px] bg-primary-100 text-primary-700 border-2 border-primary-300 rounded-lg hover:bg-primary-200 active:bg-primary-300 focus:outline-none focus:ring-2 focus:ring-primary-300 font-medium text-sm shadow-sm whitespace-nowrap touch-manipulation"
                 >
                   초기화
                 </button>
@@ -530,7 +530,7 @@ export default function PoliticiansPage() {
                 <p className="text-red-600 text-sm mb-3">잠시 후 다시 시도해주세요.</p>
                 <button
                   onClick={() => window.location.reload()}
-                  className="px-4 py-2 min-h-[40px] bg-red-100 text-red-700 rounded-lg hover:bg-red-200 active:bg-red-300 transition text-sm font-medium touch-manipulation"
+                  className="px-4 py-2 min-h-[44px] bg-red-100 text-red-700 rounded-lg hover:bg-red-200 active:bg-red-300 transition text-sm font-medium touch-manipulation"
                 >
                   새로고침
                 </button>
