@@ -585,7 +585,7 @@ export default function PoliticiansPage() {
                     <td className="px-1 py-2 text-gray-600 text-xs whitespace-nowrap">{p.identity}</td>
                     <td className="px-1 py-2 text-gray-600 text-xs whitespace-nowrap">{p.category}</td>
                     <td className="px-1 py-2 text-gray-600 text-xs whitespace-nowrap" title={getFullRegionName(p.region)}>{truncateText(getFullRegionName(p.region))}</td>
-                    <td className="px-1 py-2 text-gray-600 text-xs whitespace-nowrap" title={p.district || '-'}>{truncateText(p.district)}</td>
+                    <td className="px-1 py-2 text-gray-600 text-xs whitespace-nowrap" title={p.district || '-'}>{truncateText(p.district || '')}</td>
                     <td className="px-1 py-2 text-center text-xs font-semibold text-accent-600 whitespace-nowrap">
                       {p.grade === 'E' && '💚 Emerald'}
                       {p.grade === 'P' && '🥇 Platinum'}
@@ -665,7 +665,7 @@ export default function PoliticiansPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
-                  <span>{truncateText(getFullRegionName(p.region))} {truncateText(p.district)}</span>
+                  <span>{truncateText(getFullRegionName(p.region))} {truncateText(p.district || '')}</span>
                 </div>
 
                 {/* Overall Score Highlight */}
