@@ -726,7 +726,7 @@ export default function Home() {
                               </span>
                             </Link>
                           </td>
-                          <td className="px-1 py-2 text-gray-600 whitespace-nowrap">{p.title || '-'}</td>
+                          <td className="px-1 py-2 text-gray-600 whitespace-nowrap" title={p.title || '-'}>{truncateText(p.title)}</td>
                           <td className="px-1 py-2 text-gray-600 whitespace-nowrap">{p.party}</td>
                           <td className="px-1 py-2 text-gray-600 whitespace-nowrap">{p.identity}</td>
                           <td className="px-1 py-2 text-gray-600 whitespace-nowrap">{p.positionType || '-'}</td>
