@@ -146,10 +146,19 @@ export async function PATCH(request: NextRequest) {
       );
     }
 
+    // id를 정수로 변환 (DB의 id 컬럼이 integer 타입)
+    const numericId = parseInt(notificationId, 10);
+    if (isNaN(numericId)) {
+      return NextResponse.json(
+        { success: false, error: { code: 'VALIDATION_ERROR', message: 'Invalid notificationId format' } },
+        { status: 400 }
+      );
+    }
+
     const { data, error } = await supabase
       .from('notifications')
       .update({ is_read: true, updated_at: new Date().toISOString() })
-      .eq('id', notificationId)
+      .eq('id', numericId)
       .eq('user_id', user.id)
       .select()
       .single();
@@ -190,10 +199,19 @@ export async function DELETE(request: NextRequest) {
       );
     }
 
+    // id를 정수로 변환 (DB의 id 컬럼이 integer 타입)
+    const numericId = parseInt(notificationId, 10);
+    if (isNaN(numericId)) {
+      return NextResponse.json(
+        { success: false, error: { code: 'VALIDATION_ERROR', message: 'Invalid notificationId format' } },
+        { status: 400 }
+      );
+    }
+
     const { error } = await supabase
       .from('notifications')
       .delete()
-      .eq('id', notificationId)
+      .eq('id', numericId)
       .eq('user_id', user.id);
 
     if (error) {
