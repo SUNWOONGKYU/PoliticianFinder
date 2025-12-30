@@ -438,12 +438,8 @@ export default function PaymentPage() {
               {/* Price Information */}
               <div className="space-y-3 mb-6 pb-6 border-b">
                 <div className="flex justify-between text-gray-700">
-                  <span>상품 금액</span>
-                  <span className="font-medium">500,000원</span>
-                </div>
-                <div className="flex justify-between text-gray-700">
-                  <span>할인</span>
-                  <span className="font-medium text-red-600">-0원</span>
+                  <span>상품 금액 (AI 1개)</span>
+                  <span className="font-medium">300,000원</span>
                 </div>
               </div>
 
@@ -452,8 +448,7 @@ export default function PaymentPage() {
                 <div className="flex justify-between items-center">
                   <span className="text-lg font-bold text-gray-900">최종 결제 금액</span>
                   <div className="text-right">
-                    <div className="text-2xl font-bold text-primary-600">500,000원</div>
-                    <div className="text-sm text-gray-500">부가세 포함</div>
+                    <div className="text-2xl font-bold text-primary-600">300,000원</div>
                   </div>
                 </div>
               </div>
@@ -470,8 +465,8 @@ export default function PaymentPage() {
               >
                 {isVerified
                   ? agreeItems[0] && agreeItems[1]
-                    ? '500,000원 결제하기'
-                    : '500,000원 결제하기'
+                    ? '300,000원 결제하기'
+                    : '300,000원 결제하기'
                   : '본인 인증을 완료해주세요'}
               </button>
 

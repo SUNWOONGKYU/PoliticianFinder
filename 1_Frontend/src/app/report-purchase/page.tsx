@@ -10,8 +10,8 @@ const AI_OPTIONS = [
   { id: 'grok', name: 'Grok', description: 'xAI의 Grok 평가' },
 ];
 
-// 가격 (부가세 포함)
-const PRICE_PER_AI = 330000; // 33만원 (부가세 포함)
+// 가격
+const PRICE_PER_AI = 300000; // 30만원
 
 // 계좌 정보
 const BANK_INFO = {
@@ -44,10 +44,8 @@ export default function ReportPurchasePage() {
   const [buyerName, setBuyerName] = useState('');
   const [depositorName, setDepositorName] = useState('');
 
-  // 총 금액 계산
+  // 총 금액 계산 (AI당 30만원)
   const totalAmount = selectedAIs.length * PRICE_PER_AI;
-  const baseAmount = selectedAIs.length * 300000; // 부가세 전
-  const taxAmount = selectedAIs.length * 30000; // 부가세
 
   // 카운트다운 타이머
   useEffect(() => {
@@ -280,8 +278,7 @@ export default function ReportPurchasePage() {
                     <div className="text-sm text-gray-500">{ai.description}</div>
                   </div>
                   <div className="text-right">
-                    <div className="font-bold text-lg">₩330,000</div>
-                    <div className="text-xs text-gray-500">부가세 포함</div>
+                    <div className="font-bold text-lg">₩300,000</div>
                   </div>
                 </label>
               ))}
@@ -289,13 +286,9 @@ export default function ReportPurchasePage() {
 
             {/* 금액 요약 */}
             <div className="border-t pt-4 mb-6">
-              <div className="flex justify-between text-gray-600 mb-1">
-                <span>기본 금액 ({selectedAIs.length}개 × ₩300,000)</span>
-                <span>₩{baseAmount.toLocaleString()}</span>
-              </div>
               <div className="flex justify-between text-gray-600 mb-2">
-                <span>부가세 (10%)</span>
-                <span>₩{taxAmount.toLocaleString()}</span>
+                <span>선택한 AI 평가 ({selectedAIs.length}개 × ₩300,000)</span>
+                <span>₩{totalAmount.toLocaleString()}</span>
               </div>
               <div className="flex justify-between text-xl font-bold">
                 <span>총 결제 금액</span>
@@ -442,7 +435,7 @@ export default function ReportPurchasePage() {
                   return (
                     <div key={aiId} className="flex justify-between">
                       <span>{ai?.name} 평가 보고서</span>
-                      <span>₩330,000</span>
+                      <span>₩300,000</span>
                     </div>
                   );
                 })}
