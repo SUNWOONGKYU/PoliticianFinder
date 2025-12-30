@@ -3,10 +3,11 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 
-// AI 옵션
+// AI 옵션 (4개)
 const AI_OPTIONS = [
   { id: 'claude', name: 'Claude', description: 'Anthropic의 Claude AI 평가' },
   { id: 'chatgpt', name: 'ChatGPT', description: 'OpenAI의 ChatGPT 평가' },
+  { id: 'gemini', name: 'Gemini', description: 'Google의 Gemini AI 평가' },
   { id: 'grok', name: 'Grok', description: 'xAI의 Grok 평가' },
 ];
 
