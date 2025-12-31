@@ -20,10 +20,13 @@ export default function Footer() {
 
         {/* Company Info */}
         <div className="text-center text-xs sm:text-sm text-white/80 space-y-1">
+          {/* 모바일: 2줄, 데스크탑: 1줄 */}
           <p>
             <span className="font-semibold">파인더월드</span>
             <span className="mx-2">|</span>대표자: 선웅규
-            <span className="mx-2">|</span>관리자: 선웅규(Sunny)
+          </p>
+          <p>
+            관리자: 선웅규(Sunny)
             <span className="mx-2">|</span>이메일: <a href="mailto:wksun999@hanmail.net" className="hover:text-white underline">wksun999@hanmail.net</a>
           </p>
           <p>
