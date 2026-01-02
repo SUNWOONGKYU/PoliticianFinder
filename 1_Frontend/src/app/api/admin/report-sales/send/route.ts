@@ -206,9 +206,10 @@ async function generatePDFForAI(
 
   try {
     // Vercel 환경에서는 fetch로 가져오기
+    // 서브셋 폰트 사용 (51KB vs 2.7MB)
     const [regularRes, boldRes] = await Promise.all([
-      fetch(`${baseUrl}/fonts/Pretendard-Regular.ttf`),
-      fetch(`${baseUrl}/fonts/Pretendard-Bold.ttf`)
+      fetch(`${baseUrl}/fonts/Pretendard-Regular-Subset.ttf`),
+      fetch(`${baseUrl}/fonts/Pretendard-Bold-Subset.ttf`)
     ]);
 
     if (!regularRes.ok || !boldRes.ok) {
@@ -222,11 +223,11 @@ async function generatePDFForAI(
     boldFont = await pdfDoc.embedFont(boldFontBytes);
   } catch (fontError) {
     console.log('[PDF] Font fetch failed, trying file system:', fontError);
-    // 로컬 환경에서는 파일 시스템에서 읽기
+    // 로컬 환경에서는 파일 시스템에서 읽기 (서브셋 폰트)
     try {
       const publicDir = join(process.cwd(), 'public', 'fonts');
-      const regularFontBytes = readFileSync(join(publicDir, 'Pretendard-Regular.ttf'));
-      const boldFontBytes = readFileSync(join(publicDir, 'Pretendard-Bold.ttf'));
+      const regularFontBytes = readFileSync(join(publicDir, 'Pretendard-Regular-Subset.ttf'));
+      const boldFontBytes = readFileSync(join(publicDir, 'Pretendard-Bold-Subset.ttf'));
 
       regularFont = await pdfDoc.embedFont(regularFontBytes);
       boldFont = await pdfDoc.embedFont(boldFontBytes);
