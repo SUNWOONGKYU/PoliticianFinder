@@ -4,7 +4,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 import { Resend } from 'resend';
-import puppeteer from 'puppeteer';
+import puppeteer from 'puppeteer-core';
+import chromium from '@sparticuz/chromium';
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
@@ -143,11 +144,12 @@ export async function POST(request: NextRequest) {
     // 7. HTML 보고서 생성
     const htmlContent = generateReportHTML(politician, evaluations || [], competitors, selectedAis, purchase);
 
-    // 8. Puppeteer로 PDF 생성
+    // 8. Puppeteer로 PDF 생성 (Vercel 서버리스 환경 호환)
     console.log('[send] Launching Puppeteer...');
     const browser = await puppeteer.launch({
+      args: chromium.args,
+      executablePath: await chromium.executablePath(),
       headless: true,
-      args: ['--no-sandbox', '--disable-setuid-sandbox'],
     });
 
     const page = await browser.newPage();
