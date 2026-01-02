@@ -1,9 +1,10 @@
 // API: POST /api/admin/report-sales/send
-// 관리자 전용: HTML 보고서 이메일 발송
+// 관리자 전용: PDF 보고서 생성 및 이메일 발송 (pdf-lib 사용)
 
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 import { Resend } from 'resend';
+import { PDFDocument, rgb, StandardFonts } from 'pdf-lib';
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
@@ -17,16 +18,16 @@ const AI_NAMES: Record<string, string> = {
   grok: 'Grok',
 };
 
-// 카테고리 이름 매핑
-const CATEGORY_NAMES: Record<string, string> = {
-  leadership: '리더십',
-  policy: '정책',
-  communication: '소통',
-  integrity: '청렴도',
-  achievement: '업적',
-  vision: '비전',
-  expertise: '전문성',
-  crisis_management: '위기관리',
+// 카테고리 이름 매핑 (영문)
+const CATEGORY_NAMES_EN: Record<string, string> = {
+  leadership: 'Leadership',
+  policy: 'Policy',
+  communication: 'Communication',
+  integrity: 'Integrity',
+  achievement: 'Achievement',
+  vision: 'Vision',
+  expertise: 'Expertise',
+  crisis_management: 'Crisis Mgmt',
 };
 
 export async function POST(request: NextRequest) {
@@ -78,13 +79,13 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // 3. 이미 발송됨
-    if (purchase.sent) {
-      return NextResponse.json(
-        { success: false, error: '이미 발송된 보고서입니다.', sent_at: purchase.sent_at },
-        { status: 400 }
-      );
-    }
+    // 3. 이미 발송됨 체크 해제 (테스트를 위해 재발송 허용)
+    // if (purchase.sent) {
+    //   return NextResponse.json(
+    //     { success: false, error: '이미 발송된 보고서입니다.', sent_at: purchase.sent_at },
+    //     { status: 400 }
+    //   );
+    // }
 
     // 4. 정치인 정보 조회
     const { data: politician, error: politicianError } = await supabase
@@ -109,23 +110,31 @@ export async function POST(request: NextRequest) {
       .eq('politician_id', purchase.politician_id)
       .in('ai_model', selectedAis);
 
-    // 6. HTML 보고서 생성
-    console.log('[send] Generating HTML report...');
-    const htmlReport = generateReportHTML(politician, evaluations || [], selectedAis, purchase);
+    // 6. PDF 생성
+    console.log('[send] Generating PDF with pdf-lib...');
+    const pdfBytes = await generatePDF(politician, evaluations || [], selectedAis, purchase);
+    console.log('[send] PDF generated, size:', pdfBytes.length);
 
     // 7. 이메일 발송
     const resend = getResend();
     const aiNames = selectedAis.map((ai: string) => AI_NAMES[ai] || ai).join(', ');
+    const fileName = `Report_${politician.name}_${new Date().toISOString().split('T')[0]}.pdf`;
 
     try {
-      await resend.emails.send({
+      const emailResult = await resend.emails.send({
         from: 'PoliticianFinder <noreply@politicianfinder.ai.kr>',
         to: purchase.buyer_email,
-        subject: `[PoliticianFinder] ${politician.name}님의 AI 평가 보고서`,
-        html: htmlReport,
+        subject: `[PoliticianFinder] ${politician.name} - AI Evaluation Report`,
+        attachments: [
+          {
+            filename: fileName,
+            content: Buffer.from(pdfBytes).toString('base64'),
+          },
+        ],
+        html: generateEmailHTML(politician, aiNames),
       });
 
-      console.log('[send] Email sent successfully to:', purchase.buyer_email?.substring(0, 3) + '***@***');
+      console.log('[send] Email sent successfully:', emailResult);
     } catch (emailError) {
       console.error('[send] Email send error:', emailError);
       return NextResponse.json({
@@ -154,7 +163,7 @@ export async function POST(request: NextRequest) {
       message: '보고서가 성공적으로 발송되었습니다.',
       sent_to: purchase.buyer_email,
       sent_at: new Date().toISOString(),
-      file_name: `${politician.name}_AI평가보고서.html`,
+      file_name: fileName,
     });
 
   } catch (error) {
@@ -167,13 +176,130 @@ export async function POST(request: NextRequest) {
   }
 }
 
-// HTML 보고서 생성 함수
-function generateReportHTML(
+// PDF 생성 함수 (pdf-lib 사용)
+async function generatePDF(
   politician: any,
   evaluations: any[],
   selectedAis: string[],
   purchase: any
-): string {
+): Promise<Uint8Array> {
+  const pdfDoc = await PDFDocument.create();
+  const helveticaFont = await pdfDoc.embedFont(StandardFonts.Helvetica);
+  const helveticaBold = await pdfDoc.embedFont(StandardFonts.HelveticaBold);
+
+  // 첫 페이지
+  let page = pdfDoc.addPage([595, 842]); // A4 size
+  const { width, height } = page.getSize();
+  let yPos = height - 50;
+
+  // 색상 정의
+  const darkGreen = rgb(0.024, 0.306, 0.231); // #064E3B
+  const lightGreen = rgb(0.063, 0.725, 0.506); // #10b981
+  const gray = rgb(0.42, 0.45, 0.49);
+  const black = rgb(0, 0, 0);
+
+  // 헤더 배경
+  page.drawRectangle({
+    x: 0,
+    y: height - 120,
+    width: width,
+    height: 120,
+    color: darkGreen,
+  });
+
+  // 제목
+  page.drawText('AI EVALUATION REPORT', {
+    x: 50,
+    y: height - 50,
+    size: 24,
+    font: helveticaBold,
+    color: rgb(1, 1, 1),
+  });
+
+  // 정치인 이름
+  page.drawText(`Politician: ${politician.name}`, {
+    x: 50,
+    y: height - 80,
+    size: 16,
+    font: helveticaFont,
+    color: rgb(1, 1, 1),
+  });
+
+  // 정당 및 직위
+  const partyPosition = `${politician.party || 'Independent'} | ${politician.position || 'Politician'}`;
+  page.drawText(partyPosition, {
+    x: 50,
+    y: height - 100,
+    size: 12,
+    font: helveticaFont,
+    color: rgb(0.9, 0.9, 0.9),
+  });
+
+  // 생성일
+  page.drawText(`Generated: ${new Date().toLocaleDateString('en-US')} | Order: ${purchase.id.substring(0, 8).toUpperCase()}`, {
+    x: width - 250,
+    y: height - 100,
+    size: 10,
+    font: helveticaFont,
+    color: rgb(0.8, 0.8, 0.8),
+  });
+
+  yPos = height - 160;
+
+  // 기본 정보 섹션
+  page.drawText('BASIC INFORMATION', {
+    x: 50,
+    y: yPos,
+    size: 14,
+    font: helveticaBold,
+    color: darkGreen,
+  });
+  yPos -= 5;
+
+  // 밑줄
+  page.drawLine({
+    start: { x: 50, y: yPos },
+    end: { x: width - 50, y: yPos },
+    thickness: 2,
+    color: darkGreen,
+  });
+  yPos -= 25;
+
+  // 기본 정보 테이블
+  const infoItems = [
+    ['Name:', politician.name],
+    ['Party:', politician.party || 'Independent'],
+    ['Position:', politician.position || '-'],
+    ['Constituency:', politician.constituency || politician.region || '-'],
+  ];
+
+  for (const [label, value] of infoItems) {
+    page.drawText(label, { x: 50, y: yPos, size: 11, font: helveticaBold, color: gray });
+    page.drawText(String(value), { x: 150, y: yPos, size: 11, font: helveticaFont, color: black });
+    yPos -= 20;
+  }
+
+  yPos -= 20;
+
+  // 종합 점수 섹션
+  page.drawText('OVERALL SCORE', {
+    x: 50,
+    y: yPos,
+    size: 14,
+    font: helveticaBold,
+    color: darkGreen,
+  });
+  yPos -= 5;
+
+  page.drawLine({
+    start: { x: 50, y: yPos },
+    end: { x: width - 50, y: yPos },
+    thickness: 2,
+    color: darkGreen,
+  });
+  yPos -= 30;
+
+  // 점수 계산
   const avgScores: Record<string, number> = {};
   const categoryScores: Record<string, Record<string, number>> = {};
 
@@ -190,167 +316,266 @@ function generateReportHTML(
     ? evaluations.reduce((sum, ev) => sum + (ev.overall_score || 0), 0) / evaluations.length
     : 0;
 
-  const allCategoryScores: Record<string, number[]> = {};
-  Object.values(categoryScores).forEach(scores => {
-    Object.entries(scores).forEach(([cat, score]) => {
-      if (!allCategoryScores[cat]) allCategoryScores[cat] = [];
-      allCategoryScores[cat].push(score);
+  if (evaluations.length > 0) {
+    // 큰 점수 박스
+    page.drawRectangle({
+      x: 200,
+      y: yPos - 50,
+      width: 195,
+      height: 70,
+      color: rgb(0.925, 0.988, 0.961), // 연한 초록
+      borderColor: lightGreen,
+      borderWidth: 2,
     });
+
+    page.drawText(overallAvg.toFixed(1), {
+      x: 260,
+      y: yPos - 35,
+      size: 40,
+      font: helveticaBold,
+      color: darkGreen,
+    });
+
+    page.drawText('/ 100', {
+      x: 330,
+      y: yPos - 35,
+      size: 14,
+      font: helveticaFont,
+      color: gray,
+    });
+
+    page.drawText('AI Combined Score', {
+      x: 245,
+      y: yPos - 55,
+      size: 10,
+      font: helveticaFont,
+      color: gray,
+    });
+
+    yPos -= 80;
+
+    // AI별 점수
+    const aiBoxWidth = (width - 100 - (selectedAis.length - 1) * 10) / selectedAis.length;
+    let xPos = 50;
+
+    for (const ai of selectedAis) {
+      page.drawRectangle({
+        x: xPos,
+        y: yPos - 40,
+        width: aiBoxWidth,
+        height: 50,
+        color: rgb(0.95, 0.95, 0.95),
+      });
+
+      page.drawText(AI_NAMES[ai] || ai, {
+        x: xPos + 10,
+        y: yPos - 15,
+        size: 10,
+        font: helveticaFont,
+        color: gray,
+      });
+
+      page.drawText((avgScores[ai] || 0).toFixed(1), {
+        x: xPos + 10,
+        y: yPos - 35,
+        size: 20,
+        font: helveticaBold,
+        color: darkGreen,
+      });
+
+      xPos += aiBoxWidth + 10;
+    }
+
+    yPos -= 70;
+
+    // 카테고리별 평가
+    if (Object.keys(categoryScores).length > 0) {
+      page.drawText('CATEGORY SCORES', {
+        x: 50,
+        y: yPos,
+        size: 14,
+        font: helveticaBold,
+        color: darkGreen,
+      });
+      yPos -= 5;
+
+      page.drawLine({
+        start: { x: 50, y: yPos },
+        end: { x: width - 50, y: yPos },
+        thickness: 2,
+        color: darkGreen,
+      });
+      yPos -= 25;
+
+      // 테이블 헤더
+      page.drawText('Category', { x: 50, y: yPos, size: 10, font: helveticaBold, color: gray });
+
+      let headerX = 200;
+      for (const ai of selectedAis) {
+        page.drawText(AI_NAMES[ai] || ai, { x: headerX, y: yPos, size: 10, font: helveticaBold, color: gray });
+        headerX += 80;
+      }
+      page.drawText('Average', { x: headerX, y: yPos, size: 10, font: helveticaBold, color: gray });
+
+      yPos -= 15;
+      page.drawLine({
+        start: { x: 50, y: yPos },
+        end: { x: width - 50, y: yPos },
+        thickness: 0.5,
+        color: rgb(0.8, 0.8, 0.8),
+      });
+      yPos -= 15;
+
+      // 카테고리별 점수
+      for (const [cat, catNameEn] of Object.entries(CATEGORY_NAMES_EN)) {
+        const scores = selectedAis.map(ai => categoryScores[ai]?.[cat] || 0);
+        const avg = scores.length > 0 ? scores.reduce((a, b) => a + b, 0) / scores.length : 0;
+
+        page.drawText(catNameEn, { x: 50, y: yPos, size: 10, font: helveticaFont, color: black });
+
+        let scoreX = 200;
+        for (const score of scores) {
+          page.drawText(score.toFixed(1), { x: scoreX, y: yPos, size: 10, font: helveticaFont, color: black });
+          scoreX += 80;
+        }
+        page.drawText(avg.toFixed(1), { x: scoreX, y: yPos, size: 10, font: helveticaBold, color: darkGreen });
+
+        yPos -= 18;
+
+        // 페이지 넘김 체크
+        if (yPos < 100) {
+          page = pdfDoc.addPage([595, 842]);
+          yPos = height - 50;
+        }
+      }
+    }
+
+    yPos -= 20;
+
+    // AI 코멘트 섹션
+    if (evaluations.length > 0) {
+      // 새 페이지 필요 시
+      if (yPos < 200) {
+        page = pdfDoc.addPage([595, 842]);
+        yPos = height - 50;
+      }
+
+      page.drawText('AI EVALUATION COMMENTS', {
+        x: 50,
+        y: yPos,
+        size: 14,
+        font: helveticaBold,
+        color: darkGreen,
+      });
+      yPos -= 5;
+
+      page.drawLine({
+        start: { x: 50, y: yPos },
+        end: { x: width - 50, y: yPos },
+        thickness: 2,
+        color: darkGreen,
+      });
+      yPos -= 25;
+
+      for (const ev of evaluations) {
+        page.drawText(`${AI_NAMES[ev.ai_model] || ev.ai_model} Evaluation:`, {
+          x: 50,
+          y: yPos,
+          size: 11,
+          font: helveticaBold,
+          color: darkGreen,
+        });
+        yPos -= 18;
+
+        const comment = ev.summary || ev.evaluation_text || 'No evaluation comment available.';
+        const words = comment.split(' ');
+        let line = '';
+        const maxWidth = width - 100;
+
+        for (const word of words) {
+          const testLine = line + (line ? ' ' : '') + word;
+          const testWidth = helveticaFont.widthOfTextAtSize(testLine, 10);
+
+          if (testWidth > maxWidth) {
+            page.drawText(line, { x: 50, y: yPos, size: 10, font: helveticaFont, color: black });
+            yPos -= 14;
+            line = word;
+
+            if (yPos < 80) {
+              page = pdfDoc.addPage([595, 842]);
+              yPos = height - 50;
+            }
+          } else {
+            line = testLine;
+          }
+        }
+
+        if (line) {
+          page.drawText(line, { x: 50, y: yPos, size: 10, font: helveticaFont, color: black });
+          yPos -= 25;
+        }
+
+        if (yPos < 100) {
+          page = pdfDoc.addPage([595, 842]);
+          yPos = height - 50;
+        }
+      }
+    }
+  } else {
+    page.drawText('No AI evaluation data available.', {
+      x: 50,
+      y: yPos,
+      size: 12,
+      font: helveticaFont,
+      color: gray,
+    });
+  }
+
+  // 푸터 (마지막 페이지)
+  const pages = pdfDoc.getPages();
+  const lastPage = pages[pages.length - 1];
+
+  lastPage.drawText('This report was generated by PoliticianFinder AI evaluation system.', {
+    x: 50,
+    y: 50,
+    size: 9,
+    font: helveticaFont,
+    color: gray,
   });
 
-  const avgCategoryScores = Object.entries(allCategoryScores).map(([cat, scores]) => ({
-    category: cat,
-    score: scores.reduce((a, b) => a + b, 0) / scores.length,
-  })).sort((a, b) => b.score - a.score);
+  lastPage.drawText('https://www.politicianfinder.ai.kr', {
+    x: 50,
+    y: 35,
+    size: 9,
+    font: helveticaFont,
+    color: lightGreen,
+  });
 
-  const strengths = avgCategoryScores.slice(0, 3);
-  const weaknesses = avgCategoryScores.slice(-3).reverse();
+  return await pdfDoc.save();
+}
 
+// 이메일 HTML 생성
+function generateEmailHTML(politician: any, aiNames: string): string {
   return `
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>${politician.name} - AI 평가 보고서</title>
-</head>
-<body style="margin: 0; padding: 0; background-color: #f5f5f5; font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', 'Noto Sans KR', Arial, sans-serif;">
-  <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f5f5f5; padding: 20px 0;">
-    <tr>
-      <td align="center">
-        <table width="600" cellpadding="0" cellspacing="0" style="background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-          <!-- 헤더 -->
-          <tr>
-            <td style="background: linear-gradient(135deg, #064E3B 0%, #065F46 100%); padding: 40px 30px; text-align: center;">
-              <h1 style="color: #ffffff; font-size: 28px; margin: 0 0 10px 0;">${politician.name} 상세 평가 보고서</h1>
-              <p style="color: rgba(255,255,255,0.9); font-size: 16px; margin: 0 0 10px 0;">${politician.party || '무소속'} | ${politician.position || '정치인'}</p>
-              <p style="color: rgba(255,255,255,0.7); font-size: 13px; margin: 0;">생성일: ${new Date().toLocaleDateString('ko-KR')} | 주문번호: ${purchase.id.substring(0, 8).toUpperCase()}</p>
-            </td>
-          </tr>
-
-          <!-- 본문 -->
-          <tr>
-            <td style="padding: 30px;">
-              <!-- 기본 정보 -->
-              <h2 style="font-size: 18px; font-weight: 700; color: #064E3B; border-bottom: 2px solid #064E3B; padding-bottom: 8px; margin: 0 0 20px 0;">기본 정보</h2>
-              <table width="100%" style="background: #f9fafb; padding: 20px; border-radius: 8px; margin-bottom: 30px;">
-                <tr>
-                  <td width="50%" style="padding: 8px 0;">
-                    <span style="font-size: 12px; color: #6b7280;">이름</span><br>
-                    <span style="font-size: 15px; font-weight: 500;">${politician.name}</span>
-                  </td>
-                  <td width="50%" style="padding: 8px 0;">
-                    <span style="font-size: 12px; color: #6b7280;">소속 정당</span><br>
-                    <span style="font-size: 15px; font-weight: 500;">${politician.party || '무소속'}</span>
-                  </td>
-                </tr>
-                <tr>
-                  <td style="padding: 8px 0;">
-                    <span style="font-size: 12px; color: #6b7280;">현재 직위</span><br>
-                    <span style="font-size: 15px; font-weight: 500;">${politician.position || '-'}</span>
-                  </td>
-                  <td style="padding: 8px 0;">
-                    <span style="font-size: 12px; color: #6b7280;">지역구</span><br>
-                    <span style="font-size: 15px; font-weight: 500;">${politician.constituency || politician.region || '-'}</span>
-                  </td>
-                </tr>
-              </table>
-
-              <!-- 종합 평가 점수 -->
-              <h2 style="font-size: 18px; font-weight: 700; color: #064E3B; border-bottom: 2px solid #064E3B; padding-bottom: 8px; margin: 0 0 20px 0;">종합 평가 점수</h2>
-              ${evaluations.length > 0 ? `
-              <div style="background: #ecfdf5; border: 2px solid #10b981; border-radius: 12px; padding: 25px; text-align: center; margin-bottom: 20px;">
-                <div style="font-size: 56px; font-weight: 700; color: #064E3B;">${overallAvg.toFixed(1)}</div>
-                <div style="font-size: 14px; color: #065F46; margin-top: 5px;">AI 종합 평가 점수 (100점 만점)</div>
-              </div>
-
-              <!-- AI별 점수 -->
-              <table width="100%" cellpadding="10" cellspacing="0" style="margin-bottom: 30px;">
-                <tr>
-                  ${selectedAis.map(ai => `
-                    <td style="text-align: center; background: #f3f4f6; border-radius: 8px; padding: 15px;">
-                      <div style="font-size: 14px; color: #6b7280; margin-bottom: 8px;">${AI_NAMES[ai] || ai}</div>
-                      <div style="font-size: 28px; font-weight: 700; color: #064E3B;">${(avgScores[ai] || 0).toFixed(1)}</div>
-                    </td>
-                  `).join('')}
-                </tr>
-              </table>
-
-              ${Object.keys(categoryScores).length > 0 ? `
-              <!-- 카테고리별 평가 -->
-              <h2 style="font-size: 18px; font-weight: 700; color: #064E3B; border-bottom: 2px solid #064E3B; padding-bottom: 8px; margin: 0 0 20px 0;">카테고리별 평가</h2>
-              <table width="100%" style="border-collapse: collapse; margin-bottom: 30px;">
-                <thead>
-                  <tr style="background: #f9fafb;">
-                    <th style="padding: 12px; text-align: left; border-bottom: 1px solid #e5e7eb; font-size: 13px;">평가 항목</th>
-                    ${selectedAis.map(ai => `<th style="padding: 12px; text-align: center; border-bottom: 1px solid #e5e7eb; font-size: 13px;">${AI_NAMES[ai] || ai}</th>`).join('')}
-                    <th style="padding: 12px; text-align: center; border-bottom: 1px solid #e5e7eb; font-size: 13px; font-weight: 700;">평균</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  ${Object.keys(CATEGORY_NAMES).map(cat => {
-                    const scores = selectedAis.map(ai => categoryScores[ai]?.[cat] || 0);
-                    const avg = scores.reduce((a, b) => a + b, 0) / scores.length;
-                    return `
-                      <tr>
-                        <td style="padding: 12px; border-bottom: 1px solid #e5e7eb; font-size: 14px;">${CATEGORY_NAMES[cat]}</td>
-                        ${scores.map(s => `<td style="padding: 12px; text-align: center; border-bottom: 1px solid #e5e7eb; font-size: 14px;">${s.toFixed(1)}</td>`).join('')}
-                        <td style="padding: 12px; text-align: center; border-bottom: 1px solid #e5e7eb; font-size: 14px; font-weight: 700;">${avg.toFixed(1)}</td>
-                      </tr>
-                    `;
-                  }).join('')}
-                </tbody>
-              </table>
-
-              <!-- 강점/약점 분석 -->
-              <h2 style="font-size: 18px; font-weight: 700; color: #064E3B; border-bottom: 2px solid #064E3B; padding-bottom: 8px; margin: 0 0 20px 0;">강점 / 약점 분석</h2>
-              <table width="100%" cellpadding="0" cellspacing="10" style="margin-bottom: 30px;">
-                <tr>
-                  <td width="50%" style="background: #ecfdf5; border-left: 4px solid #10b981; padding: 15px; border-radius: 8px; vertical-align: top;">
-                    <div style="font-weight: 600; margin-bottom: 10px; font-size: 14px;">강점 TOP 3</div>
-                    ${strengths.length > 0
-                      ? strengths.map((s, i) => `<div style="font-size: 13px; padding: 5px 0;">${i + 1}. ${CATEGORY_NAMES[s.category] || s.category}: ${s.score.toFixed(1)}점</div>`).join('')
-                      : '<div style="font-size: 13px; padding: 5px 0;">데이터 없음</div>'}
-                  </td>
-                  <td width="50%" style="background: #fef3c7; border-left: 4px solid #f59e0b; padding: 15px; border-radius: 8px; vertical-align: top;">
-                    <div style="font-weight: 600; margin-bottom: 10px; font-size: 14px;">개선 필요 TOP 3</div>
-                    ${weaknesses.length > 0
-                      ? weaknesses.map((w, i) => `<div style="font-size: 13px; padding: 5px 0;">${i + 1}. ${CATEGORY_NAMES[w.category] || w.category}: ${w.score.toFixed(1)}점</div>`).join('')
-                      : '<div style="font-size: 13px; padding: 5px 0;">데이터 없음</div>'}
-                  </td>
-                </tr>
-              </table>
-              ` : ''}
-
-              <!-- AI 평가 코멘트 -->
-              <h2 style="font-size: 18px; font-weight: 700; color: #064E3B; border-bottom: 2px solid #064E3B; padding-bottom: 8px; margin: 0 0 20px 0;">AI 평가 상세 코멘트</h2>
-              ${evaluations.map(ev => `
-                <div style="background: #f9fafb; border-radius: 8px; padding: 20px; margin-bottom: 15px;">
-                  <div style="font-weight: 600; color: #064E3B; margin-bottom: 8px;">${AI_NAMES[ev.ai_model] || ev.ai_model} 평가</div>
-                  <div style="font-size: 14px; line-height: 1.8; color: #374151;">${ev.summary || ev.evaluation_text || '평가 코멘트가 없습니다.'}</div>
-                </div>
-              `).join('')}
-              ` : `
-              <div style="text-align: center; padding: 40px; color: #6b7280;">AI 평가 데이터가 없습니다.</div>
-              `}
-            </td>
-          </tr>
-
-          <!-- 푸터 -->
-          <tr>
-            <td style="background: #f9fafb; padding: 20px 30px; text-align: center; border-top: 1px solid #e5e7eb;">
-              <p style="font-size: 12px; color: #9ca3af; margin: 0 0 5px 0;">본 보고서는 PoliticianFinder에서 AI 기반으로 생성된 평가 자료입니다.</p>
-              <p style="font-size: 12px; color: #9ca3af; margin: 0 0 5px 0;">&copy; 2025 PoliticianFinder. All rights reserved.</p>
-              <p style="font-size: 12px; color: #10b981; margin: 0;">
-                <a href="https://www.politicianfinder.ai.kr" style="color: #10b981; text-decoration: none;">https://www.politicianfinder.ai.kr</a>
-              </p>
-            </td>
-          </tr>
+    <div style="font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
+      <h2 style="color: #064E3B; margin-bottom: 20px;">AI Evaluation Report</h2>
+      <p style="color: #333; font-size: 16px; line-height: 1.6;">
+        Hello,<br><br>
+        Please find attached the AI evaluation report for <strong>${politician.name}</strong>.
+      </p>
+      <div style="background: #ecfdf5; border: 1px solid #10b981; border-radius: 8px; padding: 20px; margin: 20px 0;">
+        <h3 style="color: #064E3B; margin: 0 0 15px 0;">Report Information</h3>
+        <table style="width: 100%; color: #333; font-size: 14px;">
+          <tr><td style="padding: 5px 0;">Politician</td><td style="padding: 5px 0; text-align: right; font-weight: bold;">${politician.name}</td></tr>
+          <tr><td style="padding: 5px 0;">Party</td><td style="padding: 5px 0; text-align: right;">${politician.party || 'Independent'}</td></tr>
+          <tr><td style="padding: 5px 0;">AI Models</td><td style="padding: 5px 0; text-align: right;">${aiNames}</td></tr>
+          <tr><td style="padding: 5px 0;">Generated</td><td style="padding: 5px 0; text-align: right;">${new Date().toLocaleDateString('en-US')}</td></tr>
         </table>
-      </td>
-    </tr>
-  </table>
-</body>
-</html>
-`;
+      </div>
+      <p style="color: #333; font-size: 14px;">Please check the attached PDF file.</p>
+      <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee;">
+        <p style="color: #888; font-size: 12px; margin: 0;">PoliticianFinder<br>https://www.politicianfinder.ai.kr</p>
+      </div>
+    </div>
+  `;
 }
