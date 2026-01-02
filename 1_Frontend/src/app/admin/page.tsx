@@ -7,13 +7,20 @@ import AdminSidebar from './components/AdminSidebar';
 interface DashboardData {
   total_users: number;
   total_posts: number;
-  total_payments: number;
+  total_payments_amount: number;
+  total_payments_count: number;
   pending_reports: number;
   recent_activity: Array<{
     type: string;
     user_name: string;
     description: string;
     timestamp: string;
+  }>;
+  notices: Array<{
+    id: number;
+    title: string;
+    created_at: string;
+    is_important: boolean;
   }>;
 }
 
@@ -126,8 +133,9 @@ export default function AdminPage() {
                       </svg>
                     </div>
                     <div>
-                      <p className="text-sm text-gray-500">총 결제 건수</p>
-                      <p className="text-2xl font-bold text-gray-900">{data.total_payments.toLocaleString()}건</p>
+                      <p className="text-sm text-gray-500">총 결제</p>
+                      <p className="text-2xl font-bold text-gray-900">{data.total_payments_count.toLocaleString()}건</p>
+                      <p className="text-xs text-gray-400">{data.total_payments_amount.toLocaleString()}원</p>
                     </div>
                   </div>
 
@@ -181,22 +189,38 @@ export default function AdminPage() {
                     </div>
                   </div>
 
-                  {/* 주요 공지사항 */}
+                  {/* 주요 공지사항 - DB에서 가져온 데이터 */}
                   <div className="bg-white p-6 rounded-lg shadow-md">
-                    <h2 className="text-xl font-bold text-gray-900 mb-4">주요 공지사항</h2>
+                    <div className="flex justify-between items-center mb-4">
+                      <h2 className="text-xl font-bold text-gray-900">주요 공지사항</h2>
+                      <Link href="/admin/notices" className="text-sm text-blue-500 hover:text-blue-700">전체보기</Link>
+                    </div>
                     <div className="space-y-3">
-                      <Link href="/notices/3" className="block p-3 bg-gray-50 rounded-lg hover:bg-gray-100">
-                        <p className="font-semibold text-gray-800">커뮤니티 가이드라인 업데이트 안내</p>
-                        <p className="text-sm text-gray-500">2025.10.28</p>
-                      </Link>
-                      <Link href="/notices/2" className="block p-3 bg-gray-50 rounded-lg hover:bg-gray-100">
-                        <p className="font-semibold text-gray-800">AI 평가 시스템 v1.1 업데이트</p>
-                        <p className="text-sm text-gray-500">2025.10.25</p>
-                      </Link>
-                      <Link href="/notices/1" className="block p-3 bg-gray-50 rounded-lg hover:bg-gray-100">
-                        <p className="font-semibold text-gray-800">정식 서비스 오픈 안내</p>
-                        <p className="text-sm text-gray-500">2025.10.20</p>
-                      </Link>
+                      {data.notices && data.notices.length > 0 ? (
+                        data.notices.map((notice) => (
+                          <Link
+                            key={notice.id}
+                            href={`/notices/${notice.id}`}
+                            className="block p-3 bg-gray-50 rounded-lg hover:bg-gray-100"
+                          >
+                            <div className="flex items-center gap-2">
+                              {notice.is_important && (
+                                <span className="text-xs bg-red-100 text-red-600 px-2 py-0.5 rounded">중요</span>
+                              )}
+                              <p className="font-semibold text-gray-800 flex-1 truncate">{notice.title}</p>
+                            </div>
+                            <p className="text-sm text-gray-500 mt-1">
+                              {new Date(notice.created_at).toLocaleDateString('ko-KR', {
+                                year: 'numeric',
+                                month: '2-digit',
+                                day: '2-digit'
+                              }).replace(/\. /g, '.').replace(/\.$/, '')}
+                            </p>
+                          </Link>
+                        ))
+                      ) : (
+                        <p className="text-gray-500 text-center py-4">등록된 공지사항이 없습니다.</p>
+                      )}
                     </div>
                   </div>
                 </div>
