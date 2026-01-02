@@ -44,8 +44,7 @@ export async function GET(request: NextRequest) {
         .limit(10),
       // 최근 공지사항 (상위 3개)
       supabase.from('notices')
-        .select('id, title, created_at, is_important')
-        .order('is_important', { ascending: false })
+        .select('id, title, created_at')
         .order('created_at', { ascending: false })
         .limit(3)
     ]);
@@ -148,8 +147,7 @@ export async function GET(request: NextRequest) {
     const notices = (noticesResult.data || []).map(notice => ({
       id: notice.id,
       title: notice.title,
-      created_at: notice.created_at,
-      is_important: notice.is_important
+      created_at: notice.created_at
     }));
 
     const dashboard = {
