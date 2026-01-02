@@ -1,20 +1,51 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import { createClient } from '@/lib/supabase/client';
+
+// 관리자 이메일 목록
+const ADMIN_EMAILS = ['wksun999@gmail.com'];
 
 export default function AdminLoginPage() {
   const router = useRouter();
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(true);
+  const [userEmail, setUserEmail] = useState<string | null>(null);
+
+  // 로그인된 사용자 확인 및 관리자 이메일이면 자동 로그인
+  useEffect(() => {
+    const checkUserAndAutoLogin = async () => {
+      try {
+        const supabase = createClient();
+        const { data: { user } } = await supabase.auth.getUser();
+
+        if (user?.email) {
+          setUserEmail(user.email);
+
+          // 관리자 이메일인 경우 자동으로 어드민 접속
+          if (ADMIN_EMAILS.includes(user.email)) {
+            document.cookie = 'isAdmin=true; path=/; max-age=3600'; // 1시간
+            router.push('/admin');
+            return;
+          }
+        }
+      } catch (error) {
+        console.error('Auto login check failed:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    checkUserAndAutoLogin();
+  }, [router]);
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // TODO: 실제 서버 인증 구현 필요
-    // 현재는 임시 비밀번호로 체크 (테스트용)
+    // 관리자 비밀번호로 로그인
     if (password === 'admin1234') {
-      // 쿠키 설정 (임시 방법)
       document.cookie = 'isAdmin=true; path=/; max-age=3600'; // 1시간
       router.push('/admin');
     } else {
@@ -22,10 +53,41 @@ export default function AdminLoginPage() {
     }
   };
 
+  // 로딩 중 표시
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gray-100 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mx-auto mb-4"></div>
+          <p className="text-gray-600">권한 확인 중...</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center">
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
         <h1 className="text-2xl font-bold text-gray-900 mb-6 text-center">관리자 로그인</h1>
+
+        {/* 관리자 이메일 안내 */}
+        {userEmail && ADMIN_EMAILS.includes(userEmail) && (
+          <div className="mb-4 p-4 bg-green-50 border border-green-200 rounded-lg">
+            <p className="text-sm text-green-800">
+              관리자 계정으로 로그인되어 있습니다. 자동 접속 중...
+            </p>
+          </div>
+        )}
+
+        {/* 일반 사용자 안내 */}
+        {userEmail && !ADMIN_EMAILS.includes(userEmail) && (
+          <div className="mb-4 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+            <p className="text-sm text-yellow-800">
+              현재 <strong>{userEmail}</strong>으로 로그인 중입니다.
+              관리자 권한이 없으므로 비밀번호를 입력해주세요.
+            </p>
+          </div>
+        )}
 
         <form onSubmit={handleLogin} className="space-y-4">
           <div>
