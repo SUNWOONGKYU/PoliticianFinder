@@ -17,10 +17,9 @@ interface DashboardData {
     timestamp: string;
   }>;
   notices: Array<{
-    id: number;
+    id: string;
     title: string;
     created_at: string;
-    is_important: boolean;
   }>;
 }
 
@@ -203,12 +202,7 @@ export default function AdminPage() {
                             href={`/notices/${notice.id}`}
                             className="block p-3 bg-gray-50 rounded-lg hover:bg-gray-100"
                           >
-                            <div className="flex items-center gap-2">
-                              {notice.is_important && (
-                                <span className="text-xs bg-red-100 text-red-600 px-2 py-0.5 rounded">중요</span>
-                              )}
-                              <p className="font-semibold text-gray-800 flex-1 truncate">{notice.title}</p>
-                            </div>
+                            <p className="font-semibold text-gray-800 truncate">{notice.title}</p>
                             <p className="text-sm text-gray-500 mt-1">
                               {new Date(notice.created_at).toLocaleDateString('ko-KR', {
                                 year: 'numeric',
