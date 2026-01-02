@@ -98,7 +98,10 @@ export async function POST(request: NextRequest) {
     }
 
     // 4. AI 평가 데이터 조회
-    const selectedAis = purchase.selected_ais || ['claude'];
+    // selected_ais 컬럼이 없거나 비어있으면 기본값 3개 AI 사용
+    const selectedAis = (purchase.selected_ais && purchase.selected_ais.length > 0)
+      ? purchase.selected_ais
+      : ['claude', 'chatgpt', 'grok'];
     const { data: evaluations } = await supabase
       .from('ai_evaluations')
       .select('*')
