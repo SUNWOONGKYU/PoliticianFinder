@@ -116,31 +116,31 @@ export default function ReportSalesPage() {
     }
   };
 
-  // 이메일 발송
+  // PDF 생성 + 이메일 발송
   const sendReport = async (purchase: ReportPurchase) => {
-    if (!confirm(`${purchase.buyer_email}로 보고서를 발송하시겠습니까?`)) return;
+    if (!confirm(`${purchase.buyer_email}로 PDF 보고서를 발송하시겠습니까?`)) return;
 
     try {
-      // 이메일 발송 API 호출
-      const response = await fetch('/api/admin/report-sales/send-email', {
+      // PDF 생성 + 이메일 발송 API 호출
+      const response = await fetch('/api/report-purchase/send-report', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          purchase_id: purchase.id,
-          email: purchase.buyer_email,
-          politician_name: purchase.buyer_name
+          purchase_id: purchase.id
         })
       });
 
       const result = await response.json();
 
-      if (!response.ok) throw new Error(result.error || 'Failed to send email');
+      if (!response.ok) {
+        throw new Error(result.error?.message || result.error || 'Failed to send report');
+      }
 
-      alert('보고서가 발송되었습니다.');
+      alert(`보고서가 ${result.sent_to}로 발송되었습니다.\n파일명: ${result.file_name}`);
       loadPurchases();
     } catch (error) {
       console.error('Failed to send report:', error);
-      alert('보고서 발송에 실패했습니다.');
+      alert(`보고서 발송에 실패했습니다.\n${error instanceof Error ? error.message : ''}`);
     }
   };
 
