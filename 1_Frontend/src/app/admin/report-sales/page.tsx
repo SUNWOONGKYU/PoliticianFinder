@@ -115,13 +115,13 @@ export default function ReportSalesPage() {
     }
   };
 
-  // PDF 생성 + 이메일 발송
+  // PDF 생성 + 이메일 발송 (관리자 전용 API 사용)
   const sendReport = async (purchase: ReportPurchase) => {
     if (!confirm(`${purchase.buyer_email}로 PDF 보고서를 발송하시겠습니까?`)) return;
 
     try {
-      // PDF 생성 + 이메일 발송 API 호출
-      const response = await fetch('/api/report-purchase/send-report', {
+      // 관리자 전용 PDF 발송 API 호출
+      const response = await fetch('/api/admin/report-sales/send', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -131,8 +131,8 @@ export default function ReportSalesPage() {
 
       const result = await response.json();
 
-      if (!response.ok) {
-        throw new Error(result.error?.message || result.error || 'Failed to send report');
+      if (!response.ok || !result.success) {
+        throw new Error(result.error || 'Failed to send report');
       }
 
       alert(`보고서가 ${result.sent_to}로 발송되었습니다.\n파일명: ${result.file_name}`);
