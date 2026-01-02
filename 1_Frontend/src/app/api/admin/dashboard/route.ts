@@ -20,8 +20,10 @@ export async function GET(request: NextRequest) {
       postsResult,
       commentsResult,
       paymentsResult,
+      paymentsCountResult,
       inquiriesResult,
-      auditLogsResult
+      auditLogsResult,
+      noticesResult
     ] = await Promise.all([
       // 전체 사용자 수
       supabase.from('users').select('user_id', { count: 'exact', head: true }),
@@ -29,15 +31,23 @@ export async function GET(request: NextRequest) {
       supabase.from('posts').select('id', { count: 'exact', head: true }),
       // 전체 댓글 수
       supabase.from('comments').select('id', { count: 'exact', head: true }),
-      // 전체 결제 금액 및 건수
+      // 전체 결제 금액
       supabase.from('payments').select('amount'),
+      // 전체 결제 건수
+      supabase.from('payments').select('id', { count: 'exact', head: true }),
       // 대기 중인 문의 수
       supabase.from('inquiries').select('id', { count: 'exact', head: true }).eq('status', 'pending'),
       // 최근 감사 로그
       supabase.from('audit_logs')
         .select('*')
         .order('created_at', { ascending: false })
-        .limit(10)
+        .limit(10),
+      // 최근 공지사항 (상위 3개)
+      supabase.from('notices')
+        .select('id, title, created_at, is_important')
+        .order('is_important', { ascending: false })
+        .order('created_at', { ascending: false })
+        .limit(3)
     ]);
 
     // 최근 활동 가져오기 (게시물, 댓글, 결제 등을 하나의 타임라인으로)
@@ -131,18 +141,29 @@ export async function GET(request: NextRequest) {
     );
 
     // 결제 총액 계산
-    const totalPayments = paymentsResult.data?.reduce((sum, p) => sum + (p.amount || 0), 0) || 0;
+    const totalPaymentsAmount = paymentsResult.data?.reduce((sum, p) => sum + (p.amount || 0), 0) || 0;
+    const totalPaymentsCount = paymentsCountResult.count || 0;
+
+    // 공지사항 포맷팅
+    const notices = (noticesResult.data || []).map(notice => ({
+      id: notice.id,
+      title: notice.title,
+      created_at: notice.created_at,
+      is_important: notice.is_important
+    }));
 
     const dashboard = {
       total_users: usersResult.count || 0,
       total_posts: postsResult.count || 0,
       total_comments: commentsResult.count || 0,
-      total_payments: totalPayments,
+      total_payments_amount: totalPaymentsAmount, // 총 결제 금액
+      total_payments_count: totalPaymentsCount,   // 총 결제 건수
       recent_activity: recentActivities.slice(0, 10),
       moderation_queue: 0, // 승인 대기 게시물 (필요시 구현)
       pending_reports: inquiriesResult.count || 0, // 대기 중인 문의 수
       warnings_issued: 0, // 경고 발행 수 (필요시 구현)
       audit_logs: auditLogsResult.data || [],
+      notices: notices, // 최근 공지사항
       timestamp: new Date().toISOString(),
     };
 
