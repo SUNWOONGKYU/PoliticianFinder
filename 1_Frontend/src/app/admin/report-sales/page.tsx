@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { createClient } from '@/lib/supabase/client';
 
 interface ReportPurchase {
   id: string;
@@ -36,21 +35,19 @@ export default function ReportSalesPage() {
   const [filter, setFilter] = useState<'all' | 'pending_payment' | 'pending_send' | 'completed'>('all');
   const [searchTerm, setSearchTerm] = useState('');
 
-  const supabase = createClient();
-
-  // 데이터 로드
+  // 데이터 로드 (서버 API 사용)
   const loadPurchases = async () => {
     setLoading(true);
     try {
-      const { data, error } = await supabase
-        .from('report_purchases')
-        .select('*')
-        .order('created_at', { ascending: false });
+      const response = await fetch('/api/admin/report-sales');
+      const result = await response.json();
 
-      if (error) throw error;
+      if (!response.ok || !result.success) {
+        throw new Error(result.error || 'Failed to load data');
+      }
 
-      setPurchases(data || []);
-      calculateStats(data || []);
+      setPurchases(result.data || []);
+      calculateStats(result.data || []);
     } catch (error) {
       console.error('Failed to load purchases:', error);
       alert('데이터를 불러오는데 실패했습니다.');
@@ -93,20 +90,22 @@ export default function ReportSalesPage() {
     setFilteredPurchases(filtered);
   }, [purchases, filter, searchTerm]);
 
-  // 입금 확인
+  // 입금 확인 (서버 API 사용)
   const confirmPayment = async (id: string) => {
     if (!confirm('입금을 확인하시겠습니까?')) return;
 
     try {
-      const { error } = await supabase
-        .from('report_purchases')
-        .update({
-          payment_confirmed: true,
-          payment_confirmed_at: new Date().toISOString()
-        })
-        .eq('id', id);
+      const response = await fetch('/api/admin/report-sales', {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id, payment_confirmed: true })
+      });
 
-      if (error) throw error;
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.error || 'Failed to confirm payment');
+      }
 
       alert('입금이 확인되었습니다.');
       loadPurchases();
