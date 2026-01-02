@@ -135,7 +135,8 @@ export default function ReportSalesPage() {
         throw new Error(result.error || 'Failed to send report');
       }
 
-      alert(`보고서가 ${result.sent_to}로 발송되었습니다.\n파일명: ${result.file_name}`);
+      const fileList = result.file_names?.join('\n- ') || result.file_name || '';
+      alert(`보고서가 ${result.sent_to}로 발송되었습니다.\n\n첨부파일 (${result.file_count || 1}개):\n- ${fileList}`);
       loadPurchases();
     } catch (error) {
       console.error('Failed to send report:', error);
