@@ -8,7 +8,6 @@ import { PDFDocument, rgb } from 'pdf-lib';
 import fontkit from '@pdf-lib/fontkit';
 import { readFileSync } from 'fs';
 import { join } from 'path';
-import subsetFont from 'subset-font';
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
@@ -186,7 +185,7 @@ export async function POST(request: NextRequest) {
   }
 }
 
-// 단일 AI용 PDF 생성 함수 (한글 지원 - Pretendard 폰트 서브셋 사용)
+// 단일 AI용 PDF 생성 함수 (한글 지원 - Pretendard 폰트 사용)
 async function generatePDFForAI(
   politician: any,
   aiModel: string,
@@ -198,52 +197,7 @@ async function generatePDFForAI(
   // fontkit 등록
   pdfDoc.registerFontkit(fontkit);
 
-  const aiName = AI_NAMES[aiModel] || aiModel;
-
-  // PDF에서 사용할 모든 텍스트 수집 (서브셋용)
-  const allTexts: string[] = [
-    `${aiName} 평가 보고서`,
-    politician.name,
-    `${politician.party || '무소속'} | ${politician.position || '정치인'}`,
-    `발행일: ${new Date().toLocaleDateString('ko-KR', { year: 'numeric', month: 'long', day: 'numeric' })}`,
-    `${aiName} 종합 평가 점수`,
-    '/ 100점',
-    `${aiName} 평가`,
-    '카테고리별 평가',
-    '평가 항목',
-    '점수',
-    `${aiName} 평가 코멘트`,
-    `${aiName} 평가 데이터가 없습니다.`,
-    '본 보고서는 PoliticianFinder AI 평가 시스템에서 생성되었습니다.',
-    'https://www.politicianfinder.ai.kr',
-    '0123456789.',  // 숫자
-    ...Object.values(CATEGORY_NAMES_KR),  // 카테고리 이름
-  ];
-
-  // 평가 코멘트 추가
-  const comment = evaluation?.summary || evaluation?.evaluation_text || '';
-  if (comment) {
-    allTexts.push(comment);
-  }
-
-  // 점수 추가
-  const overallScore = evaluation?.overall_score || 0;
-  allTexts.push(overallScore.toFixed(1));
-
-  const categoryScores = evaluation?.category_scores
-    ? (typeof evaluation.category_scores === 'string'
-        ? JSON.parse(evaluation.category_scores)
-        : evaluation.category_scores)
-    : {};
-  Object.values(categoryScores).forEach((score: any) => {
-    allTexts.push(String(score?.toFixed?.(1) || score || '0'));
-  });
-
-  // 모든 텍스트에서 고유 문자 추출
-  const uniqueChars = [...new Set(allTexts.join(''))].join('');
-  console.log(`[PDF] Subsetting fonts for ${uniqueChars.length} unique characters`);
-
-  // 폰트 로드 및 서브셋
+  // 폰트 로드 (public 폴더에서 fetch)
   const baseUrl = process.env.VERCEL_URL
     ? `https://${process.env.VERCEL_URL}`
     : process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
@@ -261,40 +215,37 @@ async function generatePDFForAI(
       throw new Error('Font fetch failed');
     }
 
-    const regularFontBytes = Buffer.from(await regularRes.arrayBuffer());
-    const boldFontBytes = Buffer.from(await boldRes.arrayBuffer());
+    const regularFontBytes = await regularRes.arrayBuffer();
+    const boldFontBytes = await boldRes.arrayBuffer();
 
-    // 폰트 서브셋 생성 (사용하는 문자만 추출)
-    const regularSubset = await subsetFont(regularFontBytes, uniqueChars, { targetFormat: 'truetype' });
-    const boldSubset = await subsetFont(boldFontBytes, uniqueChars, { targetFormat: 'truetype' });
-
-    console.log(`[PDF] Font subset: Regular ${regularFontBytes.length} -> ${regularSubset.length} bytes`);
-    console.log(`[PDF] Font subset: Bold ${boldFontBytes.length} -> ${boldSubset.length} bytes`);
-
-    regularFont = await pdfDoc.embedFont(regularSubset);
-    boldFont = await pdfDoc.embedFont(boldSubset);
+    regularFont = await pdfDoc.embedFont(regularFontBytes);
+    boldFont = await pdfDoc.embedFont(boldFontBytes);
   } catch (fontError) {
-    console.log('[PDF] Font fetch/subset failed, trying file system:', fontError);
+    console.log('[PDF] Font fetch failed, trying file system:', fontError);
     // 로컬 환경에서는 파일 시스템에서 읽기
     try {
       const publicDir = join(process.cwd(), 'public', 'fonts');
       const regularFontBytes = readFileSync(join(publicDir, 'Pretendard-Regular.ttf'));
       const boldFontBytes = readFileSync(join(publicDir, 'Pretendard-Bold.ttf'));
 
-      // 폰트 서브셋 생성
-      const regularSubset = await subsetFont(regularFontBytes, uniqueChars, { targetFormat: 'truetype' });
-      const boldSubset = await subsetFont(boldFontBytes, uniqueChars, { targetFormat: 'truetype' });
-
-      console.log(`[PDF] Font subset (local): Regular ${regularFontBytes.length} -> ${regularSubset.length} bytes`);
-      console.log(`[PDF] Font subset (local): Bold ${boldFontBytes.length} -> ${boldSubset.length} bytes`);
-
-      regularFont = await pdfDoc.embedFont(regularSubset);
-      boldFont = await pdfDoc.embedFont(boldSubset);
+      regularFont = await pdfDoc.embedFont(regularFontBytes);
+      boldFont = await pdfDoc.embedFont(boldFontBytes);
     } catch (fsError) {
       console.error('[PDF] File system font load also failed:', fsError);
       throw new Error('폰트를 로드할 수 없습니다.');
     }
   }
+
+  const aiName = AI_NAMES[aiModel] || aiModel;
+
+  // 점수 데이터 추출
+  const overallScore = evaluation?.overall_score || 0;
+  const categoryScores = evaluation?.category_scores
+    ? (typeof evaluation.category_scores === 'string'
+        ? JSON.parse(evaluation.category_scores)
+        : evaluation.category_scores)
+    : {};
+  const comment = evaluation?.summary || evaluation?.evaluation_text || '';
 
   // 첫 페이지
   let page = pdfDoc.addPage([595, 842]); // A4 size
