@@ -4,7 +4,10 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 import { Resend } from 'resend';
-import { PDFDocument, rgb, StandardFonts } from 'pdf-lib';
+import { PDFDocument, rgb } from 'pdf-lib';
+import fontkit from '@pdf-lib/fontkit';
+import { readFileSync } from 'fs';
+import { join } from 'path';
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
@@ -18,19 +21,7 @@ const AI_NAMES: Record<string, string> = {
   grok: 'Grok',
 };
 
-// 카테고리 이름 매핑 (영문)
-const CATEGORY_NAMES_EN: Record<string, string> = {
-  leadership: 'Leadership',
-  policy: 'Policy',
-  communication: 'Communication',
-  integrity: 'Integrity',
-  achievement: 'Achievement',
-  vision: 'Vision',
-  expertise: 'Expertise',
-  crisis_management: 'Crisis Mgmt',
-};
-
-// 카테고리 이름 매핑 (한글 - 이메일용)
+// 카테고리 이름 매핑 (한글)
 const CATEGORY_NAMES_KR: Record<string, string> = {
   leadership: '리더십',
   policy: '정책',
@@ -180,7 +171,7 @@ export async function POST(request: NextRequest) {
   }
 }
 
-// PDF 생성 함수 (영문 전용 - StandardFonts 사용)
+// PDF 생성 함수 (한글 지원 - Pretendard 폰트 사용)
 async function generatePDF(
   politician: any,
   evaluations: any[],
@@ -188,8 +179,48 @@ async function generatePDF(
   purchase: any
 ): Promise<Uint8Array> {
   const pdfDoc = await PDFDocument.create();
-  const helveticaFont = await pdfDoc.embedFont(StandardFonts.Helvetica);
-  const helveticaBold = await pdfDoc.embedFont(StandardFonts.HelveticaBold);
+
+  // fontkit 등록
+  pdfDoc.registerFontkit(fontkit);
+
+  // 폰트 로드 (public 폴더에서 fetch)
+  const baseUrl = process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}`
+    : process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
+
+  let regularFont, boldFont;
+
+  try {
+    // Vercel 환경에서는 fetch로 가져오기
+    const [regularRes, boldRes] = await Promise.all([
+      fetch(`${baseUrl}/fonts/Pretendard-Regular.otf`),
+      fetch(`${baseUrl}/fonts/Pretendard-Bold.otf`)
+    ]);
+
+    if (!regularRes.ok || !boldRes.ok) {
+      throw new Error('Font fetch failed');
+    }
+
+    const regularFontBytes = await regularRes.arrayBuffer();
+    const boldFontBytes = await boldRes.arrayBuffer();
+
+    regularFont = await pdfDoc.embedFont(regularFontBytes);
+    boldFont = await pdfDoc.embedFont(boldFontBytes);
+  } catch (fontError) {
+    console.log('[PDF] Font fetch failed, trying file system:', fontError);
+    // 로컬 환경에서는 파일 시스템에서 읽기
+    try {
+      const publicDir = join(process.cwd(), 'public', 'fonts');
+      const regularFontBytes = readFileSync(join(publicDir, 'Pretendard-Regular.otf'));
+      const boldFontBytes = readFileSync(join(publicDir, 'Pretendard-Bold.otf'));
+
+      regularFont = await pdfDoc.embedFont(regularFontBytes);
+      boldFont = await pdfDoc.embedFont(boldFontBytes);
+    } catch (fsError) {
+      console.error('[PDF] File system font load also failed:', fsError);
+      throw new Error('폰트를 로드할 수 없습니다.');
+    }
+  }
 
   // 첫 페이지
   let page = pdfDoc.addPage([595, 842]); // A4 size
@@ -205,49 +236,51 @@ async function generatePDF(
   // 헤더 배경
   page.drawRectangle({
     x: 0,
-    y: height - 120,
+    y: height - 140,
     width: width,
-    height: 120,
+    height: 140,
     color: darkGreen,
   });
 
   // 제목
-  page.drawText('AI EVALUATION REPORT', {
+  page.drawText('AI 평가 보고서', {
     x: 50,
     y: height - 50,
-    size: 26,
-    font: helveticaBold,
+    size: 28,
+    font: boldFont,
     color: rgb(1, 1, 1),
   });
 
-  // 부제목
-  page.drawText('PoliticianFinder Assessment', {
+  // 정치인 이름
+  page.drawText(politician.name, {
     x: 50,
-    y: height - 75,
-    size: 14,
-    font: helveticaFont,
+    y: height - 85,
+    size: 20,
+    font: boldFont,
     color: rgb(0.9, 0.9, 0.9),
   });
 
-  // 주문번호
-  page.drawText(`Order: ${purchase.id.substring(0, 8).toUpperCase()}`, {
+  // 소속/직책
+  const subInfo = `${politician.party || '무소속'} | ${politician.position || '정치인'}`;
+  page.drawText(subInfo, {
     x: 50,
-    y: height - 100,
-    size: 11,
-    font: helveticaFont,
+    y: height - 110,
+    size: 12,
+    font: regularFont,
     color: rgb(0.8, 0.8, 0.8),
   });
 
   // 생성일
-  page.drawText(`Generated: ${new Date().toLocaleDateString('en-US')}`, {
+  const dateStr = new Date().toLocaleDateString('ko-KR', { year: 'numeric', month: 'long', day: 'numeric' });
+  page.drawText(`발행일: ${dateStr}`, {
     x: width - 180,
-    y: height - 100,
-    size: 11,
-    font: helveticaFont,
-    color: rgb(0.8, 0.8, 0.8),
+    y: height - 130,
+    size: 10,
+    font: regularFont,
+    color: rgb(0.7, 0.7, 0.7),
   });
 
-  yPos = height - 160;
+  yPos = height - 180;
 
   // 점수 계산
   const avgScores: Record<string, number> = {};
@@ -267,11 +300,11 @@ async function generatePDF(
     : 0;
 
   // 종합 점수 섹션
-  page.drawText('OVERALL SCORE', {
+  page.drawText('종합 평가 점수', {
     x: 50,
     y: yPos,
     size: 16,
-    font: helveticaBold,
+    font: boldFont,
     color: darkGreen,
   });
   yPos -= 5;
@@ -288,46 +321,46 @@ async function generatePDF(
     // 큰 점수 박스
     page.drawRectangle({
       x: 200,
-      y: yPos - 60,
+      y: yPos - 70,
       width: 195,
-      height: 80,
+      height: 90,
       color: rgb(0.925, 0.988, 0.961),
       borderColor: lightGreen,
       borderWidth: 2,
     });
 
     page.drawText(overallAvg.toFixed(1), {
-      x: 250,
-      y: yPos - 40,
+      x: 245,
+      y: yPos - 45,
       size: 48,
-      font: helveticaBold,
+      font: boldFont,
       color: darkGreen,
     });
 
-    page.drawText('/ 100', {
-      x: 330,
-      y: yPos - 40,
-      size: 16,
-      font: helveticaFont,
+    page.drawText('/ 100점', {
+      x: 325,
+      y: yPos - 45,
+      size: 14,
+      font: regularFont,
       color: gray,
     });
 
-    page.drawText('Combined AI Score', {
-      x: 240,
-      y: yPos - 60,
+    page.drawText('AI 종합 평가', {
+      x: 255,
+      y: yPos - 65,
       size: 11,
-      font: helveticaFont,
+      font: regularFont,
       color: gray,
     });
 
-    yPos -= 100;
+    yPos -= 110;
 
     // AI별 점수
-    page.drawText('SCORES BY AI MODEL', {
+    page.drawText('AI 모델별 점수', {
       x: 50,
       y: yPos,
       size: 14,
-      font: helveticaBold,
+      font: boldFont,
       color: darkGreen,
     });
     yPos -= 25;
@@ -338,9 +371,9 @@ async function generatePDF(
     for (const ai of selectedAis) {
       page.drawRectangle({
         x: xPos,
-        y: yPos - 50,
+        y: yPos - 55,
         width: aiBoxWidth,
-        height: 60,
+        height: 65,
         color: rgb(0.95, 0.95, 0.95),
         borderColor: rgb(0.85, 0.85, 0.85),
         borderWidth: 1,
@@ -350,30 +383,30 @@ async function generatePDF(
         x: xPos + 15,
         y: yPos - 18,
         size: 12,
-        font: helveticaBold,
+        font: boldFont,
         color: gray,
       });
 
       page.drawText((avgScores[ai] || 0).toFixed(1), {
         x: xPos + 15,
-        y: yPos - 42,
-        size: 24,
-        font: helveticaBold,
+        y: yPos - 45,
+        size: 26,
+        font: boldFont,
         color: darkGreen,
       });
 
       xPos += aiBoxWidth + 15;
     }
 
-    yPos -= 80;
+    yPos -= 85;
 
     // 카테고리별 평가
     if (Object.keys(categoryScores).length > 0) {
-      page.drawText('CATEGORY BREAKDOWN', {
+      page.drawText('카테고리별 평가', {
         x: 50,
         y: yPos,
         size: 14,
-        font: helveticaBold,
+        font: boldFont,
         color: darkGreen,
       });
       yPos -= 5;
@@ -389,38 +422,38 @@ async function generatePDF(
       // 테이블 헤더
       page.drawRectangle({
         x: 50,
-        y: yPos - 20,
+        y: yPos - 22,
         width: width - 100,
-        height: 25,
+        height: 28,
         color: rgb(0.95, 0.95, 0.95),
       });
 
-      page.drawText('Category', { x: 55, y: yPos - 12, size: 10, font: helveticaBold, color: gray });
+      page.drawText('평가 항목', { x: 60, y: yPos - 14, size: 11, font: boldFont, color: gray });
 
       let headerX = 180;
       for (const ai of selectedAis) {
-        page.drawText(AI_NAMES[ai] || ai, { x: headerX, y: yPos - 12, size: 10, font: helveticaBold, color: gray });
+        page.drawText(AI_NAMES[ai] || ai, { x: headerX, y: yPos - 14, size: 11, font: boldFont, color: gray });
         headerX += 90;
       }
-      page.drawText('Average', { x: headerX, y: yPos - 12, size: 10, font: helveticaBold, color: darkGreen });
+      page.drawText('평균', { x: headerX, y: yPos - 14, size: 11, font: boldFont, color: darkGreen });
 
-      yPos -= 25;
+      yPos -= 30;
 
       // 카테고리별 점수
-      for (const [cat, catNameEn] of Object.entries(CATEGORY_NAMES_EN)) {
+      for (const [cat, catNameKr] of Object.entries(CATEGORY_NAMES_KR)) {
         const scores = selectedAis.map(ai => categoryScores[ai]?.[cat] || 0);
         const avg = scores.length > 0 ? scores.reduce((a, b) => a + b, 0) / scores.length : 0;
 
-        page.drawText(catNameEn, { x: 55, y: yPos, size: 10, font: helveticaFont, color: black });
+        page.drawText(catNameKr, { x: 60, y: yPos, size: 11, font: regularFont, color: black });
 
         let scoreX = 180;
         for (const score of scores) {
-          page.drawText(score.toFixed(1), { x: scoreX, y: yPos, size: 10, font: helveticaFont, color: black });
+          page.drawText(score.toFixed(1), { x: scoreX, y: yPos, size: 11, font: regularFont, color: black });
           scoreX += 90;
         }
-        page.drawText(avg.toFixed(1), { x: scoreX, y: yPos, size: 10, font: helveticaBold, color: darkGreen });
+        page.drawText(avg.toFixed(1), { x: scoreX, y: yPos, size: 11, font: boldFont, color: darkGreen });
 
-        yPos -= 20;
+        yPos -= 22;
 
         if (yPos < 100) {
           page = pdfDoc.addPage([595, 842]);
@@ -429,11 +462,11 @@ async function generatePDF(
       }
     }
   } else {
-    page.drawText('No AI evaluation data available.', {
+    page.drawText('AI 평가 데이터가 없습니다.', {
       x: 50,
       y: yPos,
       size: 14,
-      font: helveticaFont,
+      font: regularFont,
       color: gray,
     });
   }
@@ -449,11 +482,11 @@ async function generatePDF(
     color: rgb(0.8, 0.8, 0.8),
   });
 
-  lastPage.drawText('This report was generated by PoliticianFinder AI Evaluation System.', {
+  lastPage.drawText('본 보고서는 PoliticianFinder AI 평가 시스템에서 생성되었습니다.', {
     x: 50,
     y: 50,
     size: 9,
-    font: helveticaFont,
+    font: regularFont,
     color: gray,
   });
 
@@ -461,7 +494,7 @@ async function generatePDF(
     x: 50,
     y: 35,
     size: 9,
-    font: helveticaFont,
+    font: regularFont,
     color: lightGreen,
   });
 
