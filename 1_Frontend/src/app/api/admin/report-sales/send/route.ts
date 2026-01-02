@@ -193,8 +193,8 @@ async function generatePDF(
   try {
     // Vercel 환경에서는 fetch로 가져오기
     const [regularRes, boldRes] = await Promise.all([
-      fetch(`${baseUrl}/fonts/Pretendard-Regular.otf`),
-      fetch(`${baseUrl}/fonts/Pretendard-Bold.otf`)
+      fetch(`${baseUrl}/fonts/Pretendard-Regular.ttf`),
+      fetch(`${baseUrl}/fonts/Pretendard-Bold.ttf`)
     ]);
 
     if (!regularRes.ok || !boldRes.ok) {
@@ -211,8 +211,8 @@ async function generatePDF(
     // 로컬 환경에서는 파일 시스템에서 읽기
     try {
       const publicDir = join(process.cwd(), 'public', 'fonts');
-      const regularFontBytes = readFileSync(join(publicDir, 'Pretendard-Regular.otf'));
-      const boldFontBytes = readFileSync(join(publicDir, 'Pretendard-Bold.otf'));
+      const regularFontBytes = readFileSync(join(publicDir, 'Pretendard-Regular.ttf'));
+      const boldFontBytes = readFileSync(join(publicDir, 'Pretendard-Bold.ttf'));
 
       regularFont = await pdfDoc.embedFont(regularFontBytes);
       boldFont = await pdfDoc.embedFont(boldFontBytes);
