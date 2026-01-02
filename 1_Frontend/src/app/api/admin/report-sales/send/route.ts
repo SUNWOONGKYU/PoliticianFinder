@@ -12,9 +12,9 @@ const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
 
 const getResend = () => new Resend(process.env.RESEND_API_KEY);
 
-// Noto Sans KR 폰트 URL (Google Fonts CDN)
-const NOTO_SANS_KR_URL = 'https://cdn.jsdelivr.net/gh/nickvidal/font-noto-sans-kr@master/NotoSansKR-Regular.otf';
-const NOTO_SANS_KR_BOLD_URL = 'https://cdn.jsdelivr.net/gh/nickvidal/font-noto-sans-kr@master/NotoSansKR-Bold.otf';
+// Noto Sans KR 폰트 URL (Google Fonts Static)
+const NOTO_SANS_KR_URL = 'https://fonts.gstatic.com/s/notosanskr/v36/PbyxFmXiEBPT4ITbgNA5Cgms3VYcOA-vvnIzzuoyeLTq8H4hfeE.ttf';
+const NOTO_SANS_KR_BOLD_URL = 'https://fonts.gstatic.com/s/notosanskr/v36/PbyxFmXiEBPT4ITbgNA5Cgms3VYcOA-vvnIzzuozHrTq8H4hfeE.ttf';
 
 // AI 이름 매핑
 const AI_NAMES: Record<string, string> = {
