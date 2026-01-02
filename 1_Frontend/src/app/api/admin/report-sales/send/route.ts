@@ -105,27 +105,37 @@ export async function POST(request: NextRequest) {
       .eq('politician_id', purchase.politician_id)
       .in('ai_model', selectedAis);
 
-    // 5. PDF 생성 (영문 전용)
-    console.log('[send] Generating PDF...');
-    const pdfBytes = await generatePDF(politician, evaluations || [], selectedAis, purchase);
-    console.log('[send] PDF generated, size:', pdfBytes.length);
+    // 5. AI별로 PDF 생성
+    console.log('[send] Generating PDFs for each AI...');
+    const attachments: { filename: string; content: string }[] = [];
+    const fileNames: string[] = [];
 
-    // 6. 이메일 발송 (한글 포함)
+    for (const aiModel of selectedAis) {
+      const aiEvaluation = evaluations?.find(ev => ev.ai_model === aiModel);
+      const aiName = AI_NAMES[aiModel] || aiModel;
+      const fileName = `AI_Report_${aiName}_${purchase.id.substring(0, 8).toUpperCase()}.pdf`;
+
+      console.log(`[send] Generating PDF for ${aiName}...`);
+      const pdfBytes = await generatePDFForAI(politician, aiModel, aiEvaluation, purchase);
+      console.log(`[send] PDF for ${aiName} generated, size:`, pdfBytes.length);
+
+      attachments.push({
+        filename: fileName,
+        content: Buffer.from(pdfBytes).toString('base64'),
+      });
+      fileNames.push(fileName);
+    }
+
+    // 6. 이메일 발송 (모든 PDF 첨부)
     const resend = getResend();
     const aiNames = selectedAis.map((ai: string) => AI_NAMES[ai] || ai).join(', ');
-    const fileName = `AI_Report_${purchase.id.substring(0, 8).toUpperCase()}.pdf`;
 
     try {
       const emailResult = await resend.emails.send({
         from: 'PoliticianFinder <noreply@politicianfinder.ai.kr>',
         to: purchase.buyer_email,
-        subject: `[PoliticianFinder] ${politician.name}님의 AI 평가 보고서`,
-        attachments: [
-          {
-            filename: fileName,
-            content: Buffer.from(pdfBytes).toString('base64'),
-          },
-        ],
+        subject: `[PoliticianFinder] ${politician.name}님의 AI 평가 보고서 (${selectedAis.length}개)`,
+        attachments: attachments,
         html: generateEmailHTML(politician, evaluations || [], selectedAis, purchase),
       });
 
@@ -158,7 +168,8 @@ export async function POST(request: NextRequest) {
       message: '보고서가 성공적으로 발송되었습니다.',
       sent_to: purchase.buyer_email,
       sent_at: new Date().toISOString(),
-      file_name: fileName,
+      file_names: fileNames,
+      file_count: fileNames.length,
     });
 
   } catch (error) {
@@ -171,11 +182,11 @@ export async function POST(request: NextRequest) {
   }
 }
 
-// PDF 생성 함수 (한글 지원 - Pretendard 폰트 사용)
-async function generatePDF(
+// 단일 AI용 PDF 생성 함수 (한글 지원 - Pretendard 폰트 사용)
+async function generatePDFForAI(
   politician: any,
-  evaluations: any[],
-  selectedAis: string[],
+  aiModel: string,
+  evaluation: any | undefined,
   purchase: any
 ): Promise<Uint8Array> {
   const pdfDoc = await PDFDocument.create();
@@ -222,6 +233,8 @@ async function generatePDF(
     }
   }
 
+  const aiName = AI_NAMES[aiModel] || aiModel;
+
   // 첫 페이지
   let page = pdfDoc.addPage([595, 842]); // A4 size
   const { width, height } = page.getSize();
@@ -242,11 +255,11 @@ async function generatePDF(
     color: darkGreen,
   });
 
-  // 제목
-  page.drawText('AI 평가 보고서', {
+  // 제목 (AI 이름 포함)
+  page.drawText(`${aiName} 평가 보고서`, {
     x: 50,
     y: height - 50,
-    size: 28,
+    size: 26,
     font: boldFont,
     color: rgb(1, 1, 1),
   });
@@ -282,25 +295,17 @@ async function generatePDF(
 
   yPos = height - 180;
 
-  // 점수 계산
-  const avgScores: Record<string, number> = {};
-  const categoryScores: Record<string, Record<string, number>> = {};
-
-  evaluations.forEach(ev => {
-    avgScores[ev.ai_model] = ev.overall_score || 0;
-    if (ev.category_scores) {
-      categoryScores[ev.ai_model] = typeof ev.category_scores === 'string'
-        ? JSON.parse(ev.category_scores)
-        : ev.category_scores;
-    }
-  });
-
-  const overallAvg = evaluations.length > 0
-    ? evaluations.reduce((sum, ev) => sum + (ev.overall_score || 0), 0) / evaluations.length
-    : 0;
+  // 점수 데이터 추출
+  const overallScore = evaluation?.overall_score || 0;
+  const categoryScores = evaluation?.category_scores
+    ? (typeof evaluation.category_scores === 'string'
+        ? JSON.parse(evaluation.category_scores)
+        : evaluation.category_scores)
+    : {};
+  const comment = evaluation?.summary || evaluation?.evaluation_text || '';
 
   // 종합 점수 섹션
-  page.drawText('종합 평가 점수', {
+  page.drawText(`${aiName} 종합 평가 점수`, {
     x: 50,
     y: yPos,
     size: 16,
@@ -317,7 +322,7 @@ async function generatePDF(
   });
   yPos -= 30;
 
-  if (evaluations.length > 0) {
+  if (evaluation) {
     // 큰 점수 박스
     page.drawRectangle({
       x: 200,
@@ -329,7 +334,7 @@ async function generatePDF(
       borderWidth: 2,
     });
 
-    page.drawText(overallAvg.toFixed(1), {
+    page.drawText(overallScore.toFixed(1), {
       x: 245,
       y: yPos - 45,
       size: 48,
@@ -345,8 +350,8 @@ async function generatePDF(
       color: gray,
     });
 
-    page.drawText('AI 종합 평가', {
-      x: 255,
+    page.drawText(`${aiName} 평가`, {
+      x: 260,
       y: yPos - 65,
       size: 11,
       font: regularFont,
@@ -354,51 +359,6 @@ async function generatePDF(
     });
 
     yPos -= 110;
-
-    // AI별 점수
-    page.drawText('AI 모델별 점수', {
-      x: 50,
-      y: yPos,
-      size: 14,
-      font: boldFont,
-      color: darkGreen,
-    });
-    yPos -= 25;
-
-    const aiBoxWidth = (width - 100 - (selectedAis.length - 1) * 15) / selectedAis.length;
-    let xPos = 50;
-
-    for (const ai of selectedAis) {
-      page.drawRectangle({
-        x: xPos,
-        y: yPos - 55,
-        width: aiBoxWidth,
-        height: 65,
-        color: rgb(0.95, 0.95, 0.95),
-        borderColor: rgb(0.85, 0.85, 0.85),
-        borderWidth: 1,
-      });
-
-      page.drawText(AI_NAMES[ai] || ai, {
-        x: xPos + 15,
-        y: yPos - 18,
-        size: 12,
-        font: boldFont,
-        color: gray,
-      });
-
-      page.drawText((avgScores[ai] || 0).toFixed(1), {
-        x: xPos + 15,
-        y: yPos - 45,
-        size: 26,
-        font: boldFont,
-        color: darkGreen,
-      });
-
-      xPos += aiBoxWidth + 15;
-    }
-
-    yPos -= 85;
 
     // 카테고리별 평가
     if (Object.keys(categoryScores).length > 0) {
@@ -429,40 +389,84 @@ async function generatePDF(
       });
 
       page.drawText('평가 항목', { x: 60, y: yPos - 14, size: 11, font: boldFont, color: gray });
-
-      let headerX = 180;
-      for (const ai of selectedAis) {
-        page.drawText(AI_NAMES[ai] || ai, { x: headerX, y: yPos - 14, size: 11, font: boldFont, color: gray });
-        headerX += 90;
-      }
-      page.drawText('평균', { x: headerX, y: yPos - 14, size: 11, font: boldFont, color: darkGreen });
+      page.drawText('점수', { x: 400, y: yPos - 14, size: 11, font: boldFont, color: gray });
 
       yPos -= 30;
 
       // 카테고리별 점수
       for (const [cat, catNameKr] of Object.entries(CATEGORY_NAMES_KR)) {
-        const scores = selectedAis.map(ai => categoryScores[ai]?.[cat] || 0);
-        const avg = scores.length > 0 ? scores.reduce((a, b) => a + b, 0) / scores.length : 0;
+        const score = categoryScores[cat] || 0;
 
         page.drawText(catNameKr, { x: 60, y: yPos, size: 11, font: regularFont, color: black });
-
-        let scoreX = 180;
-        for (const score of scores) {
-          page.drawText(score.toFixed(1), { x: scoreX, y: yPos, size: 11, font: regularFont, color: black });
-          scoreX += 90;
-        }
-        page.drawText(avg.toFixed(1), { x: scoreX, y: yPos, size: 11, font: boldFont, color: darkGreen });
+        page.drawText(score.toFixed(1), { x: 400, y: yPos, size: 11, font: boldFont, color: darkGreen });
 
         yPos -= 22;
+      }
 
-        if (yPos < 100) {
-          page = pdfDoc.addPage([595, 842]);
-          yPos = height - 50;
+      yPos -= 20;
+    }
+
+    // AI 평가 코멘트
+    if (comment) {
+      if (yPos < 200) {
+        page = pdfDoc.addPage([595, 842]);
+        yPos = height - 50;
+      }
+
+      page.drawText(`${aiName} 평가 코멘트`, {
+        x: 50,
+        y: yPos,
+        size: 14,
+        font: boldFont,
+        color: darkGreen,
+      });
+      yPos -= 5;
+
+      page.drawLine({
+        start: { x: 50, y: yPos },
+        end: { x: width - 50, y: yPos },
+        thickness: 1,
+        color: darkGreen,
+      });
+      yPos -= 20;
+
+      // 코멘트 배경 박스
+      page.drawRectangle({
+        x: 50,
+        y: yPos - 120,
+        width: width - 100,
+        height: 130,
+        color: rgb(0.98, 0.98, 0.98),
+        borderColor: rgb(0.9, 0.9, 0.9),
+        borderWidth: 1,
+      });
+
+      // 코멘트 텍스트 (줄바꿈 처리)
+      const maxWidth = width - 130;
+      const words = comment.split('');
+      let line = '';
+      let lineY = yPos - 15;
+
+      for (const char of words) {
+        const testLine = line + char;
+        const testWidth = regularFont.widthOfTextAtSize(testLine, 10);
+
+        if (testWidth > maxWidth) {
+          page.drawText(line, { x: 60, y: lineY, size: 10, font: regularFont, color: black });
+          line = char;
+          lineY -= 14;
+
+          if (lineY < yPos - 110) break; // 박스 내에서만 표시
+        } else {
+          line = testLine;
         }
+      }
+      if (line && lineY >= yPos - 110) {
+        page.drawText(line, { x: 60, y: lineY, size: 10, font: regularFont, color: black });
       }
     }
   } else {
-    page.drawText('AI 평가 데이터가 없습니다.', {
+    page.drawText(`${aiName} 평가 데이터가 없습니다.`, {
       x: 50,
       y: yPos,
       size: 14,
