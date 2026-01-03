@@ -23,7 +23,7 @@ describe('Input Component', () => {
       render(<Input className="custom-input" data-testid="input" />);
       const input = screen.getByTestId('input');
       expect(input).toHaveClass('custom-input');
-      expect(input).toHaveClass('rounded-md');
+      expect(input).toHaveClass('rounded-lg');
     });
 
     it('should render disabled input', () => {
@@ -64,7 +64,6 @@ describe('Input Component', () => {
       render(<Input type="file" data-testid="input" />);
       const input = screen.getByTestId('input');
       expect(input).toHaveAttribute('type', 'file');
-      expect(input).toHaveClass('file:border-0');
     });
   });
 

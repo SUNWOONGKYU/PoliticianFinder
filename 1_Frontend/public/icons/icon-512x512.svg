@@ -1,0 +1,21 @@
+<svg width="512" height="512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="iconGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f97316;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ea580c;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="512" height="512" rx="96" fill="url(#iconGradient)"/>
+
+  <!-- Inner circle -->
+  <circle cx="256" cy="256" r="180" fill="rgba(255,255,255,0.95)"/>
+
+  <!-- P letter -->
+  <text x="256" y="310" font-family="Arial, sans-serif" font-size="200" font-weight="bold" fill="#f97316" text-anchor="middle">P</text>
+
+  <!-- Small F -->
+  <circle cx="340" cy="340" r="50" fill="#1f2937"/>
+  <text x="340" y="358" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="white" text-anchor="middle">F</text>
+</svg>
