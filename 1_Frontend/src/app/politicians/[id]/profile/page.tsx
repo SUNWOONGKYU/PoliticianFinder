@@ -6,6 +6,7 @@
 
 import React, { useState, useEffect } from 'react'
 import { useParams, useRouter } from 'next/navigation'
+import Image from 'next/image'
 import {
   ArrowLeft,
   CheckCircle,
@@ -236,12 +237,14 @@ export default function PoliticianProfilePage() {
           <div className="flex flex-col md:flex-row gap-6 items-start md:items-center">
             
             <div className="relative">
-              <div className="w-24 h-24 md:w-32 md:h-32 rounded-full bg-gray-200 overflow-hidden">
+              <div className="relative w-24 h-24 md:w-32 md:h-32 rounded-full bg-gray-200 overflow-hidden">
                 {politician.profile_image_url ? (
-                  <img
+                  <Image
                     src={politician.profile_image_url}
                     alt={politician.name}
-                    className="w-full h-full object-cover"
+                    fill
+                    sizes="(max-width: 768px) 96px, 128px"
+                    className="object-cover"
                   />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#064E3B] to-[#065F46] text-white text-3xl md:text-4xl font-bold">

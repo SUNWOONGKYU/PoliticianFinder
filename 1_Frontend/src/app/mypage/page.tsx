@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { getInfluenceGrade, formatInfluenceGrade } from '@/utils/memberLevel';
 import GradeUpgradeModal from '@/components/GradeUpgradeModal';
 import useGradeNotification from '@/hooks/useGradeNotification';
@@ -347,12 +348,14 @@ export default function MypagePage() {
             <div className="bg-white rounded-lg shadow-md p-4 sm:p-6 lg:sticky lg:top-20">
               {/* Profile Image */}
               <div className="flex flex-col items-center">
-                <div className="w-24 h-24 rounded-full flex items-center justify-center mb-4 overflow-hidden bg-secondary-500">
+                <div className="relative w-24 h-24 rounded-full flex items-center justify-center mb-4 overflow-hidden bg-secondary-500">
                   {userData.profile_image_url ? (
-                    <img
+                    <Image
                       src={userData.profile_image_url}
                       alt="프로필"
-                      className="w-full h-full object-cover"
+                      fill
+                      sizes="96px"
+                      className="object-cover"
                     />
                   ) : (
                     <svg className="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -740,12 +743,14 @@ export default function MypagePage() {
                         <div className="p-4 hover:bg-gray-50 active:bg-gray-100 transition cursor-pointer touch-manipulation">
                           <div className="flex items-center gap-4">
                             {/* 프로필 이미지 */}
-                            <div className="w-14 h-14 bg-gray-200 rounded-full flex items-center justify-center overflow-hidden flex-shrink-0">
+                            <div className="relative w-14 h-14 bg-gray-200 rounded-full flex items-center justify-center overflow-hidden flex-shrink-0">
                               {favorite.politicians?.profile_image_url ? (
-                                <img
+                                <Image
                                   src={favorite.politicians.profile_image_url}
                                   alt={favorite.politicians.name}
-                                  className="w-full h-full object-cover"
+                                  fill
+                                  sizes="56px"
+                                  className="object-cover"
                                 />
                               ) : (
                                 <svg className="w-8 h-8 text-gray-400" fill="currentColor" viewBox="0 0 20 20">

@@ -1,11 +1,34 @@
 /**
  * Project Grid Task ID: P1O1
  * Next.js configuration with WebAssembly support
+ * 수정: 2026-01-03 (이미지 최적화 설정 추가)
  */
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+
+  // 이미지 최적화 설정
+  images: {
+    formats: ['image/avif', 'image/webp'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'cdn.brandfetch.io',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn.simpleicons.org',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: '*.supabase.co',
+        pathname: '/storage/**',
+      },
+    ],
+  },
 
   // WebAssembly 지원 (subset-font 라이브러리용)
   webpack: (config, { isServer }) => {

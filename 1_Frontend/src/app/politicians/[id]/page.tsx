@@ -5,6 +5,7 @@
 import { useState, useCallback, useMemo, useEffect, useRef } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { Politician } from '@/types/politician';
 import FavoriteButton from '@/components/FavoriteButton';
@@ -439,12 +440,15 @@ export default function PoliticianDetailPage() {
             <div className="flex flex-col md:flex-row items-center gap-8">
               {/* Profile Image */}
               <div className="relative flex-shrink-0">
-                <div className="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-white shadow-xl overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
+                <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-white shadow-xl overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
                   {politician.profileImageUrl ? (
-                    <img
+                    <Image
                       src={politician.profileImageUrl}
                       alt={politician.name}
-                      className="w-full h-full object-cover"
+                      fill
+                      sizes="(max-width: 768px) 128px, 160px"
+                      className="object-cover"
+                      priority
                     />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-slate-500 to-slate-600">

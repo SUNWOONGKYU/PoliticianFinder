@@ -6,6 +6,7 @@
 import { useParams, useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import FollowButton from '@/components/FollowButton';
 
 interface Follower {
@@ -174,12 +175,14 @@ export default function FollowersPage() {
                     className="flex items-center gap-3 flex-1"
                   >
                     {/* Profile Image */}
-                    <div className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center overflow-hidden">
+                    <div className="relative w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center overflow-hidden">
                       {follower.profile_image_url ? (
-                        <img
+                        <Image
                           src={follower.profile_image_url}
                           alt={follower.username}
-                          className="w-full h-full object-cover"
+                          fill
+                          sizes="48px"
+                          className="object-cover"
                         />
                       ) : (
                         <svg className="w-8 h-8 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
