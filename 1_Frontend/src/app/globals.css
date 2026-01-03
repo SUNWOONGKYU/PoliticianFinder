@@ -344,3 +344,94 @@ body {
 .max-w-7xl {
   max-width: 1400px !important;
 }
+
+/* ===== 접근성 (Accessibility) ===== */
+
+/* 포커스 표시 스타일 - 키보드 사용자용 */
+*:focus-visible {
+  outline: 2px solid #f97316;
+  outline-offset: 2px;
+}
+
+/* 마우스 사용자는 포커스 링 숨김 */
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* 스크린 리더 전용 (시각적으로 숨김) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* 포커스 시 스크린 리더 전용 해제 */
+.sr-only:focus,
+.sr-only:focus-visible,
+.focus\:not-sr-only:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
+/* 고대비 모드 지원 */
+@media (prefers-contrast: high) {
+  *:focus-visible {
+    outline: 3px solid currentColor;
+    outline-offset: 3px;
+  }
+
+  .card,
+  .mobile-card {
+    border-width: 2px;
+  }
+}
+
+/* 모션 감소 선호 사용자 */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .theme-transition,
+  .theme-transition *,
+  .theme-transition *::before,
+  .theme-transition *::after {
+    transition: none !important;
+  }
+}
+
+/* 링크 포커스 스타일 */
+a:focus-visible {
+  border-radius: 4px;
+}
+
+/* 버튼 포커스 스타일 */
+button:focus-visible {
+  border-radius: 4px;
+}
+
+/* 입력 필드 포커스 스타일 */
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid #f97316;
+  outline-offset: 0;
+  border-color: #f97316;
+}
