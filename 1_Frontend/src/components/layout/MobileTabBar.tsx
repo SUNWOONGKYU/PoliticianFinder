@@ -3,51 +3,34 @@
 import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import {
-  HomeIcon,
-  UserGroupIcon,
-  ChatBubbleLeftRightIcon,
-  UserCircleIcon,
-  Bars3Icon
-} from '@heroicons/react/24/outline';
-import {
-  HomeIcon as HomeIconSolid,
-  UserGroupIcon as UserGroupIconSolid,
-  ChatBubbleLeftRightIcon as ChatBubbleLeftRightIconSolid,
-  UserCircleIcon as UserCircleIconSolid,
-} from '@heroicons/react/24/solid';
+import { Home, Users, MessageSquare, UserCircle, LucideIcon } from 'lucide-react';
 
 interface TabItem {
   name: string;
   href: string;
-  icon: React.ComponentType<{ className?: string }>;
-  activeIcon: React.ComponentType<{ className?: string }>;
+  icon: LucideIcon;
 }
 
 const tabs: TabItem[] = [
   {
     name: '홈',
     href: '/',
-    icon: HomeIcon,
-    activeIcon: HomeIconSolid,
+    icon: Home,
   },
   {
     name: '정치인',
     href: '/politicians',
-    icon: UserGroupIcon,
-    activeIcon: UserGroupIconSolid,
+    icon: Users,
   },
   {
     name: '커뮤니티',
     href: '/community',
-    icon: ChatBubbleLeftRightIcon,
-    activeIcon: ChatBubbleLeftRightIconSolid,
+    icon: MessageSquare,
   },
   {
     name: '마이페이지',
     href: '/mypage',
-    icon: UserCircleIcon,
-    activeIcon: UserCircleIconSolid,
+    icon: UserCircle,
   },
 ];
 
@@ -76,7 +59,7 @@ export default function MobileTabBar() {
         <div className="flex items-center justify-around h-16">
           {tabs.map((tab) => {
             const active = isActive(tab.href);
-            const Icon = active ? tab.activeIcon : tab.icon;
+            const Icon = tab.icon;
 
             return (
               <Link
@@ -94,7 +77,12 @@ export default function MobileTabBar() {
                 `}
                 aria-current={active ? 'page' : undefined}
               >
-                <Icon className="w-6 h-6" aria-hidden="true" />
+                <Icon
+                  className="w-6 h-6"
+                  aria-hidden="true"
+                  fill={active ? 'currentColor' : 'none'}
+                  strokeWidth={active ? 2.5 : 2}
+                />
                 <span className={`
                   text-xs mt-1 font-medium
                   ${active ? 'text-blue-600 dark:text-blue-400' : 'text-gray-500 dark:text-gray-400'}
