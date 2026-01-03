@@ -846,8 +846,8 @@ export default function Home() {
                     </div>
                   </Link>
 
-                  {/* 2-3위 - 일반 카드 (상세) (카드 전체 클릭 가능) */}
-                  {politicians.slice(1, 3).map((p) => (
+                  {/* 2-10위 - 일반 카드 (상세) (카드 전체 클릭 가능) */}
+                  {politicians.slice(1).map((p) => (
                     <Link key={p.id} href={`/politicians/${p.id}`} className="block bg-white border border-gray-200 rounded-lg p-4 shadow hover:shadow-md hover:border-primary-300 transition-all">
                       <div className="flex items-start justify-between mb-3">
                         <div className="flex-1">
@@ -923,43 +923,6 @@ export default function Home() {
                             </>
                           ) : (
                             <div className="text-xs text-gray-400">평가 없음</div>
-                          )}
-                        </div>
-                      </div>
-                    </Link>
-                  ))}
-
-                  {/* 4-10위 - 간략 버전 (카드 전체 클릭 가능) */}
-                  {politicians.slice(3).map((p) => (
-                    <Link
-                      key={p.id}
-                      href={`/politicians/${p.id}`}
-                      className="block bg-white border border-gray-200 rounded-lg p-3 shadow hover:shadow-md hover:border-primary-300 transition-all"
-                    >
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-3">
-                          <span className="text-lg font-bold text-gray-700">{p.rank}위</span>
-                          <div>
-                            <span className="font-bold text-gray-900">
-                              {p.name}
-                            </span>
-                            <div className="text-xs text-gray-600">
-                              {p.identity} {p.title && `• ${p.title}`} | {p.party}
-                            </div>
-                          </div>
-                        </div>
-                        <div className="text-right">
-                          <div className="text-lg font-bold text-accent-600">{p.totalScore}</div>
-                          <div className="text-xs font-bold">
-                            {p.gradeEmoji} <span className="text-accent-600">{p.grade}</span>
-                          </div>
-                          <div className="text-xs text-gray-600">종합평점</div>
-                          {p.userCount > 0 ? (
-                            <div className="text-xs text-secondary-600 mt-1">
-                              {'★'.repeat(Math.round(p.userRating))}{'☆'.repeat(5 - Math.round(p.userRating))} ({p.userCount}명)
-                            </div>
-                          ) : (
-                            <div className="text-xs text-gray-400 mt-1">평가 없음</div>
                           )}
                         </div>
                       </div>
