@@ -1,8 +1,14 @@
 /**
  * Project Grid Task ID: P1O1
  * Next.js configuration with WebAssembly support
- * 수정: 2026-01-03 (이미지 최적화 설정 추가)
+ * 수정: 2026-01-03 (이미지 최적화, 번들 분석기 추가)
  */
+
+import bundleAnalyzer from '@next/bundle-analyzer';
+
+const withBundleAnalyzer = bundleAnalyzer({
+  enabled: process.env.ANALYZE === 'true',
+});
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -49,4 +55,4 @@ const nextConfig = {
   },
 };
 
-export default nextConfig;
+export default withBundleAnalyzer(nextConfig);
