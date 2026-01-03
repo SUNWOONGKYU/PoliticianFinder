@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useParams } from 'next/navigation';
 
 export default function NoticeDetailPage() {
@@ -88,11 +89,15 @@ export default function NoticeDetailPage() {
               드디어 AI 기반 정치인 평가 커뮤니티 플랫폼, PoliticianFinder가 정식으로 오픈했습니다.
               저희 플랫폼에 많은 관심을 가져주신 모든 분들께 진심으로 감사드립니다.
             </p>
-            <img
-              src={notice.imageUrl}
-              alt="Launching Celebration"
-              className="rounded-lg shadow-md my-6 w-full"
-            />
+            <div className="relative w-full aspect-video my-6">
+              <Image
+                src={notice.imageUrl}
+                alt="Launching Celebration"
+                fill
+                sizes="(max-width: 768px) 100vw, 800px"
+                className="rounded-lg shadow-md object-cover"
+              />
+            </div>
             <h2 className="text-2xl font-bold text-gray-900 mt-6 mb-3">주요 기능 안내</h2>
             <p>PoliticianFinder는 다음과 같은 핵심 기능을 제공합니다:</p>
             <ul className="list-disc pl-5 space-y-2 mb-4">
