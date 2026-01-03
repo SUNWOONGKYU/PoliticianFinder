@@ -37,9 +37,79 @@ const Header = dynamic(() => import('./components/header'), { ssr: false });
 // MobileTabBar - 모바일 하단 네비게이션
 const MobileTabBar = dynamic(() => import('@/components/layout/MobileTabBar'), { ssr: false });
 
-export const metadata = {
-  title: 'PoliticianFinder - 훌륭한 정치인 찾기',
-  description: 'AI 기반 정치인 평가 플랫폼',
+import type { Metadata } from 'next';
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://politicianfinder.com';
+
+export const metadata: Metadata = {
+  // 기본 메타데이터
+  title: {
+    default: 'PoliticianFinder - 훌륭한 정치인 찾기',
+    template: '%s | PoliticianFinder',
+  },
+  description: 'AI 기반 정치인 평가 플랫폼. 객관적인 데이터로 정치인의 활동, 공약 이행률, 청렴도를 분석합니다.',
+  keywords: ['정치인', '국회의원', 'AI 평가', '공약 이행률', '청렴도', '정치인 찾기', '정치인 평가'],
+  authors: [{ name: 'PoliticianFinder Team' }],
+  creator: 'PoliticianFinder',
+  publisher: 'PoliticianFinder',
+
+  // 기본 URL
+  metadataBase: new URL(siteUrl),
+  alternates: {
+    canonical: '/',
+  },
+
+  // Open Graph
+  openGraph: {
+    type: 'website',
+    locale: 'ko_KR',
+    url: siteUrl,
+    siteName: 'PoliticianFinder',
+    title: 'PoliticianFinder - 훌륭한 정치인 찾기',
+    description: 'AI 기반 정치인 평가 플랫폼. 객관적인 데이터로 정치인의 활동, 공약 이행률, 청렴도를 분석합니다.',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'PoliticianFinder - 훌륭한 정치인 찾기',
+      },
+    ],
+  },
+
+  // Twitter Card
+  twitter: {
+    card: 'summary_large_image',
+    title: 'PoliticianFinder - 훌륭한 정치인 찾기',
+    description: 'AI 기반 정치인 평가 플랫폼. 객관적인 데이터로 정치인을 분석합니다.',
+    images: ['/og-image.png'],
+  },
+
+  // 로봇 설정
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+
+  // 아이콘
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon-16x16.png',
+    apple: '/apple-touch-icon.png',
+  },
+
+  // 검증 (추후 설정)
+  // verification: {
+  //   google: 'google-site-verification-code',
+  //   naver: 'naver-site-verification-code',
+  // },
 };
 
 export default function RootLayout({
