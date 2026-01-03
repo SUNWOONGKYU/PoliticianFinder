@@ -22,16 +22,16 @@ describe('Card Components', () => {
       render(<Card data-testid="card">Card content</Card>);
       const card = screen.getByTestId('card');
       expect(card).toBeInTheDocument();
-      expect(card).toHaveClass('rounded-lg');
+      expect(card).toHaveClass('rounded-xl');
       expect(card).toHaveClass('border');
-      expect(card).toHaveClass('shadow-sm');
+      expect(card).toHaveClass('bg-white');
     });
 
     it('should render with custom className', () => {
       render(<Card className="custom-card" data-testid="card">Content</Card>);
       const card = screen.getByTestId('card');
       expect(card).toHaveClass('custom-card');
-      expect(card).toHaveClass('rounded-lg');
+      expect(card).toHaveClass('rounded-xl');
     });
 
     it('should support ref forwarding', () => {
@@ -72,8 +72,8 @@ describe('Card Components', () => {
       render(<CardTitle>Title Text</CardTitle>);
       const title = screen.getByText('Title Text');
       expect(title.tagName).toBe('H3');
-      expect(title).toHaveClass('text-2xl');
-      expect(title).toHaveClass('font-semibold');
+      expect(title).toHaveClass('text-heading-md');
+      expect(title).toHaveClass('text-gray-900');
     });
 
     it('should support custom className', () => {
@@ -88,8 +88,8 @@ describe('Card Components', () => {
       render(<CardDescription>Description text</CardDescription>);
       const desc = screen.getByText('Description text');
       expect(desc.tagName).toBe('P');
-      expect(desc).toHaveClass('text-sm');
-      expect(desc).toHaveClass('text-muted-foreground');
+      expect(desc).toHaveClass('text-body-sm');
+      expect(desc).toHaveClass('text-gray-600');
     });
 
     it('should support custom className', () => {

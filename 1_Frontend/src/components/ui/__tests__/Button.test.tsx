@@ -80,21 +80,21 @@ describe('Button Component - Phase 3 Mobile Optimization', () => {
       render(<Button size="sm">Small</Button>);
       const button = screen.getByRole('button', { name: /small/i });
       expect(button).toHaveClass('text-sm');
-      expect(button).toHaveClass('min-h-[32px]');
+      expect(button).toHaveClass('min-h-[40px]');
     });
 
     it('should render medium size (default)', () => {
       render(<Button size="md">Medium</Button>);
       const button = screen.getByRole('button', { name: /medium/i });
       expect(button).toHaveClass('text-base');
-      expect(button).toHaveClass('min-h-[40px]');
+      expect(button).toHaveClass('min-h-[44px]');
     });
 
     it('should render large size with WCAG touch target', () => {
       render(<Button size="lg">Large</Button>);
       const button = screen.getByRole('button', { name: /large/i });
       expect(button).toHaveClass('text-lg');
-      expect(button).toHaveClass('min-h-touch'); // 44px for accessibility
+      expect(button).toHaveClass('min-h-[48px]'); // 48px for accessibility
     });
   });
 
@@ -301,7 +301,7 @@ describe('Button Component - Phase 3 Mobile Optimization', () => {
     it('should have minimum touch target for large size', () => {
       render(<Button size="lg">Touch Target</Button>);
       const button = screen.getByRole('button');
-      expect(button).toHaveClass('min-h-touch'); // 44px minimum
+      expect(button).toHaveClass('min-h-[48px]'); // 48px minimum
     });
 
     it('should have inline-flex for proper alignment', () => {

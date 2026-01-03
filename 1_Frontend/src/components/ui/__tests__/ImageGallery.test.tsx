@@ -529,10 +529,14 @@ describe('ImageGallery Component - Phase 3 Mobile Optimization', () => {
       expect(desktopNav).toBeInTheDocument();
     });
 
-    it('should show mobile swipe hint', () => {
-      render(<ImageGallery images={mockImages} />);
+    it('should show navigation buttons instead of swipe hint', () => {
+      const { container } = render(<ImageGallery images={mockImages} />);
 
-      expect(screen.getByText('← 스와이프 →')).toBeInTheDocument();
+      // Swipe hint was replaced with navigation buttons
+      const prevButton = screen.getByLabelText('이전 이미지');
+      const nextButton = screen.getByLabelText('다음 이미지');
+      expect(prevButton).toBeInTheDocument();
+      expect(nextButton).toBeInTheDocument();
     });
 
     it('should hide thumbnails on mobile (class check)', () => {

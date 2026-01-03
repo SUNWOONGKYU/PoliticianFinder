@@ -1,0 +1,21 @@
+<svg width="180" height="180" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="iconGradientApple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f97316;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ea580c;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background (no border radius for iOS) -->
+  <rect width="180" height="180" fill="url(#iconGradientApple)"/>
+
+  <!-- Inner circle -->
+  <circle cx="90" cy="90" r="64" fill="rgba(255,255,255,0.95)"/>
+
+  <!-- P letter -->
+  <text x="90" y="112" font-family="Arial, sans-serif" font-size="72" font-weight="bold" fill="#f97316" text-anchor="middle">P</text>
+
+  <!-- Small F -->
+  <circle cx="120" cy="120" r="18" fill="#1f2937"/>
+  <text x="120" y="128" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white" text-anchor="middle">F</text>
+</svg>
