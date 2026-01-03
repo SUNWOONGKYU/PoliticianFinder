@@ -103,14 +103,22 @@ export default function Header() {
 
   return (
     <>
+      {/* Skip Navigation - 접근성: 키보드 사용자가 메인 콘텐츠로 바로 이동 */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-[100] focus:bg-primary-600 focus:text-white focus:px-4 focus:py-2 focus:font-medium"
+      >
+        메인 콘텐츠로 건너뛰기
+      </a>
+
       {/* 테스트 중 배너 - 환경변수로 제어 */}
       {process.env.NEXT_PUBLIC_SHOW_TEST_BANNER === 'true' && (
-        <div className="bg-amber-500 text-white text-center py-2 px-4 text-sm font-medium sticky top-0 z-[60]">
+        <div className="bg-amber-500 text-white text-center py-2 px-4 text-sm font-medium sticky top-0 z-[60]" role="alert">
           🚧 현재 테스트 중입니다. 실제 서비스가 아닙니다. 🚧
         </div>
       )}
       <header className={`bg-white dark:bg-slate-900 shadow-sm sticky ${process.env.NEXT_PUBLIC_SHOW_TEST_BANNER === 'true' ? 'top-[40px]' : 'top-0'} z-50 border-b-2 border-primary-500 transition-colors duration-300`}>
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" role="navigation" aria-label="메인 네비게이션">
         <div className="flex justify-between items-center h-16">
           {/* Logo & Catchphrase */}
           <div className="flex items-center space-x-4">
@@ -132,8 +140,12 @@ export default function Header() {
             <Link href="/connection" className="text-gray-900 dark:text-gray-100 hover:text-primary-600 dark:hover:text-primary-400 font-medium focus:outline-none focus:ring-2 focus:ring-primary-300 rounded px-2 py-1">연결</Link>
 
             {/* 알림 아이콘 */}
-            <Link href="/notifications" className="relative text-gray-900 dark:text-gray-100 hover:text-primary-600 dark:hover:text-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-300 rounded p-1">
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <Link
+              href="/notifications"
+              className="relative text-gray-900 dark:text-gray-100 hover:text-primary-600 dark:hover:text-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-300 rounded p-1"
+              aria-label={unreadCount > 0 ? `알림 ${unreadCount}개` : '알림'}
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
               </svg>
               {/* 알림 배지 (새 알림 있을 때) */}
@@ -190,8 +202,10 @@ export default function Header() {
             {/* 햄버거 메뉴 - 44x44px 터치 타겟 */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="text-gray-900 dark:text-gray-100 hover:text-primary-600 dark:hover:text-primary-400 focus:outline-none min-w-[44px] min-h-[44px] flex items-center justify-center"
-              aria-label="메뉴 열기"
+              className="text-gray-900 dark:text-gray-100 hover:text-primary-600 dark:hover:text-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-300 rounded min-w-[44px] min-h-[44px] flex items-center justify-center"
+              aria-label={mobileMenuOpen ? '메뉴 닫기' : '메뉴 열기'}
+              aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-menu"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16"></path>
@@ -202,7 +216,7 @@ export default function Header() {
 
         {/* Mobile Menu - 모바일 최적화: 44px 터치 타겟, 액티브 피드백 */}
         {mobileMenuOpen && (
-          <div className="md:hidden pb-4 safe-area-bottom">
+          <div id="mobile-menu" className="md:hidden pb-4 safe-area-bottom" role="menu">
             <div className="flex flex-col space-y-1">
               <Link href="/" className="text-gray-900 dark:text-gray-100 hover:text-primary-600 dark:hover:text-primary-400 font-medium px-4 py-3 min-h-[44px] flex items-center rounded-lg active:bg-gray-100 dark:active:bg-slate-800 touch-manipulation" onClick={() => setMobileMenuOpen(false)}>홈</Link>
               <Link href="/politicians" className="text-gray-900 dark:text-gray-100 hover:text-primary-600 dark:hover:text-primary-400 font-medium px-4 py-3 min-h-[44px] flex items-center rounded-lg active:bg-gray-100 dark:active:bg-slate-800 touch-manipulation" onClick={() => setMobileMenuOpen(false)}>정치인</Link>

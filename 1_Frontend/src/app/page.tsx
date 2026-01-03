@@ -554,7 +554,7 @@ export default function Home() {
   );
 
   return (
-    <main className="bg-gray-50">
+    <main id="main-content" className="bg-gray-50" role="main">
       {/* 메인 레이아웃 */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <div className="flex flex-col lg:flex-row gap-6">
