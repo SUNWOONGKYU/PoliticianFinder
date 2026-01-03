@@ -37,9 +37,21 @@ const Header = dynamic(() => import('./components/header'), { ssr: false });
 // MobileTabBar - 모바일 하단 네비게이션
 const MobileTabBar = dynamic(() => import('@/components/layout/MobileTabBar'), { ssr: false });
 
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://politicianfinder.com';
+
+// PWA: Viewport 설정
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#f97316' },
+    { media: '(prefers-color-scheme: dark)', color: '#1e293b' },
+  ],
+};
 
 export const metadata: Metadata = {
   // 기본 메타데이터
@@ -120,6 +132,12 @@ export default function RootLayout({
   return (
     <html lang="ko" suppressHydrationWarning className={notoSansKr.className}>
       <head>
+        {/* PWA: iOS Safari용 메타태그 */}
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="PoliticianFinder" />
+        <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+
         {/* 다크모드 깜빡임 방지 스크립트 */}
         <script
           dangerouslySetInnerHTML={{
