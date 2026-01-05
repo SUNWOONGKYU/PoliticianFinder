@@ -1,0 +1,12 @@
+# V26.0 AI 평가 엔진 의존성
+
+# Supabase
+supabase==2.3.4
+
+# 공통
+python-dotenv==1.0.0
+
+# 4개 AI SDK
+anthropic==0.40.0         # Claude
+openai==1.40.0            # ChatGPT, Grok (OpenAI compatible)
+google-generativeai==0.8.0  # Gemini (V26.0 신규)

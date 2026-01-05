@@ -530,7 +530,7 @@ export default function Home() {
       {/* 검색 버튼 */}
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-        className="bg-primary-500 text-white px-4 sm:px-5 py-2 min-h-[44px] rounded-full shadow-lg hover:bg-primary-600 transition-all active:scale-95 flex items-center gap-2 touch-manipulation"
+        className="bg-primary-600 text-white px-4 sm:px-5 py-2 min-h-[44px] rounded-full shadow-lg hover:bg-primary-700 transition-all active:scale-95 flex items-center gap-2 touch-manipulation"
         aria-label="맨 위로 스크롤하여 검색"
       >
         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -593,7 +593,7 @@ export default function Home() {
                   </div>
                   <button
                     onClick={handleSearch}
-                    className="px-5 sm:px-6 py-2.5 min-h-[44px] min-w-[60px] bg-primary-500 text-white rounded-lg hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-300 font-semibold text-sm shadow-sm touch-manipulation active:bg-primary-700"
+                    className="px-5 sm:px-6 py-2.5 min-h-[44px] min-w-[60px] bg-primary-600 text-white rounded-lg hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-300 font-semibold text-sm shadow-sm touch-manipulation active:bg-primary-800"
                   >
                     검색
                   </button>
@@ -759,7 +759,7 @@ export default function Home() {
                     <div className="flex items-start justify-between mb-3">
                       <div className="flex-1">
                         <div className="flex items-center gap-2 mb-2">
-                          <span className="text-2xl font-bold text-primary-500">1위</span>
+                          <span className="text-2xl font-bold text-primary-700">1위</span>
                           <span className="text-xl font-bold text-gray-900">
                             {politicians[0].name}
                           </span>

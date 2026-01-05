@@ -112,7 +112,7 @@ export default function LoginPage() {
             {!error && !message && (
               <p className="mt-1 text-sm text-gray-600">
                 계정이 없으신가요?{' '}
-                <Link href="/auth/signup" className="font-medium text-primary-600 hover:text-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-300 rounded px-1">
+                <Link href="/auth/signup" className="font-medium text-primary-700 hover:text-primary-800 focus:outline-none focus:ring-2 focus:ring-primary-300 rounded px-2 py-1 inline-flex items-center min-h-[44px]">
                   회원가입
                 </Link>
               </p>
@@ -208,7 +208,7 @@ export default function LoginPage() {
               </label>
               <Link
                 href="/auth/password-reset"
-                className="text-sm font-medium text-primary-600 hover:text-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-300 rounded px-1 min-h-[44px] flex items-center"
+                className="text-sm font-medium text-primary-700 hover:text-primary-800 focus:outline-none focus:ring-2 focus:ring-primary-300 rounded px-2 min-h-[44px] flex items-center"
               >
                 비밀번호 찾기
               </Link>

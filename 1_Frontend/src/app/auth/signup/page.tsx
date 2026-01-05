@@ -145,7 +145,7 @@ export default function SignupPage() {
             <h2 className="text-2xl font-bold text-gray-900">회원가입</h2>
             <p className="mt-1 text-sm text-gray-600">
               이미 계정이 있으신가요?{' '}
-              <Link href="/auth/login" className="font-medium text-primary-600 hover:text-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-300 rounded px-1">
+              <Link href="/auth/login" className="font-medium text-primary-700 hover:text-primary-800 focus:outline-none focus:ring-2 focus:ring-primary-300 rounded px-2 py-1 inline-flex items-center min-h-[44px]">
                 로그인
               </Link>
             </p>
