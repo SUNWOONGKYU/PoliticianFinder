@@ -113,7 +113,7 @@ export default function Header() {
 
       {/* 테스트 중 배너 - 환경변수로 제어 */}
       {process.env.NEXT_PUBLIC_SHOW_TEST_BANNER === 'true' && (
-        <div className="bg-amber-500 text-white text-center py-2 px-4 text-sm font-medium sticky top-0 z-[60]" role="alert">
+        <div className="bg-amber-700 text-white text-center py-2 px-4 text-sm font-medium sticky top-0 z-[60]" role="alert">
           🚧 현재 테스트 중입니다. 실제 서비스가 아닙니다. 🚧
         </div>
       )}
@@ -176,7 +176,7 @@ export default function Header() {
             ) : (
               <>
                 <Link href="/auth/login" className="text-gray-900 dark:text-gray-100 hover:text-primary-600 dark:hover:text-primary-400 font-medium px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary-300 rounded">로그인</Link>
-                <Link href="/auth/signup" className="bg-primary-500 text-white px-4 py-2 rounded-lg hover:bg-primary-600 font-medium focus:outline-none focus:ring-2 focus:ring-primary-300">회원가입</Link>
+                <Link href="/auth/signup" className="bg-primary-700 text-white px-4 py-2 rounded-lg hover:bg-primary-800 font-medium focus:outline-none focus:ring-2 focus:ring-primary-300">회원가입</Link>
               </>
             )}
           </div>
@@ -243,7 +243,7 @@ export default function Header() {
               ) : (
                 <>
                   <Link href="/auth/login" className="text-gray-900 dark:text-gray-100 hover:text-primary-600 dark:hover:text-primary-400 font-medium px-4 py-3 min-h-[44px] flex items-center rounded-lg active:bg-gray-100 dark:active:bg-slate-800 touch-manipulation" onClick={() => setMobileMenuOpen(false)}>로그인</Link>
-                  <Link href="/auth/signup" className="bg-primary-500 text-white px-4 py-3 min-h-[44px] rounded-lg hover:bg-primary-600 font-medium text-center flex items-center justify-center active:bg-primary-700 touch-manipulation" onClick={() => setMobileMenuOpen(false)}>회원가입</Link>
+                  <Link href="/auth/signup" className="bg-primary-700 text-white px-4 py-3 min-h-[44px] rounded-lg hover:bg-primary-800 font-medium text-center flex items-center justify-center active:bg-primary-900 touch-manipulation" onClick={() => setMobileMenuOpen(false)}>회원가입</Link>
                 </>
               )}
             </div>

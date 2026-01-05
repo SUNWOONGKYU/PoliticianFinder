@@ -306,7 +306,7 @@ export default function CommunityPage() {
                             {post.author_type === 'politician' ? (
                               <Link
                                 href={`/politicians/${post.politician_id}`}
-                                className="font-medium text-primary-600 hover:text-primary-700 hover:underline"
+                                className="font-medium text-primary-700 hover:text-primary-800 hover:underline inline-flex items-center min-h-[44px] py-2"
                                 onClick={(e) => e.stopPropagation()}
                               >
                                 🏛️ {post.politician_name} | {post.politician_position} • {post.politician_party}

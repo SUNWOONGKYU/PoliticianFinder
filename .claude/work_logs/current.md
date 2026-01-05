@@ -174,6 +174,251 @@ window.location.href = safeRedirect;
 
 ---
 
+---
+
+## 2026-01-04 - V7.0 설계문서 생성 (AI 평가 엔진)
+
+**작업**: V6.0 → V7.0 설계문서 업그레이드 (V26.0 수집 규칙 적용)
+
+### 핵심 변경사항
+
+| 항목 | V6.0 | V7.0 |
+|------|------|------|
+| AI 개수 | 3개 (Claude, ChatGPT, Grok) | **4개 (+Gemini)** |
+| OFFICIAL 기간 | 무제한 | **평가일 기준 4년 이내** |
+| PUBLIC 기간 | 무제한 | **평가일 기준 1년 이내** |
+| 수집 규칙 | V24.0/V25.0 | **V26.0** |
+
+### 생성된 파일
+
+**설계문서_V7.0/**
+```
+├── README.md                    [신규]
+├── CLAUDE.md                    [신규]
+├── .env.example                 [수정] 4개 AI 키
+├── requirements.txt             [수정] google-generativeai
+├── V26_수집지침_및_프로세스.md   [신규]
+├── V26_멀티AI_구현계획.md        [신규]
+├── Database/
+│   └── migration_v24_to_v26.sql [신규]
+└── 실행스크립트/
+    ├── collect_v26_claude.py    [신규]
+    ├── collect_v26_chatgpt.py   [신규]
+    ├── collect_v26_grok.py      [신규]
+    ├── collect_v26_gemini.py    [신규] Gemini 추가
+    ├── collect_v26_all.py       [신규] 4개 AI 일괄
+    ├── backup_v24_data.py       [신규] V24 백업
+    └── clear_for_v26.py         [신규] 초기화
+```
+
+### 다음 작업 예정
+
+1. **V24.0 데이터 백업**
+   ```bash
+   cd 설계문서_V7.0/실행스크립트
+   python backup_v24_data.py
+   ```
+
+2. **Supabase에서 백업 테이블 생성**
+   - SQL Editor에서 `migration_v24_to_v26.sql` 실행
+
+3. **원본 테이블 초기화**
+   ```bash
+   python clear_for_v26.py --confirm
+   ```
+
+4. **V26.0 수집 시작**
+   ```bash
+   python collect_v26_all.py --politician_id=62e7b453 --politician_name="오세훈" --parallel
+   ```
+
+### 주의사항
+
+- Gemini API 키 필요: `.env`에 `GEMINI_API_KEY` 추가
+- 백업 먼저: V26.0 수집 전 반드시 V24.0 데이터 백업
+- V24.0 vs V26.0 직접 비교 불가 (기간, AI 개수 다름)
+
+**결과 보고서**: `Web_ClaudeCode_Bridge/outbox/V7.0_설계문서_생성_완료보고서_2026-01-04.md`
+
+---
+
+## 2026-01-04 - V26.0 풀링 방식 프로세스 문서화
+
+**작업**: V26.0 풀링 기반 평가 시스템 전체 프로세스 정의
+
+### 작업 내역
+
+#### 1. V26 데이터 수집 현황 확인
+- 오세훈 데이터: Claude 500, ChatGPT 520, Grok 500, Gemini 0
+- Gemini 수집 실행 → 500개 완료
+
+#### 2. 점수 계산
+- `calculate_v26_scores.py` 생성 (pagination 이슈 해결)
+- 오세훈 점수: Claude 796, ChatGPT 828, Grok 778, Gemini 759
+- 종합: 790점 (E등급)
+
+#### 3. 풀링 방식 핵심 원칙 정의
+
+**풀링 = "모두가 찾은 것을 각자가 평가"**
+
+```
+[1단계: 수집] - rating 없이!
+4개 AI × 50개 = 200개 풀 (카테고리당)
+- 중복 제거 안 함
+- 가중치 계산 안 함
+- 그냥 있는 그대로 합침
+
+[2단계: 평가] - 타이밍 분리 = 객관성!
+4개 AI가 각각 200개 전체 평가
+- 수집 시점 ≠ 평가 시점 (다른 세션)
+- 독립적 판단 = 더 객관적
+```
+
+#### 4. 생성된 문서
+- `설계문서_V7.0/V26_풀링_전체프로세스.md` (핵심 문서!)
+- `Web_ClaudeCode_Bridge/outbox/V26_풀링_전체프로세스_2026-01-04.md`
+
+#### 5. 불일치 수정
+- `설계문서_V7.0/CLAUDE.md` - "4개 AI 풀링" 섹션 수정
+  - 잘못된 "중복 탐지 시 가중치" 내용 삭제
+  - 풀링 원칙에 맞게 재작성
+
+### 신규 작성 필요 항목
+
+| 스크립트 | 역할 | 상태 |
+|---------|------|------|
+| collect_v26_pool.py | 수집 (rating 없이) | **[신규 작성 필요]** |
+| evaluate_v26_pool.py | 평가 (200개 풀 전체) | **[신규 작성 필요]** |
+
+| 테이블 | 역할 | 상태 |
+|--------|------|------|
+| ai_ratings_v26 | 평가 결과 (800개) | **[신규 생성 필요]** |
+
+### 다음 작업
+1. `collect_v26_pool.py` 스크립트 작성 (rating 없이 수집)
+2. `evaluate_v26_pool.py` 스크립트 작성 (200개 평가)
+3. `ai_ratings_v26` 테이블 생성
+4. `calculate_v26_scores.py` 수정 (새 테이블 참조)
+
+---
+
+---
+
+## 2026-01-04 - V26.0 풀링 시스템 구현 완료
+
+### 작업 내역
+
+#### 1. 풀링 전용 스크립트 작성
+
+| 스크립트 | 역할 | 상태 |
+|---------|------|------|
+| `collect_v26_pool.py` | 수집 (rating 없이) | 완료 |
+| `evaluate_v26_pool.py` | 평가 (200개 풀 전체) | 완료 (병렬/배치 최적화) |
+| `calculate_v26_pool_scores.py` | 점수 계산 | 완료 |
+| `create_v26_tables.py` | 테이블 확인 | 완료 |
+| `run_migrations_psql.py` | 마이그레이션 | 완료 |
+
+#### 2. 데이터베이스 테이블
+
+| 테이블 | 역할 | 상태 |
+|--------|------|------|
+| `ai_ratings_v26` | 평가 결과 저장 | 생성됨 |
+| `ai_category_scores_v26` | 카테고리별 점수 | **미생성** |
+| `ai_final_scores_v26` | AI별 최종 점수 | **미생성** |
+| `ai_evaluations_v26` | 종합 평가 | **미생성** |
+
+#### 3. 성능 최적화 (사용자 요청 반영)
+
+- 배치 크기: 10 → 25
+- API 지연: 1.5초 → 0.5초
+- 병렬 처리: `--parallel` 옵션 추가
+- 문서화: `V26_풀링_전체프로세스.md`에 지침 추가
+
+#### 4. 풀링 평가 실행 결과
+
+```
+오세훈 (62e7b453) - V26.0 풀링 방식
+
+카테고리별 평가 수 (목표: 800개)
+- 전문성: 788, 리더십: 763, 비전: 818
+- 청렴성: 769, 윤리성: 818, 책임성: 711
+- 투명성: 692, 소통능력: 688, 대응성: 684, 공익성: 697
+```
+
+#### 5. 점수 계산 결과
+
+| AI | 총점 | 등급 |
+|------|------|------|
+| Claude | 780점 | E (Emerald) |
+| ChatGPT | 795점 | E (Emerald) |
+| Grok | 816점 | E (Emerald) |
+| Gemini | 743점 | P (Pearl) |
+| **4개 AI 평균** | **784점** | **E (Emerald)** |
+
+### 미완료 작업
+
+#### Supabase 테이블 생성 필요
+
+**파일**: `설계문서_V7.0/Database/create_ai_scores_v26.sql`
+
+**생성할 테이블**:
+- `ai_category_scores_v26`
+- `ai_final_scores_v26`
+- `ai_evaluations_v26`
+
+**실행 방법**:
+1. Supabase 대시보드 접속
+2. SQL Editor에서 위 SQL 파일 내용 실행
+3. 점수 계산 재실행:
+   ```bash
+   python calculate_v26_pool_scores.py --politician_id=62e7b453
+   ```
+
+### 생성된 파일 목록
+
+**설계문서_V7.0/Database/**
+- `create_ai_ratings_v26.sql` (이전 생성)
+- `create_ai_scores_v26.sql` (신규)
+
+**설계문서_V7.0/실행스크립트/**
+- `collect_v26_pool.py` (신규)
+- `evaluate_v26_pool.py` (신규 + 최적화)
+- `calculate_v26_pool_scores.py` (신규)
+- `create_v26_tables.py` (신규)
+- `run_migrations_psql.py` (신규)
+
+---
+
+## 2026-01-05 - V24 vs V26 비교 분석
+
+### 점수 비교
+
+| AI | V24 | V26 | 차이 |
+|------|-----|-----|------|
+| Claude | 793점 (E) | 780점 (E) | -13점 |
+| ChatGPT | 779점 (E) | 795점 (E) | +16점 |
+| Grok | 731점 (P) | 816점 (E) | **+85점** |
+| Gemini | - | 743점 (P) | (신규) |
+| 평균 | 768점 | 784점 | +16점 |
+
+### Rating 분포 변화 (핵심)
+
+| AI | V24 평균 | V26 평균 | 변화 | 특징 |
+|----|---------|---------|------|------|
+| Claude | 3.85 | 3.65 | -0.20 | 타 AI 데이터에 엄격 |
+| ChatGPT | 3.75 | 3.91 | +0.15 | A,B 집중도 증가 |
+| Grok | 2.57 | 4.32 | **+1.75** | 타 AI 데이터에 관대 |
+| Gemini | - | 2.85 | - | 가장 보수적 |
+
+### 추가 연구 필요 사항
+
+- V24 vs V26 차이가 크게 나는 원인 심층 분석
+- 풀링 방식이 정말 더 객관적인지 검증
+- Grok +85점 변화가 적절한지 확인
+- 같은 데이터를 다르게 평가하는 AI 간 편차 원인
+
+---
+
 ## 참고사항
 
 - 프로젝트 그리드 Task ID 규칙: Security는 별도 영역(S, SEC)이 아님
