@@ -216,7 +216,8 @@ export default function PoliticianDetailPage() {
       const response = await fetch(`/api/ratings/${politicianId}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ rating: userRating })
+        body: JSON.stringify({ rating: userRating }),
+        credentials: 'include'
       });
 
       const data = await response.json();
@@ -415,7 +416,7 @@ export default function PoliticianDetailPage() {
               {/* Profile Image */}
               <div className="relative flex-shrink-0">
                 <div className="relative w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-full border-4 border-white shadow-xl overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
-                  {politician.profileImageUrl ? (
+                  {politician.profileImageUrl && politician.profileImageUrl.trim() !== '' ? (
                     <Image
                       src={politician.profileImageUrl}
                       alt={politician.name}
