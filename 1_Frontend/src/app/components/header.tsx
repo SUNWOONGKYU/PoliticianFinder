@@ -126,9 +126,9 @@ export default function Header() {
               PoliticianFinder
             </Link>
             {/* 캐치프레이즈: sm(480px) 이상에서 표시 */}
-            <div className="hidden sm:block w-40 md:w-48">
-              <div className="font-bold text-gray-900 dark:text-gray-100 text-xs sm:text-sm md:text-base truncate">2016 Local Elections</div>
-              <div className="text-gray-900 dark:text-gray-300 font-medium text-[10px] sm:text-xs md:text-sm truncate">Find Your Great Candidate</div>
+            <div className="hidden sm:block w-56 md:w-72">
+              <div className="font-bold text-gray-900 dark:text-gray-100 text-[10px] sm:text-xs md:text-sm truncate">2016 Local Elections - Find Your Great Candidate</div>
+              <div className="text-gray-600 dark:text-gray-400 text-[9px] sm:text-[10px] md:text-xs truncate">AI 기반 정치인 평가 플랫폼</div>
             </div>
           </div>
 
