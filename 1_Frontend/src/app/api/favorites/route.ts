@@ -50,6 +50,10 @@ export async function GET(request: NextRequest) {
           name,
           party,
           position,
+          title,
+          status,
+          region,
+          district,
           profile_image_url
         )
       `)

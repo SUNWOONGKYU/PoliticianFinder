@@ -259,11 +259,11 @@ export default function PoliticiansPage() {
 
                 {identityFilter && (
                   <span className="inline-flex items-center gap-1 px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm">
-                    신분: {identityFilter}
+                    출마신분: {identityFilter}
                     <button
                       onClick={() => setIdentityFilter('')}
                       className="min-w-touch min-h-touch flex items-center justify-center hover:bg-primary-200 rounded-full p-1 touch-manipulation"
-                      aria-label="신분 필터 제거"
+                      aria-label="출마신분 필터 제거"
                     >
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -363,9 +363,9 @@ export default function PoliticiansPage() {
 
             {/* Filter Row */}
             <div className={`flex-wrap gap-3 ${showMobileFilters ? 'flex' : 'hidden md:flex'}`}>
-              {/* Identity Filter (신분) - P3F3 */}
+              {/* Identity Filter (출마신분) - P3F3 */}
               <div className="flex-1 min-w-[120px]">
-                <label className="block text-xs font-medium text-gray-700 mb-1">신분</label>
+                <label className="block text-xs font-medium text-gray-700 mb-1">출마신분</label>
                 <select
                   value={identityFilter}
                   onChange={(e) => setIdentityFilter(e.target.value)}
@@ -550,7 +550,7 @@ export default function PoliticiansPage() {
                   <th className="px-2 py-2 text-left font-bold text-gray-900 min-w-[60px]">이름</th>
                   <th className="px-2 py-2 text-left font-bold text-gray-900 whitespace-nowrap">현 직책</th>
                   <th className="px-2 py-2 text-left font-bold text-gray-900 whitespace-nowrap">정당</th>
-                  <th className="px-2 py-2 text-left font-bold text-gray-900 whitespace-nowrap">신분</th>
+                  <th className="px-2 py-2 text-left font-bold text-gray-900 whitespace-nowrap">출마신분</th>
                   <th className="px-2 py-2 text-left font-bold text-gray-900 whitespace-nowrap">출마직종</th>
                   <th className="px-2 py-2 text-left font-bold text-gray-900 whitespace-nowrap">출마지역</th>
                   <th className="px-2 py-2 text-left font-bold text-gray-900 whitespace-nowrap">출마지구</th>
