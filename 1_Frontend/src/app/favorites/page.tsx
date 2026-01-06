@@ -4,14 +4,34 @@ import { useRequireAuth } from '@/hooks/useRequireAuth';
 import { useState, useMemo, useEffect } from 'react';
 import Link from 'next/link';
 
+// API 응답에서 받는 관심 정치인 데이터 형식
+interface FavoriteItem {
+  id: string;
+  politician_id: string;
+  notes?: string;
+  notification_enabled: boolean;
+  is_pinned: boolean;
+  created_at: string;
+  politicians: {
+    id: string;
+    name: string;
+    party: string;
+    position: string;
+    profile_image_url?: string;
+  };
+}
+
+// 화면 표시용 정치인 데이터 형식
 interface Politician {
   id: string;
+  politician_id: string;
   name: string;
   party: string;
   position: string;
   region: string;
-  identity: string;  // P3F3: 신분
-  title?: string;    // P3F3: 직책
+  identity: string;
+  title?: string;
+  profile_image_url?: string;
 }
 
 export default function FavoritesPage() {
@@ -42,7 +62,19 @@ export default function FavoritesPage() {
         if (response.ok) {
           const data = await response.json();
           if (data.success && data.data) {
-            setFavorites(data.data);
+            // API 응답 데이터를 화면 표시용 형식으로 변환
+            const transformedData: Politician[] = data.data.map((item: FavoriteItem) => ({
+              id: item.id,
+              politician_id: item.politician_id,
+              name: item.politicians?.name || '알 수 없음',
+              party: item.politicians?.party || '',
+              position: item.politicians?.position || '',
+              region: '',
+              identity: '출마예정자',
+              title: item.politicians?.position || '',
+              profile_image_url: item.politicians?.profile_image_url || null,
+            }));
+            setFavorites(transformedData);
           }
         }
       } catch (err) {
@@ -74,11 +106,30 @@ export default function FavoritesPage() {
     setTimeout(() => setShowAlert(false), 2000);
   };
 
-  const handleRemoveFavorite = (name: string) => {
-    setFavorites(favorites.filter((p) => p.name !== name));
-    setAlertMessage(`${name} 정치인을 관심 목록에서 삭제했습니다.`);
-    setShowAlert(true);
-    setTimeout(() => setShowAlert(false), 2000);
+  const handleRemoveFavorite = async (politicianId: string, name: string) => {
+    try {
+      const response = await fetch(`/api/favorites?politician_id=${politicianId}`, {
+        method: 'DELETE',
+        credentials: 'include',
+      });
+
+      if (response.ok) {
+        setFavorites(favorites.filter((p) => p.politician_id !== politicianId));
+        setAlertMessage(`${name} 정치인을 관심 목록에서 삭제했습니다.`);
+        setShowAlert(true);
+        setTimeout(() => setShowAlert(false), 2000);
+      } else {
+        const data = await response.json();
+        setAlertMessage(data.error || '삭제에 실패했습니다.');
+        setShowAlert(true);
+        setTimeout(() => setShowAlert(false), 2000);
+      }
+    } catch (err) {
+      console.error('Error removing favorite:', err);
+      setAlertMessage('삭제 중 오류가 발생했습니다.');
+      setShowAlert(true);
+      setTimeout(() => setShowAlert(false), 2000);
+    }
   };
   return (
     <div className="bg-gray-50 min-h-screen">
@@ -148,27 +199,37 @@ export default function FavoritesPage() {
             <span className="text-sm text-gray-500">{favorites.length}명</span>
           </div>
 
-          {favorites.length > 0 ? (
+          {loading ? (
+            <div className="text-center py-12">
+              <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-primary-600 mb-4"></div>
+              <p className="text-gray-600">관심 정치인을 불러오는 중...</p>
+            </div>
+          ) : favorites.length > 0 ? (
             <div className="space-y-4">
               {favorites.map((politician) => (
                 <div key={politician.id} className="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition">
-                  <Link href={`/politicians/${politician.name}`} className="flex items-center gap-4 flex-1">
-                    <div className="w-16 h-16 bg-gray-200 rounded-full flex items-center justify-center">
-                      <span className="text-2xl">👤</span>
+                  <Link href={`/politicians/${politician.politician_id}`} className="flex items-center gap-4 flex-1">
+                    <div className="w-16 h-16 bg-gray-200 rounded-full flex items-center justify-center overflow-hidden">
+                      {politician.profile_image_url ? (
+                        <img src={politician.profile_image_url} alt={politician.name} className="w-full h-full object-cover" />
+                      ) : (
+                        <svg className="w-10 h-10 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v1c0 .55.45 1 1 1h14c.55 0 1-.45 1-1v-1c0-2.66-5.33-4-8-4z"/>
+                        </svg>
+                      )}
                     </div>
                     <div>
                       <h3 className="font-bold text-gray-900">{politician.name}</h3>
                       <p className="text-sm text-gray-600">
-                        {politician.party} · {politician.position}
+                        {politician.party} {politician.title && `· ${politician.title}`}
                       </p>
                       <div className="flex items-center gap-2 mt-1">
-                        <span className="px-2 py-0.5 bg-primary-100 text-primary-700 text-xs rounded">{politician.identity} {politician.title && `• ${politician.title}`}</span>
-                        <span className="text-xs text-gray-500">{politician.region}</span>
+                        <span className="px-2 py-0.5 bg-primary-100 text-primary-700 text-xs rounded">{politician.identity}</span>
                       </div>
                     </div>
                   </Link>
                   <button
-                    onClick={() => handleRemoveFavorite(politician.name)}
+                    onClick={() => handleRemoveFavorite(politician.politician_id, politician.name)}
                     className="px-4 py-2 text-red-600 hover:bg-red-50 rounded-lg font-medium transition"
                   >
                     삭제
