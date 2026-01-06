@@ -17,6 +17,10 @@ interface FavoriteItem {
     name: string;
     party: string;
     position: string;
+    title?: string;
+    status?: string;
+    region?: string;
+    district?: string;
     profile_image_url?: string;
   };
 }
@@ -26,11 +30,12 @@ interface Politician {
   id: string;
   politician_id: string;
   name: string;
-  party: string;
-  position: string;
-  region: string;
-  identity: string;
-  title?: string;
+  currentPosition: string;  // 현직책 (서울특별시장 등)
+  party: string;            // 소속정당
+  identity: string;         // 출마신분 (현직/출마예정자 등)
+  positionType: string;     // 출마직종 (광역단체장 등)
+  region: string;           // 출마지역
+  district: string;         // 출마지구
   profile_image_url?: string;
 }
 
@@ -76,11 +81,12 @@ export default function FavoritesPage() {
               id: p.id,
               politician_id: p.id,
               name: p.name,
-              party: p.party || '',
-              position: p.position || p.title || '',
-              region: p.region || '',
-              identity: p.identity || '출마예정자',
-              title: p.title || p.position || '',
+              currentPosition: p.title || '',              // 현직책
+              party: p.party || '',                        // 소속정당
+              identity: p.identity || '출마예정자',         // 출마신분
+              positionType: p.positionType || '',          // 출마직종
+              region: p.region || '',                      // 출마지역
+              district: p.district || '',                  // 출마지구
               profile_image_url: p.profileImageUrl || null,
             }));
           setSearchResults(filtered);
@@ -113,15 +119,17 @@ export default function FavoritesPage() {
           const data = await response.json();
           if (data.success && data.data) {
             // API 응답 데이터를 화면 표시용 형식으로 변환
+            // DB 컬럼 매핑: position=현직책, title=출마직종, status=출마신분
             const transformedData: Politician[] = data.data.map((item: FavoriteItem) => ({
               id: item.id,
               politician_id: item.politician_id,
               name: item.politicians?.name || '알 수 없음',
-              party: item.politicians?.party || '',
-              position: item.politicians?.position || '',
-              region: '',
-              identity: '출마예정자',
-              title: item.politicians?.position || '',
+              currentPosition: item.politicians?.position || '',  // 현직책
+              party: item.politicians?.party || '',               // 소속정당
+              identity: item.politicians?.status || '출마예정자',  // 출마신분
+              positionType: item.politicians?.title || '',        // 출마직종
+              region: item.politicians?.region || '',             // 출마지역
+              district: item.politicians?.district || '',         // 출마지구
               profile_image_url: item.politicians?.profile_image_url || null,
             }));
             setFavorites(transformedData);
@@ -250,14 +258,30 @@ export default function FavoritesPage() {
                         src={politician.profile_image_url || '/icons/default-profile.svg'}
                         alt={politician.name}
                         className="w-full h-full object-cover"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.src = '/icons/default-profile.svg';
+                        }}
                       />
                     </div>
-                    <div>
+                    <div className="flex-1">
                       <div className="font-medium text-gray-900">{politician.name}</div>
                       <div className="text-xs text-gray-600">
-                        {politician.party} {politician.title && `· ${politician.title}`}
+                        {politician.currentPosition && <span>{politician.currentPosition}</span>}
+                        {politician.currentPosition && politician.party && <span> · </span>}
+                        {politician.party && <span>{politician.party}</span>}
                       </div>
-                      <div className="text-xs text-gray-500">{politician.region}</div>
+                      <div className="flex flex-wrap items-center gap-1 mt-1 text-xs">
+                        {politician.identity && (
+                          <span className="px-1.5 py-0.5 bg-primary-100 text-primary-700 rounded">{politician.identity}</span>
+                        )}
+                        {politician.positionType && (
+                          <span className="px-1.5 py-0.5 bg-blue-100 text-blue-700 rounded">{politician.positionType}</span>
+                        )}
+                        {politician.region && (
+                          <span className="px-1.5 py-0.5 bg-gray-100 text-gray-600 rounded">{politician.region}</span>
+                        )}
+                      </div>
                     </div>
                   </div>
                   <button
@@ -300,15 +324,32 @@ export default function FavoritesPage() {
                         src={politician.profile_image_url || '/icons/default-profile.svg'}
                         alt={politician.name}
                         className="w-full h-full object-cover"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.src = '/icons/default-profile.svg';
+                        }}
                       />
                     </div>
-                    <div>
+                    <div className="flex-1">
                       <h3 className="font-bold text-gray-900">{politician.name}</h3>
                       <p className="text-sm text-gray-600">
-                        {politician.party} {politician.title && `· ${politician.title}`}
+                        {politician.currentPosition && <span>{politician.currentPosition}</span>}
+                        {politician.currentPosition && politician.party && <span> · </span>}
+                        {politician.party && <span>{politician.party}</span>}
                       </p>
-                      <div className="flex items-center gap-2 mt-1">
-                        <span className="px-2 py-0.5 bg-primary-100 text-primary-700 text-xs rounded">{politician.identity}</span>
+                      <div className="flex flex-wrap items-center gap-1.5 mt-1.5 text-xs">
+                        {politician.identity && (
+                          <span className="px-2 py-0.5 bg-primary-100 text-primary-700 rounded">{politician.identity}</span>
+                        )}
+                        {politician.positionType && (
+                          <span className="px-2 py-0.5 bg-blue-100 text-blue-700 rounded">{politician.positionType}</span>
+                        )}
+                        {politician.region && (
+                          <span className="px-2 py-0.5 bg-gray-100 text-gray-600 rounded">{politician.region}</span>
+                        )}
+                        {politician.district && (
+                          <span className="px-2 py-0.5 bg-gray-100 text-gray-600 rounded">{politician.district}</span>
+                        )}
                       </div>
                     </div>
                   </Link>
