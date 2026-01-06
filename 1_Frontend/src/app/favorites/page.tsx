@@ -58,29 +58,39 @@ export default function FavoritesPage() {
       try {
         setSearchLoading(true);
         const response = await fetch(`/api/politicians?search=${encodeURIComponent(searchQuery)}&limit=10`);
-        if (response.ok) {
-          const data = await response.json();
-          if (data.success && data.data) {
-            // 이미 관심 정치인에 있는 정치인은 제외
-            const favoriteIds = favorites.map(f => f.politician_id);
-            const filtered = data.data
-              .filter((p: any) => !favoriteIds.includes(p.id))
-              .map((p: any) => ({
-                id: p.id,
-                politician_id: p.id,
-                name: p.name,
-                party: p.party || '',
-                position: p.position || p.title || '',
-                region: p.region || '',
-                identity: p.identity || '출마예정자',
-                title: p.title || p.position || '',
-                profile_image_url: p.profileImageUrl || null,
-              }));
-            setSearchResults(filtered);
-          }
+
+        if (!response.ok) {
+          console.error('Search API error:', response.status, response.statusText);
+          setSearchResults([]);
+          return;
+        }
+
+        const data = await response.json();
+
+        if (data.success && data.data && data.data.length > 0) {
+          // 이미 관심 정치인에 있는 정치인은 제외
+          const favoriteIds = favorites.map(f => f.politician_id);
+          const filtered = data.data
+            .filter((p: any) => !favoriteIds.includes(p.id))
+            .map((p: any) => ({
+              id: p.id,
+              politician_id: p.id,
+              name: p.name,
+              party: p.party || '',
+              position: p.position || p.title || '',
+              region: p.region || '',
+              identity: p.identity || '출마예정자',
+              title: p.title || p.position || '',
+              profile_image_url: p.profileImageUrl || null,
+            }));
+          setSearchResults(filtered);
+        } else {
+          // 검색 결과가 없거나 API 에러
+          setSearchResults([]);
         }
       } catch (err) {
         console.error('Error searching politicians:', err);
+        setSearchResults([]);
       } finally {
         setSearchLoading(false);
       }
