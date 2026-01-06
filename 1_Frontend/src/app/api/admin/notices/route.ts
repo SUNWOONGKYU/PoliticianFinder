@@ -58,7 +58,7 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { title, content, is_important } = body;
+    const { title, content } = body;
 
     // 유효성 검사
     if (!title || !content) {
@@ -74,7 +74,6 @@ export async function POST(request: NextRequest) {
       .insert([{
         title,
         content,
-        is_important: is_important || false,
         created_at: new Date().toISOString()
       }])
       .select()

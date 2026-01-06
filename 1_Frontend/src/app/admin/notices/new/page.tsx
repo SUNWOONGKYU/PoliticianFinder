@@ -8,7 +8,6 @@ export default function NewNoticePage() {
   const router = useRouter();
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
-  const [isImportant, setIsImportant] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -29,8 +28,7 @@ export default function NewNoticePage() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           title: title.trim(),
-          content: content.trim(),
-          is_important: isImportant
+          content: content.trim()
         })
       });
 
@@ -92,19 +90,6 @@ export default function NewNoticePage() {
                 placeholder="공지사항 내용을 입력하세요"
                 required
               />
-            </div>
-
-            <div className="mb-6">
-              <label className="flex items-center gap-2 cursor-pointer">
-                <input
-                  type="checkbox"
-                  checked={isImportant}
-                  onChange={(e) => setIsImportant(e.target.checked)}
-                  className="w-5 h-5 text-blue-500 border-gray-300 rounded focus:ring-blue-500"
-                />
-                <span className="text-sm font-medium text-gray-700">중요 공지사항으로 설정</span>
-              </label>
-              <p className="text-sm text-gray-500 mt-1">중요 공지사항은 상단에 고정됩니다.</p>
             </div>
 
             <div className="flex gap-4">
