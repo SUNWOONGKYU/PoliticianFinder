@@ -31,6 +31,12 @@ export default function AdminPostsPage() {
   const [activeTab, setActiveTab] = useState<TabType>('posts');
   const [searchText, setSearchText] = useState('');
 
+  // Notice creation modal state
+  const [showNoticeModal, setShowNoticeModal] = useState(false);
+  const [newNoticeTitle, setNewNoticeTitle] = useState('');
+  const [newNoticeContent, setNewNoticeContent] = useState('');
+  const [noticeCreating, setNoticeCreating] = useState(false);
+
   // Posts state
   const [posts, setPosts] = useState<Post[]>([]);
   const [postsLoading, setPostsLoading] = useState(false);
@@ -272,6 +278,43 @@ export default function AdminPostsPage() {
       fetchComments(searchText);
     } else if (activeTab === 'notices') {
       fetchNotices(searchText);
+    }
+  };
+
+  // Create new notice
+  const handleCreateNotice = async () => {
+    if (!newNoticeTitle.trim() || !newNoticeContent.trim()) {
+      alert('제목과 내용을 모두 입력해주세요.');
+      return;
+    }
+
+    setNoticeCreating(true);
+    try {
+      const response = await fetch('/api/notices', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          title: newNoticeTitle.trim(),
+          content: newNoticeContent.trim(),
+        }),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.error || '공지사항 작성에 실패했습니다.');
+      }
+
+      // Success - reset form and refresh list
+      setNewNoticeTitle('');
+      setNewNoticeContent('');
+      setShowNoticeModal(false);
+      await fetchNotices(searchText);
+      alert('공지사항이 작성되었습니다.');
+    } catch (error) {
+      console.error('Error creating notice:', error);
+      alert(error instanceof Error ? error.message : '공지사항 작성에 실패했습니다.');
+    } finally {
+      setNoticeCreating(false);
     }
   };
 
@@ -597,7 +640,10 @@ export default function AdminPostsPage() {
                       검색
                     </button>
                   </div>
-                  <button className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 ml-4">
+                  <button
+                    onClick={() => setShowNoticeModal(true)}
+                    className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 ml-4"
+                  >
                     + 새 공지 작성
                   </button>
                 </div>
@@ -666,6 +712,76 @@ export default function AdminPostsPage() {
           </div>
         </main>
       </div>
+
+      {/* Notice Creation Modal */}
+      {showNoticeModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+            <div className="p-6">
+              <div className="flex justify-between items-center mb-6">
+                <h2 className="text-xl font-bold text-gray-900">새 공지사항 작성</h2>
+                <button
+                  onClick={() => {
+                    setShowNoticeModal(false);
+                    setNewNoticeTitle('');
+                    setNewNoticeContent('');
+                  }}
+                  className="text-gray-500 hover:text-gray-700"
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+
+              <div className="space-y-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">제목</label>
+                  <input
+                    type="text"
+                    value={newNoticeTitle}
+                    onChange={(e) => setNewNoticeTitle(e.target.value)}
+                    placeholder="공지사항 제목을 입력하세요"
+                    className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">내용</label>
+                  <textarea
+                    value={newNoticeContent}
+                    onChange={(e) => setNewNoticeContent(e.target.value)}
+                    placeholder="공지사항 내용을 입력하세요"
+                    rows={10}
+                    className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 resize-none"
+                  />
+                </div>
+              </div>
+
+              <div className="flex justify-end gap-3 mt-6">
+                <button
+                  onClick={() => {
+                    setShowNoticeModal(false);
+                    setNewNoticeTitle('');
+                    setNewNoticeContent('');
+                  }}
+                  className="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50"
+                  disabled={noticeCreating}
+                >
+                  취소
+                </button>
+                <button
+                  onClick={handleCreateNotice}
+                  disabled={noticeCreating || !newNoticeTitle.trim() || !newNoticeContent.trim()}
+                  className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 disabled:bg-gray-300 disabled:cursor-not-allowed"
+                >
+                  {noticeCreating ? '작성 중...' : '작성하기'}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
