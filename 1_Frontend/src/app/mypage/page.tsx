@@ -744,19 +744,13 @@ export default function MypagePage() {
                           <div className="flex items-center gap-4">
                             {/* 프로필 이미지 */}
                             <div className="relative w-14 h-14 bg-gray-200 rounded-full flex items-center justify-center overflow-hidden flex-shrink-0">
-                              {favorite.politicians?.profile_image_url ? (
-                                <Image
-                                  src={favorite.politicians.profile_image_url}
-                                  alt={favorite.politicians.name}
-                                  fill
-                                  sizes="56px"
-                                  className="object-cover"
-                                />
-                              ) : (
-                                <svg className="w-8 h-8 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
-                                  <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
-                                </svg>
-                              )}
+                              <Image
+                                src={favorite.politicians?.profile_image_url || '/icons/default-profile.svg'}
+                                alt={favorite.politicians?.name || '정치인'}
+                                fill
+                                sizes="56px"
+                                className="object-cover"
+                              />
                             </div>
 
                             {/* 정치인 정보 */}
