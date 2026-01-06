@@ -31,18 +31,7 @@ export default function ProfileEditPage() {
   // P7F1: Page-level authentication protection
   const { user: authUser, loading: authLoading } = useRequireAuth();
 
-  // P7F1: Show loading while checking authentication
-  if (authLoading) {
-    return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="text-center">
-          <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600 mb-4"></div>
-          <p className="text-gray-600">로딩 중...</p>
-        </div>
-      </div>
-    );
-  }
-
+  // 모든 hooks를 먼저 선언 (React hooks 규칙 준수)
   const [formData, setFormData] = useState<ProfileFormData>({
     nickname: '',
     email: '',
@@ -75,7 +64,7 @@ export default function ProfileEditPage() {
     return constituency ? constituency.districts : [];
   }, [formData.preferredRegion]);
 
-  // Fetch user data on component mount
+  // Fetch user data on component mount (React hooks 규칙: useEffect는 early return 전에 선언)
   useEffect(() => {
     const fetchUserData = async () => {
       try {
@@ -166,6 +155,18 @@ export default function ProfileEditPage() {
 
     fetchUserData();
   }, []);
+
+  // P7F1: Show loading while checking authentication
+  if (authLoading) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600 mb-4"></div>
+          <p className="text-gray-600">로딩 중...</p>
+        </div>
+      </div>
+    );
+  }
 
   const handleNicknameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData((prev) => ({

@@ -18,18 +18,7 @@ export default function FavoritesPage() {
   // P7F1: Page-level authentication protection
   const { user: authUser, loading: authLoading } = useRequireAuth();
 
-  // P7F1: Show loading while checking authentication
-  if (authLoading) {
-    return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="text-center">
-          <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600 mb-4"></div>
-          <p className="text-gray-600">로딩 중...</p>
-        </div>
-      </div>
-    );
-  }
-
+  // 모든 hooks를 먼저 선언 (React hooks 규칙 준수)
   const [searchQuery, setSearchQuery] = useState('');
   const [favorites, setFavorites] = useState<Politician[]>([]);
   const [showAlert, setShowAlert] = useState(false);
@@ -41,22 +30,6 @@ export default function FavoritesPage() {
     return [];
   }, [searchQuery, favorites]);
 
-  const handleAddFavorite = (politician: Politician) => {
-    setFavorites([...favorites, politician]);
-    setAlertMessage(`${politician.name} 정치인을 관심 목록에 추가했습니다!`);
-    setShowAlert(true);
-    setSearchQuery('');
-    setTimeout(() => setShowAlert(false), 2000);
-  };
-
-  const handleRemoveFavorite = (name: string) => {
-    setFavorites(favorites.filter((p) => p.name !== name));
-    setAlertMessage(`${name} 정치인을 관심 목록에서 삭제했습니다.`);
-    setShowAlert(true);
-    setTimeout(() => setShowAlert(false), 2000);
-  };
-
-
   useEffect(() => {
     const fetchFavorites = async () => {
       try {
@@ -64,6 +37,7 @@ export default function FavoritesPage() {
         const response = await fetch('/api/favorites', {
           method: 'GET',
           headers: { 'Content-Type': 'application/json' },
+          credentials: 'include',
         });
         if (response.ok) {
           const data = await response.json();
@@ -79,6 +53,33 @@ export default function FavoritesPage() {
     };
     fetchFavorites();
   }, []);
+
+  // P7F1: Show loading while checking authentication
+  if (authLoading) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600 mb-4"></div>
+          <p className="text-gray-600">로딩 중...</p>
+        </div>
+      </div>
+    );
+  }
+
+  const handleAddFavorite = (politician: Politician) => {
+    setFavorites([...favorites, politician]);
+    setAlertMessage(`${politician.name} 정치인을 관심 목록에 추가했습니다!`);
+    setShowAlert(true);
+    setSearchQuery('');
+    setTimeout(() => setShowAlert(false), 2000);
+  };
+
+  const handleRemoveFavorite = (name: string) => {
+    setFavorites(favorites.filter((p) => p.name !== name));
+    setAlertMessage(`${name} 정치인을 관심 목록에서 삭제했습니다.`);
+    setShowAlert(true);
+    setTimeout(() => setShowAlert(false), 2000);
+  };
   return (
     <div className="bg-gray-50 min-h-screen">
       {/* Main Content */}
