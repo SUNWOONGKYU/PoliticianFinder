@@ -33,6 +33,27 @@ const nextConfig = {
         hostname: '*.supabase.co',
         pathname: '/storage/**',
       },
+      // 정치인 프로필 이미지 도메인
+      {
+        protocol: 'https',
+        hostname: 'upload.wikimedia.org',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.assembly.go.kr',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'via.placeholder.com',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: '*.namu.wiki',
+        pathname: '/**',
+      },
     ],
   },
 

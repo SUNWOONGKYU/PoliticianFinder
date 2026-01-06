@@ -1,10 +1,12 @@
 // Task: P6O4
-// Security Middleware - Rate Limiting + CORS + CSP + Admin Protection
+// Security Middleware - Rate Limiting + CORS + CSP + Admin Protection + Supabase Auth
 // Generated: 2025-11-10
 // Agent: devops-engineer
+// Updated: 2026-01-07 - Added Supabase auth session refresh
 
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
+import { createServerClient, type CookieOptions } from '@supabase/ssr';
 
 // Rate limiting configuration
 const RATE_LIMIT = {
@@ -42,11 +44,48 @@ function checkRateLimit(
   return { allowed: false, remaining: 0, resetTime: record.resetTime };
 }
 
-export function middleware(request: NextRequest) {
+export async function middleware(request: NextRequest) {
   const { pathname, searchParams } = request.nextUrl;
   const ip = request.ip || request.headers.get('x-forwarded-for') || 'unknown';
 
-  // === 0. PKCE Error Prevention ===
+  // === 0. Supabase Auth Session Refresh ===
+  // This refreshes the user's session and updates cookies
+  let response = NextResponse.next({
+    request: {
+      headers: request.headers,
+    },
+  });
+
+  const supabase = createServerClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    {
+      cookies: {
+        get(name: string) {
+          return request.cookies.get(name)?.value;
+        },
+        set(name: string, value: string, options: CookieOptions) {
+          request.cookies.set({ name, value, ...options });
+          response = NextResponse.next({
+            request: { headers: request.headers },
+          });
+          response.cookies.set({ name, value, ...options });
+        },
+        remove(name: string, options: CookieOptions) {
+          request.cookies.set({ name, value: '', ...options });
+          response = NextResponse.next({
+            request: { headers: request.headers },
+          });
+          response.cookies.set({ name, value: '', ...options });
+        },
+      },
+    }
+  );
+
+  // Refresh session - this updates the cookies if token is expired
+  await supabase.auth.getUser();
+
+  // === 0.5 PKCE Error Prevention ===
   // If /auth/login has a 'code' parameter, redirect to /auth/callback
   // This prevents "invalid request: both auth code and code verifier should be non-empty" error
   if (pathname === '/auth/login' && searchParams.has('code')) {
@@ -126,9 +165,7 @@ export function middleware(request: NextRequest) {
     }
   }
 
-  // === 3. Create response with security headers ===
-  const response = NextResponse.next();
-
+  // === 3. Add security headers to response ===
   // Security Headers
   response.headers.set('X-DNS-Prefetch-Control', 'on');
   response.headers.set('Strict-Transport-Security', 'max-age=63072000; includeSubDomains; preload');

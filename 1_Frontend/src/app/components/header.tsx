@@ -127,7 +127,7 @@ export default function Header() {
             </Link>
             {/* 캐치프레이즈: sm(480px) 이상에서 표시 */}
             <div className="hidden sm:block w-56 md:w-72">
-              <div className="text-gray-500 dark:text-gray-400 text-[8px] sm:text-[9px] md:text-[10px] truncate">2016 Local Elections - Find Your Great Candidate</div>
+              <div className="text-purple-600 dark:text-purple-400 font-bold text-[8px] sm:text-[9px] md:text-[10px] truncate">2016 Local Elections - Find Your Great Candidate</div>
               <div className="font-bold text-gray-900 dark:text-gray-100 text-xs sm:text-sm md:text-base truncate">AI 기반 정치인 평가 플랫폼</div>
             </div>
           </div>

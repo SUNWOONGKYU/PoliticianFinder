@@ -36,18 +36,7 @@ export default function SettingsPage() {
   // P7F1: Page-level authentication protection
   const { user: authUser, loading: authLoading } = useRequireAuth();
 
-  // P7F1: Show loading while checking authentication
-  if (authLoading) {
-    return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="text-center">
-          <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600 mb-4"></div>
-          <p className="text-gray-600">로딩 중...</p>
-        </div>
-      </div>
-    );
-  }
-
+  // 모든 useState hooks를 먼저 선언 (React hooks 규칙 준수)
   const [notifications, setNotifications] = useState<NotificationSettings>(defaultNotifications);
   const [accountSettings, setAccountSettings] = useState<AccountSettings>(defaultAccountSettings);
   const [language, setLanguage] = useState('ko');
@@ -85,6 +74,18 @@ export default function SettingsPage() {
     };
     loadSettings();
   }, []);
+
+  // P7F1: Show loading while checking authentication
+  if (authLoading) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600 mb-4"></div>
+          <p className="text-gray-600">로딩 중...</p>
+        </div>
+      </div>
+    );
+  }
 
   // 설정 저장 (localStorage)
   const saveSettings = () => {
