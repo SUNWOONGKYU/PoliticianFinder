@@ -583,8 +583,8 @@ export default function PoliticianPostDetailPage({ params }: { params: { id: str
                         </Link>
                         <span className="text-gray-900" aria-label={`활동 등급 ${comment.memberLevel}`} title={`활동 등급: ${comment.memberLevel}`}>{comment.memberLevel}</span>
                         <span className="text-xs text-emerald-900 font-medium" aria-label={`영향력 등급 ${comment.influenceLevel}`} title={`영향력 등급: ${comment.influenceLevel}`}>🏰 {comment.influenceLevel}</span>
-                        <button className="px-2 py-0.5 border border-emerald-700 text-emerald-900 rounded text-xs hover:bg-gray-50 transition">
-                          + 팔로우
+                        <button className="px-2.5 py-0.5 bg-emerald-600 text-white rounded-full text-xs font-medium hover:bg-emerald-700 transition">
+                          팔로우
                         </button>
                       </>
                     )}

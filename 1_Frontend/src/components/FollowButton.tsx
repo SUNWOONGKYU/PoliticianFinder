@@ -85,9 +85,9 @@ export default function FollowButton({
 
   // 사이즈별 클래스
   const sizeClasses = {
-    sm: 'px-3 py-1 text-xs',
-    md: 'px-4 py-1.5 text-sm',
-    lg: 'px-5 py-2 text-base',
+    sm: 'px-2.5 py-0.5 text-xs',
+    md: 'px-3 py-1 text-sm',
+    lg: 'px-4 py-1.5 text-base',
   };
 
   // 버튼 상태별 스타일
@@ -99,19 +99,13 @@ export default function FollowButton({
     if (isFollowing) {
       // 팔로잉 상태 (호버 시 언팔로우 표시)
       if (isHovering) {
-        return variant === 'outline'
-          ? 'border-2 border-red-500 text-red-500 bg-red-50 hover:bg-red-100'
-          : 'bg-red-500 text-white hover:bg-red-600';
+        return 'bg-red-500 text-white hover:bg-red-600';
       }
-      return variant === 'outline'
-        ? 'border-2 border-gray-300 text-gray-700 bg-white hover:border-red-500 hover:text-red-500'
-        : 'bg-gray-200 text-gray-700 hover:bg-red-500 hover:text-white';
+      return 'bg-gray-200 text-gray-700 hover:bg-red-500 hover:text-white';
     }
 
-    // 팔로우 버튼
-    return variant === 'outline'
-      ? 'border-2 border-secondary-500 text-secondary-600 bg-white hover:bg-secondary-50'
-      : 'bg-secondary-500 text-white hover:bg-secondary-600';
+    // 팔로우 버튼 - emerald 색상 통일
+    return 'bg-emerald-600 text-white hover:bg-emerald-700';
   };
 
   const getButtonText = () => {
@@ -143,7 +137,7 @@ export default function FollowButton({
         ${sizeClasses[size]}
         ${getButtonStyle()}
         rounded-full font-medium transition-all duration-200
-        focus:outline-none focus:ring-2 focus:ring-secondary-300
+        focus:outline-none focus:ring-2 focus:ring-emerald-300
         disabled:cursor-not-allowed
         ${className}
       `}
