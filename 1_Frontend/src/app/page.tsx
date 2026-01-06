@@ -11,7 +11,7 @@ interface Politician {
   id: number;
   rank: number;
   name: string;
-  identity: string;  // 신분 (현직/후보자/예비후보자/출마자)
+  identity: string;  // 출마 신분 (출마예정자/예비후보자/후보자)
   title?: string;    // 직책 (성동구청장 등)
   positionType: string;  // 출마직종 (국회의원/광역단체장/기초단체장/광역의원/기초의원/교육감)
   party: string;
@@ -41,7 +41,7 @@ interface Post {
   politician_name?: string;
   politician_position?: string;
   politician_party?: string;     // 정당
-  politician_identity?: string;  // P3F3: 신분
+  politician_identity?: string;  // P3F3: 출마 신분
   politician_title?: string;     // P3F3: 직책
   view_count: number;
   upvotes: number;
@@ -243,7 +243,7 @@ export default function Home() {
               id: p.id || index + 1,
               rank: index + 1,
               name: p.name,
-              identity: p.identity || '현직',  // 신분: 현직/후보자/예비후보자/출마자
+              identity: p.identity || '출마예정자',  // 출마 신분: 출마예정자/예비후보자/후보자
               title: p.title || '',           // 직책: 성동구청장 등
               positionType: p.positionType || '',  // 출마직종: 국회의원/광역단체장/기초단체장/광역의원/기초의원/교육감
               party: p.party || '',
@@ -680,7 +680,7 @@ export default function Home() {
                         <th className="px-2 py-2 text-left font-bold text-gray-900 min-w-[70px]">이름</th>
                         <th className="px-1 py-2 text-left font-bold text-gray-900 w-20">현 직책</th>
                         <th className="px-1 py-2 text-left font-bold text-gray-900 whitespace-nowrap">정당</th>
-                        <th className="px-1 py-2 text-left font-bold text-gray-900 w-12">신분</th>
+                        <th className="px-1 py-2 text-left font-bold text-gray-900 w-16">출마 신분</th>
                         <th className="px-1 py-2 text-left font-bold text-gray-900 whitespace-nowrap">출마직종</th>
                         <th className="px-1 py-2 text-left font-bold text-gray-900 w-20">출마지역</th>
                         <th className="px-1 py-2 text-left font-bold text-gray-900 w-20">출마지구</th>
@@ -1156,7 +1156,7 @@ export default function Home() {
                     <span className="font-semibold text-gray-900">{sidebarStats?.politicians.total || 0}명</span>
                   </div>
                   <div className="mt-3 pt-2 border-t">
-                    <div className="font-semibold text-gray-900 mb-2">📋 신분별</div>
+                    <div className="font-semibold text-gray-900 mb-2">📋 출마 신분별</div>
                     <div className="space-y-1 pl-2">
                       <div className="flex justify-between text-gray-700">
                         <span>현직</span>
