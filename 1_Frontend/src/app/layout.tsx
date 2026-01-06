@@ -132,8 +132,8 @@ export default function RootLayout({
   return (
     <html lang="ko" suppressHydrationWarning className={notoSansKr.className}>
       <head>
-        {/* PWA: iOS Safari용 메타태그 */}
-        <meta name="apple-mobile-web-app-capable" content="yes" />
+        {/* PWA: 모바일 웹앱 메타태그 */}
+        <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content="PoliticianFinder" />
         <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
