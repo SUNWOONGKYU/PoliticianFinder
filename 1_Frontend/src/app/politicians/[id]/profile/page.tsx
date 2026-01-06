@@ -292,22 +292,22 @@ export default function PoliticianProfilePage() {
                   <button
                     onClick={handleFollowToggle}
                     disabled={followLoading}
-                    className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-colors ${
+                    className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium transition-colors ${
                       isFollowing
-                        ? 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                        : 'bg-[#064E3B] text-white hover:bg-[#065F46]'
+                        ? 'bg-gray-200 text-gray-700 hover:bg-red-500 hover:text-white'
+                        : 'bg-emerald-600 text-white hover:bg-emerald-700'
                     } disabled:opacity-50`}
                     aria-label={isFollowing ? '팔로우 취소' : '팔로우'}
                   >
                     {isFollowing ? (
                       <>
                         <UserCheck className="w-4 h-4" />
-                        <span className="hidden sm:inline">팔로잉</span>
+                        <span>팔로잉</span>
                       </>
                     ) : (
                       <>
                         <UserPlus className="w-4 h-4" />
-                        <span className="hidden sm:inline">팔로우</span>
+                        <span>팔로우</span>
                       </>
                     )}
                   </button>

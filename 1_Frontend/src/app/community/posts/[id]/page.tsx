@@ -758,9 +758,7 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
               <span className="text-xs font-medium text-gray-700">비공감 <span className="text-gray-500">{downvotes}</span></span>
             </button>
             <button onClick={handleShare} className="flex flex-col items-center gap-0.5 sm:gap-1 min-w-[70px] sm:min-w-[90px] min-h-[50px] sm:min-h-[56px] px-3 sm:px-5 py-2 sm:py-2.5 bg-emerald-50 hover:bg-emerald-100 active:bg-emerald-200 rounded-lg transition touch-manipulation">
-              <svg className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.59 13.51l6.83 3.98m-.01-10.98l-6.82 3.98M21 5a3 3 0 11-6 0 3 3 0 016 0zM9 12a3 3 0 11-6 0 3 3 0 016 0zm12 7a3 3 0 11-6 0 3 3 0 016 0z" />
-              </svg>
+              <span className="text-xl sm:text-2xl">📤</span>
               <span className="text-xs font-medium text-gray-700">공유 <span className="text-emerald-900">{post.shareCount}</span></span>
             </button>
           </div>
@@ -916,8 +914,8 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
                         </Link>
                         <span className="text-gray-700 font-medium">{comment.memberLevel}</span>
                         <span className="text-emerald-700 font-medium">🏰 {comment.influenceLevel}</span>
-                        <button className="px-2.5 py-1 border border-emerald-700 text-emerald-700 rounded text-sm hover:bg-gray-50 transition min-h-[32px] touch-manipulation">
-                          + 팔로우
+                        <button className="px-2.5 py-0.5 bg-emerald-600 text-white rounded-full text-xs font-medium hover:bg-emerald-700 transition touch-manipulation">
+                          팔로우
                         </button>
                       </>
                     )}
