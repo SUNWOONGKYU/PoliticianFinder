@@ -1,7 +1,7 @@
 'use client';
 import { useRequireAuth } from '@/hooks/useRequireAuth';
 
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
 // API 응답에서 받는 관심 정치인 데이터 형식
@@ -44,10 +44,50 @@ export default function FavoritesPage() {
   const [showAlert, setShowAlert] = useState(false);
   const [alertMessage, setAlertMessage] = useState('');
   const [loading, setLoading] = useState(false);
+  const [searchResults, setSearchResults] = useState<Politician[]>([]);
+  const [searchLoading, setSearchLoading] = useState(false);
 
-  const filteredResults = useMemo((): Politician[] => {
-    // 검색 기능은 API를 통해 구현 필요
-    return [];
+  // 검색어 변경 시 정치인 검색
+  useEffect(() => {
+    const searchPoliticians = async () => {
+      if (!searchQuery.trim()) {
+        setSearchResults([]);
+        return;
+      }
+
+      try {
+        setSearchLoading(true);
+        const response = await fetch(`/api/politicians?search=${encodeURIComponent(searchQuery)}&limit=10`);
+        if (response.ok) {
+          const data = await response.json();
+          if (data.success && data.data) {
+            // 이미 관심 정치인에 있는 정치인은 제외
+            const favoriteIds = favorites.map(f => f.politician_id);
+            const filtered = data.data
+              .filter((p: any) => !favoriteIds.includes(p.id))
+              .map((p: any) => ({
+                id: p.id,
+                politician_id: p.id,
+                name: p.name,
+                party: p.party || '',
+                position: p.position || p.title || '',
+                region: p.region || '',
+                identity: p.identity || '출마예정자',
+                title: p.title || p.position || '',
+                profile_image_url: p.profileImageUrl || null,
+              }));
+            setSearchResults(filtered);
+          }
+        }
+      } catch (err) {
+        console.error('Error searching politicians:', err);
+      } finally {
+        setSearchLoading(false);
+      }
+    };
+
+    const debounceTimer = setTimeout(searchPoliticians, 300);
+    return () => clearTimeout(debounceTimer);
   }, [searchQuery, favorites]);
 
   useEffect(() => {
@@ -98,12 +138,37 @@ export default function FavoritesPage() {
     );
   }
 
-  const handleAddFavorite = (politician: Politician) => {
-    setFavorites([...favorites, politician]);
-    setAlertMessage(`${politician.name} 정치인을 관심 목록에 추가했습니다!`);
-    setShowAlert(true);
-    setSearchQuery('');
-    setTimeout(() => setShowAlert(false), 2000);
+  const handleAddFavorite = async (politician: Politician) => {
+    try {
+      const response = await fetch('/api/favorites', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify({
+          politician_id: politician.politician_id,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        setFavorites([...favorites, politician]);
+        setAlertMessage(`${politician.name} 정치인을 관심 목록에 추가했습니다!`);
+        setShowAlert(true);
+        setSearchQuery('');
+        setSearchResults([]);
+        setTimeout(() => setShowAlert(false), 2000);
+      } else {
+        setAlertMessage(data.error || '관심 정치인 추가에 실패했습니다.');
+        setShowAlert(true);
+        setTimeout(() => setShowAlert(false), 2000);
+      }
+    } catch (err) {
+      console.error('Error adding favorite:', err);
+      setAlertMessage('관심 정치인 추가 중 오류가 발생했습니다.');
+      setShowAlert(true);
+      setTimeout(() => setShowAlert(false), 2000);
+    }
   };
 
   const handleRemoveFavorite = async (politicianId: string, name: string) => {
@@ -158,18 +223,31 @@ export default function FavoritesPage() {
           </div>
 
           {/* Search Results */}
-          {searchQuery && filteredResults.length > 0 && (
+          {searchQuery && searchLoading && (
+            <div className="p-4 text-sm text-gray-500 border border-gray-200 rounded-lg text-center">
+              <div className="inline-block animate-spin rounded-full h-5 w-5 border-b-2 border-primary-600 mr-2"></div>
+              검색 중...
+            </div>
+          )}
+
+          {searchQuery && !searchLoading && searchResults.length > 0 && (
             <div className="border border-gray-200 rounded-lg divide-y max-h-96 overflow-y-auto">
-              {filteredResults.map((politician) => (
+              {searchResults.map((politician) => (
                 <div key={politician.id} className="p-4 hover:bg-gray-50 cursor-pointer flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center">
-                      <span className="text-xl">👤</span>
+                    <div className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center overflow-hidden">
+                      {politician.profile_image_url ? (
+                        <img src={politician.profile_image_url} alt={politician.name} className="w-full h-full object-cover" />
+                      ) : (
+                        <svg className="w-8 h-8 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v1c0 .55.45 1 1 1h14c.55 0 1-.45 1-1v-1c0-2.66-5.33-4-8-4z"/>
+                        </svg>
+                      )}
                     </div>
                     <div>
                       <div className="font-medium text-gray-900">{politician.name}</div>
                       <div className="text-xs text-gray-600">
-                        {politician.party} · {politician.position}
+                        {politician.party} {politician.title && `· ${politician.title}`}
                       </div>
                       <div className="text-xs text-gray-500">{politician.region}</div>
                     </div>
@@ -185,7 +263,7 @@ export default function FavoritesPage() {
             </div>
           )}
 
-          {searchQuery && filteredResults.length === 0 && (
+          {searchQuery && !searchLoading && searchResults.length === 0 && (
             <div className="p-4 text-sm text-gray-500 border border-gray-200 rounded-lg text-center">
               검색 결과가 없습니다
             </div>
