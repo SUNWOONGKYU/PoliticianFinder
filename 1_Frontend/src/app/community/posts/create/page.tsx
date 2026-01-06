@@ -301,7 +301,7 @@ export default function CreatePostPage() {
                 onChange={(e) => setPoliticianSearch(e.target.value)}
                 placeholder="정치인 이름 검색..."
                 autoComplete="off"
-                className="w-full px-4 py-3 min-h-[44px] border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-base touch-manipulation"
+                className="w-full px-3 sm:px-4 py-2.5 sm:py-3 min-h-[40px] sm:min-h-[44px] border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-sm sm:text-base touch-manipulation"
               />
 
               {/* Search Results Dropdown */}
@@ -320,9 +320,9 @@ export default function CreatePostPage() {
                         <div
                           key={index}
                           onClick={() => selectPolitician(p)}
-                          className="min-h-[44px] p-3 hover:bg-gray-100 active:bg-gray-200 cursor-pointer border-b last:border-b-0 touch-manipulation"
+                          className="min-h-[40px] sm:min-h-[44px] p-2.5 sm:p-3 hover:bg-gray-100 active:bg-gray-200 cursor-pointer border-b last:border-b-0 touch-manipulation"
                         >
-                          <div className="font-medium text-gray-900">{p.name}</div>
+                          <div className="font-medium text-gray-900 text-sm sm:text-base">{p.name}</div>
                           <div className="text-xs text-gray-600">{p.party} · {p.position}</div>
                         </div>
                       ))}
@@ -349,7 +349,7 @@ export default function CreatePostPage() {
               required
               maxLength={100}
               placeholder="제목을 입력하세요 (최대 100자)"
-              className="w-full px-4 py-3 min-h-[44px] border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-base touch-manipulation"
+              className="w-full px-3 sm:px-4 py-2.5 sm:py-3 min-h-[40px] sm:min-h-[44px] border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-sm sm:text-base touch-manipulation"
             />
             <div className="text-right mt-1">
               <span className="text-sm text-gray-500">{title.length} / 100</span>
@@ -387,9 +387,9 @@ export default function CreatePostPage() {
               value={tags}
               onChange={(e) => setTags(e.target.value)}
               placeholder="태그를 쉼표(,)로 구분하여 입력하세요"
-              className="w-full px-4 py-3 min-h-[44px] border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-base touch-manipulation"
+              className="w-full px-3 sm:px-4 py-2.5 sm:py-3 min-h-[40px] sm:min-h-[44px] border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-sm sm:text-base touch-manipulation"
             />
-            <p className="text-sm text-gray-500 mt-1">최대 5개까지 입력 가능합니다.</p>
+            <p className="text-xs sm:text-sm text-gray-500 mt-1">최대 5개까지 입력 가능합니다.</p>
           </div>
 
           {/* File Upload */}
@@ -458,24 +458,24 @@ export default function CreatePostPage() {
           </div>
 
           {/* Buttons - Mobile Optimized */}
-          <div className="flex flex-col md:flex-row gap-3 pt-4 border-t">
+          <div className="flex flex-col md:flex-row gap-2 sm:gap-3 pt-4 border-t">
             <button
               type="button"
               onClick={() => router.back()}
-              className="flex-1 flex items-center justify-center px-6 py-3 min-h-[44px] border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 active:bg-gray-100 font-medium transition touch-manipulation"
+              className="flex-1 flex items-center justify-center px-4 sm:px-6 py-2 sm:py-2.5 min-h-[36px] sm:min-h-[40px] border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 active:bg-gray-100 font-medium transition touch-manipulation text-sm"
             >
               취소
             </button>
             <button
               type="button"
               onClick={saveDraft}
-              className="flex-1 flex items-center justify-center px-6 py-3 min-h-[44px] border border-purple-600 text-purple-600 rounded-lg hover:bg-purple-50 active:bg-purple-100 font-medium transition touch-manipulation"
+              className="flex-1 flex items-center justify-center px-4 sm:px-6 py-2 sm:py-2.5 min-h-[36px] sm:min-h-[40px] border border-purple-600 text-purple-600 rounded-lg hover:bg-purple-50 active:bg-purple-100 font-medium transition touch-manipulation text-sm"
             >
               임시저장
             </button>
             <button
               type="submit"
-              className="flex-1 flex items-center justify-center px-6 py-3 min-h-[44px] bg-purple-600 text-white rounded-lg hover:bg-purple-700 active:bg-purple-800 font-medium transition touch-manipulation"
+              className="flex-1 flex items-center justify-center px-4 sm:px-6 py-2 sm:py-2.5 min-h-[36px] sm:min-h-[40px] bg-purple-600 text-white rounded-lg hover:bg-purple-700 active:bg-purple-800 font-medium transition touch-manipulation text-sm"
             >
               등록하기
             </button>
@@ -486,14 +486,14 @@ export default function CreatePostPage() {
       {/* Alert Modal - 모바일 최적화 */}
       {showAlert && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-lg max-w-sm w-full p-6">
-            <div className="mb-6">
-              <p className="text-gray-900 text-center whitespace-pre-line">{alertMessage}</p>
+          <div className="bg-white rounded-lg max-w-sm w-full p-4 sm:p-6">
+            <div className="mb-4 sm:mb-6">
+              <p className="text-gray-900 text-center whitespace-pre-line text-sm sm:text-base">{alertMessage}</p>
             </div>
             <div className="flex justify-center">
               <button
                 onClick={closeAlertModal}
-                className="min-h-[44px] min-w-[120px] px-8 py-3 bg-gray-900 text-white rounded-lg hover:bg-gray-800 active:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 transition touch-manipulation font-medium"
+                className="min-h-[36px] sm:min-h-[40px] min-w-[100px] sm:min-w-[120px] px-6 sm:px-8 py-2 sm:py-2.5 bg-gray-900 text-white rounded-lg hover:bg-gray-800 active:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 transition touch-manipulation font-medium text-sm"
               >
                 확인
               </button>

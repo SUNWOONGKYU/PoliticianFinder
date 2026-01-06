@@ -424,3 +424,93 @@ window.location.href = safeRedirect;
 - 프로젝트 그리드 Task ID 규칙: Security는 별도 영역(S, SEC)이 아님
 - 영역 코드: O, D, BI, BA, F, T만 사용
 - 보안 관련 작업은 해당 영역(Frontend → F, Backend → BA 등)에 배치
+
+---
+
+## 2026-01-06 - 커뮤니티 모바일 최적화 및 댓글 UI 개선
+
+### 작업 1: 모바일 버튼 크기 최적화
+
+**파일**: `community/page.tsx`, `community/posts/[id]/page.tsx`, `community/posts/create/page.tsx`
+
+**변경 패턴**: `min-h-[44px]` → `min-h-[36px] sm:min-h-[40px]`
+
+**최적화 대상**:
+- 탭 버튼 (전체/정치인 게시판/회원 자유게시판)
+- 글쓰기 버튼
+- 검색 버튼
+- 정렬 선택 드롭다운
+- 페이지네이션 버튼
+- 공감/비공감/공유 버튼
+- 수정/삭제 버튼
+- 댓글 더보기 버튼
+- 모달 버튼
+- 글쓰기 폼 입력 필드 및 버튼
+
+---
+
+### 작업 2: 정치인 태깅 표시 위치 변경
+
+**변경 내용**:
+- 정치인 태깅 정보를 글 제목 위로 이동
+- 배경색 유지 (`bg-orange-50 border border-orange-200`)
+- 글씨 크기 축소 (`text-xs`)
+
+---
+
+### 작업 3: 정치인 게시글 작성 (안태준)
+
+**인증 방식**: 이메일 인증 (wksun999@naver.com)
+**인증 코드**: 935422
+**세션 토큰**: b5f24663ca2b8892e509091b765f210686ab431d194acc3d3ec4929bc2b4347d
+**게시글 ID**: d0987979-5fe3-4814-b3d4-ccafdee52b6c
+
+**참고**: 간편인증 API (`verify-simple`) 삭제 - 정치인 인증은 이메일 인증만 사용
+
+---
+
+### 작업 4: 댓글 섹션 UI 전면 개선
+
+**파일**: `1_Frontend/src/app/community/posts/[id]/page.tsx`
+
+**삭제 항목**:
+- "정치인 댓글" / "회원 댓글" 탭 버튼 (불필요)
+- 중복 이름 표시 (좌측 + 우측 동시 표시 문제)
+
+**정치인 게시판 댓글 UI**:
+```
+💬 정치인으로 댓글 작성 (주황)     [정치인이름님] 또는 [본인 인증하기]
+💬 회원으로 댓글 작성 (보라)       [선웅규님]
+```
+
+**회원 자유게시판 댓글 UI**:
+```
+💬 댓글 작성 (보라)               [선웅규님]
+```
+
+**색상 체계**:
+| 구분 | 배경 | 테두리 | 텍스트 | 버튼 |
+|------|------|--------|--------|------|
+| 정치인 | bg-orange-50 | border-orange-200 | text-orange-600 | bg-orange-500 |
+| 회원 | bg-purple-50 | border-purple-200 | text-purple-600 | bg-purple-600 |
+
+**크기 축소**:
+| 요소 | Before | After |
+|------|--------|-------|
+| 레이블 텍스트 | text-sm | text-xs |
+| 버튼 | px-6 py-2 | px-3 py-1.5 text-xs |
+| 컨테이너 패딩 | p-4 | p-3 |
+| textarea rows | 3 | 2 |
+
+**버튼 텍스트**: 모두 "댓글 등록" 4글자로 통일
+
+**빌드**: 성공
+
+**결과 보고서**: `Web_ClaudeCode_Bridge/outbox/community_comment_ui_update_2026-01-06.json`
+
+---
+
+## 다음 작업 예정
+
+- Vercel 배포 필요 (수동)
+- 모바일 브라우저에서 UI 확인 필요

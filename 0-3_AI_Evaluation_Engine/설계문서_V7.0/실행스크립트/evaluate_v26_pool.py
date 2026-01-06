@@ -73,10 +73,12 @@ CATEGORIES = [
 # 알파벳 등급
 ALPHABET_GRADES = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
 
-# AI 모델 설정
+# AI 모델 설정 (V26.1 - 비용 최적화)
+# Claude: claude-3-5-haiku → claude-3-haiku (69% 절감)
+# Grok: grok-3-mini → grok-4-fast (더 저렴)
 AI_CONFIGS = {
     "Claude": {
-        "model": "claude-3-5-haiku-20241022",
+        "model": "claude-3-haiku-20240307",
         "env_key": "ANTHROPIC_API_KEY"
     },
     "ChatGPT": {
@@ -84,7 +86,7 @@ AI_CONFIGS = {
         "env_key": "OPENAI_API_KEY"
     },
     "Grok": {
-        "model": "grok-3-mini",
+        "model": "grok-4-fast",
         "env_key": "XAI_API_KEY"
     },
     "Gemini": {
@@ -138,7 +140,7 @@ def call_ai_api(ai_name, prompt):
         if ai_name == "Claude":
             response = client.messages.create(
                 model=config['model'],
-                max_tokens=8000,
+                max_tokens=4096,  # Claude 3 Haiku 제한
                 temperature=1.0,
                 messages=[{"role": "user", "content": prompt}]
             )

@@ -69,10 +69,12 @@ CATEGORIES = [
     ("PublicInterest", "공익성")
 ]
 
-# AI 모델 설정
+# AI 모델 설정 (V26.1 - 비용 최적화)
+# Claude: claude-3-5-haiku → claude-3-haiku (69% 절감)
+# Grok: grok-3-mini → grok-4-fast (더 저렴)
 AI_CONFIGS = {
     "Claude": {
-        "model": "claude-3-5-haiku-20241022",
+        "model": "claude-3-haiku-20240307",
         "env_key": "ANTHROPIC_API_KEY"
     },
     "ChatGPT": {
@@ -80,7 +82,7 @@ AI_CONFIGS = {
         "env_key": "OPENAI_API_KEY"
     },
     "Grok": {
-        "model": "grok-3-mini",
+        "model": "grok-4-fast",
         "env_key": "XAI_API_KEY"
     },
     "Gemini": {
@@ -284,7 +286,7 @@ def call_ai_api(ai_name, prompt):
         if ai_name == "Claude":
             response = client.messages.create(
                 model=config['model'],
-                max_tokens=8000,
+                max_tokens=4096,
                 temperature=1.0,
                 messages=[{"role": "user", "content": prompt}]
             )
@@ -556,10 +558,20 @@ def collect_category(politician_id, politician_name, ai_name, category_num):
             round_items.extend(neg_official)
             round_items.extend(neg_public)
 
-            # Phase 2: 자유 평가 40개
+            # Phase 2: 자유 평가 40개 (Claude는 배치 크기 10으로 제한)
             print(f"    Phase 2: 자유 평가 40개 수집")
-            free_official = collect_batch_no_rating(politician_id, politician_name, ai_name, category_num, 'OFFICIAL', False, 20)
-            free_public = collect_batch_no_rating(politician_id, politician_name, ai_name, category_num, 'PUBLIC', False, 20)
+            batch_size = 10 if ai_name == "Claude" else 20
+            if ai_name == "Claude":
+                # Claude: 10개씩 4번
+                free_official_1 = collect_batch_no_rating(politician_id, politician_name, ai_name, category_num, 'OFFICIAL', False, 10)
+                free_official_2 = collect_batch_no_rating(politician_id, politician_name, ai_name, category_num, 'OFFICIAL', False, 10)
+                free_public_1 = collect_batch_no_rating(politician_id, politician_name, ai_name, category_num, 'PUBLIC', False, 10)
+                free_public_2 = collect_batch_no_rating(politician_id, politician_name, ai_name, category_num, 'PUBLIC', False, 10)
+                free_official = free_official_1 + free_official_2
+                free_public = free_public_1 + free_public_2
+            else:
+                free_official = collect_batch_no_rating(politician_id, politician_name, ai_name, category_num, 'OFFICIAL', False, 20)
+                free_public = collect_batch_no_rating(politician_id, politician_name, ai_name, category_num, 'PUBLIC', False, 20)
             round_items.extend(free_official)
             round_items.extend(free_public)
         else:
