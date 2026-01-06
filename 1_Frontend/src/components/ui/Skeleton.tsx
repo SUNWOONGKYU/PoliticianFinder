@@ -151,7 +151,7 @@ export function SkeletonRankingTable({ rows = 10 }: { rows?: number }) {
       <table className="w-full text-sm">
         <thead className="bg-gray-100">
           <tr>
-            {['순위', '이름', '직책', '정당', '신분', '출마직종', '지역', '지구', '등급', '종합', 'Claude', 'GPT', 'Grok', '회원평가'].map((_, i) => (
+            {['순위', '이름', '현 직책', '정당', '신분', '출마직종', '지역', '지구', '등급', '종합', 'Claude', 'GPT', 'Grok', '회원평가'].map((_, i) => (
               <th key={i} className="px-2 py-3">
                 <Skeleton className="h-4 w-12 mx-auto" />
               </th>

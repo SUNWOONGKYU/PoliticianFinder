@@ -415,7 +415,7 @@ export default function PoliticianProfilePage() {
                   <dd className="text-base text-gray-900">{politician.region}</dd>
                 </div>
                 <div>
-                  <dt className="text-sm font-medium text-gray-500 mb-1">직책</dt>
+                  <dt className="text-sm font-medium text-gray-500 mb-1">현 직책</dt>
                   <dd className="text-base text-gray-900">{politician.position}</dd>
                 </div>
               </dl>
