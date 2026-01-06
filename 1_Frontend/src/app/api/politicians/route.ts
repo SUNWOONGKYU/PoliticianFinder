@@ -58,9 +58,10 @@ export async function GET(request: NextRequest) {
       .select("*", { count: "exact" });
 
     // Full-text 검색 (이름, 영어 이름, 정당, 지역)
+    // PostgREST/Supabase: .or() 내에서 와일드카드는 * 사용
     if (query.search) {
       queryBuilder = queryBuilder.or(
-        `name.ilike.%${query.search}%,name_en.ilike.%${query.search}%,party.ilike.%${query.search}%,region.ilike.%${query.search}%,district.ilike.%${query.search}%`
+        `name.ilike.*${query.search}*,name_en.ilike.*${query.search}*,party.ilike.*${query.search}*,region.ilike.*${query.search}*,district.ilike.*${query.search}*`
       );
     }
 
