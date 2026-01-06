@@ -289,36 +289,6 @@ export default function SettingsPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="bg-white shadow-sm sticky top-0 z-50 border-b-2 border-primary-500">
-        <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center space-x-4">
-              <Link href="/" className="text-2xl font-bold text-primary-600">
-                PoliticianFinder
-              </Link>
-              <div className="hidden md:block w-48">
-                <div className="font-bold text-gray-900" style={{ fontSize: 'clamp(0.5rem, 3vw, 1rem)' }}>
-                  훌륭한 정치인 찾기
-                </div>
-                <div className="text-gray-900 font-medium" style={{ fontSize: 'clamp(0.38rem, 2.28vw, 0.7125rem)' }}>
-                  AI 기반 정치인 평가 플랫폼
-                </div>
-              </div>
-            </div>
-
-            <div className="hidden md:flex items-center space-x-3">
-              <Link href="/mypage" className="flex items-center gap-2 text-gray-900 hover:text-primary-600 font-medium">
-                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
-                </svg>
-                마이페이지
-              </Link>
-            </div>
-          </div>
-        </nav>
-      </header>
-
       {/* Main Content */}
       <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="mb-6">
