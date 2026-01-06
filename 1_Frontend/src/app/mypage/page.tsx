@@ -574,11 +574,11 @@ export default function MypagePage() {
                   <div className="grid grid-cols-2 gap-4">
                     <div className="bg-orange-50 rounded-lg p-4 border-2 border-orange-200">
                       <div className="text-sm text-gray-600 mb-1">총 포인트</div>
-                      <div className="text-3xl font-bold text-orange-600">{userData.points.toLocaleString()}</div>
+                      <div className="text-base font-bold text-orange-600">{userData.points.toLocaleString()}</div>
                     </div>
                     <div className="bg-blue-50 rounded-lg p-4 border-2 border-blue-200">
                       <div className="text-sm text-gray-600 mb-1">활동 레벨</div>
-                      <div className="text-3xl font-bold text-blue-600">ML{userData.level}</div>
+                      <div className="text-base font-bold text-blue-600">ML{userData.level}</div>
                       <div className="text-xs text-gray-500 mt-1">
                         {userData.level < 10 ? `다음 레벨: ML${userData.level + 1}` : '최고 레벨'}
                       </div>
