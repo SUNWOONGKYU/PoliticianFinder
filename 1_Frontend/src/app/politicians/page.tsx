@@ -546,21 +546,21 @@ export default function PoliticiansPage() {
             <table className="w-full text-[13px]">
               <thead className="bg-gray-100 border-b-2 border-primary-500">
                 <tr>
-                  <th className="px-1 py-2 text-center font-bold text-gray-900 w-10">순위</th>
-                  <th className="px-2 py-2 text-left font-bold text-gray-900 min-w-[70px]">이름</th>
-                  <th className="px-1 py-2 text-left font-bold text-gray-900 w-20">현 직책</th>
-                  <th className="px-1 py-2 text-left font-bold text-gray-900 whitespace-nowrap">정당</th>
-                  <th className="px-1 py-2 text-left font-bold text-gray-900 w-12">신분</th>
-                  <th className="px-1 py-2 text-left font-bold text-gray-900 whitespace-nowrap">출마직종</th>
-                  <th className="px-1 py-2 text-left font-bold text-gray-900 w-20">출마지역</th>
-                  <th className="px-1 py-2 text-left font-bold text-gray-900 w-20">출마지구</th>
-                  <th className="px-1 py-2 text-center font-bold text-gray-900 whitespace-nowrap">평가등급</th>
-                  <th className="px-1 py-2 text-center font-bold text-gray-900 whitespace-nowrap">종합평점</th>
-                  <th className="px-1 py-2 text-center font-bold text-gray-900 whitespace-nowrap">Claude</th>
-                  <th className="px-1 py-2 text-center font-bold text-gray-900 whitespace-nowrap">ChatGPT</th>
-                  <th className="px-1 py-2 text-center font-bold text-gray-900 whitespace-nowrap">Gemini</th>
-                  <th className="px-1 py-2 text-center font-bold text-gray-900 whitespace-nowrap">Grok</th>
-                  <th className="px-1 py-2 text-center font-bold text-gray-900 whitespace-nowrap">회원평가</th>
+                  <th className="px-2 py-2 text-center font-bold text-gray-900 w-12">순위</th>
+                  <th className="px-2 py-2 text-left font-bold text-gray-900 min-w-[60px]">이름</th>
+                  <th className="px-2 py-2 text-left font-bold text-gray-900 whitespace-nowrap">현 직책</th>
+                  <th className="px-2 py-2 text-left font-bold text-gray-900 whitespace-nowrap">정당</th>
+                  <th className="px-2 py-2 text-left font-bold text-gray-900 whitespace-nowrap">신분</th>
+                  <th className="px-2 py-2 text-left font-bold text-gray-900 whitespace-nowrap">출마직종</th>
+                  <th className="px-2 py-2 text-left font-bold text-gray-900 whitespace-nowrap">출마지역</th>
+                  <th className="px-2 py-2 text-left font-bold text-gray-900 whitespace-nowrap">출마지구</th>
+                  <th className="px-2 py-2 text-center font-bold text-gray-900 whitespace-nowrap">평가등급</th>
+                  <th className="px-2 py-2 text-center font-bold text-gray-900 whitespace-nowrap">종합평점</th>
+                  <th className="px-2 py-2 text-center font-bold text-gray-900 whitespace-nowrap">Claude</th>
+                  <th className="px-2 py-2 text-center font-bold text-gray-900 whitespace-nowrap">ChatGPT</th>
+                  <th className="px-2 py-2 text-center font-bold text-gray-900 whitespace-nowrap">Gemini</th>
+                  <th className="px-2 py-2 text-center font-bold text-gray-900 whitespace-nowrap">Grok</th>
+                  <th className="px-2 py-2 text-center font-bold text-gray-900 whitespace-nowrap">회원평가</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">
@@ -569,7 +569,7 @@ export default function PoliticiansPage() {
                     key={p.rank}
                     className="hover:bg-gray-50"
                   >
-                    <td className="px-1 py-2 text-center whitespace-nowrap">
+                    <td className="px-2 py-2 text-center whitespace-nowrap">
                       <span className="font-bold text-gray-900">{p.rank}</span>
                     </td>
                     <td className="px-2 py-2 whitespace-nowrap">
@@ -580,25 +580,25 @@ export default function PoliticiansPage() {
                         {p.name} ›
                       </Link>
                     </td>
-                    <td className="px-1 py-2 text-gray-600 whitespace-nowrap" title={p.title || '-'}>{truncateText(p.title || '')}</td>
-                    <td className="px-1 py-2 text-gray-600 whitespace-nowrap">{p.party}</td>
-                    <td className="px-1 py-2 text-gray-600 whitespace-nowrap">{p.identity}</td>
-                    <td className="px-1 py-2 text-gray-600 whitespace-nowrap">{p.category}</td>
-                    <td className="px-1 py-2 text-gray-600 whitespace-nowrap" title={getFullRegionName(p.region)}>{truncateText(getFullRegionName(p.region))}</td>
-                    <td className="px-1 py-2 text-gray-600 whitespace-nowrap" title={p.district || '-'}>{truncateText(p.district || '')}</td>
-                    <td className="px-1 py-2 text-center font-semibold text-accent-600 whitespace-nowrap">
+                    <td className="px-2 py-2 text-gray-600 whitespace-nowrap" title={p.title || '-'}>{truncateText(p.title || '')}</td>
+                    <td className="px-2 py-2 text-gray-600 whitespace-nowrap">{p.party}</td>
+                    <td className="px-2 py-2 text-gray-600 whitespace-nowrap">{p.identity}</td>
+                    <td className="px-2 py-2 text-gray-600 whitespace-nowrap">{p.category}</td>
+                    <td className="px-2 py-2 text-gray-600 whitespace-nowrap" title={getFullRegionName(p.region)}>{truncateText(getFullRegionName(p.region))}</td>
+                    <td className="px-2 py-2 text-gray-600 whitespace-nowrap" title={p.district || '-'}>{truncateText(p.district || '')}</td>
+                    <td className="px-2 py-2 text-center font-semibold text-accent-600 whitespace-nowrap">
                       {p.grade === 'E' && '💚 Emerald'}
                       {p.grade === 'P' && '🥇 Platinum'}
                       {p.grade === 'D' && '💎 Diamond'}
                       {p.grade === 'M' && '🌺 Mugunghwa'}
                       {p.grade === 'G' && '🥇 Gold'}
                     </td>
-                    <td className="px-1 py-2 text-center font-bold text-accent-600 whitespace-nowrap">{p.overallScore}</td>
-                    <td className="px-1 py-2 text-center font-bold text-accent-600 whitespace-nowrap">{p.claudeScore}</td>
-                    <td className="px-1 py-2 text-center font-bold text-accent-600 whitespace-nowrap">{p.chatgptScore}</td>
-                    <td className="px-1 py-2 text-center font-bold text-gray-400 whitespace-nowrap">-</td>
-                    <td className="px-1 py-2 text-center font-bold text-accent-600 whitespace-nowrap">{p.grokScore}</td>
-                    <td className="px-1 py-2 text-center whitespace-nowrap">
+                    <td className="px-2 py-2 text-center font-bold text-accent-600 whitespace-nowrap">{p.overallScore}</td>
+                    <td className="px-2 py-2 text-center font-bold text-accent-600 whitespace-nowrap">{p.claudeScore}</td>
+                    <td className="px-2 py-2 text-center font-bold text-accent-600 whitespace-nowrap">{p.chatgptScore}</td>
+                    <td className="px-2 py-2 text-center font-bold text-gray-400 whitespace-nowrap">-</td>
+                    <td className="px-2 py-2 text-center font-bold text-accent-600 whitespace-nowrap">{p.grokScore}</td>
+                    <td className="px-2 py-2 text-center whitespace-nowrap">
                       <span className="font-bold text-secondary-600">
                         {'★'.repeat(p.memberRating)}{'☆'.repeat(5 - p.memberRating)}
                       </span>
