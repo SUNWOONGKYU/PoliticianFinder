@@ -548,7 +548,7 @@ export default function PoliticiansPage() {
                 <tr>
                   <th className="px-1 py-2 text-center font-bold text-gray-900 w-10">순위</th>
                   <th className="px-2 py-2 text-left font-bold text-gray-900 min-w-[70px]">이름</th>
-                  <th className="px-1 py-2 text-left font-bold text-gray-900 w-20">직책</th>
+                  <th className="px-1 py-2 text-left font-bold text-gray-900 w-20">현 직책</th>
                   <th className="px-1 py-2 text-left font-bold text-gray-900 whitespace-nowrap">정당</th>
                   <th className="px-1 py-2 text-left font-bold text-gray-900 w-12">신분</th>
                   <th className="px-1 py-2 text-left font-bold text-gray-900 whitespace-nowrap">출마직종</th>

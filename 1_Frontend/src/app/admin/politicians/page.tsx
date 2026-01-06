@@ -367,7 +367,7 @@ export default function AdminPoliticiansPage() {
                       <th className="p-3">이름</th>
                       <th className="p-3">정당</th>
                       <th className="p-3">지역</th>
-                      <th className="p-3">직책</th>
+                      <th className="p-3">현 직책</th>
                       <th className="p-3">인증계정</th>
                       <th className="p-3">관리</th>
                     </tr>

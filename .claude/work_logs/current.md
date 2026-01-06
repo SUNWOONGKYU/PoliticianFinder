@@ -510,7 +510,71 @@ window.location.href = safeRedirect;
 
 ---
 
+---
+
+## 2026-01-06 - 정치인 상세페이지 모바일 디자인 개선 및 용어 통일
+
+### 완료된 작업
+
+#### 1. 직책 → 현 직책 문구 수정 (6개 파일)
+
+**수정 파일**:
+- `1_Frontend/src/app/page.tsx` - 테이블 헤더
+- `1_Frontend/src/app/politicians/page.tsx` - 테이블 헤더
+- `1_Frontend/src/app/politicians/[id]/page.tsx` - 상세 정보 레이블
+- `1_Frontend/src/app/politicians/[id]/profile/page.tsx` - 프로필 정보 레이블
+- `1_Frontend/src/app/admin/politicians/page.tsx` - 관리자 테이블 헤더
+- `1_Frontend/src/components/ui/Skeleton.tsx` - 스켈레톤 테이블 헤더
+
+#### 2. 레이아웃 통일 (2줄 구조)
+
+**정치인 정보 표시 구조**:
+```
+1줄: 현 직책 + 소속 정당
+2줄: 신분 + 출마직종 + 출마지역 + 출마지구
+```
+
+**수정 파일**:
+- `1_Frontend/src/app/politicians/[id]/page.tsx` - Hero 섹션 레이아웃 재구성
+
+#### 3. 정치인 상세페이지 모바일 디자인 개선
+
+**배경색 변경**:
+| 위치 | Before | After |
+|------|--------|-------|
+| Hero 섹션 | slate-700~900 (회색) | emerald-600~800 (사이트 메인) |
+| 프로필 아이콘 | slate-500~600 | emerald-500~600 |
+
+**모바일 크기 최적화**:
+| 요소 | Before | After |
+|------|--------|-------|
+| 프로필 이미지 | w-32 h-32 | w-24 h-24 sm:w-32 sm:h-32 |
+| 이름 | text-2xl | text-xl sm:text-2xl |
+| Hero 패딩 | px-6 py-8 | px-4 py-6 sm:px-6 sm:py-8 |
+| 액션 버튼 | px-8 py-3 | px-4 py-2.5 sm:px-6 sm:py-3 |
+| 점수 카드 | p-4 | p-2 sm:p-3 md:p-4 |
+| 등급 표시 | "Diamond" | "D" (모바일), "Diamond" (데스크탑) |
+
+**수정 파일**:
+- `1_Frontend/src/app/politicians/[id]/page.tsx`
+
+### 빌드 & 배포
+
+- **빌드**: 성공
+- **배포**: Vercel Production 완료
+- **URL**: https://politicianfinder.com
+
+### 결과 보고서
+
+- `Web_ClaudeCode_Bridge/outbox/2026-01-06_mobile_design_improvement.json`
+
+### 대기 작업
+
+- 설정 기능 API 연동 (알림 설정, 비밀번호 변경 등)
+
+---
+
 ## 다음 작업 예정
 
-- Vercel 배포 필요 (수동)
+- 설정 페이지 API 연동
 - 모바일 브라우저에서 UI 확인 필요

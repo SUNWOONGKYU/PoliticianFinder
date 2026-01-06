@@ -678,7 +678,7 @@ export default function Home() {
                       <tr>
                         <th className="px-1 py-2 text-center font-bold text-gray-900 w-10">순위</th>
                         <th className="px-2 py-2 text-left font-bold text-gray-900 min-w-[70px]">이름</th>
-                        <th className="px-1 py-2 text-left font-bold text-gray-900 w-20">직책</th>
+                        <th className="px-1 py-2 text-left font-bold text-gray-900 w-20">현 직책</th>
                         <th className="px-1 py-2 text-left font-bold text-gray-900 whitespace-nowrap">정당</th>
                         <th className="px-1 py-2 text-left font-bold text-gray-900 w-12">신분</th>
                         <th className="px-1 py-2 text-left font-bold text-gray-900 whitespace-nowrap">출마직종</th>
@@ -764,14 +764,21 @@ export default function Home() {
                             {politicians[0].name}
                           </span>
                         </div>
+                        {/* 1줄: 현 직책 + 정당 */}
                         <div className="text-sm text-gray-600">
                           <span className="font-medium">
-                            {politicians[0].identity} {politicians[0].title && `• ${politicians[0].title}`}
+                            {politicians[0].title || '-'}
                           </span>
                           <span className="mx-1">|</span>
                           <span>{politicians[0].party}</span>
                         </div>
-                        <div className="text-sm text-gray-600">{getFullRegionName(politicians[0].region)}</div>
+                        {/* 2줄: 신분 + 출마직종 + 지역 + 지구 */}
+                        <div className="text-sm text-gray-600">
+                          {politicians[0].identity}
+                          {politicians[0].positionType && ` • ${politicians[0].positionType}`}
+                          {` • ${getFullRegionName(politicians[0].region)}`}
+                          {politicians[0].district && ` • ${politicians[0].district}`}
+                        </div>
                       </div>
                     </div>
 
@@ -857,14 +864,21 @@ export default function Home() {
                               {p.name}
                             </span>
                           </div>
+                          {/* 1줄: 현 직책 + 정당 */}
                           <div className="text-sm text-gray-600">
                             <span className="font-medium">
-                              {p.identity} {p.title && `• ${p.title}`}
+                              {p.title || '-'}
                             </span>
                             <span className="mx-1">|</span>
                             <span>{p.party}</span>
                           </div>
-                          <div className="text-sm text-gray-600">{getFullRegionName(p.region)}</div>
+                          {/* 2줄: 신분 + 출마직종 + 지역 + 지구 */}
+                          <div className="text-sm text-gray-600">
+                            {p.identity}
+                            {p.positionType && ` • ${p.positionType}`}
+                            {` • ${getFullRegionName(p.region)}`}
+                            {p.district && ` • ${p.district}`}
+                          </div>
                         </div>
                       </div>
 

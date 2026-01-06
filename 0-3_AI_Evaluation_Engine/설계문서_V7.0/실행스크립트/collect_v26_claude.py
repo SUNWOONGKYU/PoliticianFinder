@@ -65,6 +65,44 @@ CATEGORIES = [
 ]
 
 
+def extract_json_from_response(content):
+    """
+    응답에서 JSON 추출 (개선된 파싱 로직)
+
+    지원 형식:
+    1. ```json { ... } ``` (마크다운 블록)
+    2. { ... } (블록 없이 바로 JSON)
+    3. 텍스트 + { ... } (텍스트 후 JSON)
+    """
+    if not content or not content.strip():
+        return None
+
+    # 1. ```json 블록 찾기
+    json_start = content.find('```json')
+    if json_start != -1:
+        json_end = content.find('```', json_start + 7)
+        if json_end != -1:
+            return content[json_start + 7:json_end].strip()
+
+    # 2. ```JSON 블록 찾기 (대문자)
+    json_start = content.find('```JSON')
+    if json_start != -1:
+        json_end = content.find('```', json_start + 7)
+        if json_end != -1:
+            return content[json_start + 7:json_end].strip()
+
+    # 3. { 로 시작하는 JSON 객체 찾기
+    brace_start = content.find('{')
+    if brace_start != -1:
+        # 마지막 } 찾기
+        brace_end = content.rfind('}')
+        if brace_end != -1 and brace_end > brace_start:
+            return content[brace_start:brace_end + 1].strip()
+
+    # 4. 그냥 전체 반환
+    return content.strip()
+
+
 def get_date_range():
     """V26.0 기간 제한 계산"""
     evaluation_date = datetime.now()
@@ -287,13 +325,10 @@ def collect_negative_topic_batch(politician_id, politician_name, category_num, s
 
             content = response.content[0].text
 
-            json_start = content.find('```json')
-            json_end = content.find('```', json_start + 7)
-
-            if json_start != -1 and json_end != -1:
-                json_str = content[json_start + 7:json_end].strip()
-            else:
-                json_str = content.strip()
+            # 개선된 JSON 추출 로직 사용
+            json_str = extract_json_from_response(content)
+            if not json_str:
+                raise json.JSONDecodeError("빈 응답", "", 0)
 
             data = json.loads(json_str)
             items = data.get('items', [])
@@ -436,13 +471,10 @@ def collect_free_batch(politician_id, politician_name, category_num, source_type
 
             content = response.content[0].text
 
-            json_start = content.find('```json')
-            json_end = content.find('```', json_start + 7)
-
-            if json_start != -1 and json_end != -1:
-                json_str = content[json_start + 7:json_end].strip()
-            else:
-                json_str = content.strip()
+            # 개선된 JSON 추출 로직 사용
+            json_str = extract_json_from_response(content)
+            if not json_str:
+                raise json.JSONDecodeError("빈 응답", "", 0)
 
             data = json.loads(json_str)
             items = data.get('items', [])

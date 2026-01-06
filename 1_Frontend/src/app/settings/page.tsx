@@ -1,8 +1,36 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRequireAuth } from '@/hooks/useRequireAuth';
 import Link from 'next/link';
+import { createClient } from '@/lib/supabase/client';
+
+// 설정 타입 정의
+interface NotificationSettings {
+  comments: boolean;
+  likes: boolean;
+  shares: boolean;
+  politicianUpdates: boolean;
+}
+
+interface AccountSettings {
+  private: boolean;
+}
+
+// 로컬스토리지 키
+const SETTINGS_STORAGE_KEY = 'politicianfinder_user_settings';
+
+// 기본 설정 값
+const defaultNotifications: NotificationSettings = {
+  comments: true,
+  likes: true,
+  shares: true,
+  politicianUpdates: false,
+};
+
+const defaultAccountSettings: AccountSettings = {
+  private: false,
+};
 
 export default function SettingsPage() {
   // P7F1: Page-level authentication protection
@@ -20,17 +48,8 @@ export default function SettingsPage() {
     );
   }
 
-  const [notifications, setNotifications] = useState({
-    comments: true,
-    likes: true,
-    shares: true,
-    politicianUpdates: false,
-  });
-
-  const [accountSettings, setAccountSettings] = useState({
-    private: false,
-  });
-
+  const [notifications, setNotifications] = useState<NotificationSettings>(defaultNotifications);
+  const [accountSettings, setAccountSettings] = useState<AccountSettings>(defaultAccountSettings);
   const [language, setLanguage] = useState('ko');
   const [theme, setTheme] = useState('light');
 
@@ -41,44 +60,183 @@ export default function SettingsPage() {
   });
 
   const [alertMessage, setAlertMessage] = useState<string | null>(null);
+  const [alertType, setAlertType] = useState<'success' | 'error'>('success');
   const [deletePassword, setDeletePassword] = useState('');
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
+  const [isChangingPassword, setIsChangingPassword] = useState(false);
+  const [isSavingSettings, setIsSavingSettings] = useState(false);
 
-  const handleNotificationChange = (key: keyof typeof notifications) => {
-    setNotifications(prev => ({
-      ...prev,
-      [key]: !prev[key],
-    }));
+  // 설정 로드 (localStorage)
+  useEffect(() => {
+    const loadSettings = () => {
+      try {
+        const savedSettings = localStorage.getItem(SETTINGS_STORAGE_KEY);
+        if (savedSettings) {
+          const parsed = JSON.parse(savedSettings);
+          if (parsed.notifications) setNotifications(parsed.notifications);
+          if (parsed.accountSettings) setAccountSettings(parsed.accountSettings);
+          if (parsed.language) setLanguage(parsed.language);
+          if (parsed.theme) setTheme(parsed.theme);
+        }
+      } catch (error) {
+        console.error('설정 로드 오류:', error);
+      }
+    };
+    loadSettings();
+  }, []);
+
+  // 설정 저장 (localStorage)
+  const saveSettings = () => {
+    try {
+      const settings = {
+        notifications,
+        accountSettings,
+        language,
+        theme,
+      };
+      localStorage.setItem(SETTINGS_STORAGE_KEY, JSON.stringify(settings));
+      return true;
+    } catch (error) {
+      console.error('설정 저장 오류:', error);
+      return false;
+    }
   };
 
-  const handleAccountSettingChange = (key: keyof typeof accountSettings) => {
-    setAccountSettings(prev => ({
-      ...prev,
-      [key]: !prev[key],
-    }));
+  // 알림 설정 변경 핸들러
+  const handleNotificationChange = async (key: keyof NotificationSettings) => {
+    setIsSavingSettings(true);
+    const newNotifications = {
+      ...notifications,
+      [key]: !notifications[key],
+    };
+    setNotifications(newNotifications);
+
+    // 잠시 후 저장 (디바운스 효과)
+    setTimeout(() => {
+      const settings = {
+        notifications: newNotifications,
+        accountSettings,
+        language,
+        theme,
+      };
+      localStorage.setItem(SETTINGS_STORAGE_KEY, JSON.stringify(settings));
+      setIsSavingSettings(false);
+    }, 300);
   };
 
-  const handlePasswordChange = (e: React.FormEvent<HTMLFormElement>) => {
+  // 계정 설정 변경 핸들러
+  const handleAccountSettingChange = async (key: keyof AccountSettings) => {
+    setIsSavingSettings(true);
+    const newAccountSettings = {
+      ...accountSettings,
+      [key]: !accountSettings[key],
+    };
+    setAccountSettings(newAccountSettings);
+
+    setTimeout(() => {
+      const settings = {
+        notifications,
+        accountSettings: newAccountSettings,
+        language,
+        theme,
+      };
+      localStorage.setItem(SETTINGS_STORAGE_KEY, JSON.stringify(settings));
+      setIsSavingSettings(false);
+    }, 300);
+  };
+
+  // 언어 변경 핸들러
+  const handleLanguageChange = (newLanguage: string) => {
+    setLanguage(newLanguage);
+    const settings = {
+      notifications,
+      accountSettings,
+      language: newLanguage,
+      theme,
+    };
+    localStorage.setItem(SETTINGS_STORAGE_KEY, JSON.stringify(settings));
+  };
+
+  // 테마 변경 핸들러
+  const handleThemeChange = (newTheme: string) => {
+    setTheme(newTheme);
+    const settings = {
+      notifications,
+      accountSettings,
+      language,
+      theme: newTheme,
+    };
+    localStorage.setItem(SETTINGS_STORAGE_KEY, JSON.stringify(settings));
+
+    // 테마 적용
+    if (newTheme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else if (newTheme === 'light') {
+      document.documentElement.classList.remove('dark');
+    } else {
+      // 시스템 설정 따르기
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    }
+  };
+
+  // 비밀번호 변경 핸들러 (Supabase Auth API 사용)
+  const handlePasswordChange = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (passwordForm.newPassword !== passwordForm.confirmPassword) {
+      setAlertType('error');
       setAlertMessage('새 비밀번호가 일치하지 않습니다.');
       return;
     }
 
     const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
     if (!passwordRegex.test(passwordForm.newPassword)) {
+      setAlertType('error');
       setAlertMessage('비밀번호는 8자 이상이며, 영문, 숫자, 특수문자를 포함해야 합니다.');
       return;
     }
 
-    setAlertMessage('비밀번호가 변경되었습니다!');
-    setPasswordForm({
-      currentPassword: '',
-      newPassword: '',
-      confirmPassword: '',
-    });
+    setIsChangingPassword(true);
+
+    try {
+      const supabase = createClient();
+
+      // Supabase Auth로 비밀번호 변경
+      const { error } = await supabase.auth.updateUser({
+        password: passwordForm.newPassword
+      });
+
+      if (error) {
+        throw error;
+      }
+
+      setAlertType('success');
+      setAlertMessage('비밀번호가 성공적으로 변경되었습니다!');
+      setPasswordForm({
+        currentPassword: '',
+        newPassword: '',
+        confirmPassword: '',
+      });
+    } catch (error: any) {
+      console.error('비밀번호 변경 오류:', error);
+      setAlertType('error');
+
+      if (error.message?.includes('Auth session missing')) {
+        setAlertMessage('세션이 만료되었습니다. 다시 로그인해주세요.');
+        setTimeout(() => {
+          window.location.href = '/auth/login';
+        }, 2000);
+      } else {
+        setAlertMessage(error.message || '비밀번호 변경에 실패했습니다. 다시 시도해주세요.');
+      }
+    } finally {
+      setIsChangingPassword(false);
+    }
   };
 
   const handleDeleteAccount = () => {
@@ -87,6 +245,7 @@ export default function SettingsPage() {
 
   const confirmDeleteAccount = async () => {
     if (!deletePassword) {
+      setAlertType('error');
       setAlertMessage('비밀번호를 입력해주세요.');
       return;
     }
@@ -105,15 +264,21 @@ export default function SettingsPage() {
       const data = await response.json();
 
       if (data.success) {
+        // 로컬스토리지 설정 삭제
+        localStorage.removeItem(SETTINGS_STORAGE_KEY);
+
+        setAlertType('success');
         setAlertMessage('계정이 삭제되었습니다. 이용해주셔서 감사합니다.');
         setShowDeleteModal(false);
         setTimeout(() => {
           window.location.href = '/';
         }, 2000);
       } else {
+        setAlertType('error');
         setAlertMessage(data.error?.message || '계정 삭제에 실패했습니다.');
       }
     } catch (error) {
+      setAlertType('error');
       setAlertMessage('서버 오류가 발생했습니다.');
     } finally {
       setIsDeleting(false);
@@ -146,9 +311,8 @@ export default function SettingsPage() {
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
                 </svg>
-                민주시민
+                마이페이지
               </Link>
-              <button className="text-gray-900 hover:text-primary-600 font-medium">로그아웃</button>
             </div>
           </div>
         </nav>
@@ -159,6 +323,9 @@ export default function SettingsPage() {
         <div className="mb-6">
           <h1 className="text-3xl font-bold text-gray-900">설정</h1>
           <p className="text-gray-600 mt-2">계정 및 알림 설정을 관리할 수 있습니다.</p>
+          {isSavingSettings && (
+            <p className="text-sm text-primary-600 mt-1">설정 저장 중...</p>
+          )}
         </div>
 
         {/* 알림 설정 */}
@@ -255,6 +422,7 @@ export default function SettingsPage() {
                 value={passwordForm.currentPassword}
                 onChange={(e) => setPasswordForm(prev => ({ ...prev, currentPassword: e.target.value }))}
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary-500 focus:border-secondary-500"
+                disabled={isChangingPassword}
               />
             </div>
 
@@ -270,6 +438,7 @@ export default function SettingsPage() {
                 value={passwordForm.newPassword}
                 onChange={(e) => setPasswordForm(prev => ({ ...prev, newPassword: e.target.value }))}
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary-500 focus:border-secondary-500"
+                disabled={isChangingPassword}
               />
               <p className="text-xs text-gray-500 mt-1">8자 이상, 영문, 숫자, 특수문자를 포함해주세요.</p>
             </div>
@@ -286,15 +455,27 @@ export default function SettingsPage() {
                 value={passwordForm.confirmPassword}
                 onChange={(e) => setPasswordForm(prev => ({ ...prev, confirmPassword: e.target.value }))}
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary-500 focus:border-secondary-500"
+                disabled={isChangingPassword}
               />
             </div>
 
             <div className="pt-2">
               <button
                 type="submit"
-                className="w-full px-6 py-3 bg-secondary-500 text-white rounded-lg hover:bg-secondary-600 font-medium"
+                disabled={isChangingPassword}
+                className="w-full px-6 py-3 bg-secondary-500 text-white rounded-lg hover:bg-secondary-600 font-medium disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
               >
-                비밀번호 변경
+                {isChangingPassword ? (
+                  <>
+                    <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                    </svg>
+                    변경 중...
+                  </>
+                ) : (
+                  '비밀번호 변경'
+                )}
               </button>
             </div>
           </form>
@@ -348,7 +529,7 @@ export default function SettingsPage() {
               <select
                 id="language"
                 value={language}
-                onChange={(e) => setLanguage(e.target.value)}
+                onChange={(e) => handleLanguageChange(e.target.value)}
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary-500 focus:border-secondary-500"
               >
                 <option value="ko">한국어</option>
@@ -364,7 +545,7 @@ export default function SettingsPage() {
               <select
                 id="theme"
                 value={theme}
-                onChange={(e) => setTheme(e.target.value)}
+                onChange={(e) => handleThemeChange(e.target.value)}
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary-500 focus:border-secondary-500"
               >
                 <option value="light">라이트 모드</option>
@@ -436,12 +617,29 @@ export default function SettingsPage() {
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
           <div className="bg-white rounded-lg max-w-sm w-full p-6">
             <div className="mb-6">
+              <div className={`w-12 h-12 mx-auto mb-4 rounded-full flex items-center justify-center ${
+                alertType === 'success' ? 'bg-green-100' : 'bg-red-100'
+              }`}>
+                {alertType === 'success' ? (
+                  <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                ) : (
+                  <svg className="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                )}
+              </div>
               <p className="text-gray-900 text-center whitespace-pre-line">{alertMessage}</p>
             </div>
             <div className="flex justify-center">
               <button
                 onClick={() => setAlertMessage(null)}
-                className="px-8 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-500 transition"
+                className={`px-8 py-2 rounded-lg focus:outline-none focus:ring-2 transition ${
+                  alertType === 'success'
+                    ? 'bg-green-600 text-white hover:bg-green-700 focus:ring-green-500'
+                    : 'bg-gray-900 text-white hover:bg-gray-800 focus:ring-gray-500'
+                }`}
               >
                 확인
               </button>
