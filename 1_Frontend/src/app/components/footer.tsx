@@ -26,11 +26,11 @@ export default function Footer() {
             <span className="mx-1 sm:mx-2">|</span>관리자: 선웅규(Sunny)
           </p>
           <p>
-            이메일: <a href="mailto:wksun999@hanmail.net" className="hover:text-white underline">wksun999@hanmail.net</a>
+            이메일: <a href="mailto:wksun999@hanmail.net" className="hover:text-white">wksun999@hanmail.net</a>
           </p>
           <p>사업자등록번호: 354-33-01641</p>
           <p>서울특별시 강남구 테헤란로63길 9</p>
-          <p className="pt-1 sm:pt-2">&copy; 2025 politicianfinder, All Rights Reserved</p>
+          <p className="pt-1 sm:pt-2">&copy; 2025 PoliticianFinder, All Rights Reserved</p>
           {/* Admin 링크: 우측 끝 */}
           <Link href="/admin/login" className="block text-right text-[10px] text-gray-400 hover:text-white opacity-40 hover:opacity-100 transition mt-2">
             Admin

@@ -569,7 +569,7 @@ export default function Home() {
                       type="search"
                       inputMode="search"
                       id="index-search-input"
-                      placeholder="정치인과 게시글을 통합 검색하세요"
+                      placeholder="정치인, 게시글 통합검색"
                       className="w-full px-4 py-2.5 pl-12 min-h-[44px] border-2 border-primary-300 rounded-lg focus:outline-none focus:border-primary-500 text-gray-900 focus:ring-2 focus:ring-primary-200 text-base"
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}

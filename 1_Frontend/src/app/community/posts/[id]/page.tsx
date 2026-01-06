@@ -58,6 +58,9 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
   const [politicianAuthLoading, setPoliticianAuthLoading] = useState(false);
   const [authenticatedPolitician, setAuthenticatedPolitician] = useState<{ id: string; name: string } | null>(null);
 
+  // 다른 게시글 관련 state
+  const [relatedPosts, setRelatedPosts] = useState<Array<{ id: string; title: string; upvotes: number }>>([]);
+
   // 소속 정당 목록 (12개)
   const PARTIES = [
     '더불어민주당', '국민의힘', '조국혁신당', '개혁신당', '진보당',
@@ -169,6 +172,34 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
     };
 
     fetchPost();
+  }, [params.id]);
+
+  // 다른 게시글 가져오기
+  useEffect(() => {
+    const fetchRelatedPosts = async () => {
+      try {
+        const response = await fetch(`/api/posts?limit=3&page=1&sort=-view_count`);
+        if (response.ok) {
+          const result = await response.json();
+          if (result.success && result.data) {
+            // 현재 게시글 제외하고 2개만 표시
+            const filteredPosts = result.data
+              .filter((p: any) => p.id !== params.id)
+              .slice(0, 2)
+              .map((p: any) => ({
+                id: p.id,
+                title: p.title,
+                upvotes: p.upvotes || p.like_count || 0
+              }));
+            setRelatedPosts(filteredPosts);
+          }
+        }
+      } catch (error) {
+        console.error('다른 게시글 로드 오류:', error);
+      }
+    };
+
+    fetchRelatedPosts();
   }, [params.id]);
 
   // Date format helper
@@ -946,23 +977,21 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
         </section>
 
         {/* Other Posts */}
-        <section className="mt-8">
-          <h2 className="text-base sm:text-lg font-bold text-gray-900 mb-4">다른 게시글</h2>
-          <div className="space-y-3">
-            <Link href="/community/posts/1" className="block p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition">
-              <div className="flex items-center justify-between">
-                <span className="font-medium text-gray-900">정치인 평가 시스템 정말 혁신적이네요</span>
-                <span className="text-sm text-gray-500">👍 32</span>
-              </div>
-            </Link>
-            <Link href="/community/posts/2" className="block p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition">
-              <div className="flex items-center justify-between">
-                <span className="font-medium text-gray-900">우리 동네 복지센터 이용 후기</span>
-                <span className="text-sm text-gray-500">👍 21</span>
-              </div>
-            </Link>
-          </div>
-        </section>
+        {relatedPosts.length > 0 && (
+          <section className="mt-8">
+            <h2 className="text-base sm:text-lg font-bold text-gray-900 mb-4">다른 게시글</h2>
+            <div className="space-y-3">
+              {relatedPosts.map((relatedPost) => (
+                <Link key={relatedPost.id} href={`/community/posts/${relatedPost.id}`} className="block p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition">
+                  <div className="flex items-center justify-between">
+                    <span className="font-medium text-gray-900 truncate mr-2">{relatedPost.title}</span>
+                    <span className="text-sm text-gray-500 flex-shrink-0">👍 {relatedPost.upvotes}</span>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
           </>
         )}
       </main>
