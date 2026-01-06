@@ -35,7 +35,7 @@ supabase = create_client(
 client = Anthropic(api_key=os.getenv('ANTHROPIC_API_KEY'))
 
 # V26.0 설정
-MODEL = "claude-3-5-haiku-20241022"
+MODEL = "claude-3-haiku-20240307"  # V26.1 비용 최적화
 AI_NAME = "Claude"  # DB 저장용 (모델명 아닌 시스템명)
 
 # V26.0 테이블명 (기존 테이블과 분리)
@@ -280,7 +280,7 @@ def collect_negative_topic_batch(politician_id, politician_name, category_num, s
 
             response = client.messages.create(
                 model=MODEL,
-                max_tokens=8000,
+                max_tokens=4096,
                 temperature=1.0,
                 messages=[{"role": "user", "content": prompt}]
             )
@@ -429,7 +429,7 @@ def collect_free_batch(politician_id, politician_name, category_num, source_type
 
             response = client.messages.create(
                 model=MODEL,
-                max_tokens=8000,
+                max_tokens=4096,
                 temperature=1.0,
                 messages=[{"role": "user", "content": prompt}]
             )
@@ -612,16 +612,26 @@ def collect_category(politician_id, politician_name, category_num):
     all_items.extend(negative_public)
     print(f"\n  → 부정 주제: {len(all_items)}개 수집")
 
-    # Phase 2: 자유 평가 40개
-    print("\n📌 Phase 2: 자유 평가 40개 수집")
-    free_official = collect_free_batch(
+    # Phase 2: 자유 평가 40개 (10개씩 4번 - JSON 트렁케이션 방지)
+    print("\n📌 Phase 2: 자유 평가 40개 수집 (10개씩 배치)")
+    free_official_1 = collect_free_batch(
         politician_id, politician_name, category_num,
-        source_type='OFFICIAL', count=20, max_attempts=5
+        source_type='OFFICIAL', count=10, max_attempts=5
     )
-    free_public = collect_free_batch(
+    free_official_2 = collect_free_batch(
         politician_id, politician_name, category_num,
-        source_type='PUBLIC', count=20, max_attempts=5
+        source_type='OFFICIAL', count=10, max_attempts=5
     )
+    free_public_1 = collect_free_batch(
+        politician_id, politician_name, category_num,
+        source_type='PUBLIC', count=10, max_attempts=5
+    )
+    free_public_2 = collect_free_batch(
+        politician_id, politician_name, category_num,
+        source_type='PUBLIC', count=10, max_attempts=5
+    )
+    free_official = free_official_1 + free_official_2
+    free_public = free_public_1 + free_public_2
 
     all_items.extend(free_official)
     all_items.extend(free_public)

@@ -40,7 +40,7 @@ client = OpenAI(
 )
 
 # V26.0 설정
-MODEL = "grok-3-mini"
+MODEL = "grok-4-fast"  # V26.1 비용 최적화
 AI_NAME = "Grok"  # DB 저장용 (모델명 아닌 시스템명)
 
 # V26.0 테이블명 (기존 테이블과 분리)

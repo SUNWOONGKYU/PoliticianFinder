@@ -117,25 +117,28 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
         if (result.success && result.data) {
           const postData = result.data;
 
+          // 정치인이 직접 작성한 글인지 확인 (author_type === 'politician')
+          const isPoliticianPost = postData.author_type === 'politician';
+
           // Generate consistent member level (ML1-ML5) based on user_id
           const userIdHash = postData.user_id ? postData.user_id.split('-')[0].charCodeAt(0) : 0;
-          const mlLevel = postData.politician_id ? undefined : `ML${(userIdHash % 5) + 1}`;
+          const mlLevel = isPoliticianPost ? undefined : `ML${(userIdHash % 5) + 1}`;
 
           // 실제 사용자 닉네임 사용 (users 테이블에서 조인)
           const actualNickname = postData.users?.nickname || postData.users?.name;
 
-          // Determine author: 정치인 게시글이면 정치인 이름, 아니면 실제 사용자 닉네임
-          const author = postData.politician_id && postData.politicians
+          // Determine author: 정치인이 직접 작성한 글이면 정치인 이름, 아니면 실제 사용자 닉네임
+          const author = isPoliticianPost && postData.politicians
             ? postData.politicians.name
             : (actualNickname || '익명 사용자');
 
           setPost({
             id: postData.id,
             title: postData.title,
-            category: postData.politician_id ? '정치인 게시판' : '자유게시판',
+            category: isPoliticianPost ? '정치인 게시판' : '자유게시판',
             author: author,
             userId: postData.user_id,
-            isPolitician: !!postData.politician_id,
+            isPolitician: isPoliticianPost,
             politicianStatus: postData.politicians?.status,
             politicianPosition: postData.politicians?.position,
             memberLevel: mlLevel,
@@ -144,8 +147,8 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
             commentCount: postData.comment_count || 0,
             shareCount: postData.share_count || 0,
             content: postData.content,
-            // 태그된 정치인 정보 (관련 정치인 표시용)
-            taggedPolitician: postData.politician_id && postData.politicians ? {
+            // 태그된 정치인 정보 (관련 정치인 표시용) - 회원이 태깅한 경우에만
+            taggedPolitician: postData.politician_id && postData.politicians && !isPoliticianPost ? {
               id: postData.politician_id,
               name: postData.politicians.name,
               party: postData.politicians.party,
@@ -648,8 +651,29 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
             {/* Post Detail */}
             <article className="bg-white rounded-lg shadow-md p-4 sm:p-6 mb-6">
           <div className="flex items-center gap-2 mb-3">
-            <span className="px-2.5 py-1 bg-emerald-100 text-emerald-800 text-sm font-bold rounded">💬 {post.category}</span>
+            <span className="px-2.5 py-1 bg-emerald-100 text-emerald-800 text-sm font-bold rounded">💬 {post.isPolitician ? '정치인 게시판' : '회원 자유게시판'}</span>
           </div>
+
+          {/* 정치인 태그 표시 - 제목 위에 표시 (회원 자유게시판에서만) */}
+          {post.taggedPolitician && !post.isPolitician && (
+            <div className="mb-2 p-2 bg-orange-50 border border-orange-200 rounded-lg">
+              <div className="flex items-center gap-1 text-xs">
+                <span className="text-orange-600">관련 정치인:</span>
+                <Link
+                  href={`/politicians/${post.taggedPolitician.id}`}
+                  className="text-orange-700 font-medium hover:underline"
+                >
+                  {post.taggedPolitician.name}
+                </Link>
+                {post.taggedPolitician.party && (
+                  <span className="text-orange-600">({post.taggedPolitician.party})</span>
+                )}
+                {post.taggedPolitician.position && (
+                  <span className="text-gray-500">· {post.taggedPolitician.position}</span>
+                )}
+              </div>
+            </div>
+          )}
 
           {/* 제목 영역 - 모바일: 세로 배치 */}
           <div className="mb-4">
@@ -660,40 +684,19 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
               <div className="flex items-center gap-2 mt-3">
                 <button
                   onClick={() => router.push(`/community/posts/${params.id}/edit`)}
-                  className="min-h-[44px] px-4 py-2 text-sm text-gray-600 border border-gray-300 rounded-lg hover:bg-gray-50 active:bg-gray-100 transition touch-manipulation"
+                  className="min-h-[32px] sm:min-h-[36px] px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm text-gray-600 border border-gray-300 rounded-lg hover:bg-gray-50 active:bg-gray-100 transition touch-manipulation"
                 >
                   수정
                 </button>
                 <button
                   onClick={() => setDeleteModalOpen(true)}
-                  className="min-h-[44px] px-4 py-2 text-sm text-red-600 border border-red-300 rounded-lg hover:bg-red-50 active:bg-red-100 transition touch-manipulation"
+                  className="min-h-[32px] sm:min-h-[36px] px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm text-red-600 border border-red-300 rounded-lg hover:bg-red-50 active:bg-red-100 transition touch-manipulation"
                 >
                   삭제
                 </button>
               </div>
             )}
           </div>
-
-          {/* 정치인 태그 표시 */}
-          {post.taggedPolitician && (
-            <div className="mb-4 p-3 bg-orange-50 border border-orange-200 rounded-lg">
-              <div className="flex items-center gap-2">
-                <span className="text-orange-600 font-medium">🏛️ 관련 정치인:</span>
-                <Link
-                  href={`/politicians/${post.taggedPolitician.id}`}
-                  className="text-orange-700 font-bold hover:underline"
-                >
-                  {post.taggedPolitician.name}
-                </Link>
-                {post.taggedPolitician.party && (
-                  <span className="text-orange-600">({post.taggedPolitician.party})</span>
-                )}
-                {post.taggedPolitician.position && (
-                  <span className="text-gray-500 text-sm">· {post.taggedPolitician.position}</span>
-                )}
-              </div>
-            </div>
-          )}
 
           {/* 메타 정보 - PC: 1줄 / 모바일: 2줄 */}
           <div className="border-b pb-4 mb-6 text-xs text-gray-600">
@@ -739,26 +742,26 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
             })}
           </div>
 
-          <div className="flex items-center justify-center gap-3 sm:gap-4 py-6 border-t border-b">
+          <div className="flex items-center justify-center gap-2 sm:gap-4 py-4 sm:py-6 border-t border-b">
             <button
               onClick={handleUpvote}
-              className={`flex flex-col items-center gap-1 min-w-[80px] sm:min-w-[100px] min-h-[60px] px-4 sm:px-6 py-3 rounded-lg transition touch-manipulation ${upvoted ? 'bg-red-100 active:bg-red-200' : 'bg-red-50 hover:bg-red-100 active:bg-red-200'}`}
+              className={`flex flex-col items-center gap-0.5 sm:gap-1 min-w-[70px] sm:min-w-[90px] min-h-[50px] sm:min-h-[56px] px-3 sm:px-5 py-2 sm:py-2.5 rounded-lg transition touch-manipulation ${upvoted ? 'bg-red-100 active:bg-red-200' : 'bg-red-50 hover:bg-red-100 active:bg-red-200'}`}
             >
-              <span className="text-2xl">👍</span>
-              <span className="text-xs sm:text-sm font-medium text-gray-700">공감 <span className="text-red-600">{upvotes}</span></span>
+              <span className="text-xl sm:text-2xl">👍</span>
+              <span className="text-xs font-medium text-gray-700">공감 <span className="text-red-600">{upvotes}</span></span>
             </button>
             <button
               onClick={handleDownvote}
-              className={`flex flex-col items-center gap-1 min-w-[80px] sm:min-w-[100px] min-h-[60px] px-4 sm:px-6 py-3 rounded-lg transition touch-manipulation ${downvoted ? 'bg-gray-100 active:bg-gray-200' : 'bg-gray-50 hover:bg-gray-100 active:bg-gray-200'}`}
+              className={`flex flex-col items-center gap-0.5 sm:gap-1 min-w-[70px] sm:min-w-[90px] min-h-[50px] sm:min-h-[56px] px-3 sm:px-5 py-2 sm:py-2.5 rounded-lg transition touch-manipulation ${downvoted ? 'bg-gray-100 active:bg-gray-200' : 'bg-gray-50 hover:bg-gray-100 active:bg-gray-200'}`}
             >
-              <span className="text-2xl">👎</span>
-              <span className="text-xs sm:text-sm font-medium text-gray-700">비공감 <span className="text-gray-500">{downvotes}</span></span>
+              <span className="text-xl sm:text-2xl">👎</span>
+              <span className="text-xs font-medium text-gray-700">비공감 <span className="text-gray-500">{downvotes}</span></span>
             </button>
-            <button onClick={handleShare} className="flex flex-col items-center gap-1 min-w-[80px] sm:min-w-[100px] min-h-[60px] px-4 sm:px-6 py-3 bg-emerald-50 hover:bg-emerald-100 active:bg-emerald-200 rounded-lg transition touch-manipulation">
-              <svg className="w-6 h-6 text-emerald-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <button onClick={handleShare} className="flex flex-col items-center gap-0.5 sm:gap-1 min-w-[70px] sm:min-w-[90px] min-h-[50px] sm:min-h-[56px] px-3 sm:px-5 py-2 sm:py-2.5 bg-emerald-50 hover:bg-emerald-100 active:bg-emerald-200 rounded-lg transition touch-manipulation">
+              <svg className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.59 13.51l6.83 3.98m-.01-10.98l-6.82 3.98M21 5a3 3 0 11-6 0 3 3 0 016 0zM9 12a3 3 0 11-6 0 3 3 0 016 0zm12 7a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
-              <span className="text-xs sm:text-sm font-medium text-gray-700">공유 <span className="text-emerald-900">{post.shareCount}</span></span>
+              <span className="text-xs font-medium text-gray-700">공유 <span className="text-emerald-900">{post.shareCount}</span></span>
             </button>
           </div>
         </article>
@@ -767,37 +770,27 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
         <section className="bg-white rounded-lg shadow-md p-4 sm:p-6">
           <h2 className="text-base sm:text-lg font-bold text-gray-900 mb-4">댓글 <span className="text-emerald-700">{totalComments}</span></h2>
 
-          {/* 댓글 탭 */}
-          {/* 정치인 게시판에만 정치인/회원 댓글 구분 표시 */}
+          {/* 댓글 작성 폼 - 정치인 게시판 vs 회원 자유게시판 */}
           {post?.isPolitician ? (
             <>
-              <div className="flex gap-2 mb-4">
-                <button className="px-4 py-2 bg-primary-500 text-white rounded-lg border-2 border-primary-500 font-medium hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-300 transition">
-                  🏛️ 정치인 댓글
-                </button>
-                <button className="px-4 py-2 bg-white text-gray-700 rounded-lg border-2 border-secondary-600 font-medium hover:bg-purple-50 focus:outline-none focus:ring-2 focus:ring-secondary-300 transition">
-                  👤 회원 댓글
-                </button>
-              </div>
-
-              {/* 정치인 댓글 작성 폼 */}
-              <div className="mb-4 p-4 bg-orange-50 border border-primary-200 rounded-lg">
+              {/* 정치인 게시판: 정치인 댓글 작성 폼 */}
+              <div className="mb-3 p-3 bg-orange-50 border border-orange-200 rounded-lg">
                 <div className="flex items-center justify-between gap-2 mb-2">
-                  <span className="text-sm font-bold text-primary-600">🏛️ 정치인으로 댓글 작성</span>
+                  <span className="text-xs font-bold text-orange-600">💬 정치인으로 댓글 작성</span>
                   {authenticatedPolitician ? (
-                    <div className="flex items-center gap-2">
-                      <span className="text-sm text-primary-600 font-medium">{authenticatedPolitician.name}님으로 인증됨</span>
+                    <div className="flex items-center gap-1.5">
+                      <span className="text-xs text-orange-600 font-medium">{authenticatedPolitician.name}님</span>
                       <button
                         onClick={() => setAuthenticatedPolitician(null)}
-                        className="text-xs text-gray-500 hover:text-gray-700"
+                        className="text-[10px] text-gray-400 hover:text-gray-600"
                       >
-                        (인증 해제)
+                        (해제)
                       </button>
                     </div>
                   ) : (
                     <button
                       onClick={() => setPoliticianAuthModalOpen(true)}
-                      className="text-sm text-primary-600 hover:text-primary-700 font-medium underline"
+                      className="text-xs text-orange-600 hover:text-orange-700 font-medium underline"
                     >
                       본인 인증하기
                     </button>
@@ -806,42 +799,42 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
                 <textarea
                   value={politicianCommentText}
                   onChange={(e) => setPoliticianCommentText(e.target.value)}
-                  rows={3}
+                  rows={2}
                   inputMode="text"
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 resize-none text-base touch-manipulation"
-                  placeholder={authenticatedPolitician ? `${authenticatedPolitician.name}님으로 댓글을 입력하세요...` : "본인 인증 후 댓글을 입력할 수 있습니다."}
+                  className="w-full p-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-400 focus:border-orange-400 resize-none text-sm touch-manipulation"
+                  placeholder={authenticatedPolitician ? "댓글을 입력하세요..." : "본인 인증 후 댓글을 입력할 수 있습니다."}
                   disabled={!authenticatedPolitician}
                 />
                 <div className="flex justify-end items-center mt-2">
                   <button
                     onClick={handlePoliticianCommentSubmit}
                     disabled={!politicianCommentText.trim() || !authenticatedPolitician || politicianCommentSubmitting}
-                    className="px-6 py-2 bg-primary-500 text-white rounded-lg hover:bg-primary-600 font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="px-3 py-1.5 bg-orange-500 text-white rounded-lg hover:bg-orange-600 text-xs font-medium disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    {politicianCommentSubmitting ? '등록 중...' : '정치인 댓글 등록'}
+                    {politicianCommentSubmitting ? '등록 중...' : '댓글 등록'}
                   </button>
                 </div>
               </div>
 
-              {/* 회원 댓글 작성 폼 */}
-              <div className="mb-6 p-4 bg-purple-50 border border-secondary-200 rounded-lg">
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="text-sm font-bold text-secondary-600">👤 회원으로 댓글 작성</span>
+              {/* 정치인 게시판: 회원 댓글 작성 폼 */}
+              <div className="mb-4 p-3 bg-purple-50 border border-purple-200 rounded-lg">
+                <div className="flex items-center justify-between gap-2 mb-2">
+                  <span className="text-xs font-bold text-purple-600">💬 회원으로 댓글 작성</span>
+                  {currentUser ? (
+                    <span className="text-xs text-purple-600 font-medium">{currentUser.name || currentUser.email}님</span>
+                  ) : (
+                    <span className="text-xs text-gray-400">로그인 필요</span>
+                  )}
                 </div>
                 <textarea
                   value={commentText}
                   onChange={(e) => setCommentText(e.target.value)}
-                  rows={3}
+                  rows={2}
                   inputMode="text"
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary-500 focus:border-secondary-500 resize-none text-base touch-manipulation"
-                  placeholder="회원으로 댓글을 입력하세요..."
+                  className="w-full p-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-400 focus:border-purple-400 resize-none text-sm touch-manipulation"
+                  placeholder="댓글을 입력하세요..."
                 />
-                <div className="flex justify-between items-center mt-2">
-                  {currentUser ? (
-                    <span className="text-sm text-secondary-600 font-medium">{currentUser.name || currentUser.email}님으로 댓글 작성</span>
-                  ) : (
-                    <span className="text-sm text-gray-500">회원 계정으로 로그인 필요</span>
-                  )}
+                <div className="flex justify-end items-center mt-2">
                   <button
                     onClick={() => {
                       if (commentText.trim()) {
@@ -850,30 +843,30 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
                       }
                     }}
                     disabled={!commentText.trim() || commentSubmitting}
-                    className="px-6 py-2 bg-secondary-600 text-white rounded-lg hover:bg-secondary-700 font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="px-3 py-1.5 bg-purple-600 text-white rounded-lg hover:bg-purple-700 text-xs font-medium disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    {commentSubmitting ? '등록 중...' : '회원 댓글 등록'}
+                    {commentSubmitting ? '등록 중...' : '댓글 등록'}
                   </button>
                 </div>
               </div>
             </>
           ) : (
-            /* 회원 자유게시판 - 일반 댓글 작성 폼만 표시 */
-            <div className="mb-6 p-4 bg-white border border-gray-200 rounded-lg">
+            /* 회원 자유게시판: 댓글 작성 폼 */
+            <div className="mb-4 p-3 bg-purple-50 border border-purple-200 rounded-lg">
               <div className="flex items-center justify-between gap-2 mb-2">
-                <span className="text-sm font-bold text-gray-700">💬 댓글 작성</span>
+                <span className="text-xs font-bold text-purple-600">💬 댓글 작성</span>
                 {currentUser ? (
-                  <span className="text-sm text-secondary-600 font-medium">{currentUser.name || currentUser.email}님으로 작성</span>
+                  <span className="text-xs text-purple-600 font-medium">{currentUser.name || currentUser.email}님</span>
                 ) : (
-                  <span className="text-sm text-gray-500">로그인 필요</span>
+                  <span className="text-xs text-gray-400">로그인 필요</span>
                 )}
               </div>
               <textarea
                 value={commentText}
                 onChange={(e) => setCommentText(e.target.value)}
-                rows={3}
+                rows={2}
                 inputMode="text"
-                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary-500 focus:border-secondary-500 resize-none text-base touch-manipulation"
+                className="w-full p-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-400 focus:border-purple-400 resize-none text-sm touch-manipulation"
                 placeholder="댓글을 입력하세요..."
               />
               <div className="flex justify-end items-center mt-2">
@@ -885,7 +878,7 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
                     }
                   }}
                   disabled={!commentText.trim() || commentSubmitting}
-                  className="px-6 py-2 bg-secondary-600 text-white rounded-lg hover:bg-secondary-700 font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="px-3 py-1.5 bg-purple-600 text-white rounded-lg hover:bg-purple-700 text-xs font-medium disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {commentSubmitting ? '등록 중...' : '댓글 등록'}
                 </button>
@@ -945,7 +938,7 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
               <div className="text-center pt-4">
                 <button
                   onClick={() => setDisplayedComments(prev => prev + 10)}
-                  className="min-h-[44px] px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 active:bg-gray-100 font-medium transition touch-manipulation"
+                  className="min-h-[36px] sm:min-h-[40px] px-4 sm:px-6 py-2 sm:py-2.5 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 active:bg-gray-100 font-medium transition touch-manipulation text-sm"
                 >
                   댓글 더보기 ({comments.length - displayedComments}개 남음)
                 </button>
@@ -1023,12 +1016,12 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
       {/* Alert Modal - 모바일 최적화 */}
       {alertModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4" onClick={() => setAlertModalOpen(false)}>
-          <div className="bg-white rounded-lg max-w-sm w-full p-6" onClick={(e) => e.stopPropagation()}>
-            <div className="mb-6">
-              <p className="text-gray-900 text-center whitespace-pre-line">{alertMessage}</p>
+          <div className="bg-white rounded-lg max-w-sm w-full p-4 sm:p-6" onClick={(e) => e.stopPropagation()}>
+            <div className="mb-4 sm:mb-6">
+              <p className="text-gray-900 text-center whitespace-pre-line text-sm sm:text-base">{alertMessage}</p>
             </div>
             <div className="flex justify-center">
-              <button onClick={() => setAlertModalOpen(false)} className="min-h-[44px] min-w-[120px] px-8 py-3 bg-gray-900 text-white rounded-lg hover:bg-gray-800 active:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 transition touch-manipulation font-medium">
+              <button onClick={() => setAlertModalOpen(false)} className="min-h-[36px] sm:min-h-[40px] min-w-[100px] sm:min-w-[120px] px-6 sm:px-8 py-2 sm:py-2.5 bg-gray-900 text-white rounded-lg hover:bg-gray-800 active:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 transition touch-manipulation font-medium text-sm">
                 확인
               </button>
             </div>
@@ -1039,29 +1032,29 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
       {/* 삭제 확인 모달 */}
       {deleteModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4" onClick={() => setDeleteModalOpen(false)}>
-          <div className="bg-white rounded-lg max-w-sm w-full p-6" onClick={(e) => e.stopPropagation()}>
-            <div className="text-center mb-6">
-              <div className="mx-auto w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className="bg-white rounded-lg max-w-sm w-full p-4 sm:p-6" onClick={(e) => e.stopPropagation()}>
+            <div className="text-center mb-4 sm:mb-6">
+              <div className="mx-auto w-10 h-10 sm:w-12 sm:h-12 bg-red-100 rounded-full flex items-center justify-center mb-3 sm:mb-4">
+                <svg className="w-5 h-5 sm:w-6 sm:h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                 </svg>
               </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-2">게시글 삭제</h3>
-              <p className="text-gray-600">정말 이 게시글을 삭제하시겠습니까?</p>
-              <p className="text-sm text-red-500 mt-1">삭제된 게시글은 복구할 수 없습니다.</p>
+              <h3 className="text-base sm:text-lg font-bold text-gray-900 mb-2">게시글 삭제</h3>
+              <p className="text-sm sm:text-base text-gray-600">정말 이 게시글을 삭제하시겠습니까?</p>
+              <p className="text-xs sm:text-sm text-red-500 mt-1">삭제된 게시글은 복구할 수 없습니다.</p>
             </div>
-            <div className="flex gap-3">
+            <div className="flex gap-2 sm:gap-3">
               <button
                 onClick={() => setDeleteModalOpen(false)}
                 disabled={deleteLoading}
-                className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 disabled:opacity-50"
+                className="flex-1 px-3 sm:px-4 py-2 min-h-[36px] sm:min-h-[40px] border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 disabled:opacity-50 text-sm"
               >
                 취소
               </button>
               <button
                 onClick={handleDeletePost}
                 disabled={deleteLoading}
-                className="flex-1 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 disabled:opacity-50 flex items-center justify-center"
+                className="flex-1 px-3 sm:px-4 py-2 min-h-[36px] sm:min-h-[40px] bg-red-600 text-white rounded-lg hover:bg-red-700 disabled:opacity-50 flex items-center justify-center text-sm"
               >
                 {deleteLoading ? (
                   <>

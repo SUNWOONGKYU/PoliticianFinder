@@ -5,7 +5,8 @@
       "Bash(PYTHONIOENCODING=utf-8 python:*)",
       "WebSearch",
       "Bash(cat:*)",
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "Bash(python:*)"
     ],
     "deny": [],
     "ask": []

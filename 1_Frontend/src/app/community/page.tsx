@@ -67,10 +67,13 @@ export default function CommunityPage() {
       const result = await response.json();
       if (result.success && result.data) {
         const mappedPosts: Post[] = result.data.map((post: any, index: number) => {
+          // 정치인이 직접 작성한 글인지 확인 (author_type === 'politician')
+          const isPoliticianPost = post.author_type === 'politician';
+
           let authorName = '익명';
 
-          // 정치인 게시글인 경우
-          if (post.politician_id && post.politicians) {
+          // 정치인이 직접 작성한 게시글인 경우
+          if (isPoliticianPost && post.politicians) {
             authorName = post.politicians.name || '정치인';
           }
           // 일반 회원 게시글인 경우 - users 테이블에서 닉네임 가져오기
@@ -80,16 +83,16 @@ export default function CommunityPage() {
 
           // Generate member level based on user_id hash (ML1 ~ ML5) - only for user posts
           const userIdHash = post.user_id ? post.user_id.split('-')[0].charCodeAt(0) : index;
-          const memberLevel = post.politician_id ? undefined : `ML${(userIdHash % 5) + 1}`;
+          const memberLevel = isPoliticianPost ? undefined : `ML${(userIdHash % 5) + 1}`;
 
           return {
             id: post.id,
             title: post.title,
             content: post.content,
-            category: post.politician_id ? 'politician_post' : 'general',
+            category: isPoliticianPost ? 'politician_post' : 'general',
             author_name: authorName,
             author_id: post.user_id,
-            author_type: post.politician_id ? 'politician' : 'user',
+            author_type: isPoliticianPost ? 'politician' : 'user',
             member_level: memberLevel,
             politician_id: post.politician_id,
             politician_name: post.politicians?.name,
@@ -125,6 +128,18 @@ export default function CommunityPage() {
     fetchPosts();
   }, [fetchPosts]);
 
+  // 페이지가 다시 보일 때 (뒤로가기, 탭 전환 등) 데이터 새로고침
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'visible') {
+        fetchPosts();
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    return () => document.removeEventListener('visibilitychange', handleVisibilityChange);
+  }, [fetchPosts]);
+
   // Filter and sort posts
   const filteredPosts = posts
     .filter(post => {
@@ -158,9 +173,9 @@ export default function CommunityPage() {
 
   const getTabClass = (tab: string, borderColor: string) => {
     if (currentCategory === tab) {
-      return 'flex-1 px-3 sm:px-4 py-2 min-h-[44px] bg-primary-500 text-white rounded-lg font-medium hover:bg-primary-600 active:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-300 transition whitespace-nowrap text-center min-w-[80px] sm:min-w-[120px] text-sm touch-manipulation';
+      return 'flex-1 px-2 sm:px-4 py-1.5 sm:py-2 min-h-[36px] sm:min-h-[40px] bg-primary-500 text-white rounded-lg font-medium hover:bg-primary-600 active:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-300 transition whitespace-nowrap text-center text-xs sm:text-sm touch-manipulation';
     }
-    return `flex-1 px-3 sm:px-4 py-2 min-h-[44px] bg-white text-gray-700 rounded-lg border-2 ${borderColor} font-medium hover:bg-gray-100 active:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-300 transition whitespace-nowrap text-center min-w-[80px] sm:min-w-[120px] text-sm touch-manipulation`;
+    return `flex-1 px-2 sm:px-4 py-1.5 sm:py-2 min-h-[36px] sm:min-h-[40px] bg-white text-gray-700 rounded-lg border-2 ${borderColor} font-medium hover:bg-gray-100 active:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-300 transition whitespace-nowrap text-center text-xs sm:text-sm touch-manipulation`;
   };
 
   return (
@@ -189,7 +204,7 @@ export default function CommunityPage() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
             </div>
-            <button className="px-4 sm:px-6 py-2.5 min-h-[44px] bg-primary-500 text-white rounded-lg hover:bg-primary-600 active:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-300 font-semibold text-sm shadow-sm touch-manipulation">
+            <button className="px-3 sm:px-5 py-2 sm:py-2.5 min-h-[36px] sm:min-h-[40px] bg-primary-500 text-white rounded-lg hover:bg-primary-600 active:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-300 font-semibold text-xs sm:text-sm shadow-sm touch-manipulation">
               검색
             </button>
           </div>
@@ -209,23 +224,23 @@ export default function CommunityPage() {
               onClick={() => { setCurrentCategory('politician_post'); setCurrentPage(1); }}
               className={getTabClass('politician_post', 'border-primary-500')}
             >
-              🏛️ 정치인
+              정치인 게시판
             </button>
             <button
               onClick={() => { setCurrentCategory('general'); setCurrentPage(1); }}
               className={currentCategory === 'general'
-                ? 'flex-1 px-3 sm:px-4 py-2 min-h-[44px] bg-purple-600 text-white rounded-lg font-medium hover:bg-purple-700 active:bg-purple-800 focus:outline-none focus:ring-2 focus:ring-primary-300 transition whitespace-nowrap text-center min-w-[80px] sm:min-w-[120px] text-sm touch-manipulation'
-                : 'flex-1 px-3 sm:px-4 py-2 min-h-[44px] bg-white text-gray-700 rounded-lg border-2 border-purple-600 font-medium hover:bg-gray-100 active:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-300 transition whitespace-nowrap text-center min-w-[80px] sm:min-w-[120px] text-sm touch-manipulation'
+                ? 'flex-1 px-2 sm:px-4 py-1.5 sm:py-2 min-h-[36px] sm:min-h-[40px] bg-purple-600 text-white rounded-lg font-medium hover:bg-purple-700 active:bg-purple-800 focus:outline-none focus:ring-2 focus:ring-primary-300 transition whitespace-nowrap text-center text-xs sm:text-sm touch-manipulation'
+                : 'flex-1 px-2 sm:px-4 py-1.5 sm:py-2 min-h-[36px] sm:min-h-[40px] bg-white text-gray-700 rounded-lg border-2 border-purple-600 font-medium hover:bg-gray-100 active:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-300 transition whitespace-nowrap text-center text-xs sm:text-sm touch-manipulation'
               }
             >
-              💬 자유게시판
+              회원 자유게시판
             </button>
           </div>
 
           {/* Write Button - 모바일에서 전체 너비 */}
           <button
             onClick={handleWriteClick}
-            className="w-full sm:w-auto px-5 py-2.5 min-h-[44px] bg-primary-500 text-white rounded-lg font-medium hover:bg-primary-600 active:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-300 transition whitespace-nowrap shadow-md touch-manipulation"
+            className="w-full sm:w-auto px-4 sm:px-5 py-2 sm:py-2.5 min-h-[36px] sm:min-h-[40px] bg-primary-500 text-white rounded-lg font-medium hover:bg-primary-600 active:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-300 transition whitespace-nowrap shadow-md touch-manipulation text-sm"
           >
             글쓰기
           </button>
@@ -240,7 +255,7 @@ export default function CommunityPage() {
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value as 'latest' | 'popular' | 'views')}
-              className="px-3 py-2 min-h-[44px] border border-gray-300 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-primary-300 bg-white touch-manipulation"
+              className="px-2 sm:px-3 py-1.5 sm:py-2 min-h-[36px] sm:min-h-[40px] border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary-300 bg-white touch-manipulation"
             >
               <option value="latest">최신순</option>
               <option value="popular">공감순</option>
@@ -347,14 +362,14 @@ export default function CommunityPage() {
                 <button
                   onClick={() => setCurrentPage(1)}
                   disabled={currentPage === 1}
-                  className="px-3 py-2 min-h-[44px] min-w-[44px] border rounded-lg hover:bg-gray-100 active:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed text-sm touch-manipulation hidden sm:block"
+                  className="px-2 sm:px-3 py-1.5 sm:py-2 min-h-[32px] sm:min-h-[36px] min-w-[32px] sm:min-w-[40px] border rounded-lg hover:bg-gray-100 active:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed text-xs sm:text-sm touch-manipulation hidden sm:block"
                 >
                   처음
                 </button>
                 <button
                   onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))}
                   disabled={currentPage === 1}
-                  className="px-3 py-2 min-h-[44px] min-w-[44px] border rounded-lg hover:bg-gray-100 active:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed text-sm touch-manipulation"
+                  className="px-2 sm:px-3 py-1.5 sm:py-2 min-h-[32px] sm:min-h-[36px] min-w-[32px] sm:min-w-[40px] border rounded-lg hover:bg-gray-100 active:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed text-xs sm:text-sm touch-manipulation"
                 >
                   이전
                 </button>
@@ -375,7 +390,7 @@ export default function CommunityPage() {
                       <button
                         key={pageNum}
                         onClick={() => setCurrentPage(pageNum)}
-                        className={`px-3 py-2 min-h-[44px] min-w-[44px] border rounded-lg text-sm touch-manipulation ${
+                        className={`px-2 sm:px-3 py-1.5 sm:py-2 min-h-[32px] sm:min-h-[36px] min-w-[32px] sm:min-w-[40px] border rounded-lg text-xs sm:text-sm touch-manipulation ${
                           currentPage === pageNum
                             ? 'bg-primary-500 text-white border-primary-500'
                             : 'hover:bg-gray-100 active:bg-gray-200'
@@ -390,14 +405,14 @@ export default function CommunityPage() {
                 <button
                   onClick={() => setCurrentPage(prev => Math.min(totalPages, prev + 1))}
                   disabled={currentPage === totalPages}
-                  className="px-3 py-2 min-h-[44px] min-w-[44px] border rounded-lg hover:bg-gray-100 active:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed text-sm touch-manipulation"
+                  className="px-2 sm:px-3 py-1.5 sm:py-2 min-h-[32px] sm:min-h-[36px] min-w-[32px] sm:min-w-[40px] border rounded-lg hover:bg-gray-100 active:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed text-xs sm:text-sm touch-manipulation"
                 >
                   다음
                 </button>
                 <button
                   onClick={() => setCurrentPage(totalPages)}
                   disabled={currentPage === totalPages}
-                  className="px-3 py-2 min-h-[44px] min-w-[44px] border rounded-lg hover:bg-gray-100 active:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed text-sm touch-manipulation hidden sm:block"
+                  className="px-2 sm:px-3 py-1.5 sm:py-2 min-h-[32px] sm:min-h-[36px] min-w-[32px] sm:min-w-[40px] border rounded-lg hover:bg-gray-100 active:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed text-xs sm:text-sm touch-manipulation hidden sm:block"
                 >
                   마지막
                 </button>
@@ -423,22 +438,22 @@ export default function CommunityPage() {
             <div className="space-y-3">
               <Link
                 href="/community/posts/create-politician"
-                className="block w-full px-5 py-2.5 min-h-[44px] bg-primary-500 text-white rounded-lg hover:bg-primary-600 active:bg-primary-700 transition text-center font-medium shadow-sm border-2 border-primary-600 touch-manipulation"
+                className="block w-full px-4 sm:px-5 py-2 sm:py-2.5 min-h-[40px] sm:min-h-[44px] bg-primary-500 text-white rounded-lg hover:bg-primary-600 active:bg-primary-700 transition text-center font-medium shadow-sm border-2 border-primary-600 touch-manipulation text-sm sm:text-base"
               >
-                🏛️ 정치인 게시판
+                정치인 게시판
               </Link>
 
               <Link
                 href="/community/posts/create"
-                className="block w-full px-5 py-2.5 min-h-[44px] bg-purple-600 text-white rounded-lg hover:bg-purple-700 active:bg-purple-800 transition text-center font-medium shadow-sm border-2 border-purple-700 touch-manipulation"
+                className="block w-full px-4 sm:px-5 py-2 sm:py-2.5 min-h-[40px] sm:min-h-[44px] bg-purple-600 text-white rounded-lg hover:bg-purple-700 active:bg-purple-800 transition text-center font-medium shadow-sm border-2 border-purple-700 touch-manipulation text-sm sm:text-base"
               >
-                💬 회원 자유게시판
+                회원 자유게시판
               </Link>
             </div>
 
             <button
               onClick={() => setShowCategoryModal(false)}
-              className="mt-4 w-full px-5 py-2.5 min-h-[44px] bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 active:bg-gray-400 transition font-medium touch-manipulation"
+              className="mt-4 w-full px-4 sm:px-5 py-2 sm:py-2.5 min-h-[40px] sm:min-h-[44px] bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 active:bg-gray-400 transition font-medium touch-manipulation text-sm sm:text-base"
             >
               취소
             </button>
