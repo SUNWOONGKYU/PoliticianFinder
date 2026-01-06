@@ -763,13 +763,14 @@ export default function Home() {
                           <span className="text-xl font-bold text-gray-900">
                             {politicians[0].name}
                           </span>
+                          {politicians[0].title && (
+                            <span className="text-base font-medium text-gray-700">
+                              {politicians[0].title}
+                            </span>
+                          )}
                         </div>
-                        {/* 1줄: 현 직책 + 정당 */}
+                        {/* 1줄: 정당 */}
                         <div className="text-sm text-gray-600">
-                          <span className="font-medium">
-                            {politicians[0].title || '-'}
-                          </span>
-                          <span className="mx-1">|</span>
                           <span>{politicians[0].party}</span>
                         </div>
                         {/* 2줄: 신분 + 출마직종 + 지역 + 지구 */}
@@ -863,13 +864,14 @@ export default function Home() {
                             <span className="text-lg font-bold text-gray-900">
                               {p.name}
                             </span>
+                            {p.title && (
+                              <span className="text-sm font-medium text-gray-700">
+                                {p.title}
+                              </span>
+                            )}
                           </div>
-                          {/* 1줄: 현 직책 + 정당 */}
+                          {/* 1줄: 정당 */}
                           <div className="text-sm text-gray-600">
-                            <span className="font-medium">
-                              {p.title || '-'}
-                            </span>
-                            <span className="mx-1">|</span>
                             <span>{p.party}</span>
                           </div>
                           {/* 2줄: 신분 + 출마직종 + 지역 + 지구 */}
