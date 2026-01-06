@@ -454,7 +454,7 @@ export default function PoliticianDetailPage() {
                   </span>
                 </div>
 
-                {/* 2줄: 신분, 출마직종, 출마지역, 출마지구 */}
+                {/* 2줄: 출마 신분, 출마직종, 출마지역, 출마지구 */}
                 <div className="flex flex-wrap justify-center md:justify-start items-center gap-1.5 sm:gap-2 mb-4 sm:mb-6">
                   <span className="px-2 sm:px-3 py-0.5 sm:py-1 bg-accent-500/80 backdrop-blur-sm rounded-full text-xs sm:text-sm">
                     {politician.identity}
@@ -571,7 +571,7 @@ export default function PoliticianDetailPage() {
           </div>
         </nav>
 
-        {/* [1] 기본 정보 섹션 (상세) - 목록 페이지 순서: 직책, 정당, 신분, 출마직종, 출마지역, 출마지구 */}
+        {/* [1] 기본 정보 섹션 (상세) - 목록 페이지 순서: 직책, 정당, 출마 신분, 출마직종, 출마지역, 출마지구 */}
         <section id="basic" className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-6 scroll-mt-32">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">상세 정보</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -592,7 +592,7 @@ export default function PoliticianDetailPage() {
               <span className="text-gray-900 dark:text-white text-base">{politician.party || '-'}</span>
             </div>
             <div className="flex items-center gap-3 min-h-[44px]">
-              <span className="text-gray-600 dark:text-gray-400 font-medium w-24 text-base">신분</span>
+              <span className="text-gray-600 dark:text-gray-400 font-medium w-24 text-base">출마 신분</span>
               <span className="text-gray-900 dark:text-white text-base">{politician.identity || '-'}</span>
             </div>
             <div className="flex items-center gap-3 min-h-[44px]">
