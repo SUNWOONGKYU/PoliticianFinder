@@ -535,13 +535,17 @@ export default function PoliticianDetailPage() {
                   </div>
                 </div>
 
-                {/* Member Rating - 숫자 없이 별만 표시 */}
+                {/* Member Rating - 항상 별 5개 표시 (채워진/빈 별) */}
                 <div className="bg-white/10 backdrop-blur-md rounded-lg sm:rounded-xl p-2 sm:p-3 md:p-4 text-center border border-white/20">
                   <div className="text-xs sm:text-sm text-white/80 mb-0.5 sm:mb-1">회원 평가</div>
-                  <div className="text-base sm:text-xl md:text-2xl lg:text-3xl font-bold text-yellow-300">
-                    {politician.userRating > 0 ? '★'.repeat(Math.round(politician.userRating)) : '-'}
+                  <div className="text-base sm:text-xl md:text-2xl lg:text-3xl font-bold flex justify-center gap-0.5">
+                    {[1, 2, 3, 4, 5].map((star) => (
+                      <span key={star} className={star <= Math.round(politician.userRating || 0) ? 'text-yellow-300' : 'text-white/30'}>
+                        ★
+                      </span>
+                    ))}
                   </div>
-                  <div className="text-[10px] sm:text-xs md:text-sm text-white/80 mt-0.5 sm:mt-1">{politician.ratingCount}명</div>
+                  <div className="text-[10px] sm:text-xs md:text-sm text-white/80 mt-0.5 sm:mt-1">{politician.ratingCount || 0}명</div>
                 </div>
               </div>
             </div>
@@ -800,9 +804,9 @@ export default function PoliticianDetailPage() {
 
           {/* 의견 작성 폼 */}
           <div className="mb-6 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
-            <h3 className="text-base font-semibold text-gray-900 dark:text-white mb-3">💬 {politician.name} 의원에게 의견 남기기</h3>
+            <h3 className="text-base font-semibold text-gray-900 dark:text-white mb-3">💬 {politician.name} {politician.title || ''}에게 의견 남기기</h3>
             <textarea
-              placeholder={`${politician.name} 의원에 대한 의견을 남겨주세요...`}
+              placeholder={`${politician.name} ${politician.title || ''}에 대한 의견을 남겨주세요...`}
               className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg text-[15px] text-gray-900 dark:text-white bg-white dark:bg-gray-800 resize-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
               rows={3}
             />

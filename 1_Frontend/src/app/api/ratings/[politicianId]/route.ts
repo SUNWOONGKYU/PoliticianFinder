@@ -23,6 +23,7 @@ export async function POST(
     const { data: { user }, error: authError } = await supabase.auth.getUser();
 
     if (authError || !user) {
+      console.error('Auth error:', authError);
       return NextResponse.json(
         { error: '로그인이 필요합니다.' },
         { status: 401 }
@@ -39,26 +40,22 @@ export async function POST(
       .eq('user_id', userId)
       .single();
 
-    let ratingData;
     let upsertError;
 
     if (existingRating) {
       // 기존 평가 업데이트
-      const { data, error } = await supabase
+      const { error } = await supabase
         .from('politician_ratings')
         .update({
           rating: rating,
           updated_at: new Date().toISOString()
         })
         .eq('politician_id', politicianId)
-        .eq('user_id', userId)
-        .select()
-        .single();
-      ratingData = data;
+        .eq('user_id', userId);
       upsertError = error;
     } else {
       // 새 평가 삽입
-      const { data, error } = await supabase
+      const { error } = await supabase
         .from('politician_ratings')
         .insert([
           {
@@ -67,10 +64,7 @@ export async function POST(
             rating: rating,
             created_at: new Date().toISOString()
           }
-        ])
-        .select()
-        .single();
-      ratingData = data;
+        ]);
       upsertError = error;
     }
 
@@ -82,17 +76,14 @@ export async function POST(
       );
     }
 
-    // Trigger가 자동으로 평균 계산 및 업데이트하므로 중복 계산 제거
-    // 대신 업데이트된 값을 조회
-    const { data: updatedDetails, error: detailsError } = await supabase
-      .from('politician_details')
-      .select('user_rating, rating_count')
-      .eq('politician_id', politicianId)
-      .single();
+    // 평균 점수와 평가 수 직접 계산
+    const { data: allRatings, error: fetchError } = await supabase
+      .from('politician_ratings')
+      .select('rating')
+      .eq('politician_id', politicianId);
 
-    if (detailsError) {
-      console.error('Details fetch error:', detailsError);
-      // 평가는 저장되었으므로 기본 응답
+    if (fetchError) {
+      console.error('Ratings fetch error:', fetchError);
       return NextResponse.json({
         success: true,
         message: '평가를 등록했습니다.',
@@ -101,11 +92,31 @@ export async function POST(
       });
     }
 
+    const ratingCount = allRatings?.length || 1;
+    const averageRating = allRatings && allRatings.length > 0
+      ? Math.round((allRatings.reduce((sum, r) => sum + r.rating, 0) / ratingCount) * 10) / 10
+      : rating;
+
+    // politicians 테이블에 평균 점수 업데이트
+    const { error: updateError } = await supabase
+      .from('politicians')
+      .update({
+        user_rating: averageRating,
+        rating_count: ratingCount,
+        updated_at: new Date().toISOString()
+      })
+      .eq('id', politicianId);
+
+    if (updateError) {
+      console.error('Politicians update error:', updateError);
+      // 평가는 저장되었으므로 계속 진행
+    }
+
     return NextResponse.json({
       success: true,
       message: '평가를 등록했습니다.',
-      averageRating: Math.round(updatedDetails.user_rating * 10) / 10,
-      ratingCount: updatedDetails.rating_count
+      averageRating,
+      ratingCount
     });
 
   } catch (error) {
