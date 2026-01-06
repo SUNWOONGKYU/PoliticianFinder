@@ -60,6 +60,9 @@ export default function PoliticianDetailPage() {
   const [isFavoriteFloating, setIsFavoriteFloating] = useState(false);
   const [loadingFavorite, setLoadingFavorite] = useState(false);
 
+  // 프로필 이미지 에러 상태 (404 등 이미지 로드 실패 시 기본 이미지로 폴백)
+  const [profileImageError, setProfileImageError] = useState(false);
+
   // 정치인 본인 인증 상태 (상세평가보고서 구매 섹션 표시 여부)
   const [isVerifiedOwner, setIsVerifiedOwner] = useState(false);
 
@@ -417,14 +420,15 @@ export default function PoliticianDetailPage() {
               <div className="relative flex-shrink-0">
                 <div className="relative w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-full border-4 border-white shadow-xl overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
                   <Image
-                    src={politician.profileImageUrl && politician.profileImageUrl.trim() !== ''
-                      ? politician.profileImageUrl
-                      : '/icons/default-profile.svg'}
+                    src={profileImageError || !politician.profileImageUrl || politician.profileImageUrl.trim() === ''
+                      ? '/icons/default-profile.svg'
+                      : politician.profileImageUrl}
                     alt={politician.name}
                     fill
                     sizes="(max-width: 640px) 96px, (max-width: 768px) 128px, 160px"
                     className="object-cover"
                     priority
+                    onError={() => setProfileImageError(true)}
                   />
                 </div>
                 {/* Favorite Badge - 아이콘만 표시 */}
