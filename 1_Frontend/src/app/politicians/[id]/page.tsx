@@ -416,22 +416,16 @@ export default function PoliticianDetailPage() {
               {/* Profile Image */}
               <div className="relative flex-shrink-0">
                 <div className="relative w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-full border-4 border-white shadow-xl overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
-                  {politician.profileImageUrl && politician.profileImageUrl.trim() !== '' ? (
-                    <Image
-                      src={politician.profileImageUrl}
-                      alt={politician.name}
-                      fill
-                      sizes="(max-width: 640px) 96px, (max-width: 768px) 128px, 160px"
-                      className="object-cover"
-                      priority
-                    />
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-orange-400 to-orange-500">
-                      <svg className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 text-white" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v1c0 .55.45 1 1 1h14c.55 0 1-.45 1-1v-1c0-2.66-5.33-4-8-4z"/>
-                      </svg>
-                    </div>
-                  )}
+                  <Image
+                    src={politician.profileImageUrl && politician.profileImageUrl.trim() !== ''
+                      ? politician.profileImageUrl
+                      : '/icons/default-profile.svg'}
+                    alt={politician.name}
+                    fill
+                    sizes="(max-width: 640px) 96px, (max-width: 768px) 128px, 160px"
+                    className="object-cover"
+                    priority
+                  />
                 </div>
                 {/* Favorite Badge - 아이콘만 표시 */}
                 <div className="absolute -bottom-1 -right-1">

@@ -238,19 +238,13 @@ export default function PoliticianProfilePage() {
             
             <div className="relative">
               <div className="relative w-24 h-24 md:w-32 md:h-32 rounded-full bg-gray-200 overflow-hidden">
-                {politician.profile_image_url ? (
-                  <Image
-                    src={politician.profile_image_url}
-                    alt={politician.name}
-                    fill
-                    sizes="(max-width: 768px) 96px, 128px"
-                    className="object-cover"
-                  />
-                ) : (
-                  <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#064E3B] to-[#065F46] text-white text-3xl md:text-4xl font-bold">
-                    {politician.name.charAt(0)}
-                  </div>
-                )}
+                <Image
+                  src={politician.profile_image_url || '/icons/default-profile.svg'}
+                  alt={politician.name}
+                  fill
+                  sizes="(max-width: 768px) 96px, 128px"
+                  className="object-cover"
+                />
               </div>
               {politician.is_verified && (
                 <div className="absolute -bottom-1 -right-1 bg-white rounded-full p-1">

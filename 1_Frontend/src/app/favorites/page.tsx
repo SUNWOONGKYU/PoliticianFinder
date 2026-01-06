@@ -236,13 +236,11 @@ export default function FavoritesPage() {
                 <div key={politician.id} className="p-4 hover:bg-gray-50 cursor-pointer flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <div className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center overflow-hidden">
-                      {politician.profile_image_url ? (
-                        <img src={politician.profile_image_url} alt={politician.name} className="w-full h-full object-cover" />
-                      ) : (
-                        <svg className="w-8 h-8 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v1c0 .55.45 1 1 1h14c.55 0 1-.45 1-1v-1c0-2.66-5.33-4-8-4z"/>
-                        </svg>
-                      )}
+                      <img
+                        src={politician.profile_image_url || '/icons/default-profile.svg'}
+                        alt={politician.name}
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                     <div>
                       <div className="font-medium text-gray-900">{politician.name}</div>
@@ -288,13 +286,11 @@ export default function FavoritesPage() {
                 <div key={politician.id} className="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition">
                   <Link href={`/politicians/${politician.politician_id}`} className="flex items-center gap-4 flex-1">
                     <div className="w-16 h-16 bg-gray-200 rounded-full flex items-center justify-center overflow-hidden">
-                      {politician.profile_image_url ? (
-                        <img src={politician.profile_image_url} alt={politician.name} className="w-full h-full object-cover" />
-                      ) : (
-                        <svg className="w-10 h-10 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v1c0 .55.45 1 1 1h14c.55 0 1-.45 1-1v-1c0-2.66-5.33-4-8-4z"/>
-                        </svg>
-                      )}
+                      <img
+                        src={politician.profile_image_url || '/icons/default-profile.svg'}
+                        alt={politician.name}
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                     <div>
                       <h3 className="font-bold text-gray-900">{politician.name}</h3>
