@@ -600,7 +600,7 @@ export default function PoliticiansPage() {
                     <td className="px-2 py-2 text-center font-bold text-accent-600 whitespace-nowrap">{p.grokScore}</td>
                     <td className="px-2 py-2 text-center whitespace-nowrap">
                       <span className="font-bold text-secondary-600">
-                        {'★'.repeat(p.memberRating)}{'☆'.repeat(5 - p.memberRating)}
+                        {'★'.repeat(Math.round(p.memberRating))}{'☆'.repeat(5 - Math.round(p.memberRating))}
                       </span>
                       <span className="text-gray-900 ml-1">({p.memberCount})</span>
                     </td>
@@ -705,8 +705,8 @@ export default function PoliticiansPage() {
                   </div>
                   <div className="text-right">
                     <div className="text-secondary-600 font-bold text-base">
-                      {'★'.repeat(p.memberRating)}
-                      {'☆'.repeat(5 - p.memberRating)}
+                      {'★'.repeat(Math.round(p.memberRating))}
+                      {'☆'.repeat(5 - Math.round(p.memberRating))}
                     </div>
                     <div className="text-sm text-gray-500">{p.memberCount}명 참여</div>
                   </div>

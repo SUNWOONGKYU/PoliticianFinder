@@ -437,7 +437,7 @@ export default function PoliticianDetailPage() {
                 </div>
               </div>
 
-              {/* Info Section - 이름, 1줄: 현 직책/정당, 2줄: 신분/출마직종/출마지역/출마지구 */}
+              {/* Info Section - 이름, 1줄: 현 직책/정당, 2줄: 출마 신분/출마직종/출마지역/출마지구 */}
               <div className="flex-1 text-center md:text-left text-white">
                 {/* 이름 */}
                 <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 sm:mb-3">{politician.name}</h1>
