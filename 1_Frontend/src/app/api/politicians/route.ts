@@ -57,9 +57,10 @@ export async function GET(request: NextRequest) {
       .from("politicians")
       .select("*", { count: "exact" });
 
-    // Full-text 검색 (이름, 영어 이름, 정당, 지역)
-    // Supabase: .ilike() 메서드를 직접 사용하여 name 필드 검색
+    // Full-text 검색 (이름 필드에서 ILIKE 검색)
+    // DEBUG: 검색 파라미터 로깅
     if (query.search) {
+      console.log('[Politicians API] Search query:', query.search);
       queryBuilder = queryBuilder.ilike('name', `%${query.search}%`);
     }
 
