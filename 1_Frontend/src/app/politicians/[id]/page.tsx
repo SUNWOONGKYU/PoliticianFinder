@@ -714,74 +714,79 @@ export default function PoliticianDetailPage() {
             </button>
           </div>
 
-          {/* 상세평가보고서 구매 섹션 - 정치인 본인 인증 완료 시에만 표시 */}
-          {isVerifiedOwner && (
+          {/* 상세평가보고서 구매 섹션 - 모든 사용자에게 표시 */}
           <div className="bg-slate-50 rounded-lg p-6 border-2 border-slate-200">
-            <h3 className="text-lg font-bold text-gray-900 mb-3">📊 상세평가보고서 구매</h3>
+            <h3 className="text-lg font-bold text-gray-900 mb-3">📊 AI 통합 평가 보고서</h3>
             <p className="text-base text-gray-900 mb-3">
-              <strong className="text-lg">보다 상세한 AI 평가 내역이 궁금하신가요?</strong><br/>
-              10개 분야별, 세부 항목별 상세 평가 내역이 정리된 보고서(30,000자 분량)를 PDF로 제공해드립니다.
+              <strong className="text-lg">4개 AI의 상세 평가 내역이 궁금하신가요?</strong><br/>
+              Claude, ChatGPT, Gemini, Grok 4개 AI의 통합 평가 보고서를 PDF로 제공해드립니다.
             </p>
 
-            {/* P3BA35: V24.0에서는 Claude AI만 사용 - 단순화된 UI */}
+            {/* 통합 보고서 상품 */}
             <div className="bg-white rounded-lg p-4 mb-4">
-              <div className="text-base font-medium text-gray-900 mb-3">Claude AI 상세평가보고서 (₩300,000)</div>
-              <div className="space-y-3">
-                <label className="flex items-center gap-3 cursor-pointer min-h-[44px]">
-                  <input
-                    type="checkbox"
-                    checked={selectedReports.includes('Claude')}
-                    onChange={() => handleReportToggle('Claude')}
-                    className="w-5 h-5 text-primary-600 rounded focus:ring-2 focus:ring-primary-300"
-                  />
-                  <span className="text-base text-gray-700">Claude AI 상세평가보고서</span>
-                </label>
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-12 h-12 bg-primary-500 rounded-full flex items-center justify-center text-white text-xl">
+                  📊
+                </div>
+                <div>
+                  <div className="text-base font-bold text-gray-900">4개 AI 통합 평가 보고서</div>
+                  <div className="text-sm text-gray-600">Claude, ChatGPT, Gemini, Grok</div>
+                </div>
+              </div>
+              <div className="space-y-1 text-sm text-gray-600">
+                <div className="flex items-center gap-2">
+                  <span className="text-green-500">✓</span>
+                  <span>10개 분야별 상세 평가 분석</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-green-500">✓</span>
+                  <span>4개 AI 종합 비교 분석</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-green-500">✓</span>
+                  <span>30,000자 이상 상세 보고서</span>
+                </div>
               </div>
             </div>
 
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between mb-4">
               <div>
-                <div className="text-base text-gray-600 mb-1">선택 금액</div>
-                <div className="text-2xl font-bold text-primary-600">₩{totalPrice.toLocaleString()}</div>
+                <div className="text-sm text-gray-600 mb-1">보고서 가격</div>
+                <div className="text-2xl font-bold text-primary-600">₩1,000,000 <span className="text-sm font-normal text-gray-500">(부가세 별도)</span></div>
+                <div className="text-xs text-green-600">* 구매 회차별 할인 적용</div>
               </div>
-              <button
-                onClick={handlePurchase}
-                className="px-6 py-3 bg-primary-500 text-white font-medium rounded-lg hover:bg-primary-600 transition disabled:bg-gray-300 disabled:cursor-not-allowed"
-                disabled={selectedReports.length === 0}
+              <a
+                href={`/report-purchase?politician_id=${politician?.id}&name=${encodeURIComponent(politician?.name || '')}`}
+                className="px-6 py-3 bg-primary-500 text-white font-medium rounded-lg hover:bg-primary-600 transition text-center"
               >
-                상세평가보고서 구매
-              </button>
+                보고서 구매하기
+              </a>
             </div>
 
-            {/* 유의사항 */}
-            <div className="mt-4 p-4 bg-amber-50 border border-amber-200 rounded-lg">
-              <h4 className="font-bold text-primary-600 mb-2 flex items-center gap-2">
+            {/* 안내사항 */}
+            <div className="p-4 bg-amber-50 border border-amber-200 rounded-lg">
+              <h4 className="font-bold text-amber-800 mb-2 flex items-center gap-2">
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd"></path>
                 </svg>
-                유의사항
+                안내사항
               </h4>
               <ul className="text-sm text-gray-700 space-y-1.5 ml-7">
                 <li className="flex items-start gap-2">
                   <span className="text-amber-600 mt-0.5">•</span>
-                  <span><strong>본인 구매 제한:</strong> 상세평가보고서는 해당 정치인 본인만 구매 가능합니다.</span>
+                  <span><strong>구매 대상:</strong> 해당 정치인 본인만 구매할 수 있습니다.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-amber-600 mt-0.5">•</span>
-                  <span><strong>본인 인증 필수:</strong> 구매 시 본인 확인 절차가 진행됩니다 (이름, 생년월일, 소속 정당, 지역 일치 확인).</span>
+                  <span><strong>이메일 인증:</strong> 구매 시 등록된 이메일로 본인 확인이 진행됩니다.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-amber-600 mt-0.5">•</span>
-                  <span><strong>평가점수 변동:</strong> 보고서는 실제 발행(구매) 시점의 평가 점수 및 내용이 기록됩니다. 현재 화면에 표시된 점수와 보고서 발행 시점의 점수가 다를 수 있습니다.</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-amber-600 mt-0.5">•</span>
-                  <span><strong>추가 구매:</strong> 최신 평가 내용이 필요한 경우 새로운 보고서를 추가로 구매하실 수 있습니다.</span>
+                  <span><strong>할인 정책:</strong> 구매 회차별 10만원씩 할인 (최소 50만원, 부가세 별도)</span>
                 </li>
               </ul>
             </div>
           </div>
-          )}
         </section>
 
         {/* [3] 커뮤니티 활동 정보 섹션 - 확장 버전 */}
