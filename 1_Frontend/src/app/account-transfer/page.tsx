@@ -139,7 +139,7 @@ export default function AccountTransferPage() {
             <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
               <div>
                 <div className="text-sm text-gray-600 mb-1">예금주</div>
-                <div className="text-lg font-bold text-gray-900">파인더월드(선웅규)</div>
+                <div className="text-lg font-bold text-gray-900">파인더월드</div>
               </div>
             </div>
 

@@ -161,7 +161,7 @@ export async function POST(request: NextRequest) {
                 </tr>
                 <tr>
                   <td style="padding: 8px 0;">예금주</td>
-                  <td style="padding: 8px 0; text-align: right; font-weight: bold;">선웅규</td>
+                  <td style="padding: 8px 0; text-align: right; font-weight: bold;">파인더월드</td>
                 </tr>
                 <tr style="border-top: 2px solid #f59e0b;">
                   <td style="padding: 12px 0; font-weight: bold; font-size: 18px;">입금 금액</td>
@@ -284,7 +284,7 @@ export async function POST(request: NextRequest) {
         bank_info: {
           bank: '하나은행',
           account: '287-910921-40507',
-          holder: '선웅규',
+          holder: '파인더월드',
         },
         created_at: purchase.created_at,
       }
