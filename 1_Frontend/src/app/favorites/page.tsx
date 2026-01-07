@@ -52,7 +52,7 @@ export default function FavoritesPage() {
   const [searchResults, setSearchResults] = useState<Politician[]>([]);
   const [searchLoading, setSearchLoading] = useState(false);
 
-  // 검색어 변경 시 정치인 검색
+  // 검색어 변경 시 정치인 검색 (게시판 태깅과 동일한 API 사용)
   useEffect(() => {
     const searchPoliticians = async () => {
       if (!searchQuery.trim()) {
@@ -60,9 +60,16 @@ export default function FavoritesPage() {
         return;
       }
 
+      // 최소 2자 이상 입력해야 검색
+      if (searchQuery.trim().length < 2) {
+        setSearchResults([]);
+        return;
+      }
+
       try {
         setSearchLoading(true);
-        const response = await fetch(`/api/politicians?search=${encodeURIComponent(searchQuery)}&limit=10`);
+        // 게시판 태깅에서 사용하는 검색 API 사용
+        const response = await fetch(`/api/politicians/search?q=${encodeURIComponent(searchQuery)}&type=name&limit=20`);
 
         if (!response.ok) {
           console.error('Search API error:', response.status, response.statusText);
@@ -81,13 +88,13 @@ export default function FavoritesPage() {
               id: p.id,
               politician_id: p.id,
               name: p.name,
-              currentPosition: p.title || '',              // 현직책
+              currentPosition: p.position || '',           // 현직책 (DB: position)
               party: p.party || '',                        // 소속정당
-              identity: p.identity || '출마예정자',         // 출마신분
-              positionType: p.positionType || '',          // 출마직종
+              identity: p.status || '출마예정자',           // 출마신분 (DB: status)
+              positionType: p.title || '',                 // 출마직종 (DB: title)
               region: p.region || '',                      // 출마지역
               district: p.district || '',                  // 출마지구
-              profile_image_url: p.profileImageUrl || null,
+              profile_image_url: p.profile_image_url || null,  // DB 원본 필드명
             }));
           setSearchResults(filtered);
         } else {
