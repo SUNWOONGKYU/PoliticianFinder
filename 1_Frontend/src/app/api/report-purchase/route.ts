@@ -9,17 +9,25 @@ import { Resend } from 'resend';
 // Lazy initialization to avoid build-time errors
 const getResend = () => new Resend(process.env.RESEND_API_KEY);
 
+// 구매 회차별 가격 (부가세 별도)
+const getPriceByPurchaseCount = (count: number): number => {
+  if (count <= 1) return 1000000; // 1차: 100만원
+  if (count === 2) return 900000;  // 2차: 90만원
+  if (count === 3) return 800000;  // 3차: 80만원
+  if (count === 4) return 700000;  // 4차: 70만원
+  if (count === 5) return 600000;  // 5차: 60만원
+  return 500000; // 6차 이후: 50만원 (최소가)
+};
+
+const VAT_RATE = 0.1;
+
 const purchaseSchema = z.object({
   verification_id: z.string().uuid('올바른 인증 ID가 아닙니다'),
   politician_id: z.string().min(1, '정치인 ID가 필요합니다'),
   buyer_name: z.string().min(2, '이름은 최소 2자 이상이어야 합니다'),
   buyer_email: z.string().email('올바른 이메일 주소를 입력해주세요'),
-  selected_ais: z.array(z.string()).min(1, '최소 1개 AI를 선택해주세요'),
   depositor_name: z.string().min(2, '입금자명을 입력해주세요'),
 });
-
-// 가격 상수
-const PRICE_PER_AI = 330000;
 
 export async function POST(request: NextRequest) {
   try {
@@ -30,7 +38,6 @@ export async function POST(request: NextRequest) {
 
     console.log('[purchase] verification_id:', validated.verification_id);
     console.log('[purchase] politician_id:', validated.politician_id);
-    console.log('[purchase] selected_ais:', validated.selected_ais);
 
     const supabase = createAdminClient();
 
@@ -72,8 +79,8 @@ export async function POST(request: NextRequest) {
       }, { status: 404 });
     }
 
-    // 4. 해당 정치인의 이전 구매 횟수 조회 (할인 적용을 위해)
-    const { data: previousPurchases, error: countError } = await supabase
+    // 4. 해당 정치인의 이전 구매 횟수 조회
+    const { data: previousPurchases } = await supabase
       .from('report_purchases')
       .select('id')
       .eq('politician_id', validated.politician_id)
@@ -81,36 +88,31 @@ export async function POST(request: NextRequest) {
 
     const purchaseCount = (previousPurchases?.length || 0) + 1;
 
-    // 5. 할인율 계산 (추후 정책에 따라 수정)
-    let discountRate = 0;
-    // TODO: 구매 회차별 할인율 적용 로직
-    // if (purchaseCount === 2) discountRate = 0.1;
-    // if (purchaseCount >= 3) discountRate = 0.2;
+    // 5. 가격 계산
+    const basePrice = getPriceByPurchaseCount(purchaseCount);
+    const vatAmount = Math.round(basePrice * VAT_RATE);
+    const totalAmount = basePrice + vatAmount;
 
-    // 6. 금액 계산
-    const aiCount = validated.selected_ais.length;
-    const originalAmount = PRICE_PER_AI * aiCount;
-    const discountAmount = originalAmount * discountRate;
-    const finalAmount = originalAmount - discountAmount;
+    // 6. 할인율 계산
+    const originalPrice = 1000000; // 기본가 100만원
+    const discountAmount = originalPrice - basePrice;
+    const discountRate = discountAmount / originalPrice;
 
-    // 7. report_type 결정
-    const reportType = `${aiCount}_ai`;
-
-    // 8. 구매 정보 저장
+    // 7. 구매 정보 저장
     const { data: purchase, error: insertError } = await (supabase
       .from('report_purchases') as any)
       .insert({
         politician_id: validated.politician_id,
         buyer_name: validated.buyer_name,
         buyer_email: validated.buyer_email,
-        amount: finalAmount,
-        original_amount: originalAmount,
+        amount: totalAmount,
+        original_amount: originalPrice + Math.round(originalPrice * VAT_RATE), // 원가 (VAT 포함)
         currency: 'KRW',
-        report_type: reportType,
-        selected_ais: validated.selected_ais,
+        report_type: 'integrated', // 통합 보고서
+        selected_ais: ['claude', 'chatgpt', 'gemini', 'grok'], // 4개 AI 모두
         purchase_count: purchaseCount,
         discount_rate: discountRate,
-        notes: `입금자명: ${validated.depositor_name}`,
+        notes: `입금자명: ${validated.depositor_name} | ${purchaseCount}차 구매`,
       })
       .select()
       .single() as { data: { id: string; created_at: string } | null; error: any };
@@ -125,15 +127,7 @@ export async function POST(request: NextRequest) {
 
     console.log('[purchase] Purchase created:', purchase.id);
 
-    // 9. AI 이름 매핑
-    const aiNames: Record<string, string> = {
-      claude: 'Claude',
-      chatgpt: 'ChatGPT',
-      grok: 'Grok',
-    };
-    const selectedAiNames = validated.selected_ais.map(ai => aiNames[ai] || ai).join(', ');
-
-    // 10. 구매 확인 이메일 발송
+    // 8. 구매 확인 이메일 발송
     const resend = getResend();
     try {
       await resend.emails.send({
@@ -145,7 +139,7 @@ export async function POST(request: NextRequest) {
             <h2 style="color: #064E3B; margin-bottom: 20px;">보고서 구매 신청이 완료되었습니다</h2>
 
             <p style="color: #333; font-size: 16px; line-height: 1.6;">
-              <strong>${politician.name}</strong>님의 AI 평가 보고서 구매 신청이 접수되었습니다.
+              <strong>${politician.name}</strong>님의 AI 통합 평가 보고서 구매 신청이 접수되었습니다.
             </p>
 
             <div style="background: #fef3c7; border: 1px solid #f59e0b; border-radius: 8px; padding: 20px; margin: 20px 0;">
@@ -166,7 +160,7 @@ export async function POST(request: NextRequest) {
                 <tr style="border-top: 2px solid #f59e0b;">
                   <td style="padding: 12px 0; font-weight: bold; font-size: 18px;">입금 금액</td>
                   <td style="padding: 12px 0; text-align: right; font-weight: bold; color: #92400e; font-size: 24px;">
-                    ${finalAmount.toLocaleString()}원
+                    ${totalAmount.toLocaleString()}원
                   </td>
                 </tr>
               </table>
@@ -184,8 +178,8 @@ export async function POST(request: NextRequest) {
                   <td style="padding: 5px 0; text-align: right; font-weight: bold;">${politician.name} (${politician.party || '무소속'})</td>
                 </tr>
                 <tr>
-                  <td style="padding: 5px 0;">선택한 AI</td>
-                  <td style="padding: 5px 0; text-align: right; font-weight: bold;">${selectedAiNames}</td>
+                  <td style="padding: 5px 0;">상품</td>
+                  <td style="padding: 5px 0; text-align: right; font-weight: bold;">AI 통합 평가 보고서</td>
                 </tr>
                 <tr>
                   <td style="padding: 5px 0;">구매자명</td>
@@ -201,8 +195,8 @@ export async function POST(request: NextRequest) {
                 </tr>
                 ${discountRate > 0 ? `
                 <tr>
-                  <td style="padding: 5px 0;">할인율</td>
-                  <td style="padding: 5px 0; text-align: right; color: #dc2626;">${(discountRate * 100).toFixed(0)}% 할인</td>
+                  <td style="padding: 5px 0;">할인</td>
+                  <td style="padding: 5px 0; text-align: right; color: #dc2626;">-${discountAmount.toLocaleString()}원 (${(discountRate * 100).toFixed(0)}%)</td>
                 </tr>
                 ` : ''}
               </table>
@@ -233,7 +227,7 @@ export async function POST(request: NextRequest) {
       // 이메일 발송 실패해도 구매는 성공 처리
     }
 
-    // 11. 관리자에게 알림 이메일 발송
+    // 9. 관리자에게 알림 이메일 발송
     try {
       await resend.emails.send({
         from: 'PoliticianFinder <noreply@politicianfinder.ai.kr>',
@@ -248,8 +242,8 @@ export async function POST(request: NextRequest) {
               <tr><td style="padding: 8px; border: 1px solid #ddd;">구매자</td><td style="padding: 8px; border: 1px solid #ddd;">${validated.buyer_name}</td></tr>
               <tr><td style="padding: 8px; border: 1px solid #ddd;">이메일</td><td style="padding: 8px; border: 1px solid #ddd;">${validated.buyer_email}</td></tr>
               <tr><td style="padding: 8px; border: 1px solid #ddd;">입금자명</td><td style="padding: 8px; border: 1px solid #ddd;">${validated.depositor_name}</td></tr>
-              <tr><td style="padding: 8px; border: 1px solid #ddd;">선택 AI</td><td style="padding: 8px; border: 1px solid #ddd;">${selectedAiNames}</td></tr>
-              <tr><td style="padding: 8px; border: 1px solid #ddd;">금액</td><td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">${finalAmount.toLocaleString()}원</td></tr>
+              <tr><td style="padding: 8px; border: 1px solid #ddd;">상품</td><td style="padding: 8px; border: 1px solid #ddd;">AI 통합 평가 보고서</td></tr>
+              <tr><td style="padding: 8px; border: 1px solid #ddd;">금액</td><td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">${totalAmount.toLocaleString()}원</td></tr>
               <tr><td style="padding: 8px; border: 1px solid #ddd;">구매 회차</td><td style="padding: 8px; border: 1px solid #ddd;">${purchaseCount}차</td></tr>
             </table>
             <p style="margin-top: 20px;">
@@ -276,9 +270,10 @@ export async function POST(request: NextRequest) {
           name: politician.name,
           party: politician.party,
         },
-        selected_ais: validated.selected_ais,
-        amount: finalAmount,
-        original_amount: originalAmount,
+        report_type: 'integrated',
+        amount: totalAmount,
+        base_price: basePrice,
+        vat_amount: vatAmount,
         discount_rate: discountRate,
         purchase_count: purchaseCount,
         bank_info: {
