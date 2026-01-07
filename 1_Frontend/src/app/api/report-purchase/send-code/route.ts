@@ -9,10 +9,21 @@ import { Resend } from 'resend';
 // Lazy initialization to avoid build-time errors
 const getResend = () => new Resend(process.env.RESEND_API_KEY);
 
+// 구매 회차별 가격 (부가세 별도)
+const getPriceByPurchaseCount = (count: number): number => {
+  if (count <= 1) return 1000000; // 1차: 100만원
+  if (count === 2) return 900000;  // 2차: 90만원
+  if (count === 3) return 800000;  // 3차: 80만원
+  if (count === 4) return 700000;  // 4차: 70만원
+  if (count === 5) return 600000;  // 5차: 60만원
+  return 500000; // 6차 이후: 50만원 (최소가)
+};
+
+const VAT_RATE = 0.1;
+
 const sendCodeSchema = z.object({
   politician_id: z.string().min(1, '정치인 ID가 필요합니다'),
   email: z.string().email('올바른 이메일 주소를 입력해주세요'),
-  selected_ais: z.array(z.string()).min(1, '최소 1개 AI를 선택해주세요'),
 });
 
 export async function POST(request: NextRequest) {
@@ -24,7 +35,6 @@ export async function POST(request: NextRequest) {
 
     console.log('[send-code] politician_id:', validated.politician_id);
     console.log('[send-code] email:', validated.email?.substring(0, 3) + '***@***');
-    console.log('[send-code] selected_ais:', validated.selected_ais);
 
     const supabase = createAdminClient();
 
@@ -45,18 +55,32 @@ export async function POST(request: NextRequest) {
 
     console.log('[send-code] Found politician:', politician.name);
 
-    // 2. 6자리 영숫자 인증 코드 생성
+    // 2. 구매 회차 조회
+    const { data: previousPurchases } = await supabase
+      .from('report_purchases')
+      .select('id')
+      .eq('politician_id', validated.politician_id)
+      .eq('payment_confirmed', true);
+
+    const purchaseCount = (previousPurchases?.length || 0) + 1;
+
+    // 3. 가격 계산
+    const basePrice = getPriceByPurchaseCount(purchaseCount);
+    const vatAmount = Math.round(basePrice * VAT_RATE);
+    const totalPrice = basePrice + vatAmount;
+
+    // 4. 6자리 영숫자 인증 코드 생성
     const characters = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'; // 혼동되기 쉬운 문자 제외
     let verificationCode = '';
     for (let i = 0; i < 6; i++) {
       verificationCode += characters.charAt(Math.floor(Math.random() * characters.length));
     }
 
-    // 3. 만료 시간 설정 (10분)
+    // 5. 만료 시간 설정 (10분)
     const expiresAt = new Date();
     expiresAt.setMinutes(expiresAt.getMinutes() + 10);
 
-    // 4. 기존 미사용 코드 삭제 (같은 이메일, 같은 정치인)
+    // 6. 기존 미사용 코드 삭제 (같은 이메일, 같은 정치인)
     await supabase
       .from('email_verifications')
       .delete()
@@ -64,7 +88,7 @@ export async function POST(request: NextRequest) {
       .eq('email', validated.email)
       .eq('verified', false);
 
-    // 5. DB에 저장
+    // 7. DB에 저장
     const { data: verification, error: insertError } = await (supabase
       .from('email_verifications') as any)
       .insert({
@@ -87,19 +111,6 @@ export async function POST(request: NextRequest) {
 
     console.log('[send-code] Verification created:', verification.id);
 
-    // 6. 가격 계산
-    const PRICE_PER_AI = 330000;
-    const aiCount = validated.selected_ais.length;
-    const totalPrice = PRICE_PER_AI * aiCount;
-
-    // 7. AI 이름 매핑
-    const aiNames: Record<string, string> = {
-      claude: 'Claude',
-      chatgpt: 'ChatGPT',
-      grok: 'Grok',
-    };
-    const selectedAiNames = validated.selected_ais.map(ai => aiNames[ai] || ai).join(', ');
-
     // 8. 이메일 발송 (Resend)
     const resend = getResend();
     try {
@@ -112,7 +123,7 @@ export async function POST(request: NextRequest) {
             <h2 style="color: #064E3B; margin-bottom: 20px;">보고서 구매 인증</h2>
 
             <p style="color: #333; font-size: 16px; line-height: 1.6;">
-              <strong>${politician.name}</strong>님의 AI 평가 보고서 구매를 위한 인증 코드입니다.
+              <strong>${politician.name}</strong>님의 AI 통합 평가 보고서 구매를 위한 인증 코드입니다.
             </p>
 
             <div style="background: #f3f4f6; padding: 30px; text-align: center; border-radius: 12px; margin: 30px 0;">
@@ -130,17 +141,21 @@ export async function POST(request: NextRequest) {
                   <td style="padding: 5px 0; text-align: right; font-weight: bold;">${politician.name} (${politician.party || '무소속'})</td>
                 </tr>
                 <tr>
-                  <td style="padding: 5px 0;">선택한 AI</td>
-                  <td style="padding: 5px 0; text-align: right; font-weight: bold;">${selectedAiNames}</td>
+                  <td style="padding: 5px 0;">상품</td>
+                  <td style="padding: 5px 0; text-align: right; font-weight: bold;">AI 통합 평가 보고서</td>
                 </tr>
                 <tr>
-                  <td style="padding: 5px 0;">AI 수</td>
-                  <td style="padding: 5px 0; text-align: right; font-weight: bold;">${aiCount}개</td>
+                  <td style="padding: 5px 0;">구매 회차</td>
+                  <td style="padding: 5px 0; text-align: right; font-weight: bold;">${purchaseCount}차 구매</td>
+                </tr>
+                <tr>
+                  <td style="padding: 5px 0;">보고서 가격</td>
+                  <td style="padding: 5px 0; text-align: right;">₩${basePrice.toLocaleString()} (부가세 별도)</td>
                 </tr>
                 <tr style="border-top: 1px solid #10b981;">
-                  <td style="padding: 10px 0 5px 0; font-weight: bold;">총 금액</td>
+                  <td style="padding: 10px 0 5px 0; font-weight: bold;">총 결제 금액</td>
                   <td style="padding: 10px 0 5px 0; text-align: right; font-weight: bold; color: #064E3B; font-size: 18px;">
-                    ${totalPrice.toLocaleString()}원
+                    ₩${totalPrice.toLocaleString()} (VAT 포함)
                   </td>
                 </tr>
               </table>
@@ -187,8 +202,9 @@ export async function POST(request: NextRequest) {
         position: politician.position,
       },
       purchase_info: {
-        selected_ais: validated.selected_ais,
-        ai_count: aiCount,
+        purchase_count: purchaseCount,
+        base_price: basePrice,
+        vat_amount: vatAmount,
         total_price: totalPrice,
       }
     });
