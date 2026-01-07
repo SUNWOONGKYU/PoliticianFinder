@@ -420,14 +420,16 @@ export default function ReportPurchasePage() {
               {countdown > 0 && (
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
-                    인증 코드 (6자리)
+                    인증 코드 (숫자 6자리)
                   </label>
                   <div className="flex gap-2">
                     <input
                       type="text"
+                      inputMode="numeric"
+                      pattern="[0-9]*"
                       value={verificationCode}
-                      onChange={(e) => setVerificationCode(e.target.value.toUpperCase())}
-                      placeholder="XXXXXX"
+                      onChange={(e) => setVerificationCode(e.target.value.replace(/\D/g, ''))}
+                      placeholder="000000"
                       maxLength={6}
                       className="flex-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-center text-2xl tracking-widest"
                     />
