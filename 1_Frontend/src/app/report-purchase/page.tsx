@@ -18,7 +18,7 @@ const PRICE_PER_AI = 300000; // 30만원
 const BANK_INFO = {
   bank: '하나은행',
   account: '287-910921-40507',
-  holder: '선웅규',
+  holder: '파인더월드',
 };
 
 type Step = 'select' | 'verify' | 'payment' | 'complete';
