@@ -110,7 +110,8 @@ export default function FavoritesPage() {
 
     const debounceTimer = setTimeout(fetchPoliticians, 300);
     return () => clearTimeout(debounceTimer);
-  }, [searchQuery, favorites]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchQuery]);  // favorites 제거 - 커뮤니티 태깅과 동일하게 검색어만 의존
 
   // 검색창 외부 클릭 시 드롭다운 닫기 (게시판 태깅과 동일)
   useEffect(() => {
