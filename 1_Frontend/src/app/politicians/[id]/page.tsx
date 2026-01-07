@@ -1160,7 +1160,7 @@ export default function PoliticianDetailPage() {
               <p className="text-sm text-gray-600 leading-relaxed">
                 V24.0 평가 시스템은 10개 카테고리(청렴성, 전문성, 소통능력, 정책능력, 리더십, 책임성, 투명성, 혁신성, 포용성, 효율성)에 대해
                 Claude AI가 공개된 자료를 기반으로 객관적으로 평가합니다.
-                총점은 1000점 만점이며, 10단계 금속 등급(M~L)으로 표시됩니다.
+                총점은 1000점 만점이며, 10단계 등급(M~L)으로 표시됩니다.
               </p>
             </div>
           </div>
