@@ -742,10 +742,6 @@ export default function PoliticianDetailPage() {
                   <span className="text-green-500">✓</span>
                   <span>4개 AI 종합 비교 분석</span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-green-500">✓</span>
-                  <span>30,000자 이상 상세 보고서</span>
-                </div>
               </div>
             </div>
 
