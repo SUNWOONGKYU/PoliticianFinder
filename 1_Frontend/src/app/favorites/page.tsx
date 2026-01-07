@@ -60,8 +60,8 @@ export default function FavoritesPage() {
         return;
       }
 
-      // 최소 2자 이상 입력해야 검색
-      if (searchQuery.trim().length < 2) {
+      // 최소 1자 이상 입력해야 검색
+      if (searchQuery.trim().length < 1) {
         setSearchResults([]);
         return;
       }
