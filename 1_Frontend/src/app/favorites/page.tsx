@@ -53,7 +53,7 @@ export default function FavoritesPage() {
   const [searchLoading, setSearchLoading] = useState(false);
   const [showSearchResults, setShowSearchResults] = useState(false);  // 게시판 태깅과 동일
 
-  // 검색어 변경 시 정치인 검색 (게시판 태깅과 100% 동일한 로직)
+  // Handle politician search - API call (게시판 태깅과 100% 동일)
   useEffect(() => {
     const query = searchQuery.trim();
 
@@ -63,8 +63,8 @@ export default function FavoritesPage() {
       return;
     }
 
-    // 최소 2자 이상 입력해야 검색 (게시판 태깅과 동일)
     if (query.length < 2) {
+      // Require at least 2 characters for search
       return;
     }
 
@@ -77,30 +77,30 @@ export default function FavoritesPage() {
         const result = await response.json();
 
         if (result.success && result.data) {
-          // 이미 관심 정치인에 있는 정치인은 제외
-          const favoriteIds = favorites.map(f => f.politician_id);
-          const filtered = result.data
-            .filter((p: any) => !favoriteIds.includes(p.id))
-            .map((p: any) => ({
-              id: p.id,
-              politician_id: p.id,
-              name: p.name,
-              currentPosition: p.position || '',
-              party: p.party || '',
-              identity: p.status || '출마예정자',
-              positionType: p.title || '',
-              region: p.region || '',
-              district: p.district || '',
-              profile_image_url: p.profile_image_url || null,
-            }));
-          setSearchResults(filtered);
+          // Transform API data to match component interface (게시판 태깅과 동일)
+          const transformedData: Politician[] = result.data.map((p: any) => ({
+            id: p.id,
+            politician_id: p.id,
+            name: p.name,
+            currentPosition: p.position || '',
+            party: p.party || '',
+            identity: p.status || '출마예정자',
+            positionType: p.title || '',
+            region: p.region || '',
+            district: p.district || '',
+            profile_image_url: p.profile_image_url || null,
+          }));
+
+          setSearchResults(transformedData);
           setShowSearchResults(true);
         } else {
           setSearchResults([]);
           setShowSearchResults(true);
         }
-      } catch (err) {
-        console.error('Error searching politicians:', err);
+      } catch (error) {
+        if (process.env.NODE_ENV === 'development') {
+          console.error('Failed to fetch politicians:', error);
+        }
         setSearchResults([]);
         setShowSearchResults(false);
       } finally {
@@ -108,10 +108,10 @@ export default function FavoritesPage() {
       }
     };
 
-    const debounceTimer = setTimeout(fetchPoliticians, 300);
-    return () => clearTimeout(debounceTimer);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [searchQuery]);  // favorites 제거 - 커뮤니티 태깅과 동일하게 검색어만 의존
+    // Debounce search (게시판 태깅과 동일)
+    const timeoutId = setTimeout(fetchPoliticians, 300);
+    return () => clearTimeout(timeoutId);
+  }, [searchQuery]);
 
   // 검색창 외부 클릭 시 드롭다운 닫기 (게시판 태깅과 동일)
   useEffect(() => {

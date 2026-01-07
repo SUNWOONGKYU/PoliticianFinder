@@ -255,23 +255,31 @@ def extract_json(content):
         return None
 
     content = content.strip()
+    json_str = None
 
     # 방법 1: ```json 블록
     json_match = re.search(r'```json\s*([\s\S]*?)\s*```', content)
     if json_match:
-        return json_match.group(1).strip()
+        json_str = json_match.group(1).strip()
+    else:
+        # 방법 2: ``` 블록 (언어 명시 없음)
+        code_match = re.search(r'```\s*([\s\S]*?)\s*```', content)
+        if code_match:
+            json_str = code_match.group(1).strip()
+        else:
+            # 방법 3: { } 직접 추출 (가장 바깥 중괄호)
+            brace_match = re.search(r'\{[\s\S]*\}', content)
+            if brace_match:
+                json_str = brace_match.group(0)
+            else:
+                json_str = content
 
-    # 방법 2: ``` 블록 (언어 명시 없음)
-    code_match = re.search(r'```\s*([\s\S]*?)\s*```', content)
-    if code_match:
-        return code_match.group(1).strip()
+    # 방법 4: trailing comma 제거 (Claude 문제 해결)
+    # ,] → ]  또는 ,} → } 패턴 수정
+    if json_str:
+        json_str = re.sub(r',\s*([}\]])', r'\1', json_str)
 
-    # 방법 3: { } 직접 추출 (가장 바깥 중괄호)
-    brace_match = re.search(r'\{[\s\S]*\}', content)
-    if brace_match:
-        return brace_match.group(0)
-
-    return content
+    return json_str
 
 
 def call_ai_api(ai_name, prompt):
