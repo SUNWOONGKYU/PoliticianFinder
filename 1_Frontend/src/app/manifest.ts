@@ -39,38 +39,19 @@ export default function manifest(): MetadataRoute.Manifest {
         type: 'image/png',
       },
     ],
-    screenshots: [
-      {
-        src: '/screenshots/home-desktop.png',
-        sizes: '1280x720',
-        type: 'image/png',
-        // @ts-ignore - form_factor is valid but not in types
-        form_factor: 'wide',
-        label: 'PoliticianFinder 홈 화면',
-      },
-      {
-        src: '/screenshots/home-mobile.png',
-        sizes: '390x844',
-        type: 'image/png',
-        // @ts-ignore
-        form_factor: 'narrow',
-        label: 'PoliticianFinder 모바일 홈 화면',
-      },
-    ],
+    // 스크린샷 및 바로가기는 해당 파일 생성 후 활성화
     shortcuts: [
       {
         name: '정치인 검색',
         short_name: '검색',
         description: '정치인을 검색합니다',
         url: '/politicians',
-        icons: [{ src: '/icons/search-icon.png', sizes: '96x96' }],
       },
       {
         name: '커뮤니티',
         short_name: '커뮤니티',
         description: '커뮤니티 게시판',
         url: '/community',
-        icons: [{ src: '/icons/community-icon.png', sizes: '96x96' }],
       },
     ],
     related_applications: [],
