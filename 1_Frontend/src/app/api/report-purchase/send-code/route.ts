@@ -69,12 +69,8 @@ export async function POST(request: NextRequest) {
     const vatAmount = Math.round(basePrice * VAT_RATE);
     const totalPrice = basePrice + vatAmount;
 
-    // 4. 6자리 영숫자 인증 코드 생성
-    const characters = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'; // 혼동되기 쉬운 문자 제외
-    let verificationCode = '';
-    for (let i = 0; i < 6; i++) {
-      verificationCode += characters.charAt(Math.floor(Math.random() * characters.length));
-    }
+    // 4. 6자리 숫자 인증 코드 생성
+    const verificationCode = Math.floor(100000 + Math.random() * 900000).toString();
 
     // 5. 만료 시간 설정 (10분)
     const expiresAt = new Date();

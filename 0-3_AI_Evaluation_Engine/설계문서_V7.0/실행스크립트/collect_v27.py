@@ -71,7 +71,7 @@ CATEGORIES = [
 # AI 모델 설정
 AI_CONFIGS = {
     "Claude": {
-        "model": "claude-3-haiku-20240307",
+        "model": "claude-3-5-haiku-20241022",
         "env_key": "ANTHROPIC_API_KEY"
     },
     "ChatGPT": {
@@ -251,7 +251,7 @@ def format_politician_profile(politician_id, politician_name):
 
 
 def extract_json(content):
-    """다양한 방식으로 JSON 추출 시도 (Claude JSON 파싱 문제 해결)"""
+    """다양한 방식으로 JSON 추출 시도 (Claude JSON 파싱 문제 해결 - json_repair 사용)"""
     if not content or not content.strip():
         return None
 
@@ -275,10 +275,16 @@ def extract_json(content):
             else:
                 json_str = content
 
-    # 방법 4: trailing comma 제거 (Claude 문제 해결)
-    # ,] → ]  또는 ,} → } 패턴 수정
+    # 방법 4: json_repair로 자동 수정 (Claude JSON 문제 완전 해결)
+    # - trailing comma 제거
+    # - 누락된 comma 추가
+    # - 기타 JSON 문법 오류 수정
     if json_str:
-        json_str = re.sub(r',\s*([}\]])', r'\1', json_str)
+        try:
+            json_str = repair_json(json_str)
+        except Exception:
+            # repair 실패 시 기존 방식으로 폴백
+            json_str = re.sub(r',\s*([}\]])', r'\1', json_str)
 
     return json_str
 
@@ -290,11 +296,11 @@ def call_ai_api(ai_name, prompt):
 
     try:
         if ai_name == "Claude":
-            # Claude JSON 문제 해결: system 프롬프트 + 낮은 temperature
+            # Claude 3.5 Haiku - max_tokens 8000
             response = client.messages.create(
                 model=config['model'],
-                max_tokens=4096,
-                temperature=0.7,  # 1.0 → 0.7 (안정성 향상)
+                max_tokens=8000,
+                temperature=0.7,
                 system="You are a JSON response bot. Always respond with valid JSON only. No markdown code blocks, no explanations, no additional text. Start with { and end with }.",
                 messages=[{"role": "user", "content": prompt + "\n\nRespond with JSON only:"}]
             )
