@@ -54,6 +54,22 @@ const nextConfig = {
         hostname: '*.namu.wiki',
         pathname: '/**',
       },
+      // 공식 사이트 프로필 이미지 (2026-01-07 추가)
+      {
+        protocol: 'https',
+        hostname: 'mayor.seoul.go.kr',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'governor.gg.go.kr',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'dongtanman.kr',
+        pathname: '/**',
+      },
     ],
   },
 
