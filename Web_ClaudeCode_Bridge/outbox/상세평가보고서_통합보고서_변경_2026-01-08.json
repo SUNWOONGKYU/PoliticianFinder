@@ -1,0 +1,78 @@
+{
+  "task_id": "REPORT_PURCHASE_UPDATE",
+  "task_name": "상세평가보고서 통합보고서로 변경",
+  "completed_at": "2026-01-08T01:10:00+09:00",
+  "status": "완료",
+  "git_commit": "cca0b0e",
+
+  "summary": {
+    "description": "4개 AI 개별 선택 방식에서 통합 보고서 1개 상품으로 변경",
+    "price_policy": "100만원(부가세 별도), 회차별 10만원 할인, 최소 50만원"
+  },
+
+  "changes": {
+    "before_after": {
+      "상품_구조": {
+        "before": "4개 AI (Claude, ChatGPT, Gemini, Grok) 개별 선택 가능",
+        "after": "통합 보고서 1개 상품 (4개 AI 모두 포함)"
+      },
+      "가격_정책": {
+        "before": "AI당 30만원 × 선택 개수",
+        "after": "100만원(부가세 별도) 기본, 구매 회차별 10만원 할인 (최소 50만원)"
+      },
+      "가격_예시": {
+        "1차_구매": "1,100,000원 (100만원 + VAT 10만원)",
+        "2차_구매": "990,000원 (90만원 + VAT 9만원)",
+        "3차_구매": "880,000원 (80만원 + VAT 8만원)",
+        "4차_구매": "770,000원 (70만원 + VAT 7만원)",
+        "5차_구매": "660,000원 (60만원 + VAT 6만원)",
+        "6차_이후": "550,000원 (50만원 + VAT 5만원) - 최소가"
+      },
+      "report_type": {
+        "before": "{n}_ai (선택 AI 개수에 따라)",
+        "after": "integrated (통합)"
+      },
+      "selected_ais": {
+        "before": "사용자 선택에 따라 가변적",
+        "after": "['claude', 'chatgpt', 'gemini', 'grok'] 고정"
+      },
+      "예금주명": {
+        "before": "선웅규",
+        "after": "파인더월드"
+      }
+    }
+  },
+
+  "files_modified": [
+    {
+      "path": "src/app/report-purchase/page.tsx",
+      "description": "구매 페이지 전면 재작성 - AI 개별 선택 UI 제거, 통합 보고서 UI로 변경"
+    },
+    {
+      "path": "src/app/api/report-purchase/route.ts",
+      "description": "구매 API - 가격 계산 로직 변경, report_type='integrated' 고정"
+    },
+    {
+      "path": "src/app/api/report-purchase/send-code/route.ts",
+      "description": "인증 코드 발송 API - selected_ais 파라미터 제거, 가격 정보 포함"
+    }
+  ],
+
+  "files_created": [
+    {
+      "path": "src/app/api/report-purchase/count/route.ts",
+      "description": "구매 회차 조회 API - 정치인별 완료된 구매 횟수 반환"
+    }
+  ],
+
+  "price_function": {
+    "code": "const getPriceByPurchaseCount = (count: number): number => {\n  if (count <= 1) return 1000000; // 1차: 100만원\n  if (count === 2) return 900000;  // 2차: 90만원\n  if (count === 3) return 800000;  // 3차: 80만원\n  if (count === 4) return 700000;  // 4차: 70만원\n  if (count === 5) return 600000;  // 5차: 60만원\n  return 500000; // 6차 이후: 50만원 (최소가)\n};",
+    "VAT_RATE": 0.1
+  },
+
+  "deployment": {
+    "build": "성공",
+    "git_push": "완료",
+    "vercel": "자동 배포 대기중 (git push 후 자동)"
+  }
+}
