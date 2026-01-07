@@ -32,6 +32,7 @@ from datetime import datetime, timedelta
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from supabase import create_client
 from dotenv import load_dotenv
+from json_repair import repair_json  # Claude JSON 파싱 문제 해결용
 
 # UTF-8 출력 설정
 if sys.platform == 'win32':
