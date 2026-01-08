@@ -296,13 +296,14 @@ def call_ai_api(ai_name, prompt):
 
     try:
         if ai_name == "Claude":
-            # Claude 3.5 Haiku - max_tokens 8000
+            # Claude 3.5 Haiku - 다른 AI와 동일한 설정으로 변경
+            # temperature 1.0 = 더 창의적/다양한 응답
+            # 시스템 프롬프트 제거 = 제한 없이 응답
             response = client.messages.create(
                 model=config['model'],
                 max_tokens=8000,
-                temperature=0.7,
-                system="You are a JSON response bot. Always respond with valid JSON only. No markdown code blocks, no explanations, no additional text. Start with { and end with }.",
-                messages=[{"role": "user", "content": prompt + "\n\nRespond with JSON only:"}]
+                temperature=1.0,
+                messages=[{"role": "user", "content": prompt}]
             )
             return response.content[0].text
 
@@ -352,24 +353,36 @@ def collect_and_evaluate_batch(politician_id, politician_name, ai_name, category
 - PUBLIC: {dates['public_start']} ~ {dates['public_end']} (최근 1년)
 """
 
-    negative_instruction = """
-⚠️ **필수 - 부정 주제 수집**
-- 반드시 **부정적인 측면만** 수집: 논란, 비판, 문제점, 실패, 스캔들
-- 긍정적이거나 중립적인 내용은 수집하지 마세요
-""" if is_negative else """
-**작업**: 실제 행적, 정책, 성과를 조사하여 수집하고 평가하세요.
+    # V27.1: 다양한 측면에서 랜덤하게 수집 (부정 주제 강제 제거)
+    collection_instruction = """
+**수집 방식**:
+- 긍정, 부정, 중립 등 **다양한 측면에서 랜덤하게** 수집
+- 특정 방향으로 편향되지 않도록 다양하게 수집
+- 정치인의 실제 활동, 정책, 발언, 성과 등을 기반으로 생성
 """
 
-    # V27.0: 수집 + 평가 통합 프롬프트 (rating 포함)
+    # V27.1: 출처 유형별 URL 규칙
+    if source_type == "OFFICIAL":
+        source_url_rule = """**출처 규칙 (OFFICIAL 공식자료)**:
+- source_url: 불필요 (빈 값 또는 기관 홈페이지 OK)
+- data_source: 기관명 필수 (예: "성동구청", "감사원", "국회", "서울시")"""
+    else:
+        source_url_rule = """**출처 규칙 (PUBLIC 공개자료)**:
+- 언론 보도: source_url 작성 (언론사 기사 URL 형식)
+- SNS: source_url 불필요, data_source에 플랫폼명 기재 (예: "트위터", "페이스북")"""
+
+    # V27.1: 수집 + 평가 통합 프롬프트 (rating 포함)
     prompt = f"""당신은 정치인 평가 AI입니다.
 
 {profile_info}
 
 {date_restriction}
 
-{negative_instruction}
+{collection_instruction}
 
-**출처**: {source_desc}만 사용
+**출처 유형**: {source_desc}
+{source_url_rule}
+
 **평가 카테고리**: {cat_kor} ({cat_eng})
 {cat_desc}
 
@@ -385,7 +398,11 @@ def collect_and_evaluate_batch(politician_id, politician_name, ai_name, category
 | G | 매우 부족 - 심각한 문제 |
 | H | 극히 부족 - 정치인 부적합 수준 |
 
-정확히 {count}개의 데이터를 수집하고 **각각 평가(rating)**하세요.
+**반드시 {count}개**의 데이터를 수집하고 **각각 평가(rating)**하세요.
+
+⚠️ **필수 규칙**:
+- "데이터 없음", "기록 없음", "증거 없음" 같은 항목은 절대 금지
+- 반드시 **{count}개를 모두 생성** (적게 반환하지 마세요)
 
 다음 JSON 형식으로 반환:
 ```json
@@ -395,8 +412,8 @@ def collect_and_evaluate_batch(politician_id, politician_name, ai_name, category
       "item_num": 1,
       "data_title": "제목 (20자 이내)",
       "data_content": "내용 (100-300자, 사실 위주)",
-      "data_source": "출처명",
-      "source_url": "URL",
+      "data_source": "출처명 또는 기관명",
+      "source_url": "URL (OFFICIAL은 빈 값 가능, PUBLIC 언론은 URL, SNS는 빈 값 가능)",
       "data_date": "YYYY-MM-DD",
       "rating": "A~H 중 하나",
       "rating_rationale": "평가 근거 (1-2문장)"
@@ -523,7 +540,7 @@ def save_to_db(politician_id, category_name, ai_name, items):
 def collect_category(politician_id, politician_name, ai_name, category_num):
     """카테고리별 50개 수집+평가"""
     cat_eng, cat_kor = CATEGORIES[category_num - 1]
-    MAX_ROUNDS = 4
+    MAX_ROUNDS = 5  # V27.1: 4번 → 5번으로 증가
 
     print(f"\n  [{ai_name}] 카테고리 {category_num}: {cat_kor}")
 

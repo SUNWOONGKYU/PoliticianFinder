@@ -207,7 +207,7 @@ export async function POST(request: NextRequest) {
                 <strong>📌 안내사항</strong><br>
                 • 입금 확인 후 영업일 기준 1-2일 내 보고서가 이메일로 발송됩니다.<br>
                 • 입금 시 반드시 입금자명을 확인해주세요.<br>
-                • 문의: contact@politicianfinder.ai.kr
+                • 문의사항은 고객센터를 통해 문의해주세요.
               </p>
             </div>
 
