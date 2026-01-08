@@ -221,7 +221,7 @@ export async function POST(request: NextRequest) {
             </p>
 
             <p style="color: #999; font-size: 13px; margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee;">
-              본 보고서에 대한 문의사항은 contact@politicianfinder.ai.kr로 연락주세요.
+              본 보고서에 대한 문의사항은 고객센터를 통해 문의해주세요.
             </p>
 
             <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee;">
