@@ -30,19 +30,18 @@ export async function GET(request: NextRequest) {
       .select("identity");
 
     const identityStats = {
-      현직: 0,
-      후보자: 0,
-      예비후보자: 0,
       출마예정자: 0,
+      예비후보자: 0,
+      후보자: 0,
     };
 
     (politiciansByIdentity || []).forEach((p: any) => {
-      const identity = p.identity || '현직';
+      const identity = p.identity || '출마예정자';
       if (identity in identityStats) {
         identityStats[identity as keyof typeof identityStats]++;
       } else {
-        // 매핑되지 않은 identity는 현직으로 처리
-        identityStats['현직']++;
+        // 매핑되지 않은 identity는 출마예정자로 처리
+        identityStats['출마예정자']++;
       }
     });
 
