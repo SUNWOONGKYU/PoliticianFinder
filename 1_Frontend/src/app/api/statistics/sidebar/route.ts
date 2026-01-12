@@ -46,10 +46,10 @@ export async function GET(request: NextRequest) {
       }
     });
 
-    // 출마직종별 정치인 수 (position_type 컬럼 사용)
-    const { data: politiciansByPositionType } = await supabase
+    // 출마직종별 정치인 수 (title 컬럼 사용)
+    const { data: politiciansByTitle } = await supabase
       .from("politicians")
-      .select("position_type");
+      .select("title");
 
     const positionStats = {
       국회의원: 0,
@@ -60,10 +60,10 @@ export async function GET(request: NextRequest) {
       교육감: 0,
     };
 
-    (politiciansByPositionType || []).forEach((p: any) => {
-      const positionType = p.position_type || '';
-      if (positionType in positionStats) {
-        positionStats[positionType as keyof typeof positionStats]++;
+    (politiciansByTitle || []).forEach((p: any) => {
+      const title = p.title || '';
+      if (title in positionStats) {
+        positionStats[title as keyof typeof positionStats]++;
       }
     });
 
