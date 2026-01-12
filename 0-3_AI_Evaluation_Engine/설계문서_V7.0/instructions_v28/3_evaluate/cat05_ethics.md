@@ -1,4 +1,4 @@
-# Category 05: Ethics (윤리성) - 평가 지침서 V28.0
+# Category 05: Ethics (윤리성) - 평가 지침서 V28
 
 ---
 
@@ -124,7 +124,7 @@ The quality of maintaining social norms and moral dignity
 
 ---
 
-## 6. V28.0 기간 제한
+## 6. V28 기간 제한
 
 ### OFFICIAL 데이터: 최근 4년
 ```
@@ -183,4 +183,4 @@ The quality of maintaining social norms and moral dignity
 
 ---
 
-**V28.0 윤리성 평가 지침서 끝**
+**V28 윤리성 평가 지침서 끝**

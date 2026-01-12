@@ -1,4 +1,4 @@
-# Category 01: Expertise (전문성) - 수집 지침서 V28.0
+# Category 01: Expertise (전문성) - 수집 지침서 V28
 
 ---
 
@@ -38,7 +38,7 @@ The level of knowledge, skills, and experience required to perform duties effect
 
 ---
 
-## 3. V28.0 기간 제한 (CRITICAL!)
+## 3. V28 기간 제한 (CRITICAL!)
 
 ### OFFICIAL 데이터: 최근 4년
 ```
@@ -345,4 +345,4 @@ The level of knowledge, skills, and experience required to perform duties effect
 
 ---
 
-**V28.0 전문성 수집 지침서 끝**
+**V28 전문성 수집 지침서 끝**

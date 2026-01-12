@@ -1,4 +1,4 @@
-# Category 08: Communication (소통능력) - 수집 지침서 V28.0
+# Category 08: Communication (소통능력) - 수집 지침서 V28
 
 ---
 
@@ -36,7 +36,7 @@ The ability to communicate effectively with citizens
 
 ---
 
-## 3. V28.0 기간 제한 (CRITICAL!)
+## 3. V28 기간 제한 (CRITICAL!)
 
 ### OFFICIAL 데이터: 최근 4년
 ```
@@ -244,4 +244,4 @@ The ability to communicate effectively with citizens
 
 ---
 
-**V28.0 소통능력 수집 지침서 끝**
+**V28 소통능력 수집 지침서 끝**

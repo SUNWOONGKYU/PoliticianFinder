@@ -1,4 +1,4 @@
-# Category 06: Accountability (책임성) - 평가 지침서 V28.0
+# Category 06: Accountability (책임성) - 평가 지침서 V28
 
 ---
 
@@ -119,7 +119,7 @@ The quality of taking responsibility for assigned duties and promises
 
 ---
 
-## 6. V28.0 기간 제한
+## 6. V28 기간 제한
 
 ### OFFICIAL 데이터: 최근 4년
 ```
@@ -177,4 +177,4 @@ The quality of taking responsibility for assigned duties and promises
 
 ---
 
-**V28.0 책임성 평가 지침서 끝**
+**V28 책임성 평가 지침서 끝**

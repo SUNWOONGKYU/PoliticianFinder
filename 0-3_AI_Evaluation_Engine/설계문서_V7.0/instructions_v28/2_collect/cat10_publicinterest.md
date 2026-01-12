@@ -1,4 +1,4 @@
-# Category 10: Public Interest (공익성) - 수집 지침서 V28.0
+# Category 10: Public Interest (공익성) - 수집 지침서 V28
 
 ---
 
@@ -37,7 +37,7 @@ The quality of prioritizing public interest over private interest
 
 ---
 
-## 3. V28.0 기간 제한 (CRITICAL!)
+## 3. V28 기간 제한 (CRITICAL!)
 
 ### OFFICIAL 데이터: 최근 4년
 ```
@@ -246,4 +246,4 @@ The quality of prioritizing public interest over private interest
 
 ---
 
-**V28.0 공익성 수집 지침서 끝**
+**V28 공익성 수집 지침서 끝**

@@ -1,4 +1,4 @@
-# Category 01: Expertise (전문성) - 평가 지침서 V28.0
+# Category 01: Expertise (전문성) - 평가 지침서 V28
 
 ---
 
@@ -119,7 +119,7 @@ The level of knowledge, skills, and experience required to perform duties effect
 
 ---
 
-## 6. V28.0 기간 제한
+## 6. V28 기간 제한
 
 평가 시에도 기간 제한 확인:
 
@@ -179,4 +179,4 @@ The level of knowledge, skills, and experience required to perform duties effect
 
 ---
 
-**V28.0 전문성 평가 지침서 끝**
+**V28 전문성 평가 지침서 끝**

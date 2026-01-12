@@ -1,4 +1,4 @@
-# Category 07: Transparency (투명성) - 수집 지침서 V28.0
+# Category 07: Transparency (투명성) - 수집 지침서 V28
 
 ---
 
@@ -36,7 +36,7 @@ The quality of openly disclosing and sharing information without concealment
 
 ---
 
-## 3. V28.0 기간 제한 (CRITICAL!)
+## 3. V28 기간 제한 (CRITICAL!)
 
 ### OFFICIAL 데이터: 최근 4년
 ```
@@ -241,4 +241,4 @@ The quality of openly disclosing and sharing information without concealment
 
 ---
 
-**V28.0 투명성 수집 지침서 끝**
+**V28 투명성 수집 지침서 끝**
