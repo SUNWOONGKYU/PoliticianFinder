@@ -1132,9 +1132,8 @@ export default function Home() {
                     <Link
                       key={notice.id}
                       href={`/notices/${notice.id}`}
-                      className="block hover:text-primary-600 line-clamp-1"
+                      className={index === 0 ? "block hover:text-primary-600 line-clamp-1 font-bold text-red-600" : "block hover:text-primary-600 line-clamp-1"}
                     >
-                      <span className={index === 0 ? "text-red-600 font-bold mr-1" : "text-primary-600 mr-1"}>📢</span>
                       {notice.title}
                     </Link>
                   ))
