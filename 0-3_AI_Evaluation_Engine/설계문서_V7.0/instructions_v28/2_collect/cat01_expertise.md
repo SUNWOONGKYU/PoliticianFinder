@@ -193,7 +193,7 @@ The level of knowledge, skills, and experience required to perform duties effect
 
 ---
 
-## 7. 수집 구조 (카테고리당 50개) - V28.2 균형 수집
+## 7. 수집 구조 (카테고리당 50개) - V28 균형 수집
 
 **목적: 긍정 편향과 부정 편향 모두 방지**
 

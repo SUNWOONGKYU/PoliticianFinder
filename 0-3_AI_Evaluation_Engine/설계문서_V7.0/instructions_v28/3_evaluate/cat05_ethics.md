@@ -41,7 +41,7 @@ The quality of maintaining social norms and moral dignity
 
 ---
 
-## 3. 등급 체계 (+4 ~ -4) - V28.2
+## 3. 등급 체계 (+4 ~ -4) - V28
 
 **숫자 기반 명확한 기준**
 

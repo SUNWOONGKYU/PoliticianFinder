@@ -316,7 +316,7 @@ def get_politician_instructions(politician_name):
                     section = content[start:end].strip()
                     instructions_text += section + "\n\n"
 
-            # ⚠️ 수집 제외 주제 추출 (V28.2 - CRITICAL!)
+            # ⚠️ 수집 제외 주제 추출 (V28 - CRITICAL!)
             if "## ⚠️ 수집 제외 주제" in content:
                 start = content.find("## ⚠️ 수집 제외 주제")
                 # "---" 또는 "### 평가 시 주의점"까지 추출
@@ -345,7 +345,7 @@ def get_politician_instructions(politician_name):
 
 def get_category_instructions(category_num):
     """
-    카테고리별 수집 지침서에서 핵심 규칙 추출 (V28.2)
+    카테고리별 수집 지침서에서 핵심 규칙 추출 (V28)
 
     2_collect/cat{num}_{name}.md 파일에서:
     - 8-1. 중복 수집 금지
@@ -539,7 +539,7 @@ def collect_and_evaluate_batch(politician_id, politician_name, ai_name, category
 
     cat_desc = get_category_description(category_num)
     profile_info = format_politician_profile(politician_id, politician_name)
-    category_rules = get_category_instructions(category_num)  # V28.2: 카테고리별 규칙 로드
+    category_rules = get_category_instructions(category_num)  # V28: 카테고리별 규칙 로드
 
     # 기간 제한을 더 강조
     if source_type == "OFFICIAL":
@@ -1045,13 +1045,13 @@ def validate_data(politician_id, ai_name=None):
     검증 항목:
     1. URL 존재 여부 (PUBLIC 언론/위키만)
     2. source_type 규칙 준수
-    3. 기간 위반 체크 (V28.2 추가)
-    4. 동일 제목 중복 체크 (V28.2 추가)
+    3. 기간 위반 체크 (V28 추가)
+    4. 동일 제목 중복 체크 (V28 추가)
 
     검증 실패 데이터는 삭제됨
     """
     print("\n" + "="*60)
-    print("V28.2 데이터 검증 (기간/중복 체크 추가)")
+    print("V28 데이터 검증 (기간/중복 체크 추가)")
     print("="*60)
 
     # 기간 기준 계산
@@ -1120,7 +1120,7 @@ def validate_data(politician_id, ai_name=None):
                     if not url_valid:
                         failed_reasons.append(f"URL 검증 실패: {url_msg}")
 
-            # 3. 기간 위반 체크 (V28.2 추가)
+            # 3. 기간 위반 체크 (V28 추가)
             if data_date:
                 if source_type == 'PUBLIC' and data_date < public_start:
                     failed_reasons.append(f"기간 위반: {data_date} < {public_start}")
@@ -1132,7 +1132,7 @@ def validate_data(politician_id, ai_name=None):
                 ai_failed += 1
                 failed_ids.append((item_id, '; '.join(failed_reasons)))
 
-        # === 4단계: 동일 제목 중복 체크 (V28.2 추가) ===
+        # === 4단계: 동일 제목 중복 체크 (V28 추가) ===
         # 카테고리별로 제목 중복 확인
         from collections import defaultdict
         title_groups = defaultdict(list)
