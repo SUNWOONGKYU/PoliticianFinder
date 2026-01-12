@@ -27,8 +27,8 @@ if sys.platform == 'win32':
     import io
     sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
-# 환경 변수 로드
-load_dotenv()
+# 환경 변수 로드 (override=True로 .env 우선)
+load_dotenv(override=True)
 
 # Supabase 클라이언트
 supabase = create_client(
@@ -36,11 +36,11 @@ supabase = create_client(
     os.getenv('SUPABASE_SERVICE_ROLE_KEY')
 )
 
-# V27.0 테이블명
-TABLE_COLLECTED_DATA = "collected_data_v27"
-TABLE_CATEGORY_SCORES = "ai_category_scores_v27"
-TABLE_FINAL_SCORES = "ai_final_scores_v27"
-TABLE_EVALUATIONS = "ai_evaluations_v27"
+# V28.0 테이블명
+TABLE_COLLECTED_DATA = "collected_data_v28"
+TABLE_CATEGORY_SCORES = "ai_category_scores_v28"
+TABLE_FINAL_SCORES = "ai_final_scores_v28"
+TABLE_EVALUATIONS = "ai_evaluations_v28"
 
 # 카테고리 정의 (영문명 - DB 저장 형식)
 CATEGORIES = [
@@ -62,10 +62,18 @@ CATEGORY_NAMES_KR = {
     "PublicInterest": "공익성"
 }
 
-# 알파벳 → 숫자 변환
-ALPHABET_TO_NUMBER = {
-    'A': 8, 'B': 6, 'C': 4, 'D': 2,
-    'E': -2, 'F': -4, 'G': -6, 'H': -8
+# V28.2: 숫자 문자열 → 점수 변환
+RATING_TO_SCORE = {
+    '+4': 8, '+3': 6, '+2': 4, '+1': 2,
+    '-1': -2, '-2': -4, '-3': -6, '-4': -8
+}
+
+# V28.1: AI별 모델명 (자동 추적용)
+AI_MODEL_NAMES = {
+    "Claude": "claude-3-5-haiku-20241022",
+    "ChatGPT": "gpt-4o-mini",
+    "Grok": "grok-4-fast",
+    "Gemini": "gemini-2.0-flash"
 }
 
 # 등급 체계 (10단계)
@@ -83,6 +91,32 @@ GRADE_BOUNDARIES = [
 ]
 
 AI_NAMES = ["Claude", "ChatGPT", "Grok", "Gemini"]
+
+
+def get_exact_count(table_name, filters=None):
+    """
+    정확한 개수 조회 (Supabase 기본 limit 1000 문제 방지)
+
+    ⚠️ 중요: Supabase select()는 기본 1000개만 반환
+    → count='exact' 옵션 필수!
+
+    사용법:
+        count = get_exact_count('collected_data_v28', {
+            'politician_id': 'f9e00370',
+            'ai_name': 'Claude'
+        })
+    """
+    try:
+        query = supabase.table(table_name).select('*', count='exact')
+        if filters:
+            for key, value in filters.items():
+                if value is not None:
+                    query = query.eq(key, value)
+        response = query.limit(1).execute()  # 데이터는 1개만, count만 사용
+        return response.count if response.count else 0
+    except Exception as e:
+        print(f"  ⚠️ count 조회 실패: {e}")
+        return 0
 
 
 def get_ratings_from_collected_data(politician_id, ai_name, category_name):
@@ -116,7 +150,7 @@ def get_ratings_from_collected_data(politician_id, ai_name, category_name):
 
         offset += limit
 
-    return [ALPHABET_TO_NUMBER.get(r['rating'], 0) for r in all_ratings if r['rating'] in ALPHABET_TO_NUMBER]
+    return [RATING_TO_SCORE.get(r['rating'], 0) for r in all_ratings if r['rating'] in RATING_TO_SCORE]
 
 
 def calculate_category_score(ratings):
@@ -160,11 +194,12 @@ def save_category_score(politician_id, ai_name, category_name, score, rating_cou
         data = {
             'politician_id': politician_id,
             'ai_name': ai_name,
+            'model_name': AI_MODEL_NAMES.get(ai_name, ''),  # V28.1: 모델명 추가
             'category_name': category_name,
             'category_score': score,
             'rating_count': rating_count,
             'avg_rating': avg_rating,
-            'calculation_version': 'V27.0',
+            'calculation_version': 'V28.0',
             'calculation_date': datetime.now().isoformat()
         }
         supabase.table(TABLE_CATEGORY_SCORES).insert(data).execute()
@@ -184,11 +219,12 @@ def save_final_score(politician_id, ai_name, total_score, grade_code, grade_name
         data = {
             'politician_id': politician_id,
             'ai_name': ai_name,
+            'model_name': AI_MODEL_NAMES.get(ai_name, ''),  # V28.1: 모델명 추가
             'total_score': total_score,
             'grade_code': grade_code,
             'grade_name': grade_name,
             'category_scores': category_scores,
-            'calculation_version': 'V27.0',
+            'calculation_version': 'V28.0',
             'calculation_date': datetime.now().isoformat()
         }
         supabase.table(TABLE_FINAL_SCORES).insert(data).execute()
@@ -212,7 +248,7 @@ def save_combined_evaluation(politician_id, ai_count, avg_score, grade_code, gra
             'grade_code': grade_code,
             'grade_name': grade_name,
             'ai_scores': ai_scores,
-            'calculation_version': 'V27.0',
+            'calculation_version': 'V28.0',
             'calculation_date': datetime.now().isoformat()
         }
         supabase.table(TABLE_EVALUATIONS).insert(data).execute()
