@@ -68,7 +68,7 @@ interface SidebarStats {
       현직: number;
       후보자: number;
       예비후보자: number;
-      출마자: number;
+      출마예정자: number;
     };
     byPosition: {
       국회의원: number;
@@ -1171,8 +1171,8 @@ export default function Home() {
                         <span className="font-medium text-gray-900">{sidebarStats?.politicians.byIdentity.예비후보자 || 0}명</span>
                       </div>
                       <div className="flex justify-between text-gray-700">
-                        <span>출마자</span>
-                        <span className="font-medium text-gray-900">{sidebarStats?.politicians.byIdentity.출마자 || 0}명</span>
+                        <span>출마예정자</span>
+                        <span className="font-medium text-gray-900">{sidebarStats?.politicians.byIdentity.출마예정자 || 0}명</span>
                       </div>
                     </div>
                   </div>
