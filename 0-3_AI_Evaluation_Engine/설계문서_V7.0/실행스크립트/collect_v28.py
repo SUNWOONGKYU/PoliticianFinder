@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 """
-V28.0 수집/검증/재수집 통합 스크립트
+V28 수집/검증/재수집 통합 스크립트
 
-핵심 변경 (V28.0):
+핵심 변경 (V28):
 1. PUBLIC 기간: 1년 → 2년 확대
 2. 수집/평가 분리: 수집 AI ≠ 평가 AI
 3. 부정 주제 20% 의무화: 반드시 부정적 내용만 수집
 
-V28.1 추가 (검증/재수집 통합):
+V28 추가 (검증/재수집 통합):
 4. 검증 단계: URL 실제 존재 확인, source_type 규칙 검증
 5. 재수집 단계: 검증 실패분 자동 재수집
 
@@ -43,7 +43,7 @@ import json
 import re
 import argparse
 import time
-import requests  # V28.1: URL 검증용
+import requests  # V28: URL 검증용
 from datetime import datetime, timedelta
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from supabase import create_client
@@ -64,7 +64,7 @@ supabase = create_client(
     os.getenv('SUPABASE_SERVICE_ROLE_KEY')
 )
 
-# V28.0 테이블명
+# V28 테이블명
 TABLE_COLLECTED_DATA = "collected_data_v28"
 
 # AI 클라이언트 (필요 시 초기화)
@@ -179,7 +179,7 @@ def init_ai_client(ai_name):
 
 
 def get_date_range():
-    """V28.0 기간 제한 계산 (PUBLIC 2년으로 확대)"""
+    """V28 기간 제한 계산 (PUBLIC 2년으로 확대)"""
     evaluation_date = datetime.now()
     official_start = evaluation_date - timedelta(days=365*4)
     public_start = evaluation_date - timedelta(days=365*2)  # V28: 1년 → 2년
@@ -564,7 +564,7 @@ def collect_and_evaluate_batch(politician_id, politician_name, ai_name, category
 ████████████████████████████████████████████████████████████
 """
 
-    # V28.0: 부정 주제 20% 의무화 + 수집만 (평가는 분리)
+    # V28: 부정 주제 20% 의무화 + 수집만 (평가는 분리)
     if is_negative:
         collection_instruction = f"""
 🚨 **[필수] 부정적 주제 수집 (20% 의무)** 🚨
@@ -610,7 +610,7 @@ def collect_and_evaluate_batch(politician_id, politician_name, ai_name, category
 **평가는 나중에 별도로 진행됩니다** (지금은 수집만)
 """
 
-    # V28.1: 출처 유형별 규칙 (강화)
+    # V28: 출처 유형별 규칙 (강화)
     if source_type == "OFFICIAL":
         source_url_rule = """**출처 규칙 (OFFICIAL 공식자료)**:
 - source_url: 불필요 (빈 값 OK)
@@ -647,7 +647,7 @@ def collect_and_evaluate_batch(politician_id, politician_name, ai_name, category
 - 구청, 군청, 시청, 국회 등 공식기관 (→ OFFICIAL임)
 - URL을 모르는 언론 기사 (수집하지 마세요)"""
 
-    # V28.0: 수집만 (평가는 분리 - 다른 AI가 나중에 평가)
+    # V28: 수집만 (평가는 분리 - 다른 AI가 나중에 평가)
     prompt = f"""당신은 정치인 관련 데이터를 수집하는 AI입니다.
 
 {profile_info}
@@ -713,7 +713,7 @@ def collect_and_evaluate_batch(politician_id, politician_name, ai_name, category
             data = json.loads(json_str)
             items = data.get('items', [])
 
-            # V28.0: 유효성 검증 (rating 없이 수집만)
+            # V28: 유효성 검증 (rating 없이 수집만)
             valid_items = []
             for item in items:
                 # 필수 필드 확인 (rating 제외)
@@ -778,7 +778,7 @@ def save_to_db(politician_id, category_name, ai_name, items):
     dates = get_date_range()
     saved = 0
 
-    # V28.1: model_name 자동 추출
+    # V28: model_name 자동 추출
     model_name = AI_CONFIGS.get(ai_name, {}).get('model', '')
 
     for idx, item in enumerate(items):
@@ -788,7 +788,7 @@ def save_to_db(politician_id, category_name, ai_name, items):
             data = {
                 'politician_id': politician_id,
                 'ai_name': ai_name,
-                'model_name': model_name,  # V28.1: 모델명 추가
+                'model_name': model_name,  # V28: 모델명 추가
                 'category_name': category_name,
                 'item_num': actual_item_num,
                 'data_title': item.get('data_title', ''),
@@ -803,7 +803,7 @@ def save_to_db(politician_id, category_name, ai_name, items):
                 'rating_rationale': item.get('rating_rationale', ''),
                 'evaluation_date': datetime.now().isoformat(),
                 # 메타데이터
-                'collection_version': 'V28.0',
+                'collection_version': 'V28',
                 'official_date_start': dates['official_start'],
                 'official_date_end': dates['official_end'],
                 'public_date_start': dates['public_start'],
@@ -875,7 +875,7 @@ def collect_all_categories(politician_id, politician_name, ai_name):
     dates = get_date_range()
 
     print(f"\n{'='*60}")
-    print(f"V28.0 독립 방식 - {ai_name}")
+    print(f"V28 독립 방식 - {ai_name}")
     print(f"{'='*60}")
     print(f"정치인: {politician_name} (ID: {politician_id})")
     print(f"OFFICIAL: {dates['official_start']} ~ {dates['official_end']}")
@@ -906,7 +906,7 @@ def collect_all_ais(politician_id, politician_name, parallel=False):
     ai_list = ["Claude", "ChatGPT", "Grok", "Gemini"]
 
     print("="*60)
-    print("V28.0 독립 방식 - 4개 AI 전체")
+    print("V28 독립 방식 - 4개 AI 전체")
     print("="*60)
     print(f"정치인: {politician_name} (ID: {politician_id})")
     print(f"병렬 실행: {'예' if parallel else '아니오'}")
@@ -944,12 +944,12 @@ def collect_all_ais(politician_id, politician_name, parallel=False):
         print(f"  {status} {ai}: {total}/500개")
 
     print("\n" + "="*60)
-    print("V28.0 수집 완료!")
+    print("V28 수집 완료!")
     print("="*60)
 
 
 # ============================================================
-# V28.1: 검증 함수
+# V28: 검증 함수
 # ============================================================
 
 # OFFICIAL 출처 키워드 (이것들은 OFFICIAL이어야 함)
@@ -1196,7 +1196,7 @@ def recollect_failed(politician_id, politician_name, ai_name=None):
     각 카테고리별로 50개 미만인 경우 부족분 재수집
     """
     print("\n" + "="*60)
-    print("V28.1 재수집")
+    print("V28 재수집")
     print("="*60)
 
     # 대상 AI 목록
@@ -1285,7 +1285,7 @@ def run_full_pipeline(politician_id, politician_name, ai_name=None, parallel=Fal
     전체 파이프라인 실행: 수집 → 검증 → 재수집 (최대 3회 반복)
     """
     print("\n" + "="*60)
-    print("V28.1 전체 파이프라인 시작")
+    print("V28 전체 파이프라인 시작")
     print("="*60)
     print(f"정치인: {politician_name} (ID: {politician_id})")
     print("프로세스: 수집 → 검증 → 재수집 (최대 3회)")
@@ -1351,7 +1351,7 @@ def run_full_pipeline(politician_id, politician_name, ai_name=None, parallel=Fal
 
 
 def main():
-    parser = argparse.ArgumentParser(description='V28.1 수집/검증/재수집 통합 스크립트')
+    parser = argparse.ArgumentParser(description='V28 수집/검증/재수집 통합 스크립트')
     parser.add_argument('--politician_id', type=str, required=True, help='정치인 ID')
     parser.add_argument('--politician_name', type=str, required=True, help='정치인 이름')
     parser.add_argument('--ai', type=str, default='all', help='실행할 AI (Claude, ChatGPT, Grok, Gemini, all)')

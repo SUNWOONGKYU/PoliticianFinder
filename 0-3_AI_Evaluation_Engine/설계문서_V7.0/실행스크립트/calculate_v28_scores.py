@@ -36,7 +36,7 @@ supabase = create_client(
     os.getenv('SUPABASE_SERVICE_ROLE_KEY')
 )
 
-# V28.0 테이블명
+# V28 테이블명
 TABLE_COLLECTED_DATA = "collected_data_v28"
 TABLE_CATEGORY_SCORES = "ai_category_scores_v28"
 TABLE_FINAL_SCORES = "ai_final_scores_v28"
@@ -68,7 +68,7 @@ RATING_TO_SCORE = {
     '-1': -2, '-2': -4, '-3': -6, '-4': -8
 }
 
-# V28.1: AI별 모델명 (자동 추적용)
+# V28: AI별 모델명 (자동 추적용)
 AI_MODEL_NAMES = {
     "Claude": "claude-3-5-haiku-20241022",
     "ChatGPT": "gpt-4o-mini",
@@ -194,12 +194,12 @@ def save_category_score(politician_id, ai_name, category_name, score, rating_cou
         data = {
             'politician_id': politician_id,
             'ai_name': ai_name,
-            'model_name': AI_MODEL_NAMES.get(ai_name, ''),  # V28.1: 모델명 추가
+            'model_name': AI_MODEL_NAMES.get(ai_name, ''),  # V28: 모델명 추가
             'category_name': category_name,
             'category_score': score,
             'rating_count': rating_count,
             'avg_rating': avg_rating,
-            'calculation_version': 'V28.0',
+            'calculation_version': 'V28',
             'calculation_date': datetime.now().isoformat()
         }
         supabase.table(TABLE_CATEGORY_SCORES).insert(data).execute()
@@ -219,12 +219,12 @@ def save_final_score(politician_id, ai_name, total_score, grade_code, grade_name
         data = {
             'politician_id': politician_id,
             'ai_name': ai_name,
-            'model_name': AI_MODEL_NAMES.get(ai_name, ''),  # V28.1: 모델명 추가
+            'model_name': AI_MODEL_NAMES.get(ai_name, ''),  # V28: 모델명 추가
             'total_score': total_score,
             'grade_code': grade_code,
             'grade_name': grade_name,
             'category_scores': category_scores,
-            'calculation_version': 'V28.0',
+            'calculation_version': 'V28',
             'calculation_date': datetime.now().isoformat()
         }
         supabase.table(TABLE_FINAL_SCORES).insert(data).execute()
@@ -248,7 +248,7 @@ def save_combined_evaluation(politician_id, ai_count, avg_score, grade_code, gra
             'grade_code': grade_code,
             'grade_name': grade_name,
             'ai_scores': ai_scores,
-            'calculation_version': 'V28.0',
+            'calculation_version': 'V28',
             'calculation_date': datetime.now().isoformat()
         }
         supabase.table(TABLE_EVALUATIONS).insert(data).execute()

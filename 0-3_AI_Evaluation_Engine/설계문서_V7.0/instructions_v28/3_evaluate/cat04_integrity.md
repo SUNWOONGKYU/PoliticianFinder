@@ -1,4 +1,4 @@
-# Category 04: Integrity (청렴성) - 평가 지침서 V28.0
+# Category 04: Integrity (청렴성) - 평가 지침서 V28
 
 ---
 
@@ -119,7 +119,7 @@ The quality of not engaging in financial or material corruption
 
 ---
 
-## 6. V28.0 기간 제한
+## 6. V28 기간 제한
 
 ### OFFICIAL 데이터: 최근 4년
 ```
@@ -178,4 +178,4 @@ The quality of not engaging in financial or material corruption
 
 ---
 
-**V28.0 청렴성 평가 지침서 끝**
+**V28 청렴성 평가 지침서 끝**

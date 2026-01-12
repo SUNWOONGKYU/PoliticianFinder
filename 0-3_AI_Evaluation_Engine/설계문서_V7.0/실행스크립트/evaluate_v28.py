@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-V28.0 평가 스크립트 (수집/평가 분리)
+V28 평가 스크립트 (수집/평가 분리)
 
 핵심 원칙: "수집 세션 ≠ 평가 세션"
 - Claude가 수집 → 다른 Claude 세션이 평가
@@ -41,7 +41,7 @@ supabase = create_client(
     os.getenv('SUPABASE_SERVICE_ROLE_KEY')
 )
 
-# V28.0 테이블명
+# V28 테이블명
 TABLE_COLLECTED_DATA = "collected_data_v28"
 
 # AI 클라이언트
@@ -490,7 +490,7 @@ def run_evaluation(politician_id, ai_name):
     politician_name = get_politician_name(politician_id)
 
     print("=" * 60)
-    print(f"V28.0 평가 (수집/평가 세션 분리)")
+    print(f"V28 평가 (수집/평가 세션 분리)")
     print("=" * 60)
     print(f"정치인: {politician_name} ({politician_id})")
     print(f"AI: {ai_name} (수집 세션 → 평가 세션)")
@@ -516,7 +516,7 @@ def run_all_evaluation(politician_id):
     politician_name = get_politician_name(politician_id)
 
     print("=" * 60)
-    print(f"V28.0 전체 AI 평가")
+    print(f"V28 전체 AI 평가")
     print("=" * 60)
     print(f"정치인: {politician_name} ({politician_id})")
     print("=" * 60)
@@ -545,7 +545,7 @@ def run_all_evaluation(politician_id):
 
 
 def main():
-    parser = argparse.ArgumentParser(description='V28.0 평가 스크립트')
+    parser = argparse.ArgumentParser(description='V28 평가 스크립트')
     parser.add_argument('--politician_id', type=str, required=True, help='정치인 ID')
     parser.add_argument('--ai', type=str, help='평가할 AI (Claude, ChatGPT, Grok, Gemini)')
     parser.add_argument('--all', action='store_true', help='전체 AI 평가')

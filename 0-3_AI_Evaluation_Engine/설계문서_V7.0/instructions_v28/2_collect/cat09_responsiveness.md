@@ -1,4 +1,4 @@
-# Category 09: Responsiveness (대응성) - 수집 지침서 V28.0
+# Category 09: Responsiveness (대응성) - 수집 지침서 V28
 
 ---
 
@@ -36,7 +36,7 @@ The ability to respond promptly to citizens' demands and complaints
 
 ---
 
-## 3. V28.0 기간 제한 (CRITICAL!)
+## 3. V28 기간 제한 (CRITICAL!)
 
 ### OFFICIAL 데이터: 최근 4년
 ```
@@ -240,4 +240,4 @@ The ability to respond promptly to citizens' demands and complaints
 
 ---
 
-**V28.0 대응성 수집 지침서 끝**
+**V28 대응성 수집 지침서 끝**
