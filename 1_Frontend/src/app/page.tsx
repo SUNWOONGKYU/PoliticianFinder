@@ -1128,11 +1128,11 @@ export default function Home() {
                 ) : notices.length === 0 ? (
                   <p className="text-center text-gray-500">공지사항이 없습니다</p>
                 ) : (
-                  notices.map((notice, index) => (
+                  notices.map((notice) => (
                     <Link
                       key={notice.id}
                       href={`/notices/${notice.id}`}
-                      className={index === 0 ? "block hover:text-primary-600 line-clamp-1 font-bold text-red-600" : "block hover:text-primary-600 line-clamp-1"}
+                      className="block text-gray-900 hover:text-primary-600 line-clamp-1"
                     >
                       {notice.title}
                     </Link>
