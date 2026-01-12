@@ -300,7 +300,7 @@ def evaluate_batch(evaluator_ai, items, category_name, politician_id, politician
             data = json.loads(json_str)
             evaluations = data.get('evaluations', [])
 
-            # 유효성 검증 (V28.2: +4 ~ -4 숫자 문자열)
+            # 유효성 검증 (V28: +4 ~ -4 숫자 문자열)
             valid_evals = []
             valid_ratings = ['+4', '+3', '+2', '+1', '-1', '-2', '-3', '-4']
             for ev in evaluations:
