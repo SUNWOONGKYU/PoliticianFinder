@@ -35,6 +35,24 @@ The quality of prioritizing public interest over private interest
 - 정책 전문성 → 카테고리 1 (전문성)
 - 장기 비전 → 카테고리 3 (비전)
 
+### 🚨 [X] 절대 수집 금지 (개인 비위 이슈!)
+**아래 주제는 PublicInterest가 아님! 해당 카테고리에서만 수집!**
+
+| 주제 | 올바른 카테고리 |
+|------|----------------|
+| 정치자금 수수 의혹 | Integrity (청렴성) |
+| 재산 형성 의혹 | Integrity (청렴성) |
+| 가족 비위/표절 | Ethics (윤리성) |
+| 아들/딸/배우자 논란 | Ethics (윤리성) |
+
+```
+❌ 잘못된 예:
+PublicInterest에 "아들 표절 의혹" 수집
+
+✅ 올바른 예:
+Ethics에 "아들 표절 의혹" 수집
+```
+
 ---
 
 ## 3. V28 기간 제한 (CRITICAL!)
