@@ -1038,6 +1038,55 @@ def check_source_type_validity(source_type, data_source):
     return True, "OK"
 
 
+def check_content_for_old_events(content, source_type):
+    """
+    V28.1: 콘텐츠 내용에서 과거 사건 연도 패턴 검사
+
+    Returns:
+        (is_valid, reason): 유효 여부와 이유
+    """
+    import re
+
+    if not content:
+        return True, ""
+
+    content_lower = content.lower()
+
+    # 현재 연도 기준
+    current_year = 2026
+
+    # OFFICIAL: 4년 이내 (2022~2026), PUBLIC: 2년 이내 (2024~2026)
+    if source_type == 'PUBLIC':
+        min_year = 2024
+    else:
+        min_year = 2022
+
+    # 1. 구체적 연도 패턴 찾기 (1990~2021년 또는 2022~2023년 for PUBLIC)
+    year_pattern = r'(19\d{2}|20[0-2][0-9])년'
+    found_years = re.findall(year_pattern, content)
+
+    for year_str in found_years:
+        year = int(year_str)
+        if year < min_year:
+            return False, f"콘텐츠에 과거 연도 포함: {year}년 < {min_year}년"
+
+    # 2. "과거" 관련 키워드 + 비위/사건 패턴
+    past_patterns = [
+        r'과거.{0,20}(정치자금|뇌물|횡령|배임|비리|의혹|수수)',
+        r'예전.{0,20}(정치자금|뇌물|횡령|배임|비리|의혹|수수)',
+        r'당시.{0,20}(정치자금|뇌물|횡령|배임|비리|의혹|수수)',
+        r'(10|20|수십)\s*년\s*전.{0,20}(정치자금|뇌물|횡령|배임|비리|의혹)',
+        r'오래.{0,10}전.{0,20}(정치자금|뇌물|횡령|배임|비리|의혹)',
+        r'(재조명|재점화|다시.{0,5}논란)',
+    ]
+
+    for pattern in past_patterns:
+        if re.search(pattern, content):
+            return False, f"콘텐츠에 과거 사건 패턴 포함: {pattern[:30]}..."
+
+    return True, ""
+
+
 def validate_data(politician_id, ai_name=None):
     """
     수집된 데이터 검증
@@ -1047,11 +1096,12 @@ def validate_data(politician_id, ai_name=None):
     2. source_type 규칙 준수
     3. 기간 위반 체크 (V28 추가)
     4. 동일 제목 중복 체크 (V28 추가)
+    5. 콘텐츠 내 과거 연도 체크 (V28.1 추가)
 
     검증 실패 데이터는 삭제됨
     """
     print("\n" + "="*60)
-    print("V28 데이터 검증 (기간/중복 체크 추가)")
+    print("V28.1 데이터 검증 (기간/중복/콘텐츠 과거연도 체크)")
     print("="*60)
 
     # 기간 기준 계산
@@ -1079,7 +1129,7 @@ def validate_data(politician_id, ai_name=None):
 
         while True:
             response = supabase.table(TABLE_COLLECTED_DATA).select(
-                'collected_data_id, source_type, data_source, source_url, data_date, data_title, category_name'
+                'collected_data_id, source_type, data_source, source_url, data_date, data_title, data_content, category_name'
             ).eq('politician_id', politician_id).eq('ai_name', ai).range(
                 offset, offset + limit - 1
             ).execute()
@@ -1126,6 +1176,12 @@ def validate_data(politician_id, ai_name=None):
                     failed_reasons.append(f"기간 위반: {data_date} < {public_start}")
                 elif source_type == 'OFFICIAL' and data_date < official_start:
                     failed_reasons.append(f"기간 위반: {data_date} < {official_start}")
+
+            # 4. 콘텐츠 내 과거 연도 체크 (V28.1 추가)
+            data_content = item.get('data_content', '')
+            content_valid, content_msg = check_content_for_old_events(data_content, source_type)
+            if not content_valid:
+                failed_reasons.append(content_msg)
 
             # 검증 실패 시 기록
             if failed_reasons:
