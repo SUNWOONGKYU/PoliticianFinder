@@ -34,6 +34,30 @@ The quality of openly disclosing and sharing information without concealment
 - 시민 소통 능력 → 카테고리 8 (소통능력)
 - 민원 대응 → 카테고리 9 (대응성)
 
+### 🚨 [X] 절대 수집 금지 (청렴성/윤리성 이슈!)
+**아래 주제는 Transparency가 아님! 해당 카테고리에서만 수집!**
+
+| 주제 | 올바른 카테고리 | 혼동 포인트 |
+|------|----------------|------------|
+| 정치자금 **수수** 의혹 | Integrity (청렴성) | "수수"는 청렴성 문제 |
+| 재산 형성 의혹 | Integrity (청렴성) | 재산 문제는 청렴성 |
+| 가족 비위/표절 | Ethics (윤리성) | 가족 문제는 윤리성 |
+
+**구분 기준**:
+- 정치자금 **공개** → Transparency ✅
+- 정치자금 **수수 의혹** → Integrity ✅
+- 재산 **공개** → Transparency ✅
+- 재산 **형성 의혹** → Integrity ✅
+
+```
+❌ 잘못된 예:
+Transparency에 "정치자금 수수 의혹" 수집
+
+✅ 올바른 예:
+Transparency에 "정치자금 내역 공개" 수집
+Integrity에 "정치자금 수수 의혹" 수집
+```
+
 ---
 
 ## 3. V28 기간 제한 (CRITICAL!)

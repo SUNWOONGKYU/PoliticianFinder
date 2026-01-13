@@ -35,6 +35,24 @@ The quality of taking responsibility for assigned duties and promises
 - 금전적 비리 → 카테고리 4 (청렴성)
 - 정보 공개 → 카테고리 7 (투명성)
 
+### 🚨 [X] 절대 수집 금지 (청렴성/윤리성 이슈!)
+**아래 주제는 Accountability가 아님! 해당 카테고리에서만 수집!**
+
+| 주제 | 올바른 카테고리 |
+|------|----------------|
+| 정치자금 수수 의혹 | Integrity (청렴성) |
+| 재산 형성 의혹 | Integrity (청렴성) |
+| 가족 비위/표절 | Ethics (윤리성) |
+| 아들/딸/배우자 논란 | Ethics (윤리성) |
+
+```
+❌ 잘못된 예:
+Accountability에 "정치자금 수수 의혹" 수집
+
+✅ 올바른 예:
+Integrity에 "정치자금 수수 의혹" 수집
+```
+
 ---
 
 ## 3. V28 기간 제한 (CRITICAL!)
