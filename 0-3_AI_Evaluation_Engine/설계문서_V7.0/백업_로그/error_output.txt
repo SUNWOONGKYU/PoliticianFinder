@@ -1,0 +1,10 @@
+Error: 'SafeBuffer' object has no attribute 'readable'
+Traceback (most recent call last):
+  File "C:\Development_PoliticianFinder_com\Developement_Real_PoliticianFinder\0-3_AI_Evaluation_Engine\설계문서_V7.0\실행스크립트\run_fill_missing_safe2.py", line 58, in <module>
+    import fill_missing_evaluations_v30
+  File "C:\Development_PoliticianFinder_com\Developement_Real_PoliticianFinder\0-3_AI_Evaluation_Engine\설계문서_V7.0\실행스크립트\fill_missing_evaluations_v30.py", line 19, in <module>
+    from collect_v30 import supabase, CATEGORIES
+  File "C:\Development_PoliticianFinder_com\Developement_Real_PoliticianFinder\0-3_AI_Evaluation_Engine\설계문서_V7.0\실행스크립트\collect_v30.py", line 57, in <module>
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+                 ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'SafeBuffer' object has no attribute 'readable'

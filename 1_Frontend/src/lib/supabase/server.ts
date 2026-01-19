@@ -35,7 +35,7 @@ export async function createClient() {
     return client;
   }
 
-  // 쿠키 기반 인증 (기본)
+  // 쿠키 기반 인증 (보안 강화: Secure, HttpOnly, SameSite)
   return createServerClient<Database>(supabaseUrl, supabaseAnonKey, {
     cookies: {
       get(name: string) {
@@ -43,7 +43,16 @@ export async function createClient() {
       },
       set(name: string, value: string, options: CookieOptions) {
         try {
-          cookieStore.set({ name, value, ...options });
+          // 보안 강화된 쿠키 옵션
+          const secureOptions: CookieOptions = {
+            ...options,
+            httpOnly: true, // JavaScript에서 접근 불가 (XSS 방어)
+            secure: process.env.NODE_ENV === 'production', // HTTPS에서만 전송
+            sameSite: 'lax', // CSRF 방어
+            path: '/',
+            maxAge: options.maxAge || 60 * 60 * 24 * 7, // 기본 7일 (세션 타임아웃)
+          };
+          cookieStore.set({ name, value, ...secureOptions });
         } catch (error) {
           // The `set` method was called from a Server Component.
           // This can be ignored if you have middleware refreshing
@@ -52,7 +61,14 @@ export async function createClient() {
       },
       remove(name: string, options: CookieOptions) {
         try {
-          cookieStore.set({ name, value: '', ...options });
+          const secureOptions: CookieOptions = {
+            ...options,
+            httpOnly: true,
+            secure: process.env.NODE_ENV === 'production',
+            sameSite: 'lax',
+            path: '/',
+          };
+          cookieStore.set({ name, value: '', ...secureOptions });
         } catch (error) {
           // The `delete` method was called from a Server Component.
           // This can be ignored if you have middleware refreshing

@@ -1,0 +1,192 @@
+# -*- coding: utf-8 -*-
+"""
+V30 누락된 평가 보완 스크립트
+
+목적: 4개 AI가 모든 데이터를 평가했는지 확인하고, 누락된 평가만 실행
+
+사용법:
+    python fill_missing_evaluations_v30.py --politician_id=f9e00370 --politician_name="김민석"
+"""
+
+import os
+import sys
+import argparse
+from collections import defaultdict
+from datetime import datetime
+
+# collect_v30.py의 함수들을 import
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from collect_v30 import supabase, CATEGORIES
+
+# evaluate_v30.py의 함수들을 import
+from evaluate_v30 import (
+    init_ai_client,
+    evaluate_batch,
+    save_evaluations,
+    EVALUATION_AIS
+)
+
+# UTF-8 출력 설정
+# if sys.platform == 'win32':
+#     import io
+#     sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', line_buffering=True)
+#     sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8', line_buffering=True)
+
+
+def find_missing_evaluations(politician_id):
+    """누락된 평가 찾기
+
+    Returns:
+        dict: {(category, evaluator_ai): [collected_data_ids]}
+    """
+    # 1. 모든 수집 데이터 가져오기
+    collected = supabase.table('collected_data_v30')\
+        .select('id, category')\
+        .eq('politician_id', politician_id)\
+        .execute()
+
+    collected_by_cat = defaultdict(list)
+    for item in collected.data:
+        collected_by_cat[item['category']].append(item['id'])
+
+    print(f"수집 데이터: {len(collected.data)}개")
+
+    # 2. 평가된 데이터 추적
+    evaluations = supabase.table('evaluations_v30')\
+        .select('collected_data_id, category, evaluator_ai')\
+        .eq('politician_id', politician_id)\
+        .execute()
+
+    evaluated_by_cat_ai = defaultdict(lambda: defaultdict(set))
+    for ev in evaluations.data:
+        if ev['collected_data_id']:  # NULL이 아닌 경우만
+            evaluated_by_cat_ai[ev['category']][ev['evaluator_ai']].add(ev['collected_data_id'])
+
+    print(f"평가 데이터: {len(evaluations.data)}건\n")
+
+    # 3. 누락된 평가 찾기
+    missing = defaultdict(list)
+
+    for cat in collected_by_cat.keys():
+        for ai in EVALUATION_AIS:
+            for cid in collected_by_cat[cat]:
+                if cid not in evaluated_by_cat_ai[cat][ai]:
+                    missing[(cat, ai)].append(cid)
+
+    return missing, collected_by_cat
+
+
+def evaluate_missing(politician_id, politician_name, missing, collected_by_cat):
+    """누락된 평가 실행"""
+
+    total_missing = sum(len(ids) for ids in missing.values())
+
+    if total_missing == 0:
+        print("OK 누락된 평가 없음! 모든 평가 완료")
+        return 0
+
+    print(f"누락된 평가: {total_missing}건\n")
+
+    total_evaluated = 0
+
+    # 카테고리별, AI별로 누락된 평가 실행
+    for (cat, ai), missing_ids in sorted(missing.items()):
+        if not missing_ids:
+            continue
+
+        cat_korean = dict(CATEGORIES).get(cat, cat)
+        print(f"[{ai}] {cat_korean} - 누락 {len(missing_ids)}건 평가 중...")
+
+        # 누락된 데이터만 가져오기
+        items_to_eval = []
+        for cid in missing_ids:
+            result = supabase.table('collected_data_v30')\
+                .select('*')\
+                .eq('id', cid)\
+                .execute()
+
+            if result.data:
+                items_to_eval.append(result.data[0])
+
+        if not items_to_eval:
+            print(f"  WARNING 데이터를 찾을 수 없음")
+            continue
+
+        # 배치 평가 (10개씩)
+        batch_size = 10
+        evaluated_count = 0
+
+        for i in range(0, len(items_to_eval), batch_size):
+            batch = items_to_eval[i:i+batch_size]
+
+            try:
+                evaluations = evaluate_batch(ai, batch, cat, politician_id, politician_name)
+
+                if evaluations:
+                    saved = save_evaluations(politician_id, politician_name, cat, ai, evaluations)
+                    evaluated_count += len(evaluations)
+            except Exception as e:
+                print(f"  WARNING 배치 평가 실패: {e}")
+                continue
+
+        total_evaluated += evaluated_count
+        print(f"  OK {evaluated_count}개 평가 완료\n")
+
+    return total_evaluated
+
+
+def main():
+    parser = argparse.ArgumentParser(description='V30 누락된 평가 보완')
+    parser.add_argument('--politician_id', required=True, help='정치인 ID')
+    parser.add_argument('--politician_name', required=True, help='정치인 이름')
+
+    args = parser.parse_args()
+
+    print(f"\n{'='*60}")
+    print(f"V30 누락된 평가 보완")
+    print(f"정치인: {args.politician_name} ({args.politician_id})")
+    print(f"{'='*60}\n")
+
+    start_time = datetime.now()
+
+    # 1. 누락된 평가 찾기
+    print("1. 누락된 평가 찾는 중...\n")
+    missing, collected_by_cat = find_missing_evaluations(args.politician_id)
+
+    # 누락 통계 출력
+    print("카테고리별 누락 현황:")
+    print(f"{'카테고리':<15} | {'Claude':<6} | {'ChatGPT':<7} | {'Gemini':<6} | {'Grok':<6}")
+    print('-' * 60)
+
+    for cat_eng, cat_kor in CATEGORIES:
+        counts = {
+            'Claude': len(missing.get((cat_eng, 'Claude'), [])),
+            'ChatGPT': len(missing.get((cat_eng, 'ChatGPT'), [])),
+            'Gemini': len(missing.get((cat_eng, 'Gemini'), [])),
+            'Grok': len(missing.get((cat_eng, 'Grok'), []))
+        }
+        print(f"{cat_eng:<15} | {counts['Claude']:<6} | {counts['ChatGPT']:<7} | {counts['Gemini']:<6} | {counts['Grok']:<6}")
+
+    print()
+
+    # 2. 누락된 평가 실행
+    print("2. 누락된 평가 실행 중...\n")
+    total_evaluated = evaluate_missing(
+        args.politician_id,
+        args.politician_name,
+        missing,
+        collected_by_cat
+    )
+
+    # 결과 요약
+    elapsed = (datetime.now() - start_time).total_seconds()
+
+    print(f"\n{'='*60}")
+    print(f"OK 누락 평가 보완 완료")
+    print(f"   총 평가: {total_evaluated}건")
+    print(f"   소요 시간: {elapsed:.1f}초 ({elapsed/60:.1f}분)")
+    print(f"{'='*60}\n")
+
+
+if __name__ == "__main__":
+    main()

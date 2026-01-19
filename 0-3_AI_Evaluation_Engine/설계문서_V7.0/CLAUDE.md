@@ -70,15 +70,13 @@ python collect_v26_all.py --politician_id=ID --politician_name="이름" --parall
 ```python
 from datetime import datetime, timedelta
 
-evaluation_date = datetime.now()  # 2026-01-04
+evaluation_date = datetime.now()  # 수집 시점 기준
 
 # OFFICIAL: 4년 이내
 official_start = evaluation_date - timedelta(days=365*4)
-# → 2022-01-04 ~ 2026-01-04
 
-# PUBLIC: 1년 이내
-public_start = evaluation_date - timedelta(days=365)
-# → 2025-01-04 ~ 2026-01-04
+# PUBLIC: 2년 이내
+public_start = evaluation_date - timedelta(days=365*2)
 ```
 
 ### 프롬프트에 포함
@@ -87,8 +85,8 @@ public_start = evaluation_date - timedelta(days=365)
 
 ```
 ⚠️ V26.0 기간 제한:
-- OFFICIAL 데이터: 2022-01-04 ~ 2026-01-04 (최근 4년)
-- PUBLIC 데이터: 2025-01-04 ~ 2026-01-04 (최근 1년)
+- OFFICIAL 데이터: 최근 4년 (수집일 기준)
+- PUBLIC 데이터: 최근 2년 (수집일 기준)
 위 기간 외의 데이터는 수집하지 마세요.
 ```
 

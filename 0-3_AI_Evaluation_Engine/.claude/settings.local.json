@@ -6,7 +6,10 @@
       "WebSearch",
       "Bash(cat:*)",
       "Bash(ls:*)",
-      "Bash(python:*)"
+      "Bash(python:*)",
+      "Bash(for file in 설계문서_V7.0/instructions_v30/2_collect/cat{03,04,05,06,07,08,09,10}_*.md)",
+      "Bash(do cp \"$file\" \"$file.backup\")",
+      "Bash(done)"
     ],
     "deny": [],
     "ask": []
