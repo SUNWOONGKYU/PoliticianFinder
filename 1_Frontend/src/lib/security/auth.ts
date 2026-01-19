@@ -5,17 +5,68 @@ import { NextRequest } from 'next/server';
  * @description 비밀번호 강도 검증, Rate Limiting, CSRF 토큰 관련 함수
  */
 
-// 1. 비밀번호 강도 검증
+// 1. 비밀번호 강도 검증 (보안 강화: 12자 + 복잡도)
 export function isPasswordStrong(password: string): { isValid: boolean; errors: string[]; suggestions: string[] } {
   const errors: string[] = [];
   const suggestions: string[] = [];
 
-  if (password.length < 8) {
-    errors.push('비밀번호는 최소 8자 이상이어야 합니다.');
-    suggestions.push('비밀번호를 8자 이상으로 설정해 주세요.');
+  // 최소 12자
+  if (password.length < 12) {
+    errors.push('비밀번호는 최소 12자 이상이어야 합니다.');
+    suggestions.push('비밀번호를 12자 이상으로 설정해 주세요.');
   }
-  // TODO: 더 복잡한 비밀번호 강도 규칙 추가 (대소문자, 숫자, 특수문자 등)
-  // 예: if (!/[A-Z]/.test(password)) errors.push('대문자를 포함해야 합니다.');
+
+  // 최대 128자
+  if (password.length > 128) {
+    errors.push('비밀번호는 최대 128자까지 가능합니다.');
+    suggestions.push('비밀번호를 128자 이하로 설정해 주세요.');
+  }
+
+  // 대문자 포함
+  if (!/[A-Z]/.test(password)) {
+    errors.push('비밀번호는 최소 1개 이상의 대문자를 포함해야 합니다.');
+    suggestions.push('대문자(A-Z)를 추가해 주세요.');
+  }
+
+  // 소문자 포함
+  if (!/[a-z]/.test(password)) {
+    errors.push('비밀번호는 최소 1개 이상의 소문자를 포함해야 합니다.');
+    suggestions.push('소문자(a-z)를 추가해 주세요.');
+  }
+
+  // 숫자 포함
+  if (!/[0-9]/.test(password)) {
+    errors.push('비밀번호는 최소 1개 이상의 숫자를 포함해야 합니다.');
+    suggestions.push('숫자(0-9)를 추가해 주세요.');
+  }
+
+  // 특수문자 포함
+  if (!/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(password)) {
+    errors.push('비밀번호는 최소 1개 이상의 특수문자를 포함해야 합니다.');
+    suggestions.push('특수문자(!@#$%^&* 등)를 추가해 주세요.');
+  }
+
+  // 일반적으로 취약한 패턴 검사
+  const commonPatterns = [
+    /^123456/,
+    /^password/i,
+    /^qwerty/i,
+    /^admin/i,
+    /^letmein/i,
+    /^welcome/i,
+    /^monkey/i,
+    /^dragon/i,
+    /^master/i,
+    /^sunshine/i
+  ];
+
+  for (const pattern of commonPatterns) {
+    if (pattern.test(password)) {
+      errors.push('너무 흔한 비밀번호 패턴입니다. 더 복잡한 비밀번호를 사용해 주세요.');
+      suggestions.push('예측 가능한 패턴을 피하고 고유한 비밀번호를 만들어 주세요.');
+      break;
+    }
+  }
 
   return { isValid: errors.length === 0, errors, suggestions };
 }

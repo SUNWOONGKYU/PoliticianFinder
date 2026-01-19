@@ -20,10 +20,13 @@ dist/
 .env.vercel.production
 *.env.production
 
-# Debug
+# Debug and Logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+*.log
+*.log.*
+logs/
 
 # OS
 .DS_Store

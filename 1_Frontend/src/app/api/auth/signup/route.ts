@@ -20,6 +20,7 @@ import {
   RATE_LIMIT_RULES,
   extractIpAddress,
 } from '@/lib/security/auth';
+import { logger, logApiError } from '@/lib/utils/logger';
 
 // ============================================================================
 // Constants
@@ -37,7 +38,7 @@ const signupSchema = z.object({
 
   password: z
     .string()
-    .min(8, '비밀번호는 최소 8자 이상이어야 합니다.')
+    .min(12, '비밀번호는 최소 12자 이상이어야 합니다.')
     .max(128, '비밀번호는 최대 128자까지 가능합니다.'),
 
   password_confirm: z.string().min(1, '비밀번호 확인은 필수 항목입니다.'),
@@ -71,7 +72,7 @@ type SignupRequest = z.infer<typeof signupSchema>;
  * @access Public
  *
  * @param {string} email - 사용자 이메일
- * @param {string} password - 비밀번호 (8자 이상)
+ * @param {string} password - 비밀번호 (12자 이상, 대소문자+숫자+특수문자 포함)
  * @param {string} password_confirm - 비밀번호 확인
  * @param {string} nickname - 사용자 이름 (2-100자)
  * @param {boolean} terms_agreed - 이용약관 동의
@@ -85,30 +86,30 @@ type SignupRequest = z.infer<typeof signupSchema>;
  */
 export async function POST(request: NextRequest) {
   try {
-    // TESTING:     // 1. Rate Limiting (10분에 3회)
-    // TESTING:     const ip = extractIpAddress(request);
-    // TESTING:     const rateLimitKey = generateRateLimitKey(ip, 'signup');
-    // TESTING:     const rateLimitResult = checkRateLimit(rateLimitKey, RATE_LIMIT_RULES.signup);
-    // TESTING: 
-    // TESTING:     if (!rateLimitResult.allowed) {
-    // TESTING:       return NextResponse.json(
-    // TESTING:         {
-    // TESTING:           success: false,
-    // TESTING:           error: {
-    // TESTING:             code: 'RATE_LIMIT_EXCEEDED',
-    // TESTING:             message: rateLimitResult.message,
-    // TESTING:           },
-    // TESTING:         },
-    // TESTING:         {
-    // TESTING:           status: 429,
-    // TESTING:           headers: {
-    // TESTING:             'Retry-After': Math.ceil(
-    // TESTING:               (rateLimitResult.resetTime - Date.now()) / 1000
-    // TESTING:             ).toString(),
-    // TESTING:           },
-    // TESTING:         }
-    // TESTING:       );
-    // TESTING:     }
+    // 1. Rate Limiting (10분에 3회)
+    const ip = extractIpAddress(request);
+    const rateLimitKey = generateRateLimitKey(ip, 'signup');
+    const rateLimitResult = checkRateLimit(rateLimitKey, RATE_LIMIT_RULES.signup);
+
+    if (!rateLimitResult.allowed) {
+      return NextResponse.json(
+        {
+          success: false,
+          error: {
+            code: 'RATE_LIMIT_EXCEEDED',
+            message: rateLimitResult.message,
+          },
+        },
+        {
+          status: 429,
+          headers: {
+            'Retry-After': Math.ceil(
+              (rateLimitResult.resetTime - Date.now()) / 1000
+            ).toString(),
+          },
+        }
+      );
+    }
 
     // 2. Request Body Parsing
     const body = await request.json();
@@ -220,8 +221,10 @@ export async function POST(request: NextRequest) {
 
     // 9. Handle Supabase Auth Errors
     if (authError) {
-      console.error('[회원가입 API] Supabase Auth 오류:', authError);
-      console.error('[회원가입 API] 에러 메시지:', authError.message);
+      logger.error('회원가입 API: Supabase Auth 오류', {
+        action: 'signup',
+        resource: 'auth',
+      }, authError);
 
       // Rate limit exceeded
       if (authError.message.includes('rate') || authError.message.includes('limit') || authError.message.includes('email_send_rate_limit')) {
@@ -322,15 +325,24 @@ export async function POST(request: NextRequest) {
 
     // CRITICAL: users 테이블 삽입 실패 시 auth.users도 삭제 (롤백)
     if (profileError) {
-      console.error('[회원가입 API] users 테이블 삽입 오류:', profileError);
-      console.error('[회원가입 API] auth.users 롤백 시작:', authData.user.id);
+      logger.error('회원가입 API: users 테이블 삽입 오류', {
+        action: 'signup',
+        resource: 'users_table',
+        userId: authData.user.id,
+      }, profileError);
 
       // auth.users에서 사용자 삭제 (롤백)
       try {
         await adminClient.auth.admin.deleteUser(authData.user.id);
-        console.log('[회원가입 API] auth.users 롤백 완료');
+        logger.info('회원가입 API: auth.users 롤백 완료', {
+          action: 'rollback',
+          userId: authData.user.id,
+        });
       } catch (deleteError) {
-        console.error('[회원가입 API] auth.users 롤백 실패:', deleteError);
+        logger.error('회원가입 API: auth.users 롤백 실패', {
+          action: 'rollback',
+          userId: authData.user.id,
+        }, deleteError);
       }
 
       // 상세 오류 메시지 생성
@@ -363,11 +375,10 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    console.log('[회원가입 API] users 테이블 삽입 성공:', profileData);
-
-    console.log('[회원가입 API] 사용자 생성 완료:', {
-      id: authData.user.id,
-      email: authData.user.email,
+    logger.info('회원가입 API: 사용자 생성 완료', {
+      action: 'signup',
+      resource: 'user',
+      userId: authData.user.id,
     });
 
     // 12. Success Response
@@ -388,7 +399,7 @@ export async function POST(request: NextRequest) {
       { status: 201 }
     );
   } catch (error) {
-    console.error('[회원가입 API] 오류:', error);
+    logApiError('POST', '/api/auth/signup', error);
 
     return NextResponse.json(
       {
