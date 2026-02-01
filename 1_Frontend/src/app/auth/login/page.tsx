@@ -200,7 +200,7 @@ export default function LoginPage() {
                   type="checkbox"
                   checked={formData.remember}
                   onChange={handleInputChange}
-                  className="h-6 w-6 min-h-[44px] min-w-[44px] text-primary-600 focus:ring-primary-500 border-gray-300 rounded cursor-pointer"
+                  className="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded cursor-pointer"
                 />
                 <span className="ml-3 text-sm text-gray-700">
                   로그인 상태 유지
