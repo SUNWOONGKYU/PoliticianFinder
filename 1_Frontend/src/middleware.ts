@@ -175,12 +175,12 @@ export async function middleware(request: NextRequest) {
   response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
   response.headers.set('Permissions-Policy', 'camera=(), microphone=(), geolocation=()');
 
-  // CSP (Content Security Policy) - 보안 강화: unsafe-eval, unsafe-inline 제거
-  // Note: Next.js 애플리케이션에서 인라인 스크립트/스타일이 필요한 경우 nonce 기반 CSP 사용 권장
+  // CSP (Content Security Policy)
+  // Next.js requires 'unsafe-inline' for script-src and style-src due to inline scripts (__NEXT_DATA__, etc.)
   const cspHeader = `
     default-src 'self';
-    script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com;
-    style-src 'self' https://fonts.googleapis.com;
+    script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com;
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
     img-src 'self' data: https: blob:;
     font-src 'self' data: https://fonts.gstatic.com;
     connect-src 'self' https://*.supabase.co wss://*.supabase.co https://www.google-analytics.com https://*.sentry.io https://*.ingest.sentry.io;
