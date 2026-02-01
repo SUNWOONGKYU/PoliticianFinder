@@ -248,14 +248,14 @@ export default function Home() {
               party: p.party || '',
               region: p.region || '',         // 출마지역
               district: p.district || '',     // 출마지구
-              totalScore: totalScore,
+              totalScore: Math.round(totalScore),
               grade: p.grade || calculateGrade(totalScore),
               gradeEmoji: p.gradeEmoji || getGradeEmoji(p.grade || calculateGrade(totalScore)),
-              // API에서 온 개별 AI 점수 사용 (없으면 0으로 설정하여 '-' 표시)
-              claude: p.claude !== undefined && p.claude !== null ? p.claude : 0,
-              chatgpt: p.chatgpt !== undefined && p.chatgpt !== null ? p.chatgpt : 0,
-              gemini: p.gemini !== undefined && p.gemini !== null ? p.gemini : 0,
-              grok: p.grok !== undefined && p.grok !== null ? p.grok : 0,
+              // API에서 온 개별 AI 점수 사용 (없으면 0으로 설정하여 '-' 표시), 소수점 제거
+              claude: p.claude !== undefined && p.claude !== null ? Math.round(p.claude) : 0,
+              chatgpt: p.chatgpt !== undefined && p.chatgpt !== null ? Math.round(p.chatgpt) : 0,
+              gemini: p.gemini !== undefined && p.gemini !== null ? Math.round(p.gemini) : 0,
+              grok: p.grok !== undefined && p.grok !== null ? Math.round(p.grok) : 0,
               userRating: p.userRating || 0,
               userCount: p.ratingCount || 0,
             };
@@ -1386,13 +1386,7 @@ export default function Home() {
                 <p className="text-center text-gray-500 text-sm py-4">로딩 중...</p>
               ) : !currentUserId ? (
                 <div className="text-center py-4">
-                  <p className="text-sm text-gray-600 mb-3">로그인하면 나의 활동 정보를 확인할 수 있습니다.</p>
-                  <Link
-                    href="/login"
-                    className="inline-block bg-secondary-500 text-white font-medium py-2 px-4 rounded-lg hover:bg-secondary-600 transition text-sm"
-                  >
-                    로그인하기
-                  </Link>
+                  <p className="text-sm text-gray-600">로그인하면 나의 활동 정보를 확인할 수 있습니다.</p>
                 </div>
               ) : (
                 <div className="flex flex-col gap-1">
