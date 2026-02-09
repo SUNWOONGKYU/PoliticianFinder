@@ -1,0 +1,905 @@
+/* ========================================
+   V40 평가보고서 전용 스타일시트
+   작성일: 2026-02-06
+   용도: 정치인 평가보고서 PDF 변환용
+   작성자: PoliticianFinder AI System
+======================================== */
+
+/* 1. CSS 변수 정의 */
+:root {
+  /* Primary Colors - 신뢰와 전문성 */
+  --primary-blue: #1e40af;
+  --primary-blue-light: #3b82f6;
+  --primary-blue-pale: #dbeafe;
+
+  /* Success Colors - 강점 표시 */
+  --success-green: #059669;
+  --success-green-light: #10b981;
+  --success-green-pale: #d1fae5;
+
+  /* Warning Colors - 주의/개선 필요 */
+  --warning-orange: #d97706;
+  --warning-orange-light: #f59e0b;
+  --warning-orange-pale: #fef3c7;
+
+  /* Danger Colors - 심각한 문제 */
+  --danger-red: #dc2626;
+  --danger-red-light: #ef4444;
+  --danger-red-pale: #fee2e2;
+
+  /* Neutral Colors - 본문 및 배경 */
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --text-tertiary: #9ca3af;
+
+  --bg-white: #ffffff;
+  --bg-gray-50: #f9fafb;
+  --bg-gray-100: #f3f4f6;
+  --bg-gray-200: #e5e7eb;
+
+  --border-light: #e5e7eb;
+  --border-medium: #d1d5db;
+  --border-dark: #9ca3af;
+
+  /* Fonts */
+  --font-family-base: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Malgun Gothic', sans-serif;
+  --font-family-numbers: 'Pretendard', 'SF Pro Display', 'Segoe UI', sans-serif;
+  --font-family-mono: 'Cascadia Code', 'Consolas', 'Courier New', monospace;
+
+  /* Spacing */
+  --spacing-xs: 4pt;
+  --spacing-sm: 8pt;
+  --spacing-md: 12pt;
+  --spacing-lg: 16pt;
+  --spacing-xl: 24pt;
+  --spacing-2xl: 36pt;
+
+  /* Border Radius */
+  --radius-sm: 4pt;
+  --radius-md: 8pt;
+  --radius-lg: 12pt;
+
+  /* Shadows */
+  --shadow-sm: 0 1pt 2pt rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 2pt 4pt rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 4pt 8pt rgba(0, 0, 0, 0.15);
+}
+
+/* 2. 페이지 설정 (인쇄용) */
+@page {
+  size: A4 portrait;
+  margin: 20mm 25mm 20mm 25mm;
+
+  @top-center {
+    content: "조은희 의원 V40 평가보고서";
+    font-family: var(--font-family-base);
+    font-size: 9pt;
+    color: #9ca3af;
+    padding-bottom: 5mm;
+    border-bottom: 0.5pt solid #e5e7eb;
+  }
+
+  @bottom-center {
+    content: "- " counter(page) " -";
+    font-family: 'Pretendard', 'SF Pro Display', 'Segoe UI', sans-serif;
+    font-size: 9pt;
+    color: #9ca3af;
+  }
+}
+
+@page :first {
+  @top-center { content: none; }
+  @bottom-center { content: none; }
+}
+
+/* 3. 기본 요소 리셋 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 12pt;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-family-base);
+  font-size: 11pt;
+  line-height: 1.7;
+  color: var(--text-primary);
+  background: #ffffff;
+  max-width: 210mm;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* 4. 타이포그래피 */
+h1 {
+  font-size: 32pt;
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--primary-blue);
+  margin-bottom: 24pt;
+  letter-spacing: -0.02em;
+  page-break-after: avoid;
+  text-align: center;
+  padding: 24pt 0;
+  border-bottom: 4pt solid var(--primary-blue);
+}
+
+h2 {
+  font-size: 24pt;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--primary-blue);
+  margin-top: 36pt;
+  margin-bottom: 16pt;
+  padding: 8pt 12pt;
+  border-left: 6pt solid var(--primary-blue);
+  background: linear-gradient(to right, #dbeafe, transparent);
+  page-break-after: avoid;
+}
+
+h3 {
+  font-size: 18pt;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--text-primary);
+  margin-top: 24pt;
+  margin-bottom: 12pt;
+  padding-left: 8pt;
+  border-left: 4pt solid var(--success-green);
+  page-break-after: avoid;
+}
+
+h4 {
+  font-size: 14pt;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--text-primary);
+  margin-top: 16pt;
+  margin-bottom: 8pt;
+  page-break-after: avoid;
+}
+
+h5 {
+  font-size: 12pt;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #4b5563;
+  margin-top: 12pt;
+  margin-bottom: 6pt;
+  page-break-after: avoid;
+}
+
+h6 {
+  font-size: 11pt;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #4b5563;
+  margin-top: 8pt;
+  margin-bottom: 4pt;
+  page-break-after: avoid;
+}
+
+p {
+  margin-bottom: 12pt;
+  text-align: justify;
+  word-break: keep-all;
+}
+
+strong {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+em {
+  font-style: normal;
+  font-weight: 600;
+  color: var(--primary-blue);
+}
+
+/* 5. 링크 */
+a {
+  color: #3b82f6;
+  text-decoration: none;
+  border-bottom: 1pt solid #dbeafe;
+  transition: all 0.2s ease;
+}
+
+a:hover {
+  color: var(--primary-blue);
+  border-bottom-color: var(--primary-blue);
+}
+
+/* 6. 리스트 */
+ul, ol {
+  margin-left: 20pt;
+  margin-bottom: 12pt;
+  padding-left: 0;
+}
+
+li {
+  margin-bottom: 6pt;
+  line-height: 1.6;
+}
+
+ul ul, ol ol, ul ol, ol ul {
+  margin-top: 6pt;
+  margin-bottom: 0;
+}
+
+/* 7. 표 (Table) */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16pt 0;
+  font-size: 10pt;
+  page-break-inside: avoid;
+  background: #ffffff;
+  border: 1pt solid #d1d5db;
+  border-radius: 8pt;
+  overflow: hidden;
+}
+
+thead {
+  background: var(--primary-blue);
+  color: #ffffff;
+}
+
+thead th {
+  padding: 12pt 16pt;
+  text-align: left;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  border-right: 1pt solid rgba(255, 255, 255, 0.2);
+}
+
+thead th:last-child {
+  border-right: none;
+}
+
+tbody tr {
+  border-bottom: 1pt solid #e5e7eb;
+  transition: background-color 0.2s ease;
+}
+
+tbody tr:last-child {
+  border-bottom: none;
+}
+
+tbody tr:nth-child(even) {
+  background: #f9fafb;
+}
+
+tbody tr:hover {
+  background: #dbeafe;
+}
+
+tbody td {
+  padding: 10pt 16pt;
+  vertical-align: middle;
+}
+
+/* 점수 셀 강조 */
+td[style*="text-align: center"],
+td[style*="text-align:center"] {
+  font-family: 'Pretendard', 'SF Pro Display', 'Segoe UI', sans-serif;
+  font-weight: 700;
+  font-size: 11pt;
+}
+
+/* 8. 수평선 */
+hr {
+  border: none;
+  height: 2pt;
+  background: linear-gradient(to right, var(--primary-blue), #3b82f6, transparent);
+  margin: 24pt 0;
+}
+
+/* 9. 인용 블록 (한 줄 평가) */
+blockquote {
+  margin: 16pt 0;
+  padding: 16pt 20pt;
+  background: #dbeafe;
+  border-left: 6pt solid var(--primary-blue);
+  border-radius: 8pt;
+  font-size: 14pt;
+  font-weight: 600;
+  color: var(--primary-blue);
+  page-break-inside: avoid;
+}
+
+blockquote p {
+  margin: 0;
+  text-align: left;
+}
+
+/* 10. 코드 블록 (긍정/부정 비율 바) */
+pre {
+  margin: 16pt 0;
+  padding: 16pt;
+  background: #f3f4f6;
+  border: 1pt solid #e5e7eb;
+  border-radius: 8pt;
+  overflow-x: auto;
+  page-break-inside: avoid;
+  font-family: 'Cascadia Code', 'Consolas', 'Courier New', monospace;
+  font-size: 10pt;
+  line-height: 1.5;
+}
+
+code {
+  font-family: 'Cascadia Code', 'Consolas', 'Courier New', monospace;
+  font-size: 10pt;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+
+/* 11. Executive Summary 박스 */
+.executive-summary {
+  margin: 24pt 0;
+  padding: 20pt;
+  background: linear-gradient(135deg, #dbeafe 0%, #ffffff 100%);
+  border: 2pt solid var(--primary-blue);
+  border-radius: 12pt;
+  box-shadow: 0 4pt 8pt rgba(0, 0, 0, 0.15);
+  page-break-inside: avoid;
+}
+
+.executive-summary h3 {
+  margin-top: 0;
+  color: var(--primary-blue);
+  border-left: none;
+  padding-left: 0;
+}
+
+/* 12. 점수 카드 (Score Card) */
+.score-card {
+  display: inline-block;
+  padding: 16pt 24pt;
+  background: #ffffff;
+  border: 2pt solid var(--primary-blue);
+  border-radius: 12pt;
+  text-align: center;
+  box-shadow: 0 2pt 4pt rgba(0, 0, 0, 0.1);
+  margin: 8pt;
+  min-width: 120pt;
+  page-break-inside: avoid;
+}
+
+.score-card-value {
+  font-family: 'Pretendard', 'SF Pro Display', 'Segoe UI', sans-serif;
+  font-size: 36pt;
+  font-weight: 800;
+  color: var(--primary-blue);
+  line-height: 1;
+  display: block;
+  margin-bottom: 8pt;
+}
+
+.score-card-label {
+  font-size: 10pt;
+  font-weight: 600;
+  color: #4b5563;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: block;
+}
+
+.score-card-grade {
+  display: inline-block;
+  padding: 8pt 16pt;
+  background: var(--primary-blue);
+  color: #ffffff;
+  font-size: 24pt;
+  font-weight: 800;
+  border-radius: 8pt;
+  margin-top: 8pt;
+  letter-spacing: 0.1em;
+}
+
+/* 13. 강점/약점 카드 */
+.strength-card {
+  margin: 16pt 0;
+  padding: 16pt;
+  background: #d1fae5;
+  border-left: 6pt solid var(--success-green);
+  border-radius: 8pt;
+  page-break-inside: avoid;
+}
+
+.strength-card h3,
+.strength-card h4 {
+  color: var(--success-green);
+  border-left: none;
+  padding-left: 0;
+  margin-top: 0;
+}
+
+.weakness-card {
+  margin: 16pt 0;
+  padding: 16pt;
+  background: #fef3c7;
+  border-left: 6pt solid var(--warning-orange);
+  border-radius: 8pt;
+  page-break-inside: avoid;
+}
+
+.weakness-card h3,
+.weakness-card h4 {
+  color: var(--warning-orange);
+  border-left: none;
+  padding-left: 0;
+  margin-top: 0;
+}
+
+.critical-card {
+  margin: 16pt 0;
+  padding: 16pt;
+  background: #fee2e2;
+  border-left: 6pt solid var(--danger-red);
+  border-radius: 8pt;
+  page-break-inside: avoid;
+}
+
+.critical-card h3,
+.critical-card h4 {
+  color: var(--danger-red);
+  border-left: none;
+  padding-left: 0;
+  margin-top: 0;
+}
+
+/* 14. 진행바 (Progress Bar) */
+.progress-bar {
+  width: 100%;
+  height: 20pt;
+  background: #e5e7eb;
+  border-radius: 10pt;
+  overflow: hidden;
+  margin: 8pt 0;
+  position: relative;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(to right, var(--success-green), #10b981);
+  border-radius: 10pt;
+  transition: width 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 8pt;
+  min-width: 40pt;
+}
+
+.progress-bar-text {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 10pt;
+  font-family: 'Pretendard', 'SF Pro Display', 'Segoe UI', sans-serif;
+  text-shadow: 0 1pt 2pt rgba(0, 0, 0, 0.3);
+}
+
+/* 15. 배지 (Badge) */
+.badge {
+  display: inline-block;
+  padding: 4pt 8pt;
+  border-radius: var(--radius-sm);
+  font-size: 9pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.badge-success {
+  background: #d1fae5;
+  color: var(--success-green);
+  border: 1pt solid var(--success-green);
+}
+
+.badge-warning {
+  background: #fef3c7;
+  color: var(--warning-orange);
+  border: 1pt solid var(--warning-orange);
+}
+
+.badge-danger {
+  background: #fee2e2;
+  color: var(--danger-red);
+  border: 1pt solid var(--danger-red);
+}
+
+.badge-info {
+  background: #dbeafe;
+  color: var(--primary-blue);
+  border: 1pt solid var(--primary-blue);
+}
+
+/* 16. 체크리스트 */
+ul.task-list {
+  list-style: none;
+  margin-left: 0;
+}
+
+ul.task-list li {
+  position: relative;
+  padding-left: 30pt;
+  margin-bottom: 8pt;
+}
+
+ul.task-list li::before {
+  content: "☐";
+  position: absolute;
+  left: 0;
+  font-size: 14pt;
+  color: #9ca3af;
+}
+
+ul.task-list li input[type="checkbox"] {
+  position: absolute;
+  left: 0;
+  width: 14pt;
+  height: 14pt;
+  margin: 2pt 0 0 0;
+}
+
+ul.task-list li input[type="checkbox"]:checked::before {
+  content: "✓";
+  color: var(--success-green);
+  font-weight: 700;
+}
+
+/* 17. 메타 정보 (날짜, 출처 등) */
+.meta-info {
+  font-size: 9pt;
+  color: #9ca3af;
+  margin: 8pt 0;
+  line-height: 1.5;
+}
+
+.meta-info-highlight {
+  font-weight: 600;
+  color: #4b5563;
+}
+
+/* 18. 경고/정보 박스 */
+.warning-box {
+  margin: 16pt 0;
+  padding: 16pt;
+  background: #fef3c7;
+  border: 2pt solid var(--warning-orange);
+  border-radius: 8pt;
+  page-break-inside: avoid;
+}
+
+.warning-box::before {
+  content: "⚠️ 주의";
+  display: block;
+  font-weight: 700;
+  color: var(--warning-orange);
+  margin-bottom: 8pt;
+  font-size: 12pt;
+}
+
+.info-box {
+  margin: 16pt 0;
+  padding: 16pt;
+  background: #dbeafe;
+  border: 2pt solid #3b82f6;
+  border-radius: 8pt;
+  page-break-inside: avoid;
+}
+
+.info-box::before {
+  content: "ℹ️ 참고";
+  display: block;
+  font-weight: 700;
+  color: var(--primary-blue);
+  margin-bottom: 8pt;
+  font-size: 12pt;
+}
+
+.success-box {
+  margin: 16pt 0;
+  padding: 16pt;
+  background: #d1fae5;
+  border: 2pt solid var(--success-green);
+  border-radius: 8pt;
+  page-break-inside: avoid;
+}
+
+.success-box::before {
+  content: "✅ 완료";
+  display: block;
+  font-weight: 700;
+  color: var(--success-green);
+  margin-bottom: 8pt;
+  font-size: 12pt;
+}
+
+/* 19. 섹션 구분선 */
+.section-divider {
+  margin: 36pt 0;
+  text-align: center;
+  position: relative;
+  height: 2pt;
+  background: linear-gradient(to right, transparent, var(--primary-blue), transparent);
+}
+
+/* 20. 페이지 브레이크 유틸리티 */
+.page-break-before {
+  page-break-before: always;
+}
+
+.page-break-after {
+  page-break-after: always;
+}
+
+.no-break {
+  page-break-inside: avoid;
+}
+
+/* 21. 여백 유틸리티 */
+.mt-xs { margin-top: var(--spacing-xs); }
+.mt-sm { margin-top: 8pt; }
+.mt-md { margin-top: 12pt; }
+.mt-lg { margin-top: 16pt; }
+.mt-xl { margin-top: 24pt; }
+.mt-2xl { margin-top: 36pt; }
+
+.mb-xs { margin-bottom: var(--spacing-xs); }
+.mb-sm { margin-bottom: 8pt; }
+.mb-md { margin-bottom: 12pt; }
+.mb-lg { margin-bottom: 16pt; }
+.mb-xl { margin-bottom: 24pt; }
+.mb-2xl { margin-bottom: 36pt; }
+
+.py-sm { padding-top: 8pt; padding-bottom: 8pt; }
+.py-md { padding-top: 12pt; padding-bottom: 12pt; }
+.py-lg { padding-top: 16pt; padding-bottom: 16pt; }
+
+.px-sm { padding-left: 8pt; padding-right: 8pt; }
+.px-md { padding-left: 12pt; padding-right: 12pt; }
+.px-lg { padding-left: 16pt; padding-right: 16pt; }
+
+/* 22. 텍스트 정렬 유틸리티 */
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.text-justify { text-align: justify; }
+
+/* 23. 인쇄 최적화 */
+@media print {
+  /* 배경색 인쇄 강제 */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+  /* 불필요한 요소 제거 */
+  .no-print {
+    display: none !important;
+  }
+
+  /* 링크 URL 표시 */
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #9ca3af;
+    word-break: break-all;
+  }
+
+  /* 페이지 브레이크 최적화 */
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+    page-break-inside: avoid;
+  }
+
+  table, figure, img,
+  .score-card, .strength-card, .weakness-card, .critical-card,
+  .executive-summary, .info-box, .warning-box, .success-box {
+    page-break-inside: avoid;
+  }
+
+  /* 그림자 제거 (잉크 절약) */
+  .score-card,
+  .strength-card,
+  .weakness-card,
+  .critical-card,
+  .executive-summary {
+    box-shadow: none !important;
+  }
+
+  /* 여백 최적화 */
+  body {
+    margin: 0;
+    padding: 0;
+    background: white;
+  }
+
+  /* 고아(Orphan) 및 과부(Widow) 방지 */
+  p, li {
+    orphans: 3;
+    widows: 3;
+  }
+
+  /* 표 헤더 반복 */
+  thead {
+    display: table-header-group;
+  }
+
+  tfoot {
+    display: table-footer-group;
+  }
+}
+
+/* 24. 화면 미리보기용 반응형 (인쇄 아님) */
+@media screen and (max-width: 1024px) {
+  body {
+    max-width: 100%;
+    padding: 16pt;
+  }
+
+  h1 { font-size: 28pt; }
+  h2 { font-size: 22pt; }
+  h3 { font-size: 16pt; }
+  h4 { font-size: 14pt; }
+
+  .score-card {
+    min-width: auto;
+    width: 100%;
+    margin: 8pt 0;
+  }
+
+  table {
+    font-size: 9pt;
+  }
+
+  thead th,
+  tbody td {
+    padding: 8pt;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    font-size: 10pt;
+  }
+
+  h1 { font-size: 24pt; }
+  h2 { font-size: 20pt; }
+  h3 { font-size: 16pt; }
+  h4 { font-size: 14pt; }
+
+  .executive-summary {
+    padding: 12pt;
+  }
+
+  .score-card-value {
+    font-size: 28pt;
+  }
+
+  .score-card-grade {
+    font-size: 20pt;
+  }
+}
+
+/* 25. 목차 (Table of Contents) */
+.toc {
+  list-style: none;
+  margin-left: 0;
+  padding: 16pt;
+  background: #f9fafb;
+  border-radius: 8pt;
+}
+
+.toc li {
+  margin-bottom: 8pt;
+  padding-left: 20pt;
+  position: relative;
+}
+
+.toc li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: var(--primary-blue);
+  font-weight: 700;
+}
+
+.toc a {
+  border-bottom: none;
+  color: var(--text-primary);
+}
+
+.toc a:hover {
+  color: var(--primary-blue);
+}
+
+/* 26. 부록 스타일 */
+.appendix {
+  margin-top: 48pt;
+  padding-top: 24pt;
+  border-top: 2pt solid #d1d5db;
+}
+
+.appendix h2 {
+  color: #4b5563;
+  border-left-color: #4b5563;
+}
+
+/* 27. 데이터 시각화 추가 */
+.score-comparison {
+  display: flex;
+  justify-content: space-between;
+  margin: 16pt 0;
+  gap: 8pt;
+}
+
+.score-comparison-item {
+  flex: 1;
+  text-align: center;
+  padding: 12pt;
+  background: #f9fafb;
+  border-radius: 8pt;
+  border: 1pt solid #e5e7eb;
+}
+
+.score-comparison-item strong {
+  display: block;
+  font-size: 24pt;
+  color: var(--primary-blue);
+  margin-bottom: 4pt;
+}
+
+.score-comparison-item span {
+  font-size: 9pt;
+  color: #4b5563;
+}
+
+/* 28. 이모지 크기 조정 */
+h1 img.emoji,
+h2 img.emoji,
+h3 img.emoji,
+h4 img.emoji {
+  height: 1em;
+  width: 1em;
+  margin: 0 0.05em 0 0.1em;
+  vertical-align: -0.1em;
+}
+
+/* 29. 특수 강조 스타일 */
+.highlight-box {
+  background: #fef3c7;
+  border-left: 4pt solid var(--warning-orange);
+  padding: 8pt 12pt;
+  margin: 8pt 0;
+  border-radius: var(--radius-sm);
+}
+
+.highlight-text {
+  background: linear-gradient(transparent 60%, #fef3c7 40%);
+  padding: 0 2pt;
+}
+
+/* 30. 최종 조정 */
+body > section {
+  margin-bottom: 36pt;
+}
+
+body > section:last-child {
+  margin-bottom: 0;
+}
+
+/* 브라우저 인쇄 대화상자용 */
+@media print {
+  @page {
+    size: A4;
+  }
+}
