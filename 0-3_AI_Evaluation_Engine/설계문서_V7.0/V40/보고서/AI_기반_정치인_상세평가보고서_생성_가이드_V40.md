@@ -65,21 +65,21 @@ V40 시스템은 **2가지 데이터 저장 방식**을 사용합니다:
 ```
 results/evaluate/
 ├── gemini/
-│   └── 조은희/
+│   └── {POLITICIAN_NAME}/
 │       ├── expertise_수집.json       (Gemini가 수집한 원본 자료)
 │       ├── expertise_평가.json       (Gemini의 평가 결과)
 │       ├── leadership_수집.json
 │       ├── leadership_평가.json
 │       └── ... (10개 카테고리 × 2)
 ├── chatgpt/
-│   └── 조은희/
+│   └── {POLITICIAN_NAME}/
 │       ├── expertise_수집.json
 │       ├── expertise_평가.json
 │       └── ...
 ├── grok/
-│   └── 조은희/
+│   └── {POLITICIAN_NAME}/
 └── claude/
-    └── 조은희/
+    └── {POLITICIAN_NAME}/
 ```
 
 ### 파일 형식
@@ -88,7 +88,7 @@ results/evaluate/
 ```json
 [
   {
-    "title": "조은희 의원, 영유아보육법 개정안 대표 발의",
+    "title": "{POLITICIAN_NAME} 의원, 영유아보육법 개정안 대표 발의",
     "content": "서울시 영유아 보육 정책 전문가로서의 경험을 바탕으로...",
     "source": "국회 의안정보시스템",
     "source_url": "https://...",
@@ -147,8 +147,8 @@ results/evaluate/
 ### 용어 정의
 
 **등급(Rating)**: AI가 평가에서 부여하는 등급
-- 범위: -4 ~ +4 (9단계)
-- 예: +4(탁월), +3(우수), +2(양호), +1(보통), -1(미흡), -2(부족), -3(심각), -4(최악), X(제외)
+- 범위: +4 ~ -4 (8등급, X=제외)
+- 예: +4(탁월), +3(우수), +2(양호), +1(보통), -1(미흡), -2(부족), -3(심각), -4(최악), X(평가제외, 등급 아님)
 
 **점수(Score)**: 등급을 점수로 환산한 값
 - 공식: **Score = Rating × 2**
@@ -409,7 +409,7 @@ SELECT
   grade,               -- 최종 등급 (M~L)
   calculated_at
 FROM ai_final_scores_v40
-WHERE politician_id = 'd0a5d6e1';
+WHERE politician_id = '{POLITICIAN_ID}';
 ```
 
 ### 2. AI별 카테고리 점수 조회
@@ -434,7 +434,7 @@ SELECT
     ELSE NULL
   END) as avg_rating
 FROM evaluations_v40
-WHERE politician_id = 'd0a5d6e1'
+WHERE politician_id = '{POLITICIAN_ID}'
 GROUP BY category, evaluator_ai
 ORDER BY category, evaluator_ai;
 ```
@@ -455,7 +455,7 @@ SELECT
   ev.reasoning
 FROM collected_data_v40 cd
 JOIN evaluations_v40 ev ON cd.id = ev.collected_data_id
-WHERE cd.politician_id = 'd0a5d6e1'
+WHERE cd.politician_id = '{POLITICIAN_ID}'
   AND cd.category = 'expertise'
   AND ev.rating IN ('+4', '+3')
 ORDER BY ev.score DESC, cd.published_date DESC
@@ -472,7 +472,7 @@ SELECT
   COUNT(*) as count,
   COUNT(*) * 100.0 / SUM(COUNT(*)) OVER (PARTITION BY evaluator_ai) as percentage
 FROM evaluations_v40
-WHERE politician_id = 'd0a5d6e1'
+WHERE politician_id = '{POLITICIAN_ID}'
 GROUP BY evaluator_ai, rating
 ORDER BY evaluator_ai, rating DESC;
 ```
@@ -943,7 +943,7 @@ X:    {'█' * max(1, int(x_pct / 5))} {x_pct:.1f}% ({total_x}개)
     report += """## 7. 평가의 한계 및 유의사항
 
 ### 데이터 수집 한계
-1. **수집 기간 제한**: OFFICIAL 최근 4년, PUBLIC 최근 1년
+1. **수집 기간 제한**: OFFICIAL 최근 4년, PUBLIC 최근 2년
 2. **데이터 소스 제한**: AI 검색 결과에 의존
 
 ### AI 평가 한계
@@ -1040,10 +1040,12 @@ def get_score_evaluation(score):
 def save_report(report, politician_name):
     """보고서 파일 저장"""
     date_str = datetime.now().strftime('%Y%m%d')
-    filename = f"AI_기반_정치인_상세평가보고서_{politician_name}_{date_str}.md"
+    filename = f"{politician_name}_{date_str}.md"
 
-    # 보고서 폴더 생성
-    report_dir = "AI_기반_정치인_상세평가보고서"
+    # 보고서 폴더 생성 (V40 폴더 직접 아래)
+    script_dir = os.path.dirname(os.path.abspath(__file__))  # V40/scripts/core/
+    v40_dir = os.path.dirname(os.path.dirname(script_dir))   # V40/scripts/ → V40/
+    report_dir = os.path.join(v40_dir, "보고서")
     os.makedirs(report_dir, exist_ok=True)
 
     filepath = os.path.join(report_dir, filename)
@@ -1059,7 +1061,7 @@ if __name__ == "__main__":
 
     if len(sys.argv) < 3:
         print("Usage: python generate_report_v40.py <politician_id> <politician_name>")
-        print("Example: python generate_report_v40.py d0a5d6e1 조은희")
+        print("Example: python generate_report_v40.py {POLITICIAN_ID} {POLITICIAN_NAME}")
         sys.exit(1)
 
     politician_id = sys.argv[1]
@@ -1113,34 +1115,33 @@ if __name__ == "__main__":
 
 ```bash
 # 기본 실행
-python generate_report_v40.py d0a5d6e1 조은희
+python generate_report_v40.py {POLITICIAN_ID} {POLITICIAN_NAME}
 
 # 다른 정치인
-python generate_report_v40.py 62e7b453 오세훈
+python generate_report_v40.py {POLITICIAN_ID} {POLITICIAN_NAME}
 ```
 
 ### 출력 파일
 
 ```
-AI_기반_정치인_상세평가보고서/
-└── AI_기반_정치인_상세평가보고서_조은희_20260206.md
+V40/보고서/
+└── {POLITICIAN_NAME}_{YYYYMMDD}.md
 ```
 
 ---
 
-## 📊 V15.0 → V40.0 주요 변경사항
+## 📊 V40 핵심 사항
 
-| 항목 | V15.0 | V40.0 |
-|------|-------|-------|
-| **보고서 명칭** | 상세평가보고서 | **AI 기반 정치인 상세평가보고서** |
-| **AI 개수** | 1개 (Claude) | **4개** (Claude, ChatGPT, Grok, Gemini) |
-| **평가 데이터** | 500개 | **4,000개** (4 AIs × 1,000개) |
-| **등급 체계** | -6 ~ +10 | **+4 ~ -4, X** |
-| **점수 범위** | 250~1,000점 | **200~1,000점** |
-| **카테고리 점수** | 30~110점 | **20~100점** |
-| **테이블** | collected_data<br>politician_scores | collected_data_v40<br>evaluations_v40<br>ai_final_scores_v40 |
-| **AI 비교** | 없음 | **AI별 평가 성향 분석** 추가 |
-| **일관성 분석** | 없음 | **AI 평가 일관성 분석** 추가 |
+| 항목 | V40 |
+|------|-------|
+| **수집 방식** | **2개 채널 분담**<br>(Gemini CLI 50%, Naver API 50%) |
+| **수집 배분** | **OFFICIAL 40개, PUBLIC 60개** |
+| **평가 AI** | **4개** (Claude, ChatGPT, Gemini, Grok) |
+| **등급 체계** | **+4 ~ -4, X** |
+| **점수 범위** | **200~1,000점** |
+| **테이블** | **collected_data_v40, evaluations_v40, ai_final_scores_v40** |
+| **자동화** | **Naver 수집 + API 평가 자동화**<br>Gemini CLI 수동 유지 |
+| **비용** | **$0 (Gemini + Naver 모두 무료)** |
 
 ---
 

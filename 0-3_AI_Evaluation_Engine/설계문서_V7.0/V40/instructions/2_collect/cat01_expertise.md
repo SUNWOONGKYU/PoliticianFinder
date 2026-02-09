@@ -18,7 +18,7 @@ The level of knowledge, skills, and experience required to perform duties effect
 
 ---
 
-## 2. V40 핵심: 2개 AI 분담 수집 - 최종 확정
+## 2. V40 핵심: 2개 채널 분담 수집 - 최종 확정
 
 ### ⚠️ Claude/ChatGPT/Grok 수집 제외 사유
 ```
@@ -37,7 +37,7 @@ Grok X/트위터: 수집 제한적, 정치인별 편차 심함 → 수집 제외
 │    └── Naver:  10개 (25%) - 공식 .go.kr OFFICIAL 수집     │
 │       이유: 객관적 사실, 편향 없음, .go.kr 인덱싱 강함    │
 ├─────────────────────────────────────────────────────────────┤
-│ 📰 PUBLIC 데이터 (60개) - 2개 AI 분담                     │
+│ 📰 PUBLIC 데이터 (60개) - 2개 채널 분담                   │
 │    ├── Gemini: 20개 (33%) - 비언론 (YouTube,블로그,위키)  │
 │    └── Naver:  40개 (67%) - 뉴스/언론/커뮤니티 전담       │
 │       이유: 의견/평가, 편향 가능 → 독립 검색 인프라로 완화 │
@@ -435,7 +435,7 @@ tools=[{"google_search": {}}]
 
 ## 10. PUBLIC 출처 (공개 데이터 60개)
 
-**2개 AI가 분담 수집:**
+**2개 채널이 분담 수집:**
 - **Gemini 20개 (33%)**: Google Search 기반 - 비언론 전담 (YouTube, 블로그, 위키, 커뮤니티)
 - **Naver 40개 (67%)**: 자체 검색엔진 - 뉴스/언론/커뮤니티 전담
 
@@ -658,7 +658,7 @@ PUBLIC (72개): 부정 15개(21%) + 긍정 15개(21%) + 자유 42개(58%)
 | source_url | 실제 존재하는 URL | O |
 | source_type | "OFFICIAL" 또는 "PUBLIC" | O |
 | data_date | YYYY-MM-DD 형식 | O |
-| sentiment | positive/negative/neutral | O |
+| sentiment | positive/negative/free | O |
 
 ---
 
@@ -708,6 +708,45 @@ PUBLIC (72개): 부정 15개(21%) + 긍정 15개(21%) + 자유 42개(58%)
 12. OFFICIAL 10-10-80 / PUBLIC 20-20-60 균형 필수
 13. 버퍼 20%: 최대 120개까지 수집 가능
 ```
+
+---
+
+## 프롬프트 주입용 (topic_instruction)
+
+> 이 섹션은 제너릭 프롬프트 템플릿의 `{topic_instruction}` 플레이스홀더에 주입됩니다.
+> `---TOPIC_INSTRUCTION_START---` 와 `---TOPIC_INSTRUCTION_END---` 사이의 내용이 추출됩니다.
+
+---TOPIC_INSTRUCTION_START---
+[전문성] 평가 데이터 수집
+
+수집 주제:
+- 최종 학력 수준 (박사/석사/학사)
+- 직무 관련 자격증 (변호사, CPA, 교원자격증 등)
+- 관련 분야 경력 연수 (공직+민간 합산)
+- 직무 교육 이수 (의회/기관 교육)
+- 전문 분야 기고/저서
+- 학술 연구 실적 (논문, 피인용)
+- 전문 분야 평가 기록
+- 위원회 활동 기록 (자문위원, 심의위원)
+
+검색 키워드 예시 (OFFICIAL):
+- "{정치인명} site:assembly.go.kr 보도자료"
+- "{정치인명} site:nec.go.kr 학력"
+- "{정치인명} site:korea.kr 경력 발표"
+- "{정치인명} 의안정보 발의"
+- "{정치인명} site:likms.assembly.go.kr"
+
+검색 키워드 예시 (PUBLIC):
+- "{정치인명} 전문가"
+- "{정치인명} 경력 우수"
+- "{정치인명} 법안 발의 성과"
+- "{정치인명} 정책 전문"
+- "{정치인명} 학력 성명서"
+- "{정치인명} 이력 기자회견"
+
+부정 키워드: 학력위조, 무능, 전문성부족, 경력논란
+긍정 키워드: 전문가, 우수의원, 정책전문, 성과
+---TOPIC_INSTRUCTION_END---
 
 ---
 

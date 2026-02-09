@@ -7,13 +7,24 @@ Gemini CLI 터미널에서 호출하여 DB 조회/저장을 수행합니다.
 
 사용법:
     # 1. 수집 필요량 조회 (어떤 카테고리에 몇 개 필요한지)
-    python gemini_collect_helper.py fetch --politician_id=d0a5d6e1 --politician_name=조은희 --category=communication
+    python gemini_collect_helper.py fetch --politician_id={ID} --politician_name={이름} --category={카테고리}
 
     # 2. 수집 결과 저장
-    python gemini_collect_helper.py save --politician_id=d0a5d6e1 --politician_name=조은희 --category=communication --input=gemini_result.json
+    python gemini_collect_helper.py save --politician_id={ID} --politician_name={이름} --category={카테고리} --input=gemini_result.json
 
     # 3. 전체 현황 확인
-    python gemini_collect_helper.py status --politician_id=d0a5d6e1
+    python gemini_collect_helper.py status --politician_id={ID}
+
+파라미터:
+    fetch: 미수집 데이터 필요량 조회, 기존 URL 목록 출력
+    save:  Gemini CLI 결과 JSON을 DB에 저장
+    status: 정치인별 전체 수집 현황 표시
+
+    --politician_id:   정치인 ID (8자리 hex, 예: 62e7b453)
+    --politician_name: 정치인 이름 (예: "박주민")
+    --category:        카테고리 영문명 (expertise, leadership, vision, integrity, ethics,
+                       accountability, transparency, communication, responsiveness, publicinterest)
+    --input:           (save 전용) 저장할 JSON 파일 경로
 """
 
 import os
