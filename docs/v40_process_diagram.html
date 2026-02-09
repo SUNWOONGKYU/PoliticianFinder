@@ -1,0 +1,1451 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>V40 정치인 평가 전체 프로세스</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #0d1117;
+    color: #c9d1d9;
+    padding: 40px 20px;
+  }
+  h1 {
+    text-align: center;
+    color: #58a6ff;
+    font-size: 28px;
+    margin-bottom: 8px;
+  }
+  .subtitle {
+    text-align: center;
+    color: #8b949e;
+    font-size: 14px;
+    margin-bottom: 40px;
+  }
+  .container { max-width: 1200px; margin: 0 auto; }
+
+  /* Phase boxes */
+  .phase {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 12px;
+    margin-bottom: 16px;
+    overflow: hidden;
+    position: relative;
+  }
+  .phase-header {
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 1px solid #30363d;
+  }
+  .phase-num {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: bold; font-size: 16px; color: #fff;
+    flex-shrink: 0;
+  }
+  .phase-title { font-size: 18px; font-weight: 600; }
+  .phase-script { color: #8b949e; font-size: 13px; font-family: monospace; }
+  .phase-body { padding: 20px 24px; }
+
+  /* Colors per phase */
+  .p0 .phase-num { background: #6e7681; }
+  .p0 .phase-header { background: linear-gradient(90deg, #1a1f26, #161b22); }
+  .p1 .phase-num { background: #1f6feb; }
+  .p1 .phase-header { background: linear-gradient(90deg, #0d2240, #161b22); }
+  .p2 .phase-num { background: #238636; }
+  .p2 .phase-header { background: linear-gradient(90deg, #0d2818, #161b22); }
+  .p3 .phase-num { background: #d29922; }
+  .p3 .phase-header { background: linear-gradient(90deg, #2d2006, #161b22); }
+  .p4 .phase-num { background: #bc4c00; }
+  .p4 .phase-header { background: linear-gradient(90deg, #2d1300, #161b22); }
+  .p5 .phase-num { background: #8957e5; }
+  .p5 .phase-header { background: linear-gradient(90deg, #1c0d3a, #161b22); }
+  .p6 .phase-num { background: #da3633; }
+  .p6 .phase-header { background: linear-gradient(90deg, #2d0b0b, #161b22); }
+  .p7 .phase-num { background: #f778ba; }
+  .p7 .phase-header { background: linear-gradient(90deg, #2d0d1f, #161b22); }
+
+  /* Flow arrow between phases */
+  .arrow-down {
+    text-align: center;
+    padding: 4px 0;
+    color: #484f58;
+    font-size: 24px;
+  }
+
+  /* Inner diagrams */
+  .flow-row {
+    display: flex;
+    gap: 16px;
+    align-items: stretch;
+    flex-wrap: wrap;
+  }
+  .flow-box {
+    background: #0d1117;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 14px 16px;
+    flex: 1;
+    min-width: 200px;
+  }
+  .flow-box h4 {
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: #58a6ff;
+  }
+  .flow-box ul {
+    list-style: none;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+  .flow-box li::before {
+    content: "• ";
+    color: #484f58;
+  }
+
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin: 8px 0;
+  }
+  th {
+    background: #0d1117;
+    padding: 8px 12px;
+    text-align: left;
+    border: 1px solid #30363d;
+    color: #8b949e;
+    font-weight: 600;
+  }
+  td {
+    padding: 8px 12px;
+    border: 1px solid #30363d;
+  }
+  .highlight { color: #7ee787; font-weight: 600; }
+  .warn { color: #d29922; }
+  .info { color: #58a6ff; }
+  .neg { color: #f85149; }
+
+  /* Score formula */
+  .formula {
+    background: #0d1117;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-family: monospace;
+    font-size: 14px;
+    line-height: 2;
+    margin: 8px 0;
+  }
+  .formula .step { color: #8b949e; }
+  .formula .val { color: #7ee787; }
+  .formula .op { color: #d29922; }
+
+  /* DB tables */
+  .db-diagram {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 8px 0;
+  }
+  .db-table {
+    background: #0d1117;
+    border: 2px solid #30363d;
+    border-radius: 8px;
+    min-width: 220px;
+    flex: 1;
+  }
+  .db-table-name {
+    padding: 8px 12px;
+    font-weight: 600;
+    font-size: 13px;
+    border-bottom: 2px solid #30363d;
+  }
+  .db-table-cols {
+    padding: 8px 12px;
+    font-size: 12px;
+    line-height: 1.8;
+    font-family: monospace;
+  }
+  .db-pk { color: #d29922; }
+  .db-fk { color: #58a6ff; }
+  .db-col { color: #c9d1d9; }
+
+  /* Grade table */
+  .grade-row { display: flex; gap: 4px; flex-wrap: wrap; margin: 8px 0; }
+  .grade-badge {
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+    min-width: 100px;
+  }
+
+  /* Summary stats */
+  .stats-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 12px 0;
+  }
+  .stat-card {
+    background: #0d1117;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 16px;
+    flex: 1;
+    min-width: 150px;
+    text-align: center;
+  }
+  .stat-num {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .stat-label {
+    font-size: 12px;
+    color: #8b949e;
+  }
+
+  .inner-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: #484f58;
+    padding: 0 8px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>PoliticianFinder (훌륭한 정치인 찾기) V40 정치인 평가 프로세스</h1>
+<p class="subtitle">정치인 등록부터 평가 보고서 생성까지 | 수집 채널 2개 (1 CLI + 1 API) + 평가 AI 4개 (2 CLI + 2 API)</p>
+
+<!-- Key Stats -->
+<div class="stats-row">
+  <div class="stat-card">
+    <div class="stat-num" style="color:#58a6ff">1,000+α</div>
+    <div class="stat-label">수집 데이터 (정치인 1인당)</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-num" style="color:#d29922">4 AIs</div>
+    <div class="stat-label">각각 독립 평가</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-num" style="color:#f778ba">10</div>
+    <div class="stat-label">평가 카테고리</div>
+  </div>
+</div>
+
+<!-- ===== Phase 0: 정치인 등록 ===== -->
+<div class="phase p0">
+  <div class="phase-header">
+    <div class="phase-num">0</div>
+    <div>
+      <div class="phase-title">정치인 등록</div>
+      <div class="phase-script">politicians 테이블 INSERT</div>
+    </div>
+  </div>
+  <div class="phase-body">
+    <div class="flow-row">
+      <div class="flow-box">
+        <h4>1. 정치인 정보 MD 작성</h4>
+        <ul>
+          <li>파일: <code>instructions/1_politicians/{이름}.md</code></li>
+          <li>politician_id, 성명, 현 직책, 소속 정당</li>
+          <li>출마 신분, 출마 직종, 지역, 지역구, 성별</li>
+          <li>수집/평가 시 주의점, 논란/이슈, 성과</li>
+          <li>출처 힌트 (참고 URL 목록)</li>
+        </ul>
+      </div>
+      <div class="inner-arrow">→</div>
+      <div class="flow-box">
+        <h4>2. DB 등록</h4>
+        <ul>
+          <li><span class="db-pk">politician_id</span> = TEXT (8자리 hex)</li>
+          <li>예: <code>'62e7b453'</code></li>
+          <li>UUID 앞 8자리 자동 생성</li>
+          <li><span class="neg">INTEGER/BIGINT 절대 금지!</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="arrow-down">▼</div>
+
+<!-- ===== Phase 1: 준비 ===== -->
+<div class="phase p1">
+  <div class="phase-header">
+    <div class="phase-num">1</div>
+    <div>
+      <div class="phase-title">준비 (Prepare)</div>
+      <div class="phase-script">API 키 확인, DB 연결 확인</div>
+    </div>
+  </div>
+  <div class="phase-body">
+    <div class="flow-row">
+      <div class="flow-box">
+        <h4>수집용 (1 CLI + 1 API)</h4>
+        <ul>
+          <li><span class="highlight">Gemini CLI Direct</span> (API 키 불필요)</li>
+          <li>NAVER_CLIENT_ID / NAVER_CLIENT_SECRET (Naver Search API)</li>
+        </ul>
+      </div>
+      <div class="flow-box">
+        <h4>평가용 (2 CLI + 2 API)</h4>
+        <ul>
+          <li><span class="highlight">Claude Code CLI Direct</span> (API 키 불필요)</li>
+          <li><span class="highlight">Gemini CLI Direct</span> (API 키 불필요)</li>
+          <li>OPENAI_API_KEY (ChatGPT)</li>
+          <li>XAI_API_KEY (Grok)</li>
+        </ul>
+      </div>
+      <div class="flow-box">
+        <h4>인프라</h4>
+        <ul>
+          <li>SUPABASE_URL</li>
+          <li>SUPABASE_SERVICE_ROLE_KEY</li>
+          <li>DB 테이블 4개 생성 확인</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="arrow-down">▼</div>
+
+<!-- ===== Phase 2: 수집 ===== -->
+<div class="phase p2">
+  <div class="phase-header">
+    <div class="phase-num">2</div>
+    <div>
+      <div class="phase-title">수집 (Collect) - 2개 채널</div>
+      <div class="phase-script">collect_v40.py → collected_data_v40</div>
+    </div>
+  </div>
+  <div class="phase-body">
+    <p style="margin-bottom:12px; color:#8b949e;">10개 카테고리 × (최소 100개+α) = <span class="highlight">총 1,000개 이상/정치인</span> (버퍼 20% 포함 수집 최대 1,200개)
+      <br><span style="color:#58a6ff; font-size:12px;">&#9758; 카테고리 선정 근거 및 항목·키워드 상세는 <a href="#appendix-categories" style="color:#58a6ff; text-decoration:underline;">부록 2</a> 참조</span>
+    </p>
+
+    <!-- 수집 채널 상세 -->
+    <div class="flow-row" style="margin-bottom:16px;">
+      <div class="flow-box" style="border-color:#1f6feb;">
+        <h4 style="color:#58a6ff;">수집 채널 1: Google + Gemini</h4>
+        <ul>
+          <li><strong>검색</strong>: google_web_search (Google 검색 엔진)</li>
+          <li><strong>페이지 수집</strong>: web_fetch (웹 크롤링 도구)</li>
+          <li><strong>정리/구조화</strong>: Gemini AI (결과 정리, 동명이인 필터링, JSON 생성)</li>
+          <li><strong>저장</strong>: gemini_collect_helper.py → DB</li>
+        </ul>
+      </div>
+      <div class="flow-box" style="border-color:#238636;">
+        <h4 style="color:#7ee787;">수집 채널 2: Naver API + Python</h4>
+        <ul>
+          <li><strong>검색</strong>: Naver Search API (뉴스, 블로그, 카페 등 7개 엔드포인트)</li>
+          <li><strong>정리/구조화</strong>: Python 스크립트 (collect_v40.py가 자동 처리)</li>
+          <li><strong>검색어 조합, HTML 제거, 중복 체크 → JSON 생성</strong></li>
+          <li><strong>저장</strong>: collect_v40.py → DB</li>
+        </ul>
+      </div>
+    </div>
+
+    <table>
+      <tr>
+        <th>수집 채널</th>
+        <th>OFFICIAL (40%)</th>
+        <th>PUBLIC (60%)</th>
+        <th>합계</th>
+        <th>버퍼 포함</th>
+      </tr>
+      <tr>
+        <td><span class="highlight">채널 1</span> Google + Gemini</td>
+        <td>30개</td>
+        <td>20개</td>
+        <td>50개</td>
+        <td>60개</td>
+      </tr>
+      <tr>
+        <td><span class="highlight">채널 2</span> Naver API + Python</td>
+        <td>10개</td>
+        <td>40개</td>
+        <td>50개</td>
+        <td>60개</td>
+      </tr>
+      <tr style="background:#0d1117;">
+        <td><strong>합계</strong></td>
+        <td><strong>40개 (40%)</strong></td>
+        <td><strong>60개 (60%)</strong></td>
+        <td><strong>100개</strong></td>
+        <td><strong>120개</strong></td>
+      </tr>
+    </table>
+
+    <div style="margin-top:16px;">
+      <h4 style="color:#d29922; font-size:14px; margin-bottom:8px;">센티멘트 배분</h4>
+      <table>
+        <tr>
+          <th></th>
+          <th style="color:#f85149;">Negative</th>
+          <th style="color:#7ee787;">Positive</th>
+          <th style="color:#8b949e;">Free</th>
+          <th>합계</th>
+          <th>버퍼 포함</th>
+        </tr>
+        <tr>
+          <td>OFFICIAL (40개)</td>
+          <td>4개 (10%)</td>
+          <td>4개 (10%)</td>
+          <td>32개 (80%)</td>
+          <td>40</td>
+          <td>48개 (5/5/38)</td>
+        </tr>
+        <tr>
+          <td>PUBLIC (60개)</td>
+          <td>12개 (20%)</td>
+          <td>12개 (20%)</td>
+          <td>36개 (60%)</td>
+          <td>60</td>
+          <td>72개 (15/15/42)</td>
+        </tr>
+        <tr style="background:#0d1117;">
+          <td><strong>전체</strong></td>
+          <td><strong>16개 (16%)</strong></td>
+          <td><strong>16개 (16%)</strong></td>
+          <td><strong>68개 (68%)</strong></td>
+          <td><strong>100</strong></td>
+          <td><strong>120개 (20/20/80)</strong></td>
+        </tr>
+      </table>
+    </div>
+
+    <div style="margin-top:12px; padding:10px 14px; background:#0d1117; border-radius:6px; border:1px solid #30363d; font-size:13px;">
+      <span class="warn">⚠️ 핵심 규칙:</span> rating 없이 수집만! (수집 ≠ 평가) &nbsp;|&nbsp;
+      <span class="info">OFFICIAL 기간: 4년</span> &nbsp;|&nbsp;
+      <span class="info">PUBLIC 기간: 2년</span>
+    </div>
+  </div>
+</div>
+
+<div class="arrow-down">▼</div>
+
+<!-- ===== Phase 3: 검증 ===== -->
+<div class="phase p3">
+  <div class="phase-header">
+    <div class="phase-num">3</div>
+    <div>
+      <div class="phase-title">검증 & 풀링 (Validate & Pool)</div>
+      <div class="phase-script">validate_v40.py</div>
+    </div>
+  </div>
+  <div class="phase-body">
+    <div class="flow-row">
+      <div class="flow-box">
+        <h4>검증 항목</h4>
+        <ul>
+          <li>URL 실제 존재 여부 (GET stream=True)</li>
+          <li>data_type 규칙 (OFFICIAL/PUBLIC)</li>
+          <li>필수 필드 (title, content, source_url)</li>
+          <li>기간 제한 (OFFICIAL 4년, PUBLIC 2년)</li>
+          <li>가짜 URL 패턴 탐지</li>
+        </ul>
+      </div>
+      <div class="inner-arrow">→</div>
+      <div class="flow-box">
+        <h4>고급 중복 제거</h4>
+        <ul>
+          <li>URL 정규화 (파라미터/앵커 제거)</li>
+          <li>제목 정규화 (공백/특수문자 제거)</li>
+          <li><span class="highlight">같은 AI</span> + 같은 URL/제목 → 중복 제거</li>
+          <li><span class="info">다른 AI</span> + 같은 URL/제목 → 모두 유지</li>
+          <li style="color:#d29922;">(= 자연 가중치 메커니즘)</li>
+        </ul>
+      </div>
+      <div class="inner-arrow">→</div>
+      <div class="flow-box">
+        <h4>결과</h4>
+        <ul>
+          <li>100개 이상 → <span class="highlight">그대로 패스 ✅</span></li>
+          <li>100개 미만 → <span class="warn">추가 수집 🔄</span></li>
+          <li>최대 5회 반복</li>
+          <li>최종 풀: 카테고리당 <span class="highlight">최소 100개+α</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="arrow-down">▼</div>
+
+<!-- ===== Phase 4: 평가 ===== -->
+<div class="phase p4">
+  <div class="phase-header">
+    <div class="phase-num">4</div>
+    <div>
+      <div class="phase-title">평가 (Evaluate) - 4개 AI 독립 평가</div>
+      <div class="phase-script">evaluate_v40.py → evaluations_v40</div>
+    </div>
+  </div>
+  <div class="phase-body">
+    <p style="margin-bottom:12px; color:#8b949e;">
+      4개 AI × 수집 풀(1,000+α) = <span class="highlight">총 4,000개 이상 평가/정치인</span> &nbsp;|&nbsp;
+      <span class="warn">수집 시점 ≠ 평가 시점 (세션 분리 = 객관성)</span>
+    </p>
+
+    <!-- CLI Direct (API 키 불필요) -->
+    <p style="margin-bottom:8px; color:#d29922; font-weight:600; font-size:13px;">CLI Direct (API 키 불필요)</p>
+    <div class="flow-row" style="margin-bottom:12px;">
+      <div class="flow-box" style="border-color:#bc4c00;">
+        <h4 style="color:#f0883e;">Claude</h4>
+        <ul>
+          <li><span class="highlight">Claude Code CLI Direct Mode</span></li>
+          <li>수집 풀 전체 평가</li>
+          <li>claude-haiku-4-5</li>
+        </ul>
+      </div>
+      <div class="flow-box" style="border-color:#1f6feb;">
+        <h4 style="color:#58a6ff;">Gemini</h4>
+        <ul>
+          <li><span class="highlight">Gemini CLI Direct Mode</span></li>
+          <li>수집 풀 전체 평가</li>
+          <li>gemini-2.5-flash</li>
+        </ul>
+      </div>
+    </div>
+    <!-- API (API 키 필요) -->
+    <p style="margin-bottom:8px; color:#d29922; font-weight:600; font-size:13px;">API (API 키 필요)</p>
+    <div class="flow-row">
+      <div class="flow-box" style="border-color:#238636;">
+        <h4 style="color:#7ee787;">ChatGPT</h4>
+        <ul>
+          <li>OpenAI API (OPENAI_API_KEY)</li>
+          <li>수집 풀 전체 평가</li>
+          <li>gpt-4o-mini</li>
+        </ul>
+      </div>
+      <div class="flow-box" style="border-color:#8957e5;">
+        <h4 style="color:#bc8cff;">Grok</h4>
+        <ul>
+          <li>xAI API (XAI_API_KEY)</li>
+          <li>수집 풀 전체 평가</li>
+          <li>grok-3-mini</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="margin-top:16px;">
+      <h4 style="color:#d29922; font-size:14px; margin-bottom:8px;">평가 등급 체계</h4>
+      <table>
+        <tr>
+          <th>등급</th>
+          <th>+4</th><th>+3</th><th>+2</th><th>+1</th>
+          <th>-1</th><th>-2</th><th>-3</th><th>-4</th><th>X</th>
+        </tr>
+        <tr>
+          <td>판단</td>
+          <td style="color:#7ee787">탁월</td>
+          <td style="color:#7ee787">우수</td>
+          <td style="color:#7ee787">양호</td>
+          <td style="color:#7ee787">보통</td>
+          <td style="color:#f85149">미흡</td>
+          <td style="color:#f85149">부족</td>
+          <td style="color:#f85149">매우부족</td>
+          <td style="color:#f85149">극히부족</td>
+          <td style="color:#8b949e">제외</td>
+        </tr>
+        <tr>
+          <td>점수</td>
+          <td>+8</td><td>+6</td><td>+4</td><td>+2</td>
+          <td>-2</td><td>-4</td><td>-6</td><td>-8</td>
+          <td>-</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="arrow-down">▼</div>
+
+<!-- ===== Phase 5: 평가 검증 ===== -->
+<div class="phase p5">
+  <div class="phase-header">
+    <div class="phase-num">5</div>
+    <div>
+      <div class="phase-title">평가 검증 (Verify)</div>
+      <div class="phase-script">자동 처리</div>
+    </div>
+  </div>
+  <div class="phase-body">
+    <div class="flow-row">
+      <div class="flow-box">
+        <h4>완성도 검증</h4>
+        <ul>
+          <li>기준: <span class="highlight">97% 이상</span></li>
+          <li>계산: (실제 평가 수 / 기대 평가 수) × 100</li>
+          <li>기대 평가 수 = <span class="info">수집 풀 총수 × 4 (AI 수)</span></li>
+          <li style="color:#8b949e;">예) 풀 1,050개 → 기대 4,200개 → 97% = 4,074개+</li>
+          <li>97% 이상 → <span class="highlight">패스 ✅</span></li>
+          <li>97% 미만 → <span class="warn">누락 평가 재실행 🔄</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="arrow-down">▼</div>
+
+<!-- ===== Phase 6: 점수 계산 ===== -->
+<div class="phase p6">
+  <div class="phase-header">
+    <div class="phase-num">6</div>
+    <div>
+      <div class="phase-title">점수 계산 (Score)</div>
+      <div class="phase-script">calculate_v40_scores.py → ai_category_scores_v40, ai_final_scores_v40</div>
+    </div>
+  </div>
+  <div class="phase-body">
+    <div class="formula">
+      <span class="step">Step 1.</span> Rating 평균 = 카테고리 내 전체 Rating 합 / 개수 &nbsp; <span class="op">(범위: -4 ~ +4)</span><br>
+      <span class="step">Step 2.</span> Score = Rating 평균 × <span class="val">2</span> &nbsp; <span class="op">(범위: -8 ~ +8)</span><br>
+      <span class="step">Step 3.</span> 카테고리 점수 = (Score × <span class="val">0.5</span> + <span class="val">6.0</span>) × <span class="val">10</span> &nbsp; <span class="op">(범위: 20 ~ 100점)</span><br>
+      <span class="step">Step 4.</span> 최종 점수 = 10개 카테고리 점수 합산 &nbsp; <span class="op">(범위: 200 ~ 1,000점)</span><br>
+      <br>
+      <span class="step">예시:</span> Rating 평균 <span class="val">2.77</span> → Score <span class="val">5.54</span> → (5.54×0.5+6.0)×10 = <span class="val highlight">87.7 ≈ 88점</span>
+    </div>
+
+    <div style="margin-top:16px;">
+      <h4 style="color:#d29922; font-size:14px; margin-bottom:8px;">Bayesian Prior (베이지안 사전확률) 적용</h4>
+      <div style="background:#0d1117; border:1px solid #30363d; border-radius:8px; padding:14px 18px; font-size:13px; line-height:1.9;">
+        <div style="margin-bottom:10px;">
+          <span class="info">공식 분해:</span> 카테고리 점수 = (Rating Score &times; <span class="val">COEFFICIENT</span> + <span class="val">PRIOR</span>) &times; 10
+        </div>
+        <table>
+          <tr>
+            <th>상수</th><th>값</th><th>역할</th>
+          </tr>
+          <tr>
+            <td><span class="val">PRIOR = 6.0</span></td>
+            <td>기본 점수 60점</td>
+            <td><span class="highlight">베이지안 사전확률 (Bayesian Prior)</span> &mdash; 평가 데이터가 없을 때 "보통(60점)"을 기본값으로 깔아주는 장치. 증거가 쌓일수록 60점에서 벗어나지만, 증거가 부족하면 60점 근처에 머무름</td>
+          </tr>
+          <tr>
+            <td><span class="val">COEFFICIENT = 0.5</span></td>
+            <td>범위 스케일링</td>
+            <td>Rating Score(-8~+8)를 100점 만점 범위(20~100)에 맞추기 위한 스케일링 계수</td>
+          </tr>
+        </table>
+        <div style="margin-top:12px;">
+          <span class="warn">PRIOR = 6.0 (베이지안 사전확률)을 왜 적용했는가?</span>
+          <ul style="margin-top:4px; padding-left:20px; line-height:2;">
+            <li><strong>데이터 부족 시 안전장치</strong> &mdash; AI가 X(제외) 판정을 많이 내려서 유효 평가가 2~3개뿐일 때, 기본값 없이 평균만 내면 극단적 점수가 나옴. Prior 60점이 "증거 부족 = 보통"이라는 합리적 출발점을 제공</li>
+            <li><strong>극단값 완화</strong> &mdash; 평가가 한쪽(긍정 또는 부정)으로 쏠려도 Prior 60점이 중심 방향으로 자연스럽게 당겨줌</li>
+            <li><strong>신규 정치인 대응</strong> &mdash; 활동 데이터가 적은 초선 정치인도 60점(보통)에서 시작하여 공정한 평가 가능</li>
+          </ul>
+        </div>
+        <div style="margin-top:12px; padding:10px; background:#161b22; border-radius:6px;">
+          <span class="step">Prior의 핵심 의미</span><br>
+          <br>
+          <span style="color:#8b949e;">공식을 분해하면:</span> 카테고리 점수 = Rating Score &times; 5 + <span class="val">60</span><br>
+          <span style="color:#8b949e;">Prior 6.0이 만드는 <span class="val">60점</span>은 단순한 숫자가 아니라 "선출직 공직자의 기본 신뢰"를 수치화한 것</span><br>
+          <br>
+          <table>
+            <tr>
+              <th>상황</th>
+              <th>Rating Score</th>
+              <th>카테고리 점수</th>
+              <th>의미</th>
+            </tr>
+            <tr>
+              <td>전부 +4 (최고)</td>
+              <td>+8</td>
+              <td>8&times;5+60 = <span class="highlight">100점</span></td>
+              <td>증거가 Prior를 최대로 끌어올림</td>
+            </tr>
+            <tr>
+              <td>긍정/부정 균형</td>
+              <td>0</td>
+              <td>0&times;5+60 = <span class="info">60점</span></td>
+              <td>증거가 Prior를 변경하지 못함 = 보통</td>
+            </tr>
+            <tr>
+              <td>전부 -4 (최저)</td>
+              <td>-8</td>
+              <td>-8&times;5+60 = <span class="neg">20점</span></td>
+              <td>증거가 Prior를 최대로 끌어내림</td>
+            </tr>
+          </table>
+          <br>
+          <span class="highlight">Prior가 하는 일:</span> "증거가 없으면 60점(보통)"이라는 출발점을 제공. 증거(Rating)가 쌓일수록 60점에서 위(최대 100) 또는 아래(최소 20)로 이동.<br>
+          <span style="color:#8b949e;">= 베이지안 통계의 핵심: 사전 믿음(Prior) + 관측 데이터(Rating) = 사후 믿음(점수)</span><br>
+          <br>
+          <span style="color:#58a6ff; font-size:12px;">&#9758; V40이 베이지안 이론의 어떤 요소를 적용했고 어떤 요소를 적용하지 않았는지, 그리고 그 이유에 대한 상세 분석은 본 문서 하단의 <a href="#appendix-bayesian" style="color:#58a6ff; text-decoration:underline;">부록 3: 베이지안 이론과 V40 평가 시스템</a>을 참조</span>
+        </div>
+      </div>
+    </div>
+
+    <h4 style="color:#da3633; font-size:14px; margin: 16px 0 8px;">10단계 등급 체계</h4>
+    <div class="grade-row">
+      <div class="grade-badge" style="background:#ffd700; color:#000;">M 무궁화<br>920~1000</div>
+      <div class="grade-badge" style="background:#b9f2ff; color:#000;">D 다이아<br>840~919</div>
+      <div class="grade-badge" style="background:#50c878; color:#000;">E 에메랄드<br>760~839</div>
+      <div class="grade-badge" style="background:#e5e4e2; color:#000;">P 플래티넘<br>680~759</div>
+      <div class="grade-badge" style="background:#ffd700; color:#000;">G 골드<br>600~679</div>
+      <div class="grade-badge" style="background:#c0c0c0; color:#000;">S 실버<br>520~599</div>
+      <div class="grade-badge" style="background:#cd7f32; color:#fff;">B 브론즈<br>440~519</div>
+      <div class="grade-badge" style="background:#434b4d; color:#fff;">I 아이언<br>360~439</div>
+      <div class="grade-badge" style="background:#8b8589; color:#fff;">Tn 틴<br>280~359</div>
+      <div class="grade-badge" style="background:#2f2f2f; color:#aaa;">L 리드<br>200~279</div>
+    </div>
+  </div>
+</div>
+
+<div class="arrow-down">▼</div>
+
+<!-- ===== Phase 7: 보고서 ===== -->
+<div class="phase p7">
+  <div class="phase-header">
+    <div class="phase-num">7</div>
+    <div>
+      <div class="phase-title">보고서 생성 (Report)</div>
+      <div class="phase-script">generate_report_v40.py</div>
+    </div>
+  </div>
+  <div class="phase-body">
+    <div class="flow-row">
+      <div class="flow-box">
+        <h4>데이터 조인 (4개 테이블) <a href="#appendix-db" style="color:#58a6ff; font-size:11px; text-decoration:underline;">부록 1</a></h4>
+        <ul>
+          <li>politicians (기본 정보)</li>
+          <li>collected_data_v40 (수집 데이터)</li>
+          <li>evaluations_v40 (평가 결과)</li>
+          <li>ai_final_scores_v40 (최종 점수)</li>
+        </ul>
+      </div>
+      <div class="inner-arrow">→</div>
+      <div class="flow-box">
+        <h4>보고서 8섹션 구조</h4>
+        <ul>
+          <li>1. 정치인 프로필</li>
+          <li>2. 평가 요약 + 핵심 인사이트</li>
+          <li>3. 강점 분석 (점수 기반)</li>
+          <li>4. 약점 분석 (점수 기반)</li>
+          <li>5. 카테고리별 요약</li>
+          <li>6. 데이터 분석 (출처 통합)</li>
+          <li>7. 한계 및 유의사항</li>
+          <li>8. 참고자료 및 마무리</li>
+        </ul>
+      </div>
+      <div class="inner-arrow">→</div>
+      <div class="flow-box">
+        <h4>출력 파일</h4>
+        <ul>
+          <li style="color:#f778ba; font-weight:600;">AI_기반_정치인_상세평가보고서</li>
+          <li>_{정치인명}_{날짜}.md</li>
+          <li>마크다운 형식으로 생성</li>
+          <li style="margin-top:4px;">→ PDF 변환 (md_to_pdf.py)</li>
+          <li>_{정치인명}_{날짜}.pdf</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- 부록 1: DB 테이블 관계도                                       -->
+<!-- ============================================================ -->
+<div id="appendix-db" style="margin-top:60px; border-top:2px solid #58a6ff; padding-top:30px;">
+  <h2 style="color:#58a6ff; font-size:20px; margin-bottom:16px;">부록 1: DB 테이블 관계도</h2>
+  <div class="db-diagram">
+    <div class="db-table">
+      <div class="db-table-name" style="background:#1f6feb; color:#fff;">politicians</div>
+      <div class="db-table-cols">
+        <span class="db-pk">PK id</span> TEXT (8자리 hex)<br>
+        <span class="db-col">name</span> TEXT<br>
+        <span class="db-col">party</span> TEXT<br>
+        <span class="db-col">position</span> TEXT
+      </div>
+    </div>
+    <div style="display:flex; align-items:center; color:#484f58; font-size:20px; padding:0 4px;">
+      1:N →
+    </div>
+    <div class="db-table">
+      <div class="db-table-name" style="background:#238636; color:#fff;">collected_data_v40</div>
+      <div class="db-table-cols">
+        <span class="db-pk">PK id</span> UUID<br>
+        <span class="db-fk">FK politician_id</span> TEXT<br>
+        <span class="db-col">category</span> TEXT<br>
+        <span class="db-col">data_type</span> official/public<br>
+        <span class="db-col">collector_ai</span> Gemini/Naver<br>
+        <span class="db-col">title, content, source_url</span><br>
+        <span class="db-col">sentiment</span> neg/pos/free<br>
+        <span class="neg">❌ rating 없음!</span>
+      </div>
+    </div>
+    <div style="display:flex; align-items:center; color:#484f58; font-size:20px; padding:0 4px;">
+      1:N →
+    </div>
+    <div class="db-table">
+      <div class="db-table-name" style="background:#bc4c00; color:#fff;">evaluations_v40</div>
+      <div class="db-table-cols">
+        <span class="db-pk">PK id</span> UUID<br>
+        <span class="db-fk">FK collected_data_id</span> UUID<br>
+        <span class="db-fk">FK politician_id</span> TEXT<br>
+        <span class="db-col">category</span> TEXT<br>
+        <span class="db-col">evaluator_ai</span> 4개 AI<br>
+        <span class="highlight">rating</span> '+4'~'-4'<br>
+        <span class="db-col">reasoning</span> TEXT
+      </div>
+    </div>
+    <div style="display:flex; align-items:center; color:#484f58; font-size:20px; padding:0 4px;">
+      ← N:1
+    </div>
+    <div class="db-table">
+      <div class="db-table-name" style="background:#8957e5; color:#fff;">ai_final_scores_v40</div>
+      <div class="db-table-cols">
+        <span class="db-pk">PK id</span> UUID<br>
+        <span class="db-fk">FK politician_id</span> TEXT<br>
+        <span class="highlight">final_score</span> INT<br>
+        <span class="highlight">grade</span> TEXT<br>
+        <span class="db-col">category_scores</span> JSONB<br>
+        <span class="db-col">version</span> 'V40'
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- 부록 2: 10개 카테고리 선정 근거 및 항목 & 키워드 상세            -->
+<!-- ============================================================ -->
+<div id="appendix-categories" style="margin-top:60px; border-top:2px solid #7ee787; padding-top:30px;">
+  <h2 style="color:#7ee787; font-size:20px; margin-bottom:16px;">부록 2: 10개 카테고리 선정 근거 및 항목 &amp; 키워드 상세</h2>
+  <div style="background:#161b22; border:1px solid #30363d; border-radius:12px; padding:20px 24px;">
+    <p style="color:#8b949e; font-size:13px; margin-bottom:16px;">
+      Stoker et al. (2024)의 CBA 프레임워크를 기본 축으로, 국제 연구 및 검증된 평가 시스템을 참고하여 10개 카테고리로 확장.
+      <br>6개 AI가 70개 이상 평가 항목을 분석 &rarr; 중복 통합 &rarr; 3개 대분류 &rarr; 10개 카테고리 압축.
+    </p>
+
+    <!-- CBA 프레임워크 + 참고 연구 -->
+    <div style="margin-bottom:16px; display:flex; gap:12px; flex-wrap:wrap;">
+      <div style="flex:1; min-width:320px; background:#0d1117; border:1px solid #30363d; border-radius:6px; padding:10px 14px; font-size:12px; line-height:1.8;">
+        <div style="color:#58a6ff; font-weight:600; margin-bottom:4px;">핵심 프레임워크: CBA (Stoker et al. 2024)</div>
+        <strong>Stoker et al.</strong> &mdash; University of Southampton, 7개 민주주의 국가 유권자 인지구조 분석<br>
+        <strong>Competence &middot; Integrity &middot; Authenticity</strong> 3축 평가 프레임워크 제시<br>
+        <span style="color:#7ee787;">PoliticianFinder: CBA 3축 &rarr; 10개 카테고리로 확장</span>
+      </div>
+      <div style="flex:1; min-width:320px; background:#0d1117; border:1px solid #30363d; border-radius:6px; padding:10px 14px; font-size:12px; line-height:1.8;">
+        <div style="color:#7ee787; font-weight:600; margin-bottom:4px;">참고 연구 및 평가 시스템</div>
+        <strong>Volden &amp; Wiseman</strong> &mdash; Center for Effective Lawmaking, 입법 효율성 정량 측정<br>
+        <strong>Transparency International</strong> &mdash; 부패 측정 방법론, 13개 평가 항목<br>
+        <strong>Jacobson (Stanford)</strong> &mdash; 언론의 정치인 스캔들/성과 보도 분석<br>
+        <strong>Slough et al. (World Bank)</strong> &mdash; 개발도상국 책임성/대응성 측정<br>
+        <strong>LEVER</strong> &mdash; 유럽 지방선거 평가, 대응성/투명성 방법론<br>
+        <strong>UN SDG 16</strong> &mdash; 투명성, 책임성, 공정성<br>
+        <strong>OECD</strong> &mdash; 공공 부문 거버넌스 원칙
+      </div>
+    </div>
+
+    <!-- CBA 3축 → 10개 카테고리 매핑 -->
+    <table>
+      <tr>
+        <th style="width:30px;">#</th>
+        <th>카테고리</th>
+        <th>CBA 대분류</th>
+        <th>참고 연구</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td><span class="info">전문성</span><br>(Expertise)</td>
+        <td rowspan="3" style="vertical-align:middle; color:#58a6ff; font-weight:600; text-align:center;">Competence<br>(역량)</td>
+        <td><strong>Volden &amp; Wiseman</strong> 입법 효율성 측정, <strong>Stoker et al.</strong> Competence 축</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td><span class="info">리더십</span><br>(Leadership)</td>
+        <td><strong>Volden &amp; Wiseman</strong> 의원 효과성, <strong>LEVER</strong> 지방선거 리더십 평가</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td><span class="info">비전</span><br>(Vision)</td>
+        <td><strong>Stoker et al.</strong> Competence 하위, <strong>UN SDG 16</strong> 장기 발전 목표</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td><span class="highlight">청렴성</span><br>(Integrity)</td>
+        <td rowspan="4" style="vertical-align:middle; color:#f85149; font-weight:600; text-align:center;">Integrity<br>(청렴도)</td>
+        <td><strong>TI</strong> 부패인식지수(CPI), <strong>Jacobson</strong> 스캔들 보도 분석</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td><span class="highlight">윤리성</span><br>(Ethics)</td>
+        <td><strong>OECD</strong> 공공 부문 윤리 원칙, <strong>Jacobson</strong> 도덕성 평가</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td><span class="warn">책임감</span><br>(Accountability)</td>
+        <td><strong>Slough et al.</strong> 책임성 측정, <strong>UN SDG 16</strong> 책임성 원칙</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td><span class="warn">투명성</span><br>(Transparency)</td>
+        <td><strong>LEVER</strong> 투명성 방법론, <strong>UN SDG 16</strong> 투명성 원칙</td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td style="color:#f0883e;">소통능력<br>(Communication)</td>
+        <td rowspan="3" style="vertical-align:middle; color:#f0883e; font-weight:600; text-align:center;">Authenticity<br>(진정성)</td>
+        <td><strong>Stoker et al.</strong> Authenticity 축, <strong>LEVER</strong> 시민 소통 평가</td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td style="color:#f0883e;">대응성<br>(Responsiveness)</td>
+        <td><strong>Slough et al.</strong> 민원 응답률/정책 변화 추적, <strong>LEVER</strong> 대응성 측정</td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td style="color:#f0883e;">공익성<br>(Public Interest)</td>
+        <td><strong>LEVER</strong> 공익 추구 평가, <strong>Slough et al.</strong> 공공 서비스 질 측정</td>
+      </tr>
+    </table>
+
+    <!-- 선거 영향 검증 -->
+    <div style="margin-top:16px; background:#0d1117; border:1px solid #30363d; border-radius:6px; padding:10px 14px; font-size:12px; line-height:1.8;">
+      <div style="color:#d2a8ff; font-weight:600; margin-bottom:4px;">평가 시스템의 검증된 선거 영향 (70년간 실증)</div>
+      <strong>Garthwaite &amp; Moore (2013)</strong> &mdash; 2008 Obama 경선: 종합 평가 &rarr; 약 100만 표 증가<br>
+      <strong>Schuster (2023)</strong> &mdash; 1960-1980 대통령 선거: 신문사 종합 평가 &rarr; 2,000만 표 이동<br>
+      <strong>DeLuca / Harvard (2022)</strong> &mdash; 1950-2020 전체 선거: 종합 평가 &rarr; 3.8-8.6%p 득표율 증가<br>
+      <strong>Volden &amp; Wiseman (2014)</strong> &mdash; "가장 효과적인 의원 TOP 10" &rarr; 전원 재선 성공<br>
+      <strong>LCV (2012-2024)</strong> &mdash; 환경 평가 낮은 의원 &rarr; 70-84% 패배율<br>
+      <span style="color:#7ee787;">핵심: 종합 평가가 단일 지표보다 강력. 대통령/의회/지방선거 모두 검증됨.</span>
+    </div>
+  </div>
+</div>
+
+<div style="margin-top:32px;">
+  <h3 id="appendix-keywords" style="color:#7ee787; font-size:17px; margin-bottom:16px;">항목 &amp; 키워드 상세</h3>
+
+  <!-- Cat 1: 전문성 -->
+  <div style="margin-bottom:20px; background:#161b22; border:1px solid #30363d; border-radius:10px; overflow:hidden;">
+    <div style="padding:12px 18px; background:linear-gradient(90deg,#0d2240,#161b22); display:flex; align-items:center; gap:10px; border-bottom:1px solid #30363d;">
+      <span style="background:#1f6feb; color:#fff; width:28px; height:28px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-weight:700; font-size:13px;">1</span>
+      <span style="font-weight:600; font-size:15px;">Expertise (전문성)</span>
+      <span style="color:#8b949e; font-size:12px; margin-left:auto;">직무 수행에 필요한 지식, 기술, 경험의 보유 수준</span>
+    </div>
+    <div style="padding:14px 18px; display:flex; gap:16px; flex-wrap:wrap;">
+      <div style="flex:2; min-width:340px;">
+        <table>
+          <tr><th style="width:40px">#</th><th>평가 항목</th><th>설명</th></tr>
+          <tr><td>1-1</td><td>최종 학력 수준</td><td>박사/석사/학사/전문대 학위</td></tr>
+          <tr><td>1-2</td><td>직무 관련 자격증</td><td>변호사, CPA, 교원자격증 등</td></tr>
+          <tr><td>1-3</td><td>관련 분야 경력 연수</td><td>공직+민간 경력 합산</td></tr>
+          <tr><td>1-4</td><td>직무 교육 이수</td><td>의회/기관 교육 참여 시간</td></tr>
+          <tr><td>1-5</td><td>전문 분야 기고/저서</td><td>전문지 기고, 저서 출판</td></tr>
+          <tr><td>1-6</td><td>학술 연구 실적</td><td>논문, Google Scholar 피인용</td></tr>
+          <tr><td>1-7</td><td>위키피디아 전문성 기술</td><td>학력/경력 조회수</td></tr>
+          <tr><td>1-8</td><td>전문 분야 평가 기록</td><td>학술/전문 분야 외부 평가</td></tr>
+          <tr><td>1-9</td><td>위원회 활동 기록</td><td>자문위원, 심의위원 활동</td></tr>
+          <tr><td>1-10</td><td>전문성 관련 언론 평가</td><td>전문성 키워드 보도</td></tr>
+        </table>
+      </div>
+      <div style="flex:1; min-width:200px; background:#0d1117; border:1px solid #30363d; border-radius:6px; padding:10px 14px; font-size:12px; line-height:1.8;">
+        <div style="color:#7ee787; font-weight:600; margin-bottom:4px;">긍정 키워드</div>
+        전문가 뉴스, 경력 우수 보도, 법안 발의 성과, 정책 전문
+        <div style="color:#f85149; font-weight:600; margin-top:8px; margin-bottom:4px;">부정 키워드</div>
+        학력 위조, 경력 논란, 무능, 전문성 부족
+        <div style="color:#8b949e; font-weight:600; margin-top:8px; margin-bottom:4px;">자유(랜덤) 키워드</div>
+        학력 성명서, 경력 발표, 이력 기자회견, 프로필
+      </div>
+    </div>
+  </div>
+
+  <!-- Cat 2: 리더십 -->
+  <div style="margin-bottom:20px; background:#161b22; border:1px solid #30363d; border-radius:10px; overflow:hidden;">
+    <div style="padding:12px 18px; background:linear-gradient(90deg,#0d2240,#161b22); display:flex; align-items:center; gap:10px; border-bottom:1px solid #30363d;">
+      <span style="background:#1f6feb; color:#fff; width:28px; height:28px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-weight:700; font-size:13px;">2</span>
+      <span style="font-weight:600; font-size:15px;">Leadership (리더십)</span>
+      <span style="color:#8b949e; font-size:12px; margin-left:auto;">조직과 사람을 효과적으로 이끌어 목표를 달성하는 능력</span>
+    </div>
+    <div style="padding:14px 18px; display:flex; gap:16px; flex-wrap:wrap;">
+      <div style="flex:2; min-width:340px;">
+        <table>
+          <tr><th style="width:40px">#</th><th>평가 항목</th><th>설명</th></tr>
+          <tr><td>2-1</td><td>법안 발의 건수</td><td>대표발의 법안 수</td></tr>
+          <tr><td>2-2</td><td>법안 통과율</td><td>발의 대비 통과 비율</td></tr>
+          <tr><td>2-3</td><td>위원회 위원장 경험</td><td>상임위/특위 위원장</td></tr>
+          <tr><td>2-4</td><td>당직 경력</td><td>당대표, 원내대표, 최고위원</td></tr>
+          <tr><td>2-5</td><td>조직 확대 실적</td><td>당원 증가, 지지율 상승</td></tr>
+          <tr><td>2-6</td><td>위기 대응 사례</td><td>재난/사건 대응 리더십</td></tr>
+          <tr><td>2-7</td><td>정책 추진력</td><td>주요 정책 관철 사례</td></tr>
+          <tr><td>2-8</td><td>리더십 관련 언론 평가</td><td>리더십 키워드 보도</td></tr>
+          <tr><td>2-9</td><td>의회 협력 활동 기록</td><td>여야 협상, 연대 활동</td></tr>
+          <tr><td>2-10</td><td>리더십 관련 평가 기록</td><td>리더십 외부 평가</td></tr>
+        </table>
+      </div>
+      <div style="flex:1; min-width:200px; background:#0d1117; border:1px solid #30363d; border-radius:6px; padding:10px 14px; font-size:12px; line-height:1.8;">
+        <div style="color:#7ee787; font-weight:600; margin-bottom:4px;">긍정 키워드</div>
+        리더십 뉴스, 추진력 보도, 법안 통과, 위기 대응 성공
+        <div style="color:#f85149; font-weight:600; margin-top:8px; margin-bottom:4px;">부정 키워드</div>
+        리더십 부재, 조직 분열, 법안 무산, 당내 갈등
+        <div style="color:#8b949e; font-weight:600; margin-top:8px; margin-bottom:4px;">자유(랜덤) 키워드</div>
+        위원회 활동 성명서, 당직 발표, 의정활동 기자회견
+      </div>
+    </div>
+  </div>
+
+  <!-- Cat 3: 비전 -->
+  <div style="margin-bottom:20px; background:#161b22; border:1px solid #30363d; border-radius:10px; overflow:hidden;">
+    <div style="padding:12px 18px; background:linear-gradient(90deg,#0d2818,#161b22); display:flex; align-items:center; gap:10px; border-bottom:1px solid #30363d;">
+      <span style="background:#238636; color:#fff; width:28px; height:28px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-weight:700; font-size:13px;">3</span>
+      <span style="font-weight:600; font-size:15px;">Vision (비전)</span>
+      <span style="color:#8b949e; font-size:12px; margin-left:auto;">미래를 예측하고 장기적 목표를 제시하는 능력</span>
+    </div>
+    <div style="padding:14px 18px; display:flex; gap:16px; flex-wrap:wrap;">
+      <div style="flex:2; min-width:340px;">
+        <table>
+          <tr><th style="width:40px">#</th><th>평가 항목</th><th>설명</th></tr>
+          <tr><td>3-1</td><td>중장기 발전 계획</td><td>4년 이상 계획 수립 여부</td></tr>
+          <tr><td>3-2</td><td>미래 투자 예산</td><td>R&D, 교육, 신산업 예산 비율</td></tr>
+          <tr><td>3-3</td><td>사회 발전 관련 예산</td><td>환경, 기후, 복지 예산</td></tr>
+          <tr><td>3-4</td><td>기술 발전 관련 정책</td><td>AI, 스마트시티 예산/사업</td></tr>
+          <tr><td>3-5</td><td>미래 정책 제안</td><td>혁신, 미래 키워드 정책</td></tr>
+          <tr><td>3-6</td><td>청년층 정책</td><td>청년 대상 정책 발의/추진</td></tr>
+          <tr><td>3-7</td><td>해외 사례 벤치마킹</td><td>해외 정책 도입 사례</td></tr>
+          <tr><td>3-8</td><td>미래 키워드 보도</td><td>혁신, 미래, 디지털 보도</td></tr>
+          <tr><td>3-9</td><td>장기 공약 제시</td><td>임기 후에도 지속되는 공약</td></tr>
+          <tr><td>3-10</td><td>비전 관련 연설/기고</td><td>미래 비전 연설, 기고문</td></tr>
+        </table>
+      </div>
+      <div style="flex:1; min-width:200px; background:#0d1117; border:1px solid #30363d; border-radius:6px; padding:10px 14px; font-size:12px; line-height:1.8;">
+        <div style="color:#7ee787; font-weight:600; margin-bottom:4px;">긍정 키워드</div>
+        혁신 뉴스, 미래지향 보도, 비전 제시
+        <div style="color:#f85149; font-weight:600; margin-top:8px; margin-bottom:4px;">부정 키워드</div>
+        구태, 비전 부재, 안일
+        <div style="color:#8b949e; font-weight:600; margin-top:8px; margin-bottom:4px;">자유(랜덤) 키워드</div>
+        정책 방향 성명서, 비전 기자회견
+      </div>
+    </div>
+  </div>
+
+  <!-- Cat 4: 청렴성 -->
+  <div style="margin-bottom:20px; background:#161b22; border:1px solid #30363d; border-radius:10px; overflow:hidden;">
+    <div style="padding:12px 18px; background:linear-gradient(90deg,#0d2818,#161b22); display:flex; align-items:center; gap:10px; border-bottom:1px solid #30363d;">
+      <span style="background:#238636; color:#fff; width:28px; height:28px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-weight:700; font-size:13px;">4</span>
+      <span style="font-weight:600; font-size:15px;">Integrity (청렴성)</span>
+      <span style="color:#8b949e; font-size:12px; margin-left:auto;">금전적/물질적 부패를 저지르지 않는 자질</span>
+    </div>
+    <div style="padding:14px 18px; display:flex; gap:16px; flex-wrap:wrap;">
+      <div style="flex:2; min-width:340px;">
+        <table>
+          <tr><th style="width:40px">#</th><th>평가 항목</th><th>설명</th></tr>
+          <tr><td>4-1</td><td>금전 관련 형사 판결 내용</td><td>뇌물, 횡령, 배임 관련 판결</td></tr>
+          <tr><td>4-2</td><td>재산 신고 변동 현황</td><td>재산 증감 내역</td></tr>
+          <tr><td>4-3</td><td>공직자윤리법 관련 기록</td><td>공직자윤리위 심의 내용</td></tr>
+          <tr><td>4-4</td><td>정치자금법 관련 기록</td><td>선관위 관련 처분 내용</td></tr>
+          <tr><td>4-5</td><td>선거법 관련 기록</td><td>선거 관련 위반 내용</td></tr>
+          <tr><td>4-6</td><td>금전 관련 언론 보도</td><td>금전/재산 키워드 보도</td></tr>
+          <tr><td>4-7</td><td>한국투명성기구 평가</td><td>TI Korea 청렴도 등급</td></tr>
+          <tr><td>4-8</td><td>시민단체 청렴 평가</td><td>참여연대 등 청렴 평가</td></tr>
+          <tr><td>4-9</td><td>정치자금 관련 보도</td><td>정치자금 키워드 보도</td></tr>
+          <tr><td>4-10</td><td>청렴 관련 평가 기록</td><td>청렴 외부 평가</td></tr>
+        </table>
+      </div>
+      <div style="flex:1; min-width:200px; background:#0d1117; border:1px solid #30363d; border-radius:6px; padding:10px 14px; font-size:12px; line-height:1.8;">
+        <div style="color:#7ee787; font-weight:600; margin-bottom:4px;">긍정 키워드</div>
+        청렴 뉴스, 깨끗한 정치 보도, 청렴도 1위
+        <div style="color:#f85149; font-weight:600; margin-top:8px; margin-bottom:4px;">부정 키워드</div>
+        비리 의혹, 뇌물, 횡령, 정치자금 위반
+        <div style="color:#8b949e; font-weight:600; margin-top:8px; margin-bottom:4px;">자유(랜덤) 키워드</div>
+        재산 신고 성명서, 감사원 발표
+      </div>
+    </div>
+  </div>
+
+  <!-- Cat 5: 윤리성 -->
+  <div style="margin-bottom:20px; background:#161b22; border:1px solid #30363d; border-radius:10px; overflow:hidden;">
+    <div style="padding:12px 18px; background:linear-gradient(90deg,#2d2006,#161b22); display:flex; align-items:center; gap:10px; border-bottom:1px solid #30363d;">
+      <span style="background:#d29922; color:#fff; width:28px; height:28px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-weight:700; font-size:13px;">5</span>
+      <span style="font-weight:600; font-size:15px;">Ethics (윤리성)</span>
+      <span style="color:#8b949e; font-size:12px; margin-left:auto;">사회적 규범과 도덕적 품위를 유지하는 자질</span>
+    </div>
+    <div style="padding:14px 18px; display:flex; gap:16px; flex-wrap:wrap;">
+      <div style="flex:2; min-width:340px;">
+        <table>
+          <tr><th style="width:40px">#</th><th>평가 항목</th><th>설명</th></tr>
+          <tr><td>5-1</td><td>형사 판결 기록</td><td>비부패 형사범죄 판결 내용</td></tr>
+          <tr><td>5-2</td><td>성문제 관련 판결 내용</td><td>성범죄 관련 판결</td></tr>
+          <tr><td>5-3</td><td>윤리위원회 심의 내용</td><td>의회 윤리위 심의</td></tr>
+          <tr><td>5-4</td><td>국가인권위 시정권고</td><td>인권위 권고/결정</td></tr>
+          <tr><td>5-5</td><td>저작 관련 검증 기록</td><td>논문, 저서 검증 내용</td></tr>
+          <tr><td>5-6</td><td>공개 발언 태도 관련 보도</td><td>발언 태도 키워드 보도</td></tr>
+          <tr><td>5-7</td><td>사회 배려 문제 발언 관련 보도</td><td>성별, 지역, 세대 발언 보도</td></tr>
+          <tr><td>5-8</td><td>품위유지 관련 보도</td><td>품위 키워드 보도</td></tr>
+          <tr><td>5-9</td><td>시민단체 윤리 평가</td><td>윤리성 평가 점수</td></tr>
+          <tr><td>5-10</td><td>가족문제 관련 보도</td><td>가족 관련 보도</td></tr>
+        </table>
+      </div>
+      <div style="flex:1; min-width:200px; background:#0d1117; border:1px solid #30363d; border-radius:6px; padding:10px 14px; font-size:12px; line-height:1.8;">
+        <div style="color:#7ee787; font-weight:600; margin-bottom:4px;">긍정 키워드</div>
+        도덕적 뉴스, 모범 보도, 품위
+        <div style="color:#f85149; font-weight:600; margin-top:8px; margin-bottom:4px;">부정 키워드</div>
+        논란, 막말, 표절, 가족 논란
+        <div style="color:#8b949e; font-weight:600; margin-top:8px; margin-bottom:4px;">자유(랜덤) 키워드</div>
+        인사청문회 성명서, 검증 기자회견
+      </div>
+    </div>
+  </div>
+
+  <!-- Cat 6: 책임감 -->
+  <div style="margin-bottom:20px; background:#161b22; border:1px solid #30363d; border-radius:10px; overflow:hidden;">
+    <div style="padding:12px 18px; background:linear-gradient(90deg,#2d2006,#161b22); display:flex; align-items:center; gap:10px; border-bottom:1px solid #30363d;">
+      <span style="background:#d29922; color:#fff; width:28px; height:28px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-weight:700; font-size:13px;">6</span>
+      <span style="font-weight:600; font-size:15px;">Accountability (책임감)</span>
+      <span style="color:#8b949e; font-size:12px; margin-left:auto;">맡은 직무와 약속에 대해 끝까지 책임지는 자세</span>
+    </div>
+    <div style="padding:14px 18px; display:flex; gap:16px; flex-wrap:wrap;">
+      <div style="flex:2; min-width:340px;">
+        <table>
+          <tr><th style="width:40px">#</th><th>평가 항목</th><th>설명</th></tr>
+          <tr><td>6-1</td><td>공약 이행률</td><td>(완료 공약/총 공약) x 100</td></tr>
+          <tr><td>6-2</td><td>회의 출석률</td><td>본회의, 위원회 출석률</td></tr>
+          <tr><td>6-3</td><td>예산 집행률</td><td>(집행액/확정 예산) x 100</td></tr>
+          <tr><td>6-4</td><td>감사 지적 개선</td><td>감사 지적 개선 완료율</td></tr>
+          <tr><td>6-5</td><td>매니페스토 평가 등급</td><td>공약 이행 평가 등급</td></tr>
+          <tr><td>6-6</td><td>의정 활동 보고 빈도</td><td>정기적 활동 보고</td></tr>
+          <tr><td>6-7</td><td>시민단체 의정 감시 평가</td><td>참여연대 등 평가 점수</td></tr>
+          <tr><td>6-8</td><td>직무 수행 관련 보도</td><td>직무 수행 키워드 보도</td></tr>
+          <tr><td>6-9</td><td>책임 이행 관련 보도</td><td>책임 이행 키워드 보도</td></tr>
+          <tr><td>6-10</td><td>사후 책임 이행</td><td>실패 인정, 개선 약속 이행</td></tr>
+        </table>
+      </div>
+      <div style="flex:1; min-width:200px; background:#0d1117; border:1px solid #30363d; border-radius:6px; padding:10px 14px; font-size:12px; line-height:1.8;">
+        <div style="color:#7ee787; font-weight:600; margin-bottom:4px;">긍정 키워드</div>
+        공약 이행 뉴스, 책임 완수 보도, 성실
+        <div style="color:#f85149; font-weight:600; margin-top:8px; margin-bottom:4px;">부정 키워드</div>
+        공약 불이행, 직무 태만, 책임 회피
+        <div style="color:#8b949e; font-weight:600; margin-top:8px; margin-bottom:4px;">자유(랜덤) 키워드</div>
+        공약 성명서, 의정활동 기자회견, 출석
+      </div>
+    </div>
+  </div>
+
+  <!-- Cat 7: 투명성 -->
+  <div style="margin-bottom:20px; background:#161b22; border:1px solid #30363d; border-radius:10px; overflow:hidden;">
+    <div style="padding:12px 18px; background:linear-gradient(90deg,#2d1300,#161b22); display:flex; align-items:center; gap:10px; border-bottom:1px solid #30363d;">
+      <span style="background:#bc4c00; color:#fff; width:28px; height:28px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-weight:700; font-size:13px;">7</span>
+      <span style="font-weight:600; font-size:15px;">Transparency (투명성)</span>
+      <span style="color:#8b949e; font-size:12px; margin-left:auto;">정보를 투명하게 공개하고 숨기지 않는 자세</span>
+    </div>
+    <div style="padding:14px 18px; display:flex; gap:16px; flex-wrap:wrap;">
+      <div style="flex:2; min-width:340px;">
+        <table>
+          <tr><th style="width:40px">#</th><th>평가 항목</th><th>설명</th></tr>
+          <tr><td>7-1</td><td>정보공개 청구 응답률</td><td>정보공개포털 응답률</td></tr>
+          <tr><td>7-2</td><td>회의록 공개율</td><td>회의록 완전 공개 비율</td></tr>
+          <tr><td>7-3</td><td>재산 공개 성실도</td><td>재산 상세 기재 여부</td></tr>
+          <tr><td>7-4</td><td>예산 집행 상세 공개</td><td>세목 공개 수준</td></tr>
+          <tr><td>7-5</td><td>자료 제출 성실성 관련 보도</td><td>청문회 등 자료 제출 관련</td></tr>
+          <tr><td>7-6</td><td>정보공개센터 평가</td><td>정보공개 우수 사례 등재</td></tr>
+          <tr><td>7-7</td><td>투명성 관련 보도</td><td>투명, 공개 키워드 보도</td></tr>
+          <tr><td>7-8</td><td>정보공개 관련 보도</td><td>비공개 결정 관련 보도</td></tr>
+          <tr><td>7-9</td><td>언론 대응 투명성</td><td>기자회견, 질의응답 참여</td></tr>
+          <tr><td>7-10</td><td>일정 공개 수준</td><td>공식 일정 사전 공개</td></tr>
+        </table>
+      </div>
+      <div style="flex:1; min-width:200px; background:#0d1117; border:1px solid #30363d; border-radius:6px; padding:10px 14px; font-size:12px; line-height:1.8;">
+        <div style="color:#7ee787; font-weight:600; margin-bottom:4px;">긍정 키워드</div>
+        투명 공개 뉴스, 정보공개 우수 보도, 공개 행정
+        <div style="color:#f85149; font-weight:600; margin-top:8px; margin-bottom:4px;">부정 키워드</div>
+        자료 제출 거부, 비공개, 은폐
+        <div style="color:#8b949e; font-weight:600; margin-top:8px; margin-bottom:4px;">자유(랜덤) 키워드</div>
+        정보공개 성명서, 재산 신고 기자회견, 회의록
+      </div>
+    </div>
+  </div>
+
+  <!-- Cat 8: 소통능력 -->
+  <div style="margin-bottom:20px; background:#161b22; border:1px solid #30363d; border-radius:10px; overflow:hidden;">
+    <div style="padding:12px 18px; background:linear-gradient(90deg,#2d1300,#161b22); display:flex; align-items:center; gap:10px; border-bottom:1px solid #30363d;">
+      <span style="background:#bc4c00; color:#fff; width:28px; height:28px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-weight:700; font-size:13px;">8</span>
+      <span style="font-weight:600; font-size:15px;">Communication (소통능력)</span>
+      <span style="color:#8b949e; font-size:12px; margin-left:auto;">국민과 효과적으로 대화하고 의견을 교환하는 능력</span>
+    </div>
+    <div style="padding:14px 18px; display:flex; gap:16px; flex-wrap:wrap;">
+      <div style="flex:2; min-width:340px;">
+        <table>
+          <tr><th style="width:40px">#</th><th>평가 항목</th><th>설명</th></tr>
+          <tr><td>8-1</td><td>시민 간담회 개최</td><td>연간 간담회 건수</td></tr>
+          <tr><td>8-2</td><td>공청회/토론회 개최</td><td>연간 공청회/토론회 건수</td></tr>
+          <tr><td>8-3</td><td>공식 소통 채널 운영</td><td>홈페이지, SNS 운영 개수</td></tr>
+          <tr><td>8-4</td><td>시민 제안 수용</td><td>제안 수용 건수/비율</td></tr>
+          <tr><td>8-5</td><td>SNS 소통 활동</td><td>팔로워 x 참여율</td></tr>
+          <tr><td>8-6</td><td>SNS 댓글 응답</td><td>댓글 응답 건수/비율</td></tr>
+          <tr><td>8-7</td><td>토론 참여 평가</td><td>토론 능력 언론 평가</td></tr>
+          <tr><td>8-8</td><td>소통 적극성 관련 보도</td><td>소통 키워드 보도</td></tr>
+          <tr><td>8-9</td><td>경청 자세 평가</td><td>경청, 공감 관련 평가</td></tr>
+          <tr><td>8-10</td><td>소통 관련 평가 기록</td><td>소통 외부 평가</td></tr>
+        </table>
+      </div>
+      <div style="flex:1; min-width:200px; background:#0d1117; border:1px solid #30363d; border-radius:6px; padding:10px 14px; font-size:12px; line-height:1.8;">
+        <div style="color:#7ee787; font-weight:600; margin-bottom:4px;">긍정 키워드</div>
+        소통 뉴스, 친근 보도, 소통왕
+        <div style="color:#f85149; font-weight:600; margin-top:8px; margin-bottom:4px;">부정 키워드</div>
+        불통, 소통 부재, 권위적
+        <div style="color:#8b949e; font-weight:600; margin-top:8px; margin-bottom:4px;">자유(랜덤) 키워드</div>
+        인터뷰 성명서, SNS 발표
+      </div>
+    </div>
+  </div>
+
+  <!-- Cat 9: 대응성 -->
+  <div style="margin-bottom:20px; background:#161b22; border:1px solid #30363d; border-radius:10px; overflow:hidden;">
+    <div style="padding:12px 18px; background:linear-gradient(90deg,#1c0d3a,#161b22); display:flex; align-items:center; gap:10px; border-bottom:1px solid #30363d;">
+      <span style="background:#8957e5; color:#fff; width:28px; height:28px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-weight:700; font-size:13px;">9</span>
+      <span style="font-weight:600; font-size:15px;">Responsiveness (대응성)</span>
+      <span style="color:#8b949e; font-size:12px; margin-left:auto;">민원/요구/피드백에 신속하고 적절하게 대응하는 능력</span>
+    </div>
+    <div style="padding:14px 18px; display:flex; gap:16px; flex-wrap:wrap;">
+      <div style="flex:2; min-width:340px;">
+        <table>
+          <tr><th style="width:40px">#</th><th>평가 항목</th><th>설명</th></tr>
+          <tr><td>9-1</td><td>주민참여예산 규모</td><td>참여예산 금액</td></tr>
+          <tr><td>9-2</td><td>정보공개 처리 기간</td><td>평균 처리 일수</td></tr>
+          <tr><td>9-3</td><td>주민 제안 반영</td><td>반영 건수/비율</td></tr>
+          <tr><td>9-4</td><td>지역 현안 대응</td><td>현장 점검, 대책 발표 건수</td></tr>
+          <tr><td>9-5</td><td>재난 대응 실적</td><td>재난 현장 대응 평가</td></tr>
+          <tr><td>9-6</td><td>위기 대응 보도</td><td>위기 대응, 재난 대응 보도</td></tr>
+          <tr><td>9-7</td><td>현장 방문 보도</td><td>현장 방문 키워드 보도</td></tr>
+          <tr><td>9-8</td><td>민원 처리 만족도</td><td>민원 처리 만족도 조사</td></tr>
+          <tr><td>9-9</td><td>대응 속도 관련 보도</td><td>대응 속도 키워드 보도</td></tr>
+          <tr><td>9-10</td><td>현장 대응 관련 보도</td><td>재난 시 현장 대응 보도</td></tr>
+        </table>
+      </div>
+      <div style="flex:1; min-width:200px; background:#0d1117; border:1px solid #30363d; border-radius:6px; padding:10px 14px; font-size:12px; line-height:1.8;">
+        <div style="color:#7ee787; font-weight:600; margin-bottom:4px;">긍정 키워드</div>
+        민원 해결 뉴스, 신속 대응 보도, 국민 목소리 경청
+        <div style="color:#f85149; font-weight:600; margin-top:8px; margin-bottom:4px;">부정 키워드</div>
+        민원 무시, 대응 부재, 국민 외면
+        <div style="color:#8b949e; font-weight:600; margin-top:8px; margin-bottom:4px;">자유(랜덤) 키워드</div>
+        민원 처리 성명서, 요구사항 기자회견, 청원 답변
+      </div>
+    </div>
+  </div>
+
+  <!-- Cat 10: 공익성 -->
+  <div style="margin-bottom:20px; background:#161b22; border:1px solid #30363d; border-radius:10px; overflow:hidden;">
+    <div style="padding:12px 18px; background:linear-gradient(90deg,#1c0d3a,#161b22); display:flex; align-items:center; gap:10px; border-bottom:1px solid #30363d;">
+      <span style="background:#8957e5; color:#fff; width:28px; height:28px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-weight:700; font-size:13px;">10</span>
+      <span style="font-weight:600; font-size:15px;">Public Interest (공익성)</span>
+      <span style="color:#8b949e; font-size:12px; margin-left:auto;">공익을 우선시하고 사회에 기여하는 자세</span>
+    </div>
+    <div style="padding:14px 18px; display:flex; gap:16px; flex-wrap:wrap;">
+      <div style="flex:2; min-width:340px;">
+        <table>
+          <tr><th style="width:40px">#</th><th>평가 항목</th><th>설명</th></tr>
+          <tr><td>10-1</td><td>사회복지 예산 비율</td><td>(복지 예산/전체 예산) x 100</td></tr>
+          <tr><td>10-2</td><td>취약계층 지원 프로그램</td><td>장애/노인/아동 지원 사업</td></tr>
+          <tr><td>10-3</td><td>환경/기후 예산</td><td>환경 예산 비율/증가율</td></tr>
+          <tr><td>10-4</td><td>지역 균형 발전 예산</td><td>낙후 지역 투자 비율</td></tr>
+          <tr><td>10-5</td><td>공익 활동 보도</td><td>봉사, 취약계층 보도</td></tr>
+          <tr><td>10-6</td><td>사회공헌 SNS 게시</td><td>공익 게시물 비중</td></tr>
+          <tr><td>10-7</td><td>공익 법안 발의</td><td>공익 목적 법안 발의 실적</td></tr>
+          <tr><td>10-8</td><td>이익 상충 관련 보도</td><td>이익 상충 키워드 보도</td></tr>
+          <tr><td>10-9</td><td>지역 균형 관련 보도</td><td>지역 균형 키워드 보도</td></tr>
+          <tr><td>10-10</td><td>공익 관련 평가 기록</td><td>공익 외부 평가</td></tr>
+        </table>
+      </div>
+      <div style="flex:1; min-width:200px; background:#0d1117; border:1px solid #30363d; border-radius:6px; padding:10px 14px; font-size:12px; line-height:1.8;">
+        <div style="color:#7ee787; font-weight:600; margin-bottom:4px;">긍정 키워드</div>
+        공익 활동 뉴스, 사회 공헌 보도, 약자 보호
+        <div style="color:#f85149; font-weight:600; margin-top:8px; margin-bottom:4px;">부정 키워드</div>
+        특혜, 특정 이익, 공익 외면
+        <div style="color:#8b949e; font-weight:600; margin-top:8px; margin-bottom:4px;">자유(랜덤) 키워드</div>
+        복지 정책 성명서, 사회 활동 기자회견, 공익 사업
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ============================================================ -->
+<!-- 부록 3: 베이지안 이론과 V40 평가 시스템                        -->
+<!-- ============================================================ -->
+<div id="appendix-bayesian" style="margin-top:60px; border-top:2px solid #d29922; padding-top:30px;">
+
+  <h2 style="color:#d29922; font-size:20px; margin-bottom:6px;">부록 3: 베이지안 이론과 V40 평가 시스템</h2>
+  <p style="color:#8b949e; font-size:13px; margin-bottom:24px;">V40이 베이지안 이론의 어떤 요소를 적용했고, 어떤 요소를 적용하지 않았는지, 그리고 그 이유</p>
+
+  <!-- 1. 베이즈 정리 -->
+  <div style="background:#0d1117; border:1px solid #30363d; border-radius:10px; padding:18px 22px; margin-bottom:20px;">
+    <h3 style="color:#58a6ff; font-size:15px; margin-bottom:12px;">1. 베이즈 정리 (Bayes' Theorem)</h3>
+    <div style="background:#161b22; border-radius:6px; padding:14px 18px; font-size:14px; text-align:center; margin-bottom:14px; letter-spacing:0.5px;">
+      <span style="color:#d2a8ff;">P(H|D)</span> = <span style="color:#7ee787;">P(D|H)</span> &times; <span style="color:#ffa657;">P(H)</span> / P(D)
+    </div>
+    <table style="width:100%; font-size:13px;">
+      <tr>
+        <th style="width:120px;">기호</th>
+        <th style="width:160px;">이름</th>
+        <th>의미</th>
+      </tr>
+      <tr>
+        <td><span style="color:#ffa657; font-weight:600;">P(H)</span></td>
+        <td><strong>Prior</strong> (사전 확률)</td>
+        <td>데이터를 보기 전의 믿음</td>
+      </tr>
+      <tr>
+        <td><span style="color:#7ee787; font-weight:600;">P(D|H)</span></td>
+        <td><strong>Likelihood</strong> (우도)</td>
+        <td>가설이 참일 때 이 데이터가 나올 확률</td>
+      </tr>
+      <tr>
+        <td><span style="color:#d2a8ff; font-weight:600;">P(H|D)</span></td>
+        <td><strong>Posterior</strong> (사후 확률)</td>
+        <td>데이터를 본 후 갱신된 믿음</td>
+      </tr>
+      <tr>
+        <td style="color:#8b949e;">P(D)</td>
+        <td><strong>Evidence</strong> (증거)</td>
+        <td>정규화 상수</td>
+      </tr>
+    </table>
+    <div style="margin-top:14px; padding:10px 14px; background:#161b22; border-radius:6px; font-size:13px; color:#c9d1d9;">
+      핵심 구조: <strong>사후 믿음 = 사전 믿음 &times; 관측 데이터의 영향</strong><br>
+      이것은 단순한 수학 공식이 아니라 <strong>"인간이 합리적으로 믿음을 갱신하는 방법"</strong>에 대한 이론
+    </div>
+  </div>
+
+  <!-- 2. V40이 가져온 것 -->
+  <div style="background:#0d1117; border:1px solid #30363d; border-radius:10px; padding:18px 22px; margin-bottom:20px;">
+    <h3 style="color:#7ee787; font-size:15px; margin-bottom:14px;">2. V40이 베이지안 이론에서 가져온 것</h3>
+
+    <div style="margin-bottom:16px;">
+      <h4 style="color:#ffa657; font-size:13px; margin-bottom:6px;">첫째, "사전 믿음(Prior)"이라는 개념</h4>
+      <div style="font-size:13px; line-height:1.9; color:#c9d1d9;">
+        베이지안 이론의 핵심 주장: <strong>데이터를 보기 전에도 합리적인 믿음이 존재함</strong><br>
+        빈도주의(Frequentist) 통계 &mdash; 오직 관측된 데이터만이 결론의 근거라고 봄. 사전 믿음을 인정하지 않음<br><br>
+        V40은 베이지안의 손을 들어줌. 정치인 평가에서 데이터를 보기 전에도 이미 아는 것이 있음 &mdash;
+        <strong>"이 사람은 선거를 통해 국민이 선택한 사람"</strong><br>
+        사전 지식을 무시하고 0에서 시작 = 빈도주의적 접근<br>
+        사전 지식을 명시적으로 수치화하여 출발점으로 삼음 = 베이지안적 접근<br><br>
+        <span class="val">Prior = 6.0</span> = <strong>"선출직 공직자에 대한 민주적 기본 신뢰"</strong>를 수치화한 것
+      </div>
+    </div>
+
+    <div style="margin-bottom:16px;">
+      <h4 style="color:#ffa657; font-size:13px; margin-bottom:6px;">둘째, "사전 믿음 + 데이터 = 갱신된 믿음"이라는 결합 구조</h4>
+      <div style="font-size:13px; line-height:1.9; color:#c9d1d9;">
+        베이지안 이론에서 결론 = Prior 단독도, 데이터 단독도 아닌 <strong>둘의 결합</strong><br>
+        V40의 공식이 정확히 이 구조를 따름:
+        <div style="background:#161b22; border-radius:6px; padding:10px 16px; margin:10px 0; font-size:14px;">
+          카테고리 점수 = <span style="color:#ffa657;">Prior</span> + <span style="color:#7ee787;">데이터 기여분</span><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          = <span style="color:#ffa657;">60</span>&nbsp;&nbsp;&nbsp;+ <span style="color:#7ee787;">Rating Score &times; 5</span>
+        </div>
+        Prior만으로 점수가 결정되지 않음. 데이터만으로도 결정되지 않음.<br>
+        둘이 합쳐져서 최종 판단이 됨 &mdash; 베이지안 이론의 기본 작동 원리이며, V40이 이 원리를 따름
+      </div>
+    </div>
+
+    <div>
+      <h4 style="color:#ffa657; font-size:13px; margin-bottom:6px;">셋째, "증거의 부재 &ne; 부재의 증거"라는 인식론</h4>
+      <div style="font-size:13px; line-height:1.9; color:#c9d1d9;">
+        데이터가 아직 없는 정치인을 0점으로 처리하지 않음<br>
+        "아직 모른다"와 "평가했는데 나쁘다"를 구분함 &mdash; 베이지안 인식론의 핵심 원칙
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. V40이 가져오지 않은 것 -->
+  <div style="background:#0d1117; border:1px solid #30363d; border-radius:10px; padding:18px 22px; margin-bottom:20px;">
+    <h3 style="color:#f85149; font-size:15px; margin-bottom:14px;">3. V40이 베이지안 이론에서 가져오지 않은 것, 그리고 그 이유</h3>
+
+    <div style="font-size:13px; line-height:1.9; color:#c9d1d9; margin-bottom:16px;">
+      <strong style="color:#f85149;">베이지안 갱신 메커니즘 &mdash; 데이터가 쌓이면 Prior가 약해지는 수학적 구조</strong><br><br>
+      정통 베이지안 시스템 &mdash; 데이터 축적될수록 Prior 영향 감소, 최종적으로 데이터가 결론을 지배함<br>
+      V40에서 Prior는 고정. 데이터가 10개든 10,000개든 Prior 기여분은 항상 60점<br><br>
+      가져오지 않은 이유: <strong>정치 도메인의 본질</strong>
+    </div>
+
+    <div style="background:#161b22; border-radius:8px; padding:14px 18px; margin-bottom:14px;">
+      <h4 style="color:#d29922; font-size:13px; margin-bottom:8px;">이유 1: 정치인이라는 존재의 전제</h4>
+      <div style="font-size:13px; line-height:1.9; color:#c9d1d9;">
+        Prior 6.0이 인코딩하는 것 = "데이터 부족에 대한 보정"이 아닌
+        <strong>"선출직 공직자에 대한 기본 신뢰"</strong><br>
+        이 신뢰는 데이터가 쌓인다고 사라질 성질이 아님<br>
+        국민이 선택했다는 사실은 평가 데이터가 1,000개 쌓여도 여전히 사실<br>
+        법정의 무죄 추정이 증거가 많아져도 원칙으로서 유지되는 것과 동일
+      </div>
+    </div>
+
+    <div style="background:#161b22; border-radius:8px; padding:14px 18px;">
+      <h4 style="color:#d29922; font-size:13px; margin-bottom:8px;">이유 2: 신인의 지속적 유입</h4>
+      <div style="font-size:13px; line-height:1.9; color:#c9d1d9;">
+        매 선거마다 새로운 정치인이 대거 진입함<br>
+        동적 계수 적용 시, 데이터 많은 중진과 데이터 적은 신인의 점수가 서로 다른 의미를 갖게 됨<br>
+        같은 80점인데 하나는 데이터 기반, 하나는 Prior 기반이면 비교 자체가 불가능<br>
+        고정 Prior = 모든 정치인에게 동일한 공식 적용 &rarr;
+        <strong>점수의 일관성과 비교 가능성</strong> 보장
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. 종합 -->
+  <div style="background:#0d1117; border:1px solid #d29922; border-radius:10px; padding:18px 22px;">
+    <h3 style="color:#d29922; font-size:15px; margin-bottom:14px;">4. V40의 정확한 위치</h3>
+    <div style="font-size:13px; line-height:1.9; color:#c9d1d9; margin-bottom:14px;">
+      V40 = 베이지안 이론의 <strong>철학과 구조</strong>를 가져오되,
+      <strong>갱신 메커니즘</strong>은 정치 도메인의 특수성에 맞게 변형한 시스템
+    </div>
+    <table style="width:100%; font-size:13px;">
+      <tr>
+        <th>베이지안 이론 요소</th>
+        <th style="width:80px;">적용 여부</th>
+        <th>근거</th>
+      </tr>
+      <tr>
+        <td>사전 믿음(Prior) 존재</td>
+        <td><span class="highlight">적용</span></td>
+        <td>선출직의 민주적 기본 신뢰</td>
+      </tr>
+      <tr>
+        <td>Prior + Data = Posterior 결합</td>
+        <td><span class="highlight">적용</span></td>
+        <td>60 + Rating Score &times; 5 = 카테고리 점수</td>
+      </tr>
+      <tr>
+        <td>증거 부재 &ne; 부재의 증거</td>
+        <td><span class="highlight">적용</span></td>
+        <td>데이터 없는 정치인 &ne; 0점</td>
+      </tr>
+      <tr>
+        <td>데이터 축적 시 Prior 감소</td>
+        <td><span class="neg">미적용</span></td>
+        <td>민주적 신뢰는 소멸하지 않음 + 신인 지속 유입으로 공식 통일 필요</td>
+      </tr>
+    </table>
+    <div style="margin-top:16px; padding:12px 16px; background:#161b22; border-left:3px solid #d29922; border-radius:0 6px 6px 0; font-size:13px; line-height:1.9; color:#e6edf3;">
+      <strong>한 문장 요약:</strong> V40은 베이지안 이론에서
+      <strong>"합리적 사전 믿음을 명시하고, 이를 데이터와 결합하여 판단"</strong>하는
+      핵심 원리를 적용하되, Prior의 동적 감소는 정치 도메인의 본질
+      (선출직의 기본 신뢰, 신인의 지속적 유입)에 맞지 않으므로
+      고정 기준선으로 운용
+    </div>
+  </div>
+
+</div>
+
+<div style="margin-top:40px; text-align:center; color:#484f58; font-size:12px;">
+  V40 정치인 평가 시스템 프로세스 다이어그램 | 작성일: 2026-02-08
+</div>
+
+</div>
+</body>
+</html>
