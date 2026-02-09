@@ -612,7 +612,7 @@ X:    {'█' * max(1, int(x_pct / 5))} {x_pct:.1f}% ({total_x:,}개)
     report += """## 7. 평가의 한계 및 유의사항
 
 ### 데이터 수집 한계
-1. **수집 기간 제한**: OFFICIAL 최근 4년, PUBLIC 최근 1년
+1. **수집 기간 제한**: OFFICIAL 최근 4년, PUBLIC 최근 2년
 2. **데이터 소스 제한**: AI 검색 결과에 의존하므로, 모든 활동이 포함되지 않을 수 있습니다.
 
 ### AI 평가 한계
@@ -709,8 +709,8 @@ def save_report(report, politician_name):
     filename = f"{politician_name}_{date_str}.md"
 
     # 보고서 폴더 생성 (V40 폴더 직접 아래)
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-    v40_dir = os.path.dirname(script_dir)  # scripts의 부모 = V40
+    script_dir = os.path.dirname(os.path.abspath(__file__))  # V40/scripts/core/
+    v40_dir = os.path.dirname(os.path.dirname(script_dir))   # V40/scripts/ → V40/
     report_dir = os.path.join(v40_dir, "보고서")
     os.makedirs(report_dir, exist_ok=True)
 

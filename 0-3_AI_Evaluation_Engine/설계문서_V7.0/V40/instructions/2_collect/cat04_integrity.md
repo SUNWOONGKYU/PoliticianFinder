@@ -16,7 +16,7 @@ Moral integrity in performing public duties without corruption or misconduct
 
 ---
 
-## 2. V40 핵심: 2개 AI 분담 수집 (40-20-40) - 최종 확정
+## 2. V40 핵심: 2개 채널 분담 수집 (40-20-40) - 최종 확정
 
 ### ⚠️ Claude/ChatGPT/Grok 수집 제외 사유
 ```
@@ -35,7 +35,7 @@ Grok X/트위터: 수집 제한적, 정치인별 편차 심함 → 수집 제외
 │    └── Naver:  10개 (25%) - 공식 .go.kr OFFICIAL 수집     │
 │       이유: 객관적 사실, 편향 없음, .go.kr 인덱싱 강함    │
 ├─────────────────────────────────────────────────────────────┤
-│ 📰 PUBLIC 데이터 (60개) - 2개 AI 분담                     │
+│ 📰 PUBLIC 데이터 (60개) - 2개 채널 분담                   │
 │    ├── Gemini: 20개 (33%) - 비언론 (YouTube,블로그,위키)  │
 │    └── Naver:  40개 (67%) - 뉴스/언론/커뮤니티 전담       │
 │       이유: 의견/평가, 편향 가능 → 독립 검색 인프라로 완화 │
@@ -427,7 +427,7 @@ tools=[{"google_search": {}}]
 
 ## 10. PUBLIC 출처 (공개 데이터 60개)
 
-**2개 AI가 분담 수집:**
+**2개 채널이 분담 수집:**
 - **Gemini 20개 (33%)**: Google Search 기반 - 비언론 전담 (YouTube, 블로그, 위키, 커뮤니티)
 - **Naver 40개 (67%)**: 자체 검색엔진 - 뉴스/언론/커뮤니티 전담
 
@@ -647,7 +647,7 @@ PUBLIC (72개): 부정 15개(21%) + 긍정 15개(21%) + 자유 42개(58%)
 | source_url | 실제 존재하는 URL | O |
 | source_type | "OFFICIAL" 또는 "PUBLIC" | O |
 | data_date | YYYY-MM-DD 형식 | O |
-| sentiment | positive/negative/neutral | O |
+| sentiment | positive/negative/free | O |
 
 ---
 
@@ -697,6 +697,45 @@ PUBLIC (72개): 부정 15개(21%) + 긍정 15개(21%) + 자유 42개(58%)
 12. OFFICIAL 10-10-80 / PUBLIC 20-20-60 균형 필수
 13. 버퍼 20%: 최대 120개까지 수집 가능
 ```
+
+---
+
+## 프롬프트 주입용 (topic_instruction)
+
+> 이 섹션은 제너릭 프롬프트 템플릿의 `{topic_instruction}` 플레이스홀더에 주입됩니다.
+> `---TOPIC_INSTRUCTION_START---` 와 `---TOPIC_INSTRUCTION_END---` 사이의 내용이 추출됩니다.
+
+---TOPIC_INSTRUCTION_START---
+[청렴성] 평가 데이터 수집
+
+수집 주제:
+- 금전 관련 형사 판결 (뇌물, 횡령, 배임)
+- 재산 신고 변동 현황
+- 공직자윤리법 관련 기록
+- 정치자금법 관련 기록
+- 선거법 관련 기록
+- 금전 관련 언론 보도
+- 한국투명성기구 평가
+- 시민단체 청렴 평가
+
+검색 키워드 예시 (OFFICIAL):
+- "{정치인명} site:bai.go.kr 보도자료"
+- "{정치인명} site:pec.go.kr"
+- "{정치인명} 재산 공개 발표"
+- "{정치인명} 정치자금"
+- "{정치인명} site:nesdc.go.kr"
+
+검색 키워드 예시 (PUBLIC):
+- "{정치인명} 청렴"
+- "{정치인명} 깨끗한 정치"
+- "{정치인명} 청렴도"
+- "{정치인명} 재산 신고 성명서"
+- "{정치인명} 감사원 발표"
+- "{정치인명} 투명"
+
+부정 키워드: 비리, 의혹, 부패, 재산논란, 금전의혹, 뇌물, 횡령, 정치자금위반
+긍정 키워드: 청렴우수, 깨끗한, 투명, 도덕적
+---TOPIC_INSTRUCTION_END---
 
 ---
 

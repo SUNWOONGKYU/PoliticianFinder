@@ -52,12 +52,13 @@ V40/
 - **수집 채널**: 2개 (Gemini CLI + Naver API)
 - **평가 AI**: 4개 (Claude, ChatGPT, Gemini, Grok)
 - **카테고리**: 10개 (expertise, leadership, vision, integrity, ethics, accountability, transparency, communication, responsiveness, publicinterest)
-- **등급**: +4 ~ -4, X (9단계), score = rating x 2
+- **등급**: +4, +3, +2, +1, -1, -2, -3, -4 (8등급, 0 없음). X = 제외(평가 불가, 등급 아님). score = rating × 2
 - **점수 공식**: category_score = (6.0 + avg_score * 0.5) * 10
+- **버퍼**: 카테고리당 20% (기본 100개, 최대 120개). 정치인당 기본 1,000개, 최대 1,200개
 - **최종 점수**: round(min(sum(10 categories), 1000)), 범위 200~1000
 - **배치 크기**: 25
 - **기간 제한**: OFFICIAL 4년, PUBLIC 2년
-- **감성 유형**: negative / positive / free (neutral 아님)
+- **감성 유형**: negative / positive / free (3종류)
 - **보고서 파일명**: 보고서/{정치인명}_{YYYYMMDD}.md
 
 ---
