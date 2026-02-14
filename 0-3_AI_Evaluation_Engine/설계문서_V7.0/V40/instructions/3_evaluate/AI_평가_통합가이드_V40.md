@@ -29,7 +29,7 @@ V40 시스템은 **4개 AI가 독립적으로 전체 데이터를 평가**합니
 | AI | 모델 | 방식 | 비용 | 자동화 |
 |----|------|------|------|--------|
 | **Claude** | Haiku 4.5 | CLI Direct / Skill | $0 (구독) | 반자동 / Skill 자동 |
-| **ChatGPT** | gpt-5.1-codex-mini | Codex CLI Direct | $0.225/1K | 완전 자동 |
+| **ChatGPT** | gpt-5.1-codex-mini | Codex CLI Direct | $1.125/1K | 완전 자동 |
 | **Gemini** | 2.0 Flash | CLI Subprocess | $0 (구독) | 완전 자동 |
 | **Grok** | Grok 2 | curl CLI Direct | API 비용 | 완전 자동 |
 
@@ -45,9 +45,9 @@ V40 시스템은 **4개 AI가 독립적으로 전체 데이터를 평가**합니
 - 교차 검증 가능 (AI 간 일치도 확인)
 
 **비용 최적화:**
-- CLI 방식 채택으로 99.5% 비용 절감
+- CLI 방식 채택으로 97.5% 비용 절감
 - 구독 플랜 활용 (Claude/Gemini 무료)
-- ChatGPT도 gpt-5.1-codex-mini로 200배 저렴
+- ChatGPT도 gpt-5.1-codex-mini로 40배 저렴
 
 ---
 
@@ -69,11 +69,11 @@ V40 시스템은 **4개 AI가 독립적으로 전체 데이터를 평가**합니
 |----|----------------|----------------|--------|
 | **Claude** | $0.75/1K | $0 (Pro 구독) | **100%** |
 | **Gemini** | $0.19/1K (+ 할당량 제한) | $0 (AI Studio Pro) | **100%** |
-| **ChatGPT** | $45/1K (gpt-4) | $0.225/1K (gpt-5.1-codex-mini) | **99.5%** |
+| **ChatGPT** | $45/1K (gpt-4) | $1.125/1K (gpt-5.1-codex-mini) | **97.5%** |
 | **Grok** | 미공개 | API 비용 (Agent Tools) | - |
-| **총계** | ~$46/1K 평가 | ~$0.23/1K 평가 | **99.5%** |
+| **총계** | ~$46/1K 평가 | ~$1.13/1K 평가 | **97.5%** |
 
-**💡 핵심 인사이트**: "API가 아니라 CLI로 가라. 구독 플랜이 API보다 200배 저렴하다."
+**💡 핵심 인사이트**: "API가 아니라 CLI로 가라. 구독 플랜이 API보다 40배 저렴하다."
 
 📄 **상세 분석**: `V40_AI_평가_방식_및_비용_종합_분석.md` 참조
 
@@ -427,7 +427,7 @@ WHERE id NOT IN (
 | AI | 방식 | 모델 | 배치 | 비용 | 자동화 | 스크립트 |
 |----|------|------|------|------|--------|----------|
 | **Claude** | CLI Direct<br>Skill | Haiku 4.5 | 25/50 | $0 | 반자동<br>완전자동 | claude_eval_helper.py<br>/evaluate-politician-v40 |
-| **ChatGPT** | Codex CLI | gpt-5.1-codex-mini | 25 (재시도 5) | $0.225/1K | 완전 자동 | codex_eval_helper.py |
+| **ChatGPT** | Codex CLI | gpt-5.1-codex-mini | 25 (재시도 5) | $1.125/1K | 완전 자동 | codex_eval_helper.py |
 | **Gemini** | CLI Subprocess | 2.0 Flash | 25 | $0 | 완전 자동 | evaluate_gemini_subprocess.py |
 | **Grok** | curl CLI | Grok 2 | 25 | API 비용 | 완전 자동 | grok_eval_helper.py |
 
@@ -442,7 +442,7 @@ WHERE id NOT IN (
 
 **총 소요 시간**: ~30분/정치인 (4,000개 평가)
 
-**총 비용**: ~$0.23/정치인 (API 방식 대비 99.5% 절감)
+**총 비용**: ~$0.23/정치인 (API 방식 대비 97.5% 절감)
 
 ---
 
