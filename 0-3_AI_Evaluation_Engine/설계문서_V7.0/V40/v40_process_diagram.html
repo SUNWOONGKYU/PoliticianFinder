@@ -984,7 +984,7 @@ INSERT INTO politicians (
                         </div>
                     </div>
 
-                    <h3>🔧 기술적 방식 비교: CLI vs API (5개월 시행착오)</h3>
+                    <h3>🔧 기술적 방식 비교: CLI vs API</h3>
                     <table>
                         <thead>
                             <tr>
@@ -1070,7 +1070,7 @@ INSERT INTO politicians (
                         <p>✅ <strong>핵심 인사이트:</strong> ChatGPT gpt-4 ($45) → gpt-5.1-codex-mini ($1.125) = <strong>40배 저렴</strong></p>
                     </div>
 
-                    <h3>🚀 성능 최적화 (V40 개선)</h3>
+                    <h3>🚀 성능 최적화</h3>
                     <table>
                         <thead>
                             <tr>
@@ -1108,9 +1108,6 @@ INSERT INTO politicians (
                         </tbody>
                     </table>
 
-                    <div class="success-box">
-                        <p>⚡ 이전 대비 평균 <strong>7배 빠른</strong> 평가 속도</p>
-                    </div>
 
                     <h3>평가 등급 체계</h3>
                     <table>
@@ -1615,7 +1612,6 @@ WHERE politician_id = '...'
                 <div class="category-card">
                     <h3>7️⃣ CLI 방식 = 97.5% 비용 절감</h3>
                     <p>API ~$46/정치인 → CLI ~$1.13/정치인</p>
-                    <p>→ 5개월 시행착오 끝에 발견한 최적해</p>
                 </div>
             </div>
         </section>
@@ -1975,7 +1971,330 @@ python generate_report_v40.py 507226bb 박주민
                         </tbody>
                     </table>
 
-                    <p style="margin-top: 32px;"><em>각 카테고리별 10개 평가 항목 상세 내용은 마크다운 원본 문서를 참조하세요.</em></p>
+                    <!-- 카테고리별 평가 항목 상세 -->
+                    <div style="margin-top: 32px;">
+                        <h3 style="margin-bottom: 24px;">카테고리별 평가 항목 상세</h3>
+
+                        <!-- Category 1: Expertise -->
+                        <div style="margin-bottom: 40px;">
+                            <h4 style="color: #2563eb; margin-bottom: 12px;">카테고리 1: Expertise (전문성)</h4>
+                            <p style="margin-bottom: 16px;"><strong>정의:</strong> 직무 수행에 필요한 지식, 기술, 경험 보유 수준</p>
+                            <table style="width: 100%; border-collapse: collapse; margin-bottom: 16px;">
+                                <thead>
+                                    <tr style="background-color: #f3f4f6;">
+                                        <th style="border: 1px solid #d1d5db; padding: 8px; text-align: left; width: 10%;">#</th>
+                                        <th style="border: 1px solid #d1d5db; padding: 8px; text-align: left; width: 30%;">평가 항목</th>
+                                        <th style="border: 1px solid #d1d5db; padding: 8px; text-align: left; width: 60%;">설명</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">1-1</td><td style="border: 1px solid #d1d5db; padding: 8px;">최종 학력 수준</td><td style="border: 1px solid #d1d5db; padding: 8px;">박사/석사/학사/전문대 학위</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">1-2</td><td style="border: 1px solid #d1d5db; padding: 8px;">직무 관련 자격증</td><td style="border: 1px solid #d1d5db; padding: 8px;">변호사, CPA, 교원자격증 등</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">1-3</td><td style="border: 1px solid #d1d5db; padding: 8px;">관련 분야 경력 연수</td><td style="border: 1px solid #d1d5db; padding: 8px;">공직+민간 경력 합산</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">1-4</td><td style="border: 1px solid #d1d5db; padding: 8px;">직무 교육 이수</td><td style="border: 1px solid #d1d5db; padding: 8px;">의회/기관 교육 참여 시간</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">1-5</td><td style="border: 1px solid #d1d5db; padding: 8px;">전문 분야 기고/저서</td><td style="border: 1px solid #d1d5db; padding: 8px;">전문지 기고, 저서 출판</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">1-6</td><td style="border: 1px solid #d1d5db; padding: 8px;">학술 연구 실적</td><td style="border: 1px solid #d1d5db; padding: 8px;">논문, Google Scholar 피인용</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">1-7</td><td style="border: 1px solid #d1d5db; padding: 8px;">위키피디아 전문성 기술</td><td style="border: 1px solid #d1d5db; padding: 8px;">학력/경력 조회수</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">1-8</td><td style="border: 1px solid #d1d5db; padding: 8px;">전문 분야 평가 기록</td><td style="border: 1px solid #d1d5db; padding: 8px;">학술/전문 분야 외부 평가</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">1-9</td><td style="border: 1px solid #d1d5db; padding: 8px;">위원회 활동 기록</td><td style="border: 1px solid #d1d5db; padding: 8px;">자문위원, 심의위원 활동</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">1-10</td><td style="border: 1px solid #d1d5db; padding: 8px;">전문성 관련 언론 평가</td><td style="border: 1px solid #d1d5db; padding: 8px;">전문성 키워드 보도</td></tr>
+                                </tbody>
+                            </table>
+                            <div class="info-box" style="background-color: #f0f9ff; padding: 12px; border-left: 4px solid #2563eb; margin-bottom: 8px;">
+                                <p style="margin: 4px 0;"><strong>긍정 키워드:</strong> 전문가 뉴스, 경력 우수, 법안 발의 성과, 정책 전문</p>
+                                <p style="margin: 4px 0;"><strong>부정 키워드:</strong> 학력 위조, 경력 논란, 무능, 전문성 부족</p>
+                                <p style="margin: 4px 0;"><strong>자유 키워드:</strong> 학력 성명서, 경력 발표, 이력 기자회견, 프로필</p>
+                            </div>
+                        </div>
+
+                        <!-- Category 2: Leadership -->
+                        <div style="margin-bottom: 40px;">
+                            <h4 style="color: #2563eb; margin-bottom: 12px;">카테고리 2: Leadership (리더십)</h4>
+                            <p style="margin-bottom: 16px;"><strong>정의:</strong> 조직과 사람을 효과적으로 이끌어 목표 달성 능력</p>
+                            <table style="width: 100%; border-collapse: collapse; margin-bottom: 16px;">
+                                <thead>
+                                    <tr style="background-color: #f3f4f6;">
+                                        <th style="border: 1px solid #d1d5db; padding: 8px; text-align: left; width: 10%;">#</th>
+                                        <th style="border: 1px solid #d1d5db; padding: 8px; text-align: left; width: 30%;">평가 항목</th>
+                                        <th style="border: 1px solid #d1d5db; padding: 8px; text-align: left; width: 60%;">설명</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">2-1</td><td style="border: 1px solid #d1d5db; padding: 8px;">법안 발의 건수</td><td style="border: 1px solid #d1d5db; padding: 8px;">대표발의 법안 수</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">2-2</td><td style="border: 1px solid #d1d5db; padding: 8px;">법안 통과율</td><td style="border: 1px solid #d1d5db; padding: 8px;">발의 대비 통과 비율</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">2-3</td><td style="border: 1px solid #d1d5db; padding: 8px;">위원회 위원장 경험</td><td style="border: 1px solid #d1d5db; padding: 8px;">상임위/특위 위원장</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">2-4</td><td style="border: 1px solid #d1d5db; padding: 8px;">당직 경력</td><td style="border: 1px solid #d1d5db; padding: 8px;">당대표, 원내대표, 최고위원</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">2-5</td><td style="border: 1px solid #d1d5db; padding: 8px;">조직 확대 실적</td><td style="border: 1px solid #d1d5db; padding: 8px;">당원 증가, 지지율 상승</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">2-6</td><td style="border: 1px solid #d1d5db; padding: 8px;">위기 대응 사례</td><td style="border: 1px solid #d1d5db; padding: 8px;">재난/사건 대응 리더십</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">2-7</td><td style="border: 1px solid #d1d5db; padding: 8px;">정책 추진력</td><td style="border: 1px solid #d1d5db; padding: 8px;">주요 정책 관철 사례</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">2-8</td><td style="border: 1px solid #d1d5db; padding: 8px;">리더십 관련 언론 평가</td><td style="border: 1px solid #d1d5db; padding: 8px;">리더십 키워드 보도</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">2-9</td><td style="border: 1px solid #d1d5db; padding: 8px;">의회 협력 활동 기록</td><td style="border: 1px solid #d1d5db; padding: 8px;">여야 협상, 연대 활동</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">2-10</td><td style="border: 1px solid #d1d5db; padding: 8px;">리더십 관련 평가 기록</td><td style="border: 1px solid #d1d5db; padding: 8px;">리더십 외부 평가</td></tr>
+                                </tbody>
+                            </table>
+                            <div class="info-box" style="background-color: #f0f9ff; padding: 12px; border-left: 4px solid #2563eb; margin-bottom: 8px;">
+                                <p style="margin: 4px 0;"><strong>긍정 키워드:</strong> 리더십 뉴스, 추진력, 법안 통과, 위기 대응 성공</p>
+                                <p style="margin: 4px 0;"><strong>부정 키워드:</strong> 리더십 부재, 조직 분열, 법안 무산, 당내 갈등</p>
+                                <p style="margin: 4px 0;"><strong>자유 키워드:</strong> 위원회 활동 성명서, 당직 발표, 의정활동 기자회견</p>
+                            </div>
+                        </div>
+
+                        <!-- Category 3: Vision -->
+                        <div style="margin-bottom: 40px;">
+                            <h4 style="color: #2563eb; margin-bottom: 12px;">카테고리 3: Vision (비전)</h4>
+                            <p style="margin-bottom: 16px;"><strong>정의:</strong> 미래를 예측하고 장기적 목표 제시 능력</p>
+                            <table style="width: 100%; border-collapse: collapse; margin-bottom: 16px;">
+                                <thead>
+                                    <tr style="background-color: #f3f4f6;">
+                                        <th style="border: 1px solid #d1d5db; padding: 8px; text-align: left; width: 10%;">#</th>
+                                        <th style="border: 1px solid #d1d5db; padding: 8px; text-align: left; width: 30%;">평가 항목</th>
+                                        <th style="border: 1px solid #d1d5db; padding: 8px; text-align: left; width: 60%;">설명</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">3-1</td><td style="border: 1px solid #d1d5db; padding: 8px;">중장기 발전 계획</td><td style="border: 1px solid #d1d5db; padding: 8px;">4년 이상 계획 수립 여부</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">3-2</td><td style="border: 1px solid #d1d5db; padding: 8px;">미래 투자 예산</td><td style="border: 1px solid #d1d5db; padding: 8px;">R&D, 교육, 신산업 예산 비율</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">3-3</td><td style="border: 1px solid #d1d5db; padding: 8px;">사회 발전 관련 예산</td><td style="border: 1px solid #d1d5db; padding: 8px;">환경, 기후, 복지 예산</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">3-4</td><td style="border: 1px solid #d1d5db; padding: 8px;">기술 발전 관련 정책</td><td style="border: 1px solid #d1d5db; padding: 8px;">AI, 스마트시티 예산/사업</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">3-5</td><td style="border: 1px solid #d1d5db; padding: 8px;">미래 정책 제안</td><td style="border: 1px solid #d1d5db; padding: 8px;">혁신, 미래 키워드 정책</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">3-6</td><td style="border: 1px solid #d1d5db; padding: 8px;">청년층 정책</td><td style="border: 1px solid #d1d5db; padding: 8px;">청년 대상 정책 발의/추진</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">3-7</td><td style="border: 1px solid #d1d5db; padding: 8px;">해외 사례 벤치마킹</td><td style="border: 1px solid #d1d5db; padding: 8px;">해외 정책 도입 사례</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">3-8</td><td style="border: 1px solid #d1d5db; padding: 8px;">미래 키워드 보도</td><td style="border: 1px solid #d1d5db; padding: 8px;">혁신, 미래, 디지털 보도</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">3-9</td><td style="border: 1px solid #d1d5db; padding: 8px;">장기 공약 제시</td><td style="border: 1px solid #d1d5db; padding: 8px;">임기 후에도 지속되는 공약</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">3-10</td><td style="border: 1px solid #d1d5db; padding: 8px;">비전 관련 연설/기고</td><td style="border: 1px solid #d1d5db; padding: 8px;">미래 비전 연설, 기고문</td></tr>
+                                </tbody>
+                            </table>
+                            <div class="info-box" style="background-color: #f0f9ff; padding: 12px; border-left: 4px solid #2563eb; margin-bottom: 8px;">
+                                <p style="margin: 4px 0;"><strong>긍정 키워드:</strong> 혁신 뉴스, 미래지향, 비전 제시</p>
+                                <p style="margin: 4px 0;"><strong>부정 키워드:</strong> 구태, 비전 부재, 안일</p>
+                                <p style="margin: 4px 0;"><strong>자유 키워드:</strong> 정책 방향 성명서, 비전 기자회견</p>
+                            </div>
+                        </div>
+
+                        <!-- Category 4: Integrity -->
+                        <div style="margin-bottom: 40px;">
+                            <h4 style="color: #2563eb; margin-bottom: 12px;">카테고리 4: Integrity (청렴성)</h4>
+                            <p style="margin-bottom: 16px;"><strong>정의:</strong> 금전적/물질적 부패 저지르지 않는 자질</p>
+                            <table style="width: 100%; border-collapse: collapse; margin-bottom: 16px;">
+                                <thead>
+                                    <tr style="background-color: #f3f4f6;">
+                                        <th style="border: 1px solid #d1d5db; padding: 8px; text-align: left; width: 10%;">#</th>
+                                        <th style="border: 1px solid #d1d5db; padding: 8px; text-align: left; width: 30%;">평가 항목</th>
+                                        <th style="border: 1px solid #d1d5db; padding: 8px; text-align: left; width: 60%;">설명</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">4-1</td><td style="border: 1px solid #d1d5db; padding: 8px;">금전 관련 형사 판결 내용</td><td style="border: 1px solid #d1d5db; padding: 8px;">뇌물, 횡령, 배임 관련 판결</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">4-2</td><td style="border: 1px solid #d1d5db; padding: 8px;">재산 신고 변동 현황</td><td style="border: 1px solid #d1d5db; padding: 8px;">재산 증감 내역</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">4-3</td><td style="border: 1px solid #d1d5db; padding: 8px;">공직자윤리법 관련 기록</td><td style="border: 1px solid #d1d5db; padding: 8px;">공직자윤리위 심의 내용</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">4-4</td><td style="border: 1px solid #d1d5db; padding: 8px;">정치자금법 관련 기록</td><td style="border: 1px solid #d1d5db; padding: 8px;">선관위 관련 처분 내용</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">4-5</td><td style="border: 1px solid #d1d5db; padding: 8px;">선거법 관련 기록</td><td style="border: 1px solid #d1d5db; padding: 8px;">선거 관련 위반 내용</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">4-6</td><td style="border: 1px solid #d1d5db; padding: 8px;">금전 관련 언론 보도</td><td style="border: 1px solid #d1d5db; padding: 8px;">금전/재산 키워드 보도</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">4-7</td><td style="border: 1px solid #d1d5db; padding: 8px;">한국투명성기구 평가</td><td style="border: 1px solid #d1d5db; padding: 8px;">TI Korea 청렴도 등급</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">4-8</td><td style="border: 1px solid #d1d5db; padding: 8px;">시민단체 청렴 평가</td><td style="border: 1px solid #d1d5db; padding: 8px;">참여연대 등 청렴 평가</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">4-9</td><td style="border: 1px solid #d1d5db; padding: 8px;">정치자금 관련 보도</td><td style="border: 1px solid #d1d5db; padding: 8px;">정치자금 키워드 보도</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">4-10</td><td style="border: 1px solid #d1d5db; padding: 8px;">청렴 관련 평가 기록</td><td style="border: 1px solid #d1d5db; padding: 8px;">청렴 외부 평가</td></tr>
+                                </tbody>
+                            </table>
+                            <div class="info-box" style="background-color: #f0f9ff; padding: 12px; border-left: 4px solid #2563eb; margin-bottom: 8px;">
+                                <p style="margin: 4px 0;"><strong>긍정 키워드:</strong> 청렴 뉴스, 깨끗한 정치, 청렴도 1위</p>
+                                <p style="margin: 4px 0;"><strong>부정 키워드:</strong> 비리 의혹, 뇌물, 횡령, 정치자금 위반</p>
+                                <p style="margin: 4px 0;"><strong>자유 키워드:</strong> 재산 신고 성명서, 감사원 발표</p>
+                            </div>
+                        </div>
+
+                        <!-- Category 5: Ethics -->
+                        <div style="margin-bottom: 40px;">
+                            <h4 style="color: #2563eb; margin-bottom: 12px;">카테고리 5: Ethics (윤리성)</h4>
+                            <p style="margin-bottom: 16px;"><strong>정의:</strong> 사회적 규범과 도덕적 품위 유지 자질</p>
+                            <table style="width: 100%; border-collapse: collapse; margin-bottom: 16px;">
+                                <thead>
+                                    <tr style="background-color: #f3f4f6;">
+                                        <th style="border: 1px solid #d1d5db; padding: 8px; text-align: left; width: 10%;">#</th>
+                                        <th style="border: 1px solid #d1d5db; padding: 8px; text-align: left; width: 30%;">평가 항목</th>
+                                        <th style="border: 1px solid #d1d5db; padding: 8px; text-align: left; width: 60%;">설명</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">5-1</td><td style="border: 1px solid #d1d5db; padding: 8px;">형사 판결 기록</td><td style="border: 1px solid #d1d5db; padding: 8px;">비부패 형사범죄 판결 내용</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">5-2</td><td style="border: 1px solid #d1d5db; padding: 8px;">성문제 관련 판결 내용</td><td style="border: 1px solid #d1d5db; padding: 8px;">성범죄 관련 판결</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">5-3</td><td style="border: 1px solid #d1d5db; padding: 8px;">윤리위원회 심의 내용</td><td style="border: 1px solid #d1d5db; padding: 8px;">의회 윤리위 심의</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">5-4</td><td style="border: 1px solid #d1d5db; padding: 8px;">국가인권위 시정권고</td><td style="border: 1px solid #d1d5db; padding: 8px;">인권위 권고/결정</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">5-5</td><td style="border: 1px solid #d1d5db; padding: 8px;">저작 관련 검증 기록</td><td style="border: 1px solid #d1d5db; padding: 8px;">논문, 저서 검증 내용</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">5-6</td><td style="border: 1px solid #d1d5db; padding: 8px;">공개 발언 태도 관련 보도</td><td style="border: 1px solid #d1d5db; padding: 8px;">발언 태도 키워드 보도</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">5-7</td><td style="border: 1px solid #d1d5db; padding: 8px;">사회 배려 문제 발언 관련 보도</td><td style="border: 1px solid #d1d5db; padding: 8px;">성별, 지역, 세대 발언 보도</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">5-8</td><td style="border: 1px solid #d1d5db; padding: 8px;">품위유지 관련 보도</td><td style="border: 1px solid #d1d5db; padding: 8px;">품위 키워드 보도</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">5-9</td><td style="border: 1px solid #d1d5db; padding: 8px;">시민단체 윤리 평가</td><td style="border: 1px solid #d1d5db; padding: 8px;">윤리성 평가 점수</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">5-10</td><td style="border: 1px solid #d1d5db; padding: 8px;">가족문제 관련 보도</td><td style="border: 1px solid #d1d5db; padding: 8px;">가족 관련 보도</td></tr>
+                                </tbody>
+                            </table>
+                            <div class="info-box" style="background-color: #f0f9ff; padding: 12px; border-left: 4px solid #2563eb; margin-bottom: 8px;">
+                                <p style="margin: 4px 0;"><strong>긍정 키워드:</strong> 도덕적 뉴스, 모범, 품위</p>
+                                <p style="margin: 4px 0;"><strong>부정 키워드:</strong> 논란, 막말, 표절, 가족 논란</p>
+                                <p style="margin: 4px 0;"><strong>자유 키워드:</strong> 인사청문회 성명서, 검증 기자회견</p>
+                            </div>
+                        </div>
+
+                        <!-- Category 6: Accountability -->
+                        <div style="margin-bottom: 40px;">
+                            <h4 style="color: #2563eb; margin-bottom: 12px;">카테고리 6: Accountability (책임감)</h4>
+                            <p style="margin-bottom: 16px;"><strong>정의:</strong> 맡은 직무와 약속에 끝까지 책임지는 자세</p>
+                            <table style="width: 100%; border-collapse: collapse; margin-bottom: 16px;">
+                                <thead>
+                                    <tr style="background-color: #f3f4f6;">
+                                        <th style="border: 1px solid #d1d5db; padding: 8px; text-align: left; width: 10%;">#</th>
+                                        <th style="border: 1px solid #d1d5db; padding: 8px; text-align: left; width: 30%;">평가 항목</th>
+                                        <th style="border: 1px solid #d1d5db; padding: 8px; text-align: left; width: 60%;">설명</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">6-1</td><td style="border: 1px solid #d1d5db; padding: 8px;">공약 이행률</td><td style="border: 1px solid #d1d5db; padding: 8px;">(완료 공약/총 공약) × 100</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">6-2</td><td style="border: 1px solid #d1d5db; padding: 8px;">회의 출석률</td><td style="border: 1px solid #d1d5db; padding: 8px;">본회의, 위원회 출석률</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">6-3</td><td style="border: 1px solid #d1d5db; padding: 8px;">예산 집행률</td><td style="border: 1px solid #d1d5db; padding: 8px;">(집행액/확정 예산) × 100</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">6-4</td><td style="border: 1px solid #d1d5db; padding: 8px;">감사 지적 개선</td><td style="border: 1px solid #d1d5db; padding: 8px;">감사 지적 개선 완료율</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">6-5</td><td style="border: 1px solid #d1d5db; padding: 8px;">매니페스토 평가 등급</td><td style="border: 1px solid #d1d5db; padding: 8px;">공약 이행 평가 등급</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">6-6</td><td style="border: 1px solid #d1d5db; padding: 8px;">의정 활동 보고 빈도</td><td style="border: 1px solid #d1d5db; padding: 8px;">정기적 활동 보고</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">6-7</td><td style="border: 1px solid #d1d5db; padding: 8px;">시민단체 의정 감시 평가</td><td style="border: 1px solid #d1d5db; padding: 8px;">참여연대 등 평가 점수</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">6-8</td><td style="border: 1px solid #d1d5db; padding: 8px;">직무 수행 관련 보도</td><td style="border: 1px solid #d1d5db; padding: 8px;">직무 수행 키워드 보도</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">6-9</td><td style="border: 1px solid #d1d5db; padding: 8px;">책임 이행 관련 보도</td><td style="border: 1px solid #d1d5db; padding: 8px;">책임 이행 키워드 보도</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">6-10</td><td style="border: 1px solid #d1d5db; padding: 8px;">사후 책임 이행</td><td style="border: 1px solid #d1d5db; padding: 8px;">실패 인정, 개선 약속 이행</td></tr>
+                                </tbody>
+                            </table>
+                            <div class="info-box" style="background-color: #f0f9ff; padding: 12px; border-left: 4px solid #2563eb; margin-bottom: 8px;">
+                                <p style="margin: 4px 0;"><strong>긍정 키워드:</strong> 공약 이행 뉴스, 책임 완수, 성실</p>
+                                <p style="margin: 4px 0;"><strong>부정 키워드:</strong> 공약 불이행, 직무 태만, 책임 회피</p>
+                                <p style="margin: 4px 0;"><strong>자유 키워드:</strong> 공약 성명서, 의정활동 기자회견, 출석</p>
+                            </div>
+                        </div>
+
+                        <!-- Category 7: Transparency -->
+                        <div style="margin-bottom: 40px;">
+                            <h4 style="color: #2563eb; margin-bottom: 12px;">카테고리 7: Transparency (투명성)</h4>
+                            <p style="margin-bottom: 16px;"><strong>정의:</strong> 정보를 투명하게 공개하고 숨기지 않는 자세</p>
+                            <table style="width: 100%; border-collapse: collapse; margin-bottom: 16px;">
+                                <thead>
+                                    <tr style="background-color: #f3f4f6;">
+                                        <th style="border: 1px solid #d1d5db; padding: 8px; text-align: left; width: 10%;">#</th>
+                                        <th style="border: 1px solid #d1d5db; padding: 8px; text-align: left; width: 30%;">평가 항목</th>
+                                        <th style="border: 1px solid #d1d5db; padding: 8px; text-align: left; width: 60%;">설명</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">7-1</td><td style="border: 1px solid #d1d5db; padding: 8px;">정보공개 청구 응답률</td><td style="border: 1px solid #d1d5db; padding: 8px;">정보공개포털 응답률</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">7-2</td><td style="border: 1px solid #d1d5db; padding: 8px;">회의록 공개율</td><td style="border: 1px solid #d1d5db; padding: 8px;">회의록 완전 공개 비율</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">7-3</td><td style="border: 1px solid #d1d5db; padding: 8px;">재산 공개 성실도</td><td style="border: 1px solid #d1d5db; padding: 8px;">재산 상세 기재 여부</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">7-4</td><td style="border: 1px solid #d1d5db; padding: 8px;">예산 집행 상세 공개</td><td style="border: 1px solid #d1d5db; padding: 8px;">세목 공개 수준</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">7-5</td><td style="border: 1px solid #d1d5db; padding: 8px;">자료 제출 성실성 관련 보도</td><td style="border: 1px solid #d1d5db; padding: 8px;">청문회 등 자료 제출 관련</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">7-6</td><td style="border: 1px solid #d1d5db; padding: 8px;">정보공개센터 평가</td><td style="border: 1px solid #d1d5db; padding: 8px;">정보공개 우수 사례 등재</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">7-7</td><td style="border: 1px solid #d1d5db; padding: 8px;">투명성 관련 보도</td><td style="border: 1px solid #d1d5db; padding: 8px;">투명, 공개 키워드 보도</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">7-8</td><td style="border: 1px solid #d1d5db; padding: 8px;">정보공개 관련 보도</td><td style="border: 1px solid #d1d5db; padding: 8px;">비공개 결정 관련 보도</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">7-9</td><td style="border: 1px solid #d1d5db; padding: 8px;">언론 대응 투명성</td><td style="border: 1px solid #d1d5db; padding: 8px;">기자회견, 질의응답 참여</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">7-10</td><td style="border: 1px solid #d1d5db; padding: 8px;">일정 공개 수준</td><td style="border: 1px solid #d1d5db; padding: 8px;">공식 일정 사전 공개</td></tr>
+                                </tbody>
+                            </table>
+                            <div class="info-box" style="background-color: #f0f9ff; padding: 12px; border-left: 4px solid #2563eb; margin-bottom: 8px;">
+                                <p style="margin: 4px 0;"><strong>긍정 키워드:</strong> 투명 공개 뉴스, 정보공개 우수, 공개 행정</p>
+                                <p style="margin: 4px 0;"><strong>부정 키워드:</strong> 자료 제출 거부, 비공개, 은폐</p>
+                                <p style="margin: 4px 0;"><strong>자유 키워드:</strong> 정보공개 성명서, 재산 신고 기자회견, 회의록</p>
+                            </div>
+                        </div>
+
+                        <!-- Category 8: Communication -->
+                        <div style="margin-bottom: 40px;">
+                            <h4 style="color: #2563eb; margin-bottom: 12px;">카테고리 8: Communication (소통능력)</h4>
+                            <p style="margin-bottom: 16px;"><strong>정의:</strong> 국민과 효과적으로 대화하고 의견 교환 능력</p>
+                            <table style="width: 100%; border-collapse: collapse; margin-bottom: 16px;">
+                                <thead>
+                                    <tr style="background-color: #f3f4f6;">
+                                        <th style="border: 1px solid #d1d5db; padding: 8px; text-align: left; width: 10%;">#</th>
+                                        <th style="border: 1px solid #d1d5db; padding: 8px; text-align: left; width: 30%;">평가 항목</th>
+                                        <th style="border: 1px solid #d1d5db; padding: 8px; text-align: left; width: 60%;">설명</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">8-1</td><td style="border: 1px solid #d1d5db; padding: 8px;">시민 간담회 개최</td><td style="border: 1px solid #d1d5db; padding: 8px;">연간 간담회 건수</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">8-2</td><td style="border: 1px solid #d1d5db; padding: 8px;">공청회/토론회 개최</td><td style="border: 1px solid #d1d5db; padding: 8px;">연간 공청회/토론회 건수</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">8-3</td><td style="border: 1px solid #d1d5db; padding: 8px;">공식 소통 채널 운영</td><td style="border: 1px solid #d1d5db; padding: 8px;">홈페이지, SNS 운영 개수</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">8-4</td><td style="border: 1px solid #d1d5db; padding: 8px;">시민 제안 수용</td><td style="border: 1px solid #d1d5db; padding: 8px;">제안 수용 건수/비율</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">8-5</td><td style="border: 1px solid #d1d5db; padding: 8px;">SNS 소통 활동</td><td style="border: 1px solid #d1d5db; padding: 8px;">팔로워 × 참여율</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">8-6</td><td style="border: 1px solid #d1d5db; padding: 8px;">SNS 댓글 응답</td><td style="border: 1px solid #d1d5db; padding: 8px;">댓글 응답 건수/비율</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">8-7</td><td style="border: 1px solid #d1d5db; padding: 8px;">토론 참여 평가</td><td style="border: 1px solid #d1d5db; padding: 8px;">토론 능력 언론 평가</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">8-8</td><td style="border: 1px solid #d1d5db; padding: 8px;">소통 적극성 관련 보도</td><td style="border: 1px solid #d1d5db; padding: 8px;">소통 키워드 보도</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">8-9</td><td style="border: 1px solid #d1d5db; padding: 8px;">경청 자세 평가</td><td style="border: 1px solid #d1d5db; padding: 8px;">경청, 공감 관련 평가</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">8-10</td><td style="border: 1px solid #d1d5db; padding: 8px;">소통 관련 평가 기록</td><td style="border: 1px solid #d1d5db; padding: 8px;">소통 외부 평가</td></tr>
+                                </tbody>
+                            </table>
+                            <div class="info-box" style="background-color: #f0f9ff; padding: 12px; border-left: 4px solid #2563eb; margin-bottom: 8px;">
+                                <p style="margin: 4px 0;"><strong>긍정 키워드:</strong> 소통 뉴스, 친근, 소통왕</p>
+                                <p style="margin: 4px 0;"><strong>부정 키워드:</strong> 불통, 소통 부재, 권위적</p>
+                                <p style="margin: 4px 0;"><strong>자유 키워드:</strong> 인터뷰 성명서, SNS 발표</p>
+                            </div>
+                        </div>
+
+                        <!-- Category 9: Responsiveness -->
+                        <div style="margin-bottom: 40px;">
+                            <h4 style="color: #2563eb; margin-bottom: 12px;">카테고리 9: Responsiveness (대응성)</h4>
+                            <p style="margin-bottom: 16px;"><strong>정의:</strong> 민원/요구/피드백에 신속하고 적절하게 대응 능력</p>
+                            <table style="width: 100%; border-collapse: collapse; margin-bottom: 16px;">
+                                <thead>
+                                    <tr style="background-color: #f3f4f6;">
+                                        <th style="border: 1px solid #d1d5db; padding: 8px; text-align: left; width: 10%;">#</th>
+                                        <th style="border: 1px solid #d1d5db; padding: 8px; text-align: left; width: 30%;">평가 항목</th>
+                                        <th style="border: 1px solid #d1d5db; padding: 8px; text-align: left; width: 60%;">설명</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">9-1</td><td style="border: 1px solid #d1d5db; padding: 8px;">주민참여예산 규모</td><td style="border: 1px solid #d1d5db; padding: 8px;">참여예산 금액</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">9-2</td><td style="border: 1px solid #d1d5db; padding: 8px;">정보공개 처리 기간</td><td style="border: 1px solid #d1d5db; padding: 8px;">평균 처리 일수</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">9-3</td><td style="border: 1px solid #d1d5db; padding: 8px;">주민 제안 반영</td><td style="border: 1px solid #d1d5db; padding: 8px;">반영 건수/비율</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">9-4</td><td style="border: 1px solid #d1d5db; padding: 8px;">지역 현안 대응</td><td style="border: 1px solid #d1d5db; padding: 8px;">현장 점검, 대책 발표 건수</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">9-5</td><td style="border: 1px solid #d1d5db; padding: 8px;">재난 대응 실적</td><td style="border: 1px solid #d1d5db; padding: 8px;">재난 현장 대응 평가</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">9-6</td><td style="border: 1px solid #d1d5db; padding: 8px;">위기 대응 보도</td><td style="border: 1px solid #d1d5db; padding: 8px;">위기 대응, 재난 대응 보도</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">9-7</td><td style="border: 1px solid #d1d5db; padding: 8px;">현장 방문 보도</td><td style="border: 1px solid #d1d5db; padding: 8px;">현장 방문 키워드 보도</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">9-8</td><td style="border: 1px solid #d1d5db; padding: 8px;">민원 처리 만족도</td><td style="border: 1px solid #d1d5db; padding: 8px;">민원 처리 만족도 조사</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">9-9</td><td style="border: 1px solid #d1d5db; padding: 8px;">대응 속도 관련 보도</td><td style="border: 1px solid #d1d5db; padding: 8px;">대응 속도 키워드 보도</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">9-10</td><td style="border: 1px solid #d1d5db; padding: 8px;">현장 대응 관련 보도</td><td style="border: 1px solid #d1d5db; padding: 8px;">재난 시 현장 대응 보도</td></tr>
+                                </tbody>
+                            </table>
+                            <div class="info-box" style="background-color: #f0f9ff; padding: 12px; border-left: 4px solid #2563eb; margin-bottom: 8px;">
+                                <p style="margin: 4px 0;"><strong>긍정 키워드:</strong> 민원 해결 뉴스, 신속 대응, 국민 목소리 경청</p>
+                                <p style="margin: 4px 0;"><strong>부정 키워드:</strong> 민원 무시, 대응 부재, 국민 외면</p>
+                                <p style="margin: 4px 0;"><strong>자유 키워드:</strong> 민원 처리 성명서, 요구사항 기자회견, 청원 답변</p>
+                            </div>
+                        </div>
+
+                        <!-- Category 10: Public Interest -->
+                        <div style="margin-bottom: 40px;">
+                            <h4 style="color: #2563eb; margin-bottom: 12px;">카테고리 10: Public Interest (공익성)</h4>
+                            <p style="margin-bottom: 16px;"><strong>정의:</strong> 공익을 우선시하고 사회에 기여하는 자세</p>
+                            <table style="width: 100%; border-collapse: collapse; margin-bottom: 16px;">
+                                <thead>
+                                    <tr style="background-color: #f3f4f6;">
+                                        <th style="border: 1px solid #d1d5db; padding: 8px; text-align: left; width: 10%;">#</th>
+                                        <th style="border: 1px solid #d1d5db; padding: 8px; text-align: left; width: 30%;">평가 항목</th>
+                                        <th style="border: 1px solid #d1d5db; padding: 8px; text-align: left; width: 60%;">설명</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">10-1</td><td style="border: 1px solid #d1d5db; padding: 8px;">사회복지 예산 비율</td><td style="border: 1px solid #d1d5db; padding: 8px;">(복지 예산/전체 예산) × 100</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">10-2</td><td style="border: 1px solid #d1d5db; padding: 8px;">취약계층 지원 프로그램</td><td style="border: 1px solid #d1d5db; padding: 8px;">장애/노인/아동 지원 사업</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">10-3</td><td style="border: 1px solid #d1d5db; padding: 8px;">환경/기후 예산</td><td style="border: 1px solid #d1d5db; padding: 8px;">환경 예산 비율/증가율</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">10-4</td><td style="border: 1px solid #d1d5db; padding: 8px;">지역 균형 발전 예산</td><td style="border: 1px solid #d1d5db; padding: 8px;">낙후 지역 투자 비율</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">10-5</td><td style="border: 1px solid #d1d5db; padding: 8px;">공익 활동 보도</td><td style="border: 1px solid #d1d5db; padding: 8px;">봉사, 취약계층 보도</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">10-6</td><td style="border: 1px solid #d1d5db; padding: 8px;">사회공헌 SNS 게시</td><td style="border: 1px solid #d1d5db; padding: 8px;">공익 게시물 비중</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">10-7</td><td style="border: 1px solid #d1d5db; padding: 8px;">공익 법안 발의</td><td style="border: 1px solid #d1d5db; padding: 8px;">공익 목적 법안 발의 실적</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">10-8</td><td style="border: 1px solid #d1d5db; padding: 8px;">이익 상충 관련 보도</td><td style="border: 1px solid #d1d5db; padding: 8px;">이익 상충 키워드 보도</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">10-9</td><td style="border: 1px solid #d1d5db; padding: 8px;">지역 균형 관련 보도</td><td style="border: 1px solid #d1d5db; padding: 8px;">지역 균형 키워드 보도</td></tr>
+                                    <tr><td style="border: 1px solid #d1d5db; padding: 8px;">10-10</td><td style="border: 1px solid #d1d5db; padding: 8px;">공익 관련 평가 기록</td><td style="border: 1px solid #d1d5db; padding: 8px;">공익 외부 평가</td></tr>
+                                </tbody>
+                            </table>
+                            <div class="info-box" style="background-color: #f0f9ff; padding: 12px; border-left: 4px solid #2563eb; margin-bottom: 8px;">
+                                <p style="margin: 4px 0;"><strong>긍정 키워드:</strong> 공익 활동 뉴스, 사회 공헌, 약자 보호</p>
+                                <p style="margin: 4px 0;"><strong>부정 키워드:</strong> 특혜, 특정 이익, 공익 외면</p>
+                                <p style="margin: 4px 0;"><strong>자유 키워드:</strong> 복지 정책 성명서, 사회 활동 기자회견, 공익 사업</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
