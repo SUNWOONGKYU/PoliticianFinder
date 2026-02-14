@@ -597,10 +597,10 @@ Read("C:\\...\\V40\\instructions\\V40_오케스트레이션_가이드.md")
 | **인증** | 🔓 Account (Claude/Gemini)<br>🔐 API Key (ChatGPT/Grok)<br>→ 1회 설정 | API Key 필수 (4개 전부)<br>→ 매 요청 인증 | 편의성 ↑ |
 | **실행** | Subprocess 호출<br>→ 간단한 CLI 명령 | HTTP API 요청<br>→ 복잡한 JSON 구성 | 복잡도 ↓ |
 | **제한** | Claude/Gemini: 무제한 (구독)<br>ChatGPT/Grok: API 제한 | 분당 요청 제한 (RPM)<br>→ Gemini: 15 req/min | 속도 5x ↑ |
-| **비용** | Claude/Gemini: $0 (구독)<br>ChatGPT: $0.225/1K<br>총계: ~$0.23/1K | Claude: $0.75/1K<br>Gemini: $0.19/1K<br>ChatGPT: $45/1K<br>총계: ~$46/1K | **99.5% 절감** |
+| **비용** | Claude/Gemini: $0 (구독)<br>ChatGPT: $1.125/1K<br>총계: ~$1.13/1K | Claude: $0.75/1K<br>Gemini: $0.19/1K<br>ChatGPT: $45/1K<br>총계: ~$46/1K | **97.5% 절감** |
 | **코드** | 단순 (~20줄)<br>→ subprocess.run() | 복잡 (~70줄)<br>→ HTTP client, retry | 유지보수 ↑ |
 
-**💡 핵심 인사이트**: "API가 아니라 CLI로 가라. 구독 플랜이 API보다 200배 저렴하다."
+**💡 핵심 인사이트**: "API가 아니라 CLI로 가라. 구독 플랜이 API보다 40배 저렴하다."
 
 📄 **상세 분석**: `V40_AI_평가_방식_및_비용_종합_분석.md` 참조
 
