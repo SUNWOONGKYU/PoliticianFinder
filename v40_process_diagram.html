@@ -488,6 +488,319 @@
         .appendix {
             margin-top: 64px;
         }
+
+        /* Visual Flow Diagram Styles */
+        .visual-flow {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 32px 0;
+            padding: 24px;
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+        }
+
+        .flow-step {
+            background: #1c2128;
+            border: 2px solid #58a6ff;
+            border-radius: 8px;
+            padding: 16px 32px;
+            margin: 8px 0;
+            min-width: 300px;
+            text-align: center;
+            font-weight: 500;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            transition: all 0.2s;
+        }
+
+        .flow-step:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(88, 166, 255, 0.3);
+        }
+
+        .flow-connector {
+            width: 2px;
+            height: 24px;
+            background: linear-gradient(to bottom, #58a6ff 0%, #58a6ff 40%, transparent 40%, transparent 60%, #58a6ff 60%, #58a6ff 100%);
+            margin: 4px 0;
+            position: relative;
+        }
+
+        .flow-connector::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-top: 8px solid #58a6ff;
+        }
+
+        /* Process Box Styles */
+        .process-box {
+            background: #161b22;
+            border: 2px solid #58a6ff;
+            border-radius: 8px;
+            padding: 24px;
+            margin: 24px 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .process-box-title {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #58a6ff;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #30363d;
+        }
+
+        .process-box-content {
+            line-height: 1.8;
+        }
+
+        .process-box-content ul {
+            margin-left: 24px;
+            margin-top: 12px;
+        }
+
+        .process-box-content li {
+            margin-bottom: 8px;
+        }
+
+        /* Decision Diamond Styles */
+        .decision-flow {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 32px 0;
+            padding: 24px;
+        }
+
+        .decision-diamond {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 20px 0;
+        }
+
+        .diamond-shape {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(45deg);
+            width: 140px;
+            height: 140px;
+            background: #161b22;
+            border: 2px solid #d29922;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .diamond-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            font-weight: 600;
+            color: #d29922;
+            z-index: 1;
+            white-space: nowrap;
+        }
+
+        .decision-branches {
+            display: flex;
+            gap: 60px;
+            margin-top: 20px;
+        }
+
+        .decision-branch {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .branch-label {
+            font-weight: 600;
+            color: #8b949e;
+            margin-bottom: 12px;
+            font-size: 0.95em;
+        }
+
+        .branch-label.yes { color: #238636; }
+        .branch-label.no { color: #da3633; }
+
+        .branch-box {
+            background: #1c2128;
+            border: 2px solid #30363d;
+            border-radius: 6px;
+            padding: 16px 24px;
+            min-width: 120px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .branch-box.yes-box { border-color: #238636; }
+        .branch-box.no-box { border-color: #da3633; }
+
+        /* ER Diagram Visual Styles */
+        .er-diagram-visual {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 40px;
+            margin: 32px 0;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        .er-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .er-table {
+            background: #1c2128;
+            border: 2px solid #58a6ff;
+            border-radius: 8px;
+            min-width: 350px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .er-table-header {
+            background: #1f6feb;
+            color: #ffffff;
+            padding: 12px 20px;
+            font-weight: 600;
+            text-align: center;
+            border-radius: 6px 6px 0 0;
+            font-size: 1.1em;
+        }
+
+        .er-table-subheader {
+            background: #0d1117;
+            color: #8b949e;
+            padding: 8px 20px;
+            text-align: center;
+            font-size: 0.9em;
+            border-bottom: 1px solid #30363d;
+        }
+
+        .er-table-body {
+            padding: 16px 20px;
+        }
+
+        .er-field {
+            padding: 6px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            line-height: 1.6;
+        }
+
+        .er-field.pk {
+            color: #1f6feb;
+            font-weight: 600;
+        }
+
+        .er-field.fk {
+            color: #d29922;
+        }
+
+        .er-field.important {
+            color: #238636;
+        }
+
+        .er-relationship {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 12px 0;
+        }
+
+        .er-cardinality {
+            color: #8b949e;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin: 4px 0;
+        }
+
+        .er-line {
+            width: 2px;
+            height: 40px;
+            background: linear-gradient(to bottom, #58a6ff 0%, #58a6ff 30%, transparent 30%, transparent 70%, #58a6ff 70%, #58a6ff 100%);
+            position: relative;
+        }
+
+        .er-line::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 7px solid #58a6ff;
+        }
+
+        .er-parallel {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        /* Formula Box Styles */
+        .formula-box {
+            background: #1c2128;
+            border: 2px solid #8957e5;
+            border-radius: 8px;
+            padding: 20px 32px;
+            margin: 24px 0;
+            text-align: center;
+            font-family: 'Courier New', monospace;
+            font-size: 1.1em;
+            color: #e6edf3;
+            box-shadow: 0 2px 8px rgba(137, 87, 229, 0.2);
+        }
+
+        /* Responsive adjustments for visual diagrams */
+        @media (max-width: 768px) {
+            .flow-step {
+                min-width: 250px;
+                padding: 12px 20px;
+            }
+
+            .decision-branches {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .er-table {
+                min-width: 280px;
+            }
+
+            .er-parallel {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .decision-diamond {
+                width: 160px;
+                height: 160px;
+            }
+
+            .diamond-shape {
+                width: 110px;
+                height: 110px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -511,31 +824,33 @@
     <div class="container">
         <!-- Header -->
         <header>
-            <h1>🎯 V40 정치인 평가 시스템 - 전체 프로세스</h1>
-            <div class="subtitle">버전: V40 | 목적: 정치인 기본 정보 준비부터 상세평가보고서 생성까지 전체 프로세스 시각화</div>
-            <div class="subtitle">작성일: 2026-02-08 | 최종 업데이트: 2026-02-15</div>
+            <h1>🎯 정치인 평가 시스템 - 전체 프로세스</h1>
+            <div class="subtitle">정치인 기본 정보 준비부터 상세평가보고서 생성까지 전체 프로세스 시각화</div>
+            <div class="subtitle">작성일: 2026-02-08 | 최종 업데이트: 2026-02-15 | V40</div>
         </header>
 
         <!-- Overview Section -->
         <section id="overview">
             <h2>📊 전체 프로세스 개요</h2>
-            <div class="code-block">Phase 0: 준비 (API 키, DB 연결 검증)
-    ↓
-Phase 1: 정치인 정보 등록 (MD 작성 → DB INSERT)
-    ↓
-Phase 2: 데이터 수집 (Gemini 500~600 + Naver 500~600 = 1,000~1,200개)
-    ↓
-Phase 3: 수집 검증 (validate_v40_fixed.py --no-dry-run)
-    ↓
-Phase 3-3: 검증 후 조정 (adjust_v40_data.py, 균형 맞추기)
-    ↓
-Phase 4: AI 평가 (4 AIs × 1,000~1,200 = 4,000~4,800개)
-    ↓
-Phase 5: 평가 검증 (95% 이상)
-    ↓
-Phase 6: 점수 계산 (calculate_v40_scores.py)
-    ↓
-Phase 7: 보고서 생성 (generate_report_v40.py)</div>
+            <div class="visual-flow">
+                <div class="flow-step">Phase 0: 준비 (API 키, DB 연결 검증)</div>
+                <div class="flow-connector"></div>
+                <div class="flow-step">Phase 1: 정치인 정보 등록 (MD 작성 → DB INSERT)</div>
+                <div class="flow-connector"></div>
+                <div class="flow-step">Phase 2: 데이터 수집 (Gemini 500~600 + Naver 500~600 = 1,000~1,200개)</div>
+                <div class="flow-connector"></div>
+                <div class="flow-step">Phase 3: 수집 검증 (validate_v40_fixed.py --no-dry-run)</div>
+                <div class="flow-connector"></div>
+                <div class="flow-step">Phase 3-3: 검증 후 조정 (adjust_v40_data.py, 균형 맞추기)</div>
+                <div class="flow-connector"></div>
+                <div class="flow-step">Phase 4: AI 평가 (4 AIs × 1,000~1,200 = 4,000~4,800개)</div>
+                <div class="flow-connector"></div>
+                <div class="flow-step">Phase 5: 평가 검증 (95% 이상)</div>
+                <div class="flow-connector"></div>
+                <div class="flow-step">Phase 6: 점수 계산 (calculate_v40_scores.py)</div>
+                <div class="flow-connector"></div>
+                <div class="flow-step">Phase 7: 보고서 생성 (generate_report_v40.py)</div>
+            </div>
         </section>
 
         <div class="flow-arrow">▼</div>
@@ -604,26 +919,33 @@ Phase 7: 보고서 생성 (generate_report_v40.py)</div>
                     </table>
 
                     <h3>준비 작업</h3>
-                    <div class="code-block">┌──────────────────────────────────────────────────────────────┐
-│ Phase 0: 준비                                                │
-│                                                              │
-│ 1. API 키 / 인증 확인                                        │
-│    - Gemini CLI 로그인 상태 확인                             │
-│    - Naver CLIENT_ID/SECRET 환경변수 확인                    │
-│    - OPENAI_API_KEY 환경변수 확인                            │
-│    - XAI_API_KEY 환경변수 확인                               │
-│    - SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY 확인            │
-│                                                              │
-│ 2. DB 테이블 존재 확인                                       │
-│    - politicians ✓                                           │
-│    - collected_data_v40 ✓                                    │
-│    - evaluations_v40 ✓                                       │
-│    - ai_final_scores_v40 ✓                                   │
-│                                                              │
-│ 3. 정치인 정보 MD 파일 작성                                  │
-│    - instructions/1_politicians/{이름}.md                     │
-│    - politician_id 생성 (UUID 앞 8자리, TEXT 타입)           │
-└──────────────────────────────────────────────────────────────┘</div>
+                    <div class="process-box">
+                        <div class="process-box-title">Phase 0: 준비</div>
+                        <div class="process-box-content">
+                            <h4>1. API 키 / 인증 확인</h4>
+                            <ul>
+                                <li>Gemini CLI 로그인 상태 확인</li>
+                                <li>Naver CLIENT_ID/SECRET 환경변수 확인</li>
+                                <li>OPENAI_API_KEY 환경변수 확인</li>
+                                <li>XAI_API_KEY 환경변수 확인</li>
+                                <li>SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY 확인</li>
+                            </ul>
+
+                            <h4>2. DB 테이블 존재 확인</h4>
+                            <ul>
+                                <li>politicians ✓</li>
+                                <li>collected_data_v40 ✓</li>
+                                <li>evaluations_v40 ✓</li>
+                                <li>ai_final_scores_v40 ✓</li>
+                            </ul>
+
+                            <h4>3. 정치인 정보 MD 파일 작성</h4>
+                            <ul>
+                                <li>instructions/1_politicians/{이름}.md</li>
+                                <li>politician_id 생성 (UUID 앞 8자리, TEXT 타입)</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -825,14 +1147,26 @@ INSERT INTO politicians (
                         </ul>
                     </div>
 
-                    <div class="code-block">    ┌───────────────────┐
-    │ 검증 실패?        │
-    └───────────────────┘
-     Yes ↓       No ↓
-┌─────────┐    ┌─────────┐
-│ 재수집  │    │ 통과    │
-│ (누락만)│    │         │
-└─────────┘    └─────────┘</div>
+                    <div class="decision-flow">
+                        <div class="decision-diamond">
+                            <div class="diamond-shape"></div>
+                            <div class="diamond-text">검증 실패?</div>
+                        </div>
+                        <div class="decision-branches">
+                            <div class="decision-branch">
+                                <div class="branch-label yes">Yes ↓</div>
+                                <div class="branch-box yes-box">
+                                    재수집<br>(누락만)
+                                </div>
+                            </div>
+                            <div class="decision-branch">
+                                <div class="branch-label no">No ↓</div>
+                                <div class="branch-box no-box">
+                                    통과
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1153,23 +1487,26 @@ INSERT INTO politicians (
                         </tbody>
                     </table>
 
-                    <div class="code-block">┌──────────────────────────────────────────────────────────────┐
-│ 8. evaluations_v40 테이블에 저장                             │
-│                                                              │
-│ 총 4,000~4,800개 평가 (4 AIs × 1,000~1,200개)               │
-│                                                              │
-│ 각 평가:                                                     │
-│ - id (UUID)                                                  │
-│ - politician_id, politician_name, category                   │
-│ - collected_data_id (FK → collected_data_v40) ⭐            │
-│ - evaluator_ai (Claude/ChatGPT/Grok/Gemini)                 │
-│ - rating: 8등급 (+4,+3,+2,+1,-1,-2,-3,-4, 0 없음)            │
-│   X = 제외(평가 불가, 등급 아님)                              │
-│ - reasoning (평가 근거)                                      │
-│ - evaluated_at                                               │
-│                                                              │
-│ 💡 collected_data_id로 수집 데이터와 연결!                  │
-└──────────────────────────────────────────────────────────────┘</div>
+                    <div class="process-box">
+                        <div class="process-box-title">8. evaluations_v40 테이블에 저장</div>
+                        <div class="process-box-content">
+                            <p><strong>총 4,000~4,800개 평가 (4 AIs × 1,000~1,200개)</strong></p>
+
+                            <h4>각 평가:</h4>
+                            <ul>
+                                <li>id (UUID)</li>
+                                <li>politician_id, politician_name, category</li>
+                                <li>collected_data_id (FK → collected_data_v40) ⭐</li>
+                                <li>evaluator_ai (Claude/ChatGPT/Grok/Gemini)</li>
+                                <li>rating: 8등급 (+4,+3,+2,+1,-1,-2,-3,-4, 0 없음)<br>
+                                    X = 제외(평가 불가, 등급 아님)</li>
+                                <li>reasoning (평가 근거)</li>
+                                <li>evaluated_at</li>
+                            </ul>
+
+                            <p>💡 <strong>collected_data_id로 수집 데이터와 연결!</strong></p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1194,14 +1531,26 @@ INSERT INTO politicians (
                         <p>⚠️ X(제외)는 평가 불가 항목 → 95% 기준은 X 발생을 허용</p>
                     </div>
 
-                    <div class="code-block">    ┌───────────────────┐
-    │ 95% 미달?         │
-    └───────────────────┘
-     Yes ↓       No ↓
-┌─────────┐    ┌─────────┐
-│ 재평가  │    │ 통과    │
-│ (누락만)│    │         │
-└─────────┘    └─────────┘</div>
+                    <div class="decision-flow">
+                        <div class="decision-diamond">
+                            <div class="diamond-shape"></div>
+                            <div class="diamond-text">95% 미달?</div>
+                        </div>
+                        <div class="decision-branches">
+                            <div class="decision-branch">
+                                <div class="branch-label yes">Yes ↓</div>
+                                <div class="branch-box yes-box">
+                                    재평가<br>(누락만)
+                                </div>
+                            </div>
+                            <div class="decision-branch">
+                                <div class="branch-label no">No ↓</div>
+                                <div class="branch-box no-box">
+                                    통과
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1492,68 +1841,101 @@ WHERE politician_id = '...'
         <!-- Database ER Diagram -->
         <section id="db-diagram">
             <h2>📋 데이터 테이블 관계도</h2>
-            <div class="er-diagram">┌─────────────────────┐
-│   politicians       │
-│   (기본 정보)       │
-│                     │
-│ - id (TEXT, PK)     │
-│   8자리 hex         │
-│ - name              │
-│ - party             │
-│ - position          │
-└──────────┬──────────┘
-           │ 1
-           │
-           │ N
-┌──────────▼──────────────────────────┐
-│   collected_data_v40                │
-│   (수집 데이터, rating 없음)        │
-│                                     │
-│ - id (UUID, PK) ⭐                 │
-│ - politician_id (FK)                │
-│ - category                          │
-│ - title, content, source_url        │
-│ - data_type (OFFICIAL/PUBLIC)       │
-│ - collector_ai (Gemini/Naver)       │
-│ - sentiment (neg/pos/free)          │
-│ - created_at                        │
-│ ❌ rating 없음! (수집 단계)         │
-└──────────┬──────────────────────────┘
-           │ 1
-           │
-           │ N (collected_data_id)
-┌──────────▼──────────────────────────┐
-│   evaluations_v40                   │
-│   (평가 결과, rating 있음)          │
-│                                     │
-│ - id (UUID, PK)                     │
-│ - politician_id (FK)                │
-│ - category                          │
-│ - collected_data_id (FK) ⭐        │
-│ - evaluator_ai (4개 AI)             │
-│ - rating (8등급, X=제외)            │
-│ - reasoning                         │
-│ - evaluated_at                      │
-└─────────────────────────────────────┘
+            <div class="er-diagram-visual">
+                <div class="er-container">
+                    <!-- Politicians Table -->
+                    <div class="er-table">
+                        <div class="er-table-header">politicians</div>
+                        <div class="er-table-subheader">(기본 정보)</div>
+                        <div class="er-table-body">
+                            <div class="er-field pk">- id (TEXT, PK)</div>
+                            <div class="er-field">  8자리 hex</div>
+                            <div class="er-field">- name</div>
+                            <div class="er-field">- party</div>
+                            <div class="er-field">- position</div>
+                        </div>
+                    </div>
 
-           ┌──────────┐
-           │politicians│
-           └─────┬────┘
-                 │ 1
-                 │
-                 │ 1
-┌────────────────▼──────────────────┐
-│   ai_final_scores_v40             │
-│   (최종 점수)                     │
-│                                   │
-│ - id (UUID, PK)                   │
-│ - politician_id (FK)              │
-│ - ai_category_scores (JSONB)      │
-│ - ai_final_scores (JSONB)         │
-│ - final_score (평균)              │
-│ - grade (M~L)                     │
-│ - calculated_at                   │
-└───────────────────────────────────┘</div>
+                    <!-- Relationship: 1 to N -->
+                    <div class="er-relationship">
+                        <div class="er-cardinality">1</div>
+                        <div class="er-line"></div>
+                        <div class="er-cardinality">N</div>
+                    </div>
+
+                    <!-- Collected Data Table -->
+                    <div class="er-table">
+                        <div class="er-table-header">collected_data_v40</div>
+                        <div class="er-table-subheader">(수집 데이터, rating 없음)</div>
+                        <div class="er-table-body">
+                            <div class="er-field pk">- id (UUID, PK) ⭐</div>
+                            <div class="er-field fk">- politician_id (FK)</div>
+                            <div class="er-field">- category</div>
+                            <div class="er-field">- title, content, source_url</div>
+                            <div class="er-field">- data_type (OFFICIAL/PUBLIC)</div>
+                            <div class="er-field">- collector_ai (Gemini/Naver)</div>
+                            <div class="er-field">- sentiment (neg/pos/free)</div>
+                            <div class="er-field">- created_at</div>
+                            <div class="er-field important">❌ rating 없음! (수집 단계)</div>
+                        </div>
+                    </div>
+
+                    <!-- Relationship: 1 to N -->
+                    <div class="er-relationship">
+                        <div class="er-cardinality">1</div>
+                        <div class="er-line"></div>
+                        <div class="er-cardinality">N (collected_data_id)</div>
+                    </div>
+
+                    <!-- Evaluations Table -->
+                    <div class="er-table">
+                        <div class="er-table-header">evaluations_v40</div>
+                        <div class="er-table-subheader">(평가 결과, rating 있음)</div>
+                        <div class="er-table-body">
+                            <div class="er-field pk">- id (UUID, PK)</div>
+                            <div class="er-field fk">- politician_id (FK)</div>
+                            <div class="er-field">- category</div>
+                            <div class="er-field fk">- collected_data_id (FK) ⭐</div>
+                            <div class="er-field">- evaluator_ai (4개 AI)</div>
+                            <div class="er-field">- rating (8등급, X=제외)</div>
+                            <div class="er-field">- reasoning</div>
+                            <div class="er-field">- evaluated_at</div>
+                        </div>
+                    </div>
+
+                    <div style="margin: 40px 0; color: #8b949e;">⚬ ⚬ ⚬</div>
+
+                    <!-- Parallel section for final scores -->
+                    <div class="er-parallel">
+                        <div class="er-table">
+                            <div class="er-table-header">politicians</div>
+                            <div class="er-table-body">
+                                <div class="er-field pk">- id (PK)</div>
+                            </div>
+                        </div>
+
+                        <div class="er-relationship" style="transform: rotate(90deg); margin: 0 20px;">
+                            <div class="er-cardinality">1</div>
+                            <div class="er-line"></div>
+                            <div class="er-cardinality">1</div>
+                        </div>
+
+                        <div class="er-table">
+                            <div class="er-table-header">ai_final_scores_v40</div>
+                            <div class="er-table-subheader">(최종 점수)</div>
+                            <div class="er-table-body">
+                                <div class="er-field pk">- id (UUID, PK)</div>
+                                <div class="er-field fk">- politician_id (FK)</div>
+                                <div class="er-field">- ai_category_scores (JSONB)</div>
+                                <div class="er-field">- ai_final_scores (JSONB)</div>
+                                <div class="er-field">- final_score (평균)</div>
+                                <div class="er-field">- grade (M~L)</div>
+                                <div class="er-field">- calculated_at</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <div class="info-box">
                 <p><strong>핵심 포인트:</strong></p>
@@ -2308,7 +2690,7 @@ python generate_report_v40.py 507226bb 박주민
                 </div>
                 <div class="phase-content">
                     <h3>1. 베이즈 정리 (Bayes' Theorem)</h3>
-                    <div class="code-block">P(H|D) = P(D|H) × P(H) / P(D)</div>
+                    <div class="formula-box">P(H|D) = P(D|H) × P(H) / P(D)</div>
 
                     <table>
                         <thead>
@@ -2358,7 +2740,7 @@ python generate_report_v40.py 507226bb 박주민
                     </ul>
 
                     <h4>둘째: "사전 믿음 + 데이터 = 갱신된 믿음"이라는 결합 구조</h4>
-                    <div class="code-block">카테고리 점수 = Prior + 데이터 기여분
+                    <div class="formula-box">카테고리 점수 = Prior + 데이터 기여분
              = 60   + Rating Score × 5</div>
                     <p>Prior만으로 결정 안 됨, 데이터만으로도 결정 안 됨 → 둘의 결합 = 베이지안 기본 원리</p>
 
