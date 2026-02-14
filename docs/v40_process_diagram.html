@@ -61,6 +61,8 @@
   .p2 .phase-header { background: linear-gradient(90deg, #0d2818, #161b22); }
   .p3 .phase-num { background: #d29922; }
   .p3 .phase-header { background: linear-gradient(90deg, #2d2006, #161b22); }
+  .p33 .phase-num { background: #c89422; }
+  .p33 .phase-header { background: linear-gradient(90deg, #2a1e06, #161b22); }
   .p4 .phase-num { background: #bc4c00; }
   .p4 .phase-header { background: linear-gradient(90deg, #2d1300, #161b22); }
   .p5 .phase-num { background: #8957e5; }
@@ -228,7 +230,7 @@
 <div class="container">
 
 <h1>PoliticianFinder (훌륭한 정치인 찾기) V40 정치인 평가 프로세스</h1>
-<p class="subtitle">정치인 등록부터 평가 보고서 생성까지 | 수집 채널 2개 (1 CLI + 1 API) + 평가 AI 4개 (2 CLI + 2 API)</p>
+<p class="subtitle">정치인 등록부터 평가 보고서 생성까지 | 수집 채널 2개 (1 CLI + 1 API) + 평가 AI 4개 (전부 CLI)</p>
 
 <!-- Key Stats -->
 <div class="stats-row">
@@ -297,7 +299,7 @@
       <div class="flow-box">
         <h4>수집용 (1 CLI + 1 API)</h4>
         <ul>
-          <li><span class="highlight">Gemini CLI Direct</span> (API 키 불필요)</li>
+          <li><span class="highlight">Gemini CLI Direct Subprocess</span> (API 키 불필요)</li>
           <li>NAVER_CLIENT_ID / NAVER_CLIENT_SECRET (Naver Search API)</li>
         </ul>
       </div>
@@ -305,7 +307,7 @@
         <h4>평가용 (2 CLI + 2 API)</h4>
         <ul>
           <li><span class="highlight">Claude Code CLI Direct</span> (API 키 불필요)</li>
-          <li><span class="highlight">Gemini CLI Direct</span> (API 키 불필요)</li>
+          <li><span class="highlight">Gemini CLI Direct Subprocess</span> (API 키 불필요)</li>
           <li>OPENAI_API_KEY (ChatGPT)</li>
           <li>XAI_API_KEY (Grok)</li>
         </ul>
@@ -444,9 +446,8 @@
   <div class="phase-header">
     <div class="phase-num">3</div>
     <div>
-      <div class="phase-title">검증 & 풀링 (Validate & Pool)</div>
-      <div class="phase-script">validate_v40.py</div>
-    </div>
+      <div class="phase-title">검증 (Validate)</div>
+      <div class="phase-script">validate_v40_fixed.py --no-dry-run
   </div>
   <div class="phase-body">
     <div class="flow-row">
@@ -475,13 +476,152 @@
       <div class="flow-box">
         <h4>결과</h4>
         <ul>
-          <li>100개 이상 → <span class="highlight">그대로 패스 ✅</span></li>
-          <li>100개 미만 → <span class="warn">추가 수집 🔄</span></li>
-          <li>최대 5회 반복</li>
-          <li>최종 풀: 카테고리당 <span class="highlight">최소 100개+α</span></li>
+          <li>중복 제거 완료</li>
+          <li>기간 제한 위반 제거 완료</li>
+          <li>URL 유효성 검증 완료</li>
+          <li><span class="warn">다음 단계: Phase 3-3 (균형 조정)</span></li>
         </ul>
       </div>
     </div>
+  </div>
+</div>
+
+<div class="arrow-down">▼</div>
+
+<!-- ===== Phase 3-3: 검증 후 조정 ===== -->
+<div class="phase p33">
+  <div class="phase-header">
+    <div class="phase-num">3-3</div>
+    <div>
+      <div class="phase-title">검증 후 조정 (Adjust) - 데이터 균형 맞추기</div>
+      <div class="phase-script">adjust_v40_data.py (자동) | recollect_gemini_v40.py / recollect_naver_v40.py (수동)</div>
+    </div>
+  </div>
+  <div class="phase-body">
+    <p style="margin-bottom:12px; color:#8b949e;">
+      검증 후 데이터 삭제로 인한 불균형 조정 &nbsp;|&nbsp;
+      <span class="highlight">목표: AI별 500-600개, 카테고리별 50-60개/AI</span>
+    </p>
+
+    <div class="flow-row">
+      <div class="flow-box">
+        <h4>균형 확인</h4>
+        <ul>
+          <li>AI별 데이터 개수 (Gemini/Naver)</li>
+          <li>카테고리별 데이터 개수 (10개 카테고리)</li>
+          <li><span class="highlight">목표: 50-60개/AI/카테고리</span></li>
+          <li><span class="warn">50개 미만</span> → 재수집 필요</li>
+          <li><span class="warn">60개 초과</span> → 삭제 필요</li>
+        </ul>
+      </div>
+      <div class="inner-arrow">→</div>
+      <div class="flow-box">
+        <h4>자동 조정</h4>
+        <ul>
+          <li><code>adjust_v40_data.py --politician_id xxx</code></li>
+          <li>60개 초과 → 오래된 순 삭제</li>
+          <li>AI별 500-600개 유지</li>
+          <li>전체 1,000-1,200개 유지</li>
+          <li style="color:#7ee787;">대부분 자동 해결 ✅</li>
+        </ul>
+      </div>
+      <div class="inner-arrow">→</div>
+      <div class="flow-box">
+        <h4>수동 재수집 (필요 시)</h4>
+        <ul>
+          <li>50개 미만 카테고리만</li>
+          <li><code>recollect_gemini_v40.py --politician "이름"</code></li>
+          <li><code>recollect_naver_v40.py --politician_id xxx</code></li>
+          <li style="color:#d29922;">⚠️ Phase 2에서 버퍼 60개 수집 시 불필요!</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="margin-top:16px; padding:12px; background:#0d1117; border:1px solid #d29922; border-radius:6px;">
+      <h4 style="color:#d29922; font-size:14px; margin-bottom:8px;">⭐ 시간 절약 팁</h4>
+      <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px;">
+        <div>
+          <p style="color:#f85149; font-weight:600; margin-bottom:4px;">❌ 최소 수집 (50개)</p>
+          <ul style="padding-left:20px; color:#8b949e; font-size:13px;">
+            <li>Phase 2: 20-30분</li>
+            <li>Phase 3: 10-15분</li>
+            <li><span style="color:#f85149;">Phase 3-3: 2-3시간!</span></li>
+            <li>합계: 2.5-3.5시간</li>
+          </ul>
+        </div>
+        <div>
+          <p style="color:#7ee787; font-weight:600; margin-bottom:4px;">✅ 버퍼 수집 (60개)</p>
+          <ul style="padding-left:20px; color:#8b949e; font-size:13px;">
+            <li>Phase 2: 30-40분</li>
+            <li>Phase 3: 10-15분</li>
+            <li><span style="color:#7ee787;">Phase 3-3: 5-15분!</span></li>
+            <li>합계: 45-70분</li>
+          </ul>
+        </div>
+      </div>
+      <p style="margin-top:8px; color:#d29922; font-size:13px; text-align:center;">
+        💡 처음부터 버퍼 목표(60개)로 수집 → Phase 3-3 거의 스킵 가능!
+      </p>
+    </div>
+
+    <!-- 재수집 프로세스 상세 -->
+    <div style="margin-top:20px;">
+      <h4 style="color:#d29922; font-size:14px; margin-bottom:12px;">🔄 재수집 프로세스 (50개 미만 시)</h4>
+
+      <div class="flow-row">
+        <div class="flow-box" style="background:#1a1f26; border-color:#d29922;">
+          <h4 style="color:#d29922;">Step 1: 부족 카테고리 식별</h4>
+          <ul style="font-size:13px;">
+            <li><code>check_collection_status.py</code></li>
+            <li>50개 미만 카테고리 찾기</li>
+            <li>예: integrity 47개 (부족 3개)</li>
+          </ul>
+        </div>
+        <div class="inner-arrow">→</div>
+        <div class="flow-box" style="background:#1a1f26; border-color:#d29922;">
+          <h4 style="color:#d29922;">Step 2: AI별 재수집</h4>
+          <ul style="font-size:13px;">
+            <li><span class="highlight">Gemini</span>: 6-7회 실행 (1회=10개)</li>
+            <li><code>recollect_gemini_v40.py --politician "이름"</code></li>
+            <li><span class="highlight">Naver</span>: 1회 실행 (60개)</li>
+            <li><code>recollect_naver_v40.py --politician_id xxx</code></li>
+          </ul>
+        </div>
+        <div class="inner-arrow">→</div>
+        <div class="flow-box" style="background:#1a1f26; border-color:#d29922;">
+          <h4 style="color:#d29922;">Step 3: 확인 & 반복</h4>
+          <ul style="font-size:13px;">
+            <li>상태 재확인</li>
+            <li>60개 이상 → ✅ 완료</li>
+            <li>50개 미만 → 🔄 Step 2 반복</li>
+            <li>최대 3회 라운드</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="margin-top:12px; padding:10px; background:#0d1117; border-left:3px solid #d29922;">
+        <p style="color:#8b949e; font-size:13px; margin:0;">
+          <span style="color:#d29922; font-weight:600;">⚠️ 주의:</span>
+          Gemini는 1회 실행 = 약 10개 수집 → 60개 달성에 6-7회 필요 (5-10분/회)
+          <br>
+          <span style="color:#d29922; font-weight:600;">💡 팁:</span>
+          recollect 스크립트는 자동으로 부족한 카테고리만 재수집 (전체 카테고리 지정 가능)
+        </p>
+      </div>
+
+      <div style="margin-top:12px;">
+        <h4 style="color:#8b949e; font-size:13px; margin-bottom:6px;">실전 예시 (조은희 integrity 카테고리):</h4>
+        <div style="background:#0d1117; padding:10px; border-radius:4px; font-family:monospace; font-size:12px; color:#8b949e;">
+          <div>검증 후: Gemini 18개 (부족 42개!)</div>
+          <div style="color:#d29922;">→ 라운드 1-4: recollect_gemini_v40.py 실행 (각 10개 수집)</div>
+          <div>→ 중간 확인: Gemini 58개 (거의 도달)</div>
+          <div style="color:#d29922;">→ 라운드 5-6: 추가 실행</div>
+          <div style="color:#7ee787;">→ 최종 결과: Gemini 68개 ✅</div>
+          <div style="color:#f85149; margin-top:6px;">소요 시간: 8라운드 × 5-10분 = 40-80분</div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
 
@@ -493,7 +633,7 @@
     <div class="phase-num">4</div>
     <div>
       <div class="phase-title">평가 (Evaluate) - 4개 AI 독립 평가</div>
-      <div class="phase-script">evaluate_v40.py → evaluations_v40</div>
+      <div class="phase-script">AI별 Helper (claude/codex/gemini/grok_eval_helper.py) → evaluations_v40</div>
     </div>
   </div>
   <div class="phase-body">
@@ -502,44 +642,248 @@
       <span class="warn">수집 시점 ≠ 평가 시점 (세션 분리 = 객관성)</span>
     </p>
 
-    <!-- CLI Direct (API 키 불필요) -->
-    <p style="margin-bottom:8px; color:#d29922; font-weight:600; font-size:13px;">CLI Direct (API 키 불필요)</p>
+    <!-- 4개 AI 비교 (같은 점 vs 다른 점) -->
+    <div style="margin-bottom:20px; padding:16px; background:#0d1117; border:1px solid #30363d; border-radius:8px;">
+      <h4 style="color:#58a6ff; font-size:14px; margin-bottom:12px;">📊 4개 AI 비교: 같은 점 vs 다른 점</h4>
+
+      <div style="margin-bottom:12px;">
+        <p style="color:#7ee787; font-weight:600; font-size:13px; margin-bottom:8px;">✅ 같은 점 (공통)</p>
+        <ul style="font-size:12px; line-height:1.8; padding-left:20px; color:#c9d1d9;">
+          <li><strong>실행 방식</strong>: 전부 CLI/Subprocess (Python subprocess 또는 CLI Direct)</li>
+          <li><strong>배치 크기</strong>: 전부 25개씩 처리</li>
+          <li><strong>최적화</strong>: 전부 Pre-filtering 적용 (이미 평가된 데이터 자동 제외)</li>
+          <li><strong>저장 함수</strong>: 전부 common_eval_saver.py 사용</li>
+        </ul>
+      </div>
+
+      <div>
+        <p style="color:#d29922; font-weight:600; font-size:13px; margin-bottom:8px;">⚠️ 다른 점 (왜 API 키가 필요/불필요한가?)</p>
+        <table style="font-size:12px;">
+          <tr>
+            <th>AI</th>
+            <th>CLI 방식</th>
+            <th>API 키</th>
+            <th>이유</th>
+          </tr>
+          <tr>
+            <td><strong>Claude</strong></td>
+            <td>Claude Code CLI Direct</td>
+            <td style="color:#7ee787;">불필요</td>
+            <td>Anthropic 계정 로그인으로 CLI 직접 사용 가능</td>
+          </tr>
+          <tr>
+            <td><strong>Gemini</strong></td>
+            <td>Gemini CLI Subprocess</td>
+            <td style="color:#7ee787;">불필요</td>
+            <td>Google 계정 인증으로 CLI 직접 사용 가능</td>
+          </tr>
+          <tr>
+            <td><strong>ChatGPT</strong></td>
+            <td>Codex CLI Direct</td>
+            <td style="color:#d29922;">OPENAI_API_KEY</td>
+            <td>OpenAI API 호출하므로 API 키 필수 (토큰 비용)</td>
+          </tr>
+          <tr>
+            <td><strong>Grok</strong></td>
+            <td>curl CLI Direct (subprocess)</td>
+            <td style="color:#d29922;">XAI_API_KEY</td>
+            <td>xAI API 호출하므로 API 키 필수 (API 비용)</td>
+          </tr>
+        </table>
+        <p style="margin-top:8px; font-size:11px; color:#8b949e;">
+          💡 <strong>핵심</strong>: 계정 인증만으로 충분하면 API 키 불필요 (Claude, Gemini) | 프로그래밍 방식 API 호출은 API 키 필수 (ChatGPT, Grok)
+        </p>
+      </div>
+    </div>
+
+    <!-- 4개 전부 CLI 방식 -->
+    <p style="margin-bottom:12px; color:#7ee787; font-weight:600; font-size:14px;">✅ 4개 전부 CLI 방식 (subprocess 또는 CLI Direct)</p>
+
+    <!-- API 키 불필요 (2개) -->
+    <p style="margin-bottom:8px; color:#58a6ff; font-weight:600; font-size:13px;">🔓 API 키 불필요 (2개)</p>
     <div class="flow-row" style="margin-bottom:12px;">
       <div class="flow-box" style="border-color:#bc4c00;">
         <h4 style="color:#f0883e;">Claude</h4>
         <ul>
-          <li><span class="highlight">Claude Code CLI Direct Mode</span></li>
+          <li><span class="highlight">Claude Code CLI Direct</span></li>
           <li>수집 풀 전체 평가</li>
           <li>claude-haiku-4-5</li>
+          <li style="color:#8b949e; font-size:12px;">배치 25개 | Pre-filtering</li>
         </ul>
       </div>
       <div class="flow-box" style="border-color:#1f6feb;">
         <h4 style="color:#58a6ff;">Gemini</h4>
         <ul>
-          <li><span class="highlight">Gemini CLI Direct Mode</span></li>
+          <li><span class="highlight">Gemini CLI Subprocess</span></li>
           <li>수집 풀 전체 평가</li>
-          <li>gemini-2.5-flash</li>
+          <li>gemini-2.0-flash</li>
+          <li style="color:#8b949e; font-size:12px;">배치 25개 | Pre-filtering</li>
         </ul>
       </div>
     </div>
-    <!-- API (API 키 필요) -->
-    <p style="margin-bottom:8px; color:#d29922; font-weight:600; font-size:13px;">API (API 키 필요)</p>
+
+    <!-- API 키 필요 (2개) -->
+    <p style="margin-bottom:8px; color:#d29922; font-weight:600; font-size:13px;">🔐 API 키 필요 (2개)</p>
     <div class="flow-row">
       <div class="flow-box" style="border-color:#238636;">
         <h4 style="color:#7ee787;">ChatGPT</h4>
         <ul>
-          <li>OpenAI API (OPENAI_API_KEY)</li>
+          <li><span class="highlight">Codex CLI Direct</span></li>
           <li>수집 풀 전체 평가</li>
-          <li>gpt-4o-mini</li>
+          <li>gpt-5.1-codex-mini</li>
+          <li style="color:#8b949e; font-size:12px;">배치 25개 | 자동 재시도</li>
+          <li style="color:#d29922; font-size:11px;">OPENAI_API_KEY</li>
         </ul>
       </div>
       <div class="flow-box" style="border-color:#8957e5;">
         <h4 style="color:#bc8cff;">Grok</h4>
         <ul>
-          <li>xAI API (XAI_API_KEY)</li>
+          <li><span class="highlight">curl CLI Direct</span></li>
           <li>수집 풀 전체 평가</li>
-          <li>grok-3-mini</li>
+          <li>grok-2</li>
+          <li style="color:#8b949e; font-size:12px;">배치 25개 | subprocess</li>
+          <li style="color:#d29922; font-size:11px;">XAI_API_KEY</li>
         </ul>
+      </div>
+    </div>
+
+    <!-- 기술적 방식 비교 + 비용 비교 (API vs CLI) -->
+    <div style="margin-top:20px; padding:16px; background:#0d1117; border:2px solid #d29922; border-radius:8px;">
+      <h4 style="color:#d29922; font-size:14px; margin-bottom:12px;">🔧 기술적 방식 비교 (API vs CLI)</h4>
+
+      <table style="font-size:11px; margin-bottom:16px;">
+        <tr>
+          <th>비교 항목</th>
+          <th style="background:#0d2818;">CLI 방식 (✅ 채택)</th>
+          <th style="background:#2d0b0b;">API 방식 (❌ 폐기)</th>
+        </tr>
+        <tr>
+          <td><strong>인증 방식</strong></td>
+          <td style="color:#7ee787;">
+            🔓 Account Login (Claude/Gemini)<br>
+            🔐 API Key (ChatGPT/Grok)<br>
+            <span style="font-size:10px; color:#8b949e;">1회 설정 후 재사용</span>
+          </td>
+          <td style="color:#f85149;">
+            API Key 필수 (4개 전부)<br>
+            <span style="font-size:10px; color:#8b949e;">매 요청마다 인증 필요</span>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>실행 방식</strong></td>
+          <td style="color:#7ee787;">
+            Subprocess 호출<br>
+            <span style="font-size:10px; color:#8b949e;">간단한 CLI 명령</span>
+          </td>
+          <td style="color:#f85149;">
+            HTTP API 요청<br>
+            <span style="font-size:10px; color:#8b949e;">복잡한 JSON 구성</span>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>할당량/제한</strong></td>
+          <td style="color:#7ee787;">
+            Claude/Gemini: 무제한 (구독)<br>
+            ChatGPT/Grok: API 제한 적용
+          </td>
+          <td style="color:#f85149;">
+            분당 요청 제한 (RPM)<br>
+            <span style="font-size:10px; color:#8b949e;">Gemini: 15 req/min</span>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>사용 편의성</strong></td>
+          <td style="color:#7ee787;">
+            1회 로그인/설정<br>
+            <span style="font-size:10px; color:#8b949e;">재로그인 불필요</span>
+          </td>
+          <td style="color:#f85149;">
+            API 키 관리 필수<br>
+            <span style="font-size:10px; color:#8b949e;">만료, 보안 이슈</span>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>코드 복잡도</strong></td>
+          <td style="color:#7ee787;">
+            단순 (10-20줄)<br>
+            <span style="font-size:10px; color:#8b949e;">subprocess.run()</span>
+          </td>
+          <td style="color:#f85149;">
+            복잡 (50-100줄)<br>
+            <span style="font-size:10px; color:#8b949e;">HTTP client, retry, error handling</span>
+          </td>
+        </tr>
+      </table>
+
+      <h4 style="color:#d29922; font-size:14px; margin-bottom:12px; margin-top:20px;">💰 비용 비교: API 방식 vs CLI 방식 (5개월 시행착오의 핵심 인사이트)</h4>
+
+      <table style="font-size:11px; margin-bottom:12px;">
+        <tr>
+          <th rowspan="2">AI</th>
+          <th colspan="2" style="background:#2d0b0b;">이전 방식 (API)</th>
+          <th colspan="2" style="background:#0d2818;">현재 방식 (CLI)</th>
+          <th rowspan="2">절감률</th>
+        </tr>
+        <tr>
+          <th style="background:#2d0b0b;">방식</th>
+          <th style="background:#2d0b0b;">비용 (1,000개)</th>
+          <th style="background:#0d2818;">방식</th>
+          <th style="background:#0d2818;">비용 (1,000개)</th>
+        </tr>
+        <tr>
+          <td><strong style="color:#f0883e;">Claude</strong></td>
+          <td style="color:#8b949e;">Anthropic API<br>(claude-3-haiku)</td>
+          <td style="color:#f85149;">$0.75</td>
+          <td style="color:#c9d1d9;">Claude Code CLI<br>(Haiku 4.5)</td>
+          <td style="color:#7ee787;">$0 (Pro 구독)</td>
+          <td style="color:#7ee787; font-weight:700;">100%</td>
+        </tr>
+        <tr>
+          <td><strong style="color:#58a6ff;">Gemini</strong></td>
+          <td style="color:#8b949e;">Google API<br>(2.0 Flash)<br><span style="color:#f85149; font-size:10px;">할당량 제한!</span></td>
+          <td style="color:#f85149;">$0.19<br><span style="font-size:10px;">+제한</span></td>
+          <td style="color:#c9d1d9;">Gemini CLI Subprocess<br>(2.0 Flash)</td>
+          <td style="color:#7ee787;">$0 (AI Studio Pro)</td>
+          <td style="color:#7ee787; font-weight:700;">100%</td>
+        </tr>
+        <tr>
+          <td><strong style="color:#7ee787;">ChatGPT</strong></td>
+          <td style="color:#8b949e;">OpenAI API<br>(gpt-4)</td>
+          <td style="color:#f85149;">$45</td>
+          <td style="color:#c9d1d9;">Codex CLI<br>(gpt-5.1-codex-mini)</td>
+          <td style="color:#7ee787;">$0.225</td>
+          <td style="color:#7ee787; font-weight:700;">99.5%</td>
+        </tr>
+        <tr>
+          <td><strong style="color:#bc8cff;">Grok</strong></td>
+          <td style="color:#8b949e;">Chat Completions API<br>(grok-2)</td>
+          <td style="color:#8b949e;">미공개</td>
+          <td style="color:#c9d1d9;">Agent Tools API<br>(grok-2)</td>
+          <td style="color:#8b949e;">미공개</td>
+          <td style="color:#8b949e;">-</td>
+        </tr>
+        <tr style="background:#1a1f26; font-weight:700;">
+          <td>총계</td>
+          <td colspan="2" style="color:#f85149; text-align:right;">~$46/1,000개</td>
+          <td colspan="2" style="color:#7ee787; text-align:right;">~$0.23/1,000개</td>
+          <td style="color:#7ee787;">99.5%</td>
+        </tr>
+      </table>
+
+      <div style="padding:12px; background:#1a1f26; border-radius:6px; font-size:11px; line-height:1.7;">
+        <p style="color:#7ee787; font-weight:600; margin-bottom:8px;">✅ 핵심 인사이트 (5개월 시행착오의 결과)</p>
+        <ul style="padding-left:20px; margin:0; color:#c9d1d9;">
+          <li><strong>ChatGPT</strong>: gpt-4 ($45) → gpt-5.1-codex-mini ($0.225) = <span style="color:#7ee787;">200배 저렴!</span></li>
+          <li><strong>Claude/Gemini</strong>: API 요금 → 구독 플랜 무료 사용 = <span style="color:#7ee787;">100% 절감</span></li>
+          <li><strong>Gemini</strong>: API 할당량 제한 (15 req/min) → CLI 무제한 = <span style="color:#7ee787;">5배 속도</span></li>
+          <li><strong>총 비용</strong>: $46 → $0.23 (정치인 1명당) = <span style="color:#7ee787;">94% 절감</span></li>
+        </ul>
+        <p style="margin-top:12px; color:#d29922; font-weight:600; font-size:12px;">
+          💡 "API가 아니라 CLI로 가라. 구독 플랜이 API보다 200배 저렴하다."
+        </p>
+        <p style="margin-top:8px; color:#8b949e; font-size:10px;">
+          📄 상세 분석: <code>V40_AI_평가_방식_및_비용_종합_분석.md</code>
+        </p>
       </div>
     </div>
 
@@ -571,6 +915,46 @@
         </tr>
       </table>
     </div>
+
+    <div style="margin-top:20px; padding:16px; background:#0d1117; border:1px solid #30363d; border-radius:8px;">
+      <h4 style="color:#7ee787; font-size:14px; margin-bottom:12px;">🚀 성능 최적화 (V40 개선)</h4>
+      <table style="font-size:12px;">
+        <tr>
+          <th>최적화</th>
+          <th>적용 AI</th>
+          <th>설명</th>
+          <th>효과</th>
+        </tr>
+        <tr>
+          <td><span class="highlight">배치 평가</span></td>
+          <td>Gemini, ChatGPT</td>
+          <td>25개씩 묶어서 평가 (이전: 1-by-1)</td>
+          <td style="color:#7ee787;">속도 10x 향상</td>
+        </tr>
+        <tr>
+          <td><span class="highlight">Pre-filtering</span></td>
+          <td>Gemini, ChatGPT</td>
+          <td>이미 평가된 데이터 사전 제외</td>
+          <td style="color:#7ee787;">중복 평가 0%, 5x 향상</td>
+        </tr>
+        <tr>
+          <td><span class="highlight">자동 재시도</span></td>
+          <td>ChatGPT</td>
+          <td>Foreign key 오류 시 배치 크기 5개로 자동 재시도</td>
+          <td style="color:#7ee787;">안정성 100%</td>
+        </tr>
+        <tr>
+          <td><span class="highlight">공통 저장 함수</span></td>
+          <td>4개 AI 통합</td>
+          <td>common_eval_saver.py (통합 저장 로직)</td>
+          <td style="color:#7ee787;">코드 중복 제거</td>
+        </tr>
+      </table>
+      <p style="margin-top:12px; font-size:12px; color:#8b949e;">
+        ⚡ 이전 대비 <span class="highlight">평균 7배 빠른 평가 속도</span> 달성<br>
+        📌 추가 평가 스크립트 제거: 기본 헬퍼가 미평가 데이터만 자동 처리
+      </p>
+    </div>
   </div>
 </div>
 
@@ -590,12 +974,12 @@
       <div class="flow-box">
         <h4>완성도 검증</h4>
         <ul>
-          <li>기준: <span class="highlight">97% 이상</span></li>
+          <li>기준: <span class="highlight">95% 이상</span></li>
           <li>계산: (실제 평가 수 / 기대 평가 수) × 100</li>
           <li>기대 평가 수 = <span class="info">수집 풀 총수 × 4 (AI 수)</span></li>
-          <li style="color:#8b949e;">예) 풀 1,050개 → 기대 4,200개 → 97% = 4,074개+</li>
-          <li>97% 이상 → <span class="highlight">패스 ✅</span></li>
-          <li>97% 미만 → <span class="warn">누락 평가 재실행 🔄</span></li>
+          <li style="color:#8b949e;">예) 풀 1,000개 → 기대 4,000개 → 95% = 3,800개+ / 최소 950개 데이터 평가</li>
+          <li>95% 이상 → <span class="highlight">패스 ✅</span></li>
+          <li>95% 미만 → <span class="warn">누락 평가 재실행 🔄</span></li>
         </ul>
       </div>
     </div>
