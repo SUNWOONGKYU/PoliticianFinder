@@ -368,7 +368,7 @@ python validate_and_recollect_v40.py --politician_id={POLITICIAN_ID} --politicia
 
 **평가 AI 및 도구**:
 - **Claude** (Haiku 4.5): CLI Direct → `helpers/claude_eval_helper.py` (배치 25개)
-- **ChatGPT** (gpt-5-nano): CLI stdin → `helpers/codex_eval_helper.py` (배치 25개)
+- **ChatGPT** (gpt-5.1-codex-mini): CLI stdin → `helpers/codex_eval_helper.py` (배치 25개)
   - 비용: $0.05/$0.40 per 1M tokens (96% cheaper than gpt-5.1)
 - **Gemini** (2.0 Flash): CLI Subprocess → `workflow/evaluate_gemini_subprocess.py` (배치 50개)
 - **Grok** (Grok 2): xAI API → `helpers/grok_eval_helper.py` (배치 25개)
@@ -517,9 +517,9 @@ python generate_report_v40.py {POLITICIAN_ID} {POLITICIAN_NAME}
 NAVER_CLIENT_ID=...              # Naver (50% 수집) - 무료
 NAVER_CLIENT_SECRET=...          # Naver (50% 수집) - 무료
 
-# 평가용 (4개 AI: Claude Haiku 4.5, ChatGPT gpt-5-nano, Gemini 2.0 Flash, Grok 2)
+# 평가용 (4개 AI: Claude Haiku 4.5, ChatGPT gpt-5.1-codex-mini, Gemini 2.0 Flash, Grok 2)
 ANTHROPIC_API_KEY=sk-ant-...     # Claude API (Haiku 4.5)
-OPENAI_API_KEY=sk-...            # Codex CLI (ChatGPT gpt-5-nano, $0.05/$0.40/1M tokens) - 선택적
+OPENAI_API_KEY=sk-...            # Codex CLI (ChatGPT gpt-5.1-codex-mini, $0.05/$0.40/1M tokens) - 선택적
 XAI_API_KEY=xai-...              # Grok API (Grok 2)
 # ⚠️ Gemini는 CLI Subprocess 사용 (API 키 불필요, 2.0 Flash)
 

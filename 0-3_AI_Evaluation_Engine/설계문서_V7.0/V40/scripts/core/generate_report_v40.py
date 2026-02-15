@@ -1,4 +1,25 @@
-# generate_report_v40.py
+# -*- coding: utf-8 -*-
+"""
+V40 평가보고서 생성 스크립트
+
+AI 기반 정치인 상세평가보고서를 생성합니다.
+
+평가 AI (4개):
+- Claude Haiku 4.5 (CLI Direct, 저렴한 모델)
+- ChatGPT gpt-5.1-codex-mini (CLI Direct, $0.05/$0.40 per 1M tokens)
+- Gemini 2.0 Flash (CLI Subprocess)
+- Grok 2 (xAI API Direct)
+
+출력 형식:
+- Markdown 파일 (보고서/{정치인명}_{YYYYMMDD}.md)
+- 카테고리별 AI 평가 요약
+- 최종 점수 및 등급
+- 대표 사례 (긍정/부정)
+
+사용법:
+    python generate_report_v40.py --politician_id=62e7b453 --politician_name="오세훈"
+"""
+
 import os
 import json
 import statistics
@@ -255,9 +276,14 @@ def analyze_categories(evaluations, collected_data):
                 'total': len(collector_data)
             }
 
-        # AI별 점수
+        # AI별 점수 (실제로 평가한 AI만)
         ai_scores = {}
+        available_ais_in_category = set(e['evaluator_ai'] for e in cat_evals)
+
         for ai in ['Claude', 'ChatGPT', 'Grok', 'Gemini']:
+            if ai not in available_ais_in_category:
+                continue  # 이 카테고리에서 평가하지 않은 AI는 건너뛰기
+
             ai_evals = [e for e in cat_evals if e['evaluator_ai'] == ai]
 
             total_value = 0
@@ -339,9 +365,11 @@ def build_report_v40(politician_name, final_scores, ai_stats, category_analysis,
 
     # 카테고리별 평균 점수 및 통계 계산
     cat_avg_scores = {}
+    available_ais = [ai for ai in ['Claude', 'ChatGPT', 'Grok', 'Gemini'] if ai in ai_stats]
+
     for cat_en, cat_kr in CATEGORIES.items():
         scores = [ai_category_scores.get(ai, {}).get(cat_en, 0)
-                 for ai in ['Claude', 'ChatGPT', 'Grok', 'Gemini']]
+                 for ai in available_ais]
         cat_avg_scores[cat_en] = {
             'avg': sum(scores) / len(scores) if scores else 0,
             'scores': scores,
@@ -411,12 +439,15 @@ def build_report_v40(politician_name, final_scores, ai_stats, category_analysis,
 
     ai_scores_sorted = sorted(ai_final_scores.items(), key=lambda x: x[1], reverse=True)
     for ai, score in ai_scores_sorted:
-        avg_rating = ai_stats[ai]['avg_rating']
-        report += f"| {ai} | {score}점 | {avg_rating:+.2f} |\n"
+        if ai in ai_stats:  # ai_stats에 있는 AI만 표시
+            avg_rating = ai_stats[ai]['avg_rating']
+            report += f"| {ai} | {score}점 | {avg_rating:+.2f} |\n"
 
     avg_score = final_scores['final_score']
-    avg_rating = sum(ai_stats[ai]['avg_rating'] for ai in ['Claude', 'ChatGPT', 'Grok', 'Gemini']) / 4
-    report += f"| **4 AIs 평균** | **{avg_score}점** | **{avg_rating:+.2f}** |\n"
+    # ai_stats에 실제로 있는 AI만 사용
+    available_ais = [ai for ai in ['Claude', 'ChatGPT', 'Grok', 'Gemini'] if ai in ai_stats]
+    avg_rating = sum(ai_stats[ai]['avg_rating'] for ai in available_ais) / len(available_ais) if available_ais else 0
+    report += f"| **{len(available_ais)} AIs 평균** | **{avg_score}점** | **{avg_rating:+.2f}** |\n"
 
     # 카테고리별 점수 표
     report += "\n### 카테고리별 점수 (10개)\n\n"
@@ -445,8 +476,8 @@ X:    {'█' * max(1, int(x_pct / 5))} {x_pct:.1f}% ({total_x:,}개)
         cat_kr = info['kr']
         avg = info['avg']
         stdev = info['stdev']
-        scores = info['scores']  # [Claude, ChatGPT, Grok, Gemini]
-        ai_names = ['Claude', 'ChatGPT', 'Grok', 'Gemini']
+        scores = info['scores']  # [Claude, ChatGPT, Grok, Gemini] (available only)
+        ai_names = [ai for ai in ['Claude', 'ChatGPT', 'Grok', 'Gemini'] if ai in ai_stats]
 
         max_idx = scores.index(max(scores))
         min_idx = scores.index(min(scores))
@@ -466,13 +497,13 @@ X:    {'█' * max(1, int(x_pct / 5))} {x_pct:.1f}% ({total_x:,}개)
         report += f"""### 강점 {rank}: {cat_kr} ({avg:.0f}점) ⭐
 
 #### 왜 강점인가
-- 4개 AI 평균 {avg:.0f}점, 10개 카테고리 중 {rank}위
-- AI별 점수: {', '.join([f'{ai_names[i]} {scores[i]:.0f}점' for i in range(4)])}
+- {len(ai_names)}개 AI 평균 {avg:.0f}점, 10개 카테고리 중 {rank}위
+- AI별 점수: {', '.join([f'{ai_names[i]} {scores[i]:.0f}점' for i in range(len(ai_names)) if i < len(scores)])}
 
 #### AI 일치도
 - 표준편차 {stdev:.1f}점 ({"일관성 높음" if stdev < 3 else "일관성 보통" if stdev < 5 else "편차 있음"})
-- 최고 AI: {ai_names[max_idx]} ({scores[max_idx]:.0f}점)
-- 최저 AI: {ai_names[min_idx]} ({scores[min_idx]:.0f}점)
+- 최고 AI: {ai_names[max_idx] if max_idx < len(ai_names) else 'N/A'} ({scores[max_idx]:.0f}점)
+- 최저 AI: {ai_names[min_idx] if min_idx < len(ai_names) else 'N/A'} ({scores[min_idx]:.0f}점)
 - 차이: {scores[max_idx] - scores[min_idx]:.0f}점
 
 #### 긍정/부정 비율
@@ -500,7 +531,7 @@ X:    {'█' * max(1, int(x_pct / 5))} {x_pct:.1f}% ({total_x:,}개)
         avg = info['avg']
         stdev = info['stdev']
         scores = info['scores']
-        ai_names = ['Claude', 'ChatGPT', 'Grok', 'Gemini']
+        ai_names = [ai for ai in ['Claude', 'ChatGPT', 'Grok', 'Gemini'] if ai in ai_stats]
 
         max_idx = scores.index(max(scores))
         min_idx = scores.index(min(scores))
@@ -519,13 +550,13 @@ X:    {'█' * max(1, int(x_pct / 5))} {x_pct:.1f}% ({total_x:,}개)
         report += f"""### 약점 {rank}: {cat_kr} ({avg:.0f}점) ⚠️
 
 #### 왜 약점인가
-- 4개 AI 평균 {avg:.0f}점, 10개 카테고리 중 하위 영역
-- AI별 점수: {', '.join([f'{ai_names[i]} {scores[i]:.0f}점' for i in range(4)])}
+- {len(ai_names)}개 AI 평균 {avg:.0f}점, 10개 카테고리 중 하위 영역
+- AI별 점수: {', '.join([f'{ai_names[i]} {scores[i]:.0f}점' for i in range(len(ai_names)) if i < len(scores)])}
 
 #### AI 평가 편차
 - 표준편차 {stdev:.1f}점 ({"일관성 높음" if stdev < 3 else "일관성 보통" if stdev < 5 else "편차 있음"})
-- 최고 AI: {ai_names[max_idx]} ({scores[max_idx]:.0f}점)
-- 최저 AI: {ai_names[min_idx]} ({scores[min_idx]:.0f}점)
+- 최고 AI: {ai_names[max_idx] if max_idx < len(ai_names) else 'N/A'} ({scores[max_idx]:.0f}점)
+- 최저 AI: {ai_names[min_idx] if min_idx < len(ai_names) else 'N/A'} ({scores[min_idx]:.0f}점)
 - 차이: {scores[max_idx] - scores[min_idx]:.0f}점
 
 #### 부정 비율
@@ -551,14 +582,15 @@ X:    {'█' * max(1, int(x_pct / 5))} {x_pct:.1f}% ({total_x:,}개)
     for idx, (cat_en, cat_kr) in enumerate(CATEGORIES.items(), 1):
         info = cat_avg_scores[cat_en]
         scores = info['scores']
-        ai_names = ['Claude', 'ChatGPT', 'Grok', 'Gemini']
+        ai_names = [ai for ai in ['Claude', 'ChatGPT', 'Grok', 'Gemini'] if ai in ai_stats]
 
         report += f"### 5.{idx} {cat_kr} ({info['avg']:.0f}점)\n\n"
         report += "| AI | 점수 | 평가 |\n"
         report += "|---|:----:|------|\n"
 
         for i, ai in enumerate(ai_names):
-            report += f"| {ai} | {scores[i]:.0f}점 | {get_score_evaluation(scores[i])} |\n"
+            if i < len(scores):  # scores 배열 범위 체크
+                report += f"| {ai} | {scores[i]:.0f}점 | {get_score_evaluation(scores[i])} |\n"
 
         report += f"| **평균** | **{info['avg']:.0f}점** | **{get_score_evaluation(info['avg'])}** |\n\n"
 
@@ -593,8 +625,9 @@ X:    {'█' * max(1, int(x_pct / 5))} {x_pct:.1f}% ({total_x:,}개)
 """
 
     for ai in ['Claude', 'ChatGPT', 'Grok', 'Gemini']:
-        total = ai_stats[ai]['total']
-        report += f"| {ai} | {total:,}개 | 독립적 수집 및 평가 |\n"
+        if ai in ai_stats:
+            total = ai_stats[ai]['total']
+            report += f"| {ai} | {total:,}개 | 독립적 수집 및 평가 |\n"
 
     report += f"""
 ### 6.3 데이터 품질
