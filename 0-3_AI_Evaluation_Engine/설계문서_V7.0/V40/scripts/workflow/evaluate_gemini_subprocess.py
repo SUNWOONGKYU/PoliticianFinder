@@ -56,7 +56,7 @@ from collect_gemini_subprocess import execute_gemini_cli
 from supabase import create_client, Client
 
 # 공통 저장 함수 import (성능 개선)
-from common_eval_saver import save_evaluations_batch_upsert
+from common_eval_saver import save_evaluations_batch_upsert, load_instruction, build_evaluation_prompt
 
 # 로깅 설정
 logging.basicConfig(
@@ -172,14 +172,17 @@ def parse_gemini_evaluation(output: str) -> list:
         # 각 평가 검증
         valid_evaluations = []
         for eval_item in evaluations:
-            rating = eval_item.get('rating', 'X')
+            rating = str(eval_item.get('rating', 'X')).strip()
 
-            # rating 검증 (문자열 형태: "+4", "-2", "X" 등)
-            if rating != 'X':
-                # +, - 기호 제거하고 숫자만 추출
+            # 정수 → 문자열 정규화 (예: -1 → "-1", 3 → "+3")
+            if rating not in ['+4', '+3', '+2', '+1', '-1', '-2', '-3', '-4', 'X']:
                 try:
-                    rating_num = int(rating.replace('+', '').replace('-', ''))
-                    if rating_num not in [1, 2, 3, 4]:
+                    num = int(rating)
+                    if 1 <= num <= 4:
+                        rating = f'+{num}'
+                    elif -4 <= num <= -1:
+                        rating = str(num)
+                    else:
                         logger.warning(f"[WARNING] Invalid rating: {rating}, setting to X")
                         rating = 'X'
                 except:
@@ -304,14 +307,12 @@ def evaluate_category(
 
     logger.info(f"[INFO] Loaded {len(collected_data)} unevaluated items for {category}")
 
-    # 카테고리 한글명 매핑
-    category_kr_map = {
-        'expertise': '전문성', 'leadership': '리더십', 'vision': '비전',
-        'integrity': '청렴성', 'ethics': '윤리성', 'accountability': '책임감',
-        'transparency': '투명성', 'communication': '소통능력',
-        'responsiveness': '대응성', 'publicinterest': '공익성'
-    }
-    category_kr = category_kr_map.get(category.lower(), category)
+    # instruction 파일 로드 (1회만)
+    instruction_content = load_instruction(category)
+    if instruction_content:
+        logger.info(f"[INFO] Instruction loaded for {category}")
+    else:
+        logger.warning(f"[WARNING] No instruction file for {category}")
 
     # 배치 처리 (V40 배치 크기: 25개)
     BATCH_SIZE = 25
@@ -325,52 +326,19 @@ def evaluate_category(
 
         logger.info(f"[BATCH {batch_num}/{total_batches}] Processing {len(batch_data)} items...")
 
-        # 수집 데이터 JSON 형식 준비 (ID 포함)
+        # 수집 데이터 JSON 형식 준비 (ID 포함, content 500자로 통일)
         data_json = []
         for item in batch_data:
             data_json.append({
                 "id": item.get('id'),
                 "date": item.get('published_date'),
                 "title": item.get('title'),
-                "content": item.get('content', '')[:300],
+                "content": item.get('content', '')[:500],
                 "source": item.get('source_name')
             })
 
-        # 평가 프롬프트 생성
-        prompt = f"""
-정치인 {politician_name}의 {category_kr} 관련 데이터를 평가하세요.
-
-평가 기준:
-- +4 (탁월): 모범 사례, 법 제정, 대통령 표창 수준
-- +3 (우수): 구체적 성과, 다수 법안 통과
-- +2 (양호): 일반적 긍정 활동, 법안 발의
-- +1 (보통): 노력, 출석, 기본 역량
-- -1 (미흡): 비판 받음, 지적당함
-- -2 (부족): 논란, 의혹 제기
-- -3 (심각): 수사, 조사 착수
-- -4 (최악): 유죄 확정, 법적 처벌
-- X (제외): 동명이인, 10년 이상 과거, 가짜 정보
-
-다음 JSON 형식으로 응답하세요:
-
-```json
-{{
-  "evaluations": [
-    {{
-      "id": "데이터 ID",
-      "rating": "+3",
-      "rationale": "평가 근거 (한국어 1문장)"
-    }}
-  ]
-}}
-```
-
-평가할 데이터:
-
-{json.dumps(data_json, ensure_ascii=False, indent=2)}
-
-각 데이터에 대해 rating과 rationale을 제공하세요.
-"""
+        # 통일된 평가 프롬프트 생성 (instruction 기반)
+        prompt = build_evaluation_prompt(politician_name, category, data_json, instruction_content)
 
         # Gemini CLI 실행
         result = execute_gemini_cli(prompt, timeout=600)

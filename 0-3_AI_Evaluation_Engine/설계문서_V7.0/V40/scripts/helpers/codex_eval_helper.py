@@ -37,7 +37,7 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 sys.path.insert(0, str(SCRIPT_DIR))
 
 # 공통 저장 함수 import
-from common_eval_saver import save_evaluations_batch_upsert
+from common_eval_saver import save_evaluations_batch_upsert, load_instruction, build_evaluation_prompt
 
 # UTF-8 출력 설정
 if sys.platform == 'win32':
@@ -115,20 +115,19 @@ def get_unevaluated_data(politician_id, category):
     return unevaluated
 
 
-def evaluate_batch_with_codex(politician_name, category, data_items):
+def evaluate_batch_with_codex(politician_name, category, data_items, instruction_content=''):
     """
-    Codex CLI로 배치 평가 (Gemini와 동일한 패턴)
+    Codex CLI로 배치 평가 (instruction 기반 프롬프트)
 
     Args:
         politician_name: 정치인 이름
         category: 카테고리
         data_items: 평가할 데이터 리스트 (배치)
+        instruction_content: 미리 로드된 instruction 내용
 
     Returns:
         평가 결과 리스트 [{"id": "...", "rating": "...", "rationale": "..."}, ...]
     """
-    cat_kor = CATEGORY_MAP.get(category.lower(), category)
-
     # 배치 데이터 JSON 형식 준비
     data_json = []
     for item in data_items:
@@ -140,39 +139,8 @@ def evaluate_batch_with_codex(politician_name, category, data_items):
             "date": item.get('published_date', '')
         })
 
-    # 배치 평가 프롬프트 (Gemini와 유사)
-    prompt = f"""정치인 {politician_name}의 {cat_kor} 관련 데이터를 평가하세요.
-
-평가 기준:
-- +4 (탁월): 모범 사례, 법 제정, 대통령 표창 수준
-- +3 (우수): 구체적 성과, 다수 법안 통과
-- +2 (양호): 일반적 긍정 활동, 법안 발의
-- +1 (보통): 노력, 출석, 기본 역량
-- -1 (미흡): 비판 받음, 지적당함
-- -2 (부족): 논란, 의혹 제기
-- -3 (심각): 수사, 조사 착수
-- -4 (최악): 유죄 확정, 법적 처벌
-- X (제외): 동명이인, 10년 이상 과거, 가짜 정보
-
-다음 JSON 형식으로 응답하세요:
-
-```json
-{{
-  "evaluations": [
-    {{
-      "id": "데이터 ID",
-      "rating": "+3",
-      "rationale": "평가 근거 (한국어 1문장)"
-    }}
-  ]
-}}
-```
-
-평가할 데이터:
-
-{json.dumps(data_json, ensure_ascii=False, indent=2)}
-
-각 데이터에 대해 rating과 rationale을 제공하세요."""
+    # 통일된 프롬프트 생성 (instruction 기반)
+    prompt = build_evaluation_prompt(politician_name, category, data_json, instruction_content)
 
     try:
         # Codex CLI 실행 (배치 평가)
@@ -281,6 +249,13 @@ def main():
         print('✅ 모든 데이터 평가 완료')
         return
 
+    # instruction 파일 로드 (1회만)
+    instruction_content = load_instruction(args.category)
+    if instruction_content:
+        print(f'📋 평가 기준 로드 완료: {args.category}')
+    else:
+        print(f'⚠️ 평가 기준 파일 없음 (일반 기준 적용)')
+
     print(f'배치 크기: {args.batch_size}개')
     print()
 
@@ -294,8 +269,8 @@ def main():
 
         print(f'[배치 {batch_num}/{total_batches}] {len(batch_data)}개 평가 중...')
 
-        # Codex로 배치 평가
-        evaluations = evaluate_batch_with_codex(args.politician_name, args.category, batch_data)
+        # Codex로 배치 평가 (instruction 포함)
+        evaluations = evaluate_batch_with_codex(args.politician_name, args.category, batch_data, instruction_content)
 
         if not evaluations:
             print(f'❌ 배치 {batch_num} 평가 실패')
