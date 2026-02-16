@@ -124,7 +124,7 @@ CREATE TABLE ai_category_scores (
 "Gemini"    # Gemini 시스템
 
 # ❌ 잘못된 값 (모델명 금지)
-"claude-3-5-haiku-20241022"  # 금지
+"claude-haiku-4-5-20251001"  # 금지
 "gpt-4"                       # 금지
 ```
 
@@ -156,7 +156,7 @@ CREATE TABLE ai_final_scores (
 ### ⚠️ ai_name 필드 규칙
 **ai_category_scores 테이블과 동일한 규칙 적용**
 - "Claude", "ChatGPT", "Grok", "Gemini" 등 평가 주체명 사용
-- 모델명(예: "claude-3-5-haiku-20241022") 사용 금지
+- 모델명(예: "claude-haiku-4-5-20251001") 사용 금지
 
 ---
 

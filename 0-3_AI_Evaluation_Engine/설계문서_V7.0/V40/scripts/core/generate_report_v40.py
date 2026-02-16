@@ -8,7 +8,7 @@ AI 기반 정치인 상세평가보고서를 생성합니다.
 - Claude Haiku 4.5 (CLI Direct, 저렴한 모델)
 - ChatGPT gpt-5.1-codex-mini (CLI Direct, $0.05/$0.40 per 1M tokens)
 - Gemini 2.0 Flash (CLI Subprocess)
-- Grok 2 (xAI API Direct)
+- Grok 3 (xAI API Direct)
 
 출력 형식:
 - Markdown 파일 (보고서/{정치인명}_{YYYYMMDD}.md)
@@ -17,7 +17,7 @@ AI 기반 정치인 상세평가보고서를 생성합니다.
 - 대표 사례 (긍정/부정)
 
 사용법:
-    python generate_report_v40.py --politician_id=62e7b453 --politician_name="오세훈"
+    python generate_report_v40.py 62e7b453 "오세훈"
 """
 
 import os

@@ -1495,6 +1495,12 @@
                             </li>
                             <li>✓ 필수 필드 (title, content, url)</li>
                             <li>✓ 가짜 URL 패턴 탐지</li>
+                            <li>✓ Sentiment 비율 검증:
+                                <ul>
+                                    <li>OFFICIAL: negative ≥10%, positive ≥10%</li>
+                                    <li>PUBLIC: negative ≥20%, positive ≥20%</li>
+                                </ul>
+                            </li>
                             <li>✓ 고급 중복 제거:
                                 <ul>
                                     <li>같은 AI + 같은 URL/제목 → 제거</li>
@@ -1540,7 +1546,7 @@
                     <span class="toggle-icon">▼</span>
                 </div>
                 <div class="phase-content">
-                    <h3>균형 확인 및 조정</h3>
+                    <h3>균형 확인 및 조정 (최대 4회, 포기 규칙 적용)</h3>
                     <div class="info-box">
                         <p><strong>목표: AI별 500-600개, 카테고리별 50-60개/AI</strong></p>
                         <p><strong>확인 항목:</strong></p>
@@ -1548,10 +1554,16 @@
                             <li>AI별 데이터 개수 (Gemini/Naver 각각)</li>
                             <li>카테고리별 개수 (10개 × AI별 50-60개)</li>
                         </ul>
-                        <p><strong>자동 조정:</strong></p>
+                        <p><strong>자동 조정 (최대 4회):</strong></p>
                         <ul>
                             <li>60개 초과 → 오래된 순 자동 삭제</li>
                             <li>50개 미만 → 재수집 필요</li>
+                        </ul>
+                        <p><strong>포기 규칙 (4회 후):</strong></p>
+                        <ul>
+                            <li>50+개: 정상 평가</li>
+                            <li>25-49개: 부족 허용, 보유 데이터로 평가</li>
+                            <li>&lt;25개: 포기, leverage score 0 처리 (60점)</li>
                         </ul>
                         <p><strong>명령어:</strong></p>
                         <ul>
@@ -1659,7 +1671,7 @@
                             <p>curl CLI Direct (subprocess)</p>
                             <hr>
                             <p>🔐 XAI_API_KEY 필수</p>
-                            <p>grok-2</p>
+                            <p>grok-3</p>
                             <p>1,000~1,200개</p>
                             <p>(100~120×10)</p>
                             <p>8등급, X=제외</p>
@@ -1746,8 +1758,8 @@
                             </tr>
                             <tr>
                                 <td>Grok</td>
-                                <td>Chat Completions API 미공개</td>
-                                <td>xAI API (grok-2) 미공개</td>
+                                <td>Agent Tools API 미공개</td>
+                                <td>xAI API (grok-3) 미공개</td>
                                 <td>-</td>
                             </tr>
                             <tr style="font-weight: bold; background: #1a2b1a;">
@@ -2568,7 +2580,7 @@
                 <li><label><input type="checkbox"> AI별 데이터 500-600개 확인</label></li>
                 <li><label><input type="checkbox"> 카테고리별 50-60개/AI 확인</label></li>
                 <li><label><input type="checkbox"> 전체 1,000-1,200개 확인</label></li>
-                <li><label><input type="checkbox"> 50개 미만 카테고리 재수집 완료</label></li>
+                <li><label><input type="checkbox"> 50개 미만 카테고리 재수집 완료 (최대 4회, 포기 규칙 적용)</label></li>
             </ul>
 
             <h3>Phase 4: 평가 단계</h3>

@@ -141,10 +141,10 @@ python calculate_v24_scores_correct.py
 
 | AI | 모델 | 특징 |
 |----|------|------|
-| Claude | claude-3-5-haiku-20241022 | 균형잡힌 평가 |
+| Claude | claude-haiku-4-5-20251001 | 균형잡힌 평가 |
 | ChatGPT | gpt-4o-mini | 보수적 평가 |
 | Grok | grok-3-mini | 현실감 있는 평가 |
-| **Gemini** | gemini-2.0-flash | 빠른 처리, 비용 효율 |
+| **Gemini** | gemini-2.5-flash | 빠른 처리, 비용 효율 |
 
 ---
 

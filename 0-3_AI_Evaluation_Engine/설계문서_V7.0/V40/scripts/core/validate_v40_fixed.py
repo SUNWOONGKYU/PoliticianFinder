@@ -14,7 +14,7 @@ V40 검증 스크립트 (수정 버전)
 핵심 원칙:
 - 검증은 "참고용"
 - 삭제는 신중하게
-- AI 평가 단계에서 최종 품질 판단 (4개 AI: Claude Haiku 4.5, ChatGPT gpt-5.1-codex-mini, Gemini 2.0 Flash, Grok 2)
+- AI 평가 단계에서 최종 품질 판단 (4개 AI: Claude Haiku 4.5, ChatGPT gpt-5.1-codex-mini, Gemini 2.0 Flash, Grok 3)
 
 사용법:
     python validate_v40_fixed.py --politician_id=62e7b453 --politician_name="오세훈" --no-dry-run
@@ -26,8 +26,8 @@ import io
 # UTF-8 출력 설정 (최우선 - 모든 import 전에 실행)
 if sys.platform == 'win32':
     try:
-        sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
-        sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
+        sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', line_buffering=True)
+        sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8', line_buffering=True)
     except AttributeError:
         pass
 
@@ -79,6 +79,27 @@ VALIDATION_CODES = {
     "MISSING_FIELD": "필수 필드 누락",
     "DATE_OUT_OF_RANGE": "기간 초과",
     "DUPLICATE": "중복 데이터"
+}
+
+# Sentiment 비율 최소 기준 (V40_기본방침.md 섹션 6)
+# OFFICIAL 10-10-80: negative 10%, positive 10%, free 80%
+# PUBLIC 20-20-60: negative 20%, positive 20%, free 60%
+MIN_NEGATIVE_PCT_OFFICIAL = 10  # OFFICIAL negative 최소 10%
+MIN_POSITIVE_PCT_OFFICIAL = 10  # OFFICIAL positive 최소 10%
+MIN_NEGATIVE_PCT_PUBLIC = 20    # PUBLIC negative 최소 20%
+MIN_POSITIVE_PCT_PUBLIC = 20    # PUBLIC positive 최소 20%
+
+CATEGORIES_ALL = [
+    'expertise', 'leadership', 'vision', 'integrity', 'ethics',
+    'accountability', 'transparency', 'communication',
+    'responsiveness', 'publicinterest'
+]
+
+CATEGORY_KOREAN = {
+    'expertise': '전문성', 'leadership': '리더십', 'vision': '비전',
+    'integrity': '청렴성', 'ethics': '윤리성', 'accountability': '책임감',
+    'transparency': '투명성', 'communication': '소통능력',
+    'responsiveness': '대응성', 'publicinterest': '공익성'
 }
 
 
@@ -284,6 +305,85 @@ def validate_item_fixed(item):
     return True, "VALID"
 
 
+def check_sentiment_ratios(valid_items):
+    """
+    유효 데이터의 sentiment/data_type 비율 검증
+
+    V40 기본방침 섹션 6 규칙:
+    - OFFICIAL: negative 10%, positive 10%, free 80%
+    - PUBLIC: negative 20%, positive 20%, free 60%
+
+    Returns:
+        list: 위반 항목 리스트
+    """
+    from collections import defaultdict
+
+    # 카테고리 × data_type × sentiment 집계
+    dist = defaultdict(lambda: defaultdict(lambda: defaultdict(int)))
+    for item in valid_items:
+        cat = (item.get('category') or '').lower()
+        dtype = (item.get('data_type') or '').lower()
+        sent = (item.get('sentiment') or 'free').lower()
+        if cat and dtype:
+            dist[cat][dtype][sent] += 1
+
+    violations = []
+
+    print(f"\n{'='*60}")
+    print(f"[Sentiment 비율 검증] OFFICIAL 10-10-80 / PUBLIC 20-20-60")
+    print(f"{'='*60}")
+
+    for cat in CATEGORIES_ALL:
+        cat_kr = CATEGORY_KOREAN.get(cat, cat)
+        cat_violations = []
+
+        for dtype, min_neg, min_pos in [
+            ('official', MIN_NEGATIVE_PCT_OFFICIAL, MIN_POSITIVE_PCT_OFFICIAL),
+            ('public', MIN_NEGATIVE_PCT_PUBLIC, MIN_POSITIVE_PCT_PUBLIC),
+        ]:
+            counts = dist[cat][dtype]
+            total = sum(counts.values())
+            if total == 0:
+                continue
+
+            neg_count = counts.get('negative', 0)
+            pos_count = counts.get('positive', 0)
+            neg_pct = neg_count / total * 100
+            pos_pct = pos_count / total * 100
+
+            dtype_upper = dtype.upper()
+
+            if neg_pct < min_neg:
+                msg = (f"  {cat_kr} {dtype_upper}: negative {neg_count}/{total} "
+                       f"({neg_pct:.0f}%) < 최소 {min_neg}%")
+                cat_violations.append(msg)
+                violations.append(msg.strip())
+
+            if pos_pct < min_pos:
+                msg = (f"  {cat_kr} {dtype_upper}: positive {pos_count}/{total} "
+                       f"({pos_pct:.0f}%) < 최소 {min_pos}%")
+                cat_violations.append(msg)
+                violations.append(msg.strip())
+
+        if cat_violations:
+            for v in cat_violations:
+                print(f"  ⚠️{v}")
+        else:
+            # 간략 출력
+            off_total = sum(dist[cat]['official'].values())
+            pub_total = sum(dist[cat]['public'].values())
+            if off_total > 0 or pub_total > 0:
+                print(f"  ✅ {cat_kr}: OK (OFF {off_total}개, PUB {pub_total}개)")
+
+    if violations:
+        print(f"\n  ⚠️ Sentiment 비율 위반: {len(violations)}건")
+        print(f"  ⚠️ 재수집으로 부족한 sentiment 보충 필요")
+    else:
+        print(f"\n  ✅ 모든 카테고리 Sentiment 비율 충족")
+
+    return violations
+
+
 def validate_collected_data_fixed(politician_id, politician_name, dry_run=True):
     """
     수집 데이터 검증 (수정 버전)
@@ -299,16 +399,25 @@ def validate_collected_data_fixed(politician_id, politician_name, dry_run=True):
         print(f"[모드] 실제 삭제 수행")
     print(f"{'='*60}")
 
-    # 데이터 조회
-    result = supabase.table(TABLE_COLLECTED_DATA)\
-        .select('*')\
-        .eq('politician_id', politician_id)\
-        .execute()
-
-    items = result.data
+    # 데이터 조회 (페이지네이션 - Supabase 1,000행 제한 대응)
+    items = []
+    offset = 0
+    page_size = 1000
+    while True:
+        result = supabase.table(TABLE_COLLECTED_DATA)\
+            .select('*')\
+            .eq('politician_id', politician_id)\
+            .range(offset, offset + page_size - 1)\
+            .execute()
+        batch = result.data or []
+        items.extend(batch)
+        if len(batch) < page_size:
+            break
+        offset += page_size
     print(f"총 {len(items)}개 항목 검증 시작...")
 
     valid_count = 0
+    valid_items = []
     invalid_items = []
 
     for i, item in enumerate(items):
@@ -316,6 +425,7 @@ def validate_collected_data_fixed(politician_id, politician_name, dry_run=True):
 
         if valid:
             valid_count += 1
+            valid_items.append(item)
         else:
             invalid_items.append({
                 'id': item.get('id'),
@@ -363,11 +473,15 @@ def validate_collected_data_fixed(politician_id, politician_name, dry_run=True):
                 pass
         print(f"\n🗑️ {deleted}개 무효 항목 삭제")
 
+    # ===== Sentiment/DataType 비율 검증 =====
+    sentiment_violations = check_sentiment_ratios(valid_items)
+
     return {
         'total': len(items),
         'valid': valid_count,
         'invalid': invalid_count,
-        'invalid_rate': invalid_count / len(items) * 100 if len(items) > 0 else 0
+        'invalid_rate': invalid_count / len(items) * 100 if len(items) > 0 else 0,
+        'sentiment_violations': sentiment_violations
     }
 
 
@@ -393,6 +507,11 @@ def main():
     print(f"  유효: {result['valid']}개")
     print(f"  무효: {result['invalid']}개")
     print(f"  무효율: {result['invalid_rate']:.1f}%")
+    sv = result.get('sentiment_violations', [])
+    if sv:
+        print(f"  Sentiment 비율 위반: {len(sv)}건")
+    else:
+        print(f"  Sentiment 비율: 모두 충족")
     print(f"{'='*60}")
 
 

@@ -133,7 +133,7 @@
 - **카테고리당 100개**: OFFICIAL 40개 + PUBLIC 60개
 
 **평가 (Evaluation):**
-- **4개 AI 평가**: Claude (Haiku 4.5), ChatGPT (gpt-5.1-codex-mini), Gemini (2.0 Flash), Grok (2)
+- **4개 AI 평가**: Claude (Haiku 4.5), ChatGPT (gpt-5.1-codex-mini), Gemini (2.0 Flash), Grok (3)
 - **풀링 방식**: 모든 AI가 전체 100개 데이터 평가
 - **등급 체계**: +4 ~ -4 (점수 = 등급 × 2)
 - **세션 분리**: 수집 시점 ≠ 평가 시점 (객관성 보장)
@@ -165,7 +165,7 @@
   - Claude: `claude_eval_helper.py` (Anthropic API, Haiku 4.5)
   - ChatGPT: `codex_eval_helper.py` (Codex CLI Direct, gpt-5.1-codex-mini, stdin, 배치 25 + 자동 재시도)
   - Gemini: `evaluate_gemini_subprocess.py` (Gemini CLI Subprocess, 2.0 Flash, Pre-filtering)
-  - Grok: `grok_eval_helper.py` (xAI API Direct, Grok 2)
+  - Grok: `grok_eval_helper.py` (xAI Agent Tools API, Grok 3)
   - **공통 저장**: `common_eval_saver.py` (4개 AI 통합 저장 함수)
 - **자동화**: Claude Skill (`/evaluate-politician-v40`) - 50개 배치 자동 평가
 - **검증, 점수 계산**: 자동
@@ -334,6 +334,7 @@ python collect_v40.py --politician_id={POLITICIAN_ID} --politician_name="{POLITI
 - 도메인 유효성 (OFFICIAL/PUBLIC 매칭)
 - 필수 필드 (title, content, source_url)
 - 기간 제한 (공식 4년, 공개 2년)
+- Sentiment 비율 (OFFICIAL: neg/pos ≥10%, PUBLIC: neg/pos ≥20%)
 - 최소 목표 100개 달성 여부
 
 **프로세스**:
@@ -370,14 +371,14 @@ python validate_and_recollect_v40.py --politician_id={POLITICIAN_ID} --politicia
 - **Claude** (Haiku 4.5): CLI Direct → `helpers/claude_eval_helper.py` (배치 25개)
 - **ChatGPT** (gpt-5.1-codex-mini): CLI stdin → `helpers/codex_eval_helper.py` (배치 25개)
   - 비용: $0.05/$0.40 per 1M tokens (96% cheaper than gpt-5.1)
-- **Gemini** (2.0 Flash): CLI Subprocess → `workflow/evaluate_gemini_subprocess.py` (배치 50개)
-- **Grok** (Grok 2): xAI API → `helpers/grok_eval_helper.py` (배치 25개)
+- **Gemini** (2.0 Flash): CLI Subprocess → `workflow/evaluate_gemini_subprocess.py` (배치 25개)
+- **Grok** (Grok 3): xAI Agent Tools API → `helpers/grok_eval_helper.py` (배치 25개)
 
 **등급 체계**: +4 ~ -4 (점수 = 등급 × 2)
 
 **배치 크기 규칙**:
 - API 평가 (Claude/ChatGPT/Grok): 25개 배치
-- Gemini CLI Subprocess: 50개 배치
+- Gemini CLI Subprocess: 25개 배치
 - Claude Skill 자동 평가: 50개 배치
 
 **사용법 예시**:
@@ -517,10 +518,10 @@ python generate_report_v40.py {POLITICIAN_ID} {POLITICIAN_NAME}
 NAVER_CLIENT_ID=...              # Naver (50% 수집) - 무료
 NAVER_CLIENT_SECRET=...          # Naver (50% 수집) - 무료
 
-# 평가용 (4개 AI: Claude Haiku 4.5, ChatGPT gpt-5.1-codex-mini, Gemini 2.0 Flash, Grok 2)
+# 평가용 (4개 AI: Claude Haiku 4.5, ChatGPT gpt-5.1-codex-mini, Gemini 2.0 Flash, Grok 3)
 ANTHROPIC_API_KEY=sk-ant-...     # Claude API (Haiku 4.5)
 OPENAI_API_KEY=sk-...            # Codex CLI (ChatGPT gpt-5.1-codex-mini, $0.05/$0.40/1M tokens) - 선택적
-XAI_API_KEY=xai-...              # Grok API (Grok 2)
+XAI_API_KEY=xai-...              # Grok API (Grok 3)
 # ⚠️ Gemini는 CLI Subprocess 사용 (API 키 불필요, 2.0 Flash)
 
 # Supabase
@@ -679,6 +680,9 @@ python check_evaluation_status.py --politician "{NAME}"
 │ - 기간 제한 검증 (OFFICIAL 4년, PUBLIC 2년)                │
 │ - 같은 AI 내 중복 제거 (다른 AI는 유지)                   │
 │ - 가짜 URL 패턴 탐지                                       │
+│ - Sentiment 비율 검증                                       │
+│   · OFFICIAL: negative ≥10%, positive ≥10%                  │
+│   · PUBLIC: negative ≥20%, positive ≥20%                    │
 │ ⚠️ 다음 단계: Phase 3-3 (검증 후 조정)                     │
 └─────────────────────────────────────────────────────────────┘
                             ↓
@@ -841,7 +845,10 @@ Step 3: 확인 및 반복
   ├─ 상태 재확인 (check_collection_status.py)
   ├─ 60개 이상 → ✅ 완료
   ├─ 50-59개 → ✅ 완료 (최소 목표 달성)
-  └─ 50개 미만 → 🔄 Step 2 반복 (최대 3회)
+  └─ 50개 미만 → 🔄 Step 2 반복 (최대 4회)
+      └─ 4회 후에도 미달:
+         - 25-49개 → 부족 허용, 보유 데이터로 평가
+         - <25개 → 포기, leverage score 0 처리 (60점)
 ```
 
 **실전 사례 (조은희 integrity)**:

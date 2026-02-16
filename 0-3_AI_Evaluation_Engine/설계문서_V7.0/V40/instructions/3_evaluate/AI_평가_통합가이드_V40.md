@@ -31,7 +31,7 @@ V40 시스템은 **4개 AI가 독립적으로 전체 데이터를 평가**합니
 | **Claude** | Haiku 4.5 | CLI Direct / Skill | $0 (구독) | 반자동 / Skill 자동 |
 | **ChatGPT** | gpt-5.1-codex-mini | Codex CLI Direct | $1.125/1K | 완전 자동 |
 | **Gemini** | 2.0 Flash | CLI Subprocess | $0 (구독) | 완전 자동 |
-| **Grok** | Grok 2 | curl CLI Direct | API 비용 | 완전 자동 |
+| **Grok** | Grok 3 | curl CLI Direct (Agent Tools API) | API 비용 | 완전 자동 |
 
 **평가 방식:**
 - 카테고리당 100개 × 10개 카테고리 = 1,000개/정치인
@@ -300,7 +300,7 @@ python evaluate_gemini_subprocess.py \
 ### 7.1 개요
 
 **방식**: curl CLI Direct (xAI API)
-**모델**: Grok 2
+**모델**: Grok 3 (grok-3)
 **비용**: xAI API 비용
 **자동화**: 완전 자동
 
@@ -326,12 +326,13 @@ python grok_eval_helper.py \
 ### 7.3 curl 실행 예시
 
 ```bash
-curl -X POST https://api.x.ai/v1/chat/completions \
+curl -s -X POST https://api.x.ai/v1/responses \
   -H "Authorization: Bearer $XAI_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "grok-2",
-    "messages": [{"role": "user", "content": "평가 프롬프트"}]
+    "model": "grok-3",
+    "input": [{"role": "user", "content": "평가 프롬프트"}],
+    "tools": []
   }'
 ```
 
@@ -429,7 +430,7 @@ WHERE id NOT IN (
 | **Claude** | CLI Direct<br>Skill | Haiku 4.5 | 25/50 | $0 | 반자동<br>완전자동 | claude_eval_helper.py<br>/evaluate-politician-v40 |
 | **ChatGPT** | Codex CLI | gpt-5.1-codex-mini | 25 (재시도 5) | $1.125/1K | 완전 자동 | codex_eval_helper.py |
 | **Gemini** | CLI Subprocess | 2.0 Flash | 25 | $0 | 완전 자동 | evaluate_gemini_subprocess.py |
-| **Grok** | curl CLI | Grok 2 | 25 | API 비용 | 완전 자동 | grok_eval_helper.py |
+| **Grok** | curl CLI (Agent Tools API) | Grok 3 | 25 | API 비용 | 완전 자동 | grok_eval_helper.py |
 
 ---
 

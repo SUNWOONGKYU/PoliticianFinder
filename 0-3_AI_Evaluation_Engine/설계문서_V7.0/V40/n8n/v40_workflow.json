@@ -1,0 +1,579 @@
+{
+  "name": "V40 Full Pipeline",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "manual-trigger",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "politician_id",
+              "name": "politician_id",
+              "value": "37e39502",
+              "type": "string"
+            },
+            {
+              "id": "politician_name",
+              "name": "politician_name",
+              "value": "오준환",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "set-variables",
+      "name": "Set Variables",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [460, 300],
+      "notes": "Set politician_id and politician_name parameters"
+    },
+    {
+      "parameters": {
+        "command": "cd {{ $env.V40_DIR }}/scripts/workflow && for cat in expertise leadership vision integrity ethics accountability transparency communication responsiveness publicinterest; do for i in $(seq 1 7); do python collect_gemini_subprocess.py --politician \"{{ $json.politician_name }}\" --category $cat; sleep 5; done; done"
+      },
+      "id": "phase1-gemini-collection",
+      "name": "Phase 1: Gemini Collection",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [680, 200],
+      "notes": "Collect 60+ items per category from Gemini CLI"
+    },
+    {
+      "parameters": {
+        "command": "cd {{ $env.V40_DIR }}/scripts/workflow && for cat in expertise leadership vision integrity ethics accountability transparency communication responsiveness publicinterest; do python collect_naver_v40_final.py --politician-id {{ $json.politician_id }} --politician-name \"{{ $json.politician_name }}\" --category $cat; done"
+      },
+      "id": "phase1-naver-collection",
+      "name": "Phase 1: Naver Collection",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [680, 400],
+      "notes": "Collect 60+ items per category from Naver API (note: uses hyphens in args)"
+    },
+    {
+      "parameters": {
+        "mode": "append",
+        "joinMode": "waitForAll",
+        "options": {}
+      },
+      "id": "merge-phase1",
+      "name": "Merge Phase 1",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 2.1,
+      "position": [900, 300],
+      "notes": "Wait for both Gemini and Naver collection to complete"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT COUNT(*) as cnt FROM collected_data_v40 WHERE politician_id = '{{ $json.politician_id }}'",
+        "options": {}
+      },
+      "id": "phase-gate-1",
+      "name": "Phase Gate 1: Check Count",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.4,
+      "position": [1120, 300],
+      "credentials": {
+        "postgres": {
+          "id": "supabase",
+          "name": "Supabase Postgres"
+        }
+      },
+      "notes": "Verify at least 1000 items collected"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "number": [
+            {
+              "value1": "={{ $json.cnt }}",
+              "operation": "largerEqual",
+              "value2": 1000
+            }
+          ]
+        }
+      },
+      "id": "if-gate-1",
+      "name": "IF >= 1000",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [1340, 300]
+    },
+    {
+      "parameters": {
+        "errorMessage": "Phase Gate 1 FAILED: Less than 1000 items collected. Run more collection rounds."
+      },
+      "id": "stop-gate-1",
+      "name": "Stop: Insufficient Data",
+      "type": "n8n-nodes-base.stopAndError",
+      "typeVersion": 1,
+      "position": [1560, 400]
+    },
+    {
+      "parameters": {
+        "command": "cd {{ $env.V40_DIR }}/scripts/core && python validate_v40_fixed.py --politician_id={{ $json.politician_id }} --politician_name=\"{{ $json.politician_name }}\" --no-dry-run"
+      },
+      "id": "phase2-validate",
+      "name": "Phase 2: Validate",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [1560, 200],
+      "notes": "Remove duplicates and enforce period limits"
+    },
+    {
+      "parameters": {
+        "command": "cd {{ $env.V40_DIR }}/scripts/core && python adjust_v40_data.py --politician_id={{ $json.politician_id }}"
+      },
+      "id": "phase2-2-adjust",
+      "name": "Phase 2-2: Adjust",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [1780, 200],
+      "notes": "Balance data to 50-60 items per AI per category"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT collector_ai, category, COUNT(*) as cnt FROM collected_data_v40 WHERE politician_id = '{{ $json.politician_id }}' GROUP BY collector_ai, category HAVING COUNT(*) < 50",
+        "options": {}
+      },
+      "id": "phase-gate-2",
+      "name": "Phase Gate 2: Check Balance",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.4,
+      "position": [2000, 200],
+      "credentials": {
+        "postgres": {
+          "id": "supabase",
+          "name": "Supabase Postgres"
+        }
+      },
+      "notes": "Verify each AI has >= 50 items per category"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "number": [
+            {
+              "value1": "={{ $json.length }}",
+              "operation": "equal",
+              "value2": 0
+            }
+          ]
+        }
+      },
+      "id": "if-gate-2",
+      "name": "IF All >= 50",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [2220, 200]
+    },
+    {
+      "parameters": {
+        "errorMessage": "Phase Gate 2 FAILED: Some categories have < 25 items (give-up threshold). Leverage score 0 will be applied."
+      },
+      "id": "stop-gate-2",
+      "name": "Stop: Insufficient Balance",
+      "type": "n8n-nodes-base.stopAndError",
+      "typeVersion": 1,
+      "position": [2440, 300]
+    },
+    {
+      "parameters": {
+        "command": "cd {{ $env.V40_DIR }}/scripts/helpers && for cat in expertise leadership vision integrity ethics accountability transparency communication responsiveness publicinterest; do python claude_eval_helper.py --politician_id={{ $json.politician_id }} --politician_name=\"{{ $json.politician_name }}\" --category=$cat --batch_size=25; done"
+      },
+      "id": "phase3-claude-eval",
+      "name": "Phase 3: Claude Evaluation",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [2660, -100],
+      "notes": "Claude Haiku 4.5 evaluates all categories (batch 25)"
+    },
+    {
+      "parameters": {
+        "command": "cd {{ $env.V40_DIR }}/scripts/helpers && for cat in expertise leadership vision integrity ethics accountability transparency communication responsiveness publicinterest; do python codex_eval_helper.py --politician_id={{ $json.politician_id }} --politician_name=\"{{ $json.politician_name }}\" --category=$cat --batch_size=25; done"
+      },
+      "id": "phase3-chatgpt-eval",
+      "name": "Phase 3: ChatGPT Evaluation",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [2660, 100],
+      "notes": "ChatGPT gpt-5.1-codex-mini evaluates all categories (batch 25)"
+    },
+    {
+      "parameters": {
+        "command": "cd {{ $env.V40_DIR }}/scripts/workflow && for cat in expertise leadership vision integrity ethics accountability transparency communication responsiveness publicinterest; do python evaluate_gemini_subprocess.py --politician \"{{ $json.politician_name }}\" --category \"$cat\"; done"
+      },
+      "id": "phase3-gemini-eval",
+      "name": "Phase 3: Gemini Evaluation",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [2660, 300],
+      "notes": "Gemini 2.0 Flash evaluates all categories (batch 25)"
+    },
+    {
+      "parameters": {
+        "command": "cd {{ $env.V40_DIR }}/scripts/helpers && for cat in expertise leadership vision integrity ethics accountability transparency communication responsiveness publicinterest; do python grok_eval_helper.py --politician_id={{ $json.politician_id }} --politician_name=\"{{ $json.politician_name }}\" --category=$cat --batch_size=25; done"
+      },
+      "id": "phase3-grok-eval",
+      "name": "Phase 3: Grok Evaluation",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [2660, 500],
+      "notes": "Grok 3 evaluates all categories (batch 25, xAI API)"
+    },
+    {
+      "parameters": {
+        "mode": "append",
+        "joinMode": "waitForAll",
+        "numberInputs": 4,
+        "options": {}
+      },
+      "id": "merge-phase3",
+      "name": "Merge Phase 3",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [2900, 200],
+      "notes": "Wait for all 4 AI evaluations to complete"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT COUNT(*) as cnt FROM evaluations_v40 WHERE politician_id = '{{ $json.politician_id }}'",
+        "options": {}
+      },
+      "id": "phase-gate-3",
+      "name": "Phase Gate 3: Check Evaluations",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.4,
+      "position": [3120, 200],
+      "credentials": {
+        "postgres": {
+          "id": "supabase",
+          "name": "Supabase Postgres"
+        }
+      },
+      "notes": "Verify sufficient evaluations completed"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "number": [
+            {
+              "value1": "={{ $json.cnt }}",
+              "operation": "largerEqual",
+              "value2": 2000
+            }
+          ]
+        }
+      },
+      "id": "if-gate-3",
+      "name": "IF >= 2000 Evaluations",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [3340, 200]
+    },
+    {
+      "parameters": {
+        "errorMessage": "Phase Gate 3 FAILED: Insufficient evaluations. Expected ~4000 (4 AIs × 1000 items)."
+      },
+      "id": "stop-gate-3",
+      "name": "Stop: Insufficient Evaluations",
+      "type": "n8n-nodes-base.stopAndError",
+      "typeVersion": 1,
+      "position": [3560, 300]
+    },
+    {
+      "parameters": {
+        "command": "cd {{ $env.V40_DIR }}/scripts/core && python calculate_v40_scores.py --politician_id={{ $json.politician_id }} --politician_name=\"{{ $json.politician_name }}\""
+      },
+      "id": "phase4-calculate-scores",
+      "name": "Phase 4: Calculate Scores",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [3560, 200],
+      "notes": "Calculate category and final scores (200-1000)"
+    },
+    {
+      "parameters": {
+        "command": "cd {{ $env.V40_DIR }}/scripts/core && python generate_report_v40.py {{ $json.politician_id }} \"{{ $json.politician_name }}\""
+      },
+      "id": "phase5-generate-report",
+      "name": "Phase 5: Generate Report",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [3780, 200],
+      "notes": "Generate final report in 보고서/{name}_{date}.md"
+    }
+  ],
+  "connections": {
+    "Manual Trigger": {
+      "main": [
+        [
+          {
+            "node": "Set Variables",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Variables": {
+      "main": [
+        [
+          {
+            "node": "Phase 1: Gemini Collection",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Phase 1: Naver Collection",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Phase 1: Gemini Collection": {
+      "main": [
+        [
+          {
+            "node": "Merge Phase 1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Phase 1: Naver Collection": {
+      "main": [
+        [
+          {
+            "node": "Merge Phase 1",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge Phase 1": {
+      "main": [
+        [
+          {
+            "node": "Phase Gate 1: Check Count",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Phase Gate 1: Check Count": {
+      "main": [
+        [
+          {
+            "node": "IF >= 1000",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF >= 1000": {
+      "main": [
+        [
+          {
+            "node": "Phase 2: Validate",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Stop: Insufficient Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Phase 2: Validate": {
+      "main": [
+        [
+          {
+            "node": "Phase 2-2: Adjust",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Phase 2-2: Adjust": {
+      "main": [
+        [
+          {
+            "node": "Phase Gate 2: Check Balance",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Phase Gate 2: Check Balance": {
+      "main": [
+        [
+          {
+            "node": "IF All >= 50",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF All >= 50": {
+      "main": [
+        [
+          {
+            "node": "Phase 3: Claude Evaluation",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Phase 3: ChatGPT Evaluation",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Phase 3: Gemini Evaluation",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Phase 3: Grok Evaluation",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Stop: Insufficient Balance",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Phase 3: Claude Evaluation": {
+      "main": [
+        [
+          {
+            "node": "Merge Phase 3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Phase 3: ChatGPT Evaluation": {
+      "main": [
+        [
+          {
+            "node": "Merge Phase 3",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Phase 3: Gemini Evaluation": {
+      "main": [
+        [
+          {
+            "node": "Merge Phase 3",
+            "type": "main",
+            "index": 2
+          }
+        ]
+      ]
+    },
+    "Phase 3: Grok Evaluation": {
+      "main": [
+        [
+          {
+            "node": "Merge Phase 3",
+            "type": "main",
+            "index": 3
+          }
+        ]
+      ]
+    },
+    "Merge Phase 3": {
+      "main": [
+        [
+          {
+            "node": "Phase Gate 3: Check Evaluations",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Phase Gate 3: Check Evaluations": {
+      "main": [
+        [
+          {
+            "node": "IF >= 2000 Evaluations",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF >= 2000 Evaluations": {
+      "main": [
+        [
+          {
+            "node": "Phase 4: Calculate Scores",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Stop: Insufficient Evaluations",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Phase 4: Calculate Scores": {
+      "main": [
+        [
+          {
+            "node": "Phase 5: Generate Report",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-02-16T00:00:00.000Z",
+  "versionId": "1"
+}

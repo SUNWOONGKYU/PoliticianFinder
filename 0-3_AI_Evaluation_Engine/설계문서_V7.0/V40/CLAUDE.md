@@ -307,6 +307,8 @@ Phase 2-2: 검증 후 조정 (adjust_v40_data.py) ✨ NEW!
    ↓ (완료 확인 필수)
    ⚠️ AI별/카테고리별 데이터 균형 맞추기
    ⚠️ 초과(60개↑) → 삭제, 부족(50개↓) → 재수집
+   ⚠️ 최대 4회 재수집 후 포기 규칙 적용:
+      50+ → 정상 | 25-49 → 부족 허용 | <25 → leverage score 0
    ⚠️ 목표: 50-60개/AI/카테고리
    ↓
 Phase 3: AI 평가 (Claude, ChatGPT, Gemini, Grok)
@@ -317,6 +319,17 @@ Phase 5: 보고서 생성 (generate_report_v40.py)
 ```
 
 ### 각 Phase 완료 조건
+
+**Phase 0 (정치인 등록) 완료 조건:**
+- ✅ MD 파일 생성: `instructions/1_politicians/{성명}.md` (10개 기본 필드)
+- ✅ DB `politicians` 테이블에 **12개 필수 필드** 모두 저장:
+  - `id` (8자리 hex), `name`, `party`, `position`
+  - `previous_position` ⚠️ **NULL 금지** (전 직책)
+  - `region`, `district`, `birth_date` (YYYY-MM-DD)
+  - `gender`, `identity`, `title`
+  - `career[]` ⚠️ **빈 배열 금지** (최소 5개 경력)
+- ✅ DB 저장 후 SELECT로 12개 필드 확인 (NULL/빈값 없음)
+- ⚠️ **MD 파일만 만들고 DB 저장 안 하면 Phase 0 미완료!**
 
 **Phase 1 (수집) 완료 조건:**
 - ✅ Gemini CLI 수집 완료: **600개 권장** (60개/카테고리 × 10개 = 버퍼 포함)
@@ -329,14 +342,19 @@ Phase 5: 보고서 생성 (generate_report_v40.py)
 - ✅ validate_v40_fixed.py 실행 완료
 - ✅ 중복 제거 완료
 - ✅ 기간 제한 위반 제거 완료
+- ✅ Sentiment 비율 검증 통과 (OFFICIAL neg/pos ≥10%, PUBLIC neg/pos ≥20%)
 - ✅ 검증 보고서 확인
 
 **Phase 2-2 (검증 후 조정) 완료 조건:** ✨ NEW!
-- ✅ adjust_v40_data.py 실행 완료
+- ✅ adjust_v40_data.py 실행 완료 (최대 4회 재수집)
 - ✅ AI별 데이터 500-600개 확인
 - ✅ 카테고리별 데이터 50-60개/AI 확인
 - ✅ 전체 데이터 1,000-1,200개 확인
 - ✅ 조정 보고서 확인
+- ⚠️ **재수집 포기 규칙** (4회 재수집 후):
+  - 50+개: 정상 평가
+  - 25-49개: 부족 허용, 보유 데이터로 평가
+  - <25개: 포기, leverage score 0 처리 (60점)
 
 **Phase 3 (평가) 완료 조건:**
 - ✅ Claude 평가 완료 (10개 카테고리)
@@ -580,7 +598,7 @@ Read("C:\\...\\V40\\instructions\\V40_오케스트레이션_가이드.md")
 |---------|------|----------|--------|------|
 | `claude_eval_helper.py` | Haiku 4.5 | 25개 | Pre-filtering | Claude Anthropic API 평가 |
 | `codex_eval_helper.py` | gpt-5.1-codex-mini | 25개 (자동 재시도 5) | Pre-filtering + 자동 재시도 | ChatGPT Codex CLI Direct 평가 (~1 credit/msg) |
-| `grok_eval_helper.py` | Grok 2 | 25개 | Pre-filtering | Grok xAI API Direct 평가 |
+| `grok_eval_helper.py` | Grok 3 | 25개 | Pre-filtering | Grok xAI Agent Tools API 평가 |
 | `evaluate_gemini_subprocess.py` | 2.0 Flash | 25개 | Pre-filtering | Gemini CLI Subprocess 평가 |
 | Skill `/evaluate-politician-v40` | (자동) | 50개 | Pre-filtering | Skill 기반 자동 평가 (Claude) |
 
@@ -618,7 +636,7 @@ batch_size = 25  # Pre-filtering 적용, 5x 향상
 
 ### 우선순위 규칙
 
-1. **Gemini Subprocess 평가** → 50개 배치
+1. **Gemini Subprocess 평가** → 25개 배치
 2. **Claude/ChatGPT/Grok 평가** → 25개 배치
 3. **Skill instructions에 명시된 경우** → 해당 크기 사용
 4. **불확실하면** → 스크립트별 기본값 사용
@@ -713,15 +731,15 @@ done
 
 ## 🔧 Grok xAI API 평가 프로세스 (CRITICAL!)
 
-**⚠️⚠️⚠️ Grok 평가는 xAI API 직접 호출 방식을 사용합니다! ⚠️⚠️⚠️**
+**⚠️⚠️⚠️ Grok 평가는 xAI Agent Tools API (curl subprocess) 방식을 사용합니다! ⚠️⚠️⚠️**
 
 ### 공식 스크립트
 
 **평가 스크립트**: `scripts/helpers/grok_eval_helper.py`
 
 **주요 특징:**
-- ✅ xAI API 직접 호출 (Python requests)
-- ✅ 모델: `grok-2` (xAI 공식 API, Grok 2)
+- ✅ xAI Agent Tools API 호출 (curl subprocess)
+- ✅ 모델: `grok-3` (xAI Agent Tools API, Grok 3)
 - ✅ 올바른 테이블 사용 (`collected_data_v40`, `evaluations_v40`)
 - ✅ 배치 크기: 25개 (V40 기본값)
 - ✅ HTML 엔티티 디코딩 (`html.unescape`)
@@ -730,8 +748,8 @@ done
 ### xAI API 설정
 
 **API 키 환경변수**: `XAI_API_KEY`
-**API 엔드포인트**: `https://api.x.ai/v1/chat/completions`
-**사용 모델**: `grok-2` (Grok 2)
+**API 엔드포인트**: `https://api.x.ai/v1/responses`
+**사용 모델**: `grok-3` (Grok 3)
 
 ```python
 # .env 파일
@@ -767,22 +785,26 @@ done
 
 **Grok CLI vs xAI API:**
 - ❌ Grok CLI (deprecated, 410 error)
-- ✅ xAI API 직접 호출 (Python requests)
+- ✅ xAI Agent Tools API (curl subprocess)
 
 **모델명 선택:**
 - ❌ `grok-beta` (OpenRouter 전용)
-- ✅ `grok-2` (xAI 공식 API, Grok 2 - 현재 사용 중)
-- 🔄 `grok-3`, `grok-4` (향후 버전, 더 비쌀 수 있음)
+- ❌ `grok-2` (구버전)
+- ✅ `grok-3` (xAI Agent Tools API, Grok 3 - 현재 사용 중)
 
 **프롬프트 전달:**
 ```python
 payload = {
-    'model': 'grok-2',  # Grok 2 사용
-    'messages': [{'role': 'user', 'content': prompt}],
-    'temperature': 0.7,
-    'max_tokens': 500
+    'model': 'grok-3',  # Grok 3 사용
+    'input': [{'role': 'user', 'content': prompt}],
+    'tools': []  # 평가에는 웹 검색 불필요
 }
-response = requests.post(XAI_API_URL, headers=headers, json=payload)
+# curl subprocess로 xAI Agent Tools API 호출
+curl_cmd = ['curl', '-s', '-X', 'POST', 'https://api.x.ai/v1/responses',
+            '-H', 'Content-Type: application/json',
+            '-H', f'Authorization: Bearer {api_key}',
+            '-d', json.dumps(payload)]
+result = subprocess.run(curl_cmd, capture_output=True, text=True, timeout=60)
 ```
 
 ---

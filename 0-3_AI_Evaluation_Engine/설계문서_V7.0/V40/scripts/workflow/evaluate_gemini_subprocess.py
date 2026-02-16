@@ -5,15 +5,15 @@ V40 Gemini CLI Evaluation (Direct Subprocess)
 
 공식 평가 방식: Gemini CLI Direct Subprocess (재미나 CLI 다이렉트 서브프로세스)
 
-모델: Gemini 2.0 Flash
-방식: CLI Subprocess (Google 계정 인증)
-배치 크기: 50개
-비용: $0 (CLI 방식)
+모델: Gemini 2.5 Flash (Tier 1) → 2.0 Flash (레거시) → API fallback
+방식: 3단계 Fallback (CLI → CLI → API, 자동 전환)
+배치 크기: 25개
+비용: CLI $0 / API Tier 1 요금
 
 정의:
     - Python subprocess.run()으로 Gemini CLI를 직접 실행
     - stdin을 통한 프롬프트 전달
-    - 4개 평가 AI 중 하나 (Claude Haiku 4.5, ChatGPT gpt-5.1-codex-mini, Gemini 2.0 Flash, Grok 2)
+    - 4개 평가 AI 중 하나 (Claude Haiku 4.5, ChatGPT gpt-5.1-codex-mini, Gemini 2.0 Flash, Grok 3)
 
 성능:
     - 평균 응답 시간: 27초/카테고리
@@ -21,7 +21,7 @@ V40 Gemini CLI Evaluation (Direct Subprocess)
 
 평가 대상:
     - 카테고리 풀링 데이터 전체 (수집된 모든 데이터)
-    - 50개씩 배치 처리 (Gemini CLI는 50개까지 안정적)
+    - 25개씩 배치 처리 (Pre-filtering 적용)
 
 Rating 시스템:
     - +4, +3, +2, +1, -1, -2, -3, -4 (8등급)
@@ -61,7 +61,7 @@ from common_eval_saver import save_evaluations_batch_upsert
 # 로깅 설정
 logging.basicConfig(
     level=logging.INFO,
-    format='[%(level)s] %(message)s'
+    format='[%(levelname)s] %(message)s'
 )
 logger = logging.getLogger(__name__)
 

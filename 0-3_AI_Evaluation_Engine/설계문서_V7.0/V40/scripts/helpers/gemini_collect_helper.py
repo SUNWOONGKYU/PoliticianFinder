@@ -2,14 +2,22 @@
 """
 V40 Gemini CLI 수집 헬퍼 스크립트
 
-Gemini CLI 터미널에서 호출하여 DB 조회/저장을 수행합니다.
-데이터 수집(웹 검색)은 Gemini CLI가 직접 수행 (무료).
+모델: Gemini 2.0 Flash
+방식: CLI Subprocess (Google 계정 인증)
+비용: $0 (CLI 방식)
 
-사용법:
-    # 1. 수집 필요량 조회 (어떤 카테고리에 몇 개 필요한지)
+⚠️ 이 스크립트는 DB 조회/저장 유틸리티입니다.
+실제 Gemini 수집은 collect_gemini_subprocess*.py 사용 (subprocess 방식)
+
+자동 수집 (권장):
+    cd scripts/workflow
+    python collect_gemini_subprocess_parallel.py --politician "박주민"
+
+수동 DB 조회/저장 (고급):
+    # 1. 수집 필요량 조회
     python gemini_collect_helper.py fetch --politician_id={ID} --politician_name={이름} --category={카테고리}
 
-    # 2. 수집 결과 저장
+    # 2. 수집 결과 저장 (JSON 파일에서)
     python gemini_collect_helper.py save --politician_id={ID} --politician_name={이름} --category={카테고리} --input=gemini_result.json
 
     # 3. 전체 현황 확인

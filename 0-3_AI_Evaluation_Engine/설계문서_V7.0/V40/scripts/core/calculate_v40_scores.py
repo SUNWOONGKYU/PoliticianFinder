@@ -7,7 +7,7 @@ V40 점수 계산 스크립트
    - Claude Haiku 4.5 (저렴한 모델)
    - ChatGPT gpt-5.1-codex-mini
    - Gemini 2.0 Flash
-   - Grok 2
+   - Grok 3
 2. 등급 체계: +4 ~ -4 (점수 = 등급 × 2)
 3. 카테고리별 점수 계산 (20~100점)
 4. 최종 점수 계산 (200~1000점)
@@ -132,17 +132,27 @@ def get_grade(score):
 
 
 def get_evaluations(politician_id, category=None):
-    """평가 결과 조회"""
+    """평가 결과 조회 (페이지네이션 - Supabase 1,000행 제한 대응)"""
     try:
-        query = supabase.table(TABLE_EVALUATIONS)\
-            .select('*')\
-            .eq('politician_id', politician_id)
+        all_rows = []
+        offset = 0
+        page_size = 1000
+        while True:
+            query = supabase.table(TABLE_EVALUATIONS)\
+                .select('*')\
+                .eq('politician_id', politician_id)
 
-        if category:
-            query = query.eq('category', category.lower())
+            if category:
+                query = query.eq('category', category.lower())
 
-        result = query.execute()
-        return result.data if result.data else []
+            result = query.range(offset, offset + page_size - 1).execute()
+            batch = result.data or []
+            all_rows.extend(batch)
+            if len(batch) < page_size:
+                break
+            offset += page_size
+
+        return all_rows
     except Exception as e:
         print(f"  ⚠️ 평가 조회 실패: {e}")
         return []
@@ -187,8 +197,15 @@ def calculate_scores(politician_id, politician_name):
         evaluations = get_evaluations(politician_id, cat_name)
 
         if not evaluations:
-            print(f"  ⚠️ 평가 데이터 없음, 기본값 사용 (60점)")
-            category_scores[cat_name] = 60  # 중립 기본값
+            print(f"  ⚠️ 평가 데이터 없음 → leverage score 0 처리 ({int(PRIOR * 10)}점)")
+            category_scores[cat_name] = int(PRIOR * 10)  # leverage score = 0
+            continue
+
+        # 재수집 포기 규칙: 평가 25개 미만 → leverage score 0 처리
+        GIVE_UP_THRESHOLD = 25
+        if len(evaluations) < GIVE_UP_THRESHOLD:
+            print(f"  ⚠️ 평가 {len(evaluations)}개 < {GIVE_UP_THRESHOLD}개 → leverage score 0 처리 ({int(PRIOR * 10)}점)")
+            category_scores[cat_name] = int(PRIOR * 10)  # leverage score = 0
             continue
 
         # AI별 점수 수집 — rating에서 직접 계산 (DB score 사용 안 함)

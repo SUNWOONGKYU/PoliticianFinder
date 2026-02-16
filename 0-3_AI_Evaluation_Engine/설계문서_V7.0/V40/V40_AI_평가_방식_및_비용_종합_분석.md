@@ -25,7 +25,7 @@
 | **Claude** | CLI Direct | ❌ 불필요 | Haiku 4.5 | **$0** | $15 (gpt-3.5-turbo 대비) |
 | **Gemini** | CLI Subprocess | ❌ 불필요 | 2.0 Flash | **$0** | $7.50 (Gemini API 대비) |
 | **ChatGPT** | CLI Direct (Codex) | ✅ OPENAI_API_KEY | gpt-5.1-codex-mini | **$0.225** | $45 (gpt-4 대비) |
-| **Grok** | CLI Direct (curl) | ✅ XAI_API_KEY | grok-2 | **미공개** | 미공개 |
+| **Grok** | CLI Direct (curl) | ✅ XAI_API_KEY | grok-3 | **미공개** | 미공개 |
 
 **총 비용 (4개 AI)**: **~$0.225 (거의 무료)** vs **이전 ~$67.50 (99.7% 절감)**
 
@@ -293,7 +293,7 @@ gpt-5.1-codex: $1.125
 
 ---
 
-## 4️⃣ Grok (grok-2)
+## 4️⃣ Grok (grok-3)
 
 ### 기술적 방식 비교
 
@@ -310,7 +310,7 @@ response = requests.post(
         "Content-Type": "application/json"
     },
     json={
-        "model": "grok-2",
+        "model": "grok-3",
         "messages": [
             {"role": "user", "content": "..."}
         ]
@@ -355,7 +355,7 @@ result = subprocess.run(
 - curl로 subprocess 실행
 - **xAI Agent Tools API** (다른 엔드포인트!)
 - API 키 필수 (XAI_API_KEY)
-- 모델: grok-2
+- 모델: grok-3
 
 **비용:**
 ```
@@ -522,7 +522,7 @@ python codex_eval_helper.py --politician_id=... --category=expertise
 ### Grok
 ```bash
 # ❌ 이전 (Chat API)
-# requests.post("/v1/chat/completions", ...)
+# requests.post("/v1/chat/completions", ...)  # 구버전, 현재 /v1/responses 사용
 
 # ✅ 현재 (Agent Tools API via curl)
 export XAI_API_KEY="xai-..."

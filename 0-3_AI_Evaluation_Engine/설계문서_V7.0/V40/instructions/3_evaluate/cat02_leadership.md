@@ -23,7 +23,7 @@ The ability to effectively lead organizations and people to achieve goals
 
 수집 단계에서 collected_data_v40 테이블에 저장된 풀링 데이터 전체를 평가합니다.
 
-4개 평가 AI (Claude Haiku 4.5, ChatGPT gpt-5.1-codex-mini, Gemini 2.0 Flash, Grok 2)가
+4개 평가 AI (Claude Haiku 4.5, ChatGPT gpt-5.1-codex-mini, Gemini 2.0 Flash, Grok 3)가
 각각 전체 풀링 데이터를 독립적으로 평가합니다.
 
 ### 평가 독립성
@@ -32,7 +32,7 @@ The ability to effectively lead organizations and people to achieve goals
 타이밍 분리 = 객관성 보장
 
 [평가 단계] - 수집과 다른 세션, 다른 시점
-→ Claude (Haiku 4.5), ChatGPT (gpt-5.1-codex-mini), Gemini (2.0 Flash), Grok (2)이 평가
+→ Claude (Haiku 4.5), ChatGPT (gpt-5.1-codex-mini), Gemini (2.0 Flash), Grok (3)이 평가
 → 수집 시점 ≠ 평가 시점
 → 독립적 판단 = 더 객관적
 ```
