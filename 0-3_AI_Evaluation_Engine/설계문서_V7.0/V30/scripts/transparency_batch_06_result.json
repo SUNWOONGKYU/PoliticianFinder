@@ -1,0 +1,70 @@
+{
+  "batch_num": 6,
+  "politician_id": "f9e00370",
+  "politician_name": "김민석",
+  "category": "transparency",
+  "evaluator_ai": "Claude",
+  "evaluated_at": "2026-01-22T00:42:46.698301",
+  "evaluations": [
+    {
+      "collected_data_id": "622dd7bb-74e0-4257-9c1b-8dfaa88b6d60",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "투명한 정보 공개"
+    },
+    {
+      "collected_data_id": "65c5afc0-9221-4c21-bfdc-d84bd8129619",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "투명한 정보 공개"
+    },
+    {
+      "collected_data_id": "bd050532-c10a-467f-b8e9-3c71ab46236d",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "투명한 정보 공개"
+    },
+    {
+      "collected_data_id": "77ae776e-a4d6-4e8e-ba0d-f597dada2990",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "투명한 정보 공개"
+    },
+    {
+      "collected_data_id": "d5cea844-9de9-4f73-bf97-564fdb2302b3",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "투명성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "47c0382c-0ffd-4efd-9171-74d3ff0e0280",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "투명성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "48524afb-eaea-46a1-9ee2-b16d8947c984",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "투명성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "af9ee2df-a844-48fb-895b-f5e8b3032740",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "투명성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "abacdeb5-b2d1-4519-b60f-f3b4a59f38a2",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "투명성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "9bf7dcb4-4b45-4d76-b366-927879aee1c9",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "투명성 판단 정보 부족"
+    }
+  ]
+}

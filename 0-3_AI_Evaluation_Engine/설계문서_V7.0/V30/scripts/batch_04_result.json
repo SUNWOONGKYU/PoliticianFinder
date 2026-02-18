@@ -1,0 +1,70 @@
+{
+  "batch_num": 4,
+  "politician_id": "f9e00370",
+  "politician_name": "김민석",
+  "category": "expertise",
+  "evaluator_ai": "Claude",
+  "evaluated_at": "2026-01-21T21:04:00",
+  "evaluations": [
+    {
+      "collected_data_id": "550e4949-6059-4c7e-9b00-40a22b74e12c",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "비상계엄 사태에 대해 헌법 77조를 근거로 명확한 법적 분석과 입장 제시, 정치적 전문성 양호"
+    },
+    {
+      "collected_data_id": "e7b17ce3-d60b-4550-93f9-1a170248c0b8",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "쿠데타 방지를 위한 계엄법 개정안 발의로 제도 개선 입법 활동, 입법 전문성 양호"
+    },
+    {
+      "collected_data_id": "9c5ed9ad-7b30-4786-9ae6-697c500c09df",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "김대중 전 대통령 정신 계승 촉구 기자회견, 기본적인 정치 메시지 전달"
+    },
+    {
+      "collected_data_id": "4c001563-34d0-48d5-81b0-62baf6ee4d9c",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "고3 아들이 추진한 법안을 국회에서 공동 발의하여 입법 활동의 독립성과 전문성에 의문"
+    },
+    {
+      "collected_data_id": "6af37490-0fd6-4e75-b26b-7298b689d201",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "상임공동선대위원장으로서 선거 전략 및 보수 단일화 전망 제시, 선거 캠페인 관리 역할"
+    },
+    {
+      "collected_data_id": "6ab48b30-bfec-454e-8812-17db9784d70f",
+      "rating": "+3",
+      "score": 6,
+      "reasoning": "이재명 정부 초대 국무총리로 취임, 국정 운영의 그립을 잡을 수 있는 인물로 평가받아 전문성 우수"
+    },
+    {
+      "collected_data_id": "523016cf-3469-4b47-ad75-2c9384e4dd17",
+      "rating": "+3",
+      "score": 6,
+      "reasoning": "대통령이 구체적 감각과 통합의 정치력을 갖춘 적임자로 평가하여 국무총리 후보 지명, 전문성 우수"
+    },
+    {
+      "collected_data_id": "a3731bc1-6ad7-405e-8c45-726a5b58827d",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "중앙행정기관 및 공공기관 기관장에게 국정감사 성실 이행 지시, 행정 감독 전문성 양호"
+    },
+    {
+      "collected_data_id": "2b06f3c9-8bdb-4dd3-b9ae-b61c8f03c019",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "취임사에서 약자 우선 정책 방향과 국가 종합상황본부장 역할을 명확히 제시, 비전과 책임감 양호"
+    },
+    {
+      "collected_data_id": "134dff49-4325-4733-bf14-24157ef5e0f9",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "서울대 총학생회장, 4선 국회의원, 상황실장 등 다양한 정치 경력으로 전문성 인정"
+    }
+  ]
+}

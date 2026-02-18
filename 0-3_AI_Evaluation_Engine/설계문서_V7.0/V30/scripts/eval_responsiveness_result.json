@@ -1,0 +1,460 @@
+{
+  "politician_id": "f9e00370",
+  "politician_name": "김민석",
+  "category": "responsiveness",
+  "evaluator_ai": "Claude",
+  "evaluated_at": "2026-01-22T00:42:46.723643",
+  "total_evaluations": 75,
+  "evaluations": [
+    {
+      "collected_data_id": "b9a27d93-f2d9-4d43-aa20-ef7b8f9ccbea",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "적절한 대응"
+    },
+    {
+      "collected_data_id": "c439573d-979c-4009-962d-93e52024197e",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "현안 대응 노력"
+    },
+    {
+      "collected_data_id": "e1673f2c-62d0-494b-b8bf-ad2502908817",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "대응성 관련 부정적 내용"
+    },
+    {
+      "collected_data_id": "cc9d5fa6-b611-4fc2-bb2a-f9407d0baf0f",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "대응 지연 또는 부적절"
+    },
+    {
+      "collected_data_id": "5707167f-5737-46a9-bc99-3a69cb797bbd",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "대응 지연 또는 부적절"
+    },
+    {
+      "collected_data_id": "1e5e31e6-f4bf-4421-b9f8-a62d3129d51c",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "대응 지연 또는 부적절"
+    },
+    {
+      "collected_data_id": "8f41274d-38d2-4494-a59f-4d51980dfaff",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "대응 지연 또는 부적절"
+    },
+    {
+      "collected_data_id": "4b9353ca-2e5d-4814-898c-39f83a14661d",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "대응 지연 또는 부적절"
+    },
+    {
+      "collected_data_id": "3bba2159-c900-471a-9be5-34917d9ba9d6",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "대응 지연 또는 부적절"
+    },
+    {
+      "collected_data_id": "0da6c3f4-85b9-43a4-bf3c-07fc8eaad7ec",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "대응 지연 또는 부적절"
+    },
+    {
+      "collected_data_id": "21950f3d-26a3-43dc-8ed6-a9d2b40ca7ce",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "대응 지연 또는 부적절"
+    },
+    {
+      "collected_data_id": "55874b8f-0a44-43f1-91b7-a8abbdd4a126",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "대응성 관련 부정적 내용"
+    },
+    {
+      "collected_data_id": "b12af7d6-815e-4d37-b051-a9ef7b41dd66",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "대응성 관련 부정적 내용"
+    },
+    {
+      "collected_data_id": "c15b9352-2873-46d3-b4c8-15a824dddc4a",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "적절한 대응"
+    },
+    {
+      "collected_data_id": "a50a5929-61cc-41eb-ac2f-38adeccbcdcb",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "신속한 대응"
+    },
+    {
+      "collected_data_id": "d3f6138e-7981-4eb5-baba-c0f110ccd936",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "적절한 대응"
+    },
+    {
+      "collected_data_id": "48740938-c5d6-4845-a088-fb5b791b0400",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "적절한 대응"
+    },
+    {
+      "collected_data_id": "b78dd71d-95cc-4e07-a889-310235c3befd",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "적절한 대응"
+    },
+    {
+      "collected_data_id": "b46767f6-95c4-4615-b4ba-0324a1278854",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "적절한 대응"
+    },
+    {
+      "collected_data_id": "7277b458-caab-4703-a9b0-e61486a477a6",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "적절한 대응"
+    },
+    {
+      "collected_data_id": "d5b7a57e-488e-4bdb-a18e-5e62553b7e11",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "신속한 대응"
+    },
+    {
+      "collected_data_id": "690e489c-c3eb-41fe-a4ff-418167bd5472",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "적절한 대응"
+    },
+    {
+      "collected_data_id": "5f9768ad-ab64-449c-86f2-50a1e4e7cf3b",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "대응성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "9b5008a4-66d7-4d4d-a32c-108fffc8103b",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "대응성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "4a996a99-0ee4-41e6-80d9-09f98ff24a31",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "대응성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "e59f0ecc-7a41-449c-9afd-4ec5129d2189",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "현안 대응 노력"
+    },
+    {
+      "collected_data_id": "4afcfcfa-5b9c-44fd-955b-5e3c1201baf9",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "현안 대응 노력"
+    },
+    {
+      "collected_data_id": "823979ce-eae8-41a3-8ef0-70c79840d666",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "현안 대응 노력"
+    },
+    {
+      "collected_data_id": "91e567f3-1319-4241-b9ec-21e7c35f45ad",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "대응성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "32e23461-cc1f-4f68-8566-33d7b4951ec5",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "현안 대응 노력"
+    },
+    {
+      "collected_data_id": "071aab65-c2cb-48d1-8939-d624ad2ff4c3",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "대응성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "c83e3b20-559e-4757-bd6d-6b01963703ac",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "대응성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "a651ce4c-1ce3-44c4-a8d9-44b54a7b749e",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "대응성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "9e1d25c9-cf8f-45bb-a95f-f26eafff971b",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "현안 대응 노력"
+    },
+    {
+      "collected_data_id": "15194d6d-2037-468b-92b8-646e2c6c971a",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "대응성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "072d9ba5-5d0c-4da6-944d-9276676c7e46",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "대응성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "3ae813df-1450-4e17-a0b8-3d9db187ae20",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "대응성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "7502ee6f-32c5-4f50-bf78-fd564c62765e",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "현안 대응 노력"
+    },
+    {
+      "collected_data_id": "23b69f86-f0e3-4ab6-a225-1728a379d6cc",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "대응성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "42ce6aef-5e1c-4607-ab3b-5c58c8c3e24f",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "대응성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "42e309e1-0559-4cef-864b-2817f0d6ea7c",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "현안 대응 노력"
+    },
+    {
+      "collected_data_id": "e65b3acd-3673-44a5-abca-bfec89877078",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "현안 대응 노력"
+    },
+    {
+      "collected_data_id": "05f94fed-a2a6-4b80-b7c8-69f2df0340b7",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "현안 대응 노력"
+    },
+    {
+      "collected_data_id": "1eeac437-a701-422e-8223-52759b57b2cb",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "현안 대응 노력"
+    },
+    {
+      "collected_data_id": "67d6ddfd-4c81-487e-9f06-e296b4f9ddcb",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "현안 대응 노력"
+    },
+    {
+      "collected_data_id": "45673875-0bb3-4c47-ba00-b5dfb1e44ddc",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "현안 대응 노력"
+    },
+    {
+      "collected_data_id": "4ad1ce85-4a3b-4c1d-9267-1f585d26dcce",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "대응성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "6e159202-227d-4202-9863-ee3c51f994cc",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "현안 대응 노력"
+    },
+    {
+      "collected_data_id": "a883b856-887e-4d9d-a62d-9b4bc5c08097",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "현안 대응 노력"
+    },
+    {
+      "collected_data_id": "5e42f0e6-284a-4103-b93a-408d83ea1c6a",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "대응성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "08154705-9c84-441a-a946-0c4fdb301c8e",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "대응성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "e74a17e3-f482-44d6-8cb8-e2e08324a196",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "대응 지연 또는 부적절"
+    },
+    {
+      "collected_data_id": "5f43e035-cd79-4805-89b3-beb701548ffd",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "대응 지연 또는 부적절"
+    },
+    {
+      "collected_data_id": "e0f6ca0b-6d41-4a99-b0d2-d75150b7878f",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "대응성 관련 부정적 내용"
+    },
+    {
+      "collected_data_id": "a060743d-6dc5-450e-b7e1-136789f69506",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "적절한 대응"
+    },
+    {
+      "collected_data_id": "bc3458c9-abfa-4c85-beb8-39098dbbbb05",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "적절한 대응"
+    },
+    {
+      "collected_data_id": "7df7811f-a739-420f-9cd0-267d2d6f2aae",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "적절한 대응"
+    },
+    {
+      "collected_data_id": "1077ffe1-82eb-4482-bc50-a6a24726f3c7",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "대응성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "3c5d12e1-3f50-49dd-a1b9-8386b2704f9a",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "현안 대응 노력"
+    },
+    {
+      "collected_data_id": "82ff434f-b7ce-4f53-96f7-5fe36ca7b7ff",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "적절한 대응"
+    },
+    {
+      "collected_data_id": "5a0b707d-f03b-4a3c-83c5-d531062e472f",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "현안 대응 노력"
+    },
+    {
+      "collected_data_id": "2e9b1829-bbec-4a96-ae47-7d662b0c9e79",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "대응성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "c7c39160-4a2d-4861-9d5f-58e115ed2286",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "대응성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "b3b65ca2-bc5b-4482-bbef-461dda8b00a7",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "대응성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "88da827e-3642-4e01-a01f-cfa237ec1924",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "대응성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "60d6022b-d44b-4f4e-9598-2b0d7d4019e0",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "대응성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "a0f1b687-88bd-47ad-85ac-1833783fdcc6",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "대응성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "c77b0f64-9ee3-4bca-a38d-2a3f92582ee4",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "대응성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "dfd26715-121e-4eca-9d2d-6738cc88186d",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "대응성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "086b50b5-99eb-4442-871a-81e14e254784",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "대응성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "ce24a3f6-f5eb-4f4d-a99a-fada512f05da",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "적절한 대응"
+    },
+    {
+      "collected_data_id": "f0224094-3b2b-4991-a471-7e6c3a547cd7",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "대응성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "55df2a2a-ccb1-470c-bb53-08cd636e7cfd",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "현안 대응 노력"
+    },
+    {
+      "collected_data_id": "2191a580-f1b0-4e2e-8aaa-dd52d298cf65",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "대응 지연 또는 부적절"
+    },
+    {
+      "collected_data_id": "4b874ae6-95e1-45dc-857c-51023f39acb9",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "대응성 판단 정보 부족"
+    }
+  ]
+}

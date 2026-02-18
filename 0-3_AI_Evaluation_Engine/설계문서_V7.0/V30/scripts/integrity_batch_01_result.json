@@ -1,0 +1,70 @@
+{
+  "batch_num": 1,
+  "politician_id": "f9e00370",
+  "politician_name": "김민석",
+  "category": "integrity",
+  "evaluator_ai": "Claude",
+  "evaluated_at": "2026-01-22T00:42:46.657211",
+  "evaluations": [
+    {
+      "collected_data_id": "32a9f6f9-00bb-42de-87e5-757b47be8c15",
+      "rating": "-3",
+      "score": -6,
+      "reasoning": "부정부패 또는 재산 관련 논란"
+    },
+    {
+      "collected_data_id": "0f3e62dd-d822-4ff5-a41d-3f3ee01baf7d",
+      "rating": "-3",
+      "score": -6,
+      "reasoning": "부정부패 또는 재산 관련 논란"
+    },
+    {
+      "collected_data_id": "99f365af-e293-4402-b24a-01b738a37416",
+      "rating": "-3",
+      "score": -6,
+      "reasoning": "부정부패 또는 재산 관련 논란"
+    },
+    {
+      "collected_data_id": "f54211ca-fb36-4462-a545-dc1471b3eaf5",
+      "rating": "-3",
+      "score": -6,
+      "reasoning": "부정부패 또는 재산 관련 논란"
+    },
+    {
+      "collected_data_id": "e566669c-f9e3-4af1-9482-213d6b66f3a1",
+      "rating": "-3",
+      "score": -6,
+      "reasoning": "부정부패 또는 재산 관련 논란"
+    },
+    {
+      "collected_data_id": "8f6a364d-55b8-47a8-8b78-38cd8092991b",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "청렴한 행정 수행"
+    },
+    {
+      "collected_data_id": "699398c0-63dd-497d-9cae-0c23e7087947",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "청렴성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "2521faa4-d7c4-487a-ab6c-05095fd84273",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "청렴성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "33b34556-a10b-435b-b3d7-950477d74685",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "청렴성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "c580be58-b12a-41a9-8bda-7fb47a7ec48d",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "청렴성 판단 정보 부족"
+    }
+  ]
+}

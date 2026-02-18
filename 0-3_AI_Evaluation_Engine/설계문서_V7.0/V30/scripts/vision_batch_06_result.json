@@ -1,0 +1,70 @@
+{
+  "batch_num": 6,
+  "politician_id": "f9e00370",
+  "politician_name": "김민석",
+  "category": "vision",
+  "evaluator_ai": "Claude",
+  "evaluated_at": "2026-01-21T22:30:00",
+  "evaluations": [
+    {
+      "collected_data_id": "be185257-93fb-4f83-a4fa-4d66b125c002",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. 재산 증식 의혹 해소 미흡은 개인 투명성 문제이며, 국가 미래 비전과 직접 연관 없음."
+    },
+    {
+      "collected_data_id": "cdd0ba25-1170-46c9-b4dc-b073f24d224b",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. 정치자금법 위반 '표적 사정' 주장은 개인 법 위반 변론이며, 정책 비전과 무관."
+    },
+    {
+      "collected_data_id": "fc3ba546-38aa-4d42-b261-c6d4e137de75",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. 위키백과 인물 정보는 경력 나열이며, 구체적 정책 비전이나 미래 방향성 제시 없음."
+    },
+    {
+      "collected_data_id": "dd7c3c1a-9fb9-412c-8d79-9a2387b59768",
+      "rating": "+3",
+      "score": 6,
+      "reasoning": "비전 관점에서 긍정적. 2026년 시무식에서 'AI, 바이오, 콘텐츠, 컬처, 디펜스, 에너지 등 미래 전략 산업 집중 육성'은 명확한 신산업 발전 비전. 구체적 분야 제시."
+    },
+    {
+      "collected_data_id": "a72bf935-353c-423e-bea1-13f0bbc729f9",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "비전 관점에서 약간 긍정적. '국민 주권 정부' 비전 강조하나, 구체적 실현 방안이나 정책 청사진은 미흡. 정치 철학 수준."
+    },
+    {
+      "collected_data_id": "1d722df2-428d-4752-a75f-ff3fa496b319",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "비전 관점에서 약간 긍정적. '관세 인하', '대미 투자 상업적 합리성' 성과 언급이나, 미래 비전보다는 과거 성과 위주."
+    },
+    {
+      "collected_data_id": "a61a6daf-feaf-48c0-a3cb-be03541f5b72",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "비전 관점에서 약간 긍정적. 청년 고립·AI 시대 관계성 상실 문제 인식, 공실 해결 방안 모색은 미래 사회 문제 인식이나, 구체적 비전은 미흡."
+    },
+    {
+      "collected_data_id": "26085ed4-3349-49ff-adfc-f1e13f295360",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. 신년특강 생중계 영상이며, 구체적 정책 내용 없음."
+    },
+    {
+      "collected_data_id": "13c4b2d3-e0eb-4faf-9d4f-7557416df486",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "비전 관점에서 약간 긍정적. '안전과 건강을 최우선 정책 과제'로 강조, 가습기살균제 재발 방지는 안전 사회 비전이나, 구체적 장기 계획은 미흡."
+    },
+    {
+      "collected_data_id": "b24a470a-d5d1-48c2-94e3-c87429ccbfc2",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "비전 관점에서 긍정적. '2026년 경제대도약 원년', '초혁신경제 구현'은 경제 전환 비전. 명확한 목표 연도와 방향성 제시."
+    }
+  ]
+}

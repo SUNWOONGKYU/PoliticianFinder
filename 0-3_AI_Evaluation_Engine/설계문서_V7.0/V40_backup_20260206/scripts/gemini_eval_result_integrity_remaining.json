@@ -1,0 +1,20 @@
+{
+  "evaluations": [
+    {"id": "328aab7d-8fc8-4839-8a49-2985c8f7e2d7", "rating": "X", "score": 0, "rationale": "단순 행사 일정 데이터"},
+    {"id": "181b6921-0c3f-4e45-b92a-1db4693839a6", "rating": "X", "score": 0, "rationale": "본인과 무관한 지자체 게시물"},
+    {"id": "50ad1508-0c9a-4135-84db-cc1478baab94", "rating": "X", "score": 0, "rationale": "데이터 내용 식별 불가"},
+    {"id": "e9203200-883d-4a3e-a205-695dcd488414", "rating": "X", "score": 0, "rationale": "본인과 무관한 타 지자체 데이터"},
+    {"id": "22c7de0c-4f77-4e82-a0f7-7bb2bf221e06", "rating": "X", "score": 0, "rationale": "본인과 무관한 법무부 데이터"},
+    {"id": "eb5e0ec1-6872-481d-8fdb-24c0fa4eaa74", "rating": "+2", "score": 4, "rationale": "국정감사 결과 보고 등 투명한 활동"},
+    {"id": "157425d1-f480-40ba-bf73-269f917344f2", "rating": "+2", "score": 4, "rationale": "공직자 비리 방지를 위한 법안 발의"},
+    {"id": "6669aa67-6706-497e-911a-1acbaf4bea9b", "rating": "+2", "score": 4, "rationale": "정치 윤리 강화 관련 법안 참여"},
+    {"id": "1b2b2d6e-e7cd-4801-9e55-73d395167a54", "rating": "X", "score": 0, "rationale": "데이터 내용 식별 불가"},
+    {"id": "bf603de5-614f-4b85-9c0b-57b4bf10462c", "rating": "+2", "score": 4, "rationale": "깨끗한 정치 문화 조성을 위한 활동"},
+    {"id": "85be4a0f-c22d-4172-81d1-9e7ab082f58c", "rating": "+2", "score": 4, "rationale": "의정 활동의 투명한 기록 및 관리"},
+    {"id": "16368723-5e2a-4125-8999-4e03f9143c92", "rating": "+2", "score": 4, "rationale": "청렴 의정 실천을 위한 서약 및 활동"},
+    {"id": "b7af81ff-d4d3-4287-834d-c46876f79cb5", "rating": "+2", "score": 4, "rationale": "주요 법안 표결 결과 투명 공개"},
+    {"id": "be657886-55df-4c16-b170-d2a150a1b600", "rating": "+2", "score": 4, "rationale": "재산 및 부동산 내역의 성실한 공개"},
+    {"id": "2fc258f1-6c39-4132-af1e-fe408c22cab2", "rating": "+2", "score": 4, "rationale": "국회의원 재산 변동 사항 정기 신고"},
+    {"id": "47c95c84-72a4-4579-877f-5e5c67ba14de", "rating": "X", "score": 0, "rationale": "데이터 내용 식별 불가"}
+  ]
+}

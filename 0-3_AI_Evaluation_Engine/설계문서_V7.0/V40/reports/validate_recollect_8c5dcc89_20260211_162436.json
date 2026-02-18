@@ -1,0 +1,144 @@
+{
+  "politician_id": "8c5dcc89",
+  "politician_name": "박주민",
+  "timestamp": "2026-02-11T16:24:36.068546",
+  "total_items": 988,
+  "minimum_target": 1000,
+  "buffer_target": 1200,
+  "complete_categories": 4,
+  "incomplete_categories": 6,
+  "validation_results": {
+    "expertise": {
+      "count": 103,
+      "status": "OK"
+    },
+    "leadership": {
+      "count": 91,
+      "status": "NEEDS_RECOLLECTION"
+    },
+    "vision": {
+      "count": 88,
+      "status": "NEEDS_RECOLLECTION"
+    },
+    "integrity": {
+      "count": 89,
+      "status": "NEEDS_RECOLLECTION"
+    },
+    "ethics": {
+      "count": 116,
+      "status": "OK"
+    },
+    "accountability": {
+      "count": 98,
+      "status": "NEEDS_RECOLLECTION"
+    },
+    "transparency": {
+      "count": 88,
+      "status": "NEEDS_RECOLLECTION"
+    },
+    "communication": {
+      "count": 92,
+      "status": "NEEDS_RECOLLECTION"
+    },
+    "responsiveness": {
+      "count": 109,
+      "status": "OK"
+    },
+    "publicinterest": {
+      "count": 113,
+      "status": "OK"
+    }
+  },
+  "recollection_results": [
+    {
+      "category": "vision",
+      "before": 88,
+      "after": 88,
+      "collected": 0,
+      "target": 100,
+      "status": "incomplete"
+    },
+    {
+      "category": "transparency",
+      "before": 88,
+      "after": 88,
+      "collected": 0,
+      "target": 100,
+      "status": "incomplete"
+    },
+    {
+      "category": "integrity",
+      "before": 89,
+      "after": 89,
+      "collected": 0,
+      "target": 100,
+      "status": "incomplete"
+    },
+    {
+      "category": "leadership",
+      "before": 91,
+      "after": 92,
+      "collected": 1,
+      "target": 100,
+      "status": "incomplete"
+    },
+    {
+      "category": "communication",
+      "before": 92,
+      "after": 92,
+      "collected": 0,
+      "target": 100,
+      "status": "incomplete"
+    },
+    {
+      "category": "accountability",
+      "before": 98,
+      "after": 98,
+      "collected": 0,
+      "target": 100,
+      "status": "incomplete"
+    }
+  ],
+  "final_status": {
+    "expertise": {
+      "count": 103,
+      "status": "COMPLETE"
+    },
+    "leadership": {
+      "count": 92,
+      "status": "INCOMPLETE"
+    },
+    "vision": {
+      "count": 88,
+      "status": "INCOMPLETE"
+    },
+    "integrity": {
+      "count": 89,
+      "status": "INCOMPLETE"
+    },
+    "ethics": {
+      "count": 116,
+      "status": "COMPLETE"
+    },
+    "accountability": {
+      "count": 98,
+      "status": "INCOMPLETE"
+    },
+    "transparency": {
+      "count": 88,
+      "status": "INCOMPLETE"
+    },
+    "communication": {
+      "count": 92,
+      "status": "INCOMPLETE"
+    },
+    "responsiveness": {
+      "count": 109,
+      "status": "COMPLETE"
+    },
+    "publicinterest": {
+      "count": 113,
+      "status": "COMPLETE"
+    }
+  }
+}

@@ -1,0 +1,460 @@
+{
+  "politician_id": "f9e00370",
+  "politician_name": "김민석",
+  "category": "integrity",
+  "evaluator_ai": "Claude",
+  "evaluated_at": "2026-01-22T00:42:46.668152",
+  "total_evaluations": 75,
+  "evaluations": [
+    {
+      "collected_data_id": "32a9f6f9-00bb-42de-87e5-757b47be8c15",
+      "rating": "-3",
+      "score": -6,
+      "reasoning": "부정부패 또는 재산 관련 논란"
+    },
+    {
+      "collected_data_id": "0f3e62dd-d822-4ff5-a41d-3f3ee01baf7d",
+      "rating": "-3",
+      "score": -6,
+      "reasoning": "부정부패 또는 재산 관련 논란"
+    },
+    {
+      "collected_data_id": "99f365af-e293-4402-b24a-01b738a37416",
+      "rating": "-3",
+      "score": -6,
+      "reasoning": "부정부패 또는 재산 관련 논란"
+    },
+    {
+      "collected_data_id": "f54211ca-fb36-4462-a545-dc1471b3eaf5",
+      "rating": "-3",
+      "score": -6,
+      "reasoning": "부정부패 또는 재산 관련 논란"
+    },
+    {
+      "collected_data_id": "e566669c-f9e3-4af1-9482-213d6b66f3a1",
+      "rating": "-3",
+      "score": -6,
+      "reasoning": "부정부패 또는 재산 관련 논란"
+    },
+    {
+      "collected_data_id": "8f6a364d-55b8-47a8-8b78-38cd8092991b",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "청렴한 행정 수행"
+    },
+    {
+      "collected_data_id": "699398c0-63dd-497d-9cae-0c23e7087947",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "청렴성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "2521faa4-d7c4-487a-ab6c-05095fd84273",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "청렴성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "33b34556-a10b-435b-b3d7-950477d74685",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "청렴성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "c580be58-b12a-41a9-8bda-7fb47a7ec48d",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "청렴성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "a012cc82-ce59-40b5-b49c-f94fe8ae25df",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "청렴성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "0b476c54-ca52-4e6a-a705-749b6c31ad5a",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "청렴성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "7e5e36c9-f545-45a4-b2cb-ac7a35adbf7c",
+      "rating": "-3",
+      "score": -6,
+      "reasoning": "부정부패 또는 재산 관련 논란"
+    },
+    {
+      "collected_data_id": "c3d366b9-5beb-447a-8519-ca8a5d2dd29f",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "청렴성 관련 부정적 내용"
+    },
+    {
+      "collected_data_id": "210c4761-b601-41c3-a211-1120ff320740",
+      "rating": "-3",
+      "score": -6,
+      "reasoning": "부정부패 또는 재산 관련 논란"
+    },
+    {
+      "collected_data_id": "450563ca-f2b2-4f93-a026-54052cfded63",
+      "rating": "-3",
+      "score": -6,
+      "reasoning": "부정부패 또는 재산 관련 논란"
+    },
+    {
+      "collected_data_id": "268b88e8-8c01-4ea7-bea2-f9b5471282d0",
+      "rating": "-3",
+      "score": -6,
+      "reasoning": "부정부패 또는 재산 관련 논란"
+    },
+    {
+      "collected_data_id": "df006b5f-1f65-414b-be0e-529ba6e6ae9b",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "청렴한 행정 수행"
+    },
+    {
+      "collected_data_id": "fb0c7160-9cfc-4472-9807-39d7e9f4cc5c",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "청렴한 행정 수행"
+    },
+    {
+      "collected_data_id": "27699c44-29cf-4ee8-99de-787e44ec5d12",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "청렴한 행정 수행"
+    },
+    {
+      "collected_data_id": "77f1a56d-5faf-4c11-b277-c3ad1a185472",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "청렴한 행정 수행"
+    },
+    {
+      "collected_data_id": "9a016c2b-109d-4f26-8bbd-88396563cc7b",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "청렴한 행정 수행"
+    },
+    {
+      "collected_data_id": "0908090c-6a3b-469e-836b-9cd42a817db0",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "청렴한 행정 수행"
+    },
+    {
+      "collected_data_id": "e4d5fd92-4e63-4348-a561-07683582057c",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "청렴한 행정 수행"
+    },
+    {
+      "collected_data_id": "9e949d7c-df50-4963-89b1-caf5332d7719",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "청렴성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "58641e96-ce55-4700-a259-ff462ed23797",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "청렴성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "3f813807-59c0-45c7-ad2d-34716a0aac8c",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "청렴성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "7b96d163-fe1e-4822-a925-214781720a9b",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "청렴성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "61ace50c-0c4c-411b-bd95-d1127afd149c",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "청렴성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "31bd14aa-6574-48e9-b4e2-221094775f4b",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "청렴성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "a851f765-90f7-4eca-90cc-e748f60f405d",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "청렴성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "a7e1a0dc-8607-48db-a7a3-b3f2c8d10c17",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "청렴성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "d7efe5f2-2673-4ae5-a6f7-772286701f13",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "청렴성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "bffe4989-6557-4bb8-aaf8-ffe344e2e056",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "청렴성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "8f285bf1-a5fd-4c4d-ad61-449dd0cbcd7e",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "청렴성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "8b639297-7565-473b-add3-81a69da8314f",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "청렴성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "af8d1f9c-2668-4856-ad93-a9d787597d90",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "청렴성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "a9b2f89b-1aa0-4c01-94f4-1e9b8890d31e",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "청렴성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "57e4d0ff-87e0-46d4-9c38-c4a5ca78f204",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "청렴성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "41338390-8fe5-47c5-a493-20f54ed43050",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "청렴성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "392f8065-6c9d-4843-b41c-00c6ef9fffe4",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "청렴성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "d9a3df68-a441-4228-a69a-8fa02e17d959",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "청렴성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "19670eff-f5e7-444c-92db-e2182be7e0eb",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "청렴성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "114bfe7b-d879-49bc-98b7-660b773b9aed",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "청렴성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "cafe67b1-b1cd-4b72-b5ad-4c3f6ef64fe2",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "청렴성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "fefe1ccc-9f70-4cc3-8183-d1d64b98f246",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "청렴성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "48f32539-3c18-428f-a989-506a1a496761",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "청렴성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "dc1c3007-17de-45ff-8178-a778a50b94f3",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "청렴성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "10c7713c-3249-4c8e-93c8-7908e0cb3543",
+      "rating": "-3",
+      "score": -6,
+      "reasoning": "부정부패 또는 재산 관련 논란"
+    },
+    {
+      "collected_data_id": "fa320e26-2169-4397-a55c-5b4fa5f0065b",
+      "rating": "-3",
+      "score": -6,
+      "reasoning": "부정부패 또는 재산 관련 논란"
+    },
+    {
+      "collected_data_id": "a104941a-7e36-4487-b300-e85cf638ab83",
+      "rating": "-3",
+      "score": -6,
+      "reasoning": "부정부패 또는 재산 관련 논란"
+    },
+    {
+      "collected_data_id": "2a09f021-9683-4d4c-a50b-fbccd1e926f8",
+      "rating": "-3",
+      "score": -6,
+      "reasoning": "부정부패 또는 재산 관련 논란"
+    },
+    {
+      "collected_data_id": "cddb3627-08f9-4e17-bfa9-1a1cd117f27d",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "청렴한 행정 수행"
+    },
+    {
+      "collected_data_id": "b811e623-f676-41cb-bb3b-1c1e068f866b",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "청렴한 행정 수행"
+    },
+    {
+      "collected_data_id": "1ff2b81a-0a65-4595-8597-80d7be846dfa",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "청렴한 행정 수행"
+    },
+    {
+      "collected_data_id": "a4f04b4e-de57-4d3d-bc3e-7645163221d6",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "청렴한 행정 수행"
+    },
+    {
+      "collected_data_id": "a2faf5c6-26d6-423b-812f-8d9054108c15",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "청렴한 행정 수행"
+    },
+    {
+      "collected_data_id": "4b7358c2-53e0-4097-a5e3-0f928bc4ed33",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "청렴성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "0890754e-7f94-4c88-98bb-37065c285445",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "청렴성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "68920857-79a9-4c54-8a15-1137e2461d63",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "청렴성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "08c37304-31ef-4f6a-933e-e8d14e3dc065",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "청렴성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "009c7ef4-e3b1-4138-a2e8-275cb749eb97",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "청렴성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "156df5b2-8b1a-4ffa-bbf2-6f0e7d29549d",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "청렴성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "8826ab18-e88f-4c4b-8270-eabe8c4616f2",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "청렴성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "f9b146cd-e627-481a-8ddf-32c208c68891",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "청렴성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "35b945be-04b9-4998-84ee-b2989678401b",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "청렴성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "3ed74784-9c4d-4c01-abf4-7968aee27a9c",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "청렴성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "68a8a41f-ec9d-4edd-bc76-0f6f4dd80675",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "청렴한 행정 수행"
+    },
+    {
+      "collected_data_id": "ffa88c5d-e3ed-4e42-b644-333ae15bb08e",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "청렴성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "2af8984c-29e3-4309-af3e-b585786eb5da",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "청렴성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "f6f7ae2c-4ee6-479f-b587-dd2a57ae9997",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "청렴성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "7dc83fd8-db8e-4f58-821f-1e24eb80c76e",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "청렴성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "62b91e7a-7dc9-4705-b245-87da05baffb4",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "청렴성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "8f817201-649e-47a0-85e7-3395a1f049fe",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "청렴한 행정 수행"
+    },
+    {
+      "collected_data_id": "584c7c3c-1fa2-48c1-85bd-423312f96400",
+      "rating": "-3",
+      "score": -6,
+      "reasoning": "부정부패 또는 재산 관련 논란"
+    }
+  ]
+}

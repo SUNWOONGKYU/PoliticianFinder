@@ -1,0 +1,70 @@
+{
+  "batch_num": 7,
+  "politician_id": "f9e00370",
+  "politician_name": "김민석",
+  "category": "responsiveness",
+  "evaluator_ai": "Claude",
+  "evaluated_at": "2026-01-22T00:42:46.721987",
+  "evaluations": [
+    {
+      "collected_data_id": "5a0b707d-f03b-4a3c-83c5-d531062e472f",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "현안 대응 노력"
+    },
+    {
+      "collected_data_id": "2e9b1829-bbec-4a96-ae47-7d662b0c9e79",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "대응성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "c7c39160-4a2d-4861-9d5f-58e115ed2286",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "대응성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "b3b65ca2-bc5b-4482-bbef-461dda8b00a7",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "대응성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "88da827e-3642-4e01-a01f-cfa237ec1924",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "대응성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "60d6022b-d44b-4f4e-9598-2b0d7d4019e0",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "대응성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "a0f1b687-88bd-47ad-85ac-1833783fdcc6",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "대응성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "c77b0f64-9ee3-4bca-a38d-2a3f92582ee4",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "대응성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "dfd26715-121e-4eca-9d2d-6738cc88186d",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "대응성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "086b50b5-99eb-4442-871a-81e14e254784",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "대응성 판단 정보 부족"
+    }
+  ]
+}

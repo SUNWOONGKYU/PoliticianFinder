@@ -1,0 +1,40 @@
+{
+  "batch_num": 8,
+  "politician_id": "f9e00370",
+  "politician_name": "김민석",
+  "category": "responsiveness",
+  "evaluator_ai": "Claude",
+  "evaluated_at": "2026-01-22T00:42:46.722992",
+  "evaluations": [
+    {
+      "collected_data_id": "ce24a3f6-f5eb-4f4d-a99a-fada512f05da",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "적절한 대응"
+    },
+    {
+      "collected_data_id": "f0224094-3b2b-4991-a471-7e6c3a547cd7",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "대응성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "55df2a2a-ccb1-470c-bb53-08cd636e7cfd",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "현안 대응 노력"
+    },
+    {
+      "collected_data_id": "2191a580-f1b0-4e2e-8aaa-dd52d298cf65",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "대응 지연 또는 부적절"
+    },
+    {
+      "collected_data_id": "4b874ae6-95e1-45dc-857c-51023f39acb9",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "대응성 판단 정보 부족"
+    }
+  ]
+}

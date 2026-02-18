@@ -1,0 +1,70 @@
+{
+  "batch_num": 4,
+  "politician_id": "f9e00370",
+  "politician_name": "김민석",
+  "category": "vision",
+  "evaluator_ai": "Claude",
+  "evaluated_at": "2026-01-21T22:30:00",
+  "evaluations": [
+    {
+      "collected_data_id": "da2e9004-3034-4dee-9978-029019098889",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. 계엄 관련 법안 발의는 민주적 통제 강화이나, 국가 미래 발전 비전보다는 제도 개선 차원."
+    },
+    {
+      "collected_data_id": "d0e42743-ada7-4418-87cd-1f737a86ec84",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "비전 관점에서 긍정적. 'RE100 국가실현을 위한 10대 약속'은 기후위기 대응 장기 비전. 재생에너지 전환이라는 명확한 미래 방향성 제시."
+    },
+    {
+      "collected_data_id": "bbe833b6-62c5-4af3-8d5d-5c4883b8ce8a",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. 의정보고회는 형식적 활동이며, 구체적 미래 비전 내용 없음."
+    },
+    {
+      "collected_data_id": "d9881f08-6bb3-4c32-adf5-a15f21b3f971",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. 국정감사 대응 태도는 정부 운영 자세이며, 미래 정책 비전 제시와 직접 연관 없음."
+    },
+    {
+      "collected_data_id": "c0f1ae2c-8c83-45a5-89d4-74e33e9a3853",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. 경기도 지지 발언은 정치적 수사이며, 구체적 경기도 발전 비전이나 청사진 제시 없음."
+    },
+    {
+      "collected_data_id": "b44c708d-27ca-4355-a5a7-a9bdf7c553d1",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "비전 관점에서 긍정적. AI 데이터센터 규제 개선, GPU 26만장 확보 계획('30년까지)은 AI 산업 발전 비전. 구체적 목표와 일정 제시."
+    },
+    {
+      "collected_data_id": "e9673f8a-4e1d-46c0-9404-49aecda18a88",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "비전 관점에서 긍정적. 'AI 대전환', '초신 경제', '민관 역량 결집'을 통한 국가 명운 결정은 경제 전환 비전. 방향성은 있으나 구체성은 다소 부족."
+    },
+    {
+      "collected_data_id": "c1415f86-1eaa-43d2-9ddc-39e154bcfbd8",
+      "rating": "+3",
+      "score": 6,
+      "reasoning": "비전 관점에서 긍정적. 'AI 3대 강국 비전'을 명확히 제시하고, 연구자 도전 생태계, 기술 혁신, 방송 공적 가치 강화 등 구체적 방향성 제시."
+    },
+    {
+      "collected_data_id": "f236faec-ac8d-4b0b-8f25-aefdee5bd43f",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "비전 관점에서 긍정적. 강원특별자치도 균형발전, 반도체·수소·바이오·관광 미래산업 육성은 지역 발전 비전. 구체적 산업 분야 제시."
+    },
+    {
+      "collected_data_id": "d0c65eb7-9618-4854-8ee1-1aa9ef747704",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "비전 관점에서 약간 긍정적. AI 산업 융합 경청 간담회는 미래 산업 방향 모색이나, 구체적 비전 제시보다는 의견 수렴 단계."
+    }
+  ]
+}

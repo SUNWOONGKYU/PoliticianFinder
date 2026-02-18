@@ -1,0 +1,460 @@
+{
+  "politician_id": "f9e00370",
+  "politician_name": "김민석",
+  "category": "communication",
+  "evaluator_ai": "Claude",
+  "evaluated_at": "2026-01-22T00:42:46.713447",
+  "total_evaluations": 75,
+  "evaluations": [
+    {
+      "collected_data_id": "58a6fbbb-8c56-49d5-a167-0931ed5ac8ee",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "소통 방식 문제"
+    },
+    {
+      "collected_data_id": "cd030a53-e4b0-4f3a-8aca-961503898fd6",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "소통 방식 문제"
+    },
+    {
+      "collected_data_id": "1fef64b2-8087-41a3-96f2-d802236c9748",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "소통 방식 문제"
+    },
+    {
+      "collected_data_id": "074c1087-2b26-4735-a3e0-a6438d5e1f05",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "소통 방식 문제"
+    },
+    {
+      "collected_data_id": "5297abd1-bed4-4ca8-aebf-e6604ee8bbde",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "소통능력 관련 부정적 내용"
+    },
+    {
+      "collected_data_id": "3f9d2876-cb31-444d-b55a-44bc904c9cb6",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "소통능력 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "46f9c162-d95f-4ff8-9f1f-ecb6d8cb60bb",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "소통능력 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "06ba0cc6-e965-47a7-8805-95fdda357ba6",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "소통능력 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "296bf2cf-d1ce-464b-9080-f70b16d0c2a3",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "소통 방식 문제"
+    },
+    {
+      "collected_data_id": "cba8d7f1-497f-4540-8cc3-1400e00909c0",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "소통능력 관련 부정적 내용"
+    },
+    {
+      "collected_data_id": "7ada349d-d477-4389-9abd-ad4906b56168",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "소통능력 관련 부정적 내용"
+    },
+    {
+      "collected_data_id": "8220e2b5-5cee-42be-b6fb-319f8acfc0ca",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "소통 방식 문제"
+    },
+    {
+      "collected_data_id": "01343467-f571-44ba-b43e-d95c99f3bf63",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "효과적 소통"
+    },
+    {
+      "collected_data_id": "7f10b8ec-b05e-4c1d-8966-6e14b44ef19a",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "긍정적 소통"
+    },
+    {
+      "collected_data_id": "852dbbac-1241-463c-8fd3-db9d8613d87c",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "긍정적 소통"
+    },
+    {
+      "collected_data_id": "2d36325d-97a9-48e3-8726-42d31e2c683b",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "긍정적 소통"
+    },
+    {
+      "collected_data_id": "ed5a8acf-013f-4d9e-870d-c67046008825",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "긍정적 소통"
+    },
+    {
+      "collected_data_id": "8cbeab0b-2a5f-44d8-b878-48059d76f3e1",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "긍정적 소통"
+    },
+    {
+      "collected_data_id": "16b27bfc-1bb7-473a-95b2-07488f077b00",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "효과적 소통"
+    },
+    {
+      "collected_data_id": "8351f374-3114-463d-ba6b-a5576d302a88",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "긍정적 소통"
+    },
+    {
+      "collected_data_id": "9049c396-93b2-4e49-b97e-36be1c812894",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "긍정적 소통"
+    },
+    {
+      "collected_data_id": "02108676-d15c-4042-950f-6a984dbf9113",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "효과적 소통"
+    },
+    {
+      "collected_data_id": "7f0ebf5b-a051-413e-937d-8cdb8276708d",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "소통능력 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "406d1276-28ee-4745-8211-d979b7a43cc6",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "소통 노력"
+    },
+    {
+      "collected_data_id": "9db341f0-5880-48f7-83b0-2e109c4777b2",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "소통능력 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "0f6240db-b15a-44a5-a68d-286cfa61c3a6",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "소통능력 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "b3072e87-425a-441a-ac0c-04cd26476663",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "소통능력 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "010b0c66-687e-4a62-ab3d-616e3dc7898a",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "소통능력 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "eb48791e-4f91-47f7-a9c1-d72c621fbaa7",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "소통 노력"
+    },
+    {
+      "collected_data_id": "14424447-238c-45f2-aa16-c812afcd7c14",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "소통능력 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "5225f32c-8c46-4575-961e-5c93cbab47ac",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "소통능력 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "02d89e0b-9f61-4c34-851e-85c2e3113abd",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "소통능력 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "95ed21a3-293c-4f7a-9f23-891f288bb7b4",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "소통능력 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "7edfdaad-4355-43fb-adb7-9f1997b43ef1",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "소통능력 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "6d76cdd0-1ffa-4c86-876c-38b8892af39f",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "소통능력 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "c85b5caf-0ca7-4b6a-b2cf-63a9f2fc74b9",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "소통 노력"
+    },
+    {
+      "collected_data_id": "72d4eb12-87bb-436b-a554-d4ae6e8e1edb",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "소통 노력"
+    },
+    {
+      "collected_data_id": "ff30a48c-0510-4bb8-ac11-5a4d531e3496",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "소통 노력"
+    },
+    {
+      "collected_data_id": "de3571f7-9230-4445-80d3-7ccf3f4dbb19",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "소통 노력"
+    },
+    {
+      "collected_data_id": "b4959420-1886-4984-a867-3a1480fda5ae",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "소통능력 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "3a922ed7-6541-407e-ac76-5454d6e39c7e",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "소통 노력"
+    },
+    {
+      "collected_data_id": "18f0a963-d64c-4614-a635-b9298a7b7e57",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "소통 노력"
+    },
+    {
+      "collected_data_id": "aac508bb-689c-45dc-bc95-fa10ad266486",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "소통능력 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "38903bb9-e2e1-4191-96f1-5e726c607536",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "소통 노력"
+    },
+    {
+      "collected_data_id": "c433eb44-1148-410a-83d1-73dce06762f0",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "소통 노력"
+    },
+    {
+      "collected_data_id": "ff73247a-598d-4011-88ba-f939b95ea6cf",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "소통능력 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "c1c6d556-45e9-4088-b35f-587c941f8b0f",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "소통능력 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "98541c99-2dea-4b0d-8e04-2e18be2d7899",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "소통능력 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "39ca121b-183f-4338-931e-f28bd69fb5a4",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "소통 노력"
+    },
+    {
+      "collected_data_id": "aa66a1e8-d517-42ba-abb9-d9554df9128d",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "소통 노력"
+    },
+    {
+      "collected_data_id": "62a107ff-b4da-43d2-8654-42d57f36362f",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "소통 방식 문제"
+    },
+    {
+      "collected_data_id": "d5e297f2-2410-4fdc-a791-f5f4ec8d753f",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "소통 방식 문제"
+    },
+    {
+      "collected_data_id": "bac4b800-fb39-4ff1-8fbc-e213367c5af6",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "소통 방식 문제"
+    },
+    {
+      "collected_data_id": "ae65ec1d-e433-4f89-9c50-f22d521abc8c",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "소통능력 관련 부정적 내용"
+    },
+    {
+      "collected_data_id": "f9924991-56db-4b07-8069-3f28673515ef",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "소통능력 관련 부정적 내용"
+    },
+    {
+      "collected_data_id": "3ba5551e-5649-4c30-a688-b9a62e58bb78",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "긍정적 소통"
+    },
+    {
+      "collected_data_id": "c9c73860-cc82-428c-b203-73965b804c96",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "긍정적 소통"
+    },
+    {
+      "collected_data_id": "eb949cd6-0e41-4645-ae55-b9412c9340f7",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "긍정적 소통"
+    },
+    {
+      "collected_data_id": "f99b0f0f-601c-4dfd-961e-0166ed08b21d",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "긍정적 소통"
+    },
+    {
+      "collected_data_id": "768e1f08-e85c-413a-add8-3f90d85f7390",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "긍정적 소통"
+    },
+    {
+      "collected_data_id": "12eaecd3-a344-4481-b913-b3aeccd7e53c",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "소통능력 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "90562f40-0f67-48a7-b615-e468c960829e",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "소통 노력"
+    },
+    {
+      "collected_data_id": "2e3adb23-4271-4aa9-94a7-79fb1338ab63",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "소통 노력"
+    },
+    {
+      "collected_data_id": "a9caa9b5-3d68-48b9-b3c3-ff7f061d7c14",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "소통능력 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "2732aa6a-90d6-4758-8136-12ef0f634809",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "소통능력 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "c13ef7a3-dae6-44c7-a77b-717c065896f9",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "소통능력 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "ea333cc3-dac2-4a0e-88a2-62fff481122a",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "소통 노력"
+    },
+    {
+      "collected_data_id": "0cd4e713-1c08-4914-91e3-b32d8bf5706f",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "소통능력 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "5b723c36-ac6d-48d9-8133-b49c6e0ec10f",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "소통능력 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "5078e996-19e4-4aab-9084-0a3e3855895e",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "소통능력 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "733ffd62-73ff-4cda-950c-7180eec7b272",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "소통능력 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "51267090-d93d-4ab1-9c2a-63fc2303c2a5",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "소통능력 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "9952e993-c81c-4e32-8822-e52279cb9a52",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "소통능력 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "f9a66d51-465b-4a27-a198-7d0ed584c11e",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "소통 방식 문제"
+    },
+    {
+      "collected_data_id": "f009f261-c535-4267-aa10-da07f28b64cb",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "소통 노력"
+    }
+  ]
+}

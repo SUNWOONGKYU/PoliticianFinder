@@ -7,7 +7,10 @@
       "name": "Manual Trigger",
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
-      "position": [240, 300]
+      "position": [
+        240,
+        300
+      ]
     },
     {
       "parameters": {
@@ -33,7 +36,10 @@
       "name": "Set Variables",
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.2,
-      "position": [460, 300],
+      "position": [
+        460,
+        300
+      ],
       "notes": "Set politician_id and politician_name parameters"
     },
     {
@@ -44,7 +50,10 @@
       "name": "Phase 1: Gemini Collection",
       "type": "n8n-nodes-base.executeCommand",
       "typeVersion": 1,
-      "position": [680, 200],
+      "position": [
+        680,
+        200
+      ],
       "notes": "Collect 60+ items per category from Gemini CLI"
     },
     {
@@ -55,7 +64,10 @@
       "name": "Phase 1: Naver Collection",
       "type": "n8n-nodes-base.executeCommand",
       "typeVersion": 1,
-      "position": [680, 400],
+      "position": [
+        680,
+        400
+      ],
       "notes": "Collect 60+ items per category from Naver API (note: uses hyphens in args)"
     },
     {
@@ -68,7 +80,10 @@
       "name": "Merge Phase 1",
       "type": "n8n-nodes-base.merge",
       "typeVersion": 2.1,
-      "position": [900, 300],
+      "position": [
+        900,
+        300
+      ],
       "notes": "Wait for both Gemini and Naver collection to complete"
     },
     {
@@ -81,7 +96,10 @@
       "name": "Phase Gate 1: Check Count",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.4,
-      "position": [1120, 300],
+      "position": [
+        1120,
+        300
+      ],
       "credentials": {
         "postgres": {
           "id": "supabase",
@@ -106,7 +124,10 @@
       "name": "IF >= 1000",
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
-      "position": [1340, 300]
+      "position": [
+        1340,
+        300
+      ]
     },
     {
       "parameters": {
@@ -116,7 +137,10 @@
       "name": "Stop: Insufficient Data",
       "type": "n8n-nodes-base.stopAndError",
       "typeVersion": 1,
-      "position": [1560, 400]
+      "position": [
+        1560,
+        400
+      ]
     },
     {
       "parameters": {
@@ -126,7 +150,10 @@
       "name": "Phase 2: Validate",
       "type": "n8n-nodes-base.executeCommand",
       "typeVersion": 1,
-      "position": [1560, 200],
+      "position": [
+        1560,
+        200
+      ],
       "notes": "Remove duplicates and enforce period limits"
     },
     {
@@ -137,7 +164,10 @@
       "name": "Phase 2-2: Adjust",
       "type": "n8n-nodes-base.executeCommand",
       "typeVersion": 1,
-      "position": [1780, 200],
+      "position": [
+        1780,
+        200
+      ],
       "notes": "Balance data to 50-60 items per AI per category"
     },
     {
@@ -150,7 +180,10 @@
       "name": "Phase Gate 2: Check Balance",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.4,
-      "position": [2000, 200],
+      "position": [
+        2000,
+        200
+      ],
       "credentials": {
         "postgres": {
           "id": "supabase",
@@ -175,7 +208,10 @@
       "name": "IF All >= 50",
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
-      "position": [2220, 200]
+      "position": [
+        2220,
+        200
+      ]
     },
     {
       "parameters": {
@@ -185,7 +221,10 @@
       "name": "Stop: Insufficient Balance",
       "type": "n8n-nodes-base.stopAndError",
       "typeVersion": 1,
-      "position": [2440, 300]
+      "position": [
+        2440,
+        300
+      ]
     },
     {
       "parameters": {
@@ -195,8 +234,12 @@
       "name": "Phase 3: Claude Evaluation",
       "type": "n8n-nodes-base.executeCommand",
       "typeVersion": 1,
-      "position": [2660, -100],
-      "notes": "Claude Haiku 4.5 evaluates all categories (batch 25)"
+      "position": [
+        2660,
+        -100
+      ],
+      "notes": "Claude Haiku 4.5 evaluates all categories (batch 25)",
+      "disabled": true
     },
     {
       "parameters": {
@@ -206,7 +249,10 @@
       "name": "Phase 3: ChatGPT Evaluation",
       "type": "n8n-nodes-base.executeCommand",
       "typeVersion": 1,
-      "position": [2660, 100],
+      "position": [
+        2660,
+        100
+      ],
       "notes": "ChatGPT gpt-5.1-codex-mini evaluates all categories (batch 25)"
     },
     {
@@ -217,7 +263,10 @@
       "name": "Phase 3: Gemini Evaluation",
       "type": "n8n-nodes-base.executeCommand",
       "typeVersion": 1,
-      "position": [2660, 300],
+      "position": [
+        2660,
+        300
+      ],
       "notes": "Gemini 2.0 Flash evaluates all categories (batch 25)"
     },
     {
@@ -228,7 +277,10 @@
       "name": "Phase 3: Grok Evaluation",
       "type": "n8n-nodes-base.executeCommand",
       "typeVersion": 1,
-      "position": [2660, 500],
+      "position": [
+        2660,
+        500
+      ],
       "notes": "Grok 3 evaluates all categories (batch 25, xAI API)"
     },
     {
@@ -242,7 +294,10 @@
       "name": "Merge Phase 3",
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3,
-      "position": [2900, 200],
+      "position": [
+        2900,
+        200
+      ],
       "notes": "Wait for all 4 AI evaluations to complete"
     },
     {
@@ -255,7 +310,10 @@
       "name": "Phase Gate 3: Check Evaluations",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.4,
-      "position": [3120, 200],
+      "position": [
+        3120,
+        200
+      ],
       "credentials": {
         "postgres": {
           "id": "supabase",
@@ -280,7 +338,10 @@
       "name": "IF >= 2000 Evaluations",
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
-      "position": [3340, 200]
+      "position": [
+        3340,
+        200
+      ]
     },
     {
       "parameters": {
@@ -290,7 +351,10 @@
       "name": "Stop: Insufficient Evaluations",
       "type": "n8n-nodes-base.stopAndError",
       "typeVersion": 1,
-      "position": [3560, 300]
+      "position": [
+        3560,
+        300
+      ]
     },
     {
       "parameters": {
@@ -300,7 +364,10 @@
       "name": "Phase 4: Calculate Scores",
       "type": "n8n-nodes-base.executeCommand",
       "typeVersion": 1,
-      "position": [3560, 200],
+      "position": [
+        3560,
+        200
+      ],
       "notes": "Calculate category and final scores (200-1000)"
     },
     {
@@ -311,7 +378,10 @@
       "name": "Phase 5: Generate Report",
       "type": "n8n-nodes-base.executeCommand",
       "typeVersion": 1,
-      "position": [3780, 200],
+      "position": [
+        3780,
+        200
+      ],
       "notes": "Generate final report in 보고서/{name}_{date}.md"
     }
   ],

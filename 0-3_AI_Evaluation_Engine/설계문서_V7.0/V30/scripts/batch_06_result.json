@@ -1,0 +1,70 @@
+{
+  "batch_num": 6,
+  "politician_id": "f9e00370",
+  "politician_name": "김민석",
+  "category": "expertise",
+  "evaluator_ai": "Claude",
+  "evaluated_at": "2026-01-21T21:37:40.906932",
+  "evaluations": [
+    {
+      "collected_data_id": "1e88e7dc-4da0-476b-9f6f-5d6adb1171eb",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "논란 및 의혹 관련 내용"
+    },
+    {
+      "collected_data_id": "fb2c220e-15d7-4c11-8bab-e8f9c1837dc6",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "국무총리 관련 긍정 활동"
+    },
+    {
+      "collected_data_id": "5e2528e9-23b6-4b0f-93b8-453727b0a4e8",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "국무총리 관련 긍정 활동"
+    },
+    {
+      "collected_data_id": "10f62b62-5e8b-4b4f-b257-90a4938a270c",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "국무총리 관련 긍정 활동"
+    },
+    {
+      "collected_data_id": "2e417d31-8e85-4301-9da1-4b955057597f",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "국무총리 관련 긍정 활동"
+    },
+    {
+      "collected_data_id": "3f5aed27-91e9-4852-994c-1a2687b275ca",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "국무총리 관련 긍정 활동"
+    },
+    {
+      "collected_data_id": "4671cca9-fcfb-4720-a6ed-c7eb9c63beab",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "국무총리 관련 긍정 활동"
+    },
+    {
+      "collected_data_id": "b25f13c0-5b57-457c-acab-e70ecf18f14f",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "정치 활동 및 역할 수행"
+    },
+    {
+      "collected_data_id": "5b8f6815-a607-4beb-b392-51bc48c666ea",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "국무총리 관련 긍정 활동"
+    },
+    {
+      "collected_data_id": "3db3307a-e9d5-4135-8f53-ffa11fe8a536",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "국무총리 관련 긍정 활동"
+    }
+  ]
+}

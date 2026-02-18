@@ -1,0 +1,94 @@
+{
+  "politician_name": "박주민",
+  "collected_at": "2026-02-10T16:24:12.609010",
+  "summary": {
+    "success": false,
+    "total_events": 0,
+    "total_duration_seconds": 6.769901,
+    "errors_count": 10
+  },
+  "results_by_category": {
+    "expertise": {
+      "category": "expertise",
+      "success": false,
+      "events_collected": 0,
+      "error": "Prompt file not found: expertise.md",
+      "duration_seconds": 0
+    },
+    "leadership": {
+      "category": "leadership",
+      "success": false,
+      "events_collected": 0,
+      "error": "Prompt file not found: leadership.md",
+      "duration_seconds": 0
+    },
+    "vision": {
+      "category": "vision",
+      "success": false,
+      "events_collected": 0,
+      "error": "Prompt file not found: vision.md",
+      "duration_seconds": 0
+    },
+    "integrity": {
+      "category": "integrity",
+      "success": false,
+      "events_collected": 0,
+      "error": "Prompt file not found: integrity.md",
+      "duration_seconds": 0
+    },
+    "ethics": {
+      "category": "ethics",
+      "success": false,
+      "events_collected": 0,
+      "error": "Prompt file not found: ethics.md",
+      "duration_seconds": 0
+    },
+    "accountability": {
+      "category": "accountability",
+      "success": false,
+      "events_collected": 0,
+      "error": "Prompt file not found: accountability.md",
+      "duration_seconds": 0
+    },
+    "transparency": {
+      "category": "transparency",
+      "success": false,
+      "events_collected": 0,
+      "error": "Prompt file not found: transparency.md",
+      "duration_seconds": 0
+    },
+    "communication": {
+      "category": "communication",
+      "success": false,
+      "events_collected": 0,
+      "error": "Prompt file not found: communication.md",
+      "duration_seconds": 0
+    },
+    "responsiveness": {
+      "category": "responsiveness",
+      "success": false,
+      "events_collected": 0,
+      "error": "Prompt file not found: responsiveness.md",
+      "duration_seconds": 0
+    },
+    "publicinterest": {
+      "category": "publicinterest",
+      "success": false,
+      "events_collected": 0,
+      "error": "Prompt file not found: publicinterest.md",
+      "duration_seconds": 0
+    }
+  },
+  "errors": [
+    "expertise: Prompt file not found: expertise.md",
+    "leadership: Prompt file not found: leadership.md",
+    "vision: Prompt file not found: vision.md",
+    "integrity: Prompt file not found: integrity.md",
+    "ethics: Prompt file not found: ethics.md",
+    "accountability: Prompt file not found: accountability.md",
+    "transparency: Prompt file not found: transparency.md",
+    "communication: Prompt file not found: communication.md",
+    "responsiveness: Prompt file not found: responsiveness.md",
+    "publicinterest: Prompt file not found: publicinterest.md"
+  ]
+}

@@ -1,0 +1,460 @@
+{
+  "politician_id": "f9e00370",
+  "politician_name": "김민석",
+  "category": "ethics",
+  "evaluator_ai": "Claude",
+  "evaluated_at": "2026-01-22T00:42:46.680533",
+  "total_evaluations": 75,
+  "evaluations": [
+    {
+      "collected_data_id": "33f621cf-d183-4f61-8254-ad8a4382a245",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "윤리성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "37f038f0-e0fb-410c-a3a9-bd220616b31b",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "윤리성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "e9994e81-d7c1-47ad-a0b9-602ede4253f6",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "윤리성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "78e313bc-35ec-4591-bdc3-9cf812bba7a2",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "윤리성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "38b41bd1-733e-43a7-b083-43cc268fb73a",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "윤리성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "a50984dc-85f7-4807-9a72-6d7e8ff9fc0a",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "윤리성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "62e93f35-1291-4b9e-8182-53ef56a26cb4",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "윤리성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "3375af0e-004e-45f8-8011-8cd9a82895bd",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "윤리적 문제 제기"
+    },
+    {
+      "collected_data_id": "f8ed5ebc-a7f0-4526-8c77-10e703ccc72c",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "윤리적 문제 제기"
+    },
+    {
+      "collected_data_id": "8ff39544-a372-4a4c-8964-0c17a8358253",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "윤리적 문제 제기"
+    },
+    {
+      "collected_data_id": "8ab7c7af-f982-4fa5-a50a-3d184f48953c",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "윤리성 관련 부정적 내용"
+    },
+    {
+      "collected_data_id": "8efdeeaa-acd2-4105-be9c-c4ccc1d8b7bb",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "윤리적 문제 제기"
+    },
+    {
+      "collected_data_id": "49e09d06-5359-420a-8347-ebcb5de96928",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "윤리적 문제 제기"
+    },
+    {
+      "collected_data_id": "b8f720fb-ce53-4259-b4c1-9d193521de52",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "윤리성 관련 부정적 내용"
+    },
+    {
+      "collected_data_id": "8ca781cf-6a41-4a63-8be7-0b89d47a63f4",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "윤리성 관련 부정적 내용"
+    },
+    {
+      "collected_data_id": "927141fa-463f-4dd4-a7be-6d18b4d2bd30",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "윤리적 문제 제기"
+    },
+    {
+      "collected_data_id": "41bcde80-2936-4cd0-933f-82080abb23e2",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "윤리적 문제 제기"
+    },
+    {
+      "collected_data_id": "7063db23-ab3b-47d4-a6fe-037ad4955ed1",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "윤리적 행동"
+    },
+    {
+      "collected_data_id": "d12e9c48-59ec-42d8-91f5-380918eb22ce",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "윤리적 행동"
+    },
+    {
+      "collected_data_id": "fb9694bd-699f-4424-beae-21a9672d7af8",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "윤리적 행동"
+    },
+    {
+      "collected_data_id": "a0382683-dd55-4d0d-9dfd-ac5df8db9330",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "윤리적 행동"
+    },
+    {
+      "collected_data_id": "249c34ba-9550-4753-a84b-f220066b5f7b",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "윤리적 행동"
+    },
+    {
+      "collected_data_id": "440f0895-14e8-40cb-bd09-3612bada3bf7",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "윤리성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "12f2c91a-32b7-47e7-abab-69a7baabae98",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "윤리적 행동"
+    },
+    {
+      "collected_data_id": "eb3b9ad1-4fa1-4bf7-a241-24993047e49f",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "윤리적 행동"
+    },
+    {
+      "collected_data_id": "5f33e0f5-9632-47d7-8cc7-e2c61bbbd04b",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "윤리적 행동"
+    },
+    {
+      "collected_data_id": "8644e8a1-a855-4487-90fd-4bad4dbb6dd3",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "윤리적 행동"
+    },
+    {
+      "collected_data_id": "095da916-716d-49b3-ad39-cff28042a31a",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "윤리적 행동"
+    },
+    {
+      "collected_data_id": "6496720d-9536-4aea-b2f1-90e6cf1ab4d1",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "윤리성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "28515704-e7ca-4a02-b3f7-f99207a78535",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "윤리성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "ced7d72e-99e9-428c-a7b3-2869eee3f34e",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "윤리성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "24737cc7-b101-4375-83d1-9cb3597639c9",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "윤리성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "08403e44-2b62-4502-98c8-74c913d366ff",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "윤리성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "318e48b1-ec5d-4094-ab61-cef4c2dc6534",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "윤리성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "62b107a0-1587-40f9-828e-83ca394485ad",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "윤리성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "dd079bce-fc0a-459b-ac3c-6862d6c0c8d4",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "윤리성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "d5a8dfd3-a59e-4b49-887a-a9a1124a4bf7",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "윤리성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "35302d21-eee7-4d3e-8e49-9bafe0b6017c",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "윤리성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "81d0a931-5d57-4c48-9478-058c08e9a93e",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "윤리성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "e2fd963d-a889-4dfc-aa45-c85a3f61cea8",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "윤리성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "c98b0c69-9159-4cab-8329-69dbeedad73f",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "윤리성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "effe7d3d-9a14-406c-add2-7b2a9fbf6114",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "윤리성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "3e8b8432-6756-4f88-9ea6-21d068747d3f",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "윤리성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "1e3c12c9-d6fb-4862-873f-af698db8458f",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "윤리성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "36154ce5-5be2-431b-ab53-4cc094c772d6",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "윤리성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "15483cb5-7fd8-4130-a00f-176487ea1b62",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "윤리성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "948e0d97-69e1-4e11-bda6-56cfba76ffcc",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "윤리성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "686d235d-cfcc-489f-83be-5edd5adf0c6e",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "윤리성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "67cc65e9-8d6c-494d-9821-b3be38973516",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "윤리성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "46de3016-30c8-40b6-a884-571bf6b0f6e7",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "윤리성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "470d9a41-8d4e-4a1d-8e6c-f8833bec5a2a",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "윤리적 문제 제기"
+    },
+    {
+      "collected_data_id": "672fb6f0-c437-4697-8dc1-f4da51882209",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "윤리성 관련 부정적 내용"
+    },
+    {
+      "collected_data_id": "3ea9ff47-32eb-44f2-8e8f-cd4b2b792760",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "윤리적 문제 제기"
+    },
+    {
+      "collected_data_id": "a62a9e2c-2561-4e95-a9d8-9936786624bf",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "윤리적 문제 제기"
+    },
+    {
+      "collected_data_id": "5ea729ca-ff77-416b-bb8d-3c82c95f13a1",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "윤리적 문제 제기"
+    },
+    {
+      "collected_data_id": "8cbea8b4-4d0a-47c6-b5f4-588c1d4b5ab2",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "윤리적 행동"
+    },
+    {
+      "collected_data_id": "30fcab95-cc8b-4223-8c9d-65a9f05c665b",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "윤리적 행동"
+    },
+    {
+      "collected_data_id": "e2f3eca3-6ce7-4476-9331-fbeff8c96be3",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "윤리적 행동"
+    },
+    {
+      "collected_data_id": "1bd63ab0-8fa7-4ced-9bf5-f1db085e19c8",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "윤리성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "cf8d9ab5-ac33-456d-be1a-60a29b4cf7d6",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "윤리성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "cd8d026c-10ed-49d3-b3f1-3860107da8a1",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "윤리성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "41e400d0-b52b-4225-9e8f-85c1b97fa191",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "윤리성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "3af44652-0afe-44c6-b2f8-79f0ae6579f5",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "윤리성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "a2d44fc2-d31a-4359-9a2c-393077feee15",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "윤리성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "c6d8c79e-f000-4bed-8fe8-ebd6ca666d0d",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "윤리성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "9d62b5fd-7a45-4071-a9d9-cb744feea39d",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "윤리성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "7ca2833d-4b46-4335-88ca-efbe0b3f3de5",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "윤리성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "014fda4f-fd4c-4192-9210-224610e7821b",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "윤리성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "7ab483c3-aa3b-418e-9512-4405f942c284",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "윤리성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "1dc0e6e9-b171-440c-a5a5-3c66a2883942",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "윤리성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "2097df43-b85c-4ce2-bf6e-3b4822647152",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "윤리성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "ca7eafea-f8d5-4d05-9296-70a3c8150903",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "윤리성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "2bf8f529-6c37-43f8-beac-cf521b574280",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "윤리적 행동"
+    },
+    {
+      "collected_data_id": "5320c2b5-5bb2-46ab-8b4e-2906450ea294",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "윤리성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "e8c71a54-bb6d-4697-b338-0cbabf0c6393",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "윤리적 행동"
+    }
+  ]
+}

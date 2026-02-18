@@ -1,0 +1,70 @@
+{
+  "batch_num": 6,
+  "politician_id": "f9e00370",
+  "politician_name": "김민석",
+  "category": "leadership",
+  "evaluator_ai": "Claude",
+  "evaluated_at": "2026-01-21T22:25:00",
+  "evaluations": [
+    {
+      "collected_data_id": "287ce492-c6ca-47fc-a2f7-508e49eec2e4",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "광주·전남 행정통합 인센티브 발표에 대해 지역 지도자들로부터 환영받고 긍정적 평가를 받은 것은 이해관계자 관리와 지역 통합 리더십 측면에서 성공적 정책 수행"
+    },
+    {
+      "collected_data_id": "ee234a93-c2ee-4d67-b228-511816c66d90",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "민선8기 경기도민 삶 만족도 증가는 경기도정의 성과이며, 김민석 총리의 직접적 리더십과는 관련이 없음"
+    },
+    {
+      "collected_data_id": "d4022956-f768-4be1-a1f1-7b505815b0e9",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "정책 결정 과정 생중계 확대와 '정책의 완성은 홍보'라는 철학은 투명성 강화와 국민 소통 강화를 위한 적절한 방향 제시. 국정 운영의 투명성을 높이려는 리더십 의지"
+    },
+    {
+      "collected_data_id": "017ee16e-6faf-4693-b954-be1157a45f52",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "광주·전남 통합 관련 권역별 발전계획 요청을 수용한 것은 지역 의견 수렴과 협의를 통한 합의 도출 능력을 보여주는 긍정적 리더십"
+    },
+    {
+      "collected_data_id": "272c9b11-f181-4fbb-8683-e9ae135f274e",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "미국 부통령의 초청으로 현직 총리로서 첫 단독 방미를 추진한 것은 외교적 리더십과 국제 관계 강화 능력을 보여주는 긍정적 사례"
+    },
+    {
+      "collected_data_id": "0a595957-d677-444d-96c8-d6f3b2216f9e",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "가습기살균제 참사 재발 방지를 위해 안전과 건강을 최우선 정책으로 강조하고 화학제품 관리 체계 구축을 지시한 것은 국민 안전에 대한 명확한 우선순위 설정과 예방적 리더십"
+    },
+    {
+      "collected_data_id": "41ce4aaa-5cd0-42b6-9a1e-d9e8e390bb13",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "K-국정설명회에서 경기도를 민주당의 힘의 원천으로 평가하고 경제 성과를 강조한 것은 지역과의 소통이나, 다소 정치적 발언이라 기본적 소통 리더십으로만 평가"
+    },
+    {
+      "collected_data_id": "78ff8ab0-b69f-43f2-8e88-5fe497fc9395",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "과거 정치 경력과 위원회 활동 내역은 단순 이력 사실이며, 현재의 리더십 평가와 직접적 관련이 없음"
+    },
+    {
+      "collected_data_id": "8ca51b38-3f0e-44d4-b2fb-0fc2336d83f5",
+      "rating": "+3",
+      "score": 6,
+      "reasoning": "가덕도 피습 사건을 '용서받지 못할 범죄'로 규정하고 테러로 공식 지정하며 철저한 진상규명을 촉구한 것은 정의 실현과 국가 안보를 위한 강력한 의사결정 리더십"
+    },
+    {
+      "collected_data_id": "2b09cdeb-5e9a-43ec-a318-1a136382e4fd",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "연극인 간담회를 통해 기초예술 현장의 애로사항을 청취하고 예술인 창작 환경 조성을 약속한 것은 다양한 이해관계자와 소통하고 정책에 반영하려는 긍정적 리더십"
+    }
+  ]
+}

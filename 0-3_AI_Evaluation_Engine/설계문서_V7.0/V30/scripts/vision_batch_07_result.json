@@ -1,0 +1,70 @@
+{
+  "batch_num": 7,
+  "politician_id": "f9e00370",
+  "politician_name": "김민석",
+  "category": "vision",
+  "evaluator_ai": "Claude",
+  "evaluated_at": "2026-01-21T22:30:00",
+  "evaluations": [
+    {
+      "collected_data_id": "6a5182b0-2f1d-488d-9bbd-609a71521527",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "비전 관점에서 긍정적. '2026년 R&D 예산 역대 최대 편성', 'AI 예산', '기후 위기 대응 투자 확대'는 과학기술·환경 분야 미래 투자 비전. 구체적 예산 제시."
+    },
+    {
+      "collected_data_id": "47839724-774b-4b71-b940-7e107c6ebe7c",
+      "rating": "+3",
+      "score": 6,
+      "reasoning": "비전 관점에서 긍정적. 'ABCDE(AI, 바이오, 문화콘텐츠, 방위산업, 에너지) 주축 성장', '문화국가 비전 가시화'는 명확한 신성장 전략 비전. 5대 분야 구체적 제시."
+    },
+    {
+      "collected_data_id": "03cf8823-befb-473d-b90c-b9bf07d15fac",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "비전 관점에서 약간 긍정적. 'K-방역 성공', '공공의료 체계 정립', '21세기형 복지 시스템 설계' 언급이나, 2020년 과거 발언으로 구체적 미래 비전 제시는 미흡."
+    },
+    {
+      "collected_data_id": "6f2a6dc3-13a8-48f7-ab71-237e18537b22",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. 재산 관련 해명 미흡 및 기본 국정 지표 무지는 개인 자질 문제이며, 정책 비전과 직접 연관 없음."
+    },
+    {
+      "collected_data_id": "10e6228a-4c3b-4c57-a11d-0387bd076715",
+      "rating": "+3",
+      "score": 6,
+      "reasoning": "비전 관점에서 긍정적. '이재명 정부 임기 중 문화예술 예산 두 배 확대', 'ABCDE 전략에서 문화 강조'는 명확한 문화국가 비전. 구체적 예산 목표 제시."
+    },
+    {
+      "collected_data_id": "82e06412-591a-44a6-bc22-003d372c1985",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "비전 관점에서 긍정적. 경기도 '반도체 메가 클러스터', '바이오헬스 R&D 특화지구', '청년 일자리 창출' 등 지역 발전 비전 제시. 구체적 산업 클러스터 계획."
+    },
+    {
+      "collected_data_id": "2ba43845-906b-4cf3-9d65-c1ee5f3f841d",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "비전 관점에서 긍정적. '비수도권 중심 균형 발전'을 강조하며 전국 균형 발전 비전 제시. 방향성은 명확하나 구체적 실행 계획은 다소 부족."
+    },
+    {
+      "collected_data_id": "ed2d652f-6072-4fdf-a68f-f369b4f17c60",
+      "rating": "+3",
+      "score": 6,
+      "reasoning": "비전 관점에서 긍정적. '광역 지방정부 행정 통합 시 4년간 최대 20조 원 지원'은 지방 통합 촉진 비전. 구체적 금액과 기간 제시로 실행 가능성 높음."
+    },
+    {
+      "collected_data_id": "6ab81e5a-4603-430c-bca3-7c292a6c7ab6",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. 내란사태 종결 기자회견은 정치적 위기 대응이며, 국가 미래 발전 비전과 무관."
+    },
+    {
+      "collected_data_id": "54a94414-06b8-40ca-8df0-d3cf6dbf9a37",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. 국기원 사범 표창 수상은 개별 표창 사안이며, 정책 비전과 직접 연관 없음."
+    }
+  ]
+}

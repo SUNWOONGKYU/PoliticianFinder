@@ -1,0 +1,85 @@
+{
+  "politician_name": "박주민",
+  "collected_at": "2026-02-10T19:21:17.180965",
+  "summary": {
+    "success": false,
+    "total_events": 0,
+    "total_duration_seconds": 1019.348768,
+    "errors_count": 1
+  },
+  "results_by_category": {
+    "leadership": {
+      "category": "leadership",
+      "success": false,
+      "events_collected": 0,
+      "error": "YOLO mode is enabled. All tool calls will be automatically approved.\nLoaded cached credentials.\nYOLO mode is enabled. All tool calls will be automatically approved.\nHook registry initialized with 0 hook entries\nAttempt 1 failed: You have exhausted your capacity on this model. Your quota will reset after 2s.. Retrying after 2156.766662ms...\nAttempt 1 failed: You have exhausted your capacity on this model. Your quota will reset after 0s.. Retrying after 589.1504130000001ms...\nAttempt 2 failed: You have exhausted your capacity on this model. Your quota will reset after 2s.. Retrying after 2820.5344139999997ms...\nAttempt 3 failed: You have exhausted your capacity on this model. Your quota will reset after 2s.. Max attempts reached\nError when talking to Gemini API Full report available at: C:\\Users\\home\\AppData\\Local\\Temp\\gemini-client-error-Turn.run-sendMessageStream-2026-02-10T10-04-46-246Z.json RetryableQuotaError: You have exhausted your capacity on this model. Your quota will reset after 2s.\n    at classifyGoogleError (file:///C:/Users/home/AppData/Roaming/npm/node_modules/@google/gemini-cli/node_modules/@google/gemini-cli-core/dist/src/utils/googleQuotaErrors.js:211:28)\n    at retryWithBackoff (file:///C:/Users/home/AppData/Roaming/npm/node_modules/@google/gemini-cli/node_modules/@google/gemini-cli-core/dist/src/utils/retry.js:131:37)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async GeminiChat.makeApiCallAndProcessStream (file:///C:/Users/home/AppData/Roaming/npm/node_modules/@google/gemini-cli/node_modules/@google/gemini-cli-core/dist/src/core/geminiChat.js:421:32)\n    at async GeminiChat.streamWithRetries (file:///C:/Users/home/AppData/Roaming/npm/node_modules/@google/gemini-cli/node_modules/@google/gemini-cli-core/dist/src/core/geminiChat.js:253:40)\n    at async Turn.run (file:///C:/Users/home/AppData/Roaming/npm/node_modules/@google/gemini-cli/node_modules/@google/gemini-cli-core/dist/src/core/turn.js:66:30)\n    at async GeminiClient.processTurn (file:///C:/Users/home/AppData/Roaming/npm/node_modules/@google/gemini-cli/node_modules/@google/gemini-cli-core/dist/src/core/client.js:459:26)\n    at async GeminiClient.sendMessageStream (file:///C:/Users/home/AppData/Roaming/npm/node_modules/@google/gemini-cli/node_modules/@google/gemini-cli-core/dist/src/core/client.js:558:20)\n    at async file:///C:/Users/home/AppData/Roaming/npm/node_modules/@google/gemini-cli/dist/src/nonInteractiveCli.js:189:34\n    at async main (file:///C:/Users/home/AppData/Roaming/npm/node_modules/@google/gemini-cli/dist/src/gemini.js:488:9) {\n  cause: {\n    code: 429,\n    message: 'You have exhausted your capacity on this model. Your quota will reset after 2s.',\n    details: [ [Object], [Object] ]\n  },\n  retryDelayMs: 2820.616641\n}\nAn unexpected critical error occurred:[object Object]\n",
+      "duration_seconds": 26.152766
+    },
+    "expertise": {
+      "category": "expertise",
+      "success": true,
+      "events_collected": 0,
+      "error": null,
+      "duration_seconds": 217.13901
+    },
+    "vision": {
+      "category": "vision",
+      "success": true,
+      "events_collected": 0,
+      "error": null,
+      "duration_seconds": 257.286713
+    },
+    "integrity": {
+      "category": "integrity",
+      "success": true,
+      "events_collected": 0,
+      "error": null,
+      "duration_seconds": 159.202009
+    },
+    "ethics": {
+      "category": "ethics",
+      "success": true,
+      "events_collected": 0,
+      "error": null,
+      "duration_seconds": 191.898109
+    },
+    "transparency": {
+      "category": "transparency",
+      "success": true,
+      "events_collected": 0,
+      "error": null,
+      "duration_seconds": 199.487254
+    },
+    "accountability": {
+      "category": "accountability",
+      "success": true,
+      "events_collected": 0,
+      "error": null,
+      "duration_seconds": 217.669909
+    },
+    "communication": {
+      "category": "communication",
+      "success": true,
+      "events_collected": 0,
+      "error": null,
+      "duration_seconds": 157.051684
+    },
+    "responsiveness": {
+      "category": "responsiveness",
+      "success": true,
+      "events_collected": 0,
+      "error": null,
+      "duration_seconds": 266.591771
+    },
+    "publicinterest": {
+      "category": "publicinterest",
+      "success": true,
+      "events_collected": 0,
+      "error": null,
+      "duration_seconds": 177.601858
+    }
+  },
+  "errors": [
+    "leadership: YOLO mode is enabled. All tool calls will be automatically approved.\nLoaded cached credentials.\nYOLO mode is enabled. All tool calls will be automatically approved.\nHook registry initialized with 0 hook entries\nAttempt 1 failed: You have exhausted your capacity on this model. Your quota will reset after 2s.. Retrying after 2156.766662ms...\nAttempt 1 failed: You have exhausted your capacity on this model. Your quota will reset after 0s.. Retrying after 589.1504130000001ms...\nAttempt 2 failed: You have exhausted your capacity on this model. Your quota will reset after 2s.. Retrying after 2820.5344139999997ms...\nAttempt 3 failed: You have exhausted your capacity on this model. Your quota will reset after 2s.. Max attempts reached\nError when talking to Gemini API Full report available at: C:\\Users\\home\\AppData\\Local\\Temp\\gemini-client-error-Turn.run-sendMessageStream-2026-02-10T10-04-46-246Z.json RetryableQuotaError: You have exhausted your capacity on this model. Your quota will reset after 2s.\n    at classifyGoogleError (file:///C:/Users/home/AppData/Roaming/npm/node_modules/@google/gemini-cli/node_modules/@google/gemini-cli-core/dist/src/utils/googleQuotaErrors.js:211:28)\n    at retryWithBackoff (file:///C:/Users/home/AppData/Roaming/npm/node_modules/@google/gemini-cli/node_modules/@google/gemini-cli-core/dist/src/utils/retry.js:131:37)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async GeminiChat.makeApiCallAndProcessStream (file:///C:/Users/home/AppData/Roaming/npm/node_modules/@google/gemini-cli/node_modules/@google/gemini-cli-core/dist/src/core/geminiChat.js:421:32)\n    at async GeminiChat.streamWithRetries (file:///C:/Users/home/AppData/Roaming/npm/node_modules/@google/gemini-cli/node_modules/@google/gemini-cli-core/dist/src/core/geminiChat.js:253:40)\n    at async Turn.run (file:///C:/Users/home/AppData/Roaming/npm/node_modules/@google/gemini-cli/node_modules/@google/gemini-cli-core/dist/src/core/turn.js:66:30)\n    at async GeminiClient.processTurn (file:///C:/Users/home/AppData/Roaming/npm/node_modules/@google/gemini-cli/node_modules/@google/gemini-cli-core/dist/src/core/client.js:459:26)\n    at async GeminiClient.sendMessageStream (file:///C:/Users/home/AppData/Roaming/npm/node_modules/@google/gemini-cli/node_modules/@google/gemini-cli-core/dist/src/core/client.js:558:20)\n    at async file:///C:/Users/home/AppData/Roaming/npm/node_modules/@google/gemini-cli/dist/src/nonInteractiveCli.js:189:34\n    at async main (file:///C:/Users/home/AppData/Roaming/npm/node_modules/@google/gemini-cli/dist/src/gemini.js:488:9) {\n  cause: {\n    code: 429,\n    message: 'You have exhausted your capacity on this model. Your quota will reset after 2s.',\n    details: [ [Object], [Object] ]\n  },\n  retryDelayMs: 2820.616641\n}\nAn unexpected critical error occurred:[object Object]\n"
+  ]
+}

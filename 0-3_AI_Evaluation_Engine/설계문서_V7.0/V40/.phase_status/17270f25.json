@@ -1,0 +1,41 @@
+{
+  "politician_id": "17270f25",
+  "phases": {
+    "0": {
+      "status": "DONE",
+      "completed_at": "2026-02-17T19:35:09.510419",
+      "details": "DB 등록 완료"
+    },
+    "1": {
+      "status": "DONE",
+      "completed_at": "2026-02-17T19:35:09.519924",
+      "details": "수집 완료"
+    },
+    "2": {
+      "status": "DONE",
+      "completed_at": "2026-02-17T22:39:54.871509",
+      "details": "유효 1079개, 무효 205개 삭제, sentiment 위반 15건"
+    },
+    "2-2": {
+      "status": "DONE",
+      "completed_at": "2026-02-17T22:58:20.690337",
+      "details": "균형 달성 완료"
+    },
+    "3": {
+      "status": "DONE",
+      "completed_at": "2026-02-17T19:35:09.546503",
+      "details": "4개 AI 평가 완료"
+    },
+    "4": {
+      "status": "DONE",
+      "completed_at": "2026-02-18T09:51:26.590572",
+      "details": "785점 E등급"
+    },
+    "5": {
+      "status": "DONE",
+      "completed_at": "2026-02-17T19:35:09.563949",
+      "details": "보고서 생성 완료"
+    }
+  },
+  "politician_name": "정원오"
+}

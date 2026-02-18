@@ -1,0 +1,70 @@
+{
+  "batch_num": 1,
+  "politician_id": "f9e00370",
+  "politician_name": "김민석",
+  "category": "publicinterest",
+  "evaluator_ai": "Claude",
+  "evaluated_at": "2026-01-22T00:42:46.725649",
+  "evaluations": [
+    {
+      "collected_data_id": "94e17c75-7713-47c9-9b25-9029383a4def",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "긍정적 활동"
+    },
+    {
+      "collected_data_id": "da406e4f-baf9-4bf4-ab5f-84685782d043",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "공익보다 특정 이익 우선"
+    },
+    {
+      "collected_data_id": "d588156d-7f12-4cab-b729-f6398af8d2af",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "공익보다 특정 이익 우선"
+    },
+    {
+      "collected_data_id": "50f4072b-cc35-4ac5-bf4f-5a312cce9650",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "공익보다 특정 이익 우선"
+    },
+    {
+      "collected_data_id": "e4a9b63f-ee3e-4eb1-a3cb-4aab9f5ee3c0",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "공익보다 특정 이익 우선"
+    },
+    {
+      "collected_data_id": "dc603108-242e-4893-aecf-36cac6bd99d5",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "공익보다 특정 이익 우선"
+    },
+    {
+      "collected_data_id": "2782c375-a28e-4324-a9aa-350e21e697a0",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "공익보다 특정 이익 우선"
+    },
+    {
+      "collected_data_id": "d007e35c-9f39-4e91-92fe-2438051545e0",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "공익보다 특정 이익 우선"
+    },
+    {
+      "collected_data_id": "6a888c06-6af8-405b-be1c-0b30de44b4d3",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "공익보다 특정 이익 우선"
+    },
+    {
+      "collected_data_id": "f1fa2e03-5241-4903-933f-83168313e970",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "공익보다 특정 이익 우선"
+    }
+  ]
+}

@@ -1,0 +1,460 @@
+{
+  "politician_id": "f9e00370",
+  "politician_name": "김민석",
+  "category": "publicinterest",
+  "evaluator_ai": "Claude",
+  "evaluated_at": "2026-01-22T00:42:46.735629",
+  "total_evaluations": 75,
+  "evaluations": [
+    {
+      "collected_data_id": "94e17c75-7713-47c9-9b25-9029383a4def",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "긍정적 활동"
+    },
+    {
+      "collected_data_id": "da406e4f-baf9-4bf4-ab5f-84685782d043",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "공익보다 특정 이익 우선"
+    },
+    {
+      "collected_data_id": "d588156d-7f12-4cab-b729-f6398af8d2af",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "공익보다 특정 이익 우선"
+    },
+    {
+      "collected_data_id": "50f4072b-cc35-4ac5-bf4f-5a312cce9650",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "공익보다 특정 이익 우선"
+    },
+    {
+      "collected_data_id": "e4a9b63f-ee3e-4eb1-a3cb-4aab9f5ee3c0",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "공익보다 특정 이익 우선"
+    },
+    {
+      "collected_data_id": "dc603108-242e-4893-aecf-36cac6bd99d5",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "공익보다 특정 이익 우선"
+    },
+    {
+      "collected_data_id": "2782c375-a28e-4324-a9aa-350e21e697a0",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "공익보다 특정 이익 우선"
+    },
+    {
+      "collected_data_id": "d007e35c-9f39-4e91-92fe-2438051545e0",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "공익보다 특정 이익 우선"
+    },
+    {
+      "collected_data_id": "6a888c06-6af8-405b-be1c-0b30de44b4d3",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "공익보다 특정 이익 우선"
+    },
+    {
+      "collected_data_id": "f1fa2e03-5241-4903-933f-83168313e970",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "공익보다 특정 이익 우선"
+    },
+    {
+      "collected_data_id": "bbe04577-2c67-4824-a8cc-0e27dcef17a1",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "공익보다 특정 이익 우선"
+    },
+    {
+      "collected_data_id": "c3d34a85-b9a6-4168-ae70-b3be5266f983",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "긍정적 활동"
+    },
+    {
+      "collected_data_id": "072c7ea7-79f8-4adf-89c7-6420af064a1c",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "긍정적 활동"
+    },
+    {
+      "collected_data_id": "2f5e8228-78ad-41c5-8ad7-e000633d89e0",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "공익 추구 노력"
+    },
+    {
+      "collected_data_id": "8a2d13e6-e032-4b1d-af2f-a3c11a965cb6",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "공익 추구 노력"
+    },
+    {
+      "collected_data_id": "f3fe83f1-674a-432a-919c-a891b103c813",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "긍정적 활동"
+    },
+    {
+      "collected_data_id": "44b5897a-1c75-401b-b79c-9b9bc7f31c8a",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "긍정적 활동"
+    },
+    {
+      "collected_data_id": "02f95c41-ed7c-49a4-85ad-494661ae4226",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "긍정적 활동"
+    },
+    {
+      "collected_data_id": "425a2229-404f-48ed-9708-956ccc703273",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "공익 추구 노력"
+    },
+    {
+      "collected_data_id": "55d9cf1c-cdde-48af-b8a7-9365b58822aa",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "긍정적 활동"
+    },
+    {
+      "collected_data_id": "f9117a39-5ae8-45e5-a378-c431ae815eb2",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "긍정적 활동"
+    },
+    {
+      "collected_data_id": "764ec0a0-04ec-4753-8903-0dd114921af3",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "공익추구 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "426804ac-7282-4a20-9c13-5c588f13cff4",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "공익추구 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "29539380-9d55-467c-8aea-d980be46864e",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "공익추구 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "57d20606-4677-474a-86f1-94a211492c40",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "공익추구 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "31b79454-e139-40a8-aec5-585662b14148",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "공익 활동"
+    },
+    {
+      "collected_data_id": "40221fac-85ba-4e45-b467-60f91929c724",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "공익추구 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "115cfcda-3bb6-4185-a962-8bc5fb08d4c7",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "공익 활동"
+    },
+    {
+      "collected_data_id": "2c440151-d18d-4b34-b21c-b228e9417531",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "공익 활동"
+    },
+    {
+      "collected_data_id": "7afa6333-2c7c-490f-8a4f-93deadd2fdc8",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "공익추구 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "45932629-83c0-430d-9bd3-d39671386ec5",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "공익추구 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "9d568723-75d4-4707-9b69-25562047eed2",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "공익추구 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "d2e4bc5d-89ee-488a-95f0-4153fa17c4bd",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "공익 활동"
+    },
+    {
+      "collected_data_id": "aacd9f7c-cc85-42c5-8df7-f16e50024e43",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "공익추구 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "49fcc1e2-68fc-43d1-bc8b-1cba9ab99ccf",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "공익 활동"
+    },
+    {
+      "collected_data_id": "0fee053b-7b4d-4af1-95bc-17e2a6ecda29",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "공익추구 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "79640542-3f51-45f7-87da-6fd738167b4d",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "공익 활동"
+    },
+    {
+      "collected_data_id": "1322528b-626a-49c3-bdf4-3a67c7e26160",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "공익 활동"
+    },
+    {
+      "collected_data_id": "6d118340-6f12-4319-b50d-39bec6ea5623",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "공익 활동"
+    },
+    {
+      "collected_data_id": "1d6a08d4-bc6f-43ee-a374-6c5d89b7ca9b",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "공익 활동"
+    },
+    {
+      "collected_data_id": "a330ba06-1816-4993-9dab-366d8f1f4d95",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "공익 활동"
+    },
+    {
+      "collected_data_id": "15514d05-7abc-44e1-942f-2c072c2a478b",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "공익추구 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "ee1cb045-a7f2-47b1-9671-53a298662612",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "공익추구 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "63153c15-7f05-4791-b8a0-2245bd05d17a",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "공익추구 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "dc0e2875-d53f-48c7-bff0-3f8f9a3127ab",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "공익추구 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "3e258983-3645-4d31-8929-366ee7dba9b6",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "공익추구 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "abb58193-c49c-4283-a42f-cf9eb4fc468a",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "공익 활동"
+    },
+    {
+      "collected_data_id": "945a7ab9-74c6-4adf-a326-c82cc368a522",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "공익추구 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "6dfb0d55-2d4b-41dc-a4c7-ab8b109d916a",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "공익추구 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "32f01c8b-cde6-456a-bd04-346b2d56b7d9",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "공익추구 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "803b0281-c717-4c90-8c83-953bcb75da79",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "공익추구 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "87e68083-6c5f-4d81-8505-154bede395bb",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "공익추구 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "fb8237dd-feff-4d2c-b205-46ab7895e53f",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "공익 활동"
+    },
+    {
+      "collected_data_id": "f2aac0eb-f207-4868-b7d7-02727d44c85c",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "공익추구 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "81843ea2-843a-49a4-8304-c6a95b5df4eb",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "공익추구 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "5e7e6c58-0674-4361-9ca3-2f7d201aa2fb",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "공익추구 관련 부정적 내용"
+    },
+    {
+      "collected_data_id": "900249bf-caf3-4df4-a00c-5cd0cfc06014",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "공익보다 특정 이익 우선"
+    },
+    {
+      "collected_data_id": "1d218c05-35b5-479b-a543-52e43a4eceeb",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "공익보다 특정 이익 우선"
+    },
+    {
+      "collected_data_id": "b362e959-0819-45d3-8e3d-0ffbece20b8e",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "공익보다 특정 이익 우선"
+    },
+    {
+      "collected_data_id": "e18bf88f-6b26-45ae-b068-4bcffdb79020",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "공익추구 관련 부정적 내용"
+    },
+    {
+      "collected_data_id": "4bb88511-f417-4291-8e28-be8f3adafac9",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "긍정적 활동"
+    },
+    {
+      "collected_data_id": "887b911c-9762-4eef-a675-903d41d819b7",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "긍정적 활동"
+    },
+    {
+      "collected_data_id": "37c08f48-b0cc-4cbd-8852-751e6c009c9b",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "긍정적 활동"
+    },
+    {
+      "collected_data_id": "012321ff-3368-4020-81b9-0c00f713dc16",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "공익 추구 노력"
+    },
+    {
+      "collected_data_id": "15f69e84-1900-45b4-9e7c-712e8b499c8d",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "공익 활동"
+    },
+    {
+      "collected_data_id": "6d5cec56-5ed1-4ff7-9100-84f05fa49d99",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "공익추구 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "987a9c04-0f12-474c-aa07-62dfe9691f07",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "공익추구 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "617124d7-73d7-4613-8b8f-a887f4a299fa",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "공익 활동"
+    },
+    {
+      "collected_data_id": "73d4e70c-738b-4466-8e7f-89829bfa2411",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "공익추구 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "ffbbdab8-79b5-4a9a-9394-11095d0d25ed",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "공익추구 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "e1445d37-b5f4-4773-a905-078f0cffbe69",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "공익 활동"
+    },
+    {
+      "collected_data_id": "5ccaa296-f7bd-4a4a-a761-6c15a77b52a9",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "공익추구 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "f60d4034-2b96-4c29-878a-046fd51341a6",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "공익추구 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "a56302a8-d8c0-439e-9d15-686e38e9b3fa",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "공익 활동"
+    },
+    {
+      "collected_data_id": "6930263a-e3f8-4511-9e3d-3acd84faf371",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "공익추구 판단 정보 부족"
+    }
+  ]
+}

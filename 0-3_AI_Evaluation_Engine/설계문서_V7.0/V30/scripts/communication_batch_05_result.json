@@ -1,0 +1,70 @@
+{
+  "batch_num": 5,
+  "politician_id": "f9e00370",
+  "politician_name": "김민석",
+  "category": "communication",
+  "evaluator_ai": "Claude",
+  "evaluated_at": "2026-01-22T00:42:46.708770",
+  "evaluations": [
+    {
+      "collected_data_id": "3a922ed7-6541-407e-ac76-5454d6e39c7e",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "소통 노력"
+    },
+    {
+      "collected_data_id": "18f0a963-d64c-4614-a635-b9298a7b7e57",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "소통 노력"
+    },
+    {
+      "collected_data_id": "aac508bb-689c-45dc-bc95-fa10ad266486",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "소통능력 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "38903bb9-e2e1-4191-96f1-5e726c607536",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "소통 노력"
+    },
+    {
+      "collected_data_id": "c433eb44-1148-410a-83d1-73dce06762f0",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "소통 노력"
+    },
+    {
+      "collected_data_id": "ff73247a-598d-4011-88ba-f939b95ea6cf",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "소통능력 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "c1c6d556-45e9-4088-b35f-587c941f8b0f",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "소통능력 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "98541c99-2dea-4b0d-8e04-2e18be2d7899",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "소통능력 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "39ca121b-183f-4338-931e-f28bd69fb5a4",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "소통 노력"
+    },
+    {
+      "collected_data_id": "aa66a1e8-d517-42ba-abb9-d9554df9128d",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "소통 노력"
+    }
+  ]
+}

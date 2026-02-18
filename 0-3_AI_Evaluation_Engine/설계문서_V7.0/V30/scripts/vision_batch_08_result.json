@@ -1,0 +1,40 @@
+{
+  "batch_num": 8,
+  "politician_id": "f9e00370",
+  "politician_name": "김민석",
+  "category": "vision",
+  "evaluator_ai": "Claude",
+  "evaluated_at": "2026-01-21T22:30:00",
+  "evaluations": [
+    {
+      "collected_data_id": "5bfb683a-ac85-4cfe-b15f-11ca20db34cc",
+      "rating": "+3",
+      "score": 6,
+      "reasoning": "비전 관점에서 긍정적. '2026년 대한민국 대도약의 원년' 선언, 경제 회복·실용 외교·국제사회 위상 강화 등 포괄적 국가 발전 비전 제시. 명확한 목표 연도와 방향성."
+    },
+    {
+      "collected_data_id": "faa21ae7-edce-4bcd-93aa-73fbc2fb62d1",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "비전 관점에서 약간 긍정적. 광주·전남 행정통합 논의는 지역 발전 비전이나, '방향 정리 중' 단계로 구체적 청사진은 미제시."
+    },
+    {
+      "collected_data_id": "d9b3c28d-1847-4748-b403-3718a148e57b",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. 나무위키 비판·논란 정리는 개인 의혹 나열이며, 정책 비전이나 미래 방향성과 무관."
+    },
+    {
+      "collected_data_id": "df446c58-5775-4d64-9cb1-97c656a48610",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "비전 관점에서 약간 긍정적. 총리 인준안 통과 시 '경제 회복 우선 과제' 언급이나, 구체적 경제 비전이나 계획은 미제시. 방향성 수준."
+    },
+    {
+      "collected_data_id": "0e1694c4-5ad6-40c5-abaf-f2536fad9289",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "비전 관점에서 약간 긍정적. '국정 전반 조율', '개혁과제 추진' 역할 언급이나, 구체적 개혁 비전이나 청사진은 미제시. 총리 역할 일반론."
+    }
+  ]
+}

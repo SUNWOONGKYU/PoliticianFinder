@@ -1,0 +1,70 @@
+{
+  "batch_num": 1,
+  "politician_id": "f9e00370",
+  "politician_name": "김민석",
+  "category": "ethics",
+  "evaluator_ai": "Claude",
+  "evaluated_at": "2026-01-22T00:42:46.670448",
+  "evaluations": [
+    {
+      "collected_data_id": "33f621cf-d183-4f61-8254-ad8a4382a245",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "윤리성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "37f038f0-e0fb-410c-a3a9-bd220616b31b",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "윤리성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "e9994e81-d7c1-47ad-a0b9-602ede4253f6",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "윤리성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "78e313bc-35ec-4591-bdc3-9cf812bba7a2",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "윤리성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "38b41bd1-733e-43a7-b083-43cc268fb73a",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "윤리성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "a50984dc-85f7-4807-9a72-6d7e8ff9fc0a",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "윤리성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "62e93f35-1291-4b9e-8182-53ef56a26cb4",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "윤리성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "3375af0e-004e-45f8-8011-8cd9a82895bd",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "윤리적 문제 제기"
+    },
+    {
+      "collected_data_id": "f8ed5ebc-a7f0-4526-8c77-10e703ccc72c",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "윤리적 문제 제기"
+    },
+    {
+      "collected_data_id": "8ff39544-a372-4a4c-8964-0c17a8358253",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "윤리적 문제 제기"
+    }
+  ]
+}

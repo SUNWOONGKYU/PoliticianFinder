@@ -1,0 +1,147 @@
+{
+  "politician_id": "f9e00370",
+  "politician_name": "김민석",
+  "category": "responsiveness",
+  "evaluator_ai": "Claude",
+  "evaluated_at": "2026-01-21T00:21:30.000Z",
+  "evaluations": [
+    {
+      "collected_data_id": "6ee375b8-40be-47d4-88b9-0b6d2f6669b5",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "국무총리 인준 통과는 정상적 절차 완수이나 대응성 측면에서 특별한 평가점 없음"
+    },
+    {
+      "collected_data_id": "d16a4e37-5e1a-47e1-bad1-56bf8509ab50",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "모친 빌라 전세 논란에 대한 명확한 해명이나 적극적 대응 부족, 의혹 지속"
+    },
+    {
+      "collected_data_id": "d19e68b9-08a4-4688-9377-0ccd7a53317f",
+      "rating": "-3",
+      "score": -6,
+      "reasoning": "학위논란, 자녀유학비, 불법정치자금 등 다수 의혹에 대한 효과적 대응 실패"
+    },
+    {
+      "collected_data_id": "97cd6aa5-2428-47a2-8a54-0032bd7e121a",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "아들 스펙쌓기 입법권 동원 의혹에 대한 부적절한 대응, 입시비리 비판 직면"
+    },
+    {
+      "collected_data_id": "912554df-5408-4b62-bcd3-354eb480ca8a",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "청문회에서 재산·자녀 특혜 등 다수 의혹 집중 제기, 방어적 해명에 그침"
+    },
+    {
+      "collected_data_id": "998bc317-8b42-4fd1-802f-8e946e7b9c0d",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "제22대 국회의원 당선은 선거 승리이나 대응성 평가와는 직접 무관"
+    },
+    {
+      "collected_data_id": "c82795e3-bb2d-49dc-a46d-6d46d921ead3",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "국방위원회 위원 활동은 정상적 의정활동으로 평가"
+    },
+    {
+      "collected_data_id": "da35828e-252c-4d15-9139-285d921d1cdb",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "총리 후보 지명 후 기자간담회 및 외신 간담회 개최로 적극적 소통 시도"
+    },
+    {
+      "collected_data_id": "aaf8a4b9-9dab-4376-a4a4-7b6f48bde32e",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "국무총리 임명 및 위원회 활동은 정상적 공직 수행"
+    },
+    {
+      "collected_data_id": "502a0cbc-e464-43dc-bd0b-d1e058ccd4cf",
+      "rating": "+3",
+      "score": 6,
+      "reasoning": "신규 국정협의체 '3+α회의' 구성하여 온실가스 감축 등 정책 이슈에 선제적 대응"
+    },
+    {
+      "collected_data_id": "1b6d59dc-6b99-4aa8-ad2f-73b24c572658",
+      "rating": "+3",
+      "score": 6,
+      "reasoning": "기후위기 대응 에너지 대전환 추진, 재생에너지·RE100 등 구체적 정책으로 적극 대응"
+    },
+    {
+      "collected_data_id": "14423f9c-083a-4237-9952-596fd81c891c",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "인준 통과 후 경제위기 극복 의지 표명, 국민·대통령·의원 소통 강조"
+    },
+    {
+      "collected_data_id": "03e453e2-bdee-4d8a-9b6c-9a9b0ae74c2c",
+      "rating": "+3",
+      "score": 6,
+      "reasoning": "2026년 신년사에서 내란 청산 및 민주주의 회복 의지 명확히 표명, 적극 대응"
+    },
+    {
+      "collected_data_id": "0a435b7e-f519-43b0-ab5c-843bc0fbb5f9",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "시무식에서 2026년 대도약 비전 제시, 정부 성과 강조하며 국민 보답 약속"
+    },
+    {
+      "collected_data_id": "ea1f3f4c-2500-47bb-95f6-1fc301dbe8c1",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "AI 3대 강국 비전 실현 강조, 과학기술 신년회에서 미래 정책 방향 제시"
+    },
+    {
+      "collected_data_id": "f56fbd06-3e67-4db4-9b43-22c042a5b15a",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "SOC 예산 21조원 편성 및 K-건설 부흥 지원 약속으로 건설업계 우려에 대응"
+    },
+    {
+      "collected_data_id": "fba741ee-143e-4528-a425-5227c26a3624",
+      "rating": "+3",
+      "score": 6,
+      "reasoning": "통합특별시에 4년간 최대 20조원 지원 발표, 지방자치 이슈에 파격적 대응"
+    },
+    {
+      "collected_data_id": "1832c91c-effb-47b8-8e29-5a11373572dd",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "위키백과 정보는 경력 나열로 대응성 평가 불가"
+    },
+    {
+      "collected_data_id": "630154df-c91e-43a8-83d5-62e07e74fbb6",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "나무위키 정보 중 계엄령 준비 주장은 선제적 경고이나 평가 근거 부족"
+    },
+    {
+      "collected_data_id": "0c8f3481-4b56-4b09-8570-a4ce6e1c1073",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "월간민주당 출연하여 기본소득 등 정책 아이디어 제시, 소통능력 강조"
+    },
+    {
+      "collected_data_id": "a1f041a9-90f3-4740-8c16-758969d2abac",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "나무위키 기본 정보는 경력 나열로 대응성 평가 불가"
+    },
+    {
+      "collected_data_id": "d03e84f1-fca3-4e0f-a3f6-30c9307f1e43",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "인물탐구 기사는 경력 소개 위주로 대응성 평가 근거 부족"
+    },
+    {
+      "collected_data_id": "b40fc2da-9793-451d-bdfd-1b784e505e7e",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "위키백과 정보는 경력 나열로 대응성 평가 불가"
+    }
+  ]
+}

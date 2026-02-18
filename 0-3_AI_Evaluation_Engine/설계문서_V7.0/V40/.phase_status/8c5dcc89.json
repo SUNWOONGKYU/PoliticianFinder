@@ -1,0 +1,41 @@
+{
+  "politician_id": "8c5dcc89",
+  "phases": {
+    "0": {
+      "status": "DONE",
+      "completed_at": "2026-02-17T19:35:09.565908",
+      "details": "DB 등록 완료"
+    },
+    "1": {
+      "status": "DONE",
+      "completed_at": "2026-02-17T19:35:09.573998",
+      "details": "수집 완료"
+    },
+    "2": {
+      "status": "DONE",
+      "completed_at": "2026-02-17T19:35:09.583635",
+      "details": "검증 완료"
+    },
+    "2-2": {
+      "status": "DONE",
+      "completed_at": "2026-02-17T19:35:09.592285",
+      "details": "조정 완료"
+    },
+    "3": {
+      "status": "DONE",
+      "completed_at": "2026-02-17T19:35:09.601018",
+      "details": "4개 AI 평가 완료"
+    },
+    "4": {
+      "status": "DONE",
+      "completed_at": "2026-02-18T09:46:39.722298",
+      "details": "753점 P등급"
+    },
+    "5": {
+      "status": "DONE",
+      "completed_at": "2026-02-17T19:35:09.618790",
+      "details": "보고서 생성 완료"
+    }
+  },
+  "politician_name": "박주민"
+}

@@ -1,0 +1,459 @@
+{
+  "politician_id": "f9e00370",
+  "politician_name": "김민석",
+  "category": "expertise",
+  "evaluator_ai": "Claude",
+  "evaluated_at": "2026-01-21T21:38:24.752580",
+  "evaluations": [
+    {
+      "collected_data_id": "dc8a158e-5e10-4451-bd7e-704ba5168dae",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "재산 형성 및 자녀 관련 의혹이 제기되어 국무총리 후보자로서의 검증 과정에서 전문성 평가에 부정적 영향"
+    },
+    {
+      "collected_data_id": "856e5665-a0ee-4f6b-b168-9c6e165b35ba",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "불법 자금 관련 의혹은 윤리성 문제로 전문성과 직접적 관련성 낮음"
+    },
+    {
+      "collected_data_id": "90d1914e-51d8-4d3d-9efa-5433dbec6dc3",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "인사청문회에서 아들이 작성한 법안을 발의한 과정이 제기되어 입법 활동의 전문성에 의문"
+    },
+    {
+      "collected_data_id": "674561b1-4de5-49ca-af0d-9134abdc75af",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "정치자금법 위반 관련 변명은 법적 문제로 전문성 평가와 무관"
+    },
+    {
+      "collected_data_id": "16961736-99b5-4e0d-b871-cec9c5e789db",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "공천 약속 의혹은 정치적 거래 문제로 정책 전문성과 직접 관련 없음"
+    },
+    {
+      "collected_data_id": "fca46ac9-7998-48fb-876a-18887706dc7b",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "국무총리 취임 첫날 의정 갈등 현안에 대해 전공의·의대생과 직접 회동하여 해결 방안 논의, 현안 대응 능력 양호"
+    },
+    {
+      "collected_data_id": "448ed83c-208d-4148-a5c4-1964a00d1b1c",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "민주당 최고위원으로서 내란사태 관련 당 입장을 정리하고 발표, 기본적인 정치 활동 수행"
+    },
+    {
+      "collected_data_id": "ef422ae1-933d-4348-905f-9eb02d6a3bf9",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "정책위의장으로서 당의 10대 정책 방향을 체계적으로 제시, 정책 기획 능력 양호"
+    },
+    {
+      "collected_data_id": "2939275b-bf1f-479d-ab04-fd395a974ddd",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "특별대책위원회 위원장으로서 긴급 기자회견 진행, 위기 대응 역할 수행"
+    },
+    {
+      "collected_data_id": "c0cb5cc4-4b08-42d8-81fc-39b106c84fe7",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "수석 최고위원으로서 당 입장 전달 기자회견 진행, 기본적인 대변인 역할 수행"
+    },
+    {
+      "collected_data_id": "adca3c06-373c-4b39-95d8-6ae25d6ec058",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "상임공동선대위원장으로서 기자간담회를 통해 선거 전략 소통, 기본적인 캠페인 관리 역할 수행"
+    },
+    {
+      "collected_data_id": "a9cedbac-19ee-4022-9d5a-02a7d733e0b6",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "아들이 고교 시절 작성한 법안을 국회에서 발의하는 등 입법 활동의 독립성과 전문성에 의문 제기"
+    },
+    {
+      "collected_data_id": "c29d0105-2644-492c-ae29-27a80fe7f5d5",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "개인 채무 및 아들의 비영리단체 활동에 의원실 개입 의혹으로 전문성에 부정적 영향"
+    },
+    {
+      "collected_data_id": "ad97f54c-ad52-4cc8-892f-a543ca79dda1",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "종교계 신사회협약 제안이 헌법상 정교분리 원칙 위반 비판을 받아 정책 전문성 부족"
+    },
+    {
+      "collected_data_id": "6b0ae70f-8fb3-4820-a151-a38d7b8a04cc",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "정부 공식 프로그램을 개인 유튜브 채널로 방송하려는 시도로 공직윤리 및 전문성 의식 부족"
+    },
+    {
+      "collected_data_id": "82842aa5-68f7-4a4b-bc03-3a9fbb8974bf",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "국정감사에서 국회 지적을 경청하고 즉시 수용하겠다는 책임감 있는 자세, 행정 전문성 양호"
+    },
+    {
+      "collected_data_id": "b6c4a7eb-6378-4100-a628-0fe1e4b9c4a6",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "국무총리 임명은 최고 행정 책임자로서의 전문성 인정"
+    },
+    {
+      "collected_data_id": "18984ec2-9230-4989-8497-7f5bd8ac52a3",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "중앙행정기관 및 공공기관 기관장에게 국정감사 준비를 지시하는 등 행정 감독 전문성 양호"
+    },
+    {
+      "collected_data_id": "08f1c68c-333d-426b-a1d3-c101196ac9af",
+      "rating": "+3",
+      "score": 6,
+      "reasoning": "정치인 영향력 조사 1위, 최연소 국회의원 경력, 86세대 첫 총리로 정치 경력과 영향력이 우수"
+    },
+    {
+      "collected_data_id": "00d21158-438a-423f-8e72-6f30ad6e0945",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "K-국정설명회를 통해 500여 명의 도민과 직접 소통하며 국정 성과 공유, 소통 능력 양호"
+    },
+    {
+      "collected_data_id": "b369cd50-6670-4270-a7de-fba133fe9151",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "뮤지컬 배우 김민석(멜로망스)의 수상 소식으로 정치인 김민석과 무관"
+    },
+    {
+      "collected_data_id": "d7e45a48-98ec-4e8e-95eb-572b832ea737",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "고등학생 아들이 추진한 법안에 공동 발의자로 참여하여 입법 활동의 독립성과 전문성에 의문"
+    },
+    {
+      "collected_data_id": "d03eac5c-fe1c-4e04-8fdd-93d1bf907d38",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "국정감사에서 국회 지적을 즉시 수용하겠다는 책임감 있고 개방적인 자세, 행정 전문성 양호"
+    },
+    {
+      "collected_data_id": "90ed4409-fe74-44be-8cb4-a29bd5106d7c",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "롯데 자이언츠 야구 선수 김민석의 MVP 수상으로 정치인 김민석과 무관"
+    },
+    {
+      "collected_data_id": "2de454a5-f984-469e-b123-5d842d3ebf4e",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "국무총리로서 경기도민과의 직접 소통을 통해 국정 성과를 공유하는 설명 능력 양호"
+    },
+    {
+      "collected_data_id": "0e0ef79d-5477-4c2f-9479-da16494233a2",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "제22대 국회의원 4선 당선으로 지역구 주민들의 지지와 정치 경력 인정"
+    },
+    {
+      "collected_data_id": "a59cf97d-1b90-4898-a61a-b85cdbc7abc0",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "국방위원회 및 운영위원회 위원으로 활동하며 국회 전문 위원회에서 역할 수행"
+    },
+    {
+      "collected_data_id": "89caf6d5-d940-4d80-b7d2-18d4ea84aea9",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "최고위원으로서 탄핵, 명태균 게이트 등 주요 현안에 대한 입장 표명, 기본적인 정치 활동"
+    },
+    {
+      "collected_data_id": "ae509b98-18c0-47e2-b12f-2349a3946da1",
+      "rating": "+3",
+      "score": 6,
+      "reasoning": "국회 본회의 통과를 거쳐 제49대 국무총리로 취임, 최고 행정 책임자로서의 전문성 우수"
+    },
+    {
+      "collected_data_id": "39efbb4b-c9ee-46c6-8cb0-d73cbb73cab0",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "경기도당 초청 국정설명회를 통해 정책 소통 강화, 행정 설명 능력 양호"
+    },
+    {
+      "collected_data_id": "550e4949-6059-4c7e-9b00-40a22b74e12c",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "비상계엄 사태에 대해 헌법 77조를 근거로 명확한 법적 분석과 입장 제시, 정치적 전문성 양호"
+    },
+    {
+      "collected_data_id": "e7b17ce3-d60b-4550-93f9-1a170248c0b8",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "쿠데타 방지를 위한 계엄법 개정안 발의로 제도 개선 입법 활동, 입법 전문성 양호"
+    },
+    {
+      "collected_data_id": "9c5ed9ad-7b30-4786-9ae6-697c500c09df",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "김대중 전 대통령 정신 계승 촉구 기자회견, 기본적인 정치 메시지 전달"
+    },
+    {
+      "collected_data_id": "4c001563-34d0-48d5-81b0-62baf6ee4d9c",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "고3 아들이 추진한 법안을 국회에서 공동 발의하여 입법 활동의 독립성과 전문성에 의문"
+    },
+    {
+      "collected_data_id": "6af37490-0fd6-4e75-b26b-7298b689d201",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "상임공동선대위원장으로서 선거 전략 및 보수 단일화 전망 제시, 선거 캠페인 관리 역할"
+    },
+    {
+      "collected_data_id": "6ab48b30-bfec-454e-8812-17db9784d70f",
+      "rating": "+3",
+      "score": 6,
+      "reasoning": "이재명 정부 초대 국무총리로 취임, 국정 운영의 그립을 잡을 수 있는 인물로 평가받아 전문성 우수"
+    },
+    {
+      "collected_data_id": "523016cf-3469-4b47-ad75-2c9384e4dd17",
+      "rating": "+3",
+      "score": 6,
+      "reasoning": "대통령이 구체적 감각과 통합의 정치력을 갖춘 적임자로 평가하여 국무총리 후보 지명, 전문성 우수"
+    },
+    {
+      "collected_data_id": "a3731bc1-6ad7-405e-8c45-726a5b58827d",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "중앙행정기관 및 공공기관 기관장에게 국정감사 성실 이행 지시, 행정 감독 전문성 양호"
+    },
+    {
+      "collected_data_id": "2b06f3c9-8bdb-4dd3-b9ae-b61c8f03c019",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "취임사에서 약자 우선 정책 방향과 국가 종합상황본부장 역할을 명확히 제시, 비전과 책임감 양호"
+    },
+    {
+      "collected_data_id": "134dff49-4325-4733-bf14-24157ef5e0f9",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "서울대 총학생회장, 4선 국회의원, 상황실장 등 다양한 정치 경력으로 전문성 인정"
+    },
+    {
+      "collected_data_id": "fa3a33e7-bcb9-404c-aee2-396145665b13",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "정치 활동 및 역할 수행"
+    },
+    {
+      "collected_data_id": "6aebc963-8922-478a-834d-d25f8762b256",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "정치 활동 및 역할 수행"
+    },
+    {
+      "collected_data_id": "3ddee182-b41e-45ce-aedc-b96893268483",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "논란 및 의혹 관련 내용"
+    },
+    {
+      "collected_data_id": "6e475c0b-5e53-40a7-8b75-29a3d4c1c1e5",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "기본적인 정치 활동"
+    },
+    {
+      "collected_data_id": "1b247ad0-470e-494c-86e6-3ff509a285b1",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "논란 및 의혹 관련 내용"
+    },
+    {
+      "collected_data_id": "627d17d2-7fb5-4d5f-b91d-6f791aec56e8",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "국무총리 관련 긍정 활동"
+    },
+    {
+      "collected_data_id": "041e96ac-5e9b-46c2-8620-4f06540a4694",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "정치 활동 및 역할 수행"
+    },
+    {
+      "collected_data_id": "0e08f5d8-954f-4e02-8e63-92caf6651655",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "국무총리 관련 긍정 활동"
+    },
+    {
+      "collected_data_id": "e53f8f25-3678-4fcd-9a40-2f19d0511970",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "논란 및 의혹 관련 내용"
+    },
+    {
+      "collected_data_id": "a10b96f4-c505-4923-9c3b-ad478e08065b",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "논란 및 의혹 관련 내용"
+    },
+    {
+      "collected_data_id": "1e88e7dc-4da0-476b-9f6f-5d6adb1171eb",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "논란 및 의혹 관련 내용"
+    },
+    {
+      "collected_data_id": "fb2c220e-15d7-4c11-8bab-e8f9c1837dc6",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "국무총리 관련 긍정 활동"
+    },
+    {
+      "collected_data_id": "5e2528e9-23b6-4b0f-93b8-453727b0a4e8",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "국무총리 관련 긍정 활동"
+    },
+    {
+      "collected_data_id": "10f62b62-5e8b-4b4f-b257-90a4938a270c",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "국무총리 관련 긍정 활동"
+    },
+    {
+      "collected_data_id": "2e417d31-8e85-4301-9da1-4b955057597f",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "국무총리 관련 긍정 활동"
+    },
+    {
+      "collected_data_id": "3f5aed27-91e9-4852-994c-1a2687b275ca",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "국무총리 관련 긍정 활동"
+    },
+    {
+      "collected_data_id": "4671cca9-fcfb-4720-a6ed-c7eb9c63beab",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "국무총리 관련 긍정 활동"
+    },
+    {
+      "collected_data_id": "b25f13c0-5b57-457c-acab-e70ecf18f14f",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "정치 활동 및 역할 수행"
+    },
+    {
+      "collected_data_id": "5b8f6815-a607-4beb-b392-51bc48c666ea",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "국무총리 관련 긍정 활동"
+    },
+    {
+      "collected_data_id": "3db3307a-e9d5-4135-8f53-ffa11fe8a536",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "국무총리 관련 긍정 활동"
+    },
+    {
+      "collected_data_id": "a9636d92-b1a7-4a25-a923-873558273363",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "국무총리 관련 긍정 활동"
+    },
+    {
+      "collected_data_id": "882822bc-36b6-4732-b20b-018971abacb2",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "기본적인 정치 활동"
+    },
+    {
+      "collected_data_id": "554749d6-7147-4d32-b091-7bc8d84e4494",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "국무총리 관련 긍정 활동"
+    },
+    {
+      "collected_data_id": "5064c33b-7bed-4640-b062-6a2212462be9",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "국무총리 관련 긍정 활동"
+    },
+    {
+      "collected_data_id": "005ac453-1d44-4c7b-bf8b-cc3342805861",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "논란 및 의혹 관련 내용"
+    },
+    {
+      "collected_data_id": "c7bebad2-fb34-4ad8-adbf-562f05fcfb1d",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "국무총리 관련 긍정 활동"
+    },
+    {
+      "collected_data_id": "5365466b-ef71-43df-a121-6ec1dce13804",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "논란 및 의혹 관련 내용"
+    },
+    {
+      "collected_data_id": "ead4f819-d574-4c10-ab71-9abe8020cdef",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "국무총리 관련 긍정 활동"
+    },
+    {
+      "collected_data_id": "f4753bb1-e38b-4ae8-8b45-fb96b0a06993",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "논란 및 의혹 관련 내용"
+    },
+    {
+      "collected_data_id": "a9d4d865-b3b9-44ed-bcdb-bebe53a273a6",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "정치 활동 및 역할 수행"
+    },
+    {
+      "collected_data_id": "be38ddd0-d445-48f9-9cc4-de720108678b",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "논란 및 의혹 관련 내용"
+    },
+    {
+      "collected_data_id": "52590d62-91ec-48e4-8088-2e5cab52fb6b",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "국무총리 관련 긍정 활동"
+    },
+    {
+      "collected_data_id": "d2978436-a18f-46d5-ab83-844f46951273",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "국무총리 관련 긍정 활동"
+    },
+    {
+      "collected_data_id": "1e96984a-0d3a-4ba7-8b2c-df707a9acab2",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "논란 및 의혹 관련 내용"
+    },
+    {
+      "collected_data_id": "22cc2464-c5fc-4d77-ad23-2e319dbd067f",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "국무총리 관련 긍정 활동"
+    }
+  ]
+}

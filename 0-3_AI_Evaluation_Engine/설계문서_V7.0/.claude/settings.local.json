@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "Bash(python check_perplexity_status.py:*)",
+      "Bash(python collect_specific_category.py:*)"
+    ]
+  }
+}

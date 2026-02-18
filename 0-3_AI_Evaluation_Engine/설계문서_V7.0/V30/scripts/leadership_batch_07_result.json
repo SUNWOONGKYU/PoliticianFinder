@@ -1,0 +1,70 @@
+{
+  "batch_num": 7,
+  "politician_id": "f9e00370",
+  "politician_name": "김민석",
+  "category": "leadership",
+  "evaluator_ai": "Claude",
+  "evaluated_at": "2026-01-21T22:25:00",
+  "evaluations": [
+    {
+      "collected_data_id": "96775188-4c68-41be-a857-c57b6b50df01",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "미국 워싱턴DC와 뉴욕 방문을 통해 미국 정부 고위인사 면담, 하원의원 간담회, 동포 간담회 등 다층적 외교 활동을 수행한 것은 국제 관계 강화를 위한 적절한 리더십"
+    },
+    {
+      "collected_data_id": "da69dba8-b821-4e5c-9c6a-2a17734da40c",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "취임 후 첫 해외 일정으로 미국을 방문하여 한미관계 강화에 기여하려는 것은 외교 리더십과 국제 협력 강화 의지를 보여주는 긍정적 사례"
+    },
+    {
+      "collected_data_id": "63bcd489-a0f3-451e-9e23-5fa5ba3e915b",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "강화도 중증장애인 시설 성폭행 의혹에 대해 '충격적'이라며 철저한 조사와 진실 규명을 지시한 것은 사회적 약자 보호와 정의 실현을 위한 적절한 위기 대응 리더십"
+    },
+    {
+      "collected_data_id": "7b50678a-27bd-4f96-ac6d-811d0a5fd9c5",
+      "rating": "+3",
+      "score": 6,
+      "reasoning": "국가테러대책위원회를 주재하여 가덕도 피습 사건을 테러로 공식 지정하고 '용서받지 못할 범죄'로 규정하며 진상규명에 나선 것은 국가 안보와 정의 실현을 위한 강력한 의사결정 리더십"
+    },
+    {
+      "collected_data_id": "def10178-353f-4c2f-80d1-992d45e7333d",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "계엄 선포 시 국회 동의를 받도록 하는 법안 발의는 민주주의 제도 강화와 권력 견제를 위한 선제적 입법 활동으로 긍정적 리더십. 비상계엄 사태 이전의 예방적 조치"
+    },
+    {
+      "collected_data_id": "318c8ee6-9092-4087-b6b0-aa7c1eb6de4f",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "탄핵 표결에서 국회의원들에게 자유투표를 호소하며 양심에 따른 판단을 촉구한 것은 위기 상황에서 민주적 절차와 개인의 양심을 존중하는 리더십"
+    },
+    {
+      "collected_data_id": "adaef71d-727b-4621-bbc1-7876e455334d",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "광주·전남 통합추진 특위 간담회 참석은 일상적인 회의 참석 사실이며, 구체적 리더십 내용이 없음"
+    },
+    {
+      "collected_data_id": "6707a119-4693-4ba6-b5e3-ddf2336c8d87",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "최고위원 선거 출마 선언과 3대 공약 제시는 당내 역할 수행을 위한 기본적인 정치적 행보이나, 실제 리더십 발휘 내용은 아니므로 약간 긍정적으로만 평가"
+    },
+    {
+      "collected_data_id": "8a144a68-c3fe-4d2d-acec-b8c0ac1bd60a",
+      "rating": "+3",
+      "score": 6,
+      "reasoning": "12·3 비상계엄 사태에 대한 민주당 입장을 대표로 발표하며 내란사태의 신속하고 근본적인 종결을 촉구한 것은 국가 위기 상황에서 명확한 방향 제시와 위기 대응 리더십"
+    },
+    {
+      "collected_data_id": "0265bdd1-2f1b-48cb-bcc3-054393ae08f0",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "국무총리 공식 행사를 지방선거와 연결시켜 불법 선거 개입 논란이 제기된 것은 공사 구분 능력과 정치적 중립성 측면에서 리더십에 부정적 영향. 공직자로서 품위 유지에 문제"
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "batch_num": 1,
+  "politician_id": "f9e00370",
+  "politician_name": "김민석",
+  "category": "vision",
+  "evaluator_ai": "Claude",
+  "evaluated_at": "2026-01-21T22:30:00",
+  "evaluations": [
+    {
+      "collected_data_id": "f16db204-a291-4b1b-a4c4-b476b04c5b5a",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "비전 관점에서 부정적. '5년 짧다' 발언은 장기 계획이 아닌 권력 연장 시사로, 민주적 권력 교체라는 미래 방향성에 반하는 내용. 구체적 국가 발전 비전이 아닌 개인 집권 지속 암시."
+    },
+    {
+      "collected_data_id": "c6a7c7a3-99f8-4595-9937-c174f63a3490",
+      "rating": "-3",
+      "score": -6,
+      "reasoning": "비전 관점에서 부정적. 종교계 신사회협약은 정교분리 원칙을 훼손하는 방향으로, 현대 민주국가의 발전 방향과 배치. 특정 종교에 국가 예산 투입은 장기적 국가 비전에 역행."
+    },
+    {
+      "collected_data_id": "b22d5ea1-27ff-4e70-b5af-424115f38699",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. 과거 법 위반 사건에 대한 해명이며, 미래 국가 발전 방향이나 정책 비전과 직접적 연관 없음."
+    },
+    {
+      "collected_data_id": "9a7a4bb4-58df-46f4-80b2-35fb4a5c7a51",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. 재산 증식 의혹은 개인 윤리 문제이며, 국가 미래 청사진이나 정책 방향성과 직접 연관 없음."
+    },
+    {
+      "collected_data_id": "99b51f27-cf9b-47f7-8673-6cd654ce5718",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. 아빠 찬스 논란은 개인 윤리 문제이며, 국가/지역 발전 비전이나 정책 방향성과 무관."
+    },
+    {
+      "collected_data_id": "9ac1404f-cc9d-43aa-bd01-d0fcc346baf5",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. 개인 채무 및 아빠 찬스 의혹은 개인 행동 문제이며, 미래 지향적 정책 비전과 연관 없음."
+    },
+    {
+      "collected_data_id": "12764150-6c82-4848-96d9-07c6f6635375",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. 청문회 쟁점들(재산 의혹, 논문 표절)은 개인 자격 문제이며, 정책 비전이나 국가 발전 방향과 직접 연관 없음."
+    },
+    {
+      "collected_data_id": "df1ea758-8963-4bdf-b580-1fd9ea3e54e5",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. 재산 형성 해명 미흡 비판은 개인 투명성 문제이며, 미래 국가 발전 청사진과 직접 연관 없음."
+    },
+    {
+      "collected_data_id": "aaa50bce-c0d4-4e7e-80fc-41155504e739",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. 종교단체 경선 동원 의혹은 선거 과정 문제이며, 국가 미래 비전이나 정책 방향성과 무관."
+    },
+    {
+      "collected_data_id": "8f1247f2-5706-475f-afce-38906944c959",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "비전 관점에서 부정적. 국가채무비율, 예산 규모 등 기본 국정 지표에 대한 무지는 경제 정책 비전 수립 능력 부재를 시사. 미래 계획 수립에 필수적인 기본 현황 파악 실패."
+    }
+  ]
+}

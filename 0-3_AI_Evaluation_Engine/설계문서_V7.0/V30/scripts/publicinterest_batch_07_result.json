@@ -1,0 +1,70 @@
+{
+  "batch_num": 7,
+  "politician_id": "f9e00370",
+  "politician_name": "김민석",
+  "category": "publicinterest",
+  "evaluator_ai": "Claude",
+  "evaluated_at": "2026-01-22T00:42:46.733506",
+  "evaluations": [
+    {
+      "collected_data_id": "4bb88511-f417-4291-8e28-be8f3adafac9",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "긍정적 활동"
+    },
+    {
+      "collected_data_id": "887b911c-9762-4eef-a675-903d41d819b7",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "긍정적 활동"
+    },
+    {
+      "collected_data_id": "37c08f48-b0cc-4cbd-8852-751e6c009c9b",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "긍정적 활동"
+    },
+    {
+      "collected_data_id": "012321ff-3368-4020-81b9-0c00f713dc16",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "공익 추구 노력"
+    },
+    {
+      "collected_data_id": "15f69e84-1900-45b4-9e7c-712e8b499c8d",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "공익 활동"
+    },
+    {
+      "collected_data_id": "6d5cec56-5ed1-4ff7-9100-84f05fa49d99",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "공익추구 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "987a9c04-0f12-474c-aa07-62dfe9691f07",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "공익추구 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "617124d7-73d7-4613-8b8f-a887f4a299fa",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "공익 활동"
+    },
+    {
+      "collected_data_id": "73d4e70c-738b-4466-8e7f-89829bfa2411",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "공익추구 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "ffbbdab8-79b5-4a9a-9394-11095d0d25ed",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "공익추구 판단 정보 부족"
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "batch_num": 4,
+  "politician_id": "f9e00370",
+  "politician_name": "김민석",
+  "category": "accountability",
+  "evaluator_ai": "Claude",
+  "evaluated_at": "2026-01-22T00:42:46.685918",
+  "evaluations": [
+    {
+      "collected_data_id": "237db011-72c7-47a8-bd20-a2dfcd9e98e8",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "책임성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "07ed16f5-cac5-481b-8f61-052bd1290b47",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "책임성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "e855aad2-b66a-4538-868f-6ef26dada65a",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "책임성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "479d6898-c070-46c5-bead-7a9699eb50a8",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "책임성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "de47cea8-593f-458a-9d70-102d0dd7d662",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "책임성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "b2f86ed3-5b74-4756-9640-8a86be7ae434",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "책임성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "4e060457-58d2-4173-9dbe-8d403ba2bed5",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "책임성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "6c1c5043-8f59-4577-9681-0d879709379e",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "책임성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "8a21248f-9648-472a-86d5-4b18ca7b2a38",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "책임성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "93ae1e7e-04ce-40d9-9e27-ea17ebd23b71",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "책임성 판단 정보 부족"
+    }
+  ]
+}

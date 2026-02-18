@@ -1,0 +1,70 @@
+{
+  "batch_num": 3,
+  "politician_id": "f9e00370",
+  "politician_name": "김민석",
+  "category": "responsiveness",
+  "evaluator_ai": "Claude",
+  "evaluated_at": "2026-01-22T00:42:46.717366",
+  "evaluations": [
+    {
+      "collected_data_id": "d5b7a57e-488e-4bdb-a18e-5e62553b7e11",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "신속한 대응"
+    },
+    {
+      "collected_data_id": "690e489c-c3eb-41fe-a4ff-418167bd5472",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "적절한 대응"
+    },
+    {
+      "collected_data_id": "5f9768ad-ab64-449c-86f2-50a1e4e7cf3b",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "대응성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "9b5008a4-66d7-4d4d-a32c-108fffc8103b",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "대응성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "4a996a99-0ee4-41e6-80d9-09f98ff24a31",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "대응성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "e59f0ecc-7a41-449c-9afd-4ec5129d2189",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "현안 대응 노력"
+    },
+    {
+      "collected_data_id": "4afcfcfa-5b9c-44fd-955b-5e3c1201baf9",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "현안 대응 노력"
+    },
+    {
+      "collected_data_id": "823979ce-eae8-41a3-8ef0-70c79840d666",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "현안 대응 노력"
+    },
+    {
+      "collected_data_id": "91e567f3-1319-4241-b9ec-21e7c35f45ad",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "대응성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "32e23461-cc1f-4f68-8566-33d7b4951ec5",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "현안 대응 노력"
+    }
+  ]
+}

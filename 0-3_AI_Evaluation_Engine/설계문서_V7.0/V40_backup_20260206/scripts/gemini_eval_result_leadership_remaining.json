@@ -1,0 +1,16 @@
+{
+  "evaluations": [
+    {"id": "44962d48-8aba-4758-8f6e-2ac6af6bd238", "rating": "X", "score": 0, "rationale": "경제 지표 중심의 무관한 데이터"},
+    {"id": "a0e222b9-fde7-4e4e-86cf-bab2e676351e", "rating": "X", "score": 0, "rationale": "데이터 내용 식별 불가"},
+    {"id": "571a1427-75f8-41b9-aa70-65a76c9c75ae", "rating": "+2", "score": 4, "rationale": "주요 결의안 투표 참여 등 의정 활동 수행"},
+    {"id": "2d799a3d-2c1e-4d03-9be4-4461627844e7", "rating": "+3", "score": 6, "rationale": "상위권의 입법 및 의정 활동 지표 기록"},
+    {"id": "34bb456c-93cf-4da7-8698-f787aa0ef823", "rating": "+2", "score": 4, "rationale": "부동산 대책 등 주요 정책 논의 주도"},
+    {"id": "520c5dd7-5390-468f-aacc-31dc5935e2ad", "rating": "+2", "score": 4, "rationale": "우주항공 등 미래 산업 입법 논의 참여"},
+    {"id": "4357c5a8-c264-4b06-9db0-a4f3a5783617", "rating": "+3", "score": 6, "rationale": "재건축 등 민감 현안 입법 주도적 역할"},
+    {"id": "6ab466eb-603a-4bfa-88e0-13d17a5edfaa", "rating": "X", "score": 0, "rationale": "단순 일정 정보로 리더십 판단 불가"},
+    {"id": "6812e32e-d76d-4217-ae0c-d36918afae5e", "rating": "+2", "score": 4, "rationale": "국가 채무 등 경제 현안에 대한 목소리 표명"},
+    {"id": "96cd6e8e-6a2f-4f14-ae87-19a83ed0d091", "rating": "+2", "score": 4, "rationale": "당내 주요 정치 현안에 대한 입장 견지"},
+    {"id": "bcf9fd62-40f9-497d-bba7-dc010856c442", "rating": "+3", "score": 6, "rationale": "지자체장 시절 검증된 강력한 정책 추진력"},
+    {"id": "4d58c6a6-9f35-4c21-8415-a82573116cba", "rating": "+2", "score": 4, "rationale": "지역 발전 및 국제 행사 유치 지지 활동"}
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "batch_num": 1,
+  "politician_id": "f9e00370",
+  "politician_name": "김민석",
+  "category": "leadership",
+  "evaluator_ai": "Claude",
+  "evaluated_at": "2026-01-21T22:15:00",
+  "evaluations": [
+    {
+      "collected_data_id": "795adbb5-f812-4c57-925c-481be9092215",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "재산 형성 과정 의혹 및 아들 스펙 만들기 의혹은 리더로서의 윤리적 판단력과 신뢰성에 부정적 영향"
+    },
+    {
+      "collected_data_id": "d35b120c-8f4c-4f52-8ec9-a10fa1d8dcc6",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "추징금 장기 미납 및 불법 정치자금 재차 차용은 리더로서의 책임감과 윤리의식 결여를 보여줌"
+    },
+    {
+      "collected_data_id": "c5ccfb9f-9e8f-4354-8331-a839f7905f0d",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "재산 공개 관련 수입 미신고는 투명성 부족으로 리더로서의 신뢰도에 부정적 영향"
+    },
+    {
+      "collected_data_id": "aee8c2d4-f496-4b80-b717-5cc71018d84d",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "미투 2차 가해 의혹 비서관 채용은 인사 관리 실패이자 조직 가치 판단의 심각한 문제로 리더십에 매우 부정적"
+    },
+    {
+      "collected_data_id": "b382198b-0f78-4dbe-b659-ce77b2a435c4",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "학위 취득 과정 의혹은 리더의 자격과 정직성에 대한 신뢰 문제를 야기"
+    },
+    {
+      "collected_data_id": "44e98028-0984-4296-a4b1-7af5282690d8",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "정교유착 및 종교의 정치 도구화는 리더십 방향성과 가치 판단에 부정적 영향"
+    },
+    {
+      "collected_data_id": "d6b565f3-7ca9-4bc1-aba5-4a628f9fd889",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "과거 불법 자금 제공자에게 재차 차용 후 장기 미상환은 리더로서의 책임감과 윤리의식 부족"
+    },
+    {
+      "collected_data_id": "98b4fc12-15d1-42ba-9dcd-5555d7a207a8",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "불법 정치자금 수수를 '실수'로 해명한 것은 리더로서의 책임 회피 및 해명 능력 부족"
+    },
+    {
+      "collected_data_id": "be95583c-bfa3-432a-b2ca-5163b0f79e33",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "모친 빌라 전세 거래 논란은 투명성 부족으로 리더로서의 신뢰도에 부정적 영향"
+    },
+    {
+      "collected_data_id": "a165c390-9be6-4929-bdef-4d655d519864",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "강서구의회 김민석 의원에 대한 내용으로 국무총리 후보자 김민석과 별개 인물, 리더십 평가와 무관"
+    }
+  ]
+}

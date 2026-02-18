@@ -1,0 +1,29 @@
+YOLO mode is enabled. All tool calls will be automatically approved.
+Loaded cached credentials.
+YOLO mode is enabled. All tool calls will be automatically approved.
+Hook registry initialized with 0 hook entries
+```json
+[
+  {
+    "date": "2024-04-10",
+    "title": "제22대 국회의원 재선",
+    "content": "조은희 의원이 제22대 국회의원 선거에서 서울 서초구 갑 지역구에서 재선되었다. 그녀는 국민의힘 소속으로 활동하고 있다.",
+    "url": "https://namu.wiki/w/%EC%A1%B0%EC%9D%80%ED%9D%AC",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2014-07-01",
+    "title": "서울 서초구청장 역임",
+    "content": "조은희 의원은 2014년부터 2021년까지 민선 6, 7기 서울특별시 서초구청장을 역임하며 '서리풀원두막' 설치 등 혁신적인 정책을 추진했다.",
+    "url": "https://www.thevoiceofus.co.kr/news/articleView.html?idxno=24225",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2025-07-01",
+    "title": "정치 브로커 명태균 공천 개입 의혹 관련 특검 조사",
+    "content": "2025년 7월, 조은희 의원은 '정치 브로커' 명태균의 2022년 국회의원 보궐선거 공천 개입 의혹과 관련하여 특별검사팀에 소환되어 조사를 받았다.",
+    "url": "https://m.youtube.com/watch?v=F_f-tH4w25k",
+    "sentiment": "negative"
+  }
+]
+```

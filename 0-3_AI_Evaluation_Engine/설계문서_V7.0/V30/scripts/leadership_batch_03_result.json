@@ -1,0 +1,70 @@
+{
+  "batch_num": 3,
+  "politician_id": "f9e00370",
+  "politician_name": "김민석",
+  "category": "leadership",
+  "evaluator_ai": "Claude",
+  "evaluated_at": "2026-01-21T22:21:00",
+  "evaluations": [
+    {
+      "collected_data_id": "992445ea-6511-4eb6-b8e2-c135152c972d",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "국정감사에서 적극 소명 의지 표명, 리더로서의 소통 자세와 책임감"
+    },
+    {
+      "collected_data_id": "c323678a-ba87-470b-852e-062b3ba98b26",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "국회 예산결산특별위원회 참석으로 기본적인 국무총리 역할 수행"
+    },
+    {
+      "collected_data_id": "59e76b4d-2fb9-41fd-a2a6-3c850e1d34a3",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "내란사태 관련 긴급 기자회견으로 최고위원으로서 위기 상황 대응 및 당 입장 정리"
+    },
+    {
+      "collected_data_id": "9d53c81b-534c-4eac-bfe7-83d2fe305066",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "국무총리 취임 첫날 의정갈등 현안에 직접 나서 의대생·전공의 대표와 회동, 위기 대응 리더십"
+    },
+    {
+      "collected_data_id": "e373be09-ff00-47c8-b11c-b4f20ae3081b",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "계엄법 개정안 발의로 민주적 통제 장치 마련, 입법 리더십"
+    },
+    {
+      "collected_data_id": "315118af-b53e-4d19-9a0a-a15fa9303e49",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "국정감사에서 타당한 지적 즉시 수용 의지 표명, 열린 리더십과 책임감"
+    },
+    {
+      "collected_data_id": "ae5ddca6-b170-446d-824b-5d7286b39556",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "APEC CEO 서밋 환영 만찬 참석 및 축사로 국제 행사 주재자로서 기본 역할 수행"
+    },
+    {
+      "collected_data_id": "75e0c5c9-3d4e-4564-9a39-ae01ed7522fc",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "첫 기자간담회에서 책임감 강조 및 APEC 준비 문제점 집중 점검 의지, 리더로서의 위기 관리"
+    },
+    {
+      "collected_data_id": "eedf67db-0a9c-4641-b979-ecc16904a53b",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "아들이 추진한 법안을 공동 발의하여 아빠찬스 의혹, 리더로서의 윤리적 판단력에 부정적 영향"
+    },
+    {
+      "collected_data_id": "9f9524e1-f419-4c7f-90b8-a072f58e3a89",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "계엄 선포 비상 상황에서 외신 대상 영어 성명 발표로 국제 소통 및 위기 대응"
+    }
+  ]
+}

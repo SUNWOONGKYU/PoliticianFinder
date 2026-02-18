@@ -1,0 +1,70 @@
+{
+  "batch_num": 3,
+  "politician_id": "f9e00370",
+  "politician_name": "김민석",
+  "category": "expertise",
+  "evaluator_ai": "Claude",
+  "evaluated_at": "2026-01-21T21:02:00",
+  "evaluations": [
+    {
+      "collected_data_id": "b369cd50-6670-4270-a7de-fba133fe9151",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "뮤지컬 배우 김민석(멜로망스)의 수상 소식으로 정치인 김민석과 무관"
+    },
+    {
+      "collected_data_id": "d7e45a48-98ec-4e8e-95eb-572b832ea737",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "고등학생 아들이 추진한 법안에 공동 발의자로 참여하여 입법 활동의 독립성과 전문성에 의문"
+    },
+    {
+      "collected_data_id": "d03eac5c-fe1c-4e04-8fdd-93d1bf907d38",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "국정감사에서 국회 지적을 즉시 수용하겠다는 책임감 있고 개방적인 자세, 행정 전문성 양호"
+    },
+    {
+      "collected_data_id": "90ed4409-fe74-44be-8cb4-a29bd5106d7c",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "롯데 자이언츠 야구 선수 김민석의 MVP 수상으로 정치인 김민석과 무관"
+    },
+    {
+      "collected_data_id": "2de454a5-f984-469e-b123-5d842d3ebf4e",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "국무총리로서 경기도민과의 직접 소통을 통해 국정 성과를 공유하는 설명 능력 양호"
+    },
+    {
+      "collected_data_id": "0e0ef79d-5477-4c2f-9479-da16494233a2",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "제22대 국회의원 4선 당선으로 지역구 주민들의 지지와 정치 경력 인정"
+    },
+    {
+      "collected_data_id": "a59cf97d-1b90-4898-a61a-b85cdbc7abc0",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "국방위원회 및 운영위원회 위원으로 활동하며 국회 전문 위원회에서 역할 수행"
+    },
+    {
+      "collected_data_id": "89caf6d5-d940-4d80-b7d2-18d4ea84aea9",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "최고위원으로서 탄핵, 명태균 게이트 등 주요 현안에 대한 입장 표명, 기본적인 정치 활동"
+    },
+    {
+      "collected_data_id": "ae509b98-18c0-47e2-b12f-2349a3946da1",
+      "rating": "+3",
+      "score": 6,
+      "reasoning": "국회 본회의 통과를 거쳐 제49대 국무총리로 취임, 최고 행정 책임자로서의 전문성 우수"
+    },
+    {
+      "collected_data_id": "39efbb4b-c9ee-46c6-8cb0-d73cbb73cab0",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "경기도당 초청 국정설명회를 통해 정책 소통 강화, 행정 설명 능력 양호"
+    }
+  ]
+}

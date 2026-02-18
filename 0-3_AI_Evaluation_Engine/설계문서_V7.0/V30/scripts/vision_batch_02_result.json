@@ -1,0 +1,70 @@
+{
+  "batch_num": 2,
+  "politician_id": "f9e00370",
+  "politician_name": "김민석",
+  "category": "vision",
+  "evaluator_ai": "Claude",
+  "evaluated_at": "2026-01-21T22:30:00",
+  "evaluations": [
+    {
+      "collected_data_id": "bc402459-9e18-4715-9464-df8ac4720f94",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "비전 관점에서 약간 긍정적. 총리 지명 시 '위기 극복', '민생경제 회복', '통합의 시대'라는 방향성 제시. 구체성은 부족하나 기본적인 국정 방향 언급."
+    },
+    {
+      "collected_data_id": "f0c9ba69-b1c4-46c2-a4d9-ecb9e3ff5603",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "비전 관점에서 약간 긍정적. APEC 정상회의 성공적 개최는 국제 협력 비전 실현의 일환. 다만 구체적 미래 청사진 제시보다는 행사 진행 성과."
+    },
+    {
+      "collected_data_id": "8a7162e6-f7b0-4552-8dd0-bf51c573743f",
+      "rating": "+3",
+      "score": 6,
+      "reasoning": "비전 관점에서 긍정적. '에너지 대전환을 통한 탄소중립과 경제성장 동시 달성'은 명확한 미래 비전. 재생에너지, RE100 산업단지 등 구체적 방향성 제시."
+    },
+    {
+      "collected_data_id": "2f6be903-3d25-41f2-8215-0c1292b1eae7",
+      "rating": "+3",
+      "score": 6,
+      "reasoning": "비전 관점에서 긍정적. 지방자치권 대폭 확대, 초광역 전략산업 육성, 지방 소멸 위기 대응 등 지역 발전 비전을 구체적으로 제시. 장기적 국가 균형 발전 청사진."
+    },
+    {
+      "collected_data_id": "3a410b9e-a35c-47f2-904f-ac4411a8f749",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. 4선 의원 당선은 개인 정치 경력이며, 미래 정책 비전이나 국가 발전 방향 제시와 직접 연관 없음."
+    },
+    {
+      "collected_data_id": "79361521-f557-4a43-9dc2-5d06dc18f641",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. '새벽 총리' 별명은 개인 근무 태도이며, 국가 미래 청사진이나 정책 방향성과 직접 연관 없음."
+    },
+    {
+      "collected_data_id": "eb78d471-c1b1-42b0-aeab-54a007fca40c",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. 국정감사 대응 태도는 정부 운영 자세이며, 미래 지향적 비전 제시보다는 현재 문제 개선 의지 표명."
+    },
+    {
+      "collected_data_id": "9ca78c61-6466-4a6c-b2d9-4e7f7a478d72",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. 임명동의안 통과는 절차적 사안이며, 정책 비전이나 미래 방향성 제시와 직접 연관 없음."
+    },
+    {
+      "collected_data_id": "f33f665b-1a33-4a03-bed1-8b62dc69d176",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "비전 관점에서 긍정적. 'R&D 예산 역대 최대 35조 5000억원', 'AI 3대 강국' 목표는 과학기술 분야 명확한 미래 비전. 구체적 투자 규모와 목표 제시."
+    },
+    {
+      "collected_data_id": "e6788af0-3d2b-4796-80fc-a22ccf45ca8b",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "비전 관점에서 긍정적. 강원도의 바이오헬스, 반도체, 미래모빌리티 육성 비전 제시. 지역별 특화 미래산업 청사진."
+    }
+  ]
+}

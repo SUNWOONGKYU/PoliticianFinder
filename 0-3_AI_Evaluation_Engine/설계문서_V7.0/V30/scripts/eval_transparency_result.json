@@ -1,0 +1,460 @@
+{
+  "politician_id": "f9e00370",
+  "politician_name": "김민석",
+  "category": "transparency",
+  "evaluator_ai": "Claude",
+  "evaluated_at": "2026-01-22T00:42:46.701373",
+  "total_evaluations": 75,
+  "evaluations": [
+    {
+      "collected_data_id": "cd99b01a-238d-42fb-948c-28eaf254f6f8",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "투명성 부족 또는 정보 은폐"
+    },
+    {
+      "collected_data_id": "85d6d0d9-1cb2-4f03-8fa0-d35ac10793a8",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "투명성 부족 또는 정보 은폐"
+    },
+    {
+      "collected_data_id": "45230f3a-20e7-4e7a-ad8f-9630442aaece",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "투명성 관련 부정적 내용"
+    },
+    {
+      "collected_data_id": "86030f10-2fa5-4ead-8a42-d1356f62d258",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "투명성 부족 또는 정보 은폐"
+    },
+    {
+      "collected_data_id": "e820d0a6-3867-4012-9290-244d614b221a",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "투명성 부족 또는 정보 은폐"
+    },
+    {
+      "collected_data_id": "8501d8c0-6839-4726-b569-bdf03ae767b6",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "투명성 부족 또는 정보 은폐"
+    },
+    {
+      "collected_data_id": "d3afb7d8-de95-4fcc-b636-b1f16d4ddd0a",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "투명성 부족 또는 정보 은폐"
+    },
+    {
+      "collected_data_id": "bf44652f-06b3-4383-b13e-9d577d0bb0d8",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "투명한 정보 공개"
+    },
+    {
+      "collected_data_id": "723fc1e4-aef2-472c-bd6d-e212e750ace8",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "투명한 정보 공개"
+    },
+    {
+      "collected_data_id": "46a52b9b-4dc2-4f03-8bc3-48993bc5b668",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "투명한 정보 공개"
+    },
+    {
+      "collected_data_id": "27161395-4d09-4873-b414-e1d30aa8cd72",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "투명한 정보 공개"
+    },
+    {
+      "collected_data_id": "57e13760-d9cb-48d5-b12f-5d355e56d457",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "투명한 정보 공개"
+    },
+    {
+      "collected_data_id": "5b76bea7-baa7-4cd5-b911-a03f63c944ca",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "투명한 정보 공개"
+    },
+    {
+      "collected_data_id": "d4101504-7fd1-4c93-a0f7-d06c8ffbb254",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "투명성 부족 또는 정보 은폐"
+    },
+    {
+      "collected_data_id": "4c2300f7-001d-4720-92ab-69a3ef8348fe",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "투명성 부족 또는 정보 은폐"
+    },
+    {
+      "collected_data_id": "eb45840d-aef4-49fe-86c2-58997df776eb",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "투명성 부족 또는 정보 은폐"
+    },
+    {
+      "collected_data_id": "832fd255-6e4e-4233-95dd-7b335a14293f",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "투명한 정보 공개"
+    },
+    {
+      "collected_data_id": "014fd8ed-9acd-489b-9ff3-3dc474f6261a",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "투명한 정보 공개"
+    },
+    {
+      "collected_data_id": "efe28c1a-9819-4dfe-9a01-8d2df2fdaa37",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "투명한 정보 공개"
+    },
+    {
+      "collected_data_id": "1659a054-ebd4-45a7-bebf-0868fe06f802",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "정보 공개 노력"
+    },
+    {
+      "collected_data_id": "481ef64d-1734-478f-8488-7d4008552671",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "투명성 부족 또는 정보 은폐"
+    },
+    {
+      "collected_data_id": "7607d64b-6467-4185-b132-096d18abb974",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "투명성 부족 또는 정보 은폐"
+    },
+    {
+      "collected_data_id": "c92d65d4-c2ca-41bf-b999-57bdef22df5b",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "투명성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "c4dd20fc-6566-4b88-a3c7-56c4956eb8dc",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "투명성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "ac5b80c3-661f-4d4d-9380-9c36b20d5721",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "정보 공개 노력"
+    },
+    {
+      "collected_data_id": "fedd450a-41b6-4954-8c72-ed18825be210",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "투명성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "9f0a8c1d-7f9e-4fc1-8a4d-dea888e66d05",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "투명성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "ad9cdf7d-3283-4088-ab57-772a46859fb4",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "투명성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "3cf9d213-0c0f-4a86-9ee3-9b32140d45c6",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "투명성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "5a0640c9-2442-4e95-85ff-c42650e4305d",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "투명성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "7d98fd92-e757-4c08-8af0-723865a3dbf8",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "투명성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "c40c8850-9487-4858-b801-da2f60dead29",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "정보 공개 노력"
+    },
+    {
+      "collected_data_id": "a4d5f02d-ae66-46c9-976d-ddaed6d10791",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "정보 공개 노력"
+    },
+    {
+      "collected_data_id": "b10eb7dc-3d66-493c-b55b-2f1228c53bcf",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "정보 공개 노력"
+    },
+    {
+      "collected_data_id": "c4f91bb2-008b-4f3b-a9a9-b542819c1d43",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "투명성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "ccd612af-8d94-48c9-a3cf-694d968d453c",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "정보 공개 노력"
+    },
+    {
+      "collected_data_id": "6c3b1738-9486-4508-8f2e-e1417d6add90",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "투명성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "d2dcca92-daa4-4d97-a993-893eb7fb9f00",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "정보 공개 노력"
+    },
+    {
+      "collected_data_id": "d4146644-a016-4dc2-81f6-0ac161cf5662",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "투명성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "e06cc9de-2784-4647-a248-73ac0ec016ef",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "투명성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "3b4bd98b-fdb5-4c26-9ea6-fd935ca37ca5",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "정보 공개 노력"
+    },
+    {
+      "collected_data_id": "e7b760b9-0828-4902-9442-2c0454e57a5f",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "투명성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "b09246a9-e69f-425b-9d96-cf77e126f927",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "정보 공개 노력"
+    },
+    {
+      "collected_data_id": "a2feffc6-77e0-4676-9655-bd392bf2bcef",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "투명성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "61abf3f6-abd1-4dfa-a11b-7f9d9f9a477c",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "투명성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "3992a448-d5e8-42ee-b8bd-d9bd8e2cd1fe",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "정보 공개 노력"
+    },
+    {
+      "collected_data_id": "f12caf21-7d9b-4bed-8a88-cc97829bdae3",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "투명성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "24da6dd2-b28e-40cc-8d48-214076e53a46",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "투명성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "69557fcd-a35c-42bf-9d50-a4095cf439e7",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "투명성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "b97c88ab-40d6-44d6-9d41-bc2c95720a46",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "투명성 부족 또는 정보 은폐"
+    },
+    {
+      "collected_data_id": "622dd7bb-74e0-4257-9c1b-8dfaa88b6d60",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "투명한 정보 공개"
+    },
+    {
+      "collected_data_id": "65c5afc0-9221-4c21-bfdc-d84bd8129619",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "투명한 정보 공개"
+    },
+    {
+      "collected_data_id": "bd050532-c10a-467f-b8e9-3c71ab46236d",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "투명한 정보 공개"
+    },
+    {
+      "collected_data_id": "77ae776e-a4d6-4e8e-ba0d-f597dada2990",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "투명한 정보 공개"
+    },
+    {
+      "collected_data_id": "d5cea844-9de9-4f73-bf97-564fdb2302b3",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "투명성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "47c0382c-0ffd-4efd-9171-74d3ff0e0280",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "투명성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "48524afb-eaea-46a1-9ee2-b16d8947c984",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "투명성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "af9ee2df-a844-48fb-895b-f5e8b3032740",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "투명성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "abacdeb5-b2d1-4519-b60f-f3b4a59f38a2",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "투명성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "9bf7dcb4-4b45-4d76-b366-927879aee1c9",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "투명성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "4f7a0457-457a-46c0-b8aa-855e5910796f",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "투명성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "5c161d63-de8d-43db-aa60-1f018bf09735",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "투명성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "ce313a69-cc82-4197-af1f-df7954e33c18",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "투명성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "22d86f32-44fa-4489-935c-3173ab737590",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "투명성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "8b05768c-a4be-4068-9f93-6f0123e26e34",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "투명성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "ecc3643f-e3b1-463a-ae57-da293b92bddb",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "투명성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "8c635f70-453f-4063-96bd-8051ed050232",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "투명성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "007ee8ce-29f3-4e1d-a306-275932ae8078",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "투명성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "e699638d-64ee-4ca4-acf8-2553d080cbe1",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "투명한 정보 공개"
+    },
+    {
+      "collected_data_id": "b28fa3a0-7c91-408a-aa95-f5612e14c8ca",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "투명성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "bdf07726-5301-4554-bafc-4a4ff815abad",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "투명성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "5a9b72a9-6670-4fea-9023-1845cc850700",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "투명성 관련 부정적 내용"
+    },
+    {
+      "collected_data_id": "218a452f-c312-4294-86ff-95cbf93c3551",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "투명성 부족 또는 정보 은폐"
+    },
+    {
+      "collected_data_id": "a05f5a50-4ba0-465d-b0bf-62ceb51ea4bf",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "투명성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "983c1a1a-1185-4d71-8fd2-40cb02e3073d",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "투명한 정보 공개"
+    }
+  ]
+}

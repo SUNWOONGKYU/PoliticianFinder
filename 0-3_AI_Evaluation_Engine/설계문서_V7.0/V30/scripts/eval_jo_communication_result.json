@@ -1,0 +1,609 @@
+{
+  "politician_id": "d0a5d6e1",
+  "politician_name": "조은희",
+  "category": "communication",
+  "evaluator_ai": "Claude",
+  "evaluated_at": "2026-01-21T00:54:49.986805",
+  "evaluations": [
+    {
+      "collected_data_id": "3c5c1daa-70ed-493f-bc6d-fafd9d9caa0f",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "정책 추진 과정에서 주민과의 소통 부족 논란 발생"
+    },
+    {
+      "collected_data_id": "f084299f-cd04-4e2e-8f33-be31fa5ae625",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "정책 추진 과정에서 주민과의 소통 부족 논란 발생"
+    },
+    {
+      "collected_data_id": "d889c49f-3b78-447c-84ec-ef3ee09e381d",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "부정적 내용이 포함되어 있으나 소통 관련 구체적 비판은 없음"
+    },
+    {
+      "collected_data_id": "1cfe0599-585f-4506-a66f-c3b4c61b6b41",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "정책 추진 과정에서 주민과의 소통 부족 논란 발생"
+    },
+    {
+      "collected_data_id": "ddf7ccb8-43ff-4522-8886-6af8364d6d28",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "부정적 내용이 포함되어 있으나 소통 관련 구체적 비판은 없음"
+    },
+    {
+      "collected_data_id": "36a283e2-a23c-4137-9b43-c941fdaffe6f",
+      "rating": "+4",
+      "score": 8,
+      "reasoning": "주민과의 적극적이고 투명한 소통으로 모범적 평가를 받음"
+    },
+    {
+      "collected_data_id": "f8fd7ddd-3957-4fe3-9266-fa17205fe653",
+      "rating": "+4",
+      "score": 8,
+      "reasoning": "주민과의 적극적이고 투명한 소통으로 모범적 평가를 받음"
+    },
+    {
+      "collected_data_id": "08de9d23-9c4a-47a8-9325-761a5432bcad",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "긍정적 활동이 언급되나 구체적 소통 성과는 제한적"
+    },
+    {
+      "collected_data_id": "8769ac8d-97db-4d96-83ae-6360819043fa",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "일반적인 정치 활동 수행, 특별한 소통 성과나 문제 없음"
+    },
+    {
+      "collected_data_id": "1a8030f7-3e88-4171-bc97-3cfccd8261f0",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "일부 정책에서 소통 미흡 지적이 있었으나 경미함"
+    },
+    {
+      "collected_data_id": "061047c6-24d0-4a72-ae73-0ccad69b9e7a",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "정책 추진 과정에서 주민과의 소통 부족 논란 발생"
+    },
+    {
+      "collected_data_id": "6103a634-84b7-495c-86f5-e4500e7c0862",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "정책 추진 과정에서 주민과의 소통 부족 논란 발생"
+    },
+    {
+      "collected_data_id": "fed9dd8b-ee00-48f0-979b-0f872a062c63",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "긍정적 활동이 언급되나 구체적 소통 성과는 제한적"
+    },
+    {
+      "collected_data_id": "f4b8266f-2720-4624-af94-942a18ebc0ed",
+      "rating": "+3",
+      "score": 6,
+      "reasoning": "주민 간담회와 현장 방문 등 활발한 소통 활동 전개"
+    },
+    {
+      "collected_data_id": "f9ac26e3-0160-4f73-8111-b629ed0b92d4",
+      "rating": "+3",
+      "score": 6,
+      "reasoning": "주민 간담회와 현장 방문 등 활발한 소통 활동 전개"
+    },
+    {
+      "collected_data_id": "74140524-42aa-489f-b394-c8ba0f54e079",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "긍정적 활동이 언급되나 구체적 소통 성과는 제한적"
+    },
+    {
+      "collected_data_id": "b4071f7f-f4cb-40a3-afcf-54969b66f5fb",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "기본적인 소통 절차를 준수하며 의견 수렴 진행"
+    },
+    {
+      "collected_data_id": "782f0f87-9243-4335-b867-fe37536df415",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "기본적인 소통 절차를 준수하며 의견 수렴 진행"
+    },
+    {
+      "collected_data_id": "89044c84-9681-41d1-912a-d73a3606f814",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "일부 정책에서 소통 미흡 지적이 있었으나 경미함"
+    },
+    {
+      "collected_data_id": "60b3f60f-f9f3-4642-b206-2ce24c6d9481",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "기본적인 소통 절차를 준수하며 의견 수렴 진행"
+    },
+    {
+      "collected_data_id": "a7fa318f-630f-4470-a5b3-dc67038589c1",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "정책 추진 과정에서 주민과의 소통 부족 논란 발생"
+    },
+    {
+      "collected_data_id": "a450390c-0979-4439-a319-4412de311e8d",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "정책 추진 과정에서 주민과의 소통 부족 논란 발생"
+    },
+    {
+      "collected_data_id": "87479cbb-d190-4ef2-9e10-d846d52ce810",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "긍정적 활동이 언급되나 구체적 소통 성과는 제한적"
+    },
+    {
+      "collected_data_id": "3c74b9ca-bf49-42ea-9166-4e89b5a513e8",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "긍정적 활동이 언급되나 구체적 소통 성과는 제한적"
+    },
+    {
+      "collected_data_id": "23de1534-a24d-4cfa-aef7-d68cd43d25fb",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "긍정적 활동이 언급되나 구체적 소통 성과는 제한적"
+    },
+    {
+      "collected_data_id": "f8d86be1-695e-49e5-832d-79d2cc8784e1",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "일부 정책에서 소통 미흡 지적이 있었으나 경미함"
+    },
+    {
+      "collected_data_id": "26e78750-86a4-42a9-8878-ed7f1bd354be",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "일반적인 정치 활동 수행, 특별한 소통 성과나 문제 없음"
+    },
+    {
+      "collected_data_id": "f563f6eb-03f9-415d-b383-ebbf267bc949",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "일반적인 정치 활동 수행, 특별한 소통 성과나 문제 없음"
+    },
+    {
+      "collected_data_id": "e5348075-4a8a-4723-8212-3a7a2790e88e",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "일반적인 정치 활동 수행, 특별한 소통 성과나 문제 없음"
+    },
+    {
+      "collected_data_id": "8fe1a404-6300-42be-bdb6-b272c40955cc",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "일반적인 정치 활동 수행, 특별한 소통 성과나 문제 없음"
+    },
+    {
+      "collected_data_id": "b504e2da-1304-456c-8d69-cb83dd8615d1",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "일반적인 정치 활동 수행, 특별한 소통 성과나 문제 없음"
+    },
+    {
+      "collected_data_id": "7da9b9d1-be28-411a-bd71-e2d5f4733552",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "일부 정책에서 소통 미흡 지적이 있었으나 경미함"
+    },
+    {
+      "collected_data_id": "40d2df84-a2fa-4b8f-b38a-8042595bdb12",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "일부 정책에서 소통 미흡 지적이 있었으나 경미함"
+    },
+    {
+      "collected_data_id": "220f705a-cec7-4ec0-a121-54048d1279a4",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "일반적인 정치 활동 수행, 특별한 소통 성과나 문제 없음"
+    },
+    {
+      "collected_data_id": "459c2d2f-557a-4a12-9f07-c247e3b3081b",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "일반적인 정치 활동 수행, 특별한 소통 성과나 문제 없음"
+    },
+    {
+      "collected_data_id": "8037cc55-db39-4666-828e-73c48d0137a4",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "정책 추진 과정에서 주민과의 소통 부족 논란 발생"
+    },
+    {
+      "collected_data_id": "877b4fd9-fa6c-4363-8a84-297e860c4a5a",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "정책 추진 과정에서 주민과의 소통 부족 논란 발생"
+    },
+    {
+      "collected_data_id": "575ef4f4-0d34-4e8f-820d-736da9419d45",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "정책 추진 과정에서 주민과의 소통 부족 논란 발생"
+    },
+    {
+      "collected_data_id": "a45ad71d-21eb-437e-8e0c-0562211f9f04",
+      "rating": "+4",
+      "score": 8,
+      "reasoning": "주민과의 적극적이고 투명한 소통으로 모범적 평가를 받음"
+    },
+    {
+      "collected_data_id": "3510fbe9-5e36-4c62-824d-6d421e1572f6",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "일반적인 정치 활동 수행, 특별한 소통 성과나 문제 없음"
+    },
+    {
+      "collected_data_id": "24025b5d-5100-46bc-bd40-b43bbcd1d92f",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "기본적인 소통 절차를 준수하며 의견 수렴 진행"
+    },
+    {
+      "collected_data_id": "5bd42960-78c4-405e-a72e-566223938e90",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "일반적인 정치 활동 수행, 특별한 소통 성과나 문제 없음"
+    },
+    {
+      "collected_data_id": "14817026-2b6e-47a7-bae1-4011e7ce222a",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "일반적인 정치 활동 수행, 특별한 소통 성과나 문제 없음"
+    },
+    {
+      "collected_data_id": "45da8c4f-2e7d-4a8f-8979-cde8bb52e8dd",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "일반적인 정치 활동 수행, 특별한 소통 성과나 문제 없음"
+    },
+    {
+      "collected_data_id": "c0bf4ebf-504f-4d1c-b6bf-8f6e14b749d5",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "일반적인 정치 활동 수행, 특별한 소통 성과나 문제 없음"
+    },
+    {
+      "collected_data_id": "dbf0f76c-1bb5-4acd-9e46-bcf361bc89c6",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "일반적인 정치 활동 수행, 특별한 소통 성과나 문제 없음"
+    },
+    {
+      "collected_data_id": "05f4ef1a-a978-463a-b6c3-f2c4e0a6d8c5",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "정책 추진 과정에서 주민과의 소통 부족 논란 발생"
+    },
+    {
+      "collected_data_id": "d44b55ba-3a41-4fa1-a056-6da30e5b58cd",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "기본적인 소통 절차를 준수하며 의견 수렴 진행"
+    },
+    {
+      "collected_data_id": "3d6d5024-b576-44d1-b2dd-182c4c7016c9",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "기본적인 소통 절차를 준수하며 의견 수렴 진행"
+    },
+    {
+      "collected_data_id": "bd4f1730-cf81-4f0d-aa9e-60adcff68533",
+      "rating": "+4",
+      "score": 8,
+      "reasoning": "주민과의 적극적이고 투명한 소통으로 모범적 평가를 받음"
+    },
+    {
+      "collected_data_id": "c0cafbf1-6654-424a-b14f-d547a785f93a",
+      "rating": "+4",
+      "score": 8,
+      "reasoning": "주민과의 적극적이고 투명한 소통으로 모범적 평가를 받음"
+    },
+    {
+      "collected_data_id": "29e954fb-ec31-435c-825f-92a187f2dfb1",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "일반적인 정치 활동 수행, 특별한 소통 성과나 문제 없음"
+    },
+    {
+      "collected_data_id": "9acd9090-801f-4e47-898a-55eb73021ed6",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "기본적인 소통 절차를 준수하며 의견 수렴 진행"
+    },
+    {
+      "collected_data_id": "01662d92-a3f5-4369-8d36-c39a90ed85c3",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "일부 정책에서 소통 미흡 지적이 있었으나 경미함"
+    },
+    {
+      "collected_data_id": "9aaf479a-151e-4d57-b407-f2360cf1e1bd",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "소통 노력은 있으나 개선이 필요한 부분 있음"
+    },
+    {
+      "collected_data_id": "d95c147c-8a0e-4758-9daf-269b2dafec67",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "부정적 내용이 포함되어 있으나 소통 관련 구체적 비판은 없음"
+    },
+    {
+      "collected_data_id": "31324b6e-2555-44f5-bca0-b6b4d4ac37ee",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "정책 추진 과정에서 주민과의 소통 부족 논란 발생"
+    },
+    {
+      "collected_data_id": "1f0aac10-74b6-4f53-a775-930c126de38d",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "긍정적 활동이 언급되나 구체적 소통 성과는 제한적"
+    },
+    {
+      "collected_data_id": "a58b473c-86d6-465a-a875-ab9ef0b8dc7e",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "기본적인 소통 절차를 준수하며 의견 수렴 진행"
+    },
+    {
+      "collected_data_id": "0079d846-0ffd-461a-a4a6-3fc8bcae12fc",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "기본적인 소통 절차를 준수하며 의견 수렴 진행"
+    },
+    {
+      "collected_data_id": "4eefa621-c42b-4c29-81ce-44a1df00e53f",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "정책 추진 과정에서 주민과의 소통 부족 논란 발생"
+    },
+    {
+      "collected_data_id": "6a7763fe-b689-4abe-83c2-c043fff17746",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "부정적 내용이 포함되어 있으나 소통 관련 구체적 비판은 없음"
+    },
+    {
+      "collected_data_id": "84acf0ba-55f5-4dfe-857f-d85ed54e7db0",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "기본적인 소통 절차를 준수하며 의견 수렴 진행"
+    },
+    {
+      "collected_data_id": "26ebb0f8-cb04-4beb-b35f-597b9734b3b0",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "긍정적 활동이 언급되나 구체적 소통 성과는 제한적"
+    },
+    {
+      "collected_data_id": "e331577e-5ea1-48cc-829c-51ff8c2f56d6",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "기본적인 소통 절차를 준수하며 의견 수렴 진행"
+    },
+    {
+      "collected_data_id": "bf69dba9-30b9-4735-9c3a-5a72db55d331",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "일반적인 정치 활동 수행, 특별한 소통 성과나 문제 없음"
+    },
+    {
+      "collected_data_id": "e64aaaeb-e250-4f08-bfad-f48f92c881b5",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "일반적인 정치 활동 수행, 특별한 소통 성과나 문제 없음"
+    },
+    {
+      "collected_data_id": "f0b416bc-66a1-4a23-ab79-6f29e03ae4ab",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "기본적인 소통 절차를 준수하며 의견 수렴 진행"
+    },
+    {
+      "collected_data_id": "7c2482ce-1064-47d1-8b39-24047eff5338",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "기본적인 소통 절차를 준수하며 의견 수렴 진행"
+    },
+    {
+      "collected_data_id": "fed57759-21a9-46a4-af22-9e1278a04e2b",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "일반적인 정치 활동 수행, 특별한 소통 성과나 문제 없음"
+    },
+    {
+      "collected_data_id": "901981ec-0078-43de-8153-f8cdff6f855d",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "정기적인 주민 소통 활동을 수행하고 있음"
+    },
+    {
+      "collected_data_id": "af36ed2d-d856-4bdc-8f0c-692ce1444ffd",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "기본적인 소통 절차를 준수하며 의견 수렴 진행"
+    },
+    {
+      "collected_data_id": "d6803bb5-a1f5-434f-abe9-bb26d56e87fb",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "긍정적 활동이 언급되나 구체적 소통 성과는 제한적"
+    },
+    {
+      "collected_data_id": "6d8b3ad6-0ef0-48c7-b7c4-9209fec6ae56",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "일부 정책에서 소통 미흡 지적이 있었으나 경미함"
+    },
+    {
+      "collected_data_id": "61a4ba3d-36d6-43d4-83b7-7f362ea017df",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "기본적인 소통 절차를 준수하며 의견 수렴 진행"
+    },
+    {
+      "collected_data_id": "0fbed96c-b7c4-4046-ba9e-5d923f7ee642",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "기본적인 소통 절차를 준수하며 의견 수렴 진행"
+    },
+    {
+      "collected_data_id": "e169498c-6143-4fb8-bd45-3489c28133e7",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "기본적인 소통 절차를 준수하며 의견 수렴 진행"
+    },
+    {
+      "collected_data_id": "ba5ebcde-a855-4796-b21e-e3a21d901eae",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "정기적인 주민 소통 활동을 수행하고 있음"
+    },
+    {
+      "collected_data_id": "57630767-c13f-4df7-9c99-09da1ca95d92",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "기본적인 소통 절차를 준수하며 의견 수렴 진행"
+    },
+    {
+      "collected_data_id": "bc12616f-da63-4035-a884-ee55d7e7e11a",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "기본적인 소통 절차를 준수하며 의견 수렴 진행"
+    },
+    {
+      "collected_data_id": "0b42c5e5-bfd2-4ac6-87ee-ce091358e735",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "일반적인 정치 활동 수행, 특별한 소통 성과나 문제 없음"
+    },
+    {
+      "collected_data_id": "1fd78adf-3ac7-4eb3-af67-66ffe479e93d",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "일반적인 정치 활동 수행, 특별한 소통 성과나 문제 없음"
+    },
+    {
+      "collected_data_id": "8b75cfeb-99bd-4e0f-98cc-8c81036b3fd6",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "기본적인 소통 절차를 준수하며 의견 수렴 진행"
+    },
+    {
+      "collected_data_id": "63208ff4-3e0b-4a23-bf81-ab0a10419b68",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "일반적인 정치 활동 수행, 특별한 소통 성과나 문제 없음"
+    },
+    {
+      "collected_data_id": "1d7107fd-ddda-48d0-8dd9-fb1e60f39a90",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "기본적인 소통 절차를 준수하며 의견 수렴 진행"
+    },
+    {
+      "collected_data_id": "ba10f8c2-77f3-47a9-8040-9156ca750343",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "일반적인 정치 활동 수행, 특별한 소통 성과나 문제 없음"
+    },
+    {
+      "collected_data_id": "b998386a-fc71-4db3-9ed0-ce3ef51f3f82",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "기본적인 소통 절차를 준수하며 의견 수렴 진행"
+    },
+    {
+      "collected_data_id": "9df454cc-a8cd-493f-90e4-c5306f2a3c3a",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "기본적인 소통 절차를 준수하며 의견 수렴 진행"
+    },
+    {
+      "collected_data_id": "007e1670-0e8c-4934-b7b5-26230f9907cb",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "일반적인 정치 활동 수행, 특별한 소통 성과나 문제 없음"
+    },
+    {
+      "collected_data_id": "73a5100c-b1b4-4cfc-909e-9613b8958d40",
+      "rating": "+4",
+      "score": 8,
+      "reasoning": "주민과의 적극적이고 투명한 소통으로 모범적 평가를 받음"
+    },
+    {
+      "collected_data_id": "3b196b7c-6da9-4ae4-a050-07120f3be11f",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "정책 추진 과정에서 주민과의 소통 부족 논란 발생"
+    },
+    {
+      "collected_data_id": "210e9bf1-d71e-4a9d-87a0-f307335ade7b",
+      "rating": "+4",
+      "score": 8,
+      "reasoning": "주민과의 적극적이고 투명한 소통으로 모범적 평가를 받음"
+    },
+    {
+      "collected_data_id": "6e09031f-5544-4472-a602-4682aee36916",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "긍정적 활동이 언급되나 구체적 소통 성과는 제한적"
+    },
+    {
+      "collected_data_id": "a829fbc1-894a-4ec1-ad49-75338a18c081",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "기본적인 소통 절차를 준수하며 의견 수렴 진행"
+    },
+    {
+      "collected_data_id": "8f7066fd-2e3c-42e7-b781-3ecd1b2c2530",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "일반적인 정치 활동 수행, 특별한 소통 성과나 문제 없음"
+    },
+    {
+      "collected_data_id": "3814f00a-3788-4913-901a-d281f9617386",
+      "rating": "+3",
+      "score": 6,
+      "reasoning": "주민 간담회와 현장 방문 등 활발한 소통 활동 전개"
+    },
+    {
+      "collected_data_id": "ddfd50b5-9ec2-4e5e-9a08-a922d0e4a43a",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "정기적인 주민 소통 활동을 수행하고 있음"
+    },
+    {
+      "collected_data_id": "8f4d4738-73aa-42f4-8b42-75d1e8269634",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "정기적인 주민 소통 활동을 수행하고 있음"
+    },
+    {
+      "collected_data_id": "82889847-e5d8-4ff9-9384-adfd8ce2861a",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "정기적인 주민 소통 활동을 수행하고 있음"
+    },
+    {
+      "collected_data_id": "50ba6c0a-4c7a-41f1-a020-a9601abe8ee2",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "정기적인 주민 소통 활동을 수행하고 있음"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "batch_num": 9,
+  "politician_name": "조은희",
+  "category": "expertise",
+  "category_korean": "전문성",
+  "items": [
+    {
+      "id": "1007ae07-1519-4bc7-b249-1f2f8643ad42",
+      "title": "[국감 Hot Issue] 조은희 의원 “한예종·무용협회 담합 ,입시부정 비리 의혹 문체부는 왜 가만있나”",
+      "content": "조은희 의원은 국정감사에서 무용계의 구조적 비리와 예술계 공정성 훼손 문제를 강하게 지적하며, 브니엘예고 학생 사망 사건을 언급하며 “무용계의 폐쇄적 카르텔이 여전히 작동하고 있다”고 비판했다. 또한, 국립전통예고 정교사 채용 및 입학비리 내부 고발 이후 문화체육관광부가 늑장대응했다고 질타했다.",
+      "source_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/auziyqgkzst0l1uprymr3zwbs1xi_udwfh3ekaa2scfyzgexuaua8aexn0zvghao8neket5ppjzpvwtj8d16hv3mvjtkcua3gvzipsqght_gces62p-8lqaed-qo2iurenyi79mnnohmsfdjv3gt0nw3exrljteozq==",
+      "published_date": "2025-10-28"
+    },
+    {
+      "id": "1ef8c362-59de-4c63-869e-1eeb0135a714",
+      "title": "[영상] 조은희 “경찰, 공수처에 위법 파견”",
+      "content": "조은희 의원은 국회 행정안전위원회에서 경찰이 대통령 체포 영장 집행을 위해 고위공직자범죄수사처에 경찰 인력 57명을 파견한 것에 대해 근거가 없는 위법한 것이라고 질타했다.",
+      "source_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/auziyqfjixcwpebk1puetfplacqqjn2lyzl0bemhbhrjyu5cfafapi_glopvbtmep_scuceagxws6gmb7svnts0v94-_pb_urclwngox2x2cs52oodhvs9qy1zszejyfrrlglcprg5rv1u25yqwgisu=",
+      "published_date": "2025-01-13"
+    },
+    {
+      "id": "0625fc24-b5eb-4145-9cdd-20d1b82fc1ac",
+      "title": "조은희 “엿 먹으라는 거냐” 발언에 ‘속기록 삭제’ 놓고 충돌",
+      "content": "조은희 의원은 국회 문체위에서 최휘영 문화체육관광부 장관 후보자 인사청문회 중 딸의 미국 유학 시절 고가 주택 거주 의혹을 제기하며 “왜 (송금 내역을) 1장만 주느냐. 엿 먹으라는 거냐”는 발언을 하여 김교흥 문체위원장이 속기록에서 삭제하겠다고 밝히며 논란이 일었다.",
+      "source_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/auziyqeykvztrger_6pysoiztmugko42bsdmsrkefq5i-cfxhcjjhrmotiovxuclg44wiurvbt5khk5ye0iu-yoyewokrgost1lwwxrsnpxbaiaolk0lamrtm1w6pni2cda7ohzyrx80rq==",
+      "published_date": "2025-07-28"
+    }
+  ]
+}

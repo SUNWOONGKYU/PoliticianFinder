@@ -1,0 +1,40 @@
+{
+  "batch_num": 8,
+  "politician_id": "f9e00370",
+  "politician_name": "김민석",
+  "category": "accountability",
+  "evaluator_ai": "Claude",
+  "evaluated_at": "2026-01-22T00:42:46.691257",
+  "evaluations": [
+    {
+      "collected_data_id": "17b1033d-ece8-43d4-a6ff-76c29389261e",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "책임성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "a7b1a008-be65-495e-a772-28b89239682a",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "책임성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "b9d7c14d-9f80-41bb-bf55-f92112a4a64a",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "책임성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "a38c9c51-f670-4068-9f5a-fd5af17f2094",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "책임성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "eea870fe-d0c7-4fa0-acd8-ac95add9ad48",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "책임성 판단 정보 부족"
+    }
+  ]
+}

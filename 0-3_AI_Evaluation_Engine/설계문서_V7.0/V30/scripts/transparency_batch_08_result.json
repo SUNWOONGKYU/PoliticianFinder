@@ -1,0 +1,40 @@
+{
+  "batch_num": 8,
+  "politician_id": "f9e00370",
+  "politician_name": "김민석",
+  "category": "transparency",
+  "evaluator_ai": "Claude",
+  "evaluated_at": "2026-01-22T00:42:46.700665",
+  "evaluations": [
+    {
+      "collected_data_id": "bdf07726-5301-4554-bafc-4a4ff815abad",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "투명성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "5a9b72a9-6670-4fea-9023-1845cc850700",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "투명성 관련 부정적 내용"
+    },
+    {
+      "collected_data_id": "218a452f-c312-4294-86ff-95cbf93c3551",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "투명성 부족 또는 정보 은폐"
+    },
+    {
+      "collected_data_id": "a05f5a50-4ba0-465d-b0bf-62ceb51ea4bf",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "투명성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "983c1a1a-1185-4d71-8fd2-40cb02e3073d",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "투명한 정보 공개"
+    }
+  ]
+}

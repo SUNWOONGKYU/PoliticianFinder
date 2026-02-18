@@ -1,0 +1,459 @@
+{
+  "politician_id": "f9e00370",
+  "politician_name": "김민석",
+  "category": "expertise",
+  "evaluator_ai": "Claude",
+  "evaluated_at": "2026-01-21T19:07:02.506189",
+  "evaluations": [
+    {
+      "collected_data_id": "dc8a158e-5e10-4451-bd7e-704ba5168dae",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "정치 경력과 전문성이 확인되는 내용"
+    },
+    {
+      "collected_data_id": "856e5665-a0ee-4f6b-b168-9c6e165b35ba",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "정치 경력과 전문성이 확인되는 내용"
+    },
+    {
+      "collected_data_id": "90d1914e-51d8-4d3d-9efa-5433dbec6dc3",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "정치 경력과 전문성이 확인되는 내용"
+    },
+    {
+      "collected_data_id": "674561b1-4de5-49ca-af0d-9134abdc75af",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "정치 경력과 전문성이 확인되는 내용"
+    },
+    {
+      "collected_data_id": "16961736-99b5-4e0d-b871-cec9c5e789db",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "정치 경력과 전문성이 확인되는 내용"
+    },
+    {
+      "collected_data_id": "fca46ac9-7998-48fb-876a-18887706dc7b",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "일반적인 정치 활동 내용"
+    },
+    {
+      "collected_data_id": "448ed83c-208d-4148-a5c4-1964a00d1b1c",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "일반적인 정치 활동 내용"
+    },
+    {
+      "collected_data_id": "ef422ae1-933d-4348-905f-9eb02d6a3bf9",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "일반적인 정치 활동 내용"
+    },
+    {
+      "collected_data_id": "2939275b-bf1f-479d-ab04-fd395a974ddd",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "정치 경력과 전문성이 확인되는 내용"
+    },
+    {
+      "collected_data_id": "c0cb5cc4-4b08-42d8-81fc-39b106c84fe7",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "일반적인 정치 활동 내용"
+    },
+    {
+      "collected_data_id": "adca3c06-373c-4b39-95d8-6ae25d6ec058",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "일반적인 정치 활동 내용"
+    },
+    {
+      "collected_data_id": "a9cedbac-19ee-4022-9d5a-02a7d733e0b6",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "정치 경력과 전문성이 확인되는 내용"
+    },
+    {
+      "collected_data_id": "c29d0105-2644-492c-ae29-27a80fe7f5d5",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "정치 경력과 전문성이 확인되는 내용"
+    },
+    {
+      "collected_data_id": "ad97f54c-ad52-4cc8-892f-a543ca79dda1",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "정치 경력과 전문성이 확인되는 내용"
+    },
+    {
+      "collected_data_id": "6b0ae70f-8fb3-4820-a151-a38d7b8a04cc",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "정치 경력과 전문성이 확인되는 내용"
+    },
+    {
+      "collected_data_id": "82842aa5-68f7-4a4b-bc03-3a9fbb8974bf",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "정치 경력과 전문성이 확인되는 내용"
+    },
+    {
+      "collected_data_id": "b6c4a7eb-6378-4100-a628-0fe1e4b9c4a6",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "정치 경력과 전문성이 확인되는 내용"
+    },
+    {
+      "collected_data_id": "18984ec2-9230-4989-8497-7f5bd8ac52a3",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "정치 경력과 전문성이 확인되는 내용"
+    },
+    {
+      "collected_data_id": "08f1c68c-333d-426b-a1d3-c101196ac9af",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "정치 경력과 전문성이 확인되는 내용"
+    },
+    {
+      "collected_data_id": "00d21158-438a-423f-8e72-6f30ad6e0945",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "정치 경력과 전문성이 확인되는 내용"
+    },
+    {
+      "collected_data_id": "b369cd50-6670-4270-a7de-fba133fe9151",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "일반적인 정치 활동 내용"
+    },
+    {
+      "collected_data_id": "d7e45a48-98ec-4e8e-95eb-572b832ea737",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "정치 경력과 전문성이 확인되는 내용"
+    },
+    {
+      "collected_data_id": "d03eac5c-fe1c-4e04-8fdd-93d1bf907d38",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "정치 경력과 전문성이 확인되는 내용"
+    },
+    {
+      "collected_data_id": "90ed4409-fe74-44be-8cb4-a29bd5106d7c",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "일반적인 정치 활동 내용"
+    },
+    {
+      "collected_data_id": "2de454a5-f984-469e-b123-5d842d3ebf4e",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "정치 경력과 전문성이 확인되는 내용"
+    },
+    {
+      "collected_data_id": "0e0ef79d-5477-4c2f-9479-da16494233a2",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "정치 경력과 전문성이 확인되는 내용"
+    },
+    {
+      "collected_data_id": "a59cf97d-1b90-4898-a61a-b85cdbc7abc0",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "일반적인 정치 활동 내용"
+    },
+    {
+      "collected_data_id": "89caf6d5-d940-4d80-b7d2-18d4ea84aea9",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "일반적인 정치 활동 내용"
+    },
+    {
+      "collected_data_id": "ae509b98-18c0-47e2-b12f-2349a3946da1",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "정치 경력과 전문성이 확인되는 내용"
+    },
+    {
+      "collected_data_id": "39efbb4b-c9ee-46c6-8cb0-d73cbb73cab0",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "정치 경력과 전문성이 확인되는 내용"
+    },
+    {
+      "collected_data_id": "550e4949-6059-4c7e-9b00-40a22b74e12c",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "일반적인 정치 활동 내용"
+    },
+    {
+      "collected_data_id": "e7b17ce3-d60b-4550-93f9-1a170248c0b8",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "정치 경력과 전문성이 확인되는 내용"
+    },
+    {
+      "collected_data_id": "9c5ed9ad-7b30-4786-9ae6-697c500c09df",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "정치 경력과 전문성이 확인되는 내용"
+    },
+    {
+      "collected_data_id": "4c001563-34d0-48d5-81b0-62baf6ee4d9c",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "정치 경력과 전문성이 확인되는 내용"
+    },
+    {
+      "collected_data_id": "6af37490-0fd6-4e75-b26b-7298b689d201",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "일반적인 정치 활동 내용"
+    },
+    {
+      "collected_data_id": "6ab48b30-bfec-454e-8812-17db9784d70f",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "정치 경력과 전문성이 확인되는 내용"
+    },
+    {
+      "collected_data_id": "523016cf-3469-4b47-ad75-2c9384e4dd17",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "정치 경력과 전문성이 확인되는 내용"
+    },
+    {
+      "collected_data_id": "a3731bc1-6ad7-405e-8c45-726a5b58827d",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "일반적인 정치 활동 내용"
+    },
+    {
+      "collected_data_id": "2b06f3c9-8bdb-4dd3-b9ae-b61c8f03c019",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "정치 경력과 전문성이 확인되는 내용"
+    },
+    {
+      "collected_data_id": "134dff49-4325-4733-bf14-24157ef5e0f9",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "정치 경력과 전문성이 확인되는 내용"
+    },
+    {
+      "collected_data_id": "fa3a33e7-bcb9-404c-aee2-396145665b13",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "정치 경력과 전문성이 확인되는 내용"
+    },
+    {
+      "collected_data_id": "6aebc963-8922-478a-834d-d25f8762b256",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "일반적인 정치 활동 내용"
+    },
+    {
+      "collected_data_id": "3ddee182-b41e-45ce-aedc-b96893268483",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "전문성 관련 부정적 내용 포함"
+    },
+    {
+      "collected_data_id": "6e475c0b-5e53-40a7-8b75-29a3d4c1c1e5",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "일반적인 정치 활동 내용"
+    },
+    {
+      "collected_data_id": "1b247ad0-470e-494c-86e6-3ff509a285b1",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "정치 경력과 전문성이 확인되는 내용"
+    },
+    {
+      "collected_data_id": "627d17d2-7fb5-4d5f-b91d-6f791aec56e8",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "정치 경력과 전문성이 확인되는 내용"
+    },
+    {
+      "collected_data_id": "041e96ac-5e9b-46c2-8620-4f06540a4694",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "정치 경력과 전문성이 확인되는 내용"
+    },
+    {
+      "collected_data_id": "0e08f5d8-954f-4e02-8e63-92caf6651655",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "정치 경력과 전문성이 확인되는 내용"
+    },
+    {
+      "collected_data_id": "e53f8f25-3678-4fcd-9a40-2f19d0511970",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "정치 경력과 전문성이 확인되는 내용"
+    },
+    {
+      "collected_data_id": "a10b96f4-c505-4923-9c3b-ad478e08065b",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "정치 경력과 전문성이 확인되는 내용"
+    },
+    {
+      "collected_data_id": "1e88e7dc-4da0-476b-9f6f-5d6adb1171eb",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "정치 경력과 전문성이 확인되는 내용"
+    },
+    {
+      "collected_data_id": "fb2c220e-15d7-4c11-8bab-e8f9c1837dc6",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "정치 경력과 전문성이 확인되는 내용"
+    },
+    {
+      "collected_data_id": "5e2528e9-23b6-4b0f-93b8-453727b0a4e8",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "정치 경력과 전문성이 확인되는 내용"
+    },
+    {
+      "collected_data_id": "10f62b62-5e8b-4b4f-b257-90a4938a270c",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "정치 경력과 전문성이 확인되는 내용"
+    },
+    {
+      "collected_data_id": "2e417d31-8e85-4301-9da1-4b955057597f",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "정치 경력과 전문성이 확인되는 내용"
+    },
+    {
+      "collected_data_id": "3f5aed27-91e9-4852-994c-1a2687b275ca",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "정치 경력과 전문성이 확인되는 내용"
+    },
+    {
+      "collected_data_id": "4671cca9-fcfb-4720-a6ed-c7eb9c63beab",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "정치 경력과 전문성이 확인되는 내용"
+    },
+    {
+      "collected_data_id": "b25f13c0-5b57-457c-acab-e70ecf18f14f",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "일반적인 정치 활동 내용"
+    },
+    {
+      "collected_data_id": "5b8f6815-a607-4beb-b392-51bc48c666ea",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "정치 경력과 전문성이 확인되는 내용"
+    },
+    {
+      "collected_data_id": "3db3307a-e9d5-4135-8f53-ffa11fe8a536",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "정치 경력과 전문성이 확인되는 내용"
+    },
+    {
+      "collected_data_id": "a9636d92-b1a7-4a25-a923-873558273363",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "정치 경력과 전문성이 확인되는 내용"
+    },
+    {
+      "collected_data_id": "882822bc-36b6-4732-b20b-018971abacb2",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "정치 경력과 전문성이 확인되는 내용"
+    },
+    {
+      "collected_data_id": "554749d6-7147-4d32-b091-7bc8d84e4494",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "정치 경력과 전문성이 확인되는 내용"
+    },
+    {
+      "collected_data_id": "5064c33b-7bed-4640-b062-6a2212462be9",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "정치 경력과 전문성이 확인되는 내용"
+    },
+    {
+      "collected_data_id": "005ac453-1d44-4c7b-bf8b-cc3342805861",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "정치 경력과 전문성이 확인되는 내용"
+    },
+    {
+      "collected_data_id": "c7bebad2-fb34-4ad8-adbf-562f05fcfb1d",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "정치 경력과 전문성이 확인되는 내용"
+    },
+    {
+      "collected_data_id": "5365466b-ef71-43df-a121-6ec1dce13804",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "정치 경력과 전문성이 확인되는 내용"
+    },
+    {
+      "collected_data_id": "ead4f819-d574-4c10-ab71-9abe8020cdef",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "정치 경력과 전문성이 확인되는 내용"
+    },
+    {
+      "collected_data_id": "f4753bb1-e38b-4ae8-8b45-fb96b0a06993",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "정치 경력과 전문성이 확인되는 내용"
+    },
+    {
+      "collected_data_id": "a9d4d865-b3b9-44ed-bcdb-bebe53a273a6",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "일반적인 정치 활동 내용"
+    },
+    {
+      "collected_data_id": "be38ddd0-d445-48f9-9cc4-de720108678b",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "정치 경력과 전문성이 확인되는 내용"
+    },
+    {
+      "collected_data_id": "52590d62-91ec-48e4-8088-2e5cab52fb6b",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "정치 경력과 전문성이 확인되는 내용"
+    },
+    {
+      "collected_data_id": "d2978436-a18f-46d5-ab83-844f46951273",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "정치 경력과 전문성이 확인되는 내용"
+    },
+    {
+      "collected_data_id": "1e96984a-0d3a-4ba7-8b2c-df707a9acab2",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "정치 경력과 전문성이 확인되는 내용"
+    },
+    {
+      "collected_data_id": "22cc2464-c5fc-4d77-ad23-2e319dbd067f",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "정치 경력과 전문성이 확인되는 내용"
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "politician_id": "8c5dcc89",
+  "politician_name": "박주민",
+  "timestamp": "2026-02-11T16:09:37.298677",
+  "total_items": 987,
+  "minimum_target": 1000,
+  "buffer_target": 1200,
+  "complete_categories": 4,
+  "incomplete_categories": 6,
+  "validation_results": {
+    "expertise": {
+      "count": 103,
+      "status": "OK"
+    },
+    "leadership": {
+      "count": 91,
+      "status": "NEEDS_RECOLLECTION"
+    },
+    "vision": {
+      "count": 88,
+      "status": "NEEDS_RECOLLECTION"
+    },
+    "integrity": {
+      "count": 89,
+      "status": "NEEDS_RECOLLECTION"
+    },
+    "ethics": {
+      "count": 116,
+      "status": "OK"
+    },
+    "accountability": {
+      "count": 98,
+      "status": "NEEDS_RECOLLECTION"
+    },
+    "transparency": {
+      "count": 88,
+      "status": "NEEDS_RECOLLECTION"
+    },
+    "communication": {
+      "count": 92,
+      "status": "NEEDS_RECOLLECTION"
+    },
+    "responsiveness": {
+      "count": 109,
+      "status": "OK"
+    },
+    "publicinterest": {
+      "count": 113,
+      "status": "OK"
+    }
+  },
+  "recollection_results": [],
+  "final_status": {
+    "expertise": {
+      "count": 103,
+      "status": "COMPLETE"
+    },
+    "leadership": {
+      "count": 91,
+      "status": "INCOMPLETE"
+    },
+    "vision": {
+      "count": 88,
+      "status": "INCOMPLETE"
+    },
+    "integrity": {
+      "count": 89,
+      "status": "INCOMPLETE"
+    },
+    "ethics": {
+      "count": 116,
+      "status": "COMPLETE"
+    },
+    "accountability": {
+      "count": 98,
+      "status": "INCOMPLETE"
+    },
+    "transparency": {
+      "count": 88,
+      "status": "INCOMPLETE"
+    },
+    "communication": {
+      "count": 92,
+      "status": "INCOMPLETE"
+    },
+    "responsiveness": {
+      "count": 109,
+      "status": "COMPLETE"
+    },
+    "publicinterest": {
+      "count": 113,
+      "status": "COMPLETE"
+    }
+  }
+}

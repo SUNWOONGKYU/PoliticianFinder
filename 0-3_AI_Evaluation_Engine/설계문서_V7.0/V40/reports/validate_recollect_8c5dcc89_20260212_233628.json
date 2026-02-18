@@ -1,0 +1,120 @@
+{
+  "politician_id": "8c5dcc89",
+  "politician_name": "박주민",
+  "timestamp": "2026-02-12T23:36:28.278949",
+  "total_items": 1364,
+  "minimum_target": 1000,
+  "buffer_target": 1200,
+  "complete_categories": 10,
+  "incomplete_categories": 0,
+  "validation_results": {
+    "expertise": {
+      "count": 96,
+      "status": "NEEDS_RECOLLECTION"
+    },
+    "leadership": {
+      "count": 123,
+      "status": "OK"
+    },
+    "vision": {
+      "count": 179,
+      "status": "OK"
+    },
+    "integrity": {
+      "count": 212,
+      "status": "OK"
+    },
+    "ethics": {
+      "count": 116,
+      "status": "OK"
+    },
+    "accountability": {
+      "count": 121,
+      "status": "OK"
+    },
+    "transparency": {
+      "count": 150,
+      "status": "OK"
+    },
+    "communication": {
+      "count": 102,
+      "status": "OK"
+    },
+    "responsiveness": {
+      "count": 87,
+      "status": "NEEDS_RECOLLECTION"
+    },
+    "publicinterest": {
+      "count": 98,
+      "status": "NEEDS_RECOLLECTION"
+    }
+  },
+  "recollection_results": [
+    {
+      "category": "responsiveness",
+      "before": 87,
+      "after": 133,
+      "collected": 46,
+      "target": 100,
+      "status": "complete"
+    },
+    {
+      "category": "expertise",
+      "before": 96,
+      "after": 110,
+      "collected": 14,
+      "target": 100,
+      "status": "complete"
+    },
+    {
+      "category": "publicinterest",
+      "before": 98,
+      "after": 118,
+      "collected": 20,
+      "target": 100,
+      "status": "complete"
+    }
+  ],
+  "final_status": {
+    "expertise": {
+      "count": 110,
+      "status": "COMPLETE"
+    },
+    "leadership": {
+      "count": 123,
+      "status": "COMPLETE"
+    },
+    "vision": {
+      "count": 179,
+      "status": "COMPLETE"
+    },
+    "integrity": {
+      "count": 212,
+      "status": "COMPLETE"
+    },
+    "ethics": {
+      "count": 116,
+      "status": "COMPLETE"
+    },
+    "accountability": {
+      "count": 121,
+      "status": "COMPLETE"
+    },
+    "transparency": {
+      "count": 150,
+      "status": "COMPLETE"
+    },
+    "communication": {
+      "count": 102,
+      "status": "COMPLETE"
+    },
+    "responsiveness": {
+      "count": 133,
+      "status": "COMPLETE"
+    },
+    "publicinterest": {
+      "count": 118,
+      "status": "COMPLETE"
+    }
+  }
+}

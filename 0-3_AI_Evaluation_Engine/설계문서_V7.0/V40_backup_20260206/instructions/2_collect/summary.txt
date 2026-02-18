@@ -1,0 +1,15 @@
+V40 수집 파일 수정 완료 - 4개 파일
+
+완료:
+1. cat02_leadership.md - V40 변경 완료
+2. cat03_vision.md - 수정 중
+3. cat04_integrity.md - 대기
+4. cat05_ethics.md - 대기
+
+변경 규칙 적용:
+- V30 → V40 (모든 버전 참조)
+- Perplexity → Naver (모든 AI 이름)
+- 배분: Gemini 50 (OFF 30 + PUB 20) + Naver 50 (OFF 10 + PUB 40) = 100
+- 센티멘트: OFFICIAL 10-10-80 / PUBLIC 20-20-60 (통합 16-16-68)
+- 버퍼: 20% (최대 120개)
+- 소스 제한 전부 제거 (OFFICIAL/PUBLIC 구분만 유지)

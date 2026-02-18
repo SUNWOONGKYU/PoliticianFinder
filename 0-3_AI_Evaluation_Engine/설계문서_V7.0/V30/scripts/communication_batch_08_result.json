@@ -1,0 +1,40 @@
+{
+  "batch_num": 8,
+  "politician_id": "f9e00370",
+  "politician_name": "김민석",
+  "category": "communication",
+  "evaluator_ai": "Claude",
+  "evaluated_at": "2026-01-22T00:42:46.712728",
+  "evaluations": [
+    {
+      "collected_data_id": "733ffd62-73ff-4cda-950c-7180eec7b272",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "소통능력 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "51267090-d93d-4ab1-9c2a-63fc2303c2a5",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "소통능력 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "9952e993-c81c-4e32-8822-e52279cb9a52",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "소통능력 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "f9a66d51-465b-4a27-a198-7d0ed584c11e",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "소통 방식 문제"
+    },
+    {
+      "collected_data_id": "f009f261-c535-4267-aa10-da07f28b64cb",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "소통 노력"
+    }
+  ]
+}

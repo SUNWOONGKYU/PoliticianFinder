@@ -1,0 +1,27 @@
+{
+  "timestamp": "2026-02-10T16:48:55.258072",
+  "test_prompt": "\n정치인 박주민에 대해 간단히 설명해주세요 (100자 이내).\n\nJSON 형식으로 응답:\n{\n  \"name\": \"박주민\",\n  \"summary\": \"설명\"\n}\n",
+  "results": [
+    {
+      "method": "stdin",
+      "success": true,
+      "time": 32.805031299591064,
+      "output": "정치인 박주민에 대한 정보를 확인하기 위해 `instructions/1_politicians/박주민.md` 파일을 읽어보겠습니다.\n\n```json\n{\n  \"name\": \"박주민\",\n  \"summary\": \"더불어민주당 3선 국회의원으로 보건복지위원회 위원장이며, 인권 변호사 출신의 정책 중심 소통형 정치인입니다.\"\n}\n```\n",
+      "error": "YOLO mode is enabled. All tool calls will be automatically approved.\nLoaded cached credentials.\nYOLO mode is enabled. All tool calls will be automatically approved.\nHook registry initialized with 0 hook entries\n"
+    },
+    {
+      "method": "flag",
+      "success": false,
+      "time": 14.99620246887207,
+      "output": "",
+      "error": "Loaded cached credentials.\nHook registry initialized with 0 hook entries\nNo input provided via stdin. Input can be provided by piping data into gemini or using the --prompt option.\n"
+    },
+    {
+      "method": "shell",
+      "success": true,
+      "time": 0.02613663673400879,
+      "output": "\"\n",
+      "error": ""
+    }
+  ]
+}

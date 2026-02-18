@@ -1,0 +1,17 @@
+{
+  "evaluations": [
+    {"id": "d19232f1-e58e-4ea8-9145-da7d5100a832", "rating": "X", "score": 0, "rationale": "본인과 무관한 타 지자체 데이터"},
+    {"id": "19a6b71b-37e0-4c18-a64d-201672c5e3f1", "rating": "X", "score": 0, "rationale": "데이터 내용 식별 불가"},
+    {"id": "1eff0393-879f-4164-ae97-d4b8cb19b746", "rating": "X", "score": 0, "rationale": "본인과 무관한 타 부처 데이터"},
+    {"id": "22e41194-524a-49e6-bce3-b1bd3d0d7965", "rating": "X", "score": 0, "rationale": "데이터 내용 식별 불가"},
+    {"id": "948876df-3b34-476f-9066-7b70985f9541", "rating": "X", "score": 0, "rationale": "데이터 내용 식별 불가"},
+    {"id": "e1ec1d2e-642d-46b9-a216-ba389ef34eff", "rating": "+2", "score": 4, "rationale": "의혹에 대한 자발적 자료 공개 및 해명"},
+    {"id": "82e566ee-1a09-4d4f-a7d3-e2ace39fca54", "rating": "X", "score": 0, "rationale": "데이터 내용 식별 불가"},
+    {"id": "8ea9dfeb-1b87-4e87-adea-3c7fc91febb9", "rating": "+2", "score": 4, "rationale": "국회 청문회 등 주요 기록의 투명한 공개"},
+    {"id": "38170baf-a2a2-43f7-8125-107a3e40236b", "rating": "+2", "score": 4, "rationale": "인사청문회 자료 제출 및 검증 과정 참여"},
+    {"id": "4294849c-eb5f-40f9-bea5-077c9a5bdd74", "rating": "+2", "score": 4, "rationale": "정부 예산 집행의 투명성 감시 활동"},
+    {"id": "04970834-9c80-4865-956a-2636ccd85ce1", "rating": "+2", "score": 4, "rationale": "회의록 및 발언록 공개를 통한 소통"},
+    {"id": "a00a0ecd-49ca-4e5c-b5a0-d04933ed126c", "rating": "+2", "score": 4, "rationale": "상임위 활동 내역의 투명한 공개"},
+    {"id": "a1c27982-99ba-41db-bc2a-fe408c22cab2", "rating": "+2", "score": 4, "rationale": "인사 검증 자료의 투명한 소명 요구"}
+  ]
+}

@@ -55,9 +55,15 @@ V40 점수 계산 스크립트
 import os
 import sys
 import argparse
+from pathlib import Path
 from datetime import datetime
 from supabase import create_client
 from dotenv import load_dotenv
+
+# helpers 경로 추가
+SCRIPT_DIR = Path(__file__).resolve().parent
+HELPERS_DIR = SCRIPT_DIR.parent / 'helpers'
+sys.path.insert(0, str(HELPERS_DIR))
 
 # UTF-8 출력 설정
 if sys.platform == 'win32':
@@ -381,7 +387,21 @@ def main():
 
     args = parser.parse_args()
 
-    calculate_scores(args.politician_id, args.politician_name)
+    # Phase Gate Check: Phase 3 (평가) 완료 확인
+    try:
+        from phase_tracker import require_phase_gate, mark_phase_done
+        require_phase_gate(args.politician_id, '4')
+        has_tracker = True
+    except ImportError:
+        has_tracker = False
+
+    result = calculate_scores(args.politician_id, args.politician_name)
+
+    # Phase 4 완료 기록
+    if has_tracker and result:
+        details = f"{result['final_score']}점 {result['grade_code']}등급"
+        mark_phase_done(args.politician_id, '4', details, args.politician_name)
+        print(f"\n  Phase 4 완료 기록됨")
 
 
 if __name__ == "__main__":

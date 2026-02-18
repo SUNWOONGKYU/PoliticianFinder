@@ -1,0 +1,70 @@
+{
+  "batch_num": 2,
+  "politician_id": "f9e00370",
+  "politician_name": "김민석",
+  "category": "leadership",
+  "evaluator_ai": "Claude",
+  "evaluated_at": "2026-01-21T22:18:00",
+  "evaluations": [
+    {
+      "collected_data_id": "1f99460b-615a-4fa8-aa83-4a4d29c8f974",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "국정감사에서 적극 소명 의지를 표명하여 리더로서의 책임감과 소통 자세를 보임"
+    },
+    {
+      "collected_data_id": "70571937-0fba-401f-8cf3-d7868ba3cbc1",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "아들 관련 법안 발의는 리더십 평가와 직접적 관련성이 낮으며, 오히려 아빠찬스 의혹과 연관"
+    },
+    {
+      "collected_data_id": "ac3cae82-39a9-4f8d-afc2-c41b7c50901d",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "자살예방 및 정신건강 토론회 개최로 사회적 이슈에 대한 관심과 의견 교류 장 마련"
+    },
+    {
+      "collected_data_id": "a20f7705-c85d-4cff-a505-06d09ae79aaf",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "김문수 의원에 대한 내용으로 김민석 국무총리와 별개 인물, 리더십 평가와 무관"
+    },
+    {
+      "collected_data_id": "4fa63319-e899-484b-b624-8336563fb89f",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "APEC 정상회의 성공을 위해 특별보좌관 임명 계획, 전문가 활용 및 조직 구성 능력"
+    },
+    {
+      "collected_data_id": "03379f60-e05f-40a9-bef5-b50b8ced11d7",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "국회 본회의 통과(찬성 173표)로 국무총리 자격 인정, 리더십 역량에 대한 공식적 승인"
+    },
+    {
+      "collected_data_id": "754341b5-3509-4a2b-8517-a55d5aaf203b",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "김대중상 시상식 축사로 공식 행사 참석 및 기본적인 국무총리 역할 수행"
+    },
+    {
+      "collected_data_id": "565e7243-e7b2-4a56-b7bf-3c11c5a25ef1",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "새로운 국정협의체 '3+α회의' 구성 및 주재로 조직 관리 능력과 정책 조율 리더십 발휘"
+    },
+    {
+      "collected_data_id": "7588f329-9699-4d36-aca9-bbced4129c45",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "APEC 정상회의 준비위원장으로 현장 최종 점검 진행, 국제 행사 준비에 대한 책임감과 리더십"
+    },
+    {
+      "collected_data_id": "e324149d-cb05-4267-ab95-bfb114f4e965",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "정부 시무식에서 2026년 비전 제시 및 방향 제시로 리더로서의 비전 설정 능력과 동기부여"
+    }
+  ]
+}

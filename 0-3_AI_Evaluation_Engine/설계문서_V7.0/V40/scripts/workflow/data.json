@@ -1,0 +1,74 @@
+{
+  "events": [
+    {
+      "date": "2024-02-08",
+      "title": "정원오, 서울시장 출마 공식화",
+      "content": "정원오 성동구청장이 2026년 서울시장 선거 출마를 공식화하며 \"세금 아깝지 않은 서울\"을 만들겠다고 공약.",
+      "url": "https://yonhapnewstv.co.kr/news/MYH20240208017500038",
+      "sentiment": "positive"
+    },
+    {
+      "date": "2024-02-08",
+      "title": "정원오, 서울시장 출마 선언",
+      "content": "정원오 성동구청장이 서울시장 출마를 선언하며 시민들의 삶의 요구에서 행정이 시작되어야 한다고 강조.",
+      "url": "https://joongang.co.kr/article/25226214",
+      "sentiment": "positive"
+    },
+    {
+      "date": "2024-02-08",
+      "title": "정원오, 서울시장 도전",
+      "content": "정원오 성동구청장이 \"멋지고 행복하고 편안한 서울시\"를 만들겠다며 서울시장 출마 의사를 밝힘.",
+      "url": "https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0002985970",
+      "sentiment": "positive"
+    },
+    {
+      "date": "2024-02-13",
+      "title": "정원오, 오세훈 비판",
+      "content": "정원오, 서울시 '쓰레기 대란' 문제에 대해 오세훈 서울시장을 비판하며 성동구의 쓰레기 감량 사례를 연구할 것을 촉구.",
+      "url": "https://v.daum.net/v/20240213144704034",
+      "sentiment": "negative"
+    },
+    {
+      "date": "2024-01-01",
+      "title": "성동구 ESG 행정 추진",
+      "content": "정원오 구청장은 ESG(환경, 사회, 지배구조) 행정을 통해 주민 만족을 이끌어내고 있으며, 투명한 지배구조를 바탕으로 행정을 추진.",
+      "url": "http://www.greened.kr/news/articleView.html?idxno=312962",
+      "sentiment": "positive"
+    },
+   {
+      "date": "2024-01-01",
+      "title": "이재명, 정원오 칭찬",
+      "content": "이재명 대통령은 정원오 구청장을 "일 잘한다"고 공개적으로 칭찬.",
+      "url": "https://www.mt.co.kr/news/articleView.html?no=2024020615244915047",
+      "sentiment": "positive"
+    },
+    {
+      "date": "2025-01-01",
+      "title": "성동구, 8년 연속 공약이행 최우수",
+      "content": "성동구청은 한국매니페스토실천본부 주관 '전국 기초단체장 공약이행 및 정보공개 평가'에서 8년 연속 최우수 등급(SA)을 달성.",
+      "url": "https://www.seongdongnews.com/news/articleView.html?idxno=22421",
+      "sentiment": "positive"
+    },
+   {
+      "date": "2024-01-01",
+      "title": "성동구, 7년 연속 공약이행 최우수",
+      "content": "성동구청은 한국매니페스토실천본부 주관 '전국 기초단체장 공약이행 및 정보공개 평가'에서 7년 연속 최우수 등급(SA)을 달성.",
+      "url": "https://www.wunionnews.com/news/articleView.html?idxno=141335",
+      "sentiment": "positive"
+    },
+   {
+      "date": "2022-01-01",
+      "title": "성동구, ESG 행정 추진",
+      "content": "정원오 구청장은 ESG(환경, 사회, 지배구조) 행정을 통해 주민 만족을 이끌어내고 있으며, 투명한 지배구조를 바탕으로 행정을 추진.",
+      "url": "http://www.greened.kr/news/articleView.html?idxno=312962",
+      "sentiment": "positive"
+    },
+   {
+      "date": "2021-03-01",
+      "title": "2021년 서울시 구청장 재산공개",
+      "content": "2021년 서울시 구청장 재산공개에서 정원오 성동구청장은 638평의 토지를 보유.",
+      "url": "https://www.sisanews.kr/news/articleView.html?idxno=44421",
+      "sentiment": "free"
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "batch_num": 5,
+  "politician_id": "f9e00370",
+  "politician_name": "김민석",
+  "category": "integrity",
+  "evaluator_ai": "Claude",
+  "evaluated_at": "2026-01-22T00:42:46.663793",
+  "evaluations": [
+    {
+      "collected_data_id": "392f8065-6c9d-4843-b41c-00c6ef9fffe4",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "청렴성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "d9a3df68-a441-4228-a69a-8fa02e17d959",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "청렴성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "19670eff-f5e7-444c-92db-e2182be7e0eb",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "청렴성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "114bfe7b-d879-49bc-98b7-660b773b9aed",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "청렴성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "cafe67b1-b1cd-4b72-b5ad-4c3f6ef64fe2",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "청렴성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "fefe1ccc-9f70-4cc3-8183-d1d64b98f246",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "청렴성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "48f32539-3c18-428f-a989-506a1a496761",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "청렴성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "dc1c3007-17de-45ff-8178-a778a50b94f3",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "청렴성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "10c7713c-3249-4c8e-93c8-7908e0cb3543",
+      "rating": "-3",
+      "score": -6,
+      "reasoning": "부정부패 또는 재산 관련 논란"
+    },
+    {
+      "collected_data_id": "fa320e26-2169-4397-a55c-5b4fa5f0065b",
+      "rating": "-3",
+      "score": -6,
+      "reasoning": "부정부패 또는 재산 관련 논란"
+    }
+  ]
+}

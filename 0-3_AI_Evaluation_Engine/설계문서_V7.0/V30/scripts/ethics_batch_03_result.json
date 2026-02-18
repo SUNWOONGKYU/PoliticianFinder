@@ -1,0 +1,70 @@
+{
+  "batch_num": 3,
+  "politician_id": "f9e00370",
+  "politician_name": "김민석",
+  "category": "ethics",
+  "evaluator_ai": "Claude",
+  "evaluated_at": "2026-01-22T00:42:46.673335",
+  "evaluations": [
+    {
+      "collected_data_id": "a0382683-dd55-4d0d-9dfd-ac5df8db9330",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "윤리적 행동"
+    },
+    {
+      "collected_data_id": "249c34ba-9550-4753-a84b-f220066b5f7b",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "윤리적 행동"
+    },
+    {
+      "collected_data_id": "440f0895-14e8-40cb-bd09-3612bada3bf7",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "윤리성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "12f2c91a-32b7-47e7-abab-69a7baabae98",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "윤리적 행동"
+    },
+    {
+      "collected_data_id": "eb3b9ad1-4fa1-4bf7-a241-24993047e49f",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "윤리적 행동"
+    },
+    {
+      "collected_data_id": "5f33e0f5-9632-47d7-8cc7-e2c61bbbd04b",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "윤리적 행동"
+    },
+    {
+      "collected_data_id": "8644e8a1-a855-4487-90fd-4bad4dbb6dd3",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "윤리적 행동"
+    },
+    {
+      "collected_data_id": "095da916-716d-49b3-ad39-cff28042a31a",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "윤리적 행동"
+    },
+    {
+      "collected_data_id": "6496720d-9536-4aea-b2f1-90e6cf1ab4d1",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "윤리성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "28515704-e7ca-4a02-b3f7-f99207a78535",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "윤리성 판단 정보 부족"
+    }
+  ]
+}

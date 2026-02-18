@@ -1,0 +1,70 @@
+{
+  "batch_num": 2,
+  "politician_id": "f9e00370",
+  "politician_name": "김민석",
+  "category": "expertise",
+  "evaluator_ai": "Claude",
+  "evaluated_at": "2026-01-21T21:00:00",
+  "evaluations": [
+    {
+      "collected_data_id": "adca3c06-373c-4b39-95d8-6ae25d6ec058",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "상임공동선대위원장으로서 기자간담회를 통해 선거 전략 소통, 기본적인 캠페인 관리 역할 수행"
+    },
+    {
+      "collected_data_id": "a9cedbac-19ee-4022-9d5a-02a7d733e0b6",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "아들이 고교 시절 작성한 법안을 국회에서 발의하는 등 입법 활동의 독립성과 전문성에 의문 제기"
+    },
+    {
+      "collected_data_id": "c29d0105-2644-492c-ae29-27a80fe7f5d5",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "개인 채무 및 아들의 비영리단체 활동에 의원실 개입 의혹으로 전문성에 부정적 영향"
+    },
+    {
+      "collected_data_id": "ad97f54c-ad52-4cc8-892f-a543ca79dda1",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "종교계 신사회협약 제안이 헌법상 정교분리 원칙 위반 비판을 받아 정책 전문성 부족"
+    },
+    {
+      "collected_data_id": "6b0ae70f-8fb3-4820-a151-a38d7b8a04cc",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "정부 공식 프로그램을 개인 유튜브 채널로 방송하려는 시도로 공직윤리 및 전문성 의식 부족"
+    },
+    {
+      "collected_data_id": "82842aa5-68f7-4a4b-bc03-3a9fbb8974bf",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "국정감사에서 국회 지적을 경청하고 즉시 수용하겠다는 책임감 있는 자세, 행정 전문성 양호"
+    },
+    {
+      "collected_data_id": "b6c4a7eb-6378-4100-a628-0fe1e4b9c4a6",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "국무총리 임명은 최고 행정 책임자로서의 전문성 인정"
+    },
+    {
+      "collected_data_id": "18984ec2-9230-4989-8497-7f5bd8ac52a3",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "중앙행정기관 및 공공기관 기관장에게 국정감사 준비를 지시하는 등 행정 감독 전문성 양호"
+    },
+    {
+      "collected_data_id": "08f1c68c-333d-426b-a1d3-c101196ac9af",
+      "rating": "+3",
+      "score": 6,
+      "reasoning": "정치인 영향력 조사 1위, 최연소 국회의원 경력, 86세대 첫 총리로 정치 경력과 영향력이 우수"
+    },
+    {
+      "collected_data_id": "00d21158-438a-423f-8e72-6f30ad6e0945",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "K-국정설명회를 통해 500여 명의 도민과 직접 소통하며 국정 성과 공유, 소통 능력 양호"
+    }
+  ]
+}

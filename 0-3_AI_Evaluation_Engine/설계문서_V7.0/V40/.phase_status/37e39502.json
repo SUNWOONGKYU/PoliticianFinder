@@ -1,0 +1,26 @@
+{
+  "politician_id": "37e39502",
+  "phases": {
+    "0": {
+      "status": "DONE",
+      "completed_at": "2026-02-17T19:34:22.362743",
+      "details": "DB 등록 완료"
+    },
+    "1": {
+      "status": "DONE",
+      "completed_at": "2026-02-17T19:34:22.372267",
+      "details": "719개 수집 (Gemini 263 + Naver 456)"
+    },
+    "2": {
+      "status": "DONE",
+      "completed_at": "2026-02-18T10:46:50.670909",
+      "details": "유효 564개, 무효 241개 삭제, sentiment 위반 20건"
+    },
+    "2-2": {
+      "status": "DONE",
+      "completed_at": "2026-02-18T23:21:42.463769",
+      "details": "최대 라운드 도달 (포기 규칙 적용)"
+    }
+  },
+  "politician_name": "오준환"
+}

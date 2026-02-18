@@ -1,0 +1,41 @@
+{
+  "politician_id": "62e7b453",
+  "phases": {
+    "0": {
+      "status": "DONE",
+      "completed_at": "2026-02-17T19:35:09.451456",
+      "details": "DB 등록 완료"
+    },
+    "1": {
+      "status": "DONE",
+      "completed_at": "2026-02-17T19:35:09.462866",
+      "details": "수집 완료"
+    },
+    "2": {
+      "status": "DONE",
+      "completed_at": "2026-02-17T19:35:09.471917",
+      "details": "검증 완료"
+    },
+    "2-2": {
+      "status": "DONE",
+      "completed_at": "2026-02-17T19:35:09.482012",
+      "details": "조정 완료"
+    },
+    "3": {
+      "status": "DONE",
+      "completed_at": "2026-02-17T19:35:09.490645",
+      "details": "4개 AI 평가 완료"
+    },
+    "4": {
+      "status": "DONE",
+      "completed_at": "2026-02-18T09:46:35.821997",
+      "details": "732점 P등급"
+    },
+    "5": {
+      "status": "DONE",
+      "completed_at": "2026-02-17T19:35:09.509087",
+      "details": "보고서 생성 완료"
+    }
+  },
+  "politician_name": "오세훈"
+}

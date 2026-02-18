@@ -57,6 +57,7 @@ from supabase import create_client, Client
 
 # 공통 저장 함수 import (성능 개선)
 from common_eval_saver import save_evaluations_batch_upsert, load_instruction, build_evaluation_prompt
+from phase_tracker import require_phase_gate
 
 # 로깅 설정
 logging.basicConfig(
@@ -340,8 +341,9 @@ def evaluate_category(
         # 통일된 평가 프롬프트 생성 (instruction 기반)
         prompt = build_evaluation_prompt(politician_name, category, data_json, instruction_content)
 
-        # Gemini CLI 실행
-        result = execute_gemini_cli(prompt, timeout=600)
+        # Gemini API 직접 실행 (CLI는 긴 프롬프트에서 hang 발생)
+        from collect_gemini_subprocess import execute_gemini_api
+        result = execute_gemini_api(prompt, timeout=120, max_retries=3)
 
         if not result['success']:
             logger.error(f"[ERROR] Batch {batch_num} failed: {result['error']}")
@@ -402,6 +404,12 @@ def main():
 
     # ⚠️ V40: Gemini CLI 인증은 Google 계정으로 자동 처리됨
     # require_gemini_auth()
+
+    # Phase Gate Check: Phase 2-2 완료 확인
+    # politician_id 조회
+    _result = supabase.table('politicians').select('id').eq('name', args.politician).execute()
+    if _result.data:
+        require_phase_gate(_result.data[0]['id'], '3')
 
     # 평가 실행
     result = evaluate_category(args.politician, args.category)

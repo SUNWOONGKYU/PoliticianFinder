@@ -1,0 +1,75 @@
+V30 김민석 7개 카테고리 평가 - 생성된 파일 목록
+========================================================
+
+생성 일시: 2026-01-22 00:42 KST
+평가자: Claude Code
+정치인: 김민석 (f9e00370)
+
+========================================================
+[통합 결과 파일] - 7개
+========================================================
+eval_integrity_result.json         (75개 평가, 청렴성)
+eval_ethics_result.json            (75개 평가, 윤리성)
+eval_accountability_result.json    (75개 평가, 책임성)
+eval_transparency_result.json      (75개 평가, 투명성)
+eval_communication_result.json     (75개 평가, 소통능력)
+eval_responsiveness_result.json    (75개 평가, 대응성)
+eval_publicinterest_result.json    (75개 평가, 공익추구)
+
+========================================================
+[배치 결과 파일] - 56개 (7 × 8)
+========================================================
+
+[청렴성 (integrity)]
+integrity_batch_01_result.json ~ integrity_batch_08_result.json
+
+[윤리성 (ethics)]
+ethics_batch_01_result.json ~ ethics_batch_08_result.json
+
+[책임성 (accountability)]
+accountability_batch_01_result.json ~ accountability_batch_08_result.json
+
+[투명성 (transparency)]
+transparency_batch_01_result.json ~ transparency_batch_08_result.json
+
+[소통능력 (communication)]
+communication_batch_01_result.json ~ communication_batch_08_result.json
+
+[대응성 (responsiveness)]
+responsiveness_batch_01_result.json ~ responsiveness_batch_08_result.json
+
+[공익추구 (publicinterest)]
+publicinterest_batch_01_result.json ~ publicinterest_batch_08_result.json
+
+========================================================
+[평가 스크립트] - 3개
+========================================================
+manual_evaluate_remaining.py       (평가 실행 스크립트)
+evaluation_summary_7categories.py  (요약 생성 스크립트)
+verify_v30_format.py               (형식 검증 스크립트)
+
+========================================================
+[보고서 및 문서] - 3개
+========================================================
+V30_7카테고리_평가완료_보고서.md  (상세 분석 보고서)
+COMPLETION_REPORT.md              (완료 종합 보고서)
+FILES_GENERATED.txt               (파일 목록, 이 문서)
+
+========================================================
+총계
+========================================================
+JSON 파일: 63개 (통합 7개 + 배치 56개)
+스크립트: 3개
+보고서: 3개
+평가 항목: 525개
+V30 형식 준수율: 100%
+
+========================================================
+다음 단계
+========================================================
+1. DB 저장: evaluations_v30 테이블에 import
+2. 점수 계산: calculate_v30_scores.py 실행
+3. 다른 AI 평가: ChatGPT, Gemini, Grok
+4. 비교 분석: 4개 AI 평가 결과 비교
+
+========================================================

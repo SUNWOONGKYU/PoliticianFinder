@@ -1,0 +1,94 @@
+{
+  "politician_name": "박주민",
+  "collected_at": "2026-02-10T16:26:07.493262",
+  "summary": {
+    "success": false,
+    "total_events": 0,
+    "total_duration_seconds": 54.930495,
+    "errors_count": 10
+  },
+  "results_by_category": {
+    "ethics": {
+      "category": "ethics",
+      "success": false,
+      "events_collected": 0,
+      "error": "Loaded cached credentials.\nHook registry initialized with 0 hook entries\nNo input provided via stdin. Input can be provided by piping data into gemini or using the --prompt option.\n",
+      "duration_seconds": 48.866735
+    },
+    "accountability": {
+      "category": "accountability",
+      "success": false,
+      "events_collected": 0,
+      "error": "Loaded cached credentials.\nHook registry initialized with 0 hook entries\nNo input provided via stdin. Input can be provided by piping data into gemini or using the --prompt option.\n",
+      "duration_seconds": 49.035486
+    },
+    "responsiveness": {
+      "category": "responsiveness",
+      "success": false,
+      "events_collected": 0,
+      "error": "Loaded cached credentials.\nHook registry initialized with 0 hook entries\nNo input provided via stdin. Input can be provided by piping data into gemini or using the --prompt option.\n",
+      "duration_seconds": 48.998202
+    },
+    "expertise": {
+      "category": "expertise",
+      "success": false,
+      "events_collected": 0,
+      "error": "Loaded cached credentials.\nHook registry initialized with 0 hook entries\nNo input provided via stdin. Input can be provided by piping data into gemini or using the --prompt option.\n",
+      "duration_seconds": 49.243658
+    },
+    "transparency": {
+      "category": "transparency",
+      "success": false,
+      "events_collected": 0,
+      "error": "Loaded cached credentials.\nHook registry initialized with 0 hook entries\nNo input provided via stdin. Input can be provided by piping data into gemini or using the --prompt option.\n",
+      "duration_seconds": 49.061452
+    },
+    "communication": {
+      "category": "communication",
+      "success": false,
+      "events_collected": 0,
+      "error": "Loaded cached credentials.\nHook registry initialized with 0 hook entries\nNo input provided via stdin. Input can be provided by piping data into gemini or using the --prompt option.\n",
+      "duration_seconds": 49.040473
+    },
+    "publicinterest": {
+      "category": "publicinterest",
+      "success": false,
+      "events_collected": 0,
+      "error": "Loaded cached credentials.\nHook registry initialized with 0 hook entries\nNo input provided via stdin. Input can be provided by piping data into gemini or using the --prompt option.\n",
+      "duration_seconds": 48.863456
+    },
+    "integrity": {
+      "category": "integrity",
+      "success": false,
+      "events_collected": 0,
+      "error": "Loaded cached credentials.\nHook registry initialized with 0 hook entries\nNo input provided via stdin. Input can be provided by piping data into gemini or using the --prompt option.\n",
+      "duration_seconds": 49.105945
+    },
+    "leadership": {
+      "category": "leadership",
+      "success": false,
+      "events_collected": 0,
+      "error": "Loaded cached credentials.\nHook registry initialized with 0 hook entries\nNo input provided via stdin. Input can be provided by piping data into gemini or using the --prompt option.\n",
+      "duration_seconds": 49.216422
+    },
+    "vision": {
+      "category": "vision",
+      "success": false,
+      "events_collected": 0,
+      "error": "Loaded cached credentials.\nHook registry initialized with 0 hook entries\nNo input provided via stdin. Input can be provided by piping data into gemini or using the --prompt option.\n",
+      "duration_seconds": 49.144196
+    }
+  },
+  "errors": [
+    "ethics: Loaded cached credentials.\nHook registry initialized with 0 hook entries\nNo input provided via stdin. Input can be provided by piping data into gemini or using the --prompt option.\n",
+    "accountability: Loaded cached credentials.\nHook registry initialized with 0 hook entries\nNo input provided via stdin. Input can be provided by piping data into gemini or using the --prompt option.\n",
+    "responsiveness: Loaded cached credentials.\nHook registry initialized with 0 hook entries\nNo input provided via stdin. Input can be provided by piping data into gemini or using the --prompt option.\n",
+    "expertise: Loaded cached credentials.\nHook registry initialized with 0 hook entries\nNo input provided via stdin. Input can be provided by piping data into gemini or using the --prompt option.\n",
+    "transparency: Loaded cached credentials.\nHook registry initialized with 0 hook entries\nNo input provided via stdin. Input can be provided by piping data into gemini or using the --prompt option.\n",
+    "communication: Loaded cached credentials.\nHook registry initialized with 0 hook entries\nNo input provided via stdin. Input can be provided by piping data into gemini or using the --prompt option.\n",
+    "publicinterest: Loaded cached credentials.\nHook registry initialized with 0 hook entries\nNo input provided via stdin. Input can be provided by piping data into gemini or using the --prompt option.\n",
+    "integrity: Loaded cached credentials.\nHook registry initialized with 0 hook entries\nNo input provided via stdin. Input can be provided by piping data into gemini or using the --prompt option.\n",
+    "leadership: Loaded cached credentials.\nHook registry initialized with 0 hook entries\nNo input provided via stdin. Input can be provided by piping data into gemini or using the --prompt option.\n",
+    "vision: Loaded cached credentials.\nHook registry initialized with 0 hook entries\nNo input provided via stdin. Input can be provided by piping data into gemini or using the --prompt option.\n"
+  ]
+}

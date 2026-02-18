@@ -38,6 +38,7 @@ sys.path.insert(0, str(SCRIPT_DIR))
 
 # 공통 저장 함수 import
 from common_eval_saver import save_evaluations_batch_upsert, load_instruction, build_evaluation_prompt
+from phase_tracker import require_phase_gate
 
 # UTF-8 출력 설정
 if sys.platform == 'win32':
@@ -241,6 +242,9 @@ def main():
     print(f'Codex CLI 배치 평가: {args.politician_name} - {args.category}')
     print('=' * 80)
     print()
+
+    # Phase Gate Check: Phase 2-2 완료 확인
+    require_phase_gate(args.politician_id, '3')
 
     # 미평가 데이터 조회
     unevaluated = get_unevaluated_data(args.politician_id, args.category)

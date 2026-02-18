@@ -1,0 +1,460 @@
+{
+  "politician_id": "f9e00370",
+  "politician_name": "김민석",
+  "category": "vision",
+  "evaluator_ai": "Claude",
+  "evaluated_at": "2026-01-21T22:52:56.616304",
+  "total_evaluations": 75,
+  "evaluations": [
+    {
+      "collected_data_id": "f16db204-a291-4b1b-a4c4-b476b04c5b5a",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "비전 관점에서 부정적. '5년 짧다' 발언은 장기 계획이 아닌 권력 연장 시사로, 민주적 권력 교체라는 미래 방향성에 반하는 내용. 구체적 국가 발전 비전이 아닌 개인 집권 지속 암시."
+    },
+    {
+      "collected_data_id": "c6a7c7a3-99f8-4595-9937-c174f63a3490",
+      "rating": "-3",
+      "score": -6,
+      "reasoning": "비전 관점에서 부정적. 종교계 신사회협약은 정교분리 원칙을 훼손하는 방향으로, 현대 민주국가의 발전 방향과 배치. 특정 종교에 국가 예산 투입은 장기적 국가 비전에 역행."
+    },
+    {
+      "collected_data_id": "b22d5ea1-27ff-4e70-b5af-424115f38699",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. 과거 법 위반 사건에 대한 해명이며, 미래 국가 발전 방향이나 정책 비전과 직접적 연관 없음."
+    },
+    {
+      "collected_data_id": "9a7a4bb4-58df-46f4-80b2-35fb4a5c7a51",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. 재산 증식 의혹은 개인 윤리 문제이며, 국가 미래 청사진이나 정책 방향성과 직접 연관 없음."
+    },
+    {
+      "collected_data_id": "99b51f27-cf9b-47f7-8673-6cd654ce5718",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. 아빠 찬스 논란은 개인 윤리 문제이며, 국가/지역 발전 비전이나 정책 방향성과 무관."
+    },
+    {
+      "collected_data_id": "9ac1404f-cc9d-43aa-bd01-d0fcc346baf5",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. 개인 채무 및 아빠 찬스 의혹은 개인 행동 문제이며, 미래 지향적 정책 비전과 연관 없음."
+    },
+    {
+      "collected_data_id": "12764150-6c82-4848-96d9-07c6f6635375",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. 청문회 쟁점들(재산 의혹, 논문 표절)은 개인 자격 문제이며, 정책 비전이나 국가 발전 방향과 직접 연관 없음."
+    },
+    {
+      "collected_data_id": "df1ea758-8963-4bdf-b580-1fd9ea3e54e5",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. 재산 형성 해명 미흡 비판은 개인 투명성 문제이며, 미래 국가 발전 청사진과 직접 연관 없음."
+    },
+    {
+      "collected_data_id": "aaa50bce-c0d4-4e7e-80fc-41155504e739",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. 종교단체 경선 동원 의혹은 선거 과정 문제이며, 국가 미래 비전이나 정책 방향성과 무관."
+    },
+    {
+      "collected_data_id": "8f1247f2-5706-475f-afce-38906944c959",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "비전 관점에서 부정적. 국가채무비율, 예산 규모 등 기본 국정 지표에 대한 무지는 경제 정책 비전 수립 능력 부재를 시사. 미래 계획 수립에 필수적인 기본 현황 파악 실패."
+    },
+    {
+      "collected_data_id": "bc402459-9e18-4715-9464-df8ac4720f94",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "비전 관점에서 약간 긍정적. 총리 지명 시 '위기 극복', '민생경제 회복', '통합의 시대'라는 방향성 제시. 구체성은 부족하나 기본적인 국정 방향 언급."
+    },
+    {
+      "collected_data_id": "f0c9ba69-b1c4-46c2-a4d9-ecb9e3ff5603",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "비전 관점에서 약간 긍정적. APEC 정상회의 성공적 개최는 국제 협력 비전 실현의 일환. 다만 구체적 미래 청사진 제시보다는 행사 진행 성과."
+    },
+    {
+      "collected_data_id": "8a7162e6-f7b0-4552-8dd0-bf51c573743f",
+      "rating": "+3",
+      "score": 6,
+      "reasoning": "비전 관점에서 긍정적. '에너지 대전환을 통한 탄소중립과 경제성장 동시 달성'은 명확한 미래 비전. 재생에너지, RE100 산업단지 등 구체적 방향성 제시."
+    },
+    {
+      "collected_data_id": "2f6be903-3d25-41f2-8215-0c1292b1eae7",
+      "rating": "+3",
+      "score": 6,
+      "reasoning": "비전 관점에서 긍정적. 지방자치권 대폭 확대, 초광역 전략산업 육성, 지방 소멸 위기 대응 등 지역 발전 비전을 구체적으로 제시. 장기적 국가 균형 발전 청사진."
+    },
+    {
+      "collected_data_id": "3a410b9e-a35c-47f2-904f-ac4411a8f749",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. 4선 의원 당선은 개인 정치 경력이며, 미래 정책 비전이나 국가 발전 방향 제시와 직접 연관 없음."
+    },
+    {
+      "collected_data_id": "79361521-f557-4a43-9dc2-5d06dc18f641",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. '새벽 총리' 별명은 개인 근무 태도이며, 국가 미래 청사진이나 정책 방향성과 직접 연관 없음."
+    },
+    {
+      "collected_data_id": "eb78d471-c1b1-42b0-aeab-54a007fca40c",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. 국정감사 대응 태도는 정부 운영 자세이며, 미래 지향적 비전 제시보다는 현재 문제 개선 의지 표명."
+    },
+    {
+      "collected_data_id": "9ca78c61-6466-4a6c-b2d9-4e7f7a478d72",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. 임명동의안 통과는 절차적 사안이며, 정책 비전이나 미래 방향성 제시와 직접 연관 없음."
+    },
+    {
+      "collected_data_id": "f33f665b-1a33-4a03-bed1-8b62dc69d176",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "비전 관점에서 긍정적. 'R&D 예산 역대 최대 35조 5000억원', 'AI 3대 강국' 목표는 과학기술 분야 명확한 미래 비전. 구체적 투자 규모와 목표 제시."
+    },
+    {
+      "collected_data_id": "e6788af0-3d2b-4796-80fc-a22ccf45ca8b",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "비전 관점에서 긍정적. 강원도의 바이오헬스, 반도체, 미래모빌리티 육성 비전 제시. 지역별 특화 미래산업 청사진."
+    },
+    {
+      "collected_data_id": "25874aee-23c8-45d2-aa8a-e88f10dfce68",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. 최고위원 발언이라는 형식적 내용만 있고, 구체적 정책 비전이나 미래 방향성 내용 없음."
+    },
+    {
+      "collected_data_id": "6c56253e-48b7-4d11-8e2b-fec9b262be79",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. '서울의 달' 사업 재검토 요구는 안전성 검증 문제이며, 미래 도시 발전 비전 제시보다는 현재 사업 문제점 지적."
+    },
+    {
+      "collected_data_id": "dcb66c1a-ec3b-47cd-9a6d-f3b077d01e5b",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "비전 관점에서 약간 긍정적. 'IMF 위기보다 심각한 국가적 위기' 인식은 문제 진단이나, 구체적 극복 방향이나 장기 비전 제시는 미흡."
+    },
+    {
+      "collected_data_id": "460840f4-6f97-4edf-bdda-384dae4e4178",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. 의정 갈등 해법 모색은 현안 해결 시도이며, 의료 분야 미래 비전 제시보다는 당면 문제 대응."
+    },
+    {
+      "collected_data_id": "372f10c3-6ef3-498e-b6d1-8474abffd63e",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "비전 관점에서 긍정적. '3+α 회의' 구성으로 2035년 온실가스 감축목표 수립은 장기 환경 정책 비전. 구체적 목표 시점 제시."
+    },
+    {
+      "collected_data_id": "e40f05ca-48c8-442d-af50-bef7c4ca2a37",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. 국정감사 질의는 현재 정부 기관 점검이며, 미래 비전이나 정책 방향 제시와 직접 연관 없음."
+    },
+    {
+      "collected_data_id": "bc58cf59-7b66-4ef7-82a6-57ed2f5aadec",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. 의정보고회 개최는 형식적 활동이며, 구체적 미래 비전 내용 없음."
+    },
+    {
+      "collected_data_id": "b43d3e92-4e05-4ea7-8486-f2fc8c859d87",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. '서울의 달' 재검토 요구 반복이며, 비전 제시보다는 현재 사업 문제점 지적."
+    },
+    {
+      "collected_data_id": "417b4473-059f-4c6b-9075-4cb66a2baedd",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. 내란사태 대응 기자회견은 정치적 위기 대응이며, 장기 국가 발전 비전과 무관."
+    },
+    {
+      "collected_data_id": "81099d61-0d17-4ea6-b22a-157d9f2075d6",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. 총리 후보 지명 및 청문회 의혹은 인사 검증 과정이며, 정책 비전이나 미래 방향성 제시와 직접 연관 없음."
+    },
+    {
+      "collected_data_id": "da2e9004-3034-4dee-9978-029019098889",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. 계엄 관련 법안 발의는 민주적 통제 강화이나, 국가 미래 발전 비전보다는 제도 개선 차원."
+    },
+    {
+      "collected_data_id": "d0e42743-ada7-4418-87cd-1f737a86ec84",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "비전 관점에서 긍정적. 'RE100 국가실현을 위한 10대 약속'은 기후위기 대응 장기 비전. 재생에너지 전환이라는 명확한 미래 방향성 제시."
+    },
+    {
+      "collected_data_id": "bbe833b6-62c5-4af3-8d5d-5c4883b8ce8a",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. 의정보고회는 형식적 활동이며, 구체적 미래 비전 내용 없음."
+    },
+    {
+      "collected_data_id": "d9881f08-6bb3-4c32-adf5-a15f21b3f971",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. 국정감사 대응 태도는 정부 운영 자세이며, 미래 정책 비전 제시와 직접 연관 없음."
+    },
+    {
+      "collected_data_id": "c0f1ae2c-8c83-45a5-89d4-74e33e9a3853",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. 경기도 지지 발언은 정치적 수사이며, 구체적 경기도 발전 비전이나 청사진 제시 없음."
+    },
+    {
+      "collected_data_id": "b44c708d-27ca-4355-a5a7-a9bdf7c553d1",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "비전 관점에서 긍정적. AI 데이터센터 규제 개선, GPU 26만장 확보 계획('30년까지)은 AI 산업 발전 비전. 구체적 목표와 일정 제시."
+    },
+    {
+      "collected_data_id": "e9673f8a-4e1d-46c0-9404-49aecda18a88",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "비전 관점에서 긍정적. 'AI 대전환', '초신 경제', '민관 역량 결집'을 통한 국가 명운 결정은 경제 전환 비전. 방향성은 있으나 구체성은 다소 부족."
+    },
+    {
+      "collected_data_id": "c1415f86-1eaa-43d2-9ddc-39e154bcfbd8",
+      "rating": "+3",
+      "score": 6,
+      "reasoning": "비전 관점에서 긍정적. 'AI 3대 강국 비전'을 명확히 제시하고, 연구자 도전 생태계, 기술 혁신, 방송 공적 가치 강화 등 구체적 방향성 제시."
+    },
+    {
+      "collected_data_id": "f236faec-ac8d-4b0b-8f25-aefdee5bd43f",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "비전 관점에서 긍정적. 강원특별자치도 균형발전, 반도체·수소·바이오·관광 미래산업 육성은 지역 발전 비전. 구체적 산업 분야 제시."
+    },
+    {
+      "collected_data_id": "d0c65eb7-9618-4854-8ee1-1aa9ef747704",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "비전 관점에서 약간 긍정적. AI 산업 융합 경청 간담회는 미래 산업 방향 모색이나, 구체적 비전 제시보다는 의견 수렴 단계."
+    },
+    {
+      "collected_data_id": "c9e92b53-5c37-4438-beaa-f3ea85c93738",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. 아들 법안 공동발의는 개인 윤리 문제이며, 정책 비전이나 국가 발전 방향과 무관."
+    },
+    {
+      "collected_data_id": "94245425-0eb2-4548-a426-2ba8774adee0",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "비전 관점에서 긍정적. 총선 10대 공약(민생 안정, 저출생 해결, 기후위기, 혁신성장, 균형발전 등)은 포괄적 국가 발전 비전. 다만 10개 분야 나열로 구체성은 다소 부족."
+    },
+    {
+      "collected_data_id": "b78b0e4d-8a26-4a82-99d0-f86dc6876fbb",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. '서울의 달' 재검토 요구는 안전성 문제 제기이며, 미래 비전 제시와 직접 연관 없음."
+    },
+    {
+      "collected_data_id": "546abcc1-52fd-4377-bfb6-f83457dca215",
+      "rating": "+3",
+      "score": 6,
+      "reasoning": "비전 관점에서 긍정적. 제2차 청년정책 기본계획('26~'30)으로 5년간 청년 정책 참여 확대(정부 위원회 청년 비율 20%)는 명확한 장기 비전과 구체적 목표 제시."
+    },
+    {
+      "collected_data_id": "81b28d88-bf82-4259-a7b7-b457e2ac5438",
+      "rating": "+3",
+      "score": 6,
+      "reasoning": "비전 관점에서 긍정적. 청년정책 전면 개편('26~'30), 청년미래적금, AI 기반 일자리 지원 등 구체적 미래 지향적 정책 비전 제시. 청년을 정책 주체로 만드는 패러다임 전환."
+    },
+    {
+      "collected_data_id": "c1a06819-2422-4e37-bf9c-88f684b3d498",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "비전 관점에서 긍정적. '향후 5년간 청년정책 전면 재정비', 청년 정책 참여 통로 확대는 중기 비전. 방향성은 명확하나 구체적 실행 방안은 다소 부족."
+    },
+    {
+      "collected_data_id": "2272a00a-0853-4144-bc60-975ef2df21a4",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "비전 관점에서 약간 긍정적. 'AI 시대 하루 늦으면 한 세대 뒤처진다'는 AI 기술 주도권 확보 의지는 미래 인식이나, 구체적 비전이나 계획은 미흡."
+    },
+    {
+      "collected_data_id": "af2bd663-c18f-4243-83a4-f9ce446c7f75",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. 주 4.5일 근무제에 대해 '추가 논의 필요'는 유보적 입장이며, 명확한 비전 제시 없음."
+    },
+    {
+      "collected_data_id": "1fd45e50-7ae2-42e9-96af-a12508ccae59",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. 총리 후보자 의혹 논란은 개인 검증 문제이며, 정책 비전이나 국가 발전 방향과 무관."
+    },
+    {
+      "collected_data_id": "ccf98f18-b70a-4a59-bbc5-a6433551feb5",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. 출판회 및 재산 증식 논란은 개인 윤리 문제이며, 미래 비전과 직접 연관 없음."
+    },
+    {
+      "collected_data_id": "be185257-93fb-4f83-a4fa-4d66b125c002",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. 재산 증식 의혹 해소 미흡은 개인 투명성 문제이며, 국가 미래 비전과 직접 연관 없음."
+    },
+    {
+      "collected_data_id": "cdd0ba25-1170-46c9-b4dc-b073f24d224b",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. 정치자금법 위반 '표적 사정' 주장은 개인 법 위반 변론이며, 정책 비전과 무관."
+    },
+    {
+      "collected_data_id": "fc3ba546-38aa-4d42-b261-c6d4e137de75",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. 위키백과 인물 정보는 경력 나열이며, 구체적 정책 비전이나 미래 방향성 제시 없음."
+    },
+    {
+      "collected_data_id": "dd7c3c1a-9fb9-412c-8d79-9a2387b59768",
+      "rating": "+3",
+      "score": 6,
+      "reasoning": "비전 관점에서 긍정적. 2026년 시무식에서 'AI, 바이오, 콘텐츠, 컬처, 디펜스, 에너지 등 미래 전략 산업 집중 육성'은 명확한 신산업 발전 비전. 구체적 분야 제시."
+    },
+    {
+      "collected_data_id": "a72bf935-353c-423e-bea1-13f0bbc729f9",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "비전 관점에서 약간 긍정적. '국민 주권 정부' 비전 강조하나, 구체적 실현 방안이나 정책 청사진은 미흡. 정치 철학 수준."
+    },
+    {
+      "collected_data_id": "1d722df2-428d-4752-a75f-ff3fa496b319",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "비전 관점에서 약간 긍정적. '관세 인하', '대미 투자 상업적 합리성' 성과 언급이나, 미래 비전보다는 과거 성과 위주."
+    },
+    {
+      "collected_data_id": "a61a6daf-feaf-48c0-a3cb-be03541f5b72",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "비전 관점에서 약간 긍정적. 청년 고립·AI 시대 관계성 상실 문제 인식, 공실 해결 방안 모색은 미래 사회 문제 인식이나, 구체적 비전은 미흡."
+    },
+    {
+      "collected_data_id": "26085ed4-3349-49ff-adfc-f1e13f295360",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. 신년특강 생중계 영상이며, 구체적 정책 내용 없음."
+    },
+    {
+      "collected_data_id": "13c4b2d3-e0eb-4faf-9d4f-7557416df486",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "비전 관점에서 약간 긍정적. '안전과 건강을 최우선 정책 과제'로 강조, 가습기살균제 재발 방지는 안전 사회 비전이나, 구체적 장기 계획은 미흡."
+    },
+    {
+      "collected_data_id": "b24a470a-d5d1-48c2-94e3-c87429ccbfc2",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "비전 관점에서 긍정적. '2026년 경제대도약 원년', '초혁신경제 구현'은 경제 전환 비전. 명확한 목표 연도와 방향성 제시."
+    },
+    {
+      "collected_data_id": "6a5182b0-2f1d-488d-9bbd-609a71521527",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "비전 관점에서 긍정적. '2026년 R&D 예산 역대 최대 편성', 'AI 예산', '기후 위기 대응 투자 확대'는 과학기술·환경 분야 미래 투자 비전. 구체적 예산 제시."
+    },
+    {
+      "collected_data_id": "47839724-774b-4b71-b940-7e107c6ebe7c",
+      "rating": "+3",
+      "score": 6,
+      "reasoning": "비전 관점에서 긍정적. 'ABCDE(AI, 바이오, 문화콘텐츠, 방위산업, 에너지) 주축 성장', '문화국가 비전 가시화'는 명확한 신성장 전략 비전. 5대 분야 구체적 제시."
+    },
+    {
+      "collected_data_id": "03cf8823-befb-473d-b90c-b9bf07d15fac",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "비전 관점에서 약간 긍정적. 'K-방역 성공', '공공의료 체계 정립', '21세기형 복지 시스템 설계' 언급이나, 2020년 과거 발언으로 구체적 미래 비전 제시는 미흡."
+    },
+    {
+      "collected_data_id": "6f2a6dc3-13a8-48f7-ab71-237e18537b22",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. 재산 관련 해명 미흡 및 기본 국정 지표 무지는 개인 자질 문제이며, 정책 비전과 직접 연관 없음."
+    },
+    {
+      "collected_data_id": "10e6228a-4c3b-4c57-a11d-0387bd076715",
+      "rating": "+3",
+      "score": 6,
+      "reasoning": "비전 관점에서 긍정적. '이재명 정부 임기 중 문화예술 예산 두 배 확대', 'ABCDE 전략에서 문화 강조'는 명확한 문화국가 비전. 구체적 예산 목표 제시."
+    },
+    {
+      "collected_data_id": "82e06412-591a-44a6-bc22-003d372c1985",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "비전 관점에서 긍정적. 경기도 '반도체 메가 클러스터', '바이오헬스 R&D 특화지구', '청년 일자리 창출' 등 지역 발전 비전 제시. 구체적 산업 클러스터 계획."
+    },
+    {
+      "collected_data_id": "2ba43845-906b-4cf3-9d65-c1ee5f3f841d",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "비전 관점에서 긍정적. '비수도권 중심 균형 발전'을 강조하며 전국 균형 발전 비전 제시. 방향성은 명확하나 구체적 실행 계획은 다소 부족."
+    },
+    {
+      "collected_data_id": "ed2d652f-6072-4fdf-a68f-f369b4f17c60",
+      "rating": "+3",
+      "score": 6,
+      "reasoning": "비전 관점에서 긍정적. '광역 지방정부 행정 통합 시 4년간 최대 20조 원 지원'은 지방 통합 촉진 비전. 구체적 금액과 기간 제시로 실행 가능성 높음."
+    },
+    {
+      "collected_data_id": "6ab81e5a-4603-430c-bca3-7c292a6c7ab6",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. 내란사태 종결 기자회견은 정치적 위기 대응이며, 국가 미래 발전 비전과 무관."
+    },
+    {
+      "collected_data_id": "54a94414-06b8-40ca-8df0-d3cf6dbf9a37",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. 국기원 사범 표창 수상은 개별 표창 사안이며, 정책 비전과 직접 연관 없음."
+    },
+    {
+      "collected_data_id": "5bfb683a-ac85-4cfe-b15f-11ca20db34cc",
+      "rating": "+3",
+      "score": 6,
+      "reasoning": "비전 관점에서 긍정적. '2026년 대한민국 대도약의 원년' 선언, 경제 회복·실용 외교·국제사회 위상 강화 등 포괄적 국가 발전 비전 제시. 명확한 목표 연도와 방향성."
+    },
+    {
+      "collected_data_id": "faa21ae7-edce-4bcd-93aa-73fbc2fb62d1",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "비전 관점에서 약간 긍정적. 광주·전남 행정통합 논의는 지역 발전 비전이나, '방향 정리 중' 단계로 구체적 청사진은 미제시."
+    },
+    {
+      "collected_data_id": "d9b3c28d-1847-4748-b403-3718a148e57b",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. 나무위키 비판·논란 정리는 개인 의혹 나열이며, 정책 비전이나 미래 방향성과 무관."
+    },
+    {
+      "collected_data_id": "df446c58-5775-4d64-9cb1-97c656a48610",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "비전 관점에서 약간 긍정적. 총리 인준안 통과 시 '경제 회복 우선 과제' 언급이나, 구체적 경제 비전이나 계획은 미제시. 방향성 수준."
+    },
+    {
+      "collected_data_id": "0e1694c4-5ad6-40c5-abaf-f2536fad9289",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "비전 관점에서 약간 긍정적. '국정 전반 조율', '개혁과제 추진' 역할 언급이나, 구체적 개혁 비전이나 청사진은 미제시. 총리 역할 일반론."
+    }
+  ]
+}

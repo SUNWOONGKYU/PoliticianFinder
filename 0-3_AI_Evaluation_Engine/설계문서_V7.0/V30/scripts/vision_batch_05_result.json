@@ -1,0 +1,70 @@
+{
+  "batch_num": 5,
+  "politician_id": "f9e00370",
+  "politician_name": "김민석",
+  "category": "vision",
+  "evaluator_ai": "Claude",
+  "evaluated_at": "2026-01-21T22:30:00",
+  "evaluations": [
+    {
+      "collected_data_id": "c9e92b53-5c37-4438-beaa-f3ea85c93738",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. 아들 법안 공동발의는 개인 윤리 문제이며, 정책 비전이나 국가 발전 방향과 무관."
+    },
+    {
+      "collected_data_id": "94245425-0eb2-4548-a426-2ba8774adee0",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "비전 관점에서 긍정적. 총선 10대 공약(민생 안정, 저출생 해결, 기후위기, 혁신성장, 균형발전 등)은 포괄적 국가 발전 비전. 다만 10개 분야 나열로 구체성은 다소 부족."
+    },
+    {
+      "collected_data_id": "b78b0e4d-8a26-4a82-99d0-f86dc6876fbb",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. '서울의 달' 재검토 요구는 안전성 문제 제기이며, 미래 비전 제시와 직접 연관 없음."
+    },
+    {
+      "collected_data_id": "546abcc1-52fd-4377-bfb6-f83457dca215",
+      "rating": "+3",
+      "score": 6,
+      "reasoning": "비전 관점에서 긍정적. 제2차 청년정책 기본계획('26~'30)으로 5년간 청년 정책 참여 확대(정부 위원회 청년 비율 20%)는 명확한 장기 비전과 구체적 목표 제시."
+    },
+    {
+      "collected_data_id": "81b28d88-bf82-4259-a7b7-b457e2ac5438",
+      "rating": "+3",
+      "score": 6,
+      "reasoning": "비전 관점에서 긍정적. 청년정책 전면 개편('26~'30), 청년미래적금, AI 기반 일자리 지원 등 구체적 미래 지향적 정책 비전 제시. 청년을 정책 주체로 만드는 패러다임 전환."
+    },
+    {
+      "collected_data_id": "c1a06819-2422-4e37-bf9c-88f684b3d498",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "비전 관점에서 긍정적. '향후 5년간 청년정책 전면 재정비', 청년 정책 참여 통로 확대는 중기 비전. 방향성은 명확하나 구체적 실행 방안은 다소 부족."
+    },
+    {
+      "collected_data_id": "2272a00a-0853-4144-bc60-975ef2df21a4",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "비전 관점에서 약간 긍정적. 'AI 시대 하루 늦으면 한 세대 뒤처진다'는 AI 기술 주도권 확보 의지는 미래 인식이나, 구체적 비전이나 계획은 미흡."
+    },
+    {
+      "collected_data_id": "af2bd663-c18f-4243-83a4-f9ce446c7f75",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. 주 4.5일 근무제에 대해 '추가 논의 필요'는 유보적 입장이며, 명확한 비전 제시 없음."
+    },
+    {
+      "collected_data_id": "1fd45e50-7ae2-42e9-96af-a12508ccae59",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. 총리 후보자 의혹 논란은 개인 검증 문제이며, 정책 비전이나 국가 발전 방향과 무관."
+    },
+    {
+      "collected_data_id": "ccf98f18-b70a-4a59-bbc5-a6433551feb5",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. 출판회 및 재산 증식 논란은 개인 윤리 문제이며, 미래 비전과 직접 연관 없음."
+    }
+  ]
+}

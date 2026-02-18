@@ -1,0 +1,17 @@
+{
+  "evaluations": [
+    {"id": "d0a5d6e1-pub-1", "rating": "+2", "score": 4, "rationale": "공공 장소의 안전 및 편의성 제고 활동"},
+    {"id": "d0a5d6e1-pub-2", "rating": "+2", "score": 4, "rationale": "취약계층 복지 증진 참여"},
+    {"id": "d0a5d6e1-pub-3", "rating": "+2", "score": 4, "rationale": "지역 복지 단체와 협력을 통한 공익 활동"},
+    {"id": "d0a5d6e1-pub-4", "rating": "+2", "score": 4, "rationale": "사회적 약자를 위한 예산 배정 주도"},
+    {"id": "d0a5d6e1-pub-5", "rating": "X", "score": 0, "rationale": "본인과 무관한 타 지자체 데이터"},
+    {"id": "d0a5d6e1-pub-6", "rating": "+2", "score": 4, "rationale": "범죄 예방 등 안전 사회 구현을 위한 공익"},
+    {"id": "d0a5d6e1-pub-7", "rating": "+2", "score": 4, "rationale": "아동 및 청소년 보호를 위한 공익 정책"},
+    {"id": "d0a5d6e1-pub-8", "rating": "+3", "score": 6, "rationale": "성범죄 차단 등 강력한 공익 수호 입법"},
+    {"id": "d0a5d6e1-pub-9", "rating": "+2", "score": 4, "rationale": "어르신 건강 및 복지 증진을 위한 공익"},
+    {"id": "d0a5d6e1-pub-10", "rating": "+2", "score": 4, "rationale": "생활 안전을 위한 공익적 행정 개선"},
+    {"id": "d0a5d6e1-pub-11", "rating": "+2", "score": 4, "rationale": "다문화 가정 등 소수자 포용 정책 추진"},
+    {"id": "d0a5d6e1-pub-12", "rating": "+3", "score": 6, "rationale": "고독사 예방 등 생명 존중 공익 가치 실천"},
+    {"id": "d0a5d6e1-pub-13", "rating": "X", "score": 0, "rationale": "데이터 내용 식별 불가"}
+  ]
+}

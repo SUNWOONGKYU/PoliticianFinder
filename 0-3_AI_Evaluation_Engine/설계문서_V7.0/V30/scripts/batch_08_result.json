@@ -1,0 +1,40 @@
+{
+  "batch_num": 8,
+  "politician_id": "f9e00370",
+  "politician_name": "김민석",
+  "category": "expertise",
+  "evaluator_ai": "Claude",
+  "evaluated_at": "2026-01-21T21:37:40.912197",
+  "evaluations": [
+    {
+      "collected_data_id": "be38ddd0-d445-48f9-9cc4-de720108678b",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "논란 및 의혹 관련 내용"
+    },
+    {
+      "collected_data_id": "52590d62-91ec-48e4-8088-2e5cab52fb6b",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "국무총리 관련 긍정 활동"
+    },
+    {
+      "collected_data_id": "d2978436-a18f-46d5-ab83-844f46951273",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "국무총리 관련 긍정 활동"
+    },
+    {
+      "collected_data_id": "1e96984a-0d3a-4ba7-8b2c-df707a9acab2",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "논란 및 의혹 관련 내용"
+    },
+    {
+      "collected_data_id": "22cc2464-c5fc-4d77-ad23-2e319dbd067f",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "국무총리 관련 긍정 활동"
+    }
+  ]
+}

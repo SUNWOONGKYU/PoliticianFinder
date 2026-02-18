@@ -1,0 +1,70 @@
+{
+  "batch_num": 3,
+  "politician_id": "f9e00370",
+  "politician_name": "김민석",
+  "category": "vision",
+  "evaluator_ai": "Claude",
+  "evaluated_at": "2026-01-21T22:30:00",
+  "evaluations": [
+    {
+      "collected_data_id": "25874aee-23c8-45d2-aa8a-e88f10dfce68",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. 최고위원 발언이라는 형식적 내용만 있고, 구체적 정책 비전이나 미래 방향성 내용 없음."
+    },
+    {
+      "collected_data_id": "6c56253e-48b7-4d11-8e2b-fec9b262be79",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. '서울의 달' 사업 재검토 요구는 안전성 검증 문제이며, 미래 도시 발전 비전 제시보다는 현재 사업 문제점 지적."
+    },
+    {
+      "collected_data_id": "dcb66c1a-ec3b-47cd-9a6d-f3b077d01e5b",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "비전 관점에서 약간 긍정적. 'IMF 위기보다 심각한 국가적 위기' 인식은 문제 진단이나, 구체적 극복 방향이나 장기 비전 제시는 미흡."
+    },
+    {
+      "collected_data_id": "460840f4-6f97-4edf-bdda-384dae4e4178",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. 의정 갈등 해법 모색은 현안 해결 시도이며, 의료 분야 미래 비전 제시보다는 당면 문제 대응."
+    },
+    {
+      "collected_data_id": "372f10c3-6ef3-498e-b6d1-8474abffd63e",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "비전 관점에서 긍정적. '3+α 회의' 구성으로 2035년 온실가스 감축목표 수립은 장기 환경 정책 비전. 구체적 목표 시점 제시."
+    },
+    {
+      "collected_data_id": "e40f05ca-48c8-442d-af50-bef7c4ca2a37",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. 국정감사 질의는 현재 정부 기관 점검이며, 미래 비전이나 정책 방향 제시와 직접 연관 없음."
+    },
+    {
+      "collected_data_id": "bc58cf59-7b66-4ef7-82a6-57ed2f5aadec",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. 의정보고회 개최는 형식적 활동이며, 구체적 미래 비전 내용 없음."
+    },
+    {
+      "collected_data_id": "b43d3e92-4e05-4ea7-8486-f2fc8c859d87",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. '서울의 달' 재검토 요구 반복이며, 비전 제시보다는 현재 사업 문제점 지적."
+    },
+    {
+      "collected_data_id": "417b4473-059f-4c6b-9075-4cb66a2baedd",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. 내란사태 대응 기자회견은 정치적 위기 대응이며, 장기 국가 발전 비전과 무관."
+    },
+    {
+      "collected_data_id": "81099d61-0d17-4ea6-b22a-157d9f2075d6",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "비전과 무관. 총리 후보 지명 및 청문회 의혹은 인사 검증 과정이며, 정책 비전이나 미래 방향성 제시와 직접 연관 없음."
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "batch_num": 6,
+  "politician_id": "f9e00370",
+  "politician_name": "김민석",
+  "category": "communication",
+  "evaluator_ai": "Claude",
+  "evaluated_at": "2026-01-22T00:42:46.710101",
+  "evaluations": [
+    {
+      "collected_data_id": "62a107ff-b4da-43d2-8654-42d57f36362f",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "소통 방식 문제"
+    },
+    {
+      "collected_data_id": "d5e297f2-2410-4fdc-a791-f5f4ec8d753f",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "소통 방식 문제"
+    },
+    {
+      "collected_data_id": "bac4b800-fb39-4ff1-8fbc-e213367c5af6",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "소통 방식 문제"
+    },
+    {
+      "collected_data_id": "ae65ec1d-e433-4f89-9c50-f22d521abc8c",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "소통능력 관련 부정적 내용"
+    },
+    {
+      "collected_data_id": "f9924991-56db-4b07-8069-3f28673515ef",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "소통능력 관련 부정적 내용"
+    },
+    {
+      "collected_data_id": "3ba5551e-5649-4c30-a688-b9a62e58bb78",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "긍정적 소통"
+    },
+    {
+      "collected_data_id": "c9c73860-cc82-428c-b203-73965b804c96",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "긍정적 소통"
+    },
+    {
+      "collected_data_id": "eb949cd6-0e41-4645-ae55-b9412c9340f7",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "긍정적 소통"
+    },
+    {
+      "collected_data_id": "f99b0f0f-601c-4dfd-961e-0166ed08b21d",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "긍정적 소통"
+    },
+    {
+      "collected_data_id": "768e1f08-e85c-413a-add8-3f90d85f7390",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "긍정적 소통"
+    }
+  ]
+}

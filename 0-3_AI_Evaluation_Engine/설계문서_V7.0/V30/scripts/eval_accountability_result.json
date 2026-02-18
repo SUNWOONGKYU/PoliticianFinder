@@ -1,0 +1,460 @@
+{
+  "politician_id": "f9e00370",
+  "politician_name": "김민석",
+  "category": "accountability",
+  "evaluator_ai": "Claude",
+  "evaluated_at": "2026-01-22T00:42:46.691941",
+  "total_evaluations": 75,
+  "evaluations": [
+    {
+      "collected_data_id": "a08df014-1500-4391-b4f5-8aa472b6f491",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "책임 회피 또는 미이행"
+    },
+    {
+      "collected_data_id": "331f8988-fab6-45db-b340-56588ee76ac8",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "책임 회피 또는 미이행"
+    },
+    {
+      "collected_data_id": "f9331017-655a-4d06-8108-3da1bc292e60",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "책임 회피 또는 미이행"
+    },
+    {
+      "collected_data_id": "117dd83a-fe02-472d-ab92-25b47d3edbf6",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "책임성 관련 부정적 내용"
+    },
+    {
+      "collected_data_id": "f31e1a68-634e-456d-923d-8f784290d608",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "책임성 관련 부정적 내용"
+    },
+    {
+      "collected_data_id": "f6fb0bb4-2ae2-4b8d-9a8f-5b506254e20b",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "책임성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "563e419d-c0da-4b12-b816-c154031e6629",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "책임성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "39fd87fa-60b3-4307-a0f7-079d1104fe25",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "책임성 관련 부정적 내용"
+    },
+    {
+      "collected_data_id": "d9276700-ae95-431e-8098-f79652515a97",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "책임 회피 또는 미이행"
+    },
+    {
+      "collected_data_id": "16ec6c74-2cd2-4200-9e45-5fe25b143ee1",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "책임 회피 또는 미이행"
+    },
+    {
+      "collected_data_id": "22854b41-37e9-4002-b191-c844a159b2cd",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "책임감 있는 대응"
+    },
+    {
+      "collected_data_id": "92ad64ed-d0d2-4013-9219-6bd8fc355f96",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "책임 회피 또는 미이행"
+    },
+    {
+      "collected_data_id": "e6614a9b-49fb-4bc9-aa65-4a44aedaf69b",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "책임 회피 또는 미이행"
+    },
+    {
+      "collected_data_id": "afbe0250-237a-4eae-a020-d4b79af83936",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "책임 회피 또는 미이행"
+    },
+    {
+      "collected_data_id": "6a149f08-6731-4e95-ac92-cc9bfebaac47",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "책임 회피 또는 미이행"
+    },
+    {
+      "collected_data_id": "61770770-632a-4e08-af0e-13f8acb5f81c",
+      "rating": "-1",
+      "score": -2,
+      "reasoning": "책임성 관련 부정적 내용"
+    },
+    {
+      "collected_data_id": "a2f9ee31-eeef-4484-9cfb-b02710843539",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "책임감 있는 대응"
+    },
+    {
+      "collected_data_id": "3a37dd99-8244-4f95-8970-1dcfb7f5ae96",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "책임감 있는 대응"
+    },
+    {
+      "collected_data_id": "d1a0ced2-2e31-460f-b303-7eaa49426106",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "책임감 있는 대응"
+    },
+    {
+      "collected_data_id": "d6151ec8-32ba-466d-8c5e-36a5988b572f",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "책임감 있는 대응"
+    },
+    {
+      "collected_data_id": "6b8d7e48-696e-497a-bb48-e1ac9dfce561",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "책임감 있는 대응"
+    },
+    {
+      "collected_data_id": "2640812b-71a0-4a87-b831-d136090c35b2",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "책임감 있는 대응"
+    },
+    {
+      "collected_data_id": "97bb5b5d-2974-43c4-92a9-d9902a479528",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "책임감 있는 대응"
+    },
+    {
+      "collected_data_id": "924cbcf6-324f-4cd1-a1ef-c8993603ead2",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "책임감 있는 대응"
+    },
+    {
+      "collected_data_id": "574c86af-897d-4611-8e92-0bbfdc8a831b",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "책임감 있는 대응"
+    },
+    {
+      "collected_data_id": "68ff3212-d348-46de-b43e-b19bf5d53cf1",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "책임감 있는 대응"
+    },
+    {
+      "collected_data_id": "df4abb96-38fc-4618-8ab8-f70f00ca3afd",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "책임 있는 행동"
+    },
+    {
+      "collected_data_id": "46c3a1b1-49a5-46d1-9175-431c87d49b56",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "책임성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "ef284873-7d7f-46e4-9d09-6d8ca92595d1",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "책임성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "51723f61-06f8-458c-b3a8-c4bf565cec82",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "책임성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "237db011-72c7-47a8-bd20-a2dfcd9e98e8",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "책임성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "07ed16f5-cac5-481b-8f61-052bd1290b47",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "책임성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "e855aad2-b66a-4538-868f-6ef26dada65a",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "책임성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "479d6898-c070-46c5-bead-7a9699eb50a8",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "책임성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "de47cea8-593f-458a-9d70-102d0dd7d662",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "책임성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "b2f86ed3-5b74-4756-9640-8a86be7ae434",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "책임성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "4e060457-58d2-4173-9dbe-8d403ba2bed5",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "책임성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "6c1c5043-8f59-4577-9681-0d879709379e",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "책임성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "8a21248f-9648-472a-86d5-4b18ca7b2a38",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "책임성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "93ae1e7e-04ce-40d9-9e27-ea17ebd23b71",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "책임성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "944a4af4-8e46-4330-92b4-00b3b44de595",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "책임성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "04ab5a6e-ed21-4cde-bf40-8d75446a3bf9",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "책임성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "63175e4a-bdd3-4230-9e09-baf369ab86d6",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "책임성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "1904cc62-93e4-429c-a841-bec0aeb1b985",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "책임 있는 행동"
+    },
+    {
+      "collected_data_id": "6f7e6c0e-27fa-4065-a4fe-249628f269bf",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "책임성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "6d474fb3-b004-4c60-8457-ab15ee66a8a9",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "책임성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "b99ae20a-3f62-490f-81e6-1b5266421b8a",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "책임 있는 행동"
+    },
+    {
+      "collected_data_id": "bc8d2317-45c9-4d34-917b-a49cb890338e",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "책임성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "d93bc42e-5d5c-4081-bc51-8e0a837684dc",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "책임성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "288a26eb-70b8-458b-954a-a673f52f64ac",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "책임성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "0be156eb-64b4-4566-881f-09ca7bc912de",
+      "rating": "+1",
+      "score": 2,
+      "reasoning": "책임 있는 행동"
+    },
+    {
+      "collected_data_id": "9fdb31a6-df3f-4dc5-98e4-75f4e812e082",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "책임성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "f472db29-5e70-4c9a-87de-36350225d1d1",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "책임 회피 또는 미이행"
+    },
+    {
+      "collected_data_id": "b12ff213-7a40-498b-a554-7f5f194cc3f9",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "책임감 있는 대응"
+    },
+    {
+      "collected_data_id": "e0e7503a-4cfa-4a9a-adf9-abf643cb82c7",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "책임감 있는 대응"
+    },
+    {
+      "collected_data_id": "ac95aedc-c39d-430f-b084-38b7f1f3454d",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "책임성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "5f190223-fe1b-44fe-bdba-e139714e2452",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "책임성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "d6e7f2d2-f3ef-4240-92b7-3deb149d39f7",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "책임성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "9820cccb-ad8f-4851-a528-9bb95afbef47",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "책임성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "f81386c8-f854-4d73-8879-9afe0605007d",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "책임성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "eedba26b-b944-4e4a-9ebf-5505d72579e6",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "책임성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "11fea798-1290-4f5e-8f6c-6d8c39d0249f",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "책임감 있는 대응"
+    },
+    {
+      "collected_data_id": "50249d0e-1a47-41e8-ada8-271ad652a63d",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "책임성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "cca3b142-edf7-4bba-8c95-7aa711425b4c",
+      "rating": "-2",
+      "score": -4,
+      "reasoning": "책임 회피 또는 미이행"
+    },
+    {
+      "collected_data_id": "0e93ff42-de2d-4dfa-8c78-d186c4dff8cc",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "책임성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "628980f1-0b0b-4529-aaf7-2c196f4ee69d",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "책임성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "6a7ff2f2-c6b8-48d8-aa1a-014f69349857",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "책임성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "0993618f-439f-4c0b-8b2f-534e05675e1a",
+      "rating": "+2",
+      "score": 4,
+      "reasoning": "책임감 있는 대응"
+    },
+    {
+      "collected_data_id": "e94264bc-ca46-4155-a783-479042a722bf",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "책임성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "f6f8dbff-120e-4b50-98e4-5ae62ed0aa2f",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "책임성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "17b1033d-ece8-43d4-a6ff-76c29389261e",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "책임성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "a7b1a008-be65-495e-a772-28b89239682a",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "책임성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "b9d7c14d-9f80-41bb-bf55-f92112a4a64a",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "책임성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "a38c9c51-f670-4068-9f5a-fd5af17f2094",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "책임성 판단 정보 부족"
+    },
+    {
+      "collected_data_id": "eea870fe-d0c7-4fa0-acd8-ac95add9ad48",
+      "rating": "0",
+      "score": 0,
+      "reasoning": "책임성 판단 정보 부족"
+    }
+  ]
+}

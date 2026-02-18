@@ -1,0 +1,92 @@
+{
+  "team_name": "서울시장 출마예정자 평가팀",
+  "description": "박주민, 조은희 두 정치인을 동시에 평가하는 Agent Teams",
+  "mode": "in-process",
+  "politicians": [
+    {
+      "id": "8c5dcc89",
+      "name": "박주민",
+      "party": "더불어민주당"
+    },
+    {
+      "id": "d0a5d6e1",
+      "name": "조은희",
+      "party": "국민의힘"
+    }
+  ],
+  "agents": [
+    {
+      "id": "evaluator_parkjumin",
+      "name": "박주민 평가 에이전트",
+      "type": "politician-evaluator",
+      "politician_id": "8c5dcc89",
+      "politician_name": "박주민",
+      "tasks": [
+        "수집 데이터 검증",
+        "AI 평가 진행 (Claude, ChatGPT, Gemini, Grok)",
+        "점수 계산",
+        "보고서 생성"
+      ]
+    },
+    {
+      "id": "evaluator_choeunhee",
+      "name": "조은희 평가 에이전트",
+      "type": "politician-evaluator",
+      "politician_id": "d0a5d6e1",
+      "politician_name": "조은희",
+      "tasks": [
+        "수집 데이터 검증",
+        "AI 평가 진행 (Claude, ChatGPT, Gemini, Grok)",
+        "점수 계산",
+        "보고서 생성"
+      ]
+    }
+  ],
+  "workflow": {
+    "parallel": true,
+    "steps": [
+      {
+        "step": 1,
+        "name": "데이터 검증",
+        "agents": ["evaluator_parkjumin", "evaluator_choeunhee"],
+        "command": "validate_v40_fixed.py",
+        "parallel": true
+      },
+      {
+        "step": 2,
+        "name": "AI 평가",
+        "agents": ["evaluator_parkjumin", "evaluator_choeunhee"],
+        "categories": [
+          "expertise", "leadership", "vision", "integrity", "ethics",
+          "accountability", "transparency", "communication", "responsiveness", "publicinterest"
+        ],
+        "parallel": true
+      },
+      {
+        "step": 3,
+        "name": "점수 계산",
+        "agents": ["evaluator_parkjumin", "evaluator_choeunhee"],
+        "command": "calculate_v40_scores.py",
+        "parallel": true
+      },
+      {
+        "step": 4,
+        "name": "보고서 생성",
+        "agents": ["evaluator_parkjumin", "evaluator_choeunhee"],
+        "command": "generate_report_v40.py",
+        "parallel": false,
+        "note": "보고서 생성은 순차적으로 진행 (파일 충돌 방지)"
+      }
+    ]
+  },
+  "coordination": {
+    "shared_resources": {
+      "database": "evaluations_v40",
+      "lock_mechanism": "optimistic"
+    },
+    "communication": {
+      "status_updates": true,
+      "progress_tracking": true
+    }
+  }
+}
