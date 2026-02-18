@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-V40 검증 후 조정 스크립트 (Phase 3-3)
+V40 검증 후 조정 스크립트 (Phase 2-2)
 ========================================
 
 목적:
@@ -276,7 +276,7 @@ def trigger_recollection(politician_id: str, politician_name: str, ai: str, cate
                 '--category', category
             ]
 
-            result = subprocess.run(cmd, capture_output=True, text=True, timeout=300)
+            result = subprocess.run(cmd, capture_output=True, text=True, timeout=600)
 
             if result.returncode == 0:
                 print(f"    [성공] {ai} {CATEGORY_KR[category]} 재수집 완료")
@@ -298,7 +298,7 @@ def trigger_recollection(politician_id: str, politician_name: str, ai: str, cate
                 '--category', category  # string name (e.g., 'expertise'), NOT number
             ]
 
-            result = subprocess.run(cmd, capture_output=True, text=True, timeout=300)
+            result = subprocess.run(cmd, capture_output=True, text=True, timeout=600)
 
             if result.returncode == 0:
                 print(f"    [성공] {ai} {CATEGORY_KR[category]} 재수집 완료")
@@ -314,7 +314,7 @@ def trigger_recollection(politician_id: str, politician_name: str, ai: str, cate
             return False
 
     except subprocess.TimeoutExpired:
-        print(f"    [실패] {ai} {CATEGORY_KR[category]} 재수집 시간 초과 (5분)")
+        print(f"    [실패] {ai} {CATEGORY_KR[category]} 재수집 시간 초과 (10분)")
         return False
     except Exception as e:
         print(f"    [실패] {ai} {CATEGORY_KR[category]} 재수집 오류: {str(e)}")
@@ -508,7 +508,7 @@ def adjust_data(politician_id: str, politician_name: str, target_ai: str = None,
 
 def main():
     parser = argparse.ArgumentParser(
-        description='V40 검증 후 조정 스크립트 (Phase 3-3)',
+        description='V40 검증 후 조정 스크립트 (Phase 2-2)',
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 사용 예시:

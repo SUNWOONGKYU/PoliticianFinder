@@ -152,9 +152,9 @@
         .phase-0 { border-left-color: #6e7681; }
         .phase-1 { border-left-color: #1f6feb; }
         .phase-2 { border-left-color: #238636; }
-        .phase-3 { border-left-color: #d29922; }
-        .phase-3-3 { border-left-color: #c89422; }
-        .phase-4 { border-left-color: #bc4c00; }
+        .phase-2-2 { border-left-color: #c89422; }
+        .phase-3 { border-left-color: #bc4c00; }
+        .phase-4 { border-left-color: #e3b341; }
         .phase-5 { border-left-color: #8957e5; }
         .phase-6 { border-left-color: #da3633; }
         .phase-7 { border-left-color: #f778ba; }
@@ -935,7 +935,7 @@
             padding: 0;
         }
 
-        /* Subsection toggle (for Phase 4) */
+        /* Subsection toggle (for Phase 3) */
         .subsection-toggle {
             cursor: pointer;
             user-select: none;
@@ -1025,13 +1025,9 @@
         /* Phase-specific flow-step colors */
         .flow-step-phase0 { border-color: #6e7681; }
         .flow-step-phase1 { border-color: #1f6feb; }
-        .flow-step-phase2 { border-color: #238636; }
-        .flow-step-phase3 { border-color: #d29922; }
-        .flow-step-phase3-3 { border-color: #c89422; }
-        .flow-step-phase4 { border-color: #bc4c00; }
-        .flow-step-phase5 { border-color: #8957e5; }
-        .flow-step-phase6 { border-color: #da3633; }
-        .flow-step-phase7 { border-color: #f778ba; }
+        .flow-step-phase2 { border-color: #238636; }        .flow-step-phase2-2 { border-color: #c89422; }        .flow-step-phase3-1 { border-color: #8957e5; }
+        .flow-step-phase3 { border-color: #da3633; }
+        .flow-step-phase5 { border-color: #f778ba; }
 
         /* SQL Syntax Highlighting */
         .sql-box {
@@ -1162,12 +1158,12 @@
             <a href="#phase0">준비</a>
             <a href="#phase1">등록</a>
             <a href="#phase2">수집</a>
-            <a href="#phase3">검증</a>
-            <a href="#phase3-3">조정</a>
-            <a href="#phase4">평가</a>
-            <a href="#phase5">평가검증</a>
-            <a href="#phase6">점수</a>
-            <a href="#phase7">보고서</a>
+            <a href="#phase3-val">검증</a>
+            <a href="#phase2-2">조정</a>
+            <a href="#phase3">평가</a>
+            <a href="#phase3-1">평가검증</a>
+            <a href="#phase4">점수</a>
+            <a href="#phase5">보고서</a>
             <a href="#db-diagram">DB</a>
             <a href="#key-points">핵심</a>
             <a href="#checklist">체크리스트</a>
@@ -1195,15 +1191,15 @@
                 <div class="flow-connector"></div>
                 <div class="flow-step flow-step-phase3">Phase 3: 수집 검증 (validate_v40_fixed.py --no-dry-run)</div>
                 <div class="flow-connector"></div>
-                <div class="flow-step flow-step-phase3-3">Phase 3-3: 검증 후 조정 (adjust_v40_data.py, 균형 맞추기)</div>
+                <div class="flow-step flow-step-phase2-2">Phase 2-2: 검증 후 조정 (adjust_v40_data.py, 균형 맞추기)</div>
                 <div class="flow-connector"></div>
-                <div class="flow-step flow-step-phase4">Phase 4: AI 평가 (4 AIs × 1,000~1,200 = 4,000~4,800개)</div>
+                <div class="flow-step flow-step-phase3">Phase 3: AI 평가 (4 AIs × 1,000~1,200 = 4,000~4,800개)</div>
                 <div class="flow-connector"></div>
-                <div class="flow-step flow-step-phase5">Phase 5: 평가 검증 (95% 이상)</div>
+                <div class="flow-step flow-step-phase3-1">Phase 3-1: 평가 검증 (95% 이상)</div>
                 <div class="flow-connector"></div>
-                <div class="flow-step flow-step-phase6">Phase 6: 점수 계산 (calculate_v40_scores.py)</div>
+                <div class="flow-step flow-step-phase4">Phase 4: 점수 계산 (calculate_v40_scores.py)</div>
                 <div class="flow-connector"></div>
-                <div class="flow-step flow-step-phase7">Phase 7: 보고서 생성 (generate_report_v40.py)</div>
+                <div class="flow-step flow-step-phase5">Phase 5: 보고서 생성 (generate_report_v40.py)</div>
             </div>
         </section>
 
@@ -1470,7 +1466,7 @@
         <div class="flow-arrow">▼</div>
 
         <!-- Phase 3 -->
-        <section id="phase3">
+        <section id="phase3-val">
             <div class="phase phase-3">
                 <div class="phase-header" onclick="togglePhase(this)">
                     <span>✅ Phase 3: 수집 검증 (validate_v40_fixed.py --no-dry-run)</span>
@@ -1538,11 +1534,11 @@
 
         <div class="flow-arrow">▼</div>
 
-        <!-- Phase 3-3 -->
-        <section id="phase3-3">
-            <div class="phase phase-3-3">
+        <!-- Phase 2-2 -->
+        <section id="phase2-2">
+            <div class="phase phase-2-2">
                 <div class="phase-header" onclick="togglePhase(this)">
-                    <span>⚖️ Phase 3-3: 검증 후 조정 (adjust_v40_data.py)</span>
+                    <span>⚖️ Phase 2-2: 검증 후 조정 (adjust_v40_data.py)</span>
                     <span class="toggle-icon">▼</span>
                 </div>
                 <div class="phase-content">
@@ -1574,7 +1570,7 @@
                     </div>
 
                     <div class="success-box">
-                        <p>💡 <strong>핵심:</strong> 처음부터 버퍼 목표(60개)로 수집 → Phase 3-3 거의 스킵 가능!</p>
+                        <p>💡 <strong>핵심:</strong> 처음부터 버퍼 목표(60개)로 수집 → Phase 2-2 거의 스킵 가능!</p>
                     </div>
                 </div>
             </div>
@@ -1582,11 +1578,11 @@
 
         <div class="flow-arrow">▼</div>
 
-        <!-- Phase 4 -->
-        <section id="phase4">
-            <div class="phase phase-4">
+        <!-- Phase 3 -->
+        <section id="phase3">
+            <div class="phase phase-3">
                 <div class="phase-header" onclick="togglePhase(this)">
-                    <span>🤖 Phase 4: AI 평가 (4개 AI 독립 평가, 전부 CLI 방식)</span>
+                    <span>🤖 Phase 3: AI 평가 (4개 AI 독립 평가, 전부 CLI 방식)</span>
                     <span class="toggle-icon">▼</span>
                 </div>
                 <div class="phase-content">
@@ -1884,11 +1880,11 @@
 
         <div class="flow-arrow">▼</div>
 
-        <!-- Phase 5 -->
-        <section id="phase5">
-            <div class="phase phase-5">
+        <!-- Phase 3-1 -->
+        <section id="phase3-1">
+            <div class="phase phase-3-1">
                 <div class="phase-header" onclick="togglePhase(this)">
-                    <span>✅ Phase 5: 평가 검증 단계 (95% 이상)</span>
+                    <span>✅ Phase 3-1: 평가 검증 단계 (95% 이상)</span>
                     <span class="toggle-icon">▼</span>
                 </div>
                 <div class="phase-content">
@@ -1928,11 +1924,11 @@
 
         <div class="flow-arrow">▼</div>
 
-        <!-- Phase 6 -->
-        <section id="phase6">
-            <div class="phase phase-6">
+        <!-- Phase 3 -->
+        <section id="phase4">
+            <div class="phase phase-4">
                 <div class="phase-header" onclick="togglePhase(this)">
-                    <span>🎯 Phase 6: 점수 계산 단계 (calculate_v40_scores.py)</span>
+                    <span>🎯 Phase 4: 점수 계산 단계 (calculate_v40_scores.py)</span>
                     <span class="toggle-icon">▼</span>
                 </div>
                 <div class="phase-content">
@@ -2131,11 +2127,11 @@
 
         <div class="flow-arrow">▼</div>
 
-        <!-- Phase 7 -->
-        <section id="phase7">
-            <div class="phase phase-7">
+        <!-- Phase 5 -->
+        <section id="phase5">
+            <div class="phase phase-5">
                 <div class="phase-header" onclick="togglePhase(this)">
-                    <span>📄 Phase 7: 보고서 생성 단계 (generate_report_v40.py)</span>
+                    <span>📄 Phase 5: 보고서 생성 단계 (generate_report_v40.py)</span>
                     <span class="toggle-icon">▼</span>
                 </div>
                 <div class="phase-content">
@@ -2431,31 +2427,31 @@
                         <td>-</td>
                     </tr>
                     <tr>
-                        <td><strong>Phase 3-3</strong></td>
+                        <td><strong>Phase 2-2</strong></td>
                         <td>(조정)</td>
                         <td>AI별 500-600개 균형</td>
                         <td>-</td>
                     </tr>
                     <tr>
-                        <td><strong>Phase 4</strong></td>
+                        <td><strong>Phase 3</strong></td>
                         <td>evaluations_v40</td>
                         <td>4 AI × 수집 개수 (95% 이상)</td>
                         <td>✅ 있음 (8등급, X=제외)</td>
                     </tr>
                     <tr>
-                        <td><strong>Phase 5</strong></td>
+                        <td><strong>Phase 3-1</strong></td>
                         <td>(검증)</td>
                         <td>95% 완성도 확인</td>
                         <td>-</td>
                     </tr>
                     <tr>
-                        <td><strong>Phase 6</strong></td>
+                        <td><strong>Phase 3</strong></td>
                         <td>ai_final_scores_v40</td>
                         <td>1개</td>
                         <td>❌ 없음 (점수만)</td>
                     </tr>
                     <tr>
-                        <td><strong>Phase 7</strong></td>
+                        <td><strong>Phase 5</strong></td>
                         <td>(보고서)</td>
                         <td>.md 파일 1개</td>
                         <td>-</td>
@@ -2494,7 +2490,7 @@
 <span class="cmd-command">cd V40/scripts/core</span>
 <span class="cmd-command">python validate_v40_fixed.py --politician_id=507226bb --politician_name="박주민" --no-dry-run</span>
 
-<span class="cmd-comment"># Phase 3-3: 검증 후 조정</span>
+<span class="cmd-comment"># Phase 2-2: 검증 후 조정</span>
 <span class="cmd-command">python adjust_v40_data.py --politician_id=507226bb</span>
 
 <span class="cmd-comment"># Phase 4: 평가</span>
@@ -2512,15 +2508,15 @@
 <span class="cmd-command">cd V40/scripts/workflow</span>
 <span class="cmd-command">python evaluate_gemini_subprocess.py --politician "박주민" --category "expertise"</span>
 
-<span class="cmd-comment"># Phase 5: 평가 검증</span>
+<span class="cmd-comment"># Phase 3-1: 평가 검증</span>
 <span class="cmd-command">cd V40/scripts/utils</span>
 <span class="cmd-command">python check_evaluation_status.py --politician "박주민"</span>
 
-<span class="cmd-comment"># Phase 6: 점수 계산</span>
+<span class="cmd-comment"># Phase 4: 점수 계산</span>
 <span class="cmd-command">cd V40/scripts/core</span>
 <span class="cmd-command">python calculate_v40_scores.py --politician_id=507226bb --politician_name="박주민"</span>
 
-<span class="cmd-comment"># Phase 7: 보고서 생성</span>
+<span class="cmd-comment"># Phase 5: 보고서 생성</span>
 <span class="cmd-command">python generate_report_v40.py 507226bb 박주민</span>
 <span class="cmd-comment"># 저장 위치: 설계문서_V7.0/V40/보고서/박주민_20260206.md</span>
             </div>
@@ -2535,7 +2531,7 @@
                 <li><strong>V40_전체_프로세스_가이드.md</strong> - 전체 프로세스 설명</li>
                 <li><strong>V40_기본방침.md</strong> - 핵심 방침</li>
                 <li><strong>V40_오케스트레이션_가이드.md</strong> - 자동화 가이드</li>
-                <li><strong>V40_검증후조정_가이드.md</strong> - Phase 3-3 상세</li>
+                <li><strong>V40_검증후조정_가이드.md</strong> - Phase 2-2 상세</li>
                 <li><strong>AI_기반_정치인_상세평가보고서_생성_가이드_V40.md</strong> - 보고서 생성</li>
                 <li><strong>README.md</strong> - V40 개요</li>
             </ol>
@@ -2575,7 +2571,7 @@
                 <li><label><input type="checkbox"> 중복 제거 완료</label></li>
             </ul>
 
-            <h3>Phase 3-3: 검증 후 조정</h3>
+            <h3>Phase 2-2: 검증 후 조정</h3>
             <ul class="checklist">
                 <li><label><input type="checkbox"> AI별 데이터 500-600개 확인</label></li>
                 <li><label><input type="checkbox"> 카테고리별 50-60개/AI 확인</label></li>
@@ -2583,7 +2579,7 @@
                 <li><label><input type="checkbox"> 50개 미만 카테고리 재수집 완료 (최대 4회, 포기 규칙 적용)</label></li>
             </ul>
 
-            <h3>Phase 4: 평가 단계</h3>
+            <h3>Phase 3: 평가 단계</h3>
             <ul class="checklist">
                 <li><label><input type="checkbox"> Claude 평가 (수집 데이터 전체, X=제외 포함)</label></li>
                 <li><label><input type="checkbox"> ChatGPT 평가 (수집 데이터 전체, X=제외 포함)</label></li>
@@ -2592,13 +2588,13 @@
                 <li><label><input type="checkbox"> 총 평가 = 4 AI × 실제 수집 개수</label></li>
             </ul>
 
-            <h3>Phase 5: 평가 검증 단계</h3>
+            <h3>Phase 3-1: 평가 검증 단계</h3>
             <ul class="checklist">
                 <li><label><input type="checkbox"> 평가 완성도 95% 이상 (X=제외 발생 허용)</label></li>
                 <li><label><input type="checkbox"> 누락 평가 재실행 완료</label></li>
             </ul>
 
-            <h3>Phase 6: 점수 계산 단계</h3>
+            <h3>Phase 4: 점수 계산 단계</h3>
             <ul class="checklist">
                 <li><label><input type="checkbox"> AI별 카테고리 점수 계산 (4×10)</label></li>
                 <li><label><input type="checkbox"> AI별 최종 점수 계산 (4개)</label></li>
@@ -2607,7 +2603,7 @@
                 <li><label><input type="checkbox"> ai_final_scores_v40 저장 확인</label></li>
             </ul>
 
-            <h3>Phase 7: 보고서 생성 단계</h3>
+            <h3>Phase 5: 보고서 생성 단계</h3>
             <ul class="checklist">
                 <li><label><input type="checkbox"> 4개 테이블 조인 성공</label></li>
                 <li><label><input type="checkbox"> AI별 통계 계산 완료</label></li>
@@ -3316,7 +3312,7 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
-        // Subsection toggle (for Phase 4)
+        // Subsection toggle (for Phase 3)
         document.querySelectorAll('.subsection-toggle').forEach(toggle => {
             toggle.addEventListener('click', function() {
                 this.classList.toggle('collapsed');

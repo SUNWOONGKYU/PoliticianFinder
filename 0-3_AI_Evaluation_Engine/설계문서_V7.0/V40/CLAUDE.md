@@ -332,7 +332,7 @@ Phase 5: 보고서 생성 (generate_report_v40.py)
 - ✅ Naver API 수집 완료: **600개 권장** (60개/카테고리 × 10개 = 버퍼 포함)
 - ✅ 총 **1,200개 수집 권장** (최소 1,000개, 버퍼 포함 1,200개)
 - ✅ DB에 데이터 저장 확인
-- ⚠️ **중요**: 최소 목표(50개)만 수집하면 Phase 3-3 재수집 2-3시간 소요!
+- ⚠️ **중요**: 최소 목표(50개)만 수집하면 Phase 2-2 재수집 2-3시간 소요!
 
 **Phase 2 (검증) 완료 조건:**
 - ✅ validate_v40_fixed.py 실행 완료
@@ -414,13 +414,15 @@ calculate_scores()
 **수집 상태 확인:**
 ```bash
 cd V40/scripts/utils
-python check_collection_status.py --politician "조은희"
+python check_collection_status.py --politician-id {politician_id} --politician-name "{politician_name}"
+# 예: python check_collection_status.py --politician-id d0a5d6e1 --politician-name "조은희"
 ```
 
 **평가 상태 확인:**
 ```bash
 cd V40/scripts/utils
-python check_evaluation_status.py --politician "조은희"
+python check_evaluation_status.py --politician-id {politician_id} --politician-name "{politician_name}"
+# 예: python check_evaluation_status.py --politician-id d0a5d6e1 --politician-name "조은희"
 ```
 
 **점수 상태 확인:**
@@ -434,8 +436,9 @@ from dotenv import load_dotenv
 load_dotenv()
 supabase = create_client(os.getenv('SUPABASE_URL'), os.getenv('SUPABASE_SERVICE_ROLE_KEY'))
 
-result = supabase.table('ai_final_scores_v40').select('*').eq('politician_id', 'd0a5d6e1').execute()
-print(f'점수 저장 여부: {\"완료\" if result.data else \"미완료\"}')"
+result = supabase.table('ai_final_scores_v40').select('*').eq('politician_id', '{politician_id}').execute()
+print(f'점수 저장 여부: {chr(34)+\"완료\"+chr(34) if result.data else chr(34)+\"미완료\"+chr(34)}')"
+# ⚠️ {politician_id} 부분을 실제 정치인 ID로 교체하세요 (예: d0a5d6e1)
 ```
 
 ---
@@ -913,12 +916,12 @@ done
 - 모든 카테고리 동일 목표 (차별 금지)
 
 **DON'T ❌:**
-- 최소 목표 50개만 수집 (Phase 3-3 재수집 2-3시간)
+- 최소 목표 50개만 수집 (Phase 2-2 재수집 2-3시간)
 - 50-50 비율 어기기 (예: Naver 55 + Gemini 5)
 - 버퍼 초과 목표 (65개 등)
 - 카테고리별 다른 목표
 
-### 재수집 단계 (Phase 3-3)
+### 재수집 단계 (Phase 2-2)
 
 **수집이 어려운 카테고리:**
 - integrity (청렴성): 가장 어려움, 평균 2-4개/라운드
@@ -941,7 +944,7 @@ python recollect_naver_v40.py --politician_id d0a5d6e1 --politician_name "조은
 |------|---------------|---------------|
 | Phase 2 | 30-40분 | 20-30분 |
 | Phase 3 | 10-15분 | 10-15분 |
-| Phase 3-3 | 거의 없음 (5-15분) | 2-3시간! |
+| Phase 2-2 | 거의 없음 (5-15분) | 2-3시간! |
 | **합계** | **45-70분** | **2.5-3.5시간** |
 
 **결론: 버퍼 수집이 전체적으로 2배 빠름!**
@@ -951,7 +954,7 @@ python recollect_naver_v40.py --politician_id d0a5d6e1 --politician_name "조은
 **필수:**
 - `V40_기본방침.md`: 핵심 규칙
 - `V40_전체_프로세스_가이드.md`: 전체 프로세스
-- `V40_검증후조정_가이드.md`: Phase 3-3 상세 (섹션 12: 실전 교훈)
+- `V40_검증후조정_가이드.md`: Phase 2-2 상세 (섹션 12: 실전 교훈)
 
 **상세:**
 - `GEMINI_CLI_수집_가이드.md`: Gemini CLI 사용법
