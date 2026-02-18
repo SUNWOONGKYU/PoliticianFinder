@@ -78,7 +78,9 @@ VALIDATION_CODES = {
     "WRONG_SOURCE_TYPE": "source_type 불일치",
     "MISSING_FIELD": "필수 필드 누락",
     "DATE_OUT_OF_RANGE": "기간 초과",
-    "DUPLICATE": "중복 데이터"
+    "DUPLICATE": "중복 데이터",
+    "NAMESAKE": "동명이인 데이터",
+    "IRRELEVANT_CONTENT": "무관 데이터 (정치인 언급 없음)"
 }
 
 # Sentiment 비율 최소 기준 (V40_기본방침.md 섹션 6)
@@ -154,7 +156,7 @@ def check_url_exists(url, timeout=30, max_retries=3):
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
     }
 
-    # ⚠️ URL 검증 방식: collect_v40.py validate_url()과 동일 (GET stream=True)
+    # ⚠️ URL 검증 방식: collect_naver_v40_final.py validate_url()과 동일 (GET stream=True)
     # instructions/2_collect/중복방지전략_공통섹션.md Section 4 참조
     for attempt in range(max_retries):
         try:
@@ -269,6 +271,164 @@ def check_duplicate(item):
         pass
 
     return True, "VALID"
+
+
+# ===== 동명이인 필터링 =====
+
+# Gemini X-rating 분석 기반 동명이인 제외/확인 키워드
+NAMESAKE_CONFIG = {
+    '정원오': {
+        'positive': ['성동구', '구청장', '성수동', '젠트리피케이션', '필수노동자', '마용성',
+                      '목민관', '도시재생', '왕십리', '삼표', 'GTX', '임종석', '양천구',
+                      '서울시장 후보', '서울시장 출마', '민선 6기', '민선 7기', '민선 8기',
+                      '더불어민주당'],
+        'negative': ['기재부', '기획재정부', '차관', '예산실장', '성공회대', '직업훈련',
+                      '한국기술교육대', '코리아텍', '경기도교육청', '고용노동부',
+                      '예산정책처', '조세정책관'],
+    },
+    '조은희': {
+        'positive': ['국회의원', '서초구', '국민의힘', '정무부시장', '서초구청장',
+                      '재선', '총선', '기자 출신', '문화관광비서관', '서울시장 후보',
+                      '서울시장 출마'],
+        'negative': ['셰프', '요리사', '요리', '정신과', '정신건강의학', '인삼카빙',
+                      '인삼', '카빙', '명장', '농업기술원', '충북농업', '약사', '약국',
+                      '서울디지털대', '동두천', '화가', '캘리그라피', '한의사', '한의원',
+                      '미술', '전시회', '충북', '충청북도'],
+    },
+    '오준환': {
+        'positive': ['고양9', '고양 9', '고양시 제9선거구', '국민의힘, 고양',
+                      'Cal Poly', '로열 아이멕스', '대통령직인수위원회 자문위원',
+                      '고양시관광협의회', 'K-컬처밸리', 'K-아레나',
+                      '도심항공교통', 'UAM', '경기도의회 도시환경위원회',
+                      '경기도의회 건설교통위원회', '고양갑', '고양시장'],
+        'negative': ['하남1', '하남 1', '울산', '남구의회', '대구광역시의회', '대구시의회',
+                      '경북대', '한양대 행정', '중앙대 행정', '경기대 행정', '경희대',
+                      '국제사이버대', '올클린한데이', '이사청소', '미화원', '기술사',
+                      '축구학과', '호남대', '충남향교재단', '국민생활체육회',
+                      '국민의당 창당', '용인정', '용인신문', '용인 반도체',
+                      '구리시', '송파', '동작구의회', '오세훈과', '단짝', '비서실장',
+                      '고양시장 비서', '故 오준환 소령', '경북대학교 대학원',
+                      '대구경북연구원', '대구대학교 겸임', '대구문화예술',
+                      '대구행정 심포지엄', '대구형 스마트시티',
+                      '경기대학교 행정대학원', 'WowColl', '인바이트',
+                      '채용정보', '미화원 모집', '감사인의 산업전문성', '학술논문'],
+    },
+}
+
+
+def load_namesake_config(politician_name):
+    """
+    정치인 MD 파일 + NAMESAKE_CONFIG에서 동명이인 필터링 설정 로드
+
+    Returns:
+        tuple: (positive_keywords, negative_keywords)
+    """
+    V40_DIR = SCRIPT_DIR.parent.parent  # scripts/core → V40
+    pol_file = V40_DIR / 'instructions' / '1_politicians' / f'{politician_name}.md'
+
+    positive = set()
+    negative = set()
+
+    # 1. Hardcoded config 로드
+    if politician_name in NAMESAKE_CONFIG:
+        positive.update(NAMESAKE_CONFIG[politician_name]['positive'])
+        negative.update(NAMESAKE_CONFIG[politician_name]['negative'])
+
+    # 2. MD 파일에서 추가 키워드 추출
+    if pol_file.exists():
+        with open(pol_file, 'r', encoding='utf-8') as f:
+            content = f.read()
+
+        for line in content.split('\n'):
+            # 현 직책에서 positive 키워드 추출
+            if '현 직책' in line and '|' in line:
+                parts = line.split('|')
+                if len(parts) >= 3:
+                    pos_text = parts[-2].strip().replace('**', '')
+                    for term in re.findall(r'[가-힣]+(?:구|시|장|원)', pos_text):
+                        if len(term) >= 2:
+                            positive.add(term)
+
+            # 소속 정당에서 positive 키워드 추출
+            if '소속 정당' in line and '|' in line:
+                parts = line.split('|')
+                if len(parts) >= 3:
+                    party = parts[-2].strip().replace('**', '')
+                    if party and len(party) >= 2:
+                        positive.add(party)
+
+    return list(positive), list(negative)
+
+
+def check_namesake(item, positive_kw, negative_kw):
+    """
+    동명이인 데이터 검증
+
+    Logic:
+    - negative 키워드 발견 AND positive 키워드 미발견 → NAMESAKE
+    - negative 키워드 발견 AND positive 키워드 발견 → VALID (올바른 정치인)
+    - negative 키워드 미발견 → VALID
+
+    Args:
+        item: collected data item
+        positive_kw: 올바른 정치인 식별 키워드
+        negative_kw: 동명이인 식별 키워드
+
+    Returns:
+        tuple: (is_valid, code)
+    """
+    if not negative_kw:
+        return True, "VALID"
+
+    title = (item.get('title') or '')
+    content = (item.get('content') or '')
+    text = f"{title} {content}"
+
+    # negative 키워드 검색
+    found_negative = [kw for kw in negative_kw if kw in text]
+    if not found_negative:
+        return True, "VALID"
+
+    # negative 발견 → positive 확인
+    found_positive = [kw for kw in positive_kw if kw in text]
+    if found_positive:
+        return True, "VALID"  # 올바른 정치인 확인됨
+
+    # negative만 발견, positive 없음 → 동명이인
+    return False, "NAMESAKE"
+
+
+def check_content_relevance(item, politician_name, positive_kw):
+    """
+    콘텐츠 기반 관련성 필터 (NEW)
+
+    제목/내용에 정치인 이름이나 관련 키워드가 포함되어 있는지 확인
+    - 포함되면 유효
+    - 포함되지 않으면 무관 데이터로 제외
+
+    Args:
+        item: collected data item
+        politician_name: 정치인 이름
+        positive_kw: 관련 키워드 목록
+
+    Returns:
+        tuple: (is_valid, code)
+    """
+    title = (item.get('title') or '').lower()
+    content = (item.get('content') or '').lower()
+    text = f"{title} {content}"
+
+    # 정치인 이름 포함 여부
+    if politician_name.lower() in text:
+        return True, "VALID"
+
+    # 관련 키워드 포함 여부
+    for kw in positive_kw:
+        if kw.lower() in text:
+            return True, "VALID"
+
+    # 어느 것도 포함되지 않음 → 무관 데이터
+    return False, "IRRELEVANT_CONTENT"
 
 
 def validate_item_fixed(item):
@@ -416,12 +576,26 @@ def validate_collected_data_fixed(politician_id, politician_name, dry_run=True):
         offset += page_size
     print(f"총 {len(items)}개 항목 검증 시작...")
 
+    # 동명이인 필터링 설정 로드
+    positive_kw, negative_kw = load_namesake_config(politician_name)
+    namesake_enabled = len(negative_kw) > 0
+    if namesake_enabled:
+        print(f"  동명이인 필터링 활성화: 제외 키워드 {len(negative_kw)}개, 확인 키워드 {len(positive_kw)}개")
+
     valid_count = 0
     valid_items = []
     invalid_items = []
 
     for i, item in enumerate(items):
         valid, code = validate_item_fixed(item)
+
+        # 동명이인 검증 (기본 검증 통과 후)
+        if valid and namesake_enabled:
+            valid, code = check_namesake(item, positive_kw, negative_kw)
+
+        # 콘텐츠 기반 필터: 정치인 이름/관련 키워드 포함 여부 (NEW)
+        if valid:
+            valid, code = check_content_relevance(item, politician_name, positive_kw)
 
         if valid:
             valid_count += 1
@@ -513,6 +687,18 @@ def main():
     else:
         print(f"  Sentiment 비율: 모두 충족")
     print(f"{'='*60}")
+
+    # Phase 2 완료 기록 (실제 삭제 모드일 때만)
+    if not dry_run:
+        try:
+            from phase_tracker import mark_phase_done
+            details = f"유효 {result['valid']}개, 무효 {result['invalid']}개 삭제"
+            if sv:
+                details += f", sentiment 위반 {len(sv)}건"
+            mark_phase_done(args.politician_id, '2', details, args.politician_name)
+            print(f"\n  Phase 2 완료 기록됨")
+        except ImportError:
+            pass  # phase_tracker 없어도 기존 동작 유지
 
 
 if __name__ == "__main__":

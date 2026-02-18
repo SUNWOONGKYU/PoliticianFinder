@@ -20,7 +20,7 @@ V40 Naver 재수집 스크립트
 기능:
     1. 현재 Naver 수집량 확인 (카테고리별)
     2. 50개 미만 카테고리 식별
-    3. collect_v40.py (Naver API) 자동 실행
+    3. collect_naver_v40_final.py (Naver API) 자동 실행
     4. 60개 목표 달성까지 반복 (최대 4회, 포기 규칙 적용)
 
 ⚠️ 장점:
@@ -61,7 +61,7 @@ if sys.platform == 'win32':
 # 경로 설정
 SCRIPT_DIR = Path(__file__).resolve().parent  # workflow/
 V40_DIR = SCRIPT_DIR.parent.parent  # V40/ (workflow → scripts → V40)
-COLLECT_V40_SCRIPT = V40_DIR.parent.parent / 'collect_v40.py'  # 0-3_AI_Evaluation_Engine/collect_v40.py
+COLLECT_NAVER_SCRIPT = V40_DIR / 'scripts' / 'workflow' / 'collect_naver_v40_final.py'
 
 # .env 로드
 env_paths = [
@@ -136,16 +136,12 @@ def collect_category(politician_id: str, politician_name: str, category: str, dr
 
     print(f"  [재수집 시작] Naver {CATEGORY_KR[category]}...")
 
-    # 카테고리 번호 (1-based)
-    category_num = CATEGORIES.index(category) + 1
-
     cmd = [
         sys.executable,
-        str(COLLECT_V40_SCRIPT),
-        '--politician_id', politician_id,
-        '--politician_name', politician_name,
-        '--ai', 'Naver',
-        '--category', str(category_num)
+        str(COLLECT_NAVER_SCRIPT),
+        '--politician-id', politician_id,
+        '--politician-name', politician_name,
+        '--category', category  # string name (e.g., 'expertise'), NOT number
     ]
 
     try:

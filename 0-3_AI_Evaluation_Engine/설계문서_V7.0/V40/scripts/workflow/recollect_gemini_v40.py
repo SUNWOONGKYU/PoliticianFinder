@@ -100,7 +100,7 @@ MAX_ROUNDS = 3   # 최대 재수집 라운드
 
 def get_politician_id(politician_name: str) -> str:
     """정치인 이름으로 ID 조회"""
-    result = supabase.table('politicians_v40').select('id').eq('name', politician_name).execute()
+    result = supabase.table('politicians').select('id').eq('name', politician_name).execute()
     if not result.data:
         raise ValueError(f"정치인을 찾을 수 없습니다: {politician_name}")
     return result.data[0]['id']

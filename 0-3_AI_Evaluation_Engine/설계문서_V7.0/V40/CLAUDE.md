@@ -6,21 +6,21 @@
 
 ## 🔥 최우선 교훈 (읽고 시작!) 🔥
 
-### ⭐ Phase 2 수집 시 반드시 버퍼 목표(60개)로 수집! ⭐
+### ⭐ Phase 1 수집 시 반드시 버퍼 목표(60개)로 수집! ⭐
 
 **❌ 잘못된 방법 (시간 낭비):**
 ```
-Phase 2: 최소 목표 50개만 수집
-→ Phase 3 검증 후 일부 삭제 (40-45개 남음)
-→ Phase 3-3 재수집 필요 (2-3시간 소요!)
+Phase 1: 최소 목표 50개만 수집
+→ Phase 2 검증 후 일부 삭제 (40-45개 남음)
+→ Phase 2-2 재수집 필요 (2-3시간 소요!)
 → 8라운드 반복 수집
 ```
 
 **✅ 올바른 방법 (시간 절약):**
 ```
-Phase 2: 버퍼 목표 60개 수집 (Gemini 60 + Naver 60 = 120)
-→ Phase 3 검증 후 50-60개 유지
-→ Phase 3-3 거의 불필요 (15분 이내)
+Phase 1: 버퍼 목표 60개 수집 (Gemini 60 + Naver 60 = 120)
+→ Phase 2 검증 후 50-60개 유지
+→ Phase 2-2 거의 불필요 (15분 이내)
 → 시간 절약: 2-3시간!
 ```
 
@@ -31,8 +31,8 @@ Phase 2: 버퍼 목표 60개 수집 (Gemini 60 + Naver 60 = 120)
 - **모든 카테고리 동일 목표** (차별 금지)
 
 **실전 데이터 (조은희):**
-- 최소 목표(50) 수집 → Phase 3-3 재수집 2시간 35분
-- 버퍼 목표(60) 수집 → Phase 3-3 스킵 가능!
+- 최소 목표(50) 수집 → Phase 2-2 재수집 2시간 35분
+- 버퍼 목표(60) 수집 → Phase 2-2 스킵 가능!
 
 **교훈:**
 > **"처음부터 제대로" > "나중에 재작업"**
@@ -40,7 +40,7 @@ Phase 2: 버퍼 목표 60개 수집 (Gemini 60 + Naver 60 = 120)
 
 ---
 
-## 🚀 Phase 2: 데이터 수집 실행 가이드 (60개 이상!)
+## 🚀 Phase 1: 데이터 수집 실행 가이드 (60개 이상!)
 
 **⚠️ 핵심: "60개 정확히"가 아니라 "60개 이상" 수집하세요!**
 
@@ -110,36 +110,31 @@ cd V40/scripts/workflow
 - 카테고리 번호: 1=expertise, 2=leadership, ..., 10=publicinterest
 - 한 번 실행으로 60개 이상 수집 (자동 조정)
 
-**단일 카테고리 수집 예시 (expertise = category 1):**
+**단일 카테고리 수집 예시 (expertise):**
 ```bash
 cd V40/scripts/workflow
 
 python collect_naver_v40_final.py \
-  --politician_id d0a5d6e1 \
-  --politician_name "조은희" \
-  --ai Naver \
-  --category 1
+  --politician-id d0a5d6e1 \
+  --politician-name "조은희" \
+  --category expertise
 ```
 
 **전체 10개 카테고리 일괄 수집:**
 ```bash
 cd V40/scripts/workflow
 
-for cat_num in {1..10}; do
+CATEGORIES="expertise leadership vision integrity ethics accountability transparency communication responsiveness publicinterest"
+for cat in $CATEGORIES; do
   python collect_naver_v40_final.py \
-    --politician_id d0a5d6e1 \
-    --politician_name "조은희" \
-    --ai Naver \
-    --category $cat_num
-  echo "카테고리 $cat_num 완료"
+    --politician-id d0a5d6e1 \
+    --politician-name "조은희" \
+    --category $cat
+  echo "$cat 완료"
 done
 ```
 
-**카테고리 번호 참조:**
-```
-1=expertise, 2=leadership, 3=vision, 4=integrity, 5=ethics,
-6=accountability, 7=transparency, 8=communication, 9=responsiveness, 10=publicinterest
-```
+⚠️ **중요**: 카테고리는 번호(1,2,3...)가 아닌 영문 이름(expertise, leadership...)을 사용해야 합니다.
 
 **진행 상황 확인:**
 ```bash
@@ -188,7 +183,7 @@ Total: 1,120개 ⚠️
 
 ---
 
-### Step 4: 다음 단계로 진행 (Phase 3: 검증)
+### Step 4: 다음 단계로 진행 (Phase 2: 검증)
 
 **수집 완료 후 반드시 검증 실행:**
 ```bash
@@ -199,14 +194,14 @@ python validate_v40_fixed.py \
   --no-dry-run
 ```
 
-**⚠️ Phase 3 (검증) 없이 평가 시작 절대 금지!**
+**⚠️ Phase 2 (검증) 없이 평가 시작 절대 금지!**
 
 검증 단계에서:
 - 중복 제거
 - 기간 제한 위반 제거
 - 최종 데이터 정제
 
-검증 후에도 대부분 50개 이상 유지됨 → **Phase 3-3 재수집 스킵 가능!**
+검증 후에도 대부분 50개 이상 유지됨 → **Phase 2-2 재수집 스킵 가능!**
 
 ---
 
@@ -243,12 +238,12 @@ done
 echo ""
 echo "[2/3] Naver API 수집 중..."
 
-for cat_num in {1..10}; do
+CATEGORIES="expertise leadership vision integrity ethics accountability transparency communication responsiveness publicinterest"
+for cat in $CATEGORIES; do
   python collect_naver_v40_final.py \
-    --politician_id $POLITICIAN_ID \
-    --politician_name "$POLITICIAN_NAME" \
-    --ai Naver \
-    --category $cat_num
+    --politician-id $POLITICIAN_ID \
+    --politician-name "$POLITICIAN_NAME" \
+    --category $cat
 done
 
 # Step 3: 결과 확인
@@ -259,7 +254,7 @@ python check_collection_status.py --politician "$POLITICIAN_NAME"
 
 echo ""
 echo "========================================="
-echo "수집 완료! 다음 단계: Phase 3 (검증)"
+echo "수집 완료! 다음 단계: Phase 2 (검증)"
 echo "========================================="
 ```
 

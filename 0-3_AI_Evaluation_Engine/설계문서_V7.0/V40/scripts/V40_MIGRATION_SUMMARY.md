@@ -203,7 +203,8 @@ These scripts collect data and should be updated separately:
 PRIOR = 6.0
 COEFFICIENT = 0.5
 
-Category Score = (PRIOR + avg_rating × COEFFICIENT) × 10
+Category Score = (PRIOR + avg_score × COEFFICIENT) × 10
+# avg_score: RATING_TO_SCORE = {'+4':8, '+3':6, '+2':4, '+1':2, '-1':-2, '-2':-4, '-3':-6, '-4':-8}
 Range: 20~100 points per category
 
 Final Score = SUM(10 category scores)

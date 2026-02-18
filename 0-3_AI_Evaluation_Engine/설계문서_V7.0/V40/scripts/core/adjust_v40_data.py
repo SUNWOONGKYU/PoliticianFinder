@@ -288,15 +288,14 @@ def trigger_recollection(politician_id: str, politician_name: str, ai: str, cate
                 return False
 
         elif ai == 'Naver':
-            # Naver API 재수집 (0-3_AI_Evaluation_Engine/collect_v40.py)
-            collect_v40_script = V40_DIR.parent.parent / 'collect_v40.py'
+            # Naver API 재수집 (V40/scripts/workflow/collect_naver_v40_final.py)
+            collect_naver_script = V40_DIR / 'scripts' / 'workflow' / 'collect_naver_v40_final.py'
             cmd = [
                 sys.executable,
-                str(collect_v40_script),
-                '--politician_id', politician_id,
-                '--politician_name', politician_name,
-                '--ai', 'Naver',
-                '--category', str(CATEGORIES.index(category) + 1)  # 1-based index
+                str(collect_naver_script),
+                '--politician-id', politician_id,
+                '--politician-name', politician_name,
+                '--category', category  # string name (e.g., 'expertise'), NOT number
             ]
 
             result = subprocess.run(cmd, capture_output=True, text=True, timeout=300)
@@ -542,6 +541,20 @@ def main():
         target_ai=args.ai,
         dry_run=dry_run
     )
+
+    # Phase 2-2 완료 기록 (실제 조정 모드일 때만)
+    if not dry_run:
+        try:
+            sys.path.insert(0, str(SCRIPT_DIR.parent / 'helpers'))
+            from phase_tracker import mark_phase_done
+            if success:
+                details = "균형 달성 완료"
+            else:
+                details = "최대 라운드 도달 (포기 규칙 적용)"
+            mark_phase_done(args.politician_id, '2-2', details, args.politician_name)
+            print(f"\n  Phase 2-2 완료 기록됨")
+        except ImportError:
+            pass  # phase_tracker 없어도 기존 동작 유지
 
     sys.exit(0 if success else 1)
 
