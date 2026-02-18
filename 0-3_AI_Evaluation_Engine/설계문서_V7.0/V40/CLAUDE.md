@@ -107,7 +107,8 @@ cd V40/scripts/workflow
 
 **핵심 원리:**
 - `collect_naver_v40_final.py` 사용
-- 카테고리 번호: 1=expertise, 2=leadership, ..., 10=publicinterest
+- 카테고리 이름(영문 문자열): expertise, leadership, vision, integrity, ethics, accountability, transparency, communication, responsiveness, publicinterest
+- ⚠️ 숫자(1, 2, 3...) 사용 금지! 반드시 영문 이름 사용
 - 한 번 실행으로 60개 이상 수집 (자동 조정)
 
 **단일 카테고리 수집 예시 (expertise):**
