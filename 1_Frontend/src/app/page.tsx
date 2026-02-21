@@ -650,7 +650,7 @@ export default function Home() {
               <div className="px-3 sm:px-4 pt-3 sm:pt-4">
                 <h2 className="text-xl sm:text-2xl font-bold text-gray-900">🏆 정치인 순위 TOP 10</h2>
                 <p className="text-xs sm:text-sm text-gray-600 mt-1 line-clamp-2 sm:line-clamp-none">
-                  공개된 데이터를 활용하여 AI가 객관적으로 산출한 정치인 평점 순위 (상위 10명)
+                  공개된 데이터를 기초로 AI가 객관적으로 평가한 점수를 기준으로 한 정치인 랭킹 (상위 10명)
                 </p>
                 <div className="w-full h-0.5 bg-primary-500 mt-2 sm:mt-3 mb-3 sm:mb-4"></div>
               </div>

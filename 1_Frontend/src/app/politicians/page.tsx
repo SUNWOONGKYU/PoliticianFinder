@@ -230,7 +230,7 @@ export default function PoliticiansPage() {
         {/* Page Header */}
         <div className="mb-6">
           <p className="text-lg text-gray-600">
-            AI 기반 객관적 평가내역을 참고하여 훌륭한 정치인을 찾아보세요
+            AI가 객관적으로 평가한 점수를 기준으로 관심있는 정치인의 랭킹을 확인해보세요
           </p>
         </div>
 

@@ -135,7 +135,7 @@ export default function Header() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6">
             <Link href="/" className="text-gray-900 dark:text-gray-100 hover:text-primary-600 dark:hover:text-primary-400 font-medium focus:outline-none focus:ring-2 focus:ring-primary-300 rounded px-2 py-1">홈</Link>
-            <Link href="/politicians" className="text-gray-900 dark:text-gray-100 hover:text-primary-600 dark:hover:text-primary-400 font-medium focus:outline-none focus:ring-2 focus:ring-primary-300 rounded px-2 py-1">정치인</Link>
+            <Link href="/politicians" className="text-gray-900 dark:text-gray-100 hover:text-primary-600 dark:hover:text-primary-400 font-medium focus:outline-none focus:ring-2 focus:ring-primary-300 rounded px-2 py-1">랭킹</Link>
             <Link href="/community" className="text-gray-900 dark:text-gray-100 hover:text-primary-600 dark:hover:text-primary-400 font-medium focus:outline-none focus:ring-2 focus:ring-primary-300 rounded px-2 py-1">커뮤니티</Link>
             <Link href="/connection" className="text-gray-900 dark:text-gray-100 hover:text-primary-600 dark:hover:text-primary-400 font-medium focus:outline-none focus:ring-2 focus:ring-primary-300 rounded px-2 py-1">연결</Link>
           </div>
@@ -217,7 +217,7 @@ export default function Header() {
           <div id="mobile-menu" className="md:hidden pb-4 safe-area-bottom" role="menu">
             <div className="flex flex-col space-y-1">
               <Link href="/" className="text-gray-900 dark:text-gray-100 hover:text-primary-600 dark:hover:text-primary-400 font-medium px-4 py-3 min-h-[44px] flex items-center rounded-lg active:bg-gray-100 dark:active:bg-slate-800 touch-manipulation" onClick={() => setMobileMenuOpen(false)}>홈</Link>
-              <Link href="/politicians" className="text-gray-900 dark:text-gray-100 hover:text-primary-600 dark:hover:text-primary-400 font-medium px-4 py-3 min-h-[44px] flex items-center rounded-lg active:bg-gray-100 dark:active:bg-slate-800 touch-manipulation" onClick={() => setMobileMenuOpen(false)}>정치인</Link>
+              <Link href="/politicians" className="text-gray-900 dark:text-gray-100 hover:text-primary-600 dark:hover:text-primary-400 font-medium px-4 py-3 min-h-[44px] flex items-center rounded-lg active:bg-gray-100 dark:active:bg-slate-800 touch-manipulation" onClick={() => setMobileMenuOpen(false)}>랭킹</Link>
               <Link href="/community" className="text-gray-900 dark:text-gray-100 hover:text-primary-600 dark:hover:text-primary-400 font-medium px-4 py-3 min-h-[44px] flex items-center rounded-lg active:bg-gray-100 dark:active:bg-slate-800 touch-manipulation" onClick={() => setMobileMenuOpen(false)}>커뮤니티</Link>
               <Link href="/connection" className="text-gray-900 dark:text-gray-100 hover:text-primary-600 dark:hover:text-primary-400 font-medium px-4 py-3 min-h-[44px] flex items-center rounded-lg active:bg-gray-100 dark:active:bg-slate-800 touch-manipulation" onClick={() => setMobileMenuOpen(false)}>연결</Link>
               <hr className="my-2 border-gray-200 dark:border-slate-700" />
