@@ -55,6 +55,8 @@ cd V40/scripts/workflow
 - `collect_gemini_subprocess.py`: 1회 실행 = 약 10개 수집
 - 60개 이상 수집 = **최소 6-7회 실행** 필요
 - 목표: **60개 이상** (60개 정확히 아님!)
+- **3단계 Fallback 자동 적용**: CLI 2.5-flash → CLI 2.0-flash → REST API
+  - quota 소진 또는 timeout(30분) 발생 시 자동으로 다음 단계로 전환
 
 **단일 카테고리 수집 예시 (expertise):**
 ```bash
@@ -578,10 +580,10 @@ Read("C:\\...\\V40\\instructions\\V40_기본방침.md")
 #### 4. V40_전체_프로세스_가이드.md ⭐ (필독!)
 ```
 경로: instructions/V40_전체_프로세스_가이드.md
-역할: 7단계 프로세스 상세 가이드
+역할: Phase 0-5 프로세스 상세 가이드
 내용:
   - Phase 0: 정치인 정보 등록
-  - Phase 1~7: 수집 → 검증 → 평가 → 점수 → 보고서
+  - Phase 1~5: 수집 → 검증 → 조정 → 평가 → 점수 → 보고서
   - 모든 실행 명령 포함
 ```
 
@@ -611,7 +613,7 @@ Read("C:\\...\\V40\\instructions\\V40_오케스트레이션_가이드.md")
 
 ## 🚫 금지 사항
 
-❌ **이 3개 문서를 읽지 않고 작업 시작하지 마세요!**
+❌ **이 5개 문서를 읽지 않고 작업 시작하지 마세요!**
 ❌ **README.md만 읽고 넘어가지 마세요!**
 ❌ **추측으로 작업하지 마세요!**
 
@@ -670,7 +672,7 @@ Read("C:\\...\\V40\\instructions\\V40_오케스트레이션_가이드.md")
 | `claude_eval_helper.py` | Haiku 4.5 | 25개 | Pre-filtering | Claude Anthropic API 평가 |
 | `codex_eval_helper.py` | gpt-5.1-codex-mini | 25개 (자동 재시도 5) | Pre-filtering + 자동 재시도 | ChatGPT Codex CLI Direct 평가 (~1 credit/msg) |
 | `grok_eval_helper.py` | Grok 3 | 25개 | Pre-filtering | Grok xAI Agent Tools API 평가 |
-| `evaluate_gemini_subprocess.py` | 2.0 Flash | 25개 | Pre-filtering | Gemini CLI Subprocess 평가 |
+| `evaluate_gemini_subprocess.py` | 2.5 Flash → 2.0 Flash → REST API (3단계 fallback) | 25개 | Pre-filtering + timeout fallback | Gemini CLI Subprocess 평가 |
 | Skill `/evaluate-politician-v40` | (자동) | 50개 | Pre-filtering | Skill 기반 자동 평가 (Claude) |
 
 **🚀 성능 최적화 (V40 개선)**:
@@ -741,7 +743,9 @@ batch_size = 25  # Pre-filtering 적용, 5x 향상
 **평가 스크립트**: `scripts/workflow/evaluate_gemini_subprocess.py`
 
 **주요 특징:**
-- ✅ Gemini CLI Subprocess 방식 (Google 계정 인증)
+- ✅ Gemini 3단계 Fallback: CLI 2.5-flash → CLI 2.0-flash → REST API
+- ✅ timeout(300초) 발생 시 자동으로 다음 단계(REST API)로 전환
+- ✅ quota 소진 시 자동으로 다음 단계로 전환
 - ✅ instruction 파일 자동 로드 및 프롬프트 포함
 - ✅ 올바른 테이블 사용 (`collected_data_v40`, `evaluations_v40`)
 - ✅ 배치 크기: 25개 (Pre-filtering 적용)
@@ -758,11 +762,13 @@ batch_size = 25  # Pre-filtering 적용, 5x 향상
 - ...10개 카테고리 전부
 
 **스크립트 동작:**
-1. instruction 파일 경로 확인 (Line 276)
-2. 파일 존재 여부 체크 (Line 278-285)
-3. 파일 내용 읽기 (Line 287-288)
-4. 프롬프트에 **내용 포함** (Line 297-298)
-5. Gemini CLI로 평가 실행
+1. instruction 파일 로드 (카테고리별 평가 기준)
+2. 수집 데이터 배치 구성 (25개씩, 이미 평가된 데이터 제외)
+3. 평가 프롬프트 생성 (instruction 내용 포함)
+4. **Step 1**: `execute_gemini_cli(prompt, timeout=300)` — CLI 2.5-flash 시도
+5. **Step 2**: CLI 실패(quota/timeout) 시 CLI 2.0-flash 자동 전환
+6. **Step 3**: 모든 CLI 실패 시 `execute_gemini_api()` — REST API fallback
+7. 응답 파싱 후 `evaluations_v40` 테이블에 배치 저장
 
 ### 테이블 구조 (절대 변경 금지!)
 
@@ -796,7 +802,7 @@ done
 
 ### 가이드 문서
 
-**상세 가이드**: `instructions/3_evaluate/Gemini_CLI_평가_작업방법.md`
+**상세 가이드**: `instructions/3_evaluate/AI_평가_통합가이드_V40.md`
 
 ---
 
@@ -970,8 +976,8 @@ done
 
 ### 상세 가이드
 
-**📖 자세한 사용법**: `instructions/V40_추가평가_가이드.md`
-- AI별 상세 실행 방법
+**📖 자세한 사용법**: `instructions/3_evaluate/AI_평가_통합가이드_V40.md`
+- AI별 상세 실행 방법 (Claude, ChatGPT, Gemini, Grok)
 - 워크플로우
 - 실전 예시
 - 주의사항
@@ -980,7 +986,7 @@ done
 
 ## 💡 실전 Tips (Lessons Learned)
 
-### 수집 단계 (Phase 2)
+### 수집 단계 (Phase 1)
 
 **DO ✅:**
 - 버퍼 목표 60개/AI/카테고리로 수집 (재수집 방지)

@@ -30,7 +30,7 @@ V40 시스템은 **4개 AI가 독립적으로 전체 데이터를 평가**합니
 |----|------|------|------|--------|
 | **Claude** | Haiku 4.5 | CLI Direct / Skill | $0 (구독) | 반자동 / Skill 자동 |
 | **ChatGPT** | gpt-5.1-codex-mini | Codex CLI Direct | $1.125/1K | 완전 자동 |
-| **Gemini** | 2.0 Flash | CLI Subprocess | $0 (구독) | 완전 자동 |
+| **Gemini** | 2.5 Flash → 2.0 Flash → REST API (3단계 Fallback) | CLI Subprocess | $0 (구독) | 완전 자동 |
 | **Grok** | Grok 3 | curl CLI Direct (Agent Tools API) | API 비용 | 완전 자동 |
 
 **평가 방식:**
@@ -253,8 +253,8 @@ except ForeignKeyError:
 
 ### 6.1 개요
 
-**방식**: CLI Subprocess
-**모델**: 2.0 Flash
+**방식**: CLI Subprocess (3단계 Fallback)
+**모델**: 2.5 Flash (우선) → 2.0 Flash → REST API (quota/timeout 시 자동 전환)
 **비용**: $0 (AI Studio Pro 구독)
 **자동화**: 완전 자동
 
@@ -429,7 +429,7 @@ WHERE id NOT IN (
 |----|------|------|------|------|--------|----------|
 | **Claude** | CLI Direct<br>Skill | Haiku 4.5 | 25/50 | $0 | 반자동<br>완전자동 | claude_eval_helper.py<br>/evaluate-politician-v40 |
 | **ChatGPT** | Codex CLI | gpt-5.1-codex-mini | 25 (재시도 5) | $1.125/1K | 완전 자동 | codex_eval_helper.py |
-| **Gemini** | CLI Subprocess | 2.0 Flash | 25 | $0 | 완전 자동 | evaluate_gemini_subprocess.py |
+| **Gemini** | CLI Subprocess (3단계 Fallback) | 2.5 Flash → 2.0 Flash → REST API | 25 | $0 | 완전 자동 | evaluate_gemini_subprocess.py |
 | **Grok** | curl CLI (Agent Tools API) | Grok 3 | 25 | API 비용 | 완전 자동 | grok_eval_helper.py |
 
 ---

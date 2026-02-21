@@ -341,9 +341,12 @@ def evaluate_category(
         # 통일된 평가 프롬프트 생성 (instruction 기반)
         prompt = build_evaluation_prompt(politician_name, category, data_json, instruction_content)
 
-        # Gemini API 직접 실행 (CLI는 긴 프롬프트에서 hang 발생)
-        from collect_gemini_subprocess import execute_gemini_api
-        result = execute_gemini_api(prompt, timeout=120, max_retries=3)
+        # Gemini CLI 실행 (3단계 fallback: 2.5-flash → 2.0-flash → REST API)
+        result = execute_gemini_cli(prompt, timeout=300)  # 5분 timeout으로 hang 방지
+        if not result['success']:
+            logger.warning("[FALLBACK] CLI failed, trying REST API...")
+            from collect_gemini_subprocess import execute_gemini_api
+            result = execute_gemini_api(prompt, timeout=120, max_retries=3)
 
         if not result['success']:
             logger.error(f"[ERROR] Batch {batch_num} failed: {result['error']}")

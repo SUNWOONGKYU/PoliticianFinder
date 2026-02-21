@@ -40,7 +40,12 @@
       "Bash(for cat in $CATS)",
       "Bash(do echo \"[Claude] 오세훈 $cat\")",
       "Bash(do echo \"[ChatGPT] 오세훈 $cat\")",
-      "Bash(python3:*)"
+      "Bash(python3:*)",
+      "Bash(node --version:*)",
+      "Bash(npm:*)",
+      "Bash(do python codex_eval_helper.py --politician_id=37e39502 --politician_name=\"오준환\" --category=$cat --batch_size=25)",
+      "Bash(do python grok_eval_helper.py --politician_id=37e39502 --politician_name=\"오준환\" --category=$cat --batch_size=25)",
+      "Bash(pandoc:*)"
     ]
   }
 }

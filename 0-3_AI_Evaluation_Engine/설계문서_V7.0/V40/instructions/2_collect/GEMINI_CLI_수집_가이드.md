@@ -7,9 +7,14 @@
 
 ## 1. 개요
 
-### 수집 방식: Gemini CLI Direct Subprocess
+### 수집 방식: Gemini CLI Subprocess (3단계 Fallback)
 
-V40 공식 수집 방식은 **Gemini CLI Direct Subprocess** (재미나 CLI 다이렉트 서브프로세스)입니다.
+V40 공식 수집 방식은 **Gemini CLI Subprocess**입니다.
+
+**3단계 Fallback (자동):**
+- Step 1: CLI gemini-2.5-flash (우선, Tier 1)
+- Step 2: CLI gemini-2.0-flash (quota 소진 또는 timeout(30분) 시 자동 전환)
+- Step 3: REST API fallback (모든 CLI 실패 시)
 
 **정의:**
 - Python `subprocess.run()`으로 Gemini CLI를 직접 실행

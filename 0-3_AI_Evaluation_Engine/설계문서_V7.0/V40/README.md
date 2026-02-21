@@ -1,7 +1,7 @@
 # V40 정치인 평가 시스템
 
 **버전**: V40
-**최종 업데이트**: 2026-02-12 (평가 최적화 완료)
+**최종 업데이트**: 2026-02-21 (문서 동기화 완료)
 **목적**: 웹검색 기반 2개 채널 분담 수집 (Gemini 50 + Naver 50) + 4개 AI 풀링 평가
 
 **🚀 주요 변경사항 (2026-02-12)**:
@@ -35,8 +35,8 @@
 - **⚠️ 읽지 않으면**: 잘못된 방식으로 수집/평가하게 됨
 
 #### 4. **`instructions/V40_전체_프로세스_가이드.md`** ⭐ 필독!
-- **역할**: 7단계 프로세스 상세 가이드
-- **내용**: Phase 0~7 전체 프로세스, 모든 실행 명령 포함
+- **역할**: Phase 0-5 프로세스 상세 가이드
+- **내용**: Phase 0~5 전체 프로세스, 모든 실행 명령 포함
 - **⚠️ 읽지 않으면**: 실행 명령을 몰라 작업 불가
 
 #### 5. **`instructions/V40_오케스트레이션_가이드.md`** ⭐ 필독!
@@ -68,7 +68,7 @@
 ### 4단계: 실행 방법 확인
 - **수집 자동화**: `scripts/workflow/collect_gemini_subprocess.py` (Gemini) / `scripts/workflow/collect_naver_v40_final.py` (Naver)
 - **Gemini CLI Subprocess 수집**: `instructions/2_collect/GEMINI_CLI_수집_가이드.md`
-- **Gemini CLI Subprocess 평가**: `instructions/3_evaluate/Gemini_CLI_평가_작업방법.md`
+- **4개 AI 평가 통합 가이드**: `instructions/3_evaluate/AI_평가_통합가이드_V40.md`
 - **공식 용어 정의**: `TERMINOLOGY.md`
 - **문서 관계도**: `V40_문서_관계도.md`
 
@@ -184,13 +184,15 @@ V40/
 │
 ├── instructions/                        ← 지침 문서
 │   ├── V40_기본방침.md                  ← 핵심 방침 (필독!)
-│   ├── V40_전체_프로세스_가이드.md      ← 7단계 프로세스 상세
+│   ├── V40_전체_프로세스_가이드.md      ← Phase 0-5 프로세스 상세
 │   ├── V40_오케스트레이션_가이드.md     ← 자동화 가이드
+│   ├── V40_검증후조정_가이드.md         ← Phase 2-2 균형 조정 상세
+│   ├── V40_아키텍처_철학.md             ← V40 설계 원칙
 │   │
-│   ├── 1_politicians/                   ← 정치인별 정보 (범용 템플릿 기반)
+│   ├── 1_politicians/                   ← 정치인별 정보 (11개 파일)
 │   │   ├── _TEMPLATE.md                 ← 새 정치인 추가 시 복사하여 사용
-│   │   ├── 조은희.md
-│   │   └── 박주민.md
+│   │   ├── 정원오/박주민/조은희/오세훈/오준환.md  ← ✅ 평가 완료
+│   │   └── 김진태/명재성/우상호/이동환/이재준.md  ← ⏳ 대기 중
 │   │
 │   ├── 2_collect/                       ← 수집 지침
 │   │   ├── GEMINI_CLI_수집_가이드.md    ← Gemini CLI 수동 수집 절차 (범용)
@@ -202,8 +204,7 @@ V40/
 │   │       └── naver_public.md          ← Naver PUBLIC 수집 프롬프트
 │   │
 │   └── 3_evaluate/                      ← 평가 지침
-│       ├── Gemini_CLI_평가_작업방법.md  ← Gemini CLI Subprocess 평가
-│       ├── Claude_평가_종합가이드_V40.md ← Claude 평가 가이드
+│       ├── AI_평가_통합가이드_V40.md    ← 4개 AI 평가 통합 가이드
 │       └── cat01_expertise.md ~ cat10_publicinterest.md (10개 카테고리)
 │
 ├── scripts/                             ← 실행 스크립트
@@ -222,10 +223,13 @@ V40/
 │   │   ├── codex_eval_helper.py        ← ChatGPT 평가: Codex CLI (stdin)
 │   │   ├── grok_eval_helper.py         ← Grok 평가: xAI API Direct
 │   │   ├── common_eval_saver.py        ← 평가 저장 공통 함수 (4개 AI 통합)
+│   │   ├── phase_tracker.py            ← Phase 상태 추적 (.phase_status/)
 │   │   └── duplicate_check_utils.py    ← 중복 체크
 │   └── utils/                          ← 유틸리티 (결과 확인, 검증)
-│       ├── check_v40_results.py
-│       └── verify_collection.py
+│       ├── check_collection_status.py  ← 수집 상태 확인
+│       ├── check_evaluation_status.py  ← 평가 상태 확인
+│       ├── check_v40_results.py        ← 전체 결과 확인
+│       └── verify_collection.py        ← 수집 검증
 │
 ├── results/                             ← 수집/평가 결과 JSON (임시 저장)
 │   ├── collect/                         ← 수집 결과
@@ -893,10 +897,10 @@ Step 3: 확인 및 반복
 
 ### 정치인 정보
 
-**정치인별 정보** (instructions/1_politicians/):
+**정치인별 정보** (instructions/1_politicians/) — 11개 파일:
 - _TEMPLATE.md (새 정치인 추가 시 복사하여 사용)
-- 조은희.md
-- 박주민.md
+- ✅ 평가 완료: 정원오, 박주민, 조은희, 오세훈, 오준환
+- ⏳ 대기 중: 김진태, 명재성, 우상호, 이동환, 이재준
 
 **새 정치인 추가 방법**:
 1. `_TEMPLATE.md`를 복사하여 `{이름}.md`로 저장
@@ -962,7 +966,7 @@ Gemini CLI가 공식 MCP 서버 모드를 지원하고 다음 조건을 충족�
 
 - **프로젝트**: PoliticianFinder
 - **버전**: V40
-- **최종 업데이트**: 2026-02-01
+- **최종 업데이트**: 2026-02-21
 
 ---
 

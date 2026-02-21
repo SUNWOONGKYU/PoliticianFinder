@@ -320,7 +320,7 @@ def _try_cli_model(prompt: str, model_name: str, timeout: int, max_retries: int)
             logger.error(f"[TIMEOUT] CLI {model_name} timed out after {timeout}s")
             if attempt < max_retries - 1:
                 continue
-            return {"success": False, "output": None, "error": f"Timeout after {timeout}s", "quota_exhausted": False}
+            return {"success": False, "output": None, "error": f"Timeout after {timeout}s", "quota_exhausted": False, "timed_out": True}
 
         except FileNotFoundError:
             logger.error(f"[ERROR] Gemini CLI not found: {gemini_cmd}")
@@ -363,8 +363,11 @@ def execute_gemini_cli(prompt: str, timeout: int = 3600, max_retries: int = 3) -
         if result.get('quota_exhausted'):
             logger.warning(f"[Step {step_num}] CLI {model_name} quota exhausted, moving to next step...")
             continue  # 다음 CLI 모델 또는 API로
+        elif result.get('timed_out'):
+            logger.warning(f"[Step {step_num}] CLI {model_name} timed out, trying next step (API fallback)...")
+            continue  # 타임아웃도 다음 단계(API fallback)로
         else:
-            # quota가 아닌 다른 에러 → 그대로 반환
+            # quota/timeout이 아닌 다른 에러 → 그대로 반환
             return {"success": False, "output": result.get('output'), "error": result.get('error')}
 
     # Step 3: 모든 CLI 모델 quota 소진 → API fallback

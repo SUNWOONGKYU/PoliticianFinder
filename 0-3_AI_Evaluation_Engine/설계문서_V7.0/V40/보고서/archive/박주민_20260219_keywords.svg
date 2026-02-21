@@ -1,0 +1,204 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="740" viewBox="0 0 1000 740">
+<rect width="1000" height="740" fill="#0f172a" rx="12"/>
+<line x1="0" y1="0" x2="0" y2="740" stroke="#1e293b" stroke-width="1"/>
+<line x1="80" y1="0" x2="80" y2="740" stroke="#1e293b" stroke-width="1"/>
+<line x1="160" y1="0" x2="160" y2="740" stroke="#1e293b" stroke-width="1"/>
+<line x1="240" y1="0" x2="240" y2="740" stroke="#1e293b" stroke-width="1"/>
+<line x1="320" y1="0" x2="320" y2="740" stroke="#1e293b" stroke-width="1"/>
+<line x1="400" y1="0" x2="400" y2="740" stroke="#1e293b" stroke-width="1"/>
+<line x1="480" y1="0" x2="480" y2="740" stroke="#1e293b" stroke-width="1"/>
+<line x1="560" y1="0" x2="560" y2="740" stroke="#1e293b" stroke-width="1"/>
+<line x1="640" y1="0" x2="640" y2="740" stroke="#1e293b" stroke-width="1"/>
+<line x1="720" y1="0" x2="720" y2="740" stroke="#1e293b" stroke-width="1"/>
+<line x1="800" y1="0" x2="800" y2="740" stroke="#1e293b" stroke-width="1"/>
+<line x1="880" y1="0" x2="880" y2="740" stroke="#1e293b" stroke-width="1"/>
+<line x1="960" y1="0" x2="960" y2="740" stroke="#1e293b" stroke-width="1"/>
+<line x1="0" y1="0" x2="1000" y2="0" stroke="#1e293b" stroke-width="1"/>
+<line x1="0" y1="80" x2="1000" y2="80" stroke="#1e293b" stroke-width="1"/>
+<line x1="0" y1="160" x2="1000" y2="160" stroke="#1e293b" stroke-width="1"/>
+<line x1="0" y1="240" x2="1000" y2="240" stroke="#1e293b" stroke-width="1"/>
+<line x1="0" y1="320" x2="1000" y2="320" stroke="#1e293b" stroke-width="1"/>
+<line x1="0" y1="400" x2="1000" y2="400" stroke="#1e293b" stroke-width="1"/>
+<line x1="0" y1="480" x2="1000" y2="480" stroke="#1e293b" stroke-width="1"/>
+<line x1="0" y1="560" x2="1000" y2="560" stroke="#1e293b" stroke-width="1"/>
+<line x1="0" y1="640" x2="1000" y2="640" stroke="#1e293b" stroke-width="1"/>
+<line x1="0" y1="720" x2="1000" y2="720" stroke="#1e293b" stroke-width="1"/>
+<text x="500" y="38" text-anchor="middle" font-family="'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="20" font-weight="bold" fill="#f1f5f9">박주민 키워드 지도</text>
+<text x="500" y="56" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#64748b">전체 16,952회 / 상위 50개 키워드 · 버블 크기 = 빈도</text>
+<circle cx="502" cy="362" r="80" fill="rgba(0,0,0,0.4)"/>
+<circle cx="500" cy="360" r="80" fill="#3b82f6" opacity="1.00"/>
+<circle cx="476" cy="336" r="28" fill="rgba(255,255,255,0.15)"/>
+<text x="500" y="360" text-anchor="middle" dominant-baseline="middle" font-family="'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="20" font-weight="bold" fill="white">개정안</text>
+<text x="500" y="381" text-anchor="middle" font-family="sans-serif" font-size="16" fill="rgba(255,255,255,0.65)">1315</text>
+<circle cx="463" cy="488" r="46" fill="rgba(0,0,0,0.4)"/>
+<circle cx="461" cy="486" r="46" fill="#3b82f6" opacity="0.78"/>
+<circle cx="448" cy="473" r="16" fill="rgba(255,255,255,0.15)"/>
+<text x="461" y="486" text-anchor="middle" dominant-baseline="middle" font-family="'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="17" font-weight="bold" fill="white">토론회</text>
+<text x="461" y="504" text-anchor="middle" font-family="sans-serif" font-size="13" fill="rgba(255,255,255,0.65)">706</text>
+<circle cx="375" cy="411" r="44" fill="rgba(0,0,0,0.4)"/>
+<circle cx="373" cy="409" r="44" fill="#3b82f6" opacity="0.77"/>
+<circle cx="360" cy="396" r="15" fill="rgba(255,255,255,0.15)"/>
+<text x="373" y="409" text-anchor="middle" dominant-baseline="middle" font-family="'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="16" font-weight="bold" fill="white">사회적</text>
+<text x="373" y="426" text-anchor="middle" font-family="sans-serif" font-size="12" fill="rgba(255,255,255,0.65)">663</text>
+<circle cx="574" cy="467" r="41" fill="rgba(0,0,0,0.4)"/>
+<circle cx="572" cy="465" r="41" fill="#6b7280" opacity="0.75"/>
+<circle cx="560" cy="453" r="14" fill="rgba(255,255,255,0.15)"/>
+<text x="572" y="465" text-anchor="middle" dominant-baseline="middle" font-family="'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="15" font-weight="bold" fill="white">적극적</text>
+<text x="572" y="481" text-anchor="middle" font-family="sans-serif" font-size="11" fill="rgba(255,255,255,0.65)">610</text>
+<circle cx="579" cy="272" r="34" fill="#6b7280" opacity="0.70"/>
+<circle cx="569" cy="262" r="11" fill="rgba(255,255,255,0.15)"/>
+<text x="579" y="272" text-anchor="middle" dominant-baseline="middle" font-family="'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="12" font-weight="bold" fill="white">간담회</text>
+<text x="579" y="285" text-anchor="middle" font-family="sans-serif" font-size="8" fill="rgba(255,255,255,0.65)">493</text>
+<circle cx="622" cy="368" r="34" fill="#6b7280" opacity="0.70"/>
+<circle cx="612" cy="358" r="11" fill="rgba(255,255,255,0.15)"/>
+<text x="622" y="368" text-anchor="middle" dominant-baseline="middle" font-family="'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="12" font-weight="bold" fill="white">인터뷰</text>
+<text x="622" y="381" text-anchor="middle" font-family="sans-serif" font-size="8" fill="rgba(255,255,255,0.65)">484</text>
+<circle cx="378" cy="289" r="33" fill="#6b7280" opacity="0.70"/>
+<circle cx="369" cy="280" r="11" fill="rgba(255,255,255,0.15)"/>
+<text x="378" y="289" text-anchor="middle" dominant-baseline="middle" font-family="'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="12" font-weight="bold" fill="white">기자회견</text>
+<text x="378" y="302" text-anchor="middle" font-family="sans-serif" font-size="8" fill="rgba(255,255,255,0.65)">478</text>
+<circle cx="479" cy="216" r="33" fill="#3b82f6" opacity="0.70"/>
+<circle cx="470" cy="207" r="11" fill="rgba(255,255,255,0.15)"/>
+<text x="479" y="216" text-anchor="middle" dominant-baseline="middle" font-family="'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="12" font-weight="bold" fill="white">피해자</text>
+<text x="479" y="229" text-anchor="middle" font-family="sans-serif" font-size="8" fill="rgba(255,255,255,0.65)">470</text>
+<circle cx="404" cy="214" r="33" fill="#3b82f6" opacity="0.70"/>
+<circle cx="395" cy="205" r="11" fill="rgba(255,255,255,0.15)"/>
+<text x="404" y="214" text-anchor="middle" dominant-baseline="middle" font-family="'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="12" font-weight="bold" fill="white">공익적</text>
+<text x="404" y="227" text-anchor="middle" font-family="sans-serif" font-size="8" fill="rgba(255,255,255,0.65)">461</text>
+<circle cx="556" cy="190" r="31" fill="#3b82f6" opacity="0.68"/>
+<circle cx="547" cy="181" r="10" fill="rgba(255,255,255,0.15)"/>
+<text x="556" y="190" text-anchor="middle" dominant-baseline="middle" font-family="'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="11" font-weight="bold" fill="white">사실적시</text>
+<text x="556" y="202" text-anchor="middle" font-family="sans-serif" font-size="7" fill="rgba(255,255,255,0.65)">434</text>
+<circle cx="671" cy="297" r="31" fill="#3b82f6" opacity="0.68"/>
+<circle cx="662" cy="288" r="10" fill="rgba(255,255,255,0.15)"/>
+<text x="671" y="297" text-anchor="middle" dominant-baseline="middle" font-family="'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="11" font-weight="bold" fill="white">발의로</text>
+<text x="671" y="309" text-anchor="middle" font-family="sans-serif" font-size="7" fill="rgba(255,255,255,0.65)">425</text>
+<circle cx="331" cy="344" r="29" fill="#3b82f6" opacity="0.67"/>
+<circle cx="323" cy="336" r="10" fill="rgba(255,255,255,0.15)"/>
+<text x="331" y="344" text-anchor="middle" dominant-baseline="middle" font-family="'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="11" font-weight="bold" fill="white">추진력</text>
+<text x="331" y="356" text-anchor="middle" font-family="sans-serif" font-size="7" fill="rgba(255,255,255,0.65)">405</text>
+<circle cx="659" cy="457" r="29" fill="#3b82f6" opacity="0.67"/>
+<circle cx="651" cy="449" r="10" fill="rgba(255,255,255,0.15)"/>
+<text x="659" y="457" text-anchor="middle" dominant-baseline="middle" font-family="'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="11" font-weight="bold" fill="white">보건복지위원장</text>
+<text x="659" y="469" text-anchor="middle" font-family="sans-serif" font-size="7" fill="rgba(255,255,255,0.65)">402</text>
+<circle cx="522" cy="550" r="29" fill="#3b82f6" opacity="0.67"/>
+<circle cx="514" cy="542" r="10" fill="rgba(255,255,255,0.15)"/>
+<text x="522" y="550" text-anchor="middle" dominant-baseline="middle" font-family="'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="11" font-weight="bold" fill="white">해당한다</text>
+<text x="522" y="562" text-anchor="middle" font-family="sans-serif" font-size="7" fill="rgba(255,255,255,0.65)">395</text>
+<circle cx="362" cy="499" r="27" fill="#6b7280" opacity="0.66"/>
+<circle cx="354" cy="491" r="9" fill="rgba(255,255,255,0.15)"/>
+<text x="362" y="499" text-anchor="middle" dominant-baseline="middle" font-family="'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10" font-weight="bold" fill="white">공정성</text>
+<circle cx="649" cy="211" r="27" fill="#6b7280" opacity="0.66"/>
+<circle cx="641" cy="203" r="9" fill="rgba(255,255,255,0.15)"/>
+<text x="649" y="211" text-anchor="middle" dominant-baseline="middle" font-family="'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10" font-weight="bold" fill="white">취약계층</text>
+<circle cx="714" cy="385" r="26" fill="#6b7280" opacity="0.65"/>
+<circle cx="707" cy="378" r="9" fill="rgba(255,255,255,0.15)"/>
+<text x="714" y="385" text-anchor="middle" dominant-baseline="middle" font-family="'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="9" font-weight="bold" fill="white">강조한</text>
+<circle cx="328" cy="252" r="25" fill="#3b82f6" opacity="0.65"/>
+<circle cx="321" cy="245" r="8" fill="rgba(255,255,255,0.15)"/>
+<text x="328" y="252" text-anchor="middle" dominant-baseline="middle" font-family="'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="9" font-weight="bold" fill="white">전문적</text>
+<circle cx="476" cy="154" r="25" fill="#ef4444" opacity="0.65"/>
+<circle cx="469" cy="147" r="8" fill="rgba(255,255,255,0.15)"/>
+<text x="476" y="154" text-anchor="middle" dominant-baseline="middle" font-family="'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="9" font-weight="bold" fill="white">정치적</text>
+<circle cx="615" cy="547" r="25" fill="#6b7280" opacity="0.65"/>
+<circle cx="608" cy="540" r="8" fill="rgba(255,255,255,0.15)"/>
+<text x="615" y="547" text-anchor="middle" dominant-baseline="middle" font-family="'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="9" font-weight="bold" fill="white">법안발의</text>
+<circle cx="423" cy="571" r="24" fill="#6b7280" opacity="0.64"/>
+<circle cx="416" cy="564" r="8" fill="rgba(255,255,255,0.15)"/>
+<text x="423" y="571" text-anchor="middle" dominant-baseline="middle" font-family="'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="9" font-weight="bold" fill="white">명예훼손죄</text>
+<circle cx="283" cy="432" r="24" fill="#6b7280" opacity="0.64"/>
+<circle cx="276" cy="425" r="8" fill="rgba(255,255,255,0.15)"/>
+<text x="283" y="432" text-anchor="middle" dominant-baseline="middle" font-family="'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="9" font-weight="bold" fill="white">필요성</text>
+<circle cx="270" cy="330" r="24" fill="#6b7280" opacity="0.64"/>
+<circle cx="263" cy="323" r="8" fill="rgba(255,255,255,0.15)"/>
+<text x="270" y="330" text-anchor="middle" dominant-baseline="middle" font-family="'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="9" font-weight="bold" fill="white">국회의원</text>
+<circle cx="378" cy="158" r="24" fill="#6b7280" opacity="0.64"/>
+<circle cx="371" cy="151" r="8" fill="rgba(255,255,255,0.15)"/>
+<text x="378" y="158" text-anchor="middle" dominant-baseline="middle" font-family="'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="9" font-weight="bold" fill="white">직무수행</text>
+<circle cx="435" cy="268" r="23" fill="#6b7280" opacity="0.63"/>
+<circle cx="429" cy="262" r="8" fill="rgba(255,255,255,0.15)"/>
+<text x="435" y="268" text-anchor="middle" dominant-baseline="middle" font-family="'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="9" font-weight="bold" fill="white">긍정적임</text>
+<circle cx="583" cy="135" r="23" fill="#6b7280" opacity="0.63"/>
+<circle cx="577" cy="129" r="8" fill="rgba(255,255,255,0.15)"/>
+<text x="583" y="135" text-anchor="middle" dominant-baseline="middle" font-family="'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="9" font-weight="bold" fill="white">공익법안</text>
+<circle cx="732" cy="284" r="22" fill="#6b7280" opacity="0.63"/>
+<circle cx="726" cy="278" r="7" fill="rgba(255,255,255,0.15)"/>
+<text x="732" y="284" text-anchor="middle" dominant-baseline="middle" font-family="'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="9" font-weight="bold" fill="white">강조하</text>
+<circle cx="707" cy="497" r="22" fill="#6b7280" opacity="0.63"/>
+<circle cx="701" cy="491" r="7" fill="rgba(255,255,255,0.15)"/>
+<text x="707" y="497" text-anchor="middle" dominant-baseline="middle" font-family="'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="9" font-weight="bold" fill="white">사실적시명예훼손죄</text>
+<circle cx="521" cy="612" r="22" fill="#6b7280" opacity="0.63"/>
+<circle cx="515" cy="606" r="7" fill="rgba(255,255,255,0.15)"/>
+<text x="521" y="612" text-anchor="middle" dominant-baseline="middle" font-family="'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="9" font-weight="bold" fill="white">위원장</text>
+<circle cx="312" cy="536" r="22" fill="#6b7280" opacity="0.63"/>
+<circle cx="306" cy="530" r="7" fill="rgba(255,255,255,0.15)"/>
+<text x="312" y="536" text-anchor="middle" dominant-baseline="middle" font-family="'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="9" font-weight="bold" fill="white">목소리</text>
+<circle cx="281" cy="212" r="21" fill="#6b7280" opacity="0.62"/>
+<circle cx="275" cy="206" r="7" fill="rgba(255,255,255,0.15)"/>
+<text x="281" y="212" text-anchor="middle" dominant-baseline="middle" font-family="'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="9" font-weight="bold" fill="white">기본적</text>
+<circle cx="479" cy="92" r="21" fill="#3b82f6" opacity="0.62"/>
+<circle cx="473" cy="86" r="7" fill="rgba(255,255,255,0.15)"/>
+<text x="479" y="92" text-anchor="middle" dominant-baseline="middle" font-family="'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="9" font-weight="bold" fill="white">특별법</text>
+<circle cx="699" cy="174" r="20" fill="#6b7280" opacity="0.61"/>
+<circle cx="693" cy="168" r="7" fill="rgba(255,255,255,0.15)"/>
+<text x="699" y="174" text-anchor="middle" dominant-baseline="middle" font-family="'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="9" font-weight="bold" fill="white">사회복지</text>
+<circle cx="774" cy="401" r="20" fill="#6b7280" opacity="0.61"/>
+<circle cx="768" cy="395" r="7" fill="rgba(255,255,255,0.15)"/>
+<text x="774" y="401" text-anchor="middle" dominant-baseline="middle" font-family="'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="9" font-weight="bold" fill="white">투명한</text>
+<circle cx="639" cy="604" r="19" fill="#6b7280" opacity="0.61"/>
+<circle cx="634" cy="599" r="6" fill="rgba(255,255,255,0.15)"/>
+<text x="639" y="604" text-anchor="middle" dominant-baseline="middle" font-family="'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="9" font-weight="bold" fill="white">비판하며</text>
+<circle cx="393" cy="625" r="19" fill="#6b7280" opacity="0.61"/>
+<circle cx="388" cy="620" r="6" fill="rgba(255,255,255,0.15)"/>
+<text x="393" y="625" text-anchor="middle" dominant-baseline="middle" font-family="'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="9" font-weight="bold" fill="white">특검법</text>
+<circle cx="221" cy="443" r="19" fill="#6b7280" opacity="0.61"/>
+<circle cx="216" cy="438" r="6" fill="rgba(255,255,255,0.15)"/>
+<text x="221" y="443" text-anchor="middle" dominant-baseline="middle" font-family="'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="9" font-weight="bold" fill="white">참여한</text>
+<circle cx="211" cy="313" r="19" fill="#6b7280" opacity="0.61"/>
+<circle cx="206" cy="308" r="6" fill="rgba(255,255,255,0.15)"/>
+<text x="211" y="313" text-anchor="middle" dominant-baseline="middle" font-family="'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="9" font-weight="bold" fill="white">민주당</text>
+<circle cx="354" cy="100" r="19" fill="#6b7280" opacity="0.61"/>
+<circle cx="349" cy="95" r="6" fill="rgba(255,255,255,0.15)"/>
+<text x="354" y="100" text-anchor="middle" dominant-baseline="middle" font-family="'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="9" font-weight="bold" fill="white">의료대란</text>
+<circle cx="614" cy="81" r="19" fill="#6b7280" opacity="0.61"/>
+<circle cx="609" cy="76" r="6" fill="rgba(255,255,255,0.15)"/>
+<text x="614" y="81" text-anchor="middle" dominant-baseline="middle" font-family="'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="9" font-weight="bold" fill="white">의정활동</text>
+<circle cx="793" cy="274" r="19" fill="#6b7280" opacity="0.61"/>
+<circle cx="788" cy="269" r="6" fill="rgba(255,255,255,0.15)"/>
+<text x="793" y="274" text-anchor="middle" dominant-baseline="middle" font-family="'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="9" font-weight="bold" fill="white">전세사기</text>
+<circle cx="752" cy="539" r="19" fill="#6b7280" opacity="0.61"/>
+<circle cx="747" cy="534" r="6" fill="rgba(255,255,255,0.15)"/>
+<text x="752" y="539" text-anchor="middle" dominant-baseline="middle" font-family="'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="9" font-weight="bold" fill="white">소비자</text>
+<circle cx="260" cy="571" r="19" fill="#6b7280" opacity="0.61"/>
+<circle cx="255" cy="566" r="6" fill="rgba(255,255,255,0.15)"/>
+<text x="260" y="571" text-anchor="middle" dominant-baseline="middle" font-family="'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="9" font-weight="bold" fill="white">지역현안</text>
+<circle cx="236" cy="169" r="18" fill="#6b7280" opacity="0.60"/>
+<circle cx="231" cy="164" r="6" fill="rgba(255,255,255,0.15)"/>
+<text x="236" y="169" text-anchor="middle" dominant-baseline="middle" font-family="'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="9" font-weight="bold" fill="white">중요성</text>
+<circle cx="752" cy="140" r="18" fill="#6b7280" opacity="0.60"/>
+<circle cx="747" cy="135" r="6" fill="rgba(255,255,255,0.15)"/>
+<text x="752" y="140" text-anchor="middle" dominant-baseline="middle" font-family="'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="9" font-weight="bold" fill="white">회의록</text>
+<circle cx="833" cy="422" r="18" fill="#6b7280" opacity="0.60"/>
+<circle cx="828" cy="417" r="6" fill="rgba(255,255,255,0.15)"/>
+<text x="833" y="422" text-anchor="middle" dominant-baseline="middle" font-family="'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="9" font-weight="bold" fill="white">정책추진력</text>
+<circle cx="159" cy="449" r="18" fill="#6b7280" opacity="0.60"/>
+<circle cx="154" cy="444" r="6" fill="rgba(255,255,255,0.15)"/>
+<text x="159" y="449" text-anchor="middle" dominant-baseline="middle" font-family="'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="9" font-weight="bold" fill="white">의료계</text>
+<circle cx="152" cy="291" r="18" fill="#6b7280" opacity="0.60"/>
+<circle cx="147" cy="286" r="6" fill="rgba(255,255,255,0.15)"/>
+<text x="152" y="291" text-anchor="middle" dominant-baseline="middle" font-family="'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="9" font-weight="bold" fill="white">가능성</text>
+<circle cx="856" cy="269" r="18" fill="#6b7280" opacity="0.60"/>
+<circle cx="851" cy="264" r="6" fill="rgba(255,255,255,0.15)"/>
+<text x="856" y="269" text-anchor="middle" dominant-baseline="middle" font-family="'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="9" font-weight="bold" fill="white">발의한</text>
+<circle cx="795" cy="585" r="18" fill="#6b7280" opacity="0.60"/>
+<circle cx="790" cy="580" r="6" fill="rgba(255,255,255,0.15)"/>
+<text x="795" y="585" text-anchor="middle" dominant-baseline="middle" font-family="'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="9" font-weight="bold" fill="white">대표발</text>
+<circle cx="40" cy="712" r="9" fill="#3b82f6"/>
+<text x="56" y="716" font-family="sans-serif" font-size="13" fill="#94a3b8">긍정 연관</text>
+<circle cx="160" cy="712" r="9" fill="#ef4444"/>
+<text x="176" y="716" font-family="sans-serif" font-size="13" fill="#94a3b8">부정 연관</text>
+<circle cx="280" cy="712" r="9" fill="#8b5cf6"/>
+<text x="296" y="716" font-family="sans-serif" font-size="13" fill="#94a3b8">긍정+부정</text>
+<circle cx="400" cy="712" r="9" fill="#6b7280"/>
+<text x="416" y="716" font-family="sans-serif" font-size="13" fill="#94a3b8">중립</text>
+</svg>
