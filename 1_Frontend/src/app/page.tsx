@@ -649,6 +649,54 @@ export default function Home() {
               </div>
             </section>
 
+            {/* 전국 지역별 랭킹 지도 배너 */}
+            <section
+              className="rounded-2xl overflow-hidden shadow-lg cursor-pointer group"
+              onClick={() => setMapOpen(true)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') setMapOpen(true); }}
+              aria-label="전국 지역별 랭킹 지도 열기"
+            >
+              <div className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-700 p-5 sm:p-7 relative overflow-hidden">
+                {/* 배경 데코 */}
+                <div className="absolute top-0 right-0 text-[130px] sm:text-[160px] leading-none select-none opacity-10 pointer-events-none">
+                  🗺️
+                </div>
+                <div className="relative z-10 flex items-center justify-between gap-4">
+                  <div className="min-w-0">
+                    <div className="flex items-center gap-2 mb-1.5">
+                      <span className="text-2xl sm:text-3xl">🗺️</span>
+                      <h2 className="text-xl sm:text-2xl font-extrabold text-white leading-tight">
+                        전국 지역별 랭킹 지도
+                      </h2>
+                    </div>
+                    <p className="text-sm sm:text-base text-blue-100 mb-3 leading-snug">
+                      AI 평가 점수 기준 · 17개 광역시도 <strong className="text-white">1위·2위 정치인</strong> 당색 시각화
+                    </p>
+                    <div className="flex flex-wrap gap-1.5">
+                      {[
+                        { label: '더불어민주당', color: '#1B4FBF' },
+                        { label: '국민의힘', color: '#C9151E' },
+                        { label: '조국혁신당', color: '#003F87' },
+                        { label: '기타/무소속', color: '#9CA3AF' },
+                      ].map(({ label, color }) => (
+                        <div key={label} className="flex items-center gap-1 bg-white/20 rounded-full px-2.5 py-0.5">
+                          <div className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: color }} />
+                          <span className="text-[11px] text-white whitespace-nowrap">{label}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="flex-shrink-0">
+                    <div className="bg-white text-indigo-700 font-bold px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl shadow-md group-hover:shadow-xl group-hover:scale-105 transition-all text-sm sm:text-base whitespace-nowrap">
+                      지도 보기 →
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
             {/* 정치인 순위 섹션 - 모바일 최적화 */}
             <section className="bg-white rounded-lg shadow">
               <div className="px-3 sm:px-4 pt-3 sm:pt-4">
@@ -658,7 +706,7 @@ export default function Home() {
                     onClick={() => setMapOpen(true)}
                     className="flex-shrink-0 flex items-center gap-1 px-3 py-1.5 bg-blue-50 hover:bg-blue-100 text-blue-600 rounded-lg text-xs font-medium transition-colors border border-blue-200"
                   >
-                    🗺️ 지역별 지도
+                    🗺️ 전국 지역별 랭킹 지도
                   </button>
                 </div>
                 <p className="text-xs sm:text-sm text-gray-600 mt-1 line-clamp-2 sm:line-clamp-none">
