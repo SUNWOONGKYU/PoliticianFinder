@@ -3,8 +3,11 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
+import dynamic from 'next/dynamic';
 import { LoadingSection } from '@/components/ui/Spinner';
 import { formatInfluenceGrade, getInfluenceGrade } from '@/utils/memberLevel';
+
+const MapModal = dynamic(() => import('@/components/map/MapModal'), { ssr: false });
 
 // 정치인 데이터 타입 정의
 interface Politician {
@@ -126,6 +129,7 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
   const [politicianPosts, setPoliticianPosts] = useState<Post[]>([]);
   const [popularPosts, setPopularPosts] = useState<Post[]>([]);
+  const [mapOpen, setMapOpen] = useState(false);
   const [postsLoading, setPostsLoading] = useState(true);
   const [notices, setNotices] = useState<Notice[]>([]);
   const [noticesLoading, setNoticesLoading] = useState(true);
@@ -650,12 +654,12 @@ export default function Home() {
               <div className="px-3 sm:px-4 pt-3 sm:pt-4">
                 <div className="flex items-start justify-between gap-2">
                   <h2 className="text-xl sm:text-2xl font-bold text-gray-900">🏆 정치인 순위 TOP 10</h2>
-                  <a
-                    href="/map"
+                  <button
+                    onClick={() => setMapOpen(true)}
                     className="flex-shrink-0 flex items-center gap-1 px-3 py-1.5 bg-blue-50 hover:bg-blue-100 text-blue-600 rounded-lg text-xs font-medium transition-colors border border-blue-200"
                   >
                     🗺️ 지역별 지도
-                  </a>
+                  </button>
                 </div>
                 <p className="text-xs sm:text-sm text-gray-600 mt-1 line-clamp-2 sm:line-clamp-none">
                   공개된 데이터를 기초로 AI가 객관적으로 평가한 점수를 기준으로 한 정치인 랭킹 (상위 10명)
@@ -1479,6 +1483,9 @@ export default function Home() {
 
       {/* Floating CTA Buttons */}
       <FloatingCTA />
+
+      {/* 지역별 랭킹 지도 팝업 */}
+      <MapModal isOpen={mapOpen} onClose={() => setMapOpen(false)} />
     </main>
   );
 }

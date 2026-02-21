@@ -4,21 +4,22 @@ import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 
-// SVG 지도는 클라이언트 전용 (SSR 제외)
 const KoreaMapSVG = dynamic(() => import('@/components/map/KoreaMapSVG'), { ssr: false });
+
+interface Politician {
+  id: string;
+  name: string;
+  party: string;
+  totalScore: number;
+}
 
 interface RegionData {
   region: string;
   district: string | null;
-  topPolitician: {
-    id: string;
-    name: string;
-    party: string;
-    totalScore: number;
-  } | null;
+  first: Politician | null;
+  second: Politician | null;
 }
 
-// 당 색상 배경색
 const PARTY_BG: Record<string, string> = {
   '더불어민주당': '#1B4FBF',
   '국민의힘':     '#C9151E',
@@ -28,10 +29,8 @@ const PARTY_BG: Record<string, string> = {
   '진보당':       '#E83030',
   '무소속':       '#6B7280',
 };
-
-function partyBg(party: string) {
-  return PARTY_BG[party] || '#9CA3AF';
-}
+function partyBg(party: string) { return PARTY_BG[party] || '#9CA3AF'; }
+function partyText(party: string) { return party === '정의당' ? '#1F2937' : '#FFFFFF'; }
 
 const REGION_FULL_NAMES: Record<string, string> = {
   '서울': '서울특별시', '인천': '인천광역시', '경기': '경기도',
@@ -42,7 +41,6 @@ const REGION_FULL_NAMES: Record<string, string> = {
   '부산': '부산광역시', '제주': '제주특별자치도',
 };
 
-// 광역 17개 지역 표시 순서 (지리적 순서)
 const METRO_ORDER = [
   '서울', '인천', '경기', '강원',
   '충남', '대전', '세종', '충북', '경북',
@@ -62,11 +60,8 @@ export default function MapPage() {
     try {
       const res = await fetch(`/api/politicians/map?position_type=${encodeURIComponent(type)}`);
       const json = await res.json();
-      if (json.success) {
-        setRegionsData(json.regions || []);
-      } else {
-        setError('데이터를 불러오지 못했습니다.');
-      }
+      if (json.success) setRegionsData(json.regions || []);
+      else setError('데이터를 불러오지 못했습니다.');
     } catch {
       setError('네트워크 오류가 발생했습니다.');
     } finally {
@@ -74,15 +69,10 @@ export default function MapPage() {
     }
   }, []);
 
-  useEffect(() => {
-    fetchData(positionType);
-  }, [positionType, fetchData]);
+  useEffect(() => { fetchData(positionType); }, [positionType, fetchData]);
 
-  // 지역 데이터 Map
   const dataMap = new Map<string, RegionData>();
-  for (const r of regionsData) {
-    dataMap.set(r.region, r);
-  }
+  for (const r of regionsData) dataMap.set(r.region, r);
 
   const orderedRegions = METRO_ORDER.map((id) => ({
     id,
@@ -96,19 +86,9 @@ export default function MapPage() {
       <div className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-gray-700">
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <Link
-              href="/"
-              className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
-              aria-label="홈으로"
-            >
-              ← 홈
-            </Link>
-            <h1 className="text-xl font-bold text-gray-900 dark:text-white">
-              🗺️ 지역별 랭킹 지도
-            </h1>
+            <Link href="/" className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors">← 홈</Link>
+            <h1 className="text-xl font-bold text-gray-900 dark:text-white">🗺️ 지역별 랭킹 지도</h1>
           </div>
-
-          {/* 출마직종 토글 */}
           <div className="flex rounded-lg overflow-hidden border border-gray-200 dark:border-gray-600">
             {(['광역단체장', '기초단체장'] as const).map((type) => (
               <button
@@ -117,7 +97,7 @@ export default function MapPage() {
                 className={`px-4 py-2 text-sm font-medium transition-colors ${
                   positionType === type
                     ? 'bg-primary-500 text-white'
-                    : 'bg-white dark:bg-slate-700 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-slate-600'
+                    : 'bg-white dark:bg-slate-700 text-gray-600 dark:text-gray-300 hover:bg-gray-50'
                 }`}
               >
                 {type}
@@ -127,47 +107,29 @@ export default function MapPage() {
         </div>
       </div>
 
-      {/* 설명 */}
       <div className="max-w-7xl mx-auto px-4 py-3">
         <p className="text-sm text-gray-500 dark:text-gray-400">
-          AI 평가 점수 기준 각 지역 {positionType} 1위 정치인을 표시합니다.
-          마커를 클릭하면 해당 지역의 랭킹 페이지로 이동합니다.
+          AI 평가 점수 기준 각 지역 {positionType} 1위·2위 정치인 (마커 좌측=1위 당색, 우측=2위 당색)
         </p>
       </div>
 
-      {/* 메인 컨텐츠 */}
       <div className="max-w-7xl mx-auto px-4 pb-8">
         {loading ? (
           <div className="flex items-center justify-center h-64">
-            <div className="flex flex-col items-center gap-3">
-              <div className="w-10 h-10 border-4 border-primary-500 border-t-transparent rounded-full animate-spin" />
-              <p className="text-gray-500 dark:text-gray-400 text-sm">데이터 불러오는 중...</p>
-            </div>
+            <div className="w-10 h-10 border-4 border-primary-500 border-t-transparent rounded-full animate-spin" />
           </div>
         ) : error ? (
-          <div className="flex items-center justify-center h-64">
-            <div className="text-center">
-              <p className="text-red-500 mb-3">{error}</p>
-              <button
-                onClick={() => fetchData(positionType)}
-                className="px-4 py-2 bg-primary-500 text-white rounded-lg text-sm hover:bg-primary-600"
-              >
-                다시 시도
-              </button>
-            </div>
+          <div className="text-center py-16">
+            <p className="text-red-500 mb-3">{error}</p>
+            <button onClick={() => fetchData(positionType)} className="px-4 py-2 bg-primary-500 text-white rounded-lg text-sm">다시 시도</button>
           </div>
         ) : (
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
-            {/* 지도 패널 */}
             <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-lg p-4 lg:sticky lg:top-4">
               <h2 className="text-base font-semibold text-gray-700 dark:text-gray-300 mb-3 text-center">
-                전국 {positionType} AI 평가 1위
+                전국 {positionType} AI 평가 1위·2위
               </h2>
-              <KoreaMapSVG
-                regionsData={regionsData}
-                positionType={positionType}
-              />
-              {/* 당 색상 범례 */}
+              <KoreaMapSVG regionsData={regionsData} positionType={positionType} />
               <div className="mt-4 flex flex-wrap gap-2 justify-center">
                 {[
                   { label: '더불어민주당', color: '#1B4FBF' },
@@ -182,75 +144,65 @@ export default function MapPage() {
                   </div>
                 ))}
               </div>
+              <p className="text-center text-[10px] text-gray-400 mt-2">마커 좌측 = 1위 당색 · 우측 = 2위 당색</p>
             </div>
 
-            {/* 지역별 카드 목록 */}
             <div>
-              <h2 className="text-base font-semibold text-gray-700 dark:text-gray-300 mb-3">
-                지역별 1위 정치인
-              </h2>
+              <h2 className="text-base font-semibold text-gray-700 dark:text-gray-300 mb-3">지역별 1위·2위</h2>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                 {orderedRegions.map(({ id, fullName, data }) => {
-                  const pol = data?.topPolitician;
-                  const bg = pol ? partyBg(pol.party) : '#E5E7EB';
-                  const textColor = pol ? '#FFFFFF' : '#6B7280';
-                  const params = new URLSearchParams({
-                    region: fullName,
-                    category: positionType,
-                  });
+                  const first = data?.first;
+                  const second = data?.second;
+                  const params = new URLSearchParams({ region: fullName, category: positionType });
 
                   return (
-                    <Link
-                      key={id}
-                      href={`/politicians?${params.toString()}`}
-                      className="block rounded-xl overflow-hidden shadow hover:shadow-md transition-all hover:scale-[1.02] active:scale-[0.98]"
-                    >
-                      {/* 상단: 당 색상 배경 */}
-                      <div
-                        className="px-3 py-2.5"
-                        style={{ backgroundColor: bg }}
-                      >
-                        <div className="flex items-start justify-between">
-                          <div>
-                            <div className="text-[10px] font-medium opacity-80" style={{ color: textColor }}>
-                              {fullName}
+                    <Link key={id} href={`/politicians?${params}`} className="block rounded-xl overflow-hidden shadow hover:shadow-md transition-all hover:scale-[1.02]">
+                      <div className="bg-gray-700 dark:bg-gray-900 px-2.5 py-1.5">
+                        <span className="text-[10px] font-bold text-white">{fullName}</span>
+                      </div>
+                      {/* 1위 */}
+                      <div className="px-2.5 py-2" style={{ backgroundColor: first ? partyBg(first.party) : '#E5E7EB' }}>
+                        <div className="flex items-center justify-between gap-1">
+                          <div className="min-w-0">
+                            <div className="text-[9px] opacity-75" style={{ color: first ? partyText(first.party) : '#9CA3AF' }}>🥇 1위</div>
+                            <div className="text-sm font-bold truncate" style={{ color: first ? partyText(first.party) : '#6B7280' }}>
+                              {first ? first.name : '미등록'}
                             </div>
-                            <div className="text-sm font-bold mt-0.5" style={{ color: textColor }}>
-                              {pol ? pol.name : '미등록'}
-                            </div>
+                            {first && <div className="text-[9px] opacity-80 truncate" style={{ color: partyText(first.party) }}>{first.party}</div>}
                           </div>
-                          {pol && pol.totalScore > 0 && (
-                            <div
-                              className="text-right"
-                              style={{ color: textColor }}
-                            >
-                              <div className="text-[10px] opacity-75">AI 점수</div>
-                              <div className="text-sm font-bold">{pol.totalScore}</div>
+                          {first && first.totalScore > 0 && (
+                            <div className="text-right flex-shrink-0" style={{ color: partyText(first.party) }}>
+                              <div className="text-[9px] opacity-70">AI</div>
+                              <div className="text-xs font-bold">{first.totalScore}</div>
                             </div>
                           )}
                         </div>
-                        {pol && (
-                          <div className="text-[10px] mt-1 opacity-80" style={{ color: textColor }}>
-                            {pol.party}
+                      </div>
+                      <div className="h-px bg-white/30" />
+                      {/* 2위 */}
+                      <div className="px-2.5 py-1.5" style={{ backgroundColor: second ? partyBg(second.party) + 'CC' : '#F3F4F6' }}>
+                        {second ? (
+                          <div className="flex items-center justify-between gap-1">
+                            <div className="min-w-0">
+                              <div className="text-[9px] opacity-70" style={{ color: partyText(second.party) }}>🥈 2위</div>
+                              <div className="text-xs font-semibold truncate" style={{ color: partyText(second.party) }}>{second.name}</div>
+                              <div className="text-[9px] opacity-75 truncate" style={{ color: partyText(second.party) }}>{second.party}</div>
+                            </div>
+                            {second.totalScore > 0 && (
+                              <div className="text-[9px] font-bold flex-shrink-0" style={{ color: partyText(second.party) }}>{second.totalScore}</div>
+                            )}
                           </div>
+                        ) : (
+                          <div className="text-[9px] text-gray-400 py-0.5">2위 없음</div>
                         )}
                       </div>
-                      {/* 하단: 링크 안내 */}
-                      <div className="bg-white dark:bg-slate-700 px-3 py-1.5">
-                        <span className="text-[10px] text-gray-400 dark:text-gray-500">
-                          지역 랭킹 보기 →
-                        </span>
+                      <div className="bg-white dark:bg-slate-700 px-2.5 py-1">
+                        <span className="text-[9px] text-gray-400">랭킹 보기 →</span>
                       </div>
                     </Link>
                   );
                 })}
               </div>
-
-              {regionsData.length === 0 && !loading && (
-                <div className="text-center py-12 text-gray-400 dark:text-gray-500">
-                  <p>{positionType} 데이터가 없습니다.</p>
-                </div>
-              )}
             </div>
           </div>
         )}

@@ -1,5 +1,5 @@
 // 지역별 정치인 랭킹 API
-// 지도 기능용: 각 지역에서 AI 평가 점수 1위 정치인 반환
+// 지도 기능용: 각 지역에서 AI 평가 점수 1위·2위 정치인 반환
 
 export const dynamic = 'force-dynamic';
 
@@ -28,11 +28,7 @@ export async function GET(request: NextRequest) {
     }
 
     if (!politicians || politicians.length === 0) {
-      return NextResponse.json({
-        success: true,
-        positionType,
-        regions: [],
-      });
+      return NextResponse.json({ success: true, positionType, regions: [] });
     }
 
     // AI 최종 점수 조회
@@ -65,29 +61,32 @@ export async function GET(request: NextRequest) {
       return { ...p, totalScore };
     }).sort((a: any, b: any) => b.totalScore - a.totalScore);
 
-    // 지역별로 그룹핑 (1위만 추출)
-    const regionMap = new Map<string, any>();
+    // 지역별로 그룹핑 - 상위 2명 추출
+    const regionMap = new Map<string, { region: string; district: string | null; top: any[] }>();
     for (const p of politiciansWithScore) {
       const regionKey = positionType === '광역단체장' ? p.region : `${p.region}_${p.district || ''}`;
       if (!regionMap.has(regionKey)) {
-        regionMap.set(regionKey, {
-          region: p.region || '',
-          district: p.district || null,
-          topPolitician: {
-            id: p.id,
-            name: p.name,
-            party: p.party || '무소속',
-            totalScore: p.totalScore,
-          },
+        regionMap.set(regionKey, { region: p.region || '', district: p.district || null, top: [] });
+      }
+      const entry = regionMap.get(regionKey)!;
+      if (entry.top.length < 2) {
+        entry.top.push({
+          id: p.id,
+          name: p.name,
+          party: p.party || '무소속',
+          totalScore: p.totalScore,
         });
       }
     }
 
-    return NextResponse.json({
-      success: true,
-      positionType,
-      regions: Array.from(regionMap.values()),
-    });
+    const regions = Array.from(regionMap.values()).map(({ region, district, top }) => ({
+      region,
+      district,
+      first: top[0] || null,   // 1위
+      second: top[1] || null,  // 2위
+    }));
+
+    return NextResponse.json({ success: true, positionType, regions });
 
   } catch (error) {
     console.error('Map API error:', error);
