@@ -1,6 +1,8 @@
 // 지역별 정치인 랭킹 API
 // 지도 기능용: 각 지역에서 AI 평가 점수 1위 정치인 반환
 
+export const dynamic = 'force-dynamic';
+
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 
