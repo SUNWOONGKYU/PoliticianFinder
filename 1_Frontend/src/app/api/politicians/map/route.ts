@@ -16,31 +16,43 @@ export async function GET(request: NextRequest) {
     const { searchParams } = new URL(request.url);
     const positionType = searchParams.get('position_type') || '광역단체장';
 
-    // 해당 출마직종의 정치인 전체 조회
-    const { data: politicians, error: polError } = await supabase
+    // position_type 컬럼으로 조회 (main politicians API와 동일 방식)
+    const { data: byPositionType, error: e1 } = await supabase
       .from('politicians')
       .select('id, name, party, region, district, title, position_type')
-      .or(`position_type.eq.${positionType},title.eq.${positionType}`);
+      .eq('position_type', positionType);
 
-    if (polError) {
-      console.error('Map API politicians query error:', polError);
-      return NextResponse.json({ success: false, error: polError.message }, { status: 500 });
+    // title 컬럼으로도 조회 (DB 스키마에 따라 title에 직종 저장)
+    const { data: byTitle, error: e2 } = await supabase
+      .from('politicians')
+      .select('id, name, party, region, district, title, position_type')
+      .eq('title', positionType);
+
+    if (e1 && e2) {
+      console.error('Map API query error:', e1?.message, e2?.message);
+      return NextResponse.json({ success: false, error: e1.message }, { status: 500 });
     }
 
-    if (!politicians || politicians.length === 0) {
+    // 두 결과 합치기 + 중복 제거
+    const seen = new Set<string>();
+    const politicians: any[] = [];
+    for (const p of [...(byPositionType || []), ...(byTitle || [])]) {
+      if (!seen.has(p.id)) {
+        seen.add(p.id);
+        politicians.push(p);
+      }
+    }
+
+    if (politicians.length === 0) {
       return NextResponse.json({ success: true, positionType, regions: [] });
     }
 
     // AI 최종 점수 조회
-    const politicianIds = politicians.map((p: any) => p.id);
-    const { data: scores, error: scoreError } = await supabase
+    const politicianIds = politicians.map((p) => p.id);
+    const { data: scores } = await supabase
       .from('ai_final_scores')
       .select('politician_id, ai_name, total_score')
       .in('politician_id', politicianIds);
-
-    if (scoreError) {
-      console.error('Map API scores query error:', scoreError);
-    }
 
     // 정치인별 AI 복합 점수 계산
     const scoreMap: Record<string, { sum: number; count: number }> = {};
@@ -54,42 +66,36 @@ export async function GET(request: NextRequest) {
       }
     }
 
-    // 점수 포함한 정치인 목록 생성 후 내림차순 정렬
-    const politiciansWithScore = politicians.map((p: any) => {
+    // 점수 붙여서 내림차순 정렬
+    const sorted = politicians.map((p) => {
       const s = scoreMap[p.id];
-      const totalScore = s && s.count > 0 ? Math.round(s.sum / s.count) : 0;
-      return { ...p, totalScore };
-    }).sort((a: any, b: any) => b.totalScore - a.totalScore);
+      return { ...p, totalScore: s && s.count > 0 ? Math.round(s.sum / s.count) : 0 };
+    }).sort((a, b) => b.totalScore - a.totalScore);
 
-    // 지역별로 그룹핑 - 상위 2명 추출
+    // 지역별 상위 2명 추출
     const regionMap = new Map<string, { region: string; district: string | null; top: any[] }>();
-    for (const p of politiciansWithScore) {
-      const regionKey = positionType === '광역단체장' ? p.region : `${p.region}_${p.district || ''}`;
-      if (!regionMap.has(regionKey)) {
-        regionMap.set(regionKey, { region: p.region || '', district: p.district || null, top: [] });
+    for (const p of sorted) {
+      const key = positionType === '광역단체장' ? p.region : `${p.region}_${p.district || ''}`;
+      if (!regionMap.has(key)) {
+        regionMap.set(key, { region: p.region || '', district: p.district || null, top: [] });
       }
-      const entry = regionMap.get(regionKey)!;
+      const entry = regionMap.get(key)!;
       if (entry.top.length < 2) {
-        entry.top.push({
-          id: p.id,
-          name: p.name,
-          party: p.party || '무소속',
-          totalScore: p.totalScore,
-        });
+        entry.top.push({ id: p.id, name: p.name, party: p.party || '무소속', totalScore: p.totalScore });
       }
     }
 
     const regions = Array.from(regionMap.values()).map(({ region, district, top }) => ({
       region,
       district,
-      first: top[0] || null,   // 1위
-      second: top[1] || null,  // 2위
+      first: top[0] || null,
+      second: top[1] || null,
     }));
 
     return NextResponse.json({ success: true, positionType, regions });
 
-  } catch (error) {
-    console.error('Map API error:', error);
+  } catch (err) {
+    console.error('Map API unexpected error:', err);
     return NextResponse.json({ success: false, error: '서버 오류가 발생했습니다.' }, { status: 500 });
   }
 }
