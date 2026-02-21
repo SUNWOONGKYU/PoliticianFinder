@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>오준환 AI 정치인 평가보고서 — PoliticianFinder V40</title>
+<style>
+  :root {
+    --primary: #1e0a0a;
+    --accent:  #D32F2F;
+    --text:    #1a1a1a;
+    --muted:   #6b7280;
+    --border:  #e5e7eb;
+    --bg:      #f9fafb;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #e8e8e8;
+    font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+    color: var(--text);
+    line-height: 1.7;
+  }
+
+  .document {
+    max-width: 800px;
+    margin: 32px auto;
+    background: #fff;
+    box-shadow: 0 4px 32px rgba(0,0,0,0.18);
+  }
+
+  /* Cover */
+  .cover {
+    background: linear-gradient(135deg, #1e0a0a 0%, #D32F2F 100%);
+    color: #fff;
+    padding: 72px 60px 56px;
+  }
+  .cover-badge {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 20px;
+  }
+  .cover-title {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+  .cover-subtitle {
+    font-size: 16px;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 36px;
+  }
+  .cover-meta {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    padding-top: 28px;
+    margin-top: 28px;
+  }
+  .cover-meta-label { font-size: 11px; color: rgba(255,255,255,0.55); letter-spacing: 1px; text-transform: uppercase; }
+  .cover-meta-value { font-size: 15px; font-weight: 600; color: #fff; margin-top: 2px; }
+
+  .cover-score-box {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 8px;
+    padding: 20px 28px;
+    display: inline-block;
+    margin-top: 24px;
+  }
+  .cover-score-num {
+    font-size: 52px;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -2px;
+  }
+  .cover-score-grade {
+    font-size: 16px;
+    color: rgba(255,255,255,0.8);
+    margin-top: 4px;
+  }
+
+  /* Content */
+  .content { padding: 48px 60px 64px; }
+
+  /* TOC */
+  .toc {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+    padding: 24px 28px;
+    margin-bottom: 48px;
+    border-radius: 0 4px 4px 0;
+  }
+  .toc-title { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
+  .toc ol { padding-left: 20px; }
+  .toc li { margin-bottom: 6px; }
+  .toc a { color: var(--accent); text-decoration: none; font-size: 14px; }
+  .toc a:hover { text-decoration: underline; }
+
+  /* Headings */
+  h1 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--primary);
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 10px;
+    margin: 48px 0 24px;
+  }
+  h1:first-of-type { margin-top: 0; }
+  h2 { font-size: 16px; font-weight: 700; color: var(--primary); margin: 28px 0 14px; }
+
+  /* Info fields */
+  .info-field {
+    display: flex;
+    border-bottom: 1px solid var(--border);
+    padding: 10px 0;
+    font-size: 14px;
+  }
+  .info-label { width: 160px; min-width: 160px; color: var(--muted); font-weight: 600; }
+  .info-value { flex: 1; }
+
+  /* AI Cards */
+  .ai-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin: 20px 0;
+  }
+  .ai-card {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px 20px;
+    background: var(--bg);
+  }
+  .ai-card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+  .ai-card-name { font-size: 13px; font-weight: 700; color: var(--primary); }
+  .ai-card-score { font-size: 22px; font-weight: 800; color: var(--accent); }
+  .ai-card-desc { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+  /* Bar chart */
+  .bar-chart { margin: 24px 0; }
+  .bar-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    gap: 12px;
+  }
+  .bar-label { width: 80px; min-width: 80px; font-size: 13px; color: var(--muted); text-align: right; }
+  .bar-track { flex: 1; background: #f0f0f0; border-radius: 4px; height: 26px; overflow: hidden; }
+  .bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 10px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #fff;
+    background: var(--accent);
+    transition: width 0.3s;
+  }
+  .bar-fill-top { background: #b71c00 !important; }
+  .bar-fill span { white-space: nowrap; }
+
+  /* Table */
+  .table-wrap { overflow-x: auto; margin: 16px 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th {
+    background: var(--primary);
+    color: #fff;
+    padding: 10px 14px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 13px;
+  }
+  td {
+    padding: 9px 14px;
+    border-bottom: 1px solid var(--border);
+    text-align: center;
+  }
+  tr:hover td { background: #fff5f5; }
+  .highlight-col { background: #fff0f0 !important; font-weight: 700; color: var(--accent); }
+  th.highlight-col { background: var(--accent) !important; color: #fff; }
+  td:first-child { text-align: left; }
+
+  /* Claim boxes */
+  .claim {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+    border-radius: 0 6px 6px 0;
+    padding: 16px 20px;
+    margin: 16px 0;
+    font-size: 14px;
+  }
+  .claim-label {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .claim-success { border-left-color: #2e7d32; }
+  .claim-success .claim-label { color: #2e7d32; }
+  .claim-warning { border-left-color: #d32f2f; }
+  .claim-warning .claim-label { color: #d32f2f; }
+  .claim-independent { border-left-color: #1565c0; }
+  .claim-independent .claim-label { color: #1565c0; }
+  .claim-note { border-left-color: #f57c00; }
+  .claim-note .claim-label { color: #f57c00; }
+
+  /* Category detail */
+  .cat-detail {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin: 20px 0;
+    overflow: hidden;
+  }
+  .cat-detail-header {
+    background: var(--primary);
+    color: #fff;
+    padding: 14px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .cat-detail-name { font-size: 15px; font-weight: 700; }
+  .cat-detail-score { font-size: 22px; font-weight: 800; }
+  .cat-detail-body { padding: 20px; }
+
+  /* Grade table */
+  .grade-table { margin: 24px 0; }
+  .grade-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+  }
+  .grade-row:last-child { border-bottom: none; }
+  .grade-letter {
+    width: 40px;
+    min-width: 40px;
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--muted);
+    text-align: center;
+  }
+  .grade-range { width: 140px; min-width: 140px; color: var(--muted); font-size: 13px; }
+  .grade-desc { flex: 1; }
+  .grade-current {
+    background: #fff5f5;
+    border-left: 4px solid var(--accent);
+  }
+  .grade-current .grade-letter { color: var(--accent); }
+  .grade-current .grade-desc { font-weight: 700; color: var(--primary); }
+
+  /* Consistency table */
+  .consistency-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+  }
+  .consistency-row:last-child { border-bottom: none; }
+  .star-rating { color: #f59e0b; letter-spacing: -2px; }
+
+  /* Note / footer */
+  .note { font-size: 12px; color: var(--muted); margin: 8px 0; }
+  ul.plain { list-style: none; padding: 0; margin: 12px 0; }
+  ul.plain li { padding: 6px 0; border-bottom: 1px solid var(--border); font-size: 14px; }
+  ul.plain li:last-child { border-bottom: none; }
+
+  .doc-footer {
+    background: var(--primary);
+    color: rgba(255,255,255,0.7);
+    padding: 28px 32px;
+    margin-top: 48px;
+    border-radius: 4px;
+  }
+  .doc-footer-title { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 10px; }
+  .doc-footer-text { font-size: 12px; line-height: 1.8; }
+
+  @media (max-width: 600px) {
+    .document { margin: 0; }
+    .cover { padding: 40px 24px 32px; }
+    .cover-title { font-size: 26px; }
+    .cover-score-num { font-size: 40px; }
+    .content { padding: 32px 20px 40px; }
+    .ai-cards { grid-template-columns: 1fr; }
+    .info-label { width: 110px; min-width: 110px; }
+    .bar-label { width: 64px; min-width: 64px; font-size: 11px; }
+    .toc { padding: 16px 16px; }
+    h1 { font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="document">
+
+  <!-- COVER -->
+  <div class="cover">
+    <div class="cover-badge">PoliticianFinder · AI 평가보고서 V40 · 2026-02-19</div>
+    <div class="cover-title">오준환</div>
+    <div class="cover-subtitle">국민의힘 · 경기도의원 (고양시 제9선거구, 초선) · CFO 출신 민간 경영 전문가</div>
+
+    <div class="cover-score-box">
+      <div class="cover-score-num">776점</div>
+      <div class="cover-score-grade">E등급 (양호)</div>
+    </div>
+
+    <div class="cover-meta">
+      <div class="cover-meta-item">
+        <div class="cover-meta-label">평가 AI</div>
+        <div class="cover-meta-value">Claude · ChatGPT · Gemini · Grok</div>
+      </div>
+      <div class="cover-meta-item">
+        <div class="cover-meta-label">수집 채널</div>
+        <div class="cover-meta-value">Gemini CLI 50% + Naver API 50%</div>
+      </div>
+      <div class="cover-meta-item">
+        <div class="cover-meta-label">데이터 규모</div>
+        <div class="cover-meta-value">1,200개 이상 수집 → 4,800건+ 평가</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <!-- TOC -->
+    <div class="toc">
+      <div class="toc-title">목차</div>
+      <ol>
+        <li><a href="#sec1">정치인 프로필</a></li>
+        <li><a href="#sec2">종합 점수 및 AI별 평가</a></li>
+        <li><a href="#sec3">카테고리별 점수</a></li>
+        <li><a href="#sec4">카테고리별 상세 분석</a></li>
+        <li><a href="#sec5">점수 구조 분석</a></li>
+        <li><a href="#sec6">평가 방법론 및 한계</a></li>
+        <li><a href="#sec7">등급 기준표</a></li>
+      </ol>
+    </div>
+
+    <!-- SECTION 1: 프로필 -->
+    <h1 id="sec1">1. 정치인 프로필</h1>
+
+    <div class="info-field">
+      <div class="info-label">이름</div>
+      <div class="info-value">오준환</div>
+    </div>
+    <div class="info-field">
+      <div class="info-label">소속 정당</div>
+      <div class="info-value">국민의힘</div>
+    </div>
+    <div class="info-field">
+      <div class="info-label">현직</div>
+      <div class="info-value">경기도의원 (고양시 제9선거구, 초선)</div>
+    </div>
+    <div class="info-field">
+      <div class="info-label">이전 직책</div>
+      <div class="info-value">로열 아이멕스 CFO (최고재무관리자)</div>
+    </div>
+    <div class="info-field">
+      <div class="info-label">핵심 경력</div>
+      <div class="info-value">대통령직인수위원회 자문위원, 한국고용정보원 감사, 전국소기업총연합회 공동대표</div>
+    </div>
+    <div class="info-field">
+      <div class="info-label">지역구</div>
+      <div class="info-value">경기도 고양시 제9선거구</div>
+    </div>
+    <div class="info-field">
+      <div class="info-label">학력</div>
+      <div class="info-value">Cal Poly 경영학 석사</div>
+    </div>
+
+    <div class="claim" style="margin-top:20px;">
+      <div class="claim-label">평가 배경</div>
+      민간 기업 경영 출신 초선 정치인으로 정치 입문 3년차. CFO 출신 경력이 재무·예산 분야에 강점을 부여하나, 의정 활동 공개 자료가 장기 의원에 비해 상대적으로 제한적. 대통령직인수위원회 자문위원 경력이 정책 기획 역량의 실질적 근거로 작용. 소기업총연합회 공동대표 경력이 기업인 출신 정치인으로서의 현장 이해를 뒷받침한다.
+    </div>
+
+    <!-- SECTION 2: 종합 점수 -->
+    <h1 id="sec2">2. 종합 점수 및 AI별 평가</h1>
+
+    <div class="ai-cards">
+      <div class="ai-card">
+        <div class="ai-card-header">
+          <div class="ai-card-name">Claude</div>
+          <div class="ai-card-score">742점</div>
+        </div>
+        <div class="ai-card-desc">공식 자료 중심, 엄격한 기준 적용. 보수적·낮은 편 (최저)</div>
+      </div>
+      <div class="ai-card">
+        <div class="ai-card-header">
+          <div class="ai-card-name">ChatGPT</div>
+          <div class="ai-card-score">778점</div>
+        </div>
+        <div class="ai-card-desc">균형적 판단, 중간 입장. 인수위 자문 경력 등 긍정 평가 (중간)</div>
+      </div>
+      <div class="ai-card">
+        <div class="ai-card-header">
+          <div class="ai-card-name">Gemini</div>
+          <div class="ai-card-score">813점</div>
+        </div>
+        <div class="ai-card-desc">웹 검색 광범위, 공익·소통 활동 폭넓게 수집. 낙관적 경향 (최고)</div>
+      </div>
+      <div class="ai-card">
+        <div class="ai-card-header">
+          <div class="ai-card-name">Grok</div>
+          <div class="ai-card-score">772점</div>
+        </div>
+        <div class="ai-card-desc">최신 시사·현재성 강조 평가. 최근 3~6개월 가중 (시사 의존적)</div>
+      </div>
+    </div>
+
+    <div class="claim claim-independent">
+      <div class="claim-label">AI 간 편차 분석</div>
+      최대 편차 <strong>71점</strong> (Gemini 813 - Claude 742). 주요 원인 3가지: ① Gemini는 실시간 웹 검색으로 유튜브·기사·블로그 등 온라인 공익 활동을 광범위하게 발굴(813점) ② Claude는 학습 데이터 기반 공식 기록 중심으로 보수적 평가(742점) ③ 초선 의원 특성상 데이터 양이 상대적으로 적어 AI별 수집 범위 차이의 영향이 커짐. 4개 AI 평균(776점)이 개별 AI 편향을 상당 부분 상쇄.
+    </div>
+
+    <!-- SECTION 3: 카테고리별 점수 -->
+    <h1 id="sec3">3. 카테고리별 점수</h1>
+
+    <div class="bar-chart">
+      <div class="bar-row">
+        <div class="bar-label">공익성</div>
+        <div class="bar-track">
+          <div class="bar-fill bar-fill-top" style="width:82%"><span>82점 ★</span></div>
+        </div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">소통능력</div>
+        <div class="bar-track">
+          <div class="bar-fill bar-fill-top" style="width:81%"><span>81점</span></div>
+        </div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">책임감</div>
+        <div class="bar-track">
+          <div class="bar-fill bar-fill-top" style="width:81%"><span>81점</span></div>
+        </div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">전문성</div>
+        <div class="bar-track">
+          <div class="bar-fill" style="width:80%;background:#D32F2F"><span>80점</span></div>
+        </div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">리더십</div>
+        <div class="bar-track">
+          <div class="bar-fill" style="width:80%;background:#D32F2F"><span>80점</span></div>
+        </div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">비전</div>
+        <div class="bar-track">
+          <div class="bar-fill" style="width:80%;background:#D32F2F"><span>80점</span></div>
+        </div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">대응성</div>
+        <div class="bar-track">
+          <div class="bar-fill" style="width:80%;background:#D32F2F"><span>80점</span></div>
+        </div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">투명성</div>
+        <div class="bar-track">
+          <div class="bar-fill" style="width:78%;background:#e57373"><span>78점</span></div>
+        </div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">청렴성</div>
+        <div class="bar-track">
+          <div class="bar-fill" style="width:71%;background:#ef9a9a;color:#c62828"><span>71점</span></div>
+        </div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">윤리성</div>
+        <div class="bar-track">
+          <div class="bar-fill" style="width:63%;background:#ffcdd2;color:#D32F2F"><span>63점</span></div>
+        </div>
+      </div>
+    </div>
+
+    <h2>카테고리별 AI 점수 상세표</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>카테고리</th>
+            <th>Claude</th>
+            <th>ChatGPT</th>
+            <th>Gemini</th>
+            <th>Grok</th>
+            <th class="highlight-col">평균</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>공익성 ★</td>
+            <td>75</td>
+            <td>83</td>
+            <td>89</td>
+            <td>82</td>
+            <td class="highlight-col">82</td>
+          </tr>
+          <tr>
+            <td>소통능력</td>
+            <td>75</td>
+            <td>79</td>
+            <td>86</td>
+            <td>83</td>
+            <td class="highlight-col">81</td>
+          </tr>
+          <tr>
+            <td>책임감</td>
+            <td>80</td>
+            <td>80</td>
+            <td>83</td>
+            <td>81</td>
+            <td class="highlight-col">81</td>
+          </tr>
+          <tr>
+            <td>전문성</td>
+            <td>76</td>
+            <td>81</td>
+            <td>82</td>
+            <td>80</td>
+            <td class="highlight-col">80</td>
+          </tr>
+          <tr>
+            <td>리더십</td>
+            <td>78</td>
+            <td>78</td>
+            <td>84</td>
+            <td>80</td>
+            <td class="highlight-col">80</td>
+          </tr>
+          <tr>
+            <td>비전</td>
+            <td>79</td>
+            <td>80</td>
+            <td>83</td>
+            <td>79</td>
+            <td class="highlight-col">80</td>
+          </tr>
+          <tr>
+            <td>대응성</td>
+            <td>75</td>
+            <td>80</td>
+            <td>84</td>
+            <td>81</td>
+            <td class="highlight-col">80</td>
+          </tr>
+          <tr>
+            <td>투명성</td>
+            <td>75</td>
+            <td>78</td>
+            <td>81</td>
+            <td>78</td>
+            <td class="highlight-col">78</td>
+          </tr>
+          <tr>
+            <td>청렴성</td>
+            <td>67</td>
+            <td>73</td>
+            <td>74</td>
+            <td>70</td>
+            <td class="highlight-col">71</td>
+          </tr>
+          <tr>
+            <td>윤리성</td>
+            <td>62</td>
+            <td>66</td>
+            <td>67</td>
+            <td>58</td>
+            <td class="highlight-col">63</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="claim">
+      <div class="claim-label">점수 구조 해석</div>
+      <strong>80점 이상 (7개):</strong> 공익성 82 · 소통능력 81 · 책임감 81 · 전문성 80 · 리더십 80 · 비전 80 · 대응성 80<br>
+      <strong>70점대 (1개):</strong> 투명성 78<br>
+      <strong>60점대 (2개):</strong> 청렴성 71 · 윤리성 63 &nbsp;⚠️ 최하위<br><br>
+      상위 7개 카테고리가 80점 이상으로 균등하게 분포하는 반면, 하위 2개(청렴성·윤리성)가 전체 점수를 구조적으로 끌어내리는 형태.
+    </div>
+
+    <!-- SECTION 4: 카테고리별 상세 분석 -->
+    <h1 id="sec4">4. 카테고리별 상세 분석</h1>
+
+    <!-- 공익성 -->
+    <div class="cat-detail">
+      <div class="cat-detail-header">
+        <div class="cat-detail-name">공익성 (Public Interest) ★ 최고 점수</div>
+        <div class="cat-detail-score">82점</div>
+      </div>
+      <div class="cat-detail-body">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Claude</th><th>ChatGPT</th><th>Gemini</th><th>Grok</th><th class="highlight-col">평균</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>75</td><td>83</td><td>89</td><td>82</td><td class="highlight-col">82</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="claim claim-success">
+          <div class="claim-label">강점</div>
+          소기업·소상공인 지원 — 소기업총연합회 공동대표 경력 기반 경기도의원으로서 소기업 지원 정책 발의 및 예산 확보. 고양시 관광 산업 진흥 — 꽃박람회·KINTEX 행사 유치 지원, 관광 콘텐츠 연계 지역 발전 활동. 일자리 창출 노력 — 고양시 기업 유치, 산업단지 활성화. 대통령직인수위 자문의 공익적 기여.
+        </div>
+        <div class="claim claim-warning">
+          <div class="claim-label">Gemini 89 vs Claude 75 — 14점 격차 (전체 최대)</div>
+          표준편차 4.97점으로 전체 카테고리 중 AI 간 편차 최대. Gemini는 온라인 분산 공익 활동(언론 보도·행사 참여·SNS 등)을 광범위하게 수집 → 89점. Claude는 공식 의정 활동 중심 평가 → 75점. Naver API로 수집된 공익 관련 언론 보도 다수 확인.
+        </div>
+      </div>
+    </div>
+
+    <!-- 소통능력 -->
+    <div class="cat-detail">
+      <div class="cat-detail-header">
+        <div class="cat-detail-name">소통능력 (Communication)</div>
+        <div class="cat-detail-score">81점</div>
+      </div>
+      <div class="cat-detail-body">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Claude</th><th>ChatGPT</th><th>Gemini</th><th>Grok</th><th class="highlight-col">평균</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>75</td><td>79</td><td>86</td><td>83</td><td class="highlight-col">81</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="claim claim-success">
+          <div class="claim-label">강점</div>
+          다채널 소통 — 오프라인(지역 행사·주민 간담회)·온라인(SNS·뉴스레터) 채널 병행 운영. 소기업·지역 경제계 소통 — 전국소기업총연합회 경력 기반 지역 기업인 정기 소통 유지. 재정 정책 설명 능력 — CFO 출신답게 복잡한 예산·재정 정책을 이해하기 쉽게 설명.
+        </div>
+        <div class="claim claim-warning">
+          <div class="claim-label">Gemini 86 vs Claude 75 — 11점 격차</div>
+          표준편차 4.15점. Gemini: 유튜브·기사·블로그 등 온라인 소통 활동 광범위 수집 → 86점. Claude: 공식 기록 중심 평가, 비공식 온라인 소통 반영 제한 → 75점. 실제 소통 활동은 Gemini 수집 범위에 더 가까울 가능성이 높음.
+        </div>
+      </div>
+    </div>
+
+    <!-- 책임감 -->
+    <div class="cat-detail">
+      <div class="cat-detail-header">
+        <div class="cat-detail-name">책임감 (Accountability) — AI 간 일관성 최고 (표준편차 1.22)</div>
+        <div class="cat-detail-score">81점</div>
+      </div>
+      <div class="cat-detail-body">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Claude</th><th>ChatGPT</th><th>Gemini</th><th>Grok</th><th class="highlight-col">평균</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>80</td><td>80</td><td>83</td><td>81</td><td class="highlight-col">81</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="claim claim-success">
+          <div class="claim-label">강점 — 4개 AI가 가장 일치하는 영역</div>
+          표준편차 1.22점 — 데이터 소스가 달라도 "책임감은 입증됨"이라는 결론 동일. 출석 및 의정 활동 양호. 지역구 민원(도로·공원·생활 인프라) 성실 대응. 공약 이행 의정보고 개최 확인. 감사 역할 이행 — 한국고용정보원 감사직 성실 수행.
+        </div>
+        <div class="claim">
+          <div class="claim-label">신뢰도</div>
+          Claude·ChatGPT(80점)와 Gemini(83점)의 3점 차이만 존재. 모든 AI가 사실상 동일한 결론. 전체 10개 카테고리 중 가장 신뢰도 높은 평가.
+        </div>
+      </div>
+    </div>
+
+    <!-- 전문성 -->
+    <div class="cat-detail">
+      <div class="cat-detail-header">
+        <div class="cat-detail-name">전문성 (Expertise)</div>
+        <div class="cat-detail-score">80점</div>
+      </div>
+      <div class="cat-detail-body">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Claude</th><th>ChatGPT</th><th>Gemini</th><th>Grok</th><th class="highlight-col">평균</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>76</td><td>81</td><td>82</td><td>80</td><td class="highlight-col">80</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="claim claim-success">
+          <div class="claim-label">강점</div>
+          CFO 경력 — 기업 재무관리 최고책임자 역할로 예산 편성·관리·분석 역량이 도의원 의정 활동(예산 심의·결산 검토)에 직접 적용. 인수위 자문 — 국정 과제 설계 참여로 정책 기획 역량 실질적 발휘. 한국고용정보원 감사 — 공공기관 재정 감사 경험. Cal Poly 경영학 석사 — 국제적 시각의 경영 이론 배경.
+        </div>
+        <div class="claim claim-warning">
+          <div class="claim-label">한계</div>
+          Claude 76점의 기준: '경제·재무 전문성'과 '정치 입법 전문성'을 구분해 후자를 엄격히 평가. 지역 인프라·교통·환경 등 비경제 분야 정책 전문성에 대한 공개 근거 자료 부족. 정치 입문 3년차로 입법 전문성(법안 발의 수, 위원회 활동 질)이 장기 의원 대비 제한적.
+        </div>
+      </div>
+    </div>
+
+    <!-- 리더십 -->
+    <div class="cat-detail">
+      <div class="cat-detail-header">
+        <div class="cat-detail-name">리더십 (Leadership)</div>
+        <div class="cat-detail-score">80점</div>
+      </div>
+      <div class="cat-detail-body">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Claude</th><th>ChatGPT</th><th>Gemini</th><th>Grok</th><th class="highlight-col">평균</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>78</td><td>78</td><td>84</td><td>80</td><td class="highlight-col">80</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="claim claim-success">
+          <div class="claim-label">강점</div>
+          전국소기업총연합회 공동대표 — 수천 명 규모 기업인 조직 이끈 리더십 경험. 이해관계자 조율 능력 확인. 초선 의원의 빠른 정착 — 위원회 활동 및 대여당 협력을 통한 지역 예산 확보. 기업 CFO 경험에서 비롯된 결단력 있는 의사결정 스타일.
+        </div>
+        <div class="claim claim-warning">
+          <div class="claim-label">한계</div>
+          경기도의회 내 원내 리더십(원내대표·위원장 등) 공식 직위 없음. 공식 리더십 직위 부재로 수치화 가능한 리더십 발휘 기록 제한. Claude·ChatGPT(78점): "초선 의원, 리더십 발휘 기회 제한적" 반영.
+        </div>
+      </div>
+    </div>
+
+    <!-- 비전 -->
+    <div class="cat-detail">
+      <div class="cat-detail-header">
+        <div class="cat-detail-name">비전 (Vision) — 표준편차 1.64 (전체 카테고리 중 최고 일관성)</div>
+        <div class="cat-detail-score">80점</div>
+      </div>
+      <div class="cat-detail-body">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Claude</th><th>ChatGPT</th><th>Gemini</th><th>Grok</th><th class="highlight-col">평균</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>79</td><td>80</td><td>83</td><td>79</td><td class="highlight-col">80</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="claim claim-success">
+          <div class="claim-label">강점</div>
+          소기업·소상공인 지원 비전 — 행정 규제 완화·창업 생태계 조성 등 구체적 정책 제시. 고양시 경제 발전 청사진 — GTX-A 역세권 개발·KINTEX 중심 MICE 산업 육성·관광 활성화. CFO 출신답게 정량적 목표 설정 능력이 비전 구체성에 반영. 기업 유치 및 일자리 창출 장기 비전 발표 확인.
+        </div>
+        <div class="claim">
+          <div class="claim-label">일관성 분석</div>
+          표준편차 1.64점 — 비전이 4개 AI에서 가장 일관성 있게 평가됨. 오준환의 경제 비전이 명확하고 일관되게 공개되어 있음을 의미. 복지·환경·문화 등 비경제 분야 장기 비전 자료는 상대적으로 부족.
+        </div>
+      </div>
+    </div>
+
+    <!-- 대응성 -->
+    <div class="cat-detail">
+      <div class="cat-detail-header">
+        <div class="cat-detail-name">대응성 (Responsiveness)</div>
+        <div class="cat-detail-score">80점</div>
+      </div>
+      <div class="cat-detail-body">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Claude</th><th>ChatGPT</th><th>Gemini</th><th>Grok</th><th class="highlight-col">평균</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>75</td><td>80</td><td>84</td><td>81</td><td class="highlight-col">80</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="claim claim-success">
+          <div class="claim-label">강점</div>
+          지역 민원 대응 — 고양시 제9선거구 주민 민원(교통·환경·생활 인프라)에 대한 신속한 행정 대응 요청 및 이행 추진 기록. 위기 대응 역량 — CFO 경험에서 비롯된 위기 대응적 사고방식, 신속한 원인 분석과 대응책 제시 기록. 사회적 이슈 대응 — 지역 사회 내 돌발 이슈에 대한 공식 입장 표명.
+        </div>
+        <div class="claim claim-warning">
+          <div class="claim-label">한계</div>
+          Claude 75점: 공식 기록에 나타난 대응 사례에 집중. 지역 인터넷 커뮤니티·SNS에서의 비공식 대응 활동은 학습 데이터에 제한적으로 반영. 표준편차 3.24점.
+        </div>
+      </div>
+    </div>
+
+    <!-- 투명성 -->
+    <div class="cat-detail">
+      <div class="cat-detail-header">
+        <div class="cat-detail-name">투명성 (Transparency)</div>
+        <div class="cat-detail-score">78점</div>
+      </div>
+      <div class="cat-detail-body">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Claude</th><th>ChatGPT</th><th>Gemini</th><th>Grok</th><th class="highlight-col">평균</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>75</td><td>78</td><td>81</td><td>78</td><td class="highlight-col">78</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="claim claim-success">
+          <div class="claim-label">강점</div>
+          법적 의무 이행 — 재산 공개·후원금 보고·의정 활동 보고 등 성실 이행. SNS·미디어 활동 — 의정 활동 내용을 SNS로 공개, 지역 주민과의 소통 채널 운영. 언론 인터뷰 — 지역 언론과의 정기적 인터뷰를 통한 활동 공개.
+        </div>
+        <div class="claim claim-warning">
+          <div class="claim-label">한계</div>
+          법적 최소 의무 이상의 자발적 정보 공개(상세 비용 명세·회의록 전문 등) 부족. 주요 의안 찬반 이유·위원회 심의 과정 발언 공개 미흡. 의정 기록이 단일 플랫폼에 통합 관리되지 않아 검색 가능성 낮음.
+        </div>
+      </div>
+    </div>
+
+    <!-- 청렴성 -->
+    <div class="cat-detail">
+      <div class="cat-detail-header">
+        <div class="cat-detail-name">청렴성 (Integrity) ⚠️ 개선 여지</div>
+        <div class="cat-detail-score">71점</div>
+      </div>
+      <div class="cat-detail-body">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Claude</th><th>ChatGPT</th><th>Gemini</th><th>Grok</th><th class="highlight-col">평균</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>67</td><td>73</td><td>74</td><td>70</td><td class="highlight-col">71</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="claim claim-success">
+          <div class="claim-label">긍정 사례</div>
+          법적 문제 없음 — 정치 입문 이후 공개된 비리·부패 관련 사건 미확인. CFO 경력 중에도 법적·윤리적 문제 없음. 재산 공개 이행 — 매년 의무적 재산 공개 성실 이행. 금융 전문가 출신으로 재산 출처 투명성 양호.
+        </div>
+        <div class="claim claim-warning">
+          <div class="claim-label">부족한 부분</div>
+          청렴 관련 자발적 활동 부재 — 청렴 캠페인·반부패 발언·청렴 서약 등 공개 기록 제한적. 이해충돌 선제적 공개 — 지역구 기업인 출신으로 이해충돌 소지 업무에서의 회피·공개 내역 확인 어려움.
+        </div>
+        <div class="claim">
+          <div class="claim-label">Claude 67점 분석</div>
+          "청렴 관련 긍정 자료 부재"를 엄격히 적용. 부정 사례 없음만으로는 높은 청렴 점수 부여 제한. ChatGPT·Gemini(73~74점)는 "문제가 없는 것 자체가 긍정적"이라는 시각 적용.
+        </div>
+      </div>
+    </div>
+
+    <!-- 윤리성 -->
+    <div class="cat-detail">
+      <div class="cat-detail-header">
+        <div class="cat-detail-name">윤리성 (Ethics) ⚠️ 최하위</div>
+        <div class="cat-detail-score">63점</div>
+      </div>
+      <div class="cat-detail-body">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Claude</th><th>ChatGPT</th><th>Gemini</th><th>Grok</th><th class="highlight-col">평균</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>62</td><td>66</td><td>67</td><td>58</td><td class="highlight-col">63</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="claim claim-note">
+          <div class="claim-label">점수의 의미</div>
+          63점은 "비윤리적 행동이 있다"는 의미가 아님. <strong>"윤리성을 적극적으로 입증하는 공개 자료가 10개 카테고리 중 가장 부족하다"</strong>는 의미.
+        </div>
+        <div class="claim claim-warning">
+          <div class="claim-label">부족한 부분</div>
+          정치 자금 투명성 — 후원금 사용 내역의 자발적 공개 수준이 법적 최소 기준에 그침. 소수자·약자 배려 활동 — 여성·장애인·이주민 등 소수자 관련 정책·발언에서의 윤리적 입장 공개 자료 불충분. 이해충돌 자기 회피 내역 — 기업인 출신으로서 민간 기업과의 이해충돌 소지가 있는 의결에서의 자기 회피 내역 공개 미흡. 자발적 윤리 활동 부재 — 청렴 서약·반부패 결의 등 기록 부재.
+        </div>
+        <div class="claim">
+          <div class="claim-label">Grok 58점 원인 분석</div>
+          Grok은 최근 3~6개월 시사 데이터에 높은 가중치 부여. 해당 기간 중 오준환의 윤리 관련 긍정 활동이 뉴스로 보도된 사례가 매우 적어 58점의 낮은 평가로 이어짐. 표준편차 3.56점 (AI 간 견해 차이 존재).
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 5: 점수 구조 분석 -->
+    <h1 id="sec5">5. 점수 구조 분석</h1>
+
+    <h2>카테고리별 AI 일관성</h2>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>카테고리</th>
+            <th>평균</th>
+            <th>표준편차</th>
+            <th>AI 일관성</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>책임감</td>
+            <td>81점</td>
+            <td>1.22</td>
+            <td>★★★★★ 최고</td>
+          </tr>
+          <tr>
+            <td>비전</td>
+            <td>80점</td>
+            <td>1.64</td>
+            <td>★★★★★</td>
+          </tr>
+          <tr>
+            <td>투명성</td>
+            <td>78점</td>
+            <td>2.12</td>
+            <td>★★★★</td>
+          </tr>
+          <tr>
+            <td>전문성</td>
+            <td>80점</td>
+            <td>2.28</td>
+            <td>★★★★</td>
+          </tr>
+          <tr>
+            <td>리더십</td>
+            <td>80점</td>
+            <td>2.45</td>
+            <td>★★★★</td>
+          </tr>
+          <tr>
+            <td>청렴성</td>
+            <td>71점</td>
+            <td>2.74</td>
+            <td>★★★★</td>
+          </tr>
+          <tr>
+            <td>대응성</td>
+            <td>80점</td>
+            <td>3.24</td>
+            <td>★★★</td>
+          </tr>
+          <tr>
+            <td>윤리성</td>
+            <td>63점</td>
+            <td>3.56</td>
+            <td>★★★</td>
+          </tr>
+          <tr>
+            <td>소통능력</td>
+            <td>81점</td>
+            <td>4.15</td>
+            <td>★★</td>
+          </tr>
+          <tr>
+            <td>공익성</td>
+            <td>82점</td>
+            <td>4.97</td>
+            <td>★ 최저</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="claim claim-success">
+      <div class="claim-label">일관성 높음 (책임감·비전·투명성)</div>
+      4개 AI가 유사한 데이터를 확인, 신뢰도 높음. 특히 책임감(1.22점)은 데이터 소스가 달라도 동일한 결론에 도달 — 오준환의 가장 확실한 강점.
+    </div>
+
+    <div class="claim claim-warning">
+      <div class="claim-label">일관성 낮음 (공익성·소통능력)</div>
+      데이터 소스 차이가 크게 반영. 실제 활동이 온라인에 분산되어 AI별 수집 범위에 따라 편차 발생. 이 카테고리들의 실제 수준은 Gemini 수집 범위에 더 가까울 가능성이 높음.
+    </div>
+
+    <h2>점수 분포</h2>
+
+    <div class="claim">
+      <div class="claim-label">구조적 특징</div>
+      <strong>80점 이상 (7개):</strong> 전문성·리더십·비전·책임감·소통능력·대응성·공익성<br>
+      <strong>70점대 (1개):</strong> 투명성 78점<br>
+      <strong>60점대 (2개):</strong> 청렴성 71점, 윤리성 63점<br><br>
+      하위 2개 카테고리(청렴성·윤리성)가 상위 카테고리 대비 약 17~19점 낮아, 전체 총점을 구조적으로 약 34~38점 하방 압박하는 구조. 이 두 카테고리를 80점으로 끌어올릴 경우 이론적 총점은 약 810~820점(D등급)까지 상승 가능.
+    </div>
+
+    <!-- SECTION 6: 평가 방법론 -->
+    <h1 id="sec6">6. 평가 방법론 및 한계</h1>
+
+    <h2>수집 및 평가 방법</h2>
+
+    <div class="info-field">
+      <div class="info-label">수집 채널</div>
+      <div class="info-value">Gemini CLI 50% + Naver API 50%</div>
+    </div>
+    <div class="info-field">
+      <div class="info-label">OFFICIAL 기간</div>
+      <div class="info-value">최근 4년 이내 (공식 의정 활동)</div>
+    </div>
+    <div class="info-field">
+      <div class="info-label">PUBLIC 기간</div>
+      <div class="info-value">최근 2년 이내 (언론·SNS 등 공개 자료)</div>
+    </div>
+    <div class="info-field">
+      <div class="info-label">평가 AI</div>
+      <div class="info-value">Claude · ChatGPT · Gemini · Grok (4개)</div>
+    </div>
+    <div class="info-field">
+      <div class="info-label">등급 체계</div>
+      <div class="info-value">+4(탁월) ~ -4(최악), X(평가 제외) — 8등급</div>
+    </div>
+    <div class="info-field">
+      <div class="info-label">점수 공식</div>
+      <div class="info-value">카테고리 점수 = (6.0 + avg_score × 0.5) × 10</div>
+    </div>
+    <div class="info-field">
+      <div class="info-label">최종 점수</div>
+      <div class="info-value">10개 카테고리 합산, 범위 200~1,000점</div>
+    </div>
+    <div class="info-field">
+      <div class="info-label">총 수집량</div>
+      <div class="info-value">1,200개 이상 → 4개 AI 평가 4,800건+</div>
+    </div>
+
+    <h2>AI별 평가 특성</h2>
+    <ul class="plain">
+      <li><strong>Claude (742점)</strong> — 공식 자료 중심, 엄격한 기준 적용. 보수적·낮은 편.</li>
+      <li><strong>ChatGPT (778점)</strong> — 균형적 판단, 중간 입장. 인수위 자문 경력 등 긍정 평가.</li>
+      <li><strong>Gemini (813점)</strong> — 웹 검색 광범위, 공익·소통 활동 폭넓게 수집. 낙관적 경향.</li>
+      <li><strong>Grok (772점)</strong> — 최신 시사·현재성 강조. 최근 3~6개월 데이터에 높은 가중치.</li>
+    </ul>
+
+    <h2>평가의 한계</h2>
+
+    <div class="claim claim-warning">
+      <div class="claim-label">6가지 주요 한계</div>
+      <strong>① 비공개 자료 미반영</strong> — 내부 회의·오프라인 활동·비공개 협상 내용 수집 불가.<br>
+      <strong>② 검색 알고리즘 편향</strong> — Gemini CLI·Naver API의 검색 알고리즘에 따른 데이터 편향 존재.<br>
+      <strong>③ AI 편향</strong> — 각 AI의 학습 데이터·알고리즘 편향. 4개 AI 평균으로 일부 완화.<br>
+      <strong>④ 시간적 한계</strong> — 평가 일자(2026-02-19) 이후 활동 미반영.<br>
+      <strong>⑤ 양적 평가 한계</strong> — 활동의 질적 깊이보다 공개 기록의 양에 영향받을 수 있음.<br>
+      <strong>⑥ 초선 의원 구조적 특성</strong> — 정치 입문 3년차로 장기 의원에 비해 의정 활동 축적량 자체가 적음. 이는 데이터 가용성에 구조적으로 영향을 미치며, 특히 Claude의 낮은 평가(742점)에서 두드러짐.
+    </div>
+
+    <!-- SECTION 7: 등급 기준표 -->
+    <h1 id="sec7">7. 등급 기준표</h1>
+
+    <div class="grade-table">
+      <div class="grade-row">
+        <div class="grade-letter">M</div>
+        <div class="grade-range">920 ~ 1,000점</div>
+        <div class="grade-desc">최우수 — 탁월한 정치인</div>
+      </div>
+      <div class="grade-row">
+        <div class="grade-letter">D</div>
+        <div class="grade-range">840 ~ 919점</div>
+        <div class="grade-desc">우수 — 매우 뛰어난 수준</div>
+      </div>
+      <div class="grade-row grade-current">
+        <div class="grade-letter">E</div>
+        <div class="grade-range">760 ~ 839점</div>
+        <div class="grade-desc">양호 — 전반적으로 우수한 수준 ← 오준환 776점 (이 등급)</div>
+      </div>
+      <div class="grade-row">
+        <div class="grade-letter">P</div>
+        <div class="grade-range">680 ~ 759점</div>
+        <div class="grade-desc">보통+ — 평균 이상</div>
+      </div>
+      <div class="grade-row">
+        <div class="grade-letter">G</div>
+        <div class="grade-range">600 ~ 679점</div>
+        <div class="grade-desc">보통 — 평균 수준</div>
+      </div>
+      <div class="grade-row">
+        <div class="grade-letter">S</div>
+        <div class="grade-range">520 ~ 599점</div>
+        <div class="grade-desc">보통- — 평균 이하</div>
+      </div>
+      <div class="grade-row">
+        <div class="grade-letter">B</div>
+        <div class="grade-range">440 ~ 519점</div>
+        <div class="grade-desc">미흡 — 상당히 부족한 수준</div>
+      </div>
+      <div class="grade-row">
+        <div class="grade-letter">I</div>
+        <div class="grade-range">360 ~ 439점</div>
+        <div class="grade-desc">불량 — 심각하게 부족한 수준</div>
+      </div>
+      <div class="grade-row">
+        <div class="grade-letter">Tn</div>
+        <div class="grade-range">280 ~ 359점</div>
+        <div class="grade-desc">부적합 — 공직 부적합 수준</div>
+      </div>
+      <div class="grade-row">
+        <div class="grade-letter">L</div>
+        <div class="grade-range">200 ~ 279점</div>
+        <div class="grade-desc">최하 — 심각한 결격 수준</div>
+      </div>
+    </div>
+
+    <div class="claim claim-independent">
+      <div class="claim-label">오준환 등급 위치</div>
+      776점은 E등급(760~839점) 내 하단부. E등급 상단(839점)까지 <strong>63점</strong>, D등급 진입(840점)까지 <strong>64점</strong> 거리. 청렴성·윤리성 두 카테고리를 집중적으로 개선하면 D등급 진입 이론적으로 가능. 초선 의원 특성을 감안할 때, 의정 경력 누적에 따른 점수 상승 여지가 가장 큰 유형의 정치인.
+    </div>
+
+    <!-- Footer -->
+    <div class="doc-footer">
+      <div class="doc-footer-title">유의사항</div>
+      <div class="doc-footer-text">
+        본 보고서는 공개된 뉴스 기사, SNS, 공식 자료 등을 AI가 수집·분석하여 생성한 참고 자료입니다.<br>
+        특정 정치적 견해를 지지하거나 반대하기 위한 목적으로 작성되지 않았습니다.<br>
+        평가 결과는 수집 시점(2026년 2월 19일) 기준이며, 이후 발생한 사건은 반영되지 않습니다.<br>
+        본 자료는 유권자의 판단을 보조하는 정보 제공 목적이며, 최종 판단은 유권자 본인이 합니다.<br><br>
+        PoliticianFinder.com &nbsp;|&nbsp; AI 정치인 평가 시스템 V40 &nbsp;|&nbsp; 2026-02-19
+      </div>
+    </div>
+
+  </div><!-- /.content -->
+
+</div><!-- /.document -->
+
+</body>
+</html>

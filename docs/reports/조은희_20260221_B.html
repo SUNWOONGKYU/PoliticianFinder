@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>조은희 AI 정치인 평가보고서 — PoliticianFinder V40</title>
+<style>
+  :root {
+    --primary: #2d1010;
+    --accent:  #C62828;
+    --text:    #1a1a1a;
+    --muted:   #6b7280;
+    --border:  #e5e7eb;
+    --bg:      #f9fafb;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #e8e8e8;
+    font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+    color: var(--text);
+    line-height: 1.7;
+  }
+
+  .document {
+    max-width: 800px;
+    margin: 32px auto;
+    background: #fff;
+    box-shadow: 0 4px 32px rgba(0,0,0,0.18);
+  }
+
+  /* Cover */
+  .cover {
+    background: linear-gradient(135deg, #2d1010 0%, #C62828 100%);
+    color: #fff;
+    padding: 72px 60px 56px;
+  }
+  .cover-badge {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 20px;
+  }
+  .cover-title {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+  .cover-subtitle {
+    font-size: 16px;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 36px;
+  }
+  .cover-meta {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    padding-top: 28px;
+    margin-top: 28px;
+  }
+  .cover-meta-item { }
+  .cover-meta-label { font-size: 11px; color: rgba(255,255,255,0.55); letter-spacing: 1px; text-transform: uppercase; }
+  .cover-meta-value { font-size: 15px; font-weight: 600; color: #fff; margin-top: 2px; }
+
+  .cover-score-box {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 8px;
+    padding: 20px 28px;
+    display: inline-block;
+    margin-top: 24px;
+  }
+  .cover-score-num {
+    font-size: 52px;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -2px;
+  }
+  .cover-score-grade {
+    font-size: 16px;
+    color: rgba(255,255,255,0.8);
+    margin-top: 4px;
+  }
+
+  /* Content */
+  .content { padding: 48px 60px 64px; }
+
+  /* TOC */
+  .toc {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+    padding: 24px 28px;
+    margin-bottom: 48px;
+    border-radius: 0 4px 4px 0;
+  }
+  .toc-title { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
+  .toc ol { padding-left: 20px; }
+  .toc li { margin-bottom: 6px; }
+  .toc a { color: var(--accent); text-decoration: none; font-size: 14px; }
+  .toc a:hover { text-decoration: underline; }
+
+  /* Headings */
+  h1 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--primary);
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 10px;
+    margin: 48px 0 24px;
+  }
+  h1:first-of-type { margin-top: 0; }
+  h2 { font-size: 16px; font-weight: 700; color: var(--primary); margin: 28px 0 14px; }
+
+  /* Info fields */
+  .info-field {
+    display: flex;
+    border-bottom: 1px solid var(--border);
+    padding: 10px 0;
+    font-size: 14px;
+  }
+  .info-label { width: 160px; min-width: 160px; color: var(--muted); font-weight: 600; }
+  .info-value { flex: 1; }
+
+  /* AI Cards */
+  .ai-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin: 20px 0;
+  }
+  .ai-card {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px 20px;
+    background: var(--bg);
+  }
+  .ai-card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+  .ai-card-name { font-size: 13px; font-weight: 700; color: var(--primary); }
+  .ai-card-score { font-size: 22px; font-weight: 800; color: var(--accent); }
+  .ai-card-desc { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+  /* Bar chart */
+  .bar-chart { margin: 24px 0; }
+  .bar-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    gap: 12px;
+  }
+  .bar-label { width: 80px; min-width: 80px; font-size: 13px; color: var(--muted); text-align: right; }
+  .bar-track { flex: 1; background: #f0f0f0; border-radius: 4px; height: 26px; overflow: hidden; }
+  .bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 10px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #fff;
+    background: var(--accent);
+    transition: width 0.3s;
+  }
+  .bar-fill-top { background: #e65100 !important; }
+  .bar-fill span { white-space: nowrap; }
+
+  /* Table */
+  .table-wrap { overflow-x: auto; margin: 16px 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th {
+    background: var(--primary);
+    color: #fff;
+    padding: 10px 14px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 13px;
+  }
+  td {
+    padding: 9px 14px;
+    border-bottom: 1px solid var(--border);
+    text-align: center;
+  }
+  tr:hover td { background: #fff5f5; }
+  .highlight-col { background: #fff0f0 !important; font-weight: 700; color: var(--accent); }
+  th.highlight-col { background: var(--accent) !important; color: #fff; }
+  td:first-child { text-align: left; }
+  .rank-1 { color: #e65100; font-weight: 800; }
+
+  /* Claim boxes */
+  .claim {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+    border-radius: 0 6px 6px 0;
+    padding: 16px 20px;
+    margin: 16px 0;
+    font-size: 14px;
+  }
+  .claim-label {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .claim-success { border-left-color: #2e7d32; }
+  .claim-success .claim-label { color: #2e7d32; }
+  .claim-warning { border-left-color: #c62828; }
+  .claim-warning .claim-label { color: #c62828; }
+  .claim-independent { border-left-color: #1565c0; }
+  .claim-independent .claim-label { color: #1565c0; }
+
+  /* Category detail */
+  .cat-detail {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin: 20px 0;
+    overflow: hidden;
+  }
+  .cat-detail-header {
+    background: var(--primary);
+    color: #fff;
+    padding: 14px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .cat-detail-name { font-size: 15px; font-weight: 700; }
+  .cat-detail-score { font-size: 22px; font-weight: 800; }
+  .cat-detail-body { padding: 20px; }
+
+  /* Grade table */
+  .grade-table { margin: 24px 0; }
+  .grade-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+  }
+  .grade-row:last-child { border-bottom: none; }
+  .grade-letter {
+    width: 40px;
+    min-width: 40px;
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--muted);
+    text-align: center;
+  }
+  .grade-range { width: 140px; min-width: 140px; color: var(--muted); font-size: 13px; }
+  .grade-desc { flex: 1; }
+  .grade-current {
+    background: #fff5f5;
+    border-left: 4px solid var(--accent);
+  }
+  .grade-current .grade-letter { color: var(--accent); }
+  .grade-current .grade-desc { font-weight: 700; color: var(--primary); }
+
+  /* Note / footer */
+  .note { font-size: 12px; color: var(--muted); margin: 8px 0; }
+  ul.plain { list-style: none; padding: 0; margin: 12px 0; }
+  ul.plain li { padding: 6px 0; border-bottom: 1px solid var(--border); font-size: 14px; }
+  ul.plain li:last-child { border-bottom: none; }
+
+  .doc-footer {
+    background: var(--primary);
+    color: rgba(255,255,255,0.7);
+    padding: 28px 32px;
+    margin-top: 48px;
+    border-radius: 4px;
+  }
+  .doc-footer-title { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 10px; }
+  .doc-footer-text { font-size: 12px; line-height: 1.8; }
+
+  @media (max-width: 600px) {
+    .document { margin: 0; }
+    .cover { padding: 40px 24px 32px; }
+    .cover-title { font-size: 26px; }
+    .cover-score-num { font-size: 40px; }
+    .content { padding: 32px 20px 40px; }
+    .ai-cards { grid-template-columns: 1fr; }
+    .info-label { width: 110px; min-width: 110px; }
+    .bar-label { width: 64px; min-width: 64px; font-size: 11px; }
+    .toc { padding: 16px 16px; }
+    h1 { font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="document">
+
+  <!-- COVER -->
+  <div class="cover">
+    <div class="cover-badge">PoliticianFinder · AI 평가보고서 V40 · 2026-02-21</div>
+    <div class="cover-title">조은희</div>
+    <div class="cover-subtitle">국민의힘 · 제22대 국회의원 (비례대표) · 前 서울 서초구청장 3선</div>
+
+    <div class="cover-score-box">
+      <div class="cover-score-num">745점</div>
+      <div class="cover-score-grade">P등급 (보통+) &nbsp;·&nbsp; 4인 중 3위</div>
+    </div>
+
+    <div class="cover-meta">
+      <div class="cover-meta-item">
+        <div class="cover-meta-label">평가 AI</div>
+        <div class="cover-meta-value">Claude · ChatGPT · Gemini · Grok</div>
+      </div>
+      <div class="cover-meta-item">
+        <div class="cover-meta-label">수집 채널</div>
+        <div class="cover-meta-value">Gemini CLI 50% + Naver API 50%</div>
+      </div>
+      <div class="cover-meta-item">
+        <div class="cover-meta-label">데이터 규모</div>
+        <div class="cover-meta-value">약 1,100개 수집 → 4,400건 평가</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <!-- TOC -->
+    <div class="toc">
+      <div class="toc-title">목차</div>
+      <ol>
+        <li><a href="#sec1">정치인 프로필</a></li>
+        <li><a href="#sec2">종합 점수 및 AI별 평가</a></li>
+        <li><a href="#sec3">카테고리별 점수</a></li>
+        <li><a href="#sec4">카테고리별 상세 분석</a></li>
+        <li><a href="#sec5">경쟁자 비교 (4인)</a></li>
+        <li><a href="#sec6">평가 방법론 및 한계</a></li>
+        <li><a href="#sec7">등급 기준표</a></li>
+      </ol>
+    </div>
+
+    <!-- SECTION 1: 프로필 -->
+    <h1 id="sec1">1. 정치인 프로필</h1>
+
+    <div class="info-field">
+      <div class="info-label">이름</div>
+      <div class="info-value">조은희</div>
+    </div>
+    <div class="info-field">
+      <div class="info-label">소속 정당</div>
+      <div class="info-value">국민의힘</div>
+    </div>
+    <div class="info-field">
+      <div class="info-label">현직</div>
+      <div class="info-value">제22대 국회의원 (비례대표)</div>
+    </div>
+    <div class="info-field">
+      <div class="info-label">이전 직책</div>
+      <div class="info-value">서울 서초구청장 (3선, 민선 5~7기)</div>
+    </div>
+    <div class="info-field">
+      <div class="info-label">핵심 경력</div>
+      <div class="info-value">서초구 스마트 행정 혁신, 구민 복지 서비스 고도화, 3선 기초단체장</div>
+    </div>
+    <div class="info-field">
+      <div class="info-label">지역구</div>
+      <div class="info-value">서울특별시 서초구 (前) → 비례대표</div>
+    </div>
+    <div class="info-field">
+      <div class="info-label">학력</div>
+      <div class="info-value">이화여자대학교 법학 학사</div>
+    </div>
+
+    <div class="claim" style="margin-top:20px;">
+      <div class="claim-label">평가 배경</div>
+      서울 서초구청장을 세 차례 역임한 후 국회에 입성한 행정 실무형 정치인이다. 기초자치단체장 3선이라는 이력은 박주민(입법가)이나 정원오(야당 구청장)와 구별되는 차별화 포인트이지만, 동시에 '서초'라는 지역 브랜드의 한계—부유층 밀집 자치구라는 이미지—를 함께 안고 있다. 국민의힘 소속으로 서울시장 야권 후보군 4인 중 유일한 보수 진영 여성 후보로 거론되며, 행정 경험의 깊이와 정무 감각의 균형이 핵심 평가 변수다.
+    </div>
+
+    <!-- SECTION 2: 종합 점수 -->
+    <h1 id="sec2">2. 종합 점수 및 AI별 평가</h1>
+
+    <div class="ai-cards">
+      <div class="ai-card">
+        <div class="ai-card-header">
+          <div class="ai-card-name">Claude</div>
+          <div class="ai-card-score">727점</div>
+        </div>
+        <div class="ai-card-desc">서초구 행정 규모와 서울시 광역 역할 간 스케일 차이에 가장 엄격 (최저)</div>
+      </div>
+      <div class="ai-card">
+        <div class="ai-card-header">
+          <div class="ai-card-name">ChatGPT</div>
+          <div class="ai-card-score">739점</div>
+        </div>
+        <div class="ai-card-desc">행정 경험과 정책 실적을 균형 있게 평가. 가치 지향성은 신중 (중간)</div>
+      </div>
+      <div class="ai-card">
+        <div class="ai-card-header">
+          <div class="ai-card-name">Gemini</div>
+          <div class="ai-card-score">784점</div>
+        </div>
+        <div class="ai-card-desc">온라인 행정 성과 데이터와 현장 활동 기록을 광범위하게 포착 (최고)</div>
+      </div>
+      <div class="ai-card">
+        <div class="ai-card-header">
+          <div class="ai-card-name">Grok</div>
+          <div class="ai-card-score">728점</div>
+        </div>
+        <div class="ai-card-desc">최신 뉴스 기반 평가에서 정파적 발언 데이터에 민감하게 반응 (보수적)</div>
+      </div>
+    </div>
+
+    <div class="claim claim-independent">
+      <div class="claim-label">AI 간 편차 분석</div>
+      최대 편차 <strong>57점</strong> (Gemini 784 - Claude 727). 4인 중 가장 큰 AI 간 격차. Gemini는 서초구청 공식 행정 채널의 3선 누적 실적 데이터를 광범위하게 포착(784점). Claude는 '서초구 수준 역량이 서울시 전체로 확장 가능한가'를 가장 엄격하게 검토(727점). Grok은 국회의원 전환 후 정파적 발언 데이터에 민감(728점).
+    </div>
+
+    <h2>4인 종합 순위</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>순위</th>
+            <th>후보</th>
+            <th>점수</th>
+            <th>등급</th>
+            <th>정당</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1위</td>
+            <td>정원오</td>
+            <td>785</td>
+            <td>E (양호)</td>
+            <td>민주당</td>
+          </tr>
+          <tr>
+            <td>2위</td>
+            <td>박주민</td>
+            <td>753</td>
+            <td>P (보통+)</td>
+            <td>민주당</td>
+          </tr>
+          <tr style="background:#fff5f5">
+            <td style="font-weight:700;color:#C62828">★ 3위</td>
+            <td style="font-weight:700;color:#C62828">조은희</td>
+            <td style="font-weight:700;color:#C62828">745</td>
+            <td style="font-weight:700;color:#C62828">P (보통+)</td>
+            <td style="font-weight:700;color:#C62828">국민의힘</td>
+          </tr>
+          <tr>
+            <td>4위</td>
+            <td>오세훈</td>
+            <td>732</td>
+            <td>P (보통+)</td>
+            <td>국민의힘</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- SECTION 3: 카테고리별 점수 -->
+    <h1 id="sec3">3. 카테고리별 점수</h1>
+
+    <div class="bar-chart">
+      <div class="bar-row">
+        <div class="bar-label">책임감</div>
+        <div class="bar-track">
+          <div class="bar-fill bar-fill-top" style="width:79%"><span>79점 ★</span></div>
+        </div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">리더십</div>
+        <div class="bar-track">
+          <div class="bar-fill bar-fill-top" style="width:78%"><span>78점</span></div>
+        </div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">공익성</div>
+        <div class="bar-track">
+          <div class="bar-fill bar-fill-top" style="width:78%"><span>78점</span></div>
+        </div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">전문성</div>
+        <div class="bar-track">
+          <div class="bar-fill" style="width:76%;background:#C62828"><span>76점</span></div>
+        </div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">투명성</div>
+        <div class="bar-track">
+          <div class="bar-fill" style="width:76%;background:#C62828"><span>76점</span></div>
+        </div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">소통능력</div>
+        <div class="bar-track">
+          <div class="bar-fill" style="width:75%;background:#d32f2f"><span>75점</span></div>
+        </div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">대응성</div>
+        <div class="bar-track">
+          <div class="bar-fill" style="width:75%;background:#d32f2f"><span>75점</span></div>
+        </div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">비전</div>
+        <div class="bar-track">
+          <div class="bar-fill" style="width:74%;background:#ef9a9a;color:#b71c1c"><span>74점</span></div>
+        </div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">청렴성</div>
+        <div class="bar-track">
+          <div class="bar-fill" style="width:68%;background:#ffcdd2;color:#C62828"><span>68점</span></div>
+        </div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">윤리성</div>
+        <div class="bar-track">
+          <div class="bar-fill" style="width:66%;background:#ffcdd2;color:#C62828"><span>66점</span></div>
+        </div>
+      </div>
+    </div>
+
+    <h2>카테고리별 AI 점수 상세표</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>카테고리</th>
+            <th>Claude</th>
+            <th>ChatGPT</th>
+            <th>Gemini</th>
+            <th>Grok</th>
+            <th class="highlight-col">평균</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>책임감 ★</td>
+            <td>75</td>
+            <td>78</td>
+            <td>82</td>
+            <td>80</td>
+            <td class="highlight-col">79</td>
+          </tr>
+          <tr>
+            <td>리더십</td>
+            <td>76</td>
+            <td>78</td>
+            <td>80</td>
+            <td>79</td>
+            <td class="highlight-col">78</td>
+          </tr>
+          <tr>
+            <td>공익성</td>
+            <td>76</td>
+            <td>73</td>
+            <td>85</td>
+            <td>76</td>
+            <td class="highlight-col">78</td>
+          </tr>
+          <tr>
+            <td>전문성</td>
+            <td>74</td>
+            <td>75</td>
+            <td>79</td>
+            <td>76</td>
+            <td class="highlight-col">76</td>
+          </tr>
+          <tr>
+            <td>투명성</td>
+            <td>72</td>
+            <td>75</td>
+            <td>81</td>
+            <td>76</td>
+            <td class="highlight-col">76</td>
+          </tr>
+          <tr>
+            <td>소통능력</td>
+            <td>73</td>
+            <td>73</td>
+            <td>81</td>
+            <td>72</td>
+            <td class="highlight-col">75</td>
+          </tr>
+          <tr>
+            <td>대응성</td>
+            <td>76</td>
+            <td>75</td>
+            <td>81</td>
+            <td>69</td>
+            <td class="highlight-col">75</td>
+          </tr>
+          <tr>
+            <td>비전</td>
+            <td>73</td>
+            <td>76</td>
+            <td>78</td>
+            <td>69</td>
+            <td class="highlight-col">74</td>
+          </tr>
+          <tr>
+            <td>청렴성</td>
+            <td>70</td>
+            <td>68</td>
+            <td>69</td>
+            <td>66</td>
+            <td class="highlight-col">68</td>
+          </tr>
+          <tr>
+            <td>윤리성</td>
+            <td>62</td>
+            <td>68</td>
+            <td>68</td>
+            <td>65</td>
+            <td class="highlight-col">66</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="claim">
+      <div class="claim-label">점수 구조 해석</div>
+      <strong>78~79점 (상위):</strong> 책임감 79 · 리더십 78 · 공익성 78<br>
+      <strong>74~76점 (중상):</strong> 전문성 76 · 투명성 76 · 소통능력 75 · 대응성 75 · 비전 74<br>
+      <strong>66~68점 (하위):</strong> 청렴성 68 · 윤리성 66 &nbsp;⚠️ 4인 공동 최하위<br><br>
+      '이중 분리' 구조가 특징: 상위(78~79점)와 하위(66~68점) 사이 10점 이상 간극. 하위 2개 카테고리(청렴성·윤리성)가 전체 총점을 약 20점 이상 하방 압박.
+    </div>
+
+    <!-- SECTION 4: 카테고리별 상세 분석 -->
+    <h1 id="sec4">4. 카테고리별 상세 분석</h1>
+
+    <!-- 책임감 -->
+    <div class="cat-detail">
+      <div class="cat-detail-header">
+        <div class="cat-detail-name">책임감 (Accountability) ★ 최고 점수 / 4인 중 2위</div>
+        <div class="cat-detail-score">79점</div>
+      </div>
+      <div class="cat-detail-body">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Claude</th><th>ChatGPT</th><th>Gemini</th><th>Grok</th><th class="highlight-col">평균</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>75</td><td>78</td><td>82</td><td>80</td><td class="highlight-col">79</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="claim claim-success">
+          <div class="claim-label">강점</div>
+          3선 구청장이라는 집행 이력이 직접적 근거 — 공약 발표 → 예산 편성 → 사업 집행 → 결과 보고의 전 과정이 공식 기록으로 남는다. 주민 직선제 3선 달성 = 임기마다 공약 이행에 대한 구민 심판을 통과. 표준편차 2.6점. 4인 순위: 정원오(81) > 조은희(79) > 오세훈(75) > 박주민(74).
+        </div>
+        <div class="claim claim-warning">
+          <div class="claim-label">한계</div>
+          서초구 특수성 — 서울에서도 재정 자립도가 높은 자치구. 이 환경에서의 예산 집행 책임은 재정이 열악한 자치구보다 상대적으로 수월할 수 있다. Claude(75점)가 다른 AI들보다 신중한 이유.
+        </div>
+      </div>
+    </div>
+
+    <!-- 리더십 -->
+    <div class="cat-detail">
+      <div class="cat-detail-header">
+        <div class="cat-detail-name">리더십 (Leadership) — 4인 중 2위 (정원오와 1점 차)</div>
+        <div class="cat-detail-score">78점</div>
+      </div>
+      <div class="cat-detail-body">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Claude</th><th>ChatGPT</th><th>Gemini</th><th>Grok</th><th class="highlight-col">평균</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>76</td><td>78</td><td>80</td><td>79</td><td class="highlight-col">78</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="claim claim-success">
+          <div class="claim-label">강점</div>
+          결과 기반 리더십 — 3선 연임이라는 결과가 가장 강력한 증거. 표준편차 1.5점: 4개 AI가 76~80점으로 비교적 좁은 범위에서 일치, 이견 없이 인정. 행정 조직 운영 역량 — 수백 명 규모 기초 공무원 조직 안정적 운영 경험.
+        </div>
+        <div class="claim claim-warning">
+          <div class="claim-label">한계</div>
+          광역 리더십의 미검증 — 기초단체장 수준과 광역단체장 수준의 리더십은 질적으로 다르다. 서울시 25개 자치구장·시의회·중앙 부처와의 복잡한 정치 조율, 광역 차원의 정무 리더십은 데이터로 확인 불가.
+        </div>
+      </div>
+    </div>
+
+    <!-- 공익성 -->
+    <div class="cat-detail">
+      <div class="cat-detail-header">
+        <div class="cat-detail-name">공익성 (Public Interest) — 4인 중 3위</div>
+        <div class="cat-detail-score">78점</div>
+      </div>
+      <div class="cat-detail-body">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Claude</th><th>ChatGPT</th><th>Gemini</th><th>Grok</th><th class="highlight-col">평균</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>76</td><td>73</td><td>85</td><td>76</td><td class="highlight-col">78</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="claim claim-success">
+          <div class="claim-label">강점</div>
+          생활 공익 행정 — 주민 생활 환경 개선, 복지 서비스 확충, 안전 인프라 구축 등 일상 공익 서비스 데이터가 3선 재임 기간에 걸쳐 축적. Gemini 85점은 이 데이터의 양과 긍정성을 반영.
+        </div>
+        <div class="claim claim-warning">
+          <div class="claim-label">한계 — Gemini vs ChatGPT 12점 격차</div>
+          표준편차 4.5점 (전체 카테고리 중 최대). ChatGPT(73점): '서초구 공익'의 한계 — 상대적으로 고소득층 밀집 지역에서의 복지 행정은 사회적 약자 보호 측면에서 데이터가 상대적으로 적다. Gemini는 공익 행정의 '성과', ChatGPT는 '대상과 난이도'를 기준으로 삼은 차이.
+        </div>
+      </div>
+    </div>
+
+    <!-- 전문성 -->
+    <div class="cat-detail">
+      <div class="cat-detail-header">
+        <div class="cat-detail-name">전문성 (Expertise)</div>
+        <div class="cat-detail-score">76점</div>
+      </div>
+      <div class="cat-detail-body">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Claude</th><th>ChatGPT</th><th>Gemini</th><th>Grok</th><th class="highlight-col">평균</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>74</td><td>75</td><td>79</td><td>76</td><td class="highlight-col">76</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="claim claim-success">
+          <div class="claim-label">강점</div>
+          10년 이상의 기초 행정 운영으로 형성된 예산·인사·조직 관리 전문성. 서초구 행정의 세부 영역—도시 정비, 복지 시스템, 안전 관리—에 대한 깊은 이해. 법학 전공 배경이 행정 규제·조례 설계·법적 분쟁 처리에서 전문성 보완.
+        </div>
+        <div class="claim claim-warning">
+          <div class="claim-label">한계</div>
+          광역 전문성의 공백 — 전문성 데이터가 서초구 범위에 집중. 서울 전역의 교통·주택·산업 정책을 총괄하는 광역 단체장으로의 전문성 확장은 데이터 상에서 미검증. 4인 순위: 정원오(81) > 조은희(76) > 박주민·오세훈(75).
+        </div>
+      </div>
+    </div>
+
+    <!-- 투명성 -->
+    <div class="cat-detail">
+      <div class="cat-detail-header">
+        <div class="cat-detail-name">투명성 (Transparency) — 4인 중 3위</div>
+        <div class="cat-detail-score">76점</div>
+      </div>
+      <div class="cat-detail-body">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Claude</th><th>ChatGPT</th><th>Gemini</th><th>Grok</th><th class="highlight-col">평균</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>72</td><td>75</td><td>81</td><td>76</td><td class="highlight-col">76</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="claim claim-success">
+          <div class="claim-label">강점</div>
+          구청 홈페이지·SNS 채널을 통한 서초구 예산·사업·민원 처리 현황 공개 채널의 체계적 운영이 투명성 점수의 기반 형성. 4인 순위: 정원오(80) > 박주민(79) > 조은희(76) > 오세훈(71). 오세훈 대비 5점 우위.
+        </div>
+        <div class="claim claim-warning">
+          <div class="claim-label">한계</div>
+          Claude(72점): 법적 의무에 따른 정보 공개와 자발적 투명성 증진 활동 간의 차이 지적. 법적 의무를 넘어 스스로 더 많은 정보를 공개하려는 능동적 투명성의 사례 제한적. 표준편차 3.2점.
+        </div>
+      </div>
+    </div>
+
+    <!-- 소통능력 -->
+    <div class="cat-detail">
+      <div class="cat-detail-header">
+        <div class="cat-detail-name">소통능력 (Communication)</div>
+        <div class="cat-detail-score">75점</div>
+      </div>
+      <div class="cat-detail-body">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Claude</th><th>ChatGPT</th><th>Gemini</th><th>Grok</th><th class="highlight-col">평균</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>73</td><td>73</td><td>81</td><td>72</td><td class="highlight-col">75</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="claim claim-success">
+          <div class="claim-label">강점</div>
+          현장 밀착 소통 — 구청장 시절 주민 간담회·현장 방문·지역 행사 참여 데이터 풍부. Gemini는 이 데이터를 81점으로 반영. 구민 친화적 행정 언어 — 복잡한 행정 사안을 주민 이해 방식으로 전달.
+        </div>
+        <div class="claim claim-warning">
+          <div class="claim-label">한계</div>
+          Claude·ChatGPT·Grok 모두 72~73점으로 수렴: 소통 활동이 서초구 범위를 크게 벗어나지 않는다는 공통 판단. 표준편차 3.6점 (Gemini vs 나머지 AI 간 두드러진 격차). 국회의원 전환 후 구청장 시절만큼 소통 데이터 미축적.
+        </div>
+      </div>
+    </div>
+
+    <!-- 대응성 -->
+    <div class="cat-detail">
+      <div class="cat-detail-header">
+        <div class="cat-detail-name">대응성 (Responsiveness)</div>
+        <div class="cat-detail-score">75점</div>
+      </div>
+      <div class="cat-detail-body">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Claude</th><th>ChatGPT</th><th>Gemini</th><th>Grok</th><th class="highlight-col">평균</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>76</td><td>75</td><td>81</td><td>69</td><td class="highlight-col">75</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="claim claim-success">
+          <div class="claim-label">강점</div>
+          행정 대응 시스템 — 지역 현안(도로 보수, 환경 민원, 안전 사고)에 대해 행정 조직으로 직접 해결하는 집행 대응 경험 풍부. 입법가 출신 후보들과 달리 '직접 해결하는' 대응성이 데이터로 확인.
+        </div>
+        <div class="claim claim-warning">
+          <div class="claim-label">Gemini(81) vs Grok(69) 12점 격차</div>
+          표준편차 4.3점. Gemini는 구청장 시절 축적된 현장 대응 데이터의 풍부성 기준, Grok은 현재 시점(국회의원 전환 후) 대응 활동 기준. 평가 시점 차이가 만들어낸 격차.
+        </div>
+      </div>
+    </div>
+
+    <!-- 비전 -->
+    <div class="cat-detail">
+      <div class="cat-detail-header">
+        <div class="cat-detail-name">비전 (Vision) ⚠️ 4인 중 최하위</div>
+        <div class="cat-detail-score">74점</div>
+      </div>
+      <div class="cat-detail-body">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Claude</th><th>ChatGPT</th><th>Gemini</th><th>Grok</th><th class="highlight-col">평균</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>73</td><td>76</td><td>78</td><td>69</td><td class="highlight-col">74</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="claim claim-success">
+          <div class="claim-label">강점</div>
+          주민 삶의 질 비전 — 스마트 행정, 안전한 생활 환경, 지역사회 공동체 복원 등 기초 생활 수준의 비전이 서초구 행정 사례를 통해 구체적으로 구현.
+        </div>
+        <div class="claim claim-warning">
+          <div class="claim-label">4인 중 비전 최하위</div>
+          오세훈(80) > 정원오(76) > 박주민(75) > 조은희(74). 비전의 '스케일'이 평가에 직접 반영. 서울의 인구·주택·교통·산업 구조 변화에 대한 거시적 비전 발언 데이터가 상대적으로 부족. Grok(69점)이 이 공백에 가장 민감하게 반응.
+        </div>
+      </div>
+    </div>
+
+    <!-- 청렴성 -->
+    <div class="cat-detail">
+      <div class="cat-detail-header">
+        <div class="cat-detail-name">청렴성 (Integrity) ⚠️ 하위권</div>
+        <div class="cat-detail-score">68점</div>
+      </div>
+      <div class="cat-detail-body">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Claude</th><th>ChatGPT</th><th>Gemini</th><th>Grok</th><th class="highlight-col">평균</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>70</td><td>68</td><td>69</td><td>66</td><td class="highlight-col">68</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="claim claim-success">
+          <div class="claim-label">강점</div>
+          무결성 기록 유지 — 3선 구청장 임기 동안 대규모 뇌물·비리·이권 개입 등 치명적 청렴성 훼손 사례가 공개 데이터에서 확인되지 않음. 표준편차 1.5점.
+        </div>
+        <div class="claim claim-warning">
+          <div class="claim-label">한계</div>
+          자발적 청렴 활동 부재 — 법적 의무를 넘어 청렴 문화 조성이나 이해충돌 선제적 공개 데이터 거의 없음. 재산 관련 이슈 — 부동산 관련 재산 공개 내역이 ChatGPT(68)·Grok(66)의 감점 요인. 4인 순위: 정원오(73) > 박주민(71) > 조은희(68) > 오세훈(66).
+        </div>
+      </div>
+    </div>
+
+    <!-- 윤리성 -->
+    <div class="cat-detail">
+      <div class="cat-detail-header">
+        <div class="cat-detail-name">윤리성 (Ethics) ⚠️ 4인 공동 최하위 (오세훈과 동점)</div>
+        <div class="cat-detail-score">66점</div>
+      </div>
+      <div class="cat-detail-body">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Claude</th><th>ChatGPT</th><th>Gemini</th><th>Grok</th><th class="highlight-col">평균</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>62</td><td>68</td><td>68</td><td>65</td><td class="highlight-col">66</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="claim claim-success">
+          <div class="claim-label">강점</div>
+          공직자 윤리 기준 기본 준수 — 형사적·법적 윤리 위반 데이터 없음.
+        </div>
+        <div class="claim claim-warning">
+          <div class="claim-label">Claude 62점 분석</div>
+          4개 AI 중 가장 낮은 단일 점수. ① 정파적 대립이 강한 발언들이 보편적 윤리 기준보다 당파적 이익에 치중된다는 데이터 ② 사회적 약자나 소수자를 위한 자발적 윤리 활동 데이터 부재 ③ '서초구'라는 지역적 한계에서 오는 특정 계층 편향 인식.
+        </div>
+        <div class="claim">
+          <div class="claim-label">국민의힘 구조적 영향</div>
+          두 국민의힘 후보(조은희·오세훈)가 윤리성에서 나란히 박주민(71점)·정원오(69점)에 뒤처지는 공동 최하위 기록. 개별 인물 평가이기도 하지만, 여야 간 정치적 대립 구도에서 AI의 데이터 수집 패턴 차이를 일부 반영. 4인 순위: 박주민(71) > 정원오(69) > 조은희·오세훈(66).
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 5: 경쟁자 비교 -->
+    <h1 id="sec5">5. 경쟁자 비교 (4인)</h1>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>카테고리</th>
+            <th>정원오</th>
+            <th>박주민</th>
+            <th class="highlight-col">조은희</th>
+            <th>오세훈</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>전문성</td>
+            <td>81</td>
+            <td>75</td>
+            <td class="highlight-col">76</td>
+            <td>75</td>
+          </tr>
+          <tr>
+            <td>리더십</td>
+            <td>79</td>
+            <td>75</td>
+            <td class="highlight-col">78</td>
+            <td>71</td>
+          </tr>
+          <tr>
+            <td>비전</td>
+            <td>76</td>
+            <td>75</td>
+            <td class="highlight-col">74</td>
+            <td class="rank-1">80 ★</td>
+          </tr>
+          <tr>
+            <td>청렴성</td>
+            <td>73</td>
+            <td>71</td>
+            <td class="highlight-col">68</td>
+            <td>66</td>
+          </tr>
+          <tr>
+            <td>윤리성</td>
+            <td>69</td>
+            <td>71</td>
+            <td class="highlight-col">66</td>
+            <td>66</td>
+          </tr>
+          <tr>
+            <td>책임감</td>
+            <td>81</td>
+            <td>74</td>
+            <td class="highlight-col rank-1">79 ★</td>
+            <td>75</td>
+          </tr>
+          <tr>
+            <td>투명성</td>
+            <td>80</td>
+            <td>79</td>
+            <td class="highlight-col">76</td>
+            <td>71</td>
+          </tr>
+          <tr>
+            <td>소통능력</td>
+            <td>81</td>
+            <td>77</td>
+            <td class="highlight-col">75</td>
+            <td>76</td>
+          </tr>
+          <tr>
+            <td>대응성</td>
+            <td>82</td>
+            <td>75</td>
+            <td class="highlight-col">75</td>
+            <td>75</td>
+          </tr>
+          <tr>
+            <td>공익성</td>
+            <td>83</td>
+            <td>81</td>
+            <td class="highlight-col">78</td>
+            <td>77</td>
+          </tr>
+          <tr>
+            <td style="font-weight:700;font-size:15px">최종 점수</td>
+            <td style="font-weight:600">785</td>
+            <td style="font-weight:600">753</td>
+            <td class="highlight-col" style="font-weight:700;font-size:16px;color:#2d1010">745</td>
+            <td style="font-weight:600">732</td>
+          </tr>
+          <tr>
+            <td>등급</td>
+            <td>E (양호)</td>
+            <td>P (보통+)</td>
+            <td class="highlight-col" style="font-weight:700;color:#2d1010">P (보통+)</td>
+            <td>P (보통+)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">★ = 4인 중 1위. 조은희가 10개 카테고리 중 책임감 1개에서 공동 1위 (정원오와 2점 차).</p>
+
+    <h2>경쟁자 비교 분석 요약</h2>
+
+    <div class="claim claim-success">
+      <div class="claim-label">행정가 경력이 만든 강점 영역</div>
+      <strong>리더십(78점)</strong> — 정원오(79점)에 불과 1점 차 2위. 오세훈(71점)보다 7점 앞서는 점이 주목. 기초단체장 3선이 시장 경력보다 리더십 평가에서 더 명확한 데이터를 제공.<br>
+      <strong>책임감(79점)</strong> — 정원오(81점) 다음의 2위. 구청장 3선의 집행 이력이 직접 근거.<br>
+      <strong>전문성(76점)</strong> — 박주민·오세훈(75점)을 1점 앞선 3위. 행정 실무 기반 전문성에서 차이 포착.
+    </div>
+
+    <div class="claim claim-warning">
+      <div class="claim-label">명확한 약세 영역</div>
+      <strong>윤리성(66점)</strong> — 박주민(71)·정원오(69)에 뒤처지는 오세훈과 공동 최하위.<br>
+      <strong>청렴성(68점)</strong> — 박주민(71)·정원오(73)보다 낮음. 오세훈(66점)보다는 2점 높음.<br>
+      <strong>비전(74점)</strong> — 4인 중 최하위. 오세훈(80)·정원오(76)·박주민(75) 모두에 뒤짐.
+    </div>
+
+    <div class="claim">
+      <div class="claim-label">국민의힘 내 포지셔닝</div>
+      조은희(745점)는 오세훈(732점)을 13점 앞서며 보수 진영 후보 중 더 높은 평가. 이 13점 차이의 구성: 조은희가 앞서는 영역은 리더십(+7점)·책임감(+4점)·청렴성(+2점)·공익성(+1점). 오세훈이 앞서는 영역은 비전(+6점)·소통능력(+1점).
+    </div>
+
+    <!-- SECTION 6: 평가 방법론 -->
+    <h1 id="sec6">6. 평가 방법론 및 한계</h1>
+
+    <h2>수집 및 평가 방법</h2>
+
+    <div class="info-field">
+      <div class="info-label">수집 채널</div>
+      <div class="info-value">Gemini CLI 50% + Naver API 50%</div>
+    </div>
+    <div class="info-field">
+      <div class="info-label">OFFICIAL 기간</div>
+      <div class="info-value">최근 4년 이내 (공식 문서·의회 기록 등)</div>
+    </div>
+    <div class="info-field">
+      <div class="info-label">PUBLIC 기간</div>
+      <div class="info-value">최근 2년 이내 (뉴스·SNS·시민 반응 등)</div>
+    </div>
+    <div class="info-field">
+      <div class="info-label">평가 AI</div>
+      <div class="info-value">Claude · ChatGPT · Gemini · Grok (4개)</div>
+    </div>
+    <div class="info-field">
+      <div class="info-label">등급 체계</div>
+      <div class="info-value">+4(탁월) ~ -4(최악), X(평가 제외) — 8등급</div>
+    </div>
+    <div class="info-field">
+      <div class="info-label">점수 공식</div>
+      <div class="info-value">카테고리 점수 = (6.0 + avg_score × 0.5) × 10</div>
+    </div>
+    <div class="info-field">
+      <div class="info-label">최종 점수</div>
+      <div class="info-value">10개 카테고리 합산, 범위 200~1,000점</div>
+    </div>
+    <div class="info-field">
+      <div class="info-label">총 수집량</div>
+      <div class="info-value">약 1,100개 → 4개 AI 평가 약 4,400건</div>
+    </div>
+
+    <h2>AI별 평가 특성</h2>
+    <ul class="plain">
+      <li><strong>Claude (727점)</strong> — 행정 규모·광역 스케일 전환 가능성에 가장 엄격. 진영 발언에 민감. 최저 보수적.</li>
+      <li><strong>ChatGPT (739점)</strong> — 행정 실적과 가치 지향성 균형 평가. 지역 한정성에 신중. 중간.</li>
+      <li><strong>Gemini (784점)</strong> — 공개 행정 성과 데이터 광범위 수집. 현장 활동에 상향 반응. 낙관적.</li>
+      <li><strong>Grok (728점)</strong> — 최신 뉴스 기반. 정치적 발언과 현재 역할 변화에 민감. 보수적.</li>
+    </ul>
+
+    <h2>평가의 한계</h2>
+
+    <div class="claim claim-warning">
+      <div class="claim-label">5가지 주요 한계</div>
+      <strong>① 지역 한정 데이터의 구조적 편향</strong> — 서초구 단위 행정 데이터가 풍부한 반면, 서울시 전체나 광역 정책 관련 데이터는 구조적으로 부족. 비전·소통능력 카테고리에서 점수를 낮추는 요인.<br>
+      <strong>② 정당 소속 효과</strong> — 국민의힘 소속이라는 정치적 위치가 AI의 데이터 수집 및 해석에 일정한 영향 가능.<br>
+      <strong>③ 직책 전환 효과</strong> — 구청장에서 국회의원으로의 역할 전환이 데이터 연속성에 영향. 구청장 시절 강점이 최근 데이터에서 희석.<br>
+      <strong>④ 비공개 자료 미반영</strong> — 내부 행정 회의, 비공식 협상, 오프라인 주민 소통 등 수집 범위 밖.<br>
+      <strong>⑤ 시간적 한계</strong> — 2026년 2월 21일 이후 발생하는 사건·발언·정책은 미반영.
+    </div>
+
+    <!-- SECTION 7: 등급 기준표 -->
+    <h1 id="sec7">7. 등급 기준표</h1>
+
+    <div class="grade-table">
+      <div class="grade-row">
+        <div class="grade-letter">M</div>
+        <div class="grade-range">920 ~ 1,000점</div>
+        <div class="grade-desc">최우수 — 탁월한 정치인</div>
+      </div>
+      <div class="grade-row">
+        <div class="grade-letter">D</div>
+        <div class="grade-range">840 ~ 919점</div>
+        <div class="grade-desc">우수 — 매우 뛰어난 수준</div>
+      </div>
+      <div class="grade-row">
+        <div class="grade-letter">E</div>
+        <div class="grade-range">760 ~ 839점</div>
+        <div class="grade-desc">양호 — 전반적으로 우수한 수준</div>
+      </div>
+      <div class="grade-row grade-current">
+        <div class="grade-letter">P</div>
+        <div class="grade-range">680 ~ 759점</div>
+        <div class="grade-desc">보통+ — 평균 이상 ← 조은희 745점 (이 등급)</div>
+      </div>
+      <div class="grade-row">
+        <div class="grade-letter">G</div>
+        <div class="grade-range">600 ~ 679점</div>
+        <div class="grade-desc">보통 — 평균 수준</div>
+      </div>
+      <div class="grade-row">
+        <div class="grade-letter">S</div>
+        <div class="grade-range">520 ~ 599점</div>
+        <div class="grade-desc">보통- — 평균 이하</div>
+      </div>
+      <div class="grade-row">
+        <div class="grade-letter">B</div>
+        <div class="grade-range">440 ~ 519점</div>
+        <div class="grade-desc">미흡 — 상당히 부족한 수준</div>
+      </div>
+      <div class="grade-row">
+        <div class="grade-letter">I</div>
+        <div class="grade-range">360 ~ 439점</div>
+        <div class="grade-desc">불량 — 심각하게 부족한 수준</div>
+      </div>
+      <div class="grade-row">
+        <div class="grade-letter">Tn</div>
+        <div class="grade-range">280 ~ 359점</div>
+        <div class="grade-desc">부적합 — 공직 부적합 수준</div>
+      </div>
+      <div class="grade-row">
+        <div class="grade-letter">L</div>
+        <div class="grade-range">200 ~ 279점</div>
+        <div class="grade-desc">최하 — 심각한 결격 수준</div>
+      </div>
+    </div>
+
+    <div class="claim claim-independent">
+      <div class="claim-label">조은희 등급 위치</div>
+      745점은 P등급(680~759점) 내 중간 구간. P등급 상단(759점)까지 <strong>14점</strong>, E등급 진입(760점)까지 <strong>15점</strong> 거리. 4인 중 3위. 2위 박주민(753점)과 8점 차, 4위 오세훈(732점)과 13점 차. 보수 진영 4인 중에서는 오세훈보다 13점 높은 상위권을 점하고 있다.
+    </div>
+
+    <!-- Footer -->
+    <div class="doc-footer">
+      <div class="doc-footer-title">유의사항</div>
+      <div class="doc-footer-text">
+        본 보고서는 공개된 뉴스 기사, SNS, 공식 자료 등을 AI가 수집·분석하여 생성한 참고 자료입니다.<br>
+        특정 정치적 견해를 지지하거나 반대하기 위한 목적으로 작성되지 않았습니다.<br>
+        평가 결과는 수집 시점(2026년 2월 21일) 기준이며, 이후 발생한 사건은 반영되지 않습니다.<br>
+        본 자료는 유권자의 판단을 보조하는 정보 제공 목적이며, 최종 판단은 유권자 본인이 합니다.<br><br>
+        PoliticianFinder.com &nbsp;|&nbsp; AI 정치인 평가 시스템 V40 &nbsp;|&nbsp; 2026-02-21
+      </div>
+    </div>
+
+  </div><!-- /.content -->
+
+</div><!-- /.document -->
+
+</body>
+</html>

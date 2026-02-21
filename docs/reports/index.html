@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PoliticianFinder - AI 정치인 평가 보고서</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; background: #f5f5f5; color: #333; }
+  header { background: linear-gradient(135deg, #1a237e 0%, #283593 100%); color: white; padding: 40px 24px 32px; text-align: center; }
+  header h1 { font-size: 1.6rem; font-weight: 700; margin-bottom: 8px; }
+  header p { font-size: 0.9rem; opacity: 0.85; }
+  .container { max-width: 700px; margin: 0 auto; padding: 32px 16px; }
+  h2 { font-size: 1rem; color: #555; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid #e0e0e0; }
+  .card { background: white; border-radius: 12px; padding: 20px 24px; margin-bottom: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); display: flex; align-items: center; text-decoration: none; color: inherit; transition: transform 0.15s, box-shadow 0.15s; }
+  .card:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.14); }
+  .badge { width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; font-weight: 800; color: white; flex-shrink: 0; margin-right: 16px; }
+  .info { flex: 1; }
+  .name { font-size: 1.05rem; font-weight: 700; margin-bottom: 4px; }
+  .meta { font-size: 0.82rem; color: #888; }
+  .score { text-align: right; }
+  .score-val { font-size: 1.3rem; font-weight: 800; }
+  .grade { font-size: 0.78rem; color: #888; margin-top: 2px; }
+  .e-grade { color: #1565C0; }
+  .p-grade { color: #6a1b9a; }
+  footer { text-align: center; padding: 32px 16px; font-size: 0.78rem; color: #aaa; }
+</style>
+</head>
+<body>
+<header>
+  <h1>AI 정치인 평가 보고서</h1>
+  <p>Claude · ChatGPT · Gemini · Grok — 4개 AI 종합 평가</p>
+</header>
+<div class="container">
+  <h2>2026 서울시장 후보군 비교 평가 (2026-02-21)</h2>
+  <a class="card" href="%EC%A0%95%EC%9B%90%EC%98%A4_20260221_B.html">
+    <div class="badge" style="background:#1565C0;">정</div>
+    <div class="info"><div class="name">정원오</div><div class="meta">더불어민주당 · 성동구청장</div></div>
+    <div class="score"><div class="score-val e-grade">785점</div><div class="grade">E등급 · 1위</div></div>
+  </a>
+  <a class="card" href="%EC%98%A4%EC%A4%80%ED%99%98_20260219_B.html">
+    <div class="badge" style="background:#D32F2F;">오</div>
+    <div class="info"><div class="name">오준환</div><div class="meta">국민의힘 · 경기도의원</div></div>
+    <div class="score"><div class="score-val e-grade">776점</div><div class="grade">E등급 (2026-02-19)</div></div>
+  </a>
+  <a class="card" href="%EB%B0%95%EC%A3%BC%EB%AF%BC_20260221_B.html">
+    <div class="badge" style="background:#0D47A1;">박</div>
+    <div class="info"><div class="name">박주민</div><div class="meta">더불어민주당 · 국회의원</div></div>
+    <div class="score"><div class="score-val p-grade">753점</div><div class="grade">P등급 · 2위</div></div>
+  </a>
+  <a class="card" href="%EC%A1%B0%EC%9D%80%ED%9D%AC_20260221_B.html">
+    <div class="badge" style="background:#C62828;">조</div>
+    <div class="info"><div class="name">조은희</div><div class="meta">국민의힘 · 국회의원</div></div>
+    <div class="score"><div class="score-val p-grade">745점</div><div class="grade">P등급 · 3위</div></div>
+  </a>
+  <a class="card" href="%EC%98%A4%EC%84%B8%ED%9B%88_20260221_B.html">
+    <div class="badge" style="background:#B71C1C;">오</div>
+    <div class="info"><div class="name">오세훈</div><div class="meta">국민의힘 · 서울시장</div></div>
+    <div class="score"><div class="score-val p-grade">732점</div><div class="grade">P등급 · 4위</div></div>
+  </a>
+</div>
+<footer>PoliticianFinder · V40 AI 평가 엔진 · 4개 AI 종합 평가</footer>
+</body>
+</html>
