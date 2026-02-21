@@ -1,7 +1,8 @@
 'use client';
 
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo, useEffect, Suspense } from 'react';
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 import { PoliticianListItem } from '@/types/politician';
 import { REGIONS } from '@/constants/regions';
 import { CONSTITUENCIES, getConstituenciesByMetropolitan } from '@/constants/constituencies';
@@ -61,7 +62,8 @@ const truncateText = (text: string, maxLength: number = 7): string => {
   return text.slice(0, maxLength) + '...';
 };
 
-export default function PoliticiansPage() {
+function PoliticiansPageInner() {
+  const searchParams = useSearchParams();
   const [politicians, setPoliticians] = useState<Politician[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -79,6 +81,15 @@ export default function PoliticiansPage() {
   const [regionFilter, setRegionFilter] = useState('');
   const [gradeFilter, setGradeFilter] = useState('');
   const [showMobileFilters, setShowMobileFilters] = useState(false);
+
+  // URL 파라미터로 초기 필터 설정 (지도 페이지에서 연결 시)
+  useEffect(() => {
+    const regionParam = searchParams.get('region');
+    const categoryParam = searchParams.get('category');
+    if (regionParam) setRegionFilter(regionParam);
+    if (categoryParam) setCategoryFilter(categoryParam);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
 
   const filteredData = useMemo(() => {
@@ -803,5 +814,13 @@ export default function PoliticiansPage() {
         )}
       </div>
     </div>
+  );
+}
+
+export default function PoliticiansPage() {
+  return (
+    <Suspense fallback={null}>
+      <PoliticiansPageInner />
+    </Suspense>
   );
 }

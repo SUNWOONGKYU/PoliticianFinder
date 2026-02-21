@@ -648,7 +648,15 @@ export default function Home() {
             {/* 정치인 순위 섹션 - 모바일 최적화 */}
             <section className="bg-white rounded-lg shadow">
               <div className="px-3 sm:px-4 pt-3 sm:pt-4">
-                <h2 className="text-xl sm:text-2xl font-bold text-gray-900">🏆 정치인 순위 TOP 10</h2>
+                <div className="flex items-start justify-between gap-2">
+                  <h2 className="text-xl sm:text-2xl font-bold text-gray-900">🏆 정치인 순위 TOP 10</h2>
+                  <a
+                    href="/map"
+                    className="flex-shrink-0 flex items-center gap-1 px-3 py-1.5 bg-blue-50 hover:bg-blue-100 text-blue-600 rounded-lg text-xs font-medium transition-colors border border-blue-200"
+                  >
+                    🗺️ 지역별 지도
+                  </a>
+                </div>
                 <p className="text-xs sm:text-sm text-gray-600 mt-1 line-clamp-2 sm:line-clamp-none">
                   공개된 데이터를 기초로 AI가 객관적으로 평가한 점수를 기준으로 한 정치인 랭킹 (상위 10명)
                 </p>
