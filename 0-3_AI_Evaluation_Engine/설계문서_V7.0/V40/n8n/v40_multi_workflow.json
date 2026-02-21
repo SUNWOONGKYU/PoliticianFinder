@@ -1,0 +1,644 @@
+{
+  "name": "V40 Multi-Politician Pipeline",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "manual-trigger",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [200, 300]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "politicians_json",
+              "name": "politicians_json",
+              "value": "[{\"id\":\"aef87dd2\",\"name\":\"김진태\"},{\"id\":\"c1f5738d\",\"name\":\"우상호\"},{\"id\":\"5a36db82\",\"name\":\"이동환\"},{\"id\":\"c45565d7\",\"name\":\"이재준\"}]",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "set-politicians",
+      "name": "Set Politicians",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [420, 300],
+      "notes": "Edit politicians_json to set 2-4 politicians. Format: [{\"id\":\"8hex\",\"name\":\"이름\"}]"
+    },
+    {
+      "parameters": {
+        "jsCode": "const politiciansJson = $input.first().json.politicians_json;\nconst politicians = JSON.parse(politiciansJson);\nreturn politicians.map(p => ({ json: p }));"
+      },
+      "id": "parse-politicians",
+      "name": "Parse Politicians",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [640, 300],
+      "notes": "Parse JSON array into individual n8n items"
+    },
+    {
+      "parameters": {
+        "batchSize": 1,
+        "options": {}
+      },
+      "id": "collection-loop",
+      "name": "Collection Loop",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [860, 300],
+      "notes": "Process 1 politician at a time for collection (Phase 1-2)"
+    },
+    {
+      "parameters": {
+        "command": "cd {{ $env.V40_DIR }}/scripts/workflow && for cat in expertise leadership vision integrity ethics accountability transparency communication responsiveness publicinterest; do for i in $(seq 1 7); do python collect_gemini_subprocess.py --politician \"{{ $json.name }}\" --category $cat; sleep 5; done; done"
+      },
+      "id": "p1-gemini",
+      "name": "P1: Gemini",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [1100, 180],
+      "notes": "Gemini CLI collection: 7 rounds x 10 categories = 60+ per category"
+    },
+    {
+      "parameters": {
+        "command": "cd {{ $env.V40_DIR }}/scripts/workflow && for cat in expertise leadership vision integrity ethics accountability transparency communication responsiveness publicinterest; do python collect_naver_v40_final.py --politician-id {{ $json.id }} --politician-name \"{{ $json.name }}\" --category $cat; done"
+      },
+      "id": "p1-naver",
+      "name": "P1: Naver",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [1100, 420],
+      "notes": "Naver API collection: 60+ per category (note: hyphens in args)"
+    },
+    {
+      "parameters": {
+        "mode": "append",
+        "joinMode": "waitForAll",
+        "options": {}
+      },
+      "id": "merge-p1",
+      "name": "Merge P1",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 2.1,
+      "position": [1340, 300],
+      "notes": "Wait for both Gemini and Naver to complete"
+    },
+    {
+      "parameters": {
+        "command": "cd {{ $env.V40_DIR }} && python -c \"import os;from supabase import create_client;from dotenv import load_dotenv;load_dotenv();s=create_client(os.getenv('SUPABASE_URL'),os.getenv('SUPABASE_SERVICE_ROLE_KEY'));r=s.table('collected_data_v40').select('*',count='exact').eq('politician_id','{{ $('Collection Loop').item.json.id }}').limit(1).execute();print(r.count)\""
+      },
+      "id": "gate-1-count",
+      "name": "Gate 1: Count",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [1560, 300],
+      "notes": "Check collected_data_v40 count >= 1000"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "number": [
+            {
+              "value1": "={{ parseInt($json.stdout) }}",
+              "operation": "largerEqual",
+              "value2": 1000
+            }
+          ]
+        }
+      },
+      "id": "if-p1-pass",
+      "name": "IF P1 Pass",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [1780, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const staticData = $getWorkflowStaticData('global');\nif (!staticData.failedPoliticians) staticData.failedPoliticians = [];\nif (!staticData.errors) staticData.errors = [];\nconst p = $('Collection Loop').first().json;\nstaticData.failedPoliticians.push({ id: p.id, name: p.name, phase: 'P1' });\nstaticData.errors.push({ id: p.id, name: p.name, phase: 'P1', msg: 'Collection < 1000 items' });\nreturn [{ json: { status: 'fail', id: p.id, name: p.name } }];"
+      },
+      "id": "log-p1-fail",
+      "name": "Log P1 Fail",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [2000, 520],
+      "notes": "Log failure, skip this politician, continue loop"
+    },
+    {
+      "parameters": {
+        "command": "cd {{ $env.V40_DIR }}/scripts/core && python validate_v40_fixed.py --politician_id={{ $('Collection Loop').item.json.id }} --politician_name=\"{{ $('Collection Loop').item.json.name }}\" --no-dry-run"
+      },
+      "id": "p2-validate",
+      "name": "P2: Validate",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [2000, 200],
+      "notes": "Remove duplicates and enforce period limits"
+    },
+    {
+      "parameters": {
+        "command": "cd {{ $env.V40_DIR }}/scripts/core && python adjust_v40_data.py --politician_id={{ $('Collection Loop').item.json.id }} --no-dry-run"
+      },
+      "id": "p2-2-adjust",
+      "name": "P2-2: Adjust",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [2220, 200],
+      "notes": "Balance data to 50-60 items per AI per category"
+    },
+    {
+      "parameters": {
+        "command": "cd {{ $env.V40_DIR }} && python -c \"\nimport os\nfrom supabase import create_client\nfrom dotenv import load_dotenv\nfrom collections import Counter\nload_dotenv()\ns=create_client(os.getenv('SUPABASE_URL'),os.getenv('SUPABASE_SERVICE_ROLE_KEY'))\npid='{{ $('Collection Loop').item.json.id }}'\nd=[];o=0\nwhile True:\n r=s.table('collected_data_v40').select('collector_ai,category').eq('politician_id',pid).range(o,o+999).execute()\n d.extend(r.data)\n if len(r.data)<1000:break\n o+=1000\nc=Counter((x['collector_ai'],x['category']) for x in d)\nprint(sum(1 for v in c.values() if v<25))\n\""
+      },
+      "id": "gate-2-balance",
+      "name": "Gate 2: Balance",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [2440, 200],
+      "notes": "Count categories with < 25 items (give-up threshold). 0 = all OK."
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "number": [
+            {
+              "value1": "={{ parseInt($json.stdout) }}",
+              "operation": "equal",
+              "value2": 0
+            }
+          ]
+        }
+      },
+      "id": "if-p2-pass",
+      "name": "IF P2 Pass",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [2660, 200]
+    },
+    {
+      "parameters": {
+        "jsCode": "const staticData = $getWorkflowStaticData('global');\nif (!staticData.readyPoliticians) staticData.readyPoliticians = [];\nconst p = $('Collection Loop').first().json;\nstaticData.readyPoliticians.push({ id: p.id, name: p.name, status: 'ready' });\nreturn [{ json: { status: 'ready', id: p.id, name: p.name } }];"
+      },
+      "id": "mark-ready",
+      "name": "Mark Ready",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [2880, 100],
+      "notes": "Mark politician as ready for evaluation"
+    },
+    {
+      "parameters": {
+        "jsCode": "const staticData = $getWorkflowStaticData('global');\nif (!staticData.readyPoliticians) staticData.readyPoliticians = [];\nif (!staticData.errors) staticData.errors = [];\nconst p = $('Collection Loop').first().json;\nstaticData.readyPoliticians.push({ id: p.id, name: p.name, status: 'warning' });\nstaticData.errors.push({ id: p.id, name: p.name, phase: 'P2', msg: 'Some categories < 25 items (leverage score 0 applied)' });\nreturn [{ json: { status: 'warning', id: p.id, name: p.name } }];"
+      },
+      "id": "log-p2-warning",
+      "name": "Log P2 Warning",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [2880, 340],
+      "notes": "Log balance warning but continue (leverage score 0 for deficient categories)"
+    },
+    {
+      "parameters": {
+        "jsCode": "const staticData = $getWorkflowStaticData('global');\nconst ready = staticData.readyPoliticians || [];\nif (ready.length === 0) {\n  throw new Error('No politicians passed collection/validation. Check errors.');\n}\nreturn ready.map(p => ({ json: { id: p.id, name: p.name } }));"
+      },
+      "id": "filter-ready",
+      "name": "Filter Ready",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [860, 700],
+      "notes": "After all politicians collected, filter to ready ones for evaluation"
+    },
+    {
+      "parameters": {
+        "batchSize": 1,
+        "options": {}
+      },
+      "id": "eval-loop",
+      "name": "Eval Loop",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [1100, 700],
+      "notes": "Evaluate 1 politician at a time (sequential to respect API rate limits)"
+    },
+    {
+      "parameters": {
+        "command": "cd {{ $env.V40_DIR }}/scripts/helpers && for cat in expertise leadership vision integrity ethics accountability transparency communication responsiveness publicinterest; do python claude_eval_helper.py --politician_id={{ $json.id }} --politician_name=\"{{ $json.name }}\" --category=$cat --batch_size=25; done"
+      },
+      "id": "p3-claude",
+      "name": "P3: Claude",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [1340, 480],
+      "notes": "Claude Haiku 4.5 evaluation (DISABLED - requires Claude Code direct)",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "command": "cd {{ $env.V40_DIR }}/scripts/helpers && for cat in expertise leadership vision integrity ethics accountability transparency communication responsiveness publicinterest; do python codex_eval_helper.py --politician_id={{ $json.id }} --politician_name=\"{{ $json.name }}\" --category=$cat --batch_size=25; done"
+      },
+      "id": "p3-chatgpt",
+      "name": "P3: ChatGPT",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [1340, 640],
+      "notes": "ChatGPT gpt-5.1-codex-mini evaluation (batch 25)"
+    },
+    {
+      "parameters": {
+        "command": "cd {{ $env.V40_DIR }}/scripts/workflow && for cat in expertise leadership vision integrity ethics accountability transparency communication responsiveness publicinterest; do python evaluate_gemini_subprocess.py --politician \"{{ $json.name }}\" --category \"$cat\"; done"
+      },
+      "id": "p3-gemini",
+      "name": "P3: Gemini",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [1340, 800],
+      "notes": "Gemini 2.0 Flash evaluation (3-step fallback, batch 25)"
+    },
+    {
+      "parameters": {
+        "command": "cd {{ $env.V40_DIR }}/scripts/helpers && for cat in expertise leadership vision integrity ethics accountability transparency communication responsiveness publicinterest; do python grok_eval_helper.py --politician_id={{ $json.id }} --politician_name=\"{{ $json.name }}\" --category=$cat --batch_size=25; done"
+      },
+      "id": "p3-grok",
+      "name": "P3: Grok",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [1340, 960],
+      "notes": "Grok 3 evaluation (xAI Agent Tools API, batch 25)"
+    },
+    {
+      "parameters": {
+        "mode": "append",
+        "joinMode": "waitForAll",
+        "numberInputs": 4,
+        "options": {}
+      },
+      "id": "merge-p3",
+      "name": "Merge P3",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [1560, 700],
+      "notes": "Wait for all 4 AI evaluations to complete"
+    },
+    {
+      "parameters": {
+        "command": "cd {{ $env.V40_DIR }} && python -c \"import os;from supabase import create_client;from dotenv import load_dotenv;load_dotenv();s=create_client(os.getenv('SUPABASE_URL'),os.getenv('SUPABASE_SERVICE_ROLE_KEY'));r=s.table('evaluations_v40').select('*',count='exact').eq('politician_id','{{ $('Eval Loop').item.json.id }}').limit(1).execute();print(r.count)\""
+      },
+      "id": "gate-3-evals",
+      "name": "Gate 3: Evals",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [1780, 700],
+      "notes": "Check evaluations_v40 count >= 2000"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "number": [
+            {
+              "value1": "={{ parseInt($json.stdout) }}",
+              "operation": "largerEqual",
+              "value2": 2000
+            }
+          ]
+        }
+      },
+      "id": "if-p3-pass",
+      "name": "IF P3 Pass",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [2000, 700]
+    },
+    {
+      "parameters": {
+        "jsCode": "const staticData = $getWorkflowStaticData('global');\nif (!staticData.evalDonePoliticians) staticData.evalDonePoliticians = [];\nconst p = $('Eval Loop').first().json;\nstaticData.evalDonePoliticians.push({ id: p.id, name: p.name, status: 'eval_done' });\nreturn [{ json: { status: 'eval_done', id: p.id, name: p.name } }];"
+      },
+      "id": "mark-eval-done",
+      "name": "Mark Eval Done",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [2220, 600],
+      "notes": "Mark evaluation complete for this politician"
+    },
+    {
+      "parameters": {
+        "jsCode": "const staticData = $getWorkflowStaticData('global');\nif (!staticData.evalDonePoliticians) staticData.evalDonePoliticians = [];\nif (!staticData.errors) staticData.errors = [];\nconst p = $('Eval Loop').first().json;\nstaticData.evalDonePoliticians.push({ id: p.id, name: p.name, status: 'eval_warning' });\nstaticData.errors.push({ id: p.id, name: p.name, phase: 'P3', msg: 'Evaluations < 2000' });\nreturn [{ json: { status: 'eval_warning', id: p.id, name: p.name } }];"
+      },
+      "id": "log-p3-warning",
+      "name": "Log P3 Warning",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [2220, 820],
+      "notes": "Log evaluation warning but continue to scoring"
+    },
+    {
+      "parameters": {
+        "jsCode": "const staticData = $getWorkflowStaticData('global');\nconst done = staticData.evalDonePoliticians || [];\nif (done.length === 0) {\n  throw new Error('No politicians completed evaluation. Check errors.');\n}\nreturn done.map(p => ({ json: { id: p.id, name: p.name } }));"
+      },
+      "id": "get-scored-list",
+      "name": "Get Scored List",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [860, 1100],
+      "notes": "Build list of evaluated politicians for scoring"
+    },
+    {
+      "parameters": {
+        "batchSize": 1,
+        "options": {}
+      },
+      "id": "score-report-loop",
+      "name": "Score-Report Loop",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [1100, 1100],
+      "notes": "Process scores and reports 1 politician at a time"
+    },
+    {
+      "parameters": {
+        "command": "cd {{ $env.V40_DIR }}/scripts/core && python calculate_v40_scores.py --politician_id={{ $json.id }} --politician_name=\"{{ $json.name }}\""
+      },
+      "id": "p4-scores",
+      "name": "P4: Scores",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [1340, 1100],
+      "notes": "Calculate category and final scores (200-1000)"
+    },
+    {
+      "parameters": {
+        "command": "cd {{ $env.V40_DIR }}/scripts/core && python generate_report_v40.py {{ $json.id }} \"{{ $json.name }}\""
+      },
+      "id": "p5-report",
+      "name": "P5: Report",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [1560, 1100],
+      "notes": "Generate report in 보고서/{name}_{date}.md"
+    },
+    {
+      "parameters": {
+        "jsCode": "const staticData = $getWorkflowStaticData('global');\nconst ready = staticData.readyPoliticians || [];\nconst evalDone = staticData.evalDonePoliticians || [];\nconst failed = staticData.failedPoliticians || [];\nconst errors = staticData.errors || [];\n\nlet summary = '=== V40 Multi-Politician Pipeline Complete ===\\n\\n';\nsummary += 'Total input: ' + (ready.length + failed.length) + '\\n';\nsummary += 'Collection passed: ' + ready.length + '\\n';\nsummary += 'Evaluation done: ' + evalDone.length + '\\n';\nsummary += 'Failed: ' + failed.length + '\\n\\n';\n\nfor (const p of evalDone) {\n  const icon = p.status === 'eval_done' ? 'OK' : 'WARN';\n  summary += icon + ' ' + p.name + ' (' + p.id + ')\\n';\n}\nfor (const p of failed) {\n  summary += 'FAIL ' + p.name + ' (' + p.id + ') at ' + p.phase + '\\n';\n}\nif (errors.length > 0) {\n  summary += '\\n--- Errors/Warnings ---\\n';\n  for (const e of errors) {\n    summary += e.phase + ': ' + e.name + ' - ' + e.msg + '\\n';\n  }\n}\n\nreturn [{ json: { summary } }];"
+      },
+      "id": "final-summary",
+      "name": "Final Summary",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1340, 1400],
+      "notes": "Generate pipeline summary with all results"
+    }
+  ],
+  "connections": {
+    "Manual Trigger": {
+      "main": [
+        [
+          { "node": "Set Politicians", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Set Politicians": {
+      "main": [
+        [
+          { "node": "Parse Politicians", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Parse Politicians": {
+      "main": [
+        [
+          { "node": "Collection Loop", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Collection Loop": {
+      "main": [
+        [
+          { "node": "P1: Gemini", "type": "main", "index": 0 },
+          { "node": "P1: Naver", "type": "main", "index": 0 }
+        ],
+        [
+          { "node": "Filter Ready", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "P1: Gemini": {
+      "main": [
+        [
+          { "node": "Merge P1", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "P1: Naver": {
+      "main": [
+        [
+          { "node": "Merge P1", "type": "main", "index": 1 }
+        ]
+      ]
+    },
+    "Merge P1": {
+      "main": [
+        [
+          { "node": "Gate 1: Count", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Gate 1: Count": {
+      "main": [
+        [
+          { "node": "IF P1 Pass", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "IF P1 Pass": {
+      "main": [
+        [
+          { "node": "P2: Validate", "type": "main", "index": 0 }
+        ],
+        [
+          { "node": "Log P1 Fail", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Log P1 Fail": {
+      "main": [
+        [
+          { "node": "Collection Loop", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "P2: Validate": {
+      "main": [
+        [
+          { "node": "P2-2: Adjust", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "P2-2: Adjust": {
+      "main": [
+        [
+          { "node": "Gate 2: Balance", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Gate 2: Balance": {
+      "main": [
+        [
+          { "node": "IF P2 Pass", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "IF P2 Pass": {
+      "main": [
+        [
+          { "node": "Mark Ready", "type": "main", "index": 0 }
+        ],
+        [
+          { "node": "Log P2 Warning", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Mark Ready": {
+      "main": [
+        [
+          { "node": "Collection Loop", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Log P2 Warning": {
+      "main": [
+        [
+          { "node": "Collection Loop", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Filter Ready": {
+      "main": [
+        [
+          { "node": "Eval Loop", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Eval Loop": {
+      "main": [
+        [
+          { "node": "P3: Claude", "type": "main", "index": 0 },
+          { "node": "P3: ChatGPT", "type": "main", "index": 0 },
+          { "node": "P3: Gemini", "type": "main", "index": 0 },
+          { "node": "P3: Grok", "type": "main", "index": 0 }
+        ],
+        [
+          { "node": "Get Scored List", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "P3: Claude": {
+      "main": [
+        [
+          { "node": "Merge P3", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "P3: ChatGPT": {
+      "main": [
+        [
+          { "node": "Merge P3", "type": "main", "index": 1 }
+        ]
+      ]
+    },
+    "P3: Gemini": {
+      "main": [
+        [
+          { "node": "Merge P3", "type": "main", "index": 2 }
+        ]
+      ]
+    },
+    "P3: Grok": {
+      "main": [
+        [
+          { "node": "Merge P3", "type": "main", "index": 3 }
+        ]
+      ]
+    },
+    "Merge P3": {
+      "main": [
+        [
+          { "node": "Gate 3: Evals", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Gate 3: Evals": {
+      "main": [
+        [
+          { "node": "IF P3 Pass", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "IF P3 Pass": {
+      "main": [
+        [
+          { "node": "Mark Eval Done", "type": "main", "index": 0 }
+        ],
+        [
+          { "node": "Log P3 Warning", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Mark Eval Done": {
+      "main": [
+        [
+          { "node": "Eval Loop", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Log P3 Warning": {
+      "main": [
+        [
+          { "node": "Eval Loop", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Get Scored List": {
+      "main": [
+        [
+          { "node": "Score-Report Loop", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Score-Report Loop": {
+      "main": [
+        [
+          { "node": "P4: Scores", "type": "main", "index": 0 }
+        ],
+        [
+          { "node": "Final Summary", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "P4: Scores": {
+      "main": [
+        [
+          { "node": "P5: Report", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "P5: Report": {
+      "main": [
+        [
+          { "node": "Score-Report Loop", "type": "main", "index": 0 }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-02-21T00:00:00.000Z",
+  "versionId": "1"
+}
