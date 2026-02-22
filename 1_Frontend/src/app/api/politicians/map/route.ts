@@ -17,31 +17,15 @@ export async function GET(request: NextRequest) {
     const positionType = searchParams.get('position_type') || '광역단체장';
     const viewMode = searchParams.get('view_mode') || 'ai'; // 'ai' | 'poll'
 
-    // position_type 컬럼으로 조회 (main politicians API와 동일 방식)
-    const { data: byPositionType, error: e1 } = await supabase
+    // title 컬럼에 출마직종 저장 (fieldMapper.ts 참고: positionType = dbRecord.title)
+    const { data: politicians, error: queryError } = await supabase
       .from('politicians')
-      .select('id, name, party, region, district, title, position_type, poll_rank, poll_support')
-      .eq('position_type', positionType);
-
-    // title 컬럼으로도 조회 (DB 스키마에 따라 title에 직종 저장)
-    const { data: byTitle, error: e2 } = await supabase
-      .from('politicians')
-      .select('id, name, party, region, district, title, position_type, poll_rank, poll_support')
+      .select('id, name, party, region, district, title, poll_rank, poll_support')
       .eq('title', positionType);
 
-    if (e1 && e2) {
-      console.error('Map API query error:', e1?.message, e2?.message);
-      return NextResponse.json({ success: false, error: e1.message }, { status: 500 });
-    }
-
-    // 두 결과 합치기 + 중복 제거
-    const seen = new Set<string>();
-    const politicians: any[] = [];
-    for (const p of [...(byPositionType || []), ...(byTitle || [])]) {
-      if (!seen.has(p.id)) {
-        seen.add(p.id);
-        politicians.push(p);
-      }
+    if (queryError) {
+      console.error('Map API query error:', queryError.message);
+      return NextResponse.json({ success: false, error: queryError.message }, { status: 500 });
     }
 
     if (politicians.length === 0) {
