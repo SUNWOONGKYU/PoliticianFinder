@@ -14,6 +14,7 @@ const withBundleAnalyzer = bundleAnalyzer({
 const nextConfig = {
   reactStrictMode: true,
   output: 'standalone',
+  transpilePackages: ['react-simple-maps'],
 
   // 이미지 최적화 설정
   images: {

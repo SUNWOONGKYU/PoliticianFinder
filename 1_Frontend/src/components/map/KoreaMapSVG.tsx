@@ -18,7 +18,7 @@ const PARTY_COLORS: Record<string, { fill: string; stroke: string; text: string 
   '국민의당':     { fill: '#00C7AE', stroke: '#009E8C', text: '#FFFFFF' },
   '무소속':       { fill: '#6B7280', stroke: '#4B5563', text: '#FFFFFF' },
 };
-const DEFAULT_COLOR = { fill: '#CBD5E1', stroke: '#94A3B8', text: '#475569' };
+const DEFAULT_COLOR = { fill: '#fed7aa', stroke: '#fdba74', text: '#9a3412' };
 
 function getPartyColor(party?: string) {
   if (!party) return DEFAULT_COLOR;
@@ -290,7 +290,7 @@ export default function KoreaMapSVG({ regionsData, positionType, viewMode = 'ai'
         aria-label="전국 지역별 랭킹 지도"
       >
         {/* 배경 바다 색상 */}
-        <rect x="0" y="0" width="130" height="204" fill="#EFF6FF" rx="4" />
+        <rect x="0" y="0" width="130" height="204" fill="#fff7ed" rx="4" />
 
         {/* 행정구역 경로 */}
         {REGION_PATHS.map((region) => {
@@ -312,9 +312,9 @@ export default function KoreaMapSVG({ regionsData, positionType, viewMode = 'ai'
               {/* 지역 경로: 1위 당색으로 채우기, 2위 색으로 테두리 */}
               <path
                 d={region.d}
-                fill={first ? c1.fill : '#E2E8F0'}
+                fill={first ? c1.fill : '#fed7aa'}
                 fillOpacity={isHovered ? 1 : 0.82}
-                stroke={second ? c2.fill : (first ? c1.stroke : '#94A3B8')}
+                stroke={second ? c2.fill : (first ? c1.stroke : '#fdba74')}
                 strokeWidth={isHovered ? 1.2 : 0.7}
                 strokeLinejoin="round"
               />
@@ -384,7 +384,7 @@ export default function KoreaMapSVG({ regionsData, positionType, viewMode = 'ai'
                 cx={SEJONG_MARKER.cx}
                 cy={SEJONG_MARKER.cy}
                 r={SEJONG_MARKER.r + (isHovered ? 1 : 0)}
-                fill={first ? c1.fill : '#94A3B8'}
+                fill={first ? c1.fill : '#fb923c'}
                 stroke="white"
                 strokeWidth="0.8"
                 fillOpacity={isHovered ? 1 : 0.85}

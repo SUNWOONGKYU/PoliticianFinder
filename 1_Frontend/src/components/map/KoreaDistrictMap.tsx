@@ -139,7 +139,7 @@ const PARTY_COLORS: Record<string, string> = {
   '국민의당': '#00C7AE',
   '무소속': '#6B7280',
 };
-const DEFAULT_FILL = '#E2E8F0';
+const DEFAULT_FILL = '#fed7aa';
 
 function getPartyColor(party?: string | null): string {
   if (!party) return DEFAULT_FILL;
