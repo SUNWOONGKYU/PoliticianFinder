@@ -92,36 +92,37 @@ export default function MapPage() {
             <Link href="/" className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors">← 홈</Link>
             <h1 className="text-xl font-bold text-gray-900 dark:text-white">🗺️ 지역별 랭킹 지도</h1>
           </div>
-          <div className="flex items-center gap-2">
-            {/* 직위 토글 */}
-            <div className="flex rounded-lg overflow-hidden border border-gray-200 dark:border-gray-600">
-              {(['광역단체장', '기초단체장'] as const).map((type) => (
-                <button
-                  key={type}
-                  onClick={() => setPositionType(type)}
-                  className={`px-4 py-2 text-sm font-medium transition-colors ${
-                    positionType === type
-                      ? 'bg-primary-500 text-white'
-                      : 'bg-white dark:bg-slate-700 text-gray-600 dark:text-gray-300 hover:bg-gray-50'
-                  }`}
-                >
-                  {type}
-                </button>
-              ))}
-            </div>
-            {/* 뷰모드 토글 */}
+          {/* 계층형 탭: 1단계(AI/여론조사) → 2단계(광역/기초) */}
+          <div className="flex flex-col gap-1.5">
+            {/* 1단계: 기준 선택 */}
             <div className="flex rounded-lg overflow-hidden border border-gray-200 dark:border-gray-600">
               {(['ai', 'poll'] as const).map((mode) => (
                 <button
                   key={mode}
                   onClick={() => setViewMode(mode)}
-                  className={`px-4 py-2 text-sm font-medium transition-colors ${
+                  className={`px-4 py-1.5 text-sm font-medium transition-colors ${
                     viewMode === mode
-                      ? 'bg-emerald-500 text-white'
+                      ? mode === 'ai' ? 'bg-primary-500 text-white' : 'bg-emerald-500 text-white'
                       : 'bg-white dark:bg-slate-700 text-gray-600 dark:text-gray-300 hover:bg-gray-50'
                   }`}
                 >
                   {mode === 'ai' ? '🤖 AI 평가' : '📊 여론조사'}
+                </button>
+              ))}
+            </div>
+            {/* 2단계: 직위 선택 */}
+            <div className="flex rounded-lg overflow-hidden border border-gray-200 dark:border-gray-600">
+              {(['광역단체장', '기초단체장'] as const).map((type) => (
+                <button
+                  key={type}
+                  onClick={() => setPositionType(type)}
+                  className={`px-4 py-1.5 text-sm font-medium transition-colors flex-1 ${
+                    positionType === type
+                      ? viewMode === 'ai' ? 'bg-primary-500 text-white' : 'bg-emerald-500 text-white'
+                      : 'bg-white dark:bg-slate-700 text-gray-600 dark:text-gray-300 hover:bg-gray-50'
+                  }`}
+                >
+                  {type}
                 </button>
               ))}
             </div>

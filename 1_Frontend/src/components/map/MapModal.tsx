@@ -158,37 +158,40 @@ export default function MapModal({ isOpen, onClose }: MapModalProps) {
               </div>
             </div>
             <div className="flex items-center gap-2.5">
-              {/* 직위 토글 */}
-              <div className="flex rounded-lg overflow-hidden border border-gray-200 dark:border-gray-600">
-                {(['광역단체장', '기초단체장'] as const).map((type) => (
-                  <button
-                    key={type}
-                    onClick={() => setPositionType(type)}
-                    className={`px-3 py-1.5 text-xs font-semibold transition-colors ${
-                      positionType === type
-                        ? 'bg-primary-500 text-white'
-                        : 'bg-white dark:bg-slate-700 text-gray-500 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-slate-600'
-                    }`}
-                  >
-                    {type}
-                  </button>
-                ))}
-              </div>
-              {/* 뷰모드 토글 */}
-              <div className="flex rounded-lg overflow-hidden border border-gray-200 dark:border-gray-600">
-                {(['ai', 'poll'] as const).map((mode) => (
-                  <button
-                    key={mode}
-                    onClick={() => setViewMode(mode)}
-                    className={`px-3 py-1.5 text-xs font-semibold transition-colors ${
-                      viewMode === mode
-                        ? 'bg-emerald-500 text-white'
-                        : 'bg-white dark:bg-slate-700 text-gray-500 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-slate-600'
-                    }`}
-                  >
-                    {mode === 'ai' ? '🤖 AI 평가' : '📊 여론조사'}
-                  </button>
-                ))}
+              {/* 계층형 탭: 1단계(AI/여론조사) → 2단계(광역/기초) */}
+              <div className="flex flex-col gap-1.5">
+                {/* 1단계: 기준 선택 */}
+                <div className="flex rounded-lg overflow-hidden border border-gray-200 dark:border-gray-600">
+                  {(['ai', 'poll'] as const).map((mode) => (
+                    <button
+                      key={mode}
+                      onClick={() => setViewMode(mode)}
+                      className={`px-3 py-1.5 text-xs font-semibold transition-colors ${
+                        viewMode === mode
+                          ? mode === 'ai' ? 'bg-primary-500 text-white' : 'bg-emerald-500 text-white'
+                          : 'bg-white dark:bg-slate-700 text-gray-500 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-slate-600'
+                      }`}
+                    >
+                      {mode === 'ai' ? '🤖 AI 평가' : '📊 여론조사'}
+                    </button>
+                  ))}
+                </div>
+                {/* 2단계: 직위 선택 */}
+                <div className="flex rounded-lg overflow-hidden border border-gray-200 dark:border-gray-600">
+                  {(['광역단체장', '기초단체장'] as const).map((type) => (
+                    <button
+                      key={type}
+                      onClick={() => setPositionType(type)}
+                      className={`px-3 py-1.5 text-xs font-semibold transition-colors flex-1 ${
+                        positionType === type
+                          ? viewMode === 'ai' ? 'bg-primary-500 text-white' : 'bg-emerald-500 text-white'
+                          : 'bg-white dark:bg-slate-700 text-gray-500 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-slate-600'
+                      }`}
+                    >
+                      {type}
+                    </button>
+                  ))}
+                </div>
               </div>
               {/* 닫기 */}
               <button
