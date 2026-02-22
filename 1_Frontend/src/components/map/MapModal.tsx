@@ -216,29 +216,31 @@ export default function MapModal({ isOpen, onClose }: MapModalProps) {
                 </div>
               </div>
             ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-start">
-                {/* 지도 패널 */}
-                <div>
-                  <KoreaMapSVG regionsData={regionsData} positionType={positionType} viewMode={viewMode} />
-                  {/* 범례 */}
-                  <div className="mt-3 flex flex-wrap gap-x-3 gap-y-1 justify-center">
-                    {[
-                      { label: '더불어민주당', color: '#1B4FBF' },
-                      { label: '국민의힘', color: '#C9151E' },
-                      { label: '조국혁신당', color: '#003F87' },
-                      { label: '개혁신당', color: '#FF7210' },
-                      { label: '기타/무소속', color: '#9CA3AF' },
-                    ].map(({ label, color }) => (
-                      <div key={label} className="flex items-center gap-1">
-                        <div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: color }} />
-                        <span className="text-[10px] text-gray-500 dark:text-gray-400">{label}</span>
-                      </div>
-                    ))}
+              <div className={`${positionType === '광역단체장' ? 'grid grid-cols-1 md:grid-cols-2 gap-5' : ''} items-start`}>
+                {/* 지도 패널: 광역단체장만 표시 */}
+                {positionType === '광역단체장' && (
+                  <div>
+                    <KoreaMapSVG regionsData={regionsData} positionType={positionType} viewMode={viewMode} />
+                    {/* 범례 */}
+                    <div className="mt-3 flex flex-wrap gap-x-3 gap-y-1 justify-center">
+                      {[
+                        { label: '더불어민주당', color: '#1B4FBF' },
+                        { label: '국민의힘', color: '#C9151E' },
+                        { label: '조국혁신당', color: '#003F87' },
+                        { label: '개혁신당', color: '#FF7210' },
+                        { label: '기타/무소속', color: '#9CA3AF' },
+                      ].map(({ label, color }) => (
+                        <div key={label} className="flex items-center gap-1">
+                          <div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: color }} />
+                          <span className="text-[10px] text-gray-500 dark:text-gray-400">{label}</span>
+                        </div>
+                      ))}
+                    </div>
+                    <p className="text-center text-[10px] text-gray-400 dark:text-gray-500 mt-2">
+                      마커 좌측 = 1위 당색 · 우측 = 2위 당색
+                    </p>
                   </div>
-                  <p className="text-center text-[10px] text-gray-400 dark:text-gray-500 mt-2">
-                    마커 좌측 = 1위 당색 · 우측 = 2위 당색
-                  </p>
-                </div>
+                )}
 
                 {/* 지역별 카드 목록 */}
                 <div>

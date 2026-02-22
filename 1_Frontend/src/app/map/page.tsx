@@ -149,28 +149,31 @@ export default function MapPage() {
             <button onClick={() => fetchData(positionType, viewMode)} className="px-4 py-2 bg-primary-500 text-white rounded-lg text-sm">다시 시도</button>
           </div>
         ) : (
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
-            <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-lg p-4 lg:sticky lg:top-4">
-              <h2 className="text-base font-semibold text-gray-700 dark:text-gray-300 mb-3 text-center">
-                전국 {positionType} {viewMode === 'ai' ? 'AI 평가' : '여론조사'} 1위·2위
-              </h2>
-              <KoreaMapSVG regionsData={regionsData} positionType={positionType} viewMode={viewMode} />
-              <div className="mt-4 flex flex-wrap gap-2 justify-center">
-                {[
-                  { label: '더불어민주당', color: '#1B4FBF' },
-                  { label: '국민의힘', color: '#C9151E' },
-                  { label: '조국혁신당', color: '#003F87' },
-                  { label: '개혁신당', color: '#FF7210' },
-                  { label: '기타/무소속', color: '#9CA3AF' },
-                ].map(({ label, color }) => (
-                  <div key={label} className="flex items-center gap-1.5">
-                    <div className="w-3 h-3 rounded-full" style={{ backgroundColor: color }} />
-                    <span className="text-xs text-gray-600 dark:text-gray-400">{label}</span>
-                  </div>
-                ))}
+          <div className={`${positionType === '광역단체장' ? 'grid grid-cols-1 lg:grid-cols-2 gap-6' : ''} items-start`}>
+            {/* 지도 패널: 광역단체장만 표시 */}
+            {positionType === '광역단체장' && (
+              <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-lg p-4 lg:sticky lg:top-4">
+                <h2 className="text-base font-semibold text-gray-700 dark:text-gray-300 mb-3 text-center">
+                  전국 광역단체장 {viewMode === 'ai' ? 'AI 평가' : '여론조사'} 1위·2위
+                </h2>
+                <KoreaMapSVG regionsData={regionsData} positionType={positionType} viewMode={viewMode} />
+                <div className="mt-4 flex flex-wrap gap-2 justify-center">
+                  {[
+                    { label: '더불어민주당', color: '#1B4FBF' },
+                    { label: '국민의힘', color: '#C9151E' },
+                    { label: '조국혁신당', color: '#003F87' },
+                    { label: '개혁신당', color: '#FF7210' },
+                    { label: '기타/무소속', color: '#9CA3AF' },
+                  ].map(({ label, color }) => (
+                    <div key={label} className="flex items-center gap-1.5">
+                      <div className="w-3 h-3 rounded-full" style={{ backgroundColor: color }} />
+                      <span className="text-xs text-gray-600 dark:text-gray-400">{label}</span>
+                    </div>
+                  ))}
+                </div>
+                <p className="text-center text-[10px] text-gray-400 mt-2">마커 좌측 = 1위 당색 · 우측 = 2위 당색</p>
               </div>
-              <p className="text-center text-[10px] text-gray-400 mt-2">마커 좌측 = 1위 당색 · 우측 = 2위 당색</p>
-            </div>
+            )}
 
             <div>
               <h2 className="text-base font-semibold text-gray-700 dark:text-gray-300 mb-3">지역별 1위·2위</h2>
