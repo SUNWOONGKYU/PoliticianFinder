@@ -563,92 +563,6 @@ export default function Home() {
         <div className="flex flex-col lg:flex-row gap-6">
           {/* 메인 콘텐츠 (왼쪽) */}
           <div className="flex-1 min-w-0 space-y-6">
-            {/* 검색 섹션 */}
-            <section className="bg-white rounded-lg shadow-lg p-3">
-              <div className="space-y-4">
-                <div className="relative flex gap-2">
-                  <div className="relative flex-1">
-                    <input
-                      type="search"
-                      inputMode="search"
-                      id="index-search-input"
-                      placeholder="정치인, 게시글 통합검색"
-                      className="w-full px-4 py-2.5 pl-12 min-h-[44px] border-2 border-primary-300 rounded-lg focus:outline-none focus:border-primary-500 text-gray-900 focus:ring-2 focus:ring-primary-200 text-base"
-                      value={searchQuery}
-                      onChange={(e) => setSearchQuery(e.target.value)}
-                      onKeyPress={(e) => {
-                        if (e.key === 'Enter') handleSearch();
-                      }}
-                    />
-                    <svg
-                      className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-primary-500"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                      ></path>
-                    </svg>
-                  </div>
-                  <button
-                    onClick={handleSearch}
-                    className="px-5 sm:px-6 py-2.5 min-h-[44px] min-w-[60px] bg-primary-600 text-white rounded-lg hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-300 font-semibold text-sm shadow-sm touch-manipulation active:bg-primary-800"
-                  >
-                    검색
-                  </button>
-                </div>
-              </div>
-            </section>
-
-            {/* 통계 섹션 - 모바일 최적화: 패딩 줄이기, 폰트 사이즈 조정 */}
-            <section className="bg-gradient-to-br from-primary-50 to-secondary-50 rounded-lg shadow-lg p-4 sm:p-6 md:p-8">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
-                {/* 등록된 정치인 */}
-                <div className="text-center bg-white/70 backdrop-blur-sm rounded-lg p-3 sm:p-4 md:p-6 hover:shadow-md transition-shadow">
-                  <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary-600 mb-1 sm:mb-2">
-                    {statistics.politicians > 0 ? `${statistics.politicians.toLocaleString()}+` : '...'}
-                  </div>
-                  <div className="text-xs sm:text-sm md:text-base text-gray-700 font-medium">
-                    등록된 정치인
-                  </div>
-                </div>
-
-                {/* 회원 */}
-                <div className="text-center bg-white/70 backdrop-blur-sm rounded-lg p-3 sm:p-4 md:p-6 hover:shadow-md transition-shadow">
-                  <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-secondary-600 mb-1 sm:mb-2">
-                    {statistics.users > 0 ? `${statistics.users.toLocaleString()}+` : '...'}
-                  </div>
-                  <div className="text-xs sm:text-sm md:text-base text-gray-700 font-medium">
-                    회원
-                  </div>
-                </div>
-
-                {/* 커뮤니티 글 */}
-                <div className="text-center bg-white/70 backdrop-blur-sm rounded-lg p-3 sm:p-4 md:p-6 hover:shadow-md transition-shadow">
-                  <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-green-600 mb-1 sm:mb-2">
-                    {statistics.posts > 0 ? `${statistics.posts.toLocaleString()}+` : '...'}
-                  </div>
-                  <div className="text-xs sm:text-sm md:text-base text-gray-700 font-medium">
-                    커뮤니티 글
-                  </div>
-                </div>
-
-                {/* 평가 참여자 */}
-                <div className="text-center bg-white/70 backdrop-blur-sm rounded-lg p-3 sm:p-4 md:p-6 hover:shadow-md transition-shadow">
-                  <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-blue-600 mb-1 sm:mb-2">
-                    {statistics.ratings > 0 ? `${statistics.ratings.toLocaleString()}+` : '...'}
-                  </div>
-                  <div className="text-xs sm:text-sm md:text-base text-gray-700 font-medium">
-                    평가 참여자
-                  </div>
-                </div>
-              </div>
-            </section>
-
             {/* 전국 지역별 랭킹 지도 배너 */}
             <section
               className="rounded-2xl overflow-hidden shadow-lg cursor-pointer group"
@@ -697,18 +611,51 @@ export default function Home() {
               </div>
             </section>
 
+            {/* 검색 섹션 */}
+            <section className="bg-white rounded-lg shadow-lg p-3">
+              <div className="space-y-4">
+                <div className="relative flex gap-2">
+                  <div className="relative flex-1">
+                    <input
+                      type="search"
+                      inputMode="search"
+                      id="index-search-input"
+                      placeholder="정치인, 게시글 통합검색"
+                      className="w-full px-4 py-2.5 pl-12 min-h-[44px] border-2 border-primary-300 rounded-lg focus:outline-none focus:border-primary-500 text-gray-900 focus:ring-2 focus:ring-primary-200 text-base"
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                      onKeyPress={(e) => {
+                        if (e.key === 'Enter') handleSearch();
+                      }}
+                    />
+                    <svg
+                      className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-primary-500"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <button
+                    onClick={handleSearch}
+                    className="px-5 sm:px-6 py-2.5 min-h-[44px] min-w-[60px] bg-primary-600 text-white rounded-lg hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-300 font-semibold text-sm shadow-sm touch-manipulation active:bg-primary-800"
+                  >
+                    검색
+                  </button>
+                </div>
+              </div>
+            </section>
+
             {/* 정치인 순위 섹션 - 모바일 최적화 */}
             <section className="bg-white rounded-lg shadow">
               <div className="px-3 sm:px-4 pt-3 sm:pt-4">
-                <div className="flex items-start justify-between gap-2">
-                  <h2 className="text-xl sm:text-2xl font-bold text-gray-900">🏆 정치인 순위 TOP 10</h2>
-                  <button
-                    onClick={() => setMapOpen(true)}
-                    className="flex-shrink-0 flex items-center gap-1 px-3 py-1.5 bg-blue-50 hover:bg-blue-100 text-blue-600 rounded-lg text-xs font-medium transition-colors border border-blue-200"
-                  >
-                    🗺️ 전국 지역별 랭킹 지도
-                  </button>
-                </div>
+                <h2 className="text-xl sm:text-2xl font-bold text-gray-900">🏆 정치인 순위 TOP 10</h2>
                 <p className="text-xs sm:text-sm text-gray-600 mt-1 line-clamp-2 sm:line-clamp-none">
                   공개된 데이터를 기초로 AI가 객관적으로 평가한 점수를 기준으로 한 정치인 랭킹 (상위 10명)
                 </p>
