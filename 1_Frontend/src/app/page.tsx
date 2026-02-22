@@ -586,7 +586,7 @@ export default function Home() {
                       </h2>
                     </div>
                     <p className="text-sm sm:text-base text-blue-100 mb-3 leading-snug">
-                      AI 평가 점수 기준 · 17개 광역시도 <strong className="text-white">1위·2위 정치인</strong> 당색 시각화
+                      AI 평가 점수 기준 · 17개 광역/226개 기초 단체장 출마자 <strong className="text-white">1위·2위 정치인 보기</strong>
                     </p>
                     <div className="flex flex-wrap gap-1.5">
                       {[
