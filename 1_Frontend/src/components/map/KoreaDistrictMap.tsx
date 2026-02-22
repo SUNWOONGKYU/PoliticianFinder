@@ -6,8 +6,7 @@ import { ComposableMap, Geographies, Geography } from 'react-simple-maps';
 // southkorea-maps kostat 2018 GeoJSON (250 municipalities)
 // properties: { code: '11010', name_eng: 'Jongno-gu', base_year: '2018' }
 // code 앞 2자리 = 시도 코드
-const GEO_URL =
-  'https://raw.githubusercontent.com/southkorea/southkorea-maps/master/kostat/2018/json/skorea-municipalities-2018-geo.json';
+const GEO_URL = '/data/korea-sigungu.json';
 
 // 행정코드 앞 2자리 → 시도 풀네임
 const PROVINCE_CODE_MAP: Record<string, string> = {

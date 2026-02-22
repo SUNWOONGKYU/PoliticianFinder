@@ -572,7 +572,7 @@ export default function Home() {
               onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') setMapOpen(true); }}
               aria-label="전국 지역별 랭킹 지도 열기"
             >
-              <div className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-700 p-5 sm:p-7 relative overflow-hidden">
+              <div className="bg-gradient-to-r from-primary-400 via-primary-500 to-orange-600 p-5 sm:p-7 relative overflow-hidden">
                 {/* 배경 데코 */}
                 <div className="absolute top-0 right-0 text-[130px] sm:text-[160px] leading-none select-none opacity-10 pointer-events-none">
                   🗺️
@@ -585,7 +585,7 @@ export default function Home() {
                         전국 지역별 랭킹 지도
                       </h2>
                     </div>
-                    <p className="text-sm sm:text-base text-blue-100 mb-3 leading-snug">
+                    <p className="text-sm sm:text-base text-orange-100 mb-3 leading-snug">
                       AI 평가 점수 기준 · 17개 광역/226개 기초 단체장 출마자 <strong className="text-white">1위·2위 정치인 보기</strong>
                     </p>
                     <div className="flex flex-wrap gap-1.5">
@@ -603,7 +603,7 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="flex-shrink-0">
-                    <div className="bg-white text-indigo-700 font-bold px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl shadow-md group-hover:shadow-xl group-hover:scale-105 transition-all text-sm sm:text-base whitespace-nowrap flex items-center gap-1.5">
+                    <div className="bg-white text-primary-600 font-bold px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl shadow-md group-hover:shadow-xl group-hover:scale-105 transition-all text-sm sm:text-base whitespace-nowrap flex items-center gap-1.5">
                       보러가기
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
