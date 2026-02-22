@@ -604,7 +604,7 @@ export default function Home() {
                   </div>
                   <div className="flex-shrink-0">
                     <div className="bg-white text-indigo-700 font-bold px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl shadow-md group-hover:shadow-xl group-hover:scale-105 transition-all text-sm sm:text-base whitespace-nowrap">
-                      지도 보기 →
+                      보러가기
                     </div>
                   </div>
                 </div>
