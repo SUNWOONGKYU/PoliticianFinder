@@ -603,8 +603,11 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="flex-shrink-0">
-                    <div className="bg-white text-indigo-700 font-bold px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl shadow-md group-hover:shadow-xl group-hover:scale-105 transition-all text-sm sm:text-base whitespace-nowrap">
+                    <div className="bg-white text-indigo-700 font-bold px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl shadow-md group-hover:shadow-xl group-hover:scale-105 transition-all text-sm sm:text-base whitespace-nowrap flex items-center gap-1.5">
                       보러가기
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+                      </svg>
                     </div>
                   </div>
                 </div>
