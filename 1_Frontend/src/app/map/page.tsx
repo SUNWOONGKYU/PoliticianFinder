@@ -149,60 +149,133 @@ export default function MapPage() {
 
             <div>
               <h2 className="text-base font-semibold text-gray-700 dark:text-gray-300 mb-3">지역별 1위·2위</h2>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-                {orderedRegions.map(({ id, fullName, data }) => {
-                  const first = data?.first;
-                  const second = data?.second;
-                  const params = new URLSearchParams({ region: fullName, category: positionType });
+              {positionType === '광역단체장' ? (
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                  {orderedRegions.map(({ id, fullName, data }) => {
+                    const first = data?.first;
+                    const second = data?.second;
+                    const params = new URLSearchParams({ region: fullName, category: positionType });
 
-                  return (
-                    <Link key={id} href={`/politicians?${params}`} className="block rounded-xl overflow-hidden shadow hover:shadow-md transition-all hover:scale-[1.02]">
-                      <div className="bg-gray-700 dark:bg-gray-900 px-2.5 py-1.5">
-                        <span className="text-[10px] font-bold text-white">{fullName}</span>
-                      </div>
-                      {/* 1위 */}
-                      <div className="px-2.5 py-2" style={{ backgroundColor: first ? partyBg(first.party) : '#E5E7EB' }}>
-                        <div className="flex items-center justify-between gap-1">
-                          <div className="min-w-0">
-                            <div className="text-[9px] opacity-75" style={{ color: first ? partyText(first.party) : '#9CA3AF' }}>🥇 1위</div>
-                            <div className="text-sm font-bold truncate" style={{ color: first ? partyText(first.party) : '#6B7280' }}>
-                              {first ? first.name : '미등록'}
-                            </div>
-                            {first && <div className="text-[9px] opacity-80 truncate" style={{ color: partyText(first.party) }}>{first.party}</div>}
-                          </div>
-                          {first && first.totalScore > 0 && (
-                            <div className="text-right flex-shrink-0" style={{ color: partyText(first.party) }}>
-                              <div className="text-[9px] opacity-70">AI</div>
-                              <div className="text-xs font-bold">{first.totalScore}</div>
-                            </div>
-                          )}
+                    return (
+                      <Link key={id} href={`/politicians?${params}`} className="block rounded-xl overflow-hidden shadow hover:shadow-md transition-all hover:scale-[1.02]">
+                        <div className="bg-gray-700 dark:bg-gray-900 px-2.5 py-1.5">
+                          <span className="text-[10px] font-bold text-white">{fullName}</span>
                         </div>
-                      </div>
-                      <div className="h-px bg-white/30" />
-                      {/* 2위 */}
-                      <div className="px-2.5 py-1.5" style={{ backgroundColor: second ? partyBg(second.party) + 'CC' : '#F3F4F6' }}>
-                        {second ? (
+                        <div className="px-2.5 py-2" style={{ backgroundColor: first ? partyBg(first.party) : '#E5E7EB' }}>
                           <div className="flex items-center justify-between gap-1">
                             <div className="min-w-0">
-                              <div className="text-[9px] opacity-70" style={{ color: partyText(second.party) }}>🥈 2위</div>
-                              <div className="text-xs font-semibold truncate" style={{ color: partyText(second.party) }}>{second.name}</div>
-                              <div className="text-[9px] opacity-75 truncate" style={{ color: partyText(second.party) }}>{second.party}</div>
+                              <div className="text-[9px] opacity-75" style={{ color: first ? partyText(first.party) : '#9CA3AF' }}>🥇 1위</div>
+                              <div className="text-sm font-bold truncate" style={{ color: first ? partyText(first.party) : '#6B7280' }}>{first ? first.name : '미등록'}</div>
+                              {first && <div className="text-[9px] opacity-80 truncate" style={{ color: partyText(first.party) }}>{first.party}</div>}
                             </div>
-                            {second.totalScore > 0 && (
-                              <div className="text-[9px] font-bold flex-shrink-0" style={{ color: partyText(second.party) }}>{second.totalScore}</div>
+                            {first && first.totalScore > 0 && (
+                              <div className="text-right flex-shrink-0" style={{ color: partyText(first.party) }}>
+                                <div className="text-[9px] opacity-70">AI</div>
+                                <div className="text-xs font-bold">{first.totalScore}</div>
+                              </div>
                             )}
                           </div>
-                        ) : (
-                          <div className="text-[9px] text-gray-400 py-0.5">2위 없음</div>
-                        )}
+                        </div>
+                        <div className="h-px bg-white/30" />
+                        <div className="px-2.5 py-1.5" style={{ backgroundColor: second ? partyBg(second.party) + 'CC' : '#F3F4F6' }}>
+                          {second ? (
+                            <div className="flex items-center justify-between gap-1">
+                              <div className="min-w-0">
+                                <div className="text-[9px] opacity-70" style={{ color: partyText(second.party) }}>🥈 2위</div>
+                                <div className="text-xs font-semibold truncate" style={{ color: partyText(second.party) }}>{second.name}</div>
+                                <div className="text-[9px] opacity-75 truncate" style={{ color: partyText(second.party) }}>{second.party}</div>
+                              </div>
+                              {second.totalScore > 0 && (
+                                <div className="text-[9px] font-bold flex-shrink-0" style={{ color: partyText(second.party) }}>{second.totalScore}</div>
+                              )}
+                            </div>
+                          ) : (
+                            <div className="text-[9px] text-gray-400 py-0.5">2위 없음</div>
+                          )}
+                        </div>
+                        <div className="bg-white dark:bg-slate-700 px-2.5 py-1">
+                          <span className="text-[9px] text-gray-400">랭킹 보기 →</span>
+                        </div>
+                      </Link>
+                    );
+                  })}
+                </div>
+              ) : (
+                /* 기초단체장: 구/시/군 단위로 표시 */
+                <div className="space-y-4">
+                  {(['서울', '인천', '경기', '강원', '충남', '대전', '세종', '충북', '경북', '전북', '대구', '경남', '울산', '부산', '광주', '전남', '제주'] as const).map(provinceId => {
+                    const provinceFull = REGION_FULL_NAMES[provinceId] || provinceId;
+                    const districts = regionsData
+                      .filter(r => r.region === provinceId || r.region === provinceFull)
+                      .filter(r => r.first)
+                      .sort((a, b) => (b.first?.totalScore || 0) - (a.first?.totalScore || 0));
+                    if (districts.length === 0) return null;
+                    return (
+                      <div key={provinceId}>
+                        <div className="text-sm font-bold text-gray-500 dark:text-gray-400 mb-2 flex items-center gap-1">
+                          <span>📍</span>
+                          <span>{provinceFull}</span>
+                        </div>
+                        <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                          {districts.map(d => {
+                            const first = d.first;
+                            const second = d.second;
+                            const params = new URLSearchParams({ region: provinceFull, category: positionType });
+                            if (d.district) params.set('district', d.district);
+                            return (
+                              <Link key={`${d.region}_${d.district}`} href={`/politicians?${params}`} className="block rounded-xl overflow-hidden shadow hover:shadow-md transition-all hover:scale-[1.02]">
+                                <div className="bg-gray-700 dark:bg-gray-900 px-2.5 py-1.5">
+                                  <span className="text-[10px] font-bold text-white">{d.district || provinceFull}</span>
+                                </div>
+                                <div className="px-2.5 py-2" style={{ backgroundColor: first ? partyBg(first.party) : '#E5E7EB' }}>
+                                  <div className="flex items-center justify-between gap-1">
+                                    <div className="min-w-0">
+                                      <div className="text-[9px] opacity-75" style={{ color: first ? partyText(first.party) : '#9CA3AF' }}>🥇 1위</div>
+                                      <div className="text-sm font-bold truncate" style={{ color: first ? partyText(first.party) : '#6B7280' }}>{first ? first.name : '미등록'}</div>
+                                      {first && <div className="text-[9px] opacity-80 truncate" style={{ color: partyText(first.party) }}>{first.party}</div>}
+                                    </div>
+                                    {first && first.totalScore > 0 && (
+                                      <div className="text-right flex-shrink-0" style={{ color: partyText(first.party) }}>
+                                        <div className="text-[9px] opacity-70">AI</div>
+                                        <div className="text-xs font-bold">{first.totalScore}</div>
+                                      </div>
+                                    )}
+                                  </div>
+                                </div>
+                                <div className="h-px bg-white/30" />
+                                <div className="px-2.5 py-1.5" style={{ backgroundColor: second ? partyBg(second.party) + 'CC' : '#F3F4F6' }}>
+                                  {second ? (
+                                    <div className="flex items-center justify-between gap-1">
+                                      <div className="min-w-0">
+                                        <div className="text-[9px] opacity-70" style={{ color: partyText(second.party) }}>🥈 2위</div>
+                                        <div className="text-xs font-semibold truncate" style={{ color: partyText(second.party) }}>{second.name}</div>
+                                        <div className="text-[9px] opacity-75 truncate" style={{ color: partyText(second.party) }}>{second.party}</div>
+                                      </div>
+                                      {second.totalScore > 0 && (
+                                        <div className="text-[9px] font-bold flex-shrink-0" style={{ color: partyText(second.party) }}>{second.totalScore}</div>
+                                      )}
+                                    </div>
+                                  ) : (
+                                    <div className="text-[9px] text-gray-400 py-0.5">2위 없음</div>
+                                  )}
+                                </div>
+                                <div className="bg-white dark:bg-slate-700 px-2.5 py-1">
+                                  <span className="text-[9px] text-gray-400">랭킹 보기 →</span>
+                                </div>
+                              </Link>
+                            );
+                          })}
+                        </div>
                       </div>
-                      <div className="bg-white dark:bg-slate-700 px-2.5 py-1">
-                        <span className="text-[9px] text-gray-400">랭킹 보기 →</span>
-                      </div>
-                    </Link>
-                  );
-                })}
-              </div>
+                    );
+                  })}
+                  {regionsData.filter(r => r.first).length === 0 && (
+                    <div className="text-center py-16 text-gray-400 dark:text-gray-500 text-sm">
+                      기초단체장 데이터가 없습니다.
+                    </div>
+                  )}
+                </div>
+              )}
             </div>
           </div>
         )}

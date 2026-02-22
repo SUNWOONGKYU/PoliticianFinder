@@ -145,14 +145,35 @@ export default function KoreaMapSVG({ regionsData, positionType }: KoreaMapSVGPr
   const router = useRouter();
   const [hoveredRegion, setHoveredRegion] = useState<string | null>(null);
 
-  // region 단축명으로 데이터 매핑 (API는 풀네임으로 줄 수도 있음 → 양쪽 대응)
+  // 기초단체장: 광역별로 district 목록 보관 + 최고점 district로 지도 색상 결정
   const dataMap = new Map<string, RegionData>();
-  for (const r of regionsData) {
-    dataMap.set(r.region, r);
-    // 풀네임으로 온 경우 단축명으로도 등록
-    for (const [short, full] of Object.entries(REGION_FULL_NAMES)) {
-      if (r.region === full) dataMap.set(short, r);
-      if (r.region === short) dataMap.set(full, r);
+  const provinceDistrictsMap = new Map<string, RegionData[]>();
+
+  if (positionType === '기초단체장') {
+    // 광역별로 district 그룹화
+    for (const r of regionsData) {
+      let shortKey = r.region;
+      for (const [short, full] of Object.entries(REGION_FULL_NAMES)) {
+        if (r.region === full) { shortKey = short; break; }
+      }
+      const list = provinceDistrictsMap.get(shortKey) || [];
+      list.push(r);
+      provinceDistrictsMap.set(shortKey, list);
+    }
+    // 각 광역에서 최고점 district로 지도 색상 결정
+    for (const [shortKey, list] of provinceDistrictsMap) {
+      const sorted = [...list].sort((a, b) => (b.first?.totalScore || 0) - (a.first?.totalScore || 0));
+      provinceDistrictsMap.set(shortKey, sorted);
+      dataMap.set(shortKey, sorted[0]);
+      if (REGION_FULL_NAMES[shortKey]) dataMap.set(REGION_FULL_NAMES[shortKey], sorted[0]);
+    }
+  } else {
+    for (const r of regionsData) {
+      dataMap.set(r.region, r);
+      for (const [short, full] of Object.entries(REGION_FULL_NAMES)) {
+        if (r.region === full) dataMap.set(short, r);
+        if (r.region === short) dataMap.set(full, r);
+      }
     }
   }
 
@@ -162,56 +183,89 @@ export default function KoreaMapSVG({ regionsData, positionType }: KoreaMapSVGPr
   };
 
   const hoveredData = hoveredRegion ? (dataMap.get(hoveredRegion) || dataMap.get(REGION_FULL_NAMES[hoveredRegion] || '')) : null;
+  const hoveredDistricts = positionType === '기초단체장' && hoveredRegion
+    ? (provinceDistrictsMap.get(hoveredRegion) || []).filter(d => d.first)
+    : [];
 
   return (
     <div className="relative w-full select-none">
       {/* 호버 툴팁 */}
       {hoveredRegion && (
-        <div className="absolute top-2 right-2 z-20 bg-white dark:bg-gray-800 rounded-xl shadow-2xl p-3 min-w-[180px] max-w-[200px] border border-gray-200 dark:border-gray-600 pointer-events-none">
+        <div className="absolute top-2 right-2 z-20 bg-white dark:bg-gray-800 rounded-xl shadow-2xl p-3 min-w-[180px] max-w-[220px] border border-gray-200 dark:border-gray-600 pointer-events-none">
           <div className="text-xs font-bold text-gray-700 dark:text-gray-200 mb-2 border-b pb-1.5">
             {REGION_FULL_NAMES[hoveredRegion] || hoveredRegion}
+            {positionType === '기초단체장' && (
+              <span className="text-[9px] font-normal text-gray-400 ml-1">기초단체장</span>
+            )}
           </div>
-          {hoveredData?.first ? (
-            <>
-              <div className="flex items-center gap-2 mb-1.5">
-                <div
-                  className="w-5 h-5 rounded-full flex items-center justify-center text-[9px] font-bold flex-shrink-0"
-                  style={{
-                    backgroundColor: getPartyColor(hoveredData.first.party).fill,
-                    color: getPartyColor(hoveredData.first.party).text,
-                  }}
-                >1</div>
-                <div className="min-w-0">
-                  <div className="text-sm font-bold text-gray-900 dark:text-white leading-tight truncate">
-                    {hoveredData.first.name}
+          {positionType === '기초단체장' ? (
+            hoveredDistricts.length > 0 ? (
+              <div className="space-y-1.5">
+                {hoveredDistricts.slice(0, 4).map((d) => (
+                  <div key={`${d.region}_${d.district}`} className="flex items-center gap-1.5">
+                    <div
+                      className="w-2 h-2 rounded-full flex-shrink-0"
+                      style={{ backgroundColor: getPartyColor(d.first?.party).fill }}
+                    />
+                    <div className="min-w-0 flex items-center gap-1 flex-wrap">
+                      <span className="text-[9px] text-gray-500">{d.district}</span>
+                      <span className="text-xs font-bold text-gray-800 dark:text-gray-200 truncate">{d.first?.name}</span>
+                      {d.first && d.first.totalScore > 0 && (
+                        <span className="text-[9px] text-gray-400">{d.first.totalScore}점</span>
+                      )}
+                    </div>
                   </div>
-                  <div className="text-[10px] truncate" style={{ color: getPartyColor(hoveredData.first.party).fill }}>
-                    {hoveredData.first.party}{hoveredData.first.totalScore > 0 ? ` · ${hoveredData.first.totalScore}점` : ''}
-                  </div>
-                </div>
+                ))}
+                {hoveredDistricts.length > 4 && (
+                  <div className="text-[9px] text-gray-400">+ {hoveredDistricts.length - 4}개 더</div>
+                )}
               </div>
-              {hoveredData.second && (
-                <div className="flex items-center gap-2 pt-1.5 border-t border-gray-100 dark:border-gray-700">
+            ) : (
+              <div className="text-xs text-gray-400">등록된 기초단체장 없음</div>
+            )
+          ) : (
+            hoveredData?.first ? (
+              <>
+                <div className="flex items-center gap-2 mb-1.5">
                   <div
-                    className="w-5 h-5 rounded-full flex items-center justify-center text-[9px] font-bold flex-shrink-0 opacity-80"
+                    className="w-5 h-5 rounded-full flex items-center justify-center text-[9px] font-bold flex-shrink-0"
                     style={{
-                      backgroundColor: getPartyColor(hoveredData.second.party).fill,
-                      color: getPartyColor(hoveredData.second.party).text,
+                      backgroundColor: getPartyColor(hoveredData.first.party).fill,
+                      color: getPartyColor(hoveredData.first.party).text,
                     }}
-                  >2</div>
+                  >1</div>
                   <div className="min-w-0">
-                    <div className="text-xs font-semibold text-gray-700 dark:text-gray-300 leading-tight truncate">
-                      {hoveredData.second.name}
+                    <div className="text-sm font-bold text-gray-900 dark:text-white leading-tight truncate">
+                      {hoveredData.first.name}
                     </div>
-                    <div className="text-[10px] truncate" style={{ color: getPartyColor(hoveredData.second.party).fill }}>
-                      {hoveredData.second.party}{hoveredData.second.totalScore > 0 ? ` · ${hoveredData.second.totalScore}점` : ''}
+                    <div className="text-[10px] truncate" style={{ color: getPartyColor(hoveredData.first.party).fill }}>
+                      {hoveredData.first.party}{hoveredData.first.totalScore > 0 ? ` · ${hoveredData.first.totalScore}점` : ''}
                     </div>
                   </div>
                 </div>
-              )}
-            </>
-          ) : (
-            <div className="text-xs text-gray-400">등록된 정치인 없음</div>
+                {hoveredData.second && (
+                  <div className="flex items-center gap-2 pt-1.5 border-t border-gray-100 dark:border-gray-700">
+                    <div
+                      className="w-5 h-5 rounded-full flex items-center justify-center text-[9px] font-bold flex-shrink-0 opacity-80"
+                      style={{
+                        backgroundColor: getPartyColor(hoveredData.second.party).fill,
+                        color: getPartyColor(hoveredData.second.party).text,
+                      }}
+                    >2</div>
+                    <div className="min-w-0">
+                      <div className="text-xs font-semibold text-gray-700 dark:text-gray-300 leading-tight truncate">
+                        {hoveredData.second.name}
+                      </div>
+                      <div className="text-[10px] truncate" style={{ color: getPartyColor(hoveredData.second.party).fill }}>
+                        {hoveredData.second.party}{hoveredData.second.totalScore > 0 ? ` · ${hoveredData.second.totalScore}점` : ''}
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </>
+            ) : (
+              <div className="text-xs text-gray-400">등록된 정치인 없음</div>
+            )
           )}
           <div className="mt-2 text-[9px] text-gray-400">클릭 → 지역 랭킹 이동</div>
         </div>
