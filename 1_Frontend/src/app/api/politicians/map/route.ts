@@ -1,5 +1,5 @@
 // 지역별 정치인 랭킹 API
-// 지도 기능용: 각 지역에서 AI 평가 점수 1위·2위 정치인 반환
+// 지도 기능용: 각 지역에서 AI 평가 점수 또는 여론조사 기준 1위·2위 정치인 반환
 
 export const dynamic = 'force-dynamic';
 
@@ -15,17 +15,18 @@ export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
     const positionType = searchParams.get('position_type') || '광역단체장';
+    const viewMode = searchParams.get('view_mode') || 'ai'; // 'ai' | 'poll'
 
     // position_type 컬럼으로 조회 (main politicians API와 동일 방식)
     const { data: byPositionType, error: e1 } = await supabase
       .from('politicians')
-      .select('id, name, party, region, district, title, position_type')
+      .select('id, name, party, region, district, title, position_type, poll_rank, poll_support')
       .eq('position_type', positionType);
 
     // title 컬럼으로도 조회 (DB 스키마에 따라 title에 직종 저장)
     const { data: byTitle, error: e2 } = await supabase
       .from('politicians')
-      .select('id, name, party, region, district, title, position_type')
+      .select('id, name, party, region, district, title, position_type, poll_rank, poll_support')
       .eq('title', positionType);
 
     if (e1 && e2) {
@@ -44,33 +45,41 @@ export async function GET(request: NextRequest) {
     }
 
     if (politicians.length === 0) {
-      return NextResponse.json({ success: true, positionType, regions: [] });
+      return NextResponse.json({ success: true, positionType, viewMode, regions: [] });
     }
 
-    // AI 최종 점수 조회
-    const politicianIds = politicians.map((p) => p.id);
-    const { data: scores } = await supabase
-      .from('ai_final_scores')
-      .select('politician_id, ai_name, total_score')
-      .in('politician_id', politicianIds);
+    let sorted: any[];
 
-    // 정치인별 AI 복합 점수 계산
-    const scoreMap: Record<string, { sum: number; count: number }> = {};
-    for (const score of (scores || [])) {
-      if (!scoreMap[score.politician_id]) {
-        scoreMap[score.politician_id] = { sum: 0, count: 0 };
+    if (viewMode === 'poll') {
+      // 여론조사 모드: poll_rank 있는 것만, poll_rank 오름차순
+      sorted = politicians
+        .filter((p) => p.poll_rank != null)
+        .sort((a, b) => (a.poll_rank || 999) - (b.poll_rank || 999));
+    } else {
+      // AI 점수 모드 (기본)
+      const politicianIds = politicians.map((p) => p.id);
+      const { data: scores } = await supabase
+        .from('ai_final_scores')
+        .select('politician_id, ai_name, total_score')
+        .in('politician_id', politicianIds);
+
+      // 정치인별 AI 복합 점수 계산
+      const scoreMap: Record<string, { sum: number; count: number }> = {};
+      for (const score of (scores || [])) {
+        if (!scoreMap[score.politician_id]) {
+          scoreMap[score.politician_id] = { sum: 0, count: 0 };
+        }
+        if (score.total_score > 0) {
+          scoreMap[score.politician_id].sum += score.total_score;
+          scoreMap[score.politician_id].count++;
+        }
       }
-      if (score.total_score > 0) {
-        scoreMap[score.politician_id].sum += score.total_score;
-        scoreMap[score.politician_id].count++;
-      }
+
+      sorted = politicians.map((p) => {
+        const s = scoreMap[p.id];
+        return { ...p, totalScore: s && s.count > 0 ? Math.round(s.sum / s.count) : 0 };
+      }).sort((a, b) => b.totalScore - a.totalScore);
     }
-
-    // 점수 붙여서 내림차순 정렬
-    const sorted = politicians.map((p) => {
-      const s = scoreMap[p.id];
-      return { ...p, totalScore: s && s.count > 0 ? Math.round(s.sum / s.count) : 0 };
-    }).sort((a, b) => b.totalScore - a.totalScore);
 
     // 지역별 상위 2명 추출
     const regionMap = new Map<string, { region: string; district: string | null; top: any[] }>();
@@ -81,7 +90,14 @@ export async function GET(request: NextRequest) {
       }
       const entry = regionMap.get(key)!;
       if (entry.top.length < 2) {
-        entry.top.push({ id: p.id, name: p.name, party: p.party || '무소속', totalScore: p.totalScore });
+        entry.top.push({
+          id: p.id,
+          name: p.name,
+          party: p.party || '무소속',
+          totalScore: p.totalScore || 0,
+          pollRank: p.poll_rank || null,
+          pollSupport: p.poll_support || null,
+        });
       }
     }
 
@@ -92,7 +108,7 @@ export async function GET(request: NextRequest) {
       second: top[1] || null,
     }));
 
-    return NextResponse.json({ success: true, positionType, regions });
+    return NextResponse.json({ success: true, positionType, viewMode, regions });
 
   } catch (err) {
     console.error('Map API unexpected error:', err);

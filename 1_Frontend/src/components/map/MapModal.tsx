@@ -11,6 +11,8 @@ interface Politician {
   name: string;
   party: string;
   totalScore: number;
+  pollRank?: number | null;
+  pollSupport?: string | null;
 }
 
 interface RegionData {
@@ -56,36 +58,39 @@ interface MapModalProps {
 export default function MapModal({ isOpen, onClose }: MapModalProps) {
   const router = useRouter();
   const [positionType, setPositionType] = useState<'광역단체장' | '기초단체장'>('광역단체장');
+  const [viewMode, setViewMode] = useState<'ai' | 'poll'>('ai');
   const [regionsData, setRegionsData] = useState<RegionData[]>([]);
   const [loading, setLoading] = useState(false);
   const [fetched, setFetched] = useState<Record<string, boolean>>({});
 
-  const fetchData = useCallback(async (type: string) => {
-    if (fetched[type]) return;
+  const fetchData = useCallback(async (type: string, mode: string) => {
+    const cacheKey = `${type}_${mode}`;
+    if (fetched[cacheKey]) return;
     setLoading(true);
     try {
-      const res = await fetch(`/api/politicians/map?position_type=${encodeURIComponent(type)}`);
+      const res = await fetch(`/api/politicians/map?position_type=${encodeURIComponent(type)}&view_mode=${encodeURIComponent(mode)}`);
       const json = await res.json();
       if (json.success) {
         setRegionsData(json.regions || []);
-        setFetched((prev) => ({ ...prev, [type]: true }));
+        setFetched((prev) => ({ ...prev, [cacheKey]: true }));
       }
     } catch { /* 조용히 실패 */ }
     finally { setLoading(false); }
   }, [fetched]);
 
   useEffect(() => {
-    if (isOpen) fetchData(positionType);
-  }, [isOpen, positionType, fetchData]);
+    if (isOpen) fetchData(positionType, viewMode);
+  }, [isOpen, positionType, viewMode, fetchData]);
 
-  // positionType 변경 시 새 데이터 로드
+  // positionType 또는 viewMode 변경 시 새 데이터 로드
   useEffect(() => {
-    if (isOpen && !fetched[positionType]) {
+    const cacheKey = `${positionType}_${viewMode}`;
+    if (isOpen && !fetched[cacheKey]) {
       setRegionsData([]);
-      fetchData(positionType);
+      fetchData(positionType, viewMode);
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [positionType]);
+  }, [positionType, viewMode]);
 
   // ESC 닫기
   useEffect(() => {
@@ -146,12 +151,14 @@ export default function MapModal({ isOpen, onClose }: MapModalProps) {
               <div>
                 <h2 className="text-base font-bold text-gray-900 dark:text-white">지역별 랭킹 지도</h2>
                 <p className="text-[11px] text-gray-500 dark:text-gray-400">
-                  AI 점수 기준 1위·2위 · 당색으로 구분 · 클릭하면 해당 지역 랭킹 이동
+                  {viewMode === 'ai'
+                    ? 'AI 점수 기준 1위·2위 · 당색으로 구분 · 클릭하면 해당 지역 랭킹 이동'
+                    : '여론조사 지지율 기준 순위 · 당색으로 구분 · 클릭하면 해당 지역 랭킹 이동'}
                 </p>
               </div>
             </div>
             <div className="flex items-center gap-2.5">
-              {/* 토글 */}
+              {/* 직위 토글 */}
               <div className="flex rounded-lg overflow-hidden border border-gray-200 dark:border-gray-600">
                 {(['광역단체장', '기초단체장'] as const).map((type) => (
                   <button
@@ -164,6 +171,22 @@ export default function MapModal({ isOpen, onClose }: MapModalProps) {
                     }`}
                   >
                     {type}
+                  </button>
+                ))}
+              </div>
+              {/* 뷰모드 토글 */}
+              <div className="flex rounded-lg overflow-hidden border border-gray-200 dark:border-gray-600">
+                {(['ai', 'poll'] as const).map((mode) => (
+                  <button
+                    key={mode}
+                    onClick={() => setViewMode(mode)}
+                    className={`px-3 py-1.5 text-xs font-semibold transition-colors ${
+                      viewMode === mode
+                        ? 'bg-emerald-500 text-white'
+                        : 'bg-white dark:bg-slate-700 text-gray-500 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-slate-600'
+                    }`}
+                  >
+                    {mode === 'ai' ? '🤖 AI 평가' : '📊 여론조사'}
                   </button>
                 ))}
               </div>
@@ -193,7 +216,7 @@ export default function MapModal({ isOpen, onClose }: MapModalProps) {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-start">
                 {/* 지도 패널 */}
                 <div>
-                  <KoreaMapSVG regionsData={regionsData} positionType={positionType} />
+                  <KoreaMapSVG regionsData={regionsData} positionType={positionType} viewMode={viewMode} />
                   {/* 범례 */}
                   <div className="mt-3 flex flex-wrap gap-x-3 gap-y-1 justify-center">
                     {[
@@ -241,10 +264,19 @@ export default function MapModal({ isOpen, onClose }: MapModalProps) {
                                   <div className="text-sm font-bold leading-tight truncate" style={{ color: first ? partyText(first.party) : '#6B7280' }}>{first ? first.name : '미등록'}</div>
                                   {first && <div className="text-[9px] opacity-80 truncate" style={{ color: partyText(first.party) }}>{first.party}</div>}
                                 </div>
-                                {first && first.totalScore > 0 && (
+                                {first && (first.totalScore > 0 || first.pollRank) && (
                                   <div className="text-right flex-shrink-0" style={{ color: partyText(first.party) }}>
-                                    <div className="text-[9px] opacity-70">AI</div>
-                                    <div className="text-xs font-bold">{first.totalScore}</div>
+                                    {viewMode === 'poll' ? (
+                                      <>
+                                        <div className="text-[9px] opacity-70">여론</div>
+                                        <div className="text-xs font-bold">{first.pollSupport || `${first.pollRank}위`}</div>
+                                      </>
+                                    ) : (
+                                      <>
+                                        <div className="text-[9px] opacity-70">AI</div>
+                                        <div className="text-xs font-bold">{first.totalScore}</div>
+                                      </>
+                                    )}
                                   </div>
                                 )}
                               </div>
@@ -258,8 +290,10 @@ export default function MapModal({ isOpen, onClose }: MapModalProps) {
                                     <div className="text-xs font-semibold leading-tight truncate" style={{ color: partyText(second.party) }}>{second.name}</div>
                                     <div className="text-[9px] opacity-75 truncate" style={{ color: partyText(second.party) }}>{second.party}</div>
                                   </div>
-                                  {second.totalScore > 0 && (
-                                    <div className="text-right flex-shrink-0 text-[9px] font-bold" style={{ color: partyText(second.party) }}>{second.totalScore}</div>
+                                  {(second.totalScore > 0 || second.pollRank) && (
+                                    <div className="text-right flex-shrink-0 text-[9px] font-bold" style={{ color: partyText(second.party) }}>
+                                      {viewMode === 'poll' ? (second.pollSupport || `${second.pollRank}위`) : second.totalScore}
+                                    </div>
                                   )}
                                 </div>
                               ) : (
@@ -309,10 +343,19 @@ export default function MapModal({ isOpen, onClose }: MapModalProps) {
                                           <div className="text-sm font-bold leading-tight truncate" style={{ color: first ? partyText(first.party) : '#6B7280' }}>{first ? first.name : '미등록'}</div>
                                           {first && <div className="text-[9px] opacity-80 truncate" style={{ color: partyText(first.party) }}>{first.party}</div>}
                                         </div>
-                                        {first && first.totalScore > 0 && (
+                                        {first && (first.totalScore > 0 || first.pollRank) && (
                                           <div className="text-right flex-shrink-0" style={{ color: partyText(first.party) }}>
-                                            <div className="text-[9px] opacity-70">AI</div>
-                                            <div className="text-xs font-bold">{first.totalScore}</div>
+                                            {viewMode === 'poll' ? (
+                                              <>
+                                                <div className="text-[9px] opacity-70">여론</div>
+                                                <div className="text-xs font-bold">{first.pollSupport || `${first.pollRank}위`}</div>
+                                              </>
+                                            ) : (
+                                              <>
+                                                <div className="text-[9px] opacity-70">AI</div>
+                                                <div className="text-xs font-bold">{first.totalScore}</div>
+                                              </>
+                                            )}
                                           </div>
                                         )}
                                       </div>
@@ -326,8 +369,10 @@ export default function MapModal({ isOpen, onClose }: MapModalProps) {
                                             <div className="text-xs font-semibold leading-tight truncate" style={{ color: partyText(second.party) }}>{second.name}</div>
                                             <div className="text-[9px] opacity-75 truncate" style={{ color: partyText(second.party) }}>{second.party}</div>
                                           </div>
-                                          {second.totalScore > 0 && (
-                                            <div className="text-right flex-shrink-0 text-[9px] font-bold" style={{ color: partyText(second.party) }}>{second.totalScore}</div>
+                                          {(second.totalScore > 0 || second.pollRank) && (
+                                            <div className="text-right flex-shrink-0 text-[9px] font-bold" style={{ color: partyText(second.party) }}>
+                                              {viewMode === 'poll' ? (second.pollSupport || `${second.pollRank}위`) : second.totalScore}
+                                            </div>
                                           )}
                                         </div>
                                       ) : (

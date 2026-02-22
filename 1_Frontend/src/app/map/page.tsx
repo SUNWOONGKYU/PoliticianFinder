@@ -11,6 +11,8 @@ interface Politician {
   name: string;
   party: string;
   totalScore: number;
+  pollRank?: number | null;
+  pollSupport?: string | null;
 }
 
 interface RegionData {
@@ -50,15 +52,16 @@ const METRO_ORDER = [
 
 export default function MapPage() {
   const [positionType, setPositionType] = useState<'광역단체장' | '기초단체장'>('광역단체장');
+  const [viewMode, setViewMode] = useState<'ai' | 'poll'>('ai');
   const [regionsData, setRegionsData] = useState<RegionData[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const fetchData = useCallback(async (type: string) => {
+  const fetchData = useCallback(async (type: string, mode: string) => {
     setLoading(true);
     setError(null);
     try {
-      const res = await fetch(`/api/politicians/map?position_type=${encodeURIComponent(type)}`);
+      const res = await fetch(`/api/politicians/map?position_type=${encodeURIComponent(type)}&view_mode=${encodeURIComponent(mode)}`);
       const json = await res.json();
       if (json.success) setRegionsData(json.regions || []);
       else setError('데이터를 불러오지 못했습니다.');
@@ -69,7 +72,7 @@ export default function MapPage() {
     }
   }, []);
 
-  useEffect(() => { fetchData(positionType); }, [positionType, fetchData]);
+  useEffect(() => { fetchData(positionType, viewMode); }, [positionType, viewMode, fetchData]);
 
   const dataMap = new Map<string, RegionData>();
   for (const r of regionsData) dataMap.set(r.region, r);
@@ -84,32 +87,53 @@ export default function MapPage() {
     <div className="min-h-screen bg-gray-50 dark:bg-slate-900">
       {/* 헤더 */}
       <div className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-gray-700">
-        <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between flex-wrap gap-2">
           <div className="flex items-center gap-3">
             <Link href="/" className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors">← 홈</Link>
             <h1 className="text-xl font-bold text-gray-900 dark:text-white">🗺️ 지역별 랭킹 지도</h1>
           </div>
-          <div className="flex rounded-lg overflow-hidden border border-gray-200 dark:border-gray-600">
-            {(['광역단체장', '기초단체장'] as const).map((type) => (
-              <button
-                key={type}
-                onClick={() => setPositionType(type)}
-                className={`px-4 py-2 text-sm font-medium transition-colors ${
-                  positionType === type
-                    ? 'bg-primary-500 text-white'
-                    : 'bg-white dark:bg-slate-700 text-gray-600 dark:text-gray-300 hover:bg-gray-50'
-                }`}
-              >
-                {type}
-              </button>
-            ))}
+          <div className="flex items-center gap-2">
+            {/* 직위 토글 */}
+            <div className="flex rounded-lg overflow-hidden border border-gray-200 dark:border-gray-600">
+              {(['광역단체장', '기초단체장'] as const).map((type) => (
+                <button
+                  key={type}
+                  onClick={() => setPositionType(type)}
+                  className={`px-4 py-2 text-sm font-medium transition-colors ${
+                    positionType === type
+                      ? 'bg-primary-500 text-white'
+                      : 'bg-white dark:bg-slate-700 text-gray-600 dark:text-gray-300 hover:bg-gray-50'
+                  }`}
+                >
+                  {type}
+                </button>
+              ))}
+            </div>
+            {/* 뷰모드 토글 */}
+            <div className="flex rounded-lg overflow-hidden border border-gray-200 dark:border-gray-600">
+              {(['ai', 'poll'] as const).map((mode) => (
+                <button
+                  key={mode}
+                  onClick={() => setViewMode(mode)}
+                  className={`px-4 py-2 text-sm font-medium transition-colors ${
+                    viewMode === mode
+                      ? 'bg-emerald-500 text-white'
+                      : 'bg-white dark:bg-slate-700 text-gray-600 dark:text-gray-300 hover:bg-gray-50'
+                  }`}
+                >
+                  {mode === 'ai' ? '🤖 AI 평가' : '📊 여론조사'}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 py-3">
         <p className="text-sm text-gray-500 dark:text-gray-400">
-          AI 평가 점수 기준 각 지역 {positionType} 1위·2위 정치인 (마커 좌측=1위 당색, 우측=2위 당색)
+          {viewMode === 'ai'
+            ? `AI 평가 점수 기준 각 지역 ${positionType} 1위·2위 정치인 (마커 좌측=1위 당색, 우측=2위 당색)`
+            : `여론조사 지지율 기준 각 지역 ${positionType} 순위별 정치인`}
         </p>
       </div>
 
@@ -121,15 +145,15 @@ export default function MapPage() {
         ) : error ? (
           <div className="text-center py-16">
             <p className="text-red-500 mb-3">{error}</p>
-            <button onClick={() => fetchData(positionType)} className="px-4 py-2 bg-primary-500 text-white rounded-lg text-sm">다시 시도</button>
+            <button onClick={() => fetchData(positionType, viewMode)} className="px-4 py-2 bg-primary-500 text-white rounded-lg text-sm">다시 시도</button>
           </div>
         ) : (
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
             <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-lg p-4 lg:sticky lg:top-4">
               <h2 className="text-base font-semibold text-gray-700 dark:text-gray-300 mb-3 text-center">
-                전국 {positionType} AI 평가 1위·2위
+                전국 {positionType} {viewMode === 'ai' ? 'AI 평가' : '여론조사'} 1위·2위
               </h2>
-              <KoreaMapSVG regionsData={regionsData} positionType={positionType} />
+              <KoreaMapSVG regionsData={regionsData} positionType={positionType} viewMode={viewMode} />
               <div className="mt-4 flex flex-wrap gap-2 justify-center">
                 {[
                   { label: '더불어민주당', color: '#1B4FBF' },
@@ -168,10 +192,19 @@ export default function MapPage() {
                               <div className="text-sm font-bold truncate" style={{ color: first ? partyText(first.party) : '#6B7280' }}>{first ? first.name : '미등록'}</div>
                               {first && <div className="text-[9px] opacity-80 truncate" style={{ color: partyText(first.party) }}>{first.party}</div>}
                             </div>
-                            {first && first.totalScore > 0 && (
+                            {first && (first.totalScore > 0 || first.pollRank) && (
                               <div className="text-right flex-shrink-0" style={{ color: partyText(first.party) }}>
-                                <div className="text-[9px] opacity-70">AI</div>
-                                <div className="text-xs font-bold">{first.totalScore}</div>
+                                {viewMode === 'poll' ? (
+                                  <>
+                                    <div className="text-[9px] opacity-70">여론</div>
+                                    <div className="text-xs font-bold">{first.pollSupport || `${first.pollRank}위`}</div>
+                                  </>
+                                ) : (
+                                  <>
+                                    <div className="text-[9px] opacity-70">AI</div>
+                                    <div className="text-xs font-bold">{first.totalScore}</div>
+                                  </>
+                                )}
                               </div>
                             )}
                           </div>
@@ -185,8 +218,10 @@ export default function MapPage() {
                                 <div className="text-xs font-semibold truncate" style={{ color: partyText(second.party) }}>{second.name}</div>
                                 <div className="text-[9px] opacity-75 truncate" style={{ color: partyText(second.party) }}>{second.party}</div>
                               </div>
-                              {second.totalScore > 0 && (
-                                <div className="text-[9px] font-bold flex-shrink-0" style={{ color: partyText(second.party) }}>{second.totalScore}</div>
+                              {(second.totalScore > 0 || second.pollRank) && (
+                                <div className="text-[9px] font-bold flex-shrink-0" style={{ color: partyText(second.party) }}>
+                                  {viewMode === 'poll' ? (second.pollSupport || `${second.pollRank}위`) : second.totalScore}
+                                </div>
                               )}
                             </div>
                           ) : (
@@ -234,10 +269,19 @@ export default function MapPage() {
                                       <div className="text-sm font-bold truncate" style={{ color: first ? partyText(first.party) : '#6B7280' }}>{first ? first.name : '미등록'}</div>
                                       {first && <div className="text-[9px] opacity-80 truncate" style={{ color: partyText(first.party) }}>{first.party}</div>}
                                     </div>
-                                    {first && first.totalScore > 0 && (
+                                    {first && (first.totalScore > 0 || first.pollRank) && (
                                       <div className="text-right flex-shrink-0" style={{ color: partyText(first.party) }}>
-                                        <div className="text-[9px] opacity-70">AI</div>
-                                        <div className="text-xs font-bold">{first.totalScore}</div>
+                                        {viewMode === 'poll' ? (
+                                          <>
+                                            <div className="text-[9px] opacity-70">여론</div>
+                                            <div className="text-xs font-bold">{first.pollSupport || `${first.pollRank}위`}</div>
+                                          </>
+                                        ) : (
+                                          <>
+                                            <div className="text-[9px] opacity-70">AI</div>
+                                            <div className="text-xs font-bold">{first.totalScore}</div>
+                                          </>
+                                        )}
                                       </div>
                                     )}
                                   </div>
@@ -251,8 +295,10 @@ export default function MapPage() {
                                         <div className="text-xs font-semibold truncate" style={{ color: partyText(second.party) }}>{second.name}</div>
                                         <div className="text-[9px] opacity-75 truncate" style={{ color: partyText(second.party) }}>{second.party}</div>
                                       </div>
-                                      {second.totalScore > 0 && (
-                                        <div className="text-[9px] font-bold flex-shrink-0" style={{ color: partyText(second.party) }}>{second.totalScore}</div>
+                                      {(second.totalScore > 0 || second.pollRank) && (
+                                        <div className="text-[9px] font-bold flex-shrink-0" style={{ color: partyText(second.party) }}>
+                                          {viewMode === 'poll' ? (second.pollSupport || `${second.pollRank}위`) : second.totalScore}
+                                        </div>
                                       )}
                                     </div>
                                   ) : (

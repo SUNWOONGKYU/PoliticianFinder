@@ -127,6 +127,8 @@ interface Politician {
   name: string;
   party: string;
   totalScore: number;
+  pollRank?: number | null;
+  pollSupport?: string | null;
 }
 
 interface RegionData {
@@ -139,9 +141,10 @@ interface RegionData {
 interface KoreaMapSVGProps {
   regionsData: RegionData[];
   positionType: string;
+  viewMode?: 'ai' | 'poll';
 }
 
-export default function KoreaMapSVG({ regionsData, positionType }: KoreaMapSVGProps) {
+export default function KoreaMapSVG({ regionsData, positionType, viewMode = 'ai' }: KoreaMapSVGProps) {
   const router = useRouter();
   const [hoveredRegion, setHoveredRegion] = useState<string | null>(null);
 
@@ -210,9 +213,11 @@ export default function KoreaMapSVG({ regionsData, positionType }: KoreaMapSVGPr
                     <div className="min-w-0 flex items-center gap-1 flex-wrap">
                       <span className="text-[9px] text-gray-500">{d.district}</span>
                       <span className="text-xs font-bold text-gray-800 dark:text-gray-200 truncate">{d.first?.name}</span>
-                      {d.first && d.first.totalScore > 0 && (
-                        <span className="text-[9px] text-gray-400">{d.first.totalScore}점</span>
-                      )}
+                      <span className="text-[9px] text-gray-400">
+                        {viewMode === 'poll'
+                          ? (d.first?.pollSupport || (d.first?.pollRank ? `${d.first.pollRank}위` : ''))
+                          : (d.first && d.first.totalScore > 0 ? `${d.first.totalScore}점` : '')}
+                      </span>
                     </div>
                   </div>
                 ))}
@@ -239,7 +244,10 @@ export default function KoreaMapSVG({ regionsData, positionType }: KoreaMapSVGPr
                       {hoveredData.first.name}
                     </div>
                     <div className="text-[10px] truncate" style={{ color: getPartyColor(hoveredData.first.party).fill }}>
-                      {hoveredData.first.party}{hoveredData.first.totalScore > 0 ? ` · ${hoveredData.first.totalScore}점` : ''}
+                      {hoveredData.first.party}
+                      {viewMode === 'poll'
+                        ? (hoveredData.first.pollSupport ? ` · ${hoveredData.first.pollSupport}` : hoveredData.first.pollRank ? ` · ${hoveredData.first.pollRank}위` : '')
+                        : (hoveredData.first.totalScore > 0 ? ` · ${hoveredData.first.totalScore}점` : '')}
                     </div>
                   </div>
                 </div>
@@ -257,7 +265,10 @@ export default function KoreaMapSVG({ regionsData, positionType }: KoreaMapSVGPr
                         {hoveredData.second.name}
                       </div>
                       <div className="text-[10px] truncate" style={{ color: getPartyColor(hoveredData.second.party).fill }}>
-                        {hoveredData.second.party}{hoveredData.second.totalScore > 0 ? ` · ${hoveredData.second.totalScore}점` : ''}
+                        {hoveredData.second.party}
+                        {viewMode === 'poll'
+                          ? (hoveredData.second.pollSupport ? ` · ${hoveredData.second.pollSupport}` : hoveredData.second.pollRank ? ` · ${hoveredData.second.pollRank}위` : '')
+                          : (hoveredData.second.totalScore > 0 ? ` · ${hoveredData.second.totalScore}점` : '')}
                       </div>
                     </div>
                   </div>
