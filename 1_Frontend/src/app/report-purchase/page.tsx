@@ -2,19 +2,17 @@
 
 import { useState, useEffect } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
+import { useAuth } from '@/lib/contexts/P1F1_AuthContext';
 
 // 가격 정책 (부가세 별도)
-const BASE_PRICE = 1000000; // 100만원
+const BASE_PRICE = 2000000; // 200만원
 const VAT_RATE = 0.1; // 10%
 
-// 구매 회차별 가격 (부가세 별도)
+// 구매 회차별 가격 (부가세 별도) - 구매자(buyer_email) 기준
 const getPriceByPurchaseCount = (count: number): number => {
-  if (count <= 1) return 1000000; // 1차: 100만원
-  if (count === 2) return 900000;  // 2차: 90만원
-  if (count === 3) return 800000;  // 3차: 80만원
-  if (count === 4) return 700000;  // 4차: 70만원
-  if (count === 5) return 600000;  // 5차: 60만원
-  return 500000; // 6차 이후: 50만원 (최소가)
+  const base = 2000000; // 200만원
+  const discount = (count - 1) * 100000; // 회차별 10만원 할인
+  return Math.max(base - discount, 1000000); // 최저 100만원
 };
 
 // 계좌 정보
@@ -24,15 +22,18 @@ const BANK_INFO = {
   holder: '파인더월드',
 };
 
+type BuyerType = 'politician' | 'member';
 type Step = 'info' | 'verify' | 'payment' | 'complete';
 
 export default function ReportPurchasePage() {
   const searchParams = useSearchParams();
   const router = useRouter();
+  const { user, isLoading: authLoading } = useAuth();
   const politicianId = searchParams.get('politician_id');
   const politicianName = searchParams.get('name') || '';
 
   const [step, setStep] = useState<Step>('info');
+  const [buyerType, setBuyerType] = useState<BuyerType | null>(null);
   const [email, setEmail] = useState('');
   const [verificationCode, setVerificationCode] = useState('');
   const [verificationId, setVerificationId] = useState<string | null>(null);
@@ -49,33 +50,30 @@ export default function ReportPurchasePage() {
 
   // 구매 회차 (API에서 가져옴)
   const [purchaseCount, setPurchaseCount] = useState(1);
-  const [loadingPurchaseCount, setLoadingPurchaseCount] = useState(true);
+  const [loadingPurchaseCount, setLoadingPurchaseCount] = useState(false);
 
   // 가격 계산
   const basePrice = getPriceByPurchaseCount(purchaseCount);
   const vatAmount = Math.round(basePrice * VAT_RATE);
   const totalAmount = basePrice + vatAmount;
 
-  // 구매 회차 조회
-  useEffect(() => {
-    const fetchPurchaseCount = async () => {
-      if (!politicianId) return;
+  // 구매 회차 조회 (buyer_email 기준)
+  const fetchPurchaseCount = async (buyerEmail: string) => {
+    if (!buyerEmail) return;
 
-      try {
-        const response = await fetch(`/api/report-purchase/count?politician_id=${politicianId}`);
-        const result = await response.json();
-        if (result.success) {
-          setPurchaseCount(result.purchase_count + 1); // 다음 구매 회차
-        }
-      } catch (err) {
-        console.error('Failed to fetch purchase count:', err);
-      } finally {
-        setLoadingPurchaseCount(false);
+    setLoadingPurchaseCount(true);
+    try {
+      const response = await fetch(`/api/report-purchase/count?buyer_email=${encodeURIComponent(buyerEmail)}`);
+      const result = await response.json();
+      if (result.success) {
+        setPurchaseCount(result.purchase_count + 1); // 다음 구매 회차
       }
-    };
-
-    fetchPurchaseCount();
-  }, [politicianId]);
+    } catch (err) {
+      console.error('Failed to fetch purchase count:', err);
+    } finally {
+      setLoadingPurchaseCount(false);
+    }
+  };
 
   // 카운트다운 타이머
   useEffect(() => {
@@ -84,6 +82,35 @@ export default function ReportPurchasePage() {
       return () => clearTimeout(timer);
     }
   }, [countdown]);
+
+  // 구매자 유형 선택 핸들러
+  const handleBuyerTypeSelect = (type: BuyerType) => {
+    setBuyerType(type);
+    setError('');
+
+    if (type === 'member') {
+      // 일반 회원: 로그인 확인
+      if (authLoading) return; // 아직 로딩 중
+
+      if (!user) {
+        // 미로그인 → 로그인 페이지로 리다이렉트
+        const currentUrl = `/report-purchase?politician_id=${politicianId}&name=${encodeURIComponent(politicianName)}`;
+        router.push(`/auth/login?redirect=${encodeURIComponent(currentUrl)}`);
+        return;
+      }
+
+      // 로그인됨 → 유저 정보 자동 채움 → 바로 결제 정보 단계로
+      const userEmail = user.email || '';
+      const userName = user.user_metadata?.full_name || user.user_metadata?.name || '';
+      setEmail(userEmail);
+      setBuyerName(userName);
+      fetchPurchaseCount(userEmail);
+      setStep('payment');
+    } else {
+      // 정치인 본인: 이메일 인증 단계로
+      setStep('verify');
+    }
+  };
 
   // 인증 코드 발송
   const sendVerificationCode = async () => {
@@ -113,6 +140,12 @@ export default function ReportPurchasePage() {
 
       setVerificationId(result.verification_id);
       setCountdown(600); // 10분
+
+      // 가격 정보 업데이트
+      if (result.purchase_info) {
+        setPurchaseCount(result.purchase_info.purchase_count);
+      }
+
       alert('인증 코드가 이메일로 발송되었습니다.');
     } catch (err: any) {
       setError(err.message);
@@ -153,6 +186,8 @@ export default function ReportPurchasePage() {
       }
 
       setIsVerified(true);
+      // 인증 완료 후 buyer_email 기준 회차 조회
+      fetchPurchaseCount(email);
       setStep('payment');
     } catch (err: any) {
       setError(err.message);
@@ -171,8 +206,14 @@ export default function ReportPurchasePage() {
       setError('입금자명을 입력해주세요.');
       return;
     }
-    if (!verificationId) {
+
+    if (buyerType === 'politician' && !verificationId) {
       setError('이메일 인증을 먼저 완료해주세요.');
+      return;
+    }
+
+    if (buyerType === 'member' && !user) {
+      setError('로그인이 필요합니다.');
       return;
     }
 
@@ -184,11 +225,13 @@ export default function ReportPurchasePage() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          verification_id: verificationId,
+          buyer_type: buyerType,
+          verification_id: buyerType === 'politician' ? verificationId : undefined,
           politician_id: politicianId,
           buyer_name: buyerName,
           buyer_email: email,
           depositor_name: depositorName,
+          user_id: buyerType === 'member' ? user?.id : undefined,
         }),
       });
 
@@ -206,6 +249,28 @@ export default function ReportPurchasePage() {
     } finally {
       setLoading(false);
     }
+  };
+
+  // 단계 표시 계산
+  const getStepLabels = () => {
+    if (buyerType === 'member') {
+      return ['상품 확인', '결제 정보', '완료'];
+    }
+    return ['상품 확인', '이메일 인증', '결제 정보', '완료'];
+  };
+
+  const getCurrentStepNum = () => {
+    if (buyerType === 'member') {
+      if (step === 'info') return 1;
+      if (step === 'payment') return 2;
+      if (step === 'complete') return 3;
+      return 1;
+    }
+    if (step === 'info') return 1;
+    if (step === 'verify') return 2;
+    if (step === 'payment') return 3;
+    if (step === 'complete') return 4;
+    return 1;
   };
 
   // 정치인 ID 없으면 에러
@@ -226,6 +291,9 @@ export default function ReportPurchasePage() {
     );
   }
 
+  const stepLabels = getStepLabels();
+  const currentStepNum = getCurrentStepNum();
+
   return (
     <div className="min-h-screen bg-gray-50 py-12">
       <div className="container mx-auto px-4 max-w-2xl">
@@ -242,9 +310,8 @@ export default function ReportPurchasePage() {
         {/* 단계 표시 */}
         <div className="flex justify-center mb-8">
           <div className="flex items-center space-x-4">
-            {['상품 확인', '이메일 인증', '결제 정보', '완료'].map((label, idx) => {
+            {stepLabels.map((label, idx) => {
               const stepNum = idx + 1;
-              const currentStepNum = step === 'info' ? 1 : step === 'verify' ? 2 : step === 'payment' ? 3 : 4;
               const isActive = stepNum === currentStepNum;
               const isCompleted = stepNum < currentStepNum;
 
@@ -259,7 +326,7 @@ export default function ReportPurchasePage() {
                   <span className={`ml-2 text-sm ${isActive ? 'text-primary-600 font-medium' : 'text-gray-500'}`}>
                     {label}
                   </span>
-                  {idx < 3 && <div className="w-8 h-0.5 bg-gray-200 mx-2" />}
+                  {idx < stepLabels.length - 1 && <div className="w-8 h-0.5 bg-gray-200 mx-2" />}
                 </div>
               );
             })}
@@ -273,7 +340,7 @@ export default function ReportPurchasePage() {
           </div>
         )}
 
-        {/* Step 1: 상품 확인 */}
+        {/* Step 1: 상품 확인 + 구매자 유형 선택 */}
         {step === 'info' && (
           <div className="bg-white rounded-lg shadow-md p-6">
             <h2 className="text-xl font-bold mb-4">AI 통합 평가 보고서</h2>
@@ -314,74 +381,75 @@ export default function ReportPurchasePage() {
               </div>
             </div>
 
+            {/* 보고서 목차 */}
+            <div className="bg-gray-50 rounded-lg p-4 mb-6 border border-gray-200">
+              <p className="text-sm font-bold text-gray-800 mb-3">📋 보고서 구성</p>
+              <ol className="text-sm text-gray-700 space-y-1.5 list-decimal list-inside">
+                <li>정치인 프로필</li>
+                <li>종합 점수 (AI별 최종 점수 + 10개 카테고리 점수 + 편차 분석)</li>
+                <li>카테고리별 상세 분석 (10개 분야 x 4개 AI 상세 근거)</li>
+                <li>경쟁자 비교</li>
+                <li>점수 구조 분석</li>
+                <li>평가 방법론 및 한계</li>
+                <li>등급 기준표</li>
+              </ol>
+            </div>
+
             {/* 가격 정보 */}
             <div className="border-2 border-primary-200 rounded-lg p-6 mb-6 bg-primary-50">
               <h3 className="font-bold text-lg mb-4 text-primary-800">가격 안내</h3>
-
-              {loadingPurchaseCount ? (
-                <div className="text-center py-4">
-                  <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary-500 mx-auto"></div>
-                  <p className="text-gray-500 mt-2">가격 정보 로딩 중...</p>
+              <div className="space-y-3">
+                <div className="flex justify-between text-gray-600">
+                  <span>보고서 가격 (부가세 별도)</span>
+                  <span className="font-bold text-primary-600 text-xl">₩{BASE_PRICE.toLocaleString()}</span>
                 </div>
-              ) : (
-                <>
-                  {/* 구매 회차 표시 */}
-                  <div className="bg-white rounded-lg p-4 mb-4">
-                    <div className="flex justify-between items-center">
-                      <span className="text-gray-600">구매 회차</span>
-                      <span className="text-xl font-bold text-primary-600">{purchaseCount}차 구매</span>
-                    </div>
-                    {purchaseCount > 1 && (
-                      <p className="text-sm text-green-600 mt-2">
-                        🎉 {purchaseCount}차 구매 할인이 적용됩니다!
-                      </p>
-                    )}
-                  </div>
-
-                  {/* 가격 상세 */}
-                  <div className="space-y-3">
-                    <div className="flex justify-between text-gray-600">
-                      <span>보고서 가격 (부가세 별도)</span>
-                      <span>₩{basePrice.toLocaleString()}</span>
-                    </div>
-                    <div className="flex justify-between text-gray-600">
-                      <span>부가세 (10%)</span>
-                      <span>₩{vatAmount.toLocaleString()}</span>
-                    </div>
-                    <div className="border-t pt-3 flex justify-between text-xl font-bold">
-                      <span>총 결제 금액</span>
-                      <span className="text-primary-600">₩{totalAmount.toLocaleString()}</span>
-                    </div>
-                  </div>
-
-                  {/* 할인 정책 안내 */}
-                  <div className="mt-4 p-3 bg-yellow-50 rounded-lg">
-                    <p className="text-sm font-medium text-yellow-800 mb-2">💡 구매 회차별 할인 정책</p>
-                    <div className="text-xs text-yellow-700 space-y-1">
-                      <p>1차: 100만원 → 2차: 90만원 → 3차: 80만원</p>
-                      <p>4차: 70만원 → 5차: 60만원 → 6차 이후: 50만원</p>
-                      <p className="text-yellow-600">(모든 가격 부가세 별도)</p>
-                    </div>
-                  </div>
-                </>
-              )}
+              </div>
+              {/* 할인 정책 안내 */}
+              <div className="mt-4 p-3 bg-yellow-50 rounded-lg">
+                <p className="text-sm font-medium text-yellow-800 mb-2">💡 구매 회차별 할인 정책</p>
+                <div className="text-xs text-yellow-700 space-y-1">
+                  <p>1차: 200만원 → 2차: 190만원 → 3차: 180만원 → ...</p>
+                  <p>회차별 10만원 할인, 11차 이후: 100만원 (최저가)</p>
+                  <p className="text-yellow-600">(모든 가격 부가세 별도, 구매자 이메일 기준 회차 누적)</p>
+                </div>
+              </div>
             </div>
 
-            <button
-              onClick={() => setStep('verify')}
-              disabled={loadingPurchaseCount}
-              className={`w-full py-3 rounded-lg font-medium transition
-                ${!loadingPurchaseCount
-                  ? 'bg-primary-500 text-white hover:bg-primary-600'
-                  : 'bg-gray-200 text-gray-400 cursor-not-allowed'}`}
-            >
-              다음: 이메일 인증
-            </button>
+            {/* 구매자 유형 선택 */}
+            <div className="mb-6">
+              <h3 className="font-bold text-lg mb-4 text-gray-900">구매자 유형을 선택해주세요</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {/* 정치인 본인 */}
+                <button
+                  onClick={() => handleBuyerTypeSelect('politician')}
+                  className={`p-5 border-2 rounded-lg text-left transition hover:shadow-md
+                    ${buyerType === 'politician' ? 'border-primary-500 bg-primary-50' : 'border-gray-200 hover:border-primary-300'}`}
+                >
+                  <div className="text-2xl mb-2">🏛️</div>
+                  <div className="font-bold text-gray-900 mb-1">정치인 본인입니다</div>
+                  <p className="text-sm text-gray-600">등록된 이메일로 인증 후 구매</p>
+                </button>
+
+                {/* 일반 회원 */}
+                <button
+                  onClick={() => handleBuyerTypeSelect('member')}
+                  disabled={authLoading}
+                  className={`p-5 border-2 rounded-lg text-left transition hover:shadow-md
+                    ${buyerType === 'member' ? 'border-primary-500 bg-primary-50' : 'border-gray-200 hover:border-primary-300'}
+                    ${authLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
+                >
+                  <div className="text-2xl mb-2">👤</div>
+                  <div className="font-bold text-gray-900 mb-1">일반 회원입니다</div>
+                  <p className="text-sm text-gray-600">사이트 회원 로그인으로 구매</p>
+                  {authLoading && <p className="text-xs text-gray-400 mt-1">로그인 상태 확인 중...</p>}
+                </button>
+              </div>
+            </div>
           </div>
         )}
 
-        {/* Step 2: 이메일 인증 */}
-        {step === 'verify' && (
+        {/* Step 2A: 이메일 인증 (정치인 전용) */}
+        {step === 'verify' && buyerType === 'politician' && (
           <div className="bg-white rounded-lg shadow-md p-6">
             <h2 className="text-xl font-bold mb-4">이메일 인증</h2>
             <p className="text-gray-600 mb-6">
@@ -447,7 +515,7 @@ export default function ReportPurchasePage() {
 
             <div className="flex gap-4 mt-6">
               <button
-                onClick={() => setStep('info')}
+                onClick={() => { setStep('info'); setBuyerType(null); }}
                 className="flex-1 py-3 border border-gray-300 rounded-lg font-medium hover:bg-gray-50"
               >
                 이전
@@ -456,22 +524,47 @@ export default function ReportPurchasePage() {
           </div>
         )}
 
-        {/* Step 3: 결제 정보 */}
+        {/* Step 3 (정치인) / Step 2B (일반 회원): 결제 정보 */}
         {step === 'payment' && (
           <div className="bg-white rounded-lg shadow-md p-6">
             <h2 className="text-xl font-bold mb-4">결제 정보</h2>
 
-            {/* 인증 완료 표시 */}
-            <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-6">
-              <div className="flex items-center text-green-700">
-                <span className="text-xl mr-2">✓</span>
-                <span>이메일 인증이 완료되었습니다.</span>
+            {/* 인증 상태 표시 */}
+            {buyerType === 'politician' && (
+              <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-6">
+                <div className="flex items-center text-green-700">
+                  <span className="text-xl mr-2">✓</span>
+                  <span>이메일 인증이 완료되었습니다.</span>
+                </div>
+                <div className="text-sm text-green-600 mt-1">{email}</div>
               </div>
-              <div className="text-sm text-green-600 mt-1">{email}</div>
-            </div>
+            )}
+
+            {buyerType === 'member' && user && (
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+                <div className="flex items-center text-blue-700">
+                  <span className="text-xl mr-2">✓</span>
+                  <span>회원 로그인 확인 완료</span>
+                </div>
+                <div className="text-sm text-blue-600 mt-1">{user.email}</div>
+              </div>
+            )}
 
             {/* 구매자 정보 입력 */}
             <div className="space-y-4 mb-6">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  구매자 이메일
+                </label>
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="example@email.com"
+                  className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 bg-gray-50"
+                  disabled={buyerType === 'politician' || (buyerType === 'member' && !!user?.email)}
+                />
+              </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
                   구매자명 <span className="text-red-500">*</span>
@@ -502,20 +595,33 @@ export default function ReportPurchasePage() {
             {/* 주문 요약 */}
             <div className="bg-gray-50 rounded-lg p-4 mb-6">
               <h3 className="font-medium mb-3">주문 내역</h3>
-              <div className="space-y-2 text-sm">
-                <div className="flex justify-between">
-                  <span>AI 통합 평가 보고서 ({purchaseCount}차 구매)</span>
-                  <span>₩{basePrice.toLocaleString()}</span>
+              {loadingPurchaseCount ? (
+                <div className="text-center py-4">
+                  <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-primary-500 mx-auto"></div>
+                  <p className="text-gray-500 mt-2 text-sm">가격 정보 로딩 중...</p>
                 </div>
-                <div className="flex justify-between text-gray-500">
-                  <span>부가세 (10%)</span>
-                  <span>₩{vatAmount.toLocaleString()}</span>
+              ) : (
+                <div className="space-y-2 text-sm">
+                  <div className="flex justify-between">
+                    <span>AI 통합 평가 보고서 ({purchaseCount}차 구매)</span>
+                    <span>₩{basePrice.toLocaleString()}</span>
+                  </div>
+                  {purchaseCount > 1 && (
+                    <div className="flex justify-between text-green-600">
+                      <span>회차 할인 ({purchaseCount}차)</span>
+                      <span>-₩{(BASE_PRICE - basePrice).toLocaleString()}</span>
+                    </div>
+                  )}
+                  <div className="flex justify-between text-gray-500">
+                    <span>부가세 (10%)</span>
+                    <span>₩{vatAmount.toLocaleString()}</span>
+                  </div>
+                  <div className="border-t pt-2 mt-2 flex justify-between font-bold text-lg">
+                    <span>총 결제 금액</span>
+                    <span className="text-primary-600">₩{totalAmount.toLocaleString()}</span>
+                  </div>
                 </div>
-                <div className="border-t pt-2 mt-2 flex justify-between font-bold text-lg">
-                  <span>총 결제 금액</span>
-                  <span className="text-primary-600">₩{totalAmount.toLocaleString()}</span>
-                </div>
-              </div>
+              )}
             </div>
 
             {/* 계좌 정보 */}
@@ -555,14 +661,21 @@ export default function ReportPurchasePage() {
 
             <div className="flex gap-4">
               <button
-                onClick={() => setStep('verify')}
+                onClick={() => {
+                  if (buyerType === 'politician') {
+                    setStep('verify');
+                  } else {
+                    setStep('info');
+                    setBuyerType(null);
+                  }
+                }}
                 className="flex-1 py-3 border border-gray-300 rounded-lg font-medium hover:bg-gray-50"
               >
                 이전
               </button>
               <button
                 onClick={submitPurchase}
-                disabled={loading || !buyerName || !depositorName}
+                disabled={loading || !buyerName || !depositorName || loadingPurchaseCount}
                 className="flex-1 py-3 bg-primary-500 text-white rounded-lg font-medium hover:bg-primary-600 disabled:bg-gray-300"
               >
                 {loading ? '처리 중...' : '구매 신청 완료'}

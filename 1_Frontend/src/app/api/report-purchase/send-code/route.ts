@@ -9,14 +9,11 @@ import { Resend } from 'resend';
 // Lazy initialization to avoid build-time errors
 const getResend = () => new Resend(process.env.RESEND_API_KEY);
 
-// 구매 회차별 가격 (부가세 별도)
+// 구매 회차별 가격 (부가세 별도) - 구매자(buyer_email) 기준
 const getPriceByPurchaseCount = (count: number): number => {
-  if (count <= 1) return 1000000; // 1차: 100만원
-  if (count === 2) return 900000;  // 2차: 90만원
-  if (count === 3) return 800000;  // 3차: 80만원
-  if (count === 4) return 700000;  // 4차: 70만원
-  if (count === 5) return 600000;  // 5차: 60만원
-  return 500000; // 6차 이후: 50만원 (최소가)
+  const base = 2000000; // 200만원
+  const discount = (count - 1) * 100000; // 회차별 10만원 할인
+  return Math.max(base - discount, 1000000); // 최저 100만원
 };
 
 const VAT_RATE = 0.1;
@@ -55,11 +52,11 @@ export async function POST(request: NextRequest) {
 
     console.log('[send-code] Found politician:', politician.name);
 
-    // 2. 구매 회차 조회
+    // 2. 구매 회차 조회 (buyer_email 기준)
     const { data: previousPurchases } = await supabase
       .from('report_purchases')
       .select('id')
-      .eq('politician_id', validated.politician_id)
+      .eq('buyer_email', validated.email)
       .eq('payment_confirmed', true);
 
     const purchaseCount = (previousPurchases?.length || 0) + 1;

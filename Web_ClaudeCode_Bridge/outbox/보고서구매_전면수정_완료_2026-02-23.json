@@ -1,0 +1,69 @@
+{
+  "task_id": "report-purchase-overhaul",
+  "task_name": "상세평가보고서 구매 기능 전면 수정",
+  "status": "완료",
+  "generated_at": "2026-02-23T00:00:00Z",
+
+  "summary": {
+    "description": "보고서 구매 기능 전면 수정: 구매 대상 확장(정치인→전체), 가격 인상(100만→200만), 회차 기준 변경",
+    "key_changes": [
+      "구매 대상: 정치인 본인만 → 정치인 + 일반 회원(사이트 로그인)",
+      "기본 가격: 100만원 → 200만원 (부가세 별도)",
+      "할인 정책: 회차별 10만원, 최저 50만원 → 최저 100만원",
+      "회차 기준: politician_id → buyer_email (구매자 기준 누적)",
+      "일반 회원 인증: Supabase Auth 로그인 확인 (이메일 인증 불필요)",
+      "보고서 목차 7개 항목 표시 추가"
+    ]
+  },
+
+  "files_modified": [
+    {
+      "path": "1_Frontend/src/app/politicians/[id]/page.tsx",
+      "change": "구매 섹션 UI: 가격 200만원, 안내사항 수정, 보고서 목차 추가"
+    },
+    {
+      "path": "1_Frontend/src/app/report-purchase/page.tsx",
+      "change": "전면 재작성: 구매자 유형 선택(정치인/일반회원), 동적 단계 플로우"
+    },
+    {
+      "path": "1_Frontend/src/app/api/report-purchase/route.ts",
+      "change": "전면 재작성: buyer_type/user_id 추가, 인증 분기, buyer_email 기준 회차"
+    },
+    {
+      "path": "1_Frontend/src/app/api/report-purchase/count/route.ts",
+      "change": "파라미터 변경: politician_id → buyer_email"
+    },
+    {
+      "path": "1_Frontend/src/app/api/report-purchase/send-code/route.ts",
+      "change": "가격 함수 업데이트, 회차 카운트 buyer_email 기준"
+    }
+  ],
+
+  "files_created": [
+    {
+      "path": "0-4_Database/Supabase/migrations/081_add_buyer_type_to_report_purchases.sql",
+      "change": "buyer_type, user_id 컬럼 + 인덱스 추가"
+    }
+  ],
+
+  "build_result": "✅ 성공 (npm run build, 에러/경고 없음)",
+
+  "pending_actions": [
+    "Supabase에 마이그레이션 081 적용 (수동)",
+    "정치인 구매 플로우 E2E 테스트",
+    "일반 회원 구매 플로우 E2E 테스트"
+  ],
+
+  "price_table": {
+    "base_price": 2000000,
+    "discount_per_round": 100000,
+    "min_price": 1000000,
+    "vat_rate": 0.1,
+    "examples": {
+      "1차": "200만원 + VAT = 220만원",
+      "2차": "190만원 + VAT = 209만원",
+      "5차": "160만원 + VAT = 176만원",
+      "11차이후": "100만원 + VAT = 110만원"
+    }
+  }
+}

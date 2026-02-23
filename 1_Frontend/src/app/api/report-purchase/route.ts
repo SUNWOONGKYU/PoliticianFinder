@@ -4,29 +4,29 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 import { createAdminClient } from '@/lib/supabase/server';
+import { requireAuth } from '@/lib/auth/helpers';
 import { Resend } from 'resend';
 
 // Lazy initialization to avoid build-time errors
 const getResend = () => new Resend(process.env.RESEND_API_KEY);
 
-// 구매 회차별 가격 (부가세 별도)
+// 구매 회차별 가격 (부가세 별도) - 구매자(buyer_email) 기준
 const getPriceByPurchaseCount = (count: number): number => {
-  if (count <= 1) return 1000000; // 1차: 100만원
-  if (count === 2) return 900000;  // 2차: 90만원
-  if (count === 3) return 800000;  // 3차: 80만원
-  if (count === 4) return 700000;  // 4차: 70만원
-  if (count === 5) return 600000;  // 5차: 60만원
-  return 500000; // 6차 이후: 50만원 (최소가)
+  const base = 2000000; // 200만원
+  const discount = (count - 1) * 100000; // 회차별 10만원 할인
+  return Math.max(base - discount, 1000000); // 최저 100만원
 };
 
 const VAT_RATE = 0.1;
 
 const purchaseSchema = z.object({
-  verification_id: z.string().uuid('올바른 인증 ID가 아닙니다'),
+  buyer_type: z.enum(['politician', 'member']),
+  verification_id: z.string().uuid('올바른 인증 ID가 아닙니다').optional(),
   politician_id: z.string().min(1, '정치인 ID가 필요합니다'),
   buyer_name: z.string().min(2, '이름은 최소 2자 이상이어야 합니다'),
   buyer_email: z.string().email('올바른 이메일 주소를 입력해주세요'),
   depositor_name: z.string().min(2, '입금자명을 입력해주세요'),
+  user_id: z.string().uuid().optional(),
 });
 
 export async function POST(request: NextRequest) {
@@ -36,36 +36,54 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     const validated = purchaseSchema.parse(body);
 
-    console.log('[purchase] verification_id:', validated.verification_id);
+    console.log('[purchase] buyer_type:', validated.buyer_type);
     console.log('[purchase] politician_id:', validated.politician_id);
 
     const supabase = createAdminClient();
 
-    // 1. 이메일 인증 확인
-    const { data: verification, error: verifyError } = await supabase
-      .from('email_verifications')
-      .select('*')
-      .eq('id', validated.verification_id)
-      .eq('verified', true)
-      .single() as { data: { id: string; email: string; politician_id: string; verified: boolean } | null; error: any };
+    // 인증 분기: 정치인 vs 일반 회원
+    if (validated.buyer_type === 'politician') {
+      // 정치인: 이메일 인증 확인 (기존 로직)
+      if (!validated.verification_id) {
+        return NextResponse.json({
+          success: false,
+          error: { code: 'MISSING_VERIFICATION', message: '정치인 구매 시 이메일 인증이 필요합니다.' }
+        }, { status: 400 });
+      }
 
-    if (verifyError || !verification) {
-      console.log('[purchase] Verification not found or not verified:', verifyError);
-      return NextResponse.json({
-        success: false,
-        error: { code: 'NOT_VERIFIED', message: '이메일 인증이 완료되지 않았습니다.' }
-      }, { status: 400 });
+      const { data: verification, error: verifyError } = await supabase
+        .from('email_verifications')
+        .select('*')
+        .eq('id', validated.verification_id)
+        .eq('verified', true)
+        .single() as { data: { id: string; email: string; politician_id: string; verified: boolean } | null; error: any };
+
+      if (verifyError || !verification) {
+        console.log('[purchase] Verification not found or not verified:', verifyError);
+        return NextResponse.json({
+          success: false,
+          error: { code: 'NOT_VERIFIED', message: '이메일 인증이 완료되지 않았습니다.' }
+        }, { status: 400 });
+      }
+
+      // 인증된 이메일과 구매자 이메일 일치 확인
+      if (verification.email !== validated.buyer_email) {
+        return NextResponse.json({
+          success: false,
+          error: { code: 'EMAIL_MISMATCH', message: '인증된 이메일과 구매자 이메일이 일치하지 않습니다.' }
+        }, { status: 400 });
+      }
+    } else {
+      // 일반 회원: Supabase Auth 로그인 확인
+      const authResult = await requireAuth();
+      if (authResult instanceof NextResponse) {
+        return authResult;
+      }
+      // user_id와 이메일은 인증된 세션에서 온 것이므로 신뢰
+      console.log('[purchase] Member authenticated:', authResult.user.email);
     }
 
-    // 2. 인증된 이메일과 구매자 이메일 일치 확인
-    if (verification.email !== validated.buyer_email) {
-      return NextResponse.json({
-        success: false,
-        error: { code: 'EMAIL_MISMATCH', message: '인증된 이메일과 구매자 이메일이 일치하지 않습니다.' }
-      }, { status: 400 });
-    }
-
-    // 3. 정치인 정보 조회
+    // 정치인 정보 조회
     const { data: politician, error: politicianError } = await supabase
       .from('politicians')
       .select('id, name, party, position')
@@ -79,32 +97,34 @@ export async function POST(request: NextRequest) {
       }, { status: 404 });
     }
 
-    // 4. 해당 정치인의 이전 구매 횟수 조회
+    // 구매자 이메일 기준 이전 구매 횟수 조회
     const { data: previousPurchases } = await supabase
       .from('report_purchases')
       .select('id')
-      .eq('politician_id', validated.politician_id)
+      .eq('buyer_email', validated.buyer_email)
       .eq('payment_confirmed', true) as { data: { id: string }[] | null; error: any };
 
     const purchaseCount = (previousPurchases?.length || 0) + 1;
 
-    // 5. 가격 계산
+    // 가격 계산
     const basePrice = getPriceByPurchaseCount(purchaseCount);
     const vatAmount = Math.round(basePrice * VAT_RATE);
     const totalAmount = basePrice + vatAmount;
 
-    // 6. 할인율 계산
-    const originalPrice = 1000000; // 기본가 100만원
+    // 할인율 계산
+    const originalPrice = 2000000; // 기본가 200만원
     const discountAmount = originalPrice - basePrice;
     const discountRate = discountAmount / originalPrice;
 
-    // 7. 구매 정보 저장
+    // 구매 정보 저장
     const { data: purchase, error: insertError } = await (supabase
       .from('report_purchases') as any)
       .insert({
         politician_id: validated.politician_id,
         buyer_name: validated.buyer_name,
         buyer_email: validated.buyer_email,
+        buyer_type: validated.buyer_type,
+        user_id: validated.buyer_type === 'member' ? validated.user_id : null,
         amount: totalAmount,
         original_amount: originalPrice + Math.round(originalPrice * VAT_RATE), // 원가 (VAT 포함)
         currency: 'KRW',
@@ -112,7 +132,7 @@ export async function POST(request: NextRequest) {
         selected_ais: ['claude', 'chatgpt', 'gemini', 'grok'], // 4개 AI 모두
         purchase_count: purchaseCount,
         discount_rate: discountRate,
-        notes: `입금자명: ${validated.depositor_name} | ${purchaseCount}차 구매`,
+        notes: `[${validated.buyer_type === 'politician' ? '정치인' : '일반회원'}] 입금자명: ${validated.depositor_name} | ${purchaseCount}차 구매`,
       })
       .select()
       .single() as { data: { id: string; created_at: string } | null; error: any };
@@ -127,7 +147,7 @@ export async function POST(request: NextRequest) {
 
     console.log('[purchase] Purchase created:', purchase.id);
 
-    // 8. 구매 확인 이메일 발송
+    // 구매 확인 이메일 발송
     const resend = getResend();
     try {
       await resend.emails.send({
@@ -182,6 +202,10 @@ export async function POST(request: NextRequest) {
                   <td style="padding: 5px 0; text-align: right; font-weight: bold;">AI 통합 평가 보고서</td>
                 </tr>
                 <tr>
+                  <td style="padding: 5px 0;">구매자 유형</td>
+                  <td style="padding: 5px 0; text-align: right;">${validated.buyer_type === 'politician' ? '정치인 본인' : '일반 회원'}</td>
+                </tr>
+                <tr>
                   <td style="padding: 5px 0;">구매자명</td>
                   <td style="padding: 5px 0; text-align: right;">${validated.buyer_name}</td>
                 </tr>
@@ -227,17 +251,18 @@ export async function POST(request: NextRequest) {
       // 이메일 발송 실패해도 구매는 성공 처리
     }
 
-    // 9. 관리자에게 알림 이메일 발송
+    // 관리자에게 알림 이메일 발송
     try {
       await resend.emails.send({
         from: 'PoliticianFinder <noreply@politicianfinder.ai.kr>',
         to: 'wksun99@gmail.com', // 관리자 이메일
-        subject: `[관리자 알림] 새 보고서 구매 신청 - ${politician.name}`,
+        subject: `[관리자 알림] 새 보고서 구매 신청 - ${politician.name} (${validated.buyer_type === 'politician' ? '정치인' : '일반회원'})`,
         html: `
           <div style="font-family: Arial, sans-serif; padding: 20px;">
             <h2>새 보고서 구매 신청</h2>
             <table style="width: 100%; border-collapse: collapse;">
               <tr><td style="padding: 8px; border: 1px solid #ddd;">주문번호</td><td style="padding: 8px; border: 1px solid #ddd;">${purchase.id}</td></tr>
+              <tr><td style="padding: 8px; border: 1px solid #ddd;">구매자 유형</td><td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">${validated.buyer_type === 'politician' ? '정치인 본인' : '일반 회원'}</td></tr>
               <tr><td style="padding: 8px; border: 1px solid #ddd;">정치인</td><td style="padding: 8px; border: 1px solid #ddd;">${politician.name}</td></tr>
               <tr><td style="padding: 8px; border: 1px solid #ddd;">구매자</td><td style="padding: 8px; border: 1px solid #ddd;">${validated.buyer_name}</td></tr>
               <tr><td style="padding: 8px; border: 1px solid #ddd;">이메일</td><td style="padding: 8px; border: 1px solid #ddd;">${validated.buyer_email}</td></tr>
@@ -271,6 +296,7 @@ export async function POST(request: NextRequest) {
           party: politician.party,
         },
         report_type: 'integrated',
+        buyer_type: validated.buyer_type,
         amount: totalAmount,
         base_price: basePrice,
         vat_amount: vatAmount,

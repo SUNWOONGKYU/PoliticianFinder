@@ -1,5 +1,5 @@
 // 구매 회차 조회 API
-// GET /api/report-purchase/count?politician_id=xxx
+// GET /api/report-purchase/count?buyer_email=xxx
 
 import { NextRequest, NextResponse } from 'next/server';
 import { createAdminClient } from '@/lib/supabase/server';
@@ -7,22 +7,22 @@ import { createAdminClient } from '@/lib/supabase/server';
 export async function GET(request: NextRequest) {
   try {
     const searchParams = request.nextUrl.searchParams;
-    const politicianId = searchParams.get('politician_id');
+    const buyerEmail = searchParams.get('buyer_email');
 
-    if (!politicianId) {
+    if (!buyerEmail) {
       return NextResponse.json({
         success: false,
-        error: { code: 'MISSING_PARAM', message: '정치인 ID가 필요합니다.' }
+        error: { code: 'MISSING_PARAM', message: 'buyer_email 파라미터가 필요합니다.' }
       }, { status: 400 });
     }
 
     const supabase = createAdminClient();
 
-    // 해당 정치인의 완료된 구매 횟수 조회
+    // 해당 구매자의 완료된 구매 횟수 조회 (buyer_email 기준)
     const { data: purchases, error } = await supabase
       .from('report_purchases')
       .select('id')
-      .eq('politician_id', politicianId)
+      .eq('buyer_email', buyerEmail)
       .eq('payment_confirmed', true);
 
     if (error) {
@@ -37,7 +37,7 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json({
       success: true,
-      politician_id: politicianId,
+      buyer_email: buyerEmail,
       purchase_count: purchaseCount,
     });
 
