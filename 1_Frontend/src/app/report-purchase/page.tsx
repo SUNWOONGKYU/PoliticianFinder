@@ -826,6 +826,16 @@ export default function ReportPurchasePage() {
             </div>
 
 
+            {/* 할인 정책 안내 */}
+            <div className="mb-6 p-4 bg-gray-50 rounded-lg border border-gray-200">
+              <p className="text-sm font-medium text-gray-800 mb-2">💡 구매 회차별 할인 정책</p>
+              <div className="text-xs text-gray-600 space-y-1">
+                <p>1차: 200만원 → 2차: 190만원 → 3차: 180만원 → ...</p>
+                <p>회차별 10만원 할인, 11차 이후: 100만원 (최저가)</p>
+                <p className="text-gray-500">(모든 가격 부가세 별도 · 구매자 이메일 기준 회차 누적)</p>
+              </div>
+            </div>
+
             {/* 계좌 정보 */}
             <div className="border-2 border-primary-200 rounded-lg p-6 mb-6 bg-primary-50">
               <h3 className="font-bold text-lg mb-4 text-primary-800">입금 계좌 안내</h3>
