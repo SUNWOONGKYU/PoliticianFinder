@@ -856,7 +856,7 @@ export default function PoliticianDetailPage() {
                   <div className="bg-white border-2 border-gray-200 rounded-lg px-3 py-2 text-center font-mono text-gray-900 font-bold text-sm">
                     카테고리 점수 = (6.0 + avg_score × 0.5) × 10
                   </div>
-                  <p className="text-xs text-gray-500 mt-1.5">※ 점수 산출은 등급 고박 — Rating × 2 = Score, 등급이 결정되면 점수 자동 산출</p>
+                  <p className="text-xs text-gray-500 mt-1.5">※ 점수는 등급에 연동 자동 확정 — Rating × 2 = Score (인위 조정 없음)</p>
                 </div>
                 {/* 카테고리 분류 */}
                 <div className="text-xs">
@@ -864,9 +864,26 @@ export default function PoliticianDetailPage() {
                     <span className="border border-gray-400 text-gray-700 text-xs font-bold px-2 py-0.5 rounded mr-2">카테고리 분류</span>
                     <span className="font-bold text-gray-900">수집 단계부터 적용되는 10개 평가 카테고리</span>
                   </div>
-                  <div className="grid grid-cols-5 gap-1">
-                    {['전문성','리더십','비전','청렴성','윤리성','책임감','투명성','소통능력','대응성','공익성'].map((c) => (
-                      <div key={c} className="bg-white rounded border border-gray-100 px-2 py-1 text-center text-gray-900 font-medium">{c}</div>
+                  <div className="grid grid-cols-2 gap-1">
+                    {[
+                      { icon: '📚', name: '전문성', desc: '정책·입법 전문 능력' },
+                      { icon: '🎯', name: '리더십', desc: '방향 제시·결정력' },
+                      { icon: '🔭', name: '비전', desc: '미래 방향성·청사진' },
+                      { icon: '💎', name: '청렴성', desc: '부정부패·도덕성' },
+                      { icon: '⚖️', name: '윤리성', desc: '공인으로서의 윤리' },
+                      { icon: '✅', name: '책임감', desc: '공약 이행·결과 책임' },
+                      { icon: '🔍', name: '투명성', desc: '정보 공개·활동 공개' },
+                      { icon: '💬', name: '소통능력', desc: '국민·언론 소통' },
+                      { icon: '⚡', name: '대응성', desc: '민원·현안 대응 속도' },
+                      { icon: '🌍', name: '공익성', desc: '공공이익 우선 여부' },
+                    ].map((cat) => (
+                      <div key={cat.name} className="bg-white rounded border border-gray-100 px-2 py-1.5 flex items-center gap-1.5">
+                        <span>{cat.icon}</span>
+                        <div>
+                          <span className="font-semibold text-gray-900">{cat.name}</span>
+                          <span className="text-gray-500 ml-1">{cat.desc}</span>
+                        </div>
+                      </div>
                     ))}
                   </div>
                 </div>

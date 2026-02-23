@@ -485,7 +485,7 @@ export default function ReportPurchasePage() {
                     ))}
                   </div>
                   <p className="text-xs text-gray-600 mt-1.5">※ 0점 없음 — 관련 없는 데이터는 평가에서 제외(X)</p>
-                  <p className="text-xs text-gray-500 mt-1">※ 점수 산출은 등급 고박 — 등급이 결정되면 점수 자동 산출 (Rating × 2 = Score)</p>
+                  <p className="text-xs text-gray-500 mt-1">※ 점수는 등급에 연동 자동 확정 — Rating × 2 = Score (인위 조정 없음)</p>
                 </div>
                 {/* 카테고리 분류 */}
                 <div>
