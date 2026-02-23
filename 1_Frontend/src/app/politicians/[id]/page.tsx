@@ -777,12 +777,12 @@ export default function PoliticianDetailPage() {
                 <div className="text-2xl font-bold text-primary-600">₩2,000,000 <span className="text-sm font-normal text-gray-500">(부가세 별도)</span></div>
                 <div className="text-xs text-green-600">* 구매 회차별 할인 적용</div>
               </div>
-              <a
-                href={`/report-purchase?politician_id=${politician?.id}&name=${encodeURIComponent(politician?.name || '')}`}
+              <button
+                onClick={() => setShowPurchaseModal(true)}
                 className="px-6 py-3 bg-primary-500 text-white font-medium rounded-lg hover:bg-primary-600 transition text-center"
               >
                 보고서 구매하기
-              </a>
+              </button>
             </div>
 
             {/* 안내사항 */}
@@ -1232,9 +1232,10 @@ export default function PoliticianDetailPage() {
       {/* 현재 구매 섹션이 숨김 처리되어 있으므로 이 모달은 열리지 않음 */}
       {showPurchaseModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-lg max-w-md w-full p-4 sm:p-6">
-            <div className="flex items-center justify-between mb-6 border-b pb-4">
-              <h3 className="text-lg sm:text-xl font-bold text-gray-900">정치인 AI 상세평가보고서 구매</h3>
+          <div className="bg-white rounded-xl max-w-md w-full p-5 sm:p-6 shadow-2xl">
+            {/* 헤더 */}
+            <div className="flex items-center justify-between mb-5 border-b pb-4">
+              <h3 className="text-lg sm:text-xl font-bold text-gray-900">정치인 AI 상세평가보고서</h3>
               <button
                 onClick={() => setShowPurchaseModal(false)}
                 className="min-w-[44px] min-h-[44px] flex items-center justify-center text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-lg touch-manipulation"
@@ -1245,36 +1246,51 @@ export default function PoliticianDetailPage() {
               </button>
             </div>
 
-            <div className="mb-6">
-              <p className="text-gray-700 mb-4">
-                선택한 정치인 AI 상세평가보고서를 구매하시겠습니까?
-              </p>
-              <div className="bg-gray-50 rounded-lg p-4 mb-4">
-                <div className="text-sm text-gray-600 mb-2">선택한 보고서</div>
-                <div className="text-sm text-gray-900 space-y-1 mb-3">
-                  {selectedReports.map((ai) => (
-                    <div key={ai}>• {ai} 상세평가보고서 - ₩500,000</div>
-                  ))}
-                </div>
-                <div className="border-t pt-3">
-                  <div className="flex items-center justify-between">
-                    <span className="font-bold text-gray-900">총 금액</span>
-                    <span className="text-xl font-bold text-primary-600">₩{totalPrice.toLocaleString()}</span>
-                  </div>
-                </div>
-              </div>
-              <p className="text-xs text-gray-500">
-                * 구매 시 본인 확인 절차가 진행됩니다<br/>
-                * 환불 불가
-              </p>
+            {/* 가격 */}
+            <div className="bg-primary-50 border border-primary-100 rounded-xl p-4 mb-4 text-center">
+              <div className="text-sm text-gray-500 mb-1">보고서 가격</div>
+              <div className="text-3xl font-extrabold text-primary-600">₩2,000,000</div>
+              <div className="text-sm text-gray-500">(부가세 별도)</div>
+              <div className="mt-1.5 text-xs text-green-600 font-medium">* 구매 회차별 할인 적용</div>
             </div>
 
+            {/* 안내사항 */}
+            <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 mb-5">
+              <h4 className="font-bold text-amber-800 mb-2.5 flex items-center gap-1.5 text-sm">
+                <svg className="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd"></path>
+                </svg>
+                안내사항
+              </h4>
+              <ul className="text-sm text-gray-700 space-y-2">
+                <li className="flex items-start gap-2">
+                  <span className="text-amber-500 mt-0.5 flex-shrink-0">•</span>
+                  <span><strong>구매 대상:</strong> 정치인 본인 또는 회원 누구나 구매할 수 있습니다.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-amber-500 mt-0.5 flex-shrink-0">•</span>
+                  <span><strong>인증 방식:</strong> 정치인 – 이메일 인증 / 일반 회원 – 로그인 필요</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-amber-500 mt-0.5 flex-shrink-0">•</span>
+                  <span><strong>할인 정책:</strong> 구매 회차별 10만원씩 할인 (최소 100만원, 부가세 별도)</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* 버튼 */}
             <div className="flex gap-3">
-              <button onClick={() => setShowPurchaseModal(false)} className="flex-1 px-4 py-3 min-h-[44px] border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 active:bg-gray-100 transition touch-manipulation">
+              <button
+                onClick={() => setShowPurchaseModal(false)}
+                className="flex-1 px-4 py-3 min-h-[44px] border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 active:bg-gray-100 transition touch-manipulation"
+              >
                 취소
               </button>
-              <button onClick={confirmPurchase} className="flex-1 px-4 py-3 min-h-[44px] bg-gray-900 text-white rounded-lg hover:bg-gray-800 active:bg-gray-950 transition touch-manipulation">
-                구매하기
+              <button
+                onClick={confirmPurchase}
+                className="flex-1 px-4 py-3 min-h-[44px] bg-primary-500 text-white font-bold rounded-lg hover:bg-primary-600 active:bg-primary-700 transition touch-manipulation"
+              >
+                구매 진행하기
               </button>
             </div>
           </div>
