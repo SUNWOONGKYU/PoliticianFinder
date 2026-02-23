@@ -174,7 +174,8 @@ export function mapPoliticianListFieldsWithScore(
   totalScore: number,
   claudeScore?: number,
   chatgptScore?: number,
-  grokScore?: number
+  grokScore?: number,
+  geminiScore?: number
 ) {
   const gradeInfo = calculateV24Grade(totalScore);
 
@@ -188,12 +189,14 @@ export function mapPoliticianListFieldsWithScore(
     region: dbRecord.region || '',      // 출마지역 (광역)
     district: dbRecord.district || '',  // 출마지구 (하위)
 
-    // V24.0 AI scores (개별 AI 점수 - 없으면 0으로 공란 표시)
+    // V40 AI scores (개별 AI 점수 - 없으면 0으로 공란 표시)
     claudeScore: claudeScore || 0,
     totalScore: totalScore,
     claude: claudeScore || 0,       // 홈 화면 테이블용 - 없으면 0
     chatgpt: chatgptScore || 0,     // 홈 화면 테이블용 - 없으면 0
     grok: grokScore || 0,           // 홈 화면 테이블용 - 없으면 0
+    gemini: geminiScore || 0,       // 홈 화면 테이블용 - 없으면 0
+    geminiScore: geminiScore || 0,  // 페이지 테이블용
     grade: gradeInfo.grade,
     gradeEmoji: gradeInfo.gradeEmoji,
     gradeName: gradeInfo.gradeName,

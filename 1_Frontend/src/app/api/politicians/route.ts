@@ -138,6 +138,7 @@ export async function GET(request: NextRequest) {
       claude_score: number;
       chatgpt_score: number;
       grok_score: number;
+      gemini_score: number;
       total_score: number;
       grade?: string;
       updated_at: string;
@@ -158,6 +159,7 @@ export async function GET(request: NextRequest) {
             claude_score: aiScores["Claude"] || 0,
             chatgpt_score: aiScores["ChatGPT"] || 0,
             grok_score: aiScores["Grok"] || 0,
+            gemini_score: aiScores["Gemini"] || 0,
             total_score: score.final_score || 0,
             grade: score.grade,
             updated_at: score.calculated_at || ''
@@ -175,7 +177,8 @@ export async function GET(request: NextRequest) {
         scoreData?.total_score || 0,
         scoreData?.claude_score || 0,
         scoreData?.chatgpt_score || 0,
-        scoreData?.grok_score || 0
+        scoreData?.grok_score || 0,
+        scoreData?.gemini_score || 0
       );
     });
 

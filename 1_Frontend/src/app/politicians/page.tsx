@@ -14,6 +14,7 @@ interface Politician extends PoliticianListItem {
   district: string;
   overallScore: number;
   chatgptScore: number;
+  geminiScore: number;
   grokScore: number;
   memberRating: number;
   memberCount: number;
@@ -192,6 +193,7 @@ function PoliticiansPageInner() {
               gradeEmoji: p.gradeEmoji || '💚',
               overallScore: p.totalScore || 0,
               chatgptScore: p.chatgpt || 0,
+              geminiScore: p.gemini || 0,
               grokScore: p.grok || 0,
               userRating: p.userRating || 0,
               ratingCount: p.ratingCount || 0,
@@ -607,7 +609,7 @@ function PoliticiansPageInner() {
                     <td className="px-2 py-2 text-center font-bold text-accent-600 whitespace-nowrap">{p.overallScore}</td>
                     <td className="px-2 py-2 text-center font-bold text-accent-600 whitespace-nowrap">{p.claudeScore}</td>
                     <td className="px-2 py-2 text-center font-bold text-accent-600 whitespace-nowrap">{p.chatgptScore}</td>
-                    <td className="px-2 py-2 text-center font-bold text-gray-400 whitespace-nowrap">-</td>
+                    <td className="px-2 py-2 text-center font-bold text-accent-600 whitespace-nowrap">{p.geminiScore}</td>
                     <td className="px-2 py-2 text-center font-bold text-accent-600 whitespace-nowrap">{p.grokScore}</td>
                     <td className="px-2 py-2 text-center whitespace-nowrap">
                       <span className="font-bold text-secondary-600">
@@ -698,7 +700,7 @@ function PoliticiansPageInner() {
                   </div>
                   <div className="bg-gray-50 rounded-lg p-3 text-center">
                     <div className="text-sm text-gray-500 mb-1">Gemini</div>
-                    <div className="text-lg font-bold text-gray-400">-</div>
+                    <div className="text-lg font-bold text-gray-900">{p.geminiScore}</div>
                   </div>
                   <div className="bg-gray-50 rounded-lg p-3 text-center">
                     <div className="text-sm text-gray-500 mb-1">Grok</div>
