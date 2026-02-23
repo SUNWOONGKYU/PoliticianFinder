@@ -12,7 +12,8 @@ import { Politician } from '@/types/politician';
 import FavoriteButton from '@/components/FavoriteButton';
 import { LoadingPage } from '@/components/ui/Spinner';
 import { useNotification } from '@/components/NotificationProvider';
-import { getPoliticianSession } from '@/components/PoliticianAuthModal';
+import { PoliticianAuthModal, getPoliticianSession } from '@/components/PoliticianAuthModal';
+import { getCurrentUser } from '@/lib/supabase/client';
 
 
 // 출마지역 풀네임 변환 (목록 페이지와 동일)
@@ -88,8 +89,15 @@ export default function PoliticianDetailPage() {
   // 정치인 본인 인증 상태 (상세평가보고서 구매 섹션 표시 여부)
   const [isVerifiedOwner, setIsVerifiedOwner] = useState(false);
 
+  // 현재 로그인한 일반 회원 (Supabase auth)
+  const [currentUser, setCurrentUser] = useState<any>(null);
+  const [authChecking, setAuthChecking] = useState(false);
+
   // 정치인 세션 기반 본인 확인 (프로필 수정 버튼 표시 여부)
   const [isOwnProfile, setIsOwnProfile] = useState(false);
+
+  // 구매 모달 내 정치인 이메일 인증 서브모달
+  const [showPoliticianAuthForPurchase, setShowPoliticianAuthForPurchase] = useState(false);
 
   // H13: 탭 네비게이션용 상태
   const [activeTab, setActiveTab] = useState<string>('basic');
@@ -227,8 +235,24 @@ export default function PoliticianDetailPage() {
     setShowPurchaseModal(true);
   };
 
+  // 보고서 구매하기 버튼 클릭 → 먼저 인증 확인 후 모달 오픈
+  const handleOpenPurchaseModal = async () => {
+    setAuthChecking(true);
+    const user = await getCurrentUser();
+    setCurrentUser(user);
+    setAuthChecking(false);
+    setShowPurchaseModal(true);
+  };
+
   const confirmPurchase = () => {
     window.location.href = '/payment';
+  };
+
+  // 정치인 이메일 인증 성공 → 구매 모달 다시 열기
+  const handlePoliticianAuthForPurchaseSuccess = () => {
+    setIsOwnProfile(true);
+    setShowPoliticianAuthForPurchase(false);
+    setShowPurchaseModal(true);
   };
 
   const handleRatingSubmit = async () => {
@@ -772,10 +796,11 @@ export default function PoliticianDetailPage() {
             </div>
 
             <button
-              onClick={() => setShowPurchaseModal(true)}
-              className="w-full py-3 bg-primary-500 text-white font-bold rounded-lg hover:bg-primary-600 active:bg-primary-700 transition text-base mt-2"
+              onClick={handleOpenPurchaseModal}
+              disabled={authChecking}
+              className="w-full py-3 bg-primary-500 text-white font-bold rounded-lg hover:bg-primary-600 active:bg-primary-700 transition text-base mt-2 disabled:opacity-60"
             >
-              보고서 구매하기
+              {authChecking ? '확인 중...' : '보고서 구매하기'}
             </button>
           </div>
         </section>
@@ -1202,6 +1227,7 @@ export default function PoliticianDetailPage() {
       {showPurchaseModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
           <div className="bg-white rounded-xl max-w-md w-full p-5 sm:p-6 shadow-2xl">
+
             {/* 헤더 */}
             <div className="flex items-center justify-between mb-5 border-b pb-4">
               <h3 className="text-lg sm:text-xl font-bold text-gray-900">정치인 AI 상세평가보고서</h3>
@@ -1215,56 +1241,143 @@ export default function PoliticianDetailPage() {
               </button>
             </div>
 
-            {/* 가격 */}
-            <div className="bg-primary-50 border border-primary-100 rounded-xl p-4 mb-4 text-center">
-              <div className="text-sm text-gray-500 mb-1">보고서 가격</div>
-              <div className="text-3xl font-extrabold text-primary-600">₩2,000,000</div>
-              <div className="text-sm text-gray-500">(부가세 별도)</div>
-              <div className="mt-1.5 text-xs text-green-600 font-medium">* 구매 회차별 할인 적용</div>
-            </div>
+            {/* ── STEP 1: 비로그인 상태 ── */}
+            {!currentUser && !isOwnProfile ? (
+              <div>
+                <div className="text-center mb-5">
+                  <div className="text-4xl mb-3">🔒</div>
+                  <p className="text-base font-semibold text-gray-800 mb-1">구매하려면 로그인이 필요합니다</p>
+                  <p className="text-sm text-gray-500">일반 회원은 로그인 후, 정치인 본인은 이메일 인증 후 구매할 수 있습니다.</p>
+                </div>
+                {/* 일반 회원 로그인/가입 */}
+                <div className="space-y-2.5 mb-4">
+                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide">일반 회원</p>
+                  <Link
+                    href={`/auth/signin?redirect=${encodeURIComponent(window.location.pathname)}`}
+                    className="flex items-center justify-center w-full py-3 bg-primary-500 text-white font-bold rounded-lg hover:bg-primary-600 transition"
+                    onClick={() => setShowPurchaseModal(false)}
+                  >
+                    로그인하기
+                  </Link>
+                  <Link
+                    href="/auth/signup"
+                    className="flex items-center justify-center w-full py-3 border border-primary-400 text-primary-600 font-bold rounded-lg hover:bg-primary-50 transition"
+                    onClick={() => setShowPurchaseModal(false)}
+                  >
+                    회원가입하기
+                  </Link>
+                </div>
 
-            {/* 안내사항 */}
-            <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 mb-5">
-              <h4 className="font-bold text-amber-800 mb-2.5 flex items-center gap-1.5 text-sm">
-                <svg className="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd"></path>
-                </svg>
-                안내사항
-              </h4>
-              <ul className="text-sm text-gray-700 space-y-2">
-                <li className="flex items-start gap-2">
-                  <span className="text-amber-500 mt-0.5 flex-shrink-0">•</span>
-                  <span><strong>구매 대상:</strong> 정치인 본인 또는 회원 누구나 구매할 수 있습니다.</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-amber-500 mt-0.5 flex-shrink-0">•</span>
-                  <span><strong>인증 방식:</strong> 정치인 – 이메일 인증 / 일반 회원 – 로그인 필요</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-amber-500 mt-0.5 flex-shrink-0">•</span>
-                  <span><strong>할인 정책:</strong> 구매 회차별 10만원씩 할인 (최소 100만원, 부가세 별도)</span>
-                </li>
-              </ul>
-            </div>
+                {/* 구분선 */}
+                <div className="relative my-4">
+                  <div className="absolute inset-0 flex items-center">
+                    <div className="w-full border-t border-gray-200" />
+                  </div>
+                  <div className="relative flex justify-center text-xs">
+                    <span className="px-2 bg-white text-gray-400">또는</span>
+                  </div>
+                </div>
 
-            {/* 버튼 */}
-            <div className="flex gap-3">
-              <button
-                onClick={() => setShowPurchaseModal(false)}
-                className="flex-1 px-4 py-3 min-h-[44px] border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 active:bg-gray-100 transition touch-manipulation"
-              >
-                취소
-              </button>
-              <button
-                onClick={confirmPurchase}
-                className="flex-1 px-4 py-3 min-h-[44px] bg-primary-500 text-white font-bold rounded-lg hover:bg-primary-600 active:bg-primary-700 transition touch-manipulation"
-              >
-                구매 진행하기
-              </button>
-            </div>
+                {/* 정치인 이메일 인증 */}
+                <div className="space-y-2">
+                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide">정치인 본인 구매</p>
+                  <button
+                    onClick={() => {
+                      setShowPurchaseModal(false);
+                      setShowPoliticianAuthForPurchase(true);
+                    }}
+                    className="flex items-center justify-center gap-2 w-full py-3 border-2 border-blue-400 text-blue-700 font-bold rounded-lg hover:bg-blue-50 transition"
+                  >
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                    정치인 이메일 인증하기
+                  </button>
+                  <p className="text-xs text-center text-gray-400">등록된 이메일로 본인 인증 후 구매 가능</p>
+                </div>
+                <button
+                  onClick={() => setShowPurchaseModal(false)}
+                  className="w-full mt-3 py-2.5 text-sm text-gray-500 hover:text-gray-700 transition"
+                >
+                  닫기
+                </button>
+              </div>
+
+            ) : (
+              /* ── STEP 2: 로그인 완료 → 가격 + 안내사항 표시 ── */
+              <>
+                {/* 로그인 상태 표시 */}
+                <div className="flex items-center gap-2 mb-4 px-3 py-2 bg-green-50 border border-green-200 rounded-lg">
+                  <svg className="w-4 h-4 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-sm text-green-700 font-medium">
+                    {isOwnProfile ? '정치인 본인 인증 완료' : `로그인 완료 (${currentUser?.email || '회원'})`}
+                  </span>
+                </div>
+
+                {/* 가격 */}
+                <div className="bg-primary-50 border border-primary-100 rounded-xl p-4 mb-4 text-center">
+                  <div className="text-sm text-gray-500 mb-1">보고서 가격</div>
+                  <div className="text-3xl font-extrabold text-primary-600">₩2,000,000</div>
+                  <div className="text-sm text-gray-500">(부가세 별도)</div>
+                  <div className="mt-1.5 text-xs text-green-600 font-medium">* 구매 회차별 할인 적용</div>
+                </div>
+
+                {/* 안내사항 */}
+                <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 mb-5">
+                  <h4 className="font-bold text-amber-800 mb-2.5 flex items-center gap-1.5 text-sm">
+                    <svg className="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd"></path>
+                    </svg>
+                    안내사항
+                  </h4>
+                  <ul className="text-sm text-gray-700 space-y-2">
+                    <li className="flex items-start gap-2">
+                      <span className="text-amber-500 mt-0.5 flex-shrink-0">•</span>
+                      <span><strong>구매 대상:</strong> 정치인 본인 또는 회원 누구나 구매할 수 있습니다.</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-amber-500 mt-0.5 flex-shrink-0">•</span>
+                      <span><strong>할인 정책:</strong> 구매 회차별 10만원씩 할인 (최소 100만원, 부가세 별도)</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-amber-500 mt-0.5 flex-shrink-0">•</span>
+                      <span className="text-gray-500 text-xs">* 환불 불가</span>
+                    </li>
+                  </ul>
+                </div>
+
+                {/* 버튼 */}
+                <div className="flex gap-3">
+                  <button
+                    onClick={() => setShowPurchaseModal(false)}
+                    className="flex-1 px-4 py-3 min-h-[44px] border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 active:bg-gray-100 transition touch-manipulation"
+                  >
+                    취소
+                  </button>
+                  <button
+                    onClick={confirmPurchase}
+                    className="flex-1 px-4 py-3 min-h-[44px] bg-primary-500 text-white font-bold rounded-lg hover:bg-primary-600 active:bg-primary-700 transition touch-manipulation"
+                  >
+                    구매 진행하기
+                  </button>
+                </div>
+              </>
+            )}
+
           </div>
         </div>
       )}
+
+      {/* 정치인 이메일 인증 모달 (구매 플로우) */}
+      <PoliticianAuthModal
+        isOpen={showPoliticianAuthForPurchase}
+        onClose={() => setShowPoliticianAuthForPurchase(false)}
+        onSuccess={(session, politician) => {
+          handlePoliticianAuthForPurchaseSuccess();
+        }}
+      />
 
       {/* 별점 평가 모달 */}
       {showRatingModal && (
