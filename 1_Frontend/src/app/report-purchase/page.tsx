@@ -408,47 +408,47 @@ export default function ReportPurchasePage() {
             <h2 className="text-xl font-bold mb-4">AI 통합 평가 보고서</h2>
 
             {/* AI 기반 정치인 평가점수 산출 프로세스 */}
-            <div className="mb-6 border border-blue-200 rounded-xl overflow-hidden">
-              <div className="bg-blue-700 px-5 py-3">
+            <div className="mb-6 border border-gray-200 rounded-xl overflow-hidden">
+              <div className="bg-gray-800 px-5 py-3">
                 <p className="text-sm font-bold text-white">📊 AI 기반 정치인 평가점수 산출 프로세스</p>
-                <p className="text-xs text-blue-200 mt-0.5">데이터 수집 → 4개 AI 독립 평가 → 점수 산출 → 등급 판정</p>
+                <p className="text-xs text-gray-300 mt-0.5">데이터 수집 → 4개 AI 독립 평가 → 점수 산출 → 등급 판정</p>
               </div>
-              <div className="bg-blue-50 p-5 space-y-5">
+              <div className="bg-gray-50 p-5 space-y-5">
                 {/* STEP 1 */}
                 <div>
                   <div className="flex items-center mb-2">
-                    <span className="bg-blue-700 text-white text-xs font-bold px-2 py-0.5 rounded mr-2">STEP 1</span>
-                    <span className="text-sm font-bold text-blue-900">데이터 수집</span>
+                    <span className="bg-gray-800 text-white text-xs font-bold px-2 py-0.5 rounded mr-2">STEP 1</span>
+                    <span className="text-sm font-bold text-gray-900">데이터 수집</span>
                   </div>
                   <div className="grid grid-cols-2 gap-2 text-xs">
-                    <div className="bg-white rounded-lg p-3 border border-blue-100">
-                      <p className="font-semibold text-blue-800 mb-1">🏛️ 채널 A — 공식 의정활동</p>
+                    <div className="bg-white rounded-lg p-3 border border-gray-100">
+                      <p className="font-semibold text-gray-800 mb-1">🏛️ 채널 A — 공식 의정활동</p>
                       <p className="text-gray-600">국회 회의록, 발의 법안, 표결 기록 등 공식 데이터</p>
-                      <p className="text-blue-500 mt-1 font-medium">수집 기간: 최근 4년</p>
+                      <p className="text-gray-600 mt-1 font-medium">수집 기간: 최근 4년</p>
                     </div>
-                    <div className="bg-white rounded-lg p-3 border border-blue-100">
-                      <p className="font-semibold text-blue-800 mb-1">📰 채널 B — 공개 뉴스·SNS</p>
+                    <div className="bg-white rounded-lg p-3 border border-gray-100">
+                      <p className="font-semibold text-gray-800 mb-1">📰 채널 B — 공개 뉴스·SNS</p>
                       <p className="text-gray-600">뉴스 기사, 인터뷰, SNS 발언 등 공개 정보</p>
-                      <p className="text-blue-500 mt-1 font-medium">수집 기간: 최근 2년</p>
+                      <p className="text-gray-600 mt-1 font-medium">수집 기간: 최근 2년</p>
                     </div>
                   </div>
-                  <div className="mt-2 bg-blue-100 rounded px-3 py-1.5 text-xs text-blue-800 text-center font-medium">
+                  <div className="mt-2 bg-gray-100 rounded px-3 py-1.5 text-xs text-gray-800 text-center font-medium">
                     정치인 1인당 총 1,000~1,200건 수집
                   </div>
                 </div>
                 {/* STEP 2 */}
                 <div>
                   <div className="flex items-center mb-2">
-                    <span className="bg-blue-700 text-white text-xs font-bold px-2 py-0.5 rounded mr-2">STEP 2</span>
-                    <span className="text-sm font-bold text-blue-900">4개 AI 독립 평가</span>
+                    <span className="bg-gray-800 text-white text-xs font-bold px-2 py-0.5 rounded mr-2">STEP 2</span>
+                    <span className="text-sm font-bold text-gray-900">4개 AI 독립 평가</span>
                   </div>
                   <p className="text-xs text-gray-600 mb-2">각 AI는 서로 결과를 공유하지 않고 독립적으로 평가 — 편향 최소화 및 교차검증</p>
                   <div className="grid grid-cols-2 gap-2 text-xs">
                     {[
-                      { name: 'Claude', sub: 'Anthropic', color: 'bg-orange-50 border-orange-200 text-orange-800' },
-                      { name: 'ChatGPT', sub: 'OpenAI', color: 'bg-green-50 border-green-200 text-green-800' },
-                      { name: 'Gemini', sub: 'Google', color: 'bg-blue-50 border-blue-200 text-blue-800' },
-                      { name: 'Grok', sub: 'xAI', color: 'bg-purple-50 border-purple-200 text-purple-800' },
+                      { name: 'Claude', sub: 'Anthropic', color: 'bg-gray-50 border-gray-200 text-gray-800' },
+                      { name: 'ChatGPT', sub: 'OpenAI', color: 'bg-gray-50 border-gray-200 text-gray-800' },
+                      { name: 'Gemini', sub: 'Google', color: 'bg-gray-50 border-gray-200 text-gray-800' },
+                      { name: 'Grok', sub: 'xAI', color: 'bg-gray-50 border-gray-200 text-gray-800' },
                     ].map((ai) => (
                       <div key={ai.name} className={`rounded-lg p-2.5 border ${ai.color} font-semibold text-center`}>
                         🤖 {ai.name}
@@ -456,27 +456,27 @@ export default function ReportPurchasePage() {
                       </div>
                     ))}
                   </div>
-                  <div className="mt-2 bg-blue-100 rounded px-3 py-1.5 text-xs text-blue-800 text-center font-medium">
+                  <div className="mt-2 bg-gray-100 rounded px-3 py-1.5 text-xs text-gray-800 text-center font-medium">
                     4개 AI × 1,000~1,200건 = 총 4,000~4,800건 평가 생성
                   </div>
                 </div>
                 {/* STEP 3 */}
                 <div>
                   <div className="flex items-center mb-2">
-                    <span className="bg-blue-700 text-white text-xs font-bold px-2 py-0.5 rounded mr-2">STEP 3</span>
-                    <span className="text-sm font-bold text-blue-900">건별 등급 평가 (8단계)</span>
+                    <span className="bg-gray-800 text-white text-xs font-bold px-2 py-0.5 rounded mr-2">STEP 3</span>
+                    <span className="text-sm font-bold text-gray-900">건별 등급 평가 (8단계)</span>
                   </div>
                   <p className="text-xs text-gray-600 mb-2">각 기사·게시물을 10개 카테고리별로 8단계 등급 평가</p>
                   <div className="grid grid-cols-4 gap-1 text-xs text-center">
                     {[
-                      { r: '+4', label: '매우긍정', color: 'bg-green-600 text-white' },
-                      { r: '+3', label: '긍정', color: 'bg-green-400 text-white' },
-                      { r: '+2', label: '약간긍정', color: 'bg-green-200 text-green-800' },
-                      { r: '+1', label: '미미긍정', color: 'bg-green-100 text-green-700' },
-                      { r: '−1', label: '미미부정', color: 'bg-red-100 text-red-700' },
-                      { r: '−2', label: '약간부정', color: 'bg-red-200 text-red-800' },
-                      { r: '−3', label: '부정', color: 'bg-red-400 text-white' },
-                      { r: '−4', label: '매우부정', color: 'bg-red-600 text-white' },
+                      { r: '+4', label: '매우긍정', color: 'bg-gray-700 text-white' },
+                      { r: '+3', label: '긍정', color: 'bg-gray-500 text-white' },
+                      { r: '+2', label: '약간긍정', color: 'bg-gray-200 text-gray-800' },
+                      { r: '+1', label: '미미긍정', color: 'bg-gray-100 text-gray-700' },
+                      { r: '−1', label: '미미부정', color: 'bg-gray-100 text-gray-700' },
+                      { r: '−2', label: '약간부정', color: 'bg-gray-200 text-gray-800' },
+                      { r: '−3', label: '부정', color: 'bg-gray-500 text-white' },
+                      { r: '−4', label: '매우부정', color: 'bg-gray-700 text-white' },
                     ].map((g) => (
                       <div key={g.r} className={`rounded p-1.5 ${g.color}`}>
                         <div className="font-bold">{g.r}</div>
@@ -484,13 +484,13 @@ export default function ReportPurchasePage() {
                       </div>
                     ))}
                   </div>
-                  <p className="text-xs text-blue-600 mt-1.5">※ 0점 없음 — 관련 없는 데이터는 평가에서 제외(X)</p>
+                  <p className="text-xs text-gray-600 mt-1.5">※ 0점 없음 — 관련 없는 데이터는 평가에서 제외(X)</p>
                 </div>
                 {/* STEP 4 */}
                 <div>
                   <div className="flex items-center mb-2">
-                    <span className="bg-blue-700 text-white text-xs font-bold px-2 py-0.5 rounded mr-2">STEP 4</span>
-                    <span className="text-sm font-bold text-blue-900">카테고리 점수 산출</span>
+                    <span className="bg-gray-800 text-white text-xs font-bold px-2 py-0.5 rounded mr-2">STEP 4</span>
+                    <span className="text-sm font-bold text-gray-900">카테고리 점수 산출</span>
                   </div>
                   <div className="space-y-2 text-xs">
                     <div className="flex items-center gap-2 text-gray-700">
@@ -505,7 +505,7 @@ export default function ReportPurchasePage() {
                       <span className="bg-gray-200 rounded px-1.5 py-0.5 font-mono">③</span>
                       <span>아래 공식으로 최종 카테고리 점수 산출</span>
                     </div>
-                    <div className="bg-white border-2 border-blue-300 rounded-lg px-4 py-3 text-center font-mono text-blue-900 font-bold text-sm">
+                    <div className="bg-white border-2 border-gray-200 rounded-lg px-4 py-3 text-center font-mono text-gray-900 font-bold text-sm">
                       카테고리 점수 = (6.0 + avg_score × 0.5) × 10
                     </div>
                     <div className="grid grid-cols-3 gap-1 text-center">
@@ -530,8 +530,8 @@ export default function ReportPurchasePage() {
                 {/* STEP 5 */}
                 <div>
                   <div className="flex items-center mb-2">
-                    <span className="bg-blue-700 text-white text-xs font-bold px-2 py-0.5 rounded mr-2">STEP 5</span>
-                    <span className="text-sm font-bold text-blue-900">10개 카테고리 종합</span>
+                    <span className="bg-gray-800 text-white text-xs font-bold px-2 py-0.5 rounded mr-2">STEP 5</span>
+                    <span className="text-sm font-bold text-gray-900">10개 카테고리 종합</span>
                   </div>
                   <div className="grid grid-cols-2 gap-1.5 text-xs">
                     {[
@@ -546,37 +546,37 @@ export default function ReportPurchasePage() {
                       { icon: '⚡', name: '대응성', desc: '민원·현안 대응 속도' },
                       { icon: '🌍', name: '공익성', desc: '공공이익 우선 여부' },
                     ].map((cat) => (
-                      <div key={cat.name} className="bg-white rounded border border-blue-100 px-2.5 py-1.5 flex items-center gap-2">
+                      <div key={cat.name} className="bg-white rounded border border-gray-100 px-2.5 py-1.5 flex items-center gap-2">
                         <span>{cat.icon}</span>
                         <div>
-                          <span className="font-semibold text-blue-900">{cat.name}</span>
+                          <span className="font-semibold text-gray-900">{cat.name}</span>
                           <span className="text-gray-500 ml-1">{cat.desc}</span>
                         </div>
                       </div>
                     ))}
                   </div>
-                  <div className="mt-2 bg-blue-100 rounded px-3 py-1.5 text-xs text-blue-800 text-center font-medium">
+                  <div className="mt-2 bg-gray-100 rounded px-3 py-1.5 text-xs text-gray-800 text-center font-medium">
                     10개 카테고리 × 각 20~100점 → 합산 최종 점수 200~1,000점
                   </div>
                 </div>
                 {/* STEP 6 */}
                 <div>
                   <div className="flex items-center mb-2">
-                    <span className="bg-blue-700 text-white text-xs font-bold px-2 py-0.5 rounded mr-2">STEP 6</span>
-                    <span className="text-sm font-bold text-blue-900">최종 등급 판정</span>
+                    <span className="bg-gray-800 text-white text-xs font-bold px-2 py-0.5 rounded mr-2">STEP 6</span>
+                    <span className="text-sm font-bold text-gray-900">최종 등급 판정</span>
                   </div>
                   <div className="grid grid-cols-5 gap-1 text-xs text-center">
                     {[
-                      { grade: 'M', range: '950~', label: '최상위', color: 'bg-yellow-400 text-yellow-900' },
-                      { grade: 'P+', range: '900~', label: '우수', color: 'bg-blue-500 text-white' },
-                      { grade: 'P', range: '850~', label: '양호상', color: 'bg-blue-400 text-white' },
-                      { grade: 'P−', range: '800~', label: '양호', color: 'bg-blue-300 text-blue-900' },
-                      { grade: 'E+', range: '750~', label: '평균상', color: 'bg-green-400 text-white' },
-                      { grade: 'E', range: '700~', label: '평균', color: 'bg-green-300 text-green-900' },
+                      { grade: 'M', range: '950~', label: '최상위', color: 'bg-gray-800 text-white' },
+                      { grade: 'P+', range: '900~', label: '우수', color: 'bg-gray-700 text-white' },
+                      { grade: 'P', range: '850~', label: '양호상', color: 'bg-gray-600 text-white' },
+                      { grade: 'P−', range: '800~', label: '양호', color: 'bg-gray-500 text-white' },
+                      { grade: 'E+', range: '750~', label: '평균상', color: 'bg-gray-400 text-white' },
+                      { grade: 'E', range: '700~', label: '평균', color: 'bg-gray-300 text-gray-900' },
                       { grade: 'E−', range: '650~', label: '평균하', color: 'bg-gray-300 text-gray-800' },
-                      { grade: 'C', range: '550~', label: '미흡', color: 'bg-orange-300 text-orange-900' },
-                      { grade: 'D', range: '400~', label: '부족', color: 'bg-red-300 text-red-900' },
-                      { grade: 'L', range: '~399', label: '최하위', color: 'bg-red-600 text-white' },
+                      { grade: 'C', range: '550~', label: '미흡', color: 'bg-gray-200 text-gray-800' },
+                      { grade: 'D', range: '400~', label: '부족', color: 'bg-gray-200 text-gray-700' },
+                      { grade: 'L', range: '~399', label: '최하위', color: 'bg-gray-100 text-gray-700' },
                     ].map((g) => (
                       <div key={g.grade} className={`rounded p-1.5 ${g.color}`}>
                         <div className="font-bold text-sm">{g.grade}</div>
@@ -590,37 +590,14 @@ export default function ReportPurchasePage() {
             </div>
 
             {/* 상품 설명 */}
-            <div className="bg-gradient-to-r from-primary-50 to-orange-50 rounded-lg p-6 mb-6">
-              <div className="flex items-center mb-4">
-                <div className="w-16 h-16 bg-primary-500 rounded-full flex items-center justify-center text-white text-2xl mr-4">
+            <div className="bg-gray-50 rounded-lg p-4 mb-6 border border-gray-200">
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-white text-xl">
                   📊
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-gray-900">4개 AI 통합 평가 보고서</h3>
-                  <p className="text-gray-600">Claude, ChatGPT, Gemini, Grok 평가 종합</p>
-                </div>
-              </div>
-
-              <div className="space-y-2 text-sm text-gray-700">
-                <div className="flex items-center">
-                  <span className="text-green-500 mr-2">✓</span>
-                  <span>Claude AI 상세 평가 분석</span>
-                </div>
-                <div className="flex items-center">
-                  <span className="text-green-500 mr-2">✓</span>
-                  <span>ChatGPT AI 상세 평가 분석</span>
-                </div>
-                <div className="flex items-center">
-                  <span className="text-green-500 mr-2">✓</span>
-                  <span>Gemini AI 상세 평가 분석</span>
-                </div>
-                <div className="flex items-center">
-                  <span className="text-green-500 mr-2">✓</span>
-                  <span>Grok AI 상세 평가 분석</span>
-                </div>
-                <div className="flex items-center">
-                  <span className="text-primary-500 mr-2">★</span>
-                  <span className="font-medium">4개 AI 종합 평가 및 비교 분석</span>
+                  <h3 className="text-base font-bold text-gray-900">4개 AI 통합 평가 보고서</h3>
+                  <p className="text-sm text-gray-600">Claude · ChatGPT · Gemini · Grok 평가 종합</p>
                 </div>
               </div>
             </div>
@@ -637,26 +614,6 @@ export default function ReportPurchasePage() {
                 <li>평가 방법론 및 한계</li>
                 <li>등급 기준표</li>
               </ol>
-            </div>
-
-            {/* 가격 정보 */}
-            <div className="border-2 border-primary-200 rounded-lg p-6 mb-6 bg-primary-50">
-              <h3 className="font-bold text-lg mb-4 text-primary-800">가격 안내</h3>
-              <div className="space-y-3">
-                <div className="flex justify-between text-gray-600">
-                  <span>보고서 가격 (부가세 별도)</span>
-                  <span className="font-bold text-primary-600 text-xl">₩{BASE_PRICE.toLocaleString()}</span>
-                </div>
-              </div>
-              {/* 할인 정책 안내 */}
-              <div className="mt-4 p-3 bg-yellow-50 rounded-lg">
-                <p className="text-sm font-medium text-yellow-800 mb-2">💡 구매 회차별 할인 정책</p>
-                <div className="text-xs text-yellow-700 space-y-1">
-                  <p>1차: 200만원 → 2차: 190만원 → 3차: 180만원 → ...</p>
-                  <p>회차별 10만원 할인, 11차 이후: 100만원 (최저가)</p>
-                  <p className="text-yellow-600">(모든 가격 부가세 별도, 구매자 이메일 기준 회차 누적)</p>
-                </div>
-              </div>
             </div>
 
             {/* 구매자 유형 선택 */}

@@ -769,79 +769,66 @@ export default function PoliticianDetailPage() {
               Claude, ChatGPT, Gemini, Grok 4개 AI의 통합 평가 보고서를 PDF로 제공해드립니다.
             </p>
 
-            {/* 통합 보고서 상품 */}
-            <div className="bg-white rounded-lg p-4 mb-4">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-12 h-12 bg-primary-500 rounded-full flex items-center justify-center text-white text-xl">
-                  📊
-                </div>
-                <div>
-                  <div className="text-base font-bold text-gray-900">4개 AI 통합 평가 보고서</div>
-                  <div className="text-sm text-gray-600">Claude, ChatGPT, Gemini, Grok</div>
-                </div>
-              </div>
-
-              {/* 보고서 목차 */}
-              <div className="mt-3 p-3 bg-gray-50 rounded-lg">
-                <p className="text-sm font-medium text-gray-800 mb-2">보고서 구성</p>
-                <ol className="text-xs text-gray-600 space-y-1 list-decimal list-inside">
-                  <li>정치인 프로필</li>
-                  <li>종합 점수 (AI별 최종 점수, 10개 카테고리 점수, AI 평가 편차 분석)</li>
-                  <li>카테고리별 상세 분석 (10개 카테고리 x AI별 점수 + 주요 근거)</li>
-                  <li>경쟁자 비교</li>
-                  <li>점수 구조 분석</li>
-                  <li>평가 방법론 및 한계</li>
-                  <li>등급 기준표</li>
-                </ol>
-              </div>
+            {/* 보고서 목차 */}
+            <div className="bg-white rounded-lg p-3 mb-4 border border-gray-200">
+              <p className="text-sm font-medium text-gray-800 mb-2">📋 보고서 구성</p>
+              <ol className="text-xs text-gray-600 space-y-1 list-decimal list-inside">
+                <li>정치인 프로필</li>
+                <li>종합 점수 (AI별 최종 점수, 10개 카테고리 점수, AI 평가 편차 분석)</li>
+                <li>카테고리별 상세 분석 (10개 카테고리 x AI별 점수 + 주요 근거)</li>
+                <li>경쟁자 비교</li>
+                <li>점수 구조 분석</li>
+                <li>평가 방법론 및 한계</li>
+                <li>등급 기준표</li>
+              </ol>
             </div>
 
             {/* AI 기반 정치인 평가점수 산출 프로세스 */}
-            <div className="mt-4 mb-4 border border-blue-200 rounded-xl overflow-hidden">
-              <div className="bg-blue-700 px-4 py-2.5">
+            <div className="mt-4 mb-4 border border-gray-200 rounded-xl overflow-hidden">
+              <div className="bg-gray-800 px-4 py-2.5">
                 <p className="text-sm font-bold text-white">📊 AI 기반 정치인 평가점수 산출 프로세스</p>
-                <p className="text-xs text-blue-200 mt-0.5">데이터 수집 → 4개 AI 독립 평가 → 점수 산출 → 등급 판정</p>
+                <p className="text-xs text-gray-300 mt-0.5">데이터 수집 → 4개 AI 독립 평가 → 점수 산출 → 등급 판정</p>
               </div>
-              <div className="bg-blue-50 p-4 space-y-4">
+              <div className="bg-gray-50 p-4 space-y-4">
                 {/* STEP 1+2: 수집 & 평가 */}
                 <div className="grid grid-cols-2 gap-3 text-xs">
                   <div>
                     <div className="flex items-center mb-1.5">
-                      <span className="bg-blue-700 text-white text-xs font-bold px-2 py-0.5 rounded mr-2">STEP 1</span>
-                      <span className="font-bold text-blue-900">데이터 수집</span>
+                      <span className="bg-gray-800 text-white text-xs font-bold px-2 py-0.5 rounded mr-2">STEP 1</span>
+                      <span className="font-bold text-gray-900">데이터 수집</span>
                     </div>
                     <div className="space-y-1">
-                      <div className="bg-white rounded p-2 border border-blue-100">
-                        <p className="font-semibold text-blue-800">🏛️ 공식 의정활동 (4년)</p>
+                      <div className="bg-white rounded p-2 border border-gray-100">
+                        <p className="font-semibold text-gray-800">🏛️ 공식 의정활동 (4년)</p>
                         <p className="text-gray-500">국회 회의록·법안·표결 기록</p>
                       </div>
-                      <div className="bg-white rounded p-2 border border-blue-100">
-                        <p className="font-semibold text-blue-800">📰 공개 뉴스·SNS (2년)</p>
+                      <div className="bg-white rounded p-2 border border-gray-100">
+                        <p className="font-semibold text-gray-800">📰 공개 뉴스·SNS (2년)</p>
                         <p className="text-gray-500">기사·인터뷰·SNS 발언</p>
                       </div>
                     </div>
-                    <div className="mt-1.5 bg-blue-100 rounded px-2 py-1 text-blue-800 text-center font-medium">
+                    <div className="mt-1.5 bg-gray-100 rounded px-2 py-1 text-gray-800 text-center font-medium">
                       1인당 1,000~1,200건
                     </div>
                   </div>
                   <div>
                     <div className="flex items-center mb-1.5">
-                      <span className="bg-blue-700 text-white text-xs font-bold px-2 py-0.5 rounded mr-2">STEP 2</span>
-                      <span className="font-bold text-blue-900">4개 AI 독립 평가</span>
+                      <span className="bg-gray-800 text-white text-xs font-bold px-2 py-0.5 rounded mr-2">STEP 2</span>
+                      <span className="font-bold text-gray-900">4개 AI 독립 평가</span>
                     </div>
                     <div className="grid grid-cols-2 gap-1">
                       {[
-                        { name: 'Claude', color: 'bg-orange-50 border-orange-200 text-orange-800' },
-                        { name: 'ChatGPT', color: 'bg-green-50 border-green-200 text-green-800' },
-                        { name: 'Gemini', color: 'bg-blue-50 border-blue-200 text-blue-800' },
-                        { name: 'Grok', color: 'bg-purple-50 border-purple-200 text-purple-800' },
+                        { name: 'Claude', color: 'bg-gray-50 border-gray-200 text-gray-800' },
+                        { name: 'ChatGPT', color: 'bg-gray-50 border-gray-200 text-gray-800' },
+                        { name: 'Gemini', color: 'bg-gray-50 border-gray-200 text-gray-800' },
+                        { name: 'Grok', color: 'bg-gray-50 border-gray-200 text-gray-800' },
                       ].map((ai) => (
                         <div key={ai.name} className={`rounded p-1.5 border ${ai.color} font-semibold text-center text-xs`}>
                           🤖 {ai.name}
                         </div>
                       ))}
                     </div>
-                    <div className="mt-1.5 bg-blue-100 rounded px-2 py-1 text-blue-800 text-center font-medium">
+                    <div className="mt-1.5 bg-gray-100 rounded px-2 py-1 text-gray-800 text-center font-medium">
                       총 4,000~4,800건 평가
                     </div>
                   </div>
@@ -849,24 +836,24 @@ export default function PoliticianDetailPage() {
                 {/* STEP 3+4: 등급 & 공식 */}
                 <div>
                   <div className="flex items-center mb-1.5">
-                    <span className="bg-blue-700 text-white text-xs font-bold px-2 py-0.5 rounded mr-2">STEP 3</span>
-                    <span className="text-xs font-bold text-blue-900">8단계 등급 평가 → 점수 산출</span>
+                    <span className="bg-gray-800 text-white text-xs font-bold px-2 py-0.5 rounded mr-2">STEP 3</span>
+                    <span className="text-xs font-bold text-gray-900">8단계 등급 평가 → 점수 산출</span>
                   </div>
                   <div className="grid grid-cols-8 gap-0.5 text-xs text-center mb-2">
                     {[
-                      { r: '+4', color: 'bg-green-600 text-white' },
-                      { r: '+3', color: 'bg-green-400 text-white' },
-                      { r: '+2', color: 'bg-green-200 text-green-800' },
-                      { r: '+1', color: 'bg-green-100 text-green-700' },
-                      { r: '−1', color: 'bg-red-100 text-red-700' },
-                      { r: '−2', color: 'bg-red-200 text-red-800' },
-                      { r: '−3', color: 'bg-red-400 text-white' },
-                      { r: '−4', color: 'bg-red-600 text-white' },
+                      { r: '+4', color: 'bg-gray-700 text-white' },
+                      { r: '+3', color: 'bg-gray-500 text-white' },
+                      { r: '+2', color: 'bg-gray-200 text-gray-800' },
+                      { r: '+1', color: 'bg-gray-100 text-gray-700' },
+                      { r: '−1', color: 'bg-gray-100 text-gray-700' },
+                      { r: '−2', color: 'bg-gray-200 text-gray-800' },
+                      { r: '−3', color: 'bg-gray-500 text-white' },
+                      { r: '−4', color: 'bg-gray-700 text-white' },
                     ].map((g) => (
                       <div key={g.r} className={`rounded py-1 font-bold ${g.color}`}>{g.r}</div>
                     ))}
                   </div>
-                  <div className="bg-white border-2 border-blue-300 rounded-lg px-3 py-2 text-center font-mono text-blue-900 font-bold text-sm">
+                  <div className="bg-white border-2 border-gray-200 rounded-lg px-3 py-2 text-center font-mono text-gray-900 font-bold text-sm">
                     카테고리 점수 = (6.0 + avg_score × 0.5) × 10
                   </div>
                 </div>
@@ -874,32 +861,32 @@ export default function PoliticianDetailPage() {
                 <div className="grid grid-cols-2 gap-3 text-xs">
                   <div>
                     <div className="flex items-center mb-1.5">
-                      <span className="bg-blue-700 text-white text-xs font-bold px-2 py-0.5 rounded mr-2">STEP 4</span>
-                      <span className="font-bold text-blue-900">10개 카테고리</span>
+                      <span className="bg-gray-800 text-white text-xs font-bold px-2 py-0.5 rounded mr-2">STEP 4</span>
+                      <span className="font-bold text-gray-900">10개 카테고리</span>
                     </div>
                     <div className="grid grid-cols-2 gap-1">
                       {['전문성','리더십','비전','청렴성','윤리성','책임감','투명성','소통능력','대응성','공익성'].map((c) => (
-                        <div key={c} className="bg-white rounded border border-blue-100 px-2 py-1 text-center text-blue-900 font-medium">{c}</div>
+                        <div key={c} className="bg-white rounded border border-gray-100 px-2 py-1 text-center text-gray-900 font-medium">{c}</div>
                       ))}
                     </div>
                   </div>
                   <div>
                     <div className="flex items-center mb-1.5">
-                      <span className="bg-blue-700 text-white text-xs font-bold px-2 py-0.5 rounded mr-2">STEP 5</span>
-                      <span className="font-bold text-blue-900">최종 등급 (200~1,000점)</span>
+                      <span className="bg-gray-800 text-white text-xs font-bold px-2 py-0.5 rounded mr-2">STEP 5</span>
+                      <span className="font-bold text-gray-900">최종 등급 (200~1,000점)</span>
                     </div>
                     <div className="grid grid-cols-2 gap-1 text-center">
                       {[
-                        { grade: 'M', range: '950~', color: 'bg-yellow-400 text-yellow-900' },
-                        { grade: 'P+', range: '900~', color: 'bg-blue-500 text-white' },
-                        { grade: 'P', range: '850~', color: 'bg-blue-400 text-white' },
-                        { grade: 'P−', range: '800~', color: 'bg-blue-300 text-blue-900' },
-                        { grade: 'E+', range: '750~', color: 'bg-green-400 text-white' },
-                        { grade: 'E', range: '700~', color: 'bg-green-300 text-green-900' },
+                        { grade: 'M', range: '950~', color: 'bg-gray-800 text-white' },
+                        { grade: 'P+', range: '900~', color: 'bg-gray-700 text-white' },
+                        { grade: 'P', range: '850~', color: 'bg-gray-600 text-white' },
+                        { grade: 'P−', range: '800~', color: 'bg-gray-500 text-white' },
+                        { grade: 'E+', range: '750~', color: 'bg-gray-400 text-white' },
+                        { grade: 'E', range: '700~', color: 'bg-gray-300 text-gray-900' },
                         { grade: 'E−', range: '650~', color: 'bg-gray-300 text-gray-800' },
-                        { grade: 'C', range: '550~', color: 'bg-orange-300 text-orange-900' },
-                        { grade: 'D', range: '400~', color: 'bg-red-300 text-red-900' },
-                        { grade: 'L', range: '~399', color: 'bg-red-600 text-white' },
+                        { grade: 'C', range: '550~', color: 'bg-gray-200 text-gray-800' },
+                        { grade: 'D', range: '400~', color: 'bg-gray-200 text-gray-700' },
+                        { grade: 'L', range: '~399', color: 'bg-gray-100 text-gray-700' },
                       ].map((g) => (
                         <div key={g.grade} className={`rounded px-1.5 py-1 ${g.color} font-bold`}>
                           {g.grade} <span className="font-normal text-xs opacity-80">{g.range}</span>
