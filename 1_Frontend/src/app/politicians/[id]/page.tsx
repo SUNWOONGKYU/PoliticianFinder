@@ -685,7 +685,7 @@ export default function PoliticianDetailPage() {
               <div className="flex flex-col items-center gap-0.5">
                 <img src="https://cdn.brandfetch.io/idW5s392j1/w/338/h/338/theme/dark/icon.png" alt="Claude" className="h-5 w-5 object-contain rounded" />
                 <span className="font-medium text-gray-900 dark:text-white text-xs">Claude</span>
-                <span className="text-xl font-bold text-primary-600 dark:text-primary-400">{politician.totalScore || 0}</span>
+                <span className="text-xl font-bold text-primary-600 dark:text-primary-400">{(politician as any).claudeScore || 0}</span>
               </div>
             </div>
 
@@ -694,7 +694,7 @@ export default function PoliticianDetailPage() {
               <div className="flex flex-col items-center gap-0.5">
                 <img src="https://cdn.brandfetch.io/idR3duQxYl/theme/dark/symbol.svg" alt="ChatGPT" className="h-5 w-5 object-contain" />
                 <span className="font-medium text-gray-900 dark:text-white text-xs">ChatGPT</span>
-                <span className="text-xl font-bold text-primary-600 dark:text-primary-400">{politician.totalScore || 0}</span>
+                <span className="text-xl font-bold text-primary-600 dark:text-primary-400">{(politician as any).chatgptScore || 0}</span>
               </div>
             </div>
 
@@ -703,7 +703,7 @@ export default function PoliticianDetailPage() {
               <div className="flex flex-col items-center gap-0.5">
                 <img src="https://cdn.simpleicons.org/googlegemini" alt="Gemini" className="h-5 w-5 object-contain" />
                 <span className="font-medium text-gray-900 dark:text-white text-xs">Gemini</span>
-                <span className="text-xl font-bold text-primary-600 dark:text-primary-400">{politician.totalScore || 0}</span>
+                <span className="text-xl font-bold text-primary-600 dark:text-primary-400">{(politician as any).geminiScore || 0}</span>
               </div>
             </div>
 
@@ -712,7 +712,7 @@ export default function PoliticianDetailPage() {
               <div className="flex flex-col items-center gap-0.5">
                 <img src="https://cdn.simpleicons.org/x/000000" alt="Grok" className="h-4 w-4 max-h-4 max-w-4 object-contain dark:invert" />
                 <span className="font-medium text-gray-900 dark:text-white text-xs">Grok</span>
-                <span className="text-xl font-bold text-primary-600 dark:text-primary-400">{politician.totalScore || 0}</span>
+                <span className="text-xl font-bold text-primary-600 dark:text-primary-400">{(politician as any).grokScore || 0}</span>
               </div>
             </div>
 

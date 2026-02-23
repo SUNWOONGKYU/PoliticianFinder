@@ -60,17 +60,15 @@ export async function GET(
       console.error("AI evaluations query error:", evalError);
     }
 
-    // V24.0 AI 최종 점수 조회 (ai_final_scores 테이블 - 실제 DB 스키마 반영)
+    // V40 AI 최종 점수 조회 (ai_final_scores_v40 테이블)
     const { data: aiFinalScores, error: finalScoreError } = await supabase
-      .from("ai_final_scores")
-      .select("*")
+      .from("ai_final_scores_v40")
+      .select("politician_id, final_score, ai_final_scores, grade, calculated_at")
       .eq("politician_id", id)
-      .order("updated_at", { ascending: false })
-      .limit(1)
       .single();
 
     if (finalScoreError && finalScoreError.code !== "PGRST116") {
-      console.error("AI final scores query error:", finalScoreError);
+      console.error("AI final scores v40 query error:", finalScoreError);
     }
 
     // V24.0 카테고리별 점수 조회 (ai_category_scores 테이블)
@@ -138,18 +136,28 @@ export async function GET(
       return { grade: 'L', gradeEmoji: '⬛', gradeName: 'Lead' };
     };
 
-    // V24.0 점수 및 등급 정보 추가
+    // V40 점수 및 등급 정보 추가
     let v24Score = null;
     let v24Grade = null;
     let v24GradeEmoji = null;
     let v24GradeName = null;
     let v24CategoryScores: any[] = [];
+    let claudeScore = 0;
+    let chatgptScore = 0;
+    let geminiScore = 0;
+    let grokScore = 0;
 
     if (aiFinalScores) {
-      // 실제 DB 스키마: total_score, grade_code, grade_name, grade_emoji
-      v24Score = aiFinalScores.total_score;
+      // V40 스키마: final_score, ai_final_scores JSONB {Claude, ChatGPT, Gemini, Grok}
+      v24Score = aiFinalScores.final_score;
 
-      // 점수 기반으로 등급 정보 계산 (항상 점수 기준으로 등급 결정 - DB 불일치 방지)
+      const aiScores = aiFinalScores.ai_final_scores || {};
+      claudeScore = aiScores['Claude'] || 0;
+      chatgptScore = aiScores['ChatGPT'] || 0;
+      geminiScore = aiScores['Gemini'] || 0;
+      grokScore = aiScores['Grok'] || 0;
+
+      // 점수 기반으로 등급 정보 계산
       const gradeInfo = calculateV24Grade(v24Score);
       v24Grade = gradeInfo.grade;
       v24GradeName = gradeInfo.gradeName;
@@ -169,14 +177,17 @@ export async function GET(
     // Add AI evaluations to mapped data
     const responseData = {
       ...mappedData,
-      // V24.0 AI 평가 정보 (Primary)
-      claudeScore: v24Score,
+      // V40 AI 평가 정보 (Primary)
       totalScore: v24Score,
+      claudeScore: claudeScore,
+      chatgptScore: chatgptScore,
+      geminiScore: geminiScore,
+      grokScore: grokScore,
       grade: v24Grade,
       gradeEmoji: v24GradeEmoji,
       gradeName: v24GradeName,
       categoryScores: v24CategoryScores,
-      lastUpdated: aiFinalScores?.updated_at || null,
+      lastUpdated: aiFinalScores?.calculated_at || null,
       // Legacy AI 평가 정보 (ai_evaluations 테이블)
       ai_evaluations: evaluationsByModel,
       has_evaluations: Object.keys(evaluationsByModel).length > 0 || v24Score !== null,
