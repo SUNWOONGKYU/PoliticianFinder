@@ -31,6 +31,7 @@ export default function ReportPurchasePage() {
   const { user, isLoading: authLoading } = useAuth();
   const politicianId = searchParams.get('politician_id');
   const politicianName = searchParams.get('name') || '';
+  const urlBuyerType = searchParams.get('buyer_type') as BuyerType | null;
 
   const [step, setStep] = useState<Step>('info');
   const [buyerType, setBuyerType] = useState<BuyerType | null>(null);
@@ -74,6 +75,14 @@ export default function ReportPurchasePage() {
       setLoadingPurchaseCount(false);
     }
   };
+
+  // URL buyer_type 파라미터로 자동 분기
+  useEffect(() => {
+    if (urlBuyerType && !buyerType && !authLoading) {
+      handleBuyerTypeSelect(urlBuyerType);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [urlBuyerType, authLoading]);
 
   // 카운트다운 타이머
   useEffect(() => {
