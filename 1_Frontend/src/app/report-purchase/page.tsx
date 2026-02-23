@@ -93,12 +93,14 @@ export default function ReportPurchasePage() {
     checkAuth();
   }, []);
 
-  // URL buyer_type 파라미터로 자동 분기
+  // URL buyer_type 파라미터 → 구매자 유형만 미리 선택, info 단계는 항상 먼저 표시
   useEffect(() => {
     if (!urlBuyerType || buyerType || authLoading) return;
 
+    setBuyerType(urlBuyerType as BuyerType);
+
     if (urlBuyerType === 'politician') {
-      // PoliticianAuthModal에서 이미 인증했다면 → verify 단계 건너뜀
+      // localStorage 세션 유효하면 정보만 미리 채우기 (단계 이동 없음)
       const sessionStr = typeof window !== 'undefined' ? localStorage.getItem('politician_session') : null;
       if (sessionStr) {
         try {
@@ -111,26 +113,21 @@ export default function ReportPurchasePage() {
             .then(res => res.json())
             .then(data => {
               if (data.valid && data.politician?.verified_email) {
-                setBuyerType('politician');
                 setEmail(data.politician.verified_email);
                 setBuyerName(data.politician.name || '');
                 setIsVerified(true);
                 setPoliticianSessionToken(session.session_token);
                 fetchPurchaseCount(data.politician.verified_email);
-                setStep('payment');
-              } else {
-                handleBuyerTypeSelect('politician');
               }
             })
-            .catch(() => handleBuyerTypeSelect('politician'));
-        } catch {
-          handleBuyerTypeSelect('politician');
-        }
-      } else {
-        handleBuyerTypeSelect('politician');
+            .catch(() => {});
+        } catch {}
       }
-    } else {
-      handleBuyerTypeSelect(urlBuyerType);
+    } else if (urlBuyerType === 'member' && user) {
+      // 로그인된 일반 회원: 정보만 미리 채우기
+      setEmail(user.email || '');
+      setBuyerName(user.user_metadata?.full_name || user.user_metadata?.name || '');
+      fetchPurchaseCount(user.email || '');
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [urlBuyerType, authLoading]);
@@ -167,8 +164,12 @@ export default function ReportPurchasePage() {
       fetchPurchaseCount(userEmail);
       setStep('payment');
     } else {
-      // 정치인 본인: 이메일 인증 단계로
-      setStep('verify');
+      // 정치인 본인: 이미 인증됐으면 바로 결제, 아니면 verify로
+      if (isVerified && politicianSessionToken) {
+        setStep('payment');
+      } else {
+        setStep('verify');
+      }
     }
   };
 
@@ -406,6 +407,188 @@ export default function ReportPurchasePage() {
           <div className="bg-white rounded-lg shadow-md p-6">
             <h2 className="text-xl font-bold mb-4">AI 통합 평가 보고서</h2>
 
+            {/* AI 기반 정치인 평가점수 산출 프로세스 */}
+            <div className="mb-6 border border-blue-200 rounded-xl overflow-hidden">
+              <div className="bg-blue-700 px-5 py-3">
+                <p className="text-sm font-bold text-white">📊 AI 기반 정치인 평가점수 산출 프로세스</p>
+                <p className="text-xs text-blue-200 mt-0.5">데이터 수집 → 4개 AI 독립 평가 → 점수 산출 → 등급 판정</p>
+              </div>
+              <div className="bg-blue-50 p-5 space-y-5">
+                {/* STEP 1 */}
+                <div>
+                  <div className="flex items-center mb-2">
+                    <span className="bg-blue-700 text-white text-xs font-bold px-2 py-0.5 rounded mr-2">STEP 1</span>
+                    <span className="text-sm font-bold text-blue-900">데이터 수집</span>
+                  </div>
+                  <div className="grid grid-cols-2 gap-2 text-xs">
+                    <div className="bg-white rounded-lg p-3 border border-blue-100">
+                      <p className="font-semibold text-blue-800 mb-1">🏛️ 채널 A — 공식 의정활동</p>
+                      <p className="text-gray-600">국회 회의록, 발의 법안, 표결 기록 등 공식 데이터</p>
+                      <p className="text-blue-500 mt-1 font-medium">수집 기간: 최근 4년</p>
+                    </div>
+                    <div className="bg-white rounded-lg p-3 border border-blue-100">
+                      <p className="font-semibold text-blue-800 mb-1">📰 채널 B — 공개 뉴스·SNS</p>
+                      <p className="text-gray-600">뉴스 기사, 인터뷰, SNS 발언 등 공개 정보</p>
+                      <p className="text-blue-500 mt-1 font-medium">수집 기간: 최근 2년</p>
+                    </div>
+                  </div>
+                  <div className="mt-2 bg-blue-100 rounded px-3 py-1.5 text-xs text-blue-800 text-center font-medium">
+                    정치인 1인당 총 1,000~1,200건 수집
+                  </div>
+                </div>
+                {/* STEP 2 */}
+                <div>
+                  <div className="flex items-center mb-2">
+                    <span className="bg-blue-700 text-white text-xs font-bold px-2 py-0.5 rounded mr-2">STEP 2</span>
+                    <span className="text-sm font-bold text-blue-900">4개 AI 독립 평가</span>
+                  </div>
+                  <p className="text-xs text-gray-600 mb-2">각 AI는 서로 결과를 공유하지 않고 독립적으로 평가 — 편향 최소화 및 교차검증</p>
+                  <div className="grid grid-cols-2 gap-2 text-xs">
+                    {[
+                      { name: 'Claude', sub: 'Anthropic', color: 'bg-orange-50 border-orange-200 text-orange-800' },
+                      { name: 'ChatGPT', sub: 'OpenAI', color: 'bg-green-50 border-green-200 text-green-800' },
+                      { name: 'Gemini', sub: 'Google', color: 'bg-blue-50 border-blue-200 text-blue-800' },
+                      { name: 'Grok', sub: 'xAI', color: 'bg-purple-50 border-purple-200 text-purple-800' },
+                    ].map((ai) => (
+                      <div key={ai.name} className={`rounded-lg p-2.5 border ${ai.color} font-semibold text-center`}>
+                        🤖 {ai.name}
+                        <span className="block text-xs font-normal opacity-70">{ai.sub}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="mt-2 bg-blue-100 rounded px-3 py-1.5 text-xs text-blue-800 text-center font-medium">
+                    4개 AI × 1,000~1,200건 = 총 4,000~4,800건 평가 생성
+                  </div>
+                </div>
+                {/* STEP 3 */}
+                <div>
+                  <div className="flex items-center mb-2">
+                    <span className="bg-blue-700 text-white text-xs font-bold px-2 py-0.5 rounded mr-2">STEP 3</span>
+                    <span className="text-sm font-bold text-blue-900">건별 등급 평가 (8단계)</span>
+                  </div>
+                  <p className="text-xs text-gray-600 mb-2">각 기사·게시물을 10개 카테고리별로 8단계 등급 평가</p>
+                  <div className="grid grid-cols-4 gap-1 text-xs text-center">
+                    {[
+                      { r: '+4', label: '매우긍정', color: 'bg-green-600 text-white' },
+                      { r: '+3', label: '긍정', color: 'bg-green-400 text-white' },
+                      { r: '+2', label: '약간긍정', color: 'bg-green-200 text-green-800' },
+                      { r: '+1', label: '미미긍정', color: 'bg-green-100 text-green-700' },
+                      { r: '−1', label: '미미부정', color: 'bg-red-100 text-red-700' },
+                      { r: '−2', label: '약간부정', color: 'bg-red-200 text-red-800' },
+                      { r: '−3', label: '부정', color: 'bg-red-400 text-white' },
+                      { r: '−4', label: '매우부정', color: 'bg-red-600 text-white' },
+                    ].map((g) => (
+                      <div key={g.r} className={`rounded p-1.5 ${g.color}`}>
+                        <div className="font-bold">{g.r}</div>
+                        <div className="text-xs opacity-80">{g.label}</div>
+                      </div>
+                    ))}
+                  </div>
+                  <p className="text-xs text-blue-600 mt-1.5">※ 0점 없음 — 관련 없는 데이터는 평가에서 제외(X)</p>
+                </div>
+                {/* STEP 4 */}
+                <div>
+                  <div className="flex items-center mb-2">
+                    <span className="bg-blue-700 text-white text-xs font-bold px-2 py-0.5 rounded mr-2">STEP 4</span>
+                    <span className="text-sm font-bold text-blue-900">카테고리 점수 산출</span>
+                  </div>
+                  <div className="space-y-2 text-xs">
+                    <div className="flex items-center gap-2 text-gray-700">
+                      <span className="bg-gray-200 rounded px-1.5 py-0.5 font-mono">①</span>
+                      <span>Rating(등급) × 2 = Score (−8 ~ +8)</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-gray-700">
+                      <span className="bg-gray-200 rounded px-1.5 py-0.5 font-mono">②</span>
+                      <span>카테고리별 Score 평균 = avg_score</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-gray-700">
+                      <span className="bg-gray-200 rounded px-1.5 py-0.5 font-mono">③</span>
+                      <span>아래 공식으로 최종 카테고리 점수 산출</span>
+                    </div>
+                    <div className="bg-white border-2 border-blue-300 rounded-lg px-4 py-3 text-center font-mono text-blue-900 font-bold text-sm">
+                      카테고리 점수 = (6.0 + avg_score × 0.5) × 10
+                    </div>
+                    <div className="grid grid-cols-3 gap-1 text-center">
+                      <div className="bg-white rounded border border-gray-200 p-2">
+                        <div className="text-red-500 font-bold">최저</div>
+                        <div className="text-gray-600">avg_score −8</div>
+                        <div className="font-bold text-gray-800">→ 20점</div>
+                      </div>
+                      <div className="bg-white rounded border border-gray-200 p-2">
+                        <div className="text-gray-500 font-bold">기준</div>
+                        <div className="text-gray-600">avg_score 0</div>
+                        <div className="font-bold text-gray-800">→ 60점</div>
+                      </div>
+                      <div className="bg-white rounded border border-gray-200 p-2">
+                        <div className="text-green-500 font-bold">최고</div>
+                        <div className="text-gray-600">avg_score +8</div>
+                        <div className="font-bold text-gray-800">→ 100점</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {/* STEP 5 */}
+                <div>
+                  <div className="flex items-center mb-2">
+                    <span className="bg-blue-700 text-white text-xs font-bold px-2 py-0.5 rounded mr-2">STEP 5</span>
+                    <span className="text-sm font-bold text-blue-900">10개 카테고리 종합</span>
+                  </div>
+                  <div className="grid grid-cols-2 gap-1.5 text-xs">
+                    {[
+                      { icon: '📚', name: '전문성', desc: '정책·입법 전문 능력' },
+                      { icon: '🎯', name: '리더십', desc: '방향 제시·결정력' },
+                      { icon: '🔭', name: '비전', desc: '미래 방향성·청사진' },
+                      { icon: '💎', name: '청렴성', desc: '부정부패·도덕성' },
+                      { icon: '⚖️', name: '윤리성', desc: '공인으로서의 윤리' },
+                      { icon: '✅', name: '책임감', desc: '공약 이행·결과 책임' },
+                      { icon: '🔍', name: '투명성', desc: '정보 공개·활동 공개' },
+                      { icon: '💬', name: '소통능력', desc: '국민·언론 소통' },
+                      { icon: '⚡', name: '대응성', desc: '민원·현안 대응 속도' },
+                      { icon: '🌍', name: '공익성', desc: '공공이익 우선 여부' },
+                    ].map((cat) => (
+                      <div key={cat.name} className="bg-white rounded border border-blue-100 px-2.5 py-1.5 flex items-center gap-2">
+                        <span>{cat.icon}</span>
+                        <div>
+                          <span className="font-semibold text-blue-900">{cat.name}</span>
+                          <span className="text-gray-500 ml-1">{cat.desc}</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="mt-2 bg-blue-100 rounded px-3 py-1.5 text-xs text-blue-800 text-center font-medium">
+                    10개 카테고리 × 각 20~100점 → 합산 최종 점수 200~1,000점
+                  </div>
+                </div>
+                {/* STEP 6 */}
+                <div>
+                  <div className="flex items-center mb-2">
+                    <span className="bg-blue-700 text-white text-xs font-bold px-2 py-0.5 rounded mr-2">STEP 6</span>
+                    <span className="text-sm font-bold text-blue-900">최종 등급 판정</span>
+                  </div>
+                  <div className="grid grid-cols-5 gap-1 text-xs text-center">
+                    {[
+                      { grade: 'M', range: '950~', label: '최상위', color: 'bg-yellow-400 text-yellow-900' },
+                      { grade: 'P+', range: '900~', label: '우수', color: 'bg-blue-500 text-white' },
+                      { grade: 'P', range: '850~', label: '양호상', color: 'bg-blue-400 text-white' },
+                      { grade: 'P−', range: '800~', label: '양호', color: 'bg-blue-300 text-blue-900' },
+                      { grade: 'E+', range: '750~', label: '평균상', color: 'bg-green-400 text-white' },
+                      { grade: 'E', range: '700~', label: '평균', color: 'bg-green-300 text-green-900' },
+                      { grade: 'E−', range: '650~', label: '평균하', color: 'bg-gray-300 text-gray-800' },
+                      { grade: 'C', range: '550~', label: '미흡', color: 'bg-orange-300 text-orange-900' },
+                      { grade: 'D', range: '400~', label: '부족', color: 'bg-red-300 text-red-900' },
+                      { grade: 'L', range: '~399', label: '최하위', color: 'bg-red-600 text-white' },
+                    ].map((g) => (
+                      <div key={g.grade} className={`rounded p-1.5 ${g.color}`}>
+                        <div className="font-bold text-sm">{g.grade}</div>
+                        <div className="text-xs">{g.range}</div>
+                        <div className="text-xs opacity-80">{g.label}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
             {/* 상품 설명 */}
             <div className="bg-gradient-to-r from-primary-50 to-orange-50 rounded-lg p-6 mb-6">
               <div className="flex items-center mb-4">
@@ -454,197 +637,6 @@ export default function ReportPurchasePage() {
                 <li>평가 방법론 및 한계</li>
                 <li>등급 기준표</li>
               </ol>
-            </div>
-
-            {/* 보고서 산출 방법 */}
-            <div className="mb-6 border border-blue-200 rounded-xl overflow-hidden">
-              {/* 헤더 */}
-              <div className="bg-blue-700 px-5 py-3">
-                <p className="text-sm font-bold text-white">🔬 상세 보고서 산출 방법론</p>
-                <p className="text-xs text-blue-200 mt-0.5">V40 AI 평가 엔진 기반 · 4개 독립 AI 교차검증</p>
-              </div>
-
-              <div className="bg-blue-50 p-5 space-y-5">
-
-                {/* STEP 1 - 데이터 수집 */}
-                <div>
-                  <div className="flex items-center mb-2">
-                    <span className="bg-blue-700 text-white text-xs font-bold px-2 py-0.5 rounded mr-2">STEP 1</span>
-                    <span className="text-sm font-bold text-blue-900">데이터 수집</span>
-                  </div>
-                  <div className="grid grid-cols-2 gap-2 text-xs">
-                    <div className="bg-white rounded-lg p-3 border border-blue-100">
-                      <p className="font-semibold text-blue-800 mb-1">🏛️ 채널 A — 공식 의정활동</p>
-                      <p className="text-gray-600">국회 회의록, 발의 법안, 표결 기록 등 공식 데이터</p>
-                      <p className="text-blue-500 mt-1 font-medium">수집 기간: 최근 4년</p>
-                    </div>
-                    <div className="bg-white rounded-lg p-3 border border-blue-100">
-                      <p className="font-semibold text-blue-800 mb-1">📰 채널 B — 공개 뉴스·SNS</p>
-                      <p className="text-gray-600">뉴스 기사, 인터뷰, SNS 발언 등 공개 정보</p>
-                      <p className="text-blue-500 mt-1 font-medium">수집 기간: 최근 2년</p>
-                    </div>
-                  </div>
-                  <div className="mt-2 bg-blue-100 rounded px-3 py-1.5 text-xs text-blue-800 text-center font-medium">
-                    정치인 1인당 총 1,000~1,200건 수집
-                  </div>
-                </div>
-
-                {/* STEP 2 - AI 평가 */}
-                <div>
-                  <div className="flex items-center mb-2">
-                    <span className="bg-blue-700 text-white text-xs font-bold px-2 py-0.5 rounded mr-2">STEP 2</span>
-                    <span className="text-sm font-bold text-blue-900">4개 AI 독립 평가</span>
-                  </div>
-                  <p className="text-xs text-gray-600 mb-2">각 AI는 서로 결과를 공유하지 않고 독립적으로 평가 — 편향 최소화 및 교차검증</p>
-                  <div className="grid grid-cols-2 gap-2 text-xs">
-                    {[
-                      { name: 'Claude', sub: 'Anthropic', color: 'bg-orange-50 border-orange-200 text-orange-800' },
-                      { name: 'ChatGPT', sub: 'OpenAI', color: 'bg-green-50 border-green-200 text-green-800' },
-                      { name: 'Gemini', sub: 'Google', color: 'bg-blue-50 border-blue-200 text-blue-800' },
-                      { name: 'Grok', sub: 'xAI', color: 'bg-purple-50 border-purple-200 text-purple-800' },
-                    ].map((ai) => (
-                      <div key={ai.name} className={`rounded-lg p-2.5 border ${ai.color} font-semibold text-center`}>
-                        🤖 {ai.name}
-                        <span className="block text-xs font-normal opacity-70">{ai.sub}</span>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="mt-2 bg-blue-100 rounded px-3 py-1.5 text-xs text-blue-800 text-center font-medium">
-                    4개 AI × 1,000~1,200건 = 총 4,000~4,800건 평가 생성
-                  </div>
-                </div>
-
-                {/* STEP 3 - 등급 평가 */}
-                <div>
-                  <div className="flex items-center mb-2">
-                    <span className="bg-blue-700 text-white text-xs font-bold px-2 py-0.5 rounded mr-2">STEP 3</span>
-                    <span className="text-sm font-bold text-blue-900">건별 등급 평가 (8단계)</span>
-                  </div>
-                  <p className="text-xs text-gray-600 mb-2">각 기사·게시물을 10개 카테고리별로 8단계 등급 평가</p>
-                  <div className="grid grid-cols-4 gap-1 text-xs text-center">
-                    {[
-                      { r: '+4', label: '매우긍정', color: 'bg-green-600 text-white' },
-                      { r: '+3', label: '긍정', color: 'bg-green-400 text-white' },
-                      { r: '+2', label: '약간긍정', color: 'bg-green-200 text-green-800' },
-                      { r: '+1', label: '미미긍정', color: 'bg-green-100 text-green-700' },
-                      { r: '−1', label: '미미부정', color: 'bg-red-100 text-red-700' },
-                      { r: '−2', label: '약간부정', color: 'bg-red-200 text-red-800' },
-                      { r: '−3', label: '부정', color: 'bg-red-400 text-white' },
-                      { r: '−4', label: '매우부정', color: 'bg-red-600 text-white' },
-                    ].map((g) => (
-                      <div key={g.r} className={`rounded p-1.5 ${g.color}`}>
-                        <div className="font-bold">{g.r}</div>
-                        <div className="text-xs opacity-80">{g.label}</div>
-                      </div>
-                    ))}
-                  </div>
-                  <p className="text-xs text-blue-600 mt-1.5">※ 0점 없음 — 관련 없는 데이터는 평가에서 제외(X)</p>
-                </div>
-
-                {/* STEP 4 - 점수 산출 */}
-                <div>
-                  <div className="flex items-center mb-2">
-                    <span className="bg-blue-700 text-white text-xs font-bold px-2 py-0.5 rounded mr-2">STEP 4</span>
-                    <span className="text-sm font-bold text-blue-900">카테고리 점수 산출</span>
-                  </div>
-                  <div className="space-y-2 text-xs">
-                    <div className="flex items-center gap-2 text-gray-700">
-                      <span className="bg-gray-200 rounded px-1.5 py-0.5 font-mono">①</span>
-                      <span>Rating(등급) × 2 = Score (−8 ~ +8)</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-gray-700">
-                      <span className="bg-gray-200 rounded px-1.5 py-0.5 font-mono">②</span>
-                      <span>카테고리별 Score 평균 = avg_score</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-gray-700">
-                      <span className="bg-gray-200 rounded px-1.5 py-0.5 font-mono">③</span>
-                      <span>아래 공식으로 최종 카테고리 점수 산출</span>
-                    </div>
-                    <div className="bg-white border-2 border-blue-300 rounded-lg px-4 py-3 text-center font-mono text-blue-900 font-bold text-sm">
-                      카테고리 점수 = (6.0 + avg_score × 0.5) × 10
-                    </div>
-                    <div className="grid grid-cols-3 gap-1 text-center">
-                      <div className="bg-white rounded border border-gray-200 p-2">
-                        <div className="text-red-500 font-bold">최저</div>
-                        <div className="text-gray-600">avg_score −8</div>
-                        <div className="font-bold text-gray-800">→ 20점</div>
-                      </div>
-                      <div className="bg-white rounded border border-gray-200 p-2">
-                        <div className="text-gray-500 font-bold">기준</div>
-                        <div className="text-gray-600">avg_score 0</div>
-                        <div className="font-bold text-gray-800">→ 60점</div>
-                      </div>
-                      <div className="bg-white rounded border border-gray-200 p-2">
-                        <div className="text-green-500 font-bold">최고</div>
-                        <div className="text-gray-600">avg_score +8</div>
-                        <div className="font-bold text-gray-800">→ 100점</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* STEP 5 - 10개 카테고리 */}
-                <div>
-                  <div className="flex items-center mb-2">
-                    <span className="bg-blue-700 text-white text-xs font-bold px-2 py-0.5 rounded mr-2">STEP 5</span>
-                    <span className="text-sm font-bold text-blue-900">10개 카테고리 종합</span>
-                  </div>
-                  <div className="grid grid-cols-2 gap-1.5 text-xs">
-                    {[
-                      { icon: '📚', name: '전문성', desc: '정책·입법 전문 능력' },
-                      { icon: '🎯', name: '리더십', desc: '방향 제시·결정력' },
-                      { icon: '🔭', name: '비전', desc: '미래 방향성·청사진' },
-                      { icon: '💎', name: '청렴성', desc: '부정부패·도덕성' },
-                      { icon: '⚖️', name: '윤리성', desc: '공인으로서의 윤리' },
-                      { icon: '✅', name: '책임감', desc: '공약 이행·결과 책임' },
-                      { icon: '🔍', name: '투명성', desc: '정보 공개·활동 공개' },
-                      { icon: '💬', name: '소통능력', desc: '국민·언론 소통' },
-                      { icon: '⚡', name: '대응성', desc: '민원·현안 대응 속도' },
-                      { icon: '🌍', name: '공익성', desc: '공공이익 우선 여부' },
-                    ].map((cat) => (
-                      <div key={cat.name} className="bg-white rounded border border-blue-100 px-2.5 py-1.5 flex items-center gap-2">
-                        <span>{cat.icon}</span>
-                        <div>
-                          <span className="font-semibold text-blue-900">{cat.name}</span>
-                          <span className="text-gray-500 ml-1">{cat.desc}</span>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="mt-2 bg-blue-100 rounded px-3 py-1.5 text-xs text-blue-800 text-center font-medium">
-                    10개 카테고리 × 각 20~100점 → 합산 최종 점수 200~1,000점
-                  </div>
-                </div>
-
-                {/* STEP 6 - 등급표 */}
-                <div>
-                  <div className="flex items-center mb-2">
-                    <span className="bg-blue-700 text-white text-xs font-bold px-2 py-0.5 rounded mr-2">STEP 6</span>
-                    <span className="text-sm font-bold text-blue-900">최종 등급 판정</span>
-                  </div>
-                  <div className="grid grid-cols-5 gap-1 text-xs text-center">
-                    {[
-                      { grade: 'M', range: '950~', label: '최상위', color: 'bg-yellow-400 text-yellow-900' },
-                      { grade: 'P+', range: '900~', label: '우수', color: 'bg-blue-500 text-white' },
-                      { grade: 'P', range: '850~', label: '양호상', color: 'bg-blue-400 text-white' },
-                      { grade: 'P−', range: '800~', label: '양호', color: 'bg-blue-300 text-blue-900' },
-                      { grade: 'E+', range: '750~', label: '평균상', color: 'bg-green-400 text-white' },
-                      { grade: 'E', range: '700~', label: '평균', color: 'bg-green-300 text-green-900' },
-                      { grade: 'E−', range: '650~', label: '평균하', color: 'bg-gray-300 text-gray-800' },
-                      { grade: 'C', range: '550~', label: '미흡', color: 'bg-orange-300 text-orange-900' },
-                      { grade: 'D', range: '400~', label: '부족', color: 'bg-red-300 text-red-900' },
-                      { grade: 'L', range: '~399', label: '최하위', color: 'bg-red-600 text-white' },
-                    ].map((g) => (
-                      <div key={g.grade} className={`rounded p-1.5 ${g.color}`}>
-                        <div className="font-bold text-sm">{g.grade}</div>
-                        <div className="text-xs">{g.range}</div>
-                        <div className="text-xs opacity-80">{g.label}</div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-              </div>
             </div>
 
             {/* 가격 정보 */}
@@ -876,198 +868,6 @@ export default function ReportPurchasePage() {
               )}
             </div>
 
-            {/* 보고서 산출 방법 (접을 수 있음) */}
-            <details className="mb-6 border border-blue-200 rounded-xl overflow-hidden">
-              <summary className="bg-blue-700 px-5 py-3 cursor-pointer list-none flex items-center justify-between">
-                <div>
-                  <span className="text-sm font-bold text-white">🔬 상세 보고서 산출 방법론</span>
-                  <span className="text-xs text-blue-200 ml-2">V40 AI 평가 엔진 기반 · 4개 독립 AI 교차검증</span>
-                </div>
-                <span className="text-blue-200 text-xs">▼ 펼치기</span>
-              </summary>
-
-              <div className="bg-blue-50 p-5 space-y-5">
-
-                {/* STEP 1 */}
-                <div>
-                  <div className="flex items-center mb-2">
-                    <span className="bg-blue-700 text-white text-xs font-bold px-2 py-0.5 rounded mr-2">STEP 1</span>
-                    <span className="text-sm font-bold text-blue-900">데이터 수집</span>
-                  </div>
-                  <div className="grid grid-cols-2 gap-2 text-xs">
-                    <div className="bg-white rounded-lg p-3 border border-blue-100">
-                      <p className="font-semibold text-blue-800 mb-1">🏛️ 채널 A — 공식 의정활동</p>
-                      <p className="text-gray-600">국회 회의록, 발의 법안, 표결 기록 등 공식 데이터</p>
-                      <p className="text-blue-500 mt-1 font-medium">수집 기간: 최근 4년</p>
-                    </div>
-                    <div className="bg-white rounded-lg p-3 border border-blue-100">
-                      <p className="font-semibold text-blue-800 mb-1">📰 채널 B — 공개 뉴스·SNS</p>
-                      <p className="text-gray-600">뉴스 기사, 인터뷰, SNS 발언 등 공개 정보</p>
-                      <p className="text-blue-500 mt-1 font-medium">수집 기간: 최근 2년</p>
-                    </div>
-                  </div>
-                  <div className="mt-2 bg-blue-100 rounded px-3 py-1.5 text-xs text-blue-800 text-center font-medium">
-                    정치인 1인당 총 1,000~1,200건 수집
-                  </div>
-                </div>
-
-                {/* STEP 2 */}
-                <div>
-                  <div className="flex items-center mb-2">
-                    <span className="bg-blue-700 text-white text-xs font-bold px-2 py-0.5 rounded mr-2">STEP 2</span>
-                    <span className="text-sm font-bold text-blue-900">4개 AI 독립 평가</span>
-                  </div>
-                  <p className="text-xs text-gray-600 mb-2">각 AI는 서로 결과를 공유하지 않고 독립적으로 평가 — 편향 최소화 및 교차검증</p>
-                  <div className="grid grid-cols-2 gap-2 text-xs">
-                    {[
-                      { name: 'Claude', sub: 'Anthropic', color: 'bg-orange-50 border-orange-200 text-orange-800' },
-                      { name: 'ChatGPT', sub: 'OpenAI', color: 'bg-green-50 border-green-200 text-green-800' },
-                      { name: 'Gemini', sub: 'Google', color: 'bg-blue-50 border-blue-200 text-blue-800' },
-                      { name: 'Grok', sub: 'xAI', color: 'bg-purple-50 border-purple-200 text-purple-800' },
-                    ].map((ai) => (
-                      <div key={ai.name} className={`rounded-lg p-2.5 border ${ai.color} font-semibold text-center`}>
-                        🤖 {ai.name}
-                        <span className="block text-xs font-normal opacity-70">{ai.sub}</span>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="mt-2 bg-blue-100 rounded px-3 py-1.5 text-xs text-blue-800 text-center font-medium">
-                    4개 AI × 1,000~1,200건 = 총 4,000~4,800건 평가 생성
-                  </div>
-                </div>
-
-                {/* STEP 3 */}
-                <div>
-                  <div className="flex items-center mb-2">
-                    <span className="bg-blue-700 text-white text-xs font-bold px-2 py-0.5 rounded mr-2">STEP 3</span>
-                    <span className="text-sm font-bold text-blue-900">건별 등급 평가 (8단계)</span>
-                  </div>
-                  <p className="text-xs text-gray-600 mb-2">각 기사·게시물을 10개 카테고리별로 8단계 등급 평가</p>
-                  <div className="grid grid-cols-4 gap-1 text-xs text-center">
-                    {[
-                      { r: '+4', label: '매우긍정', color: 'bg-green-600 text-white' },
-                      { r: '+3', label: '긍정', color: 'bg-green-400 text-white' },
-                      { r: '+2', label: '약간긍정', color: 'bg-green-200 text-green-800' },
-                      { r: '+1', label: '미미긍정', color: 'bg-green-100 text-green-700' },
-                      { r: '−1', label: '미미부정', color: 'bg-red-100 text-red-700' },
-                      { r: '−2', label: '약간부정', color: 'bg-red-200 text-red-800' },
-                      { r: '−3', label: '부정', color: 'bg-red-400 text-white' },
-                      { r: '−4', label: '매우부정', color: 'bg-red-600 text-white' },
-                    ].map((g) => (
-                      <div key={g.r} className={`rounded p-1.5 ${g.color}`}>
-                        <div className="font-bold">{g.r}</div>
-                        <div className="text-xs opacity-80">{g.label}</div>
-                      </div>
-                    ))}
-                  </div>
-                  <p className="text-xs text-blue-600 mt-1.5">※ 0점 없음 — 관련 없는 데이터는 평가에서 제외(X)</p>
-                </div>
-
-                {/* STEP 4 */}
-                <div>
-                  <div className="flex items-center mb-2">
-                    <span className="bg-blue-700 text-white text-xs font-bold px-2 py-0.5 rounded mr-2">STEP 4</span>
-                    <span className="text-sm font-bold text-blue-900">카테고리 점수 산출</span>
-                  </div>
-                  <div className="space-y-2 text-xs">
-                    <div className="flex items-center gap-2 text-gray-700">
-                      <span className="bg-gray-200 rounded px-1.5 py-0.5 font-mono">①</span>
-                      <span>Rating(등급) × 2 = Score (−8 ~ +8)</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-gray-700">
-                      <span className="bg-gray-200 rounded px-1.5 py-0.5 font-mono">②</span>
-                      <span>카테고리별 Score 평균 = avg_score</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-gray-700">
-                      <span className="bg-gray-200 rounded px-1.5 py-0.5 font-mono">③</span>
-                      <span>아래 공식으로 최종 카테고리 점수 산출</span>
-                    </div>
-                    <div className="bg-white border-2 border-blue-300 rounded-lg px-4 py-3 text-center font-mono text-blue-900 font-bold text-sm">
-                      카테고리 점수 = (6.0 + avg_score × 0.5) × 10
-                    </div>
-                    <div className="grid grid-cols-3 gap-1 text-center">
-                      <div className="bg-white rounded border border-gray-200 p-2">
-                        <div className="text-red-500 font-bold">최저</div>
-                        <div className="text-gray-600">avg_score −8</div>
-                        <div className="font-bold text-gray-800">→ 20점</div>
-                      </div>
-                      <div className="bg-white rounded border border-gray-200 p-2">
-                        <div className="text-gray-500 font-bold">기준</div>
-                        <div className="text-gray-600">avg_score 0</div>
-                        <div className="font-bold text-gray-800">→ 60점</div>
-                      </div>
-                      <div className="bg-white rounded border border-gray-200 p-2">
-                        <div className="text-green-500 font-bold">최고</div>
-                        <div className="text-gray-600">avg_score +8</div>
-                        <div className="font-bold text-gray-800">→ 100점</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* STEP 5 */}
-                <div>
-                  <div className="flex items-center mb-2">
-                    <span className="bg-blue-700 text-white text-xs font-bold px-2 py-0.5 rounded mr-2">STEP 5</span>
-                    <span className="text-sm font-bold text-blue-900">10개 카테고리 종합</span>
-                  </div>
-                  <div className="grid grid-cols-2 gap-1.5 text-xs">
-                    {[
-                      { icon: '📚', name: '전문성', desc: '정책·입법 전문 능력' },
-                      { icon: '🎯', name: '리더십', desc: '방향 제시·결정력' },
-                      { icon: '🔭', name: '비전', desc: '미래 방향성·청사진' },
-                      { icon: '💎', name: '청렴성', desc: '부정부패·도덕성' },
-                      { icon: '⚖️', name: '윤리성', desc: '공인으로서의 윤리' },
-                      { icon: '✅', name: '책임감', desc: '공약 이행·결과 책임' },
-                      { icon: '🔍', name: '투명성', desc: '정보 공개·활동 공개' },
-                      { icon: '💬', name: '소통능력', desc: '국민·언론 소통' },
-                      { icon: '⚡', name: '대응성', desc: '민원·현안 대응 속도' },
-                      { icon: '🌍', name: '공익성', desc: '공공이익 우선 여부' },
-                    ].map((cat) => (
-                      <div key={cat.name} className="bg-white rounded border border-blue-100 px-2.5 py-1.5 flex items-center gap-2">
-                        <span>{cat.icon}</span>
-                        <div>
-                          <span className="font-semibold text-blue-900">{cat.name}</span>
-                          <span className="text-gray-500 ml-1">{cat.desc}</span>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="mt-2 bg-blue-100 rounded px-3 py-1.5 text-xs text-blue-800 text-center font-medium">
-                    10개 카테고리 × 각 20~100점 → 합산 최종 점수 200~1,000점
-                  </div>
-                </div>
-
-                {/* STEP 6 */}
-                <div>
-                  <div className="flex items-center mb-2">
-                    <span className="bg-blue-700 text-white text-xs font-bold px-2 py-0.5 rounded mr-2">STEP 6</span>
-                    <span className="text-sm font-bold text-blue-900">최종 등급 판정</span>
-                  </div>
-                  <div className="grid grid-cols-5 gap-1 text-xs text-center">
-                    {[
-                      { grade: 'M', range: '950~', label: '최상위', color: 'bg-yellow-400 text-yellow-900' },
-                      { grade: 'P+', range: '900~', label: '우수', color: 'bg-blue-500 text-white' },
-                      { grade: 'P', range: '850~', label: '양호상', color: 'bg-blue-400 text-white' },
-                      { grade: 'P−', range: '800~', label: '양호', color: 'bg-blue-300 text-blue-900' },
-                      { grade: 'E+', range: '750~', label: '평균상', color: 'bg-green-400 text-white' },
-                      { grade: 'E', range: '700~', label: '평균', color: 'bg-green-300 text-green-900' },
-                      { grade: 'E−', range: '650~', label: '평균하', color: 'bg-gray-300 text-gray-800' },
-                      { grade: 'C', range: '550~', label: '미흡', color: 'bg-orange-300 text-orange-900' },
-                      { grade: 'D', range: '400~', label: '부족', color: 'bg-red-300 text-red-900' },
-                      { grade: 'L', range: '~399', label: '최하위', color: 'bg-red-600 text-white' },
-                    ].map((g) => (
-                      <div key={g.grade} className={`rounded p-1.5 ${g.color}`}>
-                        <div className="font-bold text-sm">{g.grade}</div>
-                        <div className="text-xs">{g.range}</div>
-                        <div className="text-xs opacity-80">{g.label}</div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-              </div>
-            </details>
 
             {/* 계좌 정보 */}
             <div className="border-2 border-primary-200 rounded-lg p-6 mb-6 bg-primary-50">
