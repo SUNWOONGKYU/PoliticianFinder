@@ -78,7 +78,40 @@ export default function ReportPurchasePage() {
 
   // URL buyer_type 파라미터로 자동 분기
   useEffect(() => {
-    if (urlBuyerType && !buyerType && !authLoading) {
+    if (!urlBuyerType || buyerType || authLoading) return;
+
+    if (urlBuyerType === 'politician') {
+      // PoliticianAuthModal에서 이미 인증했다면 → verify 단계 건너뜀
+      const sessionStr = typeof window !== 'undefined' ? localStorage.getItem('politician_session') : null;
+      if (sessionStr) {
+        try {
+          const session = JSON.parse(sessionStr);
+          fetch('/api/politicians/auth/session', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(session),
+          })
+            .then(res => res.json())
+            .then(data => {
+              if (data.valid && data.politician?.verified_email) {
+                setBuyerType('politician');
+                setEmail(data.politician.verified_email);
+                setBuyerName(data.politician.name || '');
+                setIsVerified(true);
+                fetchPurchaseCount(data.politician.verified_email);
+                setStep('payment');
+              } else {
+                handleBuyerTypeSelect('politician');
+              }
+            })
+            .catch(() => handleBuyerTypeSelect('politician'));
+        } catch {
+          handleBuyerTypeSelect('politician');
+        }
+      } else {
+        handleBuyerTypeSelect('politician');
+      }
+    } else {
       handleBuyerTypeSelect(urlBuyerType);
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
