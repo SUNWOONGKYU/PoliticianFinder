@@ -47,19 +47,18 @@ const getFullRegionName = (region: string): string => {
 // recharts 미사용으로 CHART_DATA_FULL, ChartPeriod, CHART_PERIODS 삭제
 // 향후 차트 기능 추가 시 별도 컴포넌트로 분리하여 dynamic import 적용
 
-// P3BA35: CATEGORY_SCORES는 하드코딩 제거 - API categoryScores 사용
-// V24.0 시스템에서 카테고리명은 DB에서 동적으로 가져옴
-const CATEGORY_NAMES: Record<number, string> = {
-  1: '청렴성',
-  2: '전문성',
-  3: '소통능력',
-  4: '정책능력',
-  5: '리더십',
-  6: '책임성',
-  7: '투명성',
-  8: '혁신성',
-  9: '포용성',
-  10: '효율성',
+// V40 카테고리 이름 매핑 (영문 키 → 한국어)
+const CATEGORY_NAMES: Record<string, string> = {
+  expertise: '전문성',
+  leadership: '리더십',
+  vision: '비전',
+  integrity: '청렴성',
+  ethics: '윤리성',
+  accountability: '책임감',
+  transparency: '투명성',
+  communication: '소통',
+  responsiveness: '대응성',
+  publicinterest: '공익',
 };
 
 export default function PoliticianDetailPage() {
@@ -1115,13 +1114,13 @@ export default function PoliticianDetailPage() {
         </section>
       </div>
 
-      {/* P3BA35: AI 평가 상세 모달 - API categoryScores 사용 */}
+      {/* V40 AI 평가 상세 모달 */}
       {showAIDetailModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
           <div className="bg-white rounded-lg max-w-3xl w-full max-h-[90vh] overflow-y-auto p-4 sm:p-6">
             {/* 헤더 */}
             <div className="flex items-center justify-between mb-6 border-b pb-4">
-              <h3 className="text-xl sm:text-2xl font-bold text-gray-900">{politician.name} - V24.0 AI 평가 상세</h3>
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-900">{politician.name} - V40 카테고리별 AI 평가</h3>
               <button
                 onClick={() => setShowAIDetailModal(false)}
                 className="min-w-[44px] min-h-[44px] flex items-center justify-center text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-lg touch-manipulation"
@@ -1134,37 +1133,71 @@ export default function PoliticianDetailPage() {
 
             {/* 종합 점수 요약 */}
             <div className="mb-6 p-4 bg-gradient-to-r from-primary-50 to-accent-50 rounded-lg border border-primary-100">
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between flex-wrap gap-4">
                 <div>
-                  <div className="text-sm text-gray-600 mb-1">V24.0 종합 점수</div>
+                  <div className="text-sm text-gray-600 mb-1">V40 종합 점수</div>
                   <div className="text-3xl font-bold text-primary-600">{politician.totalScore || 0}점</div>
+                  <div className="text-xs text-gray-500 mt-1">/ 1,000점 만점</div>
                 </div>
                 <div className="text-center">
                   <div className="text-4xl mb-1">{politician.gradeEmoji || '⬜'}</div>
                   <div className="text-lg font-bold text-gray-900">{politician.gradeName || politician.grade || '미평가'}</div>
                 </div>
+                {/* AI별 종합 점수 */}
+                <div className="grid grid-cols-4 gap-2 text-xs">
+                  {[
+                    { name: 'Claude', score: (politician as any).claudeScore },
+                    { name: 'ChatGPT', score: (politician as any).chatgptScore },
+                    { name: 'Gemini', score: (politician as any).geminiScore },
+                    { name: 'Grok', score: (politician as any).grokScore },
+                  ].map(ai => (
+                    <div key={ai.name} className="text-center bg-white rounded-lg p-2 border border-gray-100">
+                      <div className="text-gray-500 font-medium">{ai.name}</div>
+                      <div className="text-base font-bold text-primary-600">{ai.score || 0}</div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
 
-            {/* 10개 분야 점수 - API categoryScores 사용 */}
+            {/* 10개 분야 점수 - V40 카테고리별 4AI 점수 */}
             <div className="mb-6">
-              <h4 className="text-lg font-bold text-gray-900 mb-4">10개 분야별 평가 점수</h4>
+              <h4 className="text-lg font-bold text-gray-900 mb-2">10개 분야별 AI 평가 점수</h4>
+              <p className="text-xs text-gray-500 mb-4">각 분야별 4개 AI(Claude·ChatGPT·Gemini·Grok)의 평가 점수 (100점 기준)</p>
               {politician.categoryScores && politician.categoryScores.length > 0 ? (
                 <div className="space-y-3">
-                  {politician.categoryScores.map((item, index) => (
-                    <div key={item.categoryId || index}>
-                      <div className="flex items-center justify-between mb-1">
-                        <span className="text-sm text-gray-700">
-                          {item.categoryId}. {item.categoryName || CATEGORY_NAMES[item.categoryId] || `카테고리 ${item.categoryId}`}
+                  {(politician.categoryScores as any[]).map((item: any, index: number) => (
+                    <div key={item.categoryKey || index} className="bg-gray-50 rounded-lg p-3">
+                      {/* 카테고리명 + 평균 점수 */}
+                      <div className="flex items-center justify-between mb-1.5">
+                        <span className="font-medium text-gray-800 text-sm">
+                          {CATEGORY_NAMES[item.categoryKey] || item.categoryKey}
                         </span>
-                        <span className="text-sm font-bold text-accent-600">{item.score}점</span>
+                        <span className="text-sm font-bold text-primary-600">{item.score}점</span>
                       </div>
-                      <div className="w-full bg-gray-200 rounded-full h-2">
+                      {/* 평균 점수 바 */}
+                      <div className="w-full bg-gray-200 rounded-full h-2 mb-2">
                         <div
-                          className="bg-accent-500 h-2 rounded-full transition-all"
+                          className="bg-primary-500 h-2 rounded-full transition-all"
                           style={{ width: `${Math.min(item.score, 100)}%` }}
                         ></div>
                       </div>
+                      {/* AI별 개별 점수 */}
+                      {item.aiScores && (
+                        <div className="grid grid-cols-4 gap-1 text-xs">
+                          {[
+                            { ai: 'Claude', score: item.aiScores.Claude },
+                            { ai: 'ChatGPT', score: item.aiScores.ChatGPT },
+                            { ai: 'Gemini', score: item.aiScores.Gemini },
+                            { ai: 'Grok', score: item.aiScores.Grok },
+                          ].map(({ ai, score }) => (
+                            <div key={ai} className="text-center bg-white rounded p-1 border border-gray-100">
+                              <div className="text-gray-400">{ai}</div>
+                              <div className="font-semibold text-gray-700">{score || 0}</div>
+                            </div>
+                          ))}
+                        </div>
+                      )}
                     </div>
                   ))}
                 </div>
@@ -1181,11 +1214,11 @@ export default function PoliticianDetailPage() {
 
             {/* 평가 기준 안내 */}
             <div className="p-4 bg-gray-50 rounded-lg">
-              <h4 className="text-sm font-bold text-gray-700 mb-2">V24.0 평가 기준</h4>
+              <h4 className="text-sm font-bold text-gray-700 mb-2">V40 평가 기준</h4>
               <p className="text-sm text-gray-600 leading-relaxed">
-                V24.0 평가 시스템은 10개 카테고리(청렴성, 전문성, 소통능력, 정책능력, 리더십, 책임성, 투명성, 혁신성, 포용성, 효율성)에 대해
-                Claude AI가 공개된 자료를 기반으로 객관적으로 평가합니다.
-                총점은 1000점 만점이며, 10단계 등급(M~L)으로 표시됩니다.
+                V40 평가 시스템은 10개 분야(전문성·리더십·비전·청렴성·윤리성·책임감·투명성·소통·대응성·공익)에 대해
+                Claude, ChatGPT, Gemini, Grok 4개 AI가 공개된 자료를 기반으로 독립적으로 평가합니다.
+                총점은 1,000점 만점이며, 10단계 등급(M~L)으로 표시됩니다.
               </p>
             </div>
           </div>

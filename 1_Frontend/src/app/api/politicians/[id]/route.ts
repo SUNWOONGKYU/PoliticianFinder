@@ -61,25 +61,16 @@ export async function GET(
     }
 
     // V40 AI 최종 점수 조회 (ai_final_scores_v40 테이블)
+    // category_scores: {expertise, leadership, ...} 평균 점수
+    // ai_category_scores: {Claude: {...}, ChatGPT: {...}, Gemini: {...}, Grok: {...}} AI별 카테고리 점수
     const { data: aiFinalScores, error: finalScoreError } = await supabase
       .from("ai_final_scores_v40")
-      .select("politician_id, final_score, ai_final_scores, grade, calculated_at")
+      .select("politician_id, final_score, ai_final_scores, grade, calculated_at, category_scores, ai_category_scores")
       .eq("politician_id", id)
       .single();
 
     if (finalScoreError && finalScoreError.code !== "PGRST116") {
       console.error("AI final scores v40 query error:", finalScoreError);
-    }
-
-    // V24.0 카테고리별 점수 조회 (ai_category_scores 테이블)
-    const { data: categoryScores, error: categoryError } = await supabase
-      .from("ai_category_scores")
-      .select("*")
-      .eq("politician_id", id)
-      .order("category_id", { ascending: true });
-
-    if (categoryError) {
-      console.error("AI category scores query error:", categoryError);
     }
 
     // P3F4: Calculate community statistics
@@ -164,13 +155,20 @@ export async function GET(
       v24GradeEmoji = gradeInfo.gradeEmoji;
     }
 
-    if (categoryScores && categoryScores.length > 0) {
-      v24CategoryScores = categoryScores.map((cs: any) => ({
-        categoryId: cs.category_id,
-        categoryName: cs.category_name,
-        score: cs.score,
-        dataCount: cs.data_count,
-        calculationDate: cs.calculation_date,
+    // V40 카테고리별 점수 추출 (ai_final_scores_v40의 JSONB 필드 사용)
+    const V40_CATEGORY_ORDER = ['expertise', 'leadership', 'vision', 'integrity', 'ethics', 'accountability', 'transparency', 'communication', 'responsiveness', 'publicinterest'];
+    if (aiFinalScores?.category_scores) {
+      const catScores = aiFinalScores.category_scores || {};
+      const aiCatScores = aiFinalScores.ai_category_scores || {};
+      v24CategoryScores = V40_CATEGORY_ORDER.map((cat) => ({
+        categoryKey: cat,
+        score: catScores[cat] || 0,
+        aiScores: {
+          Claude: (aiCatScores['Claude'] || {})[cat] || 0,
+          ChatGPT: (aiCatScores['ChatGPT'] || {})[cat] || 0,
+          Gemini: (aiCatScores['Gemini'] || {})[cat] || 0,
+          Grok: (aiCatScores['Grok'] || {})[cat] || 0,
+        }
       }));
     }
 
