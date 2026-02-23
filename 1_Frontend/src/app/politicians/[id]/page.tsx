@@ -245,7 +245,8 @@ export default function PoliticianDetailPage() {
   };
 
   const confirmPurchase = () => {
-    window.location.href = '/payment';
+    const type = isOwnProfile ? 'politician' : 'member';
+    window.location.href = `/report-purchase?politician_id=${politicianId}&name=${encodeURIComponent(politician?.name || '')}&buyer_type=${type}`;
   };
 
   // 정치인 이메일 인증 성공 → 구매 모달 다시 열기
@@ -1377,7 +1378,6 @@ export default function PoliticianDetailPage() {
         onSuccess={(session, politician) => {
           handlePoliticianAuthForPurchaseSuccess();
         }}
-        initialPoliticianId={politicianId}
       />
 
       {/* 별점 평가 모달 */}
