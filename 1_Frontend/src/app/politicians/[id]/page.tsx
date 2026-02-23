@@ -15,6 +15,30 @@ import { useNotification } from '@/components/NotificationProvider';
 import { getPoliticianSession } from '@/components/PoliticianAuthModal';
 
 
+// 출마지역 풀네임 변환 (목록 페이지와 동일)
+const getFullRegionName = (region: string): string => {
+  const regionMap: Record<string, string> = {
+    '서울': '서울특별시',
+    '경기': '경기도',
+    '인천': '인천광역시',
+    '부산': '부산광역시',
+    '대구': '대구광역시',
+    '광주': '광주광역시',
+    '대전': '대전광역시',
+    '울산': '울산광역시',
+    '세종': '세종특별자치시',
+    '강원': '강원특별자치도',
+    '충북': '충청북도',
+    '충남': '충청남도',
+    '전북': '전북특별자치도',
+    '전남': '전라남도',
+    '경북': '경상북도',
+    '경남': '경상남도',
+    '제주': '제주특별자치도',
+  };
+  return regionMap[region] || region;
+};
+
 // P3BA35: AI_SCORES는 더 이상 하드코딩하지 않음
 // V24.0 시스템에서는 Claude AI만 평가를 수행하며, totalScore를 사용
 // 향후 다중 AI 평가 지원 시 API에서 동적으로 제공
@@ -469,7 +493,7 @@ export default function PoliticianDetailPage() {
                     </span>
                   )}
                   <span className="px-2 sm:px-3 py-0.5 sm:py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs sm:text-sm">
-                    {politician.region}
+                    {getFullRegionName(politician.region)}
                   </span>
                   {politician.district && (
                     <span className="px-2 sm:px-3 py-0.5 sm:py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs sm:text-sm">
@@ -601,11 +625,11 @@ export default function PoliticianDetailPage() {
             </div>
             <div className="flex items-center gap-3 min-h-[44px]">
               <span className="text-gray-600 dark:text-gray-400 font-medium w-24 text-base">출마직종</span>
-              <span className="text-gray-900 dark:text-white text-base">{politician.position || '-'}</span>
+              <span className="text-gray-900 dark:text-white text-base">{politician.positionType || '-'}</span>
             </div>
             <div className="flex items-center gap-3 min-h-[44px]">
               <span className="text-gray-600 dark:text-gray-400 font-medium w-24 text-base">출마지역</span>
-              <span className="text-gray-900 dark:text-white text-base">{politician.region || '-'}</span>
+              <span className="text-gray-900 dark:text-white text-base">{getFullRegionName(politician.region) || '-'}</span>
             </div>
             <div className="flex items-center gap-3 min-h-[44px]">
               <span className="text-gray-600 dark:text-gray-400 font-medium w-24 text-base">출마지구</span>
