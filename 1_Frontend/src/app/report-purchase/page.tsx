@@ -422,13 +422,13 @@ export default function ReportPurchasePage() {
                   </div>
                   <div className="grid grid-cols-2 gap-2 text-xs">
                     <div className="bg-white rounded-lg p-3 border border-gray-100">
-                      <p className="font-semibold text-gray-800 mb-1">🏛️ 채널 A — 공식 의정활동</p>
-                      <p className="text-gray-600">국회 회의록, 발의 법안, 표결 기록 등 공식 데이터</p>
+                      <p className="font-semibold text-gray-800 mb-1">OFFICIAL</p>
+                      <p className="text-gray-600">공직 수행 기록, 공식 발표·성명, 정책 제안 등 검증된 공식 활동 자료</p>
                       <p className="text-gray-600 mt-1 font-medium">수집 기간: 최근 4년</p>
                     </div>
                     <div className="bg-white rounded-lg p-3 border border-gray-100">
-                      <p className="font-semibold text-gray-800 mb-1">📰 채널 B — 공개 뉴스·SNS</p>
-                      <p className="text-gray-600">뉴스 기사, 인터뷰, SNS 발언 등 공개 정보</p>
+                      <p className="font-semibold text-gray-800 mb-1">PUBLIC</p>
+                      <p className="text-gray-600">뉴스 보도, 인터뷰, SNS 발언 등 공개된 모든 활동 기록</p>
                       <p className="text-gray-600 mt-1 font-medium">수집 기간: 최근 2년</p>
                     </div>
                   </div>
@@ -485,6 +485,36 @@ export default function ReportPurchasePage() {
                     ))}
                   </div>
                   <p className="text-xs text-gray-600 mt-1.5">※ 0점 없음 — 관련 없는 데이터는 평가에서 제외(X)</p>
+                  <p className="text-xs text-gray-500 mt-1">※ 점수 산출은 등급 고박 — 등급이 결정되면 점수 자동 산출 (Rating × 2 = Score)</p>
+                </div>
+                {/* 카테고리 분류 */}
+                <div>
+                  <div className="flex items-center mb-2">
+                    <span className="border border-gray-400 text-gray-700 text-xs font-bold px-2 py-0.5 rounded mr-2">카테고리 분류</span>
+                    <span className="text-sm font-bold text-gray-900">수집 단계부터 적용되는 10개 평가 카테고리</span>
+                  </div>
+                  <div className="grid grid-cols-2 gap-1.5 text-xs">
+                    {[
+                      { icon: '📚', name: '전문성', desc: '정책·입법 전문 능력' },
+                      { icon: '🎯', name: '리더십', desc: '방향 제시·결정력' },
+                      { icon: '🔭', name: '비전', desc: '미래 방향성·청사진' },
+                      { icon: '💎', name: '청렴성', desc: '부정부패·도덕성' },
+                      { icon: '⚖️', name: '윤리성', desc: '공인으로서의 윤리' },
+                      { icon: '✅', name: '책임감', desc: '공약 이행·결과 책임' },
+                      { icon: '🔍', name: '투명성', desc: '정보 공개·활동 공개' },
+                      { icon: '💬', name: '소통능력', desc: '국민·언론 소통' },
+                      { icon: '⚡', name: '대응성', desc: '민원·현안 대응 속도' },
+                      { icon: '🌍', name: '공익성', desc: '공공이익 우선 여부' },
+                    ].map((cat) => (
+                      <div key={cat.name} className="bg-white rounded border border-gray-100 px-2.5 py-1.5 flex items-center gap-2">
+                        <span>{cat.icon}</span>
+                        <div>
+                          <span className="font-semibold text-gray-900">{cat.name}</span>
+                          <span className="text-gray-500 ml-1">{cat.desc}</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
                 {/* STEP 4 */}
                 <div>
@@ -531,39 +561,7 @@ export default function ReportPurchasePage() {
                 <div>
                   <div className="flex items-center mb-2">
                     <span className="bg-gray-800 text-white text-xs font-bold px-2 py-0.5 rounded mr-2">STEP 5</span>
-                    <span className="text-sm font-bold text-gray-900">10개 카테고리 종합</span>
-                  </div>
-                  <div className="grid grid-cols-2 gap-1.5 text-xs">
-                    {[
-                      { icon: '📚', name: '전문성', desc: '정책·입법 전문 능력' },
-                      { icon: '🎯', name: '리더십', desc: '방향 제시·결정력' },
-                      { icon: '🔭', name: '비전', desc: '미래 방향성·청사진' },
-                      { icon: '💎', name: '청렴성', desc: '부정부패·도덕성' },
-                      { icon: '⚖️', name: '윤리성', desc: '공인으로서의 윤리' },
-                      { icon: '✅', name: '책임감', desc: '공약 이행·결과 책임' },
-                      { icon: '🔍', name: '투명성', desc: '정보 공개·활동 공개' },
-                      { icon: '💬', name: '소통능력', desc: '국민·언론 소통' },
-                      { icon: '⚡', name: '대응성', desc: '민원·현안 대응 속도' },
-                      { icon: '🌍', name: '공익성', desc: '공공이익 우선 여부' },
-                    ].map((cat) => (
-                      <div key={cat.name} className="bg-white rounded border border-gray-100 px-2.5 py-1.5 flex items-center gap-2">
-                        <span>{cat.icon}</span>
-                        <div>
-                          <span className="font-semibold text-gray-900">{cat.name}</span>
-                          <span className="text-gray-500 ml-1">{cat.desc}</span>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="mt-2 bg-gray-100 rounded px-3 py-1.5 text-xs text-gray-800 text-center font-medium">
-                    10개 카테고리 × 각 20~100점 → 합산 최종 점수 200~1,000점
-                  </div>
-                </div>
-                {/* STEP 6 */}
-                <div>
-                  <div className="flex items-center mb-2">
-                    <span className="bg-gray-800 text-white text-xs font-bold px-2 py-0.5 rounded mr-2">STEP 6</span>
-                    <span className="text-sm font-bold text-gray-900">최종 등급 판정</span>
+                    <span className="text-sm font-bold text-gray-900">최종 등급 도출</span>
                   </div>
                   <div className="grid grid-cols-5 gap-1 text-xs text-center">
                     {[

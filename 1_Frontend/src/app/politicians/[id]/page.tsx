@@ -799,12 +799,12 @@ export default function PoliticianDetailPage() {
                     </div>
                     <div className="space-y-1">
                       <div className="bg-white rounded p-2 border border-gray-100">
-                        <p className="font-semibold text-gray-800">🏛️ 공식 의정활동 (4년)</p>
-                        <p className="text-gray-500">국회 회의록·법안·표결 기록</p>
+                        <p className="font-semibold text-gray-800">OFFICIAL <span className="font-normal text-gray-500 text-xs">(최근 4년)</span></p>
+                        <p className="text-gray-500">공직 수행 기록·공식 발표·정책자료 등 검증된 공식 활동</p>
                       </div>
                       <div className="bg-white rounded p-2 border border-gray-100">
-                        <p className="font-semibold text-gray-800">📰 공개 뉴스·SNS (2년)</p>
-                        <p className="text-gray-500">기사·인터뷰·SNS 발언</p>
+                        <p className="font-semibold text-gray-800">PUBLIC <span className="font-normal text-gray-500 text-xs">(최근 2년)</span></p>
+                        <p className="text-gray-500">뉴스 보도·인터뷰·SNS 발언 등 공개된 모든 활동 기록</p>
                       </div>
                     </div>
                     <div className="mt-1.5 bg-gray-100 rounded px-2 py-1 text-gray-800 text-center font-medium">
@@ -856,24 +856,26 @@ export default function PoliticianDetailPage() {
                   <div className="bg-white border-2 border-gray-200 rounded-lg px-3 py-2 text-center font-mono text-gray-900 font-bold text-sm">
                     카테고리 점수 = (6.0 + avg_score × 0.5) × 10
                   </div>
+                  <p className="text-xs text-gray-500 mt-1.5">※ 점수 산출은 등급 고박 — Rating × 2 = Score, 등급이 결정되면 점수 자동 산출</p>
                 </div>
-                {/* STEP 4+5: 10개 카테고리 & 등급 */}
+                {/* 카테고리 분류 */}
+                <div className="text-xs">
+                  <div className="flex items-center mb-1.5">
+                    <span className="border border-gray-400 text-gray-700 text-xs font-bold px-2 py-0.5 rounded mr-2">카테고리 분류</span>
+                    <span className="font-bold text-gray-900">수집 단계부터 적용되는 10개 평가 카테고리</span>
+                  </div>
+                  <div className="grid grid-cols-5 gap-1">
+                    {['전문성','리더십','비전','청렴성','윤리성','책임감','투명성','소통능력','대응성','공익성'].map((c) => (
+                      <div key={c} className="bg-white rounded border border-gray-100 px-2 py-1 text-center text-gray-900 font-medium">{c}</div>
+                    ))}
+                  </div>
+                </div>
+                {/* STEP 4: 최종 등급 */}
                 <div className="grid grid-cols-2 gap-3 text-xs">
-                  <div>
+                  <div className="col-span-2">
                     <div className="flex items-center mb-1.5">
                       <span className="bg-gray-800 text-white text-xs font-bold px-2 py-0.5 rounded mr-2">STEP 4</span>
-                      <span className="font-bold text-gray-900">10개 카테고리</span>
-                    </div>
-                    <div className="grid grid-cols-2 gap-1">
-                      {['전문성','리더십','비전','청렴성','윤리성','책임감','투명성','소통능력','대응성','공익성'].map((c) => (
-                        <div key={c} className="bg-white rounded border border-gray-100 px-2 py-1 text-center text-gray-900 font-medium">{c}</div>
-                      ))}
-                    </div>
-                  </div>
-                  <div>
-                    <div className="flex items-center mb-1.5">
-                      <span className="bg-gray-800 text-white text-xs font-bold px-2 py-0.5 rounded mr-2">STEP 5</span>
-                      <span className="font-bold text-gray-900">최종 등급 (200~1,000점)</span>
+                      <span className="font-bold text-gray-900">최종 등급 도출 (200~1,000점)</span>
                     </div>
                     <div className="grid grid-cols-2 gap-1 text-center">
                       {[
