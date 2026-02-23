@@ -131,7 +131,8 @@ export async function GET(request: NextRequest) {
     const total = count || 0;
     const totalPages = Math.ceil(total / query.limit);
 
-    // P3BA34: V24.0 AI 점수 조회 (ai_final_scores 테이블)
+    // V40 AI 점수 조회 (ai_final_scores_v40 테이블)
+    // 구조: { final_score, ai_final_scores: {Claude, ChatGPT, Gemini, Grok}, grade, grade_name }
     const politicianIds = (politicians || []).map((p: any) => p.id);
     let scoresMap: Record<string, {
       claude_score: number;
@@ -142,59 +143,25 @@ export async function GET(request: NextRequest) {
       updated_at: string;
     }> = {};
 
-    // 회원 평가 데이터는 politicians 테이블에서 직접 가져옴 (select * 에 포함)
-    // ratings API가 politicians.user_rating, politicians.rating_count를 업데이트함
-
     if (politicianIds.length > 0) {
       const { data: scores, error: scoresError } = await supabase
-        .from("ai_final_scores")
-        .select("politician_id, ai_name, total_score, grade_code, updated_at")
-        .in("politician_id", politicianIds)
-        .in("ai_name", ["Claude", "ChatGPT", "Grok"]);  // 3개 AI 점수 모두 가져오기
+        .from("ai_final_scores_v40")
+        .select("politician_id, final_score, ai_final_scores, grade, calculated_at")
+        .in("politician_id", politicianIds);
 
       if (scoresError) {
-        console.error("AI final scores query error:", scoresError);
+        console.error("AI final scores v40 query error:", scoresError);
       } else if (scores) {
-        // politician_id별로 AI별 점수 매핑
         scores.forEach((score: any) => {
-          if (!scoresMap[score.politician_id]) {
-            scoresMap[score.politician_id] = {
-              claude_score: 0,
-              chatgpt_score: 0,
-              grok_score: 0,
-              total_score: 0,
-              grade: undefined,
-              updated_at: score.updated_at
-            };
-          }
-
-          const politicianScores = scoresMap[score.politician_id];
-
-          // AI별로 점수 저장
-          if (score.ai_name === "Claude") {
-            politicianScores.claude_score = score.total_score;
-            // Claude 점수를 기준으로 grade 설정
-            politicianScores.grade = score.grade_code;
-          } else if (score.ai_name === "ChatGPT") {
-            politicianScores.chatgpt_score = score.total_score;
-          } else if (score.ai_name === "Grok") {
-            politicianScores.grok_score = score.total_score;
-          }
-        });
-
-        // 모든 점수 저장 후 평균 계산
-        Object.values(scoresMap).forEach((politicianScores) => {
-          const validScores = [
-            politicianScores.claude_score,
-            politicianScores.chatgpt_score,
-            politicianScores.grok_score
-          ].filter(s => s > 0);
-
-          if (validScores.length > 0) {
-            politicianScores.total_score = Math.round(
-              validScores.reduce((a, b) => a + b, 0) / validScores.length
-            );
-          }
+          const aiScores = score.ai_final_scores || {};
+          scoresMap[score.politician_id] = {
+            claude_score: aiScores["Claude"] || 0,
+            chatgpt_score: aiScores["ChatGPT"] || 0,
+            grok_score: aiScores["Grok"] || 0,
+            total_score: score.final_score || 0,
+            grade: score.grade,
+            updated_at: score.calculated_at || ''
+          };
         });
       }
     }

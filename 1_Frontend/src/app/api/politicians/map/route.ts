@@ -40,29 +40,21 @@ export async function GET(request: NextRequest) {
         .filter((p) => p.poll_rank != null)
         .sort((a, b) => (a.poll_rank || 999) - (b.poll_rank || 999));
     } else {
-      // AI 점수 모드 (기본)
+      // AI 점수 모드 (기본) - V40 테이블 사용
       const politicianIds = politicians.map((p) => p.id);
       const { data: scores } = await supabase
-        .from('ai_final_scores')
-        .select('politician_id, ai_name, total_score')
+        .from('ai_final_scores_v40')
+        .select('politician_id, final_score')
         .in('politician_id', politicianIds);
 
-      // 정치인별 AI 복합 점수 계산
-      const scoreMap: Record<string, { sum: number; count: number }> = {};
+      const scoreMap: Record<string, number> = {};
       for (const score of (scores || [])) {
-        if (!scoreMap[score.politician_id]) {
-          scoreMap[score.politician_id] = { sum: 0, count: 0 };
-        }
-        if (score.total_score > 0) {
-          scoreMap[score.politician_id].sum += score.total_score;
-          scoreMap[score.politician_id].count++;
-        }
+        scoreMap[score.politician_id] = score.final_score || 0;
       }
 
-      sorted = politicians.map((p) => {
-        const s = scoreMap[p.id];
-        return { ...p, totalScore: s && s.count > 0 ? Math.round(s.sum / s.count) : 0 };
-      }).sort((a, b) => b.totalScore - a.totalScore);
+      sorted = politicians.map((p) => ({
+        ...p, totalScore: scoreMap[p.id] || 0
+      })).sort((a, b) => b.totalScore - a.totalScore);
     }
 
     // 지역별 상위 2명 추출
