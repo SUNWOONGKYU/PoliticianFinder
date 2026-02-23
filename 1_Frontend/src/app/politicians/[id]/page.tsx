@@ -39,9 +39,8 @@ const getFullRegionName = (region: string): string => {
   return regionMap[region] || region;
 };
 
-// P3BA35: AI_SCORES는 더 이상 하드코딩하지 않음
-// V24.0 시스템에서는 Claude AI만 평가를 수행하며, totalScore를 사용
-// 향후 다중 AI 평가 지원 시 API에서 동적으로 제공
+// V40: Claude, ChatGPT, Gemini, Grok 4개 AI 평가 시스템
+// API에서 동적으로 개별 AI 점수 제공
 
 // H9: 차트 관련 코드 제거 (2026-01-03)
 // recharts 미사용으로 CHART_DATA_FULL, ChartPeriod, CHART_PERIODS 삭제
@@ -201,7 +200,7 @@ export default function PoliticianDetailPage() {
     );
   }, []);
 
-  // P3BA35: V24.0에서는 Claude AI만 사용하므로 단순화
+  // V40: 4개 AI 통합 평가 - toggleAll 사용 안 함 (legacy)
   const handleToggleAll = useCallback(() => {
     if (selectedReports.length > 0) {
       setSelectedReports([]);
@@ -533,9 +532,9 @@ export default function PoliticianDetailPage() {
               <div className="grid grid-cols-3 md:grid-cols-1 gap-2 sm:gap-3 w-full md:w-auto mt-2 sm:mt-0">
                 {/* AI Score */}
                 <div className="bg-white/10 backdrop-blur-md rounded-lg sm:rounded-xl p-2 sm:p-3 md:p-4 text-center border border-white/20">
-                  <div className="text-xs sm:text-sm text-white/80 mb-0.5 sm:mb-1">AI 평점</div>
+                  <div className="text-xs sm:text-sm text-white/80 mb-0.5 sm:mb-1">V40 종합점수</div>
                   <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-white">{politician.totalScore}</div>
-                  <div className="text-[10px] sm:text-xs md:text-sm text-white/80 mt-0.5 sm:mt-1">/ 1000점</div>
+                  <div className="text-[10px] sm:text-xs md:text-sm text-white/80 mt-0.5 sm:mt-1">/ 1,000점</div>
                 </div>
 
                 {/* Grade Badge - AI 평점 바로 다음 */}
@@ -648,22 +647,22 @@ export default function PoliticianDetailPage() {
         {/* [2] AI 평가 정보 섹션 */}
         <section id="ai-eval" className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-6 scroll-mt-32">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 mb-6">
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">AI 평가 정보</h2>
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">V40 AI 평가</h2>
             <div className="text-sm sm:text-base text-gray-600 dark:text-gray-400">
-              최종 갱신: {politician.lastUpdated}
+              최종 갱신: {politician.lastUpdated ? new Date(politician.lastUpdated).toLocaleDateString('ko-KR', { year: 'numeric', month: 'long', day: 'numeric' }) : '-'}
             </div>
           </div>
 
           {/* P3BA35: 시계열 그래프 - 준비 중 안내 (API 시계열 데이터 미지원) */}
           <div className="mb-6">
             <div className="bg-white dark:bg-gray-700 rounded-lg shadow-md p-4 md:p-6">
-              <h3 className="font-bold text-base md:text-lg text-gray-900 dark:text-white mb-4">AI 평가 점수 추이</h3>
+              <h3 className="font-bold text-base md:text-lg text-gray-900 dark:text-white mb-4">V40 점수 추이</h3>
               <div className="text-center py-8 text-gray-500">
                 <svg className="w-16 h-16 mx-auto mb-4 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                 </svg>
                 <p className="text-lg font-medium mb-2">점수 추이 차트 준비 중</p>
-                <p className="text-sm">월별 평가 점수 변화를 추적하는 기능이 곧 제공될 예정입니다.</p>
+                <p className="text-sm">V40 기반 4개 AI 점수 변화 추이 차트가 곧 제공될 예정입니다.</p>
               </div>
             </div>
           </div>
@@ -674,7 +673,7 @@ export default function PoliticianDetailPage() {
             <div className="bg-gradient-to-br from-primary-50 to-accent-50 dark:from-gray-700 dark:to-gray-600 rounded-lg p-3 border-2 border-primary-200 dark:border-primary-600">
               <div className="flex flex-col items-center gap-0.5">
                 <span className="text-lg">📊</span>
-                <span className="font-medium text-gray-900 dark:text-white text-xs">종합</span>
+                <span className="font-medium text-gray-900 dark:text-white text-xs">V40 종합</span>
                 <span className="text-xl font-bold text-primary-600 dark:text-primary-400">{politician.totalScore || 0}</span>
               </div>
             </div>
@@ -733,7 +732,7 @@ export default function PoliticianDetailPage() {
               onClick={() => openAIDetailModal('Claude')}
               className="w-full px-4 py-3 bg-primary-500 text-white text-base font-medium rounded-lg hover:bg-primary-600 transition min-h-[44px]"
             >
-              카테고리별 상세 평가 보기
+              🔍 V40 카테고리별 상세 평가 보기
             </button>
           </div>
 
@@ -756,22 +755,26 @@ export default function PoliticianDetailPage() {
                   <div className="text-sm text-gray-600">Claude, ChatGPT, Gemini, Grok</div>
                 </div>
               </div>
-              <div className="space-y-1 text-sm text-gray-600">
-                <div className="flex items-center gap-2">
-                  <span className="text-green-500">✓</span>
-                  <span>10개 분야별 상세 평가 분석</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-green-500">✓</span>
-                  <span>4개 AI 종합 비교 분석</span>
-                </div>
+
+              {/* 보고서 목차 */}
+              <div className="mt-3 p-3 bg-gray-50 rounded-lg">
+                <p className="text-sm font-medium text-gray-800 mb-2">보고서 구성</p>
+                <ol className="text-xs text-gray-600 space-y-1 list-decimal list-inside">
+                  <li>정치인 프로필</li>
+                  <li>종합 점수 (AI별 최종 점수, 10개 카테고리 점수, AI 평가 편차 분석)</li>
+                  <li>카테고리별 상세 분석 (10개 카테고리 x AI별 점수 + 주요 근거)</li>
+                  <li>경쟁자 비교</li>
+                  <li>점수 구조 분석</li>
+                  <li>평가 방법론 및 한계</li>
+                  <li>등급 기준표</li>
+                </ol>
               </div>
             </div>
 
             <div className="flex items-center justify-between mb-4">
               <div>
                 <div className="text-sm text-gray-600 mb-1">보고서 가격</div>
-                <div className="text-2xl font-bold text-primary-600">₩1,000,000 <span className="text-sm font-normal text-gray-500">(부가세 별도)</span></div>
+                <div className="text-2xl font-bold text-primary-600">₩2,000,000 <span className="text-sm font-normal text-gray-500">(부가세 별도)</span></div>
                 <div className="text-xs text-green-600">* 구매 회차별 할인 적용</div>
               </div>
               <a
@@ -793,15 +796,15 @@ export default function PoliticianDetailPage() {
               <ul className="text-sm text-gray-700 space-y-1.5 ml-7">
                 <li className="flex items-start gap-2">
                   <span className="text-amber-600 mt-0.5">•</span>
-                  <span><strong>구매 대상:</strong> 해당 정치인 본인만 구매할 수 있습니다.</span>
+                  <span><strong>구매 대상:</strong> 정치인 본인 또는 회원 누구나 구매할 수 있습니다.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-amber-600 mt-0.5">•</span>
-                  <span><strong>이메일 인증:</strong> 구매 시 등록된 이메일로 본인 확인이 진행됩니다.</span>
+                  <span><strong>인증 방식:</strong> 정치인: 이메일 인증 / 일반 회원: 로그인 필요</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-amber-600 mt-0.5">•</span>
-                  <span><strong>할인 정책:</strong> 구매 회차별 10만원씩 할인 (최소 50만원, 부가세 별도)</span>
+                  <span><strong>할인 정책:</strong> 구매 회차별 10만원씩 할인 (최소 100만원, 부가세 별도)</span>
                 </li>
               </ul>
             </div>
@@ -826,9 +829,9 @@ export default function PoliticianDetailPage() {
 
           {/* 의견 작성 폼 */}
           <div className="mb-6 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
-            <h3 className="text-base font-semibold text-gray-900 dark:text-white mb-3">💬 {politician.name} {politician.title || ''}에게 의견 남기기</h3>
+            <h3 className="text-base font-semibold text-gray-900 dark:text-white mb-3">💬 {politician.name} {politician.positionType || politician.title || ''} {politician.identity || ''}에게 의견 남기기</h3>
             <textarea
-              placeholder={`${politician.name} ${politician.title || ''}에 대한 의견을 남겨주세요...`}
+              placeholder={`${politician.name} ${politician.positionType || politician.title || ''} ${politician.identity || ''}에 대한 의견을 남겨주세요...`}
               className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg text-[15px] text-gray-900 dark:text-white bg-white dark:bg-gray-800 resize-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
               rows={3}
             />
