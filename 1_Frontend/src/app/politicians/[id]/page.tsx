@@ -829,9 +829,9 @@ export default function PoliticianDetailPage() {
 
           {/* 의견 작성 폼 */}
           <div className="mb-6 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
-            <h3 className="text-base font-semibold text-gray-900 dark:text-white mb-3">💬 {politician.name} {politician.positionType || politician.title || ''} {politician.identity || ''}에게 의견 남기기</h3>
+            <h3 className="text-base font-semibold text-gray-900 dark:text-white mb-3">💬 {politician.name} {politician.region || ''} {politician.positionType || politician.title || ''} {politician.identity || ''}에게 의견 남기기</h3>
             <textarea
-              placeholder={`${politician.name} ${politician.positionType || politician.title || ''} ${politician.identity || ''}에 대한 의견을 남겨주세요...`}
+              placeholder={`${politician.name} ${politician.region || ''} ${politician.positionType || politician.title || ''} ${politician.identity || ''}에 대한 의견을 남겨주세요...`}
               className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg text-[15px] text-gray-900 dark:text-white bg-white dark:bg-gray-800 resize-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
               rows={3}
             />
