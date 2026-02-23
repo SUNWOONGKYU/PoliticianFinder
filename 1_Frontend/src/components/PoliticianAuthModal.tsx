@@ -23,12 +23,13 @@ interface PoliticianAuthModalProps {
   isOpen: boolean;
   onClose: () => void;
   onSuccess: (session: PoliticianSession, politician: Politician) => void;
+  initialPoliticianId?: string;
 }
 
-export function PoliticianAuthModal({ isOpen, onClose, onSuccess }: PoliticianAuthModalProps) {
+export function PoliticianAuthModal({ isOpen, onClose, onSuccess, initialPoliticianId }: PoliticianAuthModalProps) {
   const [step, setStep] = useState<1 | 2 | 3>(1);
   const [politicians, setPoliticians] = useState<Politician[]>([]);
-  const [selectedPoliticianId, setSelectedPoliticianId] = useState<string>('');
+  const [selectedPoliticianId, setSelectedPoliticianId] = useState<string>(initialPoliticianId || '');
   const [email, setEmail] = useState('');
   const [verificationId, setVerificationId] = useState('');
   const [code, setCode] = useState('');
@@ -41,7 +42,7 @@ export function PoliticianAuthModal({ isOpen, onClose, onSuccess }: PoliticianAu
   useEffect(() => {
     if (isOpen) {
       setStep(1);
-      setSelectedPoliticianId('');
+      setSelectedPoliticianId(initialPoliticianId || '');
       setEmail('');
       setVerificationId('');
       setCode('');

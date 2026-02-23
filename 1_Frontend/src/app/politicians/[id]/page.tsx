@@ -1377,6 +1377,7 @@ export default function PoliticianDetailPage() {
         onSuccess={(session, politician) => {
           handlePoliticianAuthForPurchaseSuccess();
         }}
+        initialPoliticianId={politicianId}
       />
 
       {/* 별점 평가 모달 */}
