@@ -22,6 +22,7 @@ const VAT_RATE = 0.1;
 const purchaseSchema = z.object({
   buyer_type: z.enum(['politician', 'member']),
   verification_id: z.string().uuid('올바른 인증 ID가 아닙니다').optional(),
+  politician_session_token: z.string().optional(), // PoliticianAuthModal 세션 토큰 (verification_id 대안)
   politician_id: z.string().min(1, '정치인 ID가 필요합니다'),
   buyer_name: z.string().min(2, '이름은 최소 2자 이상이어야 합니다'),
   buyer_email: z.string().email('올바른 이메일 주소를 입력해주세요'),
@@ -43,34 +44,50 @@ export async function POST(request: NextRequest) {
 
     // 인증 분기: 정치인 vs 일반 회원
     if (validated.buyer_type === 'politician') {
-      // 정치인: 이메일 인증 확인 (기존 로직)
-      if (!validated.verification_id) {
+      if (validated.verification_id) {
+        // 방법 A: report-purchase 페이지에서 직접 이메일 인증한 경우 (email_verifications 테이블)
+        const { data: verification, error: verifyError } = await supabase
+          .from('email_verifications')
+          .select('*')
+          .eq('id', validated.verification_id)
+          .eq('verified', true)
+          .single() as { data: { id: string; email: string; politician_id: string; verified: boolean } | null; error: any };
+
+        if (verifyError || !verification) {
+          console.log('[purchase] Verification not found or not verified:', verifyError);
+          return NextResponse.json({
+            success: false,
+            error: { code: 'NOT_VERIFIED', message: '이메일 인증이 완료되지 않았습니다.' }
+          }, { status: 400 });
+        }
+
+        if (verification.email !== validated.buyer_email) {
+          return NextResponse.json({
+            success: false,
+            error: { code: 'EMAIL_MISMATCH', message: '인증된 이메일과 구매자 이메일이 일치하지 않습니다.' }
+          }, { status: 400 });
+        }
+      } else if (validated.politician_session_token) {
+        // 방법 B: PoliticianAuthModal에서 인증한 경우 (politician_sessions 테이블)
+        const { data: session, error: sessionError } = await (supabase as any)
+          .from('politician_sessions')
+          .select('id, politician_id, expires_at')
+          .eq('session_token', validated.politician_session_token)
+          .gt('expires_at', new Date().toISOString())
+          .single() as { data: { id: string; politician_id: string; expires_at: string } | null; error: any };
+
+        if (sessionError || !session) {
+          console.log('[purchase] Politician session invalid or expired');
+          return NextResponse.json({
+            success: false,
+            error: { code: 'INVALID_SESSION', message: '정치인 인증 세션이 만료되었습니다. 다시 인증해주세요.' }
+          }, { status: 400 });
+        }
+        console.log('[purchase] Politician session validated for:', session.politician_id);
+      } else {
         return NextResponse.json({
           success: false,
           error: { code: 'MISSING_VERIFICATION', message: '정치인 구매 시 이메일 인증이 필요합니다.' }
-        }, { status: 400 });
-      }
-
-      const { data: verification, error: verifyError } = await supabase
-        .from('email_verifications')
-        .select('*')
-        .eq('id', validated.verification_id)
-        .eq('verified', true)
-        .single() as { data: { id: string; email: string; politician_id: string; verified: boolean } | null; error: any };
-
-      if (verifyError || !verification) {
-        console.log('[purchase] Verification not found or not verified:', verifyError);
-        return NextResponse.json({
-          success: false,
-          error: { code: 'NOT_VERIFIED', message: '이메일 인증이 완료되지 않았습니다.' }
-        }, { status: 400 });
-      }
-
-      // 인증된 이메일과 구매자 이메일 일치 확인
-      if (verification.email !== validated.buyer_email) {
-        return NextResponse.json({
-          success: false,
-          error: { code: 'EMAIL_MISMATCH', message: '인증된 이메일과 구매자 이메일이 일치하지 않습니다.' }
         }, { status: 400 });
       }
     } else {

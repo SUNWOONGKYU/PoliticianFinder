@@ -39,6 +39,7 @@ export default function ReportPurchasePage() {
   const [verificationCode, setVerificationCode] = useState('');
   const [verificationId, setVerificationId] = useState<string | null>(null);
   const [isVerified, setIsVerified] = useState(false);
+  const [politicianSessionToken, setPoliticianSessionToken] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [countdown, setCountdown] = useState(0);
@@ -98,6 +99,7 @@ export default function ReportPurchasePage() {
                 setEmail(data.politician.verified_email);
                 setBuyerName(data.politician.name || '');
                 setIsVerified(true);
+                setPoliticianSessionToken(session.session_token);
                 fetchPurchaseCount(data.politician.verified_email);
                 setStep('payment');
               } else {
@@ -249,7 +251,7 @@ export default function ReportPurchasePage() {
       return;
     }
 
-    if (buyerType === 'politician' && !verificationId) {
+    if (buyerType === 'politician' && !verificationId && !politicianSessionToken) {
       setError('이메일 인증을 먼저 완료해주세요.');
       return;
     }
@@ -269,6 +271,7 @@ export default function ReportPurchasePage() {
         body: JSON.stringify({
           buyer_type: buyerType,
           verification_id: buyerType === 'politician' ? verificationId : undefined,
+          politician_session_token: buyerType === 'politician' && !verificationId ? politicianSessionToken : undefined,
           politician_id: politicianId,
           buyer_name: buyerName,
           buyer_email: email,
