@@ -584,6 +584,7 @@ export default function Home() {
                       <h2 className="text-xl sm:text-2xl font-extrabold text-white leading-tight">
                         전국 지역별 랭킹 지도
                       </h2>
+                      <span className="bg-yellow-400 text-yellow-900 text-[11px] font-bold px-2 py-0.5 rounded-full whitespace-nowrap">준비중</span>
                     </div>
                     <p className="text-sm sm:text-base text-orange-100 mb-3 leading-snug">
                       AI 평가 점수 기준 · 17개 광역/226개 기초 단체장 출마자 <strong className="text-white">1위·2위 정치인 보기</strong>
