@@ -163,7 +163,9 @@ export default function RootLayout({
                   <div className="min-h-screen flex flex-col overflow-x-hidden">
                     {/* 베타 테스트 안내 띠 */}
                     <div className="w-full bg-amber-400 text-amber-900 text-center text-xs sm:text-sm py-1.5 px-4 font-medium z-50">
-                      🧪 현재 <strong>베타 테스트</strong> 중입니다 · 일부 기능이 제한되거나 변경될 수 있습니다
+                      <span className="block sm:inline">🧪 현재 <strong>베타 테스트</strong> 중입니다</span>
+                      <span className="hidden sm:inline"> · </span>
+                      <span className="block sm:inline text-[10px] sm:text-sm">일부 기능이 제한되거나 변경될 수 있습니다</span>
                     </div>
                     <Header />
                     <main className="flex-1">

@@ -145,65 +145,65 @@ export default function MapModal({ isOpen, onClose }: MapModalProps) {
           className="relative w-full max-w-5xl max-h-[92vh] bg-white dark:bg-slate-800 rounded-2xl shadow-2xl flex flex-col pointer-events-auto overflow-hidden"
           onClick={(e) => e.stopPropagation()}
         >
-          {/* 헤더 */}
-          <div className="flex items-center justify-between px-5 py-3.5 border-b border-gray-200 dark:border-gray-700 flex-shrink-0">
-            <div className="flex items-center gap-2.5">
-              <span className="text-xl">🗺️</span>
-              <div>
-                <h2 className="text-base font-bold text-gray-900 dark:text-white">지역별 랭킹 지도</h2>
-                <p className="text-[11px] text-gray-500 dark:text-gray-400">
-                  {viewMode === 'ai'
-                    ? 'AI 점수 기준 1위·2위 · 당색으로 구분 · 클릭하면 해당 지역 랭킹 이동'
-                    : '여론조사 지지율 기준 순위 · 당색으로 구분 · 클릭하면 해당 지역 랭킹 이동'}
-                </p>
-              </div>
-            </div>
-            <div className="flex items-center gap-2.5">
-              {/* 계층형 탭: 1단계(AI/여론조사) → 2단계(광역/기초) */}
-              <div className="flex flex-col gap-1.5">
-                {/* 1단계: 기준 선택 */}
-                <div className="flex rounded-lg overflow-hidden border border-gray-200 dark:border-gray-600">
-                  {(['ai', 'poll'] as const).map((mode) => (
-                    <button
-                      key={mode}
-                      onClick={() => setViewMode(mode)}
-                      className={`px-3 py-1.5 text-xs font-semibold transition-colors ${
-                        viewMode === mode
-                          ? mode === 'ai' ? 'bg-primary-500 text-white' : 'bg-emerald-500 text-white'
-                          : 'bg-white dark:bg-slate-700 text-gray-500 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-slate-600'
-                      }`}
-                    >
-                      {mode === 'ai' ? '🤖 AI 평가' : '📊 여론조사'}
-                    </button>
-                  ))}
-                </div>
-                {/* 2단계: 직위 선택 */}
-                <div className="flex rounded-lg overflow-hidden border border-gray-200 dark:border-gray-600">
-                  {(['광역단체장', '기초단체장'] as const).map((type) => (
-                    <button
-                      key={type}
-                      onClick={() => setPositionType(type)}
-                      className={`px-3 py-1.5 text-xs font-semibold transition-colors flex-1 ${
-                        positionType === type
-                          ? viewMode === 'ai' ? 'bg-primary-500 text-white' : 'bg-emerald-500 text-white'
-                          : 'bg-white dark:bg-slate-700 text-gray-500 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-slate-600'
-                      }`}
-                    >
-                      {type}
-                    </button>
-                  ))}
+          {/* 헤더 - 모바일: 제목+탭 세로 배치 / 데스크톱: 가로 배치 */}
+          <div className="border-b border-gray-200 dark:border-gray-700 flex-shrink-0">
+            {/* 1행: 제목 + 닫기 */}
+            <div className="flex items-center justify-between px-4 sm:px-5 pt-3 pb-2">
+              <div className="flex items-center gap-2">
+                <span className="text-lg sm:text-xl">🗺️</span>
+                <div>
+                  <h2 className="text-sm sm:text-base font-bold text-gray-900 dark:text-white">지역별 랭킹 지도</h2>
+                  <p className="hidden sm:block text-[11px] text-gray-500 dark:text-gray-400">
+                    {viewMode === 'ai'
+                      ? 'AI 점수 기준 1위·2위 · 당색으로 구분 · 클릭하면 해당 지역 랭킹 이동'
+                      : '여론조사 지지율 기준 순위 · 당색으로 구분 · 클릭하면 해당 지역 랭킹 이동'}
+                  </p>
                 </div>
               </div>
-              {/* 닫기 */}
               <button
                 onClick={onClose}
-                className="p-1.5 rounded-lg text-gray-400 hover:text-gray-600 hover:bg-gray-100 dark:hover:bg-slate-700 transition-colors"
+                className="p-2 rounded-lg text-gray-400 hover:text-gray-600 hover:bg-gray-100 dark:hover:bg-slate-700 transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
                 aria-label="닫기"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>
+            </div>
+            {/* 2행: 탭 버튼 */}
+            <div className="flex items-center gap-2 px-4 sm:px-5 pb-3">
+              {/* 기준 선택: AI / 여론조사 */}
+              <div className="flex rounded-lg overflow-hidden border border-gray-200 dark:border-gray-600">
+                {(['ai', 'poll'] as const).map((mode) => (
+                  <button
+                    key={mode}
+                    onClick={() => setViewMode(mode)}
+                    className={`px-3 sm:px-4 py-2 text-xs sm:text-sm font-semibold transition-colors min-h-[40px] ${
+                      viewMode === mode
+                        ? mode === 'ai' ? 'bg-primary-500 text-white' : 'bg-emerald-500 text-white'
+                        : 'bg-white dark:bg-slate-700 text-gray-500 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-slate-600'
+                    }`}
+                  >
+                    {mode === 'ai' ? '🤖 AI 평가' : '📊 여론조사'}
+                  </button>
+                ))}
+              </div>
+              {/* 직위 선택: 광역 / 기초 */}
+              <div className="flex rounded-lg overflow-hidden border border-gray-200 dark:border-gray-600">
+                {(['광역단체장', '기초단체장'] as const).map((type) => (
+                  <button
+                    key={type}
+                    onClick={() => setPositionType(type)}
+                    className={`px-3 sm:px-4 py-2 text-xs sm:text-sm font-semibold transition-colors min-h-[40px] ${
+                      positionType === type
+                        ? viewMode === 'ai' ? 'bg-primary-500 text-white' : 'bg-emerald-500 text-white'
+                        : 'bg-white dark:bg-slate-700 text-gray-500 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-slate-600'
+                    }`}
+                  >
+                    {type}
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
 
