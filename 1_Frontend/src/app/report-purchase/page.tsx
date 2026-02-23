@@ -440,6 +440,37 @@ export default function ReportPurchasePage() {
               </ol>
             </div>
 
+            {/* 보고서 산출 방법 */}
+            <div className="bg-blue-50 rounded-lg p-4 mb-6 border border-blue-200">
+              <p className="text-sm font-bold text-blue-800 mb-3">🔬 보고서 산출 방법</p>
+              <div className="text-xs text-blue-700 space-y-3">
+                <div>
+                  <p className="font-semibold mb-1">📊 데이터 수집</p>
+                  <p>2개 채널(공식 의정활동 + 공개 뉴스·SNS)에서 정치인당 1,000~1,200건 수집</p>
+                </div>
+                <div>
+                  <p className="font-semibold mb-1">🤖 AI 독립 평가</p>
+                  <p>Claude · ChatGPT · Gemini · Grok — 4개 AI가 수집 데이터를 독립적으로 평가, 총 4,000~4,800건 평가 생성</p>
+                </div>
+                <div>
+                  <p className="font-semibold mb-1">📐 점수 산출 공식</p>
+                  <p className="mb-1">각 기사·게시물에 +4~−4 등급(8단계) 평가 → Score = Rating × 2 → avg_score 계산</p>
+                  <div className="bg-white rounded px-3 py-2 text-blue-800 font-mono text-center">
+                    카테고리 점수 = (6.0 + avg_score × 0.5) × 10
+                  </div>
+                  <p className="mt-1 text-blue-600">※ avg_score 범위: −8 ~ +8 → 점수 범위: 20 ~ 100점</p>
+                </div>
+                <div>
+                  <p className="font-semibold mb-1">📋 10개 평가 카테고리</p>
+                  <p>전문성 · 리더십 · 비전 · 청렴성 · 윤리성 · 책임감 · 투명성 · 소통능력 · 대응성 · 공익성</p>
+                </div>
+                <div>
+                  <p className="font-semibold mb-1">🏆 최종 점수 및 등급</p>
+                  <p>10개 카테고리 합산 → 최종 점수 200~1,000점 · 등급 M~L (10단계)</p>
+                </div>
+              </div>
+            </div>
+
             {/* 가격 정보 */}
             <div className="border-2 border-primary-200 rounded-lg p-6 mb-6 bg-primary-50">
               <h3 className="font-bold text-lg mb-4 text-primary-800">가격 안내</h3>
