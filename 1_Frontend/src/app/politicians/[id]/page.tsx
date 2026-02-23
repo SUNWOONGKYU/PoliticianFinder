@@ -771,43 +771,12 @@ export default function PoliticianDetailPage() {
               </div>
             </div>
 
-            <div className="flex items-center justify-between mb-4">
-              <div>
-                <div className="text-sm text-gray-600 mb-1">보고서 가격</div>
-                <div className="text-2xl font-bold text-primary-600">₩2,000,000 <span className="text-sm font-normal text-gray-500">(부가세 별도)</span></div>
-                <div className="text-xs text-green-600">* 구매 회차별 할인 적용</div>
-              </div>
-              <button
-                onClick={() => setShowPurchaseModal(true)}
-                className="px-6 py-3 bg-primary-500 text-white font-medium rounded-lg hover:bg-primary-600 transition text-center"
-              >
-                보고서 구매하기
-              </button>
-            </div>
-
-            {/* 안내사항 */}
-            <div className="p-4 bg-amber-50 border border-amber-200 rounded-lg">
-              <h4 className="font-bold text-amber-800 mb-2 flex items-center gap-2">
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd"></path>
-                </svg>
-                안내사항
-              </h4>
-              <ul className="text-sm text-gray-700 space-y-1.5 ml-7">
-                <li className="flex items-start gap-2">
-                  <span className="text-amber-600 mt-0.5">•</span>
-                  <span><strong>구매 대상:</strong> 정치인 본인 또는 회원 누구나 구매할 수 있습니다.</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-amber-600 mt-0.5">•</span>
-                  <span><strong>인증 방식:</strong> 정치인: 이메일 인증 / 일반 회원: 로그인 필요</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-amber-600 mt-0.5">•</span>
-                  <span><strong>할인 정책:</strong> 구매 회차별 10만원씩 할인 (최소 100만원, 부가세 별도)</span>
-                </li>
-              </ul>
-            </div>
+            <button
+              onClick={() => setShowPurchaseModal(true)}
+              className="w-full py-3 bg-primary-500 text-white font-bold rounded-lg hover:bg-primary-600 active:bg-primary-700 transition text-base mt-2"
+            >
+              보고서 구매하기
+            </button>
           </div>
         </section>
 
