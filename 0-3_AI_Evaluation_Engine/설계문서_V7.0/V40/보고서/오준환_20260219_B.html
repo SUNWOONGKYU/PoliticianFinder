@@ -380,12 +380,13 @@
       <div class="toc-title">목차</div>
       <ol>
         <li><a href="#sec1">정치인 프로필</a></li>
-        <li><a href="#sec2">종합 점수 및 AI별 평가</a></li>
-        <li><a href="#sec3">카테고리별 점수</a></li>
+        <li><a href="#sec2">종합 평균점수 및 AI별 평가 점수</a></li>
+        <li><a href="#sec3">카테고리별 평가 점수</a></li>
         <li><a href="#sec4">카테고리별 상세 분석</a></li>
-        <li><a href="#sec5">점수 구조 분석</a></li>
-        <li><a href="#sec6">평가 방법론 및 한계</a></li>
-        <li><a href="#sec7">등급 기준표</a></li>
+        <li><a href="#sec5">평가 점수 구조 분석</a></li>
+        <li><a href="#sec6">등급 기준표</a></li>
+        <li><a href="#sec7">평가 방법론 및 이론적 근거</a></li>
+        <li><a href="#sec8">평가의 한계 및 유의사항</a></li>
       </ol>
     </div>
 
@@ -427,7 +428,12 @@
     </div>
 
     <!-- SECTION 2: 종합 점수 -->
-    <h1 id="sec2">2. 종합 점수 및 AI별 평가</h1>
+    <h1 id="sec2">2. 종합 평균점수 및 AI별 평가 점수</h1>
+
+    <div class="claim claim-independent">
+      <div class="claim-label">종합 평균점수</div>
+      4AI 평균 <strong>776점</strong> &nbsp;|&nbsp; 등급: <strong>E (양호)</strong>
+    </div>
 
     <div class="ai-cards">
       <div class="ai-card">
@@ -465,8 +471,8 @@
       최대 편차 <strong>71점</strong> (Gemini 813 - Claude 742). 주요 원인 3가지: ① Gemini는 실시간 웹 검색으로 유튜브·기사·블로그 등 온라인 공익 활동을 광범위하게 발굴(813점) ② Claude는 학습 데이터 기반 공식 기록 중심으로 보수적 평가(742점) ③ 초선 의원 특성상 데이터 양이 상대적으로 적어 AI별 수집 범위 차이의 영향이 커짐. 4개 AI 평균(776점)이 개별 AI 편향을 상당 부분 상쇄.
     </div>
 
-    <!-- SECTION 3: 카테고리별 점수 -->
-    <h1 id="sec3">3. 카테고리별 점수</h1>
+    <!-- SECTION 3: 카테고리별 평가 점수 -->
+    <h1 id="sec3">3. 카테고리별 평가 점수</h1>
 
     <div class="bar-chart">
       <div class="bar-row">
@@ -928,8 +934,8 @@
       </div>
     </div>
 
-    <!-- SECTION 5: 점수 구조 분석 -->
-    <h1 id="sec5">5. 점수 구조 분석</h1>
+    <!-- SECTION 5: 평가 점수 구조 분석 -->
+    <h1 id="sec5">5. 평가 점수 구조 분석</h1>
 
     <h2>카테고리별 AI 일관성</h2>
 
@@ -1028,66 +1034,8 @@
       하위 2개 카테고리(청렴성·윤리성)가 상위 카테고리 대비 약 17~19점 낮아, 전체 총점을 구조적으로 약 34~38점 하방 압박하는 구조. 이 두 카테고리를 80점으로 끌어올릴 경우 이론적 총점은 약 810~820점(D등급)까지 상승 가능.
     </div>
 
-    <!-- SECTION 6: 평가 방법론 -->
-    <h1 id="sec6">6. 평가 방법론 및 한계</h1>
-
-    <h2>수집 및 평가 방법</h2>
-
-    <div class="info-field">
-      <div class="info-label">수집 채널</div>
-      <div class="info-value">Gemini CLI 50% + Naver API 50%</div>
-    </div>
-    <div class="info-field">
-      <div class="info-label">OFFICIAL 기간</div>
-      <div class="info-value">최근 4년 이내 (공식 의정 활동)</div>
-    </div>
-    <div class="info-field">
-      <div class="info-label">PUBLIC 기간</div>
-      <div class="info-value">최근 2년 이내 (언론·SNS 등 공개 자료)</div>
-    </div>
-    <div class="info-field">
-      <div class="info-label">평가 AI</div>
-      <div class="info-value">Claude · ChatGPT · Gemini · Grok (4개)</div>
-    </div>
-    <div class="info-field">
-      <div class="info-label">등급 체계</div>
-      <div class="info-value">+4(탁월) ~ -4(최악), X(평가 제외) — 8등급</div>
-    </div>
-    <div class="info-field">
-      <div class="info-label">점수 공식</div>
-      <div class="info-value">카테고리 점수 = (6.0 + avg_score × 0.5) × 10</div>
-    </div>
-    <div class="info-field">
-      <div class="info-label">최종 점수</div>
-      <div class="info-value">10개 카테고리 합산, 범위 200~1,000점</div>
-    </div>
-    <div class="info-field">
-      <div class="info-label">총 수집량</div>
-      <div class="info-value">1,200개 이상 → 4개 AI 평가 4,800건+</div>
-    </div>
-
-    <h2>AI별 평가 특성</h2>
-    <ul class="plain">
-      <li><strong>Claude (742점)</strong> — 공식 자료 중심, 엄격한 기준 적용. 보수적·낮은 편.</li>
-      <li><strong>ChatGPT (778점)</strong> — 균형적 판단, 중간 입장. 인수위 자문 경력 등 긍정 평가.</li>
-      <li><strong>Gemini (813점)</strong> — 웹 검색 광범위, 공익·소통 활동 폭넓게 수집. 낙관적 경향.</li>
-      <li><strong>Grok (772점)</strong> — 최신 시사·현재성 강조. 최근 3~6개월 데이터에 높은 가중치.</li>
-    </ul>
-
-    <h2>평가의 한계</h2>
-
-    <div class="claim claim-warning">
-      <div class="claim-label">6가지 주요 한계</div>
-      <strong>① 비공개 자료 미반영</strong> — 내부 회의·오프라인 활동·비공개 협상 내용 수집 불가.<br>
-      <strong>② 검색 알고리즘 편향</strong> — Gemini CLI·Naver API의 검색 알고리즘에 따른 데이터 편향 존재.<br>
-      <strong>③ AI 편향</strong> — 각 AI의 학습 데이터·알고리즘 편향. 4개 AI 평균으로 일부 완화.<br>
-      <strong>④ 시간적 한계</strong> — 평가 일자(2026-02-19) 이후 활동 미반영.<br>
-      <strong>⑤ 양적 평가 한계</strong> — 활동의 질적 깊이보다 공개 기록의 양에 영향받을 수 있음.<br>
-      <strong>⑥ 초선 의원 구조적 특성</strong> — 정치 입문 3년차로 장기 의원에 비해 의정 활동 축적량 자체가 적음. 이는 데이터 가용성에 구조적으로 영향을 미치며, 특히 Claude의 낮은 평가(742점)에서 두드러짐.
-    </div>
-
-    <!-- SECTION 7: 등급 기준표 -->
-    <h1 id="sec7">7. 등급 기준표</h1>
+    <!-- SECTION 6: 등급 기준표 -->
+    <h1 id="sec6">6. 등급 기준표</h1>
 
     <div class="grade-table">
       <div class="grade-row">
@@ -1147,14 +1095,64 @@
       776점은 E등급(760~839점) 내 하단부. E등급 상단(839점)까지 <strong>63점</strong>, D등급 진입(840점)까지 <strong>64점</strong> 거리. 청렴성·윤리성 두 카테고리를 집중적으로 개선하면 D등급 진입 이론적으로 가능. 초선 의원 특성을 감안할 때, 의정 경력 누적에 따른 점수 상승 여지가 가장 큰 유형의 정치인.
     </div>
 
+    <!-- SECTION 7: 평가 방법론 -->
+    <h1 id="sec7">7. 평가 방법론 및 이론적 근거</h1>
+
+    <div class="info-field">
+      <div class="info-label">수집 채널</div>
+      <div class="info-value">Gemini CLI 50% + Naver API 50%</div>
+    </div>
+    <div class="info-field">
+      <div class="info-label">OFFICIAL 기간</div>
+      <div class="info-value">최근 4년 이내 (공식 의정 활동)</div>
+    </div>
+    <div class="info-field">
+      <div class="info-label">PUBLIC 기간</div>
+      <div class="info-value">최근 2년 이내 (언론·SNS 등 공개 자료)</div>
+    </div>
+    <div class="info-field">
+      <div class="info-label">평가 AI</div>
+      <div class="info-value">Claude · ChatGPT · Gemini · Grok (4개)</div>
+    </div>
+    <div class="info-field">
+      <div class="info-label">등급 체계</div>
+      <div class="info-value">+4(탁월) ~ -4(최악), X(평가 제외) — 8등급</div>
+    </div>
+    <div class="info-field">
+      <div class="info-label">점수 공식</div>
+      <div class="info-value">카테고리 점수 = (6.0 + avg_score × 0.5) × 10</div>
+    </div>
+    <div class="info-field">
+      <div class="info-label">최종 점수</div>
+      <div class="info-value">10개 카테고리 합산, 범위 200~1,000점</div>
+    </div>
+    <div class="info-field">
+      <div class="info-label">총 수집량</div>
+      <div class="info-value">1,200개 이상 → 4개 AI 평가 4,800건+</div>
+    </div>
+
+    <!-- SECTION 8: 평가의 한계 및 유의사항 -->
+    <h1 id="sec8">8. 평가의 한계 및 유의사항</h1>
+
+    <h2>평가의 한계</h2>
+    <div class="claim claim-warning">
+      <div class="claim-label">주요 한계</div>
+      <strong>(1) 비공개 자료 미반영</strong> — 내부 회의·오프라인 활동·비공개 협상 내용 수집 불가.<br>
+      <strong>(2) 시간적 한계</strong> — 평가 일자(2026-02-19) 이후 활동 미반영.<br>
+      <strong>(3) 초선 의원 구조적 특성</strong> — 정치 입문 3년차로 장기 의원에 비해 의정 활동 축적량 자체가 적음. 이는 데이터 가용성에 구조적으로 영향을 미치며, 특히 Claude의 낮은 평가(742점)에서 두드러짐.
+    </div>
+
+    <h2>유의사항</h2>
+    <div class="claim">
+      <div class="claim-label">법적 고지</div>
+      <strong>(1)</strong> 본 보고서는 OFFICIAL(공식 문서·의회 기록 등) 및 PUBLIC(언론·SNS·시민 반응 등) 자료를 AI가 수집·분석하여 생성한 참고 자료입니다.<br>
+      <strong>(2)</strong> 특정 정치적 견해를 지지하거나 반대하기 위한 목적으로 작성되지 않았습니다.<br>
+      <strong>(3)</strong> 본 자료는 유권자의 판단을 보조하는 정보 제공 목적이며, 최종 판단은 유권자 본인이 해야 합니다.
+    </div>
+
     <!-- Footer -->
     <div class="doc-footer">
-      <div class="doc-footer-title">유의사항</div>
       <div class="doc-footer-text">
-        본 보고서는 공개된 뉴스 기사, SNS, 공식 자료 등을 AI가 수집·분석하여 생성한 참고 자료입니다.<br>
-        특정 정치적 견해를 지지하거나 반대하기 위한 목적으로 작성되지 않았습니다.<br>
-        평가 결과는 수집 시점(2026년 2월 19일) 기준이며, 이후 발생한 사건은 반영되지 않습니다.<br>
-        본 자료는 유권자의 판단을 보조하는 정보 제공 목적이며, 최종 판단은 유권자 본인이 합니다.<br><br>
         PoliticianFinder.com &nbsp;|&nbsp; AI 정치인 평가 시스템 V40 &nbsp;|&nbsp; 2026-02-19
       </div>
     </div>
