@@ -367,12 +367,13 @@
       <div class="toc-title">목차</div>
       <ol>
         <li><a href="#sec1">정치인 프로필</a></li>
-        <li><a href="#sec2">종합 점수 및 AI별 평가</a></li>
-        <li><a href="#sec3">카테고리별 점수</a></li>
+        <li><a href="#sec2">종합 평균점수 및 AI별 평가 점수</a></li>
+        <li><a href="#sec3">카테고리별 평가 점수</a></li>
         <li><a href="#sec4">카테고리별 상세 분석</a></li>
         <li><a href="#sec5">경쟁자 비교 (4인)</a></li>
-        <li><a href="#sec6">평가 방법론 및 한계</a></li>
-        <li><a href="#sec7">등급 기준표</a></li>
+        <li><a href="#sec6">등급 기준표</a></li>
+        <li><a href="#sec7">평가 방법론 및 이론적 근거</a></li>
+        <li><a href="#sec8">평가의 한계 및 유의사항</a></li>
       </ol>
     </div>
 
@@ -413,8 +414,8 @@
       4인 중 유일한 현직 광역단체장이자 유일한 서울시장 경험자. 1기(2006~2011)·2기(2021~현재) 합산 서울시정 경험이 가장 길다. '한강 르네상스', '그레이트 한강 프로젝트', '서울 글로벌 도시화' 등 대형 도시 비전을 지속적으로 제시 — 비전 카테고리 1위의 핵심 자산. 그러나 대형 프로젝트 추진 과정의 반복적 갈등 데이터, 그린벨트 해제·재개발 논란, 투명성 비판이 종합 점수를 4인 중 최하위로 낮추는 구조적 요인이다.
     </div>
 
-    <!-- SECTION 2: 종합 점수 -->
-    <h1 id="sec2">2. 종합 점수 및 AI별 평가</h1>
+    <!-- SECTION 2: 종합 평균점수 및 AI별 평가 점수 -->
+    <h1 id="sec2">2. 종합 평균점수 및 AI별 평가 점수</h1>
 
     <div class="ai-cards">
       <div class="ai-card">
@@ -452,53 +453,13 @@
       최대 편차 <strong>38점</strong> (Gemini 755 - Claude 717). 4인 중 가장 작은 AI 간 격차. 현직 서울시장으로서 행정 활동이 매일 공식 보도 자료·서울시 뉴스·주요 일간지를 통해 기록되므로 4개 AI 모두 사실상 '같은 데이터'를 보고 평가한 결과. Gemini는 공식 행정 성과 자료·수상 이력·국제 도시 경쟁력 지수 광범위 수집으로 상향 평가(755점). Claude는 대형 프로젝트 추진 과정의 시민 반발·투명성 비판 데이터를 무겁게 반영하여 최저(717점).
     </div>
 
-    <h2>4인 종합 순위</h2>
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>순위</th>
-            <th>후보</th>
-            <th>점수</th>
-            <th>등급</th>
-            <th>정당</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1위</td>
-            <td>정원오</td>
-            <td>785</td>
-            <td>E (양호)</td>
-            <td>민주당</td>
-          </tr>
-          <tr>
-            <td>2위</td>
-            <td>박주민</td>
-            <td>753</td>
-            <td>P (보통+)</td>
-            <td>민주당</td>
-          </tr>
-          <tr>
-            <td>3위</td>
-            <td>조은희</td>
-            <td>745</td>
-            <td>P (보통+)</td>
-            <td>국민의힘</td>
-          </tr>
-          <tr style="background:#fff5f5">
-            <td style="font-weight:700;color:#B71C1C">★ 4위</td>
-            <td style="font-weight:700;color:#B71C1C">오세훈</td>
-            <td style="font-weight:700;color:#B71C1C">732</td>
-            <td style="font-weight:700;color:#B71C1C">P (보통+)</td>
-            <td style="font-weight:700;color:#B71C1C">국민의힘</td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="claim claim-independent">
+      <div class="claim-label">4인 비교 종합 순위</div>
+      오세훈은 4인 중 4위(최하위) 732점(P등급). 세부 순위 비교는 <a href="#sec5" style="color:var(--accent);">5. 경쟁자 비교</a> 섹션 참조.
     </div>
 
-    <!-- SECTION 3: 카테고리별 점수 -->
-    <h1 id="sec3">3. 카테고리별 점수</h1>
+    <!-- SECTION 3: 카테고리별 평가 점수 -->
+    <h1 id="sec3">3. 카테고리별 평가 점수</h1>
 
     <div class="bar-chart">
       <div class="bar-row">
@@ -703,7 +664,7 @@
     <!-- 공익성 -->
     <div class="cat-detail">
       <div class="cat-detail-header">
-        <div class="cat-detail-name">공익성 (Public Interest) — 4인 중 최하위</div>
+        <div class="cat-detail-name">공익성 (Public Interest)</div>
         <div class="cat-detail-score">77점</div>
       </div>
       <div class="cat-detail-body">
@@ -723,7 +684,7 @@
         </div>
         <div class="claim claim-warning">
           <div class="claim-label">한계</div>
-          수혜 불균형 논란 — Claude(72점): 한강변 개발·재건축 규제 완화·그린벨트 해제 등이 기존 자산가·부동산 보유자에게 유리하다는 비판 데이터 반영. 4인 중 공익성 최하위(정원오 83 &gt; 박주민 81 &gt; 조은희 78 &gt; 오세훈 77). 대형 도시 개발 비전이 공익성보다 개발 이익 논리로 읽히는 데이터 구조.
+          수혜 불균형 논란 — Claude(72점): 한강변 개발·재건축 규제 완화·그린벨트 해제 등이 기존 자산가·부동산 보유자에게 유리하다는 비판 데이터 반영. 대형 도시 개발 비전이 공익성보다 개발 이익 논리로 읽히는 데이터 구조.
         </div>
       </div>
     </div>
@@ -779,7 +740,7 @@
         </div>
         <div class="claim claim-warning">
           <div class="claim-label">한계</div>
-          전문성의 '폭' vs '깊이' — 정원오(81점)가 도시공학 단일 분야의 깊은 학문-실무 결합. 오세훈의 전문성은 광역 행정의 넓은 범위에 분산. '충분하되 탁월하지 않은' 수준으로 명확히 인식.
+          전문성의 '폭' vs '깊이' — 오세훈의 전문성은 광역 행정의 넓은 범위에 분산. 도시공학 등 단일 분야의 깊은 학문-실무 결합보다는 광역 행정 전반에 걸친 실무 역량으로 평가. '충분하되 탁월하지 않은' 수준으로 명확히 인식.
         </div>
       </div>
     </div>
@@ -807,7 +768,7 @@
         </div>
         <div class="claim claim-warning">
           <div class="claim-label">한계</div>
-          미완성 프로젝트 리스크 — 현재 진행 중인 대형 프로젝트(그레이트 한강, 도시 재개발 등)의 결과가 아직 완성되지 않음. Grok(74점): '논란 사업의 책임 완수 미완성'. 4인 순위: 정원오(81) &gt; 조은희(79) &gt; 오세훈·박주민(75).
+          미완성 프로젝트 리스크 — 현재 진행 중인 대형 프로젝트(그레이트 한강, 도시 재개발 등)의 결과가 아직 완성되지 않음. Grok(74점): '논란 사업의 책임 완수 미완성'. 표준편차 1.1점 — 4개 AI가 공통 한계로 인식.
         </div>
       </div>
     </div>
@@ -869,7 +830,7 @@
         </div>
         <div class="claim">
           <div class="claim-label">AI 특이점</div>
-          Claude(68점): '투명성'을 단순한 정보 공개가 아니라 '결정 과정의 투명성'으로 정의. 4인 순위: 정원오(80) &gt; 박주민(79) &gt; 조은희(76) &gt; 오세훈(71).
+          Claude(68점): '투명성'을 단순한 정보 공개가 아니라 '결정 과정의 투명성'으로 정의하여 4개 AI 중 가장 엄격하게 평가. 71점은 카테고리 내에서 오세훈의 가장 낮은 점수군에 속함.
         </div>
       </div>
     </div>
@@ -898,10 +859,6 @@
         <div class="claim claim-warning">
           <div class="claim-label">현직 시장인데 리더십 최하위라는 역설</div>
           AI들이 리더십을 평가할 때 갈등 조정·합의 형성·구성원 설득 역량을 중요하게 반영. 무상급식 주민투표 사퇴(2011년), 2기 시장 임기 중 그린벨트 해제를 둘러싼 갈등 등이 반복적으로 부정적 신호 생성. ChatGPT(70점): 리더십을 '함께하는 힘'의 측면에서 평가 — 합의보다 결단, 설득보다 추진 방향으로 치우침 데이터.
-        </div>
-        <div class="claim">
-          <div class="claim-label">4인 순위</div>
-          정원오(79) &gt; 조은희(78) &gt; 박주민(75) &gt; 오세훈(71).
         </div>
       </div>
     </div>
@@ -933,7 +890,7 @@
         </div>
         <div class="claim">
           <div class="claim-label">AI 일치 분석</div>
-          표준편차 0.8점 — 청렴성에 대한 비판적 데이터가 명확하게 수집된다는 공통 판단. 4인 순위: 정원오(73) &gt; 박주민(71) &gt; 조은희(68) &gt; 오세훈(66).
+          표준편차 0.8점 — 청렴성에 대한 비판적 데이터가 명확하게 수집된다는 공통 판단. 4개 AI 간 격차가 가장 좁은 카테고리 중 하나로, 평가 일치도가 높음.
         </div>
       </div>
     </div>
@@ -941,7 +898,7 @@
     <!-- 윤리성 -->
     <div class="cat-detail">
       <div class="cat-detail-header">
-        <div class="cat-detail-name">윤리성 (Ethics) ⚠️ 4인 공동 최하위 (조은희와 동점)</div>
+        <div class="cat-detail-name">윤리성 (Ethics) ⚠️ 청렴성과 함께 최하위 카테고리</div>
         <div class="cat-detail-score">66점</div>
       </div>
       <div class="cat-detail-body">
@@ -966,15 +923,71 @@
           ③ 자발적 윤리 활동(이해충돌 공개, 청렴 서약 주도 등) 데이터 부재
         </div>
         <div class="claim">
-          <div class="claim-label">4인 비교</div>
-          조은희와 공동 최하위(66점) — 두 국민의힘 후보가 나란히 최하위 기록. 4인 순위: 박주민(71) &gt; 정원오(69) &gt; 조은희·오세훈(66).
+          <div class="claim-label">AI 점수 특이점</div>
+          Claude(62점)가 4개 AI 중 가장 낮게 평가. 표준편차 2.5점으로 윤리성에 대한 AI 간 평가 격차가 상대적으로 큼. Gemini(69점)는 공식 공직 윤리 준수 데이터를 긍정적으로 반영한 반면, Claude는 구조적 윤리 문제 데이터를 무겁게 반영.
         </div>
       </div>
     </div>
 
-    <!-- SECTION 5: 경쟁자 비교 -->
+    <!-- SECTION 5: 경쟁자 비교 (4인) -->
     <h1 id="sec5">5. 경쟁자 비교 (4인)</h1>
 
+    <h2>4인 종합 순위</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>순위</th>
+            <th>후보</th>
+            <th>점수</th>
+            <th>등급</th>
+            <th>정당</th>
+            <th>비고</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="rank-1">1위</td>
+            <td class="rank-1">정원오</td>
+            <td class="rank-1">785</td>
+            <td>E (양호)</td>
+            <td>더불어민주당</td>
+            <td>E등급 유일, 비전 外 9개 카테고리 최상위권</td>
+          </tr>
+          <tr>
+            <td>2위</td>
+            <td>박주민</td>
+            <td>753</td>
+            <td>P (보통+)</td>
+            <td>더불어민주당</td>
+            <td>윤리성 1위(71), 투명성 2위(79)</td>
+          </tr>
+          <tr>
+            <td>3위</td>
+            <td>조은희</td>
+            <td>745</td>
+            <td>P (보통+)</td>
+            <td>국민의힘</td>
+            <td>리더십 2위(78), 책임감 2위(79)</td>
+          </tr>
+          <tr style="background:#fff5f5">
+            <td style="font-weight:700;color:#B71C1C">★ 4위</td>
+            <td style="font-weight:700;color:#B71C1C">오세훈</td>
+            <td style="font-weight:700;color:#B71C1C">732</td>
+            <td style="font-weight:700;color:#B71C1C">P (보통+)</td>
+            <td style="font-weight:700;color:#B71C1C">국민의힘</td>
+            <td style="font-weight:700;color:#B71C1C">비전 1위(80), 나머지 9개 최하위</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="claim claim-independent">
+      <div class="claim-label">4인 점수 차이 분석</div>
+      오세훈(732점) 기준 — 1위 정원오(785점)와 <strong>53점</strong> 차. 2위 박주민(753점)과 <strong>21점</strong> 차. 3위 조은희(745점)와 <strong>13점</strong> 차. P등급 상단(759점)까지 27점, E등급 진입(760점)까지 28점 — 4인 중 등급 상승까지 가장 먼 거리.
+    </div>
+
+    <h2>카테고리별 4인 순위 비교</h2>
     <div class="table-wrap">
       <table>
         <thead>
@@ -984,57 +997,17 @@
             <th>박주민</th>
             <th>조은희</th>
             <th class="highlight-col">오세훈</th>
+            <th>오세훈 순위</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>전문성</td>
-            <td>81</td>
-            <td>75</td>
-            <td>76</td>
-            <td class="highlight-col">75</td>
-          </tr>
-          <tr>
-            <td>리더십</td>
-            <td>79</td>
-            <td>75</td>
-            <td>78</td>
-            <td class="highlight-col">71</td>
-          </tr>
-          <tr>
-            <td>비전</td>
+            <td>비전 ★</td>
             <td>76</td>
             <td>75</td>
             <td>74</td>
-            <td class="highlight-col rank-1">80 ★</td>
-          </tr>
-          <tr>
-            <td>청렴성</td>
-            <td>73</td>
-            <td>71</td>
-            <td>68</td>
-            <td class="highlight-col">66</td>
-          </tr>
-          <tr>
-            <td>윤리성</td>
-            <td>69</td>
-            <td>71</td>
-            <td>66</td>
-            <td class="highlight-col">66</td>
-          </tr>
-          <tr>
-            <td>책임감</td>
-            <td>81</td>
-            <td>74</td>
-            <td>79</td>
-            <td class="highlight-col">75</td>
-          </tr>
-          <tr>
-            <td>투명성</td>
-            <td>80</td>
-            <td>79</td>
-            <td>76</td>
-            <td class="highlight-col">71</td>
+            <td class="highlight-col rank-1">80</td>
+            <td class="rank-1">1위</td>
           </tr>
           <tr>
             <td>소통능력</td>
@@ -1042,13 +1015,7 @@
             <td>77</td>
             <td>75</td>
             <td class="highlight-col">76</td>
-          </tr>
-          <tr>
-            <td>대응성</td>
-            <td>82</td>
-            <td>75</td>
-            <td>75</td>
-            <td class="highlight-col">75</td>
+            <td>2위</td>
           </tr>
           <tr>
             <td>공익성</td>
@@ -1056,6 +1023,63 @@
             <td>81</td>
             <td>78</td>
             <td class="highlight-col">77</td>
+            <td>4위</td>
+          </tr>
+          <tr>
+            <td>전문성</td>
+            <td>81</td>
+            <td>75</td>
+            <td>76</td>
+            <td class="highlight-col">75</td>
+            <td>3위(공동)</td>
+          </tr>
+          <tr>
+            <td>책임감</td>
+            <td>81</td>
+            <td>74</td>
+            <td>79</td>
+            <td class="highlight-col">75</td>
+            <td>3위(공동)</td>
+          </tr>
+          <tr>
+            <td>대응성</td>
+            <td>82</td>
+            <td>75</td>
+            <td>75</td>
+            <td class="highlight-col">75</td>
+            <td>4위(공동)</td>
+          </tr>
+          <tr>
+            <td>투명성</td>
+            <td>80</td>
+            <td>79</td>
+            <td>76</td>
+            <td class="highlight-col">71</td>
+            <td>4위</td>
+          </tr>
+          <tr>
+            <td>리더십</td>
+            <td>79</td>
+            <td>75</td>
+            <td>78</td>
+            <td class="highlight-col">71</td>
+            <td>4위</td>
+          </tr>
+          <tr>
+            <td>청렴성</td>
+            <td>73</td>
+            <td>71</td>
+            <td>68</td>
+            <td class="highlight-col">66</td>
+            <td>4위</td>
+          </tr>
+          <tr>
+            <td>윤리성</td>
+            <td>69</td>
+            <td>71</td>
+            <td>66</td>
+            <td class="highlight-col">66</td>
+            <td>4위(공동)</td>
           </tr>
           <tr>
             <td style="font-weight:700;font-size:15px">최종 점수</td>
@@ -1063,6 +1087,7 @@
             <td style="font-weight:600">753</td>
             <td style="font-weight:600">745</td>
             <td class="highlight-col" style="font-weight:700;font-size:16px;color:#1a0808">732</td>
+            <td style="font-weight:700">4위</td>
           </tr>
           <tr>
             <td>등급</td>
@@ -1070,88 +1095,129 @@
             <td>P (보통+)</td>
             <td>P (보통+)</td>
             <td class="highlight-col" style="font-weight:700;color:#1a0808">P (보통+)</td>
+            <td></td>
           </tr>
         </tbody>
       </table>
     </div>
-    <p class="note">★ = 4인 중 1위. 오세훈이 10개 카테고리 중 비전 1개에서만 1위.</p>
+    <p class="note">★ = 4인 중 1위. 오세훈이 10개 카테고리 중 비전 1개에서만 1위. 소통능력은 박주민(77)에 이어 2위.</p>
+
+    <h2>카테고리별 4인 순위 상세 분석</h2>
+
+    <div class="cat-detail">
+      <div class="cat-detail-header" style="background:#2e7d32">
+        <div class="cat-detail-name">강점 카테고리: 비전 — 4인 중 1위</div>
+        <div class="cat-detail-score">오세훈 80 vs 정원오 76 · 박주민 75 · 조은희 74</div>
+      </div>
+      <div class="cat-detail-body">
+        <div class="claim claim-success">
+          <div class="claim-label">1위의 구조적 원인</div>
+          현직 서울시장만이 보유한 '실행 중인 비전' 데이터. '한강 르네상스'(1기)에서 '그레이트 한강 프로젝트'(2기)로 이어지는 10년 이상 일관성이 4인 중 독보적. 정원오(76)·박주민(75)·조은희(74)는 지역구 단위 비전이 중심인 반면, 오세훈은 서울 전역 대상 비전 데이터를 광범위하게 보유.
+        </div>
+        <div class="claim">
+          <div class="claim-label">비전의 역설</div>
+          비전 1위(80점)임에도 리더십은 4위(71점). 9점 격차는 '무엇을 하겠다'는 비전 선언과 '어떻게 함께 만들어가는가'의 리더십 간 구조적 긴장을 압축. 4인 중 비전-리더십 간 격차가 가장 크다.
+        </div>
+      </div>
+    </div>
+
+    <div class="cat-detail">
+      <div class="cat-detail-header" style="background:#1565c0">
+        <div class="cat-detail-name">중간 카테고리: 소통능력 — 4인 중 2위</div>
+        <div class="cat-detail-score">박주민 77 · 오세훈 76 · 조은희 75 · 정원오 81</div>
+      </div>
+      <div class="cat-detail-body">
+        <div class="claim">
+          <div class="claim-label">2위 분석</div>
+          현직 서울시장의 공식 소통 인프라(매일 기자 브리핑·공식 발표·SNS)가 안정적 2위를 유지시키는 구조. 박주민(77점)에게 1점 뒤지는 것은 갈등 상황의 소통 방식 — 반대 여론이 강한 정책 추진 시 설득보다 밀어붙이기 방식이 데이터에 반영된 결과.
+        </div>
+      </div>
+    </div>
+
+    <div class="cat-detail">
+      <div class="cat-detail-header" style="background:#b34700">
+        <div class="cat-detail-name">약점 카테고리: 공익성 — 4인 중 4위 (최하위)</div>
+        <div class="cat-detail-score">정원오 83 · 박주민 81 · 조은희 78 · 오세훈 77</div>
+      </div>
+      <div class="cat-detail-body">
+        <div class="claim claim-warning">
+          <div class="claim-label">최하위의 원인</div>
+          한강변 개발·재건축 규제 완화·그린벨트 해제 등이 기존 자산가·부동산 보유자에게 유리하다는 비판 데이터가 공익성 최하위의 핵심 요인. 정원오(83)·박주민(81)은 입법 및 복지 정책 데이터에서 공익성 상향 요인을 더 많이 보유. 오세훈의 77점은 공익성 자체가 낮다기보다 도시 개발 비전이 공익성보다 개발 이익 논리로 읽히는 데이터 구조에 기인.
+        </div>
+      </div>
+    </div>
+
+    <div class="cat-detail">
+      <div class="cat-detail-header" style="background:#B71C1C">
+        <div class="cat-detail-name">약점 카테고리: 투명성·리더십 — 4인 중 4위 (최하위)</div>
+        <div class="cat-detail-score">투명성: 정원오 80 · 박주민 79 · 조은희 76 · 오세훈 71 | 리더십: 정원오 79 · 조은희 78 · 박주민 75 · 오세훈 71</div>
+      </div>
+      <div class="cat-detail-body">
+        <div class="claim claim-warning">
+          <div class="claim-label">투명성 4위 구조 분석</div>
+          그린벨트 해제·재개발 규제 완화 등 대형 정책 결정의 의사결정 과정이 시민 참여나 공개 토론보다 행정 주도로 이루어진다는 비판 데이터. 정원오(80)·박주민(79)의 입법 과정은 의회 공개 절차를 자동으로 통과하므로 투명성 데이터가 풍부. 현직 서울시장이라는 광대한 행정 권한이 오히려 투명성 비판의 원인이 되는 역설적 구조.
+        </div>
+        <div class="claim claim-warning">
+          <div class="claim-label">리더십 4위 구조 분석</div>
+          AI들이 리더십을 갈등 조정·합의 형성·구성원 설득 역량으로 평가할 때, 무상급식 주민투표 사퇴(2011년)·2기 임기 그린벨트 해제 갈등이 반복적 부정 신호 생성. 현직 시장이면서 리더십이 최하위라는 역설 — 오세훈의 리더십은 '합의형'이 아닌 '추진형'으로 데이터가 일관되게 분류됨. 정원오(79)·조은희(78)는 합의형 리더십 데이터를 더 많이 보유.
+        </div>
+      </div>
+    </div>
+
+    <div class="cat-detail">
+      <div class="cat-detail-header" style="background:#B71C1C">
+        <div class="cat-detail-name">약점 카테고리: 청렴성·윤리성 — 4인 중 4위 (최하위)</div>
+        <div class="cat-detail-score">청렴성: 정원오 73 · 박주민 71 · 조은희 68 · 오세훈 66 | 윤리성: 박주민 71 · 정원오 69 · 조은희·오세훈 66(공동)</div>
+      </div>
+      <div class="cat-detail-body">
+        <div class="claim claim-warning">
+          <div class="claim-label">청렴성 4위 분석</div>
+          도시 개발·재개발 정책 강력 추진하는 시장으로서 정책 수혜자와의 이해관계 논란이 반복 수집. 재산 공개 내역 관련 언론 보도가 청렴성 데이터에 부정적 영향. 정원오(73)가 최상위 — 구청장 직책 특성상 대규모 이해관계 논란이 적음. 66점은 청렴성 자체의 절대 실패가 아닌, 광역 개발 행정 특성상 구조적으로 발생하는 이해관계 데이터의 결과.
+        </div>
+        <div class="claim claim-warning">
+          <div class="claim-label">윤리성 조은희와 공동 4위 분석</div>
+          조은희(66점)와 공동 최하위 — 두 국민의힘 후보가 나란히 최하위 기록. 박주민(71점)이 최상위 — 시민 권리 중심 입법 활동이 윤리성 긍정 데이터를 지속 생성. 오세훈과 조은희 모두 부동산·개발 관련 정책 기조가 윤리성 데이터에서 불리하게 반영됨. Claude(62점): 오세훈에 대해 4개 AI 중 가장 낮은 윤리성 평가 — '결정 과정의 윤리적 중립성' 기준 적용.
+        </div>
+      </div>
+    </div>
+
+    <div class="cat-detail">
+      <div class="cat-detail-header" style="background:#6a1a1a">
+        <div class="cat-detail-name">책임감: 정원오 81 · 조은희 79 · 오세훈·박주민 75(공동)</div>
+        <div class="cat-detail-score">오세훈·박주민 공동 3위</div>
+      </div>
+      <div class="cat-detail-body">
+        <div class="claim">
+          <div class="claim-label">공동 3위 분석</div>
+          정원오(81)·조은희(79)가 앞서는 이유: 완료된 지역 현안 해결 사례가 책임감 데이터로 풍부하게 수집. 오세훈의 경우 그레이트 한강 프로젝트 등 현재 진행 중인 대형 프로젝트의 결과가 아직 완성되지 않아 '책임 완수 미완성' 데이터가 한계 요인. 시정 공약 추적 가능성(반기·연간 성과 보고 체계)은 강점이나 대형 프로젝트 미완이 균형추 역할.
+        </div>
+      </div>
+    </div>
 
     <h2>경쟁자 비교 분석 요약</h2>
 
     <div class="claim claim-success">
-      <div class="claim-label">유일한 1위 카테고리</div>
-      비전(80점) — 4인 중 압도적 1위. 현직 시장만이 보유한 '실행 중인 비전' 데이터. 소통능력(76점) — 현직 시장 공식 소통 인프라로 야권 박주민(77점)에 이은 2위권.
+      <div class="claim-label">오세훈의 유일한 강점: 비전 1위</div>
+      비전(80점) — 4인 중 압도적 1위. 현직 시장만이 보유한 '실행 중인 비전' 데이터. 소통능력(76점) — 현직 시장 공식 소통 인프라로 박주민(77점)에 이은 2위권. 비전과 소통능력은 오세훈이 현직 서울시장 자리에서 자동으로 획득하는 구조적 강점.
     </div>
 
     <div class="claim claim-warning">
-      <div class="claim-label">9개 카테고리에서 하위권</div>
-      리더십(71점, 4위), 투명성(71점, 4위), 청렴성(66점, 4위), 윤리성(66점, 4위 공동). '비전의 역설': 비전(80점)에서 가장 높지만 리더십(71점)에서 가장 낮음. '무엇을 하겠다'는 비전과 '어떻게 함께 만들어가는가'의 리더십 간 9점 간극.
+      <div class="claim-label">9개 카테고리에서 하위권의 구조</div>
+      리더십(71점, 4위), 투명성(71점, 4위), 청렴성(66점, 4위), 윤리성(66점, 4위 공동), 공익성(77점, 4위), 대응성(75점, 4위 공동). 대형 개발 행정 추진 스타일이 '추진형 리더십'·'결과 중심 투명성'·'개발 이익 논란'으로 일관되게 수집되어 6개 카테고리 동시 최하위를 만들어내는 구조. 비전의 역설: 비전에서 4인 중 가장 높지만 리더십에서 가장 낮음 (9점 간극).
     </div>
 
     <div class="claim">
-      <div class="claim-label">국민의힘 내 포지셔닝</div>
-      조은희(745점)와 13점 차이. 조은희가 리더십(+7점)·책임감(+4점)·청렴성(+2점)에서 앞서고, 오세훈이 비전(+6점)·소통능력(+1점)·공익성(+1점)에서 앞섬.
+      <div class="claim-label">국민의힘 내 포지셔닝: 조은희(745점)와 비교</div>
+      13점 차이. 조은희가 리더십(+7점 = 78 vs 71)·책임감(+4점 = 79 vs 75)·청렴성(+2점 = 68 vs 66)에서 앞섬. 오세훈이 비전(+6점 = 80 vs 74)·소통능력(+1점 = 76 vs 75)·공익성(+1점 = 77 vs 78: 오세훈 불리)에서 앞섬. 결론: 조은희는 '행정 신뢰형', 오세훈은 '비전 주도형'으로 포지셔닝 차별화. 13점 격차는 카테고리별 분산이 아닌 리더십·투명성의 집중 격차가 원인.
     </div>
 
-    <!-- SECTION 6: 평가 방법론 -->
-    <h1 id="sec6">6. 평가 방법론 및 한계</h1>
-
-    <h2>수집 및 평가 방법</h2>
-
-    <div class="info-field">
-      <div class="info-label">수집 채널</div>
-      <div class="info-value">Gemini CLI 50% + Naver API 50%</div>
-    </div>
-    <div class="info-field">
-      <div class="info-label">OFFICIAL 기간</div>
-      <div class="info-value">최근 4년 이내 (공식 문서·의회 기록 등)</div>
-    </div>
-    <div class="info-field">
-      <div class="info-label">PUBLIC 기간</div>
-      <div class="info-value">최근 2년 이내 (뉴스·SNS·시민 반응 등)</div>
-    </div>
-    <div class="info-field">
-      <div class="info-label">평가 AI</div>
-      <div class="info-value">Claude · ChatGPT · Gemini · Grok (4개)</div>
-    </div>
-    <div class="info-field">
-      <div class="info-label">등급 체계</div>
-      <div class="info-value">+4(탁월) ~ -4(최악), X(평가 제외) — 8등급</div>
-    </div>
-    <div class="info-field">
-      <div class="info-label">점수 공식</div>
-      <div class="info-value">카테고리 점수 = (6.0 + avg_score × 0.5) × 10</div>
-    </div>
-    <div class="info-field">
-      <div class="info-label">최종 점수</div>
-      <div class="info-value">10개 카테고리 합산, 범위 200~1,000점</div>
-    </div>
-    <div class="info-field">
-      <div class="info-label">총 수집량</div>
-      <div class="info-value">약 1,100개 → 4개 AI 평가 약 4,400건</div>
+    <div class="claim claim-independent">
+      <div class="claim-label">정원오(785점)와의 53점 격차 구조 분석</div>
+      정원오 1위의 핵심: 공익성(83, 1위)·대응성(82, 1위)·소통능력(81, 1위)·전문성(81, 1위)·책임감(81, 1위). 5개 카테고리 동시 1위. 오세훈과의 격차가 큰 카테고리: 대응성(82 vs 75, -7점)·소통능력(81 vs 76, -5점)·전문성(81 vs 75, -6점)·책임감(81 vs 75, -6점). 오세훈이 앞서는 카테고리: 비전(80 vs 76, +4점). 53점 격차는 비전을 제외한 전 카테고리에서 정원오가 우위인 결과.
     </div>
 
-    <h2>AI별 평가 특성</h2>
-    <ul class="plain">
-      <li><strong>Claude (717점)</strong> — 갈등·투명성·공익 편향성에 가장 엄격. 이해충돌 데이터 중시. 최저 보수적.</li>
-      <li><strong>ChatGPT (730점)</strong> — 비전과 실행력을 인정하되 협치·합의 역량도 균형 평가. 중간.</li>
-      <li><strong>Gemini (755점)</strong> — 공식 서울시 행정 성과 데이터 광범위 수집. 성과 중심 상향. 낙관적.</li>
-      <li><strong>Grok (726점)</strong> — 최신 뉴스 기반. 개발·갈등 관련 논란 데이터에 민감. 보수적.</li>
-    </ul>
-
-    <h2>평가의 한계</h2>
-
-    <div class="claim claim-warning">
-      <div class="claim-label">5가지 주요 한계</div>
-      <strong>① 현직 프리미엄의 역설</strong> — 데이터 가장 풍부하지만 성과와 논란이 동시에 담김. 다른 후보들은 '아직 검증되지 않은 역량'이 불확실성으로 처리되는 반면, 오세훈은 '이미 검증된 갈등과 논란'이 명확한 감점 요인으로 작용.<br>
-      <strong>② 진행 중인 프로젝트의 평가 한계</strong> — 그레이트 한강, 그린벨트 주택 공급 등 현재 진행 중인 대형 프로젝트의 최종 성과는 아직 확인되지 않음. 완성 후 재평가 시 점수 변화 가능성.<br>
-      <strong>③ 정당 소속 효과</strong> — 국민의힘 소속이라는 정치적 위치가 야권 주도 미디어의 비판적 보도를 많이 생성.<br>
-      <strong>④ 비공개 자료 미반영</strong> — 내부 회의록, 비공개 정책 결정 과정 등은 반영 불가.<br>
-      <strong>⑤ 시간적 한계</strong> — 2026년 2월 21일 이후 발생하는 사건·발언·정책은 미반영.
-    </div>
-
-    <!-- SECTION 7: 등급 기준표 -->
-    <h1 id="sec7">7. 등급 기준표</h1>
+    <!-- SECTION 6: 등급 기준표 -->
+    <h1 id="sec6">6. 등급 기준표</h1>
 
     <div class="grade-table">
       <div class="grade-row">
@@ -1208,17 +1274,70 @@
 
     <div class="claim claim-independent">
       <div class="claim-label">오세훈 등급 위치</div>
-      732점은 P등급(680~759점) 하단부. P등급 상단(759점)까지 <strong>27점</strong>, E등급 진입(760점)까지 <strong>28점</strong> — 4인 중 가장 멀다. E등급인 1위 정원오(785점)와 53점 차. 3위 조은희(745점)와 13점, 2위 박주민(753점)과 21점 차이.
+      732점은 P등급(680~759점) 하단부. P등급 상단(759점)까지 <strong>27점</strong>, E등급 진입(760점)까지 <strong>28점</strong>. 경쟁자들과의 점수 차이 분석은 <a href="#sec5" style="color:rgba(255,255,255,0.85);">5. 경쟁자 비교</a> 섹션 참조.
     </div>
+
+    <!-- SECTION 7: 평가 방법론 및 이론적 근거 -->
+    <h1 id="sec7">7. 평가 방법론 및 이론적 근거</h1>
+
+    <h2>수집 및 평가 방법</h2>
+
+    <div class="info-field">
+      <div class="info-label">수집 채널</div>
+      <div class="info-value">Gemini CLI 50% + Naver API 50%</div>
+    </div>
+    <div class="info-field">
+      <div class="info-label">OFFICIAL 기간</div>
+      <div class="info-value">최근 4년 이내 (공식 문서·의회 기록 등)</div>
+    </div>
+    <div class="info-field">
+      <div class="info-label">PUBLIC 기간</div>
+      <div class="info-value">최근 2년 이내 (뉴스·SNS·시민 반응 등)</div>
+    </div>
+    <div class="info-field">
+      <div class="info-label">평가 AI</div>
+      <div class="info-value">Claude · ChatGPT · Gemini · Grok (4개)</div>
+    </div>
+    <div class="info-field">
+      <div class="info-label">등급 체계</div>
+      <div class="info-value">+4(탁월) ~ -4(최악), X(평가 제외) — 8등급</div>
+    </div>
+    <div class="info-field">
+      <div class="info-label">점수 공식</div>
+      <div class="info-value">카테고리 점수 = (6.0 + avg_score × 0.5) × 10</div>
+    </div>
+    <div class="info-field">
+      <div class="info-label">최종 점수</div>
+      <div class="info-value">10개 카테고리 합산, 범위 200~1,000점</div>
+    </div>
+    <div class="info-field">
+      <div class="info-label">총 수집량</div>
+      <div class="info-value">약 1,100개 → 4개 AI 평가 약 4,400건</div>
+    </div>
+
+    <!-- SECTION 8: 평가의 한계 및 유의사항 -->
+    <h1 id="sec8">8. 평가의 한계 및 유의사항</h1>
+
+    <h2>평가의 한계</h2>
+    <ul>
+      <li>본 평가는 공개된 뉴스·보도자료 등 2차 자료에 기반하며, 비공개 정보나 내부 활동은 반영되지 않았습니다.</li>
+      <li>AI 모델의 학습 데이터 편향이 평가 결과에 영향을 미칠 수 있습니다.</li>
+      <li>평가 시점의 뉴스 보도량과 논조에 따라 결과가 달라질 수 있습니다.</li>
+      <li>정량적 점수는 참고 지표이며, 정치인의 전체 역량을 완벽히 반영하지 않습니다.</li>
+    </ul>
+
+    <h2>유의사항</h2>
+    <ul>
+      <li>본 보고서는 AI 기반 자동 분석 결과이며, PoliticianFinder의 공식 입장과 다를 수 있습니다.</li>
+      <li>평가 점수는 상대적 비교가 아닌, 개별 정치인의 공개 활동에 대한 독립적 분석입니다.</li>
+      <li>본 보고서의 내용을 인용할 경우 출처를 명시해 주시기 바랍니다.</li>
+      <li>보고서 내용에 대한 이의 제기는 PoliticianFinder 고객센터를 통해 접수하실 수 있습니다.</li>
+    </ul>
 
     <!-- Footer -->
     <div class="doc-footer">
-      <div class="doc-footer-title">유의사항</div>
+      <div class="doc-footer-title">PoliticianFinder</div>
       <div class="doc-footer-text">
-        본 보고서는 공개된 뉴스 기사, SNS, 공식 자료 등을 AI가 수집·분석하여 생성한 참고 자료입니다.<br>
-        특정 정치적 견해를 지지하거나 반대하기 위한 목적으로 작성되지 않았습니다.<br>
-        평가 결과는 수집 시점(2026년 2월 21일) 기준이며, 이후 발생한 사건은 반영되지 않습니다.<br>
-        본 자료는 유권자의 판단을 보조하는 정보 제공 목적이며, 최종 판단은 유권자 본인이 합니다.<br><br>
         PoliticianFinder.com &nbsp;|&nbsp; AI 정치인 평가 시스템 V40 &nbsp;|&nbsp; 2026-02-21
       </div>
     </div>
