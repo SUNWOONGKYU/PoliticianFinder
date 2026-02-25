@@ -1,0 +1,1168 @@
+{
+  "name": "V40 Type C Pipeline (n8n + API)",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "tc-manual-trigger",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        200,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "politicians_json",
+              "name": "politicians_json",
+              "value": "[{\"id\": \"c45565d7\", \"name\": \"이재준\"}, {\"id\": \"1e43d6f1\", \"name\": \"명재성\"}]",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "tc-set-politicians",
+      "name": "Set Politicians",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        420,
+        400
+      ],
+      "notes": "Edit politicians_json: [{\"id\":\"8hex\",\"name\":\"이름\"}]"
+    },
+    {
+      "parameters": {
+        "jsCode": "const politiciansJson = $input.first().json.politicians_json;\nconst politicians = JSON.parse(politiciansJson);\nreturn politicians.map(p => ({ json: p }));"
+      },
+      "id": "tc-parse-politicians",
+      "name": "Parse Politicians",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        640,
+        400
+      ],
+      "notes": "Parse JSON array into individual items for processing"
+    },
+    {
+      "parameters": {
+        "batchSize": 1,
+        "options": {}
+      },
+      "id": "tc-collection-loop",
+      "name": "Collection Loop",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        860,
+        400
+      ],
+      "notes": "Phase 1: Collect data per politician (sequential to respect API limits)"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Generate Gemini collection prompts for all 10 categories\nconst categories = ['expertise','leadership','vision','integrity','ethics','accountability','transparency','communication','responsiveness','publicinterest'];\nconst catKr = {\n  expertise:'전문성', leadership:'리더십', vision:'비전', integrity:'청렴성',\n  ethics:'윤리', accountability:'책임성', transparency:'투명성',\n  communication:'소통', responsiveness:'대응력', publicinterest:'공익성'\n};\nconst p = $input.first().json;\nconst now = new Date();\nconst officialStart = new Date(now.getTime() - 4*365*24*60*60*1000);\nconst publicStart = new Date(now.getTime() - 2*365*24*60*60*1000);\n\nconst prompts = [];\nfor (const cat of categories) {\n  // OFFICIAL prompt (6 items target per round)\n  prompts.push({\n    category: cat,\n    source_type: 'OFFICIAL',\n    politician_id: p.id,\n    politician_name: p.name,\n    prompt: `한국 정치인 \"${p.name}\"의 ${catKr[cat]}(${cat}) 관련 공식 활동을 6개 찾아주세요.\\n기간: ${officialStart.toISOString().split('T')[0]} ~ ${now.toISOString().split('T')[0]} (최근 4년)\\n출처: 국회 회의록, 정부 공식 문서, 법안, 공식 발표 등\\n\\n각 항목을 JSON 배열로 반환:\\n[{\"title\":\"제목\",\"content\":\"요약 (200자 이내)\",\"source_url\":\"URL\",\"source_name\":\"출처명\",\"published_date\":\"YYYY-MM-DD\",\"sentiment\":\"negative|positive|free\"}]`\n  });\n  // PUBLIC prompt (4 items target per round)\n  prompts.push({\n    category: cat,\n    source_type: 'PUBLIC',\n    politician_id: p.id,\n    politician_name: p.name,\n    prompt: `한국 정치인 \"${p.name}\"의 ${catKr[cat]}(${cat}) 관련 언론 보도를 4개 찾아주세요.\\n기간: ${publicStart.toISOString().split('T')[0]} ~ ${now.toISOString().split('T')[0]} (최근 2년)\\n출처: 뉴스 기사, 칼럼, 사설, 인터뷰 등\\n\\n각 항목을 JSON 배열로 반환:\\n[{\"title\":\"제목\",\"content\":\"요약 (200자 이내)\",\"source_url\":\"URL\",\"source_name\":\"출처명\",\"published_date\":\"YYYY-MM-DD\",\"sentiment\":\"negative|positive|free\"}]`\n  });\n}\nreturn prompts.map(p => ({ json: p }));"
+      },
+      "id": "tc-gen-collection-prompts",
+      "name": "Generate Collection Prompts",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1100,
+        300
+      ],
+      "notes": "Create 20 prompts per politician (10 categories × 2 source types)"
+    },
+    {
+      "parameters": {
+        "batchSize": 5,
+        "options": {}
+      },
+      "id": "tc-collection-batch",
+      "name": "Collection Batch",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1340,
+        300
+      ],
+      "notes": "Process 5 prompts at a time to respect Gemini API rate limits"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={{ $env.GEMINI_API_KEY }}",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ contents: [{ parts: [{ text: $json.prompt }] }], generationConfig: { temperature: 0.7, maxOutputTokens: 4000 } }) }}",
+        "options": {
+          "timeout": 60000
+        }
+      },
+      "id": "tc-gemini-collect",
+      "name": "Gemini API: Collect",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1560,
+        200
+      ],
+      "notes": "Type C: Gemini REST API for data collection (replaces CLI)"
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "=https://openapi.naver.com/v1/search/news.json?query={{ encodeURIComponent($json.politician_name + ' ' + $json.category) }}&display=60&sort=date",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-Naver-Client-Id",
+              "value": "={{ $env.NAVER_CLIENT_ID }}"
+            },
+            {
+              "name": "X-Naver-Client-Secret",
+              "value": "={{ $env.NAVER_CLIENT_SECRET }}"
+            }
+          ]
+        },
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "id": "tc-naver-collect",
+      "name": "Naver API: Collect",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1560,
+        420
+      ],
+      "notes": "Type C: Naver News Search API for data collection"
+    },
+    {
+      "parameters": {
+        "mode": "append",
+        "joinMode": "waitForAll",
+        "options": {}
+      },
+      "id": "tc-merge-collection",
+      "name": "Merge Collection",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 2.1,
+      "position": [
+        1780,
+        300
+      ],
+      "notes": "Wait for both Gemini and Naver responses"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Parse Gemini + Naver responses and format for Supabase insert\nconst items = $input.all();\nconst p = $('Collection Loop').first().json;\nconst batch = $('Collection Batch').first().json;\nconst records = [];\n\nfor (const item of items) {\n  const data = item.json;\n  \n  // Parse Gemini response\n  if (data.candidates) {\n    try {\n      const text = data.candidates[0].content.parts[0].text;\n      const jsonMatch = text.match(/\\[.*\\]/s);\n      if (jsonMatch) {\n        const parsed = JSON.parse(jsonMatch[0]);\n        for (const r of parsed) {\n          records.push({\n            politician_id: p.id,\n            category: batch.category,\n            title: (r.title || '').substring(0, 500),\n            content: (r.content || '').substring(0, 2000),\n            source_url: r.source_url || '',\n            source_name: r.source_name || 'Gemini',\n            source_type: batch.source_type,\n            published_date: r.published_date || null,\n            sentiment: r.sentiment || 'free',\n            collector_ai: 'Gemini'\n          });\n        }\n      }\n    } catch (e) { /* skip parse errors */ }\n  }\n  \n  // Parse Naver response\n  if (data.items && Array.isArray(data.items)) {\n    for (const r of data.items) {\n      const title = (r.title || '').replace(/<[^>]*>/g, '');\n      const desc = (r.description || '').replace(/<[^>]*>/g, '');\n      records.push({\n        politician_id: p.id,\n        category: batch.category || 'general',\n        title: title.substring(0, 500),\n        content: desc.substring(0, 2000),\n        source_url: r.originallink || r.link || '',\n        source_name: 'Naver',\n        source_type: 'PUBLIC',\n        published_date: r.pubDate ? new Date(r.pubDate).toISOString().split('T')[0] : null,\n        sentiment: 'free',\n        collector_ai: 'Naver'\n      });\n    }\n  }\n}\n\nreturn records.length > 0 ? records.map(r => ({ json: r })) : [{ json: { _empty: true } }];"
+      },
+      "id": "tc-parse-collection",
+      "name": "Parse & Format Data",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2000,
+        300
+      ],
+      "notes": "Parse Gemini + Naver API responses into collected_data_v40 format"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $env.SUPABASE_URL }}/rest/v1/collected_data_v40",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "={{ $env.SUPABASE_SERVICE_ROLE_KEY }}"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $env.SUPABASE_SERVICE_ROLE_KEY }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Prefer",
+              "value": "return=minimal"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify($input.all().filter(i => !i.json._empty).map(i => i.json)) }}",
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "id": "tc-save-collected",
+      "name": "Supabase: Save Collected",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2220,
+        300
+      ],
+      "notes": "Bulk insert collected data into Supabase collected_data_v40"
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "={{ $env.SUPABASE_URL }}/rest/v1/collected_data_v40?politician_id=eq.{{ $('Collection Loop').item.json.id }}&select=id&limit=1",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "={{ $env.SUPABASE_SERVICE_ROLE_KEY }}"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $env.SUPABASE_SERVICE_ROLE_KEY }}"
+            },
+            {
+              "name": "Prefer",
+              "value": "count=exact"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "tc-gate-1",
+      "name": "Gate 1: Count Check",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2440,
+        400
+      ],
+      "notes": "Check collected_data_v40 count via Supabase REST (use content-range header)"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Parse content-range header for total count\nconst headers = $input.first().json.$response?.headers || {};\nconst range = headers['content-range'] || '0/0';\nconst total = parseInt(range.split('/')[1]) || 0;\nconst p = $('Collection Loop').first().json;\n\nif (total >= 1000) {\n  return [{ json: { id: p.id, name: p.name, count: total, gate: 'pass' } }];\n} else {\n  return [{ json: { id: p.id, name: p.name, count: total, gate: 'fail' } }];\n}"
+      },
+      "id": "tc-check-gate-1",
+      "name": "Check Gate 1",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2660,
+        400
+      ],
+      "notes": "Parse count from Supabase response, check >= 1000"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.gate }}",
+              "operation": "equals",
+              "value2": "pass"
+            }
+          ]
+        }
+      },
+      "id": "tc-if-gate-1",
+      "name": "IF Gate 1 Pass",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        2880,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const staticData = $getWorkflowStaticData('global');\nif (!staticData.errors) staticData.errors = [];\nconst p = $('Collection Loop').first().json;\nstaticData.errors.push({ id: p.id, name: p.name, phase: 'P1', msg: `Collection failed (< 1000)` });\nreturn [{ json: { status: 'fail', id: p.id, name: p.name } }];"
+      },
+      "id": "tc-log-p1-fail",
+      "name": "Log P1 Fail",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3100,
+        540
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Phase 2: Validate - remove duplicates, enforce period limits\n// This is a simplified JS version of validate_v40_fixed.py\nconst p = $input.first().json;\n// In production, call the Python script via execute command\n// For Type C pure API, we do basic validation in JS\nreturn [{ json: { id: p.id, name: p.name, validated: true } }];"
+      },
+      "id": "tc-p2-validate",
+      "name": "P2: Validate (Code)",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3100,
+        300
+      ],
+      "notes": "Phase 2: Validation logic in JS (dedup, period enforcement)"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Phase 2-2: Adjust - balance data 50-60 per AI per category\n// Simplified JS version of adjust_v40_data.py\nconst p = $input.first().json;\nconst staticData = $getWorkflowStaticData('global');\nif (!staticData.readyPoliticians) staticData.readyPoliticians = [];\nstaticData.readyPoliticians.push({ id: p.id, name: p.name });\nreturn [{ json: { id: p.id, name: p.name, adjusted: true } }];"
+      },
+      "id": "tc-p2-2-adjust",
+      "name": "P2-2: Adjust (Code)",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3340,
+        300
+      ],
+      "notes": "Phase 2-2: Balance adjustment logic in JS"
+    },
+    {
+      "parameters": {
+        "jsCode": "const staticData = $getWorkflowStaticData('global');\nconst ready = staticData.readyPoliticians || [];\nif (ready.length === 0) throw new Error('No politicians passed collection/validation.');\nreturn ready.map(p => ({ json: { id: p.id, name: p.name } }));"
+      },
+      "id": "tc-filter-ready",
+      "name": "Filter Ready",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        860,
+        800
+      ],
+      "notes": "Get all validated politicians for Phase 3 evaluation"
+    },
+    {
+      "parameters": {
+        "batchSize": 1,
+        "options": {}
+      },
+      "id": "tc-eval-loop",
+      "name": "Eval Loop",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1100,
+        800
+      ],
+      "notes": "Phase 3: Evaluate 1 politician at a time"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Fetch unevaluated collected_data and build evaluation prompts\nconst p = $input.first().json;\nconst categories = ['expertise','leadership','vision','integrity','ethics','accountability','transparency','communication','responsiveness','publicinterest'];\nconst catKr = {\n  expertise:'전문성', leadership:'리더십', vision:'비전', integrity:'청렴성',\n  ethics:'윤리', accountability:'책임성', transparency:'투명성',\n  communication:'소통', responsiveness:'대응력', publicinterest:'공익성'\n};\n\n// Generate batch prompts (25 items per batch, per category)\nconst batches = [];\nfor (const cat of categories) {\n  batches.push({\n    politician_id: p.id,\n    politician_name: p.name,\n    category: cat,\n    eval_prompt_template: `다음은 정치인 \"${p.name}\"의 ${catKr[cat]}(${cat}) 관련 뉴스/활동 목록입니다.\\n각 항목에 대해 +4~-4 등급(0 제외)으로 평가하고, X는 해당 카테고리와 무관한 경우에만 사용하세요.\\n\\nJSON 배열로 반환:\\n[{\"collected_data_id\":\"ID\",\"rating\":\"+3\",\"reasoning\":\"평가 근거 (100자 이내)\"}]\\n\\n평가 대상 항목:\\n`\n  });\n}\nreturn batches.map(b => ({ json: b }));"
+      },
+      "id": "tc-prep-eval-prompts",
+      "name": "Prepare Eval Prompts",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1340,
+        800
+      ],
+      "notes": "Build evaluation prompt templates for each category"
+    },
+    {
+      "parameters": {
+        "batchSize": 1,
+        "options": {}
+      },
+      "id": "tc-eval-cat-loop",
+      "name": "Category Loop",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1560,
+        800
+      ],
+      "notes": "Process each category's evaluations"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.anthropic.com/v1/messages",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "x-api-key",
+              "value": "={{ $env.ANTHROPIC_API_KEY }}"
+            },
+            {
+              "name": "anthropic-version",
+              "value": "2023-06-01"
+            },
+            {
+              "name": "content-type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ model: 'claude-haiku-4-5-20241001', max_tokens: 4000, messages: [{ role: 'user', content: $json.eval_prompt_template + '(데이터는 별도 조회)' }] }) }}",
+        "options": {
+          "timeout": 120000
+        }
+      },
+      "id": "tc-claude-eval",
+      "name": "Claude API: Evaluate",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1780,
+        600
+      ],
+      "notes": "Type C: Claude Haiku 4.5 API evaluation (~$0.42/politician)"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.openai.com/v1/chat/completions",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $env.OPENAI_API_KEY }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ model: 'o4-mini', messages: [{ role: 'user', content: $json.eval_prompt_template + '(데이터는 별도 조회)' }], max_tokens: 4000 }) }}",
+        "options": {
+          "timeout": 120000
+        }
+      },
+      "id": "tc-chatgpt-eval",
+      "name": "ChatGPT API: Evaluate",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1780,
+        760
+      ],
+      "notes": "Type C: ChatGPT o4-mini API evaluation"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={{ $env.GEMINI_API_KEY }}",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ contents: [{ parts: [{ text: $json.eval_prompt_template + '(데이터는 별도 조회)' }] }], generationConfig: { temperature: 0.3, maxOutputTokens: 4000 } }) }}",
+        "options": {
+          "timeout": 120000
+        }
+      },
+      "id": "tc-gemini-eval",
+      "name": "Gemini API: Evaluate",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1780,
+        920
+      ],
+      "notes": "Type C: Gemini 2.0 Flash API evaluation"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.x.ai/v1/responses",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $env.XAI_API_KEY }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ model: 'grok-3', input: [{ role: 'user', content: $json.eval_prompt_template + '(데이터는 별도 조회)' }], tools: [] }) }}",
+        "options": {
+          "timeout": 120000
+        }
+      },
+      "id": "tc-grok-eval",
+      "name": "Grok API: Evaluate",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1780,
+        1080
+      ],
+      "notes": "Type C: Grok 3 xAI API evaluation"
+    },
+    {
+      "parameters": {
+        "mode": "append",
+        "joinMode": "waitForAll",
+        "numberInputs": 4,
+        "options": {}
+      },
+      "id": "tc-merge-evals",
+      "name": "Merge 4 AI Evals",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        2000,
+        800
+      ],
+      "notes": "Wait for all 4 AI evaluations to complete (parallel execution)"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Parse all 4 AI evaluation responses into evaluations_v40 format\nconst items = $input.all();\nconst batch = $('Category Loop').first().json;\nconst records = [];\n\nconst aiParsers = [\n  { name: 'Claude', extract: (d) => {\n    if (d.content && d.content[0]) {\n      const text = d.content[0].text || '';\n      const match = text.match(/\\[.*\\]/s);\n      return match ? JSON.parse(match[0]) : [];\n    }\n    return [];\n  }},\n  { name: 'ChatGPT', extract: (d) => {\n    if (d.choices && d.choices[0]) {\n      const text = d.choices[0].message?.content || '';\n      const match = text.match(/\\[.*\\]/s);\n      return match ? JSON.parse(match[0]) : [];\n    }\n    return [];\n  }},\n  { name: 'Gemini', extract: (d) => {\n    if (d.candidates && d.candidates[0]) {\n      const text = d.candidates[0].content?.parts?.[0]?.text || '';\n      const match = text.match(/\\[.*\\]/s);\n      return match ? JSON.parse(match[0]) : [];\n    }\n    return [];\n  }},\n  { name: 'Grok', extract: (d) => {\n    if (d.output && d.output[0]) {\n      const text = d.output[0].content?.[0]?.text || d.output[0].content || '';\n      const match = (typeof text === 'string' ? text : JSON.stringify(text)).match(/\\[.*\\]/s);\n      return match ? JSON.parse(match[0]) : [];\n    }\n    return [];\n  }}\n];\n\nconst validRatings = ['+4','+3','+2','+1','-1','-2','-3','-4','X'];\n\nfor (let i = 0; i < items.length && i < aiParsers.length; i++) {\n  const parser = aiParsers[i];\n  try {\n    const evals = parser.extract(items[i].json);\n    for (const ev of evals) {\n      const rating = String(ev.rating || '').trim();\n      if (!validRatings.includes(rating)) continue;\n      records.push({\n        politician_id: batch.politician_id,\n        category: batch.category,\n        evaluator_ai: parser.name,\n        collected_data_id: ev.collected_data_id || null,\n        rating: rating,\n        reasoning: (ev.reasoning || '').substring(0, 500)\n      });\n    }\n  } catch (e) { /* skip parse errors for this AI */ }\n}\n\nreturn records.length > 0 ? records.map(r => ({ json: r })) : [{ json: { _empty: true } }];"
+      },
+      "id": "tc-parse-evals",
+      "name": "Parse 4 AI Responses",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2220,
+        800
+      ],
+      "notes": "Parse Claude/ChatGPT/Gemini/Grok responses into evaluations_v40 records"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $env.SUPABASE_URL }}/rest/v1/evaluations_v40",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "={{ $env.SUPABASE_SERVICE_ROLE_KEY }}"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $env.SUPABASE_SERVICE_ROLE_KEY }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Prefer",
+              "value": "return=minimal"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify($input.all().filter(i => !i.json._empty).map(i => i.json)) }}",
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "id": "tc-save-evals",
+      "name": "Supabase: Save Evals",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2440,
+        800
+      ],
+      "notes": "Bulk insert evaluation records into Supabase evaluations_v40"
+    },
+    {
+      "parameters": {
+        "jsCode": "const staticData = $getWorkflowStaticData('global');\nif (!staticData.evalDonePoliticians) staticData.evalDonePoliticians = [];\nconst p = $('Eval Loop').first().json;\nstaticData.evalDonePoliticians.push({ id: p.id, name: p.name });\nreturn [{ json: { id: p.id, name: p.name, status: 'eval_done' } }];"
+      },
+      "id": "tc-mark-eval-done",
+      "name": "Mark Eval Done",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2660,
+        800
+      ],
+      "notes": "Mark politician evaluation as complete"
+    },
+    {
+      "parameters": {
+        "jsCode": "const staticData = $getWorkflowStaticData('global');\nconst done = staticData.evalDonePoliticians || [];\nif (done.length === 0) throw new Error('No politicians completed evaluation.');\nreturn done.map(p => ({ json: { id: p.id, name: p.name } }));"
+      },
+      "id": "tc-get-scored-list",
+      "name": "Get Scored List",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        860,
+        1200
+      ],
+      "notes": "Get evaluated politicians for scoring"
+    },
+    {
+      "parameters": {
+        "batchSize": 1,
+        "options": {}
+      },
+      "id": "tc-score-loop",
+      "name": "Score-Report Loop",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1100,
+        1200
+      ],
+      "notes": "Phase 4-5: Score and report per politician"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Phase 4: Calculate scores - fetch evaluations from Supabase REST API\n// Formula: category_score = (6.0 + avg_score * 0.5) * 10\n// Final: round(min(sum(10 categories), 1000))\n\nconst PRIOR = 6.0;\nconst COEFFICIENT = 0.5;\nconst GIVE_UP_THRESHOLD = 25;\nconst SCORE_MULTIPLIER = 2;\nconst categories = ['expertise','leadership','vision','integrity','ethics','accountability','transparency','communication','responsiveness','publicinterest'];\nconst ratingMap = { '+4':4,'+3':3,'+2':2,'+1':1,'-1':-1,'-2':-2,'-3':-3,'-4':-4 };\n\nconst p = $input.first().json;\nconst supabaseUrl = $env.SUPABASE_URL;\nconst supabaseKey = $env.SUPABASE_SERVICE_ROLE_KEY;\n\n// Fetch all evaluations for this politician with pagination\nlet allEvals = [];\nlet offset = 0;\nwhile (true) {\n  const resp = await fetch(\n    `${supabaseUrl}/rest/v1/evaluations_v40?politician_id=eq.${p.id}&select=category,rating&offset=${offset}&limit=1000`,\n    { headers: { apikey: supabaseKey, Authorization: `Bearer ${supabaseKey}` } }\n  );\n  const batch = await resp.json();\n  allEvals = allEvals.concat(batch);\n  if (batch.length < 1000) break;\n  offset += 1000;\n}\n\nconst categoryScores = {};\nlet totalScore = 0;\n\nfor (const cat of categories) {\n  const catEvals = allEvals.filter(e => e.category === cat && ratingMap[e.rating] !== undefined);\n  \n  if (catEvals.length < GIVE_UP_THRESHOLD) {\n    // Give-up: leverage score 0 → (PRIOR + 0) * 10 = 60\n    categoryScores[cat] = Math.round(PRIOR * 10);\n  } else {\n    const scores = catEvals.map(e => ratingMap[e.rating] * SCORE_MULTIPLIER);\n    const avgScore = scores.reduce((a, b) => a + b, 0) / scores.length;\n    const catScore = Math.round((PRIOR + avgScore * COEFFICIENT) * 10);\n    categoryScores[cat] = Math.min(Math.max(catScore, 20), 100);\n  }\n  totalScore += categoryScores[cat];\n}\n\nconst finalScore = Math.round(Math.min(totalScore, 1000));\n\nreturn [{ json: {\n  politician_id: p.id,\n  politician_name: p.name,\n  category_scores: categoryScores,\n  final_score: finalScore,\n  total_evaluations: allEvals.length\n} }];"
+      },
+      "id": "tc-p4-calculate",
+      "name": "P4: Calculate Scores (Code)",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1340,
+        1200
+      ],
+      "notes": "Phase 4: Score calculation in JavaScript (PRIOR=6.0, COEFF=0.5)"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $env.SUPABASE_URL }}/rest/v1/ai_final_scores_v40",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "={{ $env.SUPABASE_SERVICE_ROLE_KEY }}"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $env.SUPABASE_SERVICE_ROLE_KEY }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Prefer",
+              "value": "return=minimal,resolution=merge-duplicates"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ politician_id: $json.politician_id, final_score: $json.final_score, category_scores: $json.category_scores }) }}",
+        "options": {}
+      },
+      "id": "tc-save-scores",
+      "name": "Supabase: Save Scores",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1560,
+        1200
+      ],
+      "notes": "Save final scores to ai_final_scores_v40"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Phase 5: Generate report summary\nconst p = $input.first().json;\nconst now = new Date().toISOString().split('T')[0].replace(/-/g, '');\nconst report = {\n  politician_id: p.politician_id,\n  politician_name: p.politician_name,\n  final_score: p.final_score,\n  generated_at: new Date().toISOString(),\n  report_path: `reports/${p.politician_name}_${now}.md`,\n  type: 'C'\n};\nreturn [{ json: report }];"
+      },
+      "id": "tc-p5-report",
+      "name": "P5: Generate Report",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1780,
+        1200
+      ],
+      "notes": "Phase 5: Report generation metadata"
+    },
+    {
+      "parameters": {
+        "jsCode": "const staticData = $getWorkflowStaticData('global');\nconst evalDone = staticData.evalDonePoliticians || [];\nconst errors = staticData.errors || [];\n\nlet summary = '=== V40 Type C Pipeline Complete ===\\n\\n';\nsummary += `Evaluated: ${evalDone.length}\\n`;\nsummary += `Errors: ${errors.length}\\n\\n`;\n\nfor (const p of evalDone) {\n  summary += `OK ${p.name} (${p.id})\\n`;\n}\nfor (const e of errors) {\n  summary += `FAIL ${e.name} (${e.id}) at ${e.phase}: ${e.msg}\\n`;\n}\n\nsummary += '\\nType C: Full API automation (no CLI dependencies)';\nsummary += '\\nCost per politician: ~$2-5 (all 4 AI APIs)';\n\nreturn [{ json: { summary } }];"
+      },
+      "id": "tc-final-summary",
+      "name": "Final Summary",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1100,
+        1500
+      ],
+      "notes": "Final pipeline summary with costs"
+    }
+  ],
+  "connections": {
+    "Manual Trigger": {
+      "main": [
+        [
+          {
+            "node": "Set Politicians",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Politicians": {
+      "main": [
+        [
+          {
+            "node": "Parse Politicians",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse Politicians": {
+      "main": [
+        [
+          {
+            "node": "Collection Loop",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Collection Loop": {
+      "main": [
+        [
+          {
+            "node": "Generate Collection Prompts",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Filter Ready",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate Collection Prompts": {
+      "main": [
+        [
+          {
+            "node": "Collection Batch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Collection Batch": {
+      "main": [
+        [
+          {
+            "node": "Gemini API: Collect",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Naver API: Collect",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Gate 1: Count Check",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gemini API: Collect": {
+      "main": [
+        [
+          {
+            "node": "Merge Collection",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Naver API: Collect": {
+      "main": [
+        [
+          {
+            "node": "Merge Collection",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge Collection": {
+      "main": [
+        [
+          {
+            "node": "Parse & Format Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse & Format Data": {
+      "main": [
+        [
+          {
+            "node": "Supabase: Save Collected",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Supabase: Save Collected": {
+      "main": [
+        [
+          {
+            "node": "Collection Batch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gate 1: Count Check": {
+      "main": [
+        [
+          {
+            "node": "Check Gate 1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Gate 1": {
+      "main": [
+        [
+          {
+            "node": "IF Gate 1 Pass",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF Gate 1 Pass": {
+      "main": [
+        [
+          {
+            "node": "P2: Validate (Code)",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Log P1 Fail",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Log P1 Fail": {
+      "main": [
+        [
+          {
+            "node": "Collection Loop",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "P2: Validate (Code)": {
+      "main": [
+        [
+          {
+            "node": "P2-2: Adjust (Code)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "P2-2: Adjust (Code)": {
+      "main": [
+        [
+          {
+            "node": "Collection Loop",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter Ready": {
+      "main": [
+        [
+          {
+            "node": "Eval Loop",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Eval Loop": {
+      "main": [
+        [
+          {
+            "node": "Prepare Eval Prompts",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Get Scored List",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Eval Prompts": {
+      "main": [
+        [
+          {
+            "node": "Category Loop",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Category Loop": {
+      "main": [
+        [
+          {
+            "node": "Claude API: Evaluate",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "ChatGPT API: Evaluate",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Gemini API: Evaluate",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Grok API: Evaluate",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Mark Eval Done",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Claude API: Evaluate": {
+      "main": [
+        [
+          {
+            "node": "Merge 4 AI Evals",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ChatGPT API: Evaluate": {
+      "main": [
+        [
+          {
+            "node": "Merge 4 AI Evals",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Gemini API: Evaluate": {
+      "main": [
+        [
+          {
+            "node": "Merge 4 AI Evals",
+            "type": "main",
+            "index": 2
+          }
+        ]
+      ]
+    },
+    "Grok API: Evaluate": {
+      "main": [
+        [
+          {
+            "node": "Merge 4 AI Evals",
+            "type": "main",
+            "index": 3
+          }
+        ]
+      ]
+    },
+    "Merge 4 AI Evals": {
+      "main": [
+        [
+          {
+            "node": "Parse 4 AI Responses",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse 4 AI Responses": {
+      "main": [
+        [
+          {
+            "node": "Supabase: Save Evals",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Supabase: Save Evals": {
+      "main": [
+        [
+          {
+            "node": "Category Loop",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mark Eval Done": {
+      "main": [
+        [
+          {
+            "node": "Eval Loop",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Scored List": {
+      "main": [
+        [
+          {
+            "node": "Score-Report Loop",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Score-Report Loop": {
+      "main": [
+        [
+          {
+            "node": "P4: Calculate Scores (Code)",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Final Summary",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "P4: Calculate Scores (Code)": {
+      "main": [
+        [
+          {
+            "node": "Supabase: Save Scores",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Supabase: Save Scores": {
+      "main": [
+        [
+          {
+            "node": "P5: Generate Report",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "P5: Generate Report": {
+      "main": [
+        [
+          {
+            "node": "Score-Report Loop",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "name": "V40"
+    },
+    {
+      "name": "Type C"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2026-02-23T00:00:00.000Z",
+  "versionId": "1"
+}

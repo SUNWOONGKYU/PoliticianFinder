@@ -463,11 +463,40 @@
     .info-label { width: 110px; }
   }
 
+  /* PDF Download Button */
+  .pdf-download-btn {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 14px 24px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(211,47,47,0.35);
+    z-index: 9999;
+    transition: background 0.2s, transform 0.2s;
+    font-family: inherit;
+  }
+  .pdf-download-btn:hover {
+    background: #b71c00;
+    transform: translateY(-2px);
+  }
+
   @media print {
-    body { background: white; }
-    .document { box-shadow: none; margin: 0; }
+    body { background: #fff !important; }
+    .document { margin: 0 !important; box-shadow: none !important; max-width: 100% !important; }
     .cover { break-after: page; }
+    .cat-detail { break-inside: avoid; }
+    .claim { break-inside: avoid; }
+    .bar-row { break-inside: avoid; }
+    .grade-table { break-inside: avoid; }
+    .pdf-download-btn { display: none !important; }
     h1 { break-after: avoid; }
+    table { break-inside: avoid; }
   }
 </style>
 </head>
@@ -1342,6 +1371,9 @@
   </div><!-- /.content -->
 
 </div><!-- /.document -->
+
+<!-- PDF Download Button (WYSIWYG: window.print → 브라우저 PDF 저장) -->
+<button class="pdf-download-btn" onclick="window.print()" title="PDF로 다운로드">PDF 다운로드</button>
 
 </body>
 </html>

@@ -1,0 +1,113 @@
+{
+  "_description": "V40 Type C API Configuration - All endpoints, models, and auth for n8n HTTP Request nodes",
+  "_type": "Type C (n8n + API)",
+  "_updated": "2026-02-23",
+
+  "claude": {
+    "endpoint": "https://api.anthropic.com/v1/messages",
+    "model": "claude-haiku-4-5-20241001",
+    "headers": {
+      "x-api-key": "{{$env.ANTHROPIC_API_KEY}}",
+      "anthropic-version": "2023-06-01",
+      "content-type": "application/json"
+    },
+    "max_tokens": 4000,
+    "cost_per_1k_input": 1.00,
+    "cost_per_1k_output": 5.00,
+    "note": "Haiku 4.5 - cheapest Anthropic model for evaluation"
+  },
+
+  "chatgpt": {
+    "endpoint": "https://api.openai.com/v1/chat/completions",
+    "model": "o4-mini",
+    "headers": {
+      "Authorization": "Bearer {{$env.OPENAI_API_KEY}}",
+      "Content-Type": "application/json"
+    },
+    "max_tokens": 4000,
+    "cost_per_1k_input": 1.10,
+    "cost_per_1k_output": 4.40,
+    "note": "o4-mini - cost-effective reasoning model"
+  },
+
+  "gemini": {
+    "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent",
+    "model": "gemini-2.0-flash",
+    "auth_method": "url_query_param",
+    "key_param": "key",
+    "env_var": "GEMINI_API_KEY",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "note_auth": "API key passed as ?key={{GEMINI_API_KEY}} URL parameter (not header)",
+    "cost_per_1k_input": 0.10,
+    "cost_per_1k_output": 0.40,
+    "note": "Gemini 2.0 Flash - cheapest option, used for both collection and evaluation"
+  },
+
+  "grok": {
+    "endpoint": "https://api.x.ai/v1/responses",
+    "model": "grok-3",
+    "headers": {
+      "Authorization": "Bearer {{$env.XAI_API_KEY}}",
+      "Content-Type": "application/json"
+    },
+    "cost_per_1k_input": 3.00,
+    "cost_per_1k_output": 15.00,
+    "note": "Grok 3 via xAI Agent Tools API"
+  },
+
+  "naver": {
+    "search_endpoint": "https://openapi.naver.com/v1/search/news.json",
+    "headers": {
+      "X-Naver-Client-Id": "{{$env.NAVER_CLIENT_ID}}",
+      "X-Naver-Client-Secret": "{{$env.NAVER_CLIENT_SECRET}}"
+    },
+    "max_display": 100,
+    "sort": "date",
+    "note": "Naver News Search API - 1000 calls/day free tier"
+  },
+
+  "supabase": {
+    "rest_endpoint": "{{$env.SUPABASE_URL}}/rest/v1",
+    "headers": {
+      "apikey": "{{$env.SUPABASE_SERVICE_ROLE_KEY}}",
+      "Authorization": "Bearer {{$env.SUPABASE_SERVICE_ROLE_KEY}}",
+      "Content-Type": "application/json",
+      "Prefer": "return=minimal"
+    },
+    "tables": {
+      "collected_data": "collected_data_v40",
+      "evaluations": "evaluations_v40",
+      "final_scores": "ai_final_scores_v40",
+      "politicians": "politicians"
+    },
+    "note": "Supabase REST API - 1000 row default limit, use Range header for pagination"
+  },
+
+  "categories": [
+    "expertise", "leadership", "vision", "integrity", "ethics",
+    "accountability", "transparency", "communication", "responsiveness", "publicinterest"
+  ],
+
+  "scoring": {
+    "prior": 6.0,
+    "coefficient": 0.5,
+    "min_score": 200,
+    "max_score": 1000,
+    "formula": "category_score = (prior + avg_score * coefficient) * 10",
+    "final": "round(min(sum(10 categories), 1000))"
+  },
+
+  "rating_scale": {
+    "grades": ["+4", "+3", "+2", "+1", "-1", "-2", "-3", "-4"],
+    "exclusion": "X",
+    "score_multiplier": 2,
+    "note": "rating * 2 = score. No zero grade. X = excluded from scoring."
+  },
+
+  "batch_size": 25,
+  "collection_target_per_category": 60,
+  "min_per_category": 50,
+  "give_up_threshold": 25
+}

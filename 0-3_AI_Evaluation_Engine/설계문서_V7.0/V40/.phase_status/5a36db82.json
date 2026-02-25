@@ -1,0 +1,31 @@
+{
+  "politician_id": "5a36db82",
+  "phases": {
+    "2": {
+      "status": "DONE",
+      "completed_at": "2026-02-23T10:29:23.546894",
+      "details": "유효 970개, 무효 0개 삭제, sentiment 위반 22건"
+    },
+    "2-2": {
+      "status": "DONE",
+      "completed_at": "2026-02-23T11:20:13.291522",
+      "details": "최대 라운드 도달 (포기 규칙 적용)"
+    },
+    "0": {
+      "status": "DONE",
+      "completed_at": "2026-02-22T00:00:00",
+      "details": "DB 등록 완료 (12개 필드), MD 파일 존재"
+    },
+    "1": {
+      "status": "DONE",
+      "completed_at": "2026-02-23T04:16:26",
+      "details": "Type B Phase 1: 1575건 수집 (Gemini+Naver), status=pass"
+    },
+    "4": {
+      "status": "DONE",
+      "completed_at": "2026-02-25T09:58:16.342494",
+      "details": "787점 E등급"
+    }
+  },
+  "politician_name": "이동환"
+}

@@ -45,7 +45,15 @@
       "Bash(npm:*)",
       "Bash(do python codex_eval_helper.py --politician_id=37e39502 --politician_name=\"오준환\" --category=$cat --batch_size=25)",
       "Bash(do python grok_eval_helper.py --politician_id=37e39502 --politician_name=\"오준환\" --category=$cat --batch_size=25)",
-      "Bash(pandoc:*)"
+      "Bash(pandoc:*)",
+      "Bash(grep:*)",
+      "Bash(supabase migration:*)",
+      "Bash(nslookup:*)",
+      "mcp__perplexity__perplexity_search",
+      "Bash(true:*)",
+      "Bash(cd \"C:/Development_PoliticianFinder_com/Developement_Real_PoliticianFinder/0-3_AI_Evaluation_Engine/설계문서_V7.0/V40/scripts/helpers\" && export PYTHONIOENCODING=utf-8 && python claude_eval_helper.py save --politician_id=5a36db82 --politician_name=\"이동환\" --category=vision --input=eval_result_vision_batch_1.json 2>&1)",
+      "Bash(cd:*)",
+      "Bash(tail:*)"
     ]
   }
 }
