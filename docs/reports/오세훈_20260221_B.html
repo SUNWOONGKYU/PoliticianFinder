@@ -5,328 +5,542 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>오세훈 AI 정치인 평가보고서 — PoliticianFinder V40</title>
 <style>
-  :root {
-    --primary: #1a0808;
-    --accent:  #B71C1C;
-    --text:    #1a1a1a;
-    --muted:   #6b7280;
-    --border:  #e5e7eb;
-    --bg:      #f9fafb;
+/* =============================================
+   PoliticianFinder V40 평가보고서 — 융합 CSS V1.0
+   5인 공통 통합 템플릿
+   ============================================= */
+
+/* 폰트 로딩 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* ===== 정당별 색상 (파일마다 교체) =====
+     더불어민주당: --primary: #1a365d; --accent: #1565C0; --bg-highlight: #e8f0fe;
+     국민의힘:    --primary: #1a0808; --accent: #B71C1C; --bg-highlight: #fff0f0;
+  */
+  --primary: #1a0808;
+  --accent: #B71C1C;
+  --bg-highlight: #fff0f0;
+
+  /* ===== 공통 색상 (모든 파일 동일) ===== */
+  --bg: #ffffff;
+  --bg-alt: #f7fafc;
+  --text: #1a202c;
+  --text-muted: #6b7280;
+  --border: #e2e8f0;
+  --border-dark: #cbd5e0;
+  --success: #38a169;
+  --warning: #c53030;
+  --info: #1565c0;
+  --gold: #92400e;
+}
+
+/* 리셋 */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Noto Sans KR', 'Malgun Gothic', -apple-system, sans-serif;
+  color: var(--text);
+  background: #edf2f7;
+  line-height: 1.8;
+  font-size: 15px;
+}
+
+/* 문서 컨테이너 */
+.document {
+  max-width: 800px;
+  margin: 40px auto;
+  background: var(--bg);
+  box-shadow: 0 4px 32px rgba(0,0,0,0.12);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+/* ===== COVER ===== */
+.cover {
+  padding: 72px 60px 56px;
+  text-align: left;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  color: #fff;
+  position: relative;
+}
+.cover::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: rgba(255,255,255,0.3);
+}
+.cover-badge {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 20px;
+}
+.cover-title {
+  font-size: 42px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+.cover-subtitle {
+  font-size: 15px;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 36px;
+}
+.cover-score-box {
+  display: inline-block;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 8px;
+  padding: 20px 32px;
+  margin-bottom: 28px;
+}
+.cover-score-num {
+  font-size: 52px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -2px;
+}
+.cover-score-grade {
+  font-size: 14px;
+  color: rgba(255,255,255,0.75);
+  margin-top: 6px;
+}
+/* 메타 카드 */
+.cover-meta {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  padding-top: 24px;
+}
+.cover-meta-item {}
+.cover-meta-label {
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 2px;
+}
+.cover-meta-value {
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+}
+
+/* ===== CONTENT ===== */
+.content { padding: 48px 60px 64px; }
+
+/* ===== TOC ===== */
+.toc {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: 0 4px 4px 0;
+  padding: 24px 28px;
+  margin-bottom: 48px;
+}
+.toc-title {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+.toc ol { padding-left: 20px; }
+.toc li { margin-bottom: 6px; }
+.toc a {
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 14px;
+}
+.toc a:hover { text-decoration: underline; }
+
+/* ===== HEADINGS ===== */
+h1 {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--primary);
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 10px;
+  margin: 48px 0 24px;
+}
+h1:first-of-type { margin-top: 0; }
+
+h2 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 28px 0 14px;
+}
+
+h3 {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  margin: 20px 0 10px;
+}
+
+p {
+  margin-bottom: 12px;
+  text-align: justify;
+}
+
+/* ===== INFO FIELDS ===== */
+.info-field {
+  display: flex;
+  border-bottom: 1px solid var(--border);
+  padding: 10px 0;
+  font-size: 14px;
+}
+.info-label {
+  width: 160px;
+  min-width: 160px;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+.info-value { flex: 1; }
+
+/* ===== AI CARDS ===== */
+.ai-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin: 20px 0 24px;
+}
+.ai-card {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+  background: var(--bg-alt);
+  transition: box-shadow 0.15s;
+}
+.ai-card:hover {
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+.ai-card-name {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.ai-card-score {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1;
+}
+.ai-card-desc {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 6px;
+  line-height: 1.5;
+}
+
+/* ===== BAR CHART ===== */
+.bar-chart { margin: 24px 0; }
+.bar-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.bar-label {
+  width: 80px;
+  min-width: 80px;
+  font-size: 13px;
+  color: var(--text-muted);
+  text-align: right;
+}
+.bar-track {
+  flex: 1;
+  background: #e9ecef;
+  border-radius: 4px;
+  height: 26px;
+  overflow: hidden;
+}
+.bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  background: var(--accent);
+  transition: width 0.3s;
+}
+.bar-fill span { white-space: nowrap; }
+.bar-fill-top { background: var(--primary); }
+
+/* ===== TABLES ===== */
+.table-wrap { overflow-x: auto; margin: 16px 0 24px; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+th {
+  background: var(--primary);
+  color: #fff;
+  padding: 10px 14px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 13px;
+}
+td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  text-align: center;
+  vertical-align: middle;
+}
+tr:nth-child(even) td { background: var(--bg-alt); }
+tr:hover td { background: var(--bg-highlight); }
+td:first-child {
+  font-weight: 600;
+  text-align: left;
+  white-space: nowrap;
+}
+.highlight-col {
+  background: var(--bg-highlight) !important;
+  font-weight: 700;
+  color: var(--accent);
+}
+th.highlight-col {
+  background: var(--accent) !important;
+  color: #fff;
+}
+.rank-1 { color: var(--gold); font-weight: 800; }
+
+/* ===== CLAIM BOXES ===== */
+.claim {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: 0 6px 6px 0;
+  padding: 16px 20px;
+  margin: 16px 0;
+  font-size: 14px;
+}
+.claim-label {
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.claim-success { border-left-color: var(--success); }
+.claim-success .claim-label { color: var(--success); }
+.claim-warning { border-left-color: var(--warning); }
+.claim-warning .claim-label { color: var(--warning); }
+.claim-independent { border-left-color: var(--info); }
+.claim-independent .claim-label { color: var(--info); }
+
+/* ===== CATEGORY DETAIL ===== */
+.cat-detail {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin: 20px 0;
+  overflow: hidden;
+}
+.cat-detail-header {
+  background: var(--primary);
+  color: #fff;
+  padding: 14px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cat-detail-name { font-size: 15px; font-weight: 700; }
+.cat-detail-score { font-size: 22px; font-weight: 800; }
+.cat-detail-body { padding: 20px; }
+
+/* ===== GRADE TABLE ===== */
+.grade-table { margin: 24px 0; }
+.grade-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+}
+.grade-row:last-child { border-bottom: none; }
+.grade-letter {
+  width: 40px;
+  min-width: 40px;
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--text-muted);
+  text-align: center;
+}
+.grade-range {
+  width: 140px;
+  min-width: 140px;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+.grade-desc { flex: 1; }
+.grade-current {
+  background: var(--bg-highlight);
+  border-left: 4px solid var(--accent);
+  border-radius: 0 4px 4px 0;
+}
+.grade-current .grade-letter { color: var(--accent); }
+.grade-current .grade-desc { font-weight: 700; color: var(--primary); }
+
+/* ===== NOTE / UTILITIES ===== */
+.note { font-size: 12px; color: var(--text-muted); margin: 8px 0; }
+ul.plain { list-style: none; padding: 0; margin: 12px 0; }
+ul.plain li { padding: 6px 0; border-bottom: 1px solid var(--border); font-size: 14px; }
+ul.plain li:last-child { border-bottom: none; }
+
+/* ===== FOOTER ===== */
+.doc-footer {
+  background: var(--primary);
+  color: rgba(255,255,255,0.7);
+  padding: 28px 32px;
+  margin-top: 48px;
+  border-radius: 4px;
+}
+.doc-footer-title {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 10px;
+}
+.doc-footer-text { font-size: 12px; line-height: 1.8; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  .document { margin: 0; border-radius: 0; }
+  .cover { padding: 40px 24px 32px; }
+  .cover-title { font-size: 26px; letter-spacing: 2px; }
+  .cover-score-num { font-size: 40px; }
+  .content { padding: 32px 20px 40px; }
+  .ai-cards { grid-template-columns: repeat(2, 1fr); }
+  .info-label { width: 110px; min-width: 110px; }
+  .bar-label { width: 64px; min-width: 64px; font-size: 11px; }
+  .toc { padding: 16px; }
+  h1 { font-size: 18px; }
+}
+
+/* ===== PDF BUTTON: hover 색상 버그 수정 ===== */
+.pdf-download-btn {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 14px 24px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+  z-index: 9999;
+  transition: background 0.2s, transform 0.2s;
+  font-family: inherit;
+}
+.pdf-download-btn:hover {
+  filter: brightness(0.85);  /* [수정] 하드코딩 색상 → accent 기반 */
+  transform: translateY(-2px);
+}
+
+/* ===== PRINT: PDF 색상/디자인 충실도 보장 ===== */
+@media print {
+  /* 배경색·배경이미지 강제 출력 (PDF 색상 충실도 핵심!) */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
   }
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #fff !important; }
+  .document { margin: 0 !important; box-shadow: none !important; max-width: 100% !important; }
 
-  body {
-    background: #e8e8e8;
-    font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif;
-    color: var(--text);
-    line-height: 1.7;
-  }
-
-  .document {
-    max-width: 800px;
-    margin: 32px auto;
-    background: #fff;
-    box-shadow: 0 4px 32px rgba(0,0,0,0.18);
-  }
-
-  /* Cover */
+  /* 커버: 그라데이션 배경 유지 + 페이지 분리 */
   .cover {
-    background: linear-gradient(135deg, #1a0808 0%, #B71C1C 100%);
-    color: #fff;
-    padding: 72px 60px 56px;
+    break-after: page;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%) !important;
+    color: #fff !important;
   }
-  .cover-badge {
-    font-size: 11px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.65);
-    margin-bottom: 20px;
-  }
-  .cover-title {
-    font-size: 36px;
-    font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 8px;
-  }
-  .cover-subtitle {
-    font-size: 16px;
-    color: rgba(255,255,255,0.75);
-    margin-bottom: 36px;
-  }
-  .cover-meta {
-    display: flex;
-    gap: 32px;
-    flex-wrap: wrap;
-    border-top: 1px solid rgba(255,255,255,0.2);
-    padding-top: 28px;
-    margin-top: 28px;
-  }
-  .cover-meta-label { font-size: 11px; color: rgba(255,255,255,0.55); letter-spacing: 1px; text-transform: uppercase; }
-  .cover-meta-value { font-size: 15px; font-weight: 600; color: #fff; margin-top: 2px; }
-
   .cover-score-box {
-    background: rgba(255,255,255,0.12);
-    border: 1px solid rgba(255,255,255,0.25);
-    border-radius: 8px;
-    padding: 20px 28px;
-    display: inline-block;
-    margin-top: 24px;
-  }
-  .cover-score-num {
-    font-size: 52px;
-    font-weight: 800;
-    line-height: 1;
-    letter-spacing: -2px;
-  }
-  .cover-score-grade {
-    font-size: 16px;
-    color: rgba(255,255,255,0.8);
-    margin-top: 4px;
+    background: rgba(255,255,255,0.12) !important;
+    border: 1px solid rgba(255,255,255,0.25) !important;
   }
 
-  /* Content */
-  .content { padding: 48px 60px 64px; }
-
-  /* TOC */
-  .toc {
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-left: 4px solid var(--accent);
-    padding: 24px 28px;
-    margin-bottom: 48px;
-    border-radius: 0 4px 4px 0;
-  }
-  .toc-title { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
-  .toc ol { padding-left: 20px; }
-  .toc li { margin-bottom: 6px; }
-  .toc a { color: var(--accent); text-decoration: none; font-size: 14px; }
-  .toc a:hover { text-decoration: underline; }
-
-  /* Headings */
-  h1 {
-    font-size: 22px;
-    font-weight: 700;
-    color: var(--primary);
-    border-bottom: 2px solid var(--accent);
-    padding-bottom: 10px;
-    margin: 48px 0 24px;
-  }
-  h1:first-of-type { margin-top: 0; }
-  h2 { font-size: 16px; font-weight: 700; color: var(--primary); margin: 28px 0 14px; }
-
-  /* Info fields */
-  .info-field {
-    display: flex;
-    border-bottom: 1px solid var(--border);
-    padding: 10px 0;
-    font-size: 14px;
-  }
-  .info-label { width: 160px; min-width: 160px; color: var(--muted); font-weight: 600; }
-  .info-value { flex: 1; }
-
-  /* AI Cards */
-  .ai-cards {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-    margin: 20px 0;
-  }
-  .ai-card {
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 16px 20px;
-    background: var(--bg);
-  }
-  .ai-card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
-  .ai-card-name { font-size: 13px; font-weight: 700; color: var(--primary); }
-  .ai-card-score { font-size: 22px; font-weight: 800; color: var(--accent); }
-  .ai-card-desc { font-size: 12px; color: var(--muted); line-height: 1.5; }
-
-  /* Bar chart */
-  .bar-chart { margin: 24px 0; }
-  .bar-row {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-    gap: 12px;
-  }
-  .bar-label { width: 80px; min-width: 80px; font-size: 13px; color: var(--muted); text-align: right; }
-  .bar-track { flex: 1; background: #f0f0f0; border-radius: 4px; height: 26px; overflow: hidden; }
-  .bar-fill {
-    height: 100%;
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding-right: 10px;
-    font-size: 12px;
-    font-weight: 700;
-    color: #fff;
-    background: var(--accent);
-    transition: width 0.3s;
-  }
-  .bar-fill-top { background: #b34700 !important; }
-  .bar-fill span { white-space: nowrap; }
-
-  /* Table */
-  .table-wrap { overflow-x: auto; margin: 16px 0; }
-  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  /* 테이블: 헤더·줄무늬·하이라이트 배경 유지 */
   th {
-    background: var(--primary);
-    color: #fff;
-    padding: 10px 14px;
-    text-align: center;
-    font-weight: 600;
-    font-size: 13px;
+    background: var(--primary) !important;
+    color: #fff !important;
   }
-  td {
-    padding: 9px 14px;
-    border-bottom: 1px solid var(--border);
-    text-align: center;
+  th.highlight-col {
+    background: var(--accent) !important;
+    color: #fff !important;
   }
-  tr:hover td { background: #fff5f5; }
-  .highlight-col { background: #fff0f0 !important; font-weight: 700; color: var(--accent); }
-  th.highlight-col { background: var(--accent) !important; color: #fff; }
-  td:first-child { text-align: left; }
-  .rank-1 { color: #b34700; font-weight: 800; }
+  tr:nth-child(even) td { background: var(--bg-alt) !important; }
+  .highlight-col { background: var(--bg-highlight) !important; }
 
-  /* Claim boxes */
-  .claim {
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-left: 4px solid var(--accent);
-    border-radius: 0 6px 6px 0;
-    padding: 16px 20px;
-    margin: 16px 0;
-    font-size: 14px;
-  }
-  .claim-label {
-    font-size: 11px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--accent);
-    font-weight: 700;
-    margin-bottom: 6px;
-  }
-  .claim-success { border-left-color: #2e7d32; }
-  .claim-success .claim-label { color: #2e7d32; }
-  .claim-warning { border-left-color: #b71c1c; }
-  .claim-warning .claim-label { color: #b71c1c; }
-  .claim-independent { border-left-color: #1565c0; }
-  .claim-independent .claim-label { color: #1565c0; }
-
-  /* Category detail */
-  .cat-detail {
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    margin: 20px 0;
-    overflow: hidden;
-  }
-  .cat-detail-header {
-    background: var(--primary);
-    color: #fff;
-    padding: 14px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .cat-detail-name { font-size: 15px; font-weight: 700; }
-  .cat-detail-score { font-size: 22px; font-weight: 800; }
-  .cat-detail-body { padding: 20px; }
-
-  /* Grade table */
-  .grade-table { margin: 24px 0; }
-  .grade-row {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    padding: 10px 16px;
-    border-bottom: 1px solid var(--border);
-    font-size: 14px;
-  }
-  .grade-row:last-child { border-bottom: none; }
-  .grade-letter {
-    width: 40px;
-    min-width: 40px;
-    font-size: 20px;
-    font-weight: 800;
-    color: var(--muted);
-    text-align: center;
-  }
-  .grade-range { width: 140px; min-width: 140px; color: var(--muted); font-size: 13px; }
-  .grade-desc { flex: 1; }
+  /* 등급표: 현재 등급 하이라이트 유지 */
   .grade-current {
-    background: #fff5f5;
-    border-left: 4px solid var(--accent);
+    background: var(--bg-highlight) !important;
+    border-left: 4px solid var(--accent) !important;
   }
-  .grade-current .grade-letter { color: var(--accent); }
-  .grade-current .grade-desc { font-weight: 700; color: var(--primary); }
 
-  /* Note / footer */
-  .note { font-size: 12px; color: var(--muted); margin: 8px 0; }
-  ul.plain { list-style: none; padding: 0; margin: 12px 0; }
-  ul.plain li { padding: 6px 0; border-bottom: 1px solid var(--border); font-size: 14px; }
-  ul.plain li:last-child { border-bottom: none; }
+  /* 카테고리 상세: 헤더 배경 유지 */
+  .cat-detail-header {
+    background: var(--primary) !important;
+    color: #fff !important;
+  }
 
+  /* 바 차트: 채움색 유지 */
+  .bar-fill { background: var(--accent) !important; }
+  .bar-fill-top { background: var(--primary) !important; }
+  .bar-track { background: #e9ecef !important; }
+
+  /* claim 박스: 좌측 보더 색상 유지 */
+  .claim { border-left: 4px solid var(--accent) !important; }
+  .claim-success { border-left-color: var(--success) !important; }
+  .claim-warning { border-left-color: var(--warning) !important; }
+
+  /* 푸터: 어두운 배경 유지 */
   .doc-footer {
-    background: var(--primary);
-    color: rgba(255,255,255,0.7);
-    padding: 28px 32px;
-    margin-top: 48px;
-    border-radius: 4px;
-  }
-  .doc-footer-title { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 10px; }
-  .doc-footer-text { font-size: 12px; line-height: 1.8; }
-
-  @media (max-width: 600px) {
-    .document { margin: 0; }
-    .cover { padding: 40px 24px 32px; }
-    .cover-title { font-size: 26px; }
-    .cover-score-num { font-size: 40px; }
-    .content { padding: 32px 20px 40px; }
-    .ai-cards { grid-template-columns: 1fr; }
-    .info-label { width: 110px; min-width: 110px; }
-    .bar-label { width: 64px; min-width: 64px; font-size: 11px; }
-    .toc { padding: 16px 16px; }
-    h1 { font-size: 18px; }
+    background: var(--primary) !important;
+    color: rgba(255,255,255,0.7) !important;
   }
 
-  /* PDF Download Button */
-  .pdf-download-btn {
-    position: fixed;
-    bottom: 32px;
-    right: 32px;
-    background: var(--accent);
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    padding: 14px 24px;
-    font-size: 15px;
-    font-weight: 700;
-    cursor: pointer;
-    box-shadow: 0 4px 16px rgba(211,47,47,0.35);
-    z-index: 9999;
-    transition: background 0.2s, transform 0.2s;
-    font-family: inherit;
-  }
-  .pdf-download-btn:hover {
-    background: #b71c00;
-    transform: translateY(-2px);
+  /* AI 카드: 배경 유지 */
+  .ai-card { background: var(--bg-alt) !important; }
+
+  /* TOC: 좌측 보더 유지 */
+  .toc {
+    background: var(--bg-alt) !important;
+    border-left: 4px solid var(--accent) !important;
   }
 
-  @media print {
-    body { background: #fff !important; }
-    .document { margin: 0 !important; box-shadow: none !important; max-width: 100% !important; }
-    .cover { break-after: page; }
-    .cat-detail { break-inside: avoid; }
-    .claim { break-inside: avoid; }
-    .bar-row { break-inside: avoid; }
-    .grade-table { break-inside: avoid; }
-    .pdf-download-btn { display: none !important; }
-    h1 { break-after: avoid; }
-    table { break-inside: avoid; }
-  }
+  /* 페이지 분리 제어 */
+  .cat-detail { break-inside: avoid; }
+  .claim { break-inside: avoid; }
+  .bar-row { break-inside: avoid; }
+  .grade-table { break-inside: avoid; }
+  table { break-inside: avoid; }
+  h1 { break-after: avoid; }
+
+  /* PDF 버튼 숨김 */
+  .pdf-download-btn { display: none !important; }
+}
 </style>
 </head>
 <body>
@@ -341,10 +555,18 @@
 
     <div class="cover-score-box">
       <div class="cover-score-num">732점</div>
-      <div class="cover-score-grade">P등급 (보통+) &nbsp;·&nbsp; 4인 중 4위 (최하위)</div>
+      <div class="cover-score-grade">P등급 (보통+) &nbsp;·&nbsp; 경쟁자 비교: 섹션 5 참조</div>
     </div>
 
     <div class="cover-meta">
+      <div class="cover-meta-item">
+        <div class="cover-meta-label">출마 직종</div>
+        <div class="cover-meta-value">광역단체장</div>
+      </div>
+      <div class="cover-meta-item">
+        <div class="cover-meta-label">출마 지역</div>
+        <div class="cover-meta-value">서울특별시</div>
+      </div>
       <div class="cover-meta-item">
         <div class="cover-meta-label">평가 AI</div>
         <div class="cover-meta-value">Claude · ChatGPT · Gemini · Grok</div>
@@ -405,13 +627,21 @@
       <div class="info-value">서울특별시 전역 (시장)</div>
     </div>
     <div class="info-field">
+      <div class="info-label">출마 직종</div>
+      <div class="info-value">광역단체장</div>
+    </div>
+    <div class="info-field">
+      <div class="info-label">출마 지역</div>
+      <div class="info-value">서울특별시</div>
+    </div>
+    <div class="info-field">
       <div class="info-label">학력</div>
       <div class="info-value">서울대학교 법학 학사, 하버드 케네디스쿨 석사</div>
     </div>
 
     <div class="claim" style="margin-top:20px;">
       <div class="claim-label">평가 배경</div>
-      4인 중 유일한 현직 광역단체장이자 유일한 서울시장 경험자. 1기(2006~2011)·2기(2021~현재) 합산 서울시정 경험이 가장 길다. '한강 르네상스', '그레이트 한강 프로젝트', '서울 글로벌 도시화' 등 대형 도시 비전을 지속적으로 제시 — 비전 카테고리 1위의 핵심 자산. 그러나 대형 프로젝트 추진 과정의 반복적 갈등 데이터, 그린벨트 해제·재개발 논란, 투명성 비판이 종합 점수를 4인 중 최하위로 낮추는 구조적 요인이다.
+      현직 광역단체장이자 서울시장 경험자. 1기(2006~2011)·2기(2021~현재) 합산 서울시정 경험이 길다. '한강 르네상스', '그레이트 한강 프로젝트', '서울 글로벌 도시화' 등 대형 도시 비전을 지속적으로 제시 — 비전 카테고리 최고 점수의 핵심 자산. 그러나 대형 프로젝트 추진 과정의 반복적 갈등 데이터, 그린벨트 해제·재개발 논란, 투명성 비판이 종합 점수를 하방 압박하는 구조적 요인이다.
     </div>
 
     <!-- SECTION 2: 종합 평균점수 및 AI별 평가 점수 -->
@@ -419,48 +649,35 @@
 
     <div class="claim claim-independent">
       <div class="claim-label">종합 평균점수</div>
-      4AI 평균 <strong>732점</strong> &nbsp;|&nbsp; 등급: <strong>P (보통+)</strong>
+      4개 AI 평균 <strong>732점</strong> &nbsp;|&nbsp; 등급: <strong>P (보통+)</strong>
     </div>
 
     <div class="ai-cards">
       <div class="ai-card">
-        <div class="ai-card-header">
-          <div class="ai-card-name">Claude</div>
-          <div class="ai-card-score">717점</div>
-        </div>
+        <div class="ai-card-name">Claude</div>
+        <div class="ai-card-score">717점</div>
         <div class="ai-card-desc">대형 프로젝트의 사회적 갈등·투명성 문제에 가장 엄격 (최저)</div>
       </div>
       <div class="ai-card">
-        <div class="ai-card-header">
-          <div class="ai-card-name">ChatGPT</div>
-          <div class="ai-card-score">730점</div>
-        </div>
+        <div class="ai-card-name">ChatGPT</div>
+        <div class="ai-card-score">730점</div>
         <div class="ai-card-desc">비전과 실행력을 긍정적으로 평가. 윤리·청렴성 부분 신중 (중간)</div>
       </div>
       <div class="ai-card">
-        <div class="ai-card-header">
-          <div class="ai-card-name">Gemini</div>
-          <div class="ai-card-score">755점</div>
-        </div>
+        <div class="ai-card-name">Gemini</div>
+        <div class="ai-card-score">755점</div>
         <div class="ai-card-desc">서울시 공개 행정 데이터 광범위 수집. 비전·성과 중심 상향 반응 (최고)</div>
       </div>
       <div class="ai-card">
-        <div class="ai-card-header">
-          <div class="ai-card-name">Grok</div>
-          <div class="ai-card-score">726점</div>
-        </div>
+        <div class="ai-card-name">Grok</div>
+        <div class="ai-card-score">726점</div>
         <div class="ai-card-desc">최신 이슈 기반 평가. 대형 사업 논란 데이터에 민감하게 반응 (보수적)</div>
       </div>
     </div>
 
     <div class="claim claim-independent">
       <div class="claim-label">AI 간 편차 분석</div>
-      최대 편차 <strong>38점</strong> (Gemini 755 - Claude 717). 4인 중 가장 작은 AI 간 격차. 현직 서울시장으로서 행정 활동이 매일 공식 보도 자료·서울시 뉴스·주요 일간지를 통해 기록되므로 4개 AI 모두 사실상 '같은 데이터'를 보고 평가한 결과. Gemini는 공식 행정 성과 자료·수상 이력·국제 도시 경쟁력 지수 광범위 수집으로 상향 평가(755점). Claude는 대형 프로젝트 추진 과정의 시민 반발·투명성 비판 데이터를 무겁게 반영하여 최저(717점).
-    </div>
-
-    <div class="claim claim-independent">
-      <div class="claim-label">4인 비교 종합 순위</div>
-      오세훈은 4인 중 4위(최하위) 732점(P등급). 세부 순위 비교는 <a href="#sec5" style="color:var(--accent);">5. 경쟁자 비교</a> 섹션 참조.
+      최대 편차 <strong>38점</strong> (Gemini 755 - Claude 717). 현직 서울시장으로서 행정 활동이 매일 공식 보도 자료·서울시 뉴스·주요 일간지를 통해 기록되므로 4개 AI 모두 사실상 동일 데이터를 기반으로 평가한 결과. Gemini는 공식 행정 성과 자료·수상 이력·국제 도시 경쟁력 지수 광범위 수집으로 상향 평가(755점). Claude는 대형 프로젝트 추진 과정의 시민 반발·투명성 비판 데이터를 무겁게 반영하여 최저(717점).
     </div>
 
     <!-- SECTION 3: 카테고리별 평가 점수 -->
@@ -631,8 +848,8 @@
       <div class="claim-label">점수 구조 해석</div>
       <strong>77~80점 (상위):</strong> 비전 80 · 공익성 77<br>
       <strong>75~76점 (중상):</strong> 소통능력 76 · 전문성 75 · 책임감 75 · 대응성 75<br>
-      <strong>66~71점 (하위):</strong> 투명성 71 · 리더십 71 · 청렴성 66 · 윤리성 66 &nbsp;⚠️ 4인 최하위<br><br>
-      '상·하 양극화'가 특징. 비전(80점) 1위와 리더십·청렴성·윤리성 최하위가 공존. 상위와 하위의 낙차 14점(비전 80 vs 청렴성·윤리성 66)이 4인 중 최하위 총점의 구조적 원인.
+      <strong>66~71점 (하위):</strong> 투명성 71 · 리더십 71 · 청렴성 66 · 윤리성 66<br><br>
+      '상·하 양극화'가 특징. 비전(80점)과 청렴성·윤리성(66점) 사이 14점 낙차가 총점을 구조적으로 하방 압박.
     </div>
 
     <!-- SECTION 4: 카테고리별 상세 분석 -->
@@ -641,7 +858,7 @@
     <!-- 비전 -->
     <div class="cat-detail">
       <div class="cat-detail-header">
-        <div class="cat-detail-name">비전 (Vision) ★ 4인 중 1위 / 최고 점수</div>
+        <div class="cat-detail-name">비전 (Vision) ★ 최고 점수</div>
         <div class="cat-detail-score">80점</div>
       </div>
       <div class="cat-detail-body">
@@ -657,7 +874,7 @@
         </div>
         <div class="claim claim-success">
           <div class="claim-label">강점</div>
-          서울 전역 대상 비전 데이터 독보적 — 4인 중 오세훈만이 서울시 전체를 대상으로 한 비전 데이터를 광범위하게 보유. 비전의 일관성 — '한강 르네상스'에서 '그레이트 한강 프로젝트'로 이어지는 10년 이상 일관성 유지. 구체성 — 실제 예산 편성과 공사가 진행되는 검증 가능한 비전. 표준편차 1.8점으로 4개 AI 비교적 좁은 범위에서 합의.
+          서울 전역 대상 비전 데이터 독보적 — 서울시 전체를 대상으로 한 비전 데이터를 광범위하게 보유. 비전의 일관성 — '한강 르네상스'에서 '그레이트 한강 프로젝트'로 이어지는 10년 이상 일관성 유지. 구체성 — 실제 예산 편성과 공사가 진행되는 검증 가능한 비전. 표준편차 1.8점으로 4개 AI가 비교적 좁은 범위에서 합의.
         </div>
         <div class="claim claim-warning">
           <div class="claim-label">한계</div>
@@ -697,7 +914,7 @@
     <!-- 소통능력 -->
     <div class="cat-detail">
       <div class="cat-detail-header">
-        <div class="cat-detail-name">소통능력 (Communication) — 4인 중 2위</div>
+        <div class="cat-detail-name">소통능력 (Communication)</div>
         <div class="cat-detail-score">76점</div>
       </div>
       <div class="cat-detail-body">
@@ -741,7 +958,7 @@
         </div>
         <div class="claim claim-success">
           <div class="claim-label">강점</div>
-          광역 행정 실무의 깊이 — 1기·2기 합산 서울시장 경험이 만든 광역 도시 행정 전문성 4인 중 독보적. 서울시 예산(약 44조원) 편성·집행, 시의회 조율, 중앙부처 협력 등 실제 수행. 서울대 법학 + 하버드 행정학 학문적 기반. 표준편차 0.8점 — 4개 AI 최고 수준 합의.
+          광역 행정 실무의 깊이 — 1기·2기 합산 서울시장 경험이 만든 광역 도시 행정 전문성이 독보적. 서울시 예산(약 44조원) 편성·집행, 시의회 조율, 중앙부처 협력 등 실제 수행. 서울대 법학 + 하버드 행정학 학문적 기반. 표준편차 0.8점 — 4개 AI 높은 수준 합의.
         </div>
         <div class="claim claim-warning">
           <div class="claim-label">한계</div>
@@ -797,7 +1014,7 @@
         </div>
         <div class="claim claim-success">
           <div class="claim-label">강점</div>
-          광역 위기 대응 인프라 — 서울시장으로서 자연재해·대형 사고·도시 긴급 상황에 대응하는 광역 위기관리 체계 직접 운영. 4인 중 오세훈만 보유한 독특한 강점. Gemini(80점).
+          광역 위기 대응 인프라 — 서울시장으로서 자연재해·대형 사고·도시 긴급 상황에 대응하는 광역 위기관리 체계 직접 운영. Gemini(80점).
         </div>
         <div class="claim claim-warning">
           <div class="claim-label">한계</div>
@@ -809,7 +1026,7 @@
     <!-- 투명성 -->
     <div class="cat-detail">
       <div class="cat-detail-header">
-        <div class="cat-detail-name">투명성 (Transparency) ⚠️ 4인 중 최하위</div>
+        <div class="cat-detail-name">투명성 (Transparency) ⚠️ 하위권</div>
         <div class="cat-detail-score">71점</div>
       </div>
       <div class="cat-detail-body">
@@ -828,7 +1045,7 @@
           공식 정보 공개 채널 — 서울시는 행정 정보 공개 시스템, 예산 공개, 서울시 뉴스 등 공식 채널을 통해 행정 정보를 공개.
         </div>
         <div class="claim claim-warning">
-          <div class="claim-label">4인 최하위의 구조적 원인 3가지</div>
+          <div class="claim-label">하위권의 구조적 원인 3가지</div>
           ① 그린벨트 해제·재개발 규제 완화 등 대형 정책 결정의 의사결정 과정이 시민 참여나 공개 토론보다 행정 주도로 이루어진다는 비판 데이터<br>
           ② 대형 사업 관련 이해관계 공개나 이해충돌 방지 조치의 자발적 공개 데이터 부족<br>
           ③ 정책 반대 의견에 대한 공개적 수용과 피드백 과정의 데이터 제한
@@ -843,7 +1060,7 @@
     <!-- 리더십 -->
     <div class="cat-detail">
       <div class="cat-detail-header">
-        <div class="cat-detail-name">리더십 (Leadership) ⚠️ 4인 중 최하위</div>
+        <div class="cat-detail-name">리더십 (Leadership) ⚠️ 하위권</div>
         <div class="cat-detail-score">71점</div>
       </div>
       <div class="cat-detail-body">
@@ -859,10 +1076,10 @@
         </div>
         <div class="claim claim-success">
           <div class="claim-label">강점</div>
-          추진력 리더십 — 대형 비전을 설정하고 관료 조직과 예산을 동원해 실행에 옮기는 추진력은 4인 중 가장 강함.
+          추진력 리더십 — 대형 비전을 설정하고 관료 조직과 예산을 동원해 실행에 옮기는 추진력이 두드러진다.
         </div>
         <div class="claim claim-warning">
-          <div class="claim-label">현직 시장인데 리더십 최하위라는 역설</div>
+          <div class="claim-label">현직 시장인데 리더십 하위권이라는 역설</div>
           AI들이 리더십을 평가할 때 갈등 조정·합의 형성·구성원 설득 역량을 중요하게 반영. 무상급식 주민투표 사퇴(2011년), 2기 시장 임기 중 그린벨트 해제를 둘러싼 갈등 등이 반복적으로 부정적 신호 생성. ChatGPT(70점): 리더십을 '함께하는 힘'의 측면에서 평가 — 합의보다 결단, 설득보다 추진 방향으로 치우침 데이터.
         </div>
       </div>
@@ -871,7 +1088,7 @@
     <!-- 청렴성 -->
     <div class="cat-detail">
       <div class="cat-detail-header">
-        <div class="cat-detail-name">청렴성 (Integrity) ⚠️ 4인 중 최하위</div>
+        <div class="cat-detail-name">청렴성 (Integrity) ⚠️ 하위권</div>
         <div class="cat-detail-score">66점</div>
       </div>
       <div class="cat-detail-body">
@@ -903,7 +1120,7 @@
     <!-- 윤리성 -->
     <div class="cat-detail">
       <div class="cat-detail-header">
-        <div class="cat-detail-name">윤리성 (Ethics) ⚠️ 청렴성과 함께 최하위 카테고리</div>
+        <div class="cat-detail-name">윤리성 (Ethics) ⚠️ 하위권</div>
         <div class="cat-detail-score">66점</div>
       </div>
       <div class="cat-detail-body">
@@ -957,7 +1174,7 @@
             <td class="rank-1">785</td>
             <td>E (양호)</td>
             <td>더불어민주당</td>
-            <td>E등급 유일, 비전 外 9개 카테고리 최상위권</td>
+            <td>E등급 유일, 8개 카테고리 1위 (비전·윤리성 제외)</td>
           </tr>
           <tr>
             <td>2위</td>
@@ -981,7 +1198,7 @@
             <td style="font-weight:700;color:#B71C1C">732</td>
             <td style="font-weight:700;color:#B71C1C">P (보통+)</td>
             <td style="font-weight:700;color:#B71C1C">국민의힘</td>
-            <td style="font-weight:700;color:#B71C1C">비전 1위(80), 나머지 9개 최하위</td>
+            <td style="font-weight:700;color:#B71C1C">비전 1위(80), 나머지 9개 카테고리 하위권</td>
           </tr>
         </tbody>
       </table>
@@ -1020,7 +1237,7 @@
             <td>77</td>
             <td>75</td>
             <td class="highlight-col">76</td>
-            <td>2위</td>
+            <td>3위</td>
           </tr>
           <tr>
             <td>공익성</td>
@@ -1105,11 +1322,11 @@
         </tbody>
       </table>
     </div>
-    <p class="note">★ = 4인 중 1위. 오세훈이 10개 카테고리 중 비전 1개에서만 1위. 소통능력은 박주민(77)에 이어 2위.</p>
+    <p class="note">★ = 4인 중 1위. 오세훈이 10개 카테고리 중 비전 1개에서만 1위.</p>
 
     <div class="claim claim-independent">
       <div class="claim-label">비교 분석 요약</div>
-      정원오(785점) 종합 1위, 5개 카테고리 동시 1위. 박주민(753점) 2위, 윤리성 유일한 1위. 조은희(745점) 3위, 리더십·책임감 2위. 오세훈(732점) 4위, 비전(80점) 유일한 1위이나 나머지 9개 카테고리 하위권.
+      정원오(785점) 종합 1위, 8개 카테고리 1위. 박주민(753점) 2위, 윤리성 유일한 1위. 조은희(745점) 3위, 리더십·책임감 2위. 오세훈(732점) 4위, 비전(80점) 유일한 1위이나 나머지 9개 카테고리 하위권.
     </div>
 
     <!-- SECTION 6: 등급 기준표 -->
@@ -1170,7 +1387,7 @@
 
     <div class="claim claim-independent">
       <div class="claim-label">오세훈 등급 위치</div>
-      732점은 P등급(680~759점) 하단부. P등급 상단(759점)까지 <strong>27점</strong>, E등급 진입(760점)까지 <strong>28점</strong>. 경쟁자들과의 점수 차이 분석은 <a href="#sec5" style="color:rgba(255,255,255,0.85);">5. 경쟁자 비교</a> 섹션 참조.
+      732점은 P등급(680~759점) 중간부. P등급 상단(759점)까지 <strong>27점</strong>, E등급 진입(760점)까지 <strong>28점</strong>. 경쟁자들과의 점수 차이 분석은 <a href="#sec5" style="color:rgba(255,255,255,0.85);">5. 경쟁자 비교</a> 섹션 참조.
     </div>
 
     <!-- SECTION 7: 평가 방법론 및 이론적 근거 -->
@@ -1211,7 +1428,7 @@
     <h2>7-2. 이론적 근거</h2>
 
     <h3>(1) 10개 카테고리 선정 근거</h3>
-    <p>Stoker et al. (2024)의 7개 민주주의 국가 유권자 인지 구조 분석, Volden &amp; Wiseman의 입법 효율성 정량 측정, Transparency International의 부패 측정 방법론, OECD 공공거버넌스 원칙, UN SDG 16, Slough et al.(World Bank)의 정치인 책임성·대응성 측정, LEVER(유럽 지방선거 평가) 등 국제 연구에서 총 70개 이상의 평가 항목을 수집. 5개 AI가 독립 분석 후 중복·유사 항목을 통합하고, 한국 정치 환경 적용 가능성을 검토하여 최종 10개 카테고리(전문성, 리더십, 비전, 청렴성, 윤리성, 책임성, 투명성, 소통능력, 대응성, 공익성)로 확정.</p>
+    <p>Stoker et al. (2024)의 7개 민주주의 국가 유권자 인지 구조 분석, Volden &amp; Wiseman의 입법 효율성 정량 측정, Transparency International의 부패 측정 방법론, OECD 공공거버넌스 원칙, UN SDG 16, Slough et al.(World Bank)의 정치인 책임감·대응성 측정, LEVER(유럽 지방선거 평가) 등 국제 연구에서 총 70개 이상의 평가 항목을 수집. 5개 AI가 독립 분석 후 중복·유사 항목을 통합하고, 한국 정치 환경 적용 가능성을 검토하여 최종 10개 카테고리(전문성, 리더십, 비전, 청렴성, 윤리성, 책임감, 투명성, 소통능력, 대응성, 공익성)로 확정.</p>
 
     <h3>(2) 베이지안 점수 설계</h3>
     <div class="claim">

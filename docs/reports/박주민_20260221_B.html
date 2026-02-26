@@ -3,553 +3,603 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI 정치인 평가 보고서 - 박주민 (2026-02-21)</title>
+<title>박주민 AI 정치인 평가보고서 — PoliticianFinder V40</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap');
+/* =============================================
+   PoliticianFinder V40 평가보고서 — 융합 CSS V1.0
+   5인 공통 통합 템플릿
+   ============================================= */
 
-  :root {
-    --primary: #1a365d;
-    --primary-light: #1e4480;
-    --accent: #0D47A1;
-    --bg: #ffffff;
-    --bg-alt: #f7fafc;
-    --bg-highlight: #e3f2fd;
-    --text: #1a202c;
-    --text-light: #4a5568;
-    --border: #e2e8f0;
-    --border-dark: #cbd5e0;
-    --red: #c53030;
-    --green-bg: #f0fff4;
-    --green-border: #9ae6b4;
-    --gold: #b7791f;
+/* 폰트 로딩 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* ===== 정당별 색상 (파일마다 교체) =====
+     더불어민주당: --primary: #1a365d; --accent: #1565C0; --bg-highlight: #e8f0fe;
+     국민의힘:    --primary: #1a0808; --accent: #B71C1C; --bg-highlight: #fff0f0;
+  */
+  --primary: #1a365d;
+  --accent: #1565C0;
+  --bg-highlight: #e8f0fe;
+
+  /* ===== 공통 색상 (모든 파일 동일) ===== */
+  --bg: #ffffff;
+  --bg-alt: #f7fafc;
+  --text: #1a202c;
+  --text-muted: #6b7280;
+  --border: #e2e8f0;
+  --border-dark: #cbd5e0;
+  --success: #38a169;
+  --warning: #c53030;
+  --info: #1565c0;
+  --gold: #92400e;
+}
+
+/* 리셋 */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Noto Sans KR', 'Malgun Gothic', -apple-system, sans-serif;
+  color: var(--text);
+  background: #edf2f7;
+  line-height: 1.8;
+  font-size: 15px;
+}
+
+/* 문서 컨테이너 */
+.document {
+  max-width: 800px;
+  margin: 40px auto;
+  background: var(--bg);
+  box-shadow: 0 4px 32px rgba(0,0,0,0.12);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+/* ===== COVER ===== */
+.cover {
+  padding: 72px 60px 56px;
+  text-align: left;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  color: #fff;
+  position: relative;
+}
+.cover::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: rgba(255,255,255,0.3);
+}
+.cover-badge {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 20px;
+}
+.cover-title {
+  font-size: 42px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+.cover-subtitle {
+  font-size: 15px;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 36px;
+}
+.cover-score-box {
+  display: inline-block;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 8px;
+  padding: 20px 32px;
+  margin-bottom: 28px;
+}
+.cover-score-num {
+  font-size: 52px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -2px;
+}
+.cover-score-grade {
+  font-size: 14px;
+  color: rgba(255,255,255,0.75);
+  margin-top: 6px;
+}
+/* 메타 카드 */
+.cover-meta {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  padding-top: 24px;
+}
+.cover-meta-item {}
+.cover-meta-label {
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 2px;
+}
+.cover-meta-value {
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+}
+
+/* ===== CONTENT ===== */
+.content { padding: 48px 60px 64px; }
+
+/* ===== TOC ===== */
+.toc {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: 0 4px 4px 0;
+  padding: 24px 28px;
+  margin-bottom: 48px;
+}
+.toc-title {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+.toc ol { padding-left: 20px; }
+.toc li { margin-bottom: 6px; }
+.toc a {
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 14px;
+}
+.toc a:hover { text-decoration: underline; }
+
+/* ===== HEADINGS ===== */
+h1 {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--primary);
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 10px;
+  margin: 48px 0 24px;
+}
+h1:first-of-type { margin-top: 0; }
+
+h2 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 28px 0 14px;
+}
+
+h3 {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  margin: 20px 0 10px;
+}
+
+p {
+  margin-bottom: 12px;
+  text-align: justify;
+}
+
+/* ===== INFO FIELDS ===== */
+.info-field {
+  display: flex;
+  border-bottom: 1px solid var(--border);
+  padding: 10px 0;
+  font-size: 14px;
+}
+.info-label {
+  width: 160px;
+  min-width: 160px;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+.info-value { flex: 1; }
+
+/* ===== AI CARDS ===== */
+.ai-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin: 20px 0 24px;
+}
+.ai-card {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+  background: var(--bg-alt);
+  transition: box-shadow 0.15s;
+}
+.ai-card:hover {
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+.ai-card-name {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.ai-card-score {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1;
+}
+.ai-card-desc {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 6px;
+  line-height: 1.5;
+}
+
+/* ===== BAR CHART ===== */
+.bar-chart { margin: 24px 0; }
+.bar-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.bar-label {
+  width: 80px;
+  min-width: 80px;
+  font-size: 13px;
+  color: var(--text-muted);
+  text-align: right;
+}
+.bar-track {
+  flex: 1;
+  background: #e9ecef;
+  border-radius: 4px;
+  height: 26px;
+  overflow: hidden;
+}
+.bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  background: var(--accent);
+  transition: width 0.3s;
+}
+.bar-fill span { white-space: nowrap; }
+.bar-fill-top { background: var(--primary); }
+
+/* ===== TABLES ===== */
+.table-wrap { overflow-x: auto; margin: 16px 0 24px; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+th {
+  background: var(--primary);
+  color: #fff;
+  padding: 10px 14px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 13px;
+}
+td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  text-align: center;
+  vertical-align: middle;
+}
+tr:nth-child(even) td { background: var(--bg-alt); }
+tr:hover td { background: var(--bg-highlight); }
+td:first-child {
+  font-weight: 600;
+  text-align: left;
+  white-space: nowrap;
+}
+.highlight-col {
+  background: var(--bg-highlight) !important;
+  font-weight: 700;
+  color: var(--accent);
+}
+th.highlight-col {
+  background: var(--accent) !important;
+  color: #fff;
+}
+.rank-1 { color: var(--gold); font-weight: 800; }
+
+/* ===== CLAIM BOXES ===== */
+.claim {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: 0 6px 6px 0;
+  padding: 16px 20px;
+  margin: 16px 0;
+  font-size: 14px;
+}
+.claim-label {
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.claim-success { border-left-color: var(--success); }
+.claim-success .claim-label { color: var(--success); }
+.claim-warning { border-left-color: var(--warning); }
+.claim-warning .claim-label { color: var(--warning); }
+.claim-independent { border-left-color: var(--info); }
+.claim-independent .claim-label { color: var(--info); }
+
+/* ===== CATEGORY DETAIL ===== */
+.cat-detail {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin: 20px 0;
+  overflow: hidden;
+}
+.cat-detail-header {
+  background: var(--primary);
+  color: #fff;
+  padding: 14px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cat-detail-name { font-size: 15px; font-weight: 700; }
+.cat-detail-score { font-size: 22px; font-weight: 800; }
+.cat-detail-body { padding: 20px; }
+
+/* ===== GRADE TABLE ===== */
+.grade-table { margin: 24px 0; }
+.grade-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+}
+.grade-row:last-child { border-bottom: none; }
+.grade-letter {
+  width: 40px;
+  min-width: 40px;
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--text-muted);
+  text-align: center;
+}
+.grade-range {
+  width: 140px;
+  min-width: 140px;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+.grade-desc { flex: 1; }
+.grade-current {
+  background: var(--bg-highlight);
+  border-left: 4px solid var(--accent);
+  border-radius: 0 4px 4px 0;
+}
+.grade-current .grade-letter { color: var(--accent); }
+.grade-current .grade-desc { font-weight: 700; color: var(--primary); }
+
+/* ===== NOTE / UTILITIES ===== */
+.note { font-size: 12px; color: var(--text-muted); margin: 8px 0; }
+ul.plain { list-style: none; padding: 0; margin: 12px 0; }
+ul.plain li { padding: 6px 0; border-bottom: 1px solid var(--border); font-size: 14px; }
+ul.plain li:last-child { border-bottom: none; }
+
+/* ===== FOOTER ===== */
+.doc-footer {
+  background: var(--primary);
+  color: rgba(255,255,255,0.7);
+  padding: 28px 32px;
+  margin-top: 48px;
+  border-radius: 4px;
+}
+.doc-footer-title {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 10px;
+}
+.doc-footer-text { font-size: 12px; line-height: 1.8; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  .document { margin: 0; border-radius: 0; }
+  .cover { padding: 40px 24px 32px; }
+  .cover-title { font-size: 26px; letter-spacing: 2px; }
+  .cover-score-num { font-size: 40px; }
+  .content { padding: 32px 20px 40px; }
+  .ai-cards { grid-template-columns: repeat(2, 1fr); }
+  .info-label { width: 110px; min-width: 110px; }
+  .bar-label { width: 64px; min-width: 64px; font-size: 11px; }
+  .toc { padding: 16px; }
+  h1 { font-size: 18px; }
+}
+
+/* ===== PDF BUTTON: hover 색상 버그 수정 ===== */
+.pdf-download-btn {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 14px 24px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+  z-index: 9999;
+  transition: background 0.2s, transform 0.2s;
+  font-family: inherit;
+}
+.pdf-download-btn:hover {
+  filter: brightness(0.85);  /* [수정] 하드코딩 색상 → accent 기반 */
+  transform: translateY(-2px);
+}
+
+/* ===== PRINT: PDF 색상/디자인 충실도 보장 ===== */
+@media print {
+  /* 배경색·배경이미지 강제 출력 (PDF 색상 충실도 핵심!) */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
   }
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #fff !important; }
+  .document { margin: 0 !important; box-shadow: none !important; max-width: 100% !important; }
 
-  body {
-    font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
-    color: var(--text);
-    background: #edf2f7;
-    line-height: 1.8;
-    font-size: 15px;
-  }
-
-  .document {
-    max-width: 800px;
-    margin: 40px auto;
-    background: var(--bg);
-    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-    border-radius: 4px;
-    overflow: hidden;
-  }
-
+  /* 커버: 그라데이션 배경 유지 + 페이지 분리 */
   .cover {
-    padding: 80px 60px;
-    text-align: center;
-    background: linear-gradient(135deg, #1a365d 0%, #0D47A1 100%);
-    color: white;
-    position: relative;
-  }
-  .cover::after {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, #1976D2, #1565C0, #0D47A1);
-  }
-  .cover-label {
-    font-size: 13px;
-    letter-spacing: 8px;
-    text-transform: uppercase;
-    opacity: 0.7;
-    margin-bottom: 36px;
-  }
-  .cover-name {
-    font-size: 40px;
-    font-weight: 700;
-    letter-spacing: 8px;
-    margin-bottom: 8px;
-  }
-  .cover-party {
-    font-size: 15px;
-    opacity: 0.85;
-    margin-bottom: 4px;
-  }
-  .cover-position {
-    font-size: 14px;
-    opacity: 0.7;
-    margin-bottom: 48px;
+    break-after: page;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%) !important;
+    color: #fff !important;
   }
   .cover-score-box {
-    display: inline-block;
-    background: rgba(255,255,255,0.12);
-    border: 1px solid rgba(255,255,255,0.25);
-    border-radius: 8px;
-    padding: 20px 40px;
-    margin-bottom: 48px;
-  }
-  .cover-score-num {
-    font-size: 52px;
-    font-weight: 700;
-    line-height: 1;
-    letter-spacing: -1px;
-  }
-  .cover-score-label {
-    font-size: 13px;
-    opacity: 0.7;
-    margin-top: 4px;
-  }
-  .cover-grade {
-    display: inline-block;
-    background: rgba(255,255,255,0.18);
-    border: 2px solid rgba(255,255,255,0.4);
-    border-radius: 50%;
-    width: 56px;
-    height: 56px;
-    line-height: 52px;
-    font-size: 24px;
-    font-weight: 700;
-    margin-left: 20px;
-    vertical-align: middle;
-  }
-  .cover-rank {
-    font-size: 13px;
-    opacity: 0.65;
-    margin-bottom: 40px;
-  }
-  .cover-meta {
-    font-size: 13px;
-    opacity: 0.6;
-    line-height: 2;
+    background: rgba(255,255,255,0.12) !important;
+    border: 1px solid rgba(255,255,255,0.25) !important;
   }
 
-  .content {
-    padding: 48px 60px;
+  /* 테이블: 헤더·줄무늬·하이라이트 배경 유지 */
+  th {
+    background: var(--primary) !important;
+    color: #fff !important;
   }
+  th.highlight-col {
+    background: var(--accent) !important;
+    color: #fff !important;
+  }
+  tr:nth-child(even) td { background: var(--bg-alt) !important; }
+  .highlight-col { background: var(--bg-highlight) !important; }
 
-  .toc {
-    background: var(--bg-alt);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 24px 32px;
-    margin-bottom: 40px;
-  }
-  .toc-title {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--primary);
-    margin-bottom: 12px;
-    letter-spacing: 2px;
-  }
-  .toc a {
-    display: block;
-    color: var(--text-light);
-    text-decoration: none;
-    padding: 4px 0;
-    font-size: 14px;
-    transition: color 0.2s;
-  }
-  .toc a:hover { color: var(--accent); }
-  .toc a::before {
-    content: attr(data-num);
-    color: var(--accent);
-    font-weight: 600;
-    margin-right: 8px;
-    display: inline-block;
-    width: 28px;
-  }
-
-  h1 {
-    font-size: 22px;
-    font-weight: 700;
-    color: var(--primary);
-    margin: 48px 0 20px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid var(--accent);
-  }
-  h1:first-of-type { margin-top: 0; }
-
-  h2 {
-    font-size: 17px;
-    font-weight: 600;
-    color: var(--primary-light);
-    margin: 32px 0 14px;
-  }
-
-  h3 {
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--text);
-    margin: 20px 0 10px;
-  }
-
-  p {
-    margin-bottom: 12px;
-    text-align: justify;
-  }
-
-  .table-wrap {
-    overflow-x: auto;
-    margin: 16px 0 24px;
-  }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 13.5px;
-  }
-  thead th {
-    background: var(--primary);
-    color: white;
-    font-weight: 600;
-    padding: 10px 14px;
-    text-align: center;
-    font-size: 13px;
-  }
-  tbody td {
-    padding: 10px 14px;
-    border: 1px solid var(--border);
-    vertical-align: middle;
-    text-align: center;
-  }
-  tbody tr:nth-child(even) { background: var(--bg-alt); }
-  tbody td:first-child {
-    font-weight: 600;
-    background: #f7fafc;
-    text-align: left;
-    white-space: nowrap;
-  }
-  .highlight-col {
-    background: var(--bg-highlight) !important;
-    font-weight: 700;
-    color: var(--primary);
-  }
-  .rank-1 {
-    color: var(--gold);
-    font-weight: 700;
-  }
-
-  .claim {
-    background: var(--bg-alt);
-    border-left: 3px solid var(--accent);
-    padding: 16px 20px;
-    margin: 12px 0 20px;
-    border-radius: 0 4px 4px 0;
-  }
-  .claim-label {
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--accent);
-    margin-bottom: 8px;
-  }
-  .claim-independent {
-    border-left-color: var(--primary);
-    background: #ebf4ff;
-  }
-  .claim-independent .claim-label { color: var(--primary); }
-  .claim-warning {
-    border-left-color: #e53e3e;
-    background: #fff5f5;
-  }
-  .claim-warning .claim-label { color: #e53e3e; }
-  .claim-success {
-    border-left-color: #38a169;
-    background: #f0fff4;
-  }
-  .claim-success .claim-label { color: #38a169; }
-
-  .bar-chart {
-    margin: 20px 0 28px;
-  }
-  .bar-row {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin: 8px 0;
-  }
-  .bar-label {
-    width: 90px;
-    font-size: 13px;
-    text-align: right;
-    color: var(--text-light);
-    flex-shrink: 0;
-  }
-  .bar-track {
-    flex: 1;
-    background: #e2e8f0;
-    border-radius: 4px;
-    height: 26px;
-    overflow: hidden;
-  }
-  .bar-fill {
-    height: 100%;
-    background: var(--accent);
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding-right: 10px;
-    border-radius: 4px;
-    transition: width 0.3s ease;
-  }
-  .bar-fill span {
-    color: white;
-    font-size: 12px;
-    font-weight: 700;
-  }
-  .bar-fill-top {
-    background: linear-gradient(90deg, #1565C0, #0D47A1);
-  }
-
-  .ai-cards {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
-    margin: 16px 0 24px;
-  }
-  .ai-card {
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 16px;
-    text-align: center;
-    background: var(--bg);
-  }
-  .ai-card-name {
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--text-light);
-    margin-bottom: 8px;
-    letter-spacing: 1px;
-  }
-  .ai-card-score {
-    font-size: 28px;
-    font-weight: 700;
-    color: var(--primary);
-    line-height: 1;
-  }
-  .ai-card-sub {
-    font-size: 11px;
-    color: var(--text-light);
-    margin-top: 6px;
-  }
-
-  .info-field {
-    display: flex;
-    gap: 12px;
-    padding: 10px 0;
-    border-bottom: 1px dotted var(--border);
-    font-size: 14px;
-  }
-  .info-label {
-    flex-shrink: 0;
-    font-weight: 600;
-    color: var(--text);
-    width: 140px;
-  }
-  .info-value {
-    color: var(--text-light);
-    flex: 1;
-  }
-
-  .cat-detail {
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    margin: 16px 0;
-    overflow: hidden;
-  }
-  .cat-detail-header {
-    background: var(--primary);
-    color: white;
-    padding: 12px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .cat-detail-name {
-    font-size: 16px;
-    font-weight: 700;
-  }
-  .cat-detail-score {
-    font-size: 20px;
-    font-weight: 700;
-  }
-  .cat-detail-body {
-    padding: 16px 20px;
-  }
-
-  .grade-table {
-    margin: 16px 0 24px;
-  }
-  .grade-row {
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid var(--border);
-  }
-  .grade-row:last-child { border-bottom: none; }
-  .grade-letter {
-    width: 48px;
-    text-align: center;
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--primary);
-    padding: 12px 0;
-  }
-  .grade-range {
-    width: 160px;
-    font-size: 13px;
-    color: var(--text-light);
-    padding: 12px 0;
-  }
-  .grade-desc {
-    font-size: 14px;
-    color: var(--text);
-    flex: 1;
-    padding: 12px 0;
-  }
+  /* 등급표: 현재 등급 하이라이트 유지 */
   .grade-current {
-    background: var(--bg-highlight);
-    border-radius: 4px;
-  }
-  .grade-current .grade-letter { color: var(--accent); }
-  .grade-current .grade-desc { font-weight: 600; color: var(--accent); }
-
-  .note {
-    font-size: 13px;
-    color: #999;
-    font-style: italic;
-    margin: 8px 0;
+    background: var(--bg-highlight) !important;
+    border-left: 4px solid var(--accent) !important;
   }
 
+  /* 카테고리 상세: 헤더 배경 유지 */
+  .cat-detail-header {
+    background: var(--primary) !important;
+    color: #fff !important;
+  }
+
+  /* 바 차트: 채움색 유지 */
+  .bar-fill { background: var(--accent) !important; }
+  .bar-fill-top { background: var(--primary) !important; }
+  .bar-track { background: #e9ecef !important; }
+
+  /* claim 박스: 좌측 보더 색상 유지 */
+  .claim { border-left: 4px solid var(--accent) !important; }
+  .claim-success { border-left-color: var(--success) !important; }
+  .claim-warning { border-left-color: var(--warning) !important; }
+
+  /* 푸터: 어두운 배경 유지 */
   .doc-footer {
-    text-align: center;
-    padding: 28px 32px;
-    border-top: 2px solid var(--primary);
-    margin-top: 48px;
-    background: var(--bg-alt);
-  }
-  .doc-footer-title {
-    font-weight: 700;
-    color: var(--primary);
-    font-size: 15px;
-    margin-bottom: 8px;
-  }
-  .doc-footer-text {
-    font-size: 12px;
-    color: var(--text-light);
-    line-height: 1.9;
+    background: var(--primary) !important;
+    color: rgba(255,255,255,0.7) !important;
   }
 
-  ul.plain {
-    list-style: none;
-    padding: 0;
-  }
-  ul.plain li {
-    padding: 4px 0;
-    font-size: 14px;
-    color: var(--text-light);
-  }
-  ul.plain li::before {
-    content: '·';
-    color: var(--accent);
-    font-weight: 700;
-    margin-right: 8px;
+  /* AI 카드: 배경 유지 */
+  .ai-card { background: var(--bg-alt) !important; }
+
+  /* TOC: 좌측 보더 유지 */
+  .toc {
+    background: var(--bg-alt) !important;
+    border-left: 4px solid var(--accent) !important;
   }
 
-  @media (max-width: 600px) {
-    .document { margin: 0; border-radius: 0; }
-    .cover { padding: 40px 24px; }
-    .content { padding: 24px 20px; }
-    .cover-name { font-size: 30px; }
-    .cover-score-num { font-size: 40px; }
-    .ai-cards { grid-template-columns: repeat(2, 1fr); }
-    .info-label { width: 110px; }
-  }
+  /* 페이지 분리 제어 */
+  .cat-detail { break-inside: avoid; }
+  .claim { break-inside: avoid; }
+  .bar-row { break-inside: avoid; }
+  .grade-table { break-inside: avoid; }
+  table { break-inside: avoid; }
+  h1 { break-after: avoid; }
 
-  /* PDF Download Button */
-  .pdf-download-btn {
-    position: fixed;
-    bottom: 32px;
-    right: 32px;
-    background: var(--accent);
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    padding: 14px 24px;
-    font-size: 15px;
-    font-weight: 700;
-    cursor: pointer;
-    box-shadow: 0 4px 16px rgba(211,47,47,0.35);
-    z-index: 9999;
-    transition: background 0.2s, transform 0.2s;
-    font-family: inherit;
-  }
-  .pdf-download-btn:hover {
-    background: #b71c00;
-    transform: translateY(-2px);
-  }
-
-  @media print {
-    body { background: #fff !important; }
-    .document { margin: 0 !important; box-shadow: none !important; max-width: 100% !important; }
-    .cover { break-after: page; }
-    .cat-detail { break-inside: avoid; }
-    .claim { break-inside: avoid; }
-    .bar-row { break-inside: avoid; }
-    .grade-table { break-inside: avoid; }
-    .pdf-download-btn { display: none !important; }
-    h1 { break-after: avoid; }
-    table { break-inside: avoid; }
-  }
+  /* PDF 버튼 숨김 */
+  .pdf-download-btn { display: none !important; }
+}
 </style>
 </head>
 <body>
 
 <div class="document">
 
-  <!-- COVER PAGE -->
+  <!-- COVER -->
   <div class="cover">
-    <div class="cover-label">A I &nbsp; 정 치 인 &nbsp; 평 가 &nbsp; 보 고 서</div>
-    <div class="cover-name">박 주 민</div>
-    <div class="cover-party">더불어민주당</div>
-    <div class="cover-position">제22대 국회의원 (3선) &nbsp;|&nbsp; 서울특별시 은평구 갑</div>
+    <div class="cover-badge">PoliticianFinder · AI 평가보고서 V40 · 2026-02-21</div>
+    <div class="cover-title">박주민</div>
+    <div class="cover-subtitle">더불어민주당 · 제22대 국회의원 (3선) · 서울특별시 은평구 갑</div>
 
-    <div style="margin: 36px 0 16px">
-      <div class="cover-score-box">
-        <div style="display:flex;align-items:center;justify-content:center;gap:20px">
-          <div>
-            <div class="cover-score-num">753</div>
-            <div class="cover-score-label">4AI 평균 점수 (200~1,000)</div>
-          </div>
-          <div class="cover-grade">P</div>
-        </div>
-      </div>
+    <div class="cover-score-box">
+      <div class="cover-score-num">753점</div>
+      <div class="cover-score-grade">P등급 (보통+) &nbsp;·&nbsp; 경쟁자 비교: 섹션 5 참조</div>
     </div>
 
-    <div class="cover-rank">P등급 (보통+, 680~759점)</div>
-
     <div class="cover-meta">
-      평가 기준일: 2026년 02월 21일<br>
-      수집 채널: Gemini CLI 50% + Naver API 50%<br>
-      평가 AI: Claude · ChatGPT · Gemini · Grok<br>
-      총 수집: 약 1,100개 → 4AI 평가 약 4,400건
+      <div class="cover-meta-item">
+        <div class="cover-meta-label">출마 직종</div>
+        <div class="cover-meta-value">광역단체장</div>
+      </div>
+      <div class="cover-meta-item">
+        <div class="cover-meta-label">출마 지역</div>
+        <div class="cover-meta-value">서울특별시</div>
+      </div>
+      <div class="cover-meta-item">
+        <div class="cover-meta-label">평가 AI</div>
+        <div class="cover-meta-value">Claude · ChatGPT · Gemini · Grok</div>
+      </div>
+      <div class="cover-meta-item">
+        <div class="cover-meta-label">수집 채널</div>
+        <div class="cover-meta-value">Gemini CLI 50% + Naver API 50%</div>
+      </div>
+      <div class="cover-meta-item">
+        <div class="cover-meta-label">데이터 규모</div>
+        <div class="cover-meta-value">약 1,100개 수집 → 4,400건 평가</div>
+      </div>
     </div>
   </div>
 
-  <!-- CONTENT -->
   <div class="content">
 
     <!-- TOC -->
     <div class="toc">
-      <div class="toc-title">목 차</div>
-      <a href="#sec1" data-num="1.">정치인 프로필</a>
-      <a href="#sec2" data-num="2.">종합 평균점수 및 AI별 평가 점수</a>
-      <a href="#sec3" data-num="3.">카테고리별 평가 점수</a>
-      <a href="#sec4" data-num="4.">카테고리별 상세 분석</a>
-      <a href="#sec5" data-num="5.">경쟁자 비교 (4인)</a>
-      <a href="#sec6" data-num="6.">등급 기준표</a>
-      <a href="#sec7" data-num="7.">평가 방법론 및 이론적 근거</a>
-      <a href="#sec8" data-num="8.">평가의 한계 및 유의사항</a>
+      <div class="toc-title">목차</div>
+      <ol>
+        <li><a href="#sec1">정치인 프로필</a></li>
+        <li><a href="#sec2">종합 평균점수 및 AI별 평가 점수</a></li>
+        <li><a href="#sec3">카테고리별 평가 점수</a></li>
+        <li><a href="#sec4">카테고리별 상세 분석</a></li>
+        <li><a href="#sec5">경쟁자 비교 (4인)</a></li>
+        <li><a href="#sec6">등급 기준표</a></li>
+        <li><a href="#sec7">평가 방법론 및 이론적 근거</a></li>
+        <li><a href="#sec8">평가의 한계 및 유의사항</a></li>
+      </ol>
     </div>
 
-    <!-- SECTION 1 -->
+    <!-- SECTION 1: 프로필 -->
     <h1 id="sec1">1. 정치인 프로필</h1>
 
     <div class="info-field">
@@ -569,6 +619,14 @@
       <div class="info-value">서울특별시 은평구 갑</div>
     </div>
     <div class="info-field">
+      <div class="info-label">출마 직종</div>
+      <div class="info-value">광역단체장</div>
+    </div>
+    <div class="info-field">
+      <div class="info-label">출마 지역</div>
+      <div class="info-value">서울특별시</div>
+    </div>
+    <div class="info-field">
       <div class="info-label">이전 직책</div>
       <div class="info-value">변호사 (민변 사무차장), 더불어민주당 최고위원</div>
     </div>
@@ -582,88 +640,52 @@
     </div>
 
     <h2>평가 배경</h2>
-    <p>'거리의 변호사'라는 별칭으로 불릴 만큼 공익 변호사 경력에서 출발한 3선 의원이다. 세월호 유가족 법률 지원을 계기로 공론화된 인물로, 법제사법위원회 간사와 검찰개혁 입법을 이끄는 과정에서 개혁 진영의 상징적 인물로 자리매김했다. 차기 서울시장 야권 후보군 중 온라인 팬덤과 대중적 인지도 측면에서 가장 강한 자산을 보유하고 있으나, 행정 집행 경험의 구조적 공백과 선명한 정파적 지향성이 광역 단체장 역할 수행 적합성에 대한 논쟁을 함께 만들어내고 있다.</p>
+    <p>'거리의 변호사'라는 별칭으로 불릴 만큼 공익 변호사 경력에서 출발한 3선 의원이다. 세월호 유가족 법률 지원을 계기로 공론화된 인물로, 법제사법위원회 간사와 검찰개혁 입법을 이끄는 과정에서 개혁 진영의 상징적 인물로 자리매김했다. 차기 서울시장 후보군 중 온라인 팬덤과 대중적 인지도 측면에서 가장 강한 자산을 보유하고 있으나, 행정 집행 경험의 구조적 공백과 선명한 정파적 지향성이 광역 단체장 역할 수행 적합성에 대한 논쟁을 함께 만들어내고 있다.</p>
 
-    <!-- SECTION 2 -->
+    <!-- SECTION 2: 종합 평균점수 및 AI별 평가 점수 -->
     <h1 id="sec2">2. 종합 평균점수 및 AI별 평가 점수</h1>
 
     <div class="claim claim-independent">
       <div class="claim-label">종합 평균점수</div>
-      4AI 평균 <strong>753점</strong> &nbsp;|&nbsp; 등급: <strong>P (보통+)</strong>
+      4개 AI 평균 <strong>753점</strong> &nbsp;|&nbsp; 등급: <strong>P (보통+)</strong>
     </div>
-
-    <h2>AI별 점수</h2>
 
     <div class="ai-cards">
       <div class="ai-card">
-        <div class="ai-card-name">CLAUDE</div>
-        <div class="ai-card-score">741</div>
-        <div class="ai-card-sub">입법 성과의 실효성과<br>제도화 수준에 엄격</div>
+        <div class="ai-card-name">Claude</div>
+        <div class="ai-card-score">741점</div>
+        <div class="ai-card-desc">입법 성과의 실효성과 제도화 수준에 엄격 (최저)</div>
       </div>
       <div class="ai-card">
-        <div class="ai-card-name">CHATGPT</div>
-        <div class="ai-card-score">764</div>
-        <div class="ai-card-sub">공익 가치 지향성과<br>개혁 입법 영향력 균형</div>
+        <div class="ai-card-name">ChatGPT</div>
+        <div class="ai-card-score">764점</div>
+        <div class="ai-card-desc">공익 가치 지향성과 개혁 입법 영향력 균형 평가 (중간)</div>
       </div>
       <div class="ai-card">
-        <div class="ai-card-name">GEMINI</div>
-        <div class="ai-card-score">782</div>
-        <div class="ai-card-sub">SNS 소통 데이터와<br>온라인 팬덤에 긍정 반응</div>
+        <div class="ai-card-name">Gemini</div>
+        <div class="ai-card-score">782점</div>
+        <div class="ai-card-desc">SNS 소통 데이터와 온라인 팬덤에 긍정 반응 (최고)</div>
       </div>
       <div class="ai-card">
-        <div class="ai-card-name">GROK</div>
-        <div class="ai-card-score">728</div>
-        <div class="ai-card-sub">행정 실적 부재와<br>정치적 편향 데이터에 민감</div>
+        <div class="ai-card-name">Grok</div>
+        <div class="ai-card-score">728점</div>
+        <div class="ai-card-desc">행정 실적 부재와 정치적 편향 데이터에 민감 (보수적)</div>
       </div>
     </div>
 
-    <h2>AI별 점수 비교표</h2>
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>구분</th>
-            <th>Claude</th>
-            <th>ChatGPT</th>
-            <th>Gemini</th>
-            <th>Grok</th>
-            <th class="highlight-col">4AI 평균</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>점수</td>
-            <td>741</td>
-            <td>764</td>
-            <td>782</td>
-            <td>728</td>
-            <td class="highlight-col">753</td>
-          </tr>
-          <tr>
-            <td>등급</td>
-            <td>P</td>
-            <td>P</td>
-            <td>E</td>
-            <td>P</td>
-            <td class="highlight-col">P</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="claim">
+    <div class="claim claim-independent">
       <div class="claim-label">AI 간 편차 분석</div>
-      최대 편차 <strong>54점</strong> (Gemini 782 - Grok 728). Gemini는 SNS 팔로워 수·온라인 팬덤 데이터를 풍부하게 수집하여 상향 평가. Grok은 최신 뉴스 기반으로 행정 실적 부재·정치적 갈등에 민감. Claude(741)는 입법 성과의 제도화 수준·집행 결과에 엄격 적용. 4AI 741~782점 범위.
+      최대 편차 <strong>54점</strong> (Gemini 782 - Grok 728). Gemini는 SNS 팔로워 수·온라인 팬덤 데이터를 풍부하게 수집하여 상향 평가. Grok은 최신 뉴스 기반으로 행정 실적 부재·정치적 갈등에 민감. Claude(741)는 입법 성과의 제도화 수준·집행 결과에 엄격 적용. 4개 AI 741~782점 범위.
     </div>
 
-    <!-- SECTION 3 -->
+    <!-- SECTION 3: 카테고리별 평가 점수 -->
     <h1 id="sec3">3. 카테고리별 평가 점수</h1>
 
     <div class="bar-chart">
       <div class="bar-row">
         <div class="bar-label">공익성</div>
         <div class="bar-track">
-          <div class="bar-fill bar-fill-top" style="width:81%"><span>81점</span></div>
+          <div class="bar-fill bar-fill-top" style="width:81%"><span>81점 ★</span></div>
         </div>
       </div>
       <div class="bar-row">
@@ -717,7 +739,7 @@
       <div class="bar-row">
         <div class="bar-label">윤리성</div>
         <div class="bar-track">
-          <div class="bar-fill" style="width:71%;background:#42A5F5"><span>71점 ★</span></div>
+          <div class="bar-fill" style="width:71%;background:#42A5F5"><span>71점</span></div>
         </div>
       </div>
     </div>
@@ -737,7 +759,7 @@
         </thead>
         <tbody>
           <tr>
-            <td>공익성</td>
+            <td>공익성 ★</td>
             <td>74</td>
             <td>83</td>
             <td>87</td>
@@ -822,13 +844,13 @@
 
     <div class="claim">
       <div class="claim-label">점수 구조 해석</div>
-      <strong>80점 이상 (2개):</strong> 공익성 81 · 투명성 79<br>
+      <strong>79~81점 상위권 (2개):</strong> 공익성 81 · 투명성 79<br>
       <strong>75~77점 (6개):</strong> 소통능력 77 · 전문성·리더십·비전·대응성 75<br>
       <strong>71~74점 (2개):</strong> 책임감 74 · 청렴성·윤리성 71<br><br>
       점수 분포의 특징은 '중간 집중'이다. 80점대 강점 카테고리는 공익성·투명성 2개에 집중되어 있고, 나머지 8개 카테고리가 71~77점 사이에 밀집되어 있다 — '특출난 약점도 없지만, 차별화된 강점도 적다'는 구조.
     </div>
 
-    <!-- SECTION 4 -->
+    <!-- SECTION 4: 카테고리별 상세 분석 -->
     <h1 id="sec4">4. 카테고리별 상세 분석</h1>
 
     <!-- 전문성 -->
@@ -850,7 +872,7 @@
         </div>
         <div class="claim claim-success">
           <div class="claim-label">강점</div>
-          법제 입법 전문성 — 서울대 법학 학사 + 변호사 경력 + 법제사법위원회 간사 활동이 결합된 법률·입법 전문성은 4인 중 가장 깊다. 4개 AI가 74~76점으로 매우 좁은 범위에서 합의(표준편차 0.9점) — 전문성 수준이 이견 없이 명확히 파악됨.
+          법제 입법 전문성 — 서울대 법학 학사 + 변호사 경력 + 법제사법위원회 간사 활동이 결합된 법률·입법 전문성이 깊다. 4개 AI가 74~76점으로 매우 좁은 범위에서 합의(표준편차 0.9점) — 전문성 수준이 이견 없이 명확히 파악됨.
         </div>
         <div class="claim claim-warning">
           <div class="claim-label">한계</div>
@@ -959,7 +981,7 @@
     <div class="cat-detail">
       <div class="cat-detail-header">
         <div class="cat-detail-name">윤리성 (Ethics)</div>
-        <div class="cat-detail-score">71점 ★ 최고 점수</div>
+        <div class="cat-detail-score">71점</div>
       </div>
       <div class="cat-detail-body">
         <div class="table-wrap">
@@ -1062,7 +1084,7 @@
         </div>
         <div class="claim claim-success">
           <div class="claim-label">강점</div>
-          설명형 소통의 탁월성 — 법사위 활동, 검찰개혁 입법 배경, 주요 판결 해석 등 복잡한 법률·정치 현안을 시민이 이해할 수 있는 언어로 풀어내는 역량이 4인 중 독보적. 법률 전문가와 일반 시민 사이의 정보 비대칭을 해소하는 소통 방식.
+          설명형 소통의 탁월성 — 법사위 활동, 검찰개혁 입법 배경, 주요 판결 해석 등 복잡한 법률·정치 현안을 시민이 이해할 수 있는 언어로 풀어내는 역량이 독보적. 법률 전문가와 일반 시민 사이의 정보 비대칭을 해소하는 소통 방식.
         </div>
         <div class="claim claim-warning">
           <div class="claim-label">한계</div>
@@ -1106,8 +1128,8 @@
     <!-- 공익성 -->
     <div class="cat-detail">
       <div class="cat-detail-header">
-        <div class="cat-detail-name">공익성 (Public Interest)</div>
-        <div class="cat-detail-score">81점 ★ 최고 점수</div>
+        <div class="cat-detail-name">공익성 (Public Interest) ★ 최고 점수</div>
+        <div class="cat-detail-score">81점</div>
       </div>
       <div class="cat-detail-body">
         <div class="table-wrap">
@@ -1125,13 +1147,13 @@
           입법 기반 공익 실현 — 세월호 진상 규명 입법 지원, 주택임대차보호법 강화, 필수노동자 보호 법제화 등 사회적 약자와 피해자를 위한 입법 활동이 가장 강력한 근거. 공익 활동의 연속성 — 변호사 시절의 무료 법률 지원부터 의원 시절의 입법 추진까지 단절 없이 이어지는 연속성.
         </div>
         <div class="claim">
-          <div class="claim-label">AI 이견 (Claude 74 vs Gemini 87, 13점 차) — 4인 중 가장 큰 AI 간 이견</div>
+          <div class="claim-label">AI 이견 (Claude 74 vs Gemini 87, 13점 차)</div>
           Claude(74): '공익을 위한 실제 결과' 기준. Gemini(87): '공익을 위한 의지·활동' 기준. 표준편차 4.7점. 월세 인상 논란이 Claude의 공익성 평가에 소폭 부정적 영향.
         </div>
       </div>
     </div>
 
-    <!-- SECTION 5 -->
+    <!-- SECTION 5: 경쟁자 비교 (4인) -->
     <h1 id="sec5">5. 경쟁자 비교 (4인)</h1>
 
     <h2>종합 점수 순위 비교</h2>
@@ -1247,10 +1269,10 @@
 
     <div class="claim claim-independent">
       <div class="claim-label">비교 분석 요약</div>
-      정원오(785점) 종합 1위, 5개 카테고리 동시 1위. 박주민(753점) 2위, 윤리성(71점) 유일한 1위. 조은희(745점) 3위, 리더십·책임감 2위. 오세훈(732점) 4위, 비전(80점) 유일한 1위이나 나머지 9개 하위권.
+      정원오(785점) 종합 1위, 8개 카테고리 1위. 박주민(753점) 2위, 윤리성(71점) 유일한 1위. 조은희(745점) 3위, 리더십·책임감 2위. 오세훈(732점) 4위, 비전(80점) 유일한 1위이나 나머지 9개 카테고리 하위권.
     </div>
 
-    <!-- SECTION 6 -->
+    <!-- SECTION 6: 등급 기준표 -->
     <h1 id="sec6">6. 등급 기준표</h1>
 
     <div class="grade-table">
@@ -1283,6 +1305,26 @@
         <div class="grade-letter">S</div>
         <div class="grade-range">520 ~ 599점</div>
         <div class="grade-desc">보통- — 평균 이하</div>
+      </div>
+      <div class="grade-row">
+        <div class="grade-letter">B</div>
+        <div class="grade-range">440 ~ 519점</div>
+        <div class="grade-desc">미흡 — 상당히 부족한 수준</div>
+      </div>
+      <div class="grade-row">
+        <div class="grade-letter">I</div>
+        <div class="grade-range">360 ~ 439점</div>
+        <div class="grade-desc">불량 — 심각하게 부족한 수준</div>
+      </div>
+      <div class="grade-row">
+        <div class="grade-letter">Tn</div>
+        <div class="grade-range">280 ~ 359점</div>
+        <div class="grade-desc">부적합 — 공직 부적합 수준</div>
+      </div>
+      <div class="grade-row">
+        <div class="grade-letter">L</div>
+        <div class="grade-range">200 ~ 279점</div>
+        <div class="grade-desc">최하 — 심각한 결격 수준</div>
       </div>
     </div>
 
@@ -1329,7 +1371,7 @@
     <h2>7-2. 이론적 근거</h2>
 
     <h3>(1) 10개 카테고리 선정 근거</h3>
-    <p>Stoker et al. (2024)의 7개 민주주의 국가 유권자 인지 구조 분석, Volden &amp; Wiseman의 입법 효율성 정량 측정, Transparency International의 부패 측정 방법론, OECD 공공거버넌스 원칙, UN SDG 16, Slough et al.(World Bank)의 정치인 책임성·대응성 측정, LEVER(유럽 지방선거 평가) 등 국제 연구에서 총 70개 이상의 평가 항목을 수집. 5개 AI가 독립 분석 후 중복·유사 항목을 통합하고, 한국 정치 환경 적용 가능성을 검토하여 최종 10개 카테고리(전문성, 리더십, 비전, 청렴성, 윤리성, 책임성, 투명성, 소통능력, 대응성, 공익성)로 확정.</p>
+    <p>Stoker et al. (2024)의 7개 민주주의 국가 유권자 인지 구조 분석, Volden &amp; Wiseman의 입법 효율성 정량 측정, Transparency International의 부패 측정 방법론, OECD 공공거버넌스 원칙, UN SDG 16, Slough et al.(World Bank)의 정치인 책임감·대응성 측정, LEVER(유럽 지방선거 평가) 등 국제 연구에서 총 70개 이상의 평가 항목을 수집. 5개 AI가 독립 분석 후 중복·유사 항목을 통합하고, 한국 정치 환경 적용 가능성을 검토하여 최종 10개 카테고리(전문성, 리더십, 비전, 청렴성, 윤리성, 책임감, 투명성, 소통능력, 대응성, 공익성)로 확정.</p>
 
     <h3>(2) 베이지안 점수 설계</h3>
     <div class="claim">
@@ -1365,9 +1407,9 @@
 
     <!-- Footer -->
     <div class="doc-footer">
-      <div class="doc-footer-title">PoliticianFinder.com</div>
+      <div class="doc-footer-title">PoliticianFinder</div>
       <div class="doc-footer-text">
-        AI 정치인 평가 시스템 V40 &nbsp;|&nbsp; 2026-02-21
+        PoliticianFinder.com &nbsp;|&nbsp; AI 정치인 평가 시스템 V40 &nbsp;|&nbsp; 2026-02-21
       </div>
     </div>
 
