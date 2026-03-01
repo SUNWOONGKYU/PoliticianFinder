@@ -1,0 +1,125 @@
+name: Gemini API Auto-Fill (Quota Reset)
+
+# 태평양 시간 자정 = UTC 08:00 (PST) / UTC 07:00 (PDT)
+# 안전하게 08:15 UTC에 실행 (리셋 직후 여유)
+on:
+  schedule:
+    - cron: '15 8 * * *'  # UTC 08:15 = PST 00:15 (매일)
+  workflow_dispatch:  # 수동 실행 가능
+    inputs:
+      politician:
+        description: '정치인 이름'
+        required: true
+        default: '이재준'
+      target:
+        description: '카테고리별 목표 수량'
+        required: true
+        default: '60'
+      categories:
+        description: '수집할 카테고리 (공백 구분, 비우면 전체)'
+        required: false
+        default: ''
+      max_rounds:
+        description: '카테고리별 최대 라운드'
+        required: false
+        default: '30'
+
+jobs:
+  gemini-fill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install python-dotenv supabase requests
+
+      - name: Create .env file
+        run: |
+          cat > 0-3_AI_Evaluation_Engine/설계문서_V7.0/V40/.env << 'ENVEOF'
+          GEMINI_API_KEY=${{ secrets.GEMINI_API_KEY }}
+          GEMINI_API_KEY_2=${{ secrets.GEMINI_API_KEY_2 }}
+          GEMINI_API_KEY_3=${{ secrets.GEMINI_API_KEY_3 }}
+          SUPABASE_URL=${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY=${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          ENVEOF
+
+      - name: Check quota availability
+        id: quota_check
+        run: |
+          python -c "
+          import requests, os, sys
+          keys = {
+            'Key1': '${{ secrets.GEMINI_API_KEY }}',
+            'Key2': '${{ secrets.GEMINI_API_KEY_2 }}',
+            'Key3': '${{ secrets.GEMINI_API_KEY_3 }}',
+          }
+          any_ok = False
+          for model in ['gemini-2.5-flash', 'gemini-2.0-flash']:
+            for name, key in keys.items():
+              url = f'https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={key}'
+              r = requests.post(url, json={'contents': [{'parts': [{'text': 'test'}]}]}, timeout=10)
+              status = 'OK' if r.status_code == 200 else f'{r.status_code}'
+              print(f'{model} {name}: {status}')
+              if r.status_code == 200:
+                any_ok = True
+          if not any_ok:
+            print('::warning::All API keys exhausted. Skipping collection.')
+            print('quota_available=false')
+          else:
+            print('quota_available=true')
+          " | tee /dev/stderr | tail -1 >> $GITHUB_OUTPUT
+
+      - name: Run Gemini API Fill (Scheduled - 이재준)
+        if: github.event_name == 'schedule' && contains(steps.quota_check.outputs.*, 'true')
+        working-directory: 0-3_AI_Evaluation_Engine/설계문서_V7.0/V40
+        run: |
+          python scripts/workflow/gemini_api_fill.py \
+            --politician "이재준" \
+            --target 60 \
+            --max-rounds 30 \
+            --categories transparency communication responsiveness publicinterest
+
+      - name: Run Gemini API Fill (Manual Dispatch)
+        if: github.event_name == 'workflow_dispatch' && contains(steps.quota_check.outputs.*, 'true')
+        working-directory: 0-3_AI_Evaluation_Engine/설계문서_V7.0/V40
+        run: |
+          CATS="${{ github.event.inputs.categories }}"
+          CMD="python scripts/workflow/gemini_api_fill.py --politician \"${{ github.event.inputs.politician }}\" --target ${{ github.event.inputs.target }} --max-rounds ${{ github.event.inputs.max_rounds }}"
+          if [ -n "$CATS" ]; then
+            CMD="$CMD --categories $CATS"
+          fi
+          eval $CMD
+
+      - name: Report final status
+        if: always()
+        working-directory: 0-3_AI_Evaluation_Engine/설계문서_V7.0/V40
+        run: |
+          python -c "
+          import os
+          from dotenv import load_dotenv
+          load_dotenv('.env', override=True)
+          from supabase import create_client
+
+          supabase = create_client(os.getenv('SUPABASE_URL'), os.getenv('SUPABASE_SERVICE_ROLE_KEY'))
+          CATEGORIES = ['expertise','leadership','vision','integrity','ethics','accountability','transparency','communication','responsiveness','publicinterest']
+
+          for name, pid in [('이재준','c45565d7'), ('명재성','1e43d6f1')]:
+              print(f'=== {name} ({pid}) ===')
+              total = 0
+              for cat in CATEGORIES:
+                  r = supabase.table('collected_data_v40').select('id', count='exact').eq('politician_id', pid).eq('category', cat).eq('collector_ai', 'Gemini').execute()
+                  c = r.count if r.count is not None else len(r.data)
+                  total += c
+                  s = 'OK' if c >= 60 else f'LOW({c})'
+                  print(f'  {cat:20s}: {c:3d} [{s}]')
+              print(f'  Total Gemini: {total}')
+          "
