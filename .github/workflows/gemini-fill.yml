@@ -85,8 +85,16 @@ jobs:
           python scripts/workflow/gemini_api_fill.py \
             --politician "이재준" \
             --target 60 \
-            --max-rounds 30 \
-            --categories transparency communication responsiveness publicinterest
+            --max-rounds 30
+
+      - name: Run Gemini API Fill (Scheduled - 명재성)
+        if: github.event_name == 'schedule' && contains(steps.quota_check.outputs.*, 'true')
+        working-directory: 0-3_AI_Evaluation_Engine/설계문서_V7.0/V40
+        run: |
+          python scripts/workflow/gemini_api_fill.py \
+            --politician "명재성" \
+            --target 60 \
+            --max-rounds 30
 
       - name: Run Gemini API Fill (Manual Dispatch)
         if: github.event_name == 'workflow_dispatch' && contains(steps.quota_check.outputs.*, 'true')
