@@ -1,0 +1,810 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1900" height="3700" viewBox="0 0 1900 3700">
+<defs>
+  <style>text { font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif; }</style>
+</defs>
+
+<!-- HEADER -->
+<rect x="0" y="0" width="1900" height="68" fill="#0f172a"/>
+<text x="950" y="30" text-anchor="middle" font-size="22" font-weight="bold" fill="white">V50 아키텍처 전체구조도 &#x2014; 정치인 AI 평가 시스템</text>
+<text x="950" y="52" text-anchor="middle" font-size="15" fill="#94a3b8">n8n 오케스트레이션 + 3채널 수집 + 4AI 독립 평가 + Supabase 저장 | Instructions 이중분리</text>
+
+<!-- ===== S1: 프로세스 흐름 ===== -->
+<!-- 6컬럼 구분선 x: 80, 240, 410, 950, 1210 -->
+<!-- col1: 0~80 x=8, col2: 80~240 x=88, col3: 240~410 x=248 -->
+<!-- col4: 410~950 x=418, col5: 950~1210 x=958, col6: 1210~1900 x=1218 -->
+
+<!-- S1 Title Bar y=76 -->
+<rect x="0" y="76" width="1900" height="36" fill="#1e40af" rx="3"/>
+<text x="20" y="101" font-size="17" font-weight="bold" fill="white">① 프로세스 흐름 (Phase 0 → 5)</text>
+
+<!-- S1 Col Header y=112 h=34 -->
+<rect x="0" y="112" width="1900" height="34" fill="#dbeafe"/>
+<line x1="80"   y1="112" x2="80"   y2="1200" stroke="#93c5fd" stroke-width="1.5"/>
+<line x1="240"  y1="112" x2="240"  y2="1200" stroke="#93c5fd" stroke-width="1.5"/>
+<line x1="410"  y1="112" x2="410"  y2="1200" stroke="#93c5fd" stroke-width="1.5"/>
+<line x1="950"  y1="112" x2="950"  y2="1200" stroke="#93c5fd" stroke-width="1.5"/>
+<line x1="1210" y1="112" x2="1210" y2="1200" stroke="#93c5fd" stroke-width="1.5"/>
+<text x="40"   y="134" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e40af">Phase</text>
+<text x="160"  y="134" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e40af">이름 / 실행주체</text>
+<text x="325"  y="134" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e40af">실행 도구</text>
+<text x="680"  y="134" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e40af">주요 작업</text>
+<text x="1080" y="134" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e40af">입력 → 출력</text>
+<text x="1555" y="134" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e40af">완료 조건 / 주의사항</text>
+
+<!-- ── Pre-Phase 0 (y=146, h=126) ── -->
+<rect x="0" y="146" width="1900" height="126" fill="#f8fafc"/>
+<rect x="10" y="158" width="66" height="24" fill="#475569" rx="3"/>
+<text x="43" y="175" text-anchor="middle" font-size="11" font-weight="bold" fill="white">Pre-Phase 0</text>
+<text x="88"  y="172" font-size="14" font-weight="bold" fill="#0f172a">정치인 등록</text>
+<text x="88"  y="192" font-size="13" fill="#475569">운영자 직접 입력</text>
+<text x="248" y="180" font-size="13" fill="#374151">Supabase 직접 입력</text>
+<text x="418" y="166" font-size="14" font-weight="bold" fill="#0f172a">politicians 테이블에 12개 필드 입력</text>
+<text x="418" y="184" font-size="13" fill="#374151">id(TEXT 8hex) / name / party / position</text>
+<text x="418" y="202" font-size="13" fill="#374151">/ region / district / birth_date</text>
+<text x="418" y="220" font-size="13" fill="#374151">/ gender / identity / title</text>
+<text x="418" y="238" font-size="13" fill="#374151">/ previous_position(필수) / career[](5개&#x2191; 필수)</text>
+<text x="958" y="166" font-size="13" fill="#374151">없음 &#x2192;</text>
+<text x="958" y="184" font-size="13" font-weight="bold" fill="#1d4ed8">politicians 테이블 행 1개</text>
+<text x="1218" y="166" font-size="13" fill="#374151">12개 필드 모두 NOT NULL 확인</text>
+<text x="1218" y="184" font-size="13" fill="#374151">previous_position &#x2260; NULL</text>
+<text x="1218" y="202" font-size="13" fill="#374151">career[] &#x2265; 5개</text>
+<text x="1218" y="222" font-size="13" font-weight="bold" fill="#dc2626">&#x26A0; SELECT 검증 필수 후 다음 단계!</text>
+
+<!-- ── Phase 0 (y=272, h=76) ── -->
+<rect x="0" y="272" width="1900" height="76" fill="#fafafa"/>
+<rect x="10" y="284" width="66" height="24" fill="#7c3aed" rx="3"/>
+<text x="43" y="300" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Phase 0</text>
+<text x="88"  y="298" font-size="14" font-weight="bold" fill="#0f172a">파이프라인 초기화</text>
+<text x="88"  y="318" font-size="13" fill="#475569">n8n + soldier_v50.py</text>
+<text x="248" y="298" font-size="13" fill="#374151">n8n Scheduler</text>
+<text x="248" y="316" font-size="13" fill="#374151">soldier_v50.py</text>
+<text x="418" y="292" font-size="14" font-weight="bold" fill="#0f172a">status=&#39;pending&#39; 정치인 조회 &#x2192; Phase 1 트리거</text>
+<text x="418" y="310" font-size="13" fill="#374151">soldier_v50.py: Supabase 30초 폴링 &#x2192; Phase 완료 감지</text>
+<text x="418" y="328" font-size="13" fill="#374151">&#x2192; n8n Webhook 호출로 다음 Phase 재개</text>
+<text x="958" y="292" font-size="13" fill="#374151">politicians 테이블 &#x2192;</text>
+<text x="958" y="310" font-size="13" font-weight="bold" fill="#1d4ed8">pipeline_status 행 생성</text>
+<text x="1218" y="292" font-size="13" fill="#374151">pipeline_status: phase=0, status=&#39;running&#39;</text>
+<text x="1218" y="310" font-size="13" fill="#374151">Phase 1 트리거 Webhook 호출 완료 확인</text>
+
+<!-- ── Phase 1 (y=348, h=176) ── -->
+<rect x="0" y="348" width="1900" height="176" fill="#f0fdf4"/>
+<rect x="10" y="360" width="66" height="24" fill="#16a34a" rx="3"/>
+<text x="43" y="376" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Phase 1</text>
+<text x="88"  y="372" font-size="14" font-weight="bold" fill="#0f172a">데이터 수집</text>
+<text x="88"  y="392" font-size="13" fill="#475569">n8n HTTP Request</text>
+<text x="88"  y="410" font-size="13" fill="#475569">(3채널 병렬)</text>
+<text x="248" y="362" font-size="13" fill="#374151">① Gemini 2.0 Flash-Lite API</text>
+<text x="248" y="380" font-size="13" fill="#374151">② Naver NCP API</text>
+<text x="248" y="398" font-size="13" fill="#374151">③ Grok Live Search API</text>
+<text x="248" y="418" font-size="12" font-weight="bold" fill="#16a34a">collect_instructions/ 사용</text>
+<text x="418" y="362" font-size="14" font-weight="bold" fill="#15803d">3채널 동시 수집 &#x2014; 10카테고리 × 목표 100개/카테고리</text>
+<text x="418" y="382" font-size="13" fill="#374151">① Gemini 2.0 Flash-Lite: 한국어 뉴스·보도자료 40개/카테고리</text>
+<text x="418" y="400" font-size="13" fill="#374151">   | 기간: OFFICIAL 4년, PUBLIC 2년</text>
+<text x="418" y="418" font-size="13" fill="#374151">② Naver NCP API: 한국어 뉴스 직접 검색 20개/카테고리</text>
+<text x="418" y="436" font-size="13" fill="#374151">   | 유료 사용량 기반 과금</text>
+<text x="418" y="454" font-size="13" fill="#374151">③ Grok Live Search: X(트위터)·SNS 실시간 발언 40개/카테고리</text>
+<text x="418" y="474" font-size="12" font-weight="bold" fill="#16a34a">[collect_instructions/ 사용]</text>
+<text x="958" y="364" font-size="13" fill="#374151">collect_instructions &#x2192;</text>
+<text x="958" y="382" font-size="13" font-weight="bold" fill="#1d4ed8">collected_data_v50 테이블</text>
+<text x="958" y="400" font-size="12" fill="#374151">title / content / source_url</text>
+<text x="958" y="418" font-size="12" fill="#374151">/ published_date</text>
+<text x="958" y="436" font-size="12" fill="#374151">collector_ai / category</text>
+<text x="958" y="454" font-size="12" fill="#374151">/ politician_id</text>
+<text x="1218" y="362" font-size="13" fill="#374151">총 1,000개&#x2191; (버퍼 목표 1,200개)</text>
+<text x="1218" y="380" font-size="13" fill="#374151">카테고리별 100~120개</text>
+<text x="1218" y="398" font-size="13" fill="#374151">채널비율 40:20:40</text>
+<text x="1218" y="418" font-size="13" font-weight="bold" fill="#dc2626">&#x26A0; 버퍼 20% 초과 수집 필수!</text>
+<text x="1218" y="438" font-size="12" fill="#374151">최소만 수집 시 Phase 2-2 재수집 2-3시간 낭비</text>
+
+<!-- ── Phase 2 (y=524, h=76) ── -->
+<rect x="0" y="524" width="1900" height="76" fill="#f8fafc"/>
+<rect x="10" y="536" width="66" height="24" fill="#0891b2" rx="3"/>
+<text x="43" y="552" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Phase 2</text>
+<text x="88"  y="550" font-size="14" font-weight="bold" fill="#0f172a">데이터 검증</text>
+<text x="88"  y="570" font-size="13" fill="#475569">n8n Code 노드 (JS)</text>
+<text x="248" y="560" font-size="13" fill="#374151">n8n Code 노드</text>
+<text x="418" y="542" font-size="14" font-weight="bold" fill="#0f172a">중복 제거(title+url) + 기간위반 삭제 + Sentiment 비율 검증</text>
+<text x="418" y="560" font-size="13" fill="#374151">OFFICIAL neg/pos &#x2265; 10% / PUBLIC neg/pos &#x2265; 20%</text>
+<text x="418" y="578" font-size="13" fill="#374151">| 동명이인 필터 | 10년&#x2191; 과거 제거</text>
+<text x="958" y="542" font-size="13" fill="#374151">collected_data_v50 (raw) &#x2192;</text>
+<text x="958" y="560" font-size="13" font-weight="bold" fill="#1d4ed8">validated_flag = true 업데이트</text>
+<text x="1218" y="542" font-size="13" fill="#374151">중복·기간위반·동명이인 제거 완료</text>
+<text x="1218" y="560" font-size="13" fill="#374151">Sentiment 비율 통과</text>
+<text x="1218" y="578" font-size="13" fill="#374151">카테고리별 잔존 개수 확인</text>
+
+<!-- ── Phase 2-2 (y=600, h=136) ── -->
+<rect x="0" y="600" width="1900" height="136" fill="#fffbeb"/>
+<rect x="10" y="612" width="66" height="24" fill="#d97706" rx="3"/>
+<text x="43" y="628" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Phase 2-2</text>
+<text x="88"  y="624" font-size="14" font-weight="bold" fill="#0f172a">검증 후 조정</text>
+<text x="88"  y="644" font-size="13" fill="#475569">n8n Code 노드</text>
+<text x="88"  y="662" font-size="13" fill="#475569">+ 3채널 재수집</text>
+<text x="248" y="614" font-size="13" fill="#374151">n8n Code 노드</text>
+<text x="248" y="632" font-size="13" fill="#374151">+ Phase 1 동일 채널</text>
+<text x="248" y="650" font-size="13" fill="#374151">재호출 (최대 4라운드)</text>
+<text x="418" y="612" font-size="14" font-weight="bold" fill="#92400e">초과(100개&#x2191;) &#x2192; 삭제 / 부족(80개&#x2193;) &#x2192; 재수집 (최대 4라운드)</text>
+<text x="418" y="630" font-size="13" fill="#374151">80개&#x2191; = 정상 / 40~79개 = 부족 허용</text>
+<text x="418" y="648" font-size="13" fill="#374151">/ 40개&#x2193; = leverage score 0 처리 (카테고리 60점)</text>
+<text x="418" y="666" font-size="13" fill="#374151">Give-Up 전 &#39;오류 아님 증명&#39; 5가지 체크 필수:</text>
+<text x="418" y="684" font-size="13" fill="#374151">API상태 / 검색결과 존재 / 기간 / 필터 / 논리결론</text>
+<text x="418" y="702" font-size="13" fill="#374151">목표: 카테고리별 80~100개 / 채널 비율(40:20:40) 유지</text>
+<text x="958" y="614" font-size="13" fill="#374151">validated 데이터 &#x2192;</text>
+<text x="958" y="632" font-size="13" font-weight="bold" fill="#1d4ed8">adjusted_flag = true 업데이트</text>
+<text x="958" y="650" font-size="13" fill="#374151">총 800~1,000개/정치인 목표</text>
+<text x="1218" y="612" font-size="13" fill="#374151">카테고리별 80개&#x2191; 달성 또는 Give-Up</text>
+<text x="1218" y="630" font-size="13" fill="#374151">채널 비율 유지 확인</text>
+<text x="1218" y="648" font-size="13" fill="#374151">adjusted_flag 저장 확인</text>
+<text x="1218" y="668" font-size="13" font-weight="bold" fill="#dc2626">&#x26A0; Phase 3 시작 전 반드시 완료!</text>
+<text x="1218" y="688" font-size="13" font-weight="bold" fill="#dc2626">&#x26A0; Phase 순서 건너뛰기 절대 금지!</text>
+
+<!-- ── Phase 3 (y=736, h=196) ── -->
+<rect x="0" y="736" width="1900" height="196" fill="#fdf4ff"/>
+<rect x="10" y="748" width="66" height="24" fill="#7c3aed" rx="3"/>
+<text x="43" y="764" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Phase 3</text>
+<text x="88"  y="760" font-size="14" font-weight="bold" fill="#0f172a">AI 평가</text>
+<text x="88"  y="780" font-size="13" fill="#475569">n8n HTTP Request</text>
+<text x="88"  y="798" font-size="13" fill="#475569">4AI 독립 판정</text>
+<text x="248" y="748" font-size="13" fill="#374151">① Claude Haiku 4.5 API</text>
+<text x="248" y="766" font-size="13" fill="#374151">② Gemini 2.0 Flash-Lite API</text>
+<text x="248" y="784" font-size="13" fill="#374151">③ ChatGPT gpt-4o-mini API</text>
+<text x="248" y="802" font-size="13" fill="#374151">④ Grok grok-3-mini API</text>
+<text x="248" y="822" font-size="12" font-weight="bold" fill="#7c3aed">eval_instructions/ 사용</text>
+<text x="418" y="748" font-size="14" font-weight="bold" fill="#6d28d9">4개 AI 각자 독립 판정 &#x2014; 배치 25개씩 / Pre-filtering 적용</text>
+<text x="418" y="768" font-size="13" fill="#374151">각 AI: eval_instructions(카테고리별) 기준으로 독립 평가</text>
+<text x="418" y="786" font-size="13" fill="#374151">&#x2192; 서로의 결과 모름</text>
+<text x="418" y="804" font-size="13" fill="#374151">등급: +4/+3/+2/+1/-1/-2/-3/-4 (8등급)</text>
+<text x="418" y="822" font-size="13" fill="#374151">| X = 제외(0점) | score = rating × 2</text>
+<text x="418" y="840" font-size="13" fill="#374151">Sentiment: negative/positive/free (neutral 아님!)</text>
+<text x="418" y="858" font-size="13" fill="#374151">| Pre-filtering: 기평가 데이터 자동 제외</text>
+<text x="418" y="876" font-size="13" fill="#374151">X 판정: 10년&#x2191; 과거 / 명백한 동명이인 / 허위정보만</text>
+<text x="418" y="894" font-size="13" fill="#374151">&#x2192; 나머지는 낮은 점수 부여</text>
+<text x="958" y="748" font-size="13" fill="#374151">collected_data_v50 +</text>
+<text x="958" y="766" font-size="13" fill="#374151">eval_instructions &#x2192;</text>
+<text x="958" y="784" font-size="13" font-weight="bold" fill="#1d4ed8">evaluations_v50 테이블</text>
+<text x="958" y="802" font-size="12" fill="#374151">collected_data_id /</text>
+<text x="958" y="820" font-size="12" fill="#374151">evaluator_ai / category</text>
+<text x="958" y="838" font-size="12" fill="#374151">rating(TEXT &#39;+3&#39;/&#39;-2&#39;/&#39;X&#39;)</text>
+<text x="958" y="856" font-size="12" fill="#374151">/ reasoning</text>
+<text x="1218" y="748" font-size="13" fill="#374151">4AI × 수집데이터 수 = evaluations_v50 행 수</text>
+<text x="1218" y="768" font-size="13" font-weight="bold" fill="#dc2626">&#x26A0; rating = TEXT 문자열 (&#39;+3&#39;, &#39;-2&#39;, &#39;X&#39;)</text>
+<text x="1218" y="786" font-size="13" font-weight="bold" fill="#dc2626">   숫자 변환 절대 금지!</text>
+<text x="1218" y="806" font-size="13" font-weight="bold" fill="#dc2626">&#x26A0; Supabase 1000행 제한</text>
+<text x="1218" y="824" font-size="13" font-weight="bold" fill="#dc2626">   &#x2192; .range() pagination 필수!</text>
+<text x="1218" y="844" font-size="13" fill="#374151">카테고리별 모든 AI 평가 완료 확인</text>
+<text x="1218" y="862" font-size="13" fill="#374151">&#x2192; Phase 3-2 (검증) 자동 진입</text>
+
+<!-- ── Phase 3-2 (y=932, h=96) ── -->
+<rect x="0" y="932" width="1900" height="96" fill="#fff1f2"/>
+<rect x="10" y="944" width="66" height="24" fill="#be123c" rx="3"/>
+<text x="43" y="960" text-anchor="middle" font-size="11" font-weight="bold" fill="white">Phase 3-2</text>
+<text x="88"  y="958" font-size="13" font-weight="bold" fill="#0f172a">평가 결과 검증</text>
+<text x="88"  y="976" font-size="13" font-weight="bold" fill="#0f172a">및 재평가</text>
+<text x="88"  y="994" font-size="12" fill="#475569">n8n Code 노드</text>
+<text x="248" y="946" font-size="13" fill="#374151">n8n Code 노드</text>
+<text x="248" y="964" font-size="13" fill="#374151">+ Phase 3 동일 API</text>
+<text x="248" y="982" font-size="13" fill="#374151">누락분 재호출</text>
+<text x="418" y="946" font-size="14" font-weight="bold" fill="#be123c">평가 완료 여부 Gate 검증 &#x2192; 누락 데이터만 선택적 재평가</text>
+<text x="418" y="966" font-size="13" fill="#374151">Gate 조건: evaluations_v50 행 수 = collected_data_v50 수 × 4 (AI 4개)</text>
+<text x="418" y="984" font-size="13" fill="#374151">누락 발견: 해당 AI × 해당 카테고리만 선택적 재실행 &#x2192; 보완 저장</text>
+<text x="418" y="1002" font-size="13" fill="#374151">Pre-filtering: 기평가 데이터 자동 제외 &#x2192; 중복 저장 방지</text>
+<text x="958" y="946" font-size="13" fill="#374151">evaluations_v50 (현재) &#x2192;</text>
+<text x="958" y="964" font-size="13" font-weight="bold" fill="#1d4ed8">누락분 추가 저장</text>
+<text x="958" y="982" font-size="13" fill="#374151">&#x2192; 4AI 완전 평가 확정</text>
+<text x="1218" y="946" font-size="13" font-weight="bold" fill="#0f172a">evaluations_v50 = collected × 4 달성</text>
+<text x="1218" y="964" font-size="13" fill="#374151">카테고리별/AI별 평가 건수 검증 통과</text>
+<text x="1218" y="982" font-size="13" fill="#374151">누락 없음 확인 후 Phase 4 진입</text>
+<text x="1218" y="1002" font-size="13" font-weight="bold" fill="#dc2626">&#x26A0; Gate 통과 전 Phase 4 절대 금지!</text>
+
+<!-- ── Phase 4 (y=1028, h=96) ── -->
+<rect x="0" y="1028" width="1900" height="96" fill="#f0f9ff"/>
+<rect x="10" y="1040" width="66" height="24" fill="#0369a1" rx="3"/>
+<text x="43" y="1056" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Phase 4</text>
+<text x="88"  y="1054" font-size="14" font-weight="bold" fill="#0f172a">점수 계산</text>
+<text x="88"  y="1074" font-size="13" fill="#475569">n8n Code 노드 (JS)</text>
+<text x="248" y="1062" font-size="13" fill="#374151">n8n Code 노드</text>
+<text x="418" y="1042" font-size="14" font-weight="bold" fill="#0369a1">공식: category_score = (6.0 + avg_score × 0.5) × 10</text>
+<text x="418" y="1062" font-size="13" fill="#374151">avg_score = 4AI 평균(rating × 2), 범위 -8~+8 | Prior=6.0 | 카테고리 점수: 20~100점</text>
+<text x="418" y="1080" font-size="13" fill="#374151">final_score = round(min(&#x3A3; 10카테고리, 1000)) | 최종 범위: 200~1000점</text>
+<text x="958" y="1042" font-size="13" fill="#374151">evaluations_v50 &#x2192;</text>
+<text x="958" y="1060" font-size="13" font-weight="bold" fill="#1d4ed8">ai_final_scores_v50 테이블</text>
+<text x="958" y="1078" font-size="12" fill="#374151">politician_id / category_scores[]</text>
+<text x="958" y="1096" font-size="12" fill="#374151">/ final_score</text>
+<text x="1218" y="1042" font-size="13" fill="#374151">final_score 범위 200~1000 확인</text>
+<text x="1218" y="1060" font-size="13" fill="#374151">10개 카테고리 점수 모두 산출 완료</text>
+<text x="1218" y="1078" font-size="13" fill="#374151">ai_final_scores_v50 저장 확인</text>
+
+<!-- ── Phase 5 (y=1124, h=76) ── -->
+<rect x="0" y="1124" width="1900" height="76" fill="#fefce8"/>
+<rect x="10" y="1136" width="66" height="24" fill="#854d0e" rx="3"/>
+<text x="43" y="1152" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Phase 5</text>
+<text x="88"  y="1148" font-size="14" font-weight="bold" fill="#0f172a">보고서 생성</text>
+<text x="88"  y="1168" font-size="13" fill="#475569">n8n Code + GitHub</text>
+<text x="248" y="1148" font-size="13" fill="#374151">n8n Code 노드</text>
+<text x="248" y="1166" font-size="13" fill="#374151">+ GitHub Pages 배포</text>
+<text x="418" y="1138" font-size="14" font-weight="bold" fill="#854d0e">점수 기반 HTML 보고서 자동 생성 + GitHub Pages 배포</text>
+<text x="418" y="1158" font-size="13" fill="#374151">파일명: 보고서/{정치인명}_{YYYYMMDD}_{등급}.html</text>
+<text x="418" y="1176" font-size="13" fill="#374151">등급: S(950+) A(900~) B(850~) C(800~) D(750~) E(700~) F(650~) P(649이하)</text>
+<text x="958" y="1138" font-size="13" fill="#374151">ai_final_scores_v50 &#x2192;</text>
+<text x="958" y="1156" font-size="13" font-weight="bold" fill="#1d4ed8">HTML + GitHub Pages</text>
+<text x="958" y="1174" font-size="12" fill="#374151">sunwoongkyu.github.io/</text>
+<text x="958" y="1192" font-size="12" fill="#374151">PoliticianFinder/</text>
+<text x="1218" y="1138" font-size="13" fill="#374151">HTML 생성 + 배포 완료 확인</text>
+<text x="1218" y="1156" font-size="13" font-weight="bold" fill="#dc2626">&#x26A0; docs/.nojekyll 없으면 Pages 빌드 실패!</text>
+<text x="1218" y="1174" font-size="13" fill="#374151">Python shutil.copy2() 사용</text>
+<text x="1218" y="1192" font-size="13" fill="#374151">(bash cp 한글 파일명 실패)</text>
+
+<!-- S1 border -->
+<rect x="5" y="112" width="1885" height="1088" fill="none" stroke="#93c5fd" stroke-width="2"/>
+
+<!-- ===== S2: 도구별 역할 ===== -->
+<!-- 7컬럼 구분선 x: 180, 290, 450, 960, 1230, 1570 -->
+<!-- col1: 0~180 x=8, col2: 180~290 x=188, col3: 290~450 x=298 -->
+<!-- col4: 450~960 x=458, col5: 960~1230 x=968, col6: 1230~1570 x=1238, col7: 1570~1900 x=1578 -->
+
+<!-- S2 Title Bar y=1208 -->
+<rect x="0" y="1208" width="1900" height="36" fill="#065f46" rx="3"/>
+<text x="20" y="1233" font-size="17" font-weight="bold" fill="white">② 도구별 역할</text>
+
+<!-- S2 Col Header y=1244 h=32 -->
+<rect x="0" y="1244" width="1900" height="32" fill="#d1fae5"/>
+<line x1="180"  y1="1244" x2="180"  y2="1944" stroke="#6ee7b7" stroke-width="1.5"/>
+<line x1="290"  y1="1244" x2="290"  y2="1944" stroke="#6ee7b7" stroke-width="1.5"/>
+<line x1="450"  y1="1244" x2="450"  y2="1944" stroke="#6ee7b7" stroke-width="1.5"/>
+<line x1="960"  y1="1244" x2="960"  y2="1944" stroke="#6ee7b7" stroke-width="1.5"/>
+<line x1="1230" y1="1244" x2="1230" y2="1944" stroke="#6ee7b7" stroke-width="1.5"/>
+<line x1="1570" y1="1244" x2="1570" y2="1944" stroke="#6ee7b7" stroke-width="1.5"/>
+<text x="90"   y="1265" text-anchor="middle" font-size="14" font-weight="bold" fill="#065f46">도구</text>
+<text x="235"  y="1265" text-anchor="middle" font-size="14" font-weight="bold" fill="#065f46">유형</text>
+<text x="370"  y="1265" text-anchor="middle" font-size="14" font-weight="bold" fill="#065f46">담당 Phase</text>
+<text x="705"  y="1265" text-anchor="middle" font-size="14" font-weight="bold" fill="#065f46">실제 역할</text>
+<text x="1095" y="1265" text-anchor="middle" font-size="14" font-weight="bold" fill="#065f46">기술 방식</text>
+<text x="1400" y="1265" text-anchor="middle" font-size="14" font-weight="bold" fill="#065f46">환경변수 / 주의사항</text>
+<text x="1735" y="1265" text-anchor="middle" font-size="14" font-weight="bold" fill="#065f46">과금체계</text>
+
+<!-- n8n row (y=1276, h=76) -->
+<rect x="0" y="1276" width="1900" height="76" fill="#f8fafc"/>
+<text x="22"   y="1302" font-size="14" font-weight="bold" fill="#0f172a">n8n</text>
+<text x="22"   y="1322" font-size="13" fill="#475569">(Cloud Enterprise)</text>
+<text x="188" y="1310" font-size="14" fill="#374151">오케스트레이터</text>
+<text x="298" y="1310" font-size="14" fill="#374151">Phase 0~5 전체</text>
+<text x="458" y="1293" font-size="14" font-weight="bold" fill="#0f172a">파이프라인 관리 전담 &#x2014; 수집·평가 직접 안 함</text>
+<text x="458" y="1311" font-size="13" fill="#374151">HTTP Request 노드 &#x2192; 외부 API 호출</text>
+<text x="458" y="1329" font-size="13" fill="#374151">/ Code 노드(JS) &#x2192; 검증·조정·점수 로직</text>
+<text x="968" y="1294" font-size="13" fill="#374151">n8n 워크플로우 JSON (UI에서 import)</text>
+<text x="968" y="1312" font-size="13" fill="#374151">SplitInBatches = 순차 루프 (병렬 아님)</text>
+<text x="968" y="1330" font-size="13" fill="#374151">/ Sub-workflow로 확장 가능</text>
+<text x="1238" y="1294" font-size="13" fill="#374151">n8n Credentials에 각 API 키 등록 필수</text>
+<text x="1238" y="1312" font-size="13" fill="#374151">단일 인스턴스 기준 1명 순차</text>
+<text x="1238" y="1330" font-size="13" fill="#374151">/ Sub-workflow로 병렬 확장</text>
+<text x="1578" y="1302" font-size="13" fill="#dc2626" font-weight="bold">월정액 $500/월</text>
+
+<!-- soldier_v50.py row (y=1352, h=76) -->
+<rect x="0" y="1352" width="1900" height="76" fill="#fafafa"/>
+<text x="22"   y="1376" font-size="13" font-weight="bold" fill="#0f172a">Python</text>
+<text x="22"   y="1396" font-size="13" fill="#475569">soldier.py</text>
+<text x="188" y="1392" font-size="14" fill="#374151">트리거 / 폴링</text>
+<text x="298" y="1376" font-size="13" fill="#374151">Phase 0 + 완료 감지</text>
+<text x="298" y="1394" font-size="13" fill="#374151">(Phase 간 연결)</text>
+<text x="458" y="1369" font-size="14" font-weight="bold" fill="#0f172a">Supabase 폴링 &#x2192; Phase 완료 감지 &#x2192; n8n Webhook POST</text>
+<text x="458" y="1387" font-size="13" fill="#374151">&#x2192; 다음 Phase 자동 재개</text>
+<text x="458" y="1405" font-size="13" fill="#374151">직접 수집·평가 없음 | 역할: 완료감지 + 트리거</text>
+<text x="968" y="1370" font-size="13" fill="#374151">Python + supabase-py + requests</text>
+<text x="968" y="1388" font-size="13" fill="#374151">폴링 주기 30초 / 상시 백그라운드 실행</text>
+<text x="1238" y="1370" font-size="13" fill="#374151">SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY</text>
+<text x="1238" y="1388" font-size="13" fill="#374151">N8N_WEBHOOK_URL / POLLING_INTERVAL=30</text>
+<text x="1578" y="1376" font-size="13" fill="#059669" font-weight="bold">무료</text>
+
+<!-- Supabase row (y=1428, h=96) -->
+<rect x="0" y="1428" width="1900" height="96" fill="#f8fafc"/>
+<text x="22"   y="1454" font-size="13" font-weight="bold" fill="#0f172a">Supabase</text>
+<text x="22"   y="1474" font-size="13" fill="#475569">(PostgreSQL)</text>
+<text x="188" y="1478" font-size="14" fill="#374151">데이터 저장소</text>
+<text x="298" y="1478" font-size="14" fill="#374151">Phase 0~5 전체</text>
+<text x="458" y="1445" font-size="14" font-weight="bold" fill="#0f172a">단일 저장소 &#x2014; 수집·평가·점수·파이프라인 상태 전부</text>
+<text x="458" y="1463" font-size="13" fill="#374151">테이블: politicians / collected_data_v50</text>
+<text x="458" y="1481" font-size="13" fill="#374151">/ evaluations_v50 / ai_final_scores_v50</text>
+<text x="458" y="1499" font-size="13" fill="#374151">/ pipeline_status</text>
+<text x="968" y="1448" font-size="13" fill="#374151">REST API (PostgREST) + supabase-py</text>
+<text x="968" y="1466" font-size="13" fill="#374151">인증: Service Role Key (환경변수)</text>
+<text x="1238" y="1442" font-size="13" font-weight="bold" fill="#dc2626">&#x26A0; 기본 1000행 제한 &#x2192; .range() pagination 필수!</text>
+<text x="1238" y="1460" font-size="13" font-weight="bold" fill="#dc2626">&#x26A0; politician_id = TEXT 8hex (INTEGER 절대 금지!)</text>
+<text x="1578" y="1442" font-size="13" fill="#dc2626" font-weight="bold">$25/월 (8GB 포함)</text>
+<text x="1578" y="1460" font-size="12" fill="#374151">+$0.125/GB (초과 시)</text>
+<text x="1578" y="1478" font-size="12" fill="#374151">+$0.09/GB (대역폭 초과 시)</text>
+
+<!-- Gemini Flash-Lite row (y=1524, h=116) -->
+<rect x="0" y="1524" width="1900" height="116" fill="#f0fdf4"/>
+<text x="22"   y="1546" font-size="13" font-weight="bold" fill="#0f172a">Gemini</text>
+<text x="22"   y="1564" font-size="12" fill="#374151">(2.0 Flash-Lite)</text>
+<text x="22"   y="1582" font-size="13" font-weight="bold" fill="#16a34a">[수집채널①]</text>
+<text x="22"   y="1600" font-size="13" font-weight="bold" fill="#7c3aed">[평가AI②]</text>
+<text x="188" y="1562" font-size="14" fill="#374151">수집 + 평가</text>
+<text x="188" y="1580" font-size="13" font-weight="bold" fill="#dc2626">(역할 분리!)</text>
+<text x="298" y="1546" font-size="13" fill="#374151">Phase 1, 2-2 (수집)</text>
+<text x="298" y="1564" font-size="13" fill="#374151">Phase 3, 3-2 (평가)</text>
+<text x="458" y="1541" font-size="13" fill="#374151">수집(Phase 1): 한국어 뉴스·보도자료 40개/카테고리</text>
+<text x="458" y="1559" font-size="13" fill="#374151">&#x2014; collect_instructions 기준</text>
+<text x="458" y="1577" font-size="13" fill="#374151">평가(Phase 3): 수집 데이터 독립 판정 25개/배치</text>
+<text x="458" y="1595" font-size="13" fill="#374151">&#x2014; eval_instructions 기준</text>
+<text x="458" y="1615" font-size="13" font-weight="bold" fill="#dc2626">&#x26A0; 수집과 평가 역할 완전 분리!</text>
+<text x="458" y="1633" font-size="13" fill="#374151">collect_instructions &#x2260; eval_instructions</text>
+<text x="968" y="1542" font-size="13" fill="#374151">Google AI Studio REST API</text>
+<text x="968" y="1560" font-size="13" fill="#374151">n8n HTTP Request</text>
+<text x="968" y="1578" font-size="13" fill="#374151">&#x2192; generateContent 엔드포인트</text>
+<text x="1238" y="1536" font-size="13" fill="#374151">GEMINI_API_KEY (수집+평가 공유)</text>
+<text x="1238" y="1554" font-size="13" font-weight="bold" fill="#dc2626">&#x26A0; Rate limit 주의</text>
+<text x="1238" y="1572" font-size="13" font-weight="bold" fill="#dc2626">&#x2014; 수집+평가 동시 사용 시 할당량 공유!</text>
+<text x="1578" y="1536" font-size="13" fill="#dc2626" font-weight="bold">종량제</text>
+<text x="1578" y="1554" font-size="12" fill="#374151">입력 $0.075/MTok</text>
+<text x="1578" y="1572" font-size="12" fill="#374151">출력 $0.30/MTok</text>
+
+<!-- Naver NCP row (y=1640, h=76) -->
+<rect x="0" y="1640" width="1900" height="76" fill="#fafafa"/>
+<text x="22"   y="1666" font-size="13" font-weight="bold" fill="#0f172a">Naver NCP API</text>
+<text x="22"   y="1686" font-size="13" font-weight="bold" fill="#16a34a">[수집채널②]</text>
+<text x="188" y="1682" font-size="14" fill="#374151">수집 전용</text>
+<text x="298" y="1672" font-size="13" fill="#374151">Phase 1, 2-2</text>
+<text x="298" y="1690" font-size="13" fill="#374151">(수집만)</text>
+<text x="458" y="1658" font-size="13" fill="#374151">한국어 뉴스 직접 검색·수집 20개/카테고리</text>
+<text x="458" y="1676" font-size="13" fill="#374151">NCP 유료 API (사용량 기반 과금)</text>
+<text x="458" y="1694" font-size="13" fill="#374151">구조화 검색 결과 반환</text>
+<text x="968" y="1660" font-size="13" fill="#374151">Naver Cloud Platform REST API</text>
+<text x="968" y="1678" font-size="13" fill="#374151">헤더: X-NCP-APIGW-API-KEY</text>
+<text x="1238" y="1660" font-size="13" fill="#374151">NAVER_NCP_API_KEY</text>
+<text x="1238" y="1678" font-size="13" fill="#374151">사용량 기반 과금 (유료) &#x2014; 예산 모니터링 필요</text>
+<text x="1578" y="1648" font-size="13" fill="#dc2626" font-weight="bold">종량제</text>
+<text x="1578" y="1666" font-size="12" fill="#374151">0.004원/호출</text>
+<text x="1578" y="1684" font-size="12" fill="#374151">(≈$0.000003/call)</text>
+
+<!-- Grok row (y=1716, h=116) -->
+<rect x="0" y="1716" width="1900" height="116" fill="#f8fafc"/>
+<text x="22"   y="1738" font-size="13" font-weight="bold" fill="#0f172a">Grok</text>
+<text x="22"   y="1756" font-size="12" fill="#374151">(grok-3-mini)</text>
+<text x="22"   y="1774" font-size="13" font-weight="bold" fill="#16a34a">[수집채널③]</text>
+<text x="22"   y="1792" font-size="13" font-weight="bold" fill="#7c3aed">[평가AI④]</text>
+<text x="188" y="1756" font-size="14" fill="#374151">수집 + 평가</text>
+<text x="188" y="1774" font-size="13" font-weight="bold" fill="#dc2626">(역할 분리!)</text>
+<text x="298" y="1736" font-size="13" fill="#374151">Phase 1, 2-2 (Live Search)</text>
+<text x="298" y="1754" font-size="13" fill="#374151">Phase 3, 3-2 (grok-3-mini)</text>
+<text x="458" y="1733" font-size="13" fill="#374151">수집(Phase 1): X(트위터)·SNS 실시간 발언 40개/카테고리</text>
+<text x="458" y="1751" font-size="13" fill="#374151">&#x2014; Live Search 기능</text>
+<text x="458" y="1769" font-size="13" fill="#374151">평가(Phase 3): grok-3-mini 모델로 독립 판정 25개/배치</text>
+<text x="458" y="1787" font-size="13" fill="#374151">&#x2014; eval_instructions 기준</text>
+<text x="458" y="1807" font-size="13" font-weight="bold" fill="#dc2626">&#x26A0; 수집(Live Search)과 평가(grok-3-mini) 완전 분리</text>
+<text x="458" y="1825" font-size="13" fill="#374151">동일 API Key, 다른 모드!</text>
+<text x="968" y="1734" font-size="13" fill="#374151">xAI REST API</text>
+<text x="968" y="1752" font-size="13" fill="#374151">(수집: Live Search / 평가: grok-3-mini)</text>
+<text x="968" y="1770" font-size="13" fill="#374151">헤더: Authorization Bearer $XAI_API_KEY</text>
+<text x="1238" y="1734" font-size="13" fill="#374151">XAI_API_KEY (수집+평가 공유)</text>
+<text x="1238" y="1752" font-size="13" fill="#374151">평가 모델명: grok-3-mini (명시 필수)</text>
+<text x="1578" y="1728" font-size="13" fill="#dc2626" font-weight="bold">종량제</text>
+<text x="1578" y="1746" font-size="12" fill="#374151">입력 $0.30/MTok</text>
+<text x="1578" y="1764" font-size="12" fill="#374151">출력 $0.50/MTok</text>
+
+<!-- Claude Haiku row (y=1832, h=56) -->
+<rect x="0" y="1832" width="1900" height="56" fill="#fdf4ff"/>
+<text x="22"   y="1852" font-size="13" font-weight="bold" fill="#0f172a">Claude</text>
+<text x="22"   y="1870" font-size="12" fill="#374151">(Haiku 4.5)</text>
+<text x="22"   y="1886" font-size="13" font-weight="bold" fill="#7c3aed">[평가AI①]</text>
+<text x="188" y="1862" font-size="14" fill="#374151">평가 전용</text>
+<text x="298" y="1854" font-size="13" fill="#374151">Phase 3, 3-2</text>
+<text x="298" y="1872" font-size="13" fill="#374151">(평가만)</text>
+<text x="458" y="1850" font-size="13" fill="#374151">수집 데이터 독립 판정 (eval_instructions 기준, 배치 25개)</text>
+<text x="458" y="1868" font-size="13" fill="#374151">rating: +4~-4(8등급) / X=제외</text>
+<text x="968" y="1850" font-size="13" fill="#374151">Anthropic REST API &#x2192; /v1/messages</text>
+<text x="968" y="1868" font-size="13" fill="#374151">model: claude-haiku-4-5 | max_tokens: 4000</text>
+<text x="1238" y="1850" font-size="13" fill="#374151">ANTHROPIC_API_KEY</text>
+<text x="1238" y="1868" font-size="13" fill="#374151">n8n HTTP Request 노드</text>
+<text x="1578" y="1846" font-size="13" fill="#dc2626" font-weight="bold">종량제</text>
+<text x="1578" y="1864" font-size="12" fill="#374151">입력 $0.80/MTok</text>
+<text x="1578" y="1882" font-size="12" fill="#374151">출력 $4.00/MTok</text>
+
+<!-- ChatGPT row (y=1888, h=56) -->
+<rect x="0" y="1888" width="1900" height="56" fill="#fafafa"/>
+<text x="22"   y="1908" font-size="13" font-weight="bold" fill="#0f172a">ChatGPT</text>
+<text x="22"   y="1926" font-size="12" fill="#374151">(gpt-4o-mini)</text>
+<text x="22"   y="1942" font-size="13" font-weight="bold" fill="#7c3aed">[평가AI③]</text>
+<text x="188" y="1912" font-size="14" fill="#374151">평가 전용</text>
+<text x="298" y="1904" font-size="13" fill="#374151">Phase 3, 3-2</text>
+<text x="298" y="1922" font-size="13" fill="#374151">(평가만)</text>
+<text x="458" y="1906" font-size="13" fill="#374151">수집 데이터 독립 판정 (eval_instructions 기준, 배치 25개)</text>
+<text x="458" y="1924" font-size="13" fill="#374151">Foreign key 오류 시 5개로 자동 재시도</text>
+<text x="968" y="1906" font-size="13" fill="#374151">OpenAI REST API &#x2192; /v1/chat/completions</text>
+<text x="968" y="1924" font-size="13" fill="#374151">model: gpt-4o-mini | max_tokens: 4000</text>
+<text x="1238" y="1906" font-size="13" fill="#374151">OPENAI_API_KEY</text>
+<text x="1238" y="1924" font-size="13" fill="#374151">n8n HTTP Request 노드</text>
+<text x="1578" y="1902" font-size="13" fill="#dc2626" font-weight="bold">종량제</text>
+<text x="1578" y="1920" font-size="12" fill="#374151">입력 $0.15/MTok</text>
+<text x="1578" y="1938" font-size="12" fill="#374151">출력 $0.60/MTok</text>
+
+<!-- 합계 행 제거됨 -->
+
+<!-- S2 border -->
+<rect x="5" y="1244" width="1885" height="708" fill="none" stroke="#6ee7b7" stroke-width="2"/>
+
+<!-- ===== S3: Instructions ===== -->
+<!-- 6컬럼 구분선 x: 200, 360, 660, 1070, 1340 -->
+<!-- col1: 0~200 x=8, col2: 200~360 x=208, col3: 360~660 x=368 -->
+<!-- col4: 660~1070 x=668, col5: 1070~1340 x=1078, col6: 1340~1900 x=1348 -->
+
+<!-- S3 Title Bar y=1952 -->
+<rect x="0" y="1952" width="1900" height="36" fill="#7c2d12" rx="3"/>
+<text x="20" y="1977" font-size="17" font-weight="bold" fill="white">③ Instructions &#x2014; AI에게 전달하는 수집/평가 프롬프트 (가이드 문서·스크립트와 완전히 다름)</text>
+
+<!-- S3 Col Header y=1988 h=32 -->
+<rect x="0" y="1988" width="1900" height="32" fill="#fed7aa"/>
+<line x1="200"  y1="1988" x2="200"  y2="2212" stroke="#fb923c" stroke-width="1.5"/>
+<line x1="360"  y1="1988" x2="360"  y2="2212" stroke="#fb923c" stroke-width="1.5"/>
+<line x1="660"  y1="1988" x2="660"  y2="2212" stroke="#fb923c" stroke-width="1.5"/>
+<line x1="1070" y1="1988" x2="1070" y2="2212" stroke="#fb923c" stroke-width="1.5"/>
+<line x1="1340" y1="1988" x2="1340" y2="2212" stroke="#fb923c" stroke-width="1.5"/>
+<text x="100"  y="2009" text-anchor="middle" font-size="14" font-weight="bold" fill="#7c2d12">항목</text>
+<text x="280"  y="2009" text-anchor="middle" font-size="14" font-weight="bold" fill="#7c2d12">역할</text>
+<text x="510"  y="2009" text-anchor="middle" font-size="14" font-weight="bold" fill="#7c2d12">파일 경로 (예시)</text>
+<text x="865"  y="2009" text-anchor="middle" font-size="14" font-weight="bold" fill="#7c2d12">내용 / 구조</text>
+<text x="1205" y="2009" text-anchor="middle" font-size="14" font-weight="bold" fill="#7c2d12">사용 주체</text>
+<text x="1620" y="2009" text-anchor="middle" font-size="14" font-weight="bold" fill="#7c2d12">핵심 주의사항</text>
+
+<!-- collect_instructions row (y=2020, h=96) -->
+<rect x="0" y="2020" width="1900" height="96" fill="#fff7ed"/>
+<text x="22"   y="2042" font-size="14" font-weight="bold" fill="#0f172a">collect_instructions/</text>
+<text x="22"   y="2062" font-size="13" fill="#475569">(폴더, 10개 파일)</text>
+<text x="208" y="2042" font-size="13" font-weight="bold" fill="#16a34a">수집 프롬프트</text>
+<text x="208" y="2062" font-size="13" fill="#475569">Phase 1 전용</text>
+<text x="368" y="2032" font-size="12" font-family="Consolas,'Courier New',monospace" fill="#1d4ed8">instructions/collect_instructions/</text>
+<text x="368" y="2050" font-size="12" font-family="Consolas,'Courier New',monospace" fill="#1d4ed8">cat01_expertise_collect.md</text>
+<text x="368" y="2068" font-size="12" font-family="Consolas,'Courier New',monospace" fill="#1d4ed8">cat02_leadership_collect.md</text>
+<text x="368" y="2086" font-size="12" font-family="Consolas,'Courier New',monospace" fill="#1d4ed8">... (10개)</text>
+<text x="668" y="2034" font-size="13" fill="#374151">카테고리별 수집 기준 프롬프트 10개 파일</text>
+<text x="668" y="2052" font-size="13" fill="#374151">어떤 뉴스·자료 수집할지 기준</text>
+<text x="668" y="2070" font-size="13" fill="#374151">/ OFFICIAL·PUBLIC 유형 / 기간 제한 명시</text>
+<text x="668" y="2088" font-size="13" fill="#374151">n8n HTTP Request body에 포함하여 수집 AI에 전달</text>
+<text x="1078" y="2042" font-size="13" fill="#374151">수집 AI 3채널</text>
+<text x="1078" y="2060" font-size="13" fill="#374151">(Gemini / Naver / Grok)</text>
+<text x="1078" y="2078" font-size="13" fill="#374151">Phase 1, 2-2에서 사용</text>
+<text x="1348" y="2034" font-size="13" font-weight="bold" fill="#dc2626">&#x26A0; eval_instructions와 완전 분리 필수!</text>
+<text x="1348" y="2052" font-size="13" fill="#374151">수집 시 평가 기준 포함 금지</text>
+<text x="1348" y="2070" font-size="13" fill="#374151">파일명에 _collect 접미사로 구분</text>
+
+<!-- eval_instructions row (y=2116, h=96) -->
+<rect x="0" y="2116" width="1900" height="96" fill="#fdf4ff"/>
+<text x="22"   y="2138" font-size="14" font-weight="bold" fill="#0f172a">eval_instructions/</text>
+<text x="22"   y="2158" font-size="13" fill="#475569">(폴더, 10개 파일)</text>
+<text x="208" y="2138" font-size="13" font-weight="bold" fill="#7c3aed">평가 프롬프트</text>
+<text x="208" y="2158" font-size="13" fill="#475569">Phase 3 전용</text>
+<text x="368" y="2128" font-size="12" font-family="Consolas,'Courier New',monospace" fill="#1d4ed8">instructions/eval_instructions/</text>
+<text x="368" y="2146" font-size="12" font-family="Consolas,'Courier New',monospace" fill="#1d4ed8">cat01_expertise_eval.md</text>
+<text x="368" y="2164" font-size="12" font-family="Consolas,'Courier New',monospace" fill="#1d4ed8">cat02_leadership_eval.md</text>
+<text x="368" y="2182" font-size="12" font-family="Consolas,'Courier New',monospace" fill="#1d4ed8">... (10개)</text>
+<text x="668" y="2130" font-size="13" fill="#374151">카테고리별 평가 기준 프롬프트 10개 파일</text>
+<text x="668" y="2148" font-size="13" fill="#374151">등급체계(+4~-4, X) 정의 / 판정 기준 / rationale 작성 방법</text>
+<text x="668" y="2166" font-size="13" fill="#374151">X 판정: 10년&#x2191; 과거 / 명백한 동명이인 / 허위</text>
+<text x="668" y="2184" font-size="13" fill="#374151">&#x2014; 나머지는 낮은 점수 부여</text>
+<text x="1078" y="2130" font-size="13" fill="#374151">4개 평가 AI 모두 동일 사용</text>
+<text x="1078" y="2148" font-size="13" fill="#374151">Claude / Gemini / ChatGPT / Grok</text>
+<text x="1078" y="2166" font-size="13" fill="#374151">(각자 독립 판정)</text>
+<text x="1348" y="2130" font-size="13" font-weight="bold" fill="#dc2626">&#x26A0; collect_instructions와 완전 분리 필수!</text>
+<text x="1348" y="2148" font-size="13" fill="#374151">평가 시 수집 기준 포함 금지</text>
+<text x="1348" y="2166" font-size="13" fill="#374151">파일명에 _eval 접미사로 구분</text>
+
+<!-- S3 border -->
+<rect x="5" y="1988" width="1885" height="224" fill="none" stroke="#fb923c" stroke-width="2"/>
+
+<!-- ===== S4: Scripts 목록 ===== -->
+<!-- 4컬럼 구분선 x: 290, 490, 670 -->
+<!-- col1: 0~290 x=8, col2: 290~490 x=298, col3: 490~670 x=498, col4: 670~1900 x=678 -->
+
+<!-- S4 Title Bar y=2220 -->
+<rect x="0" y="2220" width="1900" height="36" fill="#1e3a5f" rx="3"/>
+<text x="20" y="2245" font-size="17" font-weight="bold" fill="white">④ Scripts 목록 &#x2014; V50 활성 Python(2) + n8n 파일(2) + V40&#x2192;n8n 전환(11) | Instructions 제외</text>
+
+<!-- S4 Col Header y=2256 h=28 -->
+<rect x="0" y="2256" width="1900" height="28" fill="#bfdbfe"/>
+<line x1="290" y1="2256" x2="290" y2="2994" stroke="#60a5fa" stroke-width="1.5"/>
+<line x1="490" y1="2256" x2="490" y2="2994" stroke="#60a5fa" stroke-width="1.5"/>
+<line x1="670" y1="2256" x2="670" y2="2994" stroke="#60a5fa" stroke-width="1.5"/>
+<text x="145" y="2275" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e3a5f">스크립트 / 파일명 (경로)</text>
+<text x="390" y="2275" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e3a5f">V50 상태</text>
+<text x="580" y="2275" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e3a5f">담당 Phase</text>
+<text x="1285" y="2275" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e3a5f">V50 역할 / 대체 방식</text>
+
+<!-- V50 활성 Python 섹션 헤더 y=2284 h=30 -->
+<rect x="0" y="2284" width="1900" height="30" fill="#dcfce7"/>
+<text x="950" y="2303" text-anchor="middle" font-size="14" font-weight="bold" fill="#166534">&#x2705; V50 활성 Python 스크립트 &#x2014; 직접 실행 (2개)</text>
+
+<!-- soldier_v50.py y=2314, h=56 -->
+<rect x="0" y="2314" width="1900" height="56" fill="#f0fdf4"/>
+<text x="22"   y="2334" font-size="14" font-weight="bold" fill="#0f172a">soldier_v50.py</text>
+<text x="22"   y="2354" font-size="12" font-family="Consolas,'Courier New',monospace" fill="#6b7280">scripts/workflow/</text>
+<rect x="298" y="2322" width="166" height="22" fill="#16a34a" rx="3"/>
+<text x="381" y="2337" text-anchor="middle" font-size="13" font-weight="bold" fill="white">&#x2705; V50 신규 핵심</text>
+<text x="498" y="2334" font-size="13" fill="#374151">Pre-Phase 0 + Phase 간 연결</text>
+<text x="498" y="2352" font-size="12" fill="#374151">(폴링 트리거)</text>
+<text x="678" y="2334" font-size="13" fill="#374151">Supabase 30초 폴링 &#x2192; Phase 완료 감지 &#x2192; n8n Webhook POST &#x2192; 다음 Phase 자동 재개</text>
+<text x="678" y="2352" font-size="13" fill="#374151">상시 백그라운드 실행 (nohup/screen) | python soldier_v50.py --start</text>
+
+<!-- check_pipeline_status.py y=2370, h=56 -->
+<rect x="0" y="2370" width="1900" height="56" fill="#fafafa"/>
+<text x="22"   y="2390" font-size="14" font-weight="bold" fill="#0f172a">check_pipeline_status.py</text>
+<text x="22"   y="2410" font-size="12" font-family="Consolas,'Courier New',monospace" fill="#6b7280">scripts/utils/</text>
+<rect x="298" y="2378" width="80" height="22" fill="#0891b2" rx="3"/>
+<text x="338" y="2393" text-anchor="middle" font-size="13" font-weight="bold" fill="white">유틸리티</text>
+<text x="498" y="2390" font-size="13" fill="#374151">오류 진단 / 상태 확인</text>
+<text x="498" y="2408" font-size="12" fill="#374151">(필요 시 수동 실행)</text>
+<text x="678" y="2390" font-size="13" fill="#374151">V40 check_collection + check_evaluation 통합 &#x2192; 전 Phase 진행 상태 한 번에 확인</text>
+<text x="678" y="2408" font-size="13" fill="#374151">python check_pipeline_status.py --politician-id ID | 오류 발생 시 진단 목적</text>
+
+<!-- n8n 파일 섹션 헤더 y=2426, h=30 -->
+<rect x="0" y="2426" width="1900" height="30" fill="#dbeafe"/>
+<text x="950" y="2445" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e40af">&#x1F4C4; n8n 워크플로우 파일 &#x2014; n8n UI에서 import 후 사용 (2개)</text>
+
+<!-- v50_workflow.json y=2456, h=56 -->
+<rect x="0" y="2456" width="1900" height="56" fill="#eff6ff"/>
+<text x="22"   y="2476" font-size="14" font-weight="bold" fill="#0f172a">v50_workflow.json</text>
+<text x="22"   y="2496" font-size="12" font-family="Consolas,'Courier New',monospace" fill="#6b7280">n8n/</text>
+<rect x="298" y="2464" width="140" height="22" fill="#2563eb" rx="3"/>
+<text x="368" y="2479" text-anchor="middle" font-size="13" font-weight="bold" fill="white">n8n 메인 파이프라인</text>
+<text x="498" y="2476" font-size="13" fill="#374151">Phase 0 ~ 5 전체</text>
+<text x="498" y="2494" font-size="12" fill="#374151">(메인 워크플로우)</text>
+<text x="678" y="2476" font-size="13" fill="#374151">전체 파이프라인 정의 / HTTP Request(수집·평가) + Code 노드(검증·조정·점수·보고서) + Sub-workflow 병렬</text>
+<text x="678" y="2494" font-size="13" fill="#374151">n8n UI import &#x2192; Credentials 등록 &#x2192; Scheduler 설정 &#x2192; 실행</text>
+
+<!-- v50_single_politician.json y=2512, h=56 -->
+<rect x="0" y="2512" width="1900" height="56" fill="#fafafa"/>
+<text x="22"   y="2532" font-size="14" font-weight="bold" fill="#0f172a">v50_single_politician.json</text>
+<text x="22"   y="2552" font-size="12" font-family="Consolas,'Courier New',monospace" fill="#6b7280">n8n/</text>
+<rect x="298" y="2520" width="140" height="22" fill="#2563eb" rx="3"/>
+<text x="368" y="2535" text-anchor="middle" font-size="13" font-weight="bold" fill="white">n8n Sub-workflow</text>
+<text x="498" y="2532" font-size="13" fill="#374151">정치인 1명 단위</text>
+<text x="498" y="2550" font-size="12" fill="#374151">(병렬처리용)</text>
+<text x="678" y="2532" font-size="13" fill="#374151">정치인 1명 Phase 1~5 서브워크플로우 / v50_workflow.json에서 병렬 호출 (10명 동시 처리)</text>
+<text x="678" y="2550" font-size="13" fill="#374151">10명 동시 처리 시 이 파일이 10개 인스턴스로 실행됨</text>
+
+<!-- V40→n8n 전환 섹션 헤더 y=2568, h=30 -->
+<rect x="0" y="2568" width="1900" height="30" fill="#fef3c7"/>
+<text x="950" y="2587" text-anchor="middle" font-size="14" font-weight="bold" fill="#92400e">&#x2699; V40 스크립트 &#x2192; V50 n8n 자동화 전환 &#x2014; Python 직접실행 불필요 (11개)</text>
+
+<!-- collect_gemini_subprocess.py y=2598, h=36 -->
+<rect x="0" y="2598" width="1900" height="36" fill="#fffbeb"/>
+<text x="22"   y="2620" font-size="13" font-weight="bold" fill="#0f172a">collect_gemini_subprocess.py</text>
+<rect x="298" y="2606" width="140" height="22" fill="#1d4ed8" rx="3"/>
+<text x="368" y="2621" text-anchor="middle" font-size="13" font-weight="bold" fill="white">&#x2192; n8n HTTP Request</text>
+<text x="498" y="2620" font-size="13" fill="#374151">Phase 1, 2-2</text>
+<text x="678" y="2620" font-size="13" fill="#374151">Gemini CLI Subprocess(3단계 fallback) &#x2192; n8n이 Gemini 2.0 Flash-Lite API 직접 호출로 단순화</text>
+
+<!-- collect_naver_v40_final.py y=2634, h=36 -->
+<rect x="0" y="2634" width="1900" height="36" fill="#fafafa"/>
+<text x="22"   y="2656" font-size="13" font-weight="bold" fill="#0f172a">collect_naver_v40_final.py</text>
+<rect x="298" y="2642" width="140" height="22" fill="#1d4ed8" rx="3"/>
+<text x="368" y="2657" text-anchor="middle" font-size="13" font-weight="bold" fill="white">&#x2192; n8n HTTP Request</text>
+<text x="498" y="2656" font-size="13" fill="#374151">Phase 1, 2-2</text>
+<text x="678" y="2656" font-size="13" fill="#374151">Naver NCP News API 수집 &#x2192; n8n이 REST API 직접 호출 (--politician-name/--category 인수 방식 폐기)</text>
+
+<!-- validate_v40_fixed.py y=2670, h=36 -->
+<rect x="0" y="2670" width="1900" height="36" fill="#fffbeb"/>
+<text x="22"   y="2692" font-size="13" font-weight="bold" fill="#0f172a">validate_v40_fixed.py</text>
+<rect x="298" y="2678" width="140" height="22" fill="#7c3aed" rx="3"/>
+<text x="368" y="2693" text-anchor="middle" font-size="13" font-weight="bold" fill="white">&#x2192; n8n Code 노드(JS)</text>
+<text x="498" y="2692" font-size="13" fill="#374151">Phase 2</text>
+<text x="678" y="2692" font-size="13" fill="#374151">수집 데이터 검증 (중복 제거·기간 필터·Sentiment 비율 검증) &#x2192; n8n Code 노드에 JavaScript로 포팅</text>
+
+<!-- adjust_v40_data.py y=2706, h=36 -->
+<rect x="0" y="2706" width="1900" height="36" fill="#fafafa"/>
+<text x="22"   y="2728" font-size="13" font-weight="bold" fill="#0f172a">adjust_v40_data.py</text>
+<rect x="298" y="2714" width="140" height="22" fill="#7c3aed" rx="3"/>
+<text x="368" y="2729" text-anchor="middle" font-size="13" font-weight="bold" fill="white">&#x2192; n8n Code 노드(JS)</text>
+<text x="498" y="2728" font-size="13" fill="#374151">Phase 2-2</text>
+<text x="678" y="2728" font-size="13" fill="#374151">초과 삭제·부족 재수집·Give-Up 규칙 (4라운드, &lt;40개&#x2192;leverage 0) &#x2192; n8n Code 노드에 JS로 포팅</text>
+
+<!-- claude_eval_helper.py y=2742, h=36 -->
+<rect x="0" y="2742" width="1900" height="36" fill="#fffbeb"/>
+<text x="22"   y="2764" font-size="13" font-weight="bold" fill="#0f172a">claude_eval_helper.py</text>
+<rect x="298" y="2750" width="140" height="22" fill="#1d4ed8" rx="3"/>
+<text x="368" y="2765" text-anchor="middle" font-size="13" font-weight="bold" fill="white">&#x2192; n8n HTTP Request</text>
+<text x="498" y="2764" font-size="13" fill="#374151">Phase 3, 3-2</text>
+<text x="678" y="2764" font-size="13" fill="#374151">Claude Haiku 4.5 평가 (fetch/save/status CLI 방식) &#x2192; n8n이 Anthropic API /v1/messages 직접 호출</text>
+
+<!-- codex_eval_helper.py y=2778, h=36 -->
+<rect x="0" y="2778" width="1900" height="36" fill="#fafafa"/>
+<text x="22"   y="2800" font-size="13" font-weight="bold" fill="#0f172a">codex_eval_helper.py</text>
+<rect x="298" y="2786" width="140" height="22" fill="#1d4ed8" rx="3"/>
+<text x="368" y="2801" text-anchor="middle" font-size="13" font-weight="bold" fill="white">&#x2192; n8n HTTP Request</text>
+<text x="498" y="2800" font-size="13" fill="#374151">Phase 3, 3-2</text>
+<text x="678" y="2800" font-size="13" fill="#374151">ChatGPT gpt-4o-mini 평가 (API 방식) &#x2192; n8n이 OpenAI API /v1/chat/completions 직접 호출</text>
+
+<!-- grok_eval_helper.py y=2814, h=36 -->
+<rect x="0" y="2814" width="1900" height="36" fill="#fffbeb"/>
+<text x="22"   y="2836" font-size="13" font-weight="bold" fill="#0f172a">grok_eval_helper.py</text>
+<rect x="298" y="2822" width="140" height="22" fill="#1d4ed8" rx="3"/>
+<text x="368" y="2837" text-anchor="middle" font-size="13" font-weight="bold" fill="white">&#x2192; n8n HTTP Request</text>
+<text x="498" y="2836" font-size="13" fill="#374151">Phase 3, 3-2</text>
+<text x="678" y="2836" font-size="13" fill="#374151">Grok grok-3-mini 평가 (xAI API 방식) &#x2192; n8n이 xAI API /v1/responses 직접 호출로 단순화</text>
+
+<!-- evaluate_gemini_subprocess.py y=2850, h=36 -->
+<rect x="0" y="2850" width="1900" height="36" fill="#fafafa"/>
+<text x="22"   y="2872" font-size="13" font-weight="bold" fill="#0f172a">evaluate_gemini_subprocess.py</text>
+<rect x="298" y="2858" width="140" height="22" fill="#1d4ed8" rx="3"/>
+<text x="368" y="2873" text-anchor="middle" font-size="13" font-weight="bold" fill="white">&#x2192; n8n HTTP Request</text>
+<text x="498" y="2872" font-size="13" fill="#374151">Phase 3, 3-2</text>
+<text x="678" y="2872" font-size="13" fill="#374151">Gemini Flash-Lite 평가 (CLI 3단계 Fallback) &#x2192; n8n이 Gemini API 직접 호출 (Subprocess 폐기)</text>
+
+<!-- common_eval_saver.py y=2886, h=36 -->
+<rect x="0" y="2886" width="1900" height="36" fill="#fffbeb"/>
+<text x="22"   y="2908" font-size="13" font-weight="bold" fill="#0f172a">common_eval_saver.py</text>
+<rect x="298" y="2894" width="140" height="22" fill="#7c3aed" rx="3"/>
+<text x="368" y="2909" text-anchor="middle" font-size="13" font-weight="bold" fill="white">&#x2192; n8n Code 노드(JS)</text>
+<text x="498" y="2908" font-size="13" fill="#374151">Phase 3</text>
+<text x="678" y="2908" font-size="13" fill="#374151">4개 AI 평가 결과 공통 저장 (Supabase upsert, 중복 방지) &#x2192; n8n Code 노드에 통합</text>
+
+<!-- calculate_v40_scores.py y=2922, h=36 -->
+<rect x="0" y="2922" width="1900" height="36" fill="#fafafa"/>
+<text x="22"   y="2944" font-size="13" font-weight="bold" fill="#0f172a">calculate_v40_scores.py</text>
+<rect x="298" y="2930" width="140" height="22" fill="#7c3aed" rx="3"/>
+<text x="368" y="2945" text-anchor="middle" font-size="13" font-weight="bold" fill="white">&#x2192; n8n Code 노드(JS)</text>
+<text x="498" y="2944" font-size="13" fill="#374151">Phase 4</text>
+<text x="678" y="2944" font-size="13" fill="#374151">점수 계산: (6.0+avg_score×0.5)×10 / round(min(합계,1000)) &#x2192; n8n Code 노드에 JS로 포팅</text>
+
+<!-- generate_report_v40.py y=2958, h=36 -->
+<rect x="0" y="2958" width="1900" height="36" fill="#fffbeb"/>
+<text x="22"   y="2980" font-size="13" font-weight="bold" fill="#0f172a">generate_report_v40.py</text>
+<rect x="298" y="2966" width="140" height="22" fill="#7c3aed" rx="3"/>
+<text x="368" y="2981" text-anchor="middle" font-size="13" font-weight="bold" fill="white">&#x2192; n8n Code 노드(JS)</text>
+<text x="498" y="2980" font-size="13" fill="#374151">Phase 5</text>
+<text x="678" y="2980" font-size="13" fill="#374151">HTML 보고서 생성 ({name}_{YYYYMMDD}_{grade}.html 형식) &#x2192; n8n Code 노드에 JS로 포팅</text>
+
+<!-- S4 border -->
+<rect x="5" y="2256" width="1885" height="738" fill="none" stroke="#60a5fa" stroke-width="2"/>
+
+<!-- ===== S5: 가이드 문서 ===== -->
+<!-- 5컬럼 구분선 x: 310, 500, 920, 1180 -->
+<!-- col1: 0~310 x=8, col2: 310~500 x=318, col3: 500~920 x=508 -->
+<!-- col4: 920~1180 x=928, col5: 1180~1900 x=1188 -->
+
+<!-- S5 Title Bar y=3002 -->
+<rect x="0" y="3002" width="1900" height="36" fill="#134e4a" rx="3"/>
+<text x="20" y="3027" font-size="17" font-weight="bold" fill="white">⑤ 가이드 문서 &#x2014; Instructions와 다름: AI 전달 아님, 사람이 읽는 운영 매뉴얼</text>
+
+<!-- S5 Col Header y=3038 h=30 -->
+<rect x="0" y="3038" width="1900" height="30" fill="#99f6e4"/>
+<line x1="310"  y1="3038" x2="310"  y2="3296" stroke="#2dd4bf" stroke-width="1.5"/>
+<line x1="500"  y1="3038" x2="500"  y2="3296" stroke="#2dd4bf" stroke-width="1.5"/>
+<line x1="920"  y1="3038" x2="920"  y2="3296" stroke="#2dd4bf" stroke-width="1.5"/>
+<line x1="1180" y1="3038" x2="1180" y2="3296" stroke="#2dd4bf" stroke-width="1.5"/>
+<text x="155"  y="3058" text-anchor="middle" font-size="14" font-weight="bold" fill="#134e4a">가이드 문서명</text>
+<text x="405"  y="3058" text-anchor="middle" font-size="14" font-weight="bold" fill="#134e4a">용도</text>
+<text x="710"  y="3058" text-anchor="middle" font-size="14" font-weight="bold" fill="#134e4a">주요 내용</text>
+<text x="1050" y="3058" text-anchor="middle" font-size="14" font-weight="bold" fill="#134e4a">사용 시점</text>
+<text x="1540" y="3058" text-anchor="middle" font-size="14" font-weight="bold" fill="#134e4a">Instructions와의 차이점</text>
+
+<!-- V50_전체_프로세스_가이드.md row (y=3068, h=76) -->
+<rect x="0" y="3068" width="1900" height="76" fill="#f0fdfa"/>
+<text x="22"   y="3090" font-size="14" font-weight="bold" fill="#0f172a">V50_전체_프로세스_가이드.md</text>
+<text x="22"   y="3110" font-size="13" fill="#374151">instructions/ 상위 폴더</text>
+<text x="318" y="3104" font-size="14" fill="#374151">운영자 운영 매뉴얼</text>
+<text x="508" y="3082" font-size="13" fill="#374151">Phase 0~5 각 단계 실행 명령 / 완료 조건 / 주의사항 / 트러블슈팅</text>
+<text x="508" y="3100" font-size="13" fill="#374151">V40 V40_전체_프로세스_가이드.md에 해당</text>
+<text x="508" y="3118" font-size="13" fill="#374151">&#x2014; Claude Code 세션 시작 시 참조</text>
+<text x="928" y="3082" font-size="13" fill="#374151">새 세션 시작 시 필독</text>
+<text x="928" y="3100" font-size="13" fill="#374151">오류 발생 시 참조</text>
+<text x="1188" y="3082" font-size="13" fill="#374151">Instructions: AI에게 전달하는 프롬프트 (수집/평가 기준)</text>
+<text x="1188" y="3100" font-size="13" fill="#374151">가이드: 사람이 읽는 운영 문서</text>
+<text x="1188" y="3118" font-size="13" fill="#374151">&#x2014; AI에게 전달 안 함</text>
+
+<!-- V50_n8n_설정_가이드.md row (y=3144, h=76) -->
+<rect x="0" y="3144" width="1900" height="76" fill="#fafafa"/>
+<text x="22"   y="3166" font-size="14" font-weight="bold" fill="#0f172a">V50_n8n_설정_가이드.md</text>
+<text x="22"   y="3186" font-size="13" fill="#374151">instructions/ 상위 폴더</text>
+<text x="318" y="3180" font-size="14" fill="#374151">n8n 초기 설치/설정</text>
+<text x="508" y="3158" font-size="13" fill="#374151">n8n 워크플로우 import 방법 / Credentials 등록 (4개 API Key)</text>
+<text x="508" y="3176" font-size="13" fill="#374151">/ 환경변수 설정 / webhook URL 설정 / Scheduler 설정</text>
+<text x="508" y="3194" font-size="13" fill="#374151">/ Sub-workflow 연결 방법</text>
+<text x="928" y="3158" font-size="13" fill="#374151">최초 시스템 구축 시</text>
+<text x="928" y="3176" font-size="13" fill="#374151">n8n 재설치 시</text>
+<text x="1188" y="3158" font-size="13" fill="#374151">스킬 파일 생성의 소스 문서로도 활용 가능</text>
+<text x="1188" y="3176" font-size="13" fill="#374151">(Claude Code가 읽고 이해 후 스킬 작성)</text>
+
+<!-- V50_오류처리_가이드.md row (y=3220, h=76) -->
+<rect x="0" y="3220" width="1900" height="76" fill="#f0fdfa"/>
+<text x="22"   y="3242" font-size="14" font-weight="bold" fill="#0f172a">V50_오류처리_가이드.md</text>
+<text x="22"   y="3262" font-size="13" fill="#374151">instructions/ 상위 폴더</text>
+<text x="318" y="3256" font-size="14" fill="#374151">오류 대응 매뉴얼</text>
+<text x="508" y="3234" font-size="13" fill="#374151">Phase별 오류 유형 / 원인 파악 방법 / 재실행 절차</text>
+<text x="508" y="3252" font-size="13" fill="#374151">/ Give-Up 판정 기준 적용</text>
+<text x="508" y="3270" font-size="13" fill="#374151">API Rate Limit 대응 / 네트워크 오류 대응 / DB 이상 대응</text>
+<text x="928" y="3234" font-size="13" fill="#374151">파이프라인 실패 발생 시</text>
+<text x="928" y="3252" font-size="13" fill="#374151">Give-Up 판정 전 참조</text>
+<text x="1188" y="3234" font-size="13" fill="#374151">이 가이드는 사람이 읽고 판단</text>
+<text x="1188" y="3252" font-size="13" fill="#374151">&#x2192; AI에게 전달 안 함</text>
+<text x="1188" y="3270" font-size="13" fill="#374151">check_pipeline_status.py 결과와 함께 참조</text>
+
+<!-- S5 border -->
+<rect x="5" y="3038" width="1885" height="258" fill="none" stroke="#2dd4bf" stroke-width="2"/>
+
+<!-- ===== S6: 사람 개입 포인트 ===== -->
+<!-- 6컬럼 구분선 x: 160, 310, 570, 960, 1230 -->
+<!-- col1: 0~160 x=8, col2: 160~310 x=168, col3: 310~570 x=318 -->
+<!-- col4: 570~960 x=578, col5: 960~1230 x=968, col6: 1230~1900 x=1238 -->
+
+<!-- S6 Title Bar y=3304 -->
+<rect x="0" y="3304" width="1900" height="36" fill="#3b0764" rx="3"/>
+<text x="20" y="3329" font-size="17" font-weight="bold" fill="white">⑥ 사람 개입 포인트 &#x2014; 자동화 목표: 사람 개입 최소화 (단 3종류로 압축)</text>
+
+<!-- S6 Col Header y=3340 h=30 -->
+<rect x="0" y="3340" width="1900" height="30" fill="#e9d5ff"/>
+<line x1="160"  y1="3340" x2="160"  y2="3658" stroke="#c084fc" stroke-width="1.5"/>
+<line x1="310"  y1="3340" x2="310"  y2="3658" stroke="#c084fc" stroke-width="1.5"/>
+<line x1="570"  y1="3340" x2="570"  y2="3658" stroke="#c084fc" stroke-width="1.5"/>
+<line x1="960"  y1="3340" x2="960"  y2="3658" stroke="#c084fc" stroke-width="1.5"/>
+<line x1="1230" y1="3340" x2="1230" y2="3658" stroke="#c084fc" stroke-width="1.5"/>
+<text x="80"   y="3360" text-anchor="middle" font-size="14" font-weight="bold" fill="#3b0764">빈도</text>
+<text x="235"  y="3360" text-anchor="middle" font-size="14" font-weight="bold" fill="#3b0764">유형</text>
+<text x="440"  y="3360" text-anchor="middle" font-size="14" font-weight="bold" fill="#3b0764">개입 포인트</text>
+<text x="765"  y="3360" text-anchor="middle" font-size="14" font-weight="bold" fill="#3b0764">해야 할 작업</text>
+<text x="1095" y="3360" text-anchor="middle" font-size="14" font-weight="bold" fill="#3b0764">대응 도구 / 방법</text>
+<text x="1565" y="3360" text-anchor="middle" font-size="14" font-weight="bold" fill="#3b0764">자동화 불가 이유 / 비고</text>
+
+<!-- 1회 (최초 구축 시) row (y=3370, h=96) -->
+<rect x="0" y="3370" width="1900" height="96" fill="#fdf4ff"/>
+<rect x="8" y="3382" width="148" height="24" fill="#7c3aed" rx="3"/>
+<text x="82" y="3398" text-anchor="middle" font-size="13" font-weight="bold" fill="white">1회 (최초 구축 시)</text>
+<text x="168" y="3420" font-size="14" fill="#374151">시스템 초기화</text>
+<text x="318" y="3386" font-size="14" font-weight="bold" fill="#0f172a">환경 설정 + n8n 구성</text>
+<text x="318" y="3406" font-size="13" fill="#374151">API 키 등록 / .env 파일 구성</text>
+<text x="318" y="3424" font-size="13" fill="#374151">/ n8n 워크플로우 import</text>
+<text x="318" y="3442" font-size="13" fill="#374151">/ Credentials 등록</text>
+<text x="578" y="3386" font-size="13" fill="#374151">.env 파일 작성</text>
+<text x="578" y="3404" font-size="13" fill="#374151">n8n UI에서 워크플로우 import</text>
+<text x="578" y="3422" font-size="13" fill="#374151">n8n Credentials 탭에서 4개 API 키 등록</text>
+<text x="578" y="3440" font-size="13" fill="#374151">(Claude/Gemini/ChatGPT/Grok/Naver)</text>
+<text x="968" y="3386" font-size="13" fill="#374151">V50_n8n_설정_가이드.md 참조</text>
+<text x="968" y="3404" font-size="13" fill="#374151">n8n UI / .env 파일 편집기</text>
+<text x="1238" y="3386" font-size="13" fill="#374151">비밀 키 자동 생성 불가</text>
+<text x="1238" y="3404" font-size="13" fill="#374151">/ 보안상 사람이 직접 입력 필수</text>
+<text x="1238" y="3422" font-size="13" fill="#374151">한 번 설정 후 재사용</text>
+<text x="1238" y="3440" font-size="13" fill="#374151">/ 변경 시에만 재입력</text>
+
+<!-- 정치인 1명마다 row (y=3466, h=96) -->
+<rect x="0" y="3466" width="1900" height="96" fill="#f8fafc"/>
+<rect x="8" y="3478" width="148" height="24" fill="#d97706" rx="3"/>
+<text x="82" y="3494" text-anchor="middle" font-size="13" font-weight="bold" fill="white">정치인 1명마다</text>
+<text x="168" y="3516" font-size="14" fill="#374151">Pre-Phase 0</text>
+<text x="318" y="3482" font-size="14" font-weight="bold" fill="#0f172a">정치인 기본정보 DB 등록</text>
+<text x="318" y="3502" font-size="13" fill="#374151">politicians 테이블에 12개 필드 직접 입력</text>
+<text x="318" y="3520" font-size="13" fill="#374151">(이름/정당/직책/지역/경력 등)</text>
+<text x="578" y="3482" font-size="13" fill="#374151">Supabase 대시보드 또는 직접 SQL INSERT</text>
+<text x="578" y="3500" font-size="13" fill="#374151">입력 후 SELECT로 12개 필드 검증 필수</text>
+<text x="968" y="3482" font-size="13" fill="#374151">Supabase 대시보드 / SQL 쿼리</text>
+<text x="968" y="3500" font-size="13" fill="#374151">instructions/1_politicians/ 폴더 참조</text>
+<text x="1238" y="3482" font-size="13" fill="#374151">정치인 신상정보는 외부 공식 소스에서</text>
+<text x="1238" y="3500" font-size="13" fill="#374151">사람이 확인·검증 후 입력</text>
+<text x="1238" y="3518" font-size="13" fill="#374151">AI 자동 입력 시 오류 위험</text>
+<text x="1238" y="3536" font-size="13" fill="#374151">&#x2192; 사람 검증 필수</text>
+
+<!-- 필요 시 (비정기) row (y=3562, h=96) -->
+<rect x="0" y="3562" width="1900" height="96" fill="#fdf4ff"/>
+<rect x="8" y="3574" width="148" height="24" fill="#be123c" rx="3"/>
+<text x="82" y="3590" text-anchor="middle" font-size="13" font-weight="bold" fill="white">필요 시 (비정기)</text>
+<text x="168" y="3612" font-size="14" fill="#374151">운영 / 오류 대응</text>
+<text x="318" y="3578" font-size="13" font-weight="bold" fill="#0f172a">soldier_v50.py 기동·종료 / 오류 진단 후 재실행</text>
+<text x="318" y="3598" font-size="13" fill="#374151">API 오류 / Rate Limit / DB 연결 실패</text>
+<text x="318" y="3616" font-size="13" fill="#374151">/ Give-Up 판정 확인 / 보고서 최종 검토</text>
+<text x="578" y="3578" font-size="13" fill="#374151">python soldier_v50.py --start (기동)</text>
+<text x="578" y="3596" font-size="13" fill="#374151">check_pipeline_status.py 실행 &#x2192; 진단</text>
+<text x="578" y="3614" font-size="13" fill="#374151">&#x2192; n8n UI에서 재실행</text>
+<text x="968" y="3578" font-size="13" fill="#374151">V50_오류처리_가이드.md 참조</text>
+<text x="968" y="3596" font-size="13" fill="#374151">n8n UI 로그 확인 / Supabase 대시보드</text>
+<text x="1238" y="3578" font-size="13" fill="#374151">예외 상황은 AI가 판단 불가</text>
+<text x="1238" y="3596" font-size="13" fill="#374151">&#x2192; 사람이 맥락 파악 후 결정</text>
+<text x="1238" y="3616" font-size="13" fill="#374151">나머지 모든 Phase(1~5)는 완전 자동화</text>
+<text x="1238" y="3634" font-size="13" fill="#374151">(사람 개입 0)</text>
+
+<!-- S6 border -->
+<rect x="5" y="3340" width="1885" height="318" fill="none" stroke="#c084fc" stroke-width="2"/>
+
+<!-- FOOTER -->
+<rect x="0" y="3666" width="1900" height="34" fill="#1e293b" rx="2"/>
+<text x="16" y="3684" font-size="12" font-weight="bold" fill="#94a3b8">&#x26D4; 절대 규칙:</text>
+<text x="120" y="3684" font-size="12" fill="#e2e8f0">Phase 순서 건너뛰기 금지 | rating=TEXT(&#39;+3&#39;,&#39;-2&#39;,&#39;X&#39;) 숫자변환 금지 | politician_id=TEXT 8hex | Supabase .range() | Sentiment: negative/positive/free | docs/.nojekyll 필수</text>
+
+</svg>
