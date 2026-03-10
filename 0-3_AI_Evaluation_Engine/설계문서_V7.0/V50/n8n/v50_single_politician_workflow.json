@@ -1,0 +1,1640 @@
+{
+  "name": "V50 Single Politician Pipeline",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "v50-start",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "v50-webhook",
+      "name": "Webhook: POST /v50-start",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        200,
+        400
+      ],
+      "webhookId": "v50-start",
+      "notes": "V50 진입점. Body: {politician_id, politician_name, party, position}"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Validate and extract webhook payload\nconst body = $input.first().json.body || $input.first().json;\nconst id = body.politician_id;\nconst name = body.politician_name;\n\nif (!id || !name) {\n  throw new Error('Required fields missing: politician_id, politician_name');\n}\nif (!/^[0-9a-f]{8}$/.test(id)) {\n  throw new Error(`politician_id must be 8-char hex string, got: ${id}`);\n}\n\nreturn [{ json: {\n  politician_id: id,\n  politician_name: name,\n  party: body.party || null,\n  position: body.position || null,\n  started_at: new Date().toISOString()\n} }];"
+      },
+      "id": "v50-validate-input",
+      "name": "Validate Input",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        420,
+        400
+      ],
+      "notes": "Webhook payload 검증. politician_id = 8자리 hex 필수"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify({ status: 'accepted', politician_id: $json.politician_id, politician_name: $json.politician_name, message: 'V50 pipeline started' }) }}",
+        "options": {
+          "responseCode": 202
+        }
+      },
+      "id": "v50-ack-response",
+      "name": "Webhook ACK (202)",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [
+        640,
+        240
+      ],
+      "notes": "즉시 202 Accepted 반환 (비동기 처리)"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $env.SUPABASE_URL }}/rest/v1/politicians",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "={{ $env.SUPABASE_SERVICE_ROLE_KEY }}"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $env.SUPABASE_SERVICE_ROLE_KEY }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Prefer",
+              "value": "return=minimal,resolution=ignore-duplicates"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ id: $json.politician_id, name: $json.politician_name, party: $json.party, position: $json.position, processing_status: 'started', created_at: $json.started_at }) }}",
+        "options": {
+          "timeout": 15000
+        }
+      },
+      "id": "v50-p0-register",
+      "name": "P0: Register Politician",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        640,
+        400
+      ],
+      "notes": "Phase 0: politicians 테이블에 DB 등록. 중복 시 ignore (이미 존재하면 건너뜀)"
+    },
+    {
+      "parameters": {
+        "method": "PATCH",
+        "url": "={{ $env.SUPABASE_URL }}/rest/v1/politicians?id=eq.{{ $('Validate Input').item.json.politician_id }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "={{ $env.SUPABASE_SERVICE_ROLE_KEY }}"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $env.SUPABASE_SERVICE_ROLE_KEY }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Prefer",
+              "value": "return=minimal"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\"processing_status\": \"collecting\"}",
+        "options": {
+          "timeout": 10000
+        }
+      },
+      "id": "v50-status-collecting",
+      "name": "Status: collecting",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        860,
+        400
+      ],
+      "notes": "processing_status = 'collecting' 으로 업데이트"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Generate collection prompts for 3 channels across 10 categories\n// V50: Gemini + Naver + Grok-X\nconst categories = ['expertise','leadership','vision','integrity','ethics','accountability','transparency','communication','responsiveness','publicinterest'];\nconst catKr = {\n  expertise:'전문성', leadership:'리더십', vision:'비전', integrity:'청렴성',\n  ethics:'윤리', accountability:'책임성', transparency:'투명성',\n  communication:'소통', responsiveness:'대응력', publicinterest:'공익성'\n};\nconst p = $('Validate Input').first().json;\nconst now = new Date();\nconst officialStart = new Date(now.getTime() - 4*365*24*60*60*1000);\nconst publicStart = new Date(now.getTime() - 2*365*24*60*60*1000);\nconst officialStr = officialStart.toISOString().split('T')[0];\nconst publicStr = publicStart.toISOString().split('T')[0];\nconst nowStr = now.toISOString().split('T')[0];\n\nconst batches = [];\nfor (const cat of categories) {\n  // Gemini: OFFICIAL 36 + PUBLIC 24 = 60개 목표\n  batches.push({\n    channel: 'Gemini',\n    category: cat,\n    source_type: 'OFFICIAL',\n    politician_id: p.politician_id,\n    politician_name: p.politician_name,\n    target_count: 36,\n    prompt: `한국 정치인 \"${p.politician_name}\"의 ${catKr[cat]}(${cat}) 관련 공식 활동을 36개 찾아주세요.\\n기간: ${officialStr} ~ ${nowStr} (최근 4년)\\n출처: 국회 회의록, 정부 공식 문서, 법안, 예산안, 공식 발표, 의정 활동 등\\n\\n각 항목을 JSON 배열로 반환:\\n[{\"title\":\"제목\",\"content\":\"요약 (200자 이내)\",\"source_url\":\"URL\",\"source_name\":\"출처명\",\"published_date\":\"YYYY-MM-DD\",\"sentiment\":\"negative|positive|free\"}]`\n  });\n  batches.push({\n    channel: 'Gemini',\n    category: cat,\n    source_type: 'PUBLIC',\n    politician_id: p.politician_id,\n    politician_name: p.politician_name,\n    target_count: 24,\n    prompt: `한국 정치인 \"${p.politician_name}\"의 ${catKr[cat]}(${cat}) 관련 언론 보도를 24개 찾아주세요.\\n기간: ${publicStr} ~ ${nowStr} (최근 2년)\\n출처: 뉴스 기사, 칼럼, 사설, 인터뷰, 방송 보도 등\\n\\n각 항목을 JSON 배열로 반환:\\n[{\"title\":\"제목\",\"content\":\"요약 (200자 이내)\",\"source_url\":\"URL\",\"source_name\":\"출처명\",\"published_date\":\"YYYY-MM-DD\",\"sentiment\":\"negative|positive|free\"}]`\n  });\n  // Naver: OFFICIAL 12개 + PUBLIC 48개 = 60개 (V40 비율: OFFICIAL 20%, PUBLIC 80%)\n  batches.push({\n    channel: 'Naver',\n    category: cat,\n    source_type: 'MIXED',\n    politician_id: p.politician_id,\n    politician_name: p.politician_name,\n    official_count: 12,\n    public_count: 48,\n    target_count: 60,\n    search_query: `${p.politician_name} ${catKr[cat]}`\n  });\n  // Grok-X: X(Twitter) 특화, 6개 (PUBLIC, sentiment=free 고정)\n  batches.push({\n    channel: 'GrokX',\n    category: cat,\n    source_type: 'PUBLIC',\n    politician_id: p.politician_id,\n    politician_name: p.politician_name,\n    target_count: 6,\n    prompt: `X(Twitter)에서 한국 정치인 \"${p.politician_name}\"의 ${catKr[cat]}(${cat}) 관련 최근 주목받은 트윗이나 반응을 6개 수집해주세요.\\n기간: ${publicStr} ~ ${nowStr} (최근 2년)\\n센티멘트 구분 없이 자유롭게 수집합니다.\\n\\nJSON 배열로 반환:\\n[{\"title\":\"트윗 요약\",\"content\":\"내용 (200자 이내)\",\"source_url\":\"트윗 URL 또는 X 링크\",\"source_name\":\"X\",\"published_date\":\"YYYY-MM-DD\",\"sentiment\":\"free\"}]`\n  });\n}\nreturn batches.map(b => ({ json: b }));"
+      },
+      "id": "v50-gen-prompts",
+      "name": "Generate Collection Prompts",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1080,
+        400
+      ],
+      "notes": "10 카테고리 × 4 배치(Gemini×2 + Naver + GrokX) = 40개 배치 생성"
+    },
+    {
+      "parameters": {
+        "batchSize": 4,
+        "options": {}
+      },
+      "id": "v50-collect-batch-loop",
+      "name": "Collection Batch Loop",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1300,
+        400
+      ],
+      "notes": "카테고리당 4배치(Gemini2+Naver+GrokX)를 묶어서 처리"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.channel }}",
+              "operation": "equals",
+              "value2": "Gemini"
+            }
+          ]
+        }
+      },
+      "id": "v50-route-gemini",
+      "name": "Route: Gemini?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        1520,
+        280
+      ],
+      "notes": "채널 라우팅 1단계: Gemini vs 나머지"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.channel }}",
+              "operation": "equals",
+              "value2": "Naver"
+            }
+          ]
+        }
+      },
+      "id": "v50-route-naver",
+      "name": "Route: Naver?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        1520,
+        520
+      ],
+      "notes": "채널 라우팅 2단계: Naver vs GrokX"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent?key={{ $env.GEMINI_API_KEY }}",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ contents: [{ parts: [{ text: $json.prompt }] }], generationConfig: { temperature: 0.7, maxOutputTokens: 8000 } }) }}",
+        "options": {
+          "timeout": 90000
+        }
+      },
+      "id": "v50-gemini-collect",
+      "name": "Gemini API: Collect",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1740,
+        160
+      ],
+      "notes": "V50: gemini-2.0-flash-lite (Flash-Lite). OFFICIAL/PUBLIC 각각 호출"
+    },
+    {
+      "parameters": {
+        "jsCode": "// V50 Naver NCP API: OFFICIAL 12개 + PUBLIC 48개 = 60개\n// NCP 유료 종량제 (X-NCP-APIGW-API-KEY)\nconst batch = $input.first().json;\nconst ncpKey = $env.NAVER_NCP_API_KEY;\nconst query = batch.search_query || batch.politician_name;\nconst officialCount = batch.official_count || 12;\nconst publicCount = batch.public_count || 48;\n\nconst ncpSearch = async (q, display) => {\n  try {\n    return await $helpers.httpRequest({\n      method: 'GET',\n      url: `https://naveropenapi.apigw.ntruss.com/web-search/v1/search?query=${encodeURIComponent(q)}&display=${display}&sort=date`,\n      headers: {\n        'X-NCP-APIGW-API-KEY': ncpKey,\n        'Accept': 'application/json'\n      }\n    });\n  } catch(e) { return { items: [] }; }\n};\n\n// OFFICIAL: site:go.kr 필터 (공공기관/국회/정부)\nconst officialResp = await ncpSearch(`${query} site:go.kr`, Math.min(officialCount * 2, 100));\nconst officialItems = ((officialResp.items || []).slice(0, officialCount))\n  .map(item => ({ ...item, _source_type: 'OFFICIAL' }));\n\n// PUBLIC: 일반 뉴스 (go.kr 제외)\nconst publicResp = await ncpSearch(query, Math.min(publicCount * 2, 100));\nconst publicItems = ((publicResp.items || [])\n  .filter(item => !(item.link || '').includes('.go.kr'))\n  .slice(0, publicCount))\n  .map(item => ({ ...item, _source_type: 'PUBLIC' }));\n\nreturn [{ json: { items: [...officialItems, ...publicItems] } }];"
+      },
+      "id": "v50-naver-collect",
+      "name": "Naver API: Collect",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1740,
+        400
+      ],
+      "notes": "V50: NCP 유료 API. OFFICIAL 12개(site:go.kr) + PUBLIC 48개 = 60개/카테고리. env: NAVER_NCP_API_KEY"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.x.ai/v1/responses",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $env.XAI_API_KEY }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ model: 'grok-3-mini', input: [{ role: 'user', content: $json.prompt }], tools: [{ type: 'web_search_preview' }] }) }}",
+        "options": {
+          "timeout": 60000
+        }
+      },
+      "id": "v50-grokx-collect",
+      "name": "Grok-X API: Collect",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1740,
+        620
+      ],
+      "notes": "V50 신규: grok-3-mini + web_search_preview tool로 X(Twitter) 데이터 수집 (6개/카테고리)"
+    },
+    {
+      "parameters": {
+        "mode": "append",
+        "joinMode": "waitForAll",
+        "numberInputs": 3,
+        "options": {}
+      },
+      "id": "v50-merge-3ch",
+      "name": "Merge 3 Channels",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        1960,
+        400
+      ],
+      "notes": "3채널(Gemini, Naver, Grok-X) 응답 대기 및 병합"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Parse 3-channel collection responses into collected_data_v50 format\nconst items = $input.all();\nconst batchMeta = $('Collection Batch Loop').first().json;\nconst p = $('Validate Input').first().json;\nconst records = [];\n\nfor (const item of items) {\n  const data = item.json;\n  const meta = item.json._meta || batchMeta;\n\n  // Parse Gemini response\n  if (data.candidates && data.candidates[0]) {\n    try {\n      const text = data.candidates[0].content.parts[0].text || '';\n      const match = text.match(/\\[.*\\]/s);\n      if (match) {\n        const parsed = JSON.parse(match[0]);\n        for (const r of parsed) {\n          records.push({\n            politician_id: p.politician_id,\n            category: meta.category || 'general',\n            title: (r.title || '').substring(0, 500),\n            content: (r.content || '').substring(0, 2000),\n            source_url: r.source_url || '',\n            source_name: r.source_name || 'Gemini',\n            source_type: meta.source_type || 'OFFICIAL',\n            published_date: r.published_date || null,\n            sentiment: ['negative','positive','free'].includes(r.sentiment) ? r.sentiment : 'free',\n            collector_ai: 'Gemini'\n          });\n        }\n      }\n    } catch (e) { /* skip parse errors */ }\n  }\n\n  // Parse Naver response (NCP API)\n  if (data.items && Array.isArray(data.items)) {\n    for (const r of data.items) {\n      const title = (r.title || '').replace(/<[^>]*>/g, '');\n      const desc = (r.description || r.content || '').replace(/<[^>]*>/g, '');\n      const link = r.link || r.url || '';\n      // source_type: _source_type 태그 우선, 없으면 도메인으로 자동 감지\n      const isOfficial = r._source_type === 'OFFICIAL' || link.includes('.go.kr');\n      records.push({\n        politician_id: p.politician_id,\n        category: meta.category || 'general',\n        title: title.substring(0, 500),\n        content: desc.substring(0, 2000),\n        source_url: r.originallink || link,\n        source_name: 'Naver',\n        source_type: isOfficial ? 'OFFICIAL' : 'PUBLIC',\n        published_date: r.pubDate ? new Date(r.pubDate).toISOString().split('T')[0] : null,\n        sentiment: 'free',\n        collector_ai: 'Naver'\n      });\n    }\n  }\n\n  // Parse Grok-X response (xAI Responses API format)\n  if (data.output && Array.isArray(data.output)) {\n    for (const outputItem of data.output) {\n      const rawText = outputItem.content?.[0]?.text || (typeof outputItem.content === 'string' ? outputItem.content : '');\n      if (!rawText) continue;\n      try {\n        const match = rawText.match(/\\[.*\\]/s);\n        if (match) {\n          const parsed = JSON.parse(match[0]);\n          for (const r of parsed) {\n            records.push({\n              politician_id: p.politician_id,\n              category: meta.category || 'general',\n              title: (r.title || '').substring(0, 500),\n              content: (r.content || '').substring(0, 2000),\n              source_url: r.source_url || '',\n              source_name: 'X',\n              source_type: 'PUBLIC',\n              published_date: r.published_date || null,\n              sentiment: 'free',\n              collector_ai: 'GrokX'\n            });\n          }\n        }\n      } catch (e) { /* skip parse errors */ }\n    }\n  }\n}\n\nreturn records.length > 0\n  ? records.map(r => ({ json: r }))\n  : [{ json: { _empty: true } }];"
+      },
+      "id": "v50-parse-collected",
+      "name": "Parse 3-Channel Data",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2180,
+        400
+      ],
+      "notes": "Gemini + Naver + Grok-X 응답을 collected_data_v50 형식으로 변환"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $env.SUPABASE_URL }}/rest/v1/collected_data_v50",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "={{ $env.SUPABASE_SERVICE_ROLE_KEY }}"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $env.SUPABASE_SERVICE_ROLE_KEY }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Prefer",
+              "value": "return=minimal"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify($input.all().filter(i => !i.json._empty).map(i => i.json)) }}",
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "id": "v50-save-collected",
+      "name": "Supabase: Save Collected",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2400,
+        400
+      ],
+      "notes": "수집 데이터를 collected_data_v50에 bulk insert"
+    },
+    {
+      "parameters": {
+        "jsCode": "// After saving, feed back into Collection Batch Loop\n// The loop will automatically terminate after all batches processed\nreturn [{ json: $('Validate Input').first().json }];"
+      },
+      "id": "v50-continue-loop",
+      "name": "Continue Loop",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2620,
+        400
+      ],
+      "notes": "배치 루프 계속. 모든 배치 완료 시 루프 종료"
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "={{ $env.SUPABASE_URL }}/rest/v1/collected_data_v50?politician_id=eq.{{ $('Validate Input').item.json.politician_id }}&select=id",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "={{ $env.SUPABASE_SERVICE_ROLE_KEY }}"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $env.SUPABASE_SERVICE_ROLE_KEY }}"
+            },
+            {
+              "name": "Prefer",
+              "value": "count=exact"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "v50-gate1-count",
+      "name": "Gate 1: Collection Count",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2840,
+        400
+      ],
+      "notes": "Phase 1 완료 게이트: collected_data_v50 총 건수 확인 (content-range 헤더)"
+    },
+    {
+      "parameters": {
+        "jsCode": "const headers = $input.first().json.$response?.headers || {};\nconst range = headers['content-range'] || '0/0';\nconst total = parseInt(range.split('/')[1]) || 0;\nconst p = $('Validate Input').first().json;\n\nconst MIN_REQUIRED = 1000;\nconst gate = total >= MIN_REQUIRED ? 'pass' : 'fail';\n\nreturn [{ json: {\n  politician_id: p.politician_id,\n  politician_name: p.politician_name,\n  collected_total: total,\n  gate: gate,\n  message: gate === 'pass' ? `OK: ${total} records collected` : `WARN: only ${total} records (min ${MIN_REQUIRED})`\n} }];"
+      },
+      "id": "v50-check-gate1",
+      "name": "Check Gate 1",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3060,
+        400
+      ],
+      "notes": "1000건 이상이면 pass (V50: 3채널 × 60개 × 10카테고리 = 1,260 목표)"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.gate }}",
+              "operation": "equals",
+              "value2": "pass"
+            }
+          ]
+        }
+      },
+      "id": "v50-if-gate1",
+      "name": "IF Gate 1 Pass",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        3280,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "method": "PATCH",
+        "url": "={{ $env.SUPABASE_URL }}/rest/v1/politicians?id=eq.{{ $('Validate Input').item.json.politician_id }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "={{ $env.SUPABASE_SERVICE_ROLE_KEY }}"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $env.SUPABASE_SERVICE_ROLE_KEY }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Prefer",
+              "value": "return=minimal"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\"processing_status\": \"error\", \"error_detail\": \"Phase 1 gate fail: insufficient collected data\"}",
+        "options": {
+          "timeout": 10000
+        }
+      },
+      "id": "v50-p1-fail",
+      "name": "P1 Gate Fail: Status Error",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3500,
+        580
+      ],
+      "notes": "수집 부족 시 processing_status = 'error' 기록 후 중단"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Phase 2: Dedup + Period enforcement via Supabase REST\nconst p = $input.first().json;\nconst pid = p.politician_id;\nconst SUPABASE_URL = $env.SUPABASE_URL;\nconst SUPABASE_KEY = $env.SUPABASE_SERVICE_ROLE_KEY;\nconst headers = {\n  'apikey': SUPABASE_KEY,\n  'Authorization': 'Bearer ' + SUPABASE_KEY,\n  'Content-Type': 'application/json'\n};\n\n// Fetch ALL collected data with pagination (1000/page)\nlet allData = [];\nlet offset = 0;\nwhile (true) {\n  const chunk = await $helpers.httpRequest({\n    method: 'GET',\n    url: SUPABASE_URL + '/rest/v1/collected_data_v50?politician_id=eq.' + pid +\n         '&limit=1000&offset=' + offset + '&order=id.asc',\n    headers\n  });\n  const arr = Array.isArray(chunk) ? chunk : [];\n  allData = allData.concat(arr);\n  if (arr.length < 1000) break;\n  offset += 1000;\n}\n\nconst now = new Date();\nconst OFFICIAL_CUTOFF = new Date(now - 4 * 365.25 * 24 * 3600 * 1000);\nconst PUBLIC_CUTOFF   = new Date(now - 2 * 365.25 * 24 * 3600 * 1000);\n\nconst toDelete = new Set();\n\n// 1) Period violations\nfor (const item of allData) {\n  if (!item.published_date) continue;\n  const d   = new Date(item.published_date);\n  const src = (item.source_type || '').toUpperCase();\n  if (src === 'OFFICIAL' && d < OFFICIAL_CUTOFF) toDelete.add(item.id);\n  if (src === 'PUBLIC'   && d < PUBLIC_CUTOFF)   toDelete.add(item.id);\n}\n\n// 2) Dedup by normalised title (keep first occurrence)\nconst seen = new Map();\nfor (const item of allData) {\n  if (toDelete.has(item.id)) continue;\n  const norm = (item.title || '').toLowerCase().replace(/[\\s\\W]/g, '');\n  if (!norm) continue;\n  if (seen.has(norm)) {\n    toDelete.add(item.id);\n  } else {\n    seen.set(norm, item.id);\n  }\n}\n\n// 3) DELETE in chunks of 100\nconst ids = [...toDelete];\nfor (let i = 0; i < ids.length; i += 100) {\n  const chunk = ids.slice(i, i + 100);\n  await $helpers.httpRequest({\n    method: 'DELETE',\n    url: SUPABASE_URL + '/rest/v1/collected_data_v50?id=in.(' + chunk.join(',') +\n         ')&politician_id=eq.' + pid,\n    headers\n  });\n}\n\nconst remaining = allData.length - ids.length;\nreturn [{ json: {\n  politician_id:   pid,\n  politician_name: p.politician_name,\n  collected_total: allData.length,\n  removed_count:   ids.length,\n  remaining_total: remaining,\n  validated:       true,\n  phase:           'P2_complete'\n} }];"
+      },
+      "id": "v50-p2-validate",
+      "name": "P2: Validate",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3500,
+        280
+      ],
+      "notes": "Phase 2: Supabase에서 전체 수집 데이터 fetch → 기간 위반 삭제 → 중복 제거"
+    },
+    {
+      "parameters": {
+        "jsCode": "// PATCH politicians.processing_status and pass through full input data\nconst p = $input.first().json;\nconst SUPABASE_URL = $env.SUPABASE_URL;\nconst SUPABASE_KEY = $env.SUPABASE_SERVICE_ROLE_KEY;\n\ntry {\n  await $helpers.httpRequest({\n    method: 'PATCH',\n    url: SUPABASE_URL + '/rest/v1/politicians?id=eq.' + p.politician_id,\n    headers: {\n      'apikey': SUPABASE_KEY,\n      'Authorization': 'Bearer ' + SUPABASE_KEY,\n      'Content-Type': 'application/json',\n      'Prefer': 'return=minimal'\n    },\n    body: JSON.stringify({ processing_status: 'evaluating' })\n  });\n} catch (e) { /* non-fatal */ }\n\nreturn [{ json: p }];\n"
+      },
+      "id": "v50-status-evaluating",
+      "name": "Status: evaluating",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3720,
+        280
+      ],
+      "notes": "processing_status = 'evaluating' 로 업데이트"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Generate evaluation batches: 10 categories x 4 batch indices = up to 40 items\n// batch_index 0..3 => offset 0,25,50,75 => up to 100 items/category\nconst categories = [\n  'expertise','leadership','vision','integrity','ethics',\n  'accountability','transparency','communication','responsiveness','publicinterest'\n];\nconst p = $input.first().json;\nconst MAX_BATCHES = 4;\n\nconst batches = [];\nfor (const cat of categories) {\n  for (let batchIndex = 0; batchIndex < MAX_BATCHES; batchIndex++) {\n    batches.push({\n      politician_id:   p.politician_id,\n      politician_name: p.politician_name,\n      category:        cat,\n      batch_index:     batchIndex\n    });\n  }\n}\nreturn batches.map(b => ({ json: b }));"
+      },
+      "id": "v50-prep-eval",
+      "name": "Prepare Eval Prompts",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3940,
+        280
+      ],
+      "notes": "10 카테고리 x 4 배치 인덱스 = 40 아이템 생성 (batch_index 0=offset0, 1=offset25, 2=offset50, 3=offset75)"
+    },
+    {
+      "parameters": {
+        "batchSize": 1,
+        "options": {}
+      },
+      "id": "v50-eval-cat-loop",
+      "name": "Category Eval Loop",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        4160,
+        280
+      ],
+      "notes": "카테고리별 순차 평가 (4개 AI 병렬)"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.anthropic.com/v1/messages",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "x-api-key",
+              "value": "={{ $env.ANTHROPIC_API_KEY }}"
+            },
+            {
+              "name": "anthropic-version",
+              "value": "2023-06-01"
+            },
+            {
+              "name": "content-type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ model: 'claude-haiku-4-5-20251001', max_tokens: 4000, messages: [{ role: 'user', content: $json.full_prompt }] }) }}",
+        "options": {
+          "timeout": 120000
+        }
+      },
+      "id": "v50-claude-eval",
+      "name": "Claude API: Evaluate",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        5040,
+        80
+      ],
+      "notes": "V50: claude-haiku-4-5-20251001 (최신 Haiku 4.5)"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent?key={{ $env.GEMINI_API_KEY }}",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ contents: [{ parts: [{ text: $json.full_prompt }] }], generationConfig: { temperature: 0.3, maxOutputTokens: 4000 } }) }}",
+        "options": {
+          "timeout": 120000
+        }
+      },
+      "id": "v50-gemini-eval",
+      "name": "Gemini API: Evaluate",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        5040,
+        260
+      ],
+      "notes": "V50: gemini-2.0-flash-lite (Flash-Lite로 변경)"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.openai.com/v1/chat/completions",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $env.OPENAI_API_KEY }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ model: 'gpt-4o-mini', messages: [{ role: 'user', content: $json.full_prompt }], max_tokens: 4000 }) }}",
+        "options": {
+          "timeout": 120000
+        }
+      },
+      "id": "v50-chatgpt-eval",
+      "name": "ChatGPT API: Evaluate",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        5040,
+        440
+      ],
+      "notes": "V50: gpt-4o-mini (o4-mini에서 변경)"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.x.ai/v1/responses",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $env.XAI_API_KEY }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ model: 'grok-3-mini', input: [{ role: 'user', content: $json.full_prompt }], tools: [] }) }}",
+        "options": {
+          "timeout": 120000
+        }
+      },
+      "id": "v50-grok-eval",
+      "name": "Grok API: Evaluate",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        5040,
+        620
+      ],
+      "notes": "V50: grok-3-mini (grok-3에서 변경). tools=[] (웹 검색 불필요)"
+    },
+    {
+      "parameters": {
+        "mode": "append",
+        "joinMode": "waitForAll",
+        "numberInputs": 4,
+        "options": {}
+      },
+      "id": "v50-merge-4ai-evals",
+      "name": "Merge 4 AI Evaluations",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        5260,
+        360
+      ],
+      "notes": "4개 AI 평가 결과 병합 대기 (Claude + Gemini + ChatGPT + Grok)"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Parse 4 AI evaluation responses into evaluations_v50 format\nconst items   = $input.all();\nconst batch   = $('Build Eval Prompt').first().json;\nconst records = [];\n\nconst validRatings = ['+4','+3','+2','+1','-1','-2','-3','-4','X'];\n\nconst aiParsers = [\n  { name: 'Claude', extract: (d) => {\n    if (d.content && d.content[0]) {\n      const text  = d.content[0].text || '';\n      const match = text.match(/\\[[\\s\\S]*?\\]/);\n      return match ? JSON.parse(match[0]) : [];\n    }\n    return [];\n  }},\n  { name: 'Gemini', extract: (d) => {\n    if (d.candidates && d.candidates[0]) {\n      const text  = d.candidates[0].content?.parts?.[0]?.text || '';\n      const match = text.match(/\\[[\\s\\S]*?\\]/);\n      return match ? JSON.parse(match[0]) : [];\n    }\n    return [];\n  }},\n  { name: 'ChatGPT', extract: (d) => {\n    if (d.choices && d.choices[0]) {\n      const text  = d.choices[0].message?.content || '';\n      const match = text.match(/\\[[\\s\\S]*?\\]/);\n      return match ? JSON.parse(match[0]) : [];\n    }\n    return [];\n  }},\n  { name: 'Grok', extract: (d) => {\n    if (d.output && d.output[0]) {\n      const rawContent = d.output[0].content;\n      const text = Array.isArray(rawContent)\n        ? (rawContent[0]?.text || '')\n        : (typeof rawContent === 'string' ? rawContent : '');\n      const match = text.match(/\\[[\\s\\S]*?\\]/);\n      return match ? JSON.parse(match[0]) : [];\n    }\n    return [];\n  }}\n];\n\nconst batchIds = new Set(batch.batch_item_ids || []);\n\nfor (let i = 0; i < Math.min(items.length, aiParsers.length); i++) {\n  const parser = aiParsers[i];\n  try {\n    const evals = parser.extract(items[i].json);\n    for (const ev of evals) {\n      const rating = String(ev.rating || '').trim();\n      if (!validRatings.includes(rating)) continue;\n      // Only accept IDs that were actually in the fetched batch\n      const cdId = ev.collected_data_id || null;\n      if (cdId && !batchIds.has(cdId)) continue;\n      records.push({\n        politician_id:     batch.politician_id,\n        category:          batch.category,\n        evaluator_ai:      parser.name,\n        collected_data_id: cdId,\n        rating:            rating,\n        reasoning:         (ev.reasoning || '').substring(0, 500)\n      });\n    }\n  } catch (e) { /* skip malformed response */ }\n}\n\nreturn records.map(r => ({ json: r }));"
+      },
+      "id": "v50-parse-evals",
+      "name": "Parse 4 AI Responses",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        5480,
+        360
+      ],
+      "notes": "4개 AI 응답 파싱 => evaluations_v50 레코드. collected_data_id는 Fetch한 실제 ID로만 허용"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $env.SUPABASE_URL }}/rest/v1/evaluations_v50",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "={{ $env.SUPABASE_SERVICE_ROLE_KEY }}"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $env.SUPABASE_SERVICE_ROLE_KEY }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Prefer",
+              "value": "return=minimal"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify($input.all().filter(i => !i.json._empty).map(i => i.json)) }}",
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "id": "v50-save-evals",
+      "name": "Supabase: Save Evals",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        5700,
+        360
+      ],
+      "notes": "평가 결과를 evaluations_v50에 bulk insert"
+    },
+    {
+      "parameters": {
+        "method": "PATCH",
+        "url": "={{ $env.SUPABASE_URL }}/rest/v1/politicians?id=eq.{{ $('Validate Input').item.json.politician_id }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "={{ $env.SUPABASE_SERVICE_ROLE_KEY }}"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $env.SUPABASE_SERVICE_ROLE_KEY }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Prefer",
+              "value": "return=minimal"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\"processing_status\": \"scoring\"}",
+        "options": {
+          "timeout": 10000
+        }
+      },
+      "id": "v50-status-scoring",
+      "name": "Status: scoring",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        5920,
+        200
+      ],
+      "notes": "Category Eval Loop 완료 후 processing_status = 'scoring'"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Phase 4: Calculate scores\n// Formula: category_score = (6.0 + avg_score * 0.5) * 10\n// avg_score = average of (rating * 2)\n// Final: round(min(sum(10 categories), 1000))\n\nconst PRIOR = 6.0;\nconst COEFFICIENT = 0.5;\nconst SCORE_MULTIPLIER = 2;\nconst GIVE_UP_THRESHOLD = 25;\nconst categories = ['expertise','leadership','vision','integrity','ethics','accountability','transparency','communication','responsiveness','publicinterest'];\nconst ratingMap = { '+4':4,'+3':3,'+2':2,'+1':1,'-1':-1,'-2':-2,'-3':-3,'-4':-4 };\n\nconst p = $('Validate Input').first().json;\nconst supabaseUrl = $env.SUPABASE_URL;\nconst supabaseKey = $env.SUPABASE_SERVICE_ROLE_KEY;\n\n// Fetch all evaluations with pagination (1000-row Supabase limit)\nlet allEvals = [];\nlet offset = 0;\nwhile (true) {\n  const batch = await $helpers.httpRequest({\n    method: 'GET',\n    url: supabaseUrl + '/rest/v1/evaluations_v50?politician_id=eq.' + p.politician_id +\n         '&select=category,rating&offset=' + offset + '&limit=1000',\n    headers: { apikey: supabaseKey, Authorization: 'Bearer ' + supabaseKey }\n  });\n  allEvals = allEvals.concat(batch);\n  if (batch.length < 1000) break;\n  offset += 1000;\n}\n\nconst categoryScores = {};\nlet totalScore = 0;\nconst giveUpCategories = [];\n\nfor (const cat of categories) {\n  const catEvals = allEvals.filter(e => e.category === cat && ratingMap[e.rating] !== undefined);\n\n  if (catEvals.length < GIVE_UP_THRESHOLD) {\n    // Give-up: leverage score 0 → category_score = PRIOR * 10 = 60\n    categoryScores[cat] = Math.round(PRIOR * 10);\n    giveUpCategories.push({ category: cat, count: catEvals.length });\n  } else {\n    const scores = catEvals.map(e => ratingMap[e.rating] * SCORE_MULTIPLIER);\n    const avgScore = scores.reduce((a, b) => a + b, 0) / scores.length;\n    const catScore = (PRIOR + avgScore * COEFFICIENT) * 10;\n    categoryScores[cat] = Math.min(Math.max(Math.round(catScore), 20), 100);\n  }\n  totalScore += categoryScores[cat];\n}\n\nconst finalScore = Math.round(Math.min(totalScore, 1000));\n\n// Grade assignment\nlet grade;\nif (finalScore >= 900) grade = 'S';\nelse if (finalScore >= 800) grade = 'A';\nelse if (finalScore >= 700) grade = 'B';\nelse if (finalScore >= 600) grade = 'C';\nelse if (finalScore >= 500) grade = 'D';\nelse grade = 'F';\n\nreturn [{ json: {\n  politician_id: p.politician_id,\n  politician_name: p.politician_name,\n  category_scores: categoryScores,\n  final_score: finalScore,\n  grade: grade,\n  total_evaluations: allEvals.length,\n  give_up_categories: giveUpCategories,\n  calculated_at: new Date().toISOString()\n} }];"
+      },
+      "id": "v50-p4-calculate",
+      "name": "P4: Calculate Scores",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        6140,
+        200
+      ],
+      "notes": "Phase 4: PRIOR=6.0, COEFF=0.5. Give-up(<25) = 60점. 등급 S/A/B/C/D/F 산출"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $env.SUPABASE_URL }}/rest/v1/ai_final_scores_v50",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "={{ $env.SUPABASE_SERVICE_ROLE_KEY }}"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $env.SUPABASE_SERVICE_ROLE_KEY }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Prefer",
+              "value": "return=minimal,resolution=merge-duplicates"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ politician_id: $json.politician_id, final_score: $json.final_score, grade: $json.grade, category_scores: $json.category_scores, total_evaluations: $json.total_evaluations, calculated_at: $json.calculated_at }) }}",
+        "options": {}
+      },
+      "id": "v50-save-scores",
+      "name": "Supabase: Save Scores",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        6360,
+        200
+      ],
+      "notes": "점수를 ai_final_scores_v50에 저장 (upsert)"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Phase 5: Generate HTML report content\nconst p = $('P4: Calculate Scores').first().json;\nconst now = new Date();\nconst dateStr = now.toISOString().split('T')[0].replace(/-/g, '');\nconst reportName = `${p.politician_name}_${dateStr}_${p.grade}`;\n\nconst catKr = {\n  expertise:'전문성', leadership:'리더십', vision:'비전', integrity:'청렴성',\n  ethics:'윤리', accountability:'책임성', transparency:'투명성',\n  communication:'소통', responsiveness:'대응력', publicinterest:'공익성'\n};\n\n// Build category rows\nconst catRows = Object.entries(p.category_scores)\n  .map(([cat, score]) => {\n    const bar = Math.round(score);\n    return `<tr><td>${catKr[cat] || cat}</td><td>${score}점</td><td><div style=\"width:${bar}%;background:#4CAF50;height:16px;border-radius:4px\"></div></td></tr>`;\n  })\n  .join('\\n');\n\nconst html = `<!DOCTYPE html>\n<html lang=\"ko\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>${p.politician_name} AI 평가 보고서 (V50)</title>\n<style>\n  body { font-family: 'Noto Sans KR', sans-serif; margin: 0; padding: 20px; background: #f5f5f5; }\n  .report { max-width: 900px; margin: 0 auto; background: white; border-radius: 12px; padding: 40px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }\n  h1 { color: #1a237e; border-bottom: 3px solid #1a237e; padding-bottom: 12px; }\n  .score-badge { display: inline-block; background: #1a237e; color: white; font-size: 2em; font-weight: bold; padding: 12px 28px; border-radius: 8px; margin: 16px 0; }\n  .grade-badge { display: inline-block; background: #4CAF50; color: white; font-size: 1.5em; font-weight: bold; padding: 8px 20px; border-radius: 6px; margin-left: 16px; }\n  table { width: 100%; border-collapse: collapse; margin-top: 20px; }\n  th { background: #e8eaf6; padding: 10px; text-align: left; }\n  td { padding: 10px; border-bottom: 1px solid #eee; }\n  .footer { margin-top: 40px; font-size: 0.85em; color: #888; text-align: center; }\n  .channel-note { background: #e3f2fd; border-left: 4px solid #1976d2; padding: 12px; border-radius: 4px; margin: 16px 0; font-size: 0.9em; }\n  .pdf-btn { display: inline-block; margin: 16px 0; padding: 10px 24px; background: #1a237e; color: white; border: none; border-radius: 6px; font-size: 1em; cursor: pointer; text-decoration: none; }\n  .pdf-btn:hover { background: #283593; }\n  @media print {\n    body { background: white; padding: 0; }\n    .report { box-shadow: none; border-radius: 0; }\n    .pdf-btn { display: none; }\n  }\n</style>\n</head>\n<body>\n<div class=\"report\">\n  <h1>${p.politician_name} AI 평가 보고서</h1>\n  <button class=\"pdf-btn\" onclick=\"window.print()\">📄 PDF 저장 (인쇄)</button>\n  <div class=\"channel-note\">V50 | 수집 채널: Gemini + Naver + Grok-X | 평가 AI: Claude · Gemini · ChatGPT · Grok</div>\n  <div>\n    <span class=\"score-badge\">${p.final_score}점</span>\n    <span class=\"grade-badge\">${p.grade}등급</span>\n  </div>\n  <h2>카테고리별 점수</h2>\n  <table>\n    <thead><tr><th>카테고리</th><th>점수</th><th>분포</th></tr></thead>\n    <tbody>\n${catRows}\n    </tbody>\n  </table>\n  <p style=\"margin-top:16px;color:#555\">총 평가 건수: ${p.total_evaluations}건</p>\n  <div class=\"footer\">생성일: ${now.toLocaleDateString('ko-KR')} | PoliticianFinder.com V50 AI 평가 시스템</div>\n</div>\n</body>\n</html>`;\n\nreturn [{ json: {\n  politician_id: p.politician_id,\n  politician_name: p.politician_name,\n  final_score: p.final_score,\n  grade: p.grade,\n  report_name: reportName,\n  report_path: `v50/${reportName}.html`,\n  html_content: html,\n  generated_at: now.toISOString()\n} }];"
+      },
+      "id": "v50-p5-gen-report",
+      "name": "P5: Generate HTML Report",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        6580,
+        200
+      ],
+      "notes": "Phase 5: HTML 보고서 생성. 파일명: {이름}_{YYYYMMDD}_{등급}.html"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $env.SUPABASE_URL }}/storage/v1/object/reports/{{ $json.report_path }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "={{ $env.SUPABASE_SERVICE_ROLE_KEY }}"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $env.SUPABASE_SERVICE_ROLE_KEY }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "text/html; charset=utf-8"
+            },
+            {
+              "name": "x-upsert",
+              "value": "true"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "string",
+        "body": "={{ $json.html_content }}",
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "id": "v50-storage-upload",
+      "name": "Supabase Storage: Upload Report",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        6800,
+        200
+      ],
+      "notes": "V50 추가: Supabase Storage 'reports' 버킷에 HTML 보고서 업로드 (upsert)"
+    },
+    {
+      "parameters": {
+        "method": "PATCH",
+        "url": "={{ $env.SUPABASE_URL }}/rest/v1/politicians?id=eq.{{ $('Validate Input').item.json.politician_id }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "={{ $env.SUPABASE_SERVICE_ROLE_KEY }}"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $env.SUPABASE_SERVICE_ROLE_KEY }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Prefer",
+              "value": "return=minimal"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ processing_status: 'done', final_score: $('P4: Calculate Scores').item.json.final_score, grade: $('P4: Calculate Scores').item.json.grade, report_path: $('P5: Generate HTML Report').first().json.report_path, completed_at: new Date().toISOString() }) }}",
+        "options": {
+          "timeout": 10000
+        }
+      },
+      "id": "v50-status-done",
+      "name": "Status: done",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        7020,
+        200
+      ],
+      "notes": "V50 완료: processing_status = 'done'. final_score, grade, report_path 함께 저장"
+    },
+    {
+      "parameters": {
+        "jsCode": "const p = $('Validate Input').first().json;\nconst scores = $('P4: Calculate Scores').first().json;\nconst report = $('P5: Generate HTML Report').first().json;\n\nconst summary = [\n  '=== V50 Single Politician Pipeline Complete ===',\n  `Politician: ${p.politician_name} (${p.politician_id})`,\n  `Final Score: ${scores.final_score}점 (${scores.grade}등급)`,\n  `Total Evaluations: ${scores.total_evaluations}`,\n  `Report: ${report.report_path}`,\n  `Completed: ${new Date().toISOString()}`,\n  '',\n  'Category Scores:',\n  ...Object.entries(scores.category_scores).map(([k,v]) => `  ${k}: ${v}점`),\n  '',\n  scores.give_up_categories?.length > 0\n    ? `Give-up categories (< 25 evals): ${scores.give_up_categories.map(g => `${g.category}(${g.count})`).join(', ')}`\n    : 'No give-up categories.',\n  '',\n  'V50: 3-channel collection (Gemini + Naver + Grok-X)',\n  'V50: 4 AI evaluation (Claude + Gemini + ChatGPT + Grok)',\n  'V50: Supabase Storage report upload enabled'\n].join('\\n');\n\nreturn [{ json: { summary, final_score: scores.final_score, grade: scores.grade } }];"
+      },
+      "id": "v50-final-summary",
+      "name": "Final Summary",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        7240,
+        200
+      ],
+      "notes": "파이프라인 완료 요약 리포트"
+    },
+    {
+      "parameters": {
+        "jsCode": "// PATCH politicians.processing_status and pass through full input data\nconst p = $input.first().json;\nconst SUPABASE_URL = $env.SUPABASE_URL;\nconst SUPABASE_KEY = $env.SUPABASE_SERVICE_ROLE_KEY;\n\ntry {\n  await $helpers.httpRequest({\n    method: 'PATCH',\n    url: SUPABASE_URL + '/rest/v1/politicians?id=eq.' + p.politician_id,\n    headers: {\n      'apikey': SUPABASE_KEY,\n      'Authorization': 'Bearer ' + SUPABASE_KEY,\n      'Content-Type': 'application/json',\n      'Prefer': 'return=minimal'\n    },\n    body: JSON.stringify({ processing_status: 'validating' })\n  });\n} catch (e) { /* non-fatal */ }\n\nreturn [{ json: p }];\n"
+      },
+      "id": "v50-status-validating",
+      "name": "Status: validating",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3720,
+        500
+      ],
+      "notes": "processing_status = 'validating' 로 업데이트 (Phase 2-2 시작)"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Phase 2-2: Count collected items per category (all sources combined)\nconst p = $input.first().json;\nconst pid = p.politician_id;\nconst SUPABASE_URL = $env.SUPABASE_URL;\nconst SUPABASE_KEY = $env.SUPABASE_SERVICE_ROLE_KEY;\nconst headers = {\n  'apikey': SUPABASE_KEY,\n  'Authorization': 'Bearer ' + SUPABASE_KEY\n};\n\n// Fetch category column only (up to 5000 rows)\nconst resp = await $helpers.httpRequest({\n  method: 'GET',\n  url: SUPABASE_URL + '/rest/v1/collected_data_v50?politician_id=eq.' + pid +\n       '&select=category&limit=1000',  // 1000/page; V50 target <1000 rows/politician\n  headers\n});\nconst rows = Array.isArray(resp) ? resp : [];\n\nconst catCounts = {};\nfor (const row of rows) {\n  catCounts[row.category] = (catCounts[row.category] || 0) + 1;\n}\n\nconst categories = [\n  'expertise','leadership','vision','integrity','ethics',\n  'accountability','transparency','communication','responsiveness','publicinterest'\n];\nconst MIN = 50;\nconst shortCats = categories.filter(cat => (catCounts[cat] || 0) < MIN);\nconst round     = p.adjustment_round || 0;\n\n// Force balance_ok if already hit max rounds (4)\nconst balance_ok = shortCats.length === 0 || round >= 4;\n\nreturn [{ json: {\n  ...p,\n  balance_ok,\n  adjustment_round: round,\n  short_categories: shortCats,\n  cat_counts:       catCounts,\n  total_collected:  rows.length\n} }];"
+      },
+      "id": "v50-check-balance",
+      "name": "Check Balance",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3940,
+        500
+      ],
+      "notes": "Phase 2-2: 카테고리별 수집 건수 집계. short_categories 반환. 4라운드 초과 시 강제 통과"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "balance-ok-check",
+              "leftValue": "={{ $json.balance_ok }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "v50-if-balance-ok",
+      "name": "IF Balance OK",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        4160,
+        500
+      ],
+      "notes": "balance_ok=true → 평가 시작 | false → Gemini 재수집"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Phase 2-2: Recollect short categories via Gemini API\nconst p = $input.first().json;\nconst shortCats = p.short_categories || [];\nconst GEMINI_KEY    = $env.GEMINI_API_KEY;\nconst SUPABASE_URL  = $env.SUPABASE_URL;\nconst SUPABASE_KEY  = $env.SUPABASE_SERVICE_ROLE_KEY;\n\nconst supaHeaders = {\n  'apikey': SUPABASE_KEY,\n  'Authorization': 'Bearer ' + SUPABASE_KEY,\n  'Content-Type': 'application/json',\n  'Prefer': 'return=minimal'\n};\nconst catKr = {\n  expertise:'전문성', leadership:'리더십', vision:'비전', integrity:'청렴성',\n  ethics:'윤리', accountability:'책임성', transparency:'투명성',\n  communication:'소통', responsiveness:'대응력', publicinterest:'공익성'\n};\n\nlet totalAdded = 0;\n// Process up to 5 short categories per round\nfor (const cat of shortCats.slice(0, 5)) {\n  const prompt =\n    '정치인 \"' + p.politician_name + '\"의 ' + (catKr[cat] || cat) + ' 관련 최근 2년 이내 실제 뉴스/보도 30개를 수집하세요.\\n' +\n    '각 항목은 다음 JSON 배열 형식으로만 반환하세요:\\n' +\n    '[{\"title\":\"제목\",\"content\":\"내용 요약(200자)\",\"source_name\":\"언론사\",\"published_date\":\"YYYY-MM-DD\",\"source_type\":\"PUBLIC\"}]\\n' +\n    '반드시 실제 존재하는 뉴스만, 날짜 오늘 기준 최근 2년(PUBLIC) 또는 4년(OFFICIAL) 이내만 포함하세요.';\n\n  let geminiResp;\n  try {\n    geminiResp = await $helpers.httpRequest({\n      method: 'POST',\n      url: 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent?key=' + GEMINI_KEY,\n      headers: {'Content-Type': 'application/json'},\n      body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })\n    });\n  } catch (e) { continue; }\n\n  const text = geminiResp?.candidates?.[0]?.content?.parts?.[0]?.text || '';\n  const match = text.match(/\\[[\\s\\S]*\\]/);\n  if (!match) continue;\n\n  let items;\n  try { items = JSON.parse(match[0]); } catch (e) { continue; }\n\n  const toSave = items.slice(0, 30).map(item => ({\n    politician_id: p.politician_id,\n    category:      cat,\n    title:         (item.title   || '').substring(0, 500),\n    content:       (item.content || '').substring(0, 2000),\n    source_name:   item.source_name   || 'Gemini',\n    source_url:    null,\n    source_type:   item.source_type   || 'PUBLIC',\n    published_date: item.published_date || null,\n    sentiment:     'free',\n    collector_ai:  'Gemini'\n  }));\n\n  if (toSave.length > 0) {\n    await $helpers.httpRequest({\n      method: 'POST',\n      url: SUPABASE_URL + '/rest/v1/collected_data_v50',\n      headers: supaHeaders,\n      body: JSON.stringify(toSave)\n    });\n    totalAdded += toSave.length;\n  }\n}\n\nreturn [{ json: {\n  ...p,\n  adjustment_round:     (p.adjustment_round || 0) + 1,\n  last_recollect_added: totalAdded\n} }];"
+      },
+      "id": "v50-recollect-gemini",
+      "name": "Recollect Gemini",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        4380,
+        680
+      ],
+      "notes": "Phase 2-2: 부족 카테고리 Gemini API 재수집 → Supabase 저장 → 라운드 카운터 증가"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Fetch 25-item batch for current (category, batch_index) from Supabase\nconst p = $input.first().json;\nconst pid    = p.politician_id;\nconst cat    = p.category;\nconst idx    = p.batch_index || 0;\nconst offset = idx * 25;\nconst SUPABASE_URL = $env.SUPABASE_URL;\nconst SUPABASE_KEY = $env.SUPABASE_SERVICE_ROLE_KEY;\nconst headers = {\n  'apikey': SUPABASE_KEY,\n  'Authorization': 'Bearer ' + SUPABASE_KEY\n};\n\nconst resp = await $helpers.httpRequest({\n  method: 'GET',\n  url: SUPABASE_URL + '/rest/v1/collected_data_v50' +\n       '?politician_id=eq.' + pid +\n       '&category=eq.'      + cat +\n       '&limit=25&offset='  + offset +\n       '&order=id.asc',\n  headers\n});\nconst items = Array.isArray(resp) ? resp : [];\n\nreturn [{ json: {\n  ...p,\n  batch_items: items,\n  has_data:    items.length > 0\n} }];"
+      },
+      "id": "v50-fetch-batch-data",
+      "name": "Fetch Batch Data",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        4600,
+        280
+      ],
+      "notes": "Supabase에서 해당 카테고리 25개 slice fetch. has_data=false 시 IF 분기로 스킵"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "data-exists-check",
+              "leftValue": "={{ $json.has_data }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "v50-if-data-exists",
+      "name": "IF Data Exists?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        4820,
+        280
+      ],
+      "notes": "has_data=true => Build Eval Prompt | false => skip (back to loop)"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Embed fetched batch_items into the evaluation prompt\nconst p = $input.first().json;\nconst items = p.batch_items || [];\n\nconst catKr = {\n  expertise:'전문성', leadership:'리더십', vision:'비전', integrity:'청렴성',\n  ethics:'윤리', accountability:'책임성', transparency:'투명성',\n  communication:'소통', responsiveness:'대응력', publicinterest:'공익성'\n};\n\nconst basePrompt =\n  '다음은 정치인 \"' + p.politician_name + '\"의 ' + (catKr[p.category] || p.category) + '(' + p.category + ') 관련 뉴스/활동 목록입니다.\\n' +\n  '각 항목에 대해 +4~-4 등급(0 제외, 절대 0 사용 금지)으로 평가하세요.\\n' +\n  'X는 해당 카테고리와 명백히 무관한 경우에만 사용하세요.\\n\\n' +\n  '등급 기준:\\n' +\n  '+4: 매우 탁월한 성과 | +3: 우수한 성과 | +2: 양호한 성과 | +1: 소폭 긍정\\n' +\n  '-1: 소폭 부정 | -2: 문제 있음 | -3: 심각한 문제 | -4: 매우 심각한 문제\\n\\n' +\n  'JSON 배열로만 반환 (다른 텍스트 없이):\\n' +\n  '[{\"collected_data_id\":\"UUID\",\"rating\":\"+3\",\"reasoning\":\"평가 근거 (100자 이내)\"}]\\n\\n' +\n  '평가 대상 항목 (' + items.length + '개):\\n';\n\nconst itemsList = items.map((item, i) => {\n  const date    = item.published_date || '날짜미상';\n  const title   = (item.title   || '').substring(0, 200);\n  const content = (item.content || '').substring(0, 300);\n  return (i + 1) + '. [ID:' + item.id + '] [' + date + '] ' + title + '\\n   ' + content;\n}).join('\\n\\n');\n\nreturn [{ json: {\n  ...p,\n  full_prompt:    basePrompt + itemsList,\n  batch_item_ids: items.map(x => x.id)\n} }];"
+      },
+      "id": "v50-build-eval-prompt",
+      "name": "Build Eval Prompt",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        5040,
+        280
+      ],
+      "notes": "수집 데이터 아이템을 번호 목록으로 프롬프트에 임베드. full_prompt + batch_item_ids 출력"
+    }
+  ],
+  "connections": {
+    "Webhook: POST /v50-start": {
+      "main": [
+        [
+          {
+            "node": "Validate Input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate Input": {
+      "main": [
+        [
+          {
+            "node": "Webhook ACK (202)",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "P0: Register Politician",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "P0: Register Politician": {
+      "main": [
+        [
+          {
+            "node": "Status: collecting",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Status: collecting": {
+      "main": [
+        [
+          {
+            "node": "Generate Collection Prompts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate Collection Prompts": {
+      "main": [
+        [
+          {
+            "node": "Collection Batch Loop",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Collection Batch Loop": {
+      "main": [
+        [
+          {
+            "node": "Route: Gemini?",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Gate 1: Collection Count",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Route: Gemini?": {
+      "main": [
+        [
+          {
+            "node": "Gemini API: Collect",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Route: Naver?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Route: Naver?": {
+      "main": [
+        [
+          {
+            "node": "Naver API: Collect",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Grok-X API: Collect",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gemini API: Collect": {
+      "main": [
+        [
+          {
+            "node": "Merge 3 Channels",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Naver API: Collect": {
+      "main": [
+        [
+          {
+            "node": "Merge 3 Channels",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Grok-X API: Collect": {
+      "main": [
+        [
+          {
+            "node": "Merge 3 Channels",
+            "type": "main",
+            "index": 2
+          }
+        ]
+      ]
+    },
+    "Merge 3 Channels": {
+      "main": [
+        [
+          {
+            "node": "Parse 3-Channel Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse 3-Channel Data": {
+      "main": [
+        [
+          {
+            "node": "Supabase: Save Collected",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Supabase: Save Collected": {
+      "main": [
+        [
+          {
+            "node": "Continue Loop",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Continue Loop": {
+      "main": [
+        [
+          {
+            "node": "Collection Batch Loop",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gate 1: Collection Count": {
+      "main": [
+        [
+          {
+            "node": "Check Gate 1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Gate 1": {
+      "main": [
+        [
+          {
+            "node": "IF Gate 1 Pass",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF Gate 1 Pass": {
+      "main": [
+        [
+          {
+            "node": "P2: Validate",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "P1 Gate Fail: Status Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "P2: Validate": {
+      "main": [
+        [
+          {
+            "node": "Status: validating",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Status: evaluating": {
+      "main": [
+        [
+          {
+            "node": "Prepare Eval Prompts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Eval Prompts": {
+      "main": [
+        [
+          {
+            "node": "Category Eval Loop",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Category Eval Loop": {
+      "main": [
+        [
+          {
+            "node": "Fetch Batch Data",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Status: scoring",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Claude API: Evaluate": {
+      "main": [
+        [
+          {
+            "node": "Merge 4 AI Evaluations",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gemini API: Evaluate": {
+      "main": [
+        [
+          {
+            "node": "Merge 4 AI Evaluations",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "ChatGPT API: Evaluate": {
+      "main": [
+        [
+          {
+            "node": "Merge 4 AI Evaluations",
+            "type": "main",
+            "index": 2
+          }
+        ]
+      ]
+    },
+    "Grok API: Evaluate": {
+      "main": [
+        [
+          {
+            "node": "Merge 4 AI Evaluations",
+            "type": "main",
+            "index": 3
+          }
+        ]
+      ]
+    },
+    "Merge 4 AI Evaluations": {
+      "main": [
+        [
+          {
+            "node": "Parse 4 AI Responses",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse 4 AI Responses": {
+      "main": [
+        [
+          {
+            "node": "Supabase: Save Evals",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Supabase: Save Evals": {
+      "main": [
+        [
+          {
+            "node": "Category Eval Loop",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Status: scoring": {
+      "main": [
+        [
+          {
+            "node": "P4: Calculate Scores",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "P4: Calculate Scores": {
+      "main": [
+        [
+          {
+            "node": "Supabase: Save Scores",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Supabase: Save Scores": {
+      "main": [
+        [
+          {
+            "node": "P5: Generate HTML Report",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "P5: Generate HTML Report": {
+      "main": [
+        [
+          {
+            "node": "Supabase Storage: Upload Report",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Supabase Storage: Upload Report": {
+      "main": [
+        [
+          {
+            "node": "Status: done",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Status: done": {
+      "main": [
+        [
+          {
+            "node": "Final Summary",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Status: validating": {
+      "main": [
+        [
+          {
+            "node": "Check Balance",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Balance": {
+      "main": [
+        [
+          {
+            "node": "IF Balance OK",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF Balance OK": {
+      "main": [
+        [
+          {
+            "node": "Status: evaluating",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Recollect Gemini",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Recollect Gemini": {
+      "main": [
+        [
+          {
+            "node": "Check Balance",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch Batch Data": {
+      "main": [
+        [
+          {
+            "node": "IF Data Exists?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF Data Exists?": {
+      "main": [
+        [
+          {
+            "node": "Build Eval Prompt",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Category Eval Loop",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Build Eval Prompt": {
+      "main": [
+        [
+          {
+            "node": "Claude API: Evaluate",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Gemini API: Evaluate",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "ChatGPT API: Evaluate",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Grok API: Evaluate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": ""
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "name": "V50"
+    },
+    {
+      "name": "Single Politician"
+    },
+    {
+      "name": "Webhook"
+    },
+    {
+      "name": "3-Channel Collection"
+    },
+    {
+      "name": "4-AI Evaluation"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2026-03-08T00:00:00.000Z",
+  "versionId": "1"
+}
