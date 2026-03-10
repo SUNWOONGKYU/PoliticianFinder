@@ -154,7 +154,7 @@
 <text x="418" y="768" font-size="13" fill="#374151">Prepare Eval Prompts → Fetch Batch Data → IF Data Exists? → Build Eval Prompt</text>
 <text x="418" y="786" font-size="13" fill="#374151">batch_index×25 offset으로 25개 slice fetch → full_prompt 임베드 → 4AI 동시 평가</text>
 <text x="418" y="804" font-size="13" fill="#374151">등급: +4/+3/+2/+1/-1/-2/-3/-4 (8등급)</text>
-<text x="418" y="822" font-size="13" fill="#374151">| X = 제외(0점) | score = rating × 2</text>
+<text x="418" y="822" font-size="13" fill="#374151">| X = 평가 제외 (avg 계산 모수에서 제외) | score = rating × 2</text>
 <text x="418" y="840" font-size="13" fill="#374151">Sentiment: negative/positive/free (neutral 아님!)</text>
 <text x="418" y="858" font-size="13" fill="#374151">| Pre-filtering: 기평가 데이터 자동 제외</text>
 <text x="418" y="876" font-size="13" fill="#374151">X 판정: 10년&#x2191; 과거 / 명백한 동명이인 / 허위정보만</text>
@@ -204,7 +204,7 @@
 <text x="88"  y="1074" font-size="13" fill="#475569">n8n Code 노드 (JS)</text>
 <text x="248" y="1062" font-size="13" fill="#374151">n8n Code 노드</text>
 <text x="418" y="1042" font-size="14" font-weight="bold" fill="#0369a1">공식: category_score = (6.0 + avg_score × 0.5) × 10</text>
-<text x="418" y="1062" font-size="13" fill="#374151">avg_score = 4AI 평균(rating × 2), 범위 -8~+8 | Prior=6.0 | 카테고리 점수: 20~100점</text>
+<text x="418" y="1062" font-size="13" fill="#374151">avg_score = 4AI 평균(rating × 2, X 제외), 범위 -8~+8 | Prior=6.0 | 카테고리 점수: 20~100점</text>
 <text x="418" y="1080" font-size="13" fill="#374151">final_score = round(min(&#x3A3; 10카테고리, 1000)) | 최종 범위: 200~1000점</text>
 <text x="958" y="1042" font-size="13" fill="#374151">evaluations_v50 &#x2192;</text>
 <text x="958" y="1060" font-size="13" font-weight="bold" fill="#1d4ed8">ai_final_scores_v50 테이블</text>
