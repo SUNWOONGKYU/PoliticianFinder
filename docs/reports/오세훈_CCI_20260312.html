@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>CCI 전략보고서 — 오세훈 | 2026 서울시장</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif; background: #1A1A2E; color: #e2e8f0; line-height: 1.7; }
+
+  /* 표지 */
+  .cover {
+    min-height: 100vh;
+    background: linear-gradient(160deg, #1A1A2E 0%, #16213E 50%, #0F3460 100%);
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    text-align: center; padding: 60px 40px;
+    border-bottom: 4px solid #E61E2B;
+  }
+  .cover .badge {
+    background: rgba(230,30,43,0.15); border: 1px solid #E61E2B;
+    color: #E61E2B; padding: 6px 20px; border-radius: 20px; font-size: 13px;
+    letter-spacing: 2px; margin-bottom: 32px;
+  }
+  .cover h1 { font-size: 52px; font-weight: 900; color: #fff; margin-bottom: 8px; letter-spacing: -1px; }
+  .cover .party-tag {
+    display: inline-block; background: #E61E2B; color: #fff;
+    padding: 4px 16px; border-radius: 4px; font-size: 14px; margin-bottom: 16px;
+  }
+  .cover .subtitle { font-size: 18px; color: #94a3b8; margin-bottom: 40px; }
+  .cover .score-block {
+    display: flex; gap: 40px; justify-content: center; margin: 40px 0;
+  }
+  .cover .score-item { text-align: center; }
+  .cover .score-num { font-size: 56px; font-weight: 900; }
+  .cover .score-num.main { color: #E61E2B; }
+  .cover .score-num.sub { color: #818cf8; font-size: 40px; }
+  .cover .score-label { font-size: 13px; color: #64748b; margin-top: 4px; }
+  .cover .rank-badge {
+    background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 8px; padding: 12px 32px; margin: 20px 0;
+    font-size: 16px; color: #94a3b8;
+  }
+  .cover .rank-badge strong { color: #fbbf24; font-size: 20px; }
+  .cover .confidential {
+    margin-top: 60px; font-size: 12px; color: #475569;
+    border-top: 1px solid #1e293b; padding-top: 20px; width: 100%;
+  }
+
+  /* 본문 */
+  .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+
+  .section { margin-bottom: 48px; }
+  .section-title {
+    font-size: 22px; font-weight: 700; color: #E61E2B;
+    border-left: 4px solid #E61E2B; padding-left: 16px;
+    margin-bottom: 24px; padding-bottom: 8px;
+    border-bottom: 1px solid #1e293b;
+  }
+  .subsection-title {
+    font-size: 16px; font-weight: 700; color: #cbd5e1;
+    margin: 24px 0 12px; padding-left: 12px;
+    border-left: 3px solid #475569;
+  }
+
+  /* 카드 */
+  .card { background: #16213E; border-radius: 12px; padding: 24px; margin-bottom: 20px; border: 1px solid #1e293b; }
+  .card-grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .card-grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+
+  /* 진단 요약 */
+  .exec-summary { background: linear-gradient(135deg, #16213E, #0F3460); border: 1px solid #E61E2B; border-radius: 12px; padding: 28px; margin-bottom: 24px; }
+  .exec-summary p { font-size: 15px; line-height: 1.9; color: #cbd5e1; }
+
+  .strength-list, .weakness-list { list-style: none; }
+  .strength-list li { padding: 10px 0; border-bottom: 1px solid #1e293b; color: #cbd5e1; }
+  .strength-list li:before { content: "▲ "; color: #22c55e; font-weight: bold; }
+  .weakness-list li { padding: 10px 0; border-bottom: 1px solid #1e293b; color: #cbd5e1; }
+  .weakness-list li:before { content: "▼ "; color: #ef4444; font-weight: bold; }
+
+  .keyword-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+  .keyword-tag {
+    background: rgba(230,30,43,0.15); border: 1px solid #E61E2B;
+    color: #fca5a5; padding: 4px 14px; border-radius: 16px; font-size: 13px;
+  }
+
+  /* 테이블 */
+  table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 16px 0; }
+  th { background: #0F3460; color: #a5b4fc; padding: 10px 12px; text-align: center; font-size: 12px; letter-spacing: 1px; }
+  td { padding: 10px 12px; text-align: center; border-bottom: 1px solid #1e293b; color: #cbd5e1; }
+  tr:hover { background: rgba(255,255,255,0.03); }
+  .highlight-row { background: rgba(230,30,43,0.1) !important; }
+  .highlight-row td { color: #fff; font-weight: 600; }
+  .rank1 { color: #fbbf24 !important; font-weight: bold; }
+  .rank2 { color: #e2e8f0 !important; }
+  .win { color: #22c55e !important; font-weight: bold; }
+  .lose { color: #ef4444 !important; }
+  .tie { color: #94a3b8 !important; }
+
+  /* 점수 바 */
+  .score-bar-wrap { margin: 8px 0; }
+  .score-bar-label { display: flex; justify-content: space-between; font-size: 13px; color: #94a3b8; margin-bottom: 4px; }
+  .score-bar { height: 10px; background: #1e293b; border-radius: 5px; overflow: hidden; }
+  .score-bar-fill { height: 100%; border-radius: 5px; transition: width 0.3s; }
+  .bar-red { background: linear-gradient(90deg, #E61E2B, #f87171); }
+  .bar-blue { background: linear-gradient(90deg, #3b82f6, #818cf8); }
+  .bar-gray { background: #475569; }
+
+  /* 메트릭 카드 */
+  .metric-card { background: #0F3460; border-radius: 10px; padding: 20px; text-align: center; }
+  .metric-value { font-size: 36px; font-weight: 900; color: #E61E2B; }
+  .metric-label { font-size: 12px; color: #64748b; margin-top: 4px; }
+  .metric-sub { font-size: 13px; color: #94a3b8; margin-top: 6px; }
+
+  /* SWOT */
+  .swot-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .swot-box { border-radius: 10px; padding: 20px; }
+  .swot-s { background: rgba(34,197,94,0.1); border: 1px solid #22c55e; }
+  .swot-w { background: rgba(239,68,68,0.1); border: 1px solid #ef4444; }
+  .swot-o { background: rgba(59,130,246,0.1); border: 1px solid #3b82f6; }
+  .swot-t { background: rgba(245,158,11,0.1); border: 1px solid #f59e0b; }
+  .swot-title { font-size: 15px; font-weight: 700; margin-bottom: 12px; }
+  .swot-s .swot-title { color: #22c55e; }
+  .swot-w .swot-title { color: #ef4444; }
+  .swot-o .swot-title { color: #3b82f6; }
+  .swot-t .swot-title { color: #f59e0b; }
+  .swot-item { font-size: 13px; color: #cbd5e1; padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+
+  /* 전략 제언 */
+  .action-card { background: #0F3460; border-left: 4px solid #E61E2B; border-radius: 8px; padding: 20px; margin-bottom: 16px; }
+  .action-title { font-size: 15px; font-weight: 700; color: #fca5a5; margin-bottom: 10px; }
+  .action-body { font-size: 14px; color: #94a3b8; line-height: 1.8; }
+
+  .scenario-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .scenario-card { border-radius: 10px; padding: 20px; }
+  .scenario-opt { background: rgba(34,197,94,0.1); border: 1px solid #22c55e; }
+  .scenario-base { background: rgba(59,130,246,0.1); border: 1px solid #3b82f6; }
+  .scenario-pes { background: rgba(239,68,68,0.1); border: 1px solid #ef4444; }
+  .scenario-title { font-weight: 700; margin-bottom: 12px; font-size: 15px; }
+  .scenario-opt .scenario-title { color: #22c55e; }
+  .scenario-base .scenario-title { color: #3b82f6; }
+  .scenario-pes .scenario-title { color: #ef4444; }
+  .scenario-body { font-size: 13px; color: #94a3b8; line-height: 1.8; }
+
+  /* 비교 섹션 */
+  .vs-header { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
+  .vs-name { font-size: 20px; font-weight: 700; color: #e2e8f0; }
+  .vs-badge { background: #1A56DB; color: #fff; padding: 3px 12px; border-radius: 4px; font-size: 12px; }
+  .vs-badge.red { background: #E61E2B; }
+  .vs-cci { font-size: 28px; font-weight: 900; color: #818cf8; }
+
+  /* 공략 포인트 */
+  .attack-box { background: rgba(34,197,94,0.08); border: 1px solid rgba(34,197,94,0.3); border-radius: 8px; padding: 16px; margin-top: 16px; }
+  .attack-title { color: #22c55e; font-size: 13px; font-weight: 700; margin-bottom: 8px; }
+  .defense-box { background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.3); border-radius: 8px; padding: 16px; margin-top: 12px; }
+  .defense-title { color: #ef4444; font-size: 13px; font-weight: 700; margin-bottom: 8px; }
+
+  /* 리스크 테이블 */
+  .risk-high { color: #ef4444 !important; }
+  .risk-mid { color: #f59e0b !important; }
+  .risk-low { color: #22c55e !important; }
+
+  /* 핵심 메시지 */
+  .core-message {
+    background: linear-gradient(135deg, #0F3460, #16213E);
+    border: 2px solid #E61E2B; border-radius: 12px;
+    padding: 32px; text-align: center; margin-top: 32px;
+  }
+  .core-message .quote { font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 16px; line-height: 1.5; }
+  .core-message .sub { font-size: 14px; color: #64748b; }
+
+  /* 푸터 */
+  .footer { text-align: center; color: #334155; font-size: 12px; margin-top: 60px; padding: 24px; border-top: 1px solid #1e293b; }
+
+  p { color: #94a3b8; font-size: 14px; margin: 8px 0; line-height: 1.8; }
+
+  @media (max-width: 768px) {
+    .card-grid2, .card-grid3, .swot-grid, .scenario-grid { grid-template-columns: 1fr; }
+    .cover h1 { font-size: 36px; }
+    .cover .score-block { flex-direction: column; gap: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- 표지 -->
+<div class="cover">
+  <div class="badge">🔒 CONFIDENTIAL — 정치인 전용 비공개 보고서</div>
+  <h1>오세훈</h1>
+  <div class="party-tag">국민의힘</div>
+  <div class="subtitle">2026 서울시장 선거 | 현직 서울특별시장</div>
+
+  <div class="score-block">
+    <div class="score-item">
+      <div class="score-num main">677</div>
+      <div class="score-label">CCI 종합</div>
+    </div>
+    <div class="score-item">
+      <div class="score-num sub">732</div>
+      <div class="score-label">GPI 종합</div>
+    </div>
+    <div class="score-item">
+      <div class="score-num sub">568</div>
+      <div class="score-label">A1 민심</div>
+    </div>
+    <div class="score-item">
+      <div class="score-num sub">712</div>
+      <div class="score-label">A2 구조</div>
+    </div>
+  </div>
+
+  <div class="rank-badge">4후보 중 <strong>3위</strong> — 국민의힘 후보 중 <strong>1위</strong></div>
+
+  <div class="confidential">
+    CCI 전략보고서 — 비공개 · 무단 배포 금지 | 작성일: 2026-03-12 | PoliticianFinder AI 평가 시스템
+  </div>
+</div>
+
+<div class="container">
+
+<!-- 1장. 진단 요약 -->
+<div class="section">
+  <div class="section-title">1장. 진단 요약 (Executive Summary)</div>
+
+  <div class="exec-summary">
+    <p>오세훈은 CCI 677점으로 2026 서울시장 4후보 중 3위다. 여권 후보(정원오 781, 박주민 733) 대비 현저한 열위를 보이나, 국민의힘 후보군 내에서는 조은희(676)를 1점 차로 앞서 1위다. 현직 서울시장으로서의 제도적 강점(후보자경쟁력 800·지역기반 780)이 두드러진다. 반면 민심·여론(A1=568)이 경쟁자 대비 최하위 수준으로, 이 격차를 좁히는 것이 선거 전략의 핵심 과제다.</p>
+  </div>
+
+  <div class="card-grid2">
+    <div class="card">
+      <div class="subsection-title">핵심 강점 3가지</div>
+      <ul class="strength-list">
+        <li><strong>현직 프리미엄</strong> — candidate 800점(4명 중 2위). 현직 시장 제도적·조직적 우위</li>
+        <li><strong>지역기반 견고</strong> — regional 780점. 25개 자치구 광역 행정 네트워크</li>
+        <li><strong>비전 우위</strong> — GPI 비전 80점(4명 중 1위). 서울 글로벌 도시 비전 차별화</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="subsection-title">핵심 약점 3가지</div>
+      <ul class="weakness-list">
+        <li><strong>여론 극단 열위</strong> — opinion 511점(최하위). 민주당 후보 대비 30~40%p 격차</li>
+        <li><strong>미디어 서사 최약</strong> — media 544점(최하위). 부정 보도 논조 우세</li>
+        <li><strong>도덕성 취약</strong> — 청렴(66)·윤리(66) 공동 최하위. 과거 논란 이력 누적</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="subsection-title">전략 키워드</div>
+    <div class="keyword-tags">
+      <span class="keyword-tag">현직 활용</span>
+      <span class="keyword-tag">비전 부각</span>
+      <span class="keyword-tag">도덕성 방어</span>
+      <span class="keyword-tag">여론 반전</span>
+      <span class="keyword-tag">중도 확장</span>
+      <span class="keyword-tag">단일화 주도</span>
+    </div>
+  </div>
+</div>
+
+<!-- 2장. CCI 종합 대시보드 -->
+<div class="section">
+  <div class="section-title">2장. CCI 종합 대시보드</div>
+
+  <div class="card">
+    <div class="subsection-title">CCI 순위표</div>
+    <table>
+      <tr><th>순위</th><th>이름</th><th>정당</th><th>CCI</th><th>GPI</th><th>A1(민심)</th><th>A2(구조)</th></tr>
+      <tr><td class="rank1">1위</td><td>정원오</td><td>더불어민주당</td><td class="rank1">781</td><td>785</td><td>731</td><td>825</td></tr>
+      <tr><td>2위</td><td>박주민</td><td>더불어민주당</td><td>733</td><td>753</td><td>639</td><td>801</td></tr>
+      <tr class="highlight-row"><td>3위 ★</td><td><strong>오세훈</strong></td><td>국민의힘</td><td><strong>677</strong></td><td><strong>732</strong></td><td><strong>568</strong></td><td><strong>712</strong></td></tr>
+      <tr><td>4위</td><td>조은희</td><td>국민의힘</td><td>676</td><td>745</td><td>621</td><td>639</td></tr>
+    </table>
+  </div>
+
+  <div class="card-grid3">
+    <div class="metric-card">
+      <div class="metric-value">677</div>
+      <div class="metric-label">CCI 종합 (200~1000)</div>
+      <div class="metric-sub">4명 중 3위</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-value" style="color:#818cf8;">568</div>
+      <div class="metric-label">A1 민심여론 (최하위)</div>
+      <div class="metric-sub">전략적 최약 구간</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-value" style="color:#22c55e;">800</div>
+      <div class="metric-label">후보자경쟁력 (최강)</div>
+      <div class="metric-sub">현직 프리미엄 4명 중 2위</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="subsection-title">점수 구성 분해 (CCI = GPI×40% + A1×30% + A2×30%)</div>
+    <div class="score-bar-wrap">
+      <div class="score-bar-label"><span>GPI 종합 (732 × 40%)</span><span>기여: 292.8점 (43.2%)</span></div>
+      <div class="score-bar"><div class="score-bar-fill bar-blue" style="width:73.2%"></div></div>
+    </div>
+    <div class="score-bar-wrap" style="margin-top:12px;">
+      <div class="score-bar-label"><span>A1 민심여론 (568 × 30%)</span><span>기여: 170.4점 (25.2%)</span></div>
+      <div class="score-bar"><div class="score-bar-fill bar-red" style="width:56.8%"></div></div>
+    </div>
+    <div class="score-bar-wrap" style="margin-top:12px;">
+      <div class="score-bar-label"><span>A2 선거구조 (712 × 30%)</span><span>기여: 213.6점 (31.5%)</span></div>
+      <div class="score-bar"><div class="score-bar-fill bar-gray" style="width:71.2%"></div></div>
+    </div>
+    <p style="margin-top:16px;">A1(민심)이 CCI 기여도 25.2%로 가장 낮은 구간. 여론 반전이 CCI 상승의 핵심 레버.</p>
+  </div>
+</div>
+
+<!-- 3장. GPI 요약 -->
+<div class="section">
+  <div class="section-title">3장. GPI 요약</div>
+
+  <div class="card">
+    <div class="subsection-title">GPI 3축 분석</div>
+    <table>
+      <tr><th>축</th><th>포함 카테고리</th><th>오세훈 평균</th><th>경쟁자 평균</th><th>격차</th></tr>
+      <tr><td><strong>적격성</strong></td><td>전문(75)+리더(71)+비전(80)</td><td>75.3</td><td>78.0</td><td class="lose">-2.7</td></tr>
+      <tr><td><strong>도덕성</strong></td><td>청렴(66)+윤리(66)+책임(75)+투명(71)</td><td>69.5</td><td>73.3</td><td class="lose">-3.8 ★최약</td></tr>
+      <tr><td><strong>진정성</strong></td><td>소통(76)+대응(75)+공익(77)</td><td>76.0</td><td>78.3</td><td class="lose">-2.3</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="subsection-title">10개 카테고리 상세 (100점 만점)</div>
+    <table>
+      <tr><th>카테고리</th><th class="highlight-row">오세훈</th><th>정원오</th><th>박주민</th><th>조은희</th><th>순위</th></tr>
+      <tr><td>전문성</td><td class="highlight-row">75</td><td>81</td><td>75</td><td>76</td><td>3위</td></tr>
+      <tr><td>리더십</td><td class="highlight-row lose">71</td><td>79</td><td>75</td><td>78</td><td class="lose">4위(최하)</td></tr>
+      <tr><td>비전</td><td class="highlight-row win">80</td><td>76</td><td>75</td><td>74</td><td class="win">1위 ★</td></tr>
+      <tr><td>청렴성</td><td class="highlight-row lose">66</td><td>73</td><td>71</td><td>68</td><td class="lose">4위(최하)</td></tr>
+      <tr><td>윤리성</td><td class="highlight-row lose">66</td><td>69</td><td>71</td><td>66</td><td class="lose">공동최하</td></tr>
+      <tr><td>책임성</td><td class="highlight-row">75</td><td>81</td><td>74</td><td>79</td><td>3위</td></tr>
+      <tr><td>투명성</td><td class="highlight-row lose">71</td><td>80</td><td>79</td><td>76</td><td class="lose">4위(최하)</td></tr>
+      <tr><td>소통력</td><td class="highlight-row">76</td><td>81</td><td>77</td><td>75</td><td>2위</td></tr>
+      <tr><td>대응성</td><td class="highlight-row">75</td><td>82</td><td>75</td><td>75</td><td>공동2위</td></tr>
+      <tr><td>공익성</td><td class="highlight-row">77</td><td>83</td><td>81</td><td>78</td><td>3위</td></tr>
+    </table>
+    <p style="margin-top:12px;"><strong style="color:#22c55e;">강점:</strong> 비전(1위)·소통(2위)·대응(2위) | <strong style="color:#ef4444;">약점:</strong> 청렴·투명(최하위)·리더십(최하위)</p>
+    <p style="margin-top:4px; font-size:12px; color:#475569;">※ 상세 GPI 보고서는 별첨 1 참조</p>
+  </div>
+</div>
+
+<!-- 4장. 민심·여론 (Alpha 1) -->
+<div class="section">
+  <div class="section-title">4장. 민심·여론 (Alpha 1) — 568점 (최하위)</div>
+
+  <div class="card">
+    <table>
+      <tr><th>카테고리</th><th class="highlight-row">오세훈</th><th>정원오</th><th>박주민</th><th>조은희</th><th>순위</th></tr>
+      <tr><td>opinion (여론동향)</td><td class="highlight-row">511</td><td class="rank1">847</td><td>700</td><td>485</td><td>3위</td></tr>
+      <tr><td>media (이미지·내러티브)</td><td class="highlight-row lose">544</td><td class="rank1">757</td><td>711</td><td>713</td><td class="lose">4위(최하)</td></tr>
+      <tr><td>risk (리스크)</td><td class="highlight-row win">648</td><td>589</td><td>505</td><td class="rank1">666</td><td>2위</td></tr>
+      <tr><td><strong>A1 평균</strong></td><td class="highlight-row lose"><strong>568</strong></td><td class="rank1"><strong>731</strong></td><td><strong>639</strong></td><td><strong>621</strong></td><td class="lose"><strong>4위(최하)</strong></td></tr>
+    </table>
+  </div>
+
+  <div class="subsection-title">4-1. 여론동향 (opinion): 511점 — 3위</div>
+  <div class="card">
+    <p><strong style="color:#ef4444;">경쟁자 대비:</strong> 정원오(847) 대비 -336점 | 박주민(700) 대비 -189점 | 조은희(485) 대비 +26점</p>
+    <p>민주당 강세 도시인 서울에서 국민의힘 후보로서의 구조적 한계가 점수에 직접 반영된다. 탄핵 정국 역풍이 국민의힘 전체 지지율을 끌어내리며 오세훈 개인 지지율과 중첩된다. 현직 시장임에도 시정 실적이 여론조사 지지율로 연결되지 않는 구조적 단절이 존재한다. 중도·무당층 이탈이 뚜렷하고, 정원오의 '여권 결집' 모멘텀에 맞설 서사가 아직 형성되지 않았다.</p>
+    <p><strong>과제:</strong> 탄핵 프레임에서 '서울 미래 경쟁' 프레임으로 전환. 현직 실적 여론화. 중도층 타겟 메시지 개발.</p>
+  </div>
+
+  <div class="subsection-title">4-2. 이미지·내러티브 (media): 544점 — 4위(최하위)</div>
+  <div class="card">
+    <p><strong style="color:#ef4444;">경쟁자 대비:</strong> 정원오(757) 대비 -213점 | 조은희(713) 대비 -169점 (같은 국민의힘 후보에도 169점 열세)</p>
+    <p>오세훈 관련 보도에서 비판적 논조의 비율이 높다. 대형 시정 사업의 세금 낭비 논란 기사가 지속 재생산되며 이미지를 훼손한다. SNS 언급량은 높으나 부정 맥락(비판·풍자) 비중이 높아 브랜드 가치를 갉아먹는다. 포털 검색 연관어가 논란 중심으로 구성되어 중립 유권자에게 부정적인 첫 인상을 준다. '글로벌 서울' 비전보다 실정 이슈가 먼저 노출되는 구조적 역전이 지속된다.</p>
+    <p><strong>과제:</strong> 부정 연관 검색어 희석 전략. SNS 긍정 콘텐츠 집중 생산. 시정 성과 스토리텔링으로 미디어 논조 전환.</p>
+  </div>
+
+  <div class="subsection-title">4-3. 리스크 (risk): 648점 — 2위</div>
+  <div class="card">
+    <p><strong style="color:#22c55e;">경쟁자 대비:</strong> 박주민(505) 대비 +143점 우세 | 조은희(666) 대비 -18점 | 정원오(589) 대비 +59점</p>
+    <p style="color:#f59e0b; font-size:13px;"><strong>역산 구조</strong>: risk 카테고리는 리스크 부재가 높은 점수. 648점(2위)은 A1 카테고리 중 유일한 상대 우위 항목이다.</p>
+    <table>
+      <tr><th>리스크 항목</th><th>심각도</th><th>현황</th></tr>
+      <tr><td>국민의힘 탄핵 갈등 연루</td><td class="risk-high">고</td><td>진행 중, 지지층 이탈 유발</td></tr>
+      <tr><td>공천 과정 당내 갈등 (조은희 변수)</td><td class="risk-high">고</td><td>단일화 미결</td></tr>
+      <tr><td>무상급식 주민투표 사퇴 이력</td><td class="risk-mid">중</td><td>과거 이슈, 수시 재소환 가능</td></tr>
+      <tr><td>서울시 예산 집행 비효율 비판</td><td class="risk-mid">중</td><td>여권 공격 지속</td></tr>
+      <tr><td>세빛섬·DDP 등 대형 사업 논란</td><td class="risk-mid">중</td><td>과거 이슈, 현재 소강</td></tr>
+    </table>
+    <p style="margin-top:12px;"><strong>분석:</strong> 법적 리스크는 낮다. 과거 논란들이 이미 충분히 소비되어 "새로운 리스크"로 재점화되기 어려운 상태다. 이것이 risk 2위라는 상대적 선방의 배경이다. 당 리스크와 개인 리스크를 분리하는 포지셔닝이 핵심 과제다.</p>
+  </div>
+</div>
+
+<!-- 5장. 선거구조 (Alpha 2) -->
+<div class="section">
+  <div class="section-title">5장. 선거구조 (Alpha 2) — 712점 (3위)</div>
+
+  <div class="card">
+    <table>
+      <tr><th>카테고리</th><th class="highlight-row">오세훈</th><th>정원오</th><th>박주민</th><th>조은희</th><th>순위</th></tr>
+      <tr><td>party (정당경쟁력)</td><td class="highlight-row lose">555</td><td class="rank1">837</td><td>812</td><td>493</td><td>3위</td></tr>
+      <tr><td>candidate (후보자경쟁력)</td><td class="highlight-row win">800</td><td class="rank1">848</td><td>781</td><td>610</td><td class="win">2위 ★</td></tr>
+      <tr><td>regional (지역기반)</td><td class="highlight-row">780</td><td class="rank1">790</td><td>809</td><td>814</td><td>3위</td></tr>
+      <tr><td><strong>A2 평균</strong></td><td class="highlight-row"><strong>712</strong></td><td class="rank1"><strong>825</strong></td><td><strong>801</strong></td><td><strong>639</strong></td><td><strong>3위</strong></td></tr>
+    </table>
+  </div>
+
+  <div class="subsection-title">5-1. 정당경쟁력 (party): 555점</div>
+  <div class="card">
+    <p>서울시 민주당 강세 구조에 탄핵 역풍까지 겹쳐 정당 경쟁력이 압박받는다. 정원오(837) 대비 282점 열세로 구조적 불리함이 명확하다. 조은희(493) 대비 62점 우세로 국민의힘 내 1위. <strong>과제:</strong> "국민의힘 후보"보다 "오세훈 후보" 브랜드를 앞세우는 탈당 없는 독자 포지셔닝. 무당층·중도층을 직접 공략해 정당 지지율 의존도를 낮춘다.</p>
+  </div>
+
+  <div class="subsection-title">5-2. 후보자경쟁력 (candidate): 800점 — 2위 최강점</div>
+  <div class="card">
+    <p>오세훈의 최대 강점이다. 현직 서울시장 신분이 주는 제도적 이점이 점수에 명확하게 반영된다. 행정 집행 권한, 예산 운용, 언론 노출도에서 경쟁자 대비 절대 우위를 가진다. 4명 중 전국 인지도 1위. 서울시장 다선 경험으로 캠페인 역량이 검증되어 있다. 정원오(848) 대비 48점 열세이나, 박주민(781) 대비 19점 우세다. <strong>핵심 메시지:</strong> "서울을 아는 사람이 서울을 완성합니다."</p>
+  </div>
+
+  <div class="subsection-title">5-3. 지역기반 (regional): 780점</div>
+  <div class="card">
+    <p>서울 전체 25개 자치구 광역 행정 경험이 강점. 조은희(814)가 서초구 지역 기반에서 앞서고, 박주민(809)이 은평갑 지역구 기반에서 앞선다. 그러나 광역 행정 네트워크와 자치구청장 협력 채널에서 오세훈이 실질적 우위. <strong>과제:</strong> 강남3구 외 서울 외곽 지역 밀착 활동 강화.</p>
+  </div>
+</div>
+
+<!-- 6장. 경쟁자 비교 -->
+<div class="section">
+  <div class="section-title">6장. 경쟁자 비교</div>
+
+  <!-- vs 정원오 -->
+  <div class="card">
+    <div class="vs-header">
+      <div>
+        <div class="vs-name">vs 정원오</div>
+        <div><span class="vs-badge">더불어민주당</span></div>
+      </div>
+      <div class="vs-cci">CCI 781 (1위)</div>
+    </div>
+    <p>최대 경쟁자. CCI 104점 격차. 16개 차원 중 오세훈 우세 항목: <strong style="color:#22c55e;">비전(+4)·리스크(+59)</strong> 단 2개. 열세 14개.</p>
+    <table>
+      <tr><th>차원</th><th>오세훈</th><th>정원오</th><th>우열</th><th>격차</th></tr>
+      <tr><td>GPI — 전문성</td><td>75</td><td>81</td><td class="lose">열세</td><td class="lose">-6</td></tr>
+      <tr><td>GPI — 리더십</td><td>71</td><td>79</td><td class="lose">열세</td><td class="lose">-8</td></tr>
+      <tr><td>GPI — 비전</td><td class="win">80</td><td>76</td><td class="win">우세</td><td class="win">+4 ★</td></tr>
+      <tr><td>GPI — 청렴성</td><td>66</td><td>73</td><td class="lose">열세</td><td class="lose">-7</td></tr>
+      <tr><td>GPI — 윤리성</td><td>66</td><td>69</td><td class="lose">열세</td><td class="lose">-3</td></tr>
+      <tr><td>GPI — 책임성</td><td>75</td><td>81</td><td class="lose">열세</td><td class="lose">-6</td></tr>
+      <tr><td>GPI — 투명성</td><td>71</td><td>80</td><td class="lose">열세</td><td class="lose">-9</td></tr>
+      <tr><td>GPI — 소통력</td><td>76</td><td>81</td><td class="lose">열세</td><td class="lose">-5</td></tr>
+      <tr><td>GPI — 대응성</td><td>75</td><td>82</td><td class="lose">열세</td><td class="lose">-7</td></tr>
+      <tr><td>GPI — 공익성</td><td>77</td><td>83</td><td class="lose">열세</td><td class="lose">-6</td></tr>
+      <tr><td>Alpha — opinion</td><td>511</td><td>847</td><td class="lose">열세</td><td class="lose">-336</td></tr>
+      <tr><td>Alpha — media</td><td>544</td><td>757</td><td class="lose">열세</td><td class="lose">-213</td></tr>
+      <tr><td>Alpha — risk</td><td class="win">648</td><td>589</td><td class="win">우세</td><td class="win">+59 ★</td></tr>
+      <tr><td>Alpha — party</td><td>555</td><td>837</td><td class="lose">열세</td><td class="lose">-282</td></tr>
+      <tr><td>Alpha — candidate</td><td>800</td><td>848</td><td class="lose">열세</td><td class="lose">-48</td></tr>
+      <tr><td>Alpha — regional</td><td>780</td><td>790</td><td class="lose">열세</td><td class="lose">-10</td></tr>
+    </table>
+    <div class="attack-box">
+      <div class="attack-title">정원오 공략 포인트 →</div>
+      ① 정원오 리스크(589) 공략 — "의혹 있는 도전자 vs 검증된 행정가" 프레임<br>
+      ② 비전 우위 부각 — 구체적 서울 미래 20년 비전으로 정원오 비전의 막연함 대조<br>
+      ③ 행정 스케일 대결 — "구청 행정 vs 서울시 광역 행정" 스케일 차이 부각. 1,000만 도시 운영 경험 차별화
+    </div>
+    <div class="defense-box">
+      <div class="defense-title">수비 포인트 ←</div>
+      여론 열세: "지지율은 현재 스냅샷, 선거는 6월" | 리더십: 광역 행정 리더십 우위 강조 | 도덕성: 선제 해명 자료 사전 배포
+    </div>
+  </div>
+
+  <!-- vs 박주민 -->
+  <div class="card">
+    <div class="vs-header">
+      <div>
+        <div class="vs-name">vs 박주민</div>
+        <div><span class="vs-badge">더불어민주당</span></div>
+      </div>
+      <div class="vs-cci">CCI 733 (2위)</div>
+    </div>
+    <p>CCI 56점 격차. 오세훈 우세 항목: <strong style="color:#22c55e;">비전(+5)·책임성(+1)·리스크(+143)·후보자경쟁력(+19)</strong> 4개. 열세 10개. 동점 2개.</p>
+    <table>
+      <tr><th>차원</th><th>오세훈</th><th>박주민</th><th>우열</th><th>격차</th></tr>
+      <tr><td>GPI — 전문성</td><td>75</td><td>75</td><td class="tie">동점</td><td class="tie">0</td></tr>
+      <tr><td>GPI — 리더십</td><td>71</td><td>75</td><td class="lose">열세</td><td class="lose">-4</td></tr>
+      <tr><td>GPI — 비전</td><td class="win">80</td><td>75</td><td class="win">우세</td><td class="win">+5 ★</td></tr>
+      <tr><td>GPI — 청렴성</td><td>66</td><td>71</td><td class="lose">열세</td><td class="lose">-5</td></tr>
+      <tr><td>GPI — 윤리성</td><td>66</td><td>71</td><td class="lose">열세</td><td class="lose">-5</td></tr>
+      <tr><td>GPI — 책임성</td><td class="win">75</td><td>74</td><td class="win">우세</td><td class="win">+1</td></tr>
+      <tr><td>GPI — 투명성</td><td>71</td><td>79</td><td class="lose">열세</td><td class="lose">-8</td></tr>
+      <tr><td>GPI — 소통력</td><td>76</td><td>77</td><td class="lose">열세</td><td class="lose">-1</td></tr>
+      <tr><td>GPI — 대응성</td><td>75</td><td>75</td><td class="tie">동점</td><td class="tie">0</td></tr>
+      <tr><td>GPI — 공익성</td><td>77</td><td>81</td><td class="lose">열세</td><td class="lose">-4</td></tr>
+      <tr><td>Alpha — opinion</td><td>511</td><td>700</td><td class="lose">열세</td><td class="lose">-189</td></tr>
+      <tr><td>Alpha — media</td><td>544</td><td>711</td><td class="lose">열세</td><td class="lose">-167</td></tr>
+      <tr><td>Alpha — risk</td><td class="win">648</td><td>505</td><td class="win">우세</td><td class="win">+143 ★</td></tr>
+      <tr><td>Alpha — party</td><td>555</td><td>812</td><td class="lose">열세</td><td class="lose">-257</td></tr>
+      <tr><td>Alpha — candidate</td><td class="win">800</td><td>781</td><td class="win">우세</td><td class="win">+19</td></tr>
+      <tr><td>Alpha — regional</td><td>780</td><td>809</td><td class="lose">열세</td><td class="lose">-29</td></tr>
+    </table>
+    <div class="attack-box">
+      <div class="attack-title">박주민 공략 포인트 →</div>
+      ① 박주민 리스크(505, 최하위) 집중 공략 — 법적·도덕적 의혹 보도 부각<br>
+      ② 후보자경쟁력 우위(+19) — "현직 시장 vs 지역 국회의원" 경험 대결<br>
+      ③ 당론 이탈 이력 — 금융투자세 등 일관성 없는 정치 행태 공격
+    </div>
+    <div class="defense-box">
+      <div class="defense-title">수비 포인트 ←</div>
+      투명성(-8) 방어: 시정 정보공개 실적 데이터 반박 | 도덕성: "현직 5년 법적 문제 제로" 강조
+    </div>
+  </div>
+
+  <!-- vs 조은희 -->
+  <div class="card">
+    <div class="vs-header">
+      <div>
+        <div class="vs-name">vs 조은희</div>
+        <div><span class="vs-badge red">국민의힘 (같은 당)</span></div>
+      </div>
+      <div class="vs-cci">CCI 676 (4위)</div>
+    </div>
+    <p style="color:#f59e0b;"><strong>⚠️ 주의:</strong> CCI 단 1점 차이(677 vs 676). 사실상 동점. 국민의힘 내 단일화 핵심 변수.</p>
+    <p>오세훈 우세 항목: <strong style="color:#22c55e;">비전(+6)·소통(+1)·여론(+26)·정당경쟁력(+62)·후보자경쟁력(+190)</strong> 5개. 열세 9개. 동점 2개.</p>
+    <table>
+      <tr><th>차원</th><th>오세훈</th><th>조은희</th><th>우열</th><th>격차</th></tr>
+      <tr><td>GPI — 전문성</td><td>75</td><td>76</td><td class="lose">열세</td><td class="lose">-1</td></tr>
+      <tr><td>GPI — 리더십</td><td>71</td><td>78</td><td class="lose">열세</td><td class="lose">-7</td></tr>
+      <tr><td>GPI — 비전</td><td class="win">80</td><td>74</td><td class="win">우세</td><td class="win">+6 ★</td></tr>
+      <tr><td>GPI — 청렴성</td><td>66</td><td>68</td><td class="lose">열세</td><td class="lose">-2</td></tr>
+      <tr><td>GPI — 윤리성</td><td>66</td><td>66</td><td class="tie">동점</td><td class="tie">0</td></tr>
+      <tr><td>GPI — 책임성</td><td>75</td><td>79</td><td class="lose">열세</td><td class="lose">-4</td></tr>
+      <tr><td>GPI — 투명성</td><td>71</td><td>76</td><td class="lose">열세</td><td class="lose">-5</td></tr>
+      <tr><td>GPI — 소통력</td><td class="win">76</td><td>75</td><td class="win">우세</td><td class="win">+1</td></tr>
+      <tr><td>GPI — 대응성</td><td>75</td><td>75</td><td class="tie">동점</td><td class="tie">0</td></tr>
+      <tr><td>GPI — 공익성</td><td>77</td><td>78</td><td class="lose">열세</td><td class="lose">-1</td></tr>
+      <tr><td>Alpha — opinion</td><td class="win">511</td><td>485</td><td class="win">우세</td><td class="win">+26</td></tr>
+      <tr><td>Alpha — media</td><td>544</td><td>713</td><td class="lose">열세</td><td class="lose">-169</td></tr>
+      <tr><td>Alpha — risk</td><td>648</td><td>666</td><td class="lose">열세</td><td class="lose">-18</td></tr>
+      <tr><td>Alpha — party</td><td class="win">555</td><td>493</td><td class="win">우세</td><td class="win">+62</td></tr>
+      <tr><td>Alpha — candidate</td><td class="win">800</td><td>610</td><td class="win">우세</td><td class="win">+190 ★</td></tr>
+      <tr><td>Alpha — regional</td><td>780</td><td>814</td><td class="lose">열세</td><td class="lose">-34</td></tr>
+    </table>
+    <div class="attack-box">
+      <div class="attack-title">조은희 공략 포인트 →</div>
+      ① 후보자경쟁력 압도(+190) — "서울시장 스케일은 다르다" 광역 경험 강조<br>
+      ② 정당경쟁력(+62) — 오세훈이 국민의힘 내 대표성 더 높음<br>
+      ③ 단일화 협상 레버리지 — candidate·party·opinion·CCI 우위로 단일화 주도 명분 확보
+    </div>
+    <div class="defense-box">
+      <div class="defense-title">단일화 전략</div>
+      CCI 1점 차이는 조은희에게 협상력을 줄 수 있으나, candidate(190점), party(62점), opinion(26점)에서 오세훈의 명확한 우위가 단일화 협상 주도 명분. 조기 단일화 확정이 양측 모두에 최선.
+    </div>
+  </div>
+
+  <!-- 6-4. 비교 종합 -->
+  <div class="card" style="margin-top:20px;">
+    <div class="subsection-title">6-4. 비교 종합</div>
+    <table>
+      <tr><th>비교</th><th>CCI 차이</th><th>경쟁 성격</th></tr>
+      <tr><td>vs 정원오</td><td class="lose">-104</td><td>본선 (최대 격차, 프레임 전환이 핵심)</td></tr>
+      <tr><td>vs 박주민</td><td class="lose">-56</td><td>본선 (구조적 열세, 리스크 공략으로 역전 가능)</td></tr>
+      <tr><td>vs 조은희</td><td class="win">+1</td><td>당내 (사실상 동점, 단일화 협상이 관건)</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- 7장. SWOT -->
+<div class="section">
+  <div class="section-title">7장. SWOT 분석</div>
+
+  <div class="swot-grid">
+    <div class="swot-box swot-s">
+      <div class="swot-title">강점 (Strengths)</div>
+      <div class="swot-item">S1. 현직 시장 행정 권한 — candidate 800점 (2위)</div>
+      <div class="swot-item">S2. 높은 인지도·경험 — 다선 서울시장, 전국 인지도 최상위</div>
+      <div class="swot-item">S3. 비전 우위 — GPI 비전 80점 (1위)</div>
+      <div class="swot-item">S4. 리스크 상대 우위 — risk 648점 (2위), 박주민 대비 +143</div>
+      <div class="swot-item">S5. 광역 행정 네트워크 — regional 780점, 25개 자치구</div>
+      <div class="swot-item">S6. 국민의힘 내 경쟁력 — party 555 (조은희 493 대비 +62)</div>
+    </div>
+    <div class="swot-box swot-w">
+      <div class="swot-title">약점 (Weaknesses)</div>
+      <div class="swot-item">W1. 여론 극단 열세 — opinion 511점 (3위, 정원오 대비 -336)</div>
+      <div class="swot-item">W2. 미디어 서사 최약 — media 544점 (최하위)</div>
+      <div class="swot-item">W3. 도덕성 취약 — 청렴·윤리 66점 공동 최하위</div>
+      <div class="swot-item">W4. 투명성 최저 — GPI 투명성 71점 (4위)</div>
+      <div class="swot-item">W5. 당 지지율 구조 열세 — party 555 (정원오 대비 -282)</div>
+      <div class="swot-item">W6. 리더십 최저 — GPI 리더십 71점 (4위)</div>
+    </div>
+    <div class="swot-box swot-o">
+      <div class="swot-title">기회 (Opportunities)</div>
+      <div class="swot-item">O1. 임기 내 시정 성과 가시화</div>
+      <div class="swot-item">O2. 탄핵 정국 이후 국민의힘 지지율 회복</div>
+      <div class="swot-item">O3. 여권 단일화 불발 시 반사이익</div>
+      <div class="swot-item">O4. 조은희와 단일화 — 보수 표 완전 결집</div>
+      <div class="swot-item">O5. 민주당 내부 갈등 시 중도층 이동</div>
+    </div>
+    <div class="swot-box swot-t">
+      <div class="swot-title">위협 (Threats)</div>
+      <div class="swot-item">T1. 여권 단일화 성사 — 지지율 폭발적 결집</div>
+      <div class="swot-item">T2. 탄핵 역풍 지속 — 국민의힘 지지율 추가 하락</div>
+      <div class="swot-item">T3. 과거 논란 재소환 — 무상급식·대형 사업</div>
+      <div class="swot-item">T4. 조은희 불복 — 분열 투표, 표 분산</div>
+      <div class="swot-item">T5. 미디어 추가 타격 — 시정 비판 보도 집중</div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:20px;">
+    <div class="subsection-title">SO 전략 — 강점으로 기회 포착</div>
+    <table>
+      <tr><th>전략</th><th>조합</th><th>실행 방향</th></tr>
+      <tr><td class="win">SO1. 현직 실적 가시화</td><td>S1+S2 × O1</td><td>임기 완수 프로젝트 TOP 10 발표. "서울이 달라졌다" 캠페인</td></tr>
+      <tr><td class="win">SO2. 비전 선점</td><td>S3 × O1+O5</td><td>서울 미래 20년 비전 발표. 탈정당 비전 어젠다 선점</td></tr>
+      <tr><td class="win">SO3. 단일화 주도</td><td>S4+S6 × O4</td><td>CCI·candidate·party 우위로 조은희와 단일화 협상 주도</td></tr>
+    </table>
+  </div>
+
+  <div class="card" style="margin-top:16px;">
+    <div class="subsection-title">WO 전략 — 약점 보완해 기회 활용</div>
+    <table>
+      <tr><th>전략</th><th>조합</th><th>실행 방향</th></tr>
+      <tr><td style="color:#3b82f6;">WO1. 미디어 전환 승부</td><td>W2 × O1</td><td>시정 성과를 긍정 미디어 서사로 전환. media 544→600 목표. SNS 긍정 콘텐츠 집중 생산</td></tr>
+      <tr><td style="color:#3b82f6;">WO2. 여론 반전 캠페인</td><td>W1 × O2+O5</td><td>탄핵 정국 종료 후 국민의힘 회복 분위기에 올라타 opinion 511→580 목표. 중도층 직접 공략</td></tr>
+      <tr><td style="color:#3b82f6;">WO3. 단일화 후 도덕성 복원</td><td>W3 × O4</td><td>조은희와 단일화 후 '청정 연대' 이미지 구축. 도덕성 약점 희석</td></tr>
+    </table>
+  </div>
+
+  <div class="card" style="margin-top:16px;">
+    <div class="subsection-title">ST 전략 — 강점으로 위협 방어</div>
+    <table>
+      <tr><th>전략</th><th>조합</th><th>실행 방향</th></tr>
+      <tr><td style="color:#f59e0b;">ST1. 현직 안정감으로 탄핵 역풍 방어</td><td>S1+S2 × T2</td><td>"혼란의 정국에서 서울은 안정" 메시지. 현직 행정 연속성으로 탄핵 역풍과 분리</td></tr>
+      <tr><td style="color:#f59e0b;">ST2. 리스크 역공</td><td>S4 × T1</td><td>여권 단일화 성사 시, 단일화 후보(정원오) risk 589 집중 공략. "오세훈이 더 안전한 선택" 프레임</td></tr>
+      <tr><td style="color:#f59e0b;">ST3. 단일화 조기 완료로 분열 위협 차단</td><td>S6 × T4</td><td>조은희와 조기 단일화 완료. 분열 투표 시나리오 사전 차단. party 우위로 협상 주도</td></tr>
+    </table>
+  </div>
+
+  <div class="card" style="margin-top:16px;">
+    <div class="subsection-title">WT 전략 — 약점 보강해 위협 방어</div>
+    <table>
+      <tr><th>전략</th><th>조합</th><th>실행 방향</th></tr>
+      <tr><td class="lose">WT1. 도덕성 선제 방어</td><td>W3 × T3</td><td>과거 논란 이슈별 공식 해명 사전 배포. 공격 전 선점</td></tr>
+      <tr><td class="lose">WT2. 미디어 반전</td><td>W2 × T5</td><td>SNS 긍정 콘텐츠 집중 생산. 시정 성과 스토리 배포</td></tr>
+      <tr><td class="lose">WT3. 탄핵 분리</td><td>W5+W6 × T2</td><td>"오세훈=서울시장" 초당적 포지셔닝. 독자 브랜드화</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- 8장. 전략 제언 -->
+<div class="section">
+  <div class="section-title">8장. 전략 제언</div>
+
+  <div class="subsection-title">8-1. 즉시 실행 3가지</div>
+  <div class="action-card">
+    <div class="action-title">① 시정 실적 긴급 패키지 발표</div>
+    <div class="action-body">
+      임기 중 완수한 핵심 사업 TOP 10을 인포그래픽+영상+보도자료로 동시 배포한다. media 544점 반전의 첫 트리거로, "현직 프리미엄"을 여론장에 각인시킨다. 담당: 시정 홍보팀 + 캠프 SNS팀.
+    </div>
+  </div>
+  <div class="action-card">
+    <div class="action-title">② 도덕성 선제 방어 문서 준비</div>
+    <div class="action-body">
+      청렴·윤리 취약의 원인인 과거 논란 5개 이슈별 공식 입장 정리 및 인터뷰 Q&A 초안 작성. 상대 후보 공격 시 즉각 반박 가능 상태를 유지한다. 담당: 법무팀 + 캠프 전략팀.
+    </div>
+  </div>
+  <div class="action-card">
+    <div class="action-title">③ 조은희 단일화 물밑 접촉 개시</div>
+    <div class="action-body">
+      CCI 1점 차이이나 candidate(+190)·party(+62)·opinion(+26) 우위로 협상 레버리지 확보. 단일화 조기 확정 시 보수 표 결집 + 캠프 에너지를 본선 경쟁으로 집중 가능. 담당: 당 지도부 채널 + 오세훈 직접 접촉.
+    </div>
+  </div>
+
+  <div class="subsection-title">8-2. 캠페인 전략 (중기 로드맵)</div>
+  <div class="card">
+    <table>
+      <tr><th>Phase</th><th>기간</th><th>목표</th><th>핵심 전략</th></tr>
+      <tr><td>Phase 1</td><td>D-90~D-60</td><td>프레임 전환</td><td>탄핵→서울 미래 경쟁 전환. 비전 선점. 초당적 이미지</td></tr>
+      <tr><td>Phase 2</td><td>D-60~D-30</td><td>여론 반전</td><td>opinion 511→580 목표. 중도층 타겟. 여권 단일화 대응</td></tr>
+      <tr><td>Phase 3</td><td>D-30~D-day</td><td>표 결집</td><td>국민의힘+조은희 지지층 완전 결집. 부동층 최종 설득</td></tr>
+    </table>
+  </div>
+
+  <div class="subsection-title">8-3. 리스크 대응 시나리오</div>
+  <div class="scenario-grid">
+    <div class="scenario-card scenario-opt">
+      <div class="scenario-title">최선 시나리오</div>
+      <div class="scenario-body">
+        <strong>조건:</strong> 조은희 단일화 타결 + 여권 분열 + 탄핵 정국 종료<br><br>
+        <strong>전략:</strong> 보수 결집 + 중도 확장으로 40% 득표 목표. "서울을 아는 사람" 메시지 극대화<br><br>
+        <strong>기대 CCI:</strong> 677 → 720 이상
+      </div>
+    </div>
+    <div class="scenario-card scenario-base">
+      <div class="scenario-title">기본 시나리오</div>
+      <div class="scenario-body">
+        <strong>조건:</strong> 여권 단일화 성사 + 국민의힘 현상 유지 + 조은희 협상 진행 중<br><br>
+        <strong>전략:</strong> A1 568→620 목표. 현직 실적 집중 홍보. 여권 단일 후보 리스크 공략<br><br>
+        <strong>예상 CCI:</strong> 677 → 695, 득표율 38~42%
+      </div>
+    </div>
+    <div class="scenario-card scenario-pes">
+      <div class="scenario-title">최악 시나리오</div>
+      <div class="scenario-body">
+        <strong>조건:</strong> 여권 단일화 + 조은희 분열 + 신규 논란 발생<br><br>
+        <strong>전략:</strong> 위기 관리 모드. 보수 핵심(강남3구+60대) 집결. 35% 이상 방어<br><br>
+        <strong>핵심 액션:</strong> 조은희 설득 유지, 24시간 대응 프로토콜 구축
+      </div>
+    </div>
+  </div>
+
+  <div class="core-message">
+    <div class="quote">"서울을 만든 사람이 서울의 미래를 완성합니다."</div>
+    <div class="sub">GPI 비전 1위 | 후보자경쟁력 2위 | 5년 시정 실적 | 서울 미래 20년 비전</div>
+  </div>
+</div>
+
+<!-- 별첨 -->
+<div class="section">
+  <div class="section-title">별첨</div>
+  <div class="card">
+    <p><strong>별첨 1.</strong> GPI 상세 보고서 (기존 Type A 보고서 참조)</p>
+    <p><strong>별첨 2.</strong> CCI 산출 방법론</p>
+    <p style="margin-top:12px; font-size:13px; color:#475569;">
+      CCI 공식: GPI×0.4 + Alpha1×0.3 + Alpha2×0.3 | 척도: 200~1000점<br>
+      Alpha1 = (opinion + media + risk) / 3 | Alpha2 = (party + candidate + regional) / 3<br>
+      비교 집단: 2026 서울시장 선거 경쟁후보 4인 (정원오·박주민·오세훈·조은희)<br>
+      데이터 출처: PoliticianFinder AI 다중 평가 시스템 (Claude·ChatGPT·Gemini·Grok 4개 AI 평가, 각 정치인 약 700건 데이터)
+    </p>
+  </div>
+</div>
+
+</div><!-- /container -->
+
+<div class="footer">
+  CCI 전략보고서 — 오세훈 | 2026 서울시장 선거<br>
+  비공개 · 무단 배포 금지 | © 2026 PoliticianFinder | 작성일: 2026-03-12<br>
+  <span style="color:#1e293b; font-size:11px;">본 보고서는 2026-03-12 기준 V60 CCI 평가 시스템으로 생성되었습니다. 모든 수치는 AI 기반 상대평가이며, 실제 선거 결과를 보장하지 않습니다.</span>
+</div>
+
+</body>
+</html>
