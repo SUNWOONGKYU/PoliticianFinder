@@ -7,7 +7,6 @@ import dynamic from 'next/dynamic';
 import { LoadingSection } from '@/components/ui/Spinner';
 import { formatInfluenceGrade, getInfluenceGrade } from '@/utils/memberLevel';
 
-const MapModal = dynamic(() => import('@/components/map/MapModal'), { ssr: false });
 
 // 정치인 데이터 타입 정의
 interface Politician {
