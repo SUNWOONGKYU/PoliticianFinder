@@ -1,0 +1,163 @@
+{
+  "_description": "V50 Single Politician Pipeline - API Configuration for n8n HTTP Request nodes",
+  "_type": "V50 (n8n + API, Webhook-triggered, 3-channel collection)",
+  "_updated": "2026-03-08",
+  "version": "V50",
+
+  "claude": {
+    "endpoint": "https://api.anthropic.com/v1/messages",
+    "model": "claude-haiku-4-5-20251001",
+    "headers": {
+      "x-api-key": "{{$env.ANTHROPIC_API_KEY}}",
+      "anthropic-version": "2023-06-01"
+    },
+    "max_tokens": 4000,
+    "batch_size": 25,
+    "cost_per_mtok_input": 0.80,
+    "cost_per_mtok_output": 4.00,
+    "note": "Claude Haiku 4.5 - evaluation only (not collection in V50)"
+  },
+
+  "gemini": {
+    "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent",
+    "model": "gemini-2.0-flash-lite",
+    "auth": "url_query_param",
+    "key_param": "key",
+    "api_key_env": "GEMINI_API_KEY",
+    "batch_size": 25,
+    "cost_per_mtok_input": 0.075,
+    "cost_per_mtok_output": 0.30,
+    "note": "Gemini 2.0 Flash-Lite - used for both collection (Phase 1) and evaluation (Phase 3)"
+  },
+
+  "chatgpt": {
+    "endpoint": "https://api.openai.com/v1/chat/completions",
+    "model": "gpt-4o-mini",
+    "headers": {
+      "Authorization": "Bearer {{$env.OPENAI_API_KEY}}"
+    },
+    "max_tokens": 4000,
+    "batch_size": 25,
+    "cost_per_mtok_input": 0.15,
+    "cost_per_mtok_output": 0.60,
+    "note": "gpt-4o-mini - evaluation only (V50: o4-mini replaced by gpt-4o-mini)"
+  },
+
+  "grok": {
+    "endpoint": "https://api.x.ai/v1/responses",
+    "model": "grok-3-mini",
+    "headers": {
+      "Authorization": "Bearer {{$env.XAI_API_KEY}}"
+    },
+    "batch_size": 25,
+    "cost_per_mtok_input": 0.30,
+    "cost_per_mtok_output": 0.50,
+    "note": "Grok 3 Mini via xAI Responses API - evaluation only (V50: grok-3 replaced by grok-3-mini)"
+  },
+
+  "grok_x": {
+    "endpoint": "https://api.x.ai/v1/responses",
+    "model": "grok-3-mini",
+    "tools": [{"type": "web_search_preview"}],
+    "headers": {
+      "Authorization": "Bearer {{$env.XAI_API_KEY}}"
+    },
+    "target_per_category": 12,
+    "sentiment": "free",
+    "note": "X(Twitter) 수집 전용 - V50 신규 채널 (10%). web_search_preview tool로 X 포스트 수집. 센티멘트 구분 없이 전부 free"
+  },
+
+  "naver": {
+    "endpoint": "https://openapi.naver.com/v1/search/news.json",
+    "headers": {
+      "X-Naver-Client-Id": "{{$env.NAVER_CLIENT_ID}}",
+      "X-Naver-Client-Secret": "{{$env.NAVER_CLIENT_SECRET}}"
+    },
+    "target_per_category": 60,
+    "note": "Naver News Search API (openapi.naver.com) - 공개 뉴스 수집 (PUBLIC 50%). Python 스크립트(collect_naver_v50.py)와 동일 엔드포인트·헤더 사용."
+  },
+
+  "supabase": {
+    "endpoint": "{{$env.SUPABASE_URL}}/rest/v1",
+    "headers": {
+      "apikey": "{{$env.SUPABASE_SERVICE_ROLE_KEY}}",
+      "Authorization": "Bearer {{$env.SUPABASE_SERVICE_ROLE_KEY}}"
+    },
+    "tables": {
+      "collected": "collected_data_v50",
+      "evaluations": "evaluations_v50",
+      "scores": "ai_final_scores_v50",
+      "politicians": "politicians"
+    },
+    "storage": {
+      "bucket": "reports",
+      "path_template": "v50/{politician_name}_{YYYYMMDD}_{grade}.html",
+      "upload_endpoint": "{{$env.SUPABASE_URL}}/storage/v1/object/reports/"
+    },
+    "note": "Supabase REST API + Storage. 1000-row default limit - use pagination (range header)"
+  },
+
+  "webhook": {
+    "path": "/webhook/v50-start",
+    "method": "POST",
+    "expected_body": {
+      "politician_id": "string (8-char hex, e.g. '17270f25')",
+      "politician_name": "string",
+      "party": "string (optional)",
+      "position": "string (optional)"
+    }
+  },
+
+  "categories": [
+    "expertise", "leadership", "vision", "integrity", "ethics",
+    "accountability", "transparency", "communication", "responsiveness", "publicinterest"
+  ],
+
+  "collection_targets": {
+    "gemini_per_category": 48,
+    "grok_x_per_category": 12,
+    "naver_per_category": 60,
+    "total_per_category": 120,
+    "channel_order": "Gemini → Grok-X → Naver",
+    "channel_ratios": {
+      "Gemini": "40% (OFFICIAL 30 + PUBLIC 10 = 48개/카테고리)",
+      "Grok-X": "10% (PUBLIC only, 전부 free = 12개/카테고리)",
+      "Naver": "50% (OFFICIAL 10 + PUBLIC 40 = 60개/카테고리, 버퍼 포함 실제 12+48=60)"
+    },
+    "official_years": 4,
+    "public_years": 2,
+    "note": "V50 3채널: Gemini 40% + Grok-X 10% + Naver 50%. 채널 순서: Gemini → Grok-X → Naver"
+  },
+
+  "scoring": {
+    "prior": 6.0,
+    "coefficient": 0.5,
+    "max_final_score": 1000,
+    "min_per_category_for_normal_eval": 50,
+    "give_up_threshold": 25,
+    "formula": "category_score = (avg_score * 0.5 + 6.0) * 10",
+    "note": "avg_score = average of (rating * 2). Range -8 to +8. Leverage score 0 when < 25 evals."
+  },
+
+  "rating_scale": {
+    "grades": ["+4", "+3", "+2", "+1", "-1", "-2", "-3", "-4"],
+    "exclusion": "X",
+    "score_multiplier": 2,
+    "note": "rating * 2 = score. No zero grade. X = excluded from scoring."
+  },
+
+  "processing_status": {
+    "field": "processing_status",
+    "values": {
+      "started": "started",
+      "collecting": "collecting",
+      "validating": "validating",
+      "evaluating": "evaluating",
+      "scoring": "scoring",
+      "done": "done",
+      "error": "error"
+    },
+    "table": "politicians",
+    "note": "V50 추가: processing_status 필드로 파이프라인 상태 추적"
+  }
+}

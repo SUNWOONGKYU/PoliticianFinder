@@ -1,0 +1,1216 @@
+{
+  "total_count": 120,
+  "already_evaluated": 0,
+  "category": "regional",
+  "alpha_type": "alpha2",
+  "category_name": "지역기반",
+  "profile": {
+    "name": "정원오",
+    "party": "더불어민주당",
+    "position": "성동구청장",
+    "region": "서울특별시"
+  },
+  "instruction_excerpt": "# Alpha 2-3: Regional (지역기반) - 평가 지침서 V60 CCI\n\n---\n\n## 1. 카테고리 정의\n\n### 한글 정의\n출생지·학력·경력 연고, 지역 조직 동원력, 지역구 서비스 활동을 종합한 지역 기반 경쟁력\n\n### 영문 정의\nRegional competitive advantage from hometown ties, organizational mobilization, and constituency service activities\n\n### 학술 근거\n- **이갑윤 (2011)**: 지역 연고와 득표율 — 출생지·학력 연고 +3~20%p\n- **Fenno (1978)**: Home Style — 지역구 활동이 활발한 의원 재선율 +10~15%p\n- **박찬욱 (2000)**: 한국 지역주의와 선거 행태\n\n---\n\n## 2. 평가 방식 — 상대평가 (플래툰 포메이션)\n\n- Claude 단독 평가 (소대장 조율)\n- 같은 경쟁자 그룹 내 비교\n- **지역 밀착도** ",
+  "items": [
+    {
+      "id": "42ea5a34-d14e-4afb-8424-cafa830033c8",
+      "title": "이재명 대통령 SNS, 지방선거 판 흔드나",
+      "content": "지난해 인지도가 상대적으로 낮았던 정원오 성동구청장을 공개적으로 치켜세운 이후 그가 서울시장 유력... 그는 광주에서 가장 먼저 이재명 지지를 선언했고, 검찰 수사권 정상화 정국에서 탈당과 단식을 감행하는 등...",
+      "source_name": "Naver News",
+      "source_url": "https://www.jnilbo.com/news/articleView.html?idxno=90000024176",
+      "data_date": "2026-02-23",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "cb91abf7-b7d6-4615-8879-657780257213",
+      "title": "서울시의회 국힘, 정원오 후보 정책 제안에 “이미 시행 중인 사업”",
+      "content": "서울특별시의회 국민의힘이 정원오 서울시장 예비후보의 민생 정책 제안에 대해 “이미 시에서 시행 중인 사업들”이라고 비판했다. 채수지 서울시의회 국힘 대변인은 11일 논평을 통해 정 후보가 최근 SNS로 발표한...",
+      "source_name": "Naver News",
+      "source_url": "https://www.dnews.co.kr/uhtml/view.jsp?idxno=202603111803299060841",
+      "data_date": "2026-03-11",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "34f7f240-d6f5-44db-8dbb-dffd283fa53c",
+      "title": "오세훈 서울시장 공천 미신청…발칵 뒤집힌 국민의힘",
+      "content": "더불어민주당 서울시장 예비후보인 정원오 전 성동구청장이 9일 서울 동작구 국립서울현충원 고(故) 김대중... [연합] 오세훈 서울시장이 9일 오전 서울 영등포구 신길교회에서 서울특별시교회와시청협의회 주최로 열린...",
+      "source_name": "Naver News",
+      "source_url": "https://biz.heraldcorp.com/article/10689981?ref=naver",
+      "data_date": "2026-03-09",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "3f2ba5d1-3947-4f73-aba2-ad6ce2be3f63",
+      "title": "누가 찐 명심(明心)?…여권, 지방선거 예비경선 레이스 ‘시동’",
+      "content": "(왼쪽부터)  김영배 의원, 김형남 전 군인권센터 사무국장,  박주민·박홍근··전현희 의원, 정원오 전... 구상은 서울특별시 경선을 가장 나중에 하는 것으로 고민하고 있으며, 이어 경기, 광주·전남(등 순서)”이라며...",
+      "source_name": "Naver News",
+      "source_url": "https://www.cnbnews.com/news/article.html?no=781722",
+      "data_date": "2026-03-05",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "02529a5c-a8d7-4beb-97f5-3db00bfd0ab4",
+      "title": "서울시장 가상 ‘양자 대결’…민주 ‘정원오’ 55.8% vs 국힘 ‘오세훈...",
+      "content": "서울특별시 거주 18세 이상 남녀 유권자 804명을 대상으로 ‘차기 서울시장 후보로 민주당 정원오 전 성동 구청장과 국민의힘 후보로 오세훈 현 서울시장이 맞붙을 경우, 어느 후보를 지지하겠는가?’라는...",
+      "source_name": "Naver News",
+      "source_url": "https://www.cnbnews.com/news/article.html?no=781725",
+      "data_date": "2026-03-05",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "31291c4d-458d-418b-81a9-eb04b0e4bcc4",
+      "title": "달아오르는 與서울시장 경선판…정원오 출격에 레이스 본격 점화",
+      "content": "이른바 '명픽'(이재명 대통령의 선택)임을 부각하는 정원오 전 성동구청장의 선거운동 돌입을 계기로 김영배... 김영배 의원은 이날 YTN 라디오 인터뷰에서 '시간 평등' 서울특별시를 만들겠다는 시정 구상을 밝혔다. 그는...",
+      "source_name": "Naver News",
+      "source_url": "https://www.yna.co.kr/view/AKR20260305081800001?input=1195m",
+      "data_date": "2026-03-05",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "1d94c425-26b0-4542-be76-5ecb7ef1cc05",
+      "title": "전 성동구청장 정원오의 서울시장 오세훈 공격 \"10년간 업적 무엇인가\"...",
+      "content": "정원오 전 성동구청장이 서울시장에 출사표를 던진 후 오세훈 현 서울시장 견제에 나섰다. 반면 국민의힘이... 2014년 제37대 서울특별시 성동구 구청장에 당선됐고, 이후 제38대, 제39대 성동구청장까지 지냈다.",
+      "source_name": "Naver News",
+      "source_url": "https://www.huffingtonpost.kr/article/250072",
+      "data_date": "2026-03-05",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "8f91e1bf-08d5-4bce-997a-31f5a1b314ab",
+      "title": "'서울시장 도전' 정원오, 성동구청장 사퇴…\"새로운 도전, 구민과 직원...",
+      "content": "스트레이트뉴스 의뢰로 조원씨앤아이가 지난 2월 28일부터 3월 1일까지 이틀간 서울특별시에 거주하는 만 18세 이상 남녀 804명을 대상으로 차기 서울시장 후보 적합도를 조사한 결과, 다자 대결에서 정원오 성동구청장...",
+      "source_name": "Naver News",
+      "source_url": "https://www.m-i.kr/news/articleView.html?idxno=1342841",
+      "data_date": "2026-03-04",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "2277a708-ff64-43fc-9abf-bf90e66b2e42",
+      "title": "[스트레이트뉴스 여론조사] 서울시교육감 정근식 13.1% vs 한만중 12.3% 초...",
+      "content": "정 구청장과 오 시장의 가상 양자대결에서는 정원오 55.8% vs 오세훈 32.4%로 정 구청장이 23.4%p 차로 앞섰다. 이번 조사는 스트레이트뉴스 의뢰로 조원씨앤아이가 2026년 2월 28일~3월 1일 2일간 서울특별시 거주...",
+      "source_name": "Naver News",
+      "source_url": "https://www.straightnews.co.kr/news/articleView.html?idxno=296370",
+      "data_date": "2026-03-04",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "3443ff1a-f06b-40a2-9b2e-9692066620bf",
+      "title": "[스트레이트뉴스 여론조사] 서울시장 정원오 선두 질주...오세훈과 격차...",
+      "content": "스트레이트뉴스 의뢰로 조원씨앤아이가 지난 2월 28일~3월 1일 2일간 서울특별시 거주 18세 이상 남녀 804명을 대상으로 차기 서울시장 후보 적합도에 대해 물은 결과 다자대결에서 정원오 37.8% vs 오세훈 23.7...",
+      "source_name": "Naver News",
+      "source_url": "https://www.straightnews.co.kr/news/articleView.html?idxno=296371",
+      "data_date": "2026-03-04",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "ba44d1a2-79ca-455b-9002-325d5316ed4e",
+      "title": "조은희 \"정원오 검증은 이제 시작...민주당 서울시장 후보 된다는 보장...",
+      "content": "2018년 지방선거에서 더불어민주당의 서울특별시 구청장 선거 돌풍을 유일하게 막아 냈던 서초구청장 출신의 국민의힘 조은희 의원이 여권의 유력 서울시장 후보인 정원오 성동구청장에 대한 보다 철저한 검증이 있을...",
+      "source_name": "Naver News",
+      "source_url": "https://news.bbsi.co.kr/news/articleView.html?idxno=4069587",
+      "data_date": "2026-03-03",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "37b3d972-db99-4745-b4ee-6b8e4486bde2",
+      "title": "與 서울시장 경선 5파전… 전남광주통합시장 8명 출사표",
+      "content": "김영배·박주민·박홍근·전현희 의원과 정원오 성동구청장, 김형남 전 군인권센터 사무국장 등 6명이다. 다만... 완료하되, 서울특별시 경선을 가장 늦게 진행하는 것으로 고민하고 있다”고 말했다. 또한 “통합 논의가...",
+      "source_name": "Naver News",
+      "source_url": "https://m.skyedaily.com/news_view.html?ID=299392",
+      "data_date": "2026-03-02",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "900c5e52-47a6-4494-9ce6-849e896afa9c",
+      "title": "친명 김우영 \"이재명, 이 시대 허균과 같은 사람\"",
+      "content": "은평구청장과 정원오 성동구청장 등 지자체장, 이미경 전 국회의원, 대한황실 장손인 이준 황손 등 1000여명이... 김 의원은 18·19대 은평구청장과 서울특별시 정무부시장, 민주당 강원도당위원장, 이재명 당대표...",
+      "source_name": "Naver News",
+      "source_url": "https://www.kado.net/news/articleView.html?idxno=2036638",
+      "data_date": "2026-03-02",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "f032fd0d-afe2-41b3-ae9e-921d1059a34b",
+      "title": "민주, 서울시장·경기지사 경선 ‘5파전’",
+      "content": "서울의 경우, 김영배·박주민·박홍근·전현희 의원과 정원오 성동구청장, 김형남 전 군인권센터 사무국장 등... 다음달 20일까지 공천을 완료하되, 서울특별시 경선을 가장 나중에 하는 것으로 고민하고 있다”고 말했다.",
+      "source_name": "Naver News",
+      "source_url": "https://www.hani.co.kr/arti/politics/politics_general/1247312.html",
+      "data_date": "2026-03-02",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "98252371-6733-458b-8ddc-f4004e3ece38",
+      "title": "민주, 서울·경기 등 경선 방침...서울시장 '5파전'",
+      "content": "[김이수 / 더불어민주당 중앙당 공천관리위원회 위원장 : 첫 번째로 대한민국의 수도 서울특별시입니다. 공모한 후보 전원을 경선 후보자로 확정했습니다.] 김영배·박주민·박홍근·전현희 의원과 정원오 성동구청장...",
+      "source_name": "Naver News",
+      "source_url": "https://www.ytn.co.kr/_ln/0101_202603021827360140",
+      "data_date": "2026-03-02",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "a6c0124a-f4d2-4b80-8b80-eb17cddd8603",
+      "title": "與, 서울시장·경기지사 5파전… \"내달 20일전 공천 완료\"",
+      "content": "민주 공관위, 지선 4개 지역 경선 확정 박주민·정원오 등 서울, 본경선 3명 압축 김동연 지사·추미애 등 경기... 이날 공천 심사 발표를 마친 후 공관위 부위원장인 조승래 사무총장은 \"서울특별시 경선을 가장 나중에 하는...",
+      "source_name": "Naver News",
+      "source_url": "https://www.asiatoday.co.kr/view.php?key=20260303010000369",
+      "data_date": "2026-03-02",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "94b75b5d-b2ef-43f8-b729-e69aa31e8a68",
+      "title": "더불어민주당, 제9회 지방선거 광역단체장 2차 심사 결과 발표",
+      "content": "서울특별시 시장 후보 예비경선에는 김영배, 정원오, 전현희, 박홍근, 박주민, 김형남 등 6명이 참여하며, 이 가운데 3명이 본경선에 진출한다. 경기도지사 후보 예비경선에는 권칠승, 한준호, 추미애, 양기대, 김동연 등...",
+      "source_name": "Naver News",
+      "source_url": "http://www.siminsori.com/news/articleView.html?idxno=312542",
+      "data_date": "2026-03-02",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "7c647193-cf78-4095-a3d6-786fd767c84b",
+      "title": "與, 서울·경기·울산·전남광주 경선 확정…\"4월 20일 전 공천 완료\"",
+      "content": "서울시장 경선 후보자로는 김영배·김형남·박주민·박홍근·전현희·정원오 후보가 확정됐다. 경기도지사... 이어 \"저희 구상은 서울특별시 경선을 가장 나중에 하는 것으로 고민하고 있다. 경기, 광주·전남(등 순서)\"라며...",
+      "source_name": "Naver News",
+      "source_url": "https://www.ajunews.com/view/20260302140847338",
+      "data_date": "2026-03-02",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "43b08799-502c-4822-a231-29d8d828e4c7",
+      "title": "8파전 '전남·광주통합특별시장' 예비경선 치른다… 5인 압축",
+      "content": "서울시장 후보를 놓고는 김영배, 김형남, 박주민, 박홍근, 전현희, 정원오 등 6인이 경쟁을 벌인다. 경기지사... 공관위 부위원장인 조승래 사무총장은 이날 공천 심사 발표 후 \"저희 구상은 서울특별시 경선을 가장 나중에...",
+      "source_name": "Naver News",
+      "source_url": "https://www.jnilbo.com/news/articleView.html?idxno=90000024843",
+      "data_date": "2026-03-02",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "c119e1c4-80ea-42d4-a730-07f95e9282eb",
+      "title": "민주당 서울시장 경선 6파전...김영배·김형남·박주민·박홍근·전현희...",
+      "content": "전문가 정원오 후보\"라고 말했다. 이어 \"대한민국의 성장 엔진 울상광역시도 서울특별시와 마찬가지로 후보 전원이 경선 후보자\"라며 \"내란의 시간에 그 당시 여당에서 처음 탄핵을 외친 김상욱 후보, 지역감정 타파를 위해...",
+      "source_name": "Naver News",
+      "source_url": "https://www.pennmike.com/news/articleView.html?idxno=115989",
+      "data_date": "2026-03-02",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "edae4eb6-73fb-4dde-a9eb-b94ea67241f2",
+      "title": "민주당, 서울·경기·울산, 광주·전남 경선…서울·경기, 예비경선으로...",
+      "content": "선정했다\"며 \"전남·광주통합특별시의 심사 결과 광주시장과 전남지사에 공모한 모든 후보자를 경선 후보자로 선정했다\"고 밝혔다. 이에 서울시장 후보를 놓고 김영배·김형남·박주민·박홍근·전현희·정원오(가나다순)...",
+      "source_name": "Naver News",
+      "source_url": "https://www.newsis.com/view/NISX20260302_0003531453",
+      "data_date": "2026-03-02",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "7ae0d4aa-d97a-4b6d-b7ec-574f6ccc6933",
+      "title": "민주, 6·3 지선 서울·경기·울산·전남광주통합 후보자 전원 경선키로",
+      "content": "특별시도 광주시장과 전남지사에 공모한 민주당의 모든 후보자를 경선 후보자로 선정했다고 덧붙였다. 이번 발표에 따라 서울시장 후보 후보로 출마한 민주당의 김영배·김형남·박주민·박홍근·전현희·정원오...",
+      "source_name": "Naver News",
+      "source_url": "http://www.metroseoul.co.kr/article/20260302500192",
+      "data_date": "2026-03-02",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "59b4b448-a978-42ec-ac64-80c5f6a71bfa",
+      "title": "與서울시장, 김영배 김형남 박주민 박홍근 전현희 정원오 6인 경선",
+      "content": "“전남·광주통합특별시의 심사 결과 광주시장과 전남지사에 공모한 모든 후보자를 경선 후보자로 선정했다”고 말했다. 서울시장 경선 후보자로는 김영배·김형남·박주민·박홍근·전현희·정원오 후보가 확정됐다....",
+      "source_name": "Naver News",
+      "source_url": "https://www.donga.com/news/Politics/article/all/20260302/133446852/2",
+      "data_date": "2026-03-02",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "dbe49ccc-4863-4bae-9a47-054835820b77",
+      "title": "與, 서울·경기·울산, 광주·전남 경선…서울·경기, 예비경선으로 3인...",
+      "content": "선정했다\"며 \"전남·광주통합특별시의 심사 결과 광주시장과 전남지사에 공모한 모든 후보자를 경선 후보자로 선정했다\"고 밝혔다. 이에 서울시장 후보를 놓고 김영배·김형남·박주민·박홍근·전현희·정원오(가나다순)...",
+      "source_name": "Naver News",
+      "source_url": "https://www.newsis.com/view/NISX20260302_0003531411",
+      "data_date": "2026-03-02",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "9bfcbc7b-bd3a-4737-a5b3-c46a0fe97c90",
+      "title": "민주당 \"서울시장 경선 후보에 김영배·김형남·박주민·박홍근·전현희...",
+      "content": "전문가 정원오 후보\"라고 설명했다. 김이수 위원장은 이어 \"대한민국의 성장 엔진 울상광역시도 서울특별시와 마찬가지로 후보 전원이 경선 후보자다. 내란의 시간에 그 당시 여당에서 처음 탄핵을 외친 김상욱 후보...",
+      "source_name": "Naver News",
+      "source_url": "https://www.mediatoday.co.kr/news/articleView.html?idxno=332761",
+      "data_date": "2026-03-02",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "5a330aac-95d6-4bfa-a9db-5ac9724c0a72",
+      "title": "與, 서울·경기·울산·광주전남 경선… 서울시장 5파전",
+      "content": "먼저 서울특별시의 경우 김영배·김형남·박주민·박홍근·전현희·정원오 등 후보자 전원을 모두 경선에 참여키로 했다. 울산광역시 역시 김상욱·송철호·안재현·이선호 후보 전원이 경선 대상에 포함됐다. 경기도는...",
+      "source_name": "Naver News",
+      "source_url": "http://www.edaily.co.kr/news/newspath.asp?newsid=01741686645379384",
+      "data_date": "2026-03-02",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "31ee2c6a-305f-4c52-9b8f-3e19641adbb8",
+      "title": "검찰개혁 내홍 속 '험지' 찾은 정청래...정원오·박주민 '신경전'",
+      "content": "지방선거 최대 격전지인 서울시장 선거에 출사표를 던진 정원오·박주민 예비후보 등도 정책 공약을 앞세워... 민주당이 압승했던 2024년 총선의 경우 14개 인천 지역구 가운데 2곳을 국민의힘이 승리했는데 이 중 한 곳이...",
+      "source_name": "Naver News",
+      "source_url": "https://www.mt.co.kr/politics/2026/03/11/2026031114490026214",
+      "data_date": "2026-03-11",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "fb2d08c3-08d4-4077-b848-92f02153e46e",
+      "title": "[사사건건] 여권 뒤흔드는 ‘공소 취소 거래’ 의혹",
+      "content": "정치권 소식, 금요일에는 지역구로, 월요일에는 국회로 가는 금귀월래, 더불어민주당 박지원 의원.... 민주당의 정원오, 박주민, 전현희, 이 후보들한테 지게 돼 있고 또 나경원은 우리 민주당 여섯 후보에게 다 져요. 그렇기...",
+      "source_name": "Naver News",
+      "source_url": "https://news.kbs.co.kr/news/pc/view/view.do?ncd=8505462&ref=A",
+      "data_date": "2026-03-11",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "8d9c24d9-2627-468e-9883-7a51d64afd48",
+      "title": "[고수다] \"거래설? 개혁 반대하는 검찰 고위 간부의 플레이\"",
+      "content": "만약에 출마하더라도 명태균 아저씨 때문에 곤혹을 치러야 되고 모든 여론조사에서 민주당 후보인 정원오... ◎ 박지원 > 지방선거도 제 지역구인 해남·완도·진도에도 많이 조국혁신당으로 가서 공천을 신청한 분들이...",
+      "source_name": "Naver News",
+      "source_url": "https://imnews.imbc.com/replay/2026/nw1400/article/6806568_36974.html",
+      "data_date": "2026-03-11",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "634729c1-7a4b-4260-a55f-5f41119ed8bd",
+      "title": "국힘 절윤도, 송영길 공천도...정치는 명분과 타이밍 싸움 [굿모닝 인천...",
+      "content": "그러니까 지역구 민심 너무 안 좋으니까 이대로 선거가 되겠냐 라는 거에서 문제의식이 시작이 된 거고... 당연히 서울시장 가져와야 되는 자리이고 그런데 여기 지금 분위기 보니까 민주당 내부 분위기 보니까 정원오...",
+      "source_name": "Naver News",
+      "source_url": "https://news.ifm.kr/news/articleView.html?idxno=466546",
+      "data_date": "2026-03-11",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "618545a0-62b3-4389-8cf1-40d61d608deb",
+      "title": "흔들리는 PK, 서울 이어 부산까지... 민주당 ‘우세’ 흐름 굳어지나",
+      "content": "효과로 정원오 독주 - 경기도지사 경선 ARS 방식, 정치 고관여층 결집으로 김동현 지사에 위협적 * 아래... 그래서 주진우 의원의 지역구에 또 재보궐 선거에 도전하는 의원들이 전직 의원들이 많이 나타나고 있거든요....",
+      "source_name": "Naver News",
+      "source_url": "https://radio.ytn.co.kr/program/?f=2&id=107754&s_mcd=0214&s_hcd=01",
+      "data_date": "2026-03-11",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "54094cbb-d18c-4a55-babe-e8a04b36ad20",
+      "title": "정원오, ‘李정부 서울시장’ 슬로건 내걸고 경선 채비…캠프 구성 완료",
+      "content": "6·3 지방선거 서울시장 출마를 선언한 정원오 전 서울 성동구청장이 ‘이재명 정부의 서울시장’을 내세운... 캠프에는 서울 지역구 현역 국회의원 5명이 합류했다. 이해식 의원(강동을)이 선거대책위원장을 맡고, 채현일...",
+      "source_name": "Naver News",
+      "source_url": "https://www.joongang.co.kr/article/25410679",
+      "data_date": "2026-03-10",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "b4a4272c-9476-4a0d-8bd6-6839f7579625",
+      "title": "이준석 “국힘 절윤, 오세훈의 완벽한 승리…비윤 대표 주자로”",
+      "content": "의원의 지역구인 부산 북구에 나갈 것이란 관측도 나온다. A : “정치적 자살 행위다. 부산은 기본적으로... 부동산을 제어할 수 있다는 자신감이 있는데 시장을 너무 가볍게 본다.” Q : 정원오 전 성동구청장이 서울시장에...",
+      "source_name": "Naver News",
+      "source_url": "https://www.joongang.co.kr/article/25410651",
+      "data_date": "2026-03-10",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "f09b4100-5714-4017-8bbb-270db7e7fd49",
+      "title": "정원오 캠프 슬로건 '李정부 서울시장'…선대위원장 이해식·후원회장 ...",
+      "content": "신재현 김윤영 기자 = 더불어민주당 정원오 전 성동구청장이 10일 서울시장 선거 준비를 위한 선거대책위원회... 서울 강동을을 지역구로 둔 이해식 의원이 선대위원장을 맡는다. 영등포구청장 출신으로 영등포갑 지역구...",
+      "source_name": "Naver News",
+      "source_url": "https://www.newsis.com/view/NISX20260310_0003542398",
+      "data_date": "2026-03-10",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "66271ec5-77fc-416b-820f-90b1edf9fbae",
+      "title": "정원오 '李정부 서울시장' 슬로건 걸고 경선 시동…캠프 구성",
+      "content": "6·3 지방선거 서울시장 출마를 선언한 정원오 전 서울 성동구청장은 10일 '이재명 정부의 서울시장, 하나씩... 캠프에는 이정헌 의원(광진갑)을 비롯해 서울 지역구 현역 국회의원 5명이 합류했다. 강동구청장을 지낸 재선의...",
+      "source_name": "Naver News",
+      "source_url": "https://www.news1.kr/politics/assembly/6096435",
+      "data_date": "2026-03-10",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "72e99ba3-1cf4-4c4f-b26f-28444af66f5e",
+      "title": "이동형 \"李 검찰개혁 SNS, 그대로 받아들여야…왜 해석을?\"[한판승부]",
+      "content": "◆ 이동형> 지난 총선에는 지역구가 없었으니까. 그런데 이번에는 있기 때문에 각 지방마다 시의원, 도의원... ◇ 박재홍> 다만 민주당은 현재 굉장히 여유롭게 기다리고 있는 상황인데 지금 정원오 전 구청장에 대해서는...",
+      "source_name": "Naver News",
+      "source_url": "https://www.nocutnews.co.kr/news/6481995?utm_source=naver&utm_medium=article&utm_campaign=20260310070021",
+      "data_date": "2026-03-10",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "9c808756-8c9e-44c8-bc87-10e9c49a5e7d",
+      "title": "'오세훈 배수진'에 국민의힘, '절윤 선택'…서울시장戰 다시 불 붙을까...",
+      "content": "▲정원오, 與 경선 뛰어들자 경쟁자 집중 견제…가시밭길 예고 이재명 대통령이 공개적으로 칭찬한 정원오... 내어준 지역구다. 정치권에서는 송 전 대표가 확실한 '복귀의 명분'을 가지고 있다는 해석이다. 다만 이...",
+      "source_name": "Naver News",
+      "source_url": "https://www.dailian.co.kr/news/view/1618727/?sc=Naver",
+      "data_date": "2026-03-10",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "33a2cc46-9012-4688-975a-7abb39a417b9",
+      "title": "[사사건건] 뿔난 오세훈 “안 해”…국민의힘, 그대로 고?",
+      "content": "민주당은 오늘 정원오 전 성동구청장이 서울시장 출마를 공식 선언을 했습니다. 이재명 대통령이 정 전... ◎김용준: 지금 이런 가운데요, 조국혁신당 조국 대표가 민주당과 합당에 반대했던 민주당 최고위원들의 지역구에...",
+      "source_name": "Naver News",
+      "source_url": "https://news.kbs.co.kr/news/pc/view/view.do?ncd=8503143&ref=A",
+      "data_date": "2026-03-09",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "51066dc5-2e63-493b-855e-b5f3701beb5e",
+      "title": "[여담야담] 민주 서울시장 후보 각축…'정원오 대세론' 흐름 이어질까?",
+      "content": "논설위원 -------------------------------------------- ● 정원오 출마 선언 박수현/더불어민주당 의원 \"정원오, 현역... 제 지역구에서도. 하여튼 그러면서 이재명 대통령의 현재 국정 운영이 매우 높은 점수를 받고 있기 때문에 그...",
+      "source_name": "Naver News",
+      "source_url": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008469739&plink=ORI&cooper=NAVER",
+      "data_date": "2026-03-09",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "0990e04e-85e8-446d-a34b-d76c24215d03",
+      "title": "‘일하는 대통령’ 효과?…여권 후보들 “明心보다 행정 역량 경쟁”",
+      "content": "이날 정원오 서울시장 예비후보는 행정 경험을 전면에 내세우며 서울시장 출마를 공식 선언했다. 정 후보는... 이른바 '이재명의 입'으로 불렸던 김남준 전 청와대 대변인도 이 대통령의 지역구였던 인천 계양을 재...",
+      "source_name": "Naver News",
+      "source_url": "https://www.ekn.kr/web/view.php?key=20260309028296187",
+      "data_date": "2026-03-09",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "4fe848c9-6fc0-4232-9cde-73ec1d64eeed",
+      "title": "[전격시사] 오세훈 후보등록 왜 안 해? (박성준) “윤 어게인과 절연을...",
+      "content": "지방선거 흥행 자체가 빨간불\" 정원오 서울시장 후보 농지법 논란> 박 \"국민의힘 네거티브 공세 할 수밖에... 그러니까 어제 간 곳도 부산 구포시장 같은 경우는 전재수 의원 부산 북구 지역구 시장 아니겠습니까? 거기에서...",
+      "source_name": "Naver News",
+      "source_url": "https://news.kbs.co.kr/news/pc/view/view.do?ncd=8502931&ref=A",
+      "data_date": "2026-03-09",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "e6e179c4-53f9-438d-ba69-307abf7f432a",
+      "title": "이기인 \"'출마 거부' 오세훈, 무소속 출마 원희룡 모델 따라하려는 듯\"",
+      "content": "이건 제 개인적인 뇌피셜입니다만 정원오 후보가 저쪽에 되면 오 시장과 정원호 후보 사이에 지금은 굉장히... ◆ 박원석> 김태흠 지사가 공천 신청 안 한 거는 보령 서천 지역구로 돌아가겠다는 큰 그림인가요? ◆ 박원석...",
+      "source_name": "Naver News",
+      "source_url": "https://www.nocutnews.co.kr/news/6481421?utm_source=naver&utm_medium=article&utm_campaign=20260309103111",
+      "data_date": "2026-03-09",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "39679605-db0d-48e3-9849-dfa5ce8fe90f",
+      "title": "‘명픽’ 대거 출마… 여권 新주류 세력 형성하나",
+      "content": "정원오·한준호·박찬대 출사표 송영길도 복당 이어 출마 유력 강훈식·김용범은 사실상 잔류 6·3 지방선거를... 송 전 대표는 이 대통령과 매우 가까운 사이로, 자신이 5선 국회의원을 지낸 인천 계양을 지역구를 이...",
+      "source_name": "Naver News",
+      "source_url": "https://www.chosun.com/politics/politics_general/2026/03/09/D6MVEKI5JFHE7KCDXWAU4BER2Y/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news",
+      "data_date": "2026-03-09",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "759e91d1-d853-4f2a-96c0-332ef9efa100",
+      "title": "달아오르는 ‘룰 싸움’…토론회·배심원제, 추격자의 역전 기회?",
+      "content": "서울시장 후보 정원오 독주에 “깜깜이 경선 안 돼, 토론 더하자” 경기와 전남·광주 중하위권 후보들은... 다만 이재명 대통령의 국회의원 시절 지역구였던 인천 계양을을 비롯한 국회의원 재보궐선거 핵심 승부처에...",
+      "source_name": "Naver News",
+      "source_url": "https://www.khan.co.kr/article/202603082040005",
+      "data_date": "2026-03-08",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "9658179f-ee4f-427c-a2c0-adc4c35078b0",
+      "title": "민주당 경선 일정 확정에 ‘룰 싸움’ 치열…토론회·배심원제가 판도 ...",
+      "content": "서울은 정원오 전 서울 성동구청장의 대세론, 경기는 김동연 경기지사와 추미애 의원, 전남광주에선 민형배... 다만 이재명 대통령의 국회의원 시절 지역구였던 인천 계양을을 비롯한 국회의원 재·보궐 선거 핵심...",
+      "source_name": "Naver News",
+      "source_url": "https://www.khan.co.kr/article/202603081812001",
+      "data_date": "2026-03-08",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "198141e3-013a-4524-bd45-ca50536f4916",
+      "title": "정옥임 \"韓, 어떠한 보수 밀알 될 지 명료해야\"[한판승부]",
+      "content": "한동훈 전 대표 내일 전재수 민주당 의원의 지역구이기도 한 부산 북구갑 구포시장에 갑니다. 지난주 이... 민주당 김영배, 박주민, 전현희 의원 정원오 전 구청장을 견제하는 모습 보이고 있습니다. 세 후보가 후보 토론회...",
+      "source_name": "Naver News",
+      "source_url": "https://www.nocutnews.co.kr/news/6480995?utm_source=naver&utm_medium=article&utm_campaign=20260307083046",
+      "data_date": "2026-03-07",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "d78f3216-1b33-49bb-af85-9210f344131e",
+      "title": "“푸른 점퍼 입혀주고 포옹”…‘지선 D-90’ 속도내는 민주당",
+      "content": "서울시장 경선에는 김영배·박주민·전현희 의원, 정원오 성동구청장, 김형남 전 군인권센터 사무총장 등... 계양을 지역구는 이 대통령이 2022년 6월 보궐선거에서 국회의원에 당선된 곳이다. 이들이 모인 식당 역시 이...",
+      "source_name": "Naver News",
+      "source_url": "https://www.ekn.kr/web/view.php?key=20260306022595614",
+      "data_date": "2026-03-07",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "a721544d-aa1c-490e-809b-51f8f980dd6b",
+      "title": "친명 '김남준 지원'에 송영길 \"계양주민이 판단\"…서울에선 '경선룰' 논...",
+      "content": "이재명 대통령의 전 지역구에는 터줏대감과 대통령 측근간 신경전이 날카롭고, 서울시장의 경우, 후보... \" 5파전으로 치러지는 서울시장 후보 경선에선 정원오 전 성동구청장에 대한 견제가 시작됐습니다. 전현희·김영배...",
+      "source_name": "Naver News",
+      "source_url": "https://news.tvchosun.com/site/data/html_dir/2026/03/06/2026030690258.html",
+      "data_date": "2026-03-06",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "215ab3a6-7513-4f86-81ab-76e0b03dc9d8",
+      "title": "[핫이슈] 정청래에 최민희까지 퇴출....'재명이네 마을' 실체 추적",
+      "content": "서울시장 경선의 경우 이 대통령이 사실상 픽한 것으로 알려진 정원오 전 서울 성동구청장의 대세론에... 이밖에 이 대통령의 옛 지역구인 인천 계양을 국회의원 보궐선거 공천도 관심사다. 송영길 전 민주당 대표와...",
+      "source_name": "Naver News",
+      "source_url": "https://www.ilyoseoul.co.kr/news/articleView.html?idxno=513894",
+      "data_date": "2026-03-06",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "d48486a2-e79c-4382-b208-36215e61282c",
+      "title": "[최진 칼럼] 6월 지방선거 7대 관전 포인트",
+      "content": "정원오 vs 오세훈 '정원오냐? 오세훈이냐?' 두 사람의 미래를 보면 민주당과 국민의힘의 미래를 볼 수 있다는... 그는 자신의 옛 지역구인 인천 계양을 공천을 놓고 '대통령의 입'으로 불리는 김남준 전 청와대 대변인과...",
+      "source_name": "Naver News",
+      "source_url": "https://weekly.hankooki.com/news/articleView.html?idxno=7153275",
+      "data_date": "2026-03-06",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "4e23a3e5-0591-4cc5-9999-918da7802ee6",
+      "title": "한국노총 창립 80주년 기념행사 성황",
+      "content": "교육감, 정원오 더불어민주당 서울시장 예비후보 등도 참석해 한국노총 80주년을 축하했다. 박래군 416재단... 한국노총은 지난 2010년부터 한국노총 창립기념식 및 후원의 날 행사를 통해 모금한 후원금을 소외계층을 위한...",
+      "source_name": "Naver News",
+      "source_url": "https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003213811&CMPT_CD=P0010&utm_source=naver&utm_medium=newsearch&utm_campaign=naver_news",
+      "data_date": "2026-03-11",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "3a954bb6-fca1-46fd-9121-5664efdb62bd",
+      "title": "김동명 위원장, “정의로운 사회대전환 주도‥ 조직률 제고·AI 시대 노...",
+      "content": "교육감, 정원오 성동구청장 등이 함께했다. 또한 이남순, 이용득, 김동만 前 위원장을 비롯한 노총 선배와... 창립기념식 및 후원의 날 행사를 통해 모금한 후원금을 소외계층을 위한 사회공헌기금으로 사용하고 있다.",
+      "source_name": "Naver News",
+      "source_url": "http://news.inochong.org/detail.php?number=6368&thread=22r07",
+      "data_date": "2026-03-10",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "35253f4a-7b25-4b86-aa48-cf4f0144c7f6",
+      "title": "[고하승 칼럼] 이재명 ‘원픽’ 정원오는 성역인가.",
+      "content": "앞서 정원오는 지역 쓰레기 처리업체들로부터 선거 후원금을 받고 이후 해당 업체들이 대규모 수의계약을 따냈다는 의혹이 제기됐었다. 이 사안은 국민의힘 김재섭 의원이 공개적으로 문제를 제기하면서 본격적인 정치...",
+      "source_name": "Naver News",
+      "source_url": "https://www.siminilbo.co.kr/news/newsview.php?ncode=1160276004103425",
+      "data_date": "2026-03-10",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "1454d3a6-bf02-46e8-89ed-ac8944884d4b",
+      "title": "윤희숙 \"정원오, 비전·행정 모두 부족… 서울을 맡길 수 없다\"",
+      "content": "예비후보인 정원오 전 성동구청장을 향해 정치적 독립성과 행정 능력을 문제 삼으며 \"서울을 맡기기 어렵다... 후원금 문제와 관련해서도 비판을 이어갔다. 윤 전 위원장은 \"구와 사업 관계에 있는 업체로부터 후원금을...",
+      "source_name": "Naver News",
+      "source_url": "https://www.newscj.com/news/articleView.html?idxno=3381665",
+      "data_date": "2026-03-06",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "ce3ee7ec-50ca-47fd-9d97-7a4176d88e7b",
+      "title": "윤희숙 \"박용진의 제2의 이혜훈…정원오, 세금으로 인심 쓴 것\"",
+      "content": "서울시장 출마를 선언한 국민의힘 윤희숙 전 국회의원은 민주당 정원오 전 성동구청장을 일 못하는 '박원순... 또 최근 불거진 성동구 지역 내 쓰레기 관련 업체로부터 받은 후원금 의혹에 대해서도 쓴소리를 했다. 윤 전...",
+      "source_name": "Naver News",
+      "source_url": "https://news.tvchosun.com/site/data/html_dir/2026/03/05/2026030590173.html",
+      "data_date": "2026-03-05",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "7088273e-cee9-4b3f-81d2-29e0a0329ee2",
+      "title": "[류병수의 강펀치] 윤희숙 \"李대통령, 투자 리딩방 운영하나…정원오, ...",
+      "content": "그 정원오 구청장을 관찰할 기회가 여러 번 있었는데 저는 박원순 시장 시즌 2라고 생각해요. 왜냐하면 얼마 전에 나온 의혹들 중에 그런 게 있었어요. 이분이 그 쓰레기 업체들한테 후원금을 최고 한도로 막 받고 계속...",
+      "source_name": "Naver News",
+      "source_url": "https://news.tvchosun.com/site/data/html_dir/2026/03/05/2026030590164.html",
+      "data_date": "2026-03-05",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "0e3856f0-8129-4db4-9640-c418cc529db3",
+      "title": "[아침저널] 조은희 \"한동훈 대구 동행 의원 징계 안돼...중진 대부분 이...",
+      "content": "▶ 조은희 : 업체들한테 후원금을 안 받을 뿐만 아니라 심지어 저는 후원회까지 결성을 안 했거든요. 근데 정원오 구청장은 그런 문제도 아직 검증을 거치지 않았고 구청장배 골프대회가 있는데요. 그 부분도 앞으로 검증을...",
+      "source_name": "Naver News",
+      "source_url": "https://news.bbsi.co.kr/news/articleView.html?idxno=4069573",
+      "data_date": "2026-03-03",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "d04abe23-8ca8-48f6-99f7-f541eee02579",
+      "title": "김재섭 \"정원오, 쓰레기업체로부터 이권성 후원금 받아\" … 鄭 \"저질 공...",
+      "content": "뉴데일리 이기명 기자 = 김재섭 국민의힘 의원은 더불어민주당 서울시장 예비후보인 정원오 성동구청장에... 정 구청장은 이에 대해 페이스북에 \"정치 후원금은 선관위 관리 하에 투명하게 처리되는 별개의 사안\"이라며...",
+      "source_name": "Naver News",
+      "source_url": "https://www.newdaily.co.kr/site/data/html/2026/03/01/2026030100018.html",
+      "data_date": "2026-03-01",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "829db678-13f0-4f13-bc55-b47672dd0f25",
+      "title": "국힘 “정원오, 성동구 쓰레기업체 후원금 받아”…鄭 “저질 공세”",
+      "content": "6·3 지방선거 서울시장에 도전하는 정원오 성동구청장이 23일 서울 영등포구 여의도 더불어민주당... 정 구청장은 이에 대해 페이스북에 글을 올려 “정치 후원금은 선관위 관리하에 투명하게 처리되는 별개의 사안”...",
+      "source_name": "Naver News",
+      "source_url": "https://www.munhwa.com/article/11571332?ref=naver",
+      "data_date": "2026-03-01",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "c09ddf32-daff-46a7-b09e-74634984a05e",
+      "title": "野 \"정원오, 고액 후원 업체 4곳과 수의계약\"…정원오 \"관내 업체 4곳이...",
+      "content": "국민의힘이 민주당 내 서울시장 후보군 중 한 명인 정원오 성동구청장에 대해 검증 공세를 강화하고 있습니다. 정 구청장의 농지보유 의혹에 이어 오늘은 고액 후원금을 낸 폐기물 수거 업체들이 성동구와 수의계약한...",
+      "source_name": "Naver News",
+      "source_url": "https://news.tvchosun.com/site/data/html_dir/2026/02/27/2026022790260.html",
+      "data_date": "2026-02-27",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "a40dc908-1888-4de0-accd-3fd29b8fe968",
+      "title": "김재섭 \"정원오, 성동구 쓰레기업체 후원금 받아\"…정 \"저질 공세에 깊...",
+      "content": "김재섭 국민의힘 의원은 27일 더불어민주당 서울시장 예비후보인 정원오 성동구청장을 겨냥해 \"정 구청장은... 일\"이라며 \"정치후원금은 선관위 관리 하에 투명하게 처리되는 별개의 사안\"이라고 했다. 또한 \"김 의원은...",
+      "source_name": "Naver News",
+      "source_url": "https://www.newsis.com/view/NISX20260227_0003530141",
+      "data_date": "2026-02-27",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "4da97542-e498-432e-ac24-d3614eaff8fb",
+      "title": "국힘 김재섭 “정원오, 성동구 쓰레기업체서 후원금 받아”…정원오 “...",
+      "content": "이같은 의혹 제기에 정원오 구청장 측은 즉각 반박했습니다. 정 구청장도 오늘 자신의 페이스북에 글을 올려 “정치 후원금은 선관위 관리하에 투명하게 처리되는 별개의 사안”이라며 “김 의원은 대가성 계약이라는...",
+      "source_name": "Naver News",
+      "source_url": "https://news.kbs.co.kr/news/pc/view/view.do?ncd=8495948&ref=A",
+      "data_date": "2026-02-27",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "b6029004-f9e8-4543-97ab-500bbe5b1f85",
+      "title": "김재섭·안철수 '협공'…정원오, 쓰레기 처리업체 계약·휴양시설 의혹...",
+      "content": "더불어민주당 서울시장 예비후보인 정원오 성동구청장이 국민의힘의 집중 공세에 직면했다. 쓰레기 처리업체 후원금과 수의계약, 구 휴양시설 부지 선정 문제까지 잇따라 도마에 오르면서 정치권 공방이 격화되는...",
+      "source_name": "Naver News",
+      "source_url": "https://www.thepublic.kr/news/articleView.html?idxno=295831",
+      "data_date": "2026-02-27",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "a12cac52-2633-499a-8262-3c17f1baddee",
+      "title": "국힘 \"정원오, 성동구 쓰레기업체 후원금 받아\"…鄭 \"저질 공세\"(종합2보...",
+      "content": "김재섭 \"해당업체, 수의계약으로 사업 수주\"…정원오 \"다른업체 참여 없었다\" 안철수 \"區휴양시설... 정 구청장은 이에 대해 페이스북에 글을 올려 \"정치 후원금은 선관위 관리하에 투명하게 처리되는 별개의 사안\"이라며...",
+      "source_name": "Naver News",
+      "source_url": "https://www.yna.co.kr/view/AKR20260227035853001?input=1195m",
+      "data_date": "2026-02-27",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "2f33a95a-218f-4d9b-ad01-96260e4cec41",
+      "title": "국민의힘, 연일 정원오 때리기…“저질 공세” 역공",
+      "content": "국민의힘, 연일 서울시장 민주당 후보군인 정원오 성동구청장 공세에 나섰고 있는데요. 오늘은 정 구청장이 쓰레기 수거업체들에게 후원금 받고, 수의계약을 맺었다는 의혹을 제기했습니다. 정 구청장은 상관 관계 없는...",
+      "source_name": "Naver News",
+      "source_url": "https://www.ichannela.com/news/main/news_detailPage.do?publishId=000000516637",
+      "data_date": "2026-02-27",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "a393fb3b-b400-4352-872a-364e6df49f0c",
+      "title": "농지에 이어 후원금 의혹…연일 정원오 때리는 국민의힘",
+      "content": "김재섭 \"정원오, 수의계약 맺은 쓰레기업체서 후원금\" 정원오 \"저질 공세…허위 선동 즉각 멈추길\" 오세훈·정원오, '성수동 업적' 두고 연일 신경전",
+      "source_name": "Naver News",
+      "source_url": "https://www.ichannela.com/news/main/news_detailPage.do?publishId=000000516612",
+      "data_date": "2026-02-27",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "f8531708-657e-46fb-b099-8bcd8d617b36",
+      "title": "정원오 성동구청장, 후원금·휴양시설 논란 일파만파… 국힘 공세 확산",
+      "content": "국민의힘이 더불어민주당 소속으로 서울시장 출마를 준비 중인 정원오 성동구청장을 둘러싼 후원금·수의계약 의혹을 제기하며 공방이 이어지고 있다. 정 구청장은 \"절차에 따라 진행된 사안\"이라고 반박했다. ◆\"선거...",
+      "source_name": "Naver News",
+      "source_url": "https://www.newscj.com/news/articleView.html?idxno=3379598",
+      "data_date": "2026-02-27",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "eac9a47f-e3e0-4088-8343-2b567a984246",
+      "title": "[정치 ON] 민주, 대구 현장 최고위...한동훈은 '서문시장행'",
+      "content": "한편 이재명 대통령이일 잘한다며 특급칭찬했던정원오 성동구청장. 국민의힘은 연일 정원오 때리기에... 그러나 다만 이 업자가 3번의 지방선거 과정에서 법정 최고 후원금인 500만 원씩을 계속했단 말이죠. 이런 부분 등을...",
+      "source_name": "Naver News",
+      "source_url": "https://www.ytn.co.kr/_ln/0101_202602271641040520",
+      "data_date": "2026-02-27",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "0dd26b1b-ffab-4311-a6a3-cc4a567dc299",
+      "title": "김재섭 \"정원오 후원 업체 사업 수주\" 공격에 정원오 \"허위 선동\"",
+      "content": "▲  정원오 성동구청장(자료사진) ⓒ 연합뉴스 김재섭 국민의힘 의원이 27일 정원오 서울 성동구청장의 농지법 위반 의혹에 이어 구내 폐기물 처리 업체의 후원금 및 수의계약 의혹을 제기하자, 정 구청장 측이 \"가짜뉴스...",
+      "source_name": "Naver News",
+      "source_url": "https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003210557&CMPT_CD=P0010&utm_source=naver&utm_medium=newsearch&utm_campaign=naver_news",
+      "data_date": "2026-02-27",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "67f09f31-3e19-44f5-90b5-f2c4805ccb40",
+      "title": "정원오 \"쓰레기업체 후원받고 계약? 허위 선동 즉각 멈추길\"",
+      "content": "정원오 서울 성동구청장은 쓰레기업체 후원을 받고 수의계약을 맺었다는 국민의힘 김재섭 의원 등의 의혹... 정치후원금 문제에 대해선 선관위 관리 아래 투명하게 처리되는 별개의 사안이라며, 김 의원이 '대가성 계약...",
+      "source_name": "Naver News",
+      "source_url": "https://www.ytn.co.kr/_ln/0101_202602271531313600",
+      "data_date": "2026-02-27",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "504312e0-bd86-48bd-8880-6be8d589ffe6",
+      "title": "김재섭 \"정원오, 수의계약 쓰레기업체 후원금 받아\"…鄭 \"저질 공세\"",
+      "content": "국민의힘 김재섭 의원은 27일 페이스북에 더불어민주당 서울시장 예비후보인 정원오 성동구청장이 성동구와 수의계약을 맺은 쓰레기 처리 업체 대표들로부터 후원금을 받아왔다고 비판했다. 김 의원은 정 구청장이...",
+      "source_name": "Naver News",
+      "source_url": "https://news.tvchosun.com/site/data/html_dir/2026/02/27/2026022790167.html",
+      "data_date": "2026-02-27",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "29bc695b-aeb0-489d-97ee-442a2ff73cb1",
+      "title": "국힘 \"정원오, 성동구 쓰레기업체 후원금 받아\"…鄭 \"저질 공세\"(종합)",
+      "content": "예비후보인 정원오 성동구청장에 대해 \"2014년, 2018년, 2022년 선거 과정에서 성동구 소재 쓰레기 처리 업체... 정 구청장은 이에 대해 페이스북에 글을 올려 \"정치 후원금은 선관위 관리하에 투명하게 처리되는 별개의 사안...",
+      "source_name": "Naver News",
+      "source_url": "https://www.yna.co.kr/view/AKR20260227035851001?input=1195m",
+      "data_date": "2026-02-27",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "5baca464-e663-47c9-b4b8-1f97ece07d3c",
+      "title": "김재섭 “폐기물 업자에 후원받고 계약”…정원오 “업체가 4곳 뿐, 허위...",
+      "content": "국민의힘이 연일 민주당 서울시장 유력 후보로 거론되는 정원오 성동구청장에 대한 공세를 펼치는 가운데... 정 구청장은 또 “정치후원금은 선관위 관리하에 투명하게 처리되는 별개의 사안”이라며 \"김 의원이 대가성...",
+      "source_name": "Naver News",
+      "source_url": "https://news.jtbc.co.kr/article/NB12287341?influxDiv=NAVER",
+      "data_date": "2026-02-27",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "2d5801d1-ec67-4bee-ad50-5abbb775f407",
+      "title": "서울시장 출마 김영배 \"서울형 4.5일제 도입\"…노동시간 단축 공약 전면",
+      "content": "이투데이=정성욱 기자 | 이동권 전문가·동료 의원들 집결 공약 지지 선언 '시간평등특별시' 비전 구체화... 민주당 서울시장 경선에는 현재 김영배·박주민·전현희 의원과 정원오 성동구청장, 김형남 전 군인권센터...",
+      "source_name": "Naver News",
+      "source_url": "https://www.etoday.co.kr/news/view/2564293",
+      "data_date": "2026-03-11",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "2d717deb-3331-4878-9dd2-d47320c6ccda",
+      "title": "與서울시장 후보들 분주…정원오 \"경제위기 극복\" 전현희 \"주 4.5일제\"",
+      "content": "정원오 전 서울 성동구청장은 시장이 책임지는 민관합동 경제위기극복위원회 가동을 공약했고, 전현희... 11일엔 황희·이용선·윤건영 의원, 12일엔 정태호·고민정·진성준·곽상언 의원 등이 정책 지지 선언도 할...",
+      "source_name": "Naver News",
+      "source_url": "https://www.news1.kr/politics/assembly/6096056",
+      "data_date": "2026-03-10",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "eb84ddbc-792a-4ef0-b4c0-5b10288fc28a",
+      "title": "민주당 지방선거 경선 시동…수도권·전남광주 등 텃밭지역 예선 치열",
+      "content": "서울에서는 김영배·박주민·전현희 의원과 정원오 전 성동구청장, 김형남 전 군인권센터 사무국장이 경선에... 특히 본경선과 결선투표까지 이어지는 과정에서 후보 간 단일화나 탈락 후보의 지지 선언이 승부를 가를...",
+      "source_name": "Naver News",
+      "source_url": "http://www.seoulwire.com/news/articleView.html?idxno=710131",
+      "data_date": "2026-03-09",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "2eaf6d35-dc4e-434b-a5c6-581431228302",
+      "title": "與, 6·3 지선 공천룰 확정…전남·광주특별시장 대격돌 예고",
+      "content": "후보의 지지 선언이 최종 승부를 가를 '캐스팅보트'가 될 것이라는 관측도 나온다. 이번 선거의 또 다른... 서울은 김영배·박주민·전현희 의원과 정원오 전 성동구청장, 김형남 전 군인권센터 사무국장 등 5인이 경쟁에...",
+      "source_name": "Naver News",
+      "source_url": "https://www.jnilbo.com/news/articleView.html?idxno=90000025552",
+      "data_date": "2026-03-08",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "049bb2d8-2557-4873-81c2-49ca106acd06",
+      "title": "민주당 후보들, 당내 ‘세불리기 경쟁’ 본격화",
+      "content": "민주당 서울시장 후보는 김영배·박주민·전현희 의원, 정원오 전 성동구청장, 김형남 전 군인권센터... 김 지사에게 날을 세웠던 염태영 의원은 한준호 의원 지지를 선언했다. 몇몇 의원들이 내부적으로 지지의사를...",
+      "source_name": "Naver News",
+      "source_url": "https://www.naeil.com/news/read/580191?ref=naver",
+      "data_date": "2026-03-06",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "9fb70f2f-5318-41ed-aab1-253280031b5a",
+      "title": "[ABC 뉴스룸] 친명도, 친문도 박주민 캠프로 모인다 \"정원오 맹추격\"",
+      "content": "다양한 지지를 받는 상황, 대세론이 불고 있는 정원오 성동구청장을 따라잡을 수 있을지 귀추가 주목됩니다. ABC 뉴스 박상우입니다. 오는 6월 서울시장 선거 출마를 선언한 박주민 더불어민주당 의원 [사진=박주민...",
+      "source_name": "Naver News",
+      "source_url": "https://www.ajunews.com/view/20260305083754347",
+      "data_date": "2026-03-05",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "b6b05857-66dc-45b5-bdd9-dd17552bcee3",
+      "title": "[오늘의 ABC 뉴스룸] 韓증시 급락에 외신 반응은…코스피와 '선긋기' 外",
+      "content": "친명도, 친문도 박주민 캠프로 모인다 \"정원오 맹추격\" (앵커) 유시민 작가의 공개 지지를 받은 박주민... 앞서 공개 지지를 선언한 김우영 의원에 이어 친명 정치인들이 본격 박주민 후보 캠프에 합류하기 시작한...",
+      "source_name": "Naver News",
+      "source_url": "https://www.ajunews.com/view/20260305173300024",
+      "data_date": "2026-03-05",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "64d57937-4f96-4e7c-b8fe-66afafac206a",
+      "title": "\"잘되는 집은 공천도 빨라\"...교통정리 속도 내는 민주당, 국힘은 잡음 ...",
+      "content": "◇ 김준일 : 몇몇 의원들이 서울시장 후보들 공개 지지 선언하고 나섰거든요. 예를 들면 코스피 5천 위원장 오기영 의원이 경제 전문가인데, 정원오 구청장 캠프에 합류했다는 소식이 들렸고 김우영 의원 여기도 친명이고...",
+      "source_name": "Naver News",
+      "source_url": "https://radio.ytn.co.kr/program/?f=2&id=107656&s_mcd=0214&s_hcd=01",
+      "data_date": "2026-03-05",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "d22de8cf-d8ea-4e47-9671-84aa2153604a",
+      "title": "[인터뷰 전문] 정은혜 \"한동훈, 결단 내려야 하지만 그러기엔 어려운 캐...",
+      "content": "맞추라는 지지자들의 소망\" \"오세훈, 서울시장으로서 국민 기억에 남는 게 하나도 없어\" \"정원오 구청장... 근데 봤을 때는 옛날에 안철수 의원 같은 경우도 저도 2012년에 대선에서 문재인 대통령님 지지 선언을 했죠. 그리고...",
+      "source_name": "Naver News",
+      "source_url": "https://www.news1.kr/politics/president/6081210",
+      "data_date": "2026-02-24",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "1bc4ad6d-d92a-4d09-b649-f3f8694e1548",
+      "title": "서영교도 서울시장 출마 포기",
+      "content": "원외에선 이재명 대통령의 우회적 지원사격 이래 민주당 후보중 지지율 1위를 독주중인 정원오 성동구청장의 출마 선언이 초읽기에 들어간 상태다. 전날 경기도지사 선거에 도전했던 김병주 민주당 의원이 출마 포기를...",
+      "source_name": "Naver News",
+      "source_url": "https://www.viewsnnews.com/article?q=233840",
+      "data_date": "2026-02-23",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "7a544fc2-c220-489e-8b7e-eba8280e03b0",
+      "title": "[박홍근 더불어민주당 의원] \"노동현장서 대화·소통하는 노동존중특별...",
+      "content": "\"저는 3선 의원일 때 당시 이재명 경기도지사를 가장 먼저 공개 지지선언 했고 캠프를 짜서 비서실장을 맡아... 더구나 지난해 12월 이재명 대통령이 SNS에서 언급한 정원오 서울 성동구청장이 유력 주자로 급부상하기도...",
+      "source_name": "Naver News",
+      "source_url": "https://www.labortoday.co.kr/news/articleView.html?idxno=232816",
+      "data_date": "2026-02-23",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "09715b13-c73d-4ecf-a38f-f20a5bae37b0",
+      "title": "박홍근,\"명심(明心)은 정원오?… 이재명 대통령의 진짜 속내는 '경선 흥...",
+      "content": "그는 \"이재명 대통령이 도지사 시절, 서울 지역 3선 의원 중 최초로 지지 선언을 했고, 비서실장을 맡아 대선... 대통령의 진짜 속내, 내가 가장 잘 안다\" 최근 이재명 대통령이 당내 경쟁자인 정원오 성동구청장을 공개...",
+      "source_name": "Naver News",
+      "source_url": "https://www.ppss.kr/news/articleView.html?idxno=286192",
+      "data_date": "2026-02-12",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "9c7bacd1-d1a0-496b-be7e-25b59236e430",
+      "title": "6·3 지선 D-100일, 초대 특별시장 자리 놓고 치열한 경쟁 돌입",
+      "content": "대해 지지 선언을 할 수 있다는 것이다. 출마자 러시로 경선 방식이 A, B 2개 조로 나눠 진행될 가능성이 높아... 이재명 대통령이 정원오 성동구청장에 대한 칭찬 한마디로 정 청장이 여당 서울시장 후보군에서 지지도가...",
+      "source_name": "Naver News",
+      "source_url": "https://www.nocutnews.co.kr/news/6469496?utm_source=naver&utm_medium=article&utm_campaign=20260210120016",
+      "data_date": "2026-02-10",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "a2c05427-a69a-4082-805c-61e338db4cd7",
+      "title": "[고수다] '부동산 대책' 팔 걷어부친 정부‥\"강력한 의지‥이번에는 다...",
+      "content": "◎ 박홍근 > 그래도 제일 먼저 3선 의원 중에서 당시에 이재명 도지사를 대통령 후보로 공개 지지선언하고... ◎ 진행자 > 지금 여론 흐름을 보면 정원오 구청장이 조금 앞서가는 모양새예요. 어떻게 뒤집으실 거예요?...",
+      "source_name": "Naver News",
+      "source_url": "https://imnews.imbc.com/replay/2026/nw1400/article/6798612_36974.html",
+      "data_date": "2026-02-04",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "b1b34bd1-bcfd-48e9-9a9c-36becc6e9748",
+      "title": "정원오 구청장 \"행정은 언제나 시민의 일상에서 시작된다\"",
+      "content": "열린 정원오 성동구청장 출판기념회에는 정치인을 물론 주민, 노동자, 학생, 교수, 배우, 장애인, 언론인, 전현직 구청장 등 각계각층에서 많은 인파가 몰렸다. 정 구청장 지지를 선언했던 구청장 출신 더불어민주당 이해식...",
+      "source_name": "Naver News",
+      "source_url": "https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003204095&CMPT_CD=P0010&utm_source=naver&utm_medium=newsearch&utm_campaign=naver_news",
+      "data_date": "2026-02-03",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "80c00c28-c94e-4574-b213-92b60ee3bb56",
+      "title": "[진담승부] 홍석준 \"제명은 전화위복\" vs 강민구 \"보수 재편 신호탄\"",
+      "content": "특히 오 시장이 정원오 성동구청장과 백중세 또는 밀리는 여론조사가 나오고 있는 상황에서 \"한동훈... 그는 자신의 경험을 들어 \"나는 2021년 7월에 당시 윤석열 후보를 현역 의원 1번으로 내가 지지 선언했다. 그런데...",
+      "source_name": "Naver News",
+      "source_url": "https://www.kyongbuk.co.kr/news/articleView.html?idxno=4063431",
+      "data_date": "2026-02-02",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "40ebf00a-f909-4a03-8b74-b5e6d41714c4",
+      "title": "정원오 성동구청장 출판기념회…윤여준 前 장관 등 민주당 인사 '북적'",
+      "content": "2일 서울 성동구 디노체컨벤션웨딩홀에서 '매우만족, 정원오입니다' 출판기념회가 열렸다. 통상 출판기념회는 공식 출마 선언 전 지지층을 결집하고 인지도를 확대하기 위한 성격의 행사다. 이날 정 구청장은 별도의 출마...",
+      "source_name": "Naver News",
+      "source_url": "https://www.newspim.com/news/view/20260202001158",
+      "data_date": "2026-02-02",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "b0f9214e-9d1d-445f-9155-a17fd9caec8e",
+      "title": "박홍근 \"정청래, 느닷 없이 합당 제안…지선 후가 낫다\"",
+      "content": "공개 지지선언을 하고 그리고 캠프를 짜고 후보가 되어서 비서실장을 하지 않았습니까? 그리고 그 이후에 또... ◇ 박재홍> 정원오 구청장, 박주민 의원, 서영교 의원 만만치 않은 또 도전자들이 있으신데 당내 경선을...",
+      "source_name": "Naver News",
+      "source_url": "https://www.nocutnews.co.kr/news/6460759?utm_source=naver&utm_medium=article&utm_campaign=20260123080021",
+      "data_date": "2026-01-23",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_news"
+    },
+    {
+      "id": "e0f1d564-c1b9-4c17-b5be-0bc97d76e1f7",
+      "title": "정원오, 서울시장에 도전하는 성과형 도시행정 정치인",
+      "content": "최근 보도는 그를 단순한 지역 행정가가 아닌, 성동구 12년 운영 성과를 근거로 서울시 전체를... 예비후보 정원오는 2026년 3월 4일 구청장직에서 퇴임하고, 본격적인 더불어민주당 서울시장 예비후보 활동을...",
+      "source_name": "Naver Blog",
+      "source_url": "https://blog.naver.com/urban4050life/224212972683",
+      "data_date": "2026-03-11",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_blog"
+    },
+    {
+      "id": "a8562ebe-c41e-41f8-b97b-30cb68e86d4f",
+      "title": "2026/03/11:상한가종목/ 상승률 상위종목/ 오늘의 주요...",
+      "content": "영업활동을 전개. 6G관련주 3월 엔비디아의 GTC2025에서 양자데이 진행및 MS의... 사람과 지역의 가치를 생각합니다. : 에치에프알 모바일, 지자체에 첫 5G 특화망 기반 공공장소 시민 체감 안전...",
+      "source_name": "Naver Blog",
+      "source_url": "https://blog.naver.com/timeinvestment/224212915108",
+      "data_date": "2026-03-11",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_blog"
+    },
+    {
+      "id": "d1909b0d-8bf0-4673-a098-b03d63afc8fa",
+      "title": "정원오 예비후보 집중 분석: 출마 배경부터 공약 검증...",
+      "content": "맡았던 역할의 범위(의사결정권이 있었는가) 임기 또는 활동 기간 중 핵심 성과 지표 외부 평가(감사... 연계 정원오 예비후보가 지역경제를 논할 때 ‘지원금’ 중심인지, 아니면 구조적 체질 개선까지...",
+      "source_name": "Naver Blog",
+      "source_url": "https://blog.naver.com/jinyou0916/224211884967",
+      "data_date": "2026-03-11",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_blog"
+    },
+    {
+      "id": "25017f40-ee0c-4ae0-a975-d8da1b021847",
+      "title": "성동구청장 예비후보 윤광식 소개 문화경제도시 구현 전략...",
+      "content": "예를 들어, 특정 지역의 유휴 공간이 문화 활동에 적합한지, 혹은 특정 상권이 소상공인 지원을 통해... #성동구청장예비후보 #윤광식 #정원오처럼 #윤광식답게 #성동구 #정원오 #지방선거2026 #민주당...",
+      "source_name": "Naver Blog",
+      "source_url": "https://blog.naver.com/aabb9388/224212465439",
+      "data_date": "2026-03-11",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_blog"
+    },
+    {
+      "id": "7f76e281-012e-4519-ac32-8d4154002145",
+      "title": "정원오 예비후보, 진짜 시민과 소통을 말하다",
+      "content": "현장 간담회, 동네 모임, 주민 설명회 온라인 플랫폼, SNS 의견, 이메일 제보 시민 패널·위원회 활동... 우리 지역 정치 문화는 더욱 성숙해질 것입니다. 맺으며: 정원오 예비후보의 ‘시민과 소통’이 남기는...",
+      "source_name": "Naver Blog",
+      "source_url": "https://blog.naver.com/flyingboong/224211857859",
+      "data_date": "2026-03-11",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_blog"
+    },
+    {
+      "id": "b6bbbbac-c6b5-4979-bf8e-0aa7159343d8",
+      "title": "정치종합*헤드라인.청와대.국회정당.북한.행정부.국방외교....",
+      "content": "SBS 민주 서울시장 후보 각축…'정원오 대세론' 흐름 이어질까? SBS 패트리엇 이어 사드까지... 예비후보 활동을 하고 있는 지역구 현수막. 제보자 제공. 이번 6·3 지방선거에서 서울시의원 출마를 선언한 박...",
+      "source_name": "Naver Blog",
+      "source_url": "https://blog.naver.com/c1c1b1b1/224212019718",
+      "data_date": "2026-03-11",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_blog"
+    },
+    {
+      "id": "49325a48-a0da-40ed-aba1-c76bf9074c33",
+      "title": "정원오 예비후보, 왜 주목해야 할까? 지역 정치를 바꾸는...",
+      "content": "최근 지역 정치권에서 정원오 예비후보라는 이름이 자주 등장하고 있습니다. 단순히 선거철에 잠깐... 예비후보로 등록하면 다음과 같은 활동이 법적으로 허용됩니다. 제한된 범위 내에서 선거운동용 명함 배포...",
+      "source_name": "Naver Blog",
+      "source_url": "https://blog.naver.com/flyingboong/224211799633",
+      "data_date": "2026-03-11",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_blog"
+    },
+    {
+      "id": "27dcfa16-66fa-43fa-8c27-182ddbf4df37",
+      "title": "6.3 지선이 남긴 씨앗 (4)-'제2의 이재명' 탄생 가능할까?",
+      "content": "광역자치단체장 선거에 나서기 위해선 지역 연고에 더해 인지도와 조직력 모두를 갖춰야 한다. 그래서... 더불어민주당 9일 오전 유튜브를 통해 서울시장 출마를 선언한 정원오 전 성동구청장 (출처: 정원오...",
+      "source_name": "Naver Blog",
+      "source_url": "https://blog.naver.com/whlee5861/224211723449",
+      "data_date": "2026-03-11",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_blog"
+    },
+    {
+      "id": "86b99be0-6cd5-4cbf-a4a9-74f01d12bad8",
+      "title": "2026-03-10 화요일 20:30 헤드라인 뉴스",
+      "content": "VS 정원오측 \"노력 폄훼 유감\" - 한국경제 3 한화·삼성 상생경영 칭찬한 李…\"감사 전화 드리고... 솔로 활동 - 조선일보 12 ‘미스트롯4’ 진 이소나 남편, 배우 강상준이었다 - 조선일보 13 “미주의...",
+      "source_name": "Naver Blog",
+      "source_url": "https://blog.naver.com/artemis_2016/224211721266",
+      "data_date": "2026-03-11",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_blog"
+    },
+    {
+      "id": "5702e165-c540-4873-b0ed-5634058b1252",
+      "title": "재난을 정쟁의 도구로 삼지 마십시오",
+      "content": "정원오 서울시장 예비후보의 구청장 재임 시절 정상적인 구정 활동을 두고, 국가적 재난 상황을... 행정 시스템이 100% 정상화되고 비상 체제마저 해제된 시점에, 지역 사회와의 사전에 계획된...",
+      "source_name": "Naver Blog",
+      "source_url": "https://blog.naver.com/ydp2018/224211299712",
+      "data_date": "2026-03-11",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_blog"
+    },
+    {
+      "id": "3f633fff-fc98-49c7-b49d-8d594617c59d",
+      "title": "오늘의 키워드 - 2026년 3월10일",
+      "content": "한 전 위원장은 야당이 코스피 상승을 이재명 대표의 은덕으로 아첨하고 왜곡하고 있다며 반박했으나, 해당 발언 이후 일부 지역에서 지지율 변화가 감지되기도 했습니다. 5. 트럼프 전쟁 트럼프 대통령은...",
+      "source_name": "Naver Blog",
+      "source_url": "https://blog.naver.com/kbh1325/224211249997",
+      "data_date": "2026-03-11",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_blog"
+    },
+    {
+      "id": "e29f9e2d-811c-4bfe-8785-9f9403e675ab",
+      "title": "이재명 정부 장애인 권리 강화랑 성동구가 같이 가요",
+      "content": "장애인도 지역사회에서 함께 살아갈 수 있는 환경. 성동구에서 그 방향을 실현할 분이 윤광식 후보예요. 장애인 돌봄·일자리 창출 전담 조직 신설, 장애인 체육시설 건립, 무장애길 확대, 발달장애인 낮 활동...",
+      "source_name": "Naver Blog",
+      "source_url": "https://blog.naver.com/royaroro/224210943089",
+      "data_date": "2026-03-11",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_blog"
+    },
+    {
+      "id": "c0702e4d-752c-40c0-8a36-0506e7ca4f85",
+      "title": "260310 뉴스몰아보기",
+      "content": "의원실, 지역고용 활성화와 사회적 대화 (도서관 소강당) ③09:00 이언주 의원실, 더불어민주당 AI강국위원회 발대식 (회관 제1소회의실) ④09:00 장철민 의원실, 주4.5일제 시범사업 효과 분석...",
+      "source_name": "Naver Blog",
+      "source_url": "https://blog.naver.com/cutie_twins/224210887085",
+      "data_date": "2026-03-11",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_blog"
+    },
+    {
+      "id": "445ec39a-92f1-4ff9-8e15-3cb8a21ce9a5",
+      "title": "주식뉴스! 오전 리포트 2026-03-10",
+      "content": "1: 이란 2: 트럼프 3: 호르무즈 4: 미국 5: 유가 6: 스테이블코인 7: 태양광 8: 원전 9: 정원오 10... 지선 예비후보 22명, 지역 의원에 수백만원 후원금 [단독] 김민석 총리, 한달 반만에 또 미국행…밴스 또...",
+      "source_name": "Naver Blog",
+      "source_url": "https://blog.naver.com/mobitant/224210863612",
+      "data_date": "2026-03-11",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_blog"
+    },
+    {
+      "id": "96ff2db4-78b7-48de-a11f-5cc15ac58b38",
+      "title": "세상을 읽는가장 빠른 방법",
+      "content": "하지만 활동을 완전히 멈춘 것은 아닙니다. 여전히 중동 지역에 남아있는 한국인들을 위해 카카오톡 단체 채팅방 등에서 탈출 관련 정보를 계속 공유하고 있다고 해요. 그는 팀원들과 함께 며칠째 잠도 제대로...",
+      "source_name": "Naver Blog",
+      "source_url": "https://blog.naver.com/c1c1b1b1/224210844913",
+      "data_date": "2026-03-11",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_blog"
+    },
+    {
+      "id": "d44c17ab-1bfa-47c4-ac51-ccba66ed2b20",
+      "title": "정원오 서울시장 예비후보, 시세 70% 실속형 아파트 공약",
+      "content": "정비사업을 지정하도록 하여 서울시의 행정 문턱을 낮추고 속도를 높입니다. ✔️전담 매니저 제도... ✔️ 사무위임 조례 : 자치구로의 권한 이양은 서울특별시 사무위임 조례 등을 통해 구체화할 수 있으며...",
+      "source_name": "Naver Blog",
+      "source_url": "https://blog.naver.com/j-library/224212700206",
+      "data_date": "2026-03-11",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_blog"
+    },
+    {
+      "id": "d6aaf723-c721-45f0-a3b7-b9950146a839",
+      "title": "서울특별시교육청 망신! // 국무총리비서실 이후삼...",
+      "content": "중인 서울특별시교육청 ] * 정근식 : 서울시교육감 정근식 당선자에게 : 네이버 블로그 [ 엉터리... 얼룩진 정원오의 성동구! /.. : 네이버블로그 [ 미터법 바르게 쓰기 캠페인 ] * 정부정책 : 'K-희망사다리'에...",
+      "source_name": "Naver Blog",
+      "source_url": "https://blog.naver.com/chungchup/224202468317",
+      "data_date": "2026-03-11",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_blog"
+    },
+    {
+      "id": "b8fb8e10-a0a1-41c4-9b15-d6cb6df5080c",
+      "title": "종묘 인근에 고층건물 건설에 대한 서울특별시청과 국가유산청...",
+      "content": "첫째 당파싸움으로서 종묘 인근에 고층건물 건설에 대한 야당편인 서울특별시청과 여당편인... 이번 소송은 서울시가 추진 중인 세운4구역 재개발 사업과 관련해 주목받아 왔습니다. 종묘와 불과 180m 정도...",
+      "source_name": "Naver Blog",
+      "source_url": "https://blog.naver.com/worlmony/224202158271",
+      "data_date": "2026-03-11",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_blog"
+    },
+    {
+      "id": "5c9df509-158d-4748-895e-4dd205374c65",
+      "title": "뜨는 동네를 만드는 것보다 더 어려운 일은 그 동네의 매력을...",
+      "content": "성수동 정원오2025메디치미디어 '젠트리피케이션'이라는 용어의 의미를 명확히 알게 되었다. 낙후된... p.163 2015년 9월 제정된 서울특별시 성동구 지역공동제 상호 협력 및 지속가능발전구역 지정에 관한 조례...",
+      "source_name": "Naver Blog",
+      "source_url": "https://blog.naver.com/ljshjs2/224202098746",
+      "data_date": "2026-03-11",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_blog"
+    },
+    {
+      "id": "f9988b8c-6c57-4a3b-8046-d39cb3ff5e63",
+      "title": "임동국 예비후보 송파구청장 출마선언과 보도 종합",
+      "content": "(전) 서울특별시 교통기획관(전) 지방행정고시 5급 사무관 서울대 인문대학 독어독문과 졸업... 자치행정과장으로서는 ‘찾아가는 동주민센터’ 사업을 총괄하며, 서울시와 자치구, 공무원과 시민사회 간...",
+      "source_name": "Naver Blog",
+      "source_url": "https://blog.naver.com/eastskybongseo/224195625162",
+      "data_date": "2026-03-11",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_blog"
+    },
+    {
+      "id": "54c10540-423b-4cf4-bd83-d149751966e9",
+      "title": "정원오의 '구정(區政)' 성과... 네트워크'가 서울을 바꾼다",
+      "content": "심장, 서울특별시를 이끄는 수장의 역할은 단일 자치구의 행정과는 그 궤와 규모를 완전히 달리한다. 전문가들은 정원오 구청장의 행정력을 높이 평가하면서도, 오세훈 시장을 꺾고 거대 메가시티 서울을...",
+      "source_name": "Naver Blog",
+      "source_url": "https://blog.naver.com/onepower2023/224191613680",
+      "data_date": "2026-03-11",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_blog"
+    },
+    {
+      "id": "3aa991f6-fd89-438f-a980-794f1c088b03",
+      "title": "2026 서울시장 선거, 민주당이 '공약 폭탄' 던진 이유",
+      "content": "김영배 — \"시간평등 특별시 \" 전략: 시간 평등특별시, 서울은 거리가 곧 계급이고, 시간이 곧 특권, 10분 역세권 서울 구현 마을버스 완전 공영화와 전기 따릉이 전면 도입, 경전철 사업 재추진을 약속했고...",
+      "source_name": "Naver Blog",
+      "source_url": "https://blog.naver.com/citroncarotte1210/224188167308",
+      "data_date": "2026-03-11",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_blog"
+    },
+    {
+      "id": "943d4f62-e41b-4390-899c-6437de78939f",
+      "title": "정책지식 2026.2.13.",
+      "content": "(케이블카)사업 허가 유효기간을 20년 이내로 정하고 유효기간 종료 시 재허가 - 대한민국국회... 기념사업 등에 관한 법률 일부개정법률안」 ▲중소기업퇴직연금기금(푸른씨앗) 적용 대상을 확대하고 퇴직금...",
+      "source_name": "Naver Blog",
+      "source_url": "https://blog.naver.com/trim9134/224182198042",
+      "data_date": "2026-03-11",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_blog"
+    },
+    {
+      "id": "1897f536-4ec2-47c0-9e87-ef86b5d856dc",
+      "title": "2002년 당시 쓰여지던 주요 대역사 및 남겨진 대기록들과...",
+      "content": "먼저 오늘(2026년 2월 12일)로 2026년 2월 6일 ~ 22일까지 개최되는 밀라노-코르티 나담페초 동계올림픽이 7일차인데 [우리나라에서 밀라노-코르티나담페초 동계올림픽이 이전 동계올림픽들에 비하여 만인의...",
+      "source_name": "Naver Blog",
+      "source_url": "https://blog.naver.com/worlmony/224181438187",
+      "data_date": "2026-03-11",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_blog"
+    },
+    {
+      "id": "ed5737d2-691b-4f24-85f5-4590a86dcd81",
+      "title": "삼표시멘트는 왜 오르나",
+      "content": "신사업 확장 삼표시멘트의 주요 개발 내용 1. 성수동 옛 삼표레미콘 부지 개발 서울 성수동 부지를 글로벌 업무 중심의 초고층 복합단지로 개발하는 프로젝트가 시작되려고 한다. 서울특별시 고시 제2026-00호...",
+      "source_name": "Naver Blog",
+      "source_url": "https://blog.naver.com/slow_but_rich/224179499549",
+      "data_date": "2026-03-11",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_blog"
+    },
+    {
+      "id": "d6106373-2f48-452b-a931-4c933178fe28",
+      "title": "정원오 구청장 서울시장 출마 프로필 학력 재산 고향",
+      "content": "정원오의 거주지는 현재 서울특별시 성동구 행당1동 서울숲 삼부아파트라고 해요. 또한 정원오의... 성동구청장 시절 추진했던 각종 복지 정책과 도시 개발 사업에 이론적 바탕이 되어준 거죠. 성동구청장...",
+      "source_name": "Naver Blog",
+      "source_url": "https://blog.naver.com/supersekang/224179087597",
+      "data_date": "2026-03-11",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_blog"
+    },
+    {
+      "id": "88090b7b-3059-4d13-b991-c7be02358f0c",
+      "title": "엉터리 미터법 사용 경고! // 이재명 대통령님(제18信)",
+      "content": "이재명 대통령님(제18信) (03048 서울특별시 종로구 청와대로 1 / 청와대) '왜 나만 갖고 그래'라는 말을... 김남준 ] * 정원오(3) : 한양도성 순성길 걷기 // 성동구 정원오 구청.. : 네이버블로그 \" [ 엉터리 단위를...",
+      "source_name": "Naver Blog",
+      "source_url": "https://blog.naver.com/chungchup/224174989424",
+      "data_date": "2026-03-11",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_blog"
+    },
+    {
+      "id": "ac18fb46-c3fb-4a48-b420-b0380e56069c",
+      "title": "'태릉CC·세운지구 개발' 두고 부딪힌 오세훈·정원오…",
+      "content": "2026년 차기 서울시장 선거를 앞두고 오세훈 서울시장과 정원오 성동구청장이 '문화재 인근 개발'과... (정부) 서울특별시 인근 문화재 조선왕릉 (태릉·강릉) 종묘 쟁점 그린벨트 훼손 및 문화재 보호구역 포함...",
+      "source_name": "Naver Blog",
+      "source_url": "https://blog.naver.com/borisu100m/224171081604",
+      "data_date": "2026-03-11",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_blog"
+    },
+    {
+      "id": "c82cfe44-142c-40ca-ad01-cff750811c59",
+      "title": "한양도성 순성길 걷기 // 성동구 정원오 구청장님께(제3信)",
+      "content": "성동구 정원오 구청장님께(제3信) (04750 서울특별시 성동구 고산자로 270 / 서울특별시 성동구청)... : 네이버블로그 [ 미터법 바르게 쓰기 캠페인 ] * 성동구 블로그 : * 정원오 블로그 : * 서울시 블로그...",
+      "source_name": "Naver Blog",
+      "source_url": "https://blog.naver.com/chungchup/224170826379",
+      "data_date": "2026-03-11",
+      "source_type": "PUBLIC",
+      "collector": "api_naver_blog"
+    }
+  ]
+}

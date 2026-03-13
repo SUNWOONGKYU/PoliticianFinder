@@ -350,6 +350,11 @@ def execute_gemini_cli(prompt: str, timeout: int = 3600, max_retries: int = 3) -
     Returns:
         {"success": bool, "output": str or None, "error": str or None}
     """
+    # CLI 건너뛰기 (환경변수 GEMINI_API_ONLY=1 설정 시)
+    if os.getenv('GEMINI_API_ONLY', '').strip() == '1':
+        logger.info("[SKIP] CLI skipped (GEMINI_API_ONLY=1), going directly to REST API...")
+        return execute_gemini_api(prompt, timeout=120, max_retries=max_retries)
+
     # Step 1 & Step 2: CLI 모델 순차 시도
     for i, model_name in enumerate(GEMINI_CLI_MODELS):
         step_num = i + 1

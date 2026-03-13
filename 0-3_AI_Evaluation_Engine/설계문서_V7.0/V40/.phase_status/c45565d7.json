@@ -3,8 +3,28 @@
   "phases": {
     "0": {
       "status": "DONE",
-      "completed_at": "2026-02-25T15:58:41.358341",
-      "details": "정치인 정보 등록"
+      "completed_at": "2026-03-03T22:16:03.602885",
+      "details": "DB 등록 완료"
+    },
+    "2": {
+      "status": "DONE",
+      "completed_at": "2026-03-03T22:16:03.620505",
+      "details": "validate_v40_fixed.py 완료 - 1279→641 유효"
+    },
+    "2-2": {
+      "status": "DONE",
+      "completed_at": "2026-03-03T22:16:03.627984",
+      "details": "adjust_v40_data.py 완료 - Gemini 535, Naver 600, Total 1145"
+    },
+    "1": {
+      "status": "DONE",
+      "completed_at": "2026-03-03T22:16:03.612733",
+      "details": "이재준 Gemini 535개 + Naver 600개 = 1135개"
+    },
+    "4": {
+      "status": "DONE",
+      "completed_at": "2026-03-05T11:41:07.041828",
+      "details": "758점 P등급"
     }
   },
   "politician_name": "이재준"

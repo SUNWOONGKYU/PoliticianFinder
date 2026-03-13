@@ -129,7 +129,6 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
   const [politicianPosts, setPoliticianPosts] = useState<Post[]>([]);
   const [popularPosts, setPopularPosts] = useState<Post[]>([]);
-  const [mapOpen, setMapOpen] = useState(false);
   const [postsLoading, setPostsLoading] = useState(true);
   const [notices, setNotices] = useState<Notice[]>([]);
   const [noticesLoading, setNoticesLoading] = useState(true);
@@ -563,58 +562,6 @@ export default function Home() {
         <div className="flex flex-col lg:flex-row gap-6">
           {/* 메인 콘텐츠 (왼쪽) */}
           <div className="flex-1 min-w-0 space-y-6">
-            {/* 전국 지역별 랭킹 지도 배너 */}
-            <section
-              className="rounded-2xl overflow-hidden shadow-lg cursor-pointer group"
-              onClick={() => setMapOpen(true)}
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') setMapOpen(true); }}
-              aria-label="전국 지역별 랭킹 지도 열기"
-            >
-              <div className="bg-gradient-to-r from-primary-400 via-primary-500 to-orange-600 p-5 sm:p-7 relative overflow-hidden">
-                {/* 배경 데코 */}
-                <div className="absolute top-0 right-0 text-[130px] sm:text-[160px] leading-none select-none opacity-10 pointer-events-none">
-                  🗺️
-                </div>
-                <div className="relative z-10 flex items-center justify-between gap-4">
-                  <div className="min-w-0">
-                    <div className="flex items-center gap-2 mb-1.5">
-                      <span className="text-2xl sm:text-3xl">🗺️</span>
-                      <h2 className="text-xl sm:text-2xl font-extrabold text-white leading-tight">
-                        전국 지역별 랭킹 지도
-                      </h2>
-                      <span className="bg-yellow-400 text-yellow-900 text-[11px] font-bold px-2 py-0.5 rounded-full whitespace-nowrap">준비중</span>
-                    </div>
-                    <p className="text-sm sm:text-base text-orange-100 mb-3 leading-snug">
-                      AI 평가 점수 기준 · 17개 광역/226개 기초 단체장 출마자 <strong className="text-white">1위·2위 정치인 보기</strong>
-                    </p>
-                    <div className="flex flex-wrap gap-1.5">
-                      {[
-                        { label: '더불어민주당', color: '#1B4FBF' },
-                        { label: '국민의힘', color: '#C9151E' },
-                        { label: '조국혁신당', color: '#003F87' },
-                        { label: '기타/무소속', color: '#9CA3AF' },
-                      ].map(({ label, color }) => (
-                        <div key={label} className="flex items-center gap-1 bg-white/20 rounded-full px-2.5 py-0.5">
-                          <div className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: color }} />
-                          <span className="text-[11px] text-white whitespace-nowrap">{label}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                  <div className="flex-shrink-0">
-                    <div className="bg-white text-primary-600 font-bold px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl shadow-md group-hover:shadow-xl group-hover:scale-105 transition-all text-sm sm:text-base whitespace-nowrap flex items-center gap-1.5">
-                      보러가기
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-
             {/* 검색 섹션 */}
             <section className="bg-white rounded-lg shadow-lg p-3">
               <div className="space-y-4">
@@ -1483,8 +1430,6 @@ export default function Home() {
       {/* Floating CTA Buttons */}
       <FloatingCTA />
 
-      {/* 지역별 랭킹 지도 팝업 */}
-      <MapModal isOpen={mapOpen} onClose={() => setMapOpen(false)} />
     </main>
   );
 }

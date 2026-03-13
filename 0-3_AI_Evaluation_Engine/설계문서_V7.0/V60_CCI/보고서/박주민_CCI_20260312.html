@@ -1,0 +1,1304 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>박주민 CCI 전략 브리핑 — 2026 서울시장</title>
+<style>
+  :root {
+    --bg-dark: #1A1A2E;
+    --bg-mid: #16213E;
+    --bg-card: #0F3460;
+    --accent: #1A56DB;
+    --accent-light: #3B82F6;
+    --accent-gold: #E2B04A;
+    --text-primary: #F0F4FF;
+    --text-secondary: #A8B8D8;
+    --text-muted: #6B7A9A;
+    --success: #10B981;
+    --warning: #F59E0B;
+    --danger: #EF4444;
+    --neutral: #6B7280;
+    --border: rgba(255,255,255,0.08);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+    background: var(--bg-dark);
+    color: var(--text-primary);
+    line-height: 1.7;
+    font-size: 15px;
+  }
+
+  /* Cover Page */
+  .cover {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1A1A2E 0%, #0F3460 50%, #1A1A2E 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(ellipse at center, rgba(26,86,219,0.15) 0%, transparent 60%);
+    animation: pulse 8s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+  }
+
+  .cover-badge {
+    display: inline-block;
+    background: rgba(26,86,219,0.3);
+    border: 1px solid var(--accent);
+    color: var(--accent-light);
+    padding: 6px 20px;
+    border-radius: 20px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cover-name {
+    font-size: clamp(48px, 8vw, 80px);
+    font-weight: 900;
+    color: var(--text-primary);
+    letter-spacing: -2px;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 8px;
+  }
+
+  .cover-title {
+    font-size: clamp(18px, 3vw, 26px);
+    color: var(--accent-light);
+    font-weight: 400;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 60px;
+  }
+
+  .cover-cci-block {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 40px 60px;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 60px;
+    backdrop-filter: blur(10px);
+  }
+
+  .cover-cci-score {
+    font-size: clamp(64px, 10vw, 100px);
+    font-weight: 900;
+    color: var(--accent-gold);
+    line-height: 1;
+    letter-spacing: -4px;
+  }
+
+  .cover-cci-label {
+    font-size: 16px;
+    color: var(--text-secondary);
+    margin-top: 8px;
+    letter-spacing: 1px;
+  }
+
+  .cover-cci-rank {
+    font-size: 22px;
+    color: var(--text-primary);
+    margin-top: 16px;
+    font-weight: 700;
+  }
+
+  .cover-meta-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 60px;
+    width: 100%;
+    max-width: 600px;
+  }
+
+  .cover-meta-item {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+  }
+
+  .cover-meta-value {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--accent-light);
+  }
+
+  .cover-meta-label {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 4px;
+  }
+
+  .cover-keywords {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 60px;
+  }
+
+  .keyword-tag {
+    background: rgba(26,86,219,0.2);
+    border: 1px solid rgba(26,86,219,0.5);
+    color: var(--accent-light);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  .cover-footer {
+    position: relative;
+    z-index: 1;
+    color: var(--text-muted);
+    font-size: 13px;
+  }
+
+  .cover-confidential {
+    display: inline-block;
+    background: rgba(239,68,68,0.2);
+    border: 1px solid rgba(239,68,68,0.5);
+    color: #FCA5A5;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+  }
+
+  /* Main Content */
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 60px 30px;
+  }
+
+  /* Chapter Divider */
+  .chapter-divider {
+    background: linear-gradient(135deg, var(--bg-mid), var(--bg-card));
+    border-left: 4px solid var(--accent);
+    padding: 30px 40px;
+    margin: 60px 0 40px;
+    border-radius: 0 12px 12px 0;
+  }
+
+  .chapter-number {
+    font-size: 12px;
+    color: var(--accent-light);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .chapter-title {
+    font-size: clamp(22px, 4vw, 32px);
+    font-weight: 800;
+    color: var(--text-primary);
+  }
+
+  /* Section titles */
+  h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 40px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--accent-light);
+    margin: 24px 0 12px;
+  }
+
+  p {
+    color: var(--text-secondary);
+    margin-bottom: 16px;
+  }
+
+  /* Tables */
+  .table-wrap {
+    overflow-x: auto;
+    margin: 20px 0;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+
+  th {
+    background: rgba(26,86,219,0.3);
+    color: var(--text-primary);
+    padding: 12px 16px;
+    text-align: center;
+    font-weight: 700;
+    border-bottom: 2px solid var(--accent);
+    white-space: nowrap;
+  }
+
+  td {
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-secondary);
+    text-align: center;
+  }
+
+  tr:hover td {
+    background: rgba(255,255,255,0.03);
+  }
+
+  td:first-child {
+    text-align: left;
+    color: var(--text-primary);
+  }
+
+  .highlight-row td {
+    background: rgba(226,176,74,0.1);
+    color: var(--text-primary);
+    font-weight: 700;
+  }
+
+  .up { color: var(--success); }
+  .down { color: var(--danger); }
+  .neutral-score { color: var(--text-muted); }
+
+  /* Score Cards */
+  .score-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin: 24px 0;
+  }
+
+  .score-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.2s;
+  }
+
+  .score-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(26,86,219,0.5);
+  }
+
+  .score-card .value {
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--accent-gold);
+    line-height: 1;
+  }
+
+  .score-card .label {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 6px;
+  }
+
+  .score-card .rank {
+    font-size: 12px;
+    color: var(--accent-light);
+    margin-top: 4px;
+    font-weight: 600;
+  }
+
+  /* Info Box */
+  .info-box {
+    background: rgba(26,86,219,0.1);
+    border: 1px solid rgba(26,86,219,0.3);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 20px 0;
+    color: var(--text-secondary);
+    font-size: 14px;
+  }
+
+  .info-box strong {
+    color: var(--accent-light);
+  }
+
+  .warn-box {
+    background: rgba(245,158,11,0.1);
+    border: 1px solid rgba(245,158,11,0.3);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 20px 0;
+    color: var(--text-secondary);
+    font-size: 14px;
+  }
+
+  /* Code blocks */
+  pre {
+    background: rgba(0,0,0,0.4);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    overflow-x: auto;
+    font-family: 'Fira Code', 'Courier New', monospace;
+    font-size: 13px;
+    color: #A8D8A8;
+    margin: 16px 0;
+    line-height: 1.6;
+  }
+
+  /* Strength/Weakness Lists */
+  .sw-list {
+    list-style: none;
+    margin: 16px 0;
+  }
+
+  .sw-list li {
+    padding: 12px 16px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    font-size: 14px;
+    color: var(--text-secondary);
+    position: relative;
+    padding-left: 44px;
+  }
+
+  .sw-list li::before {
+    position: absolute;
+    left: 12px;
+    font-weight: 800;
+    font-size: 16px;
+  }
+
+  .strength-list li {
+    background: rgba(16,185,129,0.08);
+    border-left: 3px solid var(--success);
+  }
+
+  .strength-list li::before {
+    content: '▲';
+    color: var(--success);
+  }
+
+  .weakness-list li {
+    background: rgba(239,68,68,0.08);
+    border-left: 3px solid var(--danger);
+  }
+
+  .weakness-list li::before {
+    content: '▼';
+    color: var(--danger);
+  }
+
+  /* SWOT */
+  .swot-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 24px 0;
+  }
+
+  .swot-cell {
+    border-radius: 12px;
+    padding: 20px;
+  }
+
+  .swot-S { background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.3); }
+  .swot-W { background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.3); }
+  .swot-O { background: rgba(59,130,246,0.1); border: 1px solid rgba(59,130,246,0.3); }
+  .swot-T { background: rgba(245,158,11,0.1); border: 1px solid rgba(245,158,11,0.3); }
+
+  .swot-title {
+    font-size: 14px;
+    font-weight: 800;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+  }
+
+  .swot-S .swot-title { color: var(--success); }
+  .swot-W .swot-title { color: var(--danger); }
+  .swot-O .swot-title { color: var(--accent-light); }
+  .swot-T .swot-title { color: var(--warning); }
+
+  .swot-cell ul {
+    list-style: none;
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+
+  .swot-cell li {
+    padding: 4px 0;
+    padding-left: 16px;
+    position: relative;
+  }
+
+  .swot-cell li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--text-muted);
+  }
+
+  /* Strategy Cards */
+  .strategy-cards {
+    display: grid;
+    gap: 20px;
+    margin: 24px 0;
+  }
+
+  .strategy-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+  }
+
+  .strategy-card .card-number {
+    display: inline-block;
+    background: var(--accent);
+    color: white;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 28px;
+    font-size: 14px;
+    font-weight: 700;
+    margin-right: 10px;
+    margin-bottom: 12px;
+  }
+
+  .strategy-card .card-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-primary);
+    display: inline;
+  }
+
+  /* Priority Matrix */
+  .priority-1 { color: var(--danger); font-weight: 700; }
+  .priority-2 { color: var(--warning); font-weight: 600; }
+  .priority-3 { color: var(--text-muted); }
+
+  /* Navigation */
+  .toc {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 30px;
+    margin: 0 0 60px;
+  }
+
+  .toc-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .toc-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 8px;
+  }
+
+  .toc-list li a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 0;
+    transition: color 0.2s;
+  }
+
+  .toc-list li a:hover {
+    color: var(--accent-light);
+  }
+
+  .toc-list li a::before {
+    content: '→';
+    color: var(--accent);
+    font-size: 12px;
+  }
+
+  /* Footer */
+  .report-footer {
+    text-align: center;
+    padding: 60px 30px;
+    color: var(--text-muted);
+    font-size: 13px;
+    border-top: 1px solid var(--border);
+    margin-top: 80px;
+  }
+
+  /* Bar chart */
+  .bar-chart {
+    margin: 20px 0;
+  }
+
+  .bar-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    gap: 12px;
+  }
+
+  .bar-label {
+    width: 120px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    text-align: right;
+    flex-shrink: 0;
+  }
+
+  .bar-track {
+    flex: 1;
+    height: 28px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 1s ease;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    font-size: 13px;
+    font-weight: 700;
+    color: white;
+  }
+
+  .bar-highlight { background: linear-gradient(90deg, #1A56DB, #3B82F6); }
+  .bar-compare { background: rgba(255,255,255,0.15); }
+
+  @media (max-width: 600px) {
+    .cover-meta-grid { grid-template-columns: 1fr 1fr; }
+    .swot-grid { grid-template-columns: 1fr; }
+    .score-grid { grid-template-columns: 1fr 1fr; }
+    th, td { padding: 8px 10px; font-size: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Cover Page -->
+<div class="cover">
+  <div class="cover-badge">CCI 전략 브리핑 · CONFIDENTIAL</div>
+
+  <div class="cover-name">박주민</div>
+  <div class="cover-title">2026 서울시장 · CCI 전략 브리핑</div>
+
+  <div class="cover-cci-block">
+    <div class="cover-cci-score">733</div>
+    <div class="cover-cci-label">CCI 통합 점수 (200~1000)</div>
+    <div class="cover-cci-rank">4명 중 2위 · 더불어민주당</div>
+  </div>
+
+  <div class="cover-meta-grid">
+    <div class="cover-meta-item">
+      <div class="cover-meta-value">753</div>
+      <div class="cover-meta-label">GPI 점수</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="cover-meta-value">639</div>
+      <div class="cover-meta-label">Alpha 1 (민심)</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="cover-meta-value">801</div>
+      <div class="cover-meta-label">Alpha 2 (구조)</div>
+    </div>
+  </div>
+
+  <div class="cover-keywords">
+    <span class="keyword-tag">#민생전문가</span>
+    <span class="keyword-tag">#3선검증</span>
+    <span class="keyword-tag">#집값심판</span>
+    <span class="keyword-tag">#이재명동반자</span>
+    <span class="keyword-tag">#보건의료</span>
+  </div>
+
+  <div class="cover-footer">
+    <div class="cover-confidential">CONFIDENTIAL</div>
+    <div>평가일: 2026년 3월 12일 · V60 CCI 시스템 · 정치인 전용 비공개</div>
+  </div>
+</div>
+
+<!-- Main Content -->
+<div class="container">
+
+  <!-- TOC -->
+  <div class="toc">
+    <div class="toc-title">목차</div>
+    <ul class="toc-list">
+      <li><a href="#ch1">1장. 진단 요약</a></li>
+      <li><a href="#ch2">2장. CCI 대시보드</a></li>
+      <li><a href="#ch3">3장. GPI 요약</a></li>
+      <li><a href="#ch4">4장. Alpha 1 분석</a></li>
+      <li><a href="#ch5">5장. Alpha 2 분석</a></li>
+      <li><a href="#ch6">6장. 경쟁자 비교</a></li>
+      <li><a href="#ch7">7장. SWOT 분석</a></li>
+      <li><a href="#ch8">8장. 전략 제언</a></li>
+      <li><a href="#appendix2">별첨 2. CCI 방법론</a></li>
+    </ul>
+  </div>
+
+  <!-- Chapter 1 -->
+  <div class="chapter-divider" id="ch1">
+    <div class="chapter-number">Chapter 01</div>
+    <div class="chapter-title">진단 요약 (Executive Summary)</div>
+  </div>
+
+  <div class="info-box">
+    <strong>한 줄 진단:</strong> 선거구조 2위(A2 801점)와 청렴·윤리 1위의 도덕적 강점을 갖췄으나, 경선 내 정원오 명픽 프리미엄에 147점 열세 — '본선 적합성' 논리와 의정 실적 서사로 경선 돌파가 유일한 역전 경로다.
+  </div>
+
+  <div class="score-grid">
+    <div class="score-card">
+      <div class="value">733</div>
+      <div class="label">CCI 통합 점수</div>
+      <div class="rank">4명 중 2위</div>
+    </div>
+    <div class="score-card">
+      <div class="value">753</div>
+      <div class="label">GPI (훌륭한 정치인)</div>
+      <div class="rank">4명 중 2위</div>
+    </div>
+    <div class="score-card">
+      <div class="value">639</div>
+      <div class="label">Alpha 1 (민심·여론)</div>
+      <div class="rank">4명 중 2위</div>
+    </div>
+    <div class="score-card">
+      <div class="value" style="color:#10B981">801</div>
+      <div class="label">Alpha 2 (선거구조)</div>
+      <div class="rank">4명 중 2위</div>
+    </div>
+  </div>
+
+  <h2>핵심 강점 3가지</h2>
+  <ul class="sw-list strength-list">
+    <li><strong>선거구조 경쟁력 2위 (A2: 801점)</strong> — 민주당 여당 프리미엄, 3선 현역 효과, 은평갑 서울 지역 기반이 결합되어 본선 경쟁력은 후보군 상위권</li>
+    <li><strong>도덕적 청정 이미지 (청렴 4명 중 1위, 71점)</strong> — 법적 수사·고발·재산 논란 없음. 4명 중 도덕적 결함이 가장 적은 후보</li>
+    <li><strong>정책 차별화 가능성 (GPI 공익 81점)</strong> — 집값 폭등 공세, 보건복지위원장 경력, 검찰개혁 선도 등 뚜렷한 정책 정체성</li>
+  </ul>
+
+  <h2>핵심 약점 3가지</h2>
+  <ul class="sw-list weakness-list">
+    <li><strong>경선 여론 열세 (opinion: 700점, 2위 — 정원오 847점 대비 −147점)</strong> — 민주당 경선 내 '명픽' 프리미엄에 압도되어 경선 지지율 7-9%에 정체. 본선에서는 오세훈·조은희 대비 압도적 우위</li>
+    <li><strong>미디어 브랜드 파워 3위 (media: 711점)</strong> — 정원오(757점)·조은희(713점) 대비 열세. 단일 대표 이미지 서사 부재가 핵심 과제</li>
+    <li><strong>리스크 상대적 최하위 (risk: 505점, 4명 중 최하)</strong> — 절대적 리스크는 낮으나 경쟁자 대비 상대 순위 4위. 집값 공세 역풍이 주요 관리 포인트</li>
+  </ul>
+
+  <!-- Chapter 2 -->
+  <div class="chapter-divider" id="ch2">
+    <div class="chapter-number">Chapter 02</div>
+    <div class="chapter-title">CCI 종합 대시보드</div>
+  </div>
+
+  <h2>경쟁자 순위표</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>순위</th><th>후보</th><th>정당</th><th>CCI</th><th>GPI</th><th>Alpha1</th><th>Alpha2</th></tr>
+      </thead>
+      <tbody>
+        <tr><td style="text-align:center">1</td><td>정원오</td><td>더불어민주당</td><td><strong>781</strong></td><td>785</td><td>731</td><td>825</td></tr>
+        <tr class="highlight-row"><td style="text-align:center"><strong>2</strong></td><td><strong>박주민</strong></td><td><strong>더불어민주당</strong></td><td><strong>733</strong></td><td><strong>753</strong></td><td><strong>639</strong></td><td><strong>801</strong></td></tr>
+        <tr><td style="text-align:center">3</td><td>오세훈</td><td>국민의힘</td><td>677</td><td>732</td><td>568</td><td>712</td></tr>
+        <tr><td style="text-align:center">4</td><td>조은희</td><td>국민의힘</td><td>676</td><td>745</td><td>621</td><td>639</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>박주민 점수 분해</h2>
+  <pre>CCI 733점 = GPI 753 × 40% + Alpha1 639 × 30% + Alpha2 801 × 30%
+          = 301.2        +  191.7          +  240.3
+          = 733점</pre>
+
+  <h2>경쟁자 대비 강약점</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>차원</th><th>박주민</th><th>vs 정원오</th><th>vs 오세훈</th><th>vs 조은희</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>CCI</td><td>733</td><td class="down">▼ −48</td><td class="up">▲ +56</td><td class="up">▲ +57</td></tr>
+        <tr><td>GPI</td><td>753</td><td class="down">▼ −32</td><td class="up">▲ +21</td><td class="up">▲ +8</td></tr>
+        <tr><td>Alpha 1</td><td>639</td><td class="down">▼ −92</td><td class="up">▲ +71</td><td class="up">▲ +18</td></tr>
+        <tr><td>Alpha 2</td><td>801</td><td class="down">▼ −24</td><td class="up">▲ +89</td><td class="up">▲ +162</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Chapter 3 -->
+  <div class="chapter-divider" id="ch3">
+    <div class="chapter-number">Chapter 03</div>
+    <div class="chapter-title">GPI 요약</div>
+  </div>
+
+  <h2>GPI 3축 분석</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>GPI 축</th><th>구성 카테고리</th><th>박주민 평균</th><th>전체 평균</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>적격성</strong></td><td>전문성 + 리더십 + 비전</td><td>75.0점</td><td>76.3점</td></tr>
+        <tr><td><strong>도덕성</strong></td><td>청렴 + 윤리 + 책임 + 투명</td><td>73.8점</td><td>73.0점</td></tr>
+        <tr><td><strong>진정성</strong></td><td>소통 + 대응 + 공익</td><td>77.7점</td><td>77.7점</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>10개 카테고리 상세</h2>
+
+  <div class="bar-chart">
+    <div class="bar-item">
+      <div class="bar-label">전문성</div>
+      <div class="bar-track">
+        <div class="bar-fill bar-highlight" style="width:75%">박주민 75</div>
+      </div>
+    </div>
+    <div class="bar-item">
+      <div class="bar-label">리더십</div>
+      <div class="bar-track">
+        <div class="bar-fill bar-highlight" style="width:75%">박주민 75</div>
+      </div>
+    </div>
+    <div class="bar-item">
+      <div class="bar-label">비전</div>
+      <div class="bar-track">
+        <div class="bar-fill bar-highlight" style="width:75%">박주민 75</div>
+      </div>
+    </div>
+    <div class="bar-item">
+      <div class="bar-label">청렴</div>
+      <div class="bar-track">
+        <div class="bar-fill bar-highlight" style="width:71%">박주민 71 ★1위</div>
+      </div>
+    </div>
+    <div class="bar-item">
+      <div class="bar-label">윤리</div>
+      <div class="bar-track">
+        <div class="bar-fill bar-highlight" style="width:71%">박주민 71 ★1위</div>
+      </div>
+    </div>
+    <div class="bar-item">
+      <div class="bar-label">책임</div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width:74%;background:rgba(239,68,68,0.5)">박주민 74 (4위)</div>
+      </div>
+    </div>
+    <div class="bar-item">
+      <div class="bar-label">투명</div>
+      <div class="bar-track">
+        <div class="bar-fill bar-highlight" style="width:79%">박주민 79 ★2위</div>
+      </div>
+    </div>
+    <div class="bar-item">
+      <div class="bar-label">소통</div>
+      <div class="bar-track">
+        <div class="bar-fill bar-highlight" style="width:77%">박주민 77 ★2위</div>
+      </div>
+    </div>
+    <div class="bar-item">
+      <div class="bar-label">대응</div>
+      <div class="bar-track">
+        <div class="bar-fill bar-highlight" style="width:75%">박주민 75</div>
+      </div>
+    </div>
+    <div class="bar-item">
+      <div class="bar-label">공익</div>
+      <div class="bar-track">
+        <div class="bar-fill bar-highlight" style="width:81%">박주민 81 ★2위</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chapter 4 -->
+  <div class="chapter-divider" id="ch4">
+    <div class="chapter-number">Chapter 04</div>
+    <div class="chapter-title">Alpha 1 — 민심·여론 분석</div>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>카테고리</th><th>박주민</th><th>정원오</th><th>오세훈</th><th>조은희</th><th>박주민 순위</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>opinion (여론동향)</td><td>700</td><td>847</td><td>511</td><td>485</td><td class="up"><strong>2위</strong></td></tr>
+        <tr><td>media (이미지·내러티브)</td><td>711</td><td>757</td><td>544</td><td>713</td><td><strong>3위</strong></td></tr>
+        <tr><td>risk (리스크)</td><td>505</td><td>589</td><td>648</td><td>666</td><td class="down"><strong>4위</strong></td></tr>
+        <tr class="highlight-row"><td><strong>Alpha 1 합계</strong></td><td><strong>639</strong></td><td><strong>731</strong></td><td><strong>568</strong></td><td><strong>621</strong></td><td><strong>2위</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="info-box">
+    <strong>핵심 진단:</strong> 국민의힘 후보 2명 대비 Alpha 1 우위이나, 정원오와의 격차(−92점)가 박주민 전략의 최대 장벽. media 3위·risk 4위 약세를 opinion 2위로 만회하며 Alpha 1 전체 2위 유지 중.
+  </div>
+
+  <h2>opinion — 여론동향 (700점, 2위)</h2>
+  <p>opinion 2위(700점). 국민의힘 후보들(오세훈 511·조은희 485)을 크게 앞서지만, 민주당 경선에서 정원오(847점)에 −147점 열세. 이 격차는 단순 인지도 차이가 아닌 당내 '명픽' 계파 구도 비대칭성에서 비롯.</p>
+
+  <h2>media — 이미지·내러티브 (711점, 3위)</h2>
+  <p>집값 공세·검찰개혁 선도 이미지. 정원오(757점)·조은희(713점) 대비 media 3위. 조은희와 근소한 차이(−2점). 단일 대표 레거시 스토리 개발이 media 상승의 핵심 과제.</p>
+
+  <h2>risk — 리스크 (505점, 4위, 역산 평가)</h2>
+  <div class="warn-box">
+    ⚠️ <strong>risk는 역산 카테고리다.</strong> 리스크 항목이 적을수록 높은 점수를 받는다. 505점(4위)은 절대적 리스크 수준이 높다는 의미가 아니라, 경쟁자들 대비 상대적으로 불리하다는 의미다. 조은희 666·오세훈 648·정원오 589 대비 박주민에게 더 많은 논란 항목이 집계된 결과다.
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>리스크 유형</th><th>내용</th><th>심각도</th></tr></thead>
+      <tbody>
+        <tr><td>네이버 쇼핑 공청회</td><td>소상공인 입장 vs 플랫폼 규제 충돌 논란</td><td class="neutral-score">경미</td></tr>
+        <tr><td>이병태 임명 반대</td><td>당내 인사 문제 개입, 내부 갈등 표출</td><td class="neutral-score">경미</td></tr>
+        <tr><td>집값 공세 역풍</td><td>민주당 집권기 집값 상승 책임론 연계 가능성 — 가장 실질적인 위협</td><td class="warning">중간</td></tr>
+        <tr><td>음주·SNS 과거 논란</td><td>과거 SNS 발언·음주 관련 이력 재소환 가능성</td><td class="neutral-score">경미</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Chapter 5 -->
+  <div class="chapter-divider" id="ch5">
+    <div class="chapter-number">Chapter 05</div>
+    <div class="chapter-title">Alpha 2 — 선거구조 분석</div>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>카테고리</th><th>박주민</th><th>정원오</th><th>오세훈</th><th>조은희</th><th>박주민 순위</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>party (정당경쟁력)</td><td>812</td><td>837</td><td>555</td><td>493</td><td><strong>2위</strong></td></tr>
+        <tr><td>candidate (후보자경쟁력)</td><td>781</td><td>848</td><td>800</td><td>610</td><td><strong>3위</strong></td></tr>
+        <tr><td>regional (지역기반)</td><td>809</td><td>790</td><td>780</td><td>814</td><td><strong>2위</strong></td></tr>
+        <tr class="highlight-row"><td><strong>Alpha 2 합계</strong></td><td><strong>801</strong></td><td><strong>825</strong></td><td><strong>712</strong></td><td><strong>639</strong></td><td><strong>2위</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="info-box">
+    <strong>핵심 진단:</strong> Alpha 2 전체 2위(801점)는 박주민의 최대 강점. party·regional에서 국민의힘 후보 2명을 압도. candidate는 3위이나 Alpha 2 합계 2위 유지. 정원오와의 격차(−24점)는 Alpha 1 격차(−92점) 대비 매우 작음. "본선에 나가면 이긴다"는 구조적 우위.
+  </div>
+
+  <pre>경선 통과 시 본선 시나리오:
+박주민(801) vs 오세훈(712) → +89점 → 본선 승리 구조
+박주민(801) vs 조은희(639) → +162점 → 본선 압승 구조
+
+→ Alpha 2는 경선 통과의 이유, 본선 승리의 근거</pre>
+
+  <!-- Chapter 6 -->
+  <div class="chapter-divider" id="ch6">
+    <div class="chapter-number">Chapter 06</div>
+    <div class="chapter-title">경쟁자 1:1 비교</div>
+  </div>
+
+  <h2>박주민 vs 정원오 (더불어민주당, CCI 781)</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>차원</th><th>박주민</th><th>정원오</th><th>차이</th></tr></thead>
+      <tbody>
+        <tr><td>CCI</td><td>733</td><td>781</td><td class="down">−48</td></tr>
+        <tr><td>GPI</td><td>753</td><td>785</td><td class="down">−32</td></tr>
+        <tr><td>Alpha 1</td><td>639</td><td>731</td><td class="down">−92</td></tr>
+        <tr><td>Alpha 2</td><td>801</td><td>825</td><td class="down">−24</td></tr>
+        <tr><td>opinion</td><td>700</td><td>847</td><td class="down"><strong>−147</strong></td></tr>
+        <tr><td>media</td><td>711</td><td>757</td><td class="down">−46</td></tr>
+        <tr><td>risk</td><td>505</td><td>589</td><td class="down">−84 (역산: 박주민 리스크 노출 더 높음)</td></tr>
+        <tr><td>party</td><td>812</td><td>837</td><td class="down">−25</td></tr>
+        <tr><td>candidate</td><td>781</td><td>848</td><td class="down">−67</td></tr>
+        <tr><td>regional</td><td>809</td><td>790</td><td class="up"><strong>+19 ★우위</strong></td></tr>
+        <tr><td>윤리 (GPI)</td><td>71</td><td>69</td><td class="up"><strong>+2 ★우위</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <h3>정원오 공략 포인트</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>포인트</th><th>내용</th><th>대응 전략</th></tr></thead>
+      <tbody>
+        <tr><td><strong>경선 여론 격차 좁히기</strong></td><td>opinion 147점 차는 구조적이나 돌파 불가능하지 않음</td><td>"당원 민심은 지지율로만 판단되지 않는다" 프레임</td></tr>
+        <tr><td><strong>regional 우위 활용</strong></td><td>서북권 연고 박주민이 정원오보다 19점 앞섬</td><td>서북권 지역 기반 조직력을 권리당원 투표에 집중</td></tr>
+        <tr><td><strong>윤리성 유일 GPI 우위</strong></td><td>박주민 윤리 71점 > 정원오 69점</td><td>도덕적 청정성을 경선 차별화 서사로 활용</td></tr>
+        <tr><td><strong>본선 적합성 논리</strong></td><td>Alpha 2 801점 — 본선에서 누가 이기는가</td><td>"경선 유권자는 본선 승리를 보고 뽑는다" 설득</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>박주민 vs 오세훈 (국민의힘, CCI 677)</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>차원</th><th>박주민</th><th>오세훈</th><th>차이</th></tr></thead>
+      <tbody>
+        <tr><td>CCI</td><td>733</td><td>677</td><td class="up"><strong>+56</strong></td></tr>
+        <tr><td>GPI</td><td>753</td><td>732</td><td class="up">+21</td></tr>
+        <tr><td>Alpha 1</td><td>639</td><td>568</td><td class="up">+71</td></tr>
+        <tr><td>Alpha 2</td><td>801</td><td>712</td><td class="up"><strong>+89</strong></td></tr>
+        <tr><td>opinion</td><td>700</td><td>511</td><td class="up"><strong>+189</strong></td></tr>
+        <tr><td>media</td><td>711</td><td>544</td><td class="up">+167</td></tr>
+        <tr><td>risk</td><td>505</td><td>648</td><td class="down">−143 (오세훈 우위)</td></tr>
+        <tr><td>party</td><td>812</td><td>555</td><td class="up"><strong>+257</strong></td></tr>
+        <tr><td>candidate</td><td>781</td><td>800</td><td class="down">−19 (오세훈 우위)</td></tr>
+        <tr><td>regional</td><td>809</td><td>780</td><td class="up">+29</td></tr>
+        <tr><td>비전 (GPI)</td><td>75</td><td>80</td><td class="down">−5 (오세훈 우위)</td></tr>
+        <tr><td>청렴 (GPI)</td><td>71</td><td>66</td><td class="up">+5</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>오세훈 공략 포인트</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>포인트</th><th>내용</th><th>대응 전략</th></tr></thead>
+      <tbody>
+        <tr><td><strong>여론 189점 격차</strong></td><td>오세훈 511점은 민심 이반이 구조적</td><td>'서울시민이 이미 선택했다' 프레임 유효</td></tr>
+        <tr><td><strong>도덕성 압도 우위</strong></td><td>청렴(+5), 투명(+8), 윤리(+5) — 오세훈 낮은 도덕성 대비</td><td>도덕적 대조를 자연스럽게 부각, 실적으로 보여주기</td></tr>
+        <tr><td><strong>비전 열위 보완</strong></td><td>오세훈 비전 80점 (박주민 75점) — 5점 열위</td><td>구체적 실행 계획 제시로 비전 격차 해소</td></tr>
+        <tr><td><strong>현직 프리미엄 상쇄</strong></td><td>오세훈 candidate 800점의 현직 프리미엄</td><td>3선 입법 실적 시각화로 현역 의원 강점 어필</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>박주민 vs 조은희 (국민의힘, CCI 676)</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>차원</th><th>박주민</th><th>조은희</th><th>차이</th></tr></thead>
+      <tbody>
+        <tr><td>CCI</td><td>733</td><td>676</td><td class="up"><strong>+57</strong></td></tr>
+        <tr><td>GPI</td><td>753</td><td>745</td><td class="up">+8</td></tr>
+        <tr><td>Alpha 1</td><td>639</td><td>621</td><td class="up">+18</td></tr>
+        <tr><td>Alpha 2</td><td>801</td><td>639</td><td class="up"><strong>+162</strong></td></tr>
+        <tr><td>opinion</td><td>700</td><td>485</td><td class="up"><strong>+215</strong></td></tr>
+        <tr><td>media</td><td>711</td><td>713</td><td class="down">−2 (조은희 우위)</td></tr>
+        <tr><td>risk</td><td>505</td><td>666</td><td class="down">−161 (조은희 우위)</td></tr>
+        <tr><td>party</td><td>812</td><td>493</td><td class="up"><strong>+319</strong></td></tr>
+        <tr><td>candidate</td><td>781</td><td>610</td><td class="up">+171</td></tr>
+        <tr><td>regional</td><td>809</td><td>814</td><td class="down">−5 (조은희 우위)</td></tr>
+        <tr><td>리더십 (GPI)</td><td>75</td><td>78</td><td class="down">−3 (조은희 우위)</td></tr>
+        <tr><td>책임 (GPI)</td><td>74</td><td>79</td><td class="down">−5 (조은희 우위)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>조은희 공략 포인트</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>포인트</th><th>내용</th><th>대응 전략</th></tr></thead>
+      <tbody>
+        <tr><td><strong>여론 215점 격차</strong></td><td>가장 큰 여론 격차 — 사실상 경쟁 구도 아님</td><td>본선보다 경선 관리 집중 단계</td></tr>
+        <tr><td><strong>당 경쟁력 319점 격차</strong></td><td>조은희 party 493점(최하위) — 국민의힘 서울 열세 구조적</td><td>민주당 vs 국민의힘 정당 선택 프레임</td></tr>
+        <tr><td><strong>candidate 171점 격차</strong></td><td>3선 현역 조직력 vs 낮은 인지도</td><td>박주민 현역 효과 극대화</td></tr>
+        <tr><td><strong>지역기반 대응</strong></td><td>조은희 regional 814점(1위) — 서초 강남 기반</td><td>서북권 민심 결집으로 강남 지역 효과 상쇄</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="info-box">
+    <strong>전략 결론:</strong> 박주민은 본선에서 어떤 국민의힘 후보와 대결해도 우위. 모든 전략 자원을 경선 돌파(vs 정원오)에 집중해야 한다.
+  </div>
+
+  <!-- Chapter 7 -->
+  <div class="chapter-divider" id="ch7">
+    <div class="chapter-number">Chapter 07</div>
+    <div class="chapter-title">SWOT 분석</div>
+  </div>
+
+  <div class="swot-grid">
+    <div class="swot-cell swot-S">
+      <div class="swot-title">S — 강점</div>
+      <ul>
+        <li>선거구조 2위 (A2: 801점)</li>
+        <li>청렴·윤리 최우수 (4명 중 1위)</li>
+        <li>공익 의정 정체성 (공익 81점)</li>
+        <li>3선 현역 조직력</li>
+        <li>보건복지 전문성</li>
+      </ul>
+    </div>
+    <div class="swot-cell swot-W">
+      <div class="swot-title">W — 약점</div>
+      <ul>
+        <li>경선 여론 열세 (op: 700점, 2위)</li>
+        <li>미디어 서사 부재 (media 3위)</li>
+        <li>risk 최하위 (505점)</li>
+        <li>책임·대응 상대적 열세</li>
+        <li>행정 집행 실적 부족</li>
+      </ul>
+    </div>
+    <div class="swot-cell swot-O">
+      <div class="swot-title">O — 기회</div>
+      <ul>
+        <li>탄핵 정국 민주당 강세</li>
+        <li>집값 이슈 선점 가능</li>
+        <li>보건의료 개혁 수요</li>
+        <li>2030 민주당원 확대</li>
+        <li>검찰개혁 민심 지속</li>
+      </ul>
+    </div>
+    <div class="swot-cell swot-T">
+      <div class="swot-title">T — 위협</div>
+      <ul>
+        <li>'명픽' 정원오 지원</li>
+        <li>국민의힘 후보 단일화</li>
+        <li>경선 규칙 변수</li>
+        <li>집값 공세 역풍 가능성</li>
+        <li>정원오 행정 실적 부각</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>교차 전략</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>전략 유형</th><th>전략명</th><th>조합</th><th>실행 방향</th></tr></thead>
+      <tbody>
+        <tr><td><strong>SO</strong></td><td>집값 원탑 서사 확립</td><td>S3×O2</td><td>"먼저 문제를 제기한 사람이 먼저 해결할 수 있다" — 박주민을 집값 심판 1호로 포지셔닝</td></tr>
+        <tr><td><strong>SO</strong></td><td>2030 당원 청렴 이미지 공략</td><td>S2×O4</td><td>SNS 직접 소통으로 청렴 이미지 어필, "깨끗한 정치인이 진짜 개혁한다"</td></tr>
+        <tr><td><strong>SO</strong></td><td>보건의료 전문 시장 포지셔닝</td><td>S3×O3</td><td>보건복지위원장 경력을 "의료 전문 서울시장" 서사로 전환, 정원오와 차별화</td></tr>
+        <tr><td><strong>ST</strong></td><td>3선 조직력으로 '명픽' 대응</td><td>S5×T1</td><td>권리당원 투표율 제고, "당원이 직접 결정하는 경선" 프레임</td></tr>
+        <tr><td><strong>ST</strong></td><td>Alpha 2 우위로 본선 적합성 설득</td><td>S1×T3</td><td>Alpha 2 801점 데이터를 제시하며 "내가 이겨야 민주당이 서울을 탈환한다"</td></tr>
+        <tr><td><strong>ST</strong></td><td>집값 역풍 선제 차단</td><td>S3×T4</td><td>"인정할 건 인정, 해결책은 나" — 책임 인정 + 구체적 대안 제시로 공세를 역전</td></tr>
+        <tr><td><strong>WO</strong></td><td>집값 원탑 단일 서사</td><td>W3×O2</td><td>모든 메시지를 "집값 심판"으로 단일화, 이슈 분산을 집중으로 전환</td></tr>
+        <tr><td><strong>WO</strong></td><td>2030 당원 직접 공략</td><td>W1×O4</td><td>청년 당원 전용 소통 채널 운영, SNS 라이브 접촉 집중</td></tr>
+        <tr><td><strong>WO</strong></td><td>보건의료 레거시 창출</td><td>W5×O3</td><td>보건복지위원장 10대 입법 성과를 시각화, "실행한 의정"으로 행정 실적 공백 보완</td></tr>
+        <tr><td><strong>WT</strong></td><td>risk 관리 + 명픽 동시 대응</td><td>W2×T1</td><td>논란 원천 차단 + 권리당원 직접 접촉으로 명픽 효과에 대응</td></tr>
+        <tr><td><strong>WT</strong></td><td>입법 실적 시각화 캠페인</td><td>W5×T5</td><td>3선 입법 성과를 숫자와 스토리로 제시, "행정가 vs 입법가" 프레임에서 입법 우위 확보</td></tr>
+        <tr><td><strong>WT</strong></td><td>경선 이탈 방지 조기 고착</td><td>W1×T3</td><td>경선 초반 3주 내 지지층 결집, 명픽 효과 고착 전 권리당원 투표 우위 선점 시도</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Chapter 8 -->
+  <div class="chapter-divider" id="ch8">
+    <div class="chapter-number">Chapter 08</div>
+    <div class="chapter-title">전략 제언</div>
+  </div>
+
+  <h2>즉시 실행 3가지 (30일 이내)</h2>
+  <div class="strategy-cards">
+    <div class="strategy-card">
+      <span class="card-number">1</span>
+      <span class="card-title">"집값 심판 1호" 포지셔닝 확정</span>
+      <div class="table-wrap" style="margin-top:16px">
+        <table>
+          <thead><tr><th>시기</th><th>실행 내용</th></tr></thead>
+          <tbody>
+            <tr><td>1주 이내</td><td>은평갑 주거 실태 기반 집값 해결 5대 공약 발표</td></tr>
+            <tr><td>2주 이내</td><td>대형 기자회견 + SNS 캠페인</td></tr>
+            <tr><td>4주 이내</td><td>토론 준비 — "집값 해결" 단일 메시지 반복</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:12px;font-size:13px;color:var(--success)">예상 효과: media 711→750+, opinion 700→720+</p>
+    </div>
+
+    <div class="strategy-card">
+      <span class="card-number">2</span>
+      <span class="card-title">권리당원 직접 소통 집중 실시</span>
+      <div class="table-wrap" style="margin-top:16px">
+        <table>
+          <thead><tr><th>실행 내용</th><th>세부</th></tr></thead>
+          <tbody>
+            <tr><td>서울 25개 자치구 간담회</td><td>6주간 주 4회, 총 24회</td></tr>
+            <tr><td>당원 전용 소통 채널</td><td>카카오톡 오픈채팅, 유튜브 라이브</td></tr>
+            <tr><td>"당원과의 약속" 공약</td><td>당원 피드백 반영 정책 공개</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:12px;font-size:13px;color:var(--success)">예상 효과: opinion 700→730+, 경선 지지율 7→12%</p>
+    </div>
+
+    <div class="strategy-card">
+      <span class="card-number">3</span>
+      <span class="card-title">보건의료 원탑 서사 확립</span>
+      <p style="margin-top:12px;color:var(--text-secondary);font-size:14px">보건복지위원장 10대 성과 발표 → 의료계·복지계 지지 선언 유도 → 서울시 의료 공공성 강화 공약 발표</p>
+      <p style="margin-top:8px;font-size:13px;color:var(--success)">예상 효과: GPI 전문성 75→78, media 서사 차별화</p>
+    </div>
+  </div>
+
+  <h2>리스크 대응 시나리오</h2>
+
+  <h3>시나리오 1: 최선 (경선 돌파 → 본선 압승)</h3>
+  <p><strong>발생 조건</strong>: 경선 여론조사 역전 + 권리당원 투표 1위</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>지표</th><th>목표</th><th>현재</th></tr></thead>
+      <tbody>
+        <tr><td>CCI 점수</td><td>760점 이상</td><td>733점</td></tr>
+        <tr><td>opinion</td><td>780점 이상</td><td>700점</td></tr>
+        <tr><td>risk</td><td>560점 이상</td><td>505점</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p><strong>대응 전략</strong>: 경선 결과를 "민심 역전" 서사로 즉시 본선 전환 / 오세훈 집중 공략 (도덕성·party 격차 조합) / 서울시장 비전 확장 공약 발표로 중도층 흡수</p>
+  <p style="color:var(--success)"><strong>예상 결과</strong>: 본선 지지율 50~55% → 선거 승리 유력</p>
+
+  <h3>시나리오 2: 기본 (경선 박빙 추격 → 본선 경쟁 전환)</h3>
+  <p><strong>발생 조건</strong>: opinion 격차 147점 → 80점 이내로 축소, 경선 지지율 15~20% 도달</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>지표</th><th>목표 범위</th><th>현재</th></tr></thead>
+      <tbody>
+        <tr><td>CCI 점수</td><td>740~760점</td><td>733점</td></tr>
+        <tr><td>opinion</td><td>730~760점</td><td>700점</td></tr>
+        <tr><td>risk</td><td>530~560점</td><td>505점</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p><strong>대응 전략</strong>: "집값 심판 1호" 단일 서사로 경선 TV토론 집중 공략 / 권리당원 직접 접촉 5,000명 이상 달성 → 여론조사 외 당심 확보 / Alpha 2 801점 데이터를 "본선 적합성" 근거로 반복 제시 / risk 관리 강화 — 추가 논란 원천 차단으로 505→530 목표</p>
+  <p style="color:var(--warning)"><strong>예상 결과</strong>: 경선 결과 40~45% 득표 시 박빙 경선 결과로 역전 가능. 본선 전환 시 CCI 740+ 경쟁력 확보</p>
+
+  <h3>시나리오 3: 최악 (리스크 폭발 + 경선 탈락)</h3>
+  <p><strong>발생 조건</strong>: 집값 역풍·추가 리스크 동시 부각 + 경선 2위 탈락</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>위험 지표</th><th>현황</th><th>경보 기준</th></tr></thead>
+      <tbody>
+        <tr><td>risk 점수</td><td>505점 (4위)</td><td>추가 하락 시 구조적 위기</td></tr>
+        <tr><td>opinion 격차 (vs 정원오)</td><td>-147점</td><td>-200점 이하 시 경선 포기 수준</td></tr>
+        <tr><td>집값 역풍 노출</td><td>잠재적</td><td>2회 이상 언론 부각 시 즉시 대응</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p><strong>긴급 대응 전략 (리스크 폭발 시)</strong>: 24시간 이내 선제 해명 기자회견 / 청렴·윤리 1위 실적 강조 (GPI 공개 데이터 활용) / "집값 문제를 가장 먼저 제기한 사람이 가장 빨리 해결한다" 역공 프레임 / 긴급 권리당원 직접 호소</p>
+  <p><strong>경선 탈락 시 행동 계획</strong>: 즉각적 정원오 지지 선언 → 조직력·지지기반 이양 협력 / 경선 과정 축적한 청렴·공익 이미지를 정치 자산으로 유지 / 2028 당직 또는 차기 선거 포지셔닝으로 전환</p>
+  <p style="color:var(--danger)"><strong>예상 결과</strong>: 리스크 24시간 이내 대응 시 피해 최소화. 경선 탈락 시 협력 기조 유지가 당내 위상 강화의 핵심</p>
+
+  <h2>전략 우선순위 매트릭스</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>전략</th><th>영향력</th><th>실행 용이성</th><th>우선순위</th></tr></thead>
+      <tbody>
+        <tr><td>권리당원 직접 소통</td><td>높음</td><td>중</td><td class="priority-1">1순위</td></tr>
+        <tr><td>집값 심판 포지셔닝</td><td>높음</td><td>높음</td><td class="priority-1">1순위</td></tr>
+        <tr><td>보건의료 서사</td><td>중</td><td>높음</td><td class="priority-2">2순위</td></tr>
+        <tr><td>SNS 2030 공략</td><td>중</td><td>중</td><td class="priority-2">2순위</td></tr>
+        <tr><td>risk 관리 강화</td><td>중</td><td>높음</td><td class="priority-2">2순위</td></tr>
+        <tr><td>당 지도부 관계</td><td>높음</td><td>낮음</td><td class="priority-3">3순위</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>최종 전략 요약</h2>
+  <pre>박주민의 CCI 전략 = 경선 특화 + 본선 유지
+
+[경선 돌파 — 전략 자원 80% 집중]
+  ① opinion: 권리당원 직접 공략 → 지지율 7→15%
+  ② media: 집값 원탑 서사 → "박주민 = 집값 심판"
+  ③ 본선 적합성 논리: "내가 이겨야 민주당이 이긴다"
+  ④ 보건의료 차별화: 정원오에게 없는 전문 영역 선점
+
+[본선 유지 — 전략 자원 20%]
+  ⑤ Alpha 2 우위 보존: 현 수준 유지
+  ⑥ GPI 청렴·윤리 1위: 도덕적 우위 지속
+
+[가장 중요한 외부 변수]
+  → 이재명 대표의 경선 개입 수위 (개입 강할수록 박주민에게 불리)
+  → 당원 투표율 (높을수록 명픽 효과 극대화, 박주민에게 불리)
+  → 경선 방식 (여론조사 비중 높을수록 박주민에게 유리)</pre>
+
+  <div class="info-box">
+    <strong>전략 총평:</strong> 박주민의 유일한 경선 역전 경로는 "본선 적합성" 논리다. Alpha 2 801점이 보여주는 구조적 본선 우위를 데이터로 제시하며, 경선 유권자에게 "누가 서울시장 선거를 이길 수 있는가"로 판단 기준을 전환시켜야 한다. 정원오보다 강하다는 주장이 아니라, 박주민이 이겨야 민주당이 서울을 탈환한다는 논리가 핵심이다. 동시에 청렴·윤리 1위(GPI)와 regional 2위라는 두 개의 차별적 강점을 경선 서사의 핵심 축으로 삼아야 한다.
+  </div>
+
+  <!-- 별첨 2. CCI 산출 방법론 -->
+  <div class="chapter-divider" id="appendix2">
+    <div class="chapter-number">Appendix 02</div>
+    <div class="chapter-title">CCI 산출 방법론</div>
+  </div>
+
+  <h2>CCI 공식</h2>
+  <pre>CCI = GPI × 40% + Alpha 1 × 30% + Alpha 2 × 30%
+
+박주민 계산:
+CCI = 753 × 0.4 + 639 × 0.3 + 801 × 0.3
+    = 301.2 + 191.7 + 240.3
+    = 733점</pre>
+
+  <h2>Alpha 점수 변환 공식</h2>
+  <pre>Alpha 카테고리 점수 = (6.0 + avg_score × 0.5) × 100
+
+avg_score = 평가 레이팅별 점수(rating × 2)의 평균
+  - rating 범위: +4 ~ -4 (8단계, X 제외)
+  - 점수 범위: +8 ~ -8
+
+점수 범위:
+  - 최고(avg_score = +8): (6.0 + 8 × 0.5) × 100 = 1000점
+  - 기준(avg_score =  0): (6.0 + 0 × 0.5) × 100 =  600점
+  - 최저(avg_score = -8): (6.0 - 8 × 0.5) × 100 =  200점
+
+Alpha 1 합계 = (opinion + media + risk) / 3
+  예) 박주민: (700 + 711 + 505) / 3 = 638.7 → 639점
+
+Alpha 2 합계 = (party + candidate + regional) / 3
+  예) 박주민: (812 + 781 + 809) / 3 = 800.7 → 801점</pre>
+
+  <h2>평가 구조</h2>
+  <pre>V60 CCI 평가 체계
+
+GPI (Type A — 공개 보고서):
+  10개 카테고리 × 복수의 AI (Claude, ChatGPT, Gemini, Grok)
+  → 4명 공동 평가, 객관성 확보
+
+Alpha (Type B — 비공개 전략 브리핑):
+  6개 카테고리 × Claude 단독
+  → 상대평가 (4명 동시 병렬 평가, 플래툰 포메이션)
+  → 같은 시점·같은 기준으로 비교 정확성 확보
+
+※ GPI 공개 보고서(별첨 1)는 GitHub Pages에서 별도 제공된다.</pre>
+
+</div>
+
+<div class="report-footer">
+  <div style="margin-bottom:8px;color:var(--text-secondary)">박주민 CCI 전략 브리핑 — 2026 서울시장</div>
+  <div>평가일: 2026-03-12 &nbsp;·&nbsp; 버전: V60 CCI &nbsp;·&nbsp; 생성: Claude (Delta 분대장)</div>
+  <div style="margin-top:8px">본 보고서는 기밀 전략문서입니다. 정치인 전용 비공개.</div>
+</div>
+
+</body>
+</html>

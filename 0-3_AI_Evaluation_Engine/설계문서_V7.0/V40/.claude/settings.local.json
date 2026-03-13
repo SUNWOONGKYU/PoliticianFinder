@@ -53,7 +53,10 @@
       "Bash(true:*)",
       "Bash(cd \"C:/Development_PoliticianFinder_com/Developement_Real_PoliticianFinder/0-3_AI_Evaluation_Engine/설계문서_V7.0/V40/scripts/helpers\" && export PYTHONIOENCODING=utf-8 && python claude_eval_helper.py save --politician_id=5a36db82 --politician_name=\"이동환\" --category=vision --input=eval_result_vision_batch_1.json 2>&1)",
       "Bash(cd:*)",
-      "Bash(tail:*)"
+      "Bash(tail:*)",
+      "Bash(rm:*)",
+      "WebSearch",
+      "Bash(\"/c/Development_PoliticianFinder_com/Developement_Real_PoliticianFinder/0-3_AI_Evaluation_Engine/설계문서_V7.0/V60_CCI/보고서/정원오_CCI_20260312_sec6.md\":*)"
     ]
   }
 }

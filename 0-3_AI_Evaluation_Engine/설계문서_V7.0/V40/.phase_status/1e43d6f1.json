@@ -3,8 +3,28 @@
   "phases": {
     "0": {
       "status": "DONE",
-      "completed_at": "2026-02-25T15:58:55.859429",
-      "details": "정치인 정보 등록"
+      "completed_at": "2026-03-03T22:16:03.636637",
+      "details": "DB 등록 완료"
+    },
+    "2": {
+      "status": "DONE",
+      "completed_at": "2026-03-03T22:16:03.652233",
+      "details": "validate_v40_fixed.py 완료 - 1210→628 유효"
+    },
+    "2-2": {
+      "status": "DONE",
+      "completed_at": "2026-03-03T22:16:03.659776",
+      "details": "adjust_v40_data.py 완료 - Gemini 540, Naver 583, Total 1123 (투명성 43개 부족허용)"
+    },
+    "1": {
+      "status": "DONE",
+      "completed_at": "2026-03-03T22:16:03.644731",
+      "details": "명재성 Gemini 540개 + Naver 583개 = 1123개"
+    },
+    "4": {
+      "status": "DONE",
+      "completed_at": "2026-03-05T11:41:14.804095",
+      "details": "778점 E등급"
     }
   },
   "politician_name": "명재성"

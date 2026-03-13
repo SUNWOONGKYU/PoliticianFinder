@@ -1,0 +1,244 @@
+{
+  "name": "V60 Alpha Pipeline — Full Process",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "start-trigger",
+      "name": "Start",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            { "name": "politician_id", "value": "17270f25" },
+            { "name": "politician_name", "value": "정원오" },
+            { "name": "group_name", "value": "2026 서울시장" }
+          ]
+        },
+        "options": {}
+      },
+      "id": "set-variables",
+      "name": "Set Variables",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [450, 300]
+    },
+    {
+      "parameters": {
+        "command": "cd V60_CCI/scripts/collect && python collect_alpha.py --politician-id {{ $json.politician_id }} --category all",
+        "cwd": "C:/Development_PoliticianFinder_com/Developement_Real_PoliticianFinder/0-3_AI_Evaluation_Engine/설계문서_V7.0"
+      },
+      "id": "phase1-collect",
+      "name": "Phase 1: Collect (120/cat)",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [650, 300],
+      "notesInFlow": true,
+      "notes": "수집: 뉴스+블로그+카페+공공API, 120개/카테고리"
+    },
+    {
+      "parameters": {
+        "command": "cd V60_CCI/scripts/core && python validate_alpha.py --politician-id {{ $json.politician_id }} --no-dry-run",
+        "cwd": "C:/Development_PoliticianFinder_com/Developement_Real_PoliticianFinder/0-3_AI_Evaluation_Engine/설계문서_V7.0"
+      },
+      "id": "phase2-validate",
+      "name": "Phase 2: Validate",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [850, 300],
+      "notesInFlow": true,
+      "notes": "검증: 중복 제거 + 기간 위반 제거"
+    },
+    {
+      "parameters": {
+        "command": "cd V60_CCI/scripts/core && python adjust_alpha.py --politician-id {{ $json.politician_id }} --no-dry-run",
+        "cwd": "C:/Development_PoliticianFinder_com/Developement_Real_PoliticianFinder/0-3_AI_Evaluation_Engine/설계문서_V7.0"
+      },
+      "id": "phase2-2-adjust",
+      "name": "Phase 2-2: Adjust",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [1050, 300],
+      "notesInFlow": true,
+      "notes": "조정: 초과 삭제 / 부족 재수집 (최대 4회)"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.stdout }}",
+              "operation": "contains",
+              "value2": "모든 카테고리 기준 충족"
+            }
+          ]
+        }
+      },
+      "id": "check-adjust",
+      "name": "Check Adjust Result",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [1250, 300]
+    },
+    {
+      "parameters": {
+        "command": "echo 'Phase 3: Claude Code 평가 — /evaluate-cci-v60 --politician-id={{ $json.politician_id }} --phase=alpha-eval'",
+        "cwd": "C:/Development_PoliticianFinder_com/Developement_Real_PoliticianFinder/0-3_AI_Evaluation_Engine/설계문서_V7.0"
+      },
+      "id": "phase3-evaluate",
+      "name": "Phase 3: Evaluate (Claude)",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [1450, 250],
+      "notesInFlow": true,
+      "notes": "Claude Code 직접 평가 (수동 트리거 또는 스킬 호출)"
+    },
+    {
+      "parameters": {
+        "command": "cd V60_CCI/scripts/core && python validate_alpha_eval.py --politician-id {{ $json.politician_id }}",
+        "cwd": "C:/Development_PoliticianFinder_com/Developement_Real_PoliticianFinder/0-3_AI_Evaluation_Engine/설계문서_V7.0"
+      },
+      "id": "phase3-2-validate-eval",
+      "name": "Phase 3-2: Validate Eval",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [1650, 250],
+      "notesInFlow": true,
+      "notes": "평가 검증: 편향/X과다/reasoning 누락/orphan ID"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.stdout }}",
+              "operation": "contains",
+              "value2": "모든 검증 통과"
+            }
+          ]
+        }
+      },
+      "id": "check-eval-result",
+      "name": "Check Eval Pass",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [1850, 250]
+    },
+    {
+      "parameters": {
+        "command": "cd V60_CCI/scripts/core && python calculate_cci_scores.py --politician-id {{ $json.politician_id }}",
+        "cwd": "C:/Development_PoliticianFinder_com/Developement_Real_PoliticianFinder/0-3_AI_Evaluation_Engine/설계문서_V7.0"
+      },
+      "id": "phase4-calculate",
+      "name": "Phase 4: Calculate CCI",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [2050, 200],
+      "notesInFlow": true,
+      "notes": "CCI = GPI×0.4 + A1×0.3 + A2×0.3"
+    },
+    {
+      "parameters": {
+        "command": "cd V60_CCI/scripts/core && python generate_cci_report.py --politician-id {{ $json.politician_id }}",
+        "cwd": "C:/Development_PoliticianFinder_com/Developement_Real_PoliticianFinder/0-3_AI_Evaluation_Engine/설계문서_V7.0"
+      },
+      "id": "phase5-report",
+      "name": "Phase 5: Generate Report",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [2250, 200],
+      "notesInFlow": true,
+      "notes": "CCI 전략보고서 생성 (정치인 전용)"
+    },
+    {
+      "parameters": {
+        "command": "cd V60_CCI/scripts/utils && python check_cci_status.py --politician-id {{ $json.politician_id }}",
+        "cwd": "C:/Development_PoliticianFinder_com/Developement_Real_PoliticianFinder/0-3_AI_Evaluation_Engine/설계문서_V7.0"
+      },
+      "id": "status-check",
+      "name": "Final Status Check",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [2450, 200]
+    },
+    {
+      "parameters": {
+        "message": "⚠️ 조정 실패 — 재수집 필요 카테고리 존재. 수동 확인 필요."
+      },
+      "id": "alert-adjust-fail",
+      "name": "Alert: Adjust Failed",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [1450, 450],
+      "notesInFlow": true,
+      "notes": "조정 실패 → 수동 재수집 후 재실행"
+    },
+    {
+      "parameters": {
+        "message": "⚠️ 평가 검증 실패 — 편향/누락 이슈 존재. 수동 확인 필요."
+      },
+      "id": "alert-eval-fail",
+      "name": "Alert: Eval Validation Failed",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [2050, 400],
+      "notesInFlow": true,
+      "notes": "평가 검증 실패 → 재평가 후 재실행"
+    }
+  ],
+  "connections": {
+    "Start": {
+      "main": [[{ "node": "Set Variables", "type": "main", "index": 0 }]]
+    },
+    "Set Variables": {
+      "main": [[{ "node": "Phase 1: Collect (120/cat)", "type": "main", "index": 0 }]]
+    },
+    "Phase 1: Collect (120/cat)": {
+      "main": [[{ "node": "Phase 2: Validate", "type": "main", "index": 0 }]]
+    },
+    "Phase 2: Validate": {
+      "main": [[{ "node": "Phase 2-2: Adjust", "type": "main", "index": 0 }]]
+    },
+    "Phase 2-2: Adjust": {
+      "main": [[{ "node": "Check Adjust Result", "type": "main", "index": 0 }]]
+    },
+    "Check Adjust Result": {
+      "main": [
+        [{ "node": "Phase 3: Evaluate (Claude)", "type": "main", "index": 0 }],
+        [{ "node": "Alert: Adjust Failed", "type": "main", "index": 0 }]
+      ]
+    },
+    "Phase 3: Evaluate (Claude)": {
+      "main": [[{ "node": "Phase 3-2: Validate Eval", "type": "main", "index": 0 }]]
+    },
+    "Phase 3-2: Validate Eval": {
+      "main": [[{ "node": "Check Eval Pass", "type": "main", "index": 0 }]]
+    },
+    "Check Eval Pass": {
+      "main": [
+        [{ "node": "Phase 4: Calculate CCI", "type": "main", "index": 0 }],
+        [{ "node": "Alert: Eval Validation Failed", "type": "main", "index": 0 }]
+      ]
+    },
+    "Phase 4: Calculate CCI": {
+      "main": [[{ "node": "Phase 5: Generate Report", "type": "main", "index": 0 }]]
+    },
+    "Phase 5: Generate Report": {
+      "main": [[{ "node": "Final Status Check", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "meta": {
+    "instanceId": "v60-cci-alpha-pipeline"
+  },
+  "tags": [
+    { "name": "V60", "id": "v60" },
+    { "name": "CCI", "id": "cci" },
+    { "name": "Alpha", "id": "alpha" }
+  ]
+}

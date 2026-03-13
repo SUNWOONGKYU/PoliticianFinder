@@ -28,6 +28,14 @@ import hashlib
 from pathlib import Path
 from datetime import datetime, timedelta
 from typing import Dict, List
+
+# Encoding fix for Windows
+if sys.platform == 'win32':
+    try:
+        sys.stdout = open(sys.stdout.fileno(), mode='w', encoding='utf-8', buffering=1)
+        sys.stderr = open(sys.stderr.fileno(), mode='w', encoding='utf-8', buffering=1)
+    except Exception:
+        pass
 from urllib.parse import quote
 from dotenv import load_dotenv
 

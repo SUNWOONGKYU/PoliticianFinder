@@ -185,7 +185,25 @@ Based on this data, pick which of the 8 grades this politician's {category} fall
 
 For each data item below, pick ONE grade from +4, +3, +2, +1, -1, -2, -3, -4, or X.
 
-+4 is the strongest positive. -4 is the strongest negative.
+## Rating Scale (STRICT — must follow exactly)
+
+| Grade | Score | Threshold |
+|-------|-------|-----------|
+| +4 | +8 | 탁월 — 법 제정 주도, 대통령 표창·국가 공인 수상, 전국적 모범 사례로 공식 인정 (매우 드묾) |
+| +3 | +6 | 우수 — 다수 법안 통과, 시민단체 최우수 평가, 구체적·문서화된 탁월한 성과 |
+| +2 | +4 | 양호 — 일반적 긍정 활동, 법안 발의, 기본 직무 충실 이행 |
+| +1 | +2 | 보통 — 노력·출석·기본 역량, 의례적 행사, 약속/선언, 루틴 업무 |
+| -1 | -2 | 미흡 — 경미한 비판 제기, 지적 받음, 해명 후 무혐의 |
+| -2 | -4 | 부족 — 논란, 의혹 제기, 수사/조사 착수 |
+| -3 | -6 | 심각 — 기소, 심각한 비리 의혹 확인 |
+| -4 | -8 | 최악 — 유죄 확정, 중대한 법적 처벌 |
+
+⚠️ Calibration rules (IMPORTANT — do NOT ignore):
+- 의례적 행사 참석, 약속/선언, 공문 발송, 캠페인 발족, 교육 실시 → +1 (절대 +3/+4 금지)
+- 법적 의무 이행 (재산 신고, 윤리 서약 등) → +1~+2 (절대 +3/+4 금지)
+- +4는 외부 기관의 공식 수상·인정이 있는 경우에만 (전체 항목의 5% 미만이어야 함)
+- +3은 구체적이고 문서화된 실질 성과가 있는 경우에만
+- 확신이 없으면 반드시 낮은 등급 선택 (conservative by default)
 
 X is allowed ONLY when you can prove one of these 3 reasons:
 - "wrong_person": the data is about a different person who happens to share the same name, NOT about {politician_name}

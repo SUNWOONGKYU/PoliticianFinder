@@ -137,7 +137,7 @@
     },
     {
       "parameters": {
-        "jsCode": "// Generate collection prompts for 3 channels across 10 categories\n// V50: Gemini + Naver + Grok-X\nconst categories = ['expertise','leadership','vision','integrity','ethics','accountability','transparency','communication','responsiveness','publicinterest'];\nconst catKr = {\n  expertise:'전문성', leadership:'리더십', vision:'비전', integrity:'청렴성',\n  ethics:'윤리', accountability:'책임성', transparency:'투명성',\n  communication:'소통', responsiveness:'대응력', publicinterest:'공익성'\n};\nconst p = $('Validate Input').first().json;\nconst now = new Date();\nconst officialStart = new Date(now.getTime() - 4*365*24*60*60*1000);\nconst publicStart = new Date(now.getTime() - 2*365*24*60*60*1000);\nconst officialStr = officialStart.toISOString().split('T')[0];\nconst publicStr = publicStart.toISOString().split('T')[0];\nconst nowStr = now.toISOString().split('T')[0];\n\nconst batches = [];\nfor (const cat of categories) {\n  // Gemini: OFFICIAL 36 + PUBLIC 24 = 60개 목표\n  batches.push({\n    channel: 'Gemini',\n    category: cat,\n    source_type: 'OFFICIAL',\n    politician_id: p.politician_id,\n    politician_name: p.politician_name,\n    target_count: 36,\n    prompt: `한국 정치인 \"${p.politician_name}\"의 ${catKr[cat]}(${cat}) 관련 공식 활동을 36개 찾아주세요.\\n기간: ${officialStr} ~ ${nowStr} (최근 4년)\\n출처: 국회 회의록, 정부 공식 문서, 법안, 예산안, 공식 발표, 의정 활동 등\\n\\n각 항목을 JSON 배열로 반환:\\n[{\"title\":\"제목\",\"content\":\"요약 (200자 이내)\",\"source_url\":\"URL\",\"source_name\":\"출처명\",\"published_date\":\"YYYY-MM-DD\",\"sentiment\":\"negative|positive|free\"}]`\n  });\n  batches.push({\n    channel: 'Gemini',\n    category: cat,\n    source_type: 'PUBLIC',\n    politician_id: p.politician_id,\n    politician_name: p.politician_name,\n    target_count: 24,\n    prompt: `한국 정치인 \"${p.politician_name}\"의 ${catKr[cat]}(${cat}) 관련 언론 보도를 24개 찾아주세요.\\n기간: ${publicStr} ~ ${nowStr} (최근 2년)\\n출처: 뉴스 기사, 칼럼, 사설, 인터뷰, 방송 보도 등\\n\\n각 항목을 JSON 배열로 반환:\\n[{\"title\":\"제목\",\"content\":\"요약 (200자 이내)\",\"source_url\":\"URL\",\"source_name\":\"출처명\",\"published_date\":\"YYYY-MM-DD\",\"sentiment\":\"negative|positive|free\"}]`\n  });\n  // Naver: OFFICIAL 12개 + PUBLIC 48개 = 60개 (V40 비율: OFFICIAL 20%, PUBLIC 80%)\n  batches.push({\n    channel: 'Naver',\n    category: cat,\n    source_type: 'MIXED',\n    politician_id: p.politician_id,\n    politician_name: p.politician_name,\n    official_count: 12,\n    public_count: 48,\n    target_count: 60,\n    search_query: `${p.politician_name} ${catKr[cat]}`\n  });\n  // Grok-X: X(Twitter) 특화, 6개 (PUBLIC, sentiment=free 고정)\n  batches.push({\n    channel: 'GrokX',\n    category: cat,\n    source_type: 'PUBLIC',\n    politician_id: p.politician_id,\n    politician_name: p.politician_name,\n    target_count: 6,\n    prompt: `X(Twitter)에서 한국 정치인 \"${p.politician_name}\"의 ${catKr[cat]}(${cat}) 관련 최근 주목받은 트윗이나 반응을 6개 수집해주세요.\\n기간: ${publicStr} ~ ${nowStr} (최근 2년)\\n센티멘트 구분 없이 자유롭게 수집합니다.\\n\\nJSON 배열로 반환:\\n[{\"title\":\"트윗 요약\",\"content\":\"내용 (200자 이내)\",\"source_url\":\"트윗 URL 또는 X 링크\",\"source_name\":\"X\",\"published_date\":\"YYYY-MM-DD\",\"sentiment\":\"free\"}]`\n  });\n}\nreturn batches.map(b => ({ json: b }));"
+        "jsCode": "// Generate collection prompts for 3 channels across 10 categories\n// V50: Gemini + Naver + Grok-X\nconst categories = ['expertise','leadership','vision','integrity','ethics','accountability','transparency','communication','responsiveness','publicinterest'];\nconst catKr = {\n  expertise:'전문성', leadership:'리더십', vision:'비전', integrity:'청렴성',\n  ethics:'윤리', accountability:'책임성', transparency:'투명성',\n  communication:'소통', responsiveness:'대응력', publicinterest:'공익성'\n};\nconst p = $('Validate Input').first().json;\nconst now = new Date();\nconst officialStart = new Date(now.getTime() - 4*365*24*60*60*1000);\nconst publicStart = new Date(now.getTime() - 2*365*24*60*60*1000);\nconst officialStr = officialStart.toISOString().split('T')[0];\nconst publicStr = publicStart.toISOString().split('T')[0];\nconst nowStr = now.toISOString().split('T')[0];\n\nconst batches = [];\nfor (const cat of categories) {\n  // Gemini: OFFICIAL 30 + PUBLIC 18 = 48개 목표 (v50_api_config.json gemini_per_category: 48 기준)\n  batches.push({\n    channel: 'Gemini',\n    category: cat,\n    source_type: 'OFFICIAL',\n    politician_id: p.politician_id,\n    politician_name: p.politician_name,\n    target_count: 30,\n    prompt: `한국 정치인 \"${p.politician_name}\"의 ${catKr[cat]}(${cat}) 관련 공식 활동을 30개 찾아주세요.\\n기간: ${officialStr} ~ ${nowStr} (최근 4년)\\n출처: 국회 회의록, 정부 공식 문서, 법안, 예산안, 공식 발표, 의정 활동 등\\n\\n각 항목을 JSON 배열로 반환:\\n[{\"title\":\"제목\",\"content\":\"요약 (200자 이내)\",\"source_url\":\"URL\",\"source_name\":\"출처명\",\"published_date\":\"YYYY-MM-DD\",\"sentiment\":\"negative|positive|free\"}]`\n  });\n  batches.push({\n    channel: 'Gemini',\n    category: cat,\n    source_type: 'PUBLIC',\n    politician_id: p.politician_id,\n    politician_name: p.politician_name,\n    target_count: 18,\n    prompt: `한국 정치인 \"${p.politician_name}\"의 ${catKr[cat]}(${cat}) 관련 언론 보도를 18개 찾아주세요.\\n기간: ${publicStr} ~ ${nowStr} (최근 2년)\\n출처: 뉴스 기사, 칼럼, 사설, 인터뷰, 방송 보도 등\\n\\n각 항목을 JSON 배열로 반환:\\n[{\"title\":\"제목\",\"content\":\"요약 (200자 이내)\",\"source_url\":\"URL\",\"source_name\":\"출처명\",\"published_date\":\"YYYY-MM-DD\",\"sentiment\":\"negative|positive|free\"}]`\n  });\n  // Naver: OFFICIAL 12개 + PUBLIC 48개 = 60개 (V40 비율: OFFICIAL 20%, PUBLIC 80%)\n  batches.push({\n    channel: 'Naver',\n    category: cat,\n    source_type: 'MIXED',\n    politician_id: p.politician_id,\n    politician_name: p.politician_name,\n    official_count: 12,\n    public_count: 48,\n    target_count: 60,\n    search_query: `${p.politician_name} ${catKr[cat]}`\n  });\n  // Grok-X: X(Twitter) 특화, 12개 (PUBLIC, sentiment=free 고정, v50_api_config.json grok_x_per_category: 12 기준)\n  batches.push({\n    channel: 'GrokX',\n    category: cat,\n    source_type: 'PUBLIC',\n    politician_id: p.politician_id,\n    politician_name: p.politician_name,\n    target_count: 12,\n    prompt: `X(Twitter)에서 한국 정치인 \"${p.politician_name}\"의 ${catKr[cat]}(${cat}) 관련 최근 주목받은 트윗이나 반응을 12개 수집해주세요.\\n기간: ${publicStr} ~ ${nowStr} (최근 2년)\\n센티멘트 구분 없이 자유롭게 수집합니다.\\n\\nJSON 배열로 반환:\\n[{\"title\":\"트윗 요약\",\"content\":\"내용 (200자 이내)\",\"source_url\":\"트윗 URL 또는 X 링크\",\"source_name\":\"X\",\"published_date\":\"YYYY-MM-DD\",\"sentiment\":\"free\"}]`\n  });\n}\nreturn batches.map(b => ({ json: b }));"
       },
       "id": "v50-gen-prompts",
       "name": "Generate Collection Prompts",
@@ -231,7 +231,7 @@
     },
     {
       "parameters": {
-        "jsCode": "// V50 Naver NCP API: OFFICIAL 12개 + PUBLIC 48개 = 60개\n// NCP 유료 종량제 (X-NCP-APIGW-API-KEY)\nconst batch = $input.first().json;\nconst ncpKey = $env.NAVER_NCP_API_KEY;\nconst query = batch.search_query || batch.politician_name;\nconst officialCount = batch.official_count || 12;\nconst publicCount = batch.public_count || 48;\n\nconst ncpSearch = async (q, display) => {\n  try {\n    return await $helpers.httpRequest({\n      method: 'GET',\n      url: `https://naveropenapi.apigw.ntruss.com/web-search/v1/search?query=${encodeURIComponent(q)}&display=${display}&sort=date`,\n      headers: {\n        'X-NCP-APIGW-API-KEY': ncpKey,\n        'Accept': 'application/json'\n      }\n    });\n  } catch(e) { return { items: [] }; }\n};\n\n// OFFICIAL: site:go.kr 필터 (공공기관/국회/정부)\nconst officialResp = await ncpSearch(`${query} site:go.kr`, Math.min(officialCount * 2, 100));\nconst officialItems = ((officialResp.items || []).slice(0, officialCount))\n  .map(item => ({ ...item, _source_type: 'OFFICIAL' }));\n\n// PUBLIC: 일반 뉴스 (go.kr 제외)\nconst publicResp = await ncpSearch(query, Math.min(publicCount * 2, 100));\nconst publicItems = ((publicResp.items || [])\n  .filter(item => !(item.link || '').includes('.go.kr'))\n  .slice(0, publicCount))\n  .map(item => ({ ...item, _source_type: 'PUBLIC' }));\n\nreturn [{ json: { items: [...officialItems, ...publicItems] } }];"
+        "jsCode": "// V50 Naver News Search API: OFFICIAL 12개 + PUBLIC 48개 = 60개\n// 환경변수: NAVER_CLIENT_ID / NAVER_CLIENT_SECRET (Python 스크립트와 동일)\nconst batch = $input.first().json;\nconst naverClientId = $env.NAVER_CLIENT_ID;\nconst naverClientSecret = $env.NAVER_CLIENT_SECRET;\nconst query = batch.search_query || batch.politician_name;\nconst officialCount = batch.official_count || 12;\nconst publicCount = batch.public_count || 48;\n\n// 엔드포인트: openapi.naver.com (v50_api_config.json 및 Python 스크립트와 동일)\nconst naverSearch = async (q, display) => {\n  try {\n    return await $helpers.httpRequest({\n      method: 'GET',\n      url: `https://openapi.naver.com/v1/search/news.json?query=${encodeURIComponent(q)}&display=${display}&sort=date`,\n      headers: {\n        'X-Naver-Client-Id': naverClientId,\n        'X-Naver-Client-Secret': naverClientSecret,\n        'Accept': 'application/json'\n      }\n    });\n  } catch(e) { return { items: [] }; }\n};\n\n// OFFICIAL: site:go.kr 필터 (공공기관/국회/정부)\nconst officialResp = await naverSearch(`${query} site:go.kr`, Math.min(officialCount * 2, 100));\nconst officialItems = ((officialResp.items || []).slice(0, officialCount))\n  .map(item => ({ ...item, _source_type: 'OFFICIAL' }));\n\n// PUBLIC: 일반 뉴스 (go.kr 제외)\nconst publicResp = await naverSearch(query, Math.min(publicCount * 2, 100));\nconst publicItems = ((publicResp.items || [])\n  .filter(item => !(item.link || '').includes('.go.kr'))\n  .slice(0, publicCount))\n  .map(item => ({ ...item, _source_type: 'PUBLIC' }));\n\nreturn [{ json: { items: [...officialItems, ...publicItems] } }];"
       },
       "id": "v50-naver-collect",
       "name": "Naver API: Collect",
@@ -241,7 +241,7 @@
         1740,
         400
       ],
-      "notes": "V50: NCP 유료 API. OFFICIAL 12개(site:go.kr) + PUBLIC 48개 = 60개/카테고리. env: NAVER_NCP_API_KEY"
+      "notes": "V50: Naver News Search API. OFFICIAL 12개(site:go.kr) + PUBLIC 48개 = 60개/카테고리. env: NAVER_CLIENT_ID / NAVER_CLIENT_SECRET (Python 스크립트와 동일)"
     },
     {
       "parameters": {
@@ -275,7 +275,7 @@
         1740,
         620
       ],
-      "notes": "V50 신규: grok-3-mini + web_search_preview tool로 X(Twitter) 데이터 수집 (6개/카테고리)"
+      "notes": "V50 신규: grok-3-mini + web_search_preview tool로 X(Twitter) 데이터 수집 (12개/카테고리, 10%, 전부 free)"
     },
     {
       "parameters": {
@@ -409,7 +409,7 @@
         3060,
         400
       ],
-      "notes": "1000건 이상이면 pass (V50: 3채널 × 60개 × 10카테고리 = 1,260 목표)"
+      "notes": "1000건 이상이면 pass (V50: Gemini 48 + Grok-X 12 + Naver 60 = 120개 × 10카테고리 = 1,200 목표)"
     },
     {
       "parameters": {
@@ -826,6 +826,37 @@
         200
       ],
       "notes": "점수를 ai_final_scores_v50에 저장 (upsert)"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Phase 4.5: PO 승인 게이트 - CCI 결과 보고서 생성\nconst p = $('P4: Calculate Scores').first().json;\nconst catKr = { expertise:'전문성', leadership:'리더십', vision:'비전', integrity:'청렴성', ethics:'윤리', accountability:'책임성', transparency:'투명성', communication:'소통', responsiveness:'대응력', publicinterest:'공익성' };\nlet report = `[Phase 4.5 PO 승인 요청]\\n정치인: ${p.politician_name}\\n최종 점수: ${p.final_score}점 (${p.grade}등급)\\n평가 건수: ${p.total_evaluations}건\\n\\n카테고리별 점수:\\n`;\nObject.entries(p.category_scores).forEach(([cat, score]) => { report += `  ${catKr[cat] || cat}: ${score}점\\n`; });\nreport += `\\nPO 승인 대기 중...`;\nreturn [{ json: { ...p, po_report: report, awaiting_po_approval: true } }];"
+      },
+      "id": "v50-po-gate-report",
+      "name": "Phase 4.5: PO Report",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        6420,
+        200
+      ],
+      "notes": "Phase 4.5: CCI 결과 보고서 생성 (PO 승인 대기 전 데이터 준비)"
+    },
+    {
+      "parameters": {
+        "resume": "webhook",
+        "options": {
+          "webhookSuffix": "po-approval"
+        }
+      },
+      "id": "v50-po-wait",
+      "name": "Phase 4.5: PO Approval Wait",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        6500,
+        200
+      ],
+      "notes": "Phase 4.5: PO 승인 대기. Webhook 호출 시 재개. POST /webhook/.../po-approval"
     },
     {
       "parameters": {
@@ -1459,6 +1490,28 @@
       ]
     },
     "Supabase: Save Scores": {
+      "main": [
+        [
+          {
+            "node": "Phase 4.5: PO Report",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Phase 4.5: PO Report": {
+      "main": [
+        [
+          {
+            "node": "Phase 4.5: PO Approval Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Phase 4.5: PO Approval Wait": {
       "main": [
         [
           {

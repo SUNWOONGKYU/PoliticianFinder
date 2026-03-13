@@ -1,0 +1,28 @@
+{
+  "evaluations": [
+    {"id": "311d7a2f-c03f-4d37-a644-3104ac74fb5a", "rating": "-2", "score": -4, "rationale": "TK 지역 민주당 확산 기사로, 조은희 소속 국민의힘의 여론 기반이 근본적으로 흔들린다."},
+    {"id": "f6845fb8-31b4-4e70-b2d0-ccd385408e4a", "rating": "-1", "score": -2, "rationale": "국민의힘 절윤 선언 후 여론 분석 기사로, 절윤 효과가 제한적임을 보여줘 조은희 여론에 부정적이다."},
+    {"id": "833e7927-cb8b-4c71-bb59-bc7926312c21", "rating": "-1", "score": -2, "rationale": "보수 지지층 여론 분열 기사로, 조은희 여론 기반이 약화된다."},
+    {"id": "512407e1-150b-45e3-b4c9-22795954cbec", "rating": "-1", "score": -2, "rationale": "국민의힘 경선 어려움 기사로, 조은희의 여론 환경이 불리하다."},
+    {"id": "01abefc4-65dd-40b3-b6a2-98198f10d999", "rating": "X", "score": 0, "rationale": "국힘 경선 일반 기사로 조은희 여론동향과 무관하다."},
+    {"id": "6fbcfef1-95ea-4e4d-9bda-1a029c8d9a1f", "rating": "X", "score": 0, "rationale": "국힘 공천 기사로 조은희와 무관하다."},
+    {"id": "988e982b-bc63-48f4-b3e6-b9abbf97b97c", "rating": "-1", "score": -2, "rationale": "보수 지지층 여론 반발 기사로, 조은희 여론 환경에 부정적이다."},
+    {"id": "cc8b6f34-3e46-4253-9b09-4329253c2673", "rating": "-1", "score": -2, "rationale": "국민의힘 당내 여론 분열 기사로, 조은희 여론 기반에 부정적이다."},
+    {"id": "8056a17d-68b3-4ef1-8cfc-940ecf80a89f", "rating": "-1", "score": -2, "rationale": "국힘 여론 불리 기사로, 조은희의 여론 환경이 지속적으로 악화된다."},
+    {"id": "6bec79bd-fcde-45fa-873c-416895b8264e", "rating": "-2", "score": -4, "rationale": "국민의힘 지지율 하락 기사로, 조은희 여론 환경이 매우 불리하다."},
+    {"id": "e70d8d56-850c-4e5d-9854-cae710cf95a1", "rating": "X", "score": 0, "rationale": "오세훈 발언 기사로 조은희 여론동향과 무관하다."},
+    {"id": "86d1c0e1-2fdc-422b-bb81-8ac46c18ee9c", "rating": "-2", "score": -4, "rationale": "국민의힘 지지율 9% 하락 등 최저 기사로, 조은희 여론 환경이 극히 불리하다."},
+    {"id": "691ac490-467c-4c84-8833-411e148983fa", "rating": "-1", "score": -2, "rationale": "국힘 절윤 선언에도 여론 반전 어려움 기사로, 조은희 여론동향에 부정적이다."},
+    {"id": "5544f21b-3dcb-459f-a8e0-47143f1410ce", "rating": "-1", "score": -2, "rationale": "국민의힘 절윤 선언 한계 기사로, 조은희의 여론 환경이 개선되지 않음을 보여준다."},
+    {"id": "d48b5188-2a1f-455e-977c-fdeb928f8f4a", "rating": "-1", "score": -2, "rationale": "국힘 절윤 선언 기사로, 여론 개선 효과가 제한적이어서 조은희에게 불리하다."},
+    {"id": "4882b84f-be32-4eee-9430-88c69fc68490", "rating": "X", "score": 0, "rationale": "오세훈 등 경선 기사로 조은희 여론동향과 무관하다."},
+    {"id": "6a122b7d-56f5-46f6-9a94-9dce83eaeb5a", "rating": "X", "score": 0, "rationale": "정치 여론 분석 기사로 조은희와 무관하다."},
+    {"id": "49a60fbb-b804-4787-81ea-76ae89494790", "rating": "X", "score": 0, "rationale": "오세훈 발언 기사로 조은희와 무관하다."},
+    {"id": "84f30557-3334-4f57-912e-ca7192bf875a", "rating": "-1", "score": -2, "rationale": "국민의힘 경선 여론 분열 기사로, 조은희 여론 환경에 부정적이다."},
+    {"id": "d457447c-0bce-4fc5-975c-7217addfdce3", "rating": "X", "score": 0, "rationale": "뉴스 몰아보기로 조은희와 무관하다."},
+    {"id": "6fe07214-6a43-44a3-92d6-6afa3fa56e3f", "rating": "X", "score": 0, "rationale": "오세훈 관련 블로그로 조은희와 무관하다."},
+    {"id": "f03fe313-3146-4056-b0dd-322aa15d5bd0", "rating": "-1", "score": -2, "rationale": "민주당 이재명 대통령 서울시장 후보 지지 기사로, 조은희 여론동향에 불리한 구도이다."},
+    {"id": "daf0322d-edd7-4988-a6d1-9d9e91334d73", "rating": "X", "score": 0, "rationale": "일반 기사로 조은희 여론동향과 무관하다."},
+    {"id": "9ffa56b5-bb08-4795-9a93-de14119a6672", "rating": "X", "score": 0, "rationale": "반국가세력 관련 기사로 조은희와 무관하다."}
+  ]
+}

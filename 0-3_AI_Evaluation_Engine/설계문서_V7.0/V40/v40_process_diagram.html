@@ -1315,8 +1315,7 @@
                         <p><strong>📂 저장 경로:</strong></p>
                         <p>설계문서_V7.0/V40/instructions/1_politicians/</p>
                         <ul>
-                            <li>박주민.md</li>
-                            <li>조은희.md (예시)</li>
+                            <li>{이름}.md (정치인별 1개 파일)</li>
                         </ul>
                     </div>
 
@@ -1369,10 +1368,10 @@
                             <p><strong>Google Search</strong></p>
                             <p>⚠️ Gemini CLI Direct</p>
                             <hr>
-                            <p>OFFICIAL: 30개</p>
-                            <p>PUBLIC: 20개</p>
-                            <p>카테고리별 50개</p>
-                            <p><strong>총 500개 (최대 600개)</strong></p>
+                            <p>OFFICIAL: 36개</p>
+                            <p>PUBLIC: 24개</p>
+                            <p>카테고리별 <strong>60개</strong> (버퍼 포함)</p>
+                            <p><strong>총 600개 권장</strong></p>
                             <hr>
                             <p>📋 가이드 참조:</p>
                             <p>GEMINI_CLI_수집_가이드</p>
@@ -1383,10 +1382,10 @@
                             <p><strong>Naver Search API</strong></p>
                             <p>✅ 자동 실행</p>
                             <hr>
-                            <p>OFFICIAL: 10개</p>
-                            <p>PUBLIC: 40개</p>
-                            <p>카테고리별 50개</p>
-                            <p><strong>총 500개 (최대 600개)</strong></p>
+                            <p>OFFICIAL: 12개</p>
+                            <p>PUBLIC: 48개</p>
+                            <p>카테고리별 <strong>60개</strong> (버퍼 포함)</p>
+                            <p><strong>총 600개 권장</strong></p>
                             <hr>
                             <p>🚀 스크립트:</p>
                             <p>collect_naver_v40_final.py</p>
@@ -2188,9 +2187,9 @@
                     <div class="info-box">
                         <p><strong>📂 저장 경로:</strong></p>
                         <p>설계문서_V7.0/V40/보고서/</p>
-                        <p class="file-tree"><span class="file-name">{정치인명}_{YYYYMMDD}.md</span></p>
-                        <p>예) 박주민_20260206.md</p>
-                        <p><strong>📄 파일 형식:</strong> Markdown (.md)</p>
+                        <p class="file-tree"><span class="file-name">{정치인명}_{YYYYMMDD}_{등급}.html</span></p>
+                        <p>예) {이름}_20260206_E.html</p>
+                        <p><strong>📄 파일 형식:</strong> HTML (.html)</p>
                         <p><strong>📊 파일 크기:</strong> 약 50~100KB</p>
                     </div>
                 </div>
@@ -2209,7 +2208,7 @@
                     <li>DB에 1,000~1,200개 수집 데이터 저장 (collected_data_v40)</li>
                     <li>DB에 4,000~4,800개 평가 저장 (evaluations_v40)</li>
                     <li>DB에 최종 점수 저장 (ai_final_scores_v40)</li>
-                    <li>📄 상세평가보고서.md 파일 생성</li>
+                    <li>📄 상세평가보고서.html 파일 생성</li>
                 </ul>
             </div>
         </section>
@@ -2453,7 +2452,7 @@
                     <tr>
                         <td><strong>Phase 5</strong></td>
                         <td>(보고서)</td>
-                        <td>.md 파일 1개</td>
+                        <td>.html 파일 1개</td>
                         <td>-</td>
                     </tr>
                 </tbody>
@@ -2470,55 +2469,61 @@
 <span class="cmd-comment"># API 키 및 DB 연결 확인</span>
 <span class="cmd-comment"># .env 파일 확인 (SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, OPENAI_API_KEY, XAI_API_KEY 등)</span>
 
-<span class="cmd-comment"># Phase 1: 정치인 등록</span>
+<span class="cmd-comment"># Phase 0: 정치인 등록</span>
 <span class="cmd-comment"># (수동) 정치인 정보 파일 작성</span>
-<span class="cmd-comment">#   위치: 설계문서_V7.0/V40/instructions/1_politicians/박주민.md</span>
-<span class="cmd-comment"># (수동) DB에 정치인 정보 INSERT</span>
+<span class="cmd-comment">#   위치: 설계문서_V7.0/V40/instructions/1_politicians/{이름}.md</span>
+<span class="cmd-comment"># (수동) DB에 정치인 정보 INSERT (12개 필수 필드, politician_id = 8자리 hex TEXT)</span>
 
-<span class="cmd-comment"># Phase 2: 수집</span>
-<span class="cmd-comment"># Gemini 수집 (Gemini CLI Subprocess)</span>
+<span class="cmd-comment"># Phase 1: 수집 (카테고리당 60개 이상 목표 — 버퍼 포함)</span>
+<span class="cmd-comment"># Gemini 수집 (Gemini CLI Subprocess, 7회 반복 = 약 60개)</span>
 <span class="cmd-command">cd V40/scripts/workflow</span>
 <span class="cmd-command">for i in {1..7}; do</span>
-<span class="cmd-command">  python collect_gemini_subprocess.py --politician "박주민" --category expertise</span>
+<span class="cmd-command">  python collect_gemini_subprocess.py --politician "{이름}" --category expertise</span>
 <span class="cmd-command">  sleep 5</span>
 <span class="cmd-command">done</span>
+<span class="cmd-comment"># 전체 10개 카테고리 반복: expertise leadership vision integrity ethics accountability transparency communication responsiveness publicinterest</span>
 
-<span class="cmd-comment"># Naver 수집 (자동)</span>
-<span class="cmd-command">python collect_naver_v40_final.py --politician_id=507226bb --politician_name="박주민" --ai=Naver --category 1</span>
-
-<span class="cmd-comment"># Phase 3: 검증</span>
-<span class="cmd-command">cd V40/scripts/core</span>
-<span class="cmd-command">python validate_v40_fixed.py --politician_id=507226bb --politician_name="박주민" --no-dry-run</span>
-
-<span class="cmd-comment"># Phase 2-2: 검증 후 조정</span>
-<span class="cmd-command">python adjust_v40_data.py --politician_id=507226bb</span>
-
-<span class="cmd-comment"># Phase 4: 평가</span>
-<span class="cmd-comment"># Claude 평가</span>
-<span class="cmd-command">cd V40/scripts/helpers</span>
-<span class="cmd-command">python claude_eval_helper.py --politician_id=507226bb --politician_name="박주민" --category=expertise --batch_size=25</span>
-
-<span class="cmd-comment"># ChatGPT 평가</span>
-<span class="cmd-command">python codex_eval_helper.py --politician_id=507226bb --politician_name="박주민" --category=expertise --batch_size=25</span>
-
-<span class="cmd-comment"># Grok 평가</span>
-<span class="cmd-command">python grok_eval_helper.py --politician_id=507226bb --politician_name="박주민" --category=expertise --batch_size=25</span>
-
-<span class="cmd-comment"># Gemini 평가</span>
+<span class="cmd-comment"># Naver 수집 (REST API, 카테고리명은 반드시 영문 문자열 사용)</span>
 <span class="cmd-command">cd V40/scripts/workflow</span>
-<span class="cmd-command">python evaluate_gemini_subprocess.py --politician "박주민" --category "expertise"</span>
+<span class="cmd-command">python collect_naver_v40_final.py --politician-id {id} --politician-name "{이름}" --category expertise</span>
+<span class="cmd-comment"># ⚠️ --politician-id / --politician-name 은 하이픈(-) 사용. 언더스코어(_) 아님!</span>
+<span class="cmd-comment"># ⚠️ --category 에는 숫자(1,2,3...)가 아닌 영문 이름 사용 (expertise, leadership ...)</span>
+
+<span class="cmd-comment"># Phase 2: 검증</span>
+<span class="cmd-command">cd V40/scripts/core</span>
+<span class="cmd-command">python validate_v40_fixed.py --politician_id={id} --politician_name="{이름}" --no-dry-run</span>
+
+<span class="cmd-comment"># Phase 2-2: 검증 후 조정 (최대 4회 재수집, 포기 규칙 적용)</span>
+<span class="cmd-command">python adjust_v40_data.py --politician_id={id} --politician_name="{이름}" --no-dry-run</span>
+
+<span class="cmd-comment"># Phase 3: AI 평가 (4개 AI 순차 실행, 각 카테고리 배치 크기 25개)</span>
+<span class="cmd-comment"># Claude 평가 (CLI Direct — fetch → Claude Code 직접 평가 → save)</span>
+<span class="cmd-command">cd V40/scripts/helpers</span>
+<span class="cmd-command">python claude_eval_helper.py fetch --politician_id={id} --politician_name="{이름}" --category=expertise</span>
+<span class="cmd-comment"># → Claude Code가 직접 평가 후 save 실행</span>
+<span class="cmd-command">python claude_eval_helper.py save --politician_id={id} --politician_name="{이름}" --category=expertise --input=eval_result_expertise_batch_1.json</span>
+
+<span class="cmd-comment"># ChatGPT 평가 (Codex CLI Direct)</span>
+<span class="cmd-command">python codex_eval_helper.py --politician_id={id} --politician_name="{이름}" --category=expertise --batch_size=25</span>
+
+<span class="cmd-comment"># Grok 평가 (xAI Agent Tools API, grok-3)</span>
+<span class="cmd-command">python grok_eval_helper.py --politician_id={id} --politician_name="{이름}" --category=expertise --batch_size=25</span>
+
+<span class="cmd-comment"># Gemini 평가 (CLI Subprocess, 3단계 fallback: 2.5-flash → 2.0-flash → REST API)</span>
+<span class="cmd-command">cd V40/scripts/workflow</span>
+<span class="cmd-command">python evaluate_gemini_subprocess.py --politician "{이름}" --category "expertise"</span>
 
 <span class="cmd-comment"># Phase 3-1: 평가 검증</span>
 <span class="cmd-command">cd V40/scripts/utils</span>
-<span class="cmd-command">python check_evaluation_status.py --politician "박주민"</span>
+<span class="cmd-command">python check_evaluation_status.py --politician "{이름}"</span>
 
 <span class="cmd-comment"># Phase 4: 점수 계산</span>
 <span class="cmd-command">cd V40/scripts/core</span>
-<span class="cmd-command">python calculate_v40_scores.py --politician_id=507226bb --politician_name="박주민"</span>
+<span class="cmd-command">python calculate_v40_scores.py --politician_id={id} --politician_name="{이름}"</span>
 
-<span class="cmd-comment"># Phase 5: 보고서 생성</span>
-<span class="cmd-command">python generate_report_v40.py 507226bb 박주민</span>
-<span class="cmd-comment"># 저장 위치: 설계문서_V7.0/V40/보고서/박주민_20260206.md</span>
+<span class="cmd-comment"># Phase 5: 보고서 생성 (HTML 형식)</span>
+<span class="cmd-command">python generate_report_v40.py --politician_id={id} --politician_name="{이름}"</span>
+<span class="cmd-comment"># 저장 위치: 설계문서_V7.0/V40/보고서/{이름}_YYYYMMDD_{등급}.html</span>
             </div>
         </section>
 

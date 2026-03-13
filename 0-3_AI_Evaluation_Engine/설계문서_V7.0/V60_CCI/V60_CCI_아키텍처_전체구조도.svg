@@ -1,0 +1,793 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1900" height="4400" viewBox="0 0 1900 4400">
+<defs>
+  <style>text { font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif; }</style>
+</defs>
+
+<!-- HEADER -->
+<rect x="0" y="0" width="1900" height="68" fill="#1a0a2e"/>
+<text x="950" y="30" text-anchor="middle" font-size="22" font-weight="bold" fill="white">V60 CCI 아키텍처 전체구조도 — 출마자 상대적 경쟁력 지수</text>
+<text x="950" y="52" text-anchor="middle" font-size="15" fill="#c4b5fd">CCI = GPI(40%) + Alpha 1 민심·여론(30%) + Alpha 2 선거구조(30%) | 플래툰 포메이션 + Claude 단독 평가</text>
+
+<!-- ===== S1: 프로세스 흐름 ===== -->
+<!-- 6컬럼 구분선 x: 80, 240, 410, 950, 1210 -->
+
+<!-- S1 Title Bar -->
+<rect x="0" y="76" width="1900" height="36" fill="#4c1d95" rx="3"/>
+<text x="20" y="101" font-size="17" font-weight="bold" fill="white">① 프로세스 흐름 — Pipeline A: GPI(V60 API) + Pipeline B: Alpha 1 + Pipeline C: Alpha 2 → CCI 통합</text>
+
+<!-- S1 Col Header -->
+<rect x="0" y="112" width="1900" height="34" fill="#ede9fe"/>
+<line x1="80"   y1="112" x2="80"   y2="1720" stroke="#a78bfa" stroke-width="1.5"/>
+<line x1="240"  y1="112" x2="240"  y2="1720" stroke="#a78bfa" stroke-width="1.5"/>
+<line x1="410"  y1="112" x2="410"  y2="1720" stroke="#a78bfa" stroke-width="1.5"/>
+<line x1="950"  y1="112" x2="950"  y2="1720" stroke="#a78bfa" stroke-width="1.5"/>
+<line x1="1210" y1="112" x2="1210" y2="1720" stroke="#a78bfa" stroke-width="1.5"/>
+<text x="40"   y="134" text-anchor="middle" font-size="14" font-weight="bold" fill="#4c1d95">Phase</text>
+<text x="160"  y="134" text-anchor="middle" font-size="14" font-weight="bold" fill="#4c1d95">이름 / 실행주체</text>
+<text x="325"  y="134" text-anchor="middle" font-size="14" font-weight="bold" fill="#4c1d95">실행 도구</text>
+<text x="680"  y="134" text-anchor="middle" font-size="14" font-weight="bold" fill="#4c1d95">주요 작업</text>
+<text x="1080" y="134" text-anchor="middle" font-size="14" font-weight="bold" fill="#4c1d95">입력 → 출력</text>
+<text x="1555" y="134" text-anchor="middle" font-size="14" font-weight="bold" fill="#4c1d95">완료 조건 / 주의사항</text>
+
+<!-- ═══ PIPELINE A BANNER ═══ -->
+<rect x="0" y="146" width="1900" height="28" fill="#1e40af"/>
+<text x="950" y="165" text-anchor="middle" font-size="14" font-weight="bold" fill="white">PIPELINE A — GPI (Good Politician Index) | V60 API 방식 | 4 AIs × 10 카테고리 | 시민용 공개</text>
+
+<!-- Phase G-0: 정치인 등록 (y=174, h=96) -->
+<rect x="0" y="174" width="1900" height="96" fill="#f8fafc"/>
+<rect x="10" y="186" width="66" height="24" fill="#1d4ed8" rx="3"/>
+<text x="43" y="202" text-anchor="middle" font-size="11" font-weight="bold" fill="white">G-0</text>
+<text x="88"  y="200" font-size="14" font-weight="bold" fill="#0f172a">정치인 등록</text>
+<text x="88"  y="220" font-size="13" fill="#475569">+ 경쟁자 그룹 등록</text>
+<text x="248" y="200" font-size="13" fill="#374151">Supabase 직접 입력</text>
+<text x="248" y="218" font-size="13" fill="#374151">/ Python 스크립트</text>
+<text x="418" y="192" font-size="14" font-weight="bold" fill="#0f172a">politicians 테이블 12개 필드 + competitor_groups_v60 등록</text>
+<text x="418" y="210" font-size="13" fill="#374151">id(TEXT 8hex) / name / party / position / region / district / birth_date</text>
+<text x="418" y="228" font-size="13" fill="#374151">경쟁자 그룹: 같은 선거구 출마 예상 후보 그룹핑 (CCI 상대평가 기반)</text>
+<text x="418" y="248" font-size="13" fill="#374151">예: 서울시장 그룹 = {정원오, 오세훈, 김문수, 나경원, ...}</text>
+<text x="958" y="194" font-size="13" fill="#374151">없음 →</text>
+<text x="958" y="212" font-size="13" font-weight="bold" fill="#1d4ed8">politicians + competitor_groups_v60</text>
+<text x="1218" y="194" font-size="13" fill="#374151">12개 필드 NOT NULL 확인</text>
+<text x="1218" y="212" font-size="13" fill="#374151">경쟁자 그룹 최소 2명 이상</text>
+<text x="1218" y="232" font-size="13" font-weight="bold" fill="#dc2626">⚠ SELECT 검증 필수!</text>
+
+<!-- Phase G-1: 데이터 수집 API (y=270, h=116) -->
+<rect x="0" y="270" width="1900" height="116" fill="#eff6ff"/>
+<rect x="10" y="282" width="66" height="24" fill="#1d4ed8" rx="3"/>
+<text x="43" y="298" text-anchor="middle" font-size="11" font-weight="bold" fill="white">G-1</text>
+<text x="88"  y="296" font-size="14" font-weight="bold" fill="#0f172a">GPI 데이터 수집</text>
+<text x="88"  y="316" font-size="13" fill="#475569">V60 API 방식</text>
+<text x="248" y="296" font-size="13" fill="#374151">4 AI API 호출</text>
+<text x="248" y="314" font-size="13" fill="#374151">+ Naver NCP API</text>
+<text x="418" y="288" font-size="14" font-weight="bold" fill="#1d4ed8">V40 CLI → V60 API 전환 | 10카테고리 × 100개 = 1,000개/인</text>
+<text x="418" y="306" font-size="13" fill="#374151">수집 AI: Claude API + Gemini API + ChatGPT API + Grok API</text>
+<text x="418" y="324" font-size="13" fill="#374151">+ Naver NCP API (뉴스 검색)</text>
+<text x="418" y="342" font-size="13" fill="#374151">기간: OFFICIAL 4년 / PUBLIC 2년 | 버퍼 20% (1,200개 권장)</text>
+<text x="958" y="290" font-size="13" fill="#374151">collect_instructions →</text>
+<text x="958" y="308" font-size="13" font-weight="bold" fill="#1d4ed8">collected_data_v60</text>
+<text x="1218" y="290" font-size="13" fill="#374151">카테고리별 100개+ 달성</text>
+<text x="1218" y="308" font-size="13" fill="#374151">50-50 비율 유지</text>
+<text x="1218" y="328" font-size="13" font-weight="bold" fill="#dc2626">⚠ 버퍼 20% 필수!</text>
+
+<!-- Phase G-2/2-2: 검증+조정 (y=386, h=76) -->
+<rect x="0" y="386" width="1900" height="76" fill="#f8fafc"/>
+<rect x="10" y="398" width="66" height="24" fill="#0891b2" rx="3"/>
+<text x="43" y="414" text-anchor="middle" font-size="11" font-weight="bold" fill="white">G-2/2-2</text>
+<text x="88"  y="412" font-size="14" font-weight="bold" fill="#0f172a">검증 + 조정</text>
+<text x="88"  y="432" font-size="13" fill="#475569">V40 동일 로직</text>
+<text x="248" y="418" font-size="13" fill="#374151">Python 스크립트</text>
+<text x="418" y="404" font-size="13" fill="#374151">중복 제거 + 기간위반 삭제 + Sentiment 비율 검증</text>
+<text x="418" y="422" font-size="13" fill="#374151">부족 카테고리 재수집 (최대 4라운드) | Give-Up 규칙 적용</text>
+<text x="418" y="440" font-size="13" fill="#374151">목표: 카테고리별 50~60개 / AI별 500~600개</text>
+<text x="958" y="406" font-size="13" fill="#374151">collected_data_v60 (raw) →</text>
+<text x="958" y="424" font-size="13" font-weight="bold" fill="#1d4ed8">validated + balanced</text>
+<text x="1218" y="406" font-size="13" fill="#374151">카테고리별 50개↑ 달성</text>
+<text x="1218" y="424" font-size="13" font-weight="bold" fill="#dc2626">⚠ Phase 순서 건너뛰기 금지!</text>
+
+<!-- Phase G-3: AI 평가 (y=462, h=96) -->
+<rect x="0" y="462" width="1900" height="96" fill="#fdf4ff"/>
+<rect x="10" y="474" width="66" height="24" fill="#7c3aed" rx="3"/>
+<text x="43" y="490" text-anchor="middle" font-size="11" font-weight="bold" fill="white">G-3</text>
+<text x="88"  y="488" font-size="14" font-weight="bold" fill="#0f172a">GPI AI 평가</text>
+<text x="88"  y="508" font-size="13" fill="#475569">4AI API 독립 판정</text>
+<text x="248" y="488" font-size="13" fill="#374151">① Claude Haiku 4.5</text>
+<text x="248" y="506" font-size="13" fill="#374151">② Gemini Flash-Lite</text>
+<text x="248" y="524" font-size="13" fill="#374151">③ ChatGPT gpt-4o-mini</text>
+<text x="248" y="542" font-size="13" fill="#374151">④ Grok grok-3-mini</text>
+<text x="418" y="482" font-size="14" font-weight="bold" fill="#6d28d9">4개 AI 각자 독립 판정 — 다수결로 객관성 확보 (시민용)</text>
+<text x="418" y="500" font-size="13" fill="#374151">등급: +4/+3/+2/+1/-1/-2/-3/-4 (8등급) | X = 제외</text>
+<text x="418" y="518" font-size="13" fill="#374151">배치 25개 | eval_instructions 기준 | Pre-filtering 적용</text>
+<text x="418" y="536" font-size="13" font-weight="bold" fill="#7c3aed">★ GPI = 시민용 공개 → 4AI 다수결 필수 (객관성이 생명)</text>
+<text x="958" y="484" font-size="13" fill="#374151">collected_data_v60 →</text>
+<text x="958" y="502" font-size="13" font-weight="bold" fill="#1d4ed8">evaluations_v60</text>
+<text x="958" y="520" font-size="12" fill="#374151">rating(TEXT '+3'/'-2'/'X')</text>
+<text x="1218" y="484" font-size="13" fill="#374151">4AI × 수집데이터 = evaluations 행 수</text>
+<text x="1218" y="502" font-size="13" font-weight="bold" fill="#dc2626">⚠ rating = TEXT (숫자 변환 금지!)</text>
+<text x="1218" y="520" font-size="13" font-weight="bold" fill="#dc2626">⚠ Supabase 1000행 → .range() 필수!</text>
+
+<!-- Phase G-4: GPI 점수 (y=558, h=76) -->
+<rect x="0" y="558" width="1900" height="76" fill="#f0f9ff"/>
+<rect x="10" y="570" width="66" height="24" fill="#0369a1" rx="3"/>
+<text x="43" y="586" text-anchor="middle" font-size="11" font-weight="bold" fill="white">G-4</text>
+<text x="88"  y="584" font-size="14" font-weight="bold" fill="#0f172a">GPI 점수 산출</text>
+<text x="88"  y="604" font-size="13" fill="#475569">V40 동일 공식</text>
+<text x="248" y="594" font-size="13" fill="#374151">Python 스크립트</text>
+<text x="418" y="578" font-size="14" font-weight="bold" fill="#0369a1">category = (6.0 + avg_score × 0.5) × 10 | GPI = Σ(10 categories)</text>
+<text x="418" y="596" font-size="13" fill="#374151">범위: 200~1000점 | 등급: S/A/B/C/D/E/F/P</text>
+<text x="418" y="614" font-size="13" font-weight="bold" fill="#0369a1">→ GPI 점수가 CCI의 40% 가중치로 반영됨</text>
+<text x="958" y="580" font-size="13" fill="#374151">evaluations_v60 →</text>
+<text x="958" y="598" font-size="13" font-weight="bold" fill="#1d4ed8">ai_final_scores_v60 (GPI)</text>
+<text x="1218" y="580" font-size="13" fill="#374151">final_score 200~1000 확인</text>
+<text x="1218" y="598" font-size="13" fill="#374151">10개 카테고리 점수 모두 산출</text>
+
+<!-- ═══ PIPELINE B BANNER ═══ -->
+<rect x="0" y="634" width="1900" height="28" fill="#92400e"/>
+<text x="950" y="653" text-anchor="middle" font-size="14" font-weight="bold" fill="white">PIPELINE B — Alpha 1: 민심·여론 (Public Sentiment) | 3개 소분류 | 플래툰 포메이션 + Claude 단독</text>
+
+<!-- Phase A1-C: Alpha 1 수집 (y=662, h=156) -->
+<rect x="0" y="662" width="1900" height="156" fill="#fffbeb"/>
+<rect x="10" y="674" width="66" height="24" fill="#d97706" rx="3"/>
+<text x="43" y="690" text-anchor="middle" font-size="11" font-weight="bold" fill="white">A1-C</text>
+<text x="88"  y="688" font-size="14" font-weight="bold" fill="#0f172a">Alpha 1 수집</text>
+<text x="88"  y="708" font-size="13" fill="#475569">3개 소분류 병렬</text>
+<text x="248" y="680" font-size="13" fill="#374151">빅카인즈 API</text>
+<text x="248" y="698" font-size="13" fill="#374151">네이버 뉴스/데이터랩</text>
+<text x="248" y="716" font-size="13" fill="#374151">NESDC 크롤링</text>
+<text x="248" y="734" font-size="13" fill="#374151">갤럽/리얼미터 크롤링</text>
+<text x="248" y="752" font-size="13" fill="#374151">Google Trends API</text>
+<text x="418" y="676" font-size="14" font-weight="bold" fill="#92400e">3개 소분류별 데이터 수집 (경쟁자 그룹 전원 동시)</text>
+<text x="418" y="696" font-size="13" font-weight="bold" fill="#d97706">A1-1 여론동향:</text>
+<text x="560" y="696" font-size="13" fill="#374151">NESDC 여론조사 + 갤럽/리얼미터 주간 + MBC 여론M → 지지율 추이 + 바람 효과</text>
+<text x="418" y="716" font-size="13" font-weight="bold" fill="#d97706">A1-2 이미지·내러티브:</text>
+<text x="610" y="716" font-size="13" fill="#374151">빅카인즈 감성분석 + 네이버 데이터랩 + Google Trends → 미디어 논조 + SNS 버즈</text>
+<text x="418" y="736" font-size="13" font-weight="bold" fill="#d97706">A1-3 리스크:</text>
+<text x="535" y="736" font-size="13" fill="#374151">빅카인즈 부정기사 + 경실련/참여연대 낙천명단 + 관보 재산공개 → 네거티브 취약점</text>
+<text x="418" y="758" font-size="13" fill="#374151">대부분 공공 API (무료) | 썸트렌드·X API만 유료</text>
+<text x="418" y="778" font-size="13" fill="#374151">수집 시 경쟁자 맥락 포함 (예: "정원오 37.8% 1위, 오세훈 23.7% 2위")</text>
+<text x="958" y="678" font-size="13" fill="#374151">Alpha 수집 소스 →</text>
+<text x="958" y="696" font-size="13" font-weight="bold" fill="#d97706">collected_alpha_v60</text>
+<text x="958" y="714" font-size="12" fill="#374151">alpha_type='A1' /</text>
+<text x="958" y="732" font-size="12" fill="#374151">subcategory='opinion' |</text>
+<text x="958" y="750" font-size="12" fill="#374151">'media' | 'risk'</text>
+<text x="1218" y="678" font-size="13" fill="#374151">소분류별 수집 완료 확인</text>
+<text x="1218" y="696" font-size="13" fill="#374151">경쟁자 그룹 전원 수집 완료</text>
+<text x="1218" y="716" font-size="13" font-weight="bold" fill="#dc2626">⚠ 경쟁자 동시 수집 = 상대평가 기반!</text>
+<text x="1218" y="736" font-size="13" fill="#374151">Tier 1(API) 우선, Tier 2(크롤링) 보조</text>
+
+<!-- ═══ PIPELINE C BANNER ═══ -->
+<rect x="0" y="818" width="1900" height="28" fill="#581c87"/>
+<text x="950" y="837" text-anchor="middle" font-size="14" font-weight="bold" fill="white">PIPELINE C — Alpha 2: 선거구조 (Electoral Structure) | 3개 소분류 | 플래툰 포메이션 + Claude 단독</text>
+
+<!-- Phase A2-C: Alpha 2 수집 (y=846, h=156) -->
+<rect x="0" y="846" width="1900" height="156" fill="#faf5ff"/>
+<rect x="10" y="858" width="66" height="24" fill="#7c3aed" rx="3"/>
+<text x="43" y="874" text-anchor="middle" font-size="11" font-weight="bold" fill="white">A2-C</text>
+<text x="88"  y="872" font-size="14" font-weight="bold" fill="#0f172a">Alpha 2 수집</text>
+<text x="88"  y="892" font-size="13" fill="#475569">3개 소분류 병렬</text>
+<text x="248" y="864" font-size="13" fill="#374151">선관위 개방포털 API</text>
+<text x="248" y="882" font-size="13" fill="#374151">공공데이터포털 API</text>
+<text x="248" y="900" font-size="13" fill="#374151">열린국회정보 API</text>
+<text x="248" y="918" font-size="13" fill="#374151">오픈와치 API</text>
+<text x="248" y="936" font-size="13" fill="#374151">정치랭크 크롤링</text>
+<text x="418" y="860" font-size="14" font-weight="bold" fill="#581c87">3개 소분류별 데이터 수집 (경쟁자 그룹 전원 동시)</text>
+<text x="418" y="880" font-size="13" font-weight="bold" fill="#7c3aed">A2-1 정당경쟁력:</text>
+<text x="570" y="880" font-size="13" fill="#374151">선관위 역대 선거결과 → PVI 자체 계산 + 정당 지지율 + 정당 프리미엄 (영호남 +15~30%p)</text>
+<text x="418" y="900" font-size="13" font-weight="bold" fill="#7c3aed">A2-2 후보자경쟁력:</text>
+<text x="585" y="900" font-size="13" fill="#374151">열린국회정보 의정활동 + 정치랭크 7지표 + 네이버 검색량(인지도) + 공천 상태</text>
+<text x="418" y="920" font-size="13" font-weight="bold" fill="#7c3aed">A2-3 지역기반:</text>
+<text x="550" y="920" font-size="13" fill="#374151">후보자 정보(출생지/학력/경력) → 연고 판단 + 오픈와치 정치자금 + 후원금 규모</text>
+<text x="418" y="942" font-size="13" fill="#374151">대부분 공공 API (무료) | PVI 계산 필요 (최근 2회 선거 평균)</text>
+<text x="418" y="962" font-size="13" fill="#374151">현직자: 의정활동 데이터 풍부 | 도전자: 인지도·경력 중심</text>
+<text x="958" y="862" font-size="13" fill="#374151">공공 API 소스 →</text>
+<text x="958" y="880" font-size="13" font-weight="bold" fill="#7c3aed">collected_alpha_v60</text>
+<text x="958" y="898" font-size="12" fill="#374151">alpha_type='A2' /</text>
+<text x="958" y="916" font-size="12" fill="#374151">subcategory='party' |</text>
+<text x="958" y="934" font-size="12" fill="#374151">'candidate' | 'regional'</text>
+<text x="1218" y="862" font-size="13" fill="#374151">소분류별 수집 완료 확인</text>
+<text x="1218" y="880" font-size="13" fill="#374151">PVI 계산 완료 (숫자값)</text>
+<text x="1218" y="900" font-size="13" fill="#374151">경쟁자 그룹 전원 수집 완료</text>
+<text x="1218" y="920" font-size="13" font-weight="bold" fill="#dc2626">⚠ PVI = (선거구 여당득표율 - 전국 평균)</text>
+
+<!-- ═══ PLATOON EVALUATION BANNER ═══ -->
+<rect x="0" y="1002" width="1900" height="28" fill="#065f46"/>
+<text x="950" y="1021" text-anchor="middle" font-size="14" font-weight="bold" fill="white">ALPHA 평가 — 플래툰 포메이션 (소대장 Opus → 분대장 Sonnet → 분대원 Haiku) | Claude 단독 | $0</text>
+
+<!-- Phase EVAL: 플래툰 평가 (y=1030, h=236) -->
+<rect x="0" y="1030" width="1900" height="236" fill="#ecfdf5"/>
+<rect x="10" y="1042" width="66" height="24" fill="#059669" rx="3"/>
+<text x="43" y="1058" text-anchor="middle" font-size="11" font-weight="bold" fill="white">EVAL</text>
+<text x="88"  y="1056" font-size="14" font-weight="bold" fill="#0f172a">Alpha 상대평가</text>
+<text x="88"  y="1076" font-size="13" fill="#475569">플래툰 포메이션</text>
+<text x="88"  y="1096" font-size="13" fill="#475569">Claude 단독</text>
+<text x="248" y="1048" font-size="13" font-weight="bold" fill="#059669">소대장 (Opus)</text>
+<text x="248" y="1066" font-size="13" fill="#374151">  Teammate</text>
+<text x="248" y="1086" font-size="13" font-weight="bold" fill="#d97706">분대장 N명 (Sonnet)</text>
+<text x="248" y="1104" font-size="13" fill="#374151">  Teammate × N</text>
+<text x="248" y="1124" font-size="13" font-weight="bold" fill="#1d4ed8">분대원 6명 (Haiku)</text>
+<text x="248" y="1142" font-size="13" fill="#374151">  Subagent × 6/분대</text>
+<text x="418" y="1042" font-size="14" font-weight="bold" fill="#065f46">3계층 구조로 상대평가 일관성 보장</text>
+<text x="418" y="1064" font-size="13" font-weight="bold" fill="#059669">소대장 (Opus, Teammate):</text>
+<text x="418" y="1082" font-size="13" fill="#374151">  ① 사전: 평가 기준 broadcast (모든 분대장에게 동일 instruction 하달)</text>
+<text x="418" y="1100" font-size="13" fill="#374151">  ② 중간: 분대장 결과 수신 → 이상치 보정 요청 (SendMessage 양방향)</text>
+<text x="418" y="1118" font-size="13" fill="#374151">  ③ 사후: 전 후보 결과 교차 검증 → 논리적 일관성 확인</text>
+<text x="418" y="1140" font-size="13" font-weight="bold" fill="#d97706">분대장 (Sonnet, Teammate) × 경쟁자 수:</text>
+<text x="418" y="1158" font-size="13" fill="#374151">  후보 1명 담당 | 6명 분대원(Subagent) 투입 → 6개 카테고리 병렬 평가</text>
+<text x="418" y="1176" font-size="13" fill="#374151">  소대장과 SendMessage 양방향 통신 | peer 분대장과도 교신 가능</text>
+<text x="418" y="1198" font-size="13" font-weight="bold" fill="#1d4ed8">분대원 (Haiku, Subagent) × 6/분대:</text>
+<text x="418" y="1216" font-size="13" fill="#374151">  카테고리 1개 담당 (A1-1/A1-2/A1-3/A2-1/A2-2/A2-3)</text>
+<text x="418" y="1234" font-size="13" fill="#374151">  Task tool로 생성, 결과만 분대장에게 반환, 일회성 소멸</text>
+<text x="418" y="1252" font-size="13" fill="#374151">  등급: +4~-4 (GPI와 동일 체계) | 레이팅 자체가 경쟁 맥락 반영</text>
+<text x="958" y="1044" font-size="13" fill="#374151">collected_alpha_v60 +</text>
+<text x="958" y="1062" font-size="13" fill="#374151">alpha_instructions →</text>
+<text x="958" y="1082" font-size="13" font-weight="bold" fill="#059669">evaluations_alpha_v60</text>
+<text x="958" y="1102" font-size="12" fill="#374151">rating(TEXT '+3'/'-2'/'X')</text>
+<text x="958" y="1120" font-size="12" fill="#374151">evaluator_ai = 'Claude'</text>
+<text x="958" y="1138" font-size="12" fill="#374151">(Claude 단독이므로)</text>
+<text x="1218" y="1044" font-size="13" font-weight="bold" fill="#059669">★ 핵심: 왜 Claude 단독인가?</text>
+<text x="1218" y="1064" font-size="13" fill="#374151">GPI = 시민용 공개 → 4AI 다수결 필수</text>
+<text x="1218" y="1084" font-size="13" fill="#374151">Alpha = 정치인 전용 비공개</text>
+<text x="1218" y="1104" font-size="13" fill="#374151">  → 객관성 부담 낮음</text>
+<text x="1218" y="1124" font-size="13" fill="#374151">  → 소대장 조율로 일관성 보장</text>
+<text x="1218" y="1144" font-size="13" fill="#374151">  → Claude 단독으로 충분</text>
+<text x="1218" y="1164" font-size="13" font-weight="bold" fill="#059669">비용: $0 (전원 구독 내)</text>
+<text x="1218" y="1186" font-size="13" font-weight="bold" fill="#dc2626">⚠ Teammate vs Subagent 구분!</text>
+<text x="1218" y="1206" font-size="13" fill="#374151">소대장/분대장 = Teammate (SendMessage)</text>
+<text x="1218" y="1224" font-size="13" fill="#374151">분대원 = Subagent (Task tool)</text>
+
+<!-- ═══ CCI INTEGRATION BANNER ═══ -->
+<rect x="0" y="1266" width="1900" height="28" fill="#991b1b"/>
+<text x="950" y="1285" text-anchor="middle" font-size="14" font-weight="bold" fill="white">CCI 통합 — GPI(40%) + Alpha 1(30%) + Alpha 2(30%) → CCI 점수 + 경쟁자 비교 + 전략 보고서</text>
+
+<!-- Phase CCI-1: 점수 통합 (y=1294, h=96) -->
+<rect x="0" y="1294" width="1900" height="96" fill="#fef2f2"/>
+<rect x="10" y="1306" width="66" height="24" fill="#dc2626" rx="3"/>
+<text x="43" y="1322" text-anchor="middle" font-size="11" font-weight="bold" fill="white">CCI-1</text>
+<text x="88"  y="1318" font-size="14" font-weight="bold" fill="#0f172a">CCI 점수 통합</text>
+<text x="88"  y="1338" font-size="13" fill="#475569">Python 스크립트</text>
+<text x="248" y="1328" font-size="13" fill="#374151">calculate_cci.py</text>
+<text x="418" y="1308" font-size="14" font-weight="bold" fill="#991b1b">CCI = GPI × 0.4 + Alpha 1 × 0.3 + Alpha 2 × 0.3</text>
+<text x="418" y="1328" font-size="13" fill="#374151">GPI 정규화: 200~1000 → 0~100 스케일 (score - 200) / 8</text>
+<text x="418" y="1346" font-size="13" fill="#374151">Alpha 정규화: 각 소분류 avg_rating → (6.0 + avg × 0.5) × 10 → 0~100 스케일</text>
+<text x="418" y="1364" font-size="13" fill="#374151">CCI 범위: 0~100 | 경쟁자 그룹 내 순위 산출</text>
+<text x="958" y="1310" font-size="13" fill="#374151">GPI + Alpha1 + Alpha2 →</text>
+<text x="958" y="1328" font-size="13" font-weight="bold" fill="#dc2626">cci_scores_v60</text>
+<text x="958" y="1346" font-size="12" fill="#374151">gpi_score / alpha1_score /</text>
+<text x="958" y="1364" font-size="12" fill="#374151">alpha2_score / cci_score</text>
+<text x="1218" y="1310" font-size="13" fill="#374151">경쟁자 그룹 전원 CCI 산출 완료</text>
+<text x="1218" y="1328" font-size="13" fill="#374151">순위 정합성 확인</text>
+<text x="1218" y="1348" font-size="13" font-weight="bold" fill="#dc2626">⚠ GPI 미산출 후보 = CCI 불가!</text>
+
+<!-- Phase CCI-2: 보고서 생성 (y=1390, h=156) -->
+<rect x="0" y="1390" width="1900" height="156" fill="#fff7ed"/>
+<rect x="10" y="1402" width="66" height="24" fill="#ea580c" rx="3"/>
+<text x="43" y="1418" text-anchor="middle" font-size="11" font-weight="bold" fill="white">CCI-2</text>
+<text x="88"  y="1416" font-size="14" font-weight="bold" fill="#0f172a">복합 보고서 생성</text>
+<text x="88"  y="1436" font-size="13" fill="#475569">2종 보고서</text>
+<text x="88"  y="1456" font-size="13" fill="#475569">+ 카피라이터 리뷰</text>
+<text x="248" y="1406" font-size="13" fill="#374151">generate_cci_report.py</text>
+<text x="248" y="1424" font-size="13" fill="#374151">+ competitor_analyzer.py</text>
+<text x="248" y="1444" font-size="13" fill="#374151">+ copywriter subagent</text>
+<text x="418" y="1400" font-size="14" font-weight="bold" fill="#ea580c">2종 보고서 체계 — GPI(시민) + CCI(정치인)</text>
+<text x="418" y="1422" font-size="13" font-weight="bold" fill="#1d4ed8">보고서 A — GPI 보고서 (시민용, 공개):</text>
+<text x="418" y="1440" font-size="13" fill="#374151">  GPI 점수 + 10개 카테고리 분석 | 보고서/{정치인}_{날짜}_{등급}.html | GitHub Pages 배포</text>
+<text x="418" y="1462" font-size="13" font-weight="bold" fill="#dc2626">보고서 B — CCI 전략 보고서 (정치인 전용, 비공개):</text>
+<text x="418" y="1480" font-size="13" fill="#374151">  ① Executive Summary: CCI 점수 + 당선 가능성 구간</text>
+<text x="418" y="1498" font-size="13" fill="#374151">  ② GPI 분석: 적격성(30%) + 도덕성(40%) + 진정성(30%)</text>
+<text x="418" y="1516" font-size="13" fill="#374151">  ③ Alpha 1 분석: 여론동향 + 이미지·내러티브 + 리스크</text>
+<text x="418" y="1534" font-size="13" fill="#374151">  ④ Alpha 2 분석: 정당경쟁력 + 후보자경쟁력 + 지역기반</text>
+<text x="958" y="1402" font-size="13" fill="#374151">cci_scores_v60 →</text>
+<text x="958" y="1420" font-size="13" font-weight="bold" fill="#1d4ed8">보고서 A: 보고서/{정치인}_</text>
+<text x="958" y="1438" font-size="12" fill="#374151">  {날짜}_{등급}.html</text>
+<text x="958" y="1460" font-size="13" font-weight="bold" fill="#dc2626">보고서 B: 보고서/cci/{정치인}_</text>
+<text x="958" y="1478" font-size="12" fill="#374151">  {날짜}_CCI.html</text>
+<text x="1218" y="1402" font-size="13" fill="#374151">2종 보고서 모두 생성 확인</text>
+<text x="1218" y="1422" font-size="13" fill="#374151">경쟁자 비교 차트 포함 확인</text>
+<text x="1218" y="1442" font-size="13" font-weight="bold" fill="#dc2626">⚠ 카피라이터 리뷰 필수!</text>
+<text x="1218" y="1462" font-size="13" fill="#374151">GPI 보고서: GitHub Pages 배포</text>
+<text x="1218" y="1482" font-size="13" fill="#374151">CCI 보고서: 해당 정치인에게만 제공</text>
+<text x="1218" y="1502" font-size="13" font-weight="bold" fill="#dc2626">⚠ CCI 보고서 외부 유출 금지!</text>
+
+<!-- Phase CCI-3: 보고서 상세 (y=1546, h=176) -->
+<rect x="0" y="1546" width="1900" height="176" fill="#fef2f2"/>
+<rect x="10" y="1558" width="66" height="24" fill="#be123c" rx="3"/>
+<text x="43" y="1574" text-anchor="middle" font-size="11" font-weight="bold" fill="white">CCI-B</text>
+<text x="88"  y="1570" font-size="14" font-weight="bold" fill="#0f172a">CCI 보고서 상세</text>
+<text x="88"  y="1590" font-size="13" fill="#475569">6개 섹션 구조</text>
+<text x="248" y="1580" font-size="13" fill="#374151">HTML 자동 생성</text>
+<text x="248" y="1598" font-size="13" fill="#374151">SVG 차트 내장</text>
+<text x="418" y="1554" font-size="14" font-weight="bold" fill="#be123c">CCI 전략 보고서 B — 6개 섹션 구조</text>
+<text x="418" y="1574" font-size="13" fill="#374151">§1. Executive Summary: CCI 점수 / 경쟁자 순위 / 당선 가능성 구간 / 핵심 시사점</text>
+<text x="418" y="1592" font-size="13" fill="#374151">§2. GPI 분석: 적격성·도덕성·진정성 10개 카테고리 상세 (V60 데이터)</text>
+<text x="418" y="1610" font-size="13" fill="#374151">§3. Alpha 1 분석: 여론동향 + 이미지·내러티브 + 리스크 (경쟁자 비교 포함)</text>
+<text x="418" y="1628" font-size="13" fill="#374151">§4. Alpha 2 분석: 정당경쟁력(PVI) + 후보자경쟁력 + 지역기반 (경쟁자 비교 포함)</text>
+<text x="418" y="1646" font-size="13" fill="#374151">§5. 경쟁자 비교 매트릭스: 레이더 차트 + 히트맵 + GPI/A1/A2/CCI 비교표</text>
+<text x="418" y="1664" font-size="13" fill="#374151">§6. 전략 제언 (AI 기반): 취약 분야 개선 + 포지셔닝 + 리스크 관리 + 우선순위 로드맵</text>
+<text x="418" y="1684" font-size="13" font-weight="bold" fill="#be123c">★ FiveThirtyEight 수준의 예측 모델 = GPI(전문가 예측) + Alpha1(여론) + Alpha2(구조)</text>
+<text x="958" y="1556" font-size="13" fill="#374151">전체 CCI 데이터 →</text>
+<text x="958" y="1574" font-size="13" font-weight="bold" fill="#be123c">CCI 전략 보고서</text>
+<text x="958" y="1592" font-size="12" fill="#374151">보고서/cci/{정치인}_</text>
+<text x="958" y="1610" font-size="12" fill="#374151">{날짜}_CCI.html</text>
+<text x="958" y="1630" font-size="12" fill="#374151">SVG 레이더차트 내장</text>
+<text x="958" y="1648" font-size="12" fill="#374151">경쟁자 비교표 내장</text>
+<text x="1218" y="1556" font-size="13" fill="#374151">6개 섹션 모두 생성 확인</text>
+<text x="1218" y="1576" font-size="13" fill="#374151">경쟁자 비교 데이터 정합성</text>
+<text x="1218" y="1596" font-size="13" fill="#374151">당선 가능성 구간:</text>
+<text x="1218" y="1616" font-size="13" fill="#374151">  안전(PVI±10↑): 90%+</text>
+<text x="1218" y="1636" font-size="13" fill="#374151">  경합(PVI±5): 65~75%</text>
+<text x="1218" y="1656" font-size="13" fill="#374151">  초접전(PVI±2): 55~65%</text>
+<text x="1218" y="1676" font-size="13" font-weight="bold" fill="#dc2626">⚠ 예측 한계 투명 공개 필수!</text>
+
+<!-- S1 border -->
+<rect x="5" y="112" width="1885" height="1610" fill="none" stroke="#a78bfa" stroke-width="2"/>
+
+<!-- ===== S2: 도구별 역할 ===== -->
+<rect x="0" y="1730" width="1900" height="36" fill="#065f46" rx="3"/>
+<text x="20" y="1755" font-size="17" font-weight="bold" fill="white">② 도구별 역할 — 플래툰 포메이션 + API 소스 + Supabase</text>
+
+<rect x="0" y="1766" width="1900" height="32" fill="#d1fae5"/>
+<line x1="180"  y1="1766" x2="180"  y2="2260" stroke="#6ee7b7" stroke-width="1.5"/>
+<line x1="350"  y1="1766" x2="350"  y2="2260" stroke="#6ee7b7" stroke-width="1.5"/>
+<line x1="540"  y1="1766" x2="540"  y2="2260" stroke="#6ee7b7" stroke-width="1.5"/>
+<line x1="1050" y1="1766" x2="1050" y2="2260" stroke="#6ee7b7" stroke-width="1.5"/>
+<line x1="1400" y1="1766" x2="1400" y2="2260" stroke="#6ee7b7" stroke-width="1.5"/>
+<text x="90"   y="1787" text-anchor="middle" font-size="14" font-weight="bold" fill="#065f46">도구</text>
+<text x="265"  y="1787" text-anchor="middle" font-size="14" font-weight="bold" fill="#065f46">유형</text>
+<text x="445"  y="1787" text-anchor="middle" font-size="14" font-weight="bold" fill="#065f46">담당</text>
+<text x="795"  y="1787" text-anchor="middle" font-size="14" font-weight="bold" fill="#065f46">역할 설명</text>
+<text x="1225" y="1787" text-anchor="middle" font-size="14" font-weight="bold" fill="#065f46">기술 방식</text>
+<text x="1650" y="1787" text-anchor="middle" font-size="14" font-weight="bold" fill="#065f46">과금</text>
+
+<!-- 소대장 -->
+<rect x="0" y="1798" width="1900" height="56" fill="#ecfdf5"/>
+<text x="22" y="1822" font-size="14" font-weight="bold" fill="#059669">소대장 (Opus)</text>
+<text x="188" y="1822" font-size="13" fill="#374151">Teammate</text>
+<text x="548" y="1814" font-size="13" fill="#374151">Alpha 평가 총 지휘 — 기준 통일 + 교차 검증 + 조율</text>
+<text x="548" y="1832" font-size="13" fill="#374151">SendMessage로 분대장과 양방향 실시간 통신</text>
+<text x="1058" y="1822" font-size="13" fill="#374151">Claude Opus 4.6 | TeamCreate + SendMessage</text>
+<text x="1408" y="1822" font-size="13" fill="#059669" font-weight="bold">$0 (구독)</text>
+<text x="358" y="1822" font-size="13" fill="#374151">Alpha 평가 조율</text>
+
+<!-- 분대장 -->
+<rect x="0" y="1854" width="1900" height="56" fill="#f8fafc"/>
+<text x="22" y="1878" font-size="14" font-weight="bold" fill="#d97706">분대장 × N (Sonnet)</text>
+<text x="188" y="1878" font-size="13" fill="#374151">Teammate</text>
+<text x="358" y="1878" font-size="13" fill="#374151">후보 1명 담당</text>
+<text x="548" y="1870" font-size="13" fill="#374151">후보별 6개 카테고리 평가 관리 — 분대원 6명 투입 + 결과 종합</text>
+<text x="548" y="1888" font-size="13" fill="#374151">소대장과 SendMessage 교신 + peer 분대장과 수평 교신</text>
+<text x="1058" y="1878" font-size="13" fill="#374151">Claude Sonnet 4.6 | Task tool로 분대원 생성</text>
+<text x="1408" y="1878" font-size="13" fill="#059669" font-weight="bold">$0 (구독)</text>
+
+<!-- 분대원 -->
+<rect x="0" y="1910" width="1900" height="56" fill="#ecfdf5"/>
+<text x="22" y="1934" font-size="14" font-weight="bold" fill="#1d4ed8">분대원 × 6 (Haiku)</text>
+<text x="188" y="1934" font-size="13" fill="#374151">Subagent</text>
+<text x="358" y="1934" font-size="13" fill="#374151">카테고리 1개</text>
+<text x="548" y="1926" font-size="13" fill="#374151">수집 데이터 읽고 +4~-4 레이팅 부여 — 일회성, 결과만 반환 후 소멸</text>
+<text x="548" y="1944" font-size="13" fill="#374151">alpha_instructions 기준 평가 | 배치 25개씩 처리</text>
+<text x="1058" y="1934" font-size="13" fill="#374151">Claude Haiku 4.5 | Task tool (subagent_type)</text>
+<text x="1408" y="1934" font-size="13" fill="#059669" font-weight="bold">$0 (구독)</text>
+
+<!-- 4 AI APIs (GPI용) -->
+<rect x="0" y="1966" width="1900" height="56" fill="#f8fafc"/>
+<text x="22" y="1990" font-size="14" font-weight="bold" fill="#7c3aed">4 AI APIs (GPI용)</text>
+<text x="188" y="1990" font-size="13" fill="#374151">API 평가</text>
+<text x="358" y="1990" font-size="13" fill="#374151">GPI Phase G-3</text>
+<text x="548" y="1982" font-size="13" fill="#374151">GPI 독립 평가 (시민용 객관성): Claude Haiku + Gemini Flash-Lite + ChatGPT + Grok</text>
+<text x="548" y="2000" font-size="13" fill="#374151">4개 AI 다수결로 편향 보정 — V40 동일 로직의 API 전환</text>
+<text x="1058" y="1990" font-size="13" fill="#374151">REST API × 4 | 배치 25개 | eval_instructions 기준</text>
+<text x="1408" y="1982" font-size="13" fill="#dc2626" font-weight="bold">종량제</text>
+<text x="1408" y="2000" font-size="12" fill="#374151">~$0.48/정치인</text>
+
+<!-- 공공 API (Alpha 수집용) -->
+<rect x="0" y="2022" width="1900" height="76" fill="#ecfdf5"/>
+<text x="22" y="2048" font-size="14" font-weight="bold" fill="#065f46">공공 API 소스</text>
+<text x="22" y="2068" font-size="12" fill="#475569">(Alpha 수집)</text>
+<text x="188" y="2058" font-size="13" fill="#374151">데이터 수집</text>
+<text x="358" y="2058" font-size="13" fill="#374151">Alpha A1-C, A2-C</text>
+<text x="548" y="2038" font-size="13" fill="#374151">빅카인즈 API / 네이버 뉴스·데이터랩 API / Google Trends API</text>
+<text x="548" y="2056" font-size="13" fill="#374151">선관위 개방포털 API / 공공데이터포털 API / 열린국회정보 API (69개)</text>
+<text x="548" y="2074" font-size="13" fill="#374151">오픈와치 API / 관보 재산공개 API / NESDC·갤럽·리얼미터 크롤링</text>
+<text x="1058" y="2040" font-size="13" fill="#374151">REST API (대부분) + 웹 크롤링 (일부)</text>
+<text x="1058" y="2058" font-size="13" fill="#374151">Tier 1: API (즉시자동화) / Tier 2: 크롤링 / Tier 3: 수동</text>
+<text x="1408" y="2048" font-size="13" fill="#059669" font-weight="bold">대부분 무료</text>
+<text x="1408" y="2066" font-size="12" fill="#374151">썸트렌드/X만 유료</text>
+
+<!-- Supabase -->
+<rect x="0" y="2098" width="1900" height="76" fill="#f8fafc"/>
+<text x="22" y="2124" font-size="14" font-weight="bold" fill="#0f172a">Supabase</text>
+<text x="22" y="2144" font-size="12" fill="#475569">(PostgreSQL)</text>
+<text x="188" y="2134" font-size="13" fill="#374151">데이터 저장소</text>
+<text x="358" y="2134" font-size="13" fill="#374151">전체</text>
+<text x="548" y="2114" font-size="13" fill="#374151">GPI + Alpha + CCI 전체 데이터 저장 — 8개 테이블</text>
+<text x="548" y="2132" font-size="13" fill="#374151">collected_data_v60 / evaluations_v60 / ai_final_scores_v60 (GPI)</text>
+<text x="548" y="2150" font-size="13" fill="#374151">collected_alpha_v60 / evaluations_alpha_v60 / alpha_scores_v60 / cci_scores_v60 / competitor_groups_v60</text>
+<text x="1058" y="2118" font-size="13" fill="#374151">REST API (PostgREST) | supabase-py</text>
+<text x="1058" y="2136" font-size="13" font-weight="bold" fill="#dc2626">⚠ 1000행 제한 → .range() pagination 필수!</text>
+<text x="1058" y="2154" font-size="13" font-weight="bold" fill="#dc2626">⚠ politician_id = TEXT 8hex (INTEGER 금지!)</text>
+<text x="1408" y="2124" font-size="13" fill="#dc2626" font-weight="bold">$25/월</text>
+<text x="1408" y="2142" font-size="12" fill="#374151">(Pro 플랜)</text>
+
+<!-- GitHub Pages -->
+<rect x="0" y="2174" width="1900" height="56" fill="#ecfdf5"/>
+<text x="22" y="2198" font-size="14" font-weight="bold" fill="#0f172a">GitHub Pages</text>
+<text x="188" y="2198" font-size="13" fill="#374151">배포</text>
+<text x="358" y="2198" font-size="13" fill="#374151">GPI 보고서만</text>
+<text x="548" y="2190" font-size="13" fill="#374151">GPI 보고서(시민용) GitHub Pages 배포 | CCI 보고서는 비공개 (배포 안 함)</text>
+<text x="548" y="2208" font-size="13" fill="#374151">gh-pages 브랜치 /docs 폴더 | .nojekyll 필수 | Python shutil.copy2()</text>
+<text x="1058" y="2198" font-size="13" fill="#374151">gh-pages 브랜치 | sunwoongkyu.github.io/PoliticianFinder/</text>
+<text x="1408" y="2198" font-size="13" fill="#059669" font-weight="bold">무료</text>
+
+<!-- S2 border -->
+<rect x="5" y="1766" width="1885" height="494" fill="none" stroke="#6ee7b7" stroke-width="2"/>
+
+<!-- ===== S3: Instructions ===== -->
+<rect x="0" y="2268" width="1900" height="36" fill="#7c2d12" rx="3"/>
+<text x="20" y="2293" font-size="17" font-weight="bold" fill="white">③ Instructions — GPI(10개) + Alpha(6개) = 16개 평가 Instruction 파일</text>
+
+<rect x="0" y="2304" width="1900" height="32" fill="#fed7aa"/>
+<line x1="200"  y1="2304" x2="200"  y2="2648" stroke="#fb923c" stroke-width="1.5"/>
+<line x1="360"  y1="2304" x2="360"  y2="2648" stroke="#fb923c" stroke-width="1.5"/>
+<line x1="700"  y1="2304" x2="700"  y2="2648" stroke="#fb923c" stroke-width="1.5"/>
+<line x1="1200" y1="2304" x2="1200" y2="2648" stroke="#fb923c" stroke-width="1.5"/>
+<line x1="1500" y1="2304" x2="1500" y2="2648" stroke="#fb923c" stroke-width="1.5"/>
+<text x="100"  y="2325" text-anchor="middle" font-size="14" font-weight="bold" fill="#7c2d12">항목</text>
+<text x="280"  y="2325" text-anchor="middle" font-size="14" font-weight="bold" fill="#7c2d12">용도</text>
+<text x="530"  y="2325" text-anchor="middle" font-size="14" font-weight="bold" fill="#7c2d12">파일 경로</text>
+<text x="950"  y="2325" text-anchor="middle" font-size="14" font-weight="bold" fill="#7c2d12">내용 / 구조</text>
+<text x="1350" y="2325" text-anchor="middle" font-size="14" font-weight="bold" fill="#7c2d12">사용 주체</text>
+<text x="1700" y="2325" text-anchor="middle" font-size="14" font-weight="bold" fill="#7c2d12">주의사항</text>
+
+<!-- GPI eval_instructions -->
+<rect x="0" y="2336" width="1900" height="76" fill="#eff6ff"/>
+<text x="22" y="2362" font-size="14" font-weight="bold" fill="#1d4ed8">GPI eval_instructions/</text>
+<text x="22" y="2380" font-size="13" fill="#475569">(10개 파일)</text>
+<text x="208" y="2370" font-size="13" font-weight="bold" fill="#1d4ed8">GPI 평가 프롬프트</text>
+<text x="208" y="2388" font-size="13" fill="#475569">Phase G-3 전용</text>
+<text x="368" y="2356" font-size="12" font-family="Consolas,monospace" fill="#1d4ed8">instructions/eval_instructions/</text>
+<text x="368" y="2374" font-size="12" font-family="Consolas,monospace" fill="#1d4ed8">cat01_expertise_eval.md ~ cat10_publicinterest_eval.md</text>
+<text x="708" y="2356" font-size="13" fill="#374151">카테고리별 평가 기준 프롬프트 10개</text>
+<text x="708" y="2374" font-size="13" fill="#374151">+4~-4 등급체계 / X 판정 기준 / rationale 작성법</text>
+<text x="708" y="2392" font-size="13" fill="#374151">V40 eval_instructions와 동일 구조</text>
+<text x="1208" y="2370" font-size="13" fill="#374151">4개 AI API</text>
+<text x="1208" y="2388" font-size="13" fill="#374151">(독립 판정)</text>
+<text x="1508" y="2362" font-size="13" font-weight="bold" fill="#dc2626">⚠ collect와 분리!</text>
+<text x="1508" y="2380" font-size="13" fill="#374151">_eval 접미사로 구분</text>
+
+<!-- Alpha instructions (NEW) -->
+<rect x="0" y="2412" width="1900" height="116" fill="#fffbeb"/>
+<text x="22" y="2438" font-size="14" font-weight="bold" fill="#d97706">Alpha instructions/</text>
+<text x="22" y="2458" font-size="13" fill="#059669" font-weight="bold">★ NEW</text>
+<text x="22" y="2476" font-size="13" fill="#475569">(6개 파일)</text>
+<text x="208" y="2448" font-size="13" font-weight="bold" fill="#d97706">Alpha 평가</text>
+<text x="208" y="2466" font-size="13" font-weight="bold" fill="#d97706">프롬프트</text>
+<text x="208" y="2484" font-size="13" fill="#475569">EVAL Phase 전용</text>
+<text x="368" y="2432" font-size="12" font-family="Consolas,monospace" fill="#d97706">instructions/alpha_instructions/</text>
+<text x="368" y="2450" font-size="12" font-family="Consolas,monospace" fill="#d97706">a1_opinion_eval.md</text>
+<text x="580" y="2450" font-size="12" fill="#374151">(여론동향)</text>
+<text x="368" y="2468" font-size="12" font-family="Consolas,monospace" fill="#d97706">a1_media_eval.md</text>
+<text x="580" y="2468" font-size="12" fill="#374151">(이미지·내러티브)</text>
+<text x="368" y="2486" font-size="12" font-family="Consolas,monospace" fill="#d97706">a1_risk_eval.md</text>
+<text x="580" y="2486" font-size="12" fill="#374151">(리스크)</text>
+<text x="368" y="2504" font-size="12" font-family="Consolas,monospace" fill="#7c3aed">a2_party_eval.md</text>
+<text x="580" y="2504" font-size="12" fill="#374151">(정당경쟁력)</text>
+<text x="368" y="2522" font-size="12" font-family="Consolas,monospace" fill="#7c3aed">a2_candidate_eval.md / a2_regional_eval.md</text>
+<text x="708" y="2434" font-size="13" fill="#374151">6개 소분류별 평가 기준 — 분대원(Haiku)에게 전달</text>
+<text x="708" y="2454" font-size="13" fill="#374151">+4~-4 등급체계 (GPI와 동일) + 상대적 맥락 판단 기준</text>
+<text x="708" y="2474" font-size="13" fill="#374151">예: "여론조사 1위 격차 10%p+ → +4" 같은 구체적 기준</text>
+<text x="708" y="2494" font-size="13" fill="#374151">소대장이 broadcast로 모든 분대장에게 동일하게 하달</text>
+<text x="708" y="2514" font-size="13" fill="#374151">→ 이것이 상대평가 일관성의 핵심 메커니즘</text>
+<text x="1208" y="2444" font-size="13" fill="#374151">소대장 → 분대장 → 분대원</text>
+<text x="1208" y="2462" font-size="13" fill="#374151">(Claude 단독)</text>
+<text x="1208" y="2482" font-size="13" fill="#374151">소대장이 기준 통일 후</text>
+<text x="1208" y="2500" font-size="13" fill="#374151">분대원에게 전달</text>
+<text x="1508" y="2434" font-size="13" font-weight="bold" fill="#dc2626">⚠ GPI eval과 분리!</text>
+<text x="1508" y="2454" font-size="13" fill="#374151">alpha_ 접두사로 구분</text>
+<text x="1508" y="2474" font-size="13" font-weight="bold" fill="#dc2626">⚠ 경쟁자 맥락 필수!</text>
+<text x="1508" y="2494" font-size="13" fill="#374151">단독 평가 아닌 상대 평가</text>
+
+<!-- Report template -->
+<rect x="0" y="2528" width="1900" height="76" fill="#fef2f2"/>
+<text x="22" y="2554" font-size="14" font-weight="bold" fill="#be123c">Report templates/</text>
+<text x="22" y="2574" font-size="13" fill="#059669" font-weight="bold">★ NEW</text>
+<text x="208" y="2564" font-size="13" font-weight="bold" fill="#be123c">보고서 템플릿</text>
+<text x="368" y="2548" font-size="12" font-family="Consolas,monospace" fill="#be123c">instructions/report_templates/</text>
+<text x="368" y="2566" font-size="12" font-family="Consolas,monospace" fill="#be123c">cci_report_template.md</text>
+<text x="368" y="2584" font-size="12" font-family="Consolas,monospace" fill="#be123c">competitor_matrix_guide.md</text>
+<text x="708" y="2550" font-size="13" fill="#374151">CCI 전략 보고서 6개 섹션 템플릿 + 경쟁자 비교 매트릭스 가이드</text>
+<text x="708" y="2568" font-size="13" fill="#374151">레이더 차트 SVG 생성 규칙 / 히트맵 색상 규칙 / 전략 제언 형식</text>
+<text x="1208" y="2558" font-size="13" fill="#374151">generate_cci_report.py</text>
+<text x="1508" y="2558" font-size="13" font-weight="bold" fill="#dc2626">⚠ 카피라이터 리뷰 필수!</text>
+
+<!-- Collect instructions -->
+<rect x="0" y="2604" width="1900" height="46" fill="#f0fdf4"/>
+<text x="22" y="2630" font-size="14" font-weight="bold" fill="#065f46">GPI collect_instructions/</text>
+<text x="208" y="2630" font-size="13" fill="#065f46">GPI 수집 프롬프트</text>
+<text x="368" y="2630" font-size="12" font-family="Consolas,monospace" fill="#065f46">instructions/collect_instructions/cat01~cat10_collect.md</text>
+<text x="708" y="2630" font-size="13" fill="#374151">V50과 동일 구조 — 카테고리별 수집 기준 (OFFICIAL/PUBLIC 유형·기간 명시)</text>
+<text x="1208" y="2630" font-size="13" fill="#374151">4 AI API (수집용)</text>
+<text x="1508" y="2630" font-size="13" fill="#374151">eval과 분리!</text>
+
+<!-- S3 border -->
+<rect x="5" y="2304" width="1885" height="346" fill="none" stroke="#fb923c" stroke-width="2"/>
+
+<!-- ===== S4: Scripts 목록 ===== -->
+<rect x="0" y="2658" width="1900" height="36" fill="#1e3a5f" rx="3"/>
+<text x="20" y="2683" font-size="17" font-weight="bold" fill="white">④ Scripts 목록 — 수집 6개 + 평가 2개 + 핵심 4개 + 유틸 2개 = 14개 스크립트</text>
+
+<rect x="0" y="2694" width="1900" height="32" fill="#dbeafe"/>
+<line x1="300"  y1="2694" x2="300"  y2="3376" stroke="#93c5fd" stroke-width="1.5"/>
+<line x1="500"  y1="2694" x2="500"  y2="3376" stroke="#93c5fd" stroke-width="1.5"/>
+<line x1="1200" y1="2694" x2="1200" y2="3376" stroke="#93c5fd" stroke-width="1.5"/>
+<line x1="1500" y1="2694" x2="1500" y2="3376" stroke="#93c5fd" stroke-width="1.5"/>
+<text x="150"  y="2715" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e3a5f">스크립트</text>
+<text x="400"  y="2715" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e3a5f">폴더</text>
+<text x="850"  y="2715" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e3a5f">역할</text>
+<text x="1350" y="2715" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e3a5f">Phase</text>
+<text x="1700" y="2715" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e3a5f">상태</text>
+
+<!-- collect scripts -->
+<rect x="0" y="2726" width="1900" height="136" fill="#fffbeb"/>
+<text x="22" y="2748" font-size="13" font-weight="bold" fill="#d97706">collect_alpha1_opinion.py</text>
+<text x="22" y="2768" font-size="13" font-weight="bold" fill="#d97706">collect_alpha1_media.py</text>
+<text x="22" y="2788" font-size="13" font-weight="bold" fill="#d97706">collect_alpha1_risk.py</text>
+<text x="22" y="2808" font-size="13" font-weight="bold" fill="#7c3aed">collect_alpha2_party.py</text>
+<text x="22" y="2828" font-size="13" font-weight="bold" fill="#7c3aed">collect_alpha2_candidate.py</text>
+<text x="22" y="2848" font-size="13" font-weight="bold" fill="#7c3aed">collect_alpha2_regional.py</text>
+<text x="308" y="2788" font-size="13" fill="#374151">scripts/collect/</text>
+<text x="508" y="2748" font-size="13" fill="#374151">NESDC/갤럽/리얼미터 크롤링 → 여론조사 추이 수집</text>
+<text x="508" y="2768" font-size="13" fill="#374151">빅카인즈 API/네이버/Google Trends → 미디어 논조 + SNS 버즈</text>
+<text x="508" y="2788" font-size="13" fill="#374151">빅카인즈 부정기사 + 경실련/참여연대 + 재산공개 → 리스크 데이터</text>
+<text x="508" y="2808" font-size="13" fill="#374151">선관위 API → PVI 계산 + 정당 지지율 + 정당 프리미엄</text>
+<text x="508" y="2828" font-size="13" fill="#374151">열린국회정보/정치랭크 → 현직효과 + 인지도 + 공천 상태</text>
+<text x="508" y="2848" font-size="13" fill="#374151">후보자 정보(연고) + 오픈와치(정치자금) + 후원금</text>
+<text x="1208" y="2788" font-size="13" fill="#374151">A1-C / A2-C</text>
+<text x="1508" y="2780" font-size="13" fill="#059669" font-weight="bold">★ NEW (구현 필요)</text>
+
+<!-- eval scripts -->
+<rect x="0" y="2862" width="1900" height="56" fill="#ecfdf5"/>
+<text x="22" y="2886" font-size="13" font-weight="bold" fill="#059669">alpha_eval_helper.py</text>
+<text x="22" y="2904" font-size="13" font-weight="bold" fill="#059669">alpha_eval_saver.py</text>
+<text x="308" y="2892" font-size="13" fill="#374151">scripts/evaluate/</text>
+<text x="508" y="2882" font-size="13" fill="#374151">분대원(Haiku)이 사용할 평가 실행기 — instruction 로드 + 레이팅 + JSON 생성</text>
+<text x="508" y="2900" font-size="13" fill="#374151">평가 결과 evaluations_alpha_v60 테이블에 저장 + 중복 방지</text>
+<text x="1208" y="2892" font-size="13" fill="#374151">EVAL</text>
+<text x="1508" y="2892" font-size="13" fill="#059669" font-weight="bold">★ NEW (구현 필요)</text>
+
+<!-- core scripts -->
+<rect x="0" y="2918" width="1900" height="96" fill="#f8fafc"/>
+<text x="22" y="2942" font-size="13" font-weight="bold" fill="#0f172a">fetch_gpi_v60.py</text>
+<text x="22" y="2962" font-size="13" font-weight="bold" fill="#0f172a">calculate_cci.py</text>
+<text x="22" y="2982" font-size="13" font-weight="bold" fill="#0f172a">validate_alpha.py</text>
+<text x="22" y="3002" font-size="13" font-weight="bold" fill="#0f172a">generate_cci_report.py</text>
+<text x="308" y="2968" font-size="13" fill="#374151">scripts/core/</text>
+<text x="508" y="2942" font-size="13" fill="#374151">ai_final_scores_v60에서 GPI 점수 조회 → CCI 가중치 적용용</text>
+<text x="508" y="2962" font-size="13" fill="#374151">GPI(40%) + Alpha1(30%) + Alpha2(30%) 통합 계산 → cci_scores_v60 저장</text>
+<text x="508" y="2982" font-size="13" fill="#374151">Alpha 수집 데이터 검증 — 소스별 정합성 + 기간 확인</text>
+<text x="508" y="3002" font-size="13" fill="#374151">2종 보고서 생성 — GPI 보고서(공개) + CCI 전략 보고서(비공개)</text>
+<text x="1208" y="2942" font-size="13" fill="#374151">CCI-1</text>
+<text x="1208" y="2962" font-size="13" fill="#374151">CCI-1</text>
+<text x="1208" y="2982" font-size="13" fill="#374151">A1-C/A2-C</text>
+<text x="1208" y="3002" font-size="13" fill="#374151">CCI-2</text>
+<text x="1508" y="2968" font-size="13" fill="#059669" font-weight="bold">★ NEW (구현 필요)</text>
+
+<!-- util scripts -->
+<rect x="0" y="3014" width="1900" height="56" fill="#ecfdf5"/>
+<text x="22" y="3038" font-size="13" font-weight="bold" fill="#065f46">check_cci_status.py</text>
+<text x="22" y="3058" font-size="13" font-weight="bold" fill="#065f46">competitor_analyzer.py</text>
+<text x="308" y="3048" font-size="13" fill="#374151">scripts/utils/</text>
+<text x="508" y="3038" font-size="13" fill="#374151">GPI + Alpha + CCI 전체 진행 상태 확인 (수집/평가/점수/보고서)</text>
+<text x="508" y="3058" font-size="13" fill="#374151">경쟁자 그룹 비교 분석 — 레이더 차트 SVG + 히트맵 데이터 생성</text>
+<text x="1208" y="3048" font-size="13" fill="#374151">전체/CCI-2</text>
+<text x="1508" y="3048" font-size="13" fill="#059669" font-weight="bold">★ NEW (구현 필요)</text>
+
+<!-- Skill -->
+<rect x="0" y="3070" width="1900" height="56" fill="#faf5ff"/>
+<text x="22" y="3094" font-size="14" font-weight="bold" fill="#7c3aed">evaluate-cci-v60.md</text>
+<text x="308" y="3094" font-size="13" fill="#374151">skill/</text>
+<text x="508" y="3086" font-size="13" fill="#374151">CCI 전체 파이프라인 자동화 스킬 — 플래툰 포메이션 통합</text>
+<text x="508" y="3106" font-size="13" fill="#374151">/evaluate-cci-v60 --group=서울시장 → 소대장 기동 → 전원 CCI 산출 → 보고서 생성</text>
+<text x="1208" y="3094" font-size="13" fill="#374151">전체 자동화</text>
+<text x="1508" y="3094" font-size="13" fill="#059669" font-weight="bold">★ NEW (최종 산출물)</text>
+
+<!-- GPI scripts (V40→V60 전환) -->
+<rect x="0" y="3126" width="1900" height="56" fill="#eff6ff"/>
+<text x="22" y="3150" font-size="14" font-weight="bold" fill="#1d4ed8">V60 GPI 스크립트</text>
+<text x="308" y="3150" font-size="13" fill="#374151">scripts/gpi/</text>
+<text x="508" y="3142" font-size="13" fill="#374151">V40 CLI 스크립트 → V60 API 전환 (수집/검증/조정/평가/점수)</text>
+<text x="508" y="3160" font-size="13" fill="#374151">V40 로직 유지, 실행 방식만 CLI→API 변경 | collect + validate + adjust + evaluate + calculate</text>
+<text x="1208" y="3150" font-size="13" fill="#374151">G-1 ~ G-4</text>
+<text x="1508" y="3142" font-size="13" fill="#1d4ed8" font-weight="bold">V40 전환 (구현 필요)</text>
+
+<!-- S4 border -->
+<rect x="5" y="2694" width="1885" height="498" fill="none" stroke="#93c5fd" stroke-width="2"/>
+
+<!-- ===== S5: DB 스키마 ===== -->
+<rect x="0" y="3200" width="1900" height="36" fill="#581c87" rx="3"/>
+<text x="20" y="3225" font-size="17" font-weight="bold" fill="white">⑤ DB 스키마 — GPI 3개 (V40 전환) + Alpha/CCI 5개 = 8개 테이블</text>
+
+<rect x="0" y="3236" width="1900" height="32" fill="#f3e8ff"/>
+<line x1="250"  y1="3236" x2="250"  y2="3850" stroke="#c084fc" stroke-width="1.5"/>
+<line x1="420"  y1="3236" x2="420"  y2="3850" stroke="#c084fc" stroke-width="1.5"/>
+<line x1="1250" y1="3236" x2="1250" y2="3850" stroke="#c084fc" stroke-width="1.5"/>
+<text x="125"  y="3257" text-anchor="middle" font-size="14" font-weight="bold" fill="#581c87">테이블</text>
+<text x="335"  y="3257" text-anchor="middle" font-size="14" font-weight="bold" fill="#581c87">파이프라인</text>
+<text x="835"  y="3257" text-anchor="middle" font-size="14" font-weight="bold" fill="#581c87">주요 컬럼</text>
+<text x="1575" y="3257" text-anchor="middle" font-size="14" font-weight="bold" fill="#581c87">비고</text>
+
+<!-- GPI tables -->
+<rect x="0" y="3268" width="1900" height="36" fill="#eff6ff"/>
+<text x="22" y="3291" font-size="14" font-weight="bold" fill="#1d4ed8">collected_data_v60</text>
+<text x="258" y="3291" font-size="13" fill="#374151">GPI G-1</text>
+<text x="428" y="3291" font-size="13" fill="#374151">politician_id(TEXT) / category / title / content / source_url / published_date / collector_ai / source_type(OFFICIAL/PUBLIC) / sentiment(neg/pos/free)</text>
+<text x="1258" y="3291" font-size="13" fill="#1d4ed8">V40 → V60 전환</text>
+
+<rect x="0" y="3304" width="1900" height="36" fill="#f8fafc"/>
+<text x="22" y="3327" font-size="14" font-weight="bold" fill="#1d4ed8">evaluations_v60</text>
+<text x="258" y="3327" font-size="13" fill="#374151">GPI G-3</text>
+<text x="428" y="3327" font-size="13" fill="#374151">politician_id / category / evaluator_ai(Claude/ChatGPT/Gemini/Grok) / collected_data_id(FK) / rating(TEXT '+3'/'-2'/'X') / reasoning</text>
+<text x="1258" y="3327" font-size="13" fill="#1d4ed8">V40 → V60 전환</text>
+
+<rect x="0" y="3340" width="1900" height="36" fill="#eff6ff"/>
+<text x="22" y="3363" font-size="14" font-weight="bold" fill="#1d4ed8">ai_final_scores_v60</text>
+<text x="258" y="3363" font-size="13" fill="#374151">GPI G-4</text>
+<text x="428" y="3363" font-size="13" fill="#374151">politician_id(PK) / final_score(200~1000) / grade / category_scores(JSONB) / total_evaluations / give_up_categories(JSONB)</text>
+<text x="1258" y="3363" font-size="13" fill="#1d4ed8">V40 → V60 전환 | GPI 점수 = CCI의 40%</text>
+
+<!-- Alpha/CCI tables -->
+<rect x="0" y="3376" width="1900" height="48" fill="#fffbeb"/>
+<text x="22" y="3399" font-size="14" font-weight="bold" fill="#d97706">collected_alpha_v60</text>
+<text x="258" y="3399" font-size="13" fill="#374151">Alpha A1-C/A2-C</text>
+<text x="428" y="3391" font-size="13" fill="#374151">politician_id / alpha_type('A1'/'A2') / subcategory('opinion'/'media'/'risk'/'party'/'candidate'/'regional')</text>
+<text x="428" y="3409" font-size="13" fill="#374151">/ title / content / source_url / source_name / published_date / data_type(OFFICIAL/PUBLIC) / collector_source</text>
+<text x="1258" y="3399" font-size="13" fill="#059669" font-weight="bold">★ NEW</text>
+
+<rect x="0" y="3424" width="1900" height="48" fill="#ecfdf5"/>
+<text x="22" y="3447" font-size="14" font-weight="bold" fill="#059669">evaluations_alpha_v60</text>
+<text x="258" y="3447" font-size="13" fill="#374151">Alpha EVAL</text>
+<text x="428" y="3439" font-size="13" fill="#374151">politician_id / alpha_type / subcategory / collected_alpha_id(FK) / evaluator_ai='Claude' (단독)</text>
+<text x="428" y="3457" font-size="13" fill="#374151">/ rating(TEXT '+4'~'-4','X') / reasoning</text>
+<text x="1258" y="3447" font-size="13" fill="#059669" font-weight="bold">★ NEW | Claude 단독 (evaluator_ai='Claude' 고정)</text>
+
+<rect x="0" y="3472" width="1900" height="36" fill="#fffbeb"/>
+<text x="22" y="3495" font-size="14" font-weight="bold" fill="#d97706">alpha_scores_v60</text>
+<text x="258" y="3495" font-size="13" fill="#374151">Alpha EVAL</text>
+<text x="428" y="3495" font-size="13" fill="#374151">politician_id / alpha_type / subcategory / avg_rating / score / eval_count / calculated_at</text>
+<text x="1258" y="3495" font-size="13" fill="#059669" font-weight="bold">★ NEW | 6개 소분류별 점수</text>
+
+<rect x="0" y="3508" width="1900" height="48" fill="#fef2f2"/>
+<text x="22" y="3531" font-size="14" font-weight="bold" fill="#dc2626">cci_scores_v60</text>
+<text x="258" y="3531" font-size="13" fill="#374151">CCI-1</text>
+<text x="428" y="3523" font-size="13" fill="#374151">politician_id(PK) / gpi_score(0~100) / alpha1_score(0~100) / alpha2_score(0~100) / cci_score(0~100)</text>
+<text x="428" y="3541" font-size="13" fill="#374151">/ cci_grade / competitor_group_id(FK) / competitor_rank / win_probability_range / calculated_at</text>
+<text x="1258" y="3531" font-size="13" fill="#059669" font-weight="bold">★ NEW | CCI 최종 통합 점수</text>
+
+<rect x="0" y="3556" width="1900" height="48" fill="#ecfdf5"/>
+<text x="22" y="3579" font-size="14" font-weight="bold" fill="#065f46">competitor_groups_v60</text>
+<text x="258" y="3579" font-size="13" fill="#374151">G-0</text>
+<text x="428" y="3571" font-size="13" fill="#374151">group_id(PK) / election_type('광역단체장'/'국회의원') / region / district / election_year</text>
+<text x="428" y="3589" font-size="13" fill="#374151">/ politician_ids(TEXT[]) / group_name(예: '서울시장 2026') / created_at</text>
+<text x="1258" y="3579" font-size="13" fill="#059669" font-weight="bold">★ NEW | 경쟁자 그룹핑 (CCI 상대평가 기반)</text>
+
+<!-- DB CRITICAL RULES -->
+<rect x="0" y="3612" width="1900" height="96" fill="#fef2f2"/>
+<text x="22" y="3636" font-size="14" font-weight="bold" fill="#dc2626">🚨 DB CRITICAL RULES (전 테이블 공통)</text>
+<text x="22" y="3658" font-size="13" font-weight="bold" fill="#dc2626">① politician_id = TEXT 8hex (절대 INTEGER/BIGINT/UUID 금지!)</text>
+<text x="22" y="3678" font-size="13" font-weight="bold" fill="#dc2626">② rating = TEXT ('+3', '-2', 'X') (숫자 변환 절대 금지!)</text>
+<text x="22" y="3698" font-size="13" font-weight="bold" fill="#dc2626">③ Supabase 1000행 기본 제한 → .range() pagination 필수!</text>
+<text x="700" y="3658" font-size="13" font-weight="bold" fill="#dc2626">④ evaluator_ai = 시스템명 'Claude'/'ChatGPT'/'Gemini'/'Grok' (모델명 금지!)</text>
+<text x="700" y="3678" font-size="13" font-weight="bold" fill="#dc2626">⑤ sentiment = 'negative'/'positive'/'free' (neutral 아님!)</text>
+<text x="700" y="3698" font-size="13" font-weight="bold" fill="#dc2626">⑥ Alpha evaluator_ai = 'Claude' 고정 (CCI는 Claude 단독!)</text>
+
+<!-- S5 border -->
+<rect x="5" y="3236" width="1885" height="482" fill="none" stroke="#c084fc" stroke-width="2"/>
+
+<!-- ===== S6: 구현 우선순위 ===== -->
+<rect x="0" y="3726" width="1900" height="36" fill="#991b1b" rx="3"/>
+<text x="20" y="3751" font-size="17" font-weight="bold" fill="white">⑥ 구현 우선순위 — 8단계 순차 구현</text>
+
+<rect x="0" y="3762" width="1900" height="32" fill="#fecaca"/>
+<line x1="80"  y1="3762" x2="80"  y2="4340" stroke="#f87171" stroke-width="1.5"/>
+<line x1="360" y1="3762" x2="360" y2="4340" stroke="#f87171" stroke-width="1.5"/>
+<line x1="580" y1="3762" x2="580" y2="4340" stroke="#f87171" stroke-width="1.5"/>
+<line x1="1400" y1="3762" x2="1400" y2="4340" stroke="#f87171" stroke-width="1.5"/>
+<text x="40"  y="3783" text-anchor="middle" font-size="14" font-weight="bold" fill="#991b1b">순서</text>
+<text x="220" y="3783" text-anchor="middle" font-size="14" font-weight="bold" fill="#991b1b">산출물</text>
+<text x="470" y="3783" text-anchor="middle" font-size="14" font-weight="bold" fill="#991b1b">유형</text>
+<text x="990" y="3783" text-anchor="middle" font-size="14" font-weight="bold" fill="#991b1b">설명</text>
+<text x="1650" y="3783" text-anchor="middle" font-size="14" font-weight="bold" fill="#991b1b">의존성</text>
+
+<rect x="0" y="3794" width="1900" height="36" fill="#fef2f2"/>
+<text x="40" y="3817" text-anchor="middle" font-size="16" font-weight="bold" fill="#dc2626">1</text>
+<text x="88" y="3817" font-size="14" font-weight="bold" fill="#0f172a">v60_cci_schema.sql</text>
+<text x="368" y="3817" font-size="13" fill="#374151">DB 스키마</text>
+<text x="588" y="3817" font-size="13" fill="#374151">Alpha/CCI 5개 테이블 + GPI 3개 테이블 (V40 전환) 정의</text>
+<text x="1408" y="3817" font-size="13" fill="#059669">없음 (최우선)</text>
+
+<rect x="0" y="3830" width="1900" height="36" fill="#f8fafc"/>
+<text x="40" y="3853" text-anchor="middle" font-size="16" font-weight="bold" fill="#dc2626">2</text>
+<text x="88" y="3853" font-size="14" font-weight="bold" fill="#0f172a">CCI_기본방침.md</text>
+<text x="368" y="3853" font-size="13" fill="#374151">지침</text>
+<text x="588" y="3853" font-size="13" fill="#374151">레이팅 규칙, 기간 제한, 비율 정의, 상대평가 원칙</text>
+<text x="1408" y="3853" font-size="13" fill="#374151">스키마 정의 후</text>
+
+<rect x="0" y="3866" width="1900" height="36" fill="#fef2f2"/>
+<text x="40" y="3889" text-anchor="middle" font-size="16" font-weight="bold" fill="#dc2626">3</text>
+<text x="88" y="3889" font-size="14" font-weight="bold" fill="#0f172a">6개 Alpha instruction</text>
+<text x="368" y="3889" font-size="13" fill="#374151">지침</text>
+<text x="588" y="3889" font-size="13" fill="#374151">소분류별 평가 기준서 (분대원 Haiku에게 전달될 프롬프트)</text>
+<text x="1408" y="3889" font-size="13" fill="#374151">기본방침 확정 후</text>
+
+<rect x="0" y="3902" width="1900" height="36" fill="#f8fafc"/>
+<text x="40" y="3925" text-anchor="middle" font-size="16" font-weight="bold" fill="#dc2626">4</text>
+<text x="88" y="3925" font-size="14" font-weight="bold" fill="#0f172a">6개 collect 스크립트</text>
+<text x="368" y="3925" font-size="13" fill="#374151">스크립트</text>
+<text x="588" y="3925" font-size="13" fill="#374151">Alpha 1/2 소분류별 API 수집 + 크롤링 스크립트</text>
+<text x="1408" y="3925" font-size="13" fill="#374151">스키마 + 지침</text>
+
+<rect x="0" y="3938" width="1900" height="36" fill="#fef2f2"/>
+<text x="40" y="3961" text-anchor="middle" font-size="16" font-weight="bold" fill="#dc2626">5</text>
+<text x="88" y="3961" font-size="14" font-weight="bold" fill="#0f172a">alpha_eval_helper.py + saver</text>
+<text x="368" y="3961" font-size="13" fill="#374151">스크립트</text>
+<text x="588" y="3961" font-size="13" fill="#374151">분대원(Haiku)용 평가 실행기 + DB 저장 함수</text>
+<text x="1408" y="3961" font-size="13" fill="#374151">instruction + 스키마</text>
+
+<rect x="0" y="3974" width="1900" height="36" fill="#f8fafc"/>
+<text x="40" y="3997" text-anchor="middle" font-size="16" font-weight="bold" fill="#dc2626">6</text>
+<text x="88" y="3997" font-size="14" font-weight="bold" fill="#0f172a">fetch_gpi + calculate_cci</text>
+<text x="368" y="3997" font-size="13" fill="#374151">스크립트</text>
+<text x="588" y="3997" font-size="13" fill="#374151">V60 GPI 점수 가져오기 + CCI 통합 점수 계산 (40%+30%+30%)</text>
+<text x="1408" y="3997" font-size="13" fill="#374151">GPI + Alpha 평가 완료</text>
+
+<rect x="0" y="4010" width="1900" height="36" fill="#fef2f2"/>
+<text x="40" y="4033" text-anchor="middle" font-size="16" font-weight="bold" fill="#dc2626">7</text>
+<text x="88" y="4033" font-size="14" font-weight="bold" fill="#0f172a">generate_cci_report.py</text>
+<text x="368" y="4033" font-size="13" fill="#374151">스크립트</text>
+<text x="588" y="4033" font-size="13" fill="#374151">2종 보고서 생성 (GPI 공개 + CCI 비공개) + 경쟁자 비교 차트</text>
+<text x="1408" y="4033" font-size="13" fill="#374151">CCI 점수 + 보고서 템플릿</text>
+
+<rect x="0" y="4046" width="1900" height="36" fill="#f8fafc"/>
+<text x="40" y="4069" text-anchor="middle" font-size="16" font-weight="bold" fill="#dc2626">8</text>
+<text x="88" y="4069" font-size="14" font-weight="bold" fill="#0f172a">evaluate-cci-v60.md (스킬)</text>
+<text x="368" y="4069" font-size="13" fill="#374151">스킬</text>
+<text x="588" y="4069" font-size="13" fill="#374151">플래툰 포메이션 통합 자동화 — /evaluate-cci-v60 --group=서울시장</text>
+<text x="1408" y="4069" font-size="13" fill="#374151">전체 완료 후 통합</text>
+
+<!-- S6 border -->
+<rect x="5" y="3762" width="1885" height="353" fill="none" stroke="#f87171" stroke-width="2"/>
+
+<!-- ===== COST SUMMARY ===== -->
+<rect x="0" y="4124" width="1900" height="36" fill="#065f46" rx="3"/>
+<text x="20" y="4149" font-size="17" font-weight="bold" fill="white">⑦ 비용 요약 — 경쟁자 그룹 1건 기준</text>
+
+<rect x="0" y="4160" width="1900" height="166" fill="#ecfdf5"/>
+<text x="40"  y="4188" font-size="14" font-weight="bold" fill="#065f46">항목</text>
+<text x="500" y="4188" font-size="14" font-weight="bold" fill="#065f46">비용</text>
+<text x="800" y="4188" font-size="14" font-weight="bold" fill="#065f46">비고</text>
+
+<text x="40"  y="4212" font-size="13" fill="#374151">GPI 평가 (4 AI API × N명)</text>
+<text x="500" y="4212" font-size="13" fill="#dc2626" font-weight="bold">~$0.48 × N명</text>
+<text x="800" y="4212" font-size="13" fill="#374151">V60 API 종량제 (Claude Haiku + Gemini Flash-Lite + gpt-4o-mini + grok-3-mini)</text>
+
+<text x="40"  y="4236" font-size="13" fill="#374151">Alpha 평가 (플래툰 Claude 단독)</text>
+<text x="500" y="4236" font-size="13" fill="#059669" font-weight="bold">$0</text>
+<text x="800" y="4236" font-size="13" fill="#374151">Claude Code 구독 내 — 소대장(Opus) + 분대장(Sonnet) + 분대원(Haiku) 전부 $0</text>
+
+<text x="40"  y="4260" font-size="13" fill="#374151">Alpha 데이터 수집 (공공 API)</text>
+<text x="500" y="4260" font-size="13" fill="#059669" font-weight="bold">대부분 $0</text>
+<text x="800" y="4260" font-size="13" fill="#374151">공공 API 무료 | 썸트렌드 월정액, X API $100/월 (선택)</text>
+
+<text x="40"  y="4284" font-size="13" fill="#374151">Supabase (Pro)</text>
+<text x="500" y="4284" font-size="13" fill="#dc2626" font-weight="bold">$25/월 (고정)</text>
+<text x="800" y="4284" font-size="13" fill="#374151">8GB 포함 + 초과 시 종량제</text>
+
+<text x="40"  y="4310" font-size="15" font-weight="bold" fill="#065f46">총 비용 (서울시장 10명 기준)</text>
+<text x="500" y="4310" font-size="15" font-weight="bold" fill="#065f46">~$4.80 + $25/월</text>
+<text x="800" y="4310" font-size="13" fill="#065f46">GPI $0.48×10명 = $4.80 | Alpha $0 | Supabase $25/월</text>
+
+<!-- Footer -->
+<rect x="0" y="4340" width="1900" height="50" fill="#0f172a"/>
+<text x="950" y="4365" text-anchor="middle" font-size="14" fill="#94a3b8">V60 CCI Architecture | 작성일: 2026-03-11 | PoliticianFinder.com</text>
+<text x="950" y="4385" text-anchor="middle" font-size="12" fill="#64748b">CCI = GPI(40%) + Alpha 1 민심·여론(30%) + Alpha 2 선거구조(30%) | 플래툰 포메이션 Claude 단독 | FiveThirtyEight 수준</text>
+
+</svg>
