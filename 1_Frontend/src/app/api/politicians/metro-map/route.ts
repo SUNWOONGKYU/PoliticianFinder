@@ -35,7 +35,7 @@ export async function GET(request: NextRequest) {
       // metro_poll_results에서 지역별 최신 여론조사 결과 조회
       const { data: pollRows } = await supabase
         .from('metro_poll_results')
-        .select('politician_name, party, region, poll_rank, poll_support_pct, poll_start_date, politician_id')
+        .select('politician_name, party, region, poll_rank, poll_support_pct, poll_start_date, poll_end_date, poll_agency, politician_id')
         .order('poll_start_date', { ascending: false });
 
       // 지역+후보 기준 최신 poll만 유지 (중복 제거)
@@ -63,6 +63,8 @@ export async function GET(request: NextRequest) {
           region: row.region || '기타',
           pollRank: row.poll_rank ?? null,
           pollSupport: row.poll_support_pct != null ? `${row.poll_support_pct}%` : null,
+          pollAgency: row.poll_agency ?? null,
+          pollDate: row.poll_end_date ?? row.poll_start_date ?? null,
           finalScore: 0,
           hasScore: false,
         }))

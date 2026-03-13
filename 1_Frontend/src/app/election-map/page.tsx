@@ -101,6 +101,8 @@ interface Candidate {
   hasScore: boolean;
   pollRank: number | null;
   pollSupport: string | null;
+  pollAgency: string | null;
+  pollDate: string | null;
 }
 
 interface RegionEntry {
@@ -170,18 +172,25 @@ function RegionCard({
               {top.name}
             </div>
             {viewMode === 'poll' ? (
-              <div className="mt-0.5 flex items-baseline gap-1">
-                {top.pollSupport ? (
-                  <>
-                    <span className="text-lg font-extrabold" style={{ color: topColor.fill }}>
-                      {top.pollSupport}
-                    </span>
-                    <span className="text-[10px] text-gray-400">지지율</span>
-                  </>
-                ) : (
-                  <span className="text-xs text-gray-400">지지율 미공개</span>
+              <>
+                <div className="mt-0.5 flex items-baseline gap-1">
+                  {top.pollSupport ? (
+                    <>
+                      <span className="text-lg font-extrabold" style={{ color: topColor.fill }}>
+                        {top.pollSupport}
+                      </span>
+                      <span className="text-[10px] text-gray-400">지지율</span>
+                    </>
+                  ) : (
+                    <span className="text-xs text-gray-400">지지율 미공개</span>
+                  )}
+                </div>
+                {top.pollAgency && (
+                  <div className="text-[9px] text-gray-400 mt-0.5">
+                    {top.pollAgency}{top.pollDate ? ` · ${top.pollDate.slice(0, 7)}` : ''}
+                  </div>
                 )}
-              </div>
+              </>
             ) : top.hasScore ? (
               <div className="mt-0.5 flex items-baseline gap-1">
                 <span className="text-lg font-extrabold" style={{ color: topColor.fill }}>
@@ -544,14 +553,21 @@ export default function ElectionMapPage() {
                             </div>
                             <div style={{ textAlign: 'right', flexShrink: 0 }}>
                               {viewMode === 'poll' ? (
-                                c.pollSupport ? (
-                                  <>
-                                    <div style={{ fontSize: 16, fontWeight: 800, color: '#1e293b' }}>{c.pollSupport}</div>
-                                    <div style={{ fontSize: 9, color: '#94a3b8' }}>지지율</div>
-                                  </>
-                                ) : (
-                                  <div style={{ fontSize: 10, color: '#cbd5e1' }}>미공개</div>
-                                )
+                                <>
+                                  {c.pollSupport ? (
+                                    <>
+                                      <div style={{ fontSize: 16, fontWeight: 800, color: '#1e293b' }}>{c.pollSupport}</div>
+                                      <div style={{ fontSize: 9, color: '#94a3b8' }}>지지율</div>
+                                    </>
+                                  ) : (
+                                    <div style={{ fontSize: 10, color: '#cbd5e1' }}>미공개</div>
+                                  )}
+                                  {c.pollAgency && (
+                                    <div style={{ fontSize: 8, color: '#b0bec5', marginTop: 2 }}>
+                                      {c.pollAgency}{c.pollDate ? ` ${c.pollDate.slice(0, 7)}` : ''}
+                                    </div>
+                                  )}
+                                </>
                               ) : c.hasScore ? (
                                 <>
                                   <div style={{ fontSize: 16, fontWeight: 800, color: '#1e293b' }}>
