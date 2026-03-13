@@ -118,15 +118,17 @@ function RegionCard({
   entry,
   isSelected,
   onClick,
+  viewMode,
 }: {
   regionId: string;
   entry: RegionEntry | undefined;
   isSelected: boolean;
   onClick: () => void;
+  viewMode: 'ai' | 'poll';
 }) {
   const candidates = entry?.candidates || [];
   const top = candidates[0];
-  const topColor = top?.hasScore ? partyColor(top.party) : DEFAULT_COLOR;
+  const topColor = (viewMode === 'poll' || top?.hasScore) ? partyColor(top?.party) : DEFAULT_COLOR;
 
   return (
     <div
@@ -167,7 +169,20 @@ function RegionCard({
             <div className="font-bold text-gray-900 text-sm leading-tight">
               {top.name}
             </div>
-            {top.hasScore ? (
+            {viewMode === 'poll' ? (
+              <div className="mt-0.5 flex items-baseline gap-1">
+                {top.pollSupport ? (
+                  <>
+                    <span className="text-lg font-extrabold" style={{ color: topColor.fill }}>
+                      {top.pollSupport}
+                    </span>
+                    <span className="text-[10px] text-gray-400">지지율</span>
+                  </>
+                ) : (
+                  <span className="text-xs text-gray-400">지지율 미공개</span>
+                )}
+              </div>
+            ) : top.hasScore ? (
               <div className="mt-0.5 flex items-baseline gap-1">
                 <span className="text-lg font-extrabold" style={{ color: topColor.fill }}>
                   {top.finalScore}
@@ -203,11 +218,12 @@ export default function ElectionMapPage() {
   const [loading, setLoading] = useState(true);
   const [selectedRegion, setSelectedRegion] = useState<string | null>(null);
   const [hoveredRegion, setHoveredRegion] = useState<string | null>(null);
+  const [viewMode, setViewMode] = useState<'ai' | 'poll'>('poll');
 
-  const fetchData = useCallback(async () => {
+  const fetchData = useCallback(async (mode: 'ai' | 'poll') => {
     setLoading(true);
     try {
-      const res = await fetch('/api/politicians/metro-map?view_mode=ai');
+      const res = await fetch(`/api/politicians/metro-map?view_mode=${mode}`);
       const json = await res.json();
       if (json.success) setRegions(json.regions || []);
     } catch {
@@ -217,7 +233,7 @@ export default function ElectionMapPage() {
     }
   }, []);
 
-  useEffect(() => { fetchData(); }, [fetchData]);
+  useEffect(() => { fetchData(viewMode); }, [fetchData, viewMode]);
 
   // Build lookup maps
   const regionMap = new Map<string, RegionEntry>();
@@ -231,6 +247,7 @@ export default function ElectionMapPage() {
     const entry = regionMap.get(regionId);
     if (!entry || entry.candidates.length === 0) return DEFAULT_COLOR;
     const top = entry.candidates[0];
+    if (viewMode === 'poll') return partyColor(top.party);
     if (!top.hasScore) return UNSCORED_COLOR;
     return partyColor(top.party);
   };
@@ -267,24 +284,43 @@ export default function ElectionMapPage() {
               2026 지방선거 광역단체장 지도
             </h1>
             <p style={{ fontSize: 11, color: '#94a3b8', margin: '2px 0 0', fontWeight: 400 }}>
-              AI 평가 기준 · Claude · ChatGPT · Gemini · Grok 종합
+              {viewMode === 'poll' ? '여론조사 1위 기준' : 'AI 평가 기준 · Claude · ChatGPT · Gemini · Grok 종합'}
             </p>
           </div>
-          <a
-            href="/metro-map"
-            style={{
-              fontSize: 12,
-              color: '#6366f1',
-              textDecoration: 'none',
-              fontWeight: 600,
-              padding: '6px 14px',
-              borderRadius: 8,
-              border: '1.5px solid #6366f1',
-              transition: 'all 0.2s',
-            }}
-          >
-            전체 보기
-          </a>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+            {/* 뷰 모드 토글 */}
+            <div style={{ display: 'flex', background: '#f1f5f9', borderRadius: 10, padding: 3, gap: 2 }}>
+              <button
+                onClick={() => setViewMode('poll')}
+                style={{
+                  fontSize: 12, fontWeight: 700, padding: '5px 14px', borderRadius: 8, border: 'none', cursor: 'pointer', transition: 'all 0.2s',
+                  background: viewMode === 'poll' ? '#1e293b' : 'transparent',
+                  color: viewMode === 'poll' ? '#fff' : '#64748b',
+                }}
+              >
+                📊 여론조사
+              </button>
+              <button
+                onClick={() => setViewMode('ai')}
+                style={{
+                  fontSize: 12, fontWeight: 700, padding: '5px 14px', borderRadius: 8, border: 'none', cursor: 'pointer', transition: 'all 0.2s',
+                  background: viewMode === 'ai' ? '#6366f1' : 'transparent',
+                  color: viewMode === 'ai' ? '#fff' : '#64748b',
+                }}
+              >
+                🤖 AI 평가
+              </button>
+            </div>
+            <a
+              href="/metro-map"
+              style={{
+                fontSize: 12, color: '#6366f1', textDecoration: 'none', fontWeight: 600,
+                padding: '6px 14px', borderRadius: 8, border: '1.5px solid #6366f1', transition: 'all 0.2s',
+              }}
+            >
+              전체 보기
+            </a>
+          </div>
         </div>
       </header>
 
@@ -324,6 +360,7 @@ export default function ElectionMapPage() {
                   entry={regionMap.get(regionId)}
                   isSelected={selectedRegion === regionId}
                   onClick={() => handleRegionClick(regionId)}
+                  viewMode={viewMode}
                 />
               ))}
             </div>
@@ -506,7 +543,16 @@ export default function ElectionMapPage() {
                               <div style={{ fontSize: 10, color: col.fill, marginTop: 1, fontWeight: 600 }}>{c.party}</div>
                             </div>
                             <div style={{ textAlign: 'right', flexShrink: 0 }}>
-                              {c.hasScore ? (
+                              {viewMode === 'poll' ? (
+                                c.pollSupport ? (
+                                  <>
+                                    <div style={{ fontSize: 16, fontWeight: 800, color: '#1e293b' }}>{c.pollSupport}</div>
+                                    <div style={{ fontSize: 9, color: '#94a3b8' }}>지지율</div>
+                                  </>
+                                ) : (
+                                  <div style={{ fontSize: 10, color: '#cbd5e1' }}>미공개</div>
+                                )
+                              ) : c.hasScore ? (
                                 <>
                                   <div style={{ fontSize: 16, fontWeight: 800, color: '#1e293b' }}>
                                     {c.finalScore}
@@ -557,6 +603,7 @@ export default function ElectionMapPage() {
                   entry={regionMap.get(regionId)}
                   isSelected={selectedRegion === regionId}
                   onClick={() => handleRegionClick(regionId)}
+                  viewMode={viewMode}
                 />
               ))}
             </div>

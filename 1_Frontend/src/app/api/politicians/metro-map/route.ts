@@ -32,19 +32,41 @@ export async function GET(request: NextRequest) {
     let enriched: any[];
 
     if (viewMode === 'poll') {
-      enriched = politicians
-        .map((p) => ({
-          id: p.id,
-          name: p.name,
-          party: p.party || '무소속',
-          region: p.region || '기타',
-          pollRank: p.poll_rank ?? null,
-          pollSupport: p.poll_support ?? null,
+      // metro_poll_results에서 지역별 최신 여론조사 결과 조회
+      const { data: pollRows } = await supabase
+        .from('metro_poll_results')
+        .select('politician_name, party, region, poll_rank, poll_support_pct, poll_start_date, politician_id')
+        .order('poll_start_date', { ascending: false });
+
+      // 지역+후보 기준 최신 poll만 유지 (중복 제거)
+      const seen = new Set<string>();
+      const latestPolls: typeof pollRows = [];
+      for (const row of (pollRows || [])) {
+        const key = `${row.region}__${row.politician_name}`;
+        if (!seen.has(key)) {
+          seen.add(key);
+          latestPolls.push(row);
+        }
+      }
+
+      // politicians 테이블 id 매핑 (이름+지역 기준)
+      const idMap: Record<string, string> = {};
+      for (const p of politicians) {
+        idMap[`${p.region}__${p.name}`] = p.id;
+      }
+
+      enriched = latestPolls
+        .map((row) => ({
+          id: row.politician_id || idMap[`${row.region}__${row.politician_name}`] || '',
+          name: row.politician_name,
+          party: row.party || '무소속',
+          region: row.region || '기타',
+          pollRank: row.poll_rank ?? null,
+          pollSupport: row.poll_support_pct != null ? `${row.poll_support_pct}%` : null,
           finalScore: 0,
           hasScore: false,
         }))
         .sort((a, b) => {
-          // poll_rank 있는 것 먼저, 없으면 뒤로
           if (a.pollRank != null && b.pollRank != null) return a.pollRank - b.pollRank;
           if (a.pollRank != null) return -1;
           if (b.pollRank != null) return 1;
