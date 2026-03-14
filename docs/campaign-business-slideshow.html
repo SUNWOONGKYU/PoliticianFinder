@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 유세 동선 최적화 솔루션 — 사업성 분석</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; overflow: hidden; font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif; }
+
+:root {
+  --bg: #0a1628;
+  --surface: #132040;
+  --text: #f1f5f9;
+  --muted: #94a3b8;
+  --gold: #d4a942;
+  --gold-light: #f0c060;
+  --amber: #e8924a;
+  --green: #4ade80;
+  --code-bg: #1e293b;
+  --slide-max-w: 1100px;
+}
+:root.light {
+  --bg: #ffffff;
+  --surface: #f8fafc;
+  --text: #1e293b;
+  --muted: #64748b;
+  --gold: #b8860b;
+  --gold-light: #996515;
+  --amber: #c0662a;
+  --green: #16a34a;
+  --code-bg: #f1f5f9;
+}
+
+body { background: var(--bg); color: var(--text); }
+
+.progress { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, var(--gold), var(--amber)); z-index: 100; transition: width 0.3s ease; }
+
+.slides { position: relative; width: 100%; height: 100vh; }
+.slide {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  padding: 60px 48px 80px;
+  opacity: 0; transform: translateX(60px);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+  pointer-events: none;
+}
+.slide.active { opacity: 1; transform: translateX(0); pointer-events: auto; }
+.slide.prev { opacity: 0; transform: translateX(-60px); }
+.slide-inner { max-width: var(--slide-max-w); width: 100%; }
+
+.slide h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; margin-bottom: 32px; line-height: 1.3; }
+.slide h2 .accent { color: var(--gold); }
+.slide h3 { font-size: 1.3rem; color: var(--gold-light); margin-bottom: 16px; font-weight: 700; }
+.slide p { font-size: 1.15rem; line-height: 1.8; color: var(--muted); margin-bottom: 16px; }
+.slide ul { font-size: 1.1rem; line-height: 2; padding-left: 24px; color: var(--text); }
+.slide li { margin-bottom: 8px; }
+.slide li::marker { color: var(--gold); }
+.slide strong { color: var(--gold-light); font-weight: 700; }
+.slide table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.95rem; }
+.slide th { background: var(--surface); padding: 10px 16px; text-align: left; font-weight: 700; border-bottom: 2px solid var(--gold); color: var(--gold-light); font-size: 0.85rem; }
+.slide td { padding: 10px 16px; border-bottom: 1px solid rgba(148,163,184,0.15); color: var(--muted); }
+.slide tr:hover td { background: rgba(212,169,66,0.05); }
+.slide td strong { color: var(--text); }
+
+.slide.title-slide { text-align: center; }
+.slide.title-slide h1 {
+  font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 900; line-height: 1.2; margin-bottom: 16px;
+}
+.slide.title-slide h1 span {
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 50%, var(--amber) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.slide.title-slide .subtitle { font-size: 1.3rem; color: var(--muted); margin-bottom: 24px; }
+.slide.title-slide .date { font-size: 1rem; color: var(--gold); }
+
+.slide.end-slide { text-align: center; }
+
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin: 20px 0; }
+.card { background: var(--surface); border-radius: 12px; padding: 20px 24px; border: 1px solid rgba(212,169,66,0.25); }
+.card .label { font-size: 0.85rem; color: var(--muted); margin-bottom: 4px; }
+.card .value { font-size: 1.8rem; font-weight: 800; color: var(--gold-light); }
+.card .desc { font-size: 0.85rem; color: var(--muted); margin-top: 4px; }
+
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+@media (max-width: 768px) { .two-col { grid-template-columns: 1fr; } }
+
+.highlight { background: linear-gradient(135deg, rgba(212,169,66,0.1), rgba(232,146,74,0.08)); border-left: 4px solid var(--gold); padding: 16px 20px; border-radius: 0 12px 12px 0; margin: 16px 0; }
+
+.check { color: #4ade80; font-weight: 700; }
+.cross { color: #f87171; font-weight: 700; }
+
+.arrow {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  background: rgba(0,0,0,0.45); border: none; color: var(--gold);
+  font-size: 38px; cursor: pointer; padding: 18px 10px; z-index: 10;
+  border-radius: 6px; transition: background 0.2s; line-height: 1;
+}
+.arrow:hover { background: rgba(212,169,66,0.35); }
+.arrow-l { left: 0; }
+.arrow-r { right: 0; }
+
+.nav-bar {
+  position: fixed; bottom: 0; left: 0; right: 0;
+  background: var(--surface); border-top: 1px solid rgba(212,169,66,0.25);
+  padding: 10px 20px; display: flex; align-items: center; justify-content: center;
+  gap: 20px; z-index: 100;
+}
+.nav-btn {
+  background: none; border: 2px solid var(--gold); color: var(--gold);
+  padding: 6px 24px; border-radius: 20px; cursor: pointer;
+  font-size: 15px; font-weight: 700; transition: all 0.2s; font-family: inherit;
+}
+.nav-btn:hover { background: var(--gold); color: var(--bg); }
+.nav-btn:disabled { border-color: rgba(148,163,184,0.2); color: rgba(148,163,184,0.3); cursor: default; background: none; }
+.counter { color: var(--muted); font-size: 15px; min-width: 70px; text-align: center; font-weight: 700; font-variant-numeric: tabular-nums; }
+
+.theme-toggle { position: fixed; top: 12px; right: 12px; z-index: 100; background: var(--surface); border: 1px solid rgba(212,169,66,0.25); color: var(--text); border-radius: 8px; padding: 6px 12px; cursor: pointer; font-size: 13px; }
+.fs-toggle { position: fixed; top: 12px; right: 80px; z-index: 100; background: var(--surface); border: 1px solid rgba(212,169,66,0.25); color: var(--text); border-radius: 8px; padding: 6px 12px; cursor: pointer; font-size: 13px; }
+
+.big-num { font-size: 2.8rem; font-weight: 900; color: var(--gold-light); line-height: 1; }
+.tag { display: inline-block; padding: 3px 12px; border-radius: 100px; font-size: 0.78rem; font-weight: 600; background: rgba(212,169,66,0.12); border: 1px solid rgba(212,169,66,0.3); color: var(--gold-light); margin: 3px 4px; }
+
+.flow-row { display: flex; align-items: center; gap: 8px; justify-content: center; flex-wrap: wrap; margin: 24px 0; }
+.flow-box { background: var(--surface); border: 1px solid rgba(212,169,66,0.3); border-radius: 12px; padding: 14px 20px; text-align: center; min-width: 130px; }
+.flow-box .icon { font-size: 1.5rem; margin-bottom: 4px; }
+.flow-box .ft { font-size: 0.82rem; font-weight: 700; color: var(--text); }
+.flow-box .fd { font-size: 0.7rem; color: var(--muted); }
+.flow-arrow { color: var(--gold); font-size: 1.4rem; font-weight: 700; }
+
+.tier-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin: 20px 0; }
+.tier-box { background: var(--surface); border: 1px solid rgba(212,169,66,0.25); border-radius: 12px; padding: 24px 20px; text-align: center; position: relative; }
+.tier-box.featured { border-color: var(--gold); border-width: 2px; }
+.tier-box.featured::after { content: '추천'; position: absolute; top: 10px; right: 10px; background: var(--gold); color: var(--bg); font-size: 0.65rem; font-weight: 800; padding: 2px 8px; border-radius: 100px; }
+.tier-name { font-size: 0.72rem; font-weight: 700; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 6px; }
+.tier-price { font-size: 1.6rem; font-weight: 900; color: var(--text); line-height: 1; }
+.tier-sub { font-size: 0.78rem; color: var(--muted); margin-top: 4px; }
+.tier-target { font-size: 0.82rem; color: var(--muted); margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(148,163,184,0.15); }
+
+.roadmap-item { display: flex; gap: 16px; margin-bottom: 20px; align-items: flex-start; }
+.roadmap-dot { width: 14px; height: 14px; border-radius: 50%; background: var(--gold); flex-shrink: 0; margin-top: 5px; box-shadow: 0 0 0 3px var(--bg), 0 0 0 5px var(--gold); }
+.roadmap-phase { font-size: 0.72rem; font-weight: 700; color: var(--gold); letter-spacing: 0.08em; }
+.roadmap-title { font-size: 1rem; font-weight: 700; color: var(--text); margin: 2px 0 4px; }
+.roadmap-desc { font-size: 0.85rem; color: var(--muted); }
+
+@media print {
+  .nav-bar, .progress, .theme-toggle, .fs-toggle, .arrow { display: none !important; }
+  .slides { position: static; height: auto; }
+  .slide { position: static; opacity: 1 !important; transform: none !important; pointer-events: auto !important; page-break-after: always; height: 100vh; padding: 40px; }
+}
+@media (max-width: 640px) {
+  .slide { padding: 40px 20px 70px; }
+  .card-grid { grid-template-columns: 1fr; }
+  .arrow { font-size: 28px; padding: 14px 8px; }
+  .tier-row { grid-template-columns: 1fr; }
+  .two-col { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+<button class="fs-toggle" id="fsToggle" title="전체화면 (F)">⤢</button>
+<button class="theme-toggle" id="themeToggle">Light</button>
+
+<div class="slides" id="slides">
+  <button class="arrow arrow-l" id="arrow-l" onclick="prev()" title="이전 (←)">❮</button>
+  <button class="arrow arrow-r" id="arrow-r" onclick="next()" title="다음 (→)">❯</button>
+
+  <!-- ====== SLIDE 1: TITLE ====== -->
+  <div class="slide title-slide active">
+    <div class="slide-inner">
+      <div style="font-size:0.78rem;font-weight:600;color:var(--gold);letter-spacing:0.08em;margin-bottom:24px;text-transform:uppercase;">사업성 분석 보고서 · Confidential</div>
+      <h1>AI 기반 유세 동선<br><span>최적화 솔루션</span></h1>
+      <div class="subtitle">대한민국 최초 선관위 API 연동 캠페인 전략 플랫폼</div>
+      <div style="width:80px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:32px auto;"></div>
+      <div class="date">PoliticianFinder · 2026년 3월 14일</div>
+    </div>
+  </div>
+
+  <!-- ====== SLIDE 2: EXECUTIVE SUMMARY ====== -->
+  <div class="slide">
+    <div class="slide-inner">
+      <h2><span class="accent">01</span> 에그제큐티브 서머리</h2>
+      <div class="highlight" style="margin-bottom:28px;">
+        <p style="font-size:1.1rem;color:var(--text);margin:0;">
+          글로벌 정치 캠페인 테크 시장 <strong>$1.3B → $9.0B</strong> (CAGR 13.2%)<br>
+          한국 시장: <strong>지배적 플랫폼 0개</strong> = 완벽한 블루오션<br>
+          2026 지방선거 후보 <strong>7,000~10,000명</strong> = 즉시 수요
+        </p>
+      </div>
+      <div class="card-grid" style="grid-template-columns:repeat(3,1fr);">
+        <div class="card" style="text-align:center;">
+          <div class="value">$9.0B</div>
+          <div class="label">2035년 글로벌 시장</div>
+        </div>
+        <div class="card" style="text-align:center;">
+          <div class="value">0개</div>
+          <div class="label">한국 경쟁 플랫폼</div>
+        </div>
+        <div class="card" style="text-align:center;">
+          <div class="value">3개월</div>
+          <div class="label">첫 매출까지</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== SLIDE 3: GLOBAL MARKET ====== -->
+  <div class="slide">
+    <div class="slide-inner">
+      <h2><span class="accent">02</span> 글로벌 시장 규모</h2>
+      <p>정치 캠페인 테크 시장은 폭발적으로 성장 중입니다.</p>
+      <table>
+        <thead><tr><th>연도</th><th>시장 규모</th><th>비고</th></tr></thead>
+        <tbody>
+          <tr><td><strong>2024</strong></td><td>$0.9B</td><td>기준년도</td></tr>
+          <tr><td><strong>2026</strong></td><td>$1.3B</td><td>현재</td></tr>
+          <tr><td><strong>2030</strong></td><td>$3.2B</td><td>2.5배 성장</td></tr>
+          <tr><td><strong>2035</strong></td><td style="color:var(--gold-light);font-weight:700;">$9.0B</td><td style="color:var(--gold-light);">CAGR 13.2%</td></tr>
+        </tbody>
+      </table>
+      <div class="card-grid" style="grid-template-columns:repeat(3,1fr);margin-top:20px;">
+        <div class="card" style="text-align:center;">
+          <div class="value" style="font-size:1.5rem;">$421.6M</div>
+          <div class="label">미국 정치테크 VC 투자</div>
+        </div>
+        <div class="card" style="text-align:center;">
+          <div class="value" style="font-size:1.5rem;">70+</div>
+          <div class="label">미국 정치테크 스타트업</div>
+        </div>
+        <div class="card" style="text-align:center;">
+          <div class="value" style="font-size:1.5rem;">25%</div>
+          <div class="label">2035년 아태지역 점유율</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== SLIDE 4: KOREA BLUE OCEAN ====== -->
+  <div class="slide">
+    <div class="slide-inner">
+      <h2><span class="accent">02</span> 한국 시장 — <span class="accent">완벽한 블루오션</span></h2>
+      <div style="text-align:center;padding:28px;background:linear-gradient(135deg,rgba(26,52,96,0.6),rgba(10,22,40,0.9));border:2px solid var(--gold);border-radius:16px;margin-bottom:28px;">
+        <div style="font-size:1.6rem;font-weight:900;color:var(--gold-light);margin-bottom:8px;">경쟁 플랫폼 0개</div>
+        <p style="color:var(--muted);margin:0;font-size:1rem;">"한국의 NGP VAN"이 될 기회가 지금 열려 있습니다.</p>
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>현재 한국 선거팀의 도구</h3>
+          <ul>
+            <li>📝 엑셀 스프레드시트 (수작업)</li>
+            <li>🗺️ 네이버지도 (일반 소비자용)</li>
+            <li>💬 카카오톡 단체방 (비공식)</li>
+            <li>📰 인쇄물 지도 (아직도!)</li>
+          </ul>
+        </div>
+        <div>
+          <h3>시장 규모</h3>
+          <ul>
+            <li>정치 컨설팅: <strong>500~1,000억 원</strong>/선거주기</li>
+            <li>캠페인 총 지출: <strong>수조 원</strong>/선거주기</li>
+            <li>기술 도입 의향: <strong>높음</strong></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== SLIDE 5: 2026 ELECTION ====== -->
+  <div class="slide">
+    <div class="slide-inner">
+      <h2><span class="accent">02</span> 2026 지방선거 — <span class="accent">즉시 수요</span></h2>
+      <div class="card-grid" style="grid-template-columns:repeat(3,1fr);">
+        <div class="card" style="text-align:center;border-color:var(--gold);">
+          <div style="font-size:2rem;margin-bottom:8px;">🗓️</div>
+          <div class="value" style="font-size:1.3rem;">2026.6.3</div>
+          <div class="label">선거일까지 <strong>3개월 미만</strong></div>
+        </div>
+        <div class="card" style="text-align:center;">
+          <div style="font-size:2rem;margin-bottom:8px;">👥</div>
+          <div class="value" style="font-size:1.3rem;">10,000명</div>
+          <div class="label">예상 후보 등록 수</div>
+        </div>
+        <div class="card" style="text-align:center;">
+          <div style="font-size:2rem;margin-bottom:8px;">🏛️</div>
+          <div class="value" style="font-size:1.3rem;">3,960석</div>
+          <div class="label">전국 선출 의석</div>
+        </div>
+      </div>
+      <div class="highlight" style="margin-top:24px;">
+        <p style="margin:0;font-size:1.05rem;color:var(--text);">
+          <strong>핵심 타겟</strong>: 구청장 226석 (건당 500~2,000만 원) + 시도지사 17석 (건당 3,000만~1억 원)
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== SLIDE 6: TECH DIFFERENTIATION ====== -->
+  <div class="slide">
+    <div class="slide-inner">
+      <h2><span class="accent">03</span> 기술적 차별화</h2>
+      <ul style="font-size:1.05rem;line-height:2.2;">
+        <li><strong>선관위 API 실시간 연동</strong> — 한국 유일. 선거구·투표율 자동 반영</li>
+        <li><strong>AI 경합도 분석</strong> — 경합도 40% + 유권자규모 30% + 투표율 20% + AI평가 10%</li>
+        <li><strong>78 슬롯 최적 배분</strong> — 13일 × 6시간대 자동 최적화</li>
+        <li><strong>인터랙티브 지도</strong> — Leaflet.js, 일자별 동선 애니메이션</li>
+        <li><strong>4개 AI 멀티 평가</strong> — Claude·ChatGPT·Gemini·Grok 통합</li>
+      </ul>
+      <div class="card-grid" style="grid-template-columns:repeat(4,1fr);margin-top:20px;">
+        <div class="card" style="text-align:center;"><div class="value" style="font-size:1.5rem;">40%</div><div class="label">경합도</div></div>
+        <div class="card" style="text-align:center;"><div class="value" style="font-size:1.5rem;">30%</div><div class="label">유권자 규모</div></div>
+        <div class="card" style="text-align:center;"><div class="value" style="font-size:1.5rem;">20%</div><div class="label">투표율</div></div>
+        <div class="card" style="text-align:center;"><div class="value" style="font-size:1.5rem;">10%</div><div class="label">AI 평가</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== SLIDE 7: VS COMPETITION ====== -->
+  <div class="slide">
+    <div class="slide-inner">
+      <h2><span class="accent">03</span> 경쟁사 대비 포지셔닝</h2>
+      <p style="margin-bottom:16px;">미국 = 마이크로(문전 방문). <strong>우리 = 매크로(지역구 전략)</strong>. 구조적으로 다른 시장.</p>
+      <table>
+        <thead><tr><th>항목</th><th style="color:var(--gold-light);">PoliticianFinder ★</th><th>Vottiv</th><th>Ecanvasser</th><th>MiniVAN</th></tr></thead>
+        <tbody>
+          <tr><td><strong>선관위 API</strong></td><td><span class="check">✓ 유일</span></td><td><span class="cross">✗</span></td><td><span class="cross">✗</span></td><td><span class="cross">✗</span></td></tr>
+          <tr><td><strong>AI 경합도</strong></td><td><span class="check">✓ 자체 개발</span></td><td><span class="cross">✗</span></td><td><span class="cross">✗</span></td><td><span class="cross">✗</span></td></tr>
+          <tr><td><strong>한국어</strong></td><td><span class="check">✓ Native</span></td><td><span class="cross">✗</span></td><td><span class="cross">✗</span></td><td><span class="cross">✗</span></td></tr>
+          <tr><td><strong>지역구 전략</strong></td><td><span class="check">✓ 핵심</span></td><td><span class="cross">✗</span></td><td>△</td><td><span class="cross">✗</span></td></tr>
+          <tr><td><strong>즉시 사용</strong></td><td><span class="check">✓ MVP 완성</span></td><td>별도 온보딩</td><td>별도 온보딩</td><td>별도 온보딩</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ====== SLIDE 8: PRICING ====== -->
+  <div class="slide">
+    <div class="slide-inner">
+      <h2><span class="accent">04</span> 3-Tier 과금 체계</h2>
+      <div class="tier-row">
+        <div class="tier-box">
+          <div class="tier-name">Basic</div>
+          <div class="tier-price">50~100만</div>
+          <div class="tier-sub">원/건</div>
+          <div class="tier-target">기초의원<br>예상 500~1,000명</div>
+        </div>
+        <div class="tier-box featured">
+          <div class="tier-name">Pro</div>
+          <div class="tier-price">500~2,000만</div>
+          <div class="tier-sub">원/건</div>
+          <div class="tier-target">구청장·시장<br>예상 100~300명</div>
+        </div>
+        <div class="tier-box">
+          <div class="tier-name">Enterprise</div>
+          <div class="tier-price">3,000만~1억</div>
+          <div class="tier-sub">원/건</div>
+          <div class="tier-target">시도지사·정당 본부<br>예상 10~30명</div>
+        </div>
+      </div>
+      <div class="highlight" style="margin-top:16px;">
+        <p style="margin:0;color:var(--text);">
+          <strong>매출 전망</strong>: 2026(지선) 1~5억 → 2028(총선) 5~15억 → 2030(지선) <strong>15~50억 원</strong>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== SLIDE 9: ADJACENT MARKETS ====== -->
+  <div class="slide">
+    <div class="slide-inner">
+      <h2><span class="accent">04</span> 인접 시장 확장 — <span class="accent">연중 수익</span></h2>
+      <p>동일 알고리즘, 다른 시장. 선거 비수기에도 매출을 만듭니다.</p>
+      <div class="card-grid" style="grid-template-columns:repeat(2,1fr);">
+        <div class="card">
+          <div style="font-size:1.3rem;margin-bottom:8px;">🏪</div>
+          <h3 style="margin-bottom:6px;">상권 분석</h3>
+          <p style="font-size:0.9rem;margin:0;">소매·프랜차이즈 최적 입지 분석. 유세 동선 알고리즘을 유동인구 분석에 적용.</p>
+        </div>
+        <div class="card">
+          <div style="font-size:1.3rem;margin-bottom:8px;">🚚</div>
+          <h3 style="margin-bottom:6px;">배달·물류 최적화</h3>
+          <p style="font-size:0.9rem;margin:0;">경로 최적화 알고리즘의 물류 B2B 라이선스 모델.</p>
+        </div>
+        <div class="card">
+          <div style="font-size:1.3rem;margin-bottom:8px;">🏢</div>
+          <h3 style="margin-bottom:6px;">부동산 개발</h3>
+          <p style="font-size:0.9rem;margin:0;">지역 데이터 기반 투자 입지 분석.</p>
+        </div>
+        <div class="card">
+          <div style="font-size:1.3rem;margin-bottom:8px;">📺</div>
+          <h3 style="margin-bottom:6px;">미디어 라이선스</h3>
+          <p style="font-size:0.9rem;margin:0;">언론사·연구기관 선거 분석 데이터 라이선스.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== SLIDE 10: SYNERGY ====== -->
+  <div class="slide">
+    <div class="slide-inner">
+      <h2><span class="accent">05</span> PoliticianFinder <span class="accent">시너지</span></h2>
+      <div class="flow-row">
+        <div class="flow-box"><div class="icon">🗃️</div><div class="ft">71명 정치인 DB</div><div class="fd">기존 자산</div></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-box"><div class="icon">🤖</div><div class="ft">4개 AI 평가</div><div class="fd">10개 카테고리</div></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-box"><div class="icon">🗺️</div><div class="ft">동선 최적화</div><div class="fd">경합도 연동</div></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-box"><div class="icon">🏆</div><div class="ft">당선 전략</div><div class="fd">유료 서비스</div></div>
+      </div>
+      <div class="two-col" style="margin-top:20px;">
+        <div class="highlight" style="margin:0;">
+          <p style="margin:0;font-size:1rem;color:var(--text);">
+            <strong>현재</strong>: 정치인을 "평가하는" 플랫폼<br>
+            <strong style="color:var(--gold);">목표</strong>: 정치인을 "당선시키는" 플랫폼
+          </p>
+        </div>
+        <div class="highlight" style="margin:0;">
+          <p style="margin:0;font-size:1rem;color:var(--text);">
+            무료(평가 열람) → <strong>유료(동선 전략)</strong><br>
+            기존 브랜드 트래픽 → <strong>CAC 최소화</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== SLIDE 11: MVP ====== -->
+  <div class="slide">
+    <div class="slide-inner">
+      <h2><span class="accent">06</span> MVP 완성 — <span class="accent">이미 작동합니다</span></h2>
+      <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(74,222,128,0.12);border:1px solid rgba(74,222,128,0.35);border-radius:100px;padding:4px 16px;font-size:0.82rem;font-weight:700;color:#4ade80;margin-bottom:20px;">● LIVE</div>
+      <div class="card" style="margin-bottom:20px;border-color:rgba(74,222,128,0.3);">
+        <p style="margin:0;color:var(--text);font-size:1rem;">
+          <strong>campaign_map_고양시덕양구.html</strong> (28.5KB)<br>
+          <span style="color:var(--green);">https://campaign-route.vercel.app</span>
+        </p>
+      </div>
+      <div class="card-grid" style="grid-template-columns:repeat(3,1fr);">
+        <div class="card" style="text-align:center;"><span class="check" style="font-size:1.2rem;">✓</span><div class="label">지도 시뮬레이션</div></div>
+        <div class="card" style="text-align:center;"><span class="check" style="font-size:1.2rem;">✓</span><div class="label">13일 동선 배분</div></div>
+        <div class="card" style="text-align:center;"><span class="check" style="font-size:1.2rem;">✓</span><div class="label">6시간대 배분</div></div>
+        <div class="card" style="text-align:center;"><span class="check" style="font-size:1.2rem;">✓</span><div class="label">AI 경합도 분석</div></div>
+        <div class="card" style="text-align:center;"><span class="check" style="font-size:1.2rem;">✓</span><div class="label">선관위 API 연동</div></div>
+        <div class="card" style="text-align:center;"><span class="check" style="font-size:1.2rem;">✓</span><div class="label">Vercel 배포</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== SLIDE 12: ROADMAP ====== -->
+  <div class="slide">
+    <div class="slide-inner">
+      <h2><span class="accent">07</span> 성장 로드맵</h2>
+      <div style="display:flex;flex-direction:column;gap:0;">
+        <div class="roadmap-item">
+          <div class="roadmap-dot"></div>
+          <div>
+            <div class="roadmap-phase">Phase 1 · 2026 Q2</div>
+            <div class="roadmap-title">지방선거 파일럿 (5~10명)</div>
+            <div class="roadmap-desc">실전 검증 + 당선 사례 확보 → 1~5억 원</div>
+          </div>
+        </div>
+        <div class="roadmap-item">
+          <div class="roadmap-dot"></div>
+          <div>
+            <div class="roadmap-phase">Phase 2 · 2026 Q3-Q4</div>
+            <div class="roadmap-title">컨설팅사 제휴 + B2B 채널</div>
+            <div class="roadmap-desc">당선 레퍼런스 마케팅 → 파트너십 확대</div>
+          </div>
+        </div>
+        <div class="roadmap-item">
+          <div class="roadmap-dot"></div>
+          <div>
+            <div class="roadmap-phase">Phase 3 · 2027</div>
+            <div class="roadmap-title">SaaS 전환 + 자동화</div>
+            <div class="roadmap-desc">셀프서비스 모델 → 다지역 확장</div>
+          </div>
+        </div>
+        <div class="roadmap-item">
+          <div class="roadmap-dot"></div>
+          <div>
+            <div class="roadmap-phase">Phase 4 · 2028 총선</div>
+            <div class="roadmap-title">본격 매출 200~500 고객</div>
+            <div class="roadmap-desc">"정치 동선 = PoliticianFinder" → 5~15억 원</div>
+          </div>
+        </div>
+        <div class="roadmap-item">
+          <div class="roadmap-dot"></div>
+          <div>
+            <div class="roadmap-phase">Phase 5 · 2029~</div>
+            <div class="roadmap-title">인접 시장 + 해외 진출</div>
+            <div class="roadmap-desc">상권·물류·부동산 → 연중 수익 + 아시아 확장</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== SLIDE 13: KEY NUMBERS ====== -->
+  <div class="slide">
+    <div class="slide-inner">
+      <h2><span class="accent">08</span> 핵심 수치 요약</h2>
+      <div class="card-grid" style="grid-template-columns:repeat(3,1fr);">
+        <div class="card" style="text-align:center;">
+          <div style="font-size:1.5rem;margin-bottom:8px;">🌏</div>
+          <div class="big-num">$9.0B</div>
+          <div class="label" style="margin-top:8px;">2035년 글로벌 시장</div>
+        </div>
+        <div class="card" style="text-align:center;">
+          <div style="font-size:1.5rem;margin-bottom:8px;">👥</div>
+          <div class="big-num">10,000<span style="font-size:1rem;">명</span></div>
+          <div class="label" style="margin-top:8px;">선거주기당 후보 수</div>
+        </div>
+        <div class="card" style="text-align:center;">
+          <div style="font-size:1.5rem;margin-bottom:8px;">🔵</div>
+          <div class="big-num">0<span style="font-size:1rem;">개</span></div>
+          <div class="label" style="margin-top:8px;">한국 경쟁 플랫폼</div>
+        </div>
+        <div class="card" style="text-align:center;">
+          <div style="font-size:1.5rem;margin-bottom:8px;">⚡</div>
+          <div class="big-num">100<span style="font-size:1rem;">%</span></div>
+          <div class="label" style="margin-top:8px;">MVP 완성도</div>
+        </div>
+        <div class="card" style="text-align:center;">
+          <div style="font-size:1.5rem;margin-bottom:8px;">🗓️</div>
+          <div class="big-num">3<span style="font-size:1rem;">개월</span></div>
+          <div class="label" style="margin-top:8px;">첫 매출까지</div>
+        </div>
+        <div class="card" style="text-align:center;">
+          <div style="font-size:1.5rem;margin-bottom:8px;">💰</div>
+          <div class="big-num">50<span style="font-size:1rem;">억+</span></div>
+          <div class="label" style="margin-top:8px;">3년 누적 매출</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== SLIDE 14: END ====== -->
+  <div class="slide end-slide">
+    <div class="slide-inner" style="text-align:center;">
+      <div style="font-size:3rem;margin-bottom:24px;">🗺️</div>
+      <h2 style="font-size:clamp(2rem,4vw,3rem);margin-bottom:16px;">지금이 바로 <span class="accent">진입 시점</span>입니다</h2>
+      <p style="font-size:1.2rem;max-width:600px;margin:0 auto 32px;">
+        2026년 6월 3일, 3,960석이 결정됩니다.<br>
+        이 선거가 끝나기 전에<br>
+        <strong>한국 최초의 유세 동선 최적화 플랫폼</strong>이 탄생합니다.
+      </p>
+      <div style="width:80px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 24px;"></div>
+      <div style="color:var(--gold);font-size:1rem;font-weight:600;">PoliticianFinder · 2026</div>
+    </div>
+  </div>
+
+</div>
+
+<nav class="nav-bar">
+  <button class="nav-btn" id="btn-p" onclick="prev()">◀ 이전</button>
+  <span class="counter" id="counter">1 / 14</span>
+  <button class="nav-btn" id="btn-n" onclick="next()">다음 ▶</button>
+</nav>
+
+<script>
+const slides = document.querySelectorAll('.slide');
+const btnP = document.getElementById('btn-p');
+const btnN = document.getElementById('btn-n');
+const arrowL = document.getElementById('arrow-l');
+const arrowR = document.getElementById('arrow-r');
+const counter = document.getElementById('counter');
+const progress = document.getElementById('progress');
+let cur = 0;
+
+function updateSlide(n) {
+  if (n < 0 || n >= slides.length) return;
+  slides.forEach(s => s.classList.remove('active', 'prev'));
+  if (n > cur) slides[cur].classList.add('prev');
+  cur = n;
+  slides[cur].classList.add('active');
+  counter.textContent = (cur + 1) + ' / ' + slides.length;
+  progress.style.width = ((cur + 1) / slides.length * 100) + '%';
+  btnP.disabled = (cur === 0);
+  btnN.disabled = (cur === slides.length - 1);
+  arrowL.style.display = (cur === 0) ? 'none' : '';
+  arrowR.style.display = (cur === slides.length - 1) ? 'none' : '';
+}
+function next() { updateSlide(cur + 1); }
+function prev() { updateSlide(cur - 1); }
+function toggleFS() { document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen(); }
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); next(); }
+  if (e.key === 'ArrowLeft') prev();
+  if (e.key === 'f' || e.key === 'F') toggleFS();
+  if (e.key === 'Home') updateSlide(0);
+  if (e.key === 'End') updateSlide(slides.length - 1);
+});
+let tx = 0;
+document.addEventListener('touchstart', e => { tx = e.touches[0].clientX; });
+document.addEventListener('touchend', e => { const dx = e.changedTouches[0].clientX - tx; if (Math.abs(dx) > 50) { dx < 0 ? next() : prev(); } });
+document.getElementById('themeToggle').addEventListener('click', () => {
+  document.documentElement.classList.toggle('light');
+  document.getElementById('themeToggle').textContent = document.documentElement.classList.contains('light') ? 'Dark' : 'Light';
+});
+document.getElementById('fsToggle').addEventListener('click', toggleFS);
+updateSlide(0);
+</script>
+</body>
+</html>
