@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>유세 동선 운영전략 — 서울특별시 (정원오)</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Pretendard','Apple SD Gothic Neo','Malgun Gothic',sans-serif;background:#0a0f1a;color:#e2e8f0}
+.header{background:linear-gradient(135deg,#1e293b,#0f172a);padding:18px 28px;border-bottom:1px solid #334155}
+.header h1{font-size:22px;font-weight:800;color:#f8fafc}
+.header .badge{display:inline-block;padding:2px 10px;border-radius:4px;font-size:11px;font-weight:600;background:#2563eb;color:#fff;margin-left:8px;vertical-align:middle}
+.header .sub{font-size:13px;color:#94a3b8;margin-top:4px}
+section{padding:24px 28px}
+section h2{font-size:18px;font-weight:700;color:#f8fafc;margin-bottom:16px;padding-bottom:8px;border-bottom:2px solid #1e293b}
+section h2 .sec-num{color:#3b82f6;margin-right:6px}
+.stats{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;margin-bottom:20px}
+.stat{background:#1e293b;border:1px solid #334155;border-radius:8px;padding:12px;text-align:center}
+.stat .v{font-size:22px;font-weight:800;color:#60a5fa}
+.stat .l{font-size:11px;color:#94a3b8;margin-top:2px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+thead th{text-align:left;padding:10px 12px;background:#111827;color:#94a3b8;font-weight:500;border-bottom:2px solid #334155;position:sticky;top:0;z-index:1}
+tbody td{padding:9px 12px;border-bottom:1px solid #1e293b;color:#cbd5e1;vertical-align:top}
+tbody tr:hover{background:rgba(37,99,235,.06)}
+tfoot td{padding:10px 12px;background:#111827;font-weight:700;color:#e2e8f0;border-top:2px solid #334155}
+.bar-bg{height:6px;background:#334155;border-radius:3px;margin-top:3px}
+.bar-fill{height:6px;border-radius:3px}
+.dist-badge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600}
+.cls-badge{display:inline-block;padding:1px 6px;border-radius:3px;font-size:10px;font-weight:600}
+.map-section{background:#111827;padding:0}
+#map{width:100%;height:55vh;min-height:380px}
+.map-controls{background:#111827;padding:12px 28px;border-bottom:1px solid #1e293b;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.map-controls label{font-size:13px;color:#94a3b8}
+.ctrl-btn{padding:6px 14px;border-radius:6px;border:1px solid #334155;background:#1e293b;color:#94a3b8;font-size:12px;font-weight:600;cursor:pointer;transition:all .15s}
+.ctrl-btn:hover{border-color:#475569;color:#e2e8f0}
+.ctrl-btn.active{background:#2563eb;border-color:#3b82f6;color:#fff}
+.ctrl-sep{width:1px;height:24px;background:#334155;margin:0 4px}
+.slot-btns{display:flex;gap:4px;flex-wrap:wrap}
+.slot-btn{padding:5px 10px;border-radius:6px;border:1px solid #334155;background:#1e293b;color:#94a3b8;font-size:11px;cursor:pointer;transition:all .15s}
+.slot-btn:hover{border-color:#475569}
+.slot-btn.active{border-color:#60a5fa;background:#1e3a5f;color:#93c5fd}
+.slot-btn.visited{border-color:#22c55e55}
+.play-btns{display:flex;gap:4px;margin-left:auto}
+.play-btn{width:32px;height:32px;border-radius:6px;border:1px solid #334155;background:#1e293b;color:#e2e8f0;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.play-btn:hover{background:#334155}
+.play-btn.playing{background:#2563eb;border-color:#3b82f6}
+.map-info{background:#111827;padding:12px 28px;display:grid;grid-template-columns:1fr 1fr;gap:16px;border-bottom:1px solid #1e293b}
+@media(max-width:768px){.map-info{grid-template-columns:1fr}}
+.map-card{background:#1e293b;border:1px solid #334155;border-radius:8px;padding:14px}
+.map-card h3{font-size:14px;font-weight:700;margin-bottom:8px}
+.irow{display:flex;justify-content:space-between;padding:3px 0;font-size:12px}
+.irow .il{color:#94a3b8}
+.irow .iv{color:#e2e8f0;font-weight:600}
+.irow .iv.hl{color:#f59e0b}
+.sched-list{list-style:none}
+.sched-item{display:flex;align-items:center;gap:6px;padding:4px 0;font-size:12px;color:#94a3b8;border-bottom:1px solid #1e293b22}
+.sched-item.cur{color:#60a5fa;font-weight:600}
+.sched-item .st{width:80px;flex-shrink:0;font-variant-numeric:tabular-nums}
+.sdot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.day-tabs{display:flex;gap:3px;overflow-x:auto;padding-bottom:6px;-webkit-overflow-scrolling:touch}
+.day-tab{padding:6px 14px;border-radius:6px 6px 0 0;border:1px solid #334155;border-bottom:none;background:#111827;color:#94a3b8;font-size:12px;font-weight:600;cursor:pointer;white-space:nowrap;flex-shrink:0;transition:all .15s}
+.day-tab:hover{color:#e2e8f0;background:#1e293b}
+.day-tab.active{background:#1e293b;color:#60a5fa;border-color:#60a5fa}
+.day-panel{background:#1e293b;border:1px solid #334155;border-radius:0 8px 8px 8px;padding:16px;display:none}
+.day-panel.active{display:block}
+.dh{display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap}
+.dh .db{font-size:20px;font-weight:800;color:#60a5fa}
+.dh .pt{padding:3px 10px;border-radius:4px;font-size:11px;font-weight:600;color:#fff}
+.dh .dm{font-size:12px;color:#94a3b8}
+.route-table td{cursor:pointer}
+.route-table tr.active-row{background:rgba(37,99,235,.12) !important;border-left:3px solid #60a5fa}
+.move-row td{padding:3px 12px !important;background:#0f172a;font-size:11px;color:#475569;border-bottom:1px solid #111827}
+.move-arrow{color:#3b82f6;font-weight:700}
+.loc-marker{background:rgba(15,23,42,.92);border:2px solid #475569;border-radius:8px;padding:4px 8px;font-size:11px;font-weight:600;color:#e2e8f0;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,.4)}
+.loc-marker.active-marker{border-color:#60a5fa;background:rgba(37,99,235,.25);color:#93c5fd;animation:pulse 1.5s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(96,165,250,.4)}50%{box-shadow:0 0 0 10px rgba(96,165,250,0)}}
+.candidate-icon{width:36px;height:36px;border-radius:50%;background:#2563eb;border:3px solid #fff;display:flex;align-items:center;justify-content:center;font-size:16px;box-shadow:0 2px 12px rgba(0,0,0,.5);animation:bounce 1s infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+.popup-detail h4{font-size:14px;color:#1e293b;margin-bottom:4px}
+.popup-detail p{font-size:12px;color:#475569;margin:2px 0}
+.popup-detail .tag{display:inline-block;padding:1px 6px;border-radius:3px;font-size:10px;font-weight:600;background:#dbeafe;color:#2563eb}
+.strategy-panel{background:#1e293b;border:1px solid #334155;border-radius:8px;padding:16px;margin-top:16px}
+.strategy-panel h3{font-size:15px;font-weight:700;margin-bottom:10px}
+.sp-row{display:flex;justify-content:space-between;padding:4px 0;font-size:12px;border-bottom:1px solid #1e293b}
+.sp-row .sp-l{color:#94a3b8}.sp-row .sp-v{color:#e2e8f0;font-weight:600}
+.sp-bar{height:8px;background:#334155;border-radius:4px;margin-top:2px}
+.sp-bar-fill{height:8px;border-radius:4px}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>유세 동선 운영전략 <span class="badge">더불어민주당</span></h1>
+  <div class="sub">정원오 · 서울특별시 · 2026 지방선거 · 역대 선거 시간가중 PVI 기반</div>
+</div>
+
+<section>
+  <h2><span class="sec-num">01</span>총괄 요약</h2>
+  <div class="stats">
+    <div class="stat"><div class="v">8,163,715</div><div class="l">총 유권자수</div></div>
+    <div class="stat"><div class="v">53.1%</div><div class="l">평균 투표율</div></div>
+    <div class="stat"><div class="v">25</div><div class="l">선거구 수</div></div>
+    <div class="stat"><div class="v">13일간</div><div class="l">유세기간</div></div>
+    <div class="stat"><div class="v">78</div><div class="l">총 슬롯</div></div>
+    <div class="stat"><div class="v">~18,200</div><div class="l">13일 예상접촉</div></div>
+    <div class="stat"><div class="v">N/A</div><div class="l">GPI 점수</div></div>
+    <div class="stat"><div class="v">780.7</div><div class="l">CCI 점수</div></div>
+  </div>
+</section>
+
+<section>
+  <h2><span class="sec-num">02</span>선거구별 분석</h2>
+  <table id="overview-table">
+    <thead>
+      <tr><th>선거구</th><th>유권자</th><th>투표율</th><th>지지율</th><th>PVI</th><th>경합도</th><th>우선순위</th><th>슬롯</th></tr>
+    </thead>
+    <tbody id="overview-tbody"></tbody>
+  </table>
+</section>
+
+<section>
+  <h2><span class="sec-num">03</span>13일간 동선 총괄표</h2>
+  <div style="overflow-x:auto">
+  <table>
+    <thead>
+      <tr>
+        <th>일자</th><th>Phase</th>
+        <th>07-09 출근</th><th>09-11 시장</th><th>14-16 아파트</th>
+        <th>17-19 퇴근</th><th>19-21 상업</th><th>21-23 차량</th>
+      </tr>
+    </thead>
+    <tbody id="master-tbody"></tbody>
+  </table>
+  </div>
+</section>
+
+<section style="padding-bottom:0">
+  <h2><span class="sec-num">04</span>지도 — 시간대별 동선 시뮬레이션</h2>
+</section>
+<div class="map-controls" id="map-controls"></div>
+<div id="map"></div>
+<div class="map-info">
+  <div class="map-card" id="map-cur-info"></div>
+  <div class="map-card" id="map-day-sched"></div>
+</div>
+
+<section>
+  <h2><span class="sec-num">05</span>일자별 상세 동선표</h2>
+  <div class="day-tabs" id="detail-tabs"></div>
+  <div id="detail-panels"></div>
+</section>
+
+<section>
+  <h2><span class="sec-num">06</span>CCI/GPI 전략 분석</h2>
+  <div class="strategy-panel">
+    <h3 style="color:#60a5fa">AI 평가 기반 메시지 전략</h3>
+    <div class="sp-row"><span class="sp-l">CCI 종합 점수</span><span class="sp-v" style="color:#60a5fa">780.7점</span></div>
+    
+    
+    <div style="font-size:12px;color:#94a3b8;margin-top:8px">GPI 카테고리별 점수 연동 시 강점/약점 메시지 자동 생성</div>
+  </div>
+</section>
+
+<div style="text-align:center;padding:20px;font-size:11px;color:#475569">
+  PoliticianFinder AI 유세 동선 전략 · 선관위 공공데이터 기반 · 시간가중 PVI 분석 · 생성일: 2026-03-15
+</div>
+
+<script>
+const DISTRICTS = {
+  d0:{name:"송파구",pvi:-4.05,voters:558376,turnout:55.0,support:34.0,priority:94.6,comp:"tossup",color:"#f59e0b",slots:4},
+  d1:{name:"강서구",pvi:2.29,voters:491423,turnout:51.7,support:42.1,priority:89.9,comp:"tossup",color:"#f59e0b",slots:4},
+  d2:{name:"노원구",pvi:1.8,voters:429879,turnout:55.5,support:42.4,priority:87.9,comp:"tossup",color:"#f59e0b",slots:4},
+  d3:{name:"은평구",pvi:3.52,voters:406096,turnout:51.6,support:44.5,priority:85.2,comp:"tossup",color:"#f59e0b",slots:3},
+  d4:{name:"강동구",pvi:-1.48,voters:387784,turnout:53.9,support:37.9,priority:85.1,comp:"tossup",color:"#f59e0b",slots:3},
+  d5:{name:"양천구",pvi:0.38,voters:370444,turnout:55.4,support:39.7,priority:84.7,comp:"tossup",color:"#f59e0b",slots:3},
+  d6:{name:"성북구",pvi:2.28,voters:369206,turnout:53.3,support:42.8,priority:83.9,comp:"tossup",color:"#f59e0b",slots:3},
+  d7:{name:"구로구",pvi:2.15,voters:343783,turnout:53.2,support:42.0,priority:82.5,comp:"tossup",color:"#f59e0b",slots:3},
+  d8:{name:"동작구",pvi:1.36,voters:336029,turnout:54.4,support:40.1,priority:82.5,comp:"tossup",color:"#f59e0b",slots:3},
+  d9:{name:"영등포구",pvi:-0.63,voters:331281,turnout:53.3,support:38.2,priority:81.8,comp:"tossup",color:"#f59e0b",slots:3},
+  d10:{name:"중랑구",pvi:2.17,voters:339425,turnout:51.0,support:43.6,priority:81.5,comp:"tossup",color:"#f59e0b",slots:3},
+  d11:{name:"마포구",pvi:2.2,voters:313927,turnout:53.9,support:40.8,priority:81.1,comp:"tossup",color:"#f59e0b",slots:3},
+  d12:{name:"광진구",pvi:1.47,voters:297570,turnout:51.4,support:40.0,priority:79.3,comp:"tossup",color:"#f59e0b",slots:3},
+  d13:{name:"동대문구",pvi:0.55,voters:293513,turnout:52.0,support:40.6,priority:79.3,comp:"tossup",color:"#f59e0b",slots:3},
+  d14:{name:"도봉구",pvi:1.01,voters:274136,turnout:52.9,support:42.1,priority:78.6,comp:"tossup",color:"#f59e0b",slots:3},
+  d15:{name:"서대문구",pvi:2.12,voters:263390,turnout:54.1,support:42.0,priority:78.5,comp:"tossup",color:"#f59e0b",slots:3},
+  d16:{name:"성동구",pvi:-0.37,voters:245614,turnout:55.5,support:37.5,priority:78.0,comp:"tossup",color:"#f59e0b",slots:3},
+  d17:{name:"강북구",pvi:3.04,voters:260983,turnout:49.7,support:44.7,priority:76.8,comp:"tossup",color:"#f59e0b",slots:3},
+  d18:{name:"관악구",pvi:5.72,voters:435424,turnout:50.4,support:44.8,priority:74.4,comp:"lean",color:"#60a5fa",slots:3},
+  d19:{name:"금천구",pvi:3.57,voters:206615,turnout:49.7,support:44.2,priority:73.9,comp:"tossup",color:"#f59e0b",slots:3},
+  d20:{name:"종로구",pvi:0.04,voters:125867,turnout:54.4,support:40.5,priority:71.2,comp:"tossup",color:"#f59e0b",slots:3},
+  d21:{name:"중구",pvi:-0.11,voters:109065,turnout:53.8,support:39.9,priority:70.1,comp:"tossup",color:"#f59e0b",slots:3},
+  d22:{name:"강남구",pvi:-12.82,voters:442826,turnout:53.6,support:24.4,priority:55.9,comp:"safe_opp",color:"#ef4444",slots:3},
+  d23:{name:"용산구",pvi:-5.43,voters:194283,turnout:52.6,support:33.3,priority:54.2,comp:"lean_opp",color:"#f97316",slots:3},
+  d24:{name:"서초구",pvi:-10.89,voters:336776,turnout:56.0,support:26.5,priority:51.1,comp:"safe_opp",color:"#ef4444",slots:3}
+};
+
+const POI = {
+  d0:{morning:{name:"송파구 출근길 인사 거점",lat:37.5175,lng:127.102,desc:"송파구 출근길 인사 장소"},market:{name:"송파구 전통시장 방문 거점",lat:37.5125,lng:127.1,desc:"송파구 전통시장 방문 장소"},apt:{name:"송파구 아파트 방문 거점",lat:37.5195,lng:127.109,desc:"송파구 아파트 방문 장소"},evening:{name:"송파구 퇴근길 유세 거점",lat:37.5115,lng:127.108,desc:"송파구 퇴근길 유세 장소"},commerce:{name:"송파구 상업지역 유세 거점",lat:37.5155,lng:127.111,desc:"송파구 상업지역 유세 장소"},night:{name:"송파구 주거지역 차량 거점",lat:37.5105,lng:127.103,desc:"송파구 주거지역 차량 장소"}},
+  d1:{morning:{name:"강서구 출근길 인사 거점",lat:37.554,lng:126.8455,desc:"강서구 출근길 인사 장소"},market:{name:"강서구 전통시장 방문 거점",lat:37.549,lng:126.8435,desc:"강서구 전통시장 방문 장소"},apt:{name:"강서구 아파트 방문 거점",lat:37.556,lng:126.8525,desc:"강서구 아파트 방문 장소"},evening:{name:"강서구 퇴근길 유세 거점",lat:37.548,lng:126.8515,desc:"강서구 퇴근길 유세 장소"},commerce:{name:"강서구 상업지역 유세 거점",lat:37.552,lng:126.8545,desc:"강서구 상업지역 유세 장소"},night:{name:"강서구 주거지역 차량 거점",lat:37.547,lng:126.8465,desc:"강서구 주거지역 차량 장소"}},
+  d2:{morning:{name:"노원구 출근길 인사 거점",lat:37.6572,lng:127.0528,desc:"노원구 출근길 인사 장소"},market:{name:"노원구 전통시장 방문 거점",lat:37.6522,lng:127.0508,desc:"노원구 전통시장 방문 장소"},apt:{name:"노원구 아파트 방문 거점",lat:37.6592,lng:127.0598,desc:"노원구 아파트 방문 장소"},evening:{name:"노원구 퇴근길 유세 거점",lat:37.6512,lng:127.0588,desc:"노원구 퇴근길 유세 장소"},commerce:{name:"노원구 상업지역 유세 거점",lat:37.6552,lng:127.0618,desc:"노원구 상업지역 유세 장소"},night:{name:"노원구 주거지역 차량 거점",lat:37.6502,lng:127.0538,desc:"노원구 주거지역 차량 장소"}},
+  d3:{morning:{name:"은평구 출근길 인사 거점",lat:37.6057,lng:126.9251,desc:"은평구 출근길 인사 장소"},market:{name:"은평구 전통시장 방문 거점",lat:37.6007,lng:126.9231,desc:"은평구 전통시장 방문 장소"},apt:{name:"은평구 아파트 방문 거점",lat:37.6077,lng:126.9321,desc:"은평구 아파트 방문 장소"},evening:{name:"은평구 퇴근길 유세 거점",lat:37.5997,lng:126.9311,desc:"은평구 퇴근길 유세 장소"},commerce:{name:"은평구 상업지역 유세 거점",lat:37.6037,lng:126.9341,desc:"은평구 상업지역 유세 장소"},night:{name:"은평구 주거지역 차량 거점",lat:37.5987,lng:126.9261,desc:"은평구 주거지역 차량 장소"}},
+  d4:{morning:{name:"강동구 출근길 인사 거점",lat:37.5331,lng:127.1198,desc:"강동구 출근길 인사 장소"},market:{name:"강동구 전통시장 방문 거점",lat:37.5281,lng:127.1178,desc:"강동구 전통시장 방문 장소"},apt:{name:"강동구 아파트 방문 거점",lat:37.5351,lng:127.1268,desc:"강동구 아파트 방문 장소"},evening:{name:"강동구 퇴근길 유세 거점",lat:37.5271,lng:127.1258,desc:"강동구 퇴근길 유세 장소"},commerce:{name:"강동구 상업지역 유세 거점",lat:37.5311,lng:127.1288,desc:"강동구 상업지역 유세 장소"},night:{name:"강동구 주거지역 차량 거점",lat:37.5261,lng:127.1208,desc:"강동구 주거지역 차량 장소"}},
+  d5:{morning:{name:"양천구 출근길 인사 거점",lat:37.52,lng:126.8626,desc:"양천구 출근길 인사 장소"},market:{name:"양천구 전통시장 방문 거점",lat:37.515,lng:126.8606,desc:"양천구 전통시장 방문 장소"},apt:{name:"양천구 아파트 방문 거점",lat:37.522,lng:126.8696,desc:"양천구 아파트 방문 장소"},evening:{name:"양천구 퇴근길 유세 거점",lat:37.514,lng:126.8686,desc:"양천구 퇴근길 유세 장소"},commerce:{name:"양천구 상업지역 유세 거점",lat:37.518,lng:126.8716,desc:"양천구 상업지역 유세 장소"},night:{name:"양천구 주거지역 차량 거점",lat:37.513,lng:126.8636,desc:"양천구 주거지역 차량 장소"}},
+  d6:{morning:{name:"성북구 출근길 인사 거점",lat:37.5924,lng:127.0127,desc:"성북구 출근길 인사 장소"},market:{name:"성북구 전통시장 방문 거점",lat:37.5874,lng:127.0107,desc:"성북구 전통시장 방문 장소"},apt:{name:"성북구 아파트 방문 거점",lat:37.5944,lng:127.0197,desc:"성북구 아파트 방문 장소"},evening:{name:"성북구 퇴근길 유세 거점",lat:37.5864,lng:127.0187,desc:"성북구 퇴근길 유세 장소"},commerce:{name:"성북구 상업지역 유세 거점",lat:37.5904,lng:127.0217,desc:"성북구 상업지역 유세 장소"},night:{name:"성북구 주거지역 차량 거점",lat:37.5854,lng:127.0137,desc:"성북구 주거지역 차량 장소"}},
+  d7:{morning:{name:"구로구 출근길 인사 거점",lat:37.4984,lng:126.8834,desc:"구로구 출근길 인사 장소"},market:{name:"구로구 전통시장 방문 거점",lat:37.4934,lng:126.8814,desc:"구로구 전통시장 방문 장소"},apt:{name:"구로구 아파트 방문 거점",lat:37.5004,lng:126.8904,desc:"구로구 아파트 방문 장소"},evening:{name:"구로구 퇴근길 유세 거점",lat:37.4924,lng:126.8894,desc:"구로구 퇴근길 유세 장소"},commerce:{name:"구로구 상업지역 유세 거점",lat:37.4964,lng:126.8924,desc:"구로구 상업지역 유세 장소"},night:{name:"구로구 주거지역 차량 거점",lat:37.4914,lng:126.8844,desc:"구로구 주거지역 차량 장소"}},
+  d8:{morning:{name:"동작구 출근길 인사 거점",lat:37.5154,lng:126.9353,desc:"동작구 출근길 인사 장소"},market:{name:"동작구 전통시장 방문 거점",lat:37.5104,lng:126.9333,desc:"동작구 전통시장 방문 장소"},apt:{name:"동작구 아파트 방문 거점",lat:37.5174,lng:126.9423,desc:"동작구 아파트 방문 장소"},evening:{name:"동작구 퇴근길 유세 거점",lat:37.5094,lng:126.9413,desc:"동작구 퇴근길 유세 장소"},commerce:{name:"동작구 상업지역 유세 거점",lat:37.5134,lng:126.9443,desc:"동작구 상업지역 유세 장소"},night:{name:"동작구 주거지역 차량 거점",lat:37.5084,lng:126.9363,desc:"동작구 주거지역 차량 장소"}},
+  d9:{morning:{name:"영등포구 출근길 인사 거점",lat:37.5294,lng:126.8923,desc:"영등포구 출근길 인사 장소"},market:{name:"영등포구 전통시장 방문 거점",lat:37.5244,lng:126.8903,desc:"영등포구 전통시장 방문 장소"},apt:{name:"영등포구 아파트 방문 거점",lat:37.5314,lng:126.8993,desc:"영등포구 아파트 방문 장소"},evening:{name:"영등포구 퇴근길 유세 거점",lat:37.5234,lng:126.8983,desc:"영등포구 퇴근길 유세 장소"},commerce:{name:"영등포구 상업지역 유세 거점",lat:37.5274,lng:126.9013,desc:"영등포구 상업지역 유세 장소"},night:{name:"영등포구 주거지역 차량 거점",lat:37.5224,lng:126.8933,desc:"영등포구 주거지역 차량 장소"}},
+  d10:{morning:{name:"중랑구 출근길 인사 거점",lat:37.6096,lng:127.0888,desc:"중랑구 출근길 인사 장소"},market:{name:"중랑구 전통시장 방문 거점",lat:37.6046,lng:127.0868,desc:"중랑구 전통시장 방문 장소"},apt:{name:"중랑구 아파트 방문 거점",lat:37.6116,lng:127.0958,desc:"중랑구 아파트 방문 장소"},evening:{name:"중랑구 퇴근길 유세 거점",lat:37.6036,lng:127.0948,desc:"중랑구 퇴근길 유세 장소"},commerce:{name:"중랑구 상업지역 유세 거점",lat:37.6076,lng:127.0978,desc:"중랑구 상업지역 유세 장소"},night:{name:"중랑구 주거지역 차량 거점",lat:37.6026,lng:127.0898,desc:"중랑구 주거지역 차량 장소"}},
+  d11:{morning:{name:"마포구 출근길 인사 거점",lat:37.5693,lng:126.8974,desc:"마포구 출근길 인사 장소"},market:{name:"마포구 전통시장 방문 거점",lat:37.5643,lng:126.8954,desc:"마포구 전통시장 방문 장소"},apt:{name:"마포구 아파트 방문 거점",lat:37.5713,lng:126.9044,desc:"마포구 아파트 방문 장소"},evening:{name:"마포구 퇴근길 유세 거점",lat:37.5633,lng:126.9034,desc:"마포구 퇴근길 유세 장소"},commerce:{name:"마포구 상업지역 유세 거점",lat:37.5673,lng:126.9064,desc:"마포구 상업지역 유세 장소"},night:{name:"마포구 주거지역 차량 거점",lat:37.5623,lng:126.8984,desc:"마포구 주거지역 차량 장소"}},
+  d12:{morning:{name:"광진구 출근길 인사 거점",lat:37.5415,lng:127.0783,desc:"광진구 출근길 인사 장소"},market:{name:"광진구 전통시장 방문 거점",lat:37.5365,lng:127.0763,desc:"광진구 전통시장 방문 장소"},apt:{name:"광진구 아파트 방문 거점",lat:37.5435,lng:127.0853,desc:"광진구 아파트 방문 장소"},evening:{name:"광진구 퇴근길 유세 거점",lat:37.5355,lng:127.0843,desc:"광진구 퇴근길 유세 장소"},commerce:{name:"광진구 상업지역 유세 거점",lat:37.5395,lng:127.0873,desc:"광진구 상업지역 유세 장소"},night:{name:"광진구 주거지역 차량 거점",lat:37.5345,lng:127.0793,desc:"광진구 주거지역 차량 장소"}},
+  d13:{morning:{name:"동대문구 출근길 인사 거점",lat:37.5774,lng:127.036,desc:"동대문구 출근길 인사 장소"},market:{name:"동대문구 전통시장 방문 거점",lat:37.5724,lng:127.034,desc:"동대문구 전통시장 방문 장소"},apt:{name:"동대문구 아파트 방문 거점",lat:37.5794,lng:127.043,desc:"동대문구 아파트 방문 장소"},evening:{name:"동대문구 퇴근길 유세 거점",lat:37.5714,lng:127.042,desc:"동대문구 퇴근길 유세 장소"},commerce:{name:"동대문구 상업지역 유세 거점",lat:37.5754,lng:127.045,desc:"동대문구 상업지역 유세 장소"},night:{name:"동대문구 주거지역 차량 거점",lat:37.5704,lng:127.037,desc:"동대문구 주거지역 차량 장소"}},
+  d14:{morning:{name:"도봉구 출근길 인사 거점",lat:37.6718,lng:127.0431,desc:"도봉구 출근길 인사 장소"},market:{name:"도봉구 전통시장 방문 거점",lat:37.6668,lng:127.0411,desc:"도봉구 전통시장 방문 장소"},apt:{name:"도봉구 아파트 방문 거점",lat:37.6738,lng:127.0501,desc:"도봉구 아파트 방문 장소"},evening:{name:"도봉구 퇴근길 유세 거점",lat:37.6658,lng:127.0491,desc:"도봉구 퇴근길 유세 장소"},commerce:{name:"도봉구 상업지역 유세 거점",lat:37.6698,lng:127.0521,desc:"도봉구 상업지역 유세 장소"},night:{name:"도봉구 주거지역 차량 거점",lat:37.6648,lng:127.0441,desc:"도봉구 주거지역 차량 장소"}},
+  d15:{morning:{name:"서대문구 출근길 인사 거점",lat:37.5821,lng:126.9328,desc:"서대문구 출근길 인사 장소"},market:{name:"서대문구 전통시장 방문 거점",lat:37.5771,lng:126.9308,desc:"서대문구 전통시장 방문 장소"},apt:{name:"서대문구 아파트 방문 거점",lat:37.5841,lng:126.9398,desc:"서대문구 아파트 방문 장소"},evening:{name:"서대문구 퇴근길 유세 거점",lat:37.5761,lng:126.9388,desc:"서대문구 퇴근길 유세 장소"},commerce:{name:"서대문구 상업지역 유세 거점",lat:37.5801,lng:126.9418,desc:"서대문구 상업지역 유세 장소"},night:{name:"서대문구 주거지역 차량 거점",lat:37.5751,lng:126.9338,desc:"서대문구 주거지역 차량 장소"}},
+  d16:{morning:{name:"성동구 출근길 인사 거점",lat:37.5663,lng:127.0331,desc:"성동구 출근길 인사 장소"},market:{name:"성동구 전통시장 방문 거점",lat:37.5613,lng:127.0311,desc:"성동구 전통시장 방문 장소"},apt:{name:"성동구 아파트 방문 거점",lat:37.5683,lng:127.0401,desc:"성동구 아파트 방문 장소"},evening:{name:"성동구 퇴근길 유세 거점",lat:37.5603,lng:127.0391,desc:"성동구 퇴근길 유세 장소"},commerce:{name:"성동구 상업지역 유세 거점",lat:37.5643,lng:127.0421,desc:"성동구 상업지역 유세 장소"},night:{name:"성동구 주거지역 차량 거점",lat:37.5593,lng:127.0341,desc:"성동구 주거지역 차량 장소"}},
+  d17:{morning:{name:"강북구 출근길 인사 거점",lat:37.6427,lng:127.0215,desc:"강북구 출근길 인사 장소"},market:{name:"강북구 전통시장 방문 거점",lat:37.6377,lng:127.0195,desc:"강북구 전통시장 방문 장소"},apt:{name:"강북구 아파트 방문 거점",lat:37.6447,lng:127.0285,desc:"강북구 아파트 방문 장소"},evening:{name:"강북구 퇴근길 유세 거점",lat:37.6367,lng:127.0275,desc:"강북구 퇴근길 유세 장소"},commerce:{name:"강북구 상업지역 유세 거점",lat:37.6407,lng:127.0305,desc:"강북구 상업지역 유세 장소"},night:{name:"강북구 주거지역 차량 거점",lat:37.6357,lng:127.0225,desc:"강북구 주거지역 차량 장소"}},
+  d18:{morning:{name:"관악구 출근길 인사 거점",lat:37.4814,lng:126.9476,desc:"관악구 출근길 인사 장소"},market:{name:"관악구 전통시장 방문 거점",lat:37.4764,lng:126.9456,desc:"관악구 전통시장 방문 장소"},apt:{name:"관악구 아파트 방문 거점",lat:37.4834,lng:126.9546,desc:"관악구 아파트 방문 장소"},evening:{name:"관악구 퇴근길 유세 거점",lat:37.4754,lng:126.9536,desc:"관악구 퇴근길 유세 장소"},commerce:{name:"관악구 상업지역 유세 거점",lat:37.4794,lng:126.9566,desc:"관악구 상업지역 유세 장소"},night:{name:"관악구 주거지역 차량 거점",lat:37.4744,lng:126.9486,desc:"관악구 주거지역 차량 장소"}},
+  d19:{morning:{name:"금천구 출근길 인사 거점",lat:37.4549,lng:126.8915,desc:"금천구 출근길 인사 장소"},market:{name:"금천구 전통시장 방문 거점",lat:37.4499,lng:126.8895,desc:"금천구 전통시장 방문 장소"},apt:{name:"금천구 아파트 방문 거점",lat:37.4569,lng:126.8985,desc:"금천구 아파트 방문 장소"},evening:{name:"금천구 퇴근길 유세 거점",lat:37.4489,lng:126.8975,desc:"금천구 퇴근길 유세 장소"},commerce:{name:"금천구 상업지역 유세 거점",lat:37.4529,lng:126.9005,desc:"금천구 상업지역 유세 장소"},night:{name:"금천구 주거지역 차량 거점",lat:37.4479,lng:126.8925,desc:"금천구 주거지역 차량 장소"}},
+  d20:{morning:{name:"종로구 출근길 인사 거점",lat:37.5765,lng:126.975,desc:"종로구 출근길 인사 장소"},market:{name:"종로구 전통시장 방문 거점",lat:37.5715,lng:126.973,desc:"종로구 전통시장 방문 장소"},apt:{name:"종로구 아파트 방문 거점",lat:37.5785,lng:126.982,desc:"종로구 아파트 방문 장소"},evening:{name:"종로구 퇴근길 유세 거점",lat:37.5705,lng:126.981,desc:"종로구 퇴근길 유세 장소"},commerce:{name:"종로구 상업지역 유세 거점",lat:37.5745,lng:126.984,desc:"종로구 상업지역 유세 장소"},night:{name:"종로구 주거지역 차량 거점",lat:37.5695,lng:126.976,desc:"종로구 주거지역 차량 장소"}},
+  d21:{morning:{name:"중구 출근길 인사 거점",lat:37.5671,lng:126.9939,desc:"중구 출근길 인사 장소"},market:{name:"중구 전통시장 방문 거점",lat:37.5621,lng:126.9919,desc:"중구 전통시장 방문 장소"},apt:{name:"중구 아파트 방문 거점",lat:37.5691,lng:127.0009,desc:"중구 아파트 방문 장소"},evening:{name:"중구 퇴근길 유세 거점",lat:37.5611,lng:126.9999,desc:"중구 퇴근길 유세 장소"},commerce:{name:"중구 상업지역 유세 거점",lat:37.5651,lng:127.0029,desc:"중구 상업지역 유세 장소"},night:{name:"중구 주거지역 차량 거점",lat:37.5601,lng:126.9949,desc:"중구 주거지역 차량 장소"}},
+  d22:{morning:{name:"강남구 출근길 인사 거점",lat:37.5202,lng:127.0433,desc:"강남구 출근길 인사 장소"},market:{name:"강남구 전통시장 방문 거점",lat:37.5152,lng:127.0413,desc:"강남구 전통시장 방문 장소"},apt:{name:"강남구 아파트 방문 거점",lat:37.5222,lng:127.0503,desc:"강남구 아파트 방문 장소"},evening:{name:"강남구 퇴근길 유세 거점",lat:37.5142,lng:127.0493,desc:"강남구 퇴근길 유세 장소"},commerce:{name:"강남구 상업지역 유세 거점",lat:37.5182,lng:127.0523,desc:"강남구 상업지역 유세 장소"},night:{name:"강남구 주거지역 차량 거점",lat:37.5132,lng:127.0443,desc:"강남구 주거지역 차량 장소"}},
+  d23:{morning:{name:"용산구 출근길 인사 거점",lat:37.5356,lng:126.9866,desc:"용산구 출근길 인사 장소"},market:{name:"용산구 전통시장 방문 거점",lat:37.5306,lng:126.9846,desc:"용산구 전통시장 방문 장소"},apt:{name:"용산구 아파트 방문 거점",lat:37.5376,lng:126.9936,desc:"용산구 아파트 방문 장소"},evening:{name:"용산구 퇴근길 유세 거점",lat:37.5296,lng:126.9926,desc:"용산구 퇴근길 유세 장소"},commerce:{name:"용산구 상업지역 유세 거점",lat:37.5336,lng:126.9956,desc:"용산구 상업지역 유세 장소"},night:{name:"용산구 주거지역 차량 거점",lat:37.5286,lng:126.9876,desc:"용산구 주거지역 차량 장소"}},
+  d24:{morning:{name:"서초구 출근길 인사 거점",lat:37.4867,lng:127.0284,desc:"서초구 출근길 인사 장소"},market:{name:"서초구 전통시장 방문 거점",lat:37.4817,lng:127.0264,desc:"서초구 전통시장 방문 장소"},apt:{name:"서초구 아파트 방문 거점",lat:37.4887,lng:127.0354,desc:"서초구 아파트 방문 장소"},evening:{name:"서초구 퇴근길 유세 거점",lat:37.4807,lng:127.0344,desc:"서초구 퇴근길 유세 장소"},commerce:{name:"서초구 상업지역 유세 거점",lat:37.4847,lng:127.0374,desc:"서초구 상업지역 유세 장소"},night:{name:"서초구 주거지역 차량 거점",lat:37.4797,lng:127.0294,desc:"서초구 주거지역 차량 장소"}}
+};
+
+const SLOTS = [
+  {key:"morning",time:"07:00-09:00",label:"출근길 인사",icon:"🌅",color:"#f59e0b",contact:300},
+  {key:"market",time:"09:30-11:30",label:"전통시장 방문",icon:"🏪",color:"#22c55e",contact:150},
+  {key:"apt",time:"14:00-16:30",label:"아파트 방문",icon:"🏠",color:"#3b82f6",contact:200},
+  {key:"evening",time:"17:00-19:00",label:"퇴근길 유세",icon:"🌆",color:"#a855f7",contact:400},
+  {key:"commerce",time:"19:30-21:00",label:"상업지역 유세",icon:"🏬",color:"#ec4899",contact:250},
+  {key:"night",time:"21:00-23:00",label:"주거지역 차량",icon:"🚗",color:"#64748b",contact:100}
+];
+
+const SCHEDULE = [
+  {day:1,phase:"기반 다지기",pc:"#22c55e",s:{morning:"d18",market:"d0",apt:"d1",evening:"d2",commerce:"d18",night:"d0"}},
+  {day:2,phase:"기반 다지기",pc:"#22c55e",s:{morning:"d1",market:"d2",apt:"d3",evening:"d4",commerce:"d5",night:"d6"}},
+  {day:3,phase:"기반 다지기",pc:"#22c55e",s:{morning:"d7",market:"d8",apt:"d9",evening:"d10",commerce:"d11",night:"d12"}},
+  {day:4,phase:"경합 공략",pc:"#f59e0b",s:{morning:"d13",market:"d14",apt:"d15",evening:"d16",commerce:"d17",night:"d19"}},
+  {day:5,phase:"경합 공략",pc:"#f59e0b",s:{morning:"d20",market:"d21",apt:"d0",evening:"d1",commerce:"d2",night:"d3"}},
+  {day:6,phase:"경합 공략",pc:"#f59e0b",s:{morning:"d4",market:"d5",apt:"d6",evening:"d7",commerce:"d8",night:"d9"}},
+  {day:7,phase:"경합 공략",pc:"#f59e0b",s:{morning:"d10",market:"d11",apt:"d12",evening:"d13",commerce:"d14",night:"d15"}},
+  {day:8,phase:"경합 공략",pc:"#f59e0b",s:{morning:"d16",market:"d17",apt:"d19",evening:"d20",commerce:"d21",night:"d23"}},
+  {day:9,phase:"경합 공략",pc:"#f59e0b",s:{morning:"d0",market:"d1",apt:"d2",evening:"d3",commerce:"d4",night:"d5"}},
+  {day:10,phase:"전역 마무리",pc:"#8b5cf6",s:{morning:"d22",market:"d24",apt:"d22",evening:"d23",commerce:"d24",night:"d6"}},
+  {day:11,phase:"전역 마무리",pc:"#8b5cf6",s:{morning:"d7",market:"d8",apt:"d9",evening:"d10",commerce:"d11",night:"d12"}},
+  {day:12,phase:"전역 마무리",pc:"#8b5cf6",s:{morning:"d13",market:"d14",apt:"d15",evening:"d16",commerce:"d17",night:"d18"}},
+  {day:13,phase:"D-Day 총력전",pc:"#ef4444",s:{morning:"d19",market:"d20",apt:"d21",evening:"d23",commerce:"d22",night:"d24"}}
+];
+
+const COMP_LABELS = {"safe":"안전","lean":"우세","tossup":"경합","lean_opp":"열세","safe_opp":"상대안전"};
+
+// ═══════════ SECTION 2: 선거구별 분석표 ═══════════
+(function(){
+  const tb=document.getElementById('overview-tbody');
+  const sorted=Object.entries(DISTRICTS).sort((a,b)=>b[1].priority-a[1].priority);
+  tb.innerHTML=sorted.map(([k,d])=>{
+    const cl=COMP_LABELS[d.comp]||d.comp;
+    return`<tr>
+      <td><b>${d.name}</b></td>
+      <td>${d.voters.toLocaleString()}</td>
+      <td>${d.turnout}%</td>
+      <td><div>${d.support}%</div><div class="bar-bg"><div class="bar-fill" style="width:${Math.min(d.support,100)}%;background:${d.color}"></div></div></td>
+      <td style="font-weight:700;color:${d.pvi>=0?'#22c55e':'#ef4444'}">${d.pvi>=0?'+':''}${d.pvi.toFixed(1)}</td>
+      <td><span class="cls-badge" style="background:${d.color}22;color:${d.color}">${cl}</span></td>
+      <td><b>${d.priority.toFixed(1)}</b></td>
+      <td>${d.slots}</td>
+    </tr>`;
+  }).join('');
+})();
+
+// ═══════════ SECTION 3: 13일 총괄표 ═══════════
+(function(){
+  const tb=document.getElementById('master-tbody');
+  tb.innerHTML=SCHEDULE.map(sc=>{
+    const cells=SLOTS.map(sl=>{
+      const dk=sc.s[sl.key];const d=DISTRICTS[dk];
+      if(!d) return'<td>-</td>';
+      return`<td><span class="dist-badge" style="background:${d.color}22;color:${d.color};border:1px solid ${d.color}33">${d.name}</span></td>`;
+    }).join('');
+    return`<tr style="cursor:pointer" onclick="goMap(${sc.day})">
+      <td><b style="color:${sc.pc}">Day ${sc.day}</b></td>
+      <td><span class="cls-badge" style="background:${sc.pc}22;color:${sc.pc}">${sc.phase}</span></td>
+      ${cells}
+    </tr>`;
+  }).join('');
+})();
+
+// ═══════════ SECTION 4: 인터랙티브 지도 ═══════════
+const map=L.map('map',{zoomControl:true}).setView([37.5532,126.9887],11);
+L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{attribution:'&copy; OSM &copy; CARTO',maxZoom:18}).addTo(map);
+const poiL=L.layerGroup().addTo(map),routeL=L.layerGroup().addTo(map),candL=L.layerGroup().addTo(map),distL=L.layerGroup().addTo(map);
+let curDay=1,curSlot=0,playTimer=null;
+
+// 선거구 영역
+Object.entries(POI).forEach(([k,pois])=>{
+  const pts=Object.values(pois);
+  if(!pts.length)return;
+  const cLat=pts.reduce((a,p)=>a+p.lat,0)/pts.length;
+  const cLng=pts.reduce((a,p)=>a+p.lng,0)/pts.length;
+  const d=DISTRICTS[k];
+  if(!d)return;
+  L.circle([cLat,cLng],{radius:1200,fillColor:d.color,color:d.color,weight:1,fillOpacity:.05,opacity:.25,interactive:false}).addTo(distL);
+  L.marker([cLat+.004,cLng],{icon:L.divIcon({className:'',html:`<div style="color:${d.color};font-size:11px;font-weight:700;text-align:center;text-shadow:0 1px 4px #000">${d.name}</div>`,iconSize:[100,30],iconAnchor:[50,15]}),interactive:false}).addTo(distL);
+});
+
+function renderMap(day,si){
+  curDay=day;curSlot=si;
+  const sc=SCHEDULE[day-1];
+  poiL.clearLayers();routeL.clearLayers();candL.clearLayers();
+  const pts=SLOTS.map((sl,i)=>{const dk=sc.s[sl.key];const locs=POI[dk];const loc=locs?locs[sl.key]:null;if(!loc)return null;return{lat:loc.lat,lng:loc.lng,sl,dk,loc,i}}).filter(Boolean);
+
+  for(let i=0;i<pts.length-1;i++){
+    const f=pts[i],t=pts[i+1],vis=i<si,cur=i===si;
+    L.polyline([[f.lat,f.lng],[t.lat,t.lng]],{color:vis?'#60a5fa':cur?'#f59e0b':'#334155',weight:vis?3:2,opacity:vis?.8:cur?.7:.2,dashArray:vis?null:'6,8'}).addTo(routeL);
+    if(vis||cur){const m=[(f.lat+t.lat)/2,(f.lng+t.lng)/2];L.marker(m,{icon:L.divIcon({className:'',html:`<div style="width:16px;height:16px;border-radius:50%;background:${vis?'#2563eb':'#f59e0b'};color:#fff;font-size:9px;font-weight:700;display:flex;align-items:center;justify-content:center">${i+1}</div>`,iconSize:[16,16],iconAnchor:[8,8]}),interactive:false}).addTo(routeL);}
+  }
+
+  pts.forEach((p,i)=>{
+    const isA=i===si,isV=i<si,d=DISTRICTS[p.dk];
+    const mk=L.marker([p.lat,p.lng],{icon:L.divIcon({className:`loc-marker${isA?' active-marker':''}`,html:`${p.sl.icon} ${p.loc.name}`,iconSize:null,iconAnchor:[0,0]}),opacity:isA?1:isV?.7:.3}).addTo(poiL);
+    mk.bindPopup(`<div class="popup-detail"><h4>${p.sl.icon} ${p.loc.name}</h4><p>${p.loc.desc}</p>${d?`<p><span class="tag">${d.name}</span></p><hr style="margin:6px 0;border-color:#e5e7eb"><p><b>${p.sl.time}</b> · ${p.sl.label}</p><p>예상 접촉: ~${p.sl.contact}명</p><p>PVI: <b style="color:${d.color}">${d.pvi>=0?'+':''}${d.pvi.toFixed(1)}</b></p>`:''}</div>`,{maxWidth:260});
+    if(isA)mk.openPopup();
+  });
+
+  if(pts[si]){
+    const c=pts[si];
+    L.marker([c.lat,c.lng],{icon:L.divIcon({className:'',html:`<div class="candidate-icon">🎤</div>`,iconSize:[36,36],iconAnchor:[18,36]}),zIndexOffset:1000}).addTo(candL);
+    map.flyTo([c.lat,c.lng],12,{duration:.6});
+  }
+
+  document.querySelectorAll('.ctrl-btn[data-day]').forEach(b=>b.classList.toggle('active',+b.dataset.day===day));
+  document.querySelectorAll('.slot-btn').forEach((b,i)=>{b.classList.remove('active','visited');if(i===si)b.classList.add('active');else if(i<si)b.classList.add('visited');});
+
+  const sl=SLOTS[si],dk=sc.s[sl.key],loc=POI[dk]?POI[dk][sl.key]:null,dist=DISTRICTS[dk];
+  const sofar=SLOTS.slice(0,si+1).reduce((a,s)=>a+s.contact,0);
+  document.getElementById('map-cur-info').innerHTML=`<h3 style="color:#60a5fa">${sl.icon} 현재 유세 위치</h3>
+    <div class="irow"><span class="il">일자</span><span class="iv">Day ${day} · ${sc.phase}</span></div>
+    <div class="irow"><span class="il">시간대</span><span class="iv">${sl.time}</span></div>
+    <div class="irow"><span class="il">유형</span><span class="iv">${sl.label}</span></div>
+    <div class="irow"><span class="il">장소</span><span class="iv">${loc?loc.name:'-'}</span></div>
+    <div class="irow"><span class="il">선거구</span><span class="iv" style="color:${dist?dist.color:'#94a3b8'}">${dist?dist.name+' (PVI '+(dist.pvi>=0?'+':'')+dist.pvi.toFixed(1)+')':'-'}</span></div>
+    <div class="irow"><span class="il">경합도</span><span class="iv">${dist?COMP_LABELS[dist.comp]||dist.comp:'-'}</span></div>
+    <div class="irow"><span class="il">이 시간대 접촉</span><span class="iv">~${sl.contact}명</span></div>
+    <div class="irow"><span class="il">오늘 누적</span><span class="iv">~${sofar}명</span></div>`;
+
+  document.getElementById('map-day-sched').innerHTML=`<h3 style="color:#a78bfa">Day ${day} 일정 · ${sc.phase}</h3>
+    <ul class="sched-list">${SLOTS.map((s,i)=>{const dkk=sc.s[s.key],locc=POI[dkk]?POI[dkk][s.key]:null,dd=DISTRICTS[dkk];return`<li class="sched-item${i===si?' cur':''}"><span class="sdot" style="background:${i===si?'#60a5fa':i<si?'#22c55e':'#334155'}"></span><span class="st">${s.time}</span>${s.icon} ${locc?locc.name:'-'}<span style="margin-left:auto;font-size:11px;color:${dd?dd.color:'#94a3b8'}">${dd?dd.name:''}</span></li>`;}).join('')}</ul>
+    <div style="margin-top:8px;font-size:12px;color:#64748b">일일 접촉 ~${SLOTS.reduce((a,s)=>a+s.contact,0).toLocaleString()}명</div>`;
+}
+
+// controls
+(function(){
+  const el=document.getElementById('map-controls');
+  let h='<label>일자:</label>';
+  SCHEDULE.forEach(sc=>{h+=`<button class="ctrl-btn${sc.day===1?' active':''}" data-day="${sc.day}" onclick="goMap(${sc.day})"><span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:${sc.pc};margin-right:3px"></span>${sc.day}</button>`;});
+  h+='<div class="ctrl-sep"></div><label>시간:</label><div class="slot-btns">';
+  SLOTS.forEach((sl,i)=>{h+=`<button class="slot-btn${i===0?' active':''}" onclick="selSlot(${i})">${sl.icon} ${sl.time.split('-')[0]}</button>`;});
+  h+='</div><div class="play-btns"><button class="play-btn" onclick="prevSlot()">◀</button><button class="play-btn" id="btn-play" onclick="togglePlay()">▶</button><button class="play-btn" onclick="nextSlot()">▶</button></div>';
+  el.innerHTML=h;
+})();
+
+function goMap(d){stopPlay();renderMap(d,0);document.querySelector(`[data-dtab="${d}"]`)?.click();}
+function selSlot(i){stopPlay();renderMap(curDay,i);}
+function nextSlot(){let n=curSlot+1,d=curDay;if(n>=SLOTS.length){n=0;d=d<13?d+1:1;}renderMap(d,n);}
+function prevSlot(){stopPlay();let n=curSlot-1,d=curDay;if(n<0){n=SLOTS.length-1;d=d>1?d-1:13;}renderMap(d,n);}
+function togglePlay(){if(playTimer){stopPlay();}else{document.getElementById('btn-play').classList.add('playing');document.getElementById('btn-play').innerHTML='⏸';playTimer=setInterval(nextSlot,2500);}}
+function stopPlay(){if(playTimer){clearInterval(playTimer);playTimer=null;document.getElementById('btn-play').classList.remove('playing');document.getElementById('btn-play').innerHTML='▶';}}
+
+// ═══════════ SECTION 5: 일자별 상세 탭 ═══════════
+(function(){
+  const tabsEl=document.getElementById('detail-tabs');
+  const panelsEl=document.getElementById('detail-panels');
+  tabsEl.innerHTML=SCHEDULE.map(sc=>`<button class="day-tab${sc.day===1?' active':''}" data-dtab="${sc.day}" onclick="switchTab(${sc.day})"><span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:${sc.pc};margin-right:3px"></span>Day ${sc.day}</button>`).join('');
+
+  panelsEl.innerHTML=SCHEDULE.map(sc=>{
+    let rows='';
+    SLOTS.forEach((sl,i)=>{
+      const dk=sc.s[sl.key],locs=POI[dk],loc=locs?locs[sl.key]:null,d=DISTRICTS[dk];
+      rows+=`<tr onclick="goMapSlot(${sc.day},${i})" title="지도에서 보기">
+        <td style="font-weight:700;color:${sl.color}">${i+1}</td>
+        <td style="font-variant-numeric:tabular-nums;font-weight:600;color:#94a3b8;white-space:nowrap">${sl.time}</td>
+        <td>${sl.icon} ${sl.label}</td>
+        <td>${d?`<span class="dist-badge" style="background:${d.color}22;color:${d.color};border:1px solid ${d.color}33">${d.name}</span>`:'-'}</td>
+        <td style="font-weight:600">${loc?loc.name:'-'}</td>
+        <td style="text-align:right;font-weight:600;color:#60a5fa">~${sl.contact}명</td>
+      </tr>`;
+      if(i<SLOTS.length-1){
+        const ndk=sc.s[SLOTS[i+1].key],nd=DISTRICTS[ndk];
+        const same=dk===ndk;
+        rows+=`<tr class="move-row"><td></td><td colspan="2" style="text-align:center"><span class="move-arrow">↓</span> 이동 (${same?'10분':'15~20분'})</td><td colspan="3">${same?(d?d.name:'')+ ' 내':(d?d.name:'')+ ' → '+(nd?nd.name:'')}</td></tr>`;
+      }
+    });
+    return`<div class="day-panel${sc.day===1?' active':''}" data-dpanel="${sc.day}">
+      <div class="dh"><div class="db">Day ${sc.day}</div><span class="pt" style="background:${sc.pc}">${sc.phase}</span><span class="dm">07:00~23:00 (16h)</span></div>
+      <table class="route-table"><thead><tr><th style="width:35px">#</th><th style="width:95px">시간</th><th style="width:130px">유형</th><th>선거구</th><th>장소</th><th style="width:70px;text-align:right">접촉</th></tr></thead>
+      <tbody>${rows}</tbody>
+      <tfoot><tr><td colspan="5">일일 합계</td><td style="text-align:right">~${SLOTS.reduce((a,s)=>a+s.contact,0).toLocaleString()}명</td></tr></tfoot></table>
+    </div>`;
+  }).join('');
+})();
+
+function switchTab(d){
+  document.querySelectorAll('.day-tab').forEach(t=>t.classList.toggle('active',+t.dataset.dtab===d));
+  document.querySelectorAll('.day-panel').forEach(p=>p.classList.toggle('active',+p.dataset.dpanel===d));
+}
+function goMapSlot(d,i){renderMap(d,i);window.scrollTo({top:document.getElementById('map').offsetTop-60,behavior:'smooth'});}
+
+renderMap(1,0);
+</script>
+</body>
+</html>
